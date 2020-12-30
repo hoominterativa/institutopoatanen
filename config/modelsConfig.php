@@ -28,7 +28,10 @@ return [
         ListMenu => (String) Título a ser exibido no menu do site e Vazio para não listar no menu do site
         IncludeSections => (Array) Insere Sessões nas páginas internas do módulo, essa opção só valerá para módulos que possuem páginas internas.
                            Caso não exista seções impressas nas internas deixar o array vazio. Ex.: 'IncludeSections' => []
-                           Obs.: Digitar Nome e código do modulo Ex.: [SD001, SD002, SD003]
+                           Obs.: Digitar Nome e código do modulo Ex.: ['Slide' => 'SD001', 'Topic' => 'TP002', 'News' => 'NE003']
+
+    OBS.: Módulos não poderão se repetir no array. No módulo já está incluso todas as dependencias para que funcione corretamente,
+    aqui deverá apenas informar as configurações do mesmo.
     */
 
     'InsertModelsMain' => (object) [
@@ -36,7 +39,9 @@ return [
             'Code' => 'SD001',
             'ViewHome' => true,
             'ListMenu' => '',
-            'IncludeSections' => (object)[]
+            'IncludeSections' => (object)[
+                'Slide' => 'SD002'
+            ]
         ],
     ],
 
