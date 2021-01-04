@@ -39,6 +39,7 @@ return [
             'Code' => 'SD001',
             'ViewHome' => true,
             'Category' => true,
+            'Subategory' => true,
             'ListMenu' => '',
             'IncludeSections' => (object)[
                 'Slide' => 'SD002'
