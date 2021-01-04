@@ -27,22 +27,24 @@ Route::prefix('product')->group(function()
 });
 
 /*
-Montagem das Rotas do lado do "ADMIN", não mexer!
+Montagem das Rotas do lado do "ADMIN", Editar Somente os "NAMES" das Rotas substituindo "NAME" pelo módulo atual
+Obs.: Usuar a primeira letra em maiúsculo somente para a chamada do objeto no config() o restante será tudo minusculo.
+Ex.: config('modelsConfig.InsertModelsMain')->Products;
 */
 
 Route::prefix('painel')->group(function()
 {
 
-    $InsertModelsMain = config('modelsConfig.InsertModelsMain')->Slide;
+    $InsertModelsMain = config('modelsConfig.InsertModelsMain')->NAMES;
 
     $codeModel = $InsertModelsMain->Code;
     $ControllerResource = $codeModel.'Controller';
 
-    Route::resource('/slide', $ControllerResource)->names('admin.slides')->parameters(['slide' => 'slide']);
+    Route::resource('/NAMES', $ControllerResource)->names('admin.NAMES')->parameters(['NAME' => 'NAME']);
 
     if($InsertModelsMain->Category){
         $ControllerCategoryResource = $codeModel.'CategoryController';
-        Route::resource('/slide/categoria', $ControllerCategoryResource)->names('admin.slides.category')->parameters(['categoria' => 'category']);
+        Route::resource('/NAMES/categoria', $ControllerCategoryResource)->names('admin.NAMES.category')->parameters(['categoria' => 'category']);
     }
 
 });
