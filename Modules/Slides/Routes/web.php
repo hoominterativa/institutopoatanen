@@ -6,9 +6,9 @@
     Editar tbm o prefixo para o nome do módulo atual
 */
 
-Route::prefix('product')->group(function()
+Route::prefix('NAME')->group(function()
 {
-    $InsertModelsMain = config('modelsConfig.InsertModelsMain')->Slide;
+    $InsertModelsMain = config('modelsConfig.InsertModelsMain')->NAME;
 
     $codeModel = $InsertModelsMain->Code;
     $ControllerResource = $codeModel.'Controller';
@@ -17,8 +17,12 @@ Route::prefix('product')->group(function()
 
     if($InsertModelsMain->Category){
         Route::get('/{category}', $ControllerResource.'@category')->name('admin.NAME.category');
-        Route::get('/{category}/{subcategory}', $ControllerResource.'@subcategory')->name('admin.NAME.subcategory');
-        Route::get('/{category}/{subcategory}/{product}', $ControllerResource.'@show')->name('admin.NAME');
+        if($InsertModelsMain->Subategory){
+            Route::get('/{category}/{subcategory}', $ControllerResource.'@subcategory')->name('admin.NAME.subcategory');
+            Route::get('/{category}/{subcategory}/{NAME}', $ControllerResource.'@show')->name('admin.NAME');
+        }else{
+            Route::get('/{category}/{NAME}', $ControllerResource.'@show')->name('admin.NAME');
+        }
     }else{
         /* Manter esse else se caso haja uma página interna (Ex.: página interna de produto) */
         Route::get('/{product}', $ControllerResource.'@show')->name('admin.NAME');
@@ -45,6 +49,10 @@ Route::prefix('painel')->group(function()
     if($InsertModelsMain->Category){
         $ControllerCategoryResource = $codeModel.'CategoryController';
         Route::resource('/NAMES/categoria', $ControllerCategoryResource)->names('admin.NAMES.category')->parameters(['categoria' => 'category']);
+        if($InsertModelsMain->Subategory){
+            $ControllerSubategoryResource = $codeModel.'SubategoryController';
+            Route::resource('/NAMES/subcategoria', $ControllerSubategoryResource)->names('admin.NAMES.subcategory')->parameters(['subcategoria' => 'subcategory']);
+        }
     }
 
 });

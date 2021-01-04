@@ -87,15 +87,18 @@ Migrations deveram ter em seus nomes primeiramente o código do modelo, *Ex: cre
 Existe uma estrutura padrão para ser posto no arquivo de rota do seu *Módulo*, o arquivo de rota (web.php) deverá ser único para cada *Módulo* e cada *Módulo* deverá ter o seu. O arquivo de Rotas se encronta dentro do seu módulo na pasta Routes.
 Após criar seu *Módulo*, será criado no arquivo *Routes/web.php* uma estrutura padrão. a mesma deverá ser substituida pelo código abaixo.
 ```php
+<?php
+
 /*
     Abaixo será necessário listar as rotas do lado do "CLIENT" manualmente
     Editar Somente os "NAMES" das Rotas substituindo "NAME" pelo módulo atual
     Editar tbm o prefixo para o nome do módulo atual
 */
 
-Route::prefix('product')->group(function()
+Route::prefix('NAME')->group(function()
 {
-    $InsertModelsMain = config('modelsConfig.InsertModelsMain')->Slide;
+    $InsertModelsMain = config('modelsConfig.InsertModelsMain')->NAME;
+
     $codeModel = $InsertModelsMain->Code;
     $ControllerResource = $codeModel.'Controller';
 
@@ -103,8 +106,12 @@ Route::prefix('product')->group(function()
 
     if($InsertModelsMain->Category){
         Route::get('/{category}', $ControllerResource.'@category')->name('admin.NAME.category');
-        Route::get('/{category}/{subcategory}', $ControllerResource.'@subcategory')->name('admin.NAME.subcategory');
-        Route::get('/{category}/{subcategory}/{product}', $ControllerResource.'@show')->name('admin.NAME');
+        if($InsertModelsMain->Subategory){
+            Route::get('/{category}/{subcategory}', $ControllerResource.'@subcategory')->name('admin.NAME.subcategory');
+            Route::get('/{category}/{subcategory}/{NAME}', $ControllerResource.'@show')->name('admin.NAME');
+        }else{
+            Route::get('/{category}/{NAME}', $ControllerResource.'@show')->name('admin.NAME');
+        }
     }else{
         /* Manter esse else se caso haja uma página interna (Ex.: página interna de produto) */
         Route::get('/{product}', $ControllerResource.'@show')->name('admin.NAME');
@@ -114,7 +121,8 @@ Route::prefix('product')->group(function()
 
 /*
 Montagem das Rotas do lado do "ADMIN", Editar Somente os "NAMES" das Rotas substituindo "NAME" pelo módulo atual
-Obs.: Usuar a primeira letra em maiúsculo somente para a chamada do objeto no config() o restante será tudo minusculo. Ex.: config('modelsConfig.InsertModelsMain')->Products;
+Obs.: Usuar a primeira letra em maiúsculo somente para a chamada do objeto no config() o restante será tudo minusculo.
+Ex.: config('modelsConfig.InsertModelsMain')->Products;
 */
 
 Route::prefix('painel')->group(function()
@@ -130,6 +138,10 @@ Route::prefix('painel')->group(function()
     if($InsertModelsMain->Category){
         $ControllerCategoryResource = $codeModel.'CategoryController';
         Route::resource('/NAMES/categoria', $ControllerCategoryResource)->names('admin.NAMES.category')->parameters(['categoria' => 'category']);
+        if($InsertModelsMain->Subategory){
+            $ControllerSubategoryResource = $codeModel.'SubategoryController';
+            Route::resource('/NAMES/subcategoria', $ControllerSubategoryResource)->names('admin.NAMES.subcategory')->parameters(['subcategoria' => 'subcategory']);
+        }
     }
 
 });
