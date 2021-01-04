@@ -38,11 +38,12 @@ return [
         'Slide' => (object) [
             'Code' => 'SD001',
             'ViewHome' => true,
+            'Category' => true,
             'ListMenu' => '',
             'IncludeSections' => (object)[
                 'Slide' => 'SD002'
             ]
-        ],
+        ]
     ],
 
     'Models' => (object) [

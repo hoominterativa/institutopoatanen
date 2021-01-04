@@ -2,32 +2,19 @@
 
 namespace Modules\Slides\Http\Controllers;
 
-use App\Http\Controllers\IncludeSectionsController;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class SD001Controller extends Controller
+class SD001CategoryController extends Controller
 {
-    /**
-     * Secoes para insert nas páginas.
-     * @return Renderable
-     */
-    public static function section($view)
-    {
-        return view($view, [
-            'teste' => 'Papaleguas',
-            'sections' => IncludeSectionsController::IncludeSectionsPage('Slide')
-        ]);
-    }
-
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        return view('slides::SD002.Client.section');
+        return view('slides::index');
     }
 
     /**

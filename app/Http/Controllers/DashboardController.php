@@ -1,35 +1,36 @@
 <?php
 
-namespace Modules\Slides\Http\Controllers;
+namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 
-class SlidesController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @return Renderable
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('slides::SD002.Client.section');
+        //
     }
 
     /**
      * Show the form for creating a new resource.
-     * @return Renderable
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('slides::create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -37,30 +38,33 @@ class SlidesController extends Controller
     }
 
     /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return view('slides::show');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        return view('slides::edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
@@ -69,8 +73,9 @@ class SlidesController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
