@@ -21,13 +21,19 @@ $ composer run post-root-package-install
 $ composer run post-create-project-cmd
 ```
 
-#### Instalar novos módulos
+#### Instalando novo módulo
 Para criar um novo módulo será necessários rodar o comando:
 ```sh 
 $ php artisan module:make Products
 ```
-Após rodar o comando uma pasta com nome de *Modules* será criada na raiz (Caso não existe), dentro uma nova pasta com o nome do *Módulo* que acabou de criar. O nome do módulo será obrigatório sempre que rodar algum dos comando do tipo *module*
-**Obs.: Os módulos deveram ser nomeados sempre no plural e em Inglês**
+Após rodar o comando uma pasta com nome de *Modules* será criada na raiz (Caso não existe), dentro uma nova pasta com o nome do *Módulo* que acabou de criar. O nome do módulo será obrigatório sempre que rodar algum dos comandos do tipo *module* como mostra o exemplo abaixo. 
+
+```sh 
+$ php artisan module:make-controller PD001Controller Products
+```
+
+*Obs.: Os módulos deveram ser nomeados sempre no plural e em Inglês*
+
 
 Para deletar um módulo é só rodar o comando:
 ```sh 
@@ -36,10 +42,14 @@ $ php artisan module:delete Products
 
 Para mais detalhes sobre o pacote de Módulos acessar [nwidart/laravel-modules](https://nwidart.com/laravel-modules/v6/introduction)
 
+#### Padrões e Estruturas Frontend
+
+Após criar um novo módulo alguns padrões deverão ser seguidos pelo frontend para que todo o sistema reconheça de forma automática o novo módulo criado, são elas:
+
 ##### Views
 #
-Após criar um novo módulo alguns padrões deverão ser seguidos para que todo o sistema reconheça de forma automática o novo módulo criado, são elas:
-**A estrutura das suas views, dentro do módulo criado, deverão seguir o padrão mostrado abaixo**
+
+A estrutura de pastas nas suas views, dentro do módulo criado, deverão seguir o padrão mostrado abaixo
 
 ```shell
 ├───PD001
@@ -52,7 +62,16 @@ Após criar um novo módulo alguns padrões deverão ser seguidos para que todo 
 │   └───Client
 │   │   └───section.blade.php
 ```
-Os arquivos listados acima são obrigatórios, caso tenha que criar alguma view para renderização ajax criar a pasta **model** e dentro da mesma inserir os arquivos. Na pasta de *Cliente* poderá fazer o mesmo para requisições ajax, recomendamos usar o código do modelo como nome em todos os arquivos arquivos que for criado dentro do módulo *Ex: PD001ProductAjax.blade.php*
+Os arquivos listados acima são obrigatórios, caso tenha que criar alguma view para renderização ajax criar a pasta **model**, de acordo com o lado escolhido *(Cliente e/ou Admin)*, e dentro da mesma inserir os arquivos. Recomendamos usar o código do modelo como nome em todos os arquivos que for criado dentro do módulo *Ex: PD001ProductAjax.blade.php | PD001ProductInter.blade.php*
+
+##### Trabalhando com NPM 
+#
+Vamos começar a trabalhar no frontend do modelo
+
+
+#### Padrões e Estruturas Backend
+
+Após ter estruturado todo frotend de acordo com os padrões descrito acima o backend deverá também seguir os padrões para que todo o sistema reconheça de forma automática o novo módulo criado, são elas:
 
 ##### Controllers
 #
@@ -62,7 +81,7 @@ Rodar o comando abaixo para criar um novo controlador em seu módulo.
 $ php artisan module:make-controller PD001Controller Products
 ```
 Na mesma linha de raciocínio das vews os módulos deveram ter em seus nomes primeiramente o código do modelo, *Ex: PD001Controller.php | PD001CategoryController.php | PD001SubategoryController.php*. 
-Os controladores deverão ser usados de acordo com suas Views, Módulo e Migration nomeando-as com o código respectivo também.
+Os controladores deverão ser usados de acordo com suas Views, Módel (Class) e Migration nomeando-as com o respectivo código também.
 
 ##### Migrations
 #
@@ -71,7 +90,7 @@ Rodar o comando abaixo para criar uma nova migration em seu módulo.
 ```sh 
 $ php artisan module:make-migration create_PD001_table Products
 ```
-Migrations deveram ter em seus nomes primeiramente o código do modelo, *Ex: create_PD001_table.php | create_PD001Category_table.php | create_PD001Subcategory_table.php*. 
+Seguindo o padrão de criação de migrations do [Laravel](https://laravel.com/) as migrations deveram ter em seus nomes o código do modelo, *Ex: create_PD001_table.php | create_PD001Category_table.php | create_PD001Subcategory_table.php*. 
 
 ##### Models (Class)
 #
@@ -80,12 +99,12 @@ Rodar o comando abaixo para criar uma nova Model (Class) em seu módulo.
 ```sh 
 $ php artisan module:make-model PD001 Products
 ```
-Migrations deveram ter em seus nomes primeiramente o código do modelo, *Ex: create_PD001_table.php | create_PD001Category_table.php | create_PD001Subcategory_table.php*. 
+Os Model (Class) deveram ser nomeados de acordo com o código do modelo, *Ex: PD001.php | PD002.php | PD003.php*. 
 
 ##### Rotas (Routes)
 #
-Existe uma estrutura padrão para ser posto no arquivo de rota do seu *Módulo*, o arquivo de rota (web.php) deverá ser único para cada *Módulo* e cada *Módulo* deverá ter o seu. O arquivo de Rotas se encronta dentro do seu módulo na pasta Routes.
-Após criar seu *Módulo*, será criado no arquivo *Routes/web.php* uma estrutura padrão. a mesma deverá ser substituida pelo código abaixo.
+Existe uma estrutura padrão para ser posto no arquivo de rota do seu *Módulo*, o arquivo de rota (web.php) deverá ser único para cada *Módulo*. O arquivo de Rotas se encronta dentro do módulo criado/existente na pasta Routes.
+Após criar o *Módulo*, existirá uma estrutura padrão no arquivo *Routes/web.php*, a mesma deverá ser substituida pelo código abaixo.
 ```php
 <?php
 
@@ -146,3 +165,5 @@ Route::prefix('painel')->group(function()
 
 });
 ```
+Essa estrutura acima criará as rotas do modelo usadas pelo sistema automaticamente, só será necessário inserir o nome do módulo substituindo a palavra "NAME", para mais detalhes ler comentário no código.
+Caso haja a necessidade de adicionar novas rotas, inserir abaixo de todo o script de criação de rota automática, mas se por algum motivo a nova rota tiver que ser criada automaticamente recomendamos seguir o padrão do script, ler e entender o código antes de qualquer coisa é de extrema importância.
