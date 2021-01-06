@@ -2,9 +2,9 @@
 
 - [Vantegens](#site-modular)
 - [Documentação](#documentacao)
-- [Instalação](#instalacao)
-- [Intalando novo Módulo](#instalando-novo-modulo)
-- [Padrões e Estruturas Frontend](#padroes-e-estruturas-frontend)
+- [Instalação](#instalaçao)
+- [Intalando novo Módulo](#instalando-novo-módulo)
+- [Padrões e Estruturas Frontend](#padrões-e-estruturas-frontend)
 - [Views](#views)
 - 
 # SITE MODULAR
@@ -75,8 +75,25 @@ Os arquivos listados acima são obrigatórios, caso tenha que criar alguma view 
 
 #### Trabalhando com NPM 
 #
-Vamos começar a trabalhar no frontend do modelo
+Vamos começar a trabalhar no frontend do modelo e não tem nada muito diferente do padrão de trabalho do [Laravel](https://laravel.com). A diferença é que será necessário rodar o comando *npm install* dentdo do módulo criado, também será necessário criar um arquivo .gitignore na raiz do módulo criado com conteúdo */node_modules* pois os mesmos só será necessário serão necessários para compilar seu css que é desenvolvido no padrã. de *sass*.
 
+##### • Rodando npm
+#
+Para fazer a instalação do npm você deverá abrir seu terminal dentro da pasta do módulo criado ou navegar até a mesma usando o comando *cd* do bash. Após abrir/navegar até a pasta, rodar o comando abaixo.
+
+```sh 
+$ npm intall
+```
+
+Após finalizar a instalação criar o arquivo .gitignore de acordo com o conteúdo citado acima. O mesmo fará com que a pasta *node_modules* não seja commitado no git, caso rode commit sem ter criado o arquivo .gitignore será necessário remover a pasta do git rodando os comando na ordem listados abaixo.
+
+```sh 
+$ git rm -r --cached Modules/<Nome Módulo>/node_modules
+$ git add .
+$ git commit -m "Mensagem"
+$ git push
+```
+Caso esteja usando o Git Desktop só será necessário rodar a primeira linha de comando, o restante pode ser feito direto no Git Desktop apertando os botões corretos ;D
 
 ### Padrões e Estruturas Backend
 
