@@ -15,11 +15,13 @@ return [
     Configurar quais módulos serão usados para o site/sistema no geral, exceto Header e Footer.
 
     Ex.:
-        'Name Modulo' => [
+        'Name Modulo' => (object)[
             'Code' => 'Código do Modulo',
             'ViewHome' => true,
+            'Category' => true,
+            'Subategory' => true,
             'ListMenu' => 'Nome na listagem do menu',
-            'IncludeSections' => array de Códigos do modulo
+            'IncludeSections' => (object) [array de Códigos do modulo]
         ],
 
     Para cadada indice do array algumas opções estão disponíveis sendo elas:
@@ -35,22 +37,21 @@ return [
     */
 
     'InsertModelsMain' => (object) [
-        'Slide' => (object) [
-            'Code' => 'SD001',
-            'ViewHome' => true,
-            'Category' => true,
-            'Subategory' => true,
-            'ListMenu' => '',
-            'IncludeSections' => (object)[
-                'Slide' => 'SD002'
-            ]
-        ]
+
     ],
 
+    /*
+    ETRUTURA PADRÃO PARA MODELS
+
+    'Nome Modulo' => (object)[
+        'Codigo Modelo' => Class do controlador,
+    ],
+
+    Exemplo de Caminho do controlador: Modules\Slides\Http\Controllers\SD001Controller::class
+
+    */
+
     'Models' => (object) [
-        'Slides' => (object)[
-            'SD001' => Modules\Slides\Http\Controllers\SD001Controller::class,
-            'SD002' => Modules\Slides\Http\Controllers\SD002Controller::class
-        ],
+
     ]
 ];

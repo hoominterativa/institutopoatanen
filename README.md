@@ -1,12 +1,11 @@
 ## Índice
 
-- [Vantegens](#site-modular)
-- [Documentação](#documentacao)
 - [Instalação](#instalaçao)
 - [Intalando novo Módulo](#instalando-novo-módulo)
 - [Padrões e Estruturas Frontend](#padrões-e-estruturas-frontend)
-- [Views](#views)
-- 
+- [Padrões e Estruturas Backend](#padrões-e-estruturas-backend)
+ 
+
 # SITE MODULAR
 Sistema para contrução de sites pré-moldados com possibilidade de criação de módulos novos e seus modelos
 
@@ -108,6 +107,24 @@ $ php artisan module:make-controller PD001Controller Products
 ```
 Na mesma linha de raciocínio das vews os módulos deveram ter em seus nomes primeiramente o código do modelo, *Ex: PD001Controller.php | PD001CategoryController.php | PD001SubategoryController.php*. 
 Os controladores deverão ser usados de acordo com suas Views, Módel (Class) e Migration nomeando-as com o respectivo código também.
+
+Após criar um novo controlador será necessário criar um método dentro do mesmo com nome de *section()*, abaixo estrutura.
+
+``` php
+/**
+     * Secoes para insert nas páginas.
+     * @return Renderable
+     */
+    public static function section($view)
+    {
+        return view($view, [
+            'sections' => IncludeSectionsController::IncludeSectionsPage('Products')
+        ]);
+    }
+```
+Esse método será usado para imprimir a sessão na home do site ele trabalha em conjunto com o Controlador *HomePageController* e a view do modelo *section.blade.php*
+Ao mexer no método *section()* não mudar a estrutura do mesmo, é permitido implementar novos objetos a ser enviado para a view.
+
 
 #### Migrations
 #
