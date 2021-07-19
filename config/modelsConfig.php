@@ -63,8 +63,8 @@ return [
     */
 
     'InsertModelsMain' => (object) [
-        'Slide' => (object)[
-            'Code' => 'SD001',
+        'Product' => (object)[
+            'Code' => 'PD001',
             'ViewHome' => true,
             'Category' => false,
             'Subategory' => false,
@@ -73,18 +73,7 @@ return [
                 'Anchor' => ''
             ],
             'IncludeSections' => (object) []
-        ],
-        'Product' => (object)[
-            'Code' => 'PD001',
-            'ViewHome' => true,
-            'Category' => true,
-            'Subategory' => false,
-            'ListMenu' => (object) [
-                'Title' => 'Produto',
-                'Anchor' => '#product'
-            ],
-            'IncludeSections' => (object) []
-        ],
+        ]
     ],
 
     /*
@@ -118,7 +107,7 @@ return [
                 'Class' => 'Class Model Product',
                 'Category' => 'Class Model Category',
                 'Subcategory' => 'Class Model Subcategory'
-            ]
+            ],
         ],
     ]
 ];

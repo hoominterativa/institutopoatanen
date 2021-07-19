@@ -2,5 +2,7 @@
     "/js/slide1.js": "/js/slide1.js",
     "/css/slide1.css": "/css/slide1.css",
     "/js/headers.js": "/js/headers.js",
-    "/css/headers.css": "/css/headers.css"
+    "/css/headers.css": "/css/headers.css",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css"
 }

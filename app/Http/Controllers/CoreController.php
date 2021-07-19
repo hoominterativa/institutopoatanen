@@ -31,7 +31,7 @@ class CoreController extends Controller
             $ModelClass = $Models->$ModelCategory->$CodeCategory;
 
             $ClassModelCategory = $ModelClass->Category;
-            // $Categories = $ClassModelCategory::limit($LimitCategory)->get();
+            $Categories = $ClassModelCategory::limit($LimitCategory)->get();
             $Categories = $ClassModelCategory;
 
         }
