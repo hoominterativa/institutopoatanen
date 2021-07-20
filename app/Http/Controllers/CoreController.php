@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class CoreController extends Controller
 {
-    public static function header()
+    public static function renderHeader()
     {
 
         $InsertModelsCore = config('modelsConfig.InsertModelsCore');
@@ -17,50 +17,38 @@ class CoreController extends Controller
         $Subcategories = '';
         $menu = array();
 
+        // dd(get_object_vars($InsertModelsMain));
+
         foreach($InsertModelsMain as $ListMenu){
-            $Title = $ListMenu->ListMenu->Title?:'';
-            $Anchor = $ListMenu->ListMenu->Anchor?:'';
-            array_push($menu, (object) ['Title' => $Title, 'Anchor' => $Anchor]);
+            if(count(get_object_vars($ListMenu->ListMenu))){
+                $Title = $ListMenu->ListMenu->Title?:'';
+                $Anchor = $ListMenu->ListMenu->Anchor?:'';
+                array_push($menu, (object) ['Title' => $Title, 'Anchor' => $Anchor]);
+            }
         }
 
         if(count(get_object_vars($InsertModelsCore->Header->IncludeCategory))){
 
             $ModelCategory = $InsertModelsCore->Header->IncludeCategory->Model;
-            $CodeCategory = $InsertModelsCore->Header->IncludeCategory->Code;
             $LimitCategory = $InsertModelsCore->Header->IncludeCategory->Limit;
-            $ModelClass = $Models->$ModelCategory->$CodeCategory;
+            $ModelClass = $Models->$ModelCategory->Model;
 
-            $ClassModelCategory = $ModelClass->Category;
-            $Categories = $ClassModelCategory::limit($LimitCategory)->get();
-            $Categories = $ClassModelCategory;
+            $Categories = $ModelClass::limit($LimitCategory)->get();
 
+            if(count(get_object_vars($InsertModelsCore->Header->IncludeSubcategory))){
+                $ModelSubcategory = $InsertModelsCore->Header->IncludeSubcategory->Model;
+                $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
+            }
         }
 
-        if(count(get_object_vars($InsertModelsCore->Header->IncludeSubcategory))){
-
-            $ModelSubcategory = $InsertModelsCore->Header->IncludeSubcategory->Model;
-            $CodeSubcategory = $InsertModelsCore->Header->IncludeSubcategory->Code;
-            $LimitSubcategory = $InsertModelsCore->Header->IncludeSubcategory->Limit;
-            $ModelClass = $Models->$ModelSubcategory->$CodeSubcategory;
-
-            $ClassModelSubcategory = $ModelClass->Subcategory;
-            // $Subcategories = $ClassModelSubcategory::limit($LimitSubcategory)->get();
-            $Subcategories = $ClassModelSubcategory;
-
-        }
-
-
-        // dd($menu);
-
-        return view('Client.core.headers.'.$InsertModelsCore->Header->Code, [
+        return view('Client.Core.headers.'.$InsertModelsCore->Header->Code, [
             'categoryHeader' => $Categories,
-            'subcategoryHeader' => $Subcategories,
             'listMenu' => $menu
         ]);
     }
 
-    public static function footer()
+    public static function renderFooter()
     {
-        return view('core.footers.FT001');
+        return view('Client.Core.footers.FT001');
     }
 }

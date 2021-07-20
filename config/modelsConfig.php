@@ -9,15 +9,11 @@ return [
         'Header' => (object)[
             'Code' => 'HD001',
             'IncludeCategory' => (object) [
-                'Model' => 'Product',
-                'Code' => 'PD001',
+                'Model' => 'CategoryProduct',
+                'Code' => 'CP001',
                 'Limit' => '3'
             ],
-            'IncludeSubcategory' => (object) [
-                'Model' => 'Product',
-                'Code' => 'PD001',
-                'Limit' => '5'
-            ]
+            'IncludeSubcategory' => (object) []
         ],
         'Footer' => (object)[
             'Code' => 'FT001',
@@ -53,7 +49,7 @@ return [
     Para cadada indice do array algumas opções estão disponíveis sendo elas:
         Code => (String) Código do módulo, informado tbm no layout
         ViewHome => (Boolean) "True" para exibir uma seção na home e "False" para não
-        ListMenu => (String) Título e ancora a ser exibido no menu do site e "-" para não listar no menu do site
+        ListMenu => (Array) Título e ancora a ser exibido no menu do site e "-" para não listar no menu do site
         IncludeSections => (Array) Insere Sessões nas páginas internas do módulo, essa opção só valerá para módulos que possuem páginas internas.
                            Caso não exista seções impressas nas internas deixar o array vazio. Ex.: 'IncludeSections' => []
                            Obs.: Digitar Nome e código do modulo Ex.: ['Slide' => 'SD001', 'Topic' => 'TP002', 'News' => 'NE003']
@@ -63,14 +59,12 @@ return [
     */
 
     'InsertModelsMain' => (object) [
-        'Product' => (object)[
-            'Code' => 'PD001',
-            'ViewHome' => true,
-            'Category' => false,
-            'Subategory' => false,
+        'CategoryProduct' => (object)[
+            'Code' => 'CP001',
+            'ViewHome' => false,
             'ListMenu' => (object) [
                 'Title' => 'Home',
-                'Anchor' => ''
+                'Anchor' => '-',
             ],
             'IncludeSections' => (object) []
         ]
@@ -102,11 +96,10 @@ return [
     */
 
     'Models' => (object) [
-        'Product' => (object)[
-            'PD001' => (object) [
-                'Class' => 'Class Model Product',
-                'Category' => 'Class Model Category',
-                'Subcategory' => 'Class Model Subcategory'
+        'CategoryProduct' => (object)[
+            'Model' => Modules\CategoryProduct\Entities\CategoryProduct::class,
+            'CP001' => (object) [
+                'Class' => Modules\CategoryProduct\Http\Controllers\CP001Controller::class,
             ],
         ],
     ]

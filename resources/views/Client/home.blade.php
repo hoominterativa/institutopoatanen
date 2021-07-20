@@ -1,6 +1,4 @@
-@php
-    echo App\Http\Controllers\CoreController::Header();
-@endphp
+@extends('Client.Core.client')
 @section('content')
     <main id="root">
         {{-- @foreach ($sections as $section)
@@ -8,6 +6,4 @@
         @endforeach --}}
     </main>
 @endsection
-@php
-    // echo App\Http\Controllers\CoreController::Footer();
-@endphp
+
