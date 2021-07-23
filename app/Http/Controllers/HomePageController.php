@@ -14,7 +14,7 @@ class HomePageController extends Controller
     public function index()
     {
         return view('Client.home', [
-            // 'sections' => IncludeSectionsController::IncludeSectionsHome()
+            'sections' => IncludeSectionsController::IncludeSectionsHome()
         ]);
     }
 

@@ -61,7 +61,7 @@ return [
     'InsertModelsMain' => (object) [
         'CategoryProduct' => (object)[
             'Code' => 'CP001',
-            'ViewHome' => false,
+            'ViewHome' => true,
             'ListMenu' => (object) [
                 'Title' => 'Home',
                 'Anchor' => '-',
@@ -91,7 +91,7 @@ return [
         ]
     ],
 
-    Exemplo de Caminho do controlador: Modules\Slides\Http\Controllers\SD001Controller::class
+    Exemplo de Caminho do controlador: \Modules\Slides\Http\Controllers\SD001Controller::class
 
     */
 

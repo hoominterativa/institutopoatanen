@@ -13,11 +13,8 @@ class CoreController extends Controller
         $Models = config('modelsConfig.Models');
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
 
-        $Categories = '';
-        $Subcategories = '';
+        $Categories = [];
         $menu = array();
-
-        // dd(get_object_vars($InsertModelsMain));
 
         foreach($InsertModelsMain as $ListMenu){
             if(count(get_object_vars($ListMenu->ListMenu))){
