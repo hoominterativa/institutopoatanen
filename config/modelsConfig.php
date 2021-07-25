@@ -4,8 +4,7 @@ return [
 
     /*
     Configura quais módulos do Headers e Footers serão impressos na sua página
-    */
-    'InsertModelsCore' => (object) [
+
         'Header' => (object)[
             'Code' => 'HD001',
             'IncludeCategory' => (object) [
@@ -13,6 +12,13 @@ return [
                 'Code' => 'CP001',
                 'Limit' => '3'
             ],
+            'IncludeSubcategory' => (object) []
+        ],
+    */
+    'InsertModelsCore' => (object) [
+        'Header' => (object)[
+            'Code' => 'HD001',
+            'IncludeCategory' => (object) [],
             'IncludeSubcategory' => (object) []
         ],
         'Footer' => (object)[
@@ -59,15 +65,17 @@ return [
     */
 
     'InsertModelsMain' => (object) [
-        'CategoryProduct' => (object)[
-            'Code' => 'CP001',
-            'ViewHome' => true,
-            'ListMenu' => (object) [
-                'Title' => 'Home',
-                'Anchor' => '-',
-            ],
-            'IncludeSections' => (object) []
-        ]
+        // 'Topics' => (object)[
+        //     'Code' => 'Código do Modulo',
+        //     'ViewHome' => true,
+        //     'Category' => false,
+        //     'Subategory' => false,
+        //     'ListMenu' => (object) [
+        //         'Title' => 'Home',
+        //         'Anchor' => '-',
+        //     ],
+        //     'IncludeSections' => (object) []
+        // ],
     ],
 
     /*
@@ -96,11 +104,6 @@ return [
     */
 
     'Models' => (object) [
-        'CategoryProduct' => (object)[
-            'Model' => Modules\CategoryProduct\Entities\CategoryProduct::class,
-            'CP001' => (object) [
-                'Class' => Modules\CategoryProduct\Http\Controllers\CP001Controller::class,
-            ],
-        ],
+
     ]
 ];
