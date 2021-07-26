@@ -4,28 +4,27 @@ namespace App\Console\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
-class ModuleMakeResource extends Command
+class ModuleMakeResourcesClient extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'module:make-resources {module : Enter the name of the module for resource creation}
+    protected $signature = 'module:make-resources-client
+        {module : Insert name the module}
         {code : Insert code the model}
         {--s|section : Create a section view in model}
         {--p|page : Create a page view in model}
-        {--c|content : Create a content view in model}
-    ';
+        {--c|content : Create a content view in model}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create all module features according to template code';
+    protected $description = 'Create all client features';
 
     /**
      * Create a new command instance.
@@ -48,21 +47,6 @@ class ModuleMakeResource extends Command
         $options = $this->options();
 
         try {
-            // Create views Admin
-
-            $pathAdmin = 'resources/views/Admin/';
-            if(!is_dir($pathAdmin.$arguments['module'].'/'.$arguments['code'])) mkdir($pathAdmin.$arguments['module'].'/'.$arguments['code'], 0777, true);
-
-            if(copy($pathAdmin.'copy/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
-                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php');
-            }
-            if(copy($pathAdmin.'copy/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php')){
-                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php');
-            }
-            if(copy($pathAdmin.'copy/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php')){
-                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
-            }
-
             // Create views cliente
 
             $pathClient = 'resources/views/Client/';
@@ -83,10 +67,6 @@ class ModuleMakeResource extends Command
                     $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
                 }
             }
-
-            Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
-
-            $this->info('Resources created successful!');
 
         }catch(Exception $e) {
             dd($e->getMessage());

@@ -43,6 +43,7 @@ return [
         'Name Modulo' => (object)[
             'Code' => 'Código do Modulo',
             'ViewHome' => true,
+            'Page' => true,
             'Category' => true,
             'Subategory' => true,
             'ListMenu' => (object) [ Titulo do menu e ancora caso exista, caso não incluir o caractere "-"
@@ -55,6 +56,7 @@ return [
     Para cadada indice do array algumas opções estão disponíveis sendo elas:
         Code => (String) Código do módulo, informado tbm no layout
         ViewHome => (Boolean) "True" para exibir uma seção na home e "False" para não
+        Page => (Boolean) "True" para criação da rota de página "False" para não
         ListMenu => (Array) Título e ancora a ser exibido no menu do site e "-" para não listar no menu do site
         IncludeSections => (Array) Insere Sessões nas páginas internas do módulo, essa opção só valerá para módulos que possuem páginas internas.
                            Caso não exista seções impressas nas internas deixar o array vazio. Ex.: 'IncludeSections' => []

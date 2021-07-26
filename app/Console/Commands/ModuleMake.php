@@ -45,19 +45,22 @@ class ModuleMake extends Command
             $pathAdmin = 'resources/views/Admin/'.$arguments['module'];
             $pathClient = 'resources/views/Client/pages/'.$arguments['module'];
 
-            mkdir($pathAdmin, 0777, true);
-            mkdir($pathClient, 0777, true);
+            if(!is_dir($pathAdmin)) mkdir($pathAdmin, 0777, true);
+            if(!is_dir($pathClient)) mkdir($pathClient, 0777, true);
 
             $this->info('Folder created '.$pathAdmin);
             $this->info('Folder created '.$pathClient);
+
+            Artisan::call('make:model '.$arguments['module']);
+            $migration = "create_".strtolower($arguments['module'])."_table";
+            Artisan::call('make:migration '.$migration);
+            $this->info('Migration created '.$migration);
+            Artisan::call('make:seeder '.$arguments['module'].'Seeder');
+            $this->info('Seeder created '.$arguments['module'].'Seeder');
+
+            $this->info('Module Created successful!');
         }catch(Exception $e) {
             dd($e->getMessage());
         }
-
-        $migration = "create_".strtolower($arguments['module'])."_table";
-        Artisan::call('make:model '.$arguments['module']);
-        Artisan::call('make:migration '.$migration);
-
-        $this->info('Module Created successful!');
     }
 }

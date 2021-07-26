@@ -22,3 +22,7 @@ View::composer('Client.Core.client', function ($view) {
 Route::get('/', 'HomePageController@index')->name('home');
 
 Route::get('/category', 'CoreController@header');
+
+
+Route::get('photos', 'Products\PROD001Controller@page')->name('photos.page');
+Route::resource('admin/photos', 'Products\PROD001Controller');
