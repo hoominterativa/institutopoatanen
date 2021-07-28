@@ -22,7 +22,9 @@
     },
     "dependencies": {
         "@fancyapps/ui": "^4.0.0-alpha.4",
+        "bootstrap": "^5.0.2",
         "jquery": "^3.6.0",
+        "material-design-icons": "^3.0.1",
         "owl.carousel": "^2.3.4"
     }
 }

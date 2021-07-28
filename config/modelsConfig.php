@@ -4,8 +4,9 @@ return [
 
     /*
     Configura quais módulos do Headers e Footers serão impressos na sua página
+    Obs.: Os nomes dos modulos deveram ser criados com a primeira letra em maiusculo e no plural
 
-        'Header' => (object)[
+        'Headers' => (object)[
             'Code' => 'HD001',
             'IncludeCategory' => (object) [
                 'Model' => 'CategoryProduct',
@@ -16,23 +17,10 @@ return [
         ],
     */
     'InsertModelsCore' => (object) [
-        'Header' => (object)[
-            'Code' => 'HD001',
+        'Headers' => (object)[
+            'Code' => 'HEAD01',
             'IncludeCategory' => (object) [],
             'IncludeSubcategory' => (object) []
-        ],
-        'Footer' => (object)[
-            'Code' => 'FT001',
-            'IncludeCategory' => (object) [
-                'Model' => 'Product',
-                'Code' => 'PD001',
-                'Limit' => '3'
-            ],
-            'IncludeSubcategory' => (object) [
-                'Model' => 'Product',
-                'Code' => 'PD001',
-                'Limit' => '5'
-            ]
         ]
     ],
 

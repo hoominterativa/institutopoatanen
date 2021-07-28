@@ -24,21 +24,21 @@ class CoreController extends Controller
             }
         }
 
-        if(count(get_object_vars($InsertModelsCore->Header->IncludeCategory))){
+        if(count(get_object_vars($InsertModelsCore->Headers->IncludeCategory))){
 
-            $ModelCategory = $InsertModelsCore->Header->IncludeCategory->Model;
-            $LimitCategory = $InsertModelsCore->Header->IncludeCategory->Limit;
+            $ModelCategory = $InsertModelsCore->Headers->IncludeCategory->Model;
+            $LimitCategory = $InsertModelsCore->Headers->IncludeCategory->Limit;
             $ModelClass = $Models->$ModelCategory->Model;
 
             $Categories = $ModelClass::limit($LimitCategory)->get();
 
-            if(count(get_object_vars($InsertModelsCore->Header->IncludeSubcategory))){
-                $ModelSubcategory = $InsertModelsCore->Header->IncludeSubcategory->Model;
+            if(count(get_object_vars($InsertModelsCore->Headers->IncludeSubcategory))){
+                $ModelSubcategory = $InsertModelsCore->Headers->IncludeSubcategory->Model;
                 $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
             }
         }
 
-        return view('Client.Core.headers.'.$InsertModelsCore->Header->Code, [
+        return view('Client.Core.Headers.'.$InsertModelsCore->Headers->Code.'.app', [
             'categoryHeader' => $Categories,
             'listMenu' => $menu
         ]);
@@ -46,6 +46,6 @@ class CoreController extends Controller
 
     public static function renderFooter()
     {
-        return view('Client.Core.footers.FT001');
+        // return view('Client.Core.Footers.FT001');
     }
 }

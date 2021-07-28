@@ -1,8 +1,7 @@
 // LIBRARIES
-@import url('../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
-@import url('../../node_modules/@fancyapps/ui/dist/fancybox.css');
-@import url('../../node_modules/@fancyapps/ui/dist/panzoom.css');
+@import '../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css';
+@import '../../node_modules/@fancyapps/ui/dist/fancybox.css';
+@import '../../node_modules/@fancyapps/ui/dist/panzoom.css';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 // CLIENTS
-@import url('../views/Client/assets/scss/_config');
-@import url('../views/Client/assets/scss/_fonts');
-@import url('../views/Client/assets/scss/app');
+@import '../views/Client/assets/scss/base';
