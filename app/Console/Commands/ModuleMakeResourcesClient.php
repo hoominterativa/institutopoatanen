@@ -53,17 +53,17 @@ class ModuleMakeResourcesClient extends Command
             if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
             if($options['section']){
-                if(copy($pathClient.'copy/section.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
+                if(copy('defaults/Client/archive/section.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
                     $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
                 }
             }
             if($options['page']){
-                if(copy($pathClient.'copy/page.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
+                if(copy('defaults/Client/archive/page.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
                     $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
                 }
             }
             if($options['content']){
-                if(copy($pathClient.'copy/show.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
+                if(copy('defaults/Client/archive/show.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
                     $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
                 }
             }

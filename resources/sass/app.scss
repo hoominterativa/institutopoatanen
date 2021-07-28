@@ -1,1 +1,8 @@
-//
+// LIBRARIES
+@import url('../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
+@import url('../../node_modules/@fancyapps/ui/dist/fancybox.css');
+@import url('../../node_modules/@fancyapps/ui/dist/panzoom.css');
+// CLIENTS
+@import url('../views/Client/assets/scss/_config');
+@import url('../views/Client/assets/scss/_fonts');
+@import url('../views/Client/assets/scss/app');

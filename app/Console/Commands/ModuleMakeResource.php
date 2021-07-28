@@ -53,13 +53,13 @@ class ModuleMakeResource extends Command
             $pathAdmin = 'resources/views/Admin/';
             if(!is_dir($pathAdmin.$arguments['module'].'/'.$arguments['code'])) mkdir($pathAdmin.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
-            if(copy($pathAdmin.'copy/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
+            if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
                 $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php');
             }
-            if(copy($pathAdmin.'copy/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php')){
+            if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php')){
                 $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php');
             }
-            if(copy($pathAdmin.'copy/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php')){
+            if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php')){
                 $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
             }
 
@@ -67,21 +67,29 @@ class ModuleMakeResource extends Command
 
             $pathClient = 'resources/views/Client/';
             if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'], 0777, true);
+            if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
 
             if($options['section']){
-                if(copy($pathClient.'copy/section.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
+                if(copy('defaults/Client/archive/section.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
                     $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
                 }
             }
             if($options['page']){
-                if(copy($pathClient.'copy/page.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
+                if(copy('defaults/Client/archive/page.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
                     $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
                 }
             }
             if($options['content']){
-                if(copy($pathClient.'copy/show.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
+                if(copy('defaults/Client/archive/show.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
                     $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
                 }
+            }
+
+            if(copy('defaults/Client/src/_main.scss', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
+                $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
+            }
+            if(copy('defaults/Client/src/main.js', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js')){
+                $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
             }
 
             Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
