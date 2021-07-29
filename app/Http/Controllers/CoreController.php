@@ -14,15 +14,6 @@ class CoreController extends Controller
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
 
         $Categories = [];
-        $menu = array();
-
-        foreach($InsertModelsMain as $ListMenu){
-            if(count(get_object_vars($ListMenu->ListMenu))){
-                $Title = $ListMenu->ListMenu->Title?:'';
-                $Anchor = $ListMenu->ListMenu->Anchor?:'';
-                array_push($menu, (object) ['Title' => $Title, 'Anchor' => $Anchor]);
-            }
-        }
 
         if(count(get_object_vars($InsertModelsCore->Headers->IncludeCategory))){
 
@@ -40,12 +31,36 @@ class CoreController extends Controller
 
         return view('Client.Core.Headers.'.$InsertModelsCore->Headers->Code.'.app', [
             'categoryHeader' => $Categories,
-            'listMenu' => $menu
+            'listMenu' => $InsertModelsMain
         ]);
     }
 
     public static function renderFooter()
     {
+        $InsertModelsCore = config('modelsConfig.InsertModelsCore');
+        $Models = config('modelsConfig.Models');
+        $InsertModelsMain = config('modelsConfig.InsertModelsMain');
+
+        $Categories = [];
+
+        if(count(get_object_vars($InsertModelsCore->Footers->IncludeCategory))){
+
+            $ModelCategory = $InsertModelsCore->Footers->IncludeCategory->Model;
+            $LimitCategory = $InsertModelsCore->Footers->IncludeCategory->Limit;
+            $ModelClass = $Models->$ModelCategory->Model;
+
+            $Categories = $ModelClass::limit($LimitCategory)->get();
+
+            if(count(get_object_vars($InsertModelsCore->Footers->IncludeSubcategory))){
+                $ModelSubcategory = $InsertModelsCore->Footers->IncludeSubcategory->Model;
+                $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
+            }
+        }
+
+        return view('Client.Core.Footers.'.$InsertModelsCore->Footers->Code.'.app', [
+            'categoryFooter' => $Categories,
+            'listMenu' => $InsertModelsMain
+        ]);
         // return view('Client.Core.Footers.FT001');
     }
 }

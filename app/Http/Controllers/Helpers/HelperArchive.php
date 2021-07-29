@@ -15,7 +15,7 @@ class HelperArchive extends Controller
      */
     public function createArchive($nameArchive, $content)
     {
-        $archive = fopen('../'.$nameArchive,'w');
+        $archive = fopen(''.$nameArchive,'w');
         if ($archive == false) die('Não foi possível criar o arquivo.');
         if(fwrite($archive, $content)){
             fclose($archive);

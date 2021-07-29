@@ -11,9 +11,7 @@
     <header id="mainHeader">
         {!!$renderHeader!!}
     </header>
-    <main id="mainBody">
-        @yield('content')
-    </main>
+    @yield('content')
     <footer id="mainFooter">
         {!!$renderFooter!!}
     </footer>

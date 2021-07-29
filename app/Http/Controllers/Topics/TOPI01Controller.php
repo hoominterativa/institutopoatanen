@@ -103,11 +103,10 @@ class TOPI01Controller extends Controller
     /**
      * Section index resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function section($id)
+    public static function section()
     {
-        //
+        return view('Client.pages.Topics.TOPI01.section');
     }
 }

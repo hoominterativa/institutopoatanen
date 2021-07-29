@@ -1,6 +1,8 @@
 @foreach ($categoryHeader as $categoryHeader)
-    <a href="{{$categoryHeader->name}}" class="ancora">{{$categoryHeader->name}}</a>
+    <li><a href="{{$categoryHeader->name}}">{{$categoryHeader->name}}</a></li>
 @endforeach
 @foreach ($listMenu as $menu)
-    <a href="{{$menu->Anchor}}" class="ancora">{{$menu->Title}}</a>
+    @if (count(get_object_vars($menu->ListMenu)))
+        <li><a href="{{$menu->ListMenu->Anchor}}">{{$menu->ListMenu->Title}}</a></li>
+    @endif
 @endforeach

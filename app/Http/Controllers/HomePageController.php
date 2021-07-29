@@ -15,16 +15,6 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        // $coreConfig = new HelperPublishing();
-        // $return = $coreConfig->createScssApp();
-
-        // dd($return);
-
-        // $content = "@import 'config';\n@import 'fonts';";
-
-        // $createArchive = new HelperArchive();
-        // $createArchive->createArchive('resources/views/Client/assets/scss/app.scss', $content);
-
         return view('Client.home', [
             'sections' => IncludeSectionsController::IncludeSectionsHome()
         ]);

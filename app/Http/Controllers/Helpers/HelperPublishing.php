@@ -4,22 +4,34 @@ namespace App\Http\Controllers\Helpers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Helpers\HelperArchive;
+use Exception;
 
 class HelperPublishing extends Controller
 {
     public function createScssApp()
     {
-        $createArchive = new HelperArchive();
-        $coreConfig = config('modelsConfig.InsertModelsCore');
-        $content = "@import 'config';\n@import 'fonts';\n";
-        foreach ($coreConfig as $module => $code) {
-            $content .= "@import '../../Core/{$module}/{$code->Code}/src/main';\n";
-        }
-        $return = $createArchive->createArchive('resources/views/Client/assets/scss/base.scss', $content);
+        try{
+            $createArchive = new HelperArchive();
+            $coreConfig = config('modelsConfig.InsertModelsCore');
+            $contentScss = "@import 'config';\n@import 'fonts';\n";
+            $contentJs="";
+            foreach ($coreConfig as $module => $code) {
+                $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/main';\n";
+                $contentJs .= "import '../../Core/{$module}/{$code->Code}/src/main';\n";
+            }
 
-        if($return){
+            $mainConfig = config('modelsConfig.InsertModelsMain');
+            foreach ($mainConfig as $module => $code) {
+                $contentScss .= "@import '../../pages/{$module}/{$code->Code}/src/main';\n";
+                $contentJs .= "import '../../pages/{$module}/{$code->Code}/src/main';\n";
+            }
+
+            $createArchive->createArchive('resources/views/Client/assets/scss/base.scss', $contentScss);
+            $createArchive->createArchive('resources/views/Client/assets/js/base.js', $contentJs);
+
             return true;
+        }catch(Exception $e){
+            return $e;
         }
-        return false;
     }
 }

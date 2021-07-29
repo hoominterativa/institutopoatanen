@@ -21,6 +21,11 @@ return [
             'Code' => 'HEAD01',
             'IncludeCategory' => (object) [],
             'IncludeSubcategory' => (object) []
+        ],
+        'Footers' => (object)[
+            'Code' => 'FOOT01',
+            'IncludeCategory' => (object) [],
+            'IncludeSubcategory' => (object) []
         ]
     ],
 
@@ -55,17 +60,16 @@ return [
     */
 
     'InsertModelsMain' => (object) [
-        // 'Topics' => (object)[
-        //     'Code' => 'Código do Modulo',
-        //     'ViewHome' => true,
-        //     'Category' => false,
-        //     'Subategory' => false,
-        //     'ListMenu' => (object) [
-        //         'Title' => 'Home',
-        //         'Anchor' => '-',
-        //     ],
-        //     'IncludeSections' => (object) []
-        // ],
+        'Topics' => (object)[
+            'Code' => 'TOPI01',
+            'ViewHome' => true,
+            'ListMenu' => (object) [
+                'Title' => 'Tópicos',
+                'Anchor' => 'javascript:void(0)',
+                'Route' => '/topicos'
+            ],
+            'IncludeSections' => (object) []
+        ],
     ],
 
     /*
@@ -89,11 +93,15 @@ return [
         ]
     ],
 
-    Exemplo de Caminho do controlador: \Modules\Slides\Http\Controllers\SD001Controller::class
+    Exemplo de Caminho do controlador: App\Http\Controllers\Topics\TOPI01Controller::class
 
     */
 
     'Models' => (object) [
-
+        'Topics' => (object)[
+            'TOPI01' => (object) [
+                'Class' => App\Http\Controllers\Topics\TOPI01Controller::class,
+            ]
+        ],
     ]
 ];
