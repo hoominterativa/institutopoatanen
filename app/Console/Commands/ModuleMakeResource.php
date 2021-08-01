@@ -63,11 +63,16 @@ class ModuleMakeResource extends Command
                 $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
             }
 
-            // Create views cliente
+            // Create routes
+            if(!is_dir('routes/'.$arguments['module'])) mkdir('routes/'.$arguments['module'], 0777, true);
+            if(copy('defaults/Routes/web.php', 'routes/'.$arguments['module'].'/'.$arguments['code'].'.php')){
+                $this->info('Routes created routes/'.$arguments['module'].'/'.$arguments['code'].'.php');
+            }
+
+            // Create views client
 
             $pathClient = 'resources/views/Client/';
             if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'], 0777, true);
-            if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
 
             if($options['section']){
                 if(copy('defaults/Client/archive/section.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
@@ -85,6 +90,9 @@ class ModuleMakeResource extends Command
                 }
             }
 
+            // Create assets
+            if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
+
             if(copy('defaults/Client/src/_main.scss', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
                 $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
             }
@@ -93,7 +101,6 @@ class ModuleMakeResource extends Command
             }
 
             Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
-
             $this->info('Resources created successful!');
 
         }catch(Exception $e) {

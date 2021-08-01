@@ -1,4 +1,13 @@
 {
-    "/js/app.js": "/js/app.js?id=1b161ced1acc0830cdf4",
-    "/css/app.css": "/css/app.css?id=e984e0303864008c3e9b"
+    "/admin/assets/js/app.min.js": "/admin/assets/js/app.min.js?id=f9961e01996048583a1d",
+    "/admin/assets/js/pages/form-validation.init.js": "/admin/assets/js/pages/form-validation.init.js?id=5db32fa9a7880dbed791",
+    "/admin/assets/js/vendor.min.js": "/admin/assets/js/vendor.min.js?id=722a00ba55d27ef7f42c",
+    "/admin/assets/libs/app.min.js": "/admin/assets/libs/app.min.js?id=3d41680e92bb21c57b33",
+    "/js/app.js": "/js/app.js?id=fe8ab878e337c34734a0",
+    "/css/app.css": "/css/app.css?id=9b1ff586cbf0cfc16505",
+    "/admin/assets/css/config/bootstrap.min.css": "/admin/assets/css/config/bootstrap.min.css?id=acd1f7c30dd5cdab901b",
+    "/admin/assets/css/config/app.min.css": "/admin/assets/css/config/app.min.css?id=bc8a408218ed01b7c142",
+    "/admin/assets/css/config/bootstrap-dark.min.css": "/admin/assets/css/config/bootstrap-dark.min.css?id=fdbdc52cf5b6c3a64cf9",
+    "/admin/assets/css/config/app-dark.min.css": "/admin/assets/css/config/app-dark.min.css?id=881cca65794ab2109386",
+    "/admin/assets/css/icons.min.css": "/admin/assets/css/icons.min.css?id=5f1e81188f2df87896c5"
 }
