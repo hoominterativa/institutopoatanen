@@ -1,13 +1,23 @@
 {
-    "/admin/assets/js/app.min.js": "/admin/assets/js/app.min.js?id=f9961e01996048583a1d",
-    "/admin/assets/js/pages/form-validation.init.js": "/admin/assets/js/pages/form-validation.init.js?id=5db32fa9a7880dbed791",
-    "/admin/assets/js/vendor.min.js": "/admin/assets/js/vendor.min.js?id=722a00ba55d27ef7f42c",
-    "/admin/assets/libs/app.min.js": "/admin/assets/libs/app.min.js?id=3d41680e92bb21c57b33",
     "/js/app.js": "/js/app.js?id=fe8ab878e337c34734a0",
     "/css/app.css": "/css/app.css?id=9b1ff586cbf0cfc16505",
+    "/admin/assets/js/app.min.js": "/admin/assets/js/app.min.js?id=9dc73f92b6d9aa4cda0d",
+    "/admin/assets/js/vendor.min.js": "/admin/assets/js/vendor.min.js?id=8dcbab14d0995df481aa",
+    "/admin/assets/libs/parsley.min.js": "/admin/assets/libs/parsley.min.js?id=fcfe6ae30a25b06f0c24",
+    "/admin/assets/libs/selectize.min.js": "/admin/assets/libs/selectize.min.js?id=567d7ca1bb35dea2958a",
+    "/admin/assets/libs/switchery.min.js": "/admin/assets/libs/switchery.min.js?id=05e4a5e605c1727da272",
+    "/admin/assets/libs/jquery.multi-select.js": "/admin/assets/libs/jquery.multi-select.js?id=e9ce3d9debafa4d3109c",
+    "/admin/assets/libs/select2.min.js": "/admin/assets/libs/select2.min.js?id=0f64f3a3a0c620a6756d",
+    "/admin/assets/libs/jquery.mockjax.min.js": "/admin/assets/libs/jquery.mockjax.min.js?id=c85f52ea8d427bc07cc3",
+    "/admin/assets/libs/jquery.autocomplete.min.js": "/admin/assets/libs/jquery.autocomplete.min.js?id=98124b34236766b0da6e",
+    "/admin/assets/libs/jquery.bootstrap-touchspin.min.js": "/admin/assets/libs/jquery.bootstrap-touchspin.min.js?id=cefb07811294993c9e5c",
+    "/admin/assets/libs/bootstrap-maxlength.min.js": "/admin/assets/libs/bootstrap-maxlength.min.js?id=c3cffa5b91856ba01619",
+    "/admin/assets/js/pages/form-validation.init.js": "/admin/assets/js/pages/form-validation.init.js?id=8acea4cc2bf72737036c",
+    "/admin/assets/js/pages/form-advanced.init.js": "/admin/assets/js/pages/form-advanced.init.js?id=6121045baa4b518dde93",
     "/admin/assets/css/config/bootstrap.min.css": "/admin/assets/css/config/bootstrap.min.css?id=acd1f7c30dd5cdab901b",
     "/admin/assets/css/config/app.min.css": "/admin/assets/css/config/app.min.css?id=bc8a408218ed01b7c142",
     "/admin/assets/css/config/bootstrap-dark.min.css": "/admin/assets/css/config/bootstrap-dark.min.css?id=fdbdc52cf5b6c3a64cf9",
     "/admin/assets/css/config/app-dark.min.css": "/admin/assets/css/config/app-dark.min.css?id=881cca65794ab2109386",
-    "/admin/assets/css/icons.min.css": "/admin/assets/css/icons.min.css?id=5f1e81188f2df87896c5"
+    "/admin/assets/css/icons.min.css": "/admin/assets/css/icons.min.css?id=5f1e81188f2df87896c5",
+    "/admin/assets/libs/app.min.css": "/admin/assets/libs/app.min.css?id=3210e0d26576929e9a6b"
 }

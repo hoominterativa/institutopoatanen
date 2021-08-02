@@ -17,7 +17,7 @@ class TOPI01Controller extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.Topics.TOPI01.index');
     }
 
     /**
@@ -27,7 +27,7 @@ class TOPI01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Topics.TOPI01.create');
     }
 
     /**

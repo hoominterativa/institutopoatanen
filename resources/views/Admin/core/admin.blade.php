@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <title>Starter | UBold - Responsive Admin Dashboard Template</title>
+        <title>Painel Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -10,15 +10,18 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
-		<!-- App css -->
-		<link href="{{mix('admin/assets/css/config/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
-		<link href="{{mix('admin/assets/css/config/app.min.css')}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"  disabled/>
+        <!-- Plugins css -->
+		<link href="{{url(mix('admin/assets/libs/app.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet"/>
 
-		<link href="{{mix('admin/assets/css/config/bootstrap-dark.min.css')}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-		<link href="{{mix('admin/assets/css/config/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+		<!-- App css -->
+		<link href="{{url(mix('admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
+		<link href="{{url(mix('admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"  disabled/>
+
+		<link href="{{url(mix('admin/assets/css/config/bootstrap-dark.min.css'))}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+		<link href="{{url(mix('admin/assets/css/config/app-dark.min.css'))}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 
 		<!-- icons -->
-		<link href="{{mix('admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/css/icons.min.css'))}}" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -456,15 +459,24 @@
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
-        <script src="{{mix('admin/assets/js/vendor.min.js')}}"></script>
+        <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
 
         <!-- Plugin js-->
-        <script src="{{mix('')}}../assets/libs/parsleyjs/parsley.min.js"></script>
+        <script src="{{url(mix('admin/assets/libs/parsley.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/selectize.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/switchery.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/jquery.multi-select.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/select2.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/jquery.mockjax.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/jquery.autocomplete.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/jquery.bootstrap-touchspin.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/bootstrap-maxlength.min.js'))}}"></script>
 
         <!-- Validation init js-->
-        <script src="../assets/js/pages/form-validation.init.js"></script>
+        <script src="{{url(mix('admin/assets/js/pages/form-validation.init.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/js/pages/form-advanced.init.js'))}}"></script>
 
         <!-- App js -->
-        <script src="{{mix('admin/assets/js/app.min.js')}}"></script>
+        <script src="{{url(mix('admin/assets/js/app.min.js'))}}"></script>
     </body>
 </html>
