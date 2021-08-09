@@ -16,6 +16,18 @@ View::composer('Client.Core.client', function ($view) {
     return $view->with('renderFooter', $renderCore->renderFooter())->with('renderHeader', $renderCore->renderHeader());
 });
 
+View::composer('Admin.core.admin', function ($view) {
+    $modelsMain = config('modelsConfig.InsertModelsMain');
+    return $view->with('modelsMain', $modelsMain);
+});
+
+View::composer('Admin.dashboard', function ($view) {
+    $modelsMain = config('modelsConfig.InsertModelsMain');
+    return $view->with('modelsMain', $modelsMain);
+});
+
+
+
 Route::get('/painel', function(){
     return view('Admin.dashboard');
 })->name('admin.dashboard');

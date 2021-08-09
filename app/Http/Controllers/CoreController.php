@@ -15,6 +15,10 @@ class CoreController extends Controller
 
         $Categories = [];
 
+        // $a = collect($InsertModelsCore->Headers->IncludeCategory);
+
+        // dd($a->count());
+
         if(count(get_object_vars($InsertModelsCore->Headers->IncludeCategory))){
 
             $ModelCategory = $InsertModelsCore->Headers->IncludeCategory->Model;

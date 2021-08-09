@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Topics;
 
 use App\Http\Controllers\Controller;
+use Hamcrest\Arrays\IsArray;
 use Illuminate\Http\Request;
 
 class TOPI01Controller extends Controller
@@ -25,8 +26,10 @@ class TOPI01Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        // $path = explode('/', $request->getPathInfo());
+        // dd(in_array('create', $path));
         return view('Admin.Topics.TOPI01.create');
     }
 

@@ -8,8 +8,8 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="{{url('')}}" class="nav-link px-2 text-white">Home</a></li>
                 @foreach ($listMenu as $menu)
-                    @if (count(get_object_vars($menu->ListMenu)))
-                        <li><a href="{{$menu->ListMenu->Anchor}}" class="nav-link px-2 text-white">{{$menu->ListMenu->Title}}</a></li>
+                    @if ($menu->ViewListMenu)
+                        <li><a href="{{$menu->config->anchorMenu}}" class="nav-link px-2 text-white">{{$menu->config->titleMenu}}</a></li>
                     @endif
                 @endforeach
             </ul>

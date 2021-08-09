@@ -30,9 +30,23 @@ mix
     .scripts('node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js', 'public/admin/assets/libs/jquery.autocomplete.min.js')
     .scripts('node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js', 'public/admin/assets/libs/jquery.bootstrap-touchspin.min.js')
     .scripts('node_modules/bootstrap-maxlength/dist/bootstrap-maxlength.min.js', 'public/admin/assets/libs/bootstrap-maxlength.min.js')
-    // Pages
-    .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
+    .scripts('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js', 'public/admin/assets/libs/bootstrap-datepicker.min.js')
+    .scripts('node_modules/clockpicker/dist/bootstrap-clockpicker.min.js', 'public/admin/assets/libs/bootstrap-clockpicker.min.js')
+    .scripts('node_modules/spectrum-colorpicker2/dist/spectrum.min.js', 'public/admin/assets/libs/spectrum.min.js')
+    .scripts('node_modules/flatpickr/dist/flatpickr.min.js', 'public/admin/assets/libs/flatpickr.min.js')
+    .scripts('node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', 'public/admin/assets/libs/jquery.mask.min.js')
+    .scripts('node_modules/autonumeric/dist/autoNumeric.min.js', 'public/admin/assets/libs/autoNumeric.min.js')
+    .scripts('node_modules/dropzone/dist/min/dropzone.min.js', 'public/admin/assets/libs/dropzone.min.js')
+    .scripts('node_modules/quill/dist/quill.min.js', 'public/admin/assets/libs/quill.min.js')
+    .scripts('node_modules/dropify/dist/js/dropify.min.js', 'public/admin/assets/libs/dropify.min.js')
+
+// Pages
+.scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/admin/assets/js/pages/form-advanced.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/form-pickers.init.js', 'public/admin/assets/js/pages/form-pickers.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/form-masks.init.js', 'public/admin/assets/js/pages/form-masks.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/form-fileuploads.init.js', 'public/admin/assets/js/pages/form-fileuploads.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/add-product.init.js', 'public/admin/assets/js/pages/add-product.init.js')
 
 //CSS
 .styles('resources/views/Admin/assets/css/config/bootstrap.min.css', 'public/admin/assets/css/config/bootstrap.min.css')
@@ -40,13 +54,20 @@ mix
     .styles('resources/views/Admin/assets/css/config/bootstrap-dark.min.css', 'public/admin/assets/css/config/bootstrap-dark.min.css')
     .styles('resources/views/Admin/assets/css/config/app-dark.min.css', 'public/admin/assets/css/config/app-dark.min.css')
     .styles('resources/views/Admin/assets/css/icons.min.css', 'public/admin/assets/css/icons.min.css')
-    .styles([
-        'node_modules/mohithg-switchery/dist/switchery.min.css',
-        'node_modules/multiselect/css/multi-select.css',
-        'node_modules/select2/dist/css/select2.min.css',
-        'node_modules/selectize/dist/css/selectize.bootstrap3.css',
-        'node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css',
-    ], 'public/admin/assets/libs/app.min.css')
+    //Plugins
+    .styles('node_modules/mohithg-switchery/dist/switchery.min.css', 'public/admin/assets/libs/switchery.min.css')
+    .styles('node_modules/multiselect/css/multi-select.css', 'public/admin/assets/libs/multi-select.css')
+    .styles('node_modules/select2/dist/css/select2.min.css', 'public/admin/assets/libs/select2.min.css')
+    .styles('node_modules/selectize/dist/css/selectize.bootstrap3.css', 'public/admin/assets/libs/selectize.bootstrap3.css')
+    .styles('node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css', 'public/admin/assets/libs/jquery.bootstrap-touchspin.min.css')
+    .styles('node_modules/spectrum-colorpicker2/dist/spectrum.min.css', 'public/admin/assets/libs/spectrum.min.css')
+    .styles('node_modules/flatpickr/dist/flatpickr.min.css', 'public/admin/assets/libs/flatpickr.min.css')
+    .styles('node_modules/clockpicker/dist/bootstrap-clockpicker.min.css', 'public/admin/assets/libs/bootstrap-clockpicker.min.css')
+    .styles('node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css', 'public/admin/assets/libs/bootstrap-datepicker.min.css')
+    .styles('node_modules/dropzone/dist/min/dropzone.min.css', 'public/admin/assets/libs/dropzone.min.css')
+    .styles('node_modules/quill/dist/quill.core.css', 'public/admin/assets/libs/quill.core.css')
+    .styles('node_modules/quill/dist/quill.snow.css', 'public/admin/assets/libs/quill.snow.css')
+    .styles('node_modules/dropify/dist/css/dropify.min.css', 'public/admin/assets/libs/dropify.min.css')
 
 //SASS
 .sass('resources/sass/app.scss', 'public/css')
@@ -55,5 +76,6 @@ mix
 .autoload({
         'jquery': ['$', 'window.jQuery', 'jQuery']
     })
-    .sourceMaps()
+    .copyDirectory('resources/views/Admin/assets/fonts', 'public/admin/assets/fonts')
+    .copyDirectory('resources/views/Admin/assets/images', 'public/admin/assets/images')
     .version()

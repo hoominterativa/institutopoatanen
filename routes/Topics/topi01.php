@@ -2,8 +2,8 @@
 // ADMIN
 // 'middleware' => 'auth:user'
 Route::group(['prefix' => 'painel'], function () {
-    Route::resource('topicos', 'Topics\TOPI01Controller')->names('photos', 'photos')->parameters(['topicos' => 'topics']);
+    Route::resource('topicos', 'Topics\TOPI01Controller')->names('topi01')->parameters(['topicos' => 'topi01']);
 });
 // CLIENT
-Route::get('/topicos', 'Topics\TOPI01Controller@page')->name('photos.page');
-Route::get('/topicos/{topics}', 'Topics\TOPI01Controller@show')->name('photos.show');
+Route::get('/topicos', 'Topics\TOPI01Controller@page')->name('topi01.page');
+Route::get('/topicos/{topics}', 'Topics\TOPI01Controller@show')->name('topi01.show');

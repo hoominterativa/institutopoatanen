@@ -11,7 +11,19 @@
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
         <!-- Plugins css -->
-		<link href="{{url(mix('admin/assets/libs/app.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet"/>
+		<link href="{{url(mix('admin/assets/libs/switchery.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/multi-select.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/select2.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/selectize.bootstrap3.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/jquery.bootstrap-touchspin.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/spectrum.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/flatpickr.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/bootstrap-clockpicker.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/bootstrap-datepicker.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/dropzone.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/quill.core.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/quill.snow.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('admin/assets/libs/dropify.min.css'))}}" rel="stylesheet" type="text/css" />
 
 		<!-- App css -->
 		<link href="{{url(mix('admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
@@ -255,36 +267,20 @@
                                 <i class="mdi mdi-chevron-down"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-briefcase me-1"></i>
-                                    <span>Banner</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-user me-1"></i>
-                                    <span>Tópicos</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-bar-chart-line- me-1"></i>
-                                    <span>Categoria Produtos</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-settings me-1"></i>
-                                    <span>Produtos</span>
-                                </a>
+                                @foreach ($modelsMain as $model)
+                                    <!-- item-->
+                                    <a href="{{route(Str::lower($model->Code).'.create')}}" class="dropdown-item">
+                                        <i class="{{$model->config->iconPanel}} me-1"></i>
+                                        <span>{{$model->config->titlePanel}}</span>
+                                    </a>
+                                @endforeach
 
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">
                                     <i class="fe-headphones me-1"></i>
-                                    <span>Ajuda e Suporte</span>
+                                    <span>Tutoriais</span>
                                 </a>
 
                             </div>
@@ -312,22 +308,14 @@
                                     <span> Dashboard </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#sidebarDashboards" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-view-dashboard-outline"></i>
-                                    <span> Produtos </span>
-                                </a>
-                                <div class="collapse" id="sidebarDashboards">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="index.html">Categorias</a>
-                                        </li>
-                                        <li>
-                                            <a href="dashboard-2.html">Produtos</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                            @foreach ($modelsMain as $model)
+                                <li>
+                                    <a href="{{route(Str::lower($model->Code).'.index')}}">
+                                        <i class="{{$model->config->iconPanel}}"></i>
+                                        <span> {{$model->config->titlePanel}} </span>
+                                    </a>
+                                </li>
+                            @endforeach
 
                             <li class="menu-title mt-2">Suporte</li>
 
@@ -335,6 +323,12 @@
                                 <a href="apps-calendar.html">
                                     <i class="mdi mdi-calendar"></i>
                                     <span> Chamados </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="apps-calendar.html">
+                                    <i class="mdi mdi-calendar"></i>
+                                    <span> Tutoriais </span>
                                 </a>
                             </li>
                         </ul>
@@ -461,20 +455,9 @@
         <!-- Vendor js -->
         <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
 
-        <!-- Plugin js-->
-        <script src="{{url(mix('admin/assets/libs/parsley.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/selectize.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/switchery.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/jquery.multi-select.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/select2.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/jquery.mockjax.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/jquery.autocomplete.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/jquery.bootstrap-touchspin.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/bootstrap-maxlength.min.js'))}}"></script>
-
-        <!-- Validation init js-->
-        <script src="{{url(mix('admin/assets/js/pages/form-validation.init.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/js/pages/form-advanced.init.js'))}}"></script>
+        @stack('createEdit')
+        @stack('index')
+        @stack('dashboard')
 
         <!-- App js -->
         <script src="{{url(mix('admin/assets/js/app.min.js'))}}"></script>
