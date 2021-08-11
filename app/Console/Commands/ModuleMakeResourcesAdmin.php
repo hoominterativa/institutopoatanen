@@ -58,6 +58,9 @@ class ModuleMakeResourcesAdmin extends Command
             if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php')){
                 $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
             }
+            if(copy('defaults/Admin/archive/form.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php')){
+                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php');
+            }
 
         }catch(Exception $e) {
             dd($e->getMessage());

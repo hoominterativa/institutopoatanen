@@ -22,6 +22,7 @@
         "webpack-livereload-plugin": "^3.0.1"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^29.1.0",
         "@fancyapps/ui": "^4.0.0-alpha.4",
         "@popperjs/core": "^2.9.1",
         "admin-resources": "git+https://github.com/coderthemes/admin-resources.git#master",

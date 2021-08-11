@@ -3,18 +3,6 @@ const mix = require('laravel-mix');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 
-
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
-
 mix
 //JS
     .js('resources/js/app.js', 'public/js')
@@ -37,16 +25,17 @@ mix
     .scripts('node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', 'public/admin/assets/libs/jquery.mask.min.js')
     .scripts('node_modules/autonumeric/dist/autoNumeric.min.js', 'public/admin/assets/libs/autoNumeric.min.js')
     .scripts('node_modules/dropzone/dist/min/dropzone.min.js', 'public/admin/assets/libs/dropzone.min.js')
-    .scripts('node_modules/quill/dist/quill.min.js', 'public/admin/assets/libs/quill.min.js')
+    // .scripts('node_modules/quill/dist/quill.min.js', 'public/admin/assets/libs/quill.min.js')
     .scripts('node_modules/dropify/dist/js/dropify.min.js', 'public/admin/assets/libs/dropify.min.js')
-
-// Pages
-.scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
+    .scripts('resources/views/Admin/assets/js/libs/ckeditor.js', 'public/admin/assets/libs/ckeditor.js')
+    // Pages
+    .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/admin/assets/js/pages/form-advanced.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-pickers.init.js', 'public/admin/assets/js/pages/form-pickers.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-masks.init.js', 'public/admin/assets/js/pages/form-masks.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-fileuploads.init.js', 'public/admin/assets/js/pages/form-fileuploads.init.js')
     .scripts('resources/views/Admin/assets/js/pages/add-product.init.js', 'public/admin/assets/js/pages/add-product.init.js')
+    .js('resources/views/Admin/assets/js/pages/ckeditor.init.js', 'public/admin/assets/js/pages/ckeditor.init.js')
 
 //CSS
 .styles('resources/views/Admin/assets/css/config/bootstrap.min.css', 'public/admin/assets/css/config/bootstrap.min.css')
@@ -54,6 +43,7 @@ mix
     .styles('resources/views/Admin/assets/css/config/bootstrap-dark.min.css', 'public/admin/assets/css/config/bootstrap-dark.min.css')
     .styles('resources/views/Admin/assets/css/config/app-dark.min.css', 'public/admin/assets/css/config/app-dark.min.css')
     .styles('resources/views/Admin/assets/css/icons.min.css', 'public/admin/assets/css/icons.min.css')
+    .styles('resources/views/Admin/assets/css/custom.css', 'public/admin/assets/css/custom.css')
     //Plugins
     .styles('node_modules/mohithg-switchery/dist/switchery.min.css', 'public/admin/assets/libs/switchery.min.css')
     .styles('node_modules/multiselect/css/multi-select.css', 'public/admin/assets/libs/multi-select.css')
@@ -78,4 +68,5 @@ mix
     })
     .copyDirectory('resources/views/Admin/assets/fonts', 'public/admin/assets/fonts')
     .copyDirectory('resources/views/Admin/assets/images', 'public/admin/assets/images')
+    .copyDirectory('node_modules/@ckeditor/ckeditor5-build-classic/build/translations', 'public/admin/assets/libs/translations')
     .version()

@@ -1,4 +1,5 @@
 {
+    "/admin/assets/js/pages/ckeditor.init.js": "/admin/assets/js/pages/ckeditor.init.js?id=929bc9e1e9f711017908",
     "/js/app.js": "/js/app.js?id=1b161ced1acc0830cdf4",
     "/css/app.css": "/css/app.css?id=e984e0303864008c3e9b",
     "/admin/assets/js/app.min.js": "/admin/assets/js/app.min.js?id=9dc73f92b6d9aa4cda0d",
@@ -19,8 +20,8 @@
     "/admin/assets/libs/jquery.mask.min.js": "/admin/assets/libs/jquery.mask.min.js?id=cc290e6c3aeecf5021dd",
     "/admin/assets/libs/autoNumeric.min.js": "/admin/assets/libs/autoNumeric.min.js?id=56c900e55e91489be7d7",
     "/admin/assets/libs/dropzone.min.js": "/admin/assets/libs/dropzone.min.js?id=8f6882006d5e07e59635",
-    "/admin/assets/libs/quill.min.js": "/admin/assets/libs/quill.min.js?id=929349222da793a2128c",
     "/admin/assets/libs/dropify.min.js": "/admin/assets/libs/dropify.min.js?id=c33a6db4b01955bf1dc4",
+    "/admin/assets/libs/ckeditor.js": "/admin/assets/libs/ckeditor.js?id=e9662124c4e62b6ae5c2",
     "/admin/assets/js/pages/form-validation.init.js": "/admin/assets/js/pages/form-validation.init.js?id=8acea4cc2bf72737036c",
     "/admin/assets/js/pages/form-advanced.init.js": "/admin/assets/js/pages/form-advanced.init.js?id=1903a22ba2bc7cfe4e14",
     "/admin/assets/js/pages/form-pickers.init.js": "/admin/assets/js/pages/form-pickers.init.js?id=f19ad0220616a0a874af",
@@ -32,6 +33,7 @@
     "/admin/assets/css/config/bootstrap-dark.min.css": "/admin/assets/css/config/bootstrap-dark.min.css?id=fdbdc52cf5b6c3a64cf9",
     "/admin/assets/css/config/app-dark.min.css": "/admin/assets/css/config/app-dark.min.css?id=881cca65794ab2109386",
     "/admin/assets/css/icons.min.css": "/admin/assets/css/icons.min.css?id=5f1e81188f2df87896c5",
+    "/admin/assets/css/custom.css": "/admin/assets/css/custom.css?id=c9ce536e8012f9137959",
     "/admin/assets/libs/switchery.min.css": "/admin/assets/libs/switchery.min.css?id=3d5c5f2d195cad6c3658",
     "/admin/assets/libs/multi-select.css": "/admin/assets/libs/multi-select.css?id=d7a849bc0030c15f4b89",
     "/admin/assets/libs/select2.min.css": "/admin/assets/libs/select2.min.css?id=9f54e6414f87e0d14b9e",

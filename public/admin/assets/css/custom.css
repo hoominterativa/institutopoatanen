@@ -1,0 +1,9 @@
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
+.ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    height: 200px;
+    color: #181818;
+}
+
+.dropify-wrapper .dropify-message span p {
+    font-size: 16px !important;
+}

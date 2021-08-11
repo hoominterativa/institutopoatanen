@@ -10,20 +10,7 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
-        <!-- Plugins css -->
-		<link href="{{url(mix('admin/assets/libs/switchery.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/multi-select.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/select2.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/selectize.bootstrap3.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/jquery.bootstrap-touchspin.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/spectrum.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/flatpickr.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/bootstrap-clockpicker.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/bootstrap-datepicker.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/dropzone.min.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/quill.core.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/quill.snow.css'))}}" rel="stylesheet" type="text/css" />
-		<link href="{{url(mix('admin/assets/libs/dropify.min.css'))}}" rel="stylesheet" type="text/css" />
+        @stack('createEditCss')
 
 		<!-- App css -->
 		<link href="{{url(mix('admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
@@ -455,9 +442,9 @@
         <!-- Vendor js -->
         <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
 
-        @stack('createEdit')
-        @stack('index')
-        @stack('dashboard')
+        @stack('createEditJs')
+        @stack('indexJs')
+        @stack('dashboardJs')
 
         <!-- App js -->
         <script src="{{url(mix('admin/assets/js/app.min.js'))}}"></script>
