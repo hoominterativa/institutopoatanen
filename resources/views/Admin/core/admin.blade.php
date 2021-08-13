@@ -6,11 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
         @stack('createEditCss')
+        @stack('indexCss')
+        @stack('dashboardCss')
 
 		<!-- App css -->
 		<link href="{{url(mix('admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
@@ -21,6 +24,9 @@
 
 		<!-- icons -->
 		<link href="{{url(mix('admin/assets/css/icons.min.css'))}}" rel="stylesheet" type="text/css" />
+
+        <!-- Custom -->
+        <link href="{{url(mix('admin/assets/css/custom.css'))}}" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -266,7 +272,7 @@
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-headphones me-1"></i>
+                                    <i class="mdi mdi-help-box"></i>
                                     <span>Tutoriais</span>
                                 </a>
 
@@ -308,13 +314,13 @@
 
                             <li>
                                 <a href="apps-calendar.html">
-                                    <i class="mdi mdi-calendar"></i>
+                                    <i class="mdi mdi-headphones"></i>
                                     <span> Chamados </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="apps-calendar.html">
-                                    <i class="mdi mdi-calendar"></i>
+                                    <i class="mdi mdi-help-box"></i>
                                     <span> Tutoriais </span>
                                 </a>
                             </li>
@@ -448,5 +454,6 @@
 
         <!-- App js -->
         <script src="{{url(mix('admin/assets/js/app.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/js/custom.js'))}}"></script>
     </body>
 </html>

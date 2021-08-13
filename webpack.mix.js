@@ -8,6 +8,7 @@ mix
     .js('resources/js/app.js', 'public/js')
     .scripts('resources/views/Admin/assets/js/app.min.js', 'public/admin/assets/js/app.min.js')
     .scripts('resources/views/Admin/assets/js/vendor.min.js', 'public/admin/assets/js/vendor.min.js')
+    .scripts('resources/views/Admin/assets/js/custom.js', 'public/admin/assets/js/custom.js')
     // plugins
     .scripts('node_modules/parsleyjs/dist/parsley.min.js', 'public/admin/assets/libs/parsley.min.js')
     .scripts('node_modules/selectize/dist/js/selectize.min.js', 'public/admin/assets/libs/selectize.min.js')
@@ -25,9 +26,11 @@ mix
     .scripts('node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', 'public/admin/assets/libs/jquery.mask.min.js')
     .scripts('node_modules/autonumeric/dist/autoNumeric.min.js', 'public/admin/assets/libs/autoNumeric.min.js')
     .scripts('node_modules/dropzone/dist/min/dropzone.min.js', 'public/admin/assets/libs/dropzone.min.js')
-    // .scripts('node_modules/quill/dist/quill.min.js', 'public/admin/assets/libs/quill.min.js')
     .scripts('node_modules/dropify/dist/js/dropify.min.js', 'public/admin/assets/libs/dropify.min.js')
     .scripts('resources/views/Admin/assets/js/libs/ckeditor.js', 'public/admin/assets/libs/ckeditor.js')
+    .scripts('node_modules/bootstrap-table/dist/bootstrap-table.min.js', 'public/admin/assets/libs/bootstrap-table.min.js')
+    .scripts('node_modules/jquery-tabledit/jquery.tabledit.min.js', 'public/admin/assets/libs/jquery.tabledit.min.js')
+    .scripts('node_modules/sweetalert2/dist/sweetalert2.all.min.js', 'public/admin/assets/libs/sweetalert2.all.min.js')
     // Pages
     .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/admin/assets/js/pages/form-advanced.init.js')
@@ -35,7 +38,9 @@ mix
     .scripts('resources/views/Admin/assets/js/pages/form-masks.init.js', 'public/admin/assets/js/pages/form-masks.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-fileuploads.init.js', 'public/admin/assets/js/pages/form-fileuploads.init.js')
     .scripts('resources/views/Admin/assets/js/pages/add-product.init.js', 'public/admin/assets/js/pages/add-product.init.js')
-    .js('resources/views/Admin/assets/js/pages/ckeditor.init.js', 'public/admin/assets/js/pages/ckeditor.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/ckeditor.init.js', 'public/admin/assets/js/pages/ckeditor.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/bootstrap-tables.init.js', 'public/admin/assets/js/pages/bootstrap-tables.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/tabledit.init.js', 'public/admin/assets/js/pages/tabledit.init.js')
 
 //CSS
 .styles('resources/views/Admin/assets/css/config/bootstrap.min.css', 'public/admin/assets/css/config/bootstrap.min.css')
@@ -58,6 +63,8 @@ mix
     .styles('node_modules/quill/dist/quill.core.css', 'public/admin/assets/libs/quill.core.css')
     .styles('node_modules/quill/dist/quill.snow.css', 'public/admin/assets/libs/quill.snow.css')
     .styles('node_modules/dropify/dist/css/dropify.min.css', 'public/admin/assets/libs/dropify.min.css')
+    .styles('node_modules/bootstrap-table/dist/bootstrap-table.min.css', 'public/admin/assets/libs/bootstrap-table.min.css')
+    .styles('node_modules/sweetalert2/dist/sweetalert2.min.css', 'public/admin/assets/libs/sweetalert2.min.css')
 
 //SASS
 .sass('resources/sass/app.scss', 'public/css')

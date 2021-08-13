@@ -13,7 +13,6 @@
     <link href="{{url(mix('admin/assets/libs/quill.core.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/quill.snow.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/dropify.min.css'))}}" rel="stylesheet" type="text/css" />
-    <link href="{{url(mix('admin/assets/css/custom.css'))}}" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('createEditJs')

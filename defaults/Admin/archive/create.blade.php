@@ -27,5 +27,5 @@
             </div> <!-- container -->
         </div> <!-- content -->
     </div>
-    @include('Admin.components.links.resources')
+    @include('Admin.components.links.resourcesCreateEdit')
 @endsection

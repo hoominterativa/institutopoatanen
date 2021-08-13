@@ -46,10 +46,5 @@
         </div> <!-- content -->
 
     </div>
-
-    {{-- <main id="root">
-        @foreach ($sections as $section)
-            {{$section}}
-        @endforeach
-    </main> --}}
+    @include('Admin.components.links.resourcesIndex')
 @endsection

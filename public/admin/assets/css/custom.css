@@ -7,3 +7,16 @@
 .dropify-wrapper .dropify-message span p {
     font-size: 16px !important;
 }
+
+.btn-icon {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 22px;
+    color: #98a6ad;
+}
+
+.btn-icon:hover {
+    color: #fff;
+    text-decoration: none;
+}

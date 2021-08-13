@@ -51,12 +51,7 @@ class ModuleMake extends Command
             $this->info('Folder created '.$pathAdmin);
             $this->info('Folder created '.$pathClient);
 
-            Artisan::call('make:model '.$arguments['module']);
-            $migration = "create_".strtolower($arguments['module'])."_table";
-            Artisan::call('make:migration '.$migration);
-            $this->info('Migration created '.$migration);
-            Artisan::call('make:seeder '.$arguments['module'].'Seeder');
-            $this->info('Seeder created '.$arguments['module'].'Seeder');
+            Artisan::call('make:model '.$arguments['module'].' -msf');
 
             $this->info('Module Created successful!');
         }catch(Exception $e) {

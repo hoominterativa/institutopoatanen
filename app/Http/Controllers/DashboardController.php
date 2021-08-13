@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Teste;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Response;
 
 class DashboardController extends Controller
 {
@@ -13,7 +16,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        Artisan::call('make:factory TesteFactory --model=Teste');
+        return view('Admin.dashboard');
     }
 
     /**
@@ -79,6 +83,7 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
+
 }
