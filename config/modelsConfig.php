@@ -24,10 +24,10 @@ return [
         //     'Code' => 'TOPI01',
         //     'ViewHome' => true,
         //     'config' => (object) [
-        //         'TitleMenu' => 'Tópicos',
-        //         'AnchorMenu' => 'javascript:void(0)',
+        //         'titleMenu' => 'Tópicos',
+        //         'anchorMenu' => 'javascript:void(0)',
         //         'iconMenu' => '',
-        //         'TitlePanel' => 'Tópicos',
+        //         'titlePanel' => 'Tópicos',
         //         'iconPanel' => ''
         //     ],
         //     'IncludeSections' => (object) []

@@ -18,13 +18,13 @@
                 <div class="row">
                     @foreach ($modelsMain as $model)
                         <div class="col-md-6 col-xl-3">
-                            <a nofollow href="{{route(Str::lower($model->Code).'.index')}}">
+                            <a nofollow href="{{route('admin.'.Str::lower($model->Code).'.index')}}">
                                 <div class="widget-rounded-circle card">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} font-24 avatar-title text-dark"></i>
+                                                    <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">

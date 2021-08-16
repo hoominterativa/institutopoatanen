@@ -1,9 +1,9 @@
 <?php
 // ADMIN
 Route::group(['prefix' => 'painel', 'middleware' => 'auth:user'], function () {
-    Route::resource('photos', 'Topics\TOPI01Controller')->names('admin.photos')->parameters(['photos' => 'photos']);
-    Route::post('photos/delete', 'Topics\TOPI01Controller@destroySelected')->name('admin.photos.destroySelected');
+    Route::resource('testes', 'Test\TEST01Controller')->names('admin.test01')->parameters(['testes' => 'test01']);
+    Route::post('testes/delete', 'Test\TEST01Controller@destroySelected')->name('admin.test01.destroySelected');
 });
 // CLIENT
-Route::get('/photos', 'Topics\TOPI01Controller@page')->name('photos.page');
-Route::get('/photos/{photos}', 'Topics\TOPI01Controller@show')->name('photos.show');
+Route::get('/testes', 'Test\TEST01Controller@page')->name('test01.page');
+Route::get('/testes/{test01}', 'Test\TEST01Controller@show')->name('test01.show');

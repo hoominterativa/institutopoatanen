@@ -262,8 +262,8 @@
                             <div class="dropdown-menu">
                                 @foreach ($modelsMain as $model)
                                     <!-- item-->
-                                    <a href="{{route(Str::lower($model->Code).'.create')}}" class="dropdown-item">
-                                        <i class="{{$model->config->iconPanel}} me-1"></i>
+                                    <a href="{{route('admin.'.Str::lower($model->Code).'.create')}}" class="dropdown-item">
+                                        <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
                                         <span>{{$model->config->titlePanel}}</span>
                                     </a>
                                 @endforeach
@@ -303,8 +303,8 @@
                             </li>
                             @foreach ($modelsMain as $model)
                                 <li>
-                                    <a href="{{route(Str::lower($model->Code).'.index')}}">
-                                        <i class="{{$model->config->iconPanel}}"></i>
+                                    <a href="{{route('admin.'.Str::lower($model->Code).'.index')}}">
+                                        <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
                                         <span> {{$model->config->titlePanel}} </span>
                                     </a>
                                 </li>
