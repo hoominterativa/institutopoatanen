@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoreController;
@@ -16,12 +17,12 @@ View::composer('Client.Core.client', function ($view) {
 });
 
 View::composer('Admin.core.admin', function ($view) {
-    $modelsMain = config('modelsConfig.InsertModelsMain');
+    $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     return $view->with('modelsMain', $modelsMain);
 });
 
 View::composer('Admin.dashboard', function ($view) {
-    $modelsMain = config('modelsConfig.InsertModelsMain');
+    $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     return $view->with('modelsMain', $modelsMain);
 });
 
@@ -29,9 +30,9 @@ Route::get('/painel', 'DashboardController@index')->name('admin.dashboard');
 Route::get('/', 'HomePageController@index')->name('home');
 
 // INSERT ROUTES
-// $modelsMain = config('modelsConfig.InsertModelsMain');
-// foreach ($modelsMain as $module => $model) {
-//     $modelLw = Str::lower($model->Code);
-//     include_once "{$module}/{$modelLw}.php";
-// }
+$modelsMain = config('modelsConfig.InsertModelsMain');
+foreach ($modelsMain as $module => $model) {
+    $modelLw = Str::lower($model->Code);
+    include_once "{$module}/{$modelLw}.php";
+}
 

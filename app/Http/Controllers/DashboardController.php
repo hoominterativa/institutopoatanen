@@ -16,7 +16,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        Artisan::call('make:factory TesteFactory --model=Teste');
         return view('Admin.dashboard');
     }
 

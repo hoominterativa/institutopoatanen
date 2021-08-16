@@ -6,64 +6,64 @@ use Illuminate\Http\Request;
 
 class CoreController extends Controller
 {
-    public static function renderHeader()
+    protected $InsertModelsCore;
+    protected $Models;
+    protected $InsertModelsMain;
+
+    public function __construct()
     {
+        $this->InsertModelsCore = config('modelsConfig.InsertModelsCore');
+        $this->Models = config('modelsConfig.Models');
+        $this->InsertModelsMain = config('modelsConfig.InsertModelsMain');
+    }
 
-        $InsertModelsCore = config('modelsConfig.InsertModelsCore');
-        $Models = config('modelsConfig.Models');
-        $InsertModelsMain = config('modelsConfig.InsertModelsMain');
 
+    public function renderHeader()
+    {
         $Categories = [];
 
-        // $a = collect($InsertModelsCore->Headers->IncludeCategory);
+        if(count(get_object_vars($this->InsertModelsCore->Headers->IncludeCategory))){
 
-        // dd($a->count());
-
-        if(count(get_object_vars($InsertModelsCore->Headers->IncludeCategory))){
-
-            $ModelCategory = $InsertModelsCore->Headers->IncludeCategory->Model;
-            $LimitCategory = $InsertModelsCore->Headers->IncludeCategory->Limit;
-            $ModelClass = $Models->$ModelCategory->Model;
+            $ModelCategory = $this->InsertModelsCore->Headers->IncludeCategory->Model;
+            $LimitCategory = $this->InsertModelsCore->Headers->IncludeCategory->Limit;
+            $ModelClass = $this->Models->$ModelCategory->Model;
 
             $Categories = $ModelClass::limit($LimitCategory)->get();
 
-            if(count(get_object_vars($InsertModelsCore->Headers->IncludeSubcategory))){
-                $ModelSubcategory = $InsertModelsCore->Headers->IncludeSubcategory->Model;
+            if(count(get_object_vars($this->InsertModelsCore->Headers->IncludeSubcategory))){
+                $ModelSubcategory = $this->InsertModelsCore->Headers->IncludeSubcategory->Model;
                 $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
             }
         }
 
-        return view('Client.Core.Headers.'.$InsertModelsCore->Headers->Code.'.app', [
+        return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
             'categoryHeader' => $Categories,
-            'listMenu' => $InsertModelsMain
+            'listMenu' => $this->InsertModelsMain
         ]);
     }
 
-    public static function renderFooter()
+    public function renderFooter()
     {
-        $InsertModelsCore = config('modelsConfig.InsertModelsCore');
-        $Models = config('modelsConfig.Models');
-        $InsertModelsMain = config('modelsConfig.InsertModelsMain');
 
         $Categories = [];
 
-        if(count(get_object_vars($InsertModelsCore->Footers->IncludeCategory))){
+        if(count(get_object_vars($this->InsertModelsCore->Footers->IncludeCategory))){
 
-            $ModelCategory = $InsertModelsCore->Footers->IncludeCategory->Model;
-            $LimitCategory = $InsertModelsCore->Footers->IncludeCategory->Limit;
-            $ModelClass = $Models->$ModelCategory->Model;
+            $ModelCategory = $this->InsertModelsCore->Footers->IncludeCategory->Model;
+            $LimitCategory = $this->InsertModelsCore->Footers->IncludeCategory->Limit;
+            $ModelClass = $this->Models->$ModelCategory->Model;
 
             $Categories = $ModelClass::limit($LimitCategory)->get();
 
-            if(count(get_object_vars($InsertModelsCore->Footers->IncludeSubcategory))){
-                $ModelSubcategory = $InsertModelsCore->Footers->IncludeSubcategory->Model;
+            if(count(get_object_vars($this->InsertModelsCore->Footers->IncludeSubcategory))){
+                $ModelSubcategory = $this->InsertModelsCore->Footers->IncludeSubcategory->Model;
                 $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
             }
         }
 
-        return view('Client.Core.Footers.'.$InsertModelsCore->Footers->Code.'.app', [
+        return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
             'categoryFooter' => $Categories,
-            'listMenu' => $InsertModelsMain
+            'listMenu' => $this->InsertModelsMain
         ]);
         // return view('Client.Core.Footers.FT001');
     }
