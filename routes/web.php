@@ -4,6 +4,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoreController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +28,8 @@ View::composer('Admin.dashboard', function ($view) {
     return $view->with('modelsMain', $modelsMain);
 });
 
-Route::get('/painel', 'DashboardController@index')->name('admin.dashboard');
-Route::get('/', 'HomePageController@index')->name('home');
+Route::get('/painel', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/', [HomePageController::class ,'index'])->name('home');
 
 // INSERT ROUTES
 $modelsMain = config('modelsConfig.InsertModelsMain');
