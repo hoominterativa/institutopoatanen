@@ -1,101 +1,17 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ({
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/@fancyapps/ui/src/Carousel/Carousel.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Carousel/Carousel.js ***!
   \*************************************************************/
-/*! exports provided: Carousel */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Carousel", function() { return Carousel; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Carousel": () => (/* binding */ Carousel)
+/* harmony export */ });
 /* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
 /* harmony import */ var _Panzoom_Panzoom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Panzoom/Panzoom.js */ "./node_modules/@fancyapps/ui/src/Panzoom/Panzoom.js");
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
@@ -124,7 +40,10 @@ const defaults = {
   slidesPerPage: "auto",
 
   // Index of initial page
-  initialPage: 0,
+  initialPage: null,
+
+  // Index of initial slide
+  initialSlide: null,
 
   // Panzoom friction while changing page
   friction: 0.92,
@@ -141,10 +60,12 @@ const defaults = {
   // Should Carousel settle at any position after a swipe.
   dragFree: false,
 
+  // Customizable class names for DOM elements
   classNames: {
     viewport: "carousel__viewport",
     track: "carousel__track",
     slide: "carousel__slide",
+
     // Classname toggled for slides inside current page
     slideSelected: "is-selected",
   },
@@ -157,29 +78,39 @@ const defaults = {
   },
 };
 
-class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"] {
+class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
   /**
    * Carousel constructor
    * @constructs Carousel
-   * @param {HTMLElement} $element - Carousel container
+   * @param {HTMLElement} $container - Carousel container
    * @param {Object} [options] - Options for Carousel
    */
-  constructor($element, options = {}) {
-    options = Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_2__["extend"])(true, {}, defaults, options);
+  constructor($container, options = {}) {
+    options = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_2__.extend)(true, {}, defaults, options);
 
     super(options);
 
     this.state = "init";
 
-    this.$element = $element;
+    this.$container = $container;
 
-    $element.Carousel = this;
+    if (!(this.$container instanceof HTMLElement)) {
+      throw new Error("No root element provided");
+    }
 
+    this.slideNext = (0,_shared_utils_throttle_js__WEBPACK_IMPORTED_MODULE_4__.throttle)(this.slideNext.bind(this), 250, true);
+    this.slidePrev = (0,_shared_utils_throttle_js__WEBPACK_IMPORTED_MODULE_4__.throttle)(this.slidePrev.bind(this), 250, true);
+
+    this.init();
+  }
+
+  /**
+   * Perform initialization
+   */
+  init() {
+    this.pages = [];
     this.page = this.pageIndex = null;
     this.prevPage = this.prevPageIndex = null;
-
-    this.slideNext = Object(_shared_utils_throttle_js__WEBPACK_IMPORTED_MODULE_4__["throttle"])(this.slideNext.bind(this), 250, true);
-    this.slidePrev = Object(_shared_utils_throttle_js__WEBPACK_IMPORTED_MODULE_4__["throttle"])(this.slidePrev.bind(this), 250, true);
 
     this.attachPlugins(Carousel.Plugins);
 
@@ -188,6 +119,12 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
     this.initLayout();
 
     this.initSlides();
+
+    this.updateMetrics();
+
+    this.$track.style.transform = `translate3d(${this.pages[this.page].left * -1}px, 0px, 0) scale(1)`;
+
+    this.manageSlideVisiblity();
 
     this.initPanzoom();
 
@@ -200,24 +137,20 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
    * Initialize layout; create necessary elements
    */
   initLayout() {
-    if (!(this.$element instanceof HTMLElement)) {
-      throw new Error("No root element provided");
-    }
-
     const classNames = this.option("classNames");
 
-    this.$viewport = this.option("viewport") || this.$element.querySelector("." + classNames.viewport);
+    this.$viewport = this.option("viewport") || this.$container.querySelector("." + classNames.viewport);
 
     if (!this.$viewport) {
       this.$viewport = document.createElement("div");
       this.$viewport.classList.add(classNames.viewport);
 
-      this.$viewport.append(...this.$element.childNodes);
+      this.$viewport.append(...this.$container.childNodes);
 
-      this.$element.appendChild(this.$viewport);
+      this.$container.appendChild(this.$viewport);
     }
 
-    this.$track = this.option("track") || this.$element.querySelector("." + classNames.track);
+    this.$track = this.option("track") || this.$container.querySelector("." + classNames.track);
 
     if (!this.$track) {
       this.$track = document.createElement("div");
@@ -252,226 +185,335 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
     // Add virtual slides, but do not create DOM elements yet,
     // because they will be created dynamically based on current carousel position
     if (Array.isArray(this.options.slides)) {
-      this.slides = Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_2__["extend"])(true, [...this.slides], this.options.slides);
+      this.slides = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_2__.extend)(true, [...this.slides], this.options.slides);
     }
   }
 
   /**
-   * Recalculate and center current page
+   * Do all calculations related to slide size and paging
    */
-  updatePage() {
+  updateMetrics() {
+    // Calculate content width, viewport width
+    // ===
+    let contentWidth = 0;
+    let indexes = [];
+    let lastSlideWidth;
+
+    this.slides.forEach((slide, index) => {
+      const $el = slide.$el;
+      const slideWidth = slide.isDom || !lastSlideWidth ? this.getSlideMetrics($el) : lastSlideWidth;
+
+      slide.index = index;
+      slide.width = slideWidth;
+      slide.left = contentWidth;
+
+      lastSlideWidth = slideWidth;
+      contentWidth += slideWidth;
+
+      indexes.push(index);
+    });
+
+    let viewportWidth = Math.max(this.$track.offsetWidth, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__.round)(this.$track.getBoundingClientRect().width));
+
+    let viewportStyles = window.getComputedStyle(this.$track);
+    viewportWidth = viewportWidth - (parseFloat(viewportStyles.paddingLeft) + parseFloat(viewportStyles.paddingRight));
+
+    this.contentWidth = contentWidth;
+    this.viewportWidth = viewportWidth;
+
+    // Split slides into pages
+    // ===
+    const pages = [];
+    const slidesPerPage = this.option("slidesPerPage");
+
+    if (Number.isInteger(slidesPerPage) && contentWidth > viewportWidth) {
+      // Fixed number of slides in the page
+      for (let i = 0; i < this.slides.length; i += slidesPerPage) {
+        pages.push({
+          indexes: indexes.slice(i, i + slidesPerPage),
+          slides: this.slides.slice(i, i + slidesPerPage),
+        });
+      }
+    } else {
+      // Slides that fit inside viewport
+      let currentPage = 0;
+      let currentWidth = 0;
+
+      for (let i = 0; i < this.slides.length; i += 1) {
+        let slide = this.slides[i];
+
+        // Add next page
+        if (!pages.length || currentWidth + slide.width > viewportWidth) {
+          pages.push({
+            indexes: [],
+            slides: [],
+          });
+
+          currentPage = pages.length - 1;
+          currentWidth = 0;
+        }
+
+        currentWidth += slide.width;
+
+        pages[currentPage].indexes.push(i);
+        pages[currentPage].slides.push(slide);
+      }
+    }
+
+    const shouldCenter = this.option("center");
+    const shouldFill = this.option("fill");
+
+    // Calculate width and start position for each page
+    // ===
+    pages.forEach((page, index) => {
+      page.index = index;
+      page.width = page.slides.reduce((sum, slide) => sum + slide.width, 0);
+
+      page.left = page.slides[0].left;
+
+      if (shouldCenter) {
+        page.left += (viewportWidth - page.width) * 0.5 * -1;
+      }
+
+      if (shouldFill && !this.option("infiniteX", this.option("infinite")) && contentWidth > viewportWidth) {
+        page.left = Math.max(page.left, 0);
+        page.left = Math.min(page.left, contentWidth - viewportWidth);
+      }
+    });
+
+    // Merge pages
+    // ===
+    const rez = [];
+    let prevPage;
+
+    pages.forEach((page2) => {
+      const page = { ...page2 };
+
+      if (prevPage && page.left === prevPage.left) {
+        prevPage.width += page.width;
+
+        prevPage.slides = [...prevPage.slides, ...page.slides];
+        prevPage.indexes = [...prevPage.indexes, ...page.indexes];
+      } else {
+        page.index = rez.length;
+
+        prevPage = page;
+
+        rez.push(page);
+      }
+    });
+
+    this.pages = rez;
+
     let page = this.page;
 
     if (page === null) {
-      page = this.page = this.option("initialPage");
+      const initialSlide = this.option("initialSlide");
+
+      if (initialSlide !== null) {
+        page = this.findPageForSlide(initialSlide);
+      } else {
+        page = this.option("initialPage", 0);
+      }
+
+      if (!rez[page]) {
+        page = rez.length && page > rez.length ? rez[rez.length - 1].index : 0;
+      }
+
+      this.page = page;
+      this.pageIndex = page;
     }
 
-    this.updateMetrics();
+    this.updatePanzoom();
 
-    const pages = this.pages;
-
-    if (!pages[page]) {
-      page = pages.length ? pages[pages.length - 1].index : 0;
-    }
-
-    this.slideTo(page, { friction: 0 });
+    this.trigger("refresh");
   }
 
   /**
-   * Tweak panzoom boundaries
+   * Calculate slide element width (including left, right margins)
+   * @param {Object} node
+   * @returns {Number} Width in px
    */
-  updateBounds() {
-    let panzoom = this.Panzoom;
+  getSlideMetrics(node) {
+    if (!node) {
+      const firstSlide = this.slides[0];
 
-    // Enable `infinite` options
-    const infinite = this.option("infinite");
+      node = document.createElement("div");
 
-    const infiniteX = this.option("infiniteX", infinite);
-    const infiniteY = this.option("infiniteY", infinite);
+      node.dataset.isTestEl = 1;
+      node.style.visibility = "hidden";
+      node.classList.add(this.option("classNames.slide"));
 
-    if (infiniteX) {
-      panzoom.boundX = null;
+      // Assume all slides have the same custom class, if any
+      if (firstSlide.customClass) {
+        node.classList.add(...firstSlide.customClass.split(" "));
+      }
+
+      this.$track.prepend(node);
     }
 
-    if (infiniteY) {
-      panzoom.boundY = null;
+    let width = Math.max(node.offsetWidth, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__.round)(node.getBoundingClientRect().width));
+
+    // Add left/right margin
+    const style = node.currentStyle || window.getComputedStyle(node);
+    width = width + (parseFloat(style.marginLeft) || 0) + (parseFloat(style.marginRight) || 0);
+
+    if (node.dataset.isTestEl) {
+      node.remove();
     }
 
-    if (infiniteX || infiniteY) {
+    return width;
+  }
+
+  /**
+   *
+   * @param {Integer} index Index of the slide
+   * @returns {Integer|null} Index of the page if found, or null
+   */
+  findPageForSlide(index) {
+    const page = this.pages.find((page) => {
+      return page.indexes.indexOf(index) > -1;
+    });
+
+    return page ? page.index : null;
+  }
+
+  /**
+   * Slide to next page, if possible
+   */
+  slideNext() {
+    this.slideTo(this.pageIndex + 1);
+  }
+
+  /**
+   * Slide to previous page, if possible
+   */
+  slidePrev() {
+    this.slideTo(this.pageIndex - 1);
+  }
+
+  /**
+   * Slides carousel to given page
+   * @param {Number} page - New index of active page
+   * @param {Object} [params] - Additional options
+   */
+  slideTo(page, params = {}) {
+    const { x = this.setPage(page, true) * -1, y = 0, friction = this.option("friction") } = params;
+
+    if (this.Panzoom.content.x === x && !this.Panzoom.velocity.x && friction) {
       return;
     }
 
-    // if (this.option("center") && !this.option("fill")) {
-    panzoom.boundX = {
-      from: this.pages[this.pages.length - 1].left * -1,
-      to: this.pages[0].left * -1,
-    };
-    // }
+    this.Panzoom.panTo({
+      x,
+      y,
+      friction,
+      ignoreBounds: true,
+    });
+
+    if (this.state === "ready" && this.Panzoom.state === "ready") {
+      this.trigger("settle");
+    }
   }
 
+  /**
+   * Initialise main Panzoom instance
+   */
   initPanzoom() {
+    if (this.Panzoom) {
+      this.Panzoom.destroy();
+    }
+
     // Create fresh object containing options for Pazoom instance
-    const options = Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_2__["extend"])(
+    const options = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_2__.extend)(
       true,
       {},
       {
         // Track element will be set as Panzoom $content
         content: this.$track,
+        wrapInner: false,
+        resizeParent: false,
 
         // Disable any user interaction
+        zoom: false,
         click: false,
-        doubleClick: false,
-        wheel: false,
-        pinchToZoom: false,
 
         // Right now, only horizontal navigation is supported
         lockAxis: "x",
+
+        x: this.pages[this.page].left * -1,
+        centerOnStart: false,
 
         // Make `textSelection` option more easy to customize
         textSelection: () => this.option("textSelection", false),
 
         // Disable dragging if content (e.g. all slides) fits inside viewport
-        panOnlyZoomed: () => this.option("panOnlyZoomed", this.elemDimWidth < this.wrapDimWidth),
-
-        on: {
-          // Bubble events
-          "*": (name, ...details) => this.trigger(`Panzoom.${name}`, ...details),
-
-          // Expose panzoom instance as soon as possible
-          init: (panzoom) => (this.Panzoom = panzoom),
-
-          // The rest of events to be processed
-          updateMetrics: () => {
-            this.updatePage();
-          },
-          updateBounds: () => {
-            this.updateBounds();
-          },
-          beforeTransform: this.onBeforeTransform.bind(this),
-          afterAnimate: this.onAfterAnimate.bind(this),
-          touchEnd: this.onTouchEnd.bind(this),
+        panOnlyZoomed: function () {
+          return this.content.width < this.viewport.width;
         },
       },
       this.option("Panzoom")
     );
 
     // Create new Panzoom instance
-    new _Panzoom_Panzoom_js__WEBPACK_IMPORTED_MODULE_1__["Panzoom"](this.$viewport, options);
-  }
+    this.Panzoom = new _Panzoom_Panzoom_js__WEBPACK_IMPORTED_MODULE_1__.Panzoom(this.$container, options);
 
-  /**
-   * Process `Panzoom.beforeTransform` event to remove slides moved out of viewport and
-   * to create necessary ones
-   */
-  onBeforeTransform() {
-    if (this.option("infiniteX", this.option("infinite"))) {
-      this.manageInfiniteTrack();
-    }
+    this.Panzoom.on({
+      // Bubble events
+      "*": (name, ...details) => this.trigger(`Panzoom.${name}`, ...details),
+      // The rest of events to be processed
+      afterUpdate: () => {
+        this.updatePage();
+      },
+      beforeTransform: this.onBeforeTransform.bind(this),
+      touchEnd: this.onTouchEnd.bind(this),
+      endAnimation: () => {
+        this.trigger("settle");
+      },
+    });
 
+    // The contents of the slides may cause the page scroll bar to appear, so the carousel width may change
+    // and slides have to be repositioned
+    this.updateMetrics();
     this.manageSlideVisiblity();
   }
 
-  /**
-   * Process `Panzoom.afterAnimate` event
-   * @param {Object} panzoom
-   * @param {Boolean} [isInstant=false]
-   */
-  onAfterAnimate(panzoom, isInstant) {
-    // If `isInstant === true` then it means the position is set without any animation
-    if (!isInstant) {
-      this.trigger("settle");
-    }
-  }
-
-  /**
-   * Process `Panzoom.touchEnd` event; slide to next/prev page if needed
-   * @param {object} panzoom
-   */
-  onTouchEnd(panzoom) {
-    const dragFree = this.option("dragFree");
-
-    // If this is a quick horizontal flick, slide to next/prev slide
-    if (
-      !dragFree &&
-      this.pages.length > 1 &&
-      panzoom.drag.elapsedTime < 350 &&
-      Math.abs(panzoom.drag.distanceY) < 1 &&
-      Math.abs(panzoom.drag.distanceX) > 5
-    ) {
-      this[panzoom.drag.distanceX < 0 ? "slideNext" : "slidePrev"]();
+  updatePanzoom() {
+    if (!this.Panzoom) {
       return;
     }
 
-    // Set the slide at the end of the animation as the current one,
-    // or slide to closest page
-    if (dragFree) {
-      const [, nextPageIndex] = this.getPageFromPosition(this.Panzoom.pan.x * -1);
-      this.setPage(nextPageIndex);
+    this.Panzoom.content = {
+      ...this.Panzoom.content,
+      fitWidth: this.contentWidth,
+      origWidth: this.contentWidth,
+      width: this.contentWidth,
+    };
+
+    if (this.pages.length > 1 && this.option("infiniteX", this.option("infinite"))) {
+      this.Panzoom.boundX = null;
     } else {
-      this.slideToClosest();
+      this.Panzoom.boundX = {
+        from: this.pages[this.pages.length - 1].left * -1,
+        to: this.pages[0].left * -1,
+      };
+    }
+
+    if (this.option("infiniteY", this.option("infinite"))) {
+      this.Panzoom.boundY = null;
+    } else {
+      this.Panzoom.boundY = {
+        from: 0,
+        to: 0,
+      };
     }
   }
 
-  /**
-   * Seamlessly flips position of infinite carousel, if needed; this way x position stays low
-   */
-  manageInfiniteTrack() {
-    if (
-      !this.option("infiniteX", this.option("infinite")) ||
-      this.pages.length < 2 ||
-      this.elemDimWidth < this.wrapDimWidth
-    ) {
-      return;
-    }
-
-    const panzoom = this.Panzoom;
-
-    let isFlipped = false;
-
-    if (panzoom.current.x < (panzoom.contentDim.width - panzoom.viewportDim.width) * -1) {
-      panzoom.current.x += panzoom.contentDim.width;
-
-      if (panzoom.drag.firstPosition) {
-        panzoom.drag.firstPosition.x += panzoom.contentDim.width;
-      }
-
-      this.pageIndex = this.pageIndex - this.pages.length;
-
-      isFlipped = true;
-    }
-
-    if (panzoom.current.x > panzoom.viewportDim.width) {
-      panzoom.current.x -= panzoom.contentDim.width;
-
-      if (panzoom.drag.firstPosition) {
-        panzoom.drag.firstPosition.x -= panzoom.contentDim.width;
-      }
-
-      this.pageIndex = this.pageIndex + this.pages.length;
-
-      isFlipped = true;
-    }
-
-    if (isFlipped && panzoom.state === "dragging") {
-      panzoom.resetDragState();
-    }
-
-    return isFlipped;
-  }
-
-  /**
-   * Creates or moves existing slides that are visible or should be preloaded,
-   * removes unnecessary virtual slides
-   */
   manageSlideVisiblity() {
-    const contentWidth = this.elemDimWidth;
-    const viewportWidth = this.wrapDimWidth;
+    const contentWidth = this.contentWidth;
+    const viewportWidth = this.viewportWidth;
 
-    let currentX = this.Panzoom.current.x * -1;
-
-    if (Math.abs(currentX) < 0.1) {
-      currentX = 0;
-    }
+    let currentX = this.Panzoom ? this.Panzoom.content.x * -1 : this.pages[this.page].left;
 
     const preload = this.option("preload");
     const infinite = this.option("infiniteX", this.option("infinite"));
@@ -548,7 +590,6 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
 
       if (slide.$el) {
         if (index !== nextIndex || slide.hasDiff) {
-          //} || slide.hasDiff !== undefined) {
           updatedX = nextPos + slide.hasDiff * contentWidth;
         } else {
           nextPos = 0;
@@ -562,44 +603,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
       }
     });
 
-    // Update content height to avoid double firing of resize event callback
-    this.Panzoom.viewportDim.height = this.Panzoom.$content.clientHeight;
-
     this.markSelectedSlides();
-  }
-
-  /**
-   * Toggles selected class name and aria-hidden attribute for slides based on visibility
-   */
-  markSelectedSlides() {
-    const selectedClass = this.option("classNames.slideSelected");
-    const attr = "aria-hidden";
-
-    this.slides.forEach((slide, index) => {
-      const $el = slide.$el;
-
-      if (!$el) {
-        return;
-      }
-
-      const page = this.pages[this.page];
-
-      if (page && page.indexes && page.indexes.indexOf(index) > -1) {
-        if (selectedClass && !$el.classList.contains(selectedClass)) {
-          $el.classList.add(selectedClass);
-          this.trigger("selectSlide", slide);
-        }
-
-        $el.removeAttribute(attr);
-      } else {
-        if (selectedClass && $el.classList.contains(selectedClass)) {
-          $el.classList.remove(selectedClass);
-          this.trigger("unselectSlide", slide);
-        }
-
-        $el.setAttribute(attr, true);
-      }
-    });
   }
 
   /**
@@ -688,166 +692,172 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
   }
 
   /**
-   * Calculate slide element width (including left, right margins)
-   * @param {Object} node
-   * @returns {Number} Width in px
+   * Removes main DOM element of given slide
+   * @param {Object} slide
    */
-  getSlideMetrics(node) {
-    if (!node) {
-      const firstSlide = this.slides[0];
+  removeSlideEl(slide) {
+    if (slide.$el && !slide.isDom) {
+      this.trigger("removeSlide", slide);
 
-      node = document.createElement("div");
-
-      node.dataset.isTestEl = 1;
-      node.style.visibility = "hidden";
-      node.classList.add(this.option("classNames.slide"));
-
-      // Assume all slides have the same custom class, if any
-      if (firstSlide.customClass) {
-        node.classList.add(...firstSlide.customClass.split(" "));
-      }
-
-      this.$track.prepend(node);
+      slide.$el.remove();
+      slide.$el = null;
     }
-
-    let width = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__["round"])(node.getBoundingClientRect().width);
-
-    // Add left/right margin
-    const style = node.currentStyle || window.getComputedStyle(node);
-    width = width + (parseFloat(style.marginLeft) || 0) + (parseFloat(style.marginRight) || 0);
-    // width = node.clientWidth;
-    // Proportionally scale if viewport is scaled (mobile devices)
-    if (window.visualViewport) {
-      width *= window.visualViewport.scale;
-    }
-
-    if (node.dataset.isTestEl) {
-      node.remove();
-    }
-
-    return width;
   }
 
   /**
-   * Calculate dimensions of all slides and fill pages
+   * Toggles selected class name and aria-hidden attribute for slides based on visibility
    */
-  updateMetrics() {
-    let totalWidth = 0;
-    let indexes = [];
-    let lastSlideWidth;
+  markSelectedSlides() {
+    const selectedClass = this.option("classNames.slideSelected");
+    const attr = "aria-hidden";
 
     this.slides.forEach((slide, index) => {
       const $el = slide.$el;
 
-      const slideWidth = slide.isDom || !lastSlideWidth ? this.getSlideMetrics($el) : lastSlideWidth;
-
-      slide.index = index;
-      slide.width = slideWidth;
-      slide.left = totalWidth;
-
-      lastSlideWidth = slideWidth;
-      totalWidth += slideWidth;
-
-      indexes.push(index);
-    });
-
-    this.elemDimWidth = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__["round"])(totalWidth);
-    this.Panzoom.contentDim.width = this.elemDimWidth;
-
-    this.wrapDimWidth = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__["round"])(this.$viewport.getBoundingClientRect().width);
-
-    var styles = window.getComputedStyle(this.$viewport);
-    var padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
-
-    this.wrapDimWidth = this.wrapDimWidth - padding;
-
-    if (window.visualViewport) {
-      this.wrapDimWidth *= window.visualViewport.scale;
-    }
-
-    this.Panzoom.viewportDim.width = this.wrapDimWidth;
-
-    const pages = [];
-    const slidesPerPage = this.option("slidesPerPage");
-
-    // Split slides into pages
-    if (Number.isInteger(slidesPerPage) && this.elemDimWidth > this.wrapDimWidth) {
-      // Fixed number of slides in the page
-      for (let i = 0; i < this.slides.length; i += slidesPerPage) {
-        pages.push({
-          indexes: indexes.slice(i, i + slidesPerPage),
-          slides: this.slides.slice(i, i + slidesPerPage),
-        });
+      if (!$el) {
+        return;
       }
-    } else {
-      // Slides that fit inside viewport
-      let currentPage = 0;
-      let currentWidth = 0;
 
-      for (let i = 0; i < this.slides.length; i += 1) {
-        let slide = this.slides[i];
+      const page = this.pages[this.page];
 
-        // Add next page
-        if (!pages.length || currentWidth + slide.width > this.wrapDimWidth) {
-          pages.push({
-            indexes: [],
-            slides: [],
-          });
-
-          currentPage = pages.length - 1;
-          currentWidth = 0;
+      if (page && page.indexes && page.indexes.indexOf(index) > -1) {
+        if (selectedClass && !$el.classList.contains(selectedClass)) {
+          $el.classList.add(selectedClass);
+          this.trigger("selectSlide", slide);
         }
 
-        currentWidth += slide.width;
+        $el.removeAttribute(attr);
+      } else {
+        if (selectedClass && $el.classList.contains(selectedClass)) {
+          $el.classList.remove(selectedClass);
+          this.trigger("unselectSlide", slide);
+        }
 
-        pages[currentPage].indexes.push(i);
-        pages[currentPage].slides.push(slide);
+        $el.setAttribute(attr, true);
       }
+    });
+  }
+
+  updatePage() {
+    this.updateMetrics();
+
+    this.slideTo(this.page, { friction: 0 });
+  }
+
+  /**
+   * Process `Panzoom.beforeTransform` event to remove slides moved out of viewport and
+   * to create necessary ones
+   */
+  onBeforeTransform() {
+    if (this.option("infiniteX", this.option("infinite"))) {
+      this.manageInfiniteTrack();
     }
 
-    const shouldCenter = this.option("center");
-    const shouldFill = this.option("fill");
-
-    // Calculate width and start position for each page
-    pages.forEach((page, index) => {
-      page.index = index;
-      page.width = page.slides.reduce((sum, slide) => sum + slide.width, 0);
-
-      page.left = page.slides[0].left;
-
-      if (shouldCenter) {
-        page.left += (this.wrapDimWidth - page.width) * 0.5 * -1;
-      }
-
-      if (shouldFill && !this.option("infiniteX", this.option("infinite")) && this.elemDimWidth > this.wrapDimWidth) {
-        page.left = Math.max(page.left, 0);
-        page.left = Math.min(page.left, this.elemDimWidth - this.wrapDimWidth);
-      }
-    });
-
-    const rez = [];
-    let prevPage;
-
-    pages.forEach((page) => {
-      if (prevPage && page.left === prevPage.left) {
-        prevPage.width += page.width;
-
-        prevPage.slides = [...prevPage.slides, ...page.slides];
-        prevPage.indexes = [...prevPage.indexes, ...page.indexes];
-      } else {
-        page.index = rez.length;
-
-        prevPage = page;
-
-        rez.push(page);
-      }
-    });
-
-    this.pages = rez;
-
     this.manageSlideVisiblity();
+  }
 
-    this.trigger("refresh");
+  /**
+   * Seamlessly flip position of infinite carousel, if needed; this way x position stays low
+   */
+  manageInfiniteTrack() {
+    const contentWidth = this.contentWidth;
+    const viewportWidth = this.viewportWidth;
+
+    if (!this.option("infiniteX", this.option("infinite")) || this.pages.length < 2 || contentWidth < viewportWidth) {
+      return;
+    }
+
+    const panzoom = this.Panzoom;
+
+    let isFlipped = false;
+
+    if (panzoom.content.x < (contentWidth - viewportWidth) * -1) {
+      panzoom.content.x += contentWidth;
+
+      this.pageIndex = this.pageIndex - this.pages.length;
+
+      isFlipped = true;
+    }
+
+    if (panzoom.content.x > viewportWidth) {
+      panzoom.content.x -= contentWidth;
+
+      this.pageIndex = this.pageIndex + this.pages.length;
+
+      isFlipped = true;
+    }
+
+    if (isFlipped && panzoom.state === "pointerdown") {
+      panzoom.resetDragPosition();
+    }
+
+    return isFlipped;
+  }
+
+  /**
+   * Process `Panzoom.touchEnd` event; slide to next/prev page if needed
+   * @param {object} panzoom
+   */
+  onTouchEnd(panzoom, event) {
+    const dragFree = this.option("dragFree");
+
+    // If this is a quick horizontal flick, slide to next/prev slide
+    if (
+      !dragFree &&
+      this.pages.length > 1 &&
+      panzoom.dragOffset.time < 350 &&
+      Math.abs(panzoom.dragOffset.y) < 1 &&
+      Math.abs(panzoom.dragOffset.x) > 5
+    ) {
+      this[panzoom.dragOffset.x < 0 ? "slideNext" : "slidePrev"]();
+      return;
+    }
+
+    // Set the slide at the end of the animation as the current one,
+    // or slide to closest page
+    if (dragFree) {
+      const [, nextPageIndex] = this.getPageFromPosition(panzoom.transform.x * -1);
+      this.setPage(nextPageIndex);
+    } else {
+      this.slideToClosest();
+    }
+  }
+
+  /**
+   * Slides to the closest page (useful, if carousel is changed manually)
+   * @param {Object} [params] - Object containing additional options
+   */
+  slideToClosest(params = {}) {
+    let [, nextPageIndex] = this.getPageFromPosition(this.Panzoom.content.x * -1);
+
+    this.slideTo(nextPageIndex, params);
+  }
+
+  /**
+   * Returns index of closest page to given x position
+   * @param {Number} xPos
+   */
+  getPageFromPosition(xPos) {
+    const pageCount = this.pages.length;
+    const center = this.option("center");
+
+    if (center) {
+      xPos += this.viewportWidth * 0.5;
+    }
+
+    const interval = Math.floor(xPos / this.contentWidth);
+
+    xPos -= interval * this.contentWidth;
+
+    let slide = this.slides.find((slide) => slide.left <= xPos && slide.left + slide.width > xPos);
+
+    if (slide) {
+      let pageIndex = this.findPageForSlide(slide.index);
+
+      return [pageIndex, pageIndex + interval * pageCount];
+    }
+
+    return [0, 0];
   }
 
   /**
@@ -863,16 +873,19 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
       prevPageIndex = this.pageIndex,
       pageCount = this.pages.length;
 
+    const contentWidth = this.contentWidth;
+    const viewportWidth = this.viewportWidth;
+
     page = ((pageIndex % pageCount) + pageCount) % pageCount;
 
-    if (this.option("infiniteX", this.option("infinite")) && this.elemDimWidth > this.wrapDimWidth) {
+    if (this.option("infiniteX", this.option("infinite")) && contentWidth > viewportWidth) {
       const nextInterval = Math.floor(pageIndex / pageCount) || 0,
-        elemDimWidth = this.elemDimWidth;
+        elemDimWidth = contentWidth;
 
       nextPosition = this.pages[page].left + nextInterval * elemDimWidth;
 
       if (toClosest === true && pageCount > 2) {
-        let currPosition = this.Panzoom.current.x * -1;
+        let currPosition = this.Panzoom.content.x * -1;
 
         // * Find closest interval
         const decreasedPosition = nextPosition - elemDimWidth,
@@ -909,93 +922,8 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
   }
 
   /**
-   * Slides carousel to given page
-   * @param {Number} page - New index of active page
-   * @param {Object} [params] - Additional options
+   * Clean up
    */
-  slideTo(page, params = {}) {
-    const { friction = this.option("friction") } = params;
-
-    this.Panzoom.panTo({ x: this.setPage(page, true) * -1, y: 0, friction });
-  }
-
-  /**
-   * Slides to the closest page (useful, if carousel is changed manually)
-   * @param {Object} [params] - Object containing additional options
-   */
-  slideToClosest(params = {}) {
-    let [, nextPageIndex] = this.getPageFromPosition(this.Panzoom.pan.x * -1);
-
-    this.slideTo(nextPageIndex, params);
-  }
-
-  /**
-   * Slide to next page, if possible
-   */
-  slideNext() {
-    this.slideTo(this.pageIndex + 1);
-  }
-
-  /**
-   * Slide to previous page, if possible
-   */
-  slidePrev() {
-    this.slideTo(this.pageIndex - 1);
-  }
-
-  /**
-   *
-   * @param {Integer} index Index of the slide
-   * @returns {Integer|null} Index of the page if found, or null
-   */
-  getPageforSlide(index) {
-    const page = this.pages.find((page) => {
-      return page.indexes.indexOf(index) > -1;
-    });
-
-    return page ? page.index : null;
-  }
-
-  /**
-   * Returns index of closest page to given x position
-   * @param {Number} xPos
-   */
-  getPageFromPosition(xPos) {
-    const pageCount = this.pages.length;
-    const center = this.option("center");
-
-    if (center) {
-      xPos += this.wrapDimWidth * 0.5;
-    }
-
-    const interval = Math.floor(xPos / this.elemDimWidth);
-
-    xPos -= interval * this.elemDimWidth;
-
-    let slide = this.slides.find((slide) => slide.left < xPos && slide.left + slide.width > xPos);
-
-    if (slide) {
-      let pageIndex = this.getPageforSlide(slide.index);
-
-      return [pageIndex, pageIndex + interval * pageCount];
-    }
-
-    return [0, 0];
-  }
-
-  /**
-   * Removes main DOM element of given slide
-   * @param {Object} slide
-   */
-  removeSlideEl(slide) {
-    if (slide.$el && !slide.isDom) {
-      this.trigger("deleteSlide", slide);
-
-      slide.$el.remove();
-      slide.$el = null;
-    }
-  }
-
   destroy() {
     this.state = "destroy";
 
@@ -1003,10 +931,11 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
       this.removeSlideEl(slide);
     });
 
+    this.slides = [];
+
     this.Panzoom.destroy();
 
-    this.options = {};
-    this.events = {};
+    this.detachPlugins();
   }
 }
 
@@ -1014,7 +943,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__["Base"]
 Carousel.version = "__VERSION__";
 
 // Static properties are a recent addition that dont work in all browsers yet
-Carousel.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__["Plugins"];
+Carousel.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__.Plugins;
 
 
 /***/ }),
@@ -1023,12 +952,13 @@ Carousel.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__["Plugins"];
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Carousel/plugins/Dots/Dots.js ***!
   \**********************************************************************/
-/*! exports provided: Dots */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dots", function() { return Dots; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Dots": () => (/* binding */ Dots)
+/* harmony export */ });
 class Dots {
   constructor(carousel) {
     this.carousel = carousel;
@@ -1077,8 +1007,8 @@ class Dots {
 
     this.$list = $list;
 
-    this.carousel.$element.appendChild($list);
-    this.carousel.$element.classList.add("has-dots");
+    this.carousel.$container.appendChild($list);
+    this.carousel.$container.classList.add("has-dots");
 
     return $list;
   }
@@ -1091,6 +1021,8 @@ class Dots {
       this.$list.parentNode.removeChild(this.$list);
       this.$list = null;
     }
+
+    this.carousel.$container.classList.remove("has-dots");
   }
 
   /**
@@ -1210,12 +1142,13 @@ class Dots {
 /*!**********************************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Carousel/plugins/Navigation/Navigation.js ***!
   \**********************************************************************************/
-/*! exports provided: Navigation */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Navigation", function() { return Navigation; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Navigation": () => (/* binding */ Navigation)
+/* harmony export */ });
 const defaults = {
   prevTpl: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M15 3l-9 9 9 9"/></svg>',
   nextTpl: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M9 3l9 9-9 9"/></svg>',
@@ -1283,7 +1216,7 @@ class Navigation {
       this.$container = document.createElement("div");
       this.$container.classList.add(this.option("classNames.main"));
 
-      this.carousel.$element.appendChild(this.$container);
+      this.carousel.$container.appendChild(this.$container);
     }
 
     if (!this.$next) {
@@ -1375,24 +1308,23 @@ Navigation.defaults = defaults;
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Carousel/plugins/Sync/Sync.js ***!
   \**********************************************************************/
-/*! exports provided: Sync */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sync", function() { return Sync; });
-/* harmony import */ var _shared_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/isPlainObject.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isPlainObject.js");
-
-
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Sync": () => (/* binding */ Sync)
+/* harmony export */ });
 const defaults = {
   friction: 0.92,
 };
 
 class Sync {
   constructor(carousel) {
-    this.nav = carousel;
+    this.carousel = carousel;
 
     this.selectedIndex = null;
+    this.friction = 0;
 
     this.onNavReady = this.onNavReady.bind(this);
     this.onNavClick = this.onNavClick.bind(this);
@@ -1402,17 +1334,70 @@ class Sync {
   }
 
   /**
+   * Make this one as main carousel and selected carousel as navigation
+   * @param {Object} nav Carousel
+   */
+  addAsTargetFor(nav) {
+    this.target = this.carousel;
+    this.nav = nav;
+
+    this.attachEvents();
+  }
+
+  /**
+   * Make this one as navigation carousel for selected carousel
+   * @param {Object} target
+   */
+  addAsNavFor(target) {
+    this.target = target;
+    this.nav = this.carousel;
+
+    this.attachEvents();
+  }
+
+  /**
+   * Attach event listeners on both carousels
+   */
+  attachEvents() {
+    this.nav.options.initialSlide = this.target.options.initialPage;
+
+    this.nav.on("ready", this.onNavReady);
+    this.nav.on("createSlide", this.onNavCreateSlide);
+    this.nav.on("Panzoom.click", this.onNavClick);
+
+    this.target.on("change", this.onTargetChange);
+    this.target.on("Panzoom.afterUpdate", this.onTargetChange);
+  }
+
+  /**
    * Process main carousel `ready` event; bind events and set initial page
    */
   onNavReady() {
     this.onTargetChange(true);
+  }
 
-    this.nav.on("createSlide", this.onNavCreateSlide);
-    this.nav.on("Panzoom.updateMetrics", this.onTargetChange);
+  /**
+   * Process main carousel `click` event
+   * @param {Object} panzoom
+   * @param {Object} event
+   */
+  onNavClick(carousel, panzoom, event) {
+    const clickedNavSlide = event.target.closest(".carousel__slide");
 
-    this.nav.Panzoom.on("click", this.onNavClick);
+    if (!clickedNavSlide) {
+      return;
+    }
 
-    this.sync.on("change", this.onTargetChange);
+    event.stopPropagation();
+
+    const selectedNavIndex = parseInt(clickedNavSlide.dataset.index, 10);
+    const selectedSyncPage = this.target.findPageForSlide(selectedNavIndex);
+
+    if (this.target.page !== selectedSyncPage) {
+      this.target.slideTo(selectedSyncPage, { friction: this.friction });
+    }
+
+    this.markSelectedSlide(selectedNavIndex);
   }
 
   /**
@@ -1427,27 +1412,16 @@ class Sync {
   }
 
   /**
-   * Process main carousel `click` event
-   * @param {Object} panzoom
-   * @param {Object} event
+   * Process target carousel `change` event
+   * @param {Object} target
    */
-  onNavClick(panzoom, event) {
-    const clickedNavSlide = event.target.closest(".carousel__slide");
+  onTargetChange() {
+    const targetIndex = this.target.pages[this.target.page].indexes[0];
+    const selectedNavPage = this.nav.findPageForSlide(targetIndex);
 
-    if (!clickedNavSlide) {
-      return;
-    }
+    this.nav.slideTo(selectedNavPage);
 
-    event.preventDefault();
-
-    const selectedNavIndex = parseInt(clickedNavSlide.dataset.index, 10);
-    const selectedSyncPage = this.sync.getPageforSlide(selectedNavIndex);
-
-    if (this.sync.page !== selectedSyncPage) {
-      this.sync.slideTo(selectedSyncPage, { friction: this.nav.option("Sync.friction") });
-    }
-
-    this.markSelectedSlide(selectedNavIndex);
+    this.markSelectedSlide(targetIndex);
   }
 
   /**
@@ -1464,50 +1438,33 @@ class Sync {
     if (slide && slide.$el) slide.$el.classList.add("is-nav-selected");
   }
 
-  /**
-   * Process target carousel `change` event
-   * @param {Object} target
-   */
-  onTargetChange(fast) {
-    const targetIndex = this.sync.pages[this.sync.page].indexes[0];
-    const selectedNavPage = this.nav.getPageforSlide(targetIndex);
+  attach(carousel) {
+    const sync = carousel.options.Sync;
 
-    if (selectedNavPage === null) return;
-
-    this.nav.slideTo(selectedNavPage, fast === true ? { friction: 0 } : {});
-
-    this.markSelectedSlide(targetIndex);
-  }
-
-  attach() {
-    const sync = this.nav.options.Sync;
-
-    if (!sync) {
+    if (!sync.target && !sync.nav) {
       return;
     }
 
-    if (Object(_shared_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__["isPlainObject"])(sync) && typeof sync.with === "object") {
-      this.sync = sync.with;
+    if (sync.target) {
+      this.addAsNavFor(sync.target);
+    } else if (sync.nav) {
+      this.addAsTargetFor(sync.nav);
     }
 
-    if (this.sync) {
-      this.nav.on("ready", this.onNavReady);
-    }
+    this.friction = sync.friction;
   }
 
   detach() {
-    if (this.sync) {
+    if (this.nav) {
       this.nav.off("ready", this.onNavReady);
-      this.nav.off("createSlide", this.onNavCreate);
-      this.nav.on("Panzoom.updateMetrics", this.onTargetChange);
-
-      this.sync.off("change", this.onTargetChange);
+      this.nav.off("Panzoom.click", this.onNavClick);
+      this.nav.off("createSlide", this.onNavCreateSlide);
     }
 
-    this.nav.Panzoom.off("click", this.onNavClick);
-
-    this.sync = null;
-    this.selectedIndex = null;
+    if (this.target) {
+      this.target.off("Panzoom.afterUpdate", this.onTargetChange);
+      this.target.off("change", this.onTargetChange);
+    }
   }
 }
 
@@ -1521,12 +1478,13 @@ Sync.defaults = defaults;
 /*!******************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Carousel/plugins/index.js ***!
   \******************************************************************/
-/*! exports provided: Plugins */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Plugins", function() { return Plugins; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Plugins": () => (/* binding */ Plugins)
+/* harmony export */ });
 /* harmony import */ var _Navigation_Navigation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navigation/Navigation.js */ "./node_modules/@fancyapps/ui/src/Carousel/plugins/Navigation/Navigation.js");
 /* harmony import */ var _Dots_Dots_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dots/Dots.js */ "./node_modules/@fancyapps/ui/src/Carousel/plugins/Dots/Dots.js");
 /* harmony import */ var _Sync_Sync_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Sync/Sync.js */ "./node_modules/@fancyapps/ui/src/Carousel/plugins/Sync/Sync.js");
@@ -1534,7 +1492,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Plugins = { Navigation: _Navigation_Navigation_js__WEBPACK_IMPORTED_MODULE_0__["Navigation"], Dots: _Dots_Dots_js__WEBPACK_IMPORTED_MODULE_1__["Dots"], Sync: _Sync_Sync_js__WEBPACK_IMPORTED_MODULE_2__["Sync"] };
+const Plugins = { Navigation: _Navigation_Navigation_js__WEBPACK_IMPORTED_MODULE_0__.Navigation, Dots: _Dots_Dots_js__WEBPACK_IMPORTED_MODULE_1__.Dots, Sync: _Sync_Sync_js__WEBPACK_IMPORTED_MODULE_2__.Sync };
 
 
 /***/ }),
@@ -1543,18 +1501,22 @@ const Plugins = { Navigation: _Navigation_Navigation_js__WEBPACK_IMPORTED_MODULE
 /*!*************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Fancybox/Fancybox.js ***!
   \*************************************************************/
-/*! exports provided: Fancybox */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fancybox", function() { return Fancybox; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Fancybox": () => (/* binding */ Fancybox)
+/* harmony export */ });
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 /* harmony import */ var _shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/utils/canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
 /* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
 /* harmony import */ var _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Carousel/Carousel.js */ "./node_modules/@fancyapps/ui/src/Carousel/Carousel.js");
 /* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/index.js");
+/* harmony import */ var _l10n_en_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./l10n/en.js */ "./node_modules/@fancyapps/ui/src/Fancybox/l10n/en.js");
 // var global = global || window;
+
+
 
 
 
@@ -1602,7 +1564,7 @@ const defaults = {
   placeFocusBack: true,
 
   // Action to take when the user clicks on the backdrop
-  click: "close", // "close" | "next"
+  click: "close", // "close" | "next" | null
 
   // Position of the close button - over the content or at top right corner of viewport
   closeButton: "inside", // "inside" | "outside"
@@ -1644,71 +1606,29 @@ const defaults = {
   */
 
   // Localization of strings
-  l10n: {
-    CLOSE: "Close",
-    NEXT: "Next",
-    PREV: "Previous",
-    MODAL: "You can close this modal content with the ESC key",
-    ERROR: "Something Went Wrong, Please Try Again Later",
-    IMAGE_ERROR: "Image Not Found",
-    ELEMENT_NOT_FOUND: "HTML Element Not Found",
-    AJAX_NOT_FOUND: "Error Loading AJAX : Not Found",
-    AJAX_FORBIDDEN: "Error Loading AJAX : Forbidden",
-    IFRAME_ERROR: "Error Loading Page",
-  },
+  l10n: _l10n_en_js__WEBPACK_IMPORTED_MODULE_5__.default,
 };
 
 let called = 0;
-let preventScrollSupported = null;
 
-class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"] {
+class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
   /**
    * Fancybox constructor
    * @constructs Fancybox
    * @param {Object} [options] - Options for Fancybox
    */
   constructor(items, options = {}) {
-    const handleOptions = function (items, options) {
-      const firstOpts = Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(true, {}, items[options.startIndex] || {});
-
-      items.forEach((item) => {
-        const $trigger = item.$trigger;
-
-        if ($trigger) {
-          const dataset = $trigger.dataset || {};
-
-          item.src = dataset.src || $trigger.getAttribute("href") || item.src;
-          item.type = dataset.type || item.type;
-        }
-      });
-
-      return Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(true, {}, Fancybox.defaults, options, firstOpts);
-    };
-
-    // Detect if .focus() method  supports `preventScroll` option,
-    // see https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/focus
-    preventScrollSupported = (function () {
-      let rez = false;
-
-      document.createElement("div").focus({
-        get preventScroll() {
-          rez = true;
-          return false;
-        },
-      });
-
-      return rez;
-    })();
-
-    super(handleOptions(items, options));
-
-    this.state = "init";
-    this.items = items;
+    super((0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(true, {}, defaults, options));
 
     this.bindHandlers();
 
+    this.state = "init";
+
+    this.setItems(items);
+
     this.attachPlugins(Fancybox.Plugins);
 
+    // "init" event marks the start of initialization and is available to plugins
     this.trigger("init");
 
     if (this.option("hideScrollbar") === true) {
@@ -1717,16 +1637,23 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
     this.initLayout();
 
-    this.initCarousel(this.getSlides());
+    this.initCarousel();
 
     this.attachEvents();
 
+    // "prepare" event will trigger the creation of additional layout elements, such as thumbnails and toolbar
+    this.trigger("prepare");
+
     this.state = "ready";
 
+    // "ready" event will trigger the content to load
     this.trigger("ready");
 
     // Reveal container
     this.$container.setAttribute("aria-hidden", "false");
+
+    // Focus on the first focus element in this instance
+    this.focus();
   }
 
   /**
@@ -1739,7 +1666,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       "onClick",
 
       "onCreateSlide",
-      "onSettle",
 
       "onTouchMove",
       "onTouchEnd",
@@ -1850,39 +1776,50 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     // Add class name for <html> element
     document.documentElement.classList.add("with-fancybox");
 
-    this.trigger(`initLayout`);
+    this.trigger("initLayout");
 
     return this;
   }
 
   /**
-   * Gets and prepares slides (gets thumbnails) for the corousel
+   * Prepares slides for the corousel
    * @returns {Array} Slides
    */
-  getSlides() {
-    const slides = [...this.items];
+  setItems(items) {
+    const slides = [];
 
-    slides.forEach((slide) => {
-      // Support items without `src`, e.g., when `data-fancybox` attribute added directly to `<img>` element
-      if (!slide.src && slide.$trigger && slide.$trigger instanceof HTMLImageElement) {
-        slide.src = slide.$trigger.currentSrc || slide.$trigger.src;
+    for (const slide of items) {
+      const $trigger = slide.$trigger;
+
+      if ($trigger) {
+        const dataset = $trigger.dataset || {};
+
+        slide.src = dataset.src || $trigger.getAttribute("href") || slide.src;
+        slide.type = dataset.type || slide.type;
+
+        // Support items without `src`, e.g., when `data-fancybox` attribute added directly to `<img>` element
+        if (!slide.src && $trigger instanceof HTMLImageElement) {
+          slide.src = $trigger.currentSrc || slide.$trigger.src;
+        }
       }
 
       // Check for thumbnail element
       let $thumb = slide.$thumb;
 
-      const origTarget = slide.$trigger && slide.$trigger.origTarget;
+      if (!$thumb) {
+        let origTarget = slide.$trigger && slide.$trigger.origTarget;
 
-      if (origTarget) {
-        if (origTarget instanceof HTMLImageElement) {
-          $thumb = origTarget;
-        } else {
-          $thumb = origTarget.querySelector("img");
+        if (origTarget) {
+          if (origTarget instanceof HTMLImageElement) {
+            $thumb = origTarget;
+          } else {
+            $thumb = origTarget.querySelector("img");
+          }
         }
-      }
 
-      if (!$thumb && slide.$trigger) {
-        $thumb = slide.$trigger instanceof HTMLImageElement ? slide.$trigger : slide.$trigger.querySelector("img");
+        if (!$thumb && slide.$trigger) {
+          $thumb = slide.$trigger instanceof HTMLImageElement ? slide.$trigger : slide.$trigger.querySelector("img");
+        }
       }
 
       slide.$thumb = $thumb || null;
@@ -1895,24 +1832,29 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       }
 
       // Assume we have image, then use it as thumbnail
-      if (!thumb && (!slide.type || slide.type === "image")) {
+      if (!thumb && slide.type === "image") {
         thumb = slide.src;
       }
 
       slide.thumb = thumb || null;
-    });
 
-    return slides;
+      // Add empty caption to make things simpler
+      slide.caption = slide.caption || "";
+
+      slides.push(slide);
+    }
+
+    this.items = slides;
   }
 
   /**
    * Initialize main Carousel that will be used to display the content
    * @param {Array} slides
    */
-  initCarousel(slides) {
-    new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_3__["Carousel"](
+  initCarousel() {
+    this.Carousel = new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_3__.Carousel(
       this.$carousel,
-      Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(
+      (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(
         true,
         {},
         {
@@ -1924,9 +1866,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
           textSelection: true,
           preload: this.option("preload"),
+
           friction: 0.88,
 
-          slides: slides,
+          slides: this.items,
           initialPage: this.options.startIndex,
           slidesPerPage: 1,
 
@@ -1947,27 +1890,30 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
           },
 
           Panzoom: {
+            textSelection: true,
+
             panOnlyZoomed: () => {
-              return this.Carousel.pages.length < 2 && !this.options.dragToClose;
+              return (
+                this.Carousel && this.Carousel.pages && this.Carousel.pages.length < 2 && !this.options.dragToClose
+              );
             },
             lockAxis: () => {
-              let rez = this.Carousel.pages.length > 1 ? "x" : "";
+              if (this.Carousel) {
+                let rez = "x";
 
-              if (this.options.dragToClose) {
-                rez += "y";
+                if (this.options.dragToClose) {
+                  rez += "y";
+                }
+
+                return rez;
               }
-
-              return rez;
             },
           },
 
           on: {
             "*": (name, ...details) => this.trigger(`Carousel.${name}`, ...details),
-
             init: (carousel) => (this.Carousel = carousel),
-
             createSlide: this.onCreateSlide,
-            settle: this.onSettle,
           },
         },
 
@@ -1975,7 +1921,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       )
     );
 
-    if (this.options.dragToClose) {
+    if (this.option("dragToClose")) {
       this.Carousel.Panzoom.on({
         // Stop further touch event handling if content is scaled
         touchMove: this.onTouchMove,
@@ -1988,7 +1934,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       });
     }
 
-    this.trigger(`initCarousel`);
+    this.trigger("initCarousel");
 
     return this;
   }
@@ -1997,9 +1943,13 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    * Process `createSlide` event to create caption element inside new slide
    */
   onCreateSlide(carousel, slide) {
-    const caption = slide.caption;
+    let caption = slide.caption || "";
 
-    if (caption) {
+    if (typeof this.options.caption === "function") {
+      caption = this.options.caption.call(this, this, this.Carousel, slide);
+    }
+
+    if (typeof caption === "string" && caption.length) {
       const $caption = document.createElement("div");
       const id = `fancybox__caption_${this.id}_${slide.index}`;
 
@@ -2012,13 +1962,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       slide.$el.classList.add("has-caption");
       slide.$el.setAttribute("aria-labelledby", id);
     }
-  }
-
-  /**
-   * Process `settle event to handle focus after animation has ended
-   */
-  onSettle() {
-    this.focus();
   }
 
   /**
@@ -2040,13 +1983,13 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       return;
     }
 
-    const click = this.option("click");
-
-    if (typeof click === "function") {
-      return click.call(this);
+    if (this.trigger("click", event) === false) {
+      return;
     }
 
-    switch (click) {
+    const action = this.option("click");
+
+    switch (action) {
       case "close":
         this.close();
         break;
@@ -2062,7 +2005,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
   onTouchMove() {
     const panzoom = this.getSlide().Panzoom;
 
-    return panzoom && panzoom.current.scale !== 1 ? false : true;
+    return panzoom && panzoom.content.scale !== 1 ? false : true;
   }
 
   /**
@@ -2070,14 +2013,16 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    * @param {Object} panzoom - Panzoom instance
    */
   onTouchEnd(panzoom) {
-    const distanceY = panzoom.drag.distanceY;
+    const distanceY = panzoom.dragOffset.y;
 
-    if (Math.abs(distanceY) >= 150 || (Math.abs(distanceY) >= 35 && panzoom.drag.elapsedTime < 350)) {
+    if (Math.abs(distanceY) >= 150 || (Math.abs(distanceY) >= 35 && panzoom.dragOffset.time < 350)) {
       if (this.option("hideClass")) {
-        this.getSlide().hideClass = `fancybox-throwOut${panzoom.current.y < 0 ? "Up" : "Down"}`;
+        this.getSlide().hideClass = `fancybox-throwOut${panzoom.content.y < 0 ? "Up" : "Down"}`;
       }
 
       this.close();
+    } else if (panzoom.lockAxis === "y") {
+      panzoom.panTo({ y: 0 });
     }
   }
 
@@ -2089,8 +2034,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     const $backdrop = this.$backdrop;
 
     if ($backdrop) {
-      const yPos = Math.abs(panzoom.current.y);
-      const opacity = yPos < 1 ? "" : Math.max(0, Math.min(1, 1 - (yPos / panzoom.$content.clientHeight) * 1.5));
+      const yPos = Math.abs(panzoom.content.y);
+      const opacity = yPos < 1 ? "" : Math.max(0.33, Math.min(1, 1 - (yPos / panzoom.content.fitHeight) * 1.5));
 
       this.$container.style.setProperty("--fancybox-ts", opacity ? "0s" : "");
       this.$container.style.setProperty("--fancybox-opacity", opacity);
@@ -2144,12 +2089,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       }
     }
 
-    if (this.trigger("keydown", key) === false) {
+    if (this.trigger("keydown", key, event) === false) {
       return;
-    }
-
-    if (key !== "Enter") {
-      event.preventDefault();
     }
 
     const action = keyboard[key];
@@ -2182,11 +2123,28 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    * @param {Event} [event] - Focus event
    */
   focus(event) {
+    if (Fancybox.preventScrollSupported === undefined) {
+      // Detect if .focus() method  supports `preventScroll` option,
+      // see https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/focus
+      Fancybox.preventScrollSupported = (function () {
+        let rez = false;
+
+        document.createElement("div").focus({
+          get preventScroll() {
+            rez = true;
+            return false;
+          },
+        });
+
+        return rez;
+      })();
+    }
+
     const setFocusOn = (node) => {
       if (node.setActive) {
         // IE/Edge
         node.setActive();
-      } else if (preventScrollSupported) {
+      } else if (Fancybox.preventScrollSupported) {
         // Modern browsers
         node.focus({ preventScroll: true });
       } else {
@@ -2194,6 +2152,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
         node.focus();
       }
     };
+
+    if (["init", "closing", "customClosing", "destroy"].indexOf(this.state) > -1) {
+      return;
+    }
 
     if (event) {
       event.preventDefault();
@@ -2217,11 +2179,16 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
     const $currentSlide = this.getSlide().$el;
 
+    if (!$currentSlide) {
+      return;
+    }
+
     // Setting `tabIndex` here helps to avoid Safari issues with random focusing and scrolling
     $currentSlide.tabIndex = 0;
 
     const allFocusableElems = [].slice.call(this.$container.querySelectorAll(FOCUSABLE_ELEMENTS));
-    const enabledElems = [];
+
+    let enabledElems = [];
 
     for (let node of allFocusableElems) {
       // Slide element will be the last one, the highest priority has elements having `autofocus` attribute
@@ -2247,6 +2214,14 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     if (this.Carousel.pages.length > 1) {
       enabledElems.push($currentSlide);
     }
+
+    // Sort by tabindex
+    enabledElems.sort(function (a, b) {
+      if (a.tabIndex > b.tabIndex) return -1;
+      if (a.tabIndex < b.tabIndex) return 1;
+
+      return 0;
+    });
 
     const focusedElementIndex = enabledElems.indexOf(document.activeElement);
 
@@ -2279,7 +2254,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    * (otherwise the `body` element may become wider and the content may expand horizontally).
    */
   hideScrollbar() {
-    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__["canUseDOM"]) {
+    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__.canUseDOM) {
       return;
     }
 
@@ -2292,7 +2267,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       return;
     }
 
-    if (scrollbarWidth) {
+    if (scrollbarWidth > 0) {
       $style = document.createElement("style");
 
       $style.id = id;
@@ -2324,7 +2299,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    */
   clearContent(slide) {
     // * Clear previously added content and class name
-    this.Carousel.trigger("deleteSlide", slide);
+    this.Carousel.trigger("removeSlide", slide);
 
     if (slide.$content) {
       slide.$content.remove();
@@ -2382,7 +2357,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
     slide.$content = $content;
 
-    $el.insertBefore($content, $el.querySelector(".fancybox__caption"));
+    $el.prepend($content);
 
     this.manageCloseButton(slide);
 
@@ -2400,7 +2375,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
   manageCloseButton(slide) {
     const position = slide.closeButton === undefined ? this.option("closeButton") : slide.closeButton;
 
-    if (!position || (this.$closeButton && position !== "inside")) {
+    if (!position || (position === "top" && this.$closeButton)) {
       return;
     }
 
@@ -2438,8 +2413,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
     if (
       !(
-        slide.state === "error" ||
-        slide.state === "ready" ||
+        slide.error ||
+        slide.state === "loading" ||
         this.Carousel.prevPage !== null ||
         slide.index !== this.options.startIndex
       )
@@ -2481,13 +2456,13 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
     const handleAnimationEnd = function (event) {
       if (event.currentTarget === this) {
-        $element.classList.remove(className);
-
         $element.removeEventListener("animationend", handleAnimationEnd);
 
         if (callback) {
           callback();
         }
+
+        $element.classList.remove(className);
       }
     };
 
@@ -2500,10 +2475,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    * @param {Object} slide - Carousel slide
    */
   done(slide) {
-    if (!(this.state === "init" || this.state === "ready")) {
-      return;
-    }
-
     slide.state = "done";
 
     this.trigger("done", slide);
@@ -2522,14 +2493,14 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    * @param {String} message - Error message, can contain HTML code and template variables
    */
   setError(slide, message) {
-    slide.state = "error";
+    slide.error = message;
 
     this.hideLoading(slide);
     this.clearContent(slide);
 
     // Create new content
-    const div = document.createElement(`div`);
-    div.classList.add(`fancybox-error`);
+    const div = document.createElement("div");
+    div.classList.add("fancybox-error");
     div.innerHTML = this.localize(message || "<p>{{ERROR}}</p>");
 
     this.setContent(slide, div, { suffix: "error" });
@@ -2541,8 +2512,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    */
   showLoading(slide) {
     slide.state = "loading";
-
-    this.trigger("load", slide);
 
     slide.$el.classList.add("is-loading");
 
@@ -2561,7 +2530,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       if (!this.Carousel.Panzoom.velocity) this.close();
     });
 
-    slide.$el.insertBefore($spinner, slide.$el.firstChild);
+    slide.$el.prepend($spinner);
   }
 
   /**
@@ -2578,6 +2547,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     }
 
     if (slide.state === "loading") {
+      this.trigger("load", slide);
+
       slide.state = "ready";
     }
   }
@@ -2645,6 +2616,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       return;
     }
 
+    // Trigger default CSS closing animation for backdrop and interface elements
     this.$container.setAttribute("aria-hidden", "true");
 
     this.$container.classList.add("is-closing");
@@ -2654,7 +2626,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
     this.Carousel.slides.forEach((slide) => {
       if (slide.$content && slide.index !== currentSlide.index) {
-        slide.$content.remove();
+        this.Carousel.trigger("removeSlide", slide);
       }
     });
 
@@ -2662,9 +2634,14 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     if (this.state === "closing") {
       const hideClass = currentSlide.hideClass === undefined ? this.option("hideClass") : currentSlide.hideClass;
 
-      this.animateCSS(currentSlide.$content, hideClass, () => {
-        this.destroy();
-      });
+      this.animateCSS(
+        currentSlide.$content,
+        hideClass,
+        () => {
+          this.destroy();
+        },
+        true
+      );
     }
   }
 
@@ -2679,7 +2656,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     const $trigger = this.option("placeFocusBack") ? this.getSlide().$trigger : null;
 
     // Destroy Carousel and then detach plugins;
-    // * Note: this order allows plugins to receive `deleteSlide` event
+    // * Note: this order allows plugins to receive `removeSlide` event
     this.Carousel.destroy();
 
     this.detachPlugins();
@@ -2697,7 +2674,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
       // `preventScroll` option is not yet supported by Safari
       // https://bugs.webkit.org/show_bug.cgi?id=178583
 
-      if (preventScrollSupported) {
+      if (Fancybox.preventScrollSupported) {
         $trigger.focus({ preventScroll: true });
       } else {
         const scrollTop = document.body.scrollTop; // Save position
@@ -2738,22 +2715,23 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    */
   static fromEvent(event, options = {}) {
     //  Allow other scripts to prevent starting fancybox on click
-    if (event.defaultPrevented) return;
+    if (event.defaultPrevented) {
+      return;
+    }
 
     // Don't run if right-click
-    if (event.button && event.button !== 0) return;
+    if (event.button && event.button !== 0) {
+      return;
+    }
 
     // Ignore command/control + click
     if (event.ctrlKey || event.metaKey || event.shiftKey) {
       return;
     }
 
-    let rez = false;
-    let target;
-    let found;
-
+    // Support `trigger` element, e.g., start fancybox from different DOM element, for example,
+    // to have one preview image for hidden image gallery
     let eventTarget = event.target;
-
     let triggerGroupName;
 
     if (
@@ -2775,6 +2753,9 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     }
 
     // * Try to find matching openener
+    let matchingOpener;
+    let target;
+
     Array.from(Fancybox.openers.keys())
       .reverse()
       .some((opener) => {
@@ -2788,25 +2769,29 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
 
         event.preventDefault();
 
-        found = opener;
+        matchingOpener = opener;
 
         return true;
       });
 
-    if (found) {
+    let rez = false;
+
+    if (matchingOpener) {
+      options.event = event;
       options.target = target;
+
       target.origTarget = event.target;
 
-      rez = Fancybox.fromOpener(found, options);
-    }
+      rez = Fancybox.fromOpener(matchingOpener, options);
 
-    // Check if the mouse is being used
-    // Waiting for better browser support for `:focus-visible` -
-    // https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo
-    const nextInstance = Fancybox.getInstance();
+      // Check if the mouse is being used
+      // Waiting for better browser support for `:focus-visible` -
+      // https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo
+      const nextInstance = Fancybox.getInstance();
 
-    if (nextInstance && nextInstance.state === "ready" && event.detail) {
-      document.body.classList.add("is-using-mouse");
+      if (nextInstance && nextInstance.state === "ready" && event.detail) {
+        document.body.classList.add("is-using-mouse");
+      }
     }
 
     return rez;
@@ -2822,7 +2807,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     // 1) converts data attributes to boolean or JSON
     // 2) removes values that could cause issues
     const mapCallback = function (el) {
-      const falseValues = ["false", "0", "no", "null"];
+      const falseValues = ["false", "0", "no", "null", "undefined"];
       const trueValues = ["true", "1", "yes"];
 
       const options = Object.assign({}, el.dataset);
@@ -2854,41 +2839,25 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     };
 
     let items = [],
-      index = options.startIndex || 0;
+      index = options.startIndex || 0,
+      target = options.target || null;
 
     // Get options
-    options = Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, options, Fancybox.openers.get(opener));
-
-    // Check what data attribute is used to indicate group items
-    let groupAttr = options.groupAttr;
-
-    if (groupAttr === undefined) {
-      groupAttr = "data-fancybox";
-    }
-
-    let target = options.target;
-
-    if (groupAttr) {
-      if (target && opener && opener === `[${groupAttr}]`) {
-        const groupValue = target.getAttribute(`${groupAttr}`);
-
-        if (groupValue && groupValue.length && groupValue !== "true") {
-          opener = `[${groupAttr}='${groupValue}']`;
-        } else {
-          // If this is empty value, then do not group items
-          opener = false;
-        }
-      }
-    } else {
-      opener = false;
-    }
+    options = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, options, Fancybox.openers.get(opener));
 
     // Get matching nodes
-    if (opener) {
-      items = [].slice.call(document.querySelectorAll(opener));
-    }
+    const groupAttr = options.groupAttr === undefined ? "data-fancybox" : options.groupAttr;
+    const groupValue = groupAttr && target && target.getAttribute(`${groupAttr}`);
 
-    if (!items.length && target) {
+    const groupAll = options.groupAll === undefined ? false : options.groupAll;
+
+    if (groupAll || groupValue) {
+      items = [].slice.call(document.querySelectorAll(opener));
+
+      if (!groupAll) {
+        items = items.filter((el) => el.getAttribute(`${groupAttr}`) === groupValue);
+      }
+    } else {
       items = [target];
     }
 
@@ -2912,7 +2881,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
     // * Create new fancybox instance
     return new Fancybox(
       items,
-      Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, options, {
+      (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, options, {
         startIndex: index,
         $trigger: target,
       })
@@ -2925,7 +2894,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__["Base"]
    * @param {Object} [options] - Custom options
    */
   static bind(selector, options = {}) {
-    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__["canUseDOM"]) {
+    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__.canUseDOM) {
       return;
     }
 
@@ -3021,11 +2990,7 @@ Fancybox.defaults = defaults;
 Fancybox.openers = new Map();
 
 // Add default plugins
-Fancybox.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_4__["Plugins"];
-
-// Detect mobile device
-Fancybox.isMobile = () =>
-  navigator ? /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) : false;
+Fancybox.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_4__.Plugins;
 
 // Auto init with default options
 Fancybox.bind("[data-fancybox]");
@@ -3035,16 +3000,49 @@ Fancybox.bind("[data-fancybox]");
 
 /***/ }),
 
+/***/ "./node_modules/@fancyapps/ui/src/Fancybox/l10n/en.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@fancyapps/ui/src/Fancybox/l10n/en.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  CLOSE: "Close",
+  NEXT: "Next",
+  PREV: "Previous",
+  MODAL: "You can close this modal content with the ESC key",
+  ERROR: "Something Went Wrong, Please Try Again Later",
+  IMAGE_ERROR: "Image Not Found",
+  ELEMENT_NOT_FOUND: "HTML Element Not Found",
+  AJAX_NOT_FOUND: "Error Loading AJAX : Not Found",
+  AJAX_FORBIDDEN: "Error Loading AJAX : Forbidden",
+  IFRAME_ERROR: "Error Loading Page",
+  TOGGLE_ZOOM: "Toggle zoom level",
+  TOGGLE_THUMBS: "Toggle thumbnails",
+  TOGGLE_SLIDESHOW: "Toggle slideshow",
+  TOGGLE_FULLSCREEN: "Toggle full-screen mode",
+  DOWNLOAD: "Download",
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/Hash/Hash.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Fancybox/plugins/Hash/Hash.js ***!
   \**********************************************************************/
-/*! exports provided: Hash */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hash", function() { return Hash; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Hash": () => (/* binding */ Hash)
+/* harmony export */ });
 /* harmony import */ var _shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
 
 
@@ -3068,9 +3066,14 @@ class Hash {
   constructor(fancybox) {
     this.fancybox = fancybox;
 
+    for (const methodName of ["onChange", "onClosing"]) {
+      this[methodName] = this[methodName].bind(this);
+    }
+
     this.events = {
-      closing: this.onClosing.bind(this),
-      "Carousel.ready Carousel.change": this.onChange.bind(this),
+      initCarousel: this.onChange,
+      "Carousel.change": this.onChange,
+      closing: this.onClosing,
     };
 
     this.hasCreatedHistory = false;
@@ -3083,7 +3086,10 @@ class Hash {
    * @param {Object} fancybox
    * @param {Object} carousel
    */
-  onChange(fancybox, carousel) {
+  onChange() {
+    const fancybox = this.fancybox;
+    const carousel = fancybox.Carousel;
+
     if (this.timer) {
       clearTimeout(this.timer);
     }
@@ -3091,6 +3097,7 @@ class Hash {
     const firstRun = carousel.prevPage === null;
 
     const slide = fancybox.getSlide();
+
     const dataset = slide.$trigger && slide.$trigger.dataset;
 
     const currentHash = window.location.hash.substr(1);
@@ -3270,14 +3277,13 @@ class Hash {
 
   static create() {
     // Skip if SSR
-    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__["canUseDOM"]) {
+    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__.canUseDOM) {
       return;
     }
 
     /**
-     * Wait for document to be been completely loaded and parsed to attempt to start Fancybox
+     * Attempt to start Fancybox
      */
-
     window.requestAnimationFrame(() => {
       Hash.onReady();
     });
@@ -3295,12 +3301,13 @@ class Hash {
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Fancybox/plugins/Html/Html.js ***!
   \**********************************************************************/
-/*! exports provided: Html */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Html", function() { return Html; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Html": () => (/* binding */ Html)
+/* harmony export */ });
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 
 
@@ -3349,10 +3356,11 @@ class Html {
     this.fancybox = fancybox;
 
     for (const methodName of [
-      "onPrepare",
+      "onInit",
+      "onReady",
 
       "onCreateSlide",
-      "onDeleteSlide",
+      "onRemoveSlide",
 
       "onSelectSlide",
       "onUnselectSlide",
@@ -3366,10 +3374,11 @@ class Html {
     }
 
     this.events = {
-      init: this.onPrepare,
+      init: this.onInit,
+      ready: this.onReady,
 
       "Carousel.createSlide": this.onCreateSlide,
-      "Carousel.deleteSlide": this.onDeleteSlide,
+      "Carousel.removeSlide": this.onRemoveSlide,
 
       "Carousel.selectSlide": this.onSelectSlide,
       "Carousel.unselectSlide": this.onUnselectSlide,
@@ -3381,10 +3390,10 @@ class Html {
   /**
    * Check if each gallery item has type when fancybox starts
    */
-  onPrepare() {
-    this.fancybox.items.forEach((slide) => {
+  onInit() {
+    for (const slide of this.fancybox.items) {
       this.processType(slide);
-    });
+    }
   }
 
   /**
@@ -3403,6 +3412,7 @@ class Html {
     }
 
     const src = slide.src || "";
+
     let type = slide.type || this.fancybox.options.type,
       rez = null;
 
@@ -3468,7 +3478,7 @@ class Html {
     slide.type = type || this.fancybox.option("defaultType", "image");
 
     if (type === "html5video" || type === "video") {
-      slide.video = Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, this.fancybox.option("Html.video"), slide.video);
+      slide.video = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, this.fancybox.option("Html.video"), slide.video);
 
       if (slide.width && slide.height) {
         slide.ratio = parseFloat(slide.width) / parseFloat(slide.height);
@@ -3476,6 +3486,35 @@ class Html {
         slide.ratio = slide.ratio || slide.video.ratio;
       }
     }
+  }
+
+  /**
+   * Start loading content when Fancybox is ready
+   */
+  onReady() {
+    this.fancybox.Carousel.slides.forEach((slide) => {
+      if (slide.$el) {
+        this.setContent(slide);
+
+        if (slide.index === this.fancybox.getSlide().index) {
+          this.playVideo(slide);
+        }
+      }
+    });
+  }
+
+  /**
+   * Process `Carousel.createSlide` event to create image content
+   * @param {Object} fancybox
+   * @param {Object} carousel
+   * @param {Object} slide
+   */
+  onCreateSlide(fancybox, carousel, slide) {
+    if (this.fancybox.state !== "ready") {
+      return;
+    }
+
+    this.setContent(slide);
   }
 
   /**
@@ -3719,7 +3758,7 @@ class Html {
    * @param {Object} carousel
    * @param {Object} slide
    */
-  onCreateSlide(fancybox, carousel, slide) {
+  setContent(slide) {
     if (!slide || slide.isDom) {
       return;
     }
@@ -3771,8 +3810,24 @@ class Html {
    * @param {Object} slide
    */
   onSelectSlide(fancybox, carousel, slide) {
+    if (fancybox.state === "ready") {
+      this.playVideo(slide);
+    }
+  }
+
+  /**
+   * Attempts to begin playback of the media
+   * @param {Object} slide
+   */
+  playVideo(slide) {
     if (slide.type === "html5video") {
-      slide.$el.querySelector("video").play();
+      const videoElem = slide.$el.querySelector("video");
+
+      if (videoElem) {
+        try {
+          videoElem.play();
+        } catch (err) {}
+      }
     }
 
     if (slide.type !== "video" || !(slide.$iframe && slide.$iframe.contentWindow)) {
@@ -3782,7 +3837,7 @@ class Html {
     // This function will be repeatedly called to check
     // if video iframe has been loaded to send message to start the video
     const poller = () => {
-      if (slide.state !== "done" || !slide.$iframe.contentWindow) {
+      if (slide.state !== "done" || !slide.$iframe || !slide.$iframe.contentWindow) {
         return;
       }
 
@@ -3862,12 +3917,12 @@ class Html {
   }
 
   /**
-   * Process `Carousel.onDeleteSlide` event to do clean up
+   * Process `Carousel.onRemoveSlide` event to do clean up
    * @param {Object} fancybox
    * @param {Object} carousel
    * @param {Object} slide
    */
-  onDeleteSlide(fancybox, carousel, slide) {
+  onRemoveSlide(fancybox, carousel, slide) {
     // Abort ajax request if exists
     if (slide.xhr) {
       slide.xhr.abort();
@@ -3954,12 +4009,13 @@ Html.defaults = defaults;
 /*!************************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Fancybox/plugins/Image/Image.js ***!
   \************************************************************************/
-/*! exports provided: Image */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Image", function() { return Image; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Image": () => (/* binding */ Image)
+/* harmony export */ });
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 /* harmony import */ var _Panzoom_Panzoom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Panzoom/Panzoom.js */ "./node_modules/@fancyapps/ui/src/Panzoom/Panzoom.js");
 
@@ -3967,11 +4023,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const defaults = {
-  // Options for Panzoom instance
-  Panzoom: {
-    maxScale: 1,
-  },
-
   // Class name for slide element indicating that content can be zoomed in
   canZoomInClass: "can-zoom_in",
 
@@ -3985,10 +4036,13 @@ const defaults = {
   zoomOpacity: "auto", // "auto" | true | false,
 
   // Zoom animation friction
-  zoomFriction: 0.8,
+  zoomFriction: 0.82,
 
   // Disable zoom animation if thumbnail is visible only partly
   ignoreCoveredThumbnail: false,
+
+  // Enable guestures
+  touch: true,
 
   // Action to be performed when user clicks on the image
   click: "toggleZoom", // "toggleZoom" | "next" | "close" | null
@@ -4001,35 +4055,14 @@ const defaults = {
 
   // How image should be resized to fit its container
   fit: "contain", // "contain" | "contain-w" | "cover"
-};
 
-/**
- * Helper method to get actual image dimensions respecting original aspect ratio,
- * this helps to normalise differences across browsers
- * @param {Object} img
- */
-const getImgSizeInfo = function (img) {
-  const width = img.naturalWidth,
-    height = img.naturalHeight,
-    cWidth = img.width,
-    cHeight = img.height,
-    oRatio = width / height,
-    cRatio = cWidth / cHeight,
-    rez = {
-      width: cWidth,
-      height: cHeight,
-    };
+  // Should create wrapping element around the image
+  wrap: false,
 
-  if (oRatio > cRatio) {
-    rez.height = cWidth / oRatio;
-  } else {
-    rez.width = cHeight * oRatio;
-  }
-
-  rez.left = (cWidth - rez.width) * 0.5;
-  rez.right = width + rez.left;
-
-  return rez;
+  // Custom Panzoom options
+  Panzoom: {
+    ratio: 1,
+  },
 };
 
 class Image {
@@ -4040,12 +4073,12 @@ class Image {
       // Fancybox
       "onReady",
       "onClosing",
+      "onDone",
 
       // Fancybox.Carousel
       "onPageChange",
       "onCreateSlide",
       "onRemoveSlide",
-      "onRefresh",
 
       // Image load/error
       "onImageStatusChange",
@@ -4056,22 +4089,55 @@ class Image {
     this.events = {
       ready: this.onReady,
       closing: this.onClosing,
+      done: this.onDone,
 
       "Carousel.change": this.onPageChange,
       "Carousel.createSlide": this.onCreateSlide,
-      "Carousel.deleteSlide": this.onRemoveSlide,
-      "Carousel.Panzoom.updateMetrics": this.onRefresh,
+      "Carousel.removeSlide": this.onRemoveSlide,
     };
   }
 
   /**
-   * Process `ready` event to start zoom-in animation if needed
+   * Handle `ready` event to start loading content
    */
   onReady() {
-    const slide = this.fancybox.getSlide();
+    this.fancybox.Carousel.slides.forEach((slide) => {
+      if (slide.$el) {
+        this.setContent(slide);
+      }
+    });
+  }
 
-    if (slide.state === "ready") {
-      this.revealContent(slide);
+  /**
+   * Handle `done` event to update cursor
+   * @param {Object} fancybox
+   * @param {Object} slide
+   */
+  onDone(fancybox, slide) {
+    this.handleCursor(slide);
+  }
+
+  /**
+   * Handle `closing` event to clean up all slides and to start zoom-out animation
+   * @param {Object} fancybox
+   */
+  onClosing(fancybox) {
+    clearTimeout(this.clickTimer);
+
+    // Remove events
+    fancybox.Carousel.slides.forEach((slide) => {
+      if (slide.$image) {
+        slide.state = "destroy";
+      }
+
+      if (slide.Panzoom) {
+        slide.Panzoom.detachEvents();
+      }
+    });
+
+    // If possible, start the zoom animation, it will interrupt the default closing process
+    if (this.fancybox.state === "closing" && this.canZoom(fancybox.getSlide())) {
+      this.zoomOut();
     }
   }
 
@@ -4082,8 +4148,48 @@ class Image {
    * @param {Object} slide
    */
   onCreateSlide(fancybox, carousel, slide) {
+    if (this.fancybox.state !== "ready") {
+      return;
+    }
+
+    this.setContent(slide);
+  }
+
+  /**
+   * Handle `Carousel.removeSlide` event to do clean up the slide
+   * @param {Object} fancybox
+   * @param {Object} carousel
+   * @param {Object} slide
+   */
+  onRemoveSlide(fancybox, carousel, slide) {
+    if (slide.$image) {
+      slide.$el.classList.remove(fancybox.option("Image.canZoomInClass"));
+
+      slide.$image.remove();
+      slide.$image = null;
+    }
+
+    if (slide.Panzoom) {
+      slide.Panzoom.destroy();
+      slide.Panzoom = null;
+    }
+
+    if (slide.$el && slide.$el.dataset) {
+      delete slide.$el.dataset.imageFit;
+    }
+  }
+
+  /**
+   * Build DOM elements and add event listeners
+   * @param {Object} slide
+   */
+  setContent(slide) {
     // Check if this slide should contain an image
     if (slide.isDom || slide.html || (slide.type && slide.type !== "image")) {
+      return;
+    }
+
+    if (slide.$image) {
       return;
     }
 
@@ -4098,8 +4204,15 @@ class Image {
     // Image element
     const $image = document.createElement("img");
 
-    $image.onload = () => this.onImageStatusChange(slide);
-    $image.onerror = () => this.onImageStatusChange(slide);
+    $image.addEventListener("load", (event) => {
+      event.stopImmediatePropagation();
+
+      this.onImageStatusChange(slide);
+    });
+
+    $image.addEventListener("error", () => {
+      this.onImageStatusChange(slide);
+    });
 
     $image.src = slide.src;
     $image.alt = "";
@@ -4117,27 +4230,64 @@ class Image {
 
     slide.$image = $image;
 
-    $content.appendChild($image);
+    const shouldWrap = this.fancybox.option("Image.wrap");
+
+    if (shouldWrap) {
+      const $wrap = document.createElement("div");
+      $wrap.classList.add(typeof shouldWrap === "string" ? shouldWrap : "fancybox__image-wrap");
+
+      $wrap.appendChild($image);
+
+      $content.appendChild($wrap);
+
+      slide.$wrap = $wrap;
+    } else {
+      $content.appendChild($image);
+    }
 
     // Set data attribute if other that default
     // for example, set `[data-image-fit="contain-w"]`
     slide.$el.dataset.imageFit = this.fancybox.option("Image.fit");
-
-    slide.$el.style.display = "none";
-    slide.$el.offsetHeight; // no need to store this anywhere, the reference is enough
-    slide.$el.style.display = "";
 
     // Append content
     this.fancybox.setContent(slide, $content);
 
     // Display loading icon
     if ($image.complete || $image.error) {
-      $image.onload = $image.onerror = null;
-
       this.onImageStatusChange(slide);
-    } else if (!$image.complete) {
+    } else {
       this.fancybox.showLoading(slide);
     }
+  }
+
+  /**
+   * Handle image state change, display error or start revealing image
+   * @param {Object} slide
+   */
+  onImageStatusChange(slide) {
+    const $image = slide.$image;
+
+    if (!$image || slide.state !== "loading") {
+      return;
+    }
+
+    if (!($image.complete && $image.naturalWidth && $image.naturalHeight)) {
+      this.fancybox.setError(slide, "{{IMAGE_ERROR}}");
+
+      return;
+    }
+
+    this.fancybox.hideLoading(slide);
+
+    if (this.fancybox.option("Image.fit") === "contain") {
+      this.initSlidePanzoom(slide);
+    }
+
+    // Add `wheel` and `click` event handler
+    slide.$el.addEventListener("wheel", (event) => this.onWheel(slide, event), { passive: false });
+    slide.$content.addEventListener("click", (event) => this.onClick(slide, event), { passive: false });
+
+    this.revealContent(slide);
   }
 
   /**
@@ -4150,114 +4300,49 @@ class Image {
     }
 
     //* Initialize Panzoom
-    slide.Panzoom = new _Panzoom_Panzoom_js__WEBPACK_IMPORTED_MODULE_1__["Panzoom"](
+    slide.Panzoom = new _Panzoom_Panzoom_js__WEBPACK_IMPORTED_MODULE_1__.Panzoom(
       slide.$el,
-      Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(true, this.fancybox.option("Image.Panzoom"), {
+      (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(true, this.fancybox.option("Image.Panzoom", {}), {
+        viewport: slide.$wrap,
         content: slide.$image,
+
+        wrapInner: false,
+
+        // Allow to select caption text
+        textSelection: true,
+
+        // Toggle gestures
+        touch: this.fancybox.option("Image.touch"),
 
         // This will prevent click conflict with fancybox main carousel
         panOnlyZoomed: true,
 
-        // Disable default click/wheel events; custom callbacks will replace them
-        click: null,
-        doubleClick: null,
-        wheel: null,
-
-        on: {
-          afterAnimate: (panzoom) => {
-            if (slide.state === "zoomIn") {
-              panzoom.attachEvents();
-
-              this.fancybox.done(slide);
-            }
-
-            this.handleCursor(slide);
-          },
-          updateMetrics: () => {
-            this.handleCursor(slide);
-          },
-          touchMove: () => {
-            // Prevent any dragging if fancybox main carousel is dragged up/down
-            // (e.g. if close guesture is detected)
-            if (this.fancybox.Carousel.Panzoom.lockAxis) {
-              return false;
-            }
-          },
-        },
+        // Disable default click / wheel events as custom event listeners will replace them,
+        // because click and wheel events should work without Panzoom
+        click: false,
+        wheel: false,
       })
     );
 
-    // Add `wheel` event handler
-    if (this.fancybox.option("Image.wheel")) {
-      slide.Panzoom.on("wheel", (panzoom, event) => this.onWheel(panzoom, event));
-    }
+    slide.Panzoom.on("startAnimation", () => {
+      this.fancybox.trigger("Image.startAnimation", slide);
+    });
 
-    // Add `click` event handler
-    if (this.fancybox.option("Image.click")) {
-      slide.Panzoom.on("click", (panzoom, event) => this.onClick(panzoom, event));
-    }
+    slide.Panzoom.on("endAnimation", () => {
+      if (slide.state === "zoomIn") {
+        this.fancybox.done(slide);
+      }
 
-    // Handle double click event to zoom in/out
-    if (this.fancybox.option("Image.doubleClick") === "toggleZoom") {
-      slide.Panzoom.on("doubleClick", (panzoom, event) => {
-        if (!event.target.closest(".fancybox__content")) {
-          return;
-        }
+      this.handleCursor(slide);
 
-        event.preventDefault();
-        event.stopPropagation();
+      this.fancybox.trigger("Image.endAnimation", slide);
+    });
 
-        const x = event.clientX - panzoom.$content.getClientRects()[0].left;
-        const y = event.clientY - panzoom.$content.getClientRects()[0].top;
+    slide.Panzoom.on("afterUpdate", () => {
+      this.handleCursor(slide);
 
-        panzoom.toggleZoom({ x, y });
-      });
-    }
-  }
-
-  /**
-   * Handle image state change
-   * @param {Object} slide
-   */
-  onImageStatusChange(slide) {
-    this.fancybox.hideLoading(slide);
-
-    const $image = slide.$image;
-
-    if (!($image.complete && $image.width && $image.height)) {
-      this.fancybox.setError(slide, "{{IMAGE_ERROR}}");
-
-      return;
-    }
-
-    slide.state = "ready";
-
-    this.updateDimensions(slide);
-
-    this.initSlidePanzoom(slide);
-
-    this.revealContent(slide);
-  }
-
-  /**
-   * Update image wrapper width to match image width,
-   * this will allow to display elements like close button over the image
-   * if image is resized smaller
-   * @param {Object} slide
-   */
-  updateDimensions(slide) {
-    if (slide.$el.dataset.imageFit !== "cover") {
-      const $image = slide.$image;
-      const $content = slide.$content;
-
-      $content.style.maxWidth = "";
-
-      const borderWidth = $image.offsetWidth - $image.clientWidth;
-
-      $content.style.maxWidth = `${getImgSizeInfo($image).width + borderWidth}px`;
-    }
-
-    this.handleCursor(slide);
+      this.fancybox.trigger("Image.afterUpdate", slide);
+    });
   }
 
   /**
@@ -4265,8 +4350,6 @@ class Image {
    * @param {Object} slide
    */
   revealContent(slide) {
-    this.updateDimensions(slide);
-
     // Animate only on first run
     if (
       this.fancybox.Carousel.prevPage === null &&
@@ -4280,45 +4363,6 @@ class Image {
   }
 
   /**
-   * Determine if it is possible to do zoom-in animation
-   */
-  canZoom(slide) {
-    const fancybox = this.fancybox,
-      $container = fancybox.$container;
-
-    let rez = false;
-
-    if (!fancybox.option("Image.zoom")) {
-      return rez;
-    }
-
-    const $thumb = slide.$thumb;
-
-    if (!$thumb || slide.state === "loading") {
-      return rez;
-    }
-
-    // * Check if thumbnail image is really visible
-    $container.style.pointerEvents = "none";
-
-    const rect = $thumb.getBoundingClientRect();
-
-    // Check if thumbnail image is actually visible on the screen
-    if (this.fancybox.option("Image.ignoreCoveredThumbnail")) {
-      const visibleTopLeft = document.elementFromPoint(rect.left + 1, rect.top + 1) === $thumb;
-      const visibleBottomRight = document.elementFromPoint(rect.right - 1, rect.bottom - 1) === $thumb;
-
-      rez = visibleTopLeft && visibleBottomRight;
-    } else {
-      rez = document.elementFromPoint(rect.left + rect.width * 0.5, rect.top + rect.height * 0.5) === $thumb;
-    }
-
-    $container.style.pointerEvents = "";
-
-    return rez;
-  }
-
-  /**
    * Get zoom info for selected slide
    * @param {Object} slide
    */
@@ -4327,12 +4371,13 @@ class Image {
       thumbRect = $thumb.getBoundingClientRect(),
       thumbWidth = thumbRect.width,
       thumbHeight = thumbRect.height,
+      //
       contentRect = slide.$content.getBoundingClientRect(),
-      contentDim = getImgSizeInfo(slide.$image),
-      contentWidth = contentDim.width,
-      contentHeight = contentDim.height,
-      shiftedTop = contentRect.top + contentHeight * 0.5 - (thumbRect.top + thumbHeight * 0.5),
-      shiftedLeft = contentRect.left + contentWidth * 0.5 - (thumbRect.left + thumbWidth * 0.5);
+      contentWidth = contentRect.width,
+      contentHeight = contentRect.height,
+      //
+      shiftedTop = contentRect.top - thumbRect.top,
+      shiftedLeft = contentRect.left - thumbRect.left;
 
     // Check if need to update opacity
     let opacity = this.fancybox.option("Image.zoomOpacity");
@@ -4348,28 +4393,61 @@ class Image {
       opacity: opacity,
     };
   }
+
+  /**
+   * Determine if it is possible to do zoom-in animation
+   */
+  canZoom(slide) {
+    const fancybox = this.fancybox,
+      $container = fancybox.$container;
+
+    if (window.visualViewport && window.visualViewport.scale !== 1) {
+      return false;
+    }
+
+    if (!fancybox.option("Image.zoom") || fancybox.option("Image.fit") !== "contain") {
+      return false;
+    }
+
+    const $thumb = slide.$thumb;
+
+    if (!$thumb || slide.state === "loading") {
+      return false;
+    }
+
+    // * Check if thumbnail image is really visible
+    $container.classList.add("fancybox__no-click");
+
+    const rect = $thumb.getBoundingClientRect();
+
+    let rez;
+
+    // Check if thumbnail image is actually visible on the screen
+    if (this.fancybox.option("Image.ignoreCoveredThumbnail")) {
+      const visibleTopLeft = document.elementFromPoint(rect.left + 1, rect.top + 1) === $thumb;
+      const visibleBottomRight = document.elementFromPoint(rect.right - 1, rect.bottom - 1) === $thumb;
+
+      rez = visibleTopLeft && visibleBottomRight;
+    } else {
+      rez = document.elementFromPoint(rect.left + rect.width * 0.5, rect.top + rect.height * 0.5) === $thumb;
+    }
+
+    $container.classList.remove("fancybox__no-click");
+
+    return rez;
+  }
+
   /**
    * Perform zoom-in animation
    */
   zoomIn() {
-    const fancybox = this.fancybox;
-
-    // Skip if initialization of main carousel is not yet complete
-    // as it will give incorrect element position calculations
-    // (and animation will later start in `onReady` event handler)
-    if (fancybox.Carousel.state === "init") {
-      return;
-    }
-
-    const slide = fancybox.getSlide(),
+    const fancybox = this.fancybox,
+      slide = fancybox.getSlide(),
       Panzoom = slide.Panzoom;
 
     const { top, left, scale, opacity } = this.getZoomInfo(slide);
 
     slide.state = "zoomIn";
-
-    // Disable event listeners while animation runs
-    Panzoom.detachEvents();
 
     fancybox.trigger("reveal", slide);
 
@@ -4387,7 +4465,7 @@ class Image {
     if (opacity === true) {
       Panzoom.on("afterTransform", (panzoom) => {
         if (slide.state === "zoomIn" || slide.state === "zoomOut") {
-          panzoom.$content.style.opacity = Math.min(1, panzoom.current.scale);
+          panzoom.$content.style.opacity = Math.min(1, 1 - (1 - panzoom.content.scale) / (1 - scale));
         }
       });
     }
@@ -4420,17 +4498,22 @@ class Image {
       slide.$caption.style.visibility = "hidden";
     }
 
-    let friction = this.fancybox.option("Image.zoomFriction") * 0.75;
+    let friction = this.fancybox.option("Image.zoomFriction");
 
-    const animatePosition = () => {
-      const { top, left, scale } = this.getZoomInfo(slide);
+    const animatePosition = (event) => {
+      const { top, left, scale, opacity } = this.getZoomInfo(slide);
+
+      // Increase speed on the first run if opacity is not animated
+      if (!event && !opacity) {
+        friction *= 0.82;
+      }
 
       Panzoom.panTo({
         x: left * -1,
         y: top * -1,
-        scale: scale,
+        scale,
+        friction,
         ignoreBounds: true,
-        friction: friction,
       });
 
       // Gradually increase speed
@@ -4441,7 +4524,7 @@ class Image {
     // therefore animation end position has to be recalculated after each page scroll
     window.addEventListener("scroll", animatePosition);
 
-    Panzoom.on("afterAnimate", () => {
+    Panzoom.on("endAnimation", () => {
       window.removeEventListener("scroll", animatePosition);
       fancybox.destroy();
     });
@@ -4454,13 +4537,17 @@ class Image {
    * @param {Object} slide
    */
   handleCursor(slide) {
+    if (slide.type !== "image") {
+      return;
+    }
+
     const panzoom = slide.Panzoom;
     const clickAction = this.fancybox.option("Image.click");
     const classList = slide.$el.classList;
 
     if (panzoom && clickAction === "toggleZoom") {
       const canZoom =
-        panzoom && panzoom.current.scale === 1 && panzoom.option("maxScale") - panzoom.current.scale > 0.01;
+        panzoom && panzoom.content.scale === 1 && panzoom.option("maxScale") - panzoom.content.scale > 0.01;
 
       classList[canZoom ? "add" : "remove"](this.fancybox.option("Image.canZoomInClass"));
     } else if (clickAction === "close") {
@@ -4469,14 +4556,22 @@ class Image {
   }
 
   /**
-   * Handle `Panzoom.wheel` event
-   * @param {Object} panzoom
+   * Handle `wheel` event
+   * @param {Object} slide
    * @param {Object} event
    */
-  onWheel(panzoom, event) {
+  onWheel(slide, event) {
+    if (this.fancybox.state !== "ready") {
+      return;
+    }
+
+    if (this.fancybox.trigger("Image.wheel", event) === false) {
+      return;
+    }
+
     switch (this.fancybox.option("Image.wheel")) {
       case "zoom":
-        panzoom.zoomWithWheel(event);
+        slide.Panzoom && slide.Panzoom.zoomWithWheel(event);
 
         break;
 
@@ -4490,105 +4585,81 @@ class Image {
 
         break;
     }
-
-    event.preventDefault();
   }
 
   /**
-   * Handle `Panzoom.click` event
-   * @param {Object} panzoom
+   * Handle `click` and `dblclick` events
+   * @param {Object} slide
    * @param {Object} event
    */
-  onClick(panzoom, event) {
+  onClick(slide, event) {
+    // Check if can click
+    if (this.fancybox.state !== "ready") {
+      return;
+    }
+
+    const panzoom = slide.Panzoom;
+
     if (
-      this.fancybox.Carousel.Panzoom.drag.distance >= 6 ||
-      this.fancybox.Carousel.Panzoom.lockAxis ||
-      !(event.target.tagName == "IMG" || event.target.classList.contains("fancybox__content"))
+      panzoom &&
+      (panzoom.dragPosition.midPoint ||
+        panzoom.dragOffset.x !== 0 ||
+        panzoom.dragOffset.y !== 0 ||
+        panzoom.dragOffset.scale !== 1)
     ) {
       return;
     }
 
-    event.preventDefault();
-    event.stopPropagation();
-
-    switch (this.fancybox.option("Image.click")) {
-      case "toggleZoom":
-        const x = event.clientX - panzoom.$content.getClientRects()[0].left;
-        const y = event.clientY - panzoom.$content.getClientRects()[0].top;
-
-        panzoom.toggleZoom({ x, y });
-
-        break;
-      case "close":
-        this.fancybox.close();
-        break;
-
-      case "next":
-        this.fancybox.next();
-        break;
-
-      case "prev":
-        this.fancybox.prev();
-        break;
-    }
-  }
-
-  /**
-   * Handle `Carousel.refresh` event to call content resizer
-   * @param {Object} fancybox
-   * @param {Object} carousel
-   */
-  onRefresh(fancybox, carousel) {
-    carousel.slides.forEach((slide) => {
-      if (slide.Panzoom) {
-        this.updateDimensions(slide);
-      }
-    });
-  }
-
-  /**
-   * Handle `Carousel.deleteSlide` event to do clean up the slide
-   * @param {Object} fancybox
-   * @param {Object} carousel
-   * @param {Object} slide
-   */
-  onRemoveSlide(fancybox, carousel, slide) {
-    if (slide.$image) {
-      slide.$el.classList.remove(fancybox.option("Image.canZoomInClass"));
-
-      slide.$image.onload = slide.$image.onerror = null;
-
-      slide.$image.remove();
-      slide.$image = null;
+    if (this.fancybox.Carousel.Panzoom.lockAxis) {
+      return false;
     }
 
-    if (slide.Panzoom) {
-      slide.Panzoom.destroy();
-      slide.Panzoom = null;
+    const process = (action) => {
+      if (this.fancybox.trigger("Image.click", event) === false) {
+        return;
+      }
+
+      switch (action) {
+        case "toggleZoom":
+          event.stopPropagation();
+
+          slide.Panzoom && slide.Panzoom.zoomWithClick(event);
+
+          break;
+
+        case "close":
+          this.fancybox.close();
+
+          break;
+
+        case "next":
+          event.stopPropagation();
+
+          this.fancybox.next();
+
+          break;
+      }
+    };
+
+    // Clear pending single click
+    if (this.clickTimer) {
+      clearTimeout(this.clickTimer);
+      this.clickTimer = null;
     }
 
-    delete slide.$el.dataset.imageFit;
-  }
+    const clickAction = this.fancybox.option("Image.click");
+    const dblclickAction = this.fancybox.option("Image.doubleClick");
 
-  /**
-   * Handle `closing` event event to clean up all slides and to start zoom-out animation
-   * @param {Object} fancybox
-   */
-  onClosing(fancybox) {
-    // Remove events
-    fancybox.Carousel.slides.forEach((slide) => {
-      if (slide.$image) {
-        slide.$image.onload = slide.$image.onerror = null;
+    if (dblclickAction) {
+      if (event.detail === 1) {
+        this.clickTimer = setTimeout(() => {
+          process(clickAction);
+        }, 300);
+      } else if (event.detail === 2) {
+        process(dblclickAction);
       }
-
-      if (slide.Panzoom) {
-        slide.Panzoom.detachEvents();
-      }
-    });
-
-    // If possible, start the zoom animation, it will interrupt the default closing process
-    if (this.fancybox.state === "closing" && this.canZoom(fancybox.getSlide())) {
-      this.zoomOut();
+    } else {
+      process(clickAction);
     }
   }
 
@@ -4606,20 +4677,14 @@ class Image {
         return;
       }
 
-      if (slide.index === currSlide.index) {
-        if (carousel.Panzoom.velocity.x === 0) {
-          this.revealContent(slide);
-        }
-
-        return;
+      if (slide.index !== currSlide.index) {
+        slide.Panzoom.panTo({
+          x: 0,
+          y: 0,
+          scale: 1,
+          friction: 0.8,
+        });
       }
-
-      slide.Panzoom.panTo({
-        x: 0,
-        y: 0,
-        scale: 1,
-        friction: 0.8,
-      });
     });
   }
 
@@ -4642,12 +4707,13 @@ Image.defaults = defaults;
 /*!**********************************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Fancybox/plugins/ScrollLock/ScrollLock.js ***!
   \**********************************************************************************/
-/*! exports provided: ScrollLock */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollLock", function() { return ScrollLock; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ScrollLock": () => (/* binding */ ScrollLock)
+/* harmony export */ });
 /* harmony import */ var _src_shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../src/shared/utils/isScrollable.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isScrollable.js");
 
 
@@ -4699,7 +4765,7 @@ class ScrollLock {
   updateViewport() {
     const fancybox = this.fancybox,
       viewport = this.viewport,
-      scale = viewport.scale,
+      scale = viewport.scale || 1,
       $container = fancybox.$container;
 
     if (!$container) {
@@ -4710,7 +4776,7 @@ class ScrollLock {
       height = "",
       transform = "";
 
-    if (Math.abs(scale - 1) > 0.1) {
+    if (scale - 1 > 0.1) {
       width = `${viewport.width * scale}px`;
       height = `${viewport.height * scale}px`;
       transform = `translate3d(${viewport.offsetLeft}px, ${viewport.offsetTop}px, 0) scale(${1 / scale})`;
@@ -4742,7 +4808,7 @@ class ScrollLock {
     }
 
     const target = event.target;
-    const el = Object(_src_shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_0__["isScrollable"])(target);
+    const el = (0,_src_shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_0__.isScrollable)(target);
 
     if (!el) {
       event.preventDefault();
@@ -4800,22 +4866,28 @@ class ScrollLock {
 /*!**************************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Fancybox/plugins/Thumbs/Thumbs.js ***!
   \**************************************************************************/
-/*! exports provided: Thumbs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Thumbs", function() { return Thumbs; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Thumbs": () => (/* binding */ Thumbs)
+/* harmony export */ });
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 /* harmony import */ var _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Carousel/Carousel.js */ "./node_modules/@fancyapps/ui/src/Carousel/Carousel.js");
 
 
 
 const defaults = {
+  // The minimum number of images in the gallery to display thumbnails
+  minSlideCount: 2,
+
+  // Minimum screen height to display thumbnails
+  minScreenHeight: 500,
+
   // Automatically show thumbnails when opened
   autoStart: true,
-  // The minimum number of images in the gallery to display thumbnails
-  minSlideCount: 3,
+
   // Keyboard shortcut to toggle thumbnail container
   key: "t",
 };
@@ -4824,26 +4896,37 @@ class Thumbs {
   constructor(fancybox) {
     this.fancybox = fancybox;
 
-    this.$wrap = null;
+    this.$container = null;
     this.state = "init";
 
-    for (const methodName of ["onReady", "onClosing", "onKeydown"]) {
+    for (const methodName of ["onPrepare", "onClosing", "onKeydown"]) {
       this[methodName] = this[methodName].bind(this);
     }
 
     this.events = {
-      ready: this.onReady,
+      prepare: this.onPrepare,
       closing: this.onClosing,
       keydown: this.onKeydown,
     };
   }
 
   /**
-   * Process `ready` event to build the layout
+   * Process `prepare` event to build the layout
    */
-  onReady() {
-    if (this.fancybox.option("Thumbs.autoStart") === true) {
-      this.initLayout();
+  onPrepare() {
+    // Get slides, skip if the total number is less than the minimum
+    const slides = this.getSlides();
+
+    if (slides.length < this.fancybox.option("Thumbs.minSlideCount")) {
+      this.state = "disabled";
+      return;
+    }
+
+    if (
+      this.fancybox.option("Thumbs.autoStart") === true &&
+      this.fancybox.Carousel.Panzoom.content.height >= this.fancybox.option("Thumbs.minScreenHeight")
+    ) {
+      this.build();
     }
   }
 
@@ -4870,29 +4953,22 @@ class Thumbs {
   /**
    * Build layout and init thumbnail Carousel
    */
-  initLayout() {
-    if (this.state !== "init") {
+  build() {
+    if (this.$container) {
       return;
     }
 
-    // Get slides, skip if the total number is less than the minimum
-    const slides = this.getSlides();
-
-    if (slides.length < this.fancybox.option("Thumbs.minSlideCount")) {
-      return false;
-    }
-
     // Create wrapping element and append to layout
-    const $wrap = document.createElement("div");
+    const $container = document.createElement("div");
 
-    $wrap.classList.add(`fancybox__thumbs`);
+    $container.classList.add("fancybox__thumbs");
 
-    this.fancybox.$container.appendChild($wrap);
+    this.fancybox.$carousel.parentNode.insertBefore($container, this.fancybox.$carousel.nextSibling);
 
     // Initialise thumbnail carousel with all slides
-    this.Carousel = new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_1__["Carousel"](
-      $wrap,
-      Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(
+    this.Carousel = new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_1__.Carousel(
+      $container,
+      (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(
         true,
         {
           Dots: false,
@@ -4910,9 +4986,9 @@ class Thumbs {
         this.fancybox.option("Thumbs.Carousel"),
         {
           Sync: {
-            with: this.fancybox.Carousel,
+            target: this.fancybox.Carousel,
           },
-          slides: slides,
+          slides: this.getSlides(),
         }
       )
     );
@@ -4924,8 +5000,9 @@ class Thumbs {
       this.fancybox[event.deltaY < 0 ? "prev" : "next"]();
     });
 
-    this.$wrap = $wrap;
-    this.state = "ready";
+    this.$container = $container;
+
+    this.state = "visible";
   }
 
   /**
@@ -4934,16 +5011,16 @@ class Thumbs {
   getSlides() {
     const slides = [];
 
-    this.fancybox.items.forEach((slide) => {
+    for (const slide of this.fancybox.items) {
       const thumb = slide.thumb;
 
       if (thumb) {
         slides.push({
-          html: `<div class="fancybox__thumb" style="background-image:url(${thumb})"></div>`,
+          html: `<div class="fancybox__thumb" style="background-image:url('${thumb}')"></div>`,
           customClass: `has-thumb has-${slide.type || "image"}`,
         });
       }
-    });
+    }
 
     return slides;
   }
@@ -4953,10 +5030,10 @@ class Thumbs {
    * Tip: you can use `Fancybox.getInstance().plugins.Thumbs.toggle()` from anywhere in your code
    */
   toggle() {
-    if (this.state === "ready") {
+    if (this.state === "visible") {
       this.Carousel.Panzoom.detachEvents();
 
-      this.$wrap.style.display = "none";
+      this.$container.style.display = "none";
 
       this.state = "hidden";
 
@@ -4964,16 +5041,16 @@ class Thumbs {
     }
 
     if (this.state === "hidden") {
-      this.$wrap.style.display = "";
+      this.$container.style.display = "";
 
       this.Carousel.Panzoom.attachEvents();
 
-      this.state = "ready";
+      this.state = "visible";
 
       return;
     }
 
-    this.initLayout();
+    this.build();
   }
 
   /**
@@ -4985,9 +5062,9 @@ class Thumbs {
       this.Carousel = null;
     }
 
-    if (this.$wrap) {
-      this.$wrap.remove();
-      this.$wrap = null;
+    if (this.$container) {
+      this.$container.remove();
+      this.$container = null;
     }
 
     this.state = "init";
@@ -5010,21 +5087,561 @@ Thumbs.defaults = defaults;
 
 /***/ }),
 
+/***/ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/Toolbar/Toolbar.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@fancyapps/ui/src/Fancybox/plugins/Toolbar/Toolbar.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Toolbar": () => (/* binding */ Toolbar)
+/* harmony export */ });
+/* harmony import */ var _shared_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/isPlainObject.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isPlainObject.js");
+/* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
+/* harmony import */ var _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/utils/Fullscreen.js */ "./node_modules/@fancyapps/ui/src/shared/utils/Fullscreen.js");
+/* harmony import */ var _shared_utils_Slideshow_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/utils/Slideshow.js */ "./node_modules/@fancyapps/ui/src/shared/utils/Slideshow.js");
+
+
+
+
+
+
+const defaults = {
+  // Toolbar items; can be links, buttons or `div` elements
+  items: {
+    counter: {
+      type: "div",
+      class: "fancybox__counter",
+      html: '<span data-fancybox-index=""></span>&nbsp;/&nbsp;<span data-fancybox-count=""></span>',
+      tabindex: -1,
+      position: "left",
+    },
+    prev: {
+      type: "button",
+      class: "fancybox__button--prev",
+      label: "PREV",
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M15 4l-8 8 8 8"/></svg>',
+      click: function (event) {
+        event.preventDefault();
+
+        this.fancybox.prev();
+      },
+    },
+    next: {
+      type: "button",
+      class: "fancybox__button--next",
+      label: "NEXT",
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M8 4l8 8-8 8"/></svg>',
+      click: function (event) {
+        event.preventDefault();
+
+        this.fancybox.next();
+      },
+    },
+    fullscreen: {
+      type: "button",
+      class: "fancybox__button--fullscreen",
+      label: "TOGGLE_FULLSCREEN",
+      html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
+                <g><path d="M3 8 V3h5"></path><path d="M21 8V3h-5"></path><path d="M8 21H3v-5"></path><path d="M16 21h5v-5"></path></g>
+                <g><path d="M7 2v5H2M17 2v5h5M2 17h5v5M22 17h-5v5"/></g>
+            </svg>`,
+      click: function (event) {
+        event.preventDefault();
+
+        if (_shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.element()) {
+          _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.deactivate();
+        } else {
+          _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.activate(this.fancybox.$container);
+        }
+      },
+    },
+    slideshow: {
+      type: "button",
+      class: "fancybox__button--slideshow",
+      label: "TOGGLE_SLIDESHOW",
+      html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
+                <g><path d="M6 4v16"/><path d="M20 12L6 20"/><path d="M20 12L6 4"/></g>
+                <g><path d="M7 4v15M17 4v15"/></g>
+            </svg>`,
+      click: function (event) {
+        event.preventDefault();
+
+        this.Slideshow.toggle();
+      },
+    },
+    zoom: {
+      type: "button",
+      class: "fancybox__button--zoom",
+      label: "TOGGLE_ZOOM",
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><circle cx="10" cy="10" r="7"></circle><path d="M16 16 L21 21"></svg>',
+      click: function (event) {
+        event.preventDefault();
+
+        const panzoom = this.fancybox.getSlide().Panzoom;
+
+        if (panzoom) {
+          panzoom.toggleZoom();
+        }
+      },
+    },
+    download: {
+      type: "link",
+      label: "DOWNLOAD",
+      class: "fancybox__button--download",
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.62 2.48A2 2 0 004.56 21h14.88a2 2 0 001.94-1.51L22 17"/></svg>',
+      click: function (event) {
+        event.stopPropagation();
+      },
+    },
+    thumbs: {
+      type: "button",
+      label: "TOGGLE_THUMBS",
+      class: "fancybox__button--thumbs",
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><circle cx="4" cy="4" r="1" /><circle cx="12" cy="4" r="1" transform="rotate(90 12 4)"/><circle cx="20" cy="4" r="1" transform="rotate(90 20 4)"/><circle cx="4" cy="12" r="1" transform="rotate(90 4 12)"/><circle cx="12" cy="12" r="1" transform="rotate(90 12 12)"/><circle cx="20" cy="12" r="1" transform="rotate(90 20 12)"/><circle cx="4" cy="20" r="1" transform="rotate(90 4 20)"/><circle cx="12" cy="20" r="1" transform="rotate(90 12 20)"/><circle cx="20" cy="20" r="1" transform="rotate(90 20 20)"/></svg>',
+      click: function (event) {
+        event.stopPropagation();
+
+        const thumbs = this.fancybox.plugins.Thumbs;
+
+        if (thumbs) {
+          thumbs.toggle();
+        }
+      },
+    },
+    close: {
+      type: "button",
+      label: "CLOSE",
+      class: "fancybox__button--close",
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M20 20L4 4m16 0L4 20"></path></svg>',
+      tabindex: 1,
+      click: function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        this.fancybox.close();
+      },
+    },
+  },
+
+  // What toolbar items to display
+  display: ["counter", "zoom", "slideshow", "fullscreen", "thumbs", "close"],
+
+  // Only create a toolbar item if there is at least one image in the group
+  autoEnable: true,
+};
+
+class Toolbar {
+  constructor(fancybox) {
+    this.fancybox = fancybox;
+
+    this.$container = null;
+    this.state = "init";
+
+    for (const methodName of [
+      "onInit",
+      "onPrepare",
+      "onDone",
+      "onKeydown",
+      "onClosing",
+      "onChange",
+      "onSettle",
+      "onRefresh",
+    ]) {
+      this[methodName] = this[methodName].bind(this);
+    }
+
+    this.events = {
+      init: this.onInit,
+      prepare: this.onPrepare,
+      done: this.onDone,
+      keydown: this.onKeydown,
+      closing: this.onClosing,
+
+      // Clear Slideshow when user strts to change current slide
+      "Carousel.change": this.onChange,
+
+      // Set timer after carousel changes current slide; deactive if last slide is reached
+      "Carousel.settle": this.onSettle,
+
+      // Deactivate Slideshow on user interaction
+      "Carousel.Panzoom.touchStart": () => this.onRefresh(),
+
+      "Image.startAnimation": (fancybox, slide) => this.onRefresh(slide),
+      "Image.afterUpdate": (fancybox, slide) => this.onRefresh(slide),
+    };
+  }
+
+  onInit() {
+    // Disable self if current group does not contain at least one image
+    if (this.fancybox.option("Toolbar.autoEnable")) {
+      let hasImage = false;
+
+      for (const item of this.fancybox.items) {
+        if (item.type === "image") {
+          hasImage = true;
+          break;
+        }
+      }
+
+      if (!hasImage) {
+        this.state = "disabled";
+        return;
+      }
+    }
+
+    // Disable the creation of a close button, if one exists in the toolbar
+    for (const key of this.fancybox.option("Toolbar.display")) {
+      const id = (0,_shared_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__.isPlainObject)(key) ? key.id : key;
+
+      if (id === "close") {
+        this.fancybox.options.closeButton = false;
+
+        break;
+      }
+    }
+  }
+
+  onPrepare() {
+    // Skip if disabled
+    if (this.state !== "init") {
+      return;
+    }
+
+    this.build();
+
+    this.update();
+
+    this.Slideshow = new _shared_utils_Slideshow_js__WEBPACK_IMPORTED_MODULE_3__.Slideshow(this.fancybox);
+
+    if (!this.fancybox.Carousel.prevPage) {
+      if (this.fancybox.option("slideshow.autoStart")) {
+        this.Slideshow.activate();
+      }
+
+      if (this.fancybox.option("fullscreen.autoStart") && !_shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.element()) {
+        try {
+          _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.activate(this.fancybox.$container);
+        } catch (error) {}
+      }
+    }
+  }
+
+  onFsChange() {
+    window.scrollTo(_shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.pageXOffset, _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.pageYOffset);
+  }
+
+  onSettle() {
+    if (this.Slideshow && this.Slideshow.isActive()) {
+      if (
+        this.fancybox.getSlide().index === this.fancybox.Carousel.slides.length - 1 &&
+        !this.fancybox.option("infinite")
+      ) {
+        this.Slideshow.deactivate();
+      } else if (this.fancybox.getSlide().state === "done") {
+        this.Slideshow.setTimer();
+      }
+    }
+  }
+
+  onChange() {
+    this.update();
+
+    if (this.Slideshow && this.Slideshow.isActive()) {
+      this.Slideshow.clearTimer();
+    }
+  }
+
+  onDone(fancybox, slide) {
+    if (slide.index === fancybox.getSlide().index) {
+      this.update();
+
+      if (this.Slideshow && this.Slideshow.isActive()) {
+        if (!this.fancybox.option("infinite") && slide.index === this.fancybox.Carousel.slides.length - 1) {
+          this.Slideshow.deactivate();
+        } else {
+          this.Slideshow.setTimer();
+        }
+      }
+    }
+  }
+
+  onRefresh(slide) {
+    if (!slide || slide.index === this.fancybox.getSlide().index) {
+      this.update();
+
+      if (this.Slideshow && this.Slideshow.isActive() && (!slide || slide.state === "done")) {
+        this.Slideshow.deactivate();
+      }
+    }
+  }
+
+  onKeydown(fancybox, key, event) {
+    if (key === " ") {
+      this.Slideshow.toggle();
+
+      event.preventDefault();
+    }
+  }
+
+  onClosing() {
+    if (this.Slideshow) {
+      this.Slideshow.deactivate();
+    }
+
+    document.removeEventListener("fullscreenchange", this.onFsChange);
+  }
+
+  /**
+   * Create link, button or `div` element for the toolbar
+   * @param {Object} obj
+   * @returns HTMLElement
+   */
+  createElement(obj) {
+    let $el;
+
+    if (obj.type === "div") {
+      $el = document.createElement("div");
+    } else {
+      $el = document.createElement(obj.type === "link" ? "a" : "button");
+      $el.classList.add("carousel__button");
+    }
+
+    $el.innerHTML = obj.html;
+
+    $el.setAttribute("tabindex", obj.tabindex || 0);
+
+    if (obj.class) {
+      $el.classList.add(...obj.class.split(" "));
+    }
+
+    if (obj.label) {
+      $el.setAttribute("title", this.fancybox.localize(`{{${obj.label}}}`));
+    }
+
+    if (obj.click) {
+      $el.addEventListener("click", obj.click.bind(this));
+    }
+
+    if (obj.id === "prev") {
+      $el.setAttribute("data-fancybox-prev", "");
+    }
+
+    if (obj.id === "next") {
+      $el.setAttribute("data-fancybox-next", "");
+    }
+
+    return $el;
+  }
+
+  /**
+   * Create all DOM elements
+   */
+  build() {
+    this.cleanup();
+
+    const all_items = this.fancybox.option("Toolbar.items");
+    const all_groups = [
+      {
+        position: "left",
+        items: [],
+      },
+      {
+        position: "center",
+        items: [],
+      },
+      {
+        position: "right",
+        items: [],
+      },
+    ];
+
+    const thumbs = this.fancybox.plugins.Thumbs;
+
+    // 1st step - group toolbar elements by position
+    for (const key of this.fancybox.option("Toolbar.display")) {
+      let id, item;
+
+      if ((0,_shared_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__.isPlainObject)(key)) {
+        id = key.id;
+        item = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_1__.extend)({}, all_items[id], key);
+      } else {
+        id = key;
+        item = all_items[id];
+      }
+
+      if (["counter", "next", "prev", "slideshow"].includes(id) && this.fancybox.items.length < 2) {
+        continue;
+      }
+
+      if (id === "fullscreen") {
+        if (!document.fullscreenEnabled || window.fullScreen) {
+          continue;
+        }
+
+        document.addEventListener("fullscreenchange", this.onFsChange);
+      }
+
+      if (id === "thumbs" && (!thumbs || thumbs.state === "disabled")) {
+        continue;
+      }
+
+      if (!item) {
+        continue;
+      }
+
+      let position = item.position || "right";
+
+      let group = all_groups.find((obj) => obj.position === position);
+
+      if (group) {
+        group.items.push(item);
+      }
+    }
+
+    // 2st step - create DOM elements
+    const $container = document.createElement("div");
+    $container.classList.add("fancybox__toolbar");
+
+    for (const group of all_groups) {
+      if (group.items.length) {
+        const $wrap = document.createElement("div");
+        $wrap.classList.add("fancybox__toolbar__items");
+        $wrap.classList.add(`fancybox__toolbar__items--${group.position}`);
+
+        for (const obj of group.items) {
+          $wrap.appendChild(this.createElement(obj));
+        }
+
+        $container.appendChild($wrap);
+      }
+    }
+
+    // Add toolbar container to DOM
+    this.fancybox.$carousel.parentNode.insertBefore($container, this.fancybox.$carousel);
+
+    this.$container = $container;
+  }
+
+  /**
+   * Update element state depending on index of current slide
+   */
+  update() {
+    const slide = this.fancybox.getSlide();
+    const idx = slide.index;
+    const cnt = this.fancybox.items.length;
+
+    // Download links
+    // ====
+    const src = slide.downloadSrc || (slide.type === "image" && !slide.error ? slide.src : null);
+
+    for (const $el of this.fancybox.$container.querySelectorAll("a.fancybox__button--download")) {
+      if (src) {
+        $el.removeAttribute("disabled");
+
+        $el.setAttribute("href", src);
+        $el.setAttribute("download", src);
+        $el.setAttribute("target", "_blank");
+      } else {
+        $el.setAttribute("disabled", "");
+
+        $el.removeAttribute("href");
+        $el.removeAttribute("download");
+      }
+    }
+
+    // Zoom buttons
+    // ===
+    const panzoom = slide.Panzoom;
+    const canZoom = panzoom && panzoom.option("maxScale") > panzoom.option("baseScale");
+
+    for (const $el of this.fancybox.$container.querySelectorAll(".fancybox__button--zoom")) {
+      if (canZoom) {
+        $el.removeAttribute("disabled");
+      } else {
+        $el.setAttribute("disabled", "");
+      }
+    }
+
+    // Counter
+    // ====
+    for (const $el of this.fancybox.$container.querySelectorAll("[data-fancybox-index]")) {
+      $el.innerHTML = slide.index + 1;
+    }
+
+    for (const $el of this.fancybox.$container.querySelectorAll("[data-fancybox-count]")) {
+      $el.innerHTML = cnt;
+    }
+
+    // Disable prev/next links if gallery is not infinite and reached start/end
+    if (!this.fancybox.option("infinite")) {
+      for (const $el of this.fancybox.$container.querySelectorAll("[data-fancybox-prev]")) {
+        if (idx === 0) {
+          $el.setAttribute("disabled", "");
+        } else {
+          $el.removeAttribute("disabled");
+        }
+      }
+
+      for (const $el of this.fancybox.$container.querySelectorAll("[data-fancybox-next]")) {
+        if (idx === cnt - 1) {
+          $el.setAttribute("disabled", "");
+        } else {
+          $el.removeAttribute("disabled");
+        }
+      }
+    }
+  }
+
+  cleanup() {
+    if (this.Slideshow && this.Slideshow.isActive()) {
+      this.Slideshow.clearTimer();
+    }
+
+    if (this.$container) {
+      this.$container.remove();
+    }
+
+    this.$container = null;
+  }
+
+  attach() {
+    this.fancybox.on(this.events);
+  }
+
+  detach() {
+    this.fancybox.off(this.events);
+
+    this.cleanup();
+  }
+}
+
+// Expose defaults
+Toolbar.defaults = defaults;
+
+
+/***/ }),
+
 /***/ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/index.js":
 /*!******************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Fancybox/plugins/index.js ***!
   \******************************************************************/
-/*! exports provided: Plugins */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Plugins", function() { return Plugins; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Plugins": () => (/* binding */ Plugins)
+/* harmony export */ });
 /* harmony import */ var _ScrollLock_ScrollLock_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ScrollLock/ScrollLock.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/ScrollLock/ScrollLock.js");
 /* harmony import */ var _Thumbs_Thumbs_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Thumbs/Thumbs.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/Thumbs/Thumbs.js");
 /* harmony import */ var _Html_Html_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Html/Html.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/Html/Html.js");
 /* harmony import */ var _Image_Image_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Image/Image.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/Image/Image.js");
 /* harmony import */ var _Hash_Hash_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Hash/Hash.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/Hash/Hash.js");
+/* harmony import */ var _Toolbar_Toolbar_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Toolbar/Toolbar.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/Toolbar/Toolbar.js");
+
 
 
 
@@ -5032,11 +5649,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Plugins = {
-  ScrollLock: _ScrollLock_ScrollLock_js__WEBPACK_IMPORTED_MODULE_0__["ScrollLock"],
-  Thumbs: _Thumbs_Thumbs_js__WEBPACK_IMPORTED_MODULE_1__["Thumbs"],
-  Html: _Html_Html_js__WEBPACK_IMPORTED_MODULE_2__["Html"],
-  Image: _Image_Image_js__WEBPACK_IMPORTED_MODULE_3__["Image"],
-  Hash: _Hash_Hash_js__WEBPACK_IMPORTED_MODULE_4__["Hash"],
+  ScrollLock: _ScrollLock_ScrollLock_js__WEBPACK_IMPORTED_MODULE_0__.ScrollLock,
+  Thumbs: _Thumbs_Thumbs_js__WEBPACK_IMPORTED_MODULE_1__.Thumbs,
+  Html: _Html_Html_js__WEBPACK_IMPORTED_MODULE_2__.Html,
+  Toolbar: _Toolbar_Toolbar_js__WEBPACK_IMPORTED_MODULE_5__.Toolbar,
+  Image: _Image_Image_js__WEBPACK_IMPORTED_MODULE_3__.Image,
+  Hash: _Hash_Hash_js__WEBPACK_IMPORTED_MODULE_4__.Hash,
 };
 
 
@@ -5046,16 +5664,17 @@ const Plugins = {
 /*!***********************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Panzoom/Panzoom.js ***!
   \***********************************************************/
-/*! exports provided: Panzoom */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Panzoom", function() { return Panzoom; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Panzoom": () => (/* binding */ Panzoom)
+/* harmony export */ });
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 /* harmony import */ var _shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/utils/round.js */ "./node_modules/@fancyapps/ui/src/shared/utils/round.js");
 /* harmony import */ var _shared_utils_ResizeObserver_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/utils/ResizeObserver.js */ "./node_modules/@fancyapps/ui/src/shared/utils/ResizeObserver.js");
-/* harmony import */ var _shared_utils_clearTextSelection_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/utils/clearTextSelection.js */ "./node_modules/@fancyapps/ui/src/shared/utils/clearTextSelection.js");
+/* harmony import */ var _shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/utils/PointerTracker.js */ "./node_modules/@fancyapps/ui/src/shared/utils/PointerTracker.js");
 /* harmony import */ var _shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/utils/isScrollable.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isScrollable.js");
 /* harmony import */ var _shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/utils/getTextNodeFromPoint.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getTextNodeFromPoint.js");
 /* harmony import */ var _shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/utils/getDimensions.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getDimensions.js");
@@ -5076,8 +5695,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 const defaults = {
+  // Enable touch guestures
+  touch: true,
+
+  // Enable zooming
+  zoom: true,
+
+  // Enable pinch gesture to zoom in/out using two fingers
+  pinchToZoom: true,
+
   // Disable dragging if scale level is equal to value of `baseScale` option
   panOnlyZoomed: false,
 
@@ -5085,19 +5712,20 @@ const defaults = {
   // possible values: false | "x" | "y" | "xy"
   lockAxis: false,
 
-  // * Friction values are inside [0, 1), where 0 would change instantly, but 0.99 would update extremely slowly
+  // * All friction values are inside [0, 1) interval,
+  // * where 0 would change instantly, but 0.99 would update extremely slowly
 
   // Friction while panning/dragging
-  friction: 0.72,
+  friction: 0.64,
 
   // Friction while decelerating after drag end
-  decelFriction: 0.92,
+  decelFriction: 0.88,
 
   // Friction while scaling
-  zoomFriction: 0.72,
+  zoomFriction: 0.74,
 
   // Bounciness after hitting the edge
-  bounceForce: 0.1,
+  bounceForce: 0.2,
 
   // Initial scale level
   baseScale: 1,
@@ -5108,90 +5736,59 @@ const defaults = {
   // Maximum scale level
   maxScale: 2,
 
-  // Default scale step while scaling
+  // Default scale step while zooming
   step: 0.5,
-
-  // Should content be centered while scaling or moved towards given coordintes,
-  // if coordinates are outside the content
-  zoomInCentered: true,
-
-  // Enable pinch gesture to zoom in/out using two fingers
-  pinchToZoom: true,
 
   // Allow to select text,
   // if enabled, dragging will be disabled when text selection is detected
-  textSelection: true,
+  textSelection: false,
 
   // Add `click` event listener,
   // possible values: true | false | function | "toggleZoom"
   click: "toggleZoom",
-
-  // Delay required for two consecutive clicks to be interpreted as a double-click
-  clickDelay: 250,
-
-  // Enable `doubleClick` event,
-  // possible values: true | false | function | "toggleZoom"
-  doubleClick: false,
 
   // Add `wheel` event listener,
   // possible values: true | false | function |  "zoom"
   wheel: "zoom",
 
   // Value for zoom on mouse wheel
-  wheelFactor: 30,
+  wheelFactor: 42,
 
   // Number of wheel events after which it should stop preventing default behaviour of mouse wheel
-  wheelLimit: 3,
-
-  // Enable touch guestures
-  touch: true,
+  wheelLimit: 5,
 
   // Class name added to `$viewport` element to indicate if content is draggable
   draggableClass: "is-draggable",
 
   // Class name added to `$viewport` element to indicate that user is currently dragging
   draggingClass: "is-dragging",
+
+  // Content will be scaled by this number,
+  // this can also be a function which should return a number, for example:
+  // ratio: function() { return 1 / (window.devicePixelRatio || 1) }
+  ratio: 1,
 };
 
-class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__["Base"] {
+class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
   /**
    * Panzoom constructor
    * @constructs Panzoom
    * @param {HTMLElement} $viewport Panzoom container
    * @param {Object} [options] Options for Panzoom
    */
-  constructor($viewport, options = {}) {
-    options = Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(true, {}, defaults, options);
-
-    super(options);
-
-    if (!($viewport instanceof HTMLElement)) {
-      throw new Error("Viewport not found");
-    }
+  constructor($container, options = {}) {
+    super((0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(true, {}, defaults, options));
 
     this.state = "init";
 
-    this.$viewport = $viewport;
+    this.$container = $container;
 
     // Bind event handlers for referencability
-    for (const methodName of ["onPointerDown", "onPointerMove", "onPointerUp", "onWheel", "onClick"]) {
+    for (const methodName of ["onLoad", "onWheel", "onClick"]) {
       this[methodName] = this[methodName].bind(this);
     }
 
-    // Make sure content element exists
-    this.$content = this.option("content");
-
-    if (!this.$content) {
-      this.$content = this.$viewport.querySelector(".panzoom__content");
-    }
-
-    if (!this.$content) {
-      throw new Error("Content not found");
-    }
-
-    if (this.option("textSelection") === false) {
-      this.$viewport.classList.add("not-selectable");
-    }
+    this.initLayout();
 
     this.resetValues();
 
@@ -5199,1168 +5796,152 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__["Base"] 
 
     this.trigger("init");
 
-    this.handleContent();
+    this.updateMetrics();
 
     this.attachEvents();
 
     this.trigger("ready");
 
-    // Finalize initialization
-    if (this.state === "init") {
-      const baseScale = this.option(`baseScale`);
+    if (this.option("centerOnStart") === false) {
+      this.handleCursor();
 
-      if (baseScale === 1) {
-        this.state = "ready";
-
-        this.handleCursor();
-      } else {
-        this.panTo({ scale: baseScale, friction: 0 });
-      }
+      this.state = "ready";
+    } else {
+      this.panTo({
+        friction: 0,
+      });
     }
   }
 
   /**
-   * Check content type, add `load` and `error` callbacks for image
+   * Create references to container, viewport and content elements
    */
-  handleContent() {
-    if (this.$content instanceof HTMLImageElement) {
-      // Callback to be called after image has finished loading
-      const done = () => {
-        const imgWidth = this.$content.naturalWidth;
-        this.maxScale = this.option("maxScale");
+  initLayout() {
+    const $container = this.$container;
 
-        this.options.maxScale = function () {
-          const wrapWidth = this.contentDim.width;
-
-          return imgWidth > 0 && wrapWidth > 0 ? (imgWidth / wrapWidth) * this.maxScale : this.maxScale;
-        };
-
-        this.updateMetrics();
-
-        this.trigger(imgWidth > 0 ? "load" : "error");
-      };
-
-      if (this.$content.complete !== true) {
-        this.$content.onload = () => done();
-        this.$content.onerror = () => done();
-      } else {
-        done();
-      }
-    } else {
-      this.updateMetrics();
+    // Make sure content element exists
+    if (!($container instanceof HTMLElement)) {
+      throw new Error("Panzoom: Container not found");
     }
+
+    const $content = this.option("content") || $container.querySelector(".panzoom__content");
+
+    // Make sure content element exists
+    if (!$content) {
+      throw new Error("Panzoom: Content not found");
+    }
+
+    this.$content = $content;
+
+    let $viewport = this.option("viewport") || $container.querySelector(".panzoom__viewport");
+
+    if (!$viewport && this.option("wrapInner") !== false) {
+      $viewport = document.createElement("div");
+      $viewport.classList.add("panzoom__viewport");
+
+      $viewport.append(...$container.childNodes);
+
+      $container.appendChild($viewport);
+    }
+
+    this.$viewport = $viewport || $content.parentNode;
   }
 
   /**
    * Restore instance variables to default values
    */
   resetValues() {
-    this.viewportDim = {
-      top: 0,
-      left: 0,
+    this.updateRate = this.option("updateRate", /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 250 : 24);
+
+    this.container = {
       width: 0,
       height: 0,
     };
 
-    this.contentDim = {
+    this.viewport = {
       width: 0,
       height: 0,
     };
 
-    this.friction = this.option("friction");
+    this.content = {
+      // Full content dimensions (naturalWidth/naturalHeight for images)
+      origHeight: 0,
+      origWidth: 0,
 
-    this.current = { x: 0, y: 0, scale: 1 };
-    this.velocity = { x: 0, y: 0, scale: 0 };
+      // Current dimensions of the content
+      width: 0,
+      height: 0,
 
-    this.pan = { x: 0, y: 0, scale: 1 };
+      // Current position; these values reflect CSS `transform` value
+      x: this.option("x", 0),
+      y: this.option("y", 0),
 
-    this.drag = {
-      startTime: null,
-
-      firstPosition: null,
-
-      startPosition: null,
-      startPoint: null,
-      startDistance: null,
-
-      endPosition: null,
-      endPoint: null,
-
-      distance: 0,
-      distanceX: 0,
-      distanceY: 0,
-
-      elapsedTime: 0,
+      // Current scale; does not reflect CSS `transform` value
+      scale: this.option("baseScale"),
     };
 
-    this.lockAxis = null;
-
-    this.pendingAnimateUpdate = null;
-    this.pendingResizeUpdate = null;
-
-    this.pointers = [];
-  }
-
-  /**
-   * Update readings of viewport and content dimensions
-   */
-  updateMetrics() {
-    let { top, left, width, height } = this.$viewport.getBoundingClientRect();
-
-    const styles = window.getComputedStyle(this.$viewport);
-
-    width -= parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
-    height -= parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
-
-    this.viewportDim = { top, left, width, height };
-
-    this.contentDim = {
-      width: this.option("width", Object(_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__["getFullWidth"])(this.$content)),
-      height: this.option("hidth", Object(_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__["getFullHeight"])(this.$content)),
-    };
-
-    this.trigger("updateMetrics");
-
-    this.updateBounds();
-  }
-
-  /**
-   * Update current boundaries
-   * @param {number} [scale] Optional scale of content
-   */
-  updateBounds(scale) {
-    const boundX = { from: 0, to: 0 };
-    const boundY = { from: 0, to: 0 };
-
-    if (!scale) {
-      scale = this.velocity.scale ? this.pan.scale : this.current.scale;
-    }
-
-    if (scale < 1) {
-      return [boundX, boundY];
-    }
-
-    const contentDim = this.contentDim;
-    const viewportDim = this.viewportDim;
-
-    const currentWidth = contentDim.width * scale;
-    const currentHeight = contentDim.height * scale;
-
-    boundX.to = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])((currentWidth - contentDim.width) * 0.5);
-
-    if (contentDim.width > viewportDim.width) {
-      boundX.from = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(boundX.to + viewportDim.width - currentWidth);
-    } else {
-      boundX.from = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(boundX.to * -1);
-    }
-
-    boundY.to = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])((currentHeight - contentDim.height) * 0.5);
-
-    if (contentDim.height > viewportDim.height) {
-      boundY.from = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(boundY.to + viewportDim.height - currentHeight);
-    } else {
-      boundY.from = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(boundY.to * -1);
-    }
-
-    this.boundX = boundX;
-    this.boundY = boundY;
-
-    this.trigger("updateBounds", scale);
-
-    return [this.boundX, this.boundY];
-  }
-
-  /**
-   * Increase zoom level
-   * @param {Number} [step] Zoom ratio; `0.5` would increase scale from 1 to 1.5
-   */
-  zoomIn(step) {
-    this.zoomTo(this.current.scale + (step || this.option("step")));
-  }
-
-  /**
-   * Decrease zoom level
-   * @param {Number} [step] Zoom ratio; `0.5` would decrease scale from 1.5 to 1
-   */
-  zoomOut(step) {
-    this.zoomTo(this.current.scale - (step || this.option("step")));
-  }
-
-  /**
-   * Toggles zoom level between max and base levels
-   * @param {Object} [options] Additional options
-   */
-  toggleZoom(props = {}) {
-    const maxScale = this.option("maxScale");
-    const baseScale = this.option("baseScale");
-
-    this.zoomTo(this.current.scale > baseScale + (maxScale - baseScale) * 0.5 ? baseScale : maxScale, props);
-  }
-
-  /**
-   * Animates to given zoom level
-   * @param {Number} scale New zoom level
-   * @param {Object} [options] Additional options
-   */
-  zoomTo(scale, options = {}) {
-    let { x = null, y = null, friction = this.option("zoomFriction") } = options;
-
-    if (!scale) {
-      scale = this.option("baseScale");
-    }
-
-    scale = Math.max(Math.min(scale, this.option("maxScale")), this.option("minScale"));
-
-    const width = this.contentDim.width;
-    const height = this.contentDim.height;
-
-    const currentWidth = width * this.current.scale;
-    const currentHeight = height * this.current.scale;
-
-    const nextWidth = width * scale;
-    const nextHeight = height * scale;
-
-    if (x === null) {
-      x = currentWidth * 0.5;
-    }
-
-    if (y === null) {
-      y = currentHeight * 0.5;
-    }
-
-    if (this.option("zoomInCentered") === false) {
-      if (x < currentWidth * 0.5) {
-        x = currentWidth;
-      }
-
-      if (x > currentWidth) {
-        x = 0;
-      }
-
-      if (y < 0) {
-        y = currentHeight;
-      }
-
-      if (y > currentHeight) {
-        y = 0;
-      }
-    }
-
-    const percentXInCurrentBox = currentWidth > 0 ? x / currentWidth : 0;
-    const percentYInCurrentBox = currentHeight > 0 ? y / currentHeight : 0;
-
-    let deltaX = (nextWidth - currentWidth) * (percentXInCurrentBox - 0.5);
-    let deltaY = (nextHeight - currentHeight) * (percentYInCurrentBox - 0.5);
-
-    if (Math.abs(deltaX) < 1) {
-      deltaX = 0;
-    }
-
-    if (Math.abs(deltaY) < 1) {
-      deltaY = 0;
-    }
-
-    x = this.current.x - deltaX;
-    y = this.current.y - deltaY;
-
-    this.panTo({ x, y, scale, friction });
-  }
-
-  /**
-   * Animates to given positon and/or zoom level
-   * @param {Object} [options] Additional options
-   */
-  panTo(options) {
-    let {
-      x = 0,
-      y = 0,
-      scale = this.current.scale,
-      friction = this.option("friction"),
-      ignoreBounds = false,
-    } = options;
-
-    if (!friction) {
-      this.stopMoving();
-    }
-
-    if (ignoreBounds !== true) {
-      const [boundX, boundY] = this.updateBounds(scale);
-
-      if (boundX) {
-        x = Math.max(Math.min(x, boundX.to), boundX.from);
-      }
-
-      if (boundY) {
-        y = Math.max(Math.min(y, boundY.to), boundY.from);
-      }
-    }
-
-    // Check if there is anything to animate
-    if (
-      friction > 0 &&
-      (Math.abs(x - this.current.x) > 0.1 ||
-        Math.abs(y - this.current.y) > 0.1 ||
-        Math.abs(scale - this.current.scale) > 0.1)
-    ) {
-      this.state = "panning";
-
-      this.friction = friction;
-
-      this.pan = {
-        x,
-        y,
-        scale,
-      };
-
-      this.velocity = {
-        x: (1 / this.friction - 1) * (x - this.current.x),
-        y: (1 / this.friction - 1) * (y - this.current.y),
-        scale: (1 / this.friction - 1) * (scale - this.current.scale),
-      };
-
-      this.animate();
-
-      return this;
-    }
-
-    if (this.pendingAnimateUpdate) {
-      cancelAnimationFrame(this.pendingAnimateUpdate);
-      this.pendingAnimateUpdate = null;
-    }
-
-    this.state = "ready";
-
-    this.stopMoving();
-
-    this.current = { x, y, scale };
-
-    this.transform();
-
-    this.handleCursor();
-
-    this.trigger("afterAnimate", true);
-
-    return this;
-  }
-
-  /**
-   * Start animation or process animation frame
-   */
-  animate() {
-    // Skip if already waiting for the next RAF
-    if (this.pendingAnimateUpdate) {
-      return;
-    }
-
-    // Update velocity depending on bounds and drag speed
-    this.applyBoundForce();
-    this.applyDragForce();
-
-    this.velocity.x *= this.friction;
-    this.velocity.y *= this.friction;
-
-    this.velocity.scale *= this.friction;
-
-    this.current.x += this.velocity.x;
-    this.current.y += this.velocity.y;
-
-    this.current.scale += this.velocity.scale;
-
-    if (
-      this.state == "dragging" ||
-      this.state == "pointerdown" ||
-      Math.abs(this.velocity.x) > 0.05 ||
-      Math.abs(this.velocity.y) > 0.05 ||
-      Math.abs(this.velocity.scale) > 0.05
-    ) {
-      // Update CSS `transform` value for the content element
-      this.transform();
-
-      // Next RAF
-      this.pendingAnimateUpdate = requestAnimationFrame(() => {
-        this.pendingAnimateUpdate = null;
-        this.animate();
-      });
-
-      // * Continue animation loop
-
-      return;
-    }
-
-    // * Stop animation
-
-    // Normalize values
-    this.current.x = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(this.current.x + this.velocity.x / (1 / this.friction - 1));
-    this.current.y = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(this.current.y + this.velocity.y / (1 / this.friction - 1));
-
-    if (Math.abs(this.current.x) < 0.5) {
-      this.current.x = 0;
-    }
-
-    if (Math.abs(this.current.y) < 0.5) {
-      this.current.y = 0;
-    }
-
-    this.current.scale = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(this.current.scale + this.velocity.scale / (1 / this.friction - 1), 10000);
-
-    if (Math.abs(this.current.scale - 1) < 0.01) {
-      this.current.scale = 1;
-    }
-
-    this.state = "ready";
-
-    this.stopMoving();
-
-    this.transform();
-
-    this.handleCursor();
-
-    this.trigger("afterAnimate");
-  }
-
-  /**
-   * Update the class name depending on whether the content is scaled
-   */
-  handleCursor() {
-    const draggableClass = this.option("draggableClass");
-
-    if (!draggableClass || !this.option("touch")) {
-      return;
-    }
-
-    if (
-      this.contentDim.width <= this.viewportDim.width &&
-      this.option("panOnlyZoomed") == true &&
-      this.current.scale <= this.option("baseScale")
-    ) {
-      this.$viewport.classList.remove(draggableClass);
-    } else {
-      this.$viewport.classList.add(draggableClass);
-    }
-  }
-
-  /**
-   * Check if content is dragged, zoomed or is animating to resting position
-   */
-  isMoved() {
-    return (
-      this.current.x !== 0 ||
-      this.current.y !== 0 ||
-      this.current.scale !== 1 ||
-      this.velocity.x > 0 ||
-      this.velocity.y > 0 ||
-      this.velocity.scale > 0
-    );
-  }
-
-  /**
-   * Reset velocity values to stop animation
-   */
-  stopMoving() {
-    this.velocity = {
+    // End values of current pan / zoom animation
+    this.transform = {
       x: 0,
       y: 0,
-      scale: 0,
-    };
-  }
-
-  /**
-   * Update CSS `transform` property of content with current values,
-   * is executed at each step of the animation
-   */
-  transform() {
-    this.trigger("beforeTransform");
-
-    const x = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(this.current.x, 100);
-    const y = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(this.current.y, 100);
-
-    const scale = Object(_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__["round"])(this.current.scale, 10000);
-
-    if (Math.abs(x) <= 0.1 && Math.abs(y) <= 0.1 && Math.abs(scale - 1) <= 0.1) {
-      this.$content.style.transform = "";
-    } else {
-      // Sadly, `translate3d` causes image blurriness on Safari
-      this.$content.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-    }
-
-    this.trigger("afterTransform");
-  }
-
-  /**
-   * Apply bounce force if boundary is reached
-   */
-  applyBoundForce() {
-    if (this.state !== "decel") {
-      return;
-    }
-
-    const resultForce = { x: 0, y: 0 };
-    const bounceForce = this.option("bounceForce");
-
-    const boundX = this.boundX;
-    const boundY = this.boundY;
-
-    let pastLeft, pastRight, pastTop, pastBottom;
-
-    if (boundX) {
-      pastLeft = this.current.x < boundX.from;
-      pastRight = this.current.x > boundX.to;
-    }
-
-    if (boundY) {
-      pastTop = this.current.y < boundY.from;
-      pastBottom = this.current.y > boundY.to;
-    }
-
-    // Past left of right viewport boundaries
-    if (pastLeft || pastRight) {
-      const bound = pastLeft ? boundX.from : boundX.to;
-      const distance = bound - this.current.x;
-
-      let force = distance * bounceForce;
-
-      const restX = this.current.x + (this.velocity.x + force) / (1 / this.friction - 1);
-
-      if (!((pastLeft && restX < boundX.from) || (pastRight && restX > boundX.to))) {
-        force = distance * bounceForce - this.velocity.x;
-      }
-
-      resultForce.x = force;
-    }
-
-    // Past top of bottom viewport boundaries
-    if (pastTop || pastBottom) {
-      const bound = pastTop ? boundY.from : boundY.to;
-      const distance = bound - this.current.y;
-
-      let force = distance * bounceForce;
-
-      const restY = this.current.y + (this.velocity.y + force) / (1 / this.friction - 1);
-
-      if (!((pastTop && restY < boundY.from) || (pastBottom && restY > boundY.to))) {
-        force = distance * bounceForce - this.velocity.y;
-      }
-
-      resultForce.y = force;
-    }
-
-    this.velocity.x += resultForce.x;
-    this.velocity.y += resultForce.y;
-  }
-
-  /**
-   * Apply drag force to move content to drag position
-   */
-  applyDragForce() {
-    if (this.state !== "dragging") {
-      return;
-    }
-
-    this.velocity = {
-      x: (1 / this.friction - 1) * (this.drag.endPosition.x - this.current.x),
-      y: (1 / this.friction - 1) * (this.drag.endPosition.y - this.current.y),
-      scale: (1 / this.friction - 1) * (this.drag.endPosition.scale - this.current.scale),
-    };
-  }
-
-  /**
-   * Initialize `resizeObserver` and attach touch/mouse/click/wheel event listeners
-   */
-  attachEvents() {
-    const $viewport = this.$viewport;
-
-    // * Create and attach resize observer
-    this.resizeObserver =
-      this.resizeObserver ||
-      new _shared_utils_ResizeObserver_js__WEBPACK_IMPORTED_MODULE_2__["ResizeObserver"]((entries) => {
-        this.pendingResizeUpdate =
-          this.pendingResizeUpdate ||
-          setTimeout(() => {
-            let rect = entries && entries[0].contentRect;
-
-            // Polyfill does not provide `contentRect`
-            if (!rect && this.$viewport) rect = this.$viewport.getBoundingClientRect();
-
-            // Check to see if there are any changes
-            if (
-              rect &&
-              (Math.abs(rect.width - this.viewportDim.width) > 1 || Math.abs(rect.height - this.viewportDim.height) > 1)
-            ) {
-              this.updateMetrics();
-            }
-
-            this.pendingResizeUpdate = null;
-          }, this.option("updateRate", 250));
-      });
-
-    this.resizeObserver.observe($viewport);
-
-    $viewport.addEventListener("click", this.onClick, { passive: false });
-    $viewport.addEventListener("wheel", this.onWheel, { passive: false });
-
-    // * Add touch listeners
-
-    if (!this.option("touch")) {
-      return;
-    }
-
-    // Check if pointer events are supported
-    if (window.PointerEvent) {
-      // Add Pointer Event Listener
-      $viewport.addEventListener("pointerdown", this.onPointerDown, { passive: false });
-      $viewport.addEventListener("pointermove", this.onPointerMove, { passive: false });
-      $viewport.addEventListener("pointerup", this.onPointerUp);
-      $viewport.addEventListener("pointercancel", this.onPointerUp);
-    } else {
-      // Add Touch Listeners
-      $viewport.addEventListener("touchstart", this.onPointerDown, { passive: false });
-      $viewport.addEventListener("touchmove", this.onPointerMove, { passive: false });
-      $viewport.addEventListener("touchend", this.onPointerUp);
-      $viewport.addEventListener("touchcancel", this.onPointerUp);
-
-      // Add Mouse Listeners
-      $viewport.addEventListener("mousedown", this.onPointerDown);
-    }
-  }
-
-  /**
-   * Remove observation and detach event listeners
-   */
-  detachEvents() {
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect();
-    }
-
-    this.resizeObserver = null;
-
-    if (this.pendingResizeUpdate) {
-      clearTimeout(this.pendingResizeUpdate);
-      this.pendingResizeUpdate = null;
-    }
-
-    const $viewport = this.$viewport;
-
-    if (window.PointerEvent) {
-      //  Pointer Event Listener
-      $viewport.removeEventListener("pointerdown", this.onPointerDown, { passive: false });
-      $viewport.removeEventListener("pointermove", this.onPointerMove, { passive: false });
-      $viewport.removeEventListener("pointerup", this.onPointerUp);
-      $viewport.removeEventListener("pointercancel", this.onPointerUp);
-    } else {
-      //  Touch Listeners
-      $viewport.removeEventListener("touchstart", this.onPointerDown, { passive: false });
-      $viewport.removeEventListener("touchmove", this.onPointerMove, { passive: false });
-      $viewport.removeEventListener("touchend", this.onPointerUp);
-      $viewport.removeEventListener("touchcancel", this.onPointerUp);
-
-      //  Mouse Listeners
-      $viewport.removeEventListener("mousedown", this.onPointerDown);
-    }
-
-    $viewport.removeEventListener("click", this.onClick, { passive: false });
-    $viewport.removeEventListener("wheel", this.onWheel, { passive: false });
-  }
-
-  /**
-   * Make new pointer object from event data
-   * @param {Object} event
-   */
-  copyPointer(event) {
-    return {
-      pointerId: event.pointerId,
-      clientX: event.clientX,
-      clientY: event.clientY,
-    };
-  }
-
-  /**
-   * Find index of corresponding pointer object from event
-   * @param {Object} event
-   */
-  findPointerIndex(event) {
-    let i = this.pointers.length;
-
-    while (i--) {
-      if (this.pointers[i].pointerId === event.pointerId) {
-        return i;
-      }
-    }
-
-    return -1;
-  }
-
-  /**
-   * Add or update pointer object for each finger
-   * @param {Object} event
-   */
-  addPointer(event) {
-    let i = 0;
-
-    // Add touches if applicable
-    if (event.touches && event.touches.length) {
-      for (const touch of event.touches) {
-        touch.pointerId = i++;
-        this.addPointer(touch);
-      }
-
-      return;
-    }
-
-    i = this.findPointerIndex(event);
-
-    // Update if already present
-    if (i > -1) {
-      this.pointers.splice(i, 1);
-    }
-
-    this.pointers.push(event);
-  }
-
-  /**
-   * Remove corresponding pointer object
-   * @param {Object} event
-   */
-  removePointer(event) {
-    // Add touches if applicable
-    if (event.touches) {
-      // Remove all touches
-      while (this.pointers.length) {
-        this.pointers.pop();
-      }
-      return;
-    }
-
-    const i = this.findPointerIndex(event);
-
-    if (i > -1) {
-      this.pointers.splice(i, 1);
-    }
-  }
-
-  /**
-   * Get middle point from last two touch points,
-   * if there is only one point, then it is returned
-   */
-  getMiddlePoint() {
-    let pointers = [...this.pointers];
-
-    pointers = pointers.sort((a, b) => {
-      return b.pointerId - a.pointerId;
-    });
-
-    const pointer1 = pointers.shift();
-    const pointer2 = pointers.shift();
-
-    if (pointer2) {
-      return {
-        clientX: (pointer1.clientX - pointer2.clientX) * 0.5 + pointer2.clientX,
-        clientY: (pointer1.clientY - pointer2.clientY) * 0.5 + pointer2.clientY,
-      };
-    }
-
-    return {
-      clientX: pointer1 ? pointer1.clientX : 0,
-      clientY: pointer1 ? pointer1.clientY : 0,
-    };
-  }
-
-  /**
-   * Get distance between any touch points
-   * @param {Object} pointers
-   * @param {String} [axis]
-   */
-  getDistance(pointers, axis) {
-    pointers = pointers || [...this.pointers];
-    pointers = pointers.slice();
-
-    if (!pointers || pointers.length < 2) {
-      return 0;
-    }
-
-    pointers = pointers.sort((a, b) => {
-      return b.pointerId - a.pointerId;
-    });
-
-    const event1 = pointers.shift();
-    const event2 = pointers.shift();
-
-    const xDistance = Math.abs(event2.clientX - event1.clientX);
-
-    if (axis === "x") {
-      return xDistance;
-    }
-
-    const yDistance = Math.abs(event2.clientY - event1.clientY);
-
-    if (axis === "y") {
-      return yDistance;
-    }
-
-    return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-  }
-
-  /**
-   * Stop dragging animation and freeze current state
-   */
-  resetDragState() {
-    const { left, top } = this.$content.getClientRects()[0];
-
-    const middlePoint = this.getMiddlePoint();
-
-    const currentPosition = {
-      top,
-      left,
-      x: this.current.x,
-      y: this.current.y,
-      scale: this.current.scale,
+      scale: 1,
     };
 
-    Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(this.drag, {
-      startPosition: Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, currentPosition),
-      startPoint: Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, middlePoint),
-      startDistance: this.getDistance(),
-
-      endPosition: Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, currentPosition),
-      endPoint: Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, middlePoint),
-
-      distance: 0,
-      distanceX: 0,
-      distanceY: 0,
-    });
-
-    if (this.state === "pointerdown") {
-      this.lockAxis = null;
-
-      this.drag.startTime = new Date();
-      this.drag.firstPosition = Object.assign({}, currentPosition);
-    }
-
-    this.stopMoving();
-
-    this.friction = this.option("friction");
+    this.resetDragPosition();
   }
 
   /**
-   * Handle `pointerdown`, `touchstart` or `mousedown` event
+   * Handle `load` event
    * @param {Event} event
    */
-  onPointerDown(event) {
-    if (!event || (event.button && event.button > 0)) {
-      return;
-    }
+  onLoad(event) {
+    this.updateMetrics();
 
-    // Improve UX - disable click events while zooming content that should be
-    // interactive only when zoomed in (e.g., from within carousel)
-    if (this.option("panOnlyZoomed") && this.velocity.scale) {
-      event.preventDefault();
-      return;
-    }
+    this.panTo({ scale: this.option("baseScale"), friction: 0 });
 
-    this.resetDragState();
-
-    if (!this.pointers.length) {
-      // Allow touch action and click events on textareas inputs, selects and videos
-      let ignoreClickedElement =
-        ["BUTTON", "TEXTAREA", "OPTION", "INPUT", "SELECT", "VIDEO"].indexOf(event.target.nodeName) !== -1;
-
-      if (ignoreClickedElement) {
-        return;
-      }
-
-      // Allow text selection
-      if (this.option("textSelection") && Object(_shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_5__["getTextNodeFromPoint"])(event.target, event.clientX, event.clientY)) {
-        return;
-      }
-
-      // Allow scrolling
-      if (Object(_shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_4__["isScrollable"])(event.target)) {
-        return;
-      }
-    }
-
-    Object(_shared_utils_clearTextSelection_js__WEBPACK_IMPORTED_MODULE_3__["clearTextSelection"])();
-
-    if (this.pointers.length > 1 || (this.pointers.length && this.lockAxis)) {
-      event.preventDefault();
-
-      return;
-    }
-
-    if (this.trigger("touchStart", event) === false) {
-      return;
-    }
-
-    event.preventDefault();
-
-    this.state = "pointerdown";
-
-    this.addPointer(this.copyPointer(event));
-
-    this.resetDragState();
-
-    // Add the move and end listeners
-    if (window.PointerEvent) {
-      try {
-        event.target.setPointerCapture(event.pointerId);
-      } catch (e) {}
-    } else {
-      // Add Mouse Listeners
-      document.addEventListener("mousemove", this.onPointerMove, { passive: false });
-      document.addEventListener("mouseup", this.onPointerUp, { passive: false });
-    }
+    this.trigger("load", event);
   }
 
   /**
-   * Handle `pointermove`, `touchmove` or `mousemove` event
+   * Handle `click` event
    * @param {Event} event
    */
-  onPointerMove(event) {
-    if (event.targetTouches && event.targetTouches.length > 1) {
+  onClick(event) {
+    if (event.defaultPrevented) {
       return;
     }
 
-    if (this.state !== "pointerdown" && this.state !== "dragging") {
+    // Skip if text is selected
+    if (this.option("textSelection") && window.getSelection().toString().length) {
+      event.stopPropagation();
       return;
     }
 
-    if (this.trigger("touchMove", event) == false) {
-      event.preventDefault();
-      return;
-    }
+    const rect = this.$content.getClientRects()[0];
 
-    this.addPointer(this.copyPointer(event));
+    // Check if container has changed position (for example, when current instance is inside another one)
+    if (this.state !== "ready") {
+      if (
+        this.dragPosition.midPoint ||
+        Math.abs(rect.top - this.dragStart.rect.top) > 1 ||
+        Math.abs(rect.left - this.dragStart.rect.left) > 1
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
 
-    if (this.pointers.length > 1 && this.option("pinchToZoom") === false) {
-      return;
-    }
-
-    // Disable touch action if current zoom level is below base level
-    if (
-      this.option("panOnlyZoomed") == true &&
-      this.current.scale === this.option("baseScale") &&
-      this.pointers.length < 2
-    ) {
-      event.preventDefault();
-      return;
-    }
-
-    const dragEndPoint = this.getMiddlePoint();
-    const currentPoints = [dragEndPoint, this.drag.startPoint];
-
-    this.drag.distance = this.getDistance(currentPoints);
-
-    const hasClickEvent =
-      (this.events.click && this.events.click.length) ||
-      (this.events.doubleClick && this.events.doubleClick.length) ||
-      this.option.click ||
-      this.option.doubleClick;
-
-    if (this.drag.distance < 6 && (hasClickEvent || (this.option("lockAxis") && !this.lockAxis))) {
-      return;
-    }
-
-    if (this.state == "pointerdown") {
-      this.state = "dragging";
-    }
-
-    if (this.state !== "dragging") {
-      return;
-    }
-
-    const axisToLock = this.option("lockAxis");
-
-    if (!this.lockAxis && axisToLock) {
-      if (axisToLock === "xy") {
-        const distanceX = this.getDistance(currentPoints, "x");
-        const distanceY = this.getDistance(currentPoints, "y");
-
-        const angle = Math.abs((Math.atan2(distanceY, distanceX) * 180) / Math.PI);
-
-        this.lockAxis = angle > 45 && angle < 135 ? "y" : "x";
-      } else {
-        this.lockAxis = axisToLock;
+        return;
       }
     }
 
-    event.preventDefault();
-    event.stopPropagation();
-
-    this.$viewport.classList.add(this.option("draggingClass"));
-
-    this.animate();
-
-    let scale = this.current.scale;
-
-    let dragOffsetX = 0;
-    let dragOffsetY = 0;
-
-    if (!(this.current.scale === this.option("baseScale") && this.lockAxis === "y")) {
-      dragOffsetX = dragEndPoint.clientX - this.drag.startPoint.clientX;
+    if (this.trigger("click", event) === false) {
+      return;
     }
 
-    if (!(this.current.scale === this.option("baseScale") && this.lockAxis === "x")) {
-      dragOffsetY = dragEndPoint.clientY - this.drag.startPoint.clientY;
-    }
-
-    this.drag.endPosition.x = this.drag.startPosition.x + dragOffsetX;
-    this.drag.endPosition.y = this.drag.startPosition.y + dragOffsetY;
-
-    if (this.pointers.length > 1) {
-      // Store middle point for correct positioning after touch release (when zoom level exceeds max level)
-      this.drag.middlePoint = dragEndPoint;
-
-      scale = (this.drag.startPosition.scale * this.getDistance()) / this.drag.startDistance;
-      scale = Math.max(Math.min(scale, this.option("maxScale") * 2), this.option("minScale") * 0.5);
-
-      const width = this.$content.width;
-      const height = this.$content.height;
-
-      const startWidth = width * this.drag.startPosition.scale;
-      const startHeight = height * this.drag.startPosition.scale;
-
-      const nextWidth = width * scale;
-      const nextHeight = height * scale;
-
-      const percentXInStartBox = (this.drag.startPoint.clientX - this.drag.startPosition.left) / startWidth;
-      const percentYInStartBox = (this.drag.startPoint.clientY - this.drag.startPosition.top) / startHeight;
-
-      const deltaX = (nextWidth - startWidth) * (percentXInStartBox - 0.5);
-      const deltaY = (nextHeight - startHeight) * (percentYInStartBox - 0.5);
-
-      this.drag.endPosition.x -= deltaX;
-      this.drag.endPosition.y -= deltaY;
-
-      this.drag.endPosition.scale = scale;
-
-      this.updateBounds(scale);
-    }
-
-    this.applyDragResistance();
-  }
-
-  /**
-   * Handle `pointerup`, `touchend`, etc events
-   * @param {Event} event -
-   */
-  onPointerUp(event) {
-    this.removePointer(event);
-
-    // Remove Event Listeners
-    if (window.PointerEvent) {
-      try {
-        event.target.releasePointerCapture(event.pointerId);
-      } catch (e) {}
-    } else {
-      // Remove Mouse Listeners
-      document.removeEventListener("mousemove", this.onPointerMove, { passive: false });
-      document.removeEventListener("mouseup", this.onPointerUp, { passive: false });
-    }
-
-    // Skip when one finger is raised and the other is left
-    if (this.pointers.length > 0) {
+    if (this.option("zoom") && this.option("click") === "toggleZoom") {
       event.preventDefault();
+      event.stopPropagation();
 
-      this.resetDragState();
-
-      return;
-    }
-
-    if (this.state !== "pointerdown" && this.state !== "dragging") {
-      return;
-    }
-
-    this.$viewport.classList.remove(this.option("draggingClass"));
-
-    const { top, left } = this.$content.getClientRects()[0];
-    const drag = this.drag;
-
-    Object(_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(true, drag, {
-      elapsedTime: new Date() - drag.startTime,
-
-      distanceX: drag.endPosition.x - drag.firstPosition.x,
-      distanceY: drag.endPosition.y - drag.firstPosition.y,
-
-      endPosition: {
-        top,
-        left,
-      },
-    });
-
-    drag.distance = Math.sqrt(Math.pow(drag.distanceX, 2) + Math.pow(drag.distanceY, 2));
-
-    this.state = "decel";
-    this.friction = this.option("decelFriction");
-
-    this.pan = {
-      x: this.current.x + this.velocity.x / (1 / this.friction - 1),
-      y: this.current.y + this.velocity.y / (1 / this.friction - 1),
-      scale: this.current.scale + this.velocity.scale / (1 / this.friction - 1),
-    };
-
-    if (this.trigger("touchEnd", event) === false) {
-      return;
-    }
-
-    if (this.state !== "decel") {
-      return;
-    }
-
-    // * Check if scaled content past limits
-    // Below minimum
-    const minScale = this.option("minScale");
-
-    if (this.current.scale < minScale) {
-      this.zoomTo(minScale, { friction: 0.64 });
-
-      return;
-    }
-
-    // Exceed maximum
-    const maxScale = this.option("maxScale");
-
-    if (this.current.scale - maxScale > 0.01) {
-      const props = { friction: 0.64 };
-
-      if (drag.middlePoint) {
-        props.x = drag.middlePoint.clientX - left;
-        props.y = drag.middlePoint.clientY - top;
-      }
-
-      this.zoomTo(maxScale, props);
-    }
-  }
-
-  /**
-   * Drag resistance outside bounds
-   */
-  applyDragResistance() {
-    const boundX = this.boundX;
-    const boundY = this.boundY;
-
-    let pastLeft, pastRight, pastTop, pastBottom;
-
-    if (boundX) {
-      pastLeft = this.drag.endPosition.x < boundX.from;
-      pastRight = this.drag.endPosition.x > boundX.to;
-    }
-
-    if (boundY) {
-      pastTop = this.drag.endPosition.y < boundY.from;
-      pastBottom = this.drag.endPosition.y > boundY.to;
-    }
-
-    if (pastLeft || pastRight) {
-      const bound = pastLeft ? boundX.from : boundX.to;
-      const distance = this.drag.endPosition.x - bound;
-
-      this.drag.endPosition.x = bound + distance * 0.3;
-    }
-
-    if (pastTop || pastBottom) {
-      const bound = pastTop ? boundY.from : boundY.to;
-      const distance = this.drag.endPosition.y - bound;
-
-      this.drag.endPosition.y = bound + distance * 0.3;
+      this.zoomWithClick(event);
     }
   }
 
@@ -6373,7 +5954,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__["Base"] 
       return;
     }
 
-    if (this.option("wheel", event) == "zoom") {
+    if (this.option("zoom") && this.option("wheel")) {
       this.zoomWithWheel(event);
     }
   }
@@ -6387,128 +5968,905 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__["Base"] 
       this.changedDelta = 0;
     }
 
-    let scale = this.current.scale;
-
     const delta = Math.max(-1, Math.min(1, -event.deltaY || -event.deltaX || event.wheelDelta || -event.detail));
+    const scale = this.content.scale;
 
-    if ((delta < 0 && scale <= this.option("minScale")) || (delta > 0 && scale >= this.option("maxScale"))) {
+    let newScale = (scale * (100 + delta * this.option("wheelFactor"))) / 100;
+
+    if (
+      (delta < 0 && Math.abs(scale - this.option("minScale")) < 0.01) ||
+      (delta > 0 && Math.abs(scale - this.option("maxScale")) < 0.01)
+    ) {
       this.changedDelta += Math.abs(delta);
-
-      if (this.changedDelta > this.option("wheelLimit")) {
-        return;
-      }
+      newScale = scale;
     } else {
       this.changedDelta = 0;
+      newScale = Math.max(Math.min(newScale, this.option("maxScale")), this.option("minScale"));
     }
 
-    scale = (scale * (100 + delta * this.option("wheelFactor"))) / 100;
+    if (this.changedDelta > this.option("wheelLimit")) {
+      return;
+    }
 
     event.preventDefault();
 
-    const { top, left } = this.$content.getClientRects()[0];
+    if (newScale === scale) {
+      return;
+    }
 
-    const x = event.clientX - left;
-    const y = event.clientY - top;
+    const rect = this.$content.getBoundingClientRect();
 
-    this.zoomTo(scale, { x, y });
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    this.zoomTo(newScale, { x, y });
   }
 
   /**
-   * Handle `click` event, detect double-click
-   * @param {Event} event
+   * Change zoom level depending on click coordinates
+   * @param {Event} event `click` event
    */
-  onClick(event) {
-    if (event.defaultPrevented) {
-      return;
-    }
+  zoomWithClick(event) {
+    const rect = this.$content.getClientRects()[0];
 
-    // Skip if text is selected
-    if (window.getSelection().toString().length) {
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-      return;
-    }
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
-    // Check if container has changed position (for example, when current instance is inside another one)
-    if (
-      this.drag.startPosition &&
-      this.drag.endPosition &&
-      (Math.abs(this.drag.endPosition.top - this.drag.startPosition.top) > 1 ||
-        Math.abs(this.drag.endPosition.left - this.drag.startPosition.left) > 1)
-    ) {
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-      return;
-    }
+    this.toggleZoom({ x, y });
+  }
 
-    // Wait for minimum distance
-    if (this.drag.distance > (this.lockAxis ? 6 : 1)) {
-      event.preventDefault();
+  /**
+   * Attach load, wheel and click event listeners, initialize `resizeObserver` and `PointerTracker`
+   */
+  attachEvents() {
+    this.$content.addEventListener("load", this.onLoad);
 
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-      return;
-    }
+    this.$container.addEventListener("wheel", this.onWheel, { passive: false });
+    this.$container.addEventListener("click", this.onClick, { passive: false });
 
-    // Calculate click positon
-    let x = null;
-    let y = null;
+    this.initObserver();
 
-    if (event.clientX !== undefined && event.clientY !== undefined) {
-      x = event.clientX - this.$content.getClientRects()[0].left;
-      y = event.clientY - this.$content.getClientRects()[0].top;
-    }
+    const pointerTracker = new _shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__.PointerTracker(this.$container, {
+      start: (pointer, event) => {
+        if (!this.option("touch")) {
+          return false;
+        }
 
-    let hasDoubleClick = this.options.doubleClick;
-
-    // Check if there is any `doubleClick` event listener
-    if (!hasDoubleClick && this.events.doubleClick && this.events.doubleClick.length) {
-      hasDoubleClick = true;
-    }
-
-    if (!hasDoubleClick) {
-      if (this.trigger("click", event) === false) {
-        return;
-      }
-
-      if (this.option("click") === "toggleZoom") {
-        this.toggleZoom({ x, y });
-      }
-
-      return;
-    }
-
-    if (!this.clickTimer) {
-      this.lastClickEvent = event;
-
-      this.clickTimer = setTimeout(() => {
-        this.clickTimer = null;
-
-        if (this.trigger("click", event) === false) {
+        if (this.velocity.scale < 0) {
           return;
         }
 
-        if (this.option("click") === "toggleZoom") {
-          this.toggleZoom({ x, y });
+        if (!pointerTracker.currentPointers.length) {
+          const ignoreClickedElement =
+            ["BUTTON", "TEXTAREA", "OPTION", "INPUT", "SELECT", "VIDEO"].indexOf(event.target.nodeName) !== -1;
+
+          if (ignoreClickedElement) {
+            return false;
+          }
+
+          // Allow text selection
+          if (this.option("textSelection") && (0,_shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_5__.getTextNodeFromPoint)(event.target, event.clientX, event.clientY)) {
+            return false;
+          }
+          // Allow scrolling
+          if ((0,_shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_4__.isScrollable)(event.target)) {
+            return false;
+          }
         }
-      }, this.option("clickDelay"));
+
+        if (this.trigger("touchStart", event) === false) {
+          return false;
+        }
+
+        this.state = "pointerdown";
+
+        this.resetDragPosition();
+
+        this.dragPosition.midPoint = null;
+        this.dragPosition.time = Date.now();
+
+        return true;
+      },
+      move: (previousPointers, currentPointers, event) => {
+        if (this.state !== "pointerdown") {
+          return;
+        }
+
+        if (this.trigger("touchMove", event) == false) {
+          event.preventDefault();
+          return;
+        }
+
+        // Disable touch action if current zoom level is below base level
+        if (
+          currentPointers.length < 2 &&
+          this.transform.scale === this.option("baseScale") &&
+          this.option("panOnlyZoomed") == true
+        ) {
+          return;
+        }
+
+        if (currentPointers.length > 1 && (!this.option("zoom") || this.option("pinchToZoom") === false)) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const prevMidpoint = (0,_shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__.getMidpoint)(previousPointers[0], previousPointers[1]);
+        const newMidpoint = (0,_shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__.getMidpoint)(currentPointers[0], currentPointers[1]);
+
+        const panX = newMidpoint.clientX - prevMidpoint.clientX;
+        const panY = newMidpoint.clientY - prevMidpoint.clientY;
+
+        const prevDistance = (0,_shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__.getDistance)(previousPointers[0], previousPointers[1]);
+        const newDistance = (0,_shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__.getDistance)(currentPointers[0], currentPointers[1]);
+
+        const scaleDiff = prevDistance ? newDistance / prevDistance : 1;
+
+        this.dragOffset.x += panX;
+        this.dragOffset.y += panY;
+
+        this.dragOffset.scale *= scaleDiff;
+
+        this.dragOffset.time = Date.now() - this.dragPosition.time;
+
+        const axisToLock = this.dragStart.scale === 1 && this.option("lockAxis");
+
+        if (axisToLock && !this.lockAxis) {
+          if (Math.abs(this.dragOffset.x) < 6 && Math.abs(this.dragOffset.y) < 6) {
+            return;
+          }
+
+          if (axisToLock === "xy") {
+            const angle = Math.abs((Math.atan2(this.dragOffset.y, this.dragOffset.x) * 180) / Math.PI);
+
+            this.lockAxis = angle > 45 && angle < 135 ? "y" : "x";
+          } else {
+            this.lockAxis = axisToLock;
+          }
+        }
+
+        if (this.lockAxis) {
+          this.dragOffset[this.lockAxis === "x" ? "y" : "x"] = 0;
+        }
+
+        this.$container.classList.add(this.option("draggingClass"));
+
+        if (!(this.transform.scale === this.option("baseScale") && this.lockAxis === "y")) {
+          this.dragPosition.x = this.dragStart.x + this.dragOffset.x;
+        }
+
+        if (!(this.transform.scale === this.option("baseScale") && this.lockAxis === "x")) {
+          this.dragPosition.y = this.dragStart.y + this.dragOffset.y;
+        }
+
+        this.dragPosition.scale = this.dragStart.scale * this.dragOffset.scale;
+
+        if (currentPointers.length > 1) {
+          const startPoint = (0,_shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__.getMidpoint)(pointerTracker.startPointers[0], pointerTracker.startPointers[1]);
+
+          const xPos = startPoint.clientX - this.dragStart.rect.x;
+          const yPos = startPoint.clientY - this.dragStart.rect.y;
+
+          const { deltaX, deltaY } = this.getZoomDelta(this.content.scale * this.dragOffset.scale, xPos, yPos);
+
+          this.dragPosition.x -= deltaX;
+          this.dragPosition.y -= deltaY;
+
+          this.dragPosition.midPoint = newMidpoint;
+        }
+
+        this.setDragResistance();
+
+        // Update final position
+        this.transform = {
+          x: this.dragPosition.x,
+          y: this.dragPosition.y,
+          scale: this.dragPosition.scale,
+        };
+
+        this.startAnimation();
+      },
+      end: (pointer, event) => {
+        if (this.state !== "pointerdown") {
+          return;
+        }
+
+        this._dragOffset = { ...this.dragOffset };
+
+        if (pointerTracker.currentPointers.length) {
+          this.resetDragPosition();
+
+          return;
+        }
+
+        this.state = "decel";
+        this.friction = this.option("decelFriction");
+
+        this.recalculateTransform();
+
+        this.$container.classList.remove(this.option("draggingClass"));
+
+        if (this.trigger("touchEnd", event) === false) {
+          return;
+        }
+
+        if (this.state !== "decel") {
+          return;
+        }
+
+        // * Check if scaled content past limits
+
+        // Below minimum
+        const minScale = this.option("minScale");
+
+        if (this.transform.scale < minScale) {
+          this.zoomTo(minScale, { friction: 0.64 });
+
+          return;
+        }
+
+        // Exceed maximum
+        const maxScale = this.option("maxScale");
+
+        if (this.transform.scale - maxScale > 0.01) {
+          const last = this.dragPosition.midPoint || pointer;
+          const rect = this.$content.getClientRects()[0];
+
+          this.zoomTo(maxScale, {
+            friction: 0.64,
+            x: last.clientX - rect.left,
+            y: last.clientY - rect.top,
+          });
+
+          return;
+        }
+      },
+    });
+
+    this.pointerTracker = pointerTracker;
+  }
+
+  initObserver() {
+    if (this.resizeObserver) {
+      return;
+    }
+
+    this.resizeObserver = new _shared_utils_ResizeObserver_js__WEBPACK_IMPORTED_MODULE_2__.ResizeObserver(() => {
+      if (this.updateTimer) {
+        return;
+      }
+
+      this.updateTimer = setTimeout(() => {
+        const rect = this.$container.getBoundingClientRect();
+
+        if (!(rect.width && rect.height)) {
+          this.updateTimer = null;
+          return;
+        }
+
+        // Check to see if there are any changes
+        if (Math.abs(rect.width - this.container.width) > 1 || Math.abs(rect.height - this.container.height) > 1) {
+          if (this.isAnimating()) {
+            this.endAnimation();
+          }
+
+          this.updateMetrics();
+
+          this.panTo({
+            x: this.content.x,
+            y: this.content.y,
+            scale: this.option("baseScale"),
+            friction: 0,
+          });
+        }
+
+        this.updateTimer = null;
+      }, this.updateRate);
+    });
+
+    this.resizeObserver.observe(this.$container);
+  }
+
+  /**
+   * Restore drag related variables to default values
+   */
+  resetDragPosition() {
+    this.lockAxis = null;
+    this.friction = this.option("friction");
+
+    this.velocity = {
+      x: 0,
+      y: 0,
+      scale: 0,
+    };
+
+    const { x, y, scale } = this.content;
+
+    this.dragStart = {
+      rect: this.$content.getBoundingClientRect(),
+      x,
+      y,
+      scale,
+    };
+
+    this.dragPosition = {
+      ...this.dragPosition,
+      x,
+      y,
+      scale,
+    };
+
+    this.dragOffset = {
+      x: 0,
+      y: 0,
+      scale: 1,
+      time: 0,
+    };
+  }
+
+  /**
+   * Trigger update events before/after resizing content and viewport
+   */
+  updateMetrics(silently) {
+    if (silently !== true) {
+      this.trigger("beforeUpdate");
+    }
+
+    const $container = this.$container;
+    const $content = this.$content;
+    const $viewport = this.$viewport;
+
+    const contentIsImage = this.$content instanceof HTMLImageElement;
+    const contentIsZoomable = this.option("zoom");
+    const shouldResizeParent = this.option("resizeParent", contentIsZoomable);
+
+    let origWidth = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.getFullWidth)(this.$content);
+    let origHeight = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.getFullHeight)(this.$content);
+
+    Object.assign($content.style, {
+      width: "",
+      height: "",
+      maxWidth: "",
+      maxHeight: "",
+    });
+
+    if (shouldResizeParent) {
+      Object.assign($viewport.style, { width: "", height: "" });
+    }
+
+    const ratio = this.option("ratio");
+
+    origWidth = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(origWidth * ratio);
+    origHeight = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(origHeight * ratio);
+
+    let width = origWidth;
+    let height = origHeight;
+
+    const contentRect = $content.getBoundingClientRect();
+    const viewportRect = $viewport.getBoundingClientRect();
+
+    const containerRect = $viewport == $container ? viewportRect : $container.getBoundingClientRect();
+
+    this.viewport = { ...this.viewport, width: viewportRect.width, height: viewportRect.height };
+
+    var styles = window.getComputedStyle($viewport);
+
+    this.viewport.width -= parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    this.viewport.height -= parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+
+    if (contentIsZoomable) {
+      if (Math.abs(origWidth - contentRect.width) > 0.1 || Math.abs(origHeight - contentRect.height) > 0.1) {
+        const rez = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.calculateAspectRatioFit)(
+          origWidth,
+          origHeight,
+          Math.min(origWidth, contentRect.width),
+          Math.min(origHeight, contentRect.height)
+        );
+
+        width = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(rez.width);
+        height = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(rez.height);
+      }
+
+      Object.assign($content.style, {
+        width: `${width}px`,
+        height: `${height}px`,
+        transform: "",
+      });
+    }
+
+    if (shouldResizeParent) {
+      Object.assign($viewport.style, { width: `${width}px`, height: `${height}px` });
+
+      this.viewport = { ...this.viewport, width, height };
+    }
+
+    if (contentIsImage && contentIsZoomable && typeof this.options.maxScale !== "function") {
+      const maxScale = this.option("maxScale");
+
+      this.options.maxScale = function () {
+        return this.content.origWidth > 0 && this.content.fitWidth > 0
+          ? this.content.origWidth / this.content.fitWidth
+          : maxScale;
+      };
+    }
+
+    this.content = {
+      ...this.content,
+      origWidth,
+      origHeight,
+      fitWidth: width,
+      fitHeight: height,
+      width,
+      height,
+      scale: 1,
+      isZoomable: contentIsZoomable,
+    };
+
+    this.container = { width: containerRect.width, height: containerRect.height };
+
+    if (silently !== true) {
+      this.trigger("afterUpdate");
+    }
+  }
+
+  /**
+   * Increase zoom level
+   * @param {Number} [step] Zoom ratio; `0.5` would increase scale from 1 to 1.5
+   */
+  zoomIn(step) {
+    this.zoomTo(this.content.scale + (step || this.option("step")));
+  }
+
+  /**
+   * Decrease zoom level
+   * @param {Number} [step] Zoom ratio; `0.5` would decrease scale from 1.5 to 1
+   */
+  zoomOut(step) {
+    this.zoomTo(this.content.scale - (step || this.option("step")));
+  }
+
+  /**
+   * Toggles zoom level between max and base levels
+   * @param {Object} [options] Additional options
+   */
+  toggleZoom(props = {}) {
+    const maxScale = this.option("maxScale");
+    const baseScale = this.option("baseScale");
+
+    const scale = this.content.scale > baseScale + (maxScale - baseScale) * 0.5 ? baseScale : maxScale;
+
+    this.zoomTo(scale, props);
+  }
+
+  /**
+   * Animate to given zoom level
+   * @param {Number} scale New zoom level
+   * @param {Object} [options] Additional options
+   */
+  zoomTo(scale = this.option("baseScale"), { x = null, y = null } = {}) {
+    scale = Math.max(Math.min(scale, this.option("maxScale")), this.option("minScale"));
+
+    // Adjust zoom position
+    const currentScale = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.content.scale / (this.content.width / this.content.fitWidth), 10000000);
+
+    if (x === null) {
+      x = this.content.width * currentScale * 0.5;
+    }
+
+    if (y === null) {
+      y = this.content.height * currentScale * 0.5;
+    }
+
+    const { deltaX, deltaY } = this.getZoomDelta(scale, x, y);
+
+    x = this.content.x - deltaX;
+    y = this.content.y - deltaY;
+
+    this.panTo({ x, y, scale, friction: this.option("zoomFriction") });
+  }
+
+  /**
+   * Calculate difference for top/left values if content would scale at given coordinates
+   * @param {Number} scale
+   * @param {Number} x
+   * @param {Number} y
+   * @returns {Object}
+   */
+  getZoomDelta(scale, x = 0, y = 0) {
+    const currentWidth = this.content.fitWidth * this.content.scale;
+    const currentHeight = this.content.fitHeight * this.content.scale;
+
+    const percentXInCurrentBox = x > 0 && currentWidth ? x / currentWidth : 0;
+    const percentYInCurrentBox = y > 0 && currentHeight ? y / currentHeight : 0;
+
+    const nextWidth = this.content.fitWidth * scale;
+    const nextHeight = this.content.fitHeight * scale;
+
+    const deltaX = (nextWidth - currentWidth) * percentXInCurrentBox;
+    const deltaY = (nextHeight - currentHeight) * percentYInCurrentBox;
+
+    return { deltaX, deltaY };
+  }
+
+  /**
+   * Animate to given positon and/or zoom level
+   * @param {Object} [options] Additional options
+   */
+  panTo({
+    x = this.content.x,
+    y = this.content.y,
+    scale,
+    friction = this.option("friction"),
+    ignoreBounds = false,
+  } = {}) {
+    scale = scale || this.content.scale || 1;
+
+    if (!ignoreBounds) {
+      const { boundX, boundY } = this.getBounds(scale);
+
+      if (boundX) {
+        x = Math.max(Math.min(x, boundX.to), boundX.from);
+      }
+
+      if (boundY) {
+        y = Math.max(Math.min(y, boundY.to), boundY.from);
+      }
+    }
+
+    this.friction = friction;
+
+    this.transform = {
+      x,
+      y,
+      scale,
+    };
+
+    if (friction) {
+      this.state = "panning";
+
+      this.velocity = {
+        x: (1 / this.friction - 1) * (x - this.content.x),
+        y: (1 / this.friction - 1) * (y - this.content.y),
+        scale: (1 / this.friction - 1) * (scale - this.content.scale),
+      };
+
+      this.startAnimation();
+    } else {
+      this.endAnimation();
+    }
+  }
+
+  /**
+   * Start animation loop
+   */
+  startAnimation() {
+    if (!this.rAF) {
+      this.trigger("startAnimation");
+    } else {
+      cancelAnimationFrame(this.rAF);
+    }
+
+    this.rAF = requestAnimationFrame(() => this.animate());
+  }
+
+  /**
+   * Process animation frame
+   */
+  animate() {
+    this.setEdgeForce();
+    this.setDragForce();
+
+    this.velocity.x *= this.friction;
+    this.velocity.y *= this.friction;
+
+    this.velocity.scale *= this.friction;
+
+    this.content.x += this.velocity.x;
+    this.content.y += this.velocity.y;
+
+    this.content.scale += this.velocity.scale;
+
+    if (this.isAnimating()) {
+      this.setTransform();
+    } else if (this.state !== "pointerdown") {
+      this.endAnimation();
+
+      this.trigger("endAnimation");
 
       return;
     }
 
-    if (this.getDistance([event, this.lastClickEvent]) >= 6) {
+    this.rAF = requestAnimationFrame(() => this.animate());
+  }
+
+  /**
+   * Calculate boundaries
+   */
+  getBounds(scale) {
+    let boundX = this.boundX;
+    let boundY = this.boundY;
+
+    if (boundX !== undefined && boundY !== undefined) {
+      return { boundX, boundY };
+    }
+
+    boundX = { from: 0, to: 0 };
+    boundY = { from: 0, to: 0 };
+
+    scale = scale || this.transform.scale;
+
+    const fitWidth = this.content.fitWidth;
+    const fitHeight = this.content.fitHeight;
+
+    const width = fitWidth * scale;
+    const height = fitHeight * scale;
+
+    const viewportWidth = this.viewport.width;
+    const viewportHeight = this.viewport.height;
+
+    if (fitWidth <= viewportWidth) {
+      const deltaX1 = (viewportWidth - width) * 0.5;
+      const deltaX2 = (width - fitWidth) * 0.5;
+
+      boundX.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaX1 - deltaX2);
+      boundX.to = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaX1 + deltaX2);
+    } else {
+      boundX.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportWidth - width);
+    }
+
+    if (fitHeight <= viewportHeight) {
+      const deltaY1 = (viewportHeight - height) * 0.5;
+      const deltaY2 = (height - fitHeight) * 0.5;
+
+      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaY1 - deltaY2);
+      boundY.to = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaY1 + deltaY2);
+    } else {
+      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportHeight - width);
+    }
+
+    return { boundX, boundY };
+  }
+
+  /**
+   * Change animation velocity if boundary is reached
+   */
+  setEdgeForce() {
+    if (this.state !== "decel") {
       return;
     }
 
-    clearTimeout(this.clickTimer);
-    this.clickTimer = null;
+    const bounceForce = this.option("bounceForce");
 
-    if (this.trigger("doubleClick", event) === false) {
+    const { boundX, boundY } = this.getBounds(Math.max(this.transform.scale, this.content.scale));
+
+    let pastLeft, pastRight, pastTop, pastBottom;
+
+    if (boundX) {
+      pastLeft = this.content.x < boundX.from;
+      pastRight = this.content.x > boundX.to;
+    }
+
+    if (boundY) {
+      pastTop = this.content.y < boundY.from;
+      pastBottom = this.content.y > boundY.to;
+    }
+
+    if (pastLeft || pastRight) {
+      const bound = pastLeft ? boundX.from : boundX.to;
+      const distance = bound - this.content.x;
+
+      let force = distance * bounceForce;
+
+      const restX = this.content.x + (this.velocity.x + force) / this.friction;
+
+      if (restX >= boundX.from && restX <= boundX.to) {
+        force += this.velocity.x;
+      }
+
+      this.velocity.x = force;
+
+      this.recalculateTransform();
+    }
+
+    if (pastTop || pastBottom) {
+      const bound = pastTop ? boundY.from : boundY.to;
+      const distance = bound - this.content.y;
+
+      let force = distance * bounceForce;
+
+      const restY = this.content.y + (force + this.velocity.y) / this.friction;
+
+      if (restY >= boundY.from && restY <= boundY.to) {
+        force += this.velocity.y;
+      }
+
+      this.velocity.y = force;
+
+      this.recalculateTransform();
+    }
+  }
+
+  /**
+   * Change dragging position if boundary is reached
+   */
+  setDragResistance() {
+    if (this.state !== "pointerdown") {
       return;
     }
 
-    if (this.option("doubleClick") === "toggleZoom") {
-      this.toggleZoom({ x, y });
+    const { boundX, boundY } = this.getBounds(this.dragPosition.scale);
+
+    let pastLeft, pastRight, pastTop, pastBottom;
+
+    if (boundX) {
+      pastLeft = this.dragPosition.x < boundX.from;
+      pastRight = this.dragPosition.x > boundX.to;
+    }
+
+    if (boundY) {
+      pastTop = this.dragPosition.y < boundY.from;
+      pastBottom = this.dragPosition.y > boundY.to;
+    }
+
+    if ((pastLeft || pastRight) && !(pastLeft && pastRight)) {
+      const bound = pastLeft ? boundX.from : boundX.to;
+      const distance = bound - this.dragPosition.x;
+
+      this.dragPosition.x = bound - distance * 0.3;
+    }
+
+    if ((pastTop || pastBottom) && !(pastTop && pastBottom)) {
+      const bound = pastTop ? boundY.from : boundY.to;
+      const distance = bound - this.dragPosition.y;
+
+      this.dragPosition.y = bound - distance * 0.3;
+    }
+  }
+
+  /**
+   * Set velocity to move content to drag position
+   */
+  setDragForce() {
+    if (this.state === "pointerdown") {
+      this.velocity.x = this.dragPosition.x - this.content.x;
+      this.velocity.y = this.dragPosition.y - this.content.y;
+      this.velocity.scale = this.dragPosition.scale - this.content.scale;
+    }
+  }
+
+  /**
+   * Update end values based on current velocity and friction;
+   */
+  recalculateTransform() {
+    this.transform.x = this.content.x + this.velocity.x / (1 / this.friction - 1);
+    this.transform.y = this.content.y + this.velocity.y / (1 / this.friction - 1);
+    this.transform.scale = this.content.scale + this.velocity.scale / (1 / this.friction - 1);
+  }
+
+  /**
+   * Check if content is currently animating
+   * @returns {Boolean}
+   */
+  isAnimating() {
+    return !!(
+      this.friction &&
+      (Math.abs(this.velocity.x) > 0.05 || Math.abs(this.velocity.y) > 0.05 || Math.abs(this.velocity.scale) > 0.05)
+    );
+  }
+
+  /**
+   * Set content `style.transform` value based on current animation frame
+   */
+  setTransform(final) {
+    let x, y, scale;
+
+    if (final) {
+      x = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.transform.x);
+      y = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.transform.y);
+
+      scale = this.transform.scale;
+
+      this.content = { ...this.content, x, y, scale };
+    } else {
+      x = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.content.x);
+      y = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.content.y);
+
+      scale = this.content.scale / (this.content.width / this.content.fitWidth);
+
+      this.content = { ...this.content, x, y };
+    }
+
+    this.trigger("beforeTransform");
+
+    x = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.content.x);
+    y = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.content.y);
+
+    if (final && this.option("zoom")) {
+      let width;
+      let height;
+
+      width = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.content.fitWidth * scale);
+      height = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(this.content.fitHeight * scale);
+
+      this.content.width = width;
+      this.content.height = height;
+
+      this.transform = { ...this.transform, width, height, scale };
+
+      Object.assign(this.$content.style, {
+        width: `${width}px`,
+        height: `${height}px`,
+        maxWidth: "none",
+        maxHeight: "none",
+        transform: `translate3d(${x}px, ${y}px, 0) scale(1)`,
+      });
+    } else {
+      this.$content.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+    }
+
+    this.trigger("afterTransform");
+  }
+
+  /**
+   * Stop animation loop
+   */
+  endAnimation() {
+    cancelAnimationFrame(this.rAF);
+    this.rAF = null;
+
+    this.velocity = {
+      x: 0,
+      y: 0,
+      scale: 0,
+    };
+
+    this.setTransform(true);
+
+    this.state = "ready";
+
+    this.handleCursor();
+  }
+
+  /**
+   * Update the class name depending on whether the content is scaled
+   */
+  handleCursor() {
+    const draggableClass = this.option("draggableClass");
+
+    if (!draggableClass || !this.option("touch")) {
+      return;
+    }
+
+    if (
+      this.option("panOnlyZoomed") == true &&
+      this.content.width <= this.content.fitWidth &&
+      this.transform.scale <= this.option("baseScale")
+    ) {
+      this.$container.classList.remove(draggableClass);
+    } else {
+      this.$container.classList.add(draggableClass);
+    }
+  }
+
+  /**
+   * Remove observation and detach event listeners
+   */
+  detachEvents() {
+    this.$content.removeEventListener("load", this.onLoad);
+
+    this.$container.removeEventListener("wheel", this.onWheel, { passive: false });
+    this.$container.removeEventListener("click", this.onClick, { passive: false });
+
+    if (this.pointerTracker) {
+      this.pointerTracker.stop();
+      this.pointerTracker = null;
+    }
+
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
     }
   }
 
@@ -6522,34 +6880,17 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__["Base"] 
 
     this.state = "destroy";
 
-    this.$viewport.classList.remove("not-selectable");
+    clearTimeout(this.updateTimer);
+    this.updateTimer = null;
 
-    if (this.$content instanceof HTMLImageElement && !this.$content.complete) {
-      this.$content.onload = null;
-      this.$content.onerror = null;
-    }
-
-    if (this.pendingAnimateUpdate) {
-      cancelAnimationFrame(this.pendingAnimateUpdate);
-      this.pendingAnimateUpdate = null;
-    }
-
-    if (this.clickTimer) {
-      clearTimeout(this.clickTimer);
-      this.clickTimer = null;
-    }
+    cancelAnimationFrame(this.rAF);
+    this.rAF = null;
 
     this.detachEvents();
 
-    this.pointers = [];
+    this.detachPlugins();
 
-    this.resetValues();
-
-    this.$viewport = null;
-    this.$content = null;
-
-    this.options = {};
-    this.events = {};
+    this.resetDragPosition();
   }
 }
 
@@ -6557,7 +6898,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__["Base"] 
 Panzoom.version = "__VERSION__";
 
 // Static properties are a recent addition that dont work in all browsers yet
-Panzoom.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_8__["Plugins"];
+Panzoom.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_8__.Plugins;
 
 
 /***/ }),
@@ -6566,12 +6907,13 @@ Panzoom.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_8__["Plugins"];
 /*!*****************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Panzoom/plugins/index.js ***!
   \*****************************************************************/
-/*! exports provided: Plugins */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Plugins", function() { return Plugins; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Plugins": () => (/* binding */ Plugins)
+/* harmony export */ });
 const Plugins = {};
 
 
@@ -6581,12 +6923,13 @@ const Plugins = {};
 /*!************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/Base/Base.js ***!
   \************************************************************/
-/*! exports provided: Base */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Base", function() { return Base; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Base": () => (/* binding */ Base)
+/* harmony export */ });
 /* harmony import */ var _utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 /* harmony import */ var _utils_resolve_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/resolve.js */ "./node_modules/@fancyapps/ui/src/shared/utils/resolve.js");
 /* harmony import */ var _utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/isPlainObject.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isPlainObject.js");
@@ -6603,7 +6946,7 @@ class Base {
    * @param {Object} [options] - Options as `key: value` pairs
    */
   constructor(options = {}) {
-    this.options = Object(_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])(true, {}, options);
+    this.options = (0,_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(true, {}, options);
 
     this.plugins = [];
     this.events = {};
@@ -6626,7 +6969,7 @@ class Base {
     // Make sure it is string
     key = String(key);
 
-    let value = Object(_utils_resolve_js__WEBPACK_IMPORTED_MODULE_1__["resolve"])(key, this.options);
+    let value = (0,_utils_resolve_js__WEBPACK_IMPORTED_MODULE_1__.resolve)(key, this.options);
 
     // Allow to have functions as options
     if (typeof value === "function") {
@@ -6673,7 +7016,7 @@ class Base {
    * @returns {Object}
    */
   on(name, callback) {
-    if (Object(_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_2__["isPlainObject"])(name)) {
+    if ((0,_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_2__.isPlainObject)(name)) {
       for (const args of Object.entries(name)) {
         this.on(...args);
       }
@@ -6701,7 +7044,7 @@ class Base {
    * @returns {Object}
    */
   once(name, callback) {
-    if (Object(_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_2__["isPlainObject"])(name)) {
+    if ((0,_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_2__.isPlainObject)(name)) {
       for (const args of Object.entries(name)) {
         this.once(...args);
       }
@@ -6732,7 +7075,7 @@ class Base {
    * @returns {Object}
    */
   off(name, callback) {
-    if (Object(_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_2__["isPlainObject"])(name)) {
+    if ((0,_utils_isPlainObject_js__WEBPACK_IMPORTED_MODULE_2__.isPlainObject)(name)) {
       for (const args of Object.entries(name)) {
         this.off(...args);
       }
@@ -6801,9 +7144,9 @@ class Base {
 
     for (const [key, Plugin] of Object.entries(plugins || {})) {
       // Check if this plugin is not disabled by option
-      if (this.options[key] !== false) {
+      if (this.options[key] !== false && !this.plugins[key]) {
         // Populate options with defaults from the plugin
-        this.options[key] = Object(_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__["extend"])({}, Plugin.defaults || {}, this.options[key]);
+        this.options[key] = (0,_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, Plugin.defaults || {}, this.options[key]);
 
         // Initialise plugin
         newPlugins[key] = new Plugin(this);
@@ -6842,16 +7185,211 @@ class Base {
 
 /***/ }),
 
+/***/ "./node_modules/@fancyapps/ui/src/shared/utils/Fullscreen.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@fancyapps/ui/src/shared/utils/Fullscreen.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Fullscreen": () => (/* binding */ Fullscreen)
+/* harmony export */ });
+const Fullscreen = {
+  pageXOffset: 0,
+  pageYOffset: 0,
+
+  element() {
+    return document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+  },
+
+  activate(element) {
+    Fullscreen.pageXOffset = window.pageXOffset;
+    Fullscreen.pageYOffset = window.pageYOffset;
+
+    if (element.requestFullscreen) {
+      element.requestFullscreen(); // W3C spec
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen(); // Firefox
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen(); // Safari
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen(); // IE/Edge
+    }
+  },
+
+  deactivate() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  },
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@fancyapps/ui/src/shared/utils/PointerTracker.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@fancyapps/ui/src/shared/utils/PointerTracker.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PointerTracker": () => (/* binding */ PointerTracker),
+/* harmony export */   "getDistance": () => (/* binding */ getDistance),
+/* harmony export */   "getMidpoint": () => (/* binding */ getMidpoint)
+/* harmony export */ });
+/* harmony import */ var _clearTextSelection_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clearTextSelection.js */ "./node_modules/@fancyapps/ui/src/shared/utils/clearTextSelection.js");
+
+
+class Pointer {
+  constructor(nativePointer) {
+    this.id = -1;
+
+    this.id = nativePointer.pointerId || nativePointer.identifier || -1;
+
+    this.pageX = nativePointer.pageX;
+    this.pageY = nativePointer.pageY;
+
+    this.clientX = nativePointer.clientX;
+    this.clientY = nativePointer.clientY;
+
+    this.nativePointer = nativePointer;
+  }
+}
+
+function getDistance(a, b) {
+  if (!b) {
+    return 0;
+  }
+
+  return Math.sqrt((b.clientX - a.clientX) ** 2 + (b.clientY - a.clientY) ** 2);
+}
+
+function getMidpoint(a, b) {
+  if (!b) {
+    return a;
+  }
+
+  return {
+    clientX: (a.clientX + b.clientX) / 2,
+    clientY: (a.clientY + b.clientY) / 2,
+  };
+}
+
+class PointerTracker {
+  constructor(element, { start = () => true, move = () => {}, end = () => {} } = {}) {
+    this.element = element;
+
+    this.startPointers = [];
+    this.currentPointers = [];
+
+    this.startCallback = start;
+    this.moveCallback = move;
+    this.endCallback = end;
+
+    this.onStart = (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+
+      const pointer = new Pointer(event);
+
+      if (this.startCallback(pointer, event) === false) {
+        return false;
+      }
+
+      event.preventDefault();
+
+      (0,_clearTextSelection_js__WEBPACK_IMPORTED_MODULE_0__.clearTextSelection)();
+
+      this.currentPointers.push(pointer);
+      this.startPointers.push(pointer);
+
+      const capturingElement = event.target && "setPointerCapture" in event.target ? event.target : this.element;
+
+      capturingElement.setPointerCapture(event.pointerId);
+
+      this.element.addEventListener("pointermove", this.onMove);
+      this.element.addEventListener("pointerup", this.onEnd);
+      this.element.addEventListener("pointercancel", this.onEnd);
+    };
+
+    this.onMove = (event) => {
+      const previousPointers = this.currentPointers.slice();
+      const trackedChangedPointers = [];
+
+      for (const pointer of [new Pointer(event)]) {
+        const index = this.currentPointers.findIndex((p) => p.id === pointer.id);
+
+        if (index < 0) {
+          continue;
+        }
+
+        trackedChangedPointers.push(pointer);
+
+        this.currentPointers[index] = pointer;
+      }
+
+      if (trackedChangedPointers.length) {
+        this.moveCallback(previousPointers, this.currentPointers, event);
+      }
+    };
+
+    this.onEnd = (event) => {
+      const pointer = new Pointer(event);
+      const index = this.currentPointers.findIndex((p) => p.id === pointer.id);
+
+      if (index === -1) {
+        return false;
+      }
+
+      this.currentPointers.splice(index, 1);
+      this.startPointers.splice(index, 1);
+
+      this.endCallback(pointer, event);
+
+      if (!this.currentPointers.length) {
+        this.element.removeEventListener("pointermove", this.onMove);
+        this.element.removeEventListener("pointerup", this.onEnd);
+        this.element.removeEventListener("pointercancel", this.onEnd);
+      }
+    };
+
+    this.element.addEventListener("pointerdown", this.onStart);
+  }
+
+  stop() {
+    this.element.removeEventListener("pointerdown", this.onStart);
+    this.element.removeEventListener("pointermove", this.onMove);
+    this.element.removeEventListener("pointerup", this.onEnd);
+    this.element.removeEventListener("pointercancel", this.onEnd);
+  }
+}
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@fancyapps/ui/src/shared/utils/ResizeObserver.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/ResizeObserver.js ***!
   \***********************************************************************/
-/*! exports provided: ResizeObserver */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResizeObserver", function() { return ResizeObserver; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ResizeObserver": () => (/* binding */ ResizeObserver)
+/* harmony export */ });
 /**
  * ResizeObserver Polyfill
  */
@@ -6918,20 +7456,139 @@ const ResizeObserver =
 
 /***/ }),
 
+/***/ "./node_modules/@fancyapps/ui/src/shared/utils/Slideshow.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@fancyapps/ui/src/shared/utils/Slideshow.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Slideshow": () => (/* binding */ Slideshow)
+/* harmony export */ });
+class Slideshow {
+  constructor(fancybox) {
+    this.fancybox = fancybox;
+    this.active = false;
+
+    this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
+  }
+
+  isActive() {
+    return this.active;
+  }
+
+  setTimer() {
+    if (!this.active || this.timer) {
+      return;
+    }
+
+    const delay = this.fancybox.option("slideshow.delay", 3000);
+
+    this.timer = setTimeout(() => {
+      this.timer = null;
+
+      if (
+        !this.fancybox.option("infinite") &&
+        this.fancybox.getSlide().index === this.fancybox.Carousel.slides.length - 1
+      ) {
+        this.fancybox.jumpTo(0, { friction: 0 });
+      } else {
+        this.fancybox.next();
+      }
+    }, delay);
+
+    let $progress = this.$progress;
+
+    if (!$progress) {
+      $progress = document.createElement("div");
+      $progress.classList.add("fancybox__progress");
+
+      this.fancybox.$carousel.parentNode.insertBefore($progress, this.fancybox.$carousel);
+
+      this.$progress = $progress;
+
+      $progress.offsetHeight; /* trigger reflow */
+    }
+
+    $progress.style.transitionDuration = `${delay}ms`;
+    $progress.style.transform = "scaleX(1)";
+  }
+
+  clearTimer() {
+    clearTimeout(this.timer);
+    this.timer = null;
+
+    if (this.$progress) {
+      this.$progress.style.transitionDuration = "";
+      this.$progress.style.transform = "";
+
+      this.$progress.offsetHeight; /* trigger reflow */
+    }
+  }
+
+  activate() {
+    if (this.active) {
+      return;
+    }
+
+    this.active = true;
+    this.fancybox.$container.classList.add("has-slideshow");
+
+    if (this.fancybox.getSlide().state === "done") {
+      this.setTimer();
+    }
+
+    document.addEventListener("visibilitychange", this.handleVisibilityChange, false);
+  }
+
+  handleVisibilityChange() {
+    this.deactivate();
+  }
+
+  deactivate() {
+    this.active = false;
+
+    this.clearTimer();
+
+    this.fancybox.$container.classList.remove("has-slideshow");
+
+    document.removeEventListener("visibilitychange", this.handleVisibilityChange, false);
+  }
+
+  toggle() {
+    if (this.active) {
+      this.deactivate();
+    } else if (this.fancybox.Carousel.slides.length > 1) {
+      this.activate();
+    }
+  }
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js":
 /*!******************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js ***!
   \******************************************************************/
-/*! exports provided: canUseDOM */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canUseDOM", function() { return canUseDOM; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "canUseDOM": () => (/* binding */ canUseDOM)
+/* harmony export */ });
 /**
  * Detect if rendering from the client or the server
  */
-const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+const canUseDOM = !!(
+  typeof window !== "undefined" &&
+  window.document &&
+  window.document.createElement &&
+  window.document.body
+);
 
 
 /***/ }),
@@ -6940,12 +7597,13 @@ const canUseDOM = !!(typeof window !== "undefined" && window.document && window.
 /*!***************************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/clearTextSelection.js ***!
   \***************************************************************************/
-/*! exports provided: clearTextSelection */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearTextSelection", function() { return clearTextSelection; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "clearTextSelection": () => (/* binding */ clearTextSelection)
+/* harmony export */ });
 /**
  *  Deselect any text which may be selected on a page
  */
@@ -6968,12 +7626,13 @@ const clearTextSelection = () => {
 /*!***************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/extend.js ***!
   \***************************************************************/
-/*! exports provided: extend */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extend", function() { return extend; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "extend": () => (/* binding */ extend)
+/* harmony export */ });
 /* harmony import */ var _isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isPlainObject.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isPlainObject.js");
 
 
@@ -7006,7 +7665,7 @@ const extend = (...args) => {
       if (extender.hasOwnProperty(key)) {
         const value = extender[key];
 
-        if (deep && (Array.isArray(value) || Object(_isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__["isPlainObject"])(value))) {
+        if (deep && (Array.isArray(value) || (0,_isPlainObject_js__WEBPACK_IMPORTED_MODULE_0__.isPlainObject)(value))) {
           const base = Array.isArray(value) ? [] : {};
 
           result[key] = extend(true, result.hasOwnProperty(key) ? result[key] : base, value);
@@ -7027,30 +7686,27 @@ const extend = (...args) => {
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/getDimensions.js ***!
   \**********************************************************************/
-/*! exports provided: getFullWidth, getFullHeight */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFullWidth", function() { return getFullWidth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFullHeight", function() { return getFullHeight; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getFullWidth": () => (/* binding */ getFullWidth),
+/* harmony export */   "getFullHeight": () => (/* binding */ getFullHeight),
+/* harmony export */   "calculateAspectRatioFit": () => (/* binding */ calculateAspectRatioFit)
+/* harmony export */ });
 /**
  * Get actual width of the element, regardless of how much of content is currently visible
  * @param {Element} elem
  * @returns {Integer}
  */
 const getFullWidth = (elem) => {
-  let rez = 0;
-
-  if (elem) {
-    if (elem instanceof SVGElement) {
-      rez = Math.min(elem.getClientRects()[0].width, elem.width.baseVal.value);
-    } else {
-      rez = Math.max(elem.offsetWidth, elem.scrollWidth);
-    }
-  }
-
-  return rez;
+  return Math.max(
+    parseFloat(elem.naturalWidth || 0),
+    parseFloat((elem.width && elem.width.baseVal && elem.width.baseVal.value) || 0),
+    parseFloat(elem.offsetWidth || 0),
+    parseFloat(elem.scrollWidth || 0)
+  );
 };
 
 /**
@@ -7059,17 +7715,26 @@ const getFullWidth = (elem) => {
  * @returns {Integer}
  */
 const getFullHeight = (elem) => {
-  let rez = 0;
+  return Math.max(
+    parseFloat(elem.naturalHeight || 0),
+    parseFloat((elem.height && elem.height.baseVal && elem.height.baseVal.value) || 0),
+    parseFloat(elem.offsetHeight || 0),
+    parseFloat(elem.scrollHeight || 0)
+  );
+};
 
-  if (elem) {
-    if (elem instanceof SVGElement) {
-      rez = Math.min(elem.getClientRects()[0].height, elem.height.baseVal.value);
-    } else {
-      rez = Math.max(elem.offsetHeight, elem.scrollHeight);
-    }
-  }
+/**
+ * Calculate bounding size to fit dimensions while preserving aspect ratio
+ * @param {Number} srcWidth
+ * @param {Number} srcHeight
+ * @param {Number} maxWidth
+ * @param {Number} maxHeight
+ * @returns {Object}
+ */
+const calculateAspectRatioFit = (srcWidth, srcHeight, maxWidth, maxHeight) => {
+  const ratio = Math.min(maxWidth / srcWidth || 0, maxHeight / srcHeight);
 
-  return rez;
+  return { width: srcWidth * ratio || 0, height: srcHeight * ratio || 0 };
 };
 
 
@@ -7079,12 +7744,13 @@ const getFullHeight = (elem) => {
 /*!*****************************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/getTextNodeFromPoint.js ***!
   \*****************************************************************************/
-/*! exports provided: getTextNodeFromPoint */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTextNodeFromPoint", function() { return getTextNodeFromPoint; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getTextNodeFromPoint": () => (/* binding */ getTextNodeFromPoint)
+/* harmony export */ });
 /**
  * Get element child node at the given coordinates
  * @param {Element} HTML element
@@ -7122,12 +7788,13 @@ const getTextNodeFromPoint = (element, x, y) => {
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/isPlainObject.js ***!
   \**********************************************************************/
-/*! exports provided: isPlainObject */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPlainObject", function() { return isPlainObject; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isPlainObject": () => (/* binding */ isPlainObject)
+/* harmony export */ });
 /**
  * Check to see if an object is a plain object (created using "{}" or "new Object").
  * @param {*} obj Variable of any type
@@ -7153,13 +7820,14 @@ const isPlainObject = (obj) => {
 /*!*********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/isScrollable.js ***!
   \*********************************************************************/
-/*! exports provided: hasScrollbars, isScrollable */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasScrollbars", function() { return hasScrollbars; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isScrollable", function() { return isScrollable; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "hasScrollbars": () => (/* binding */ hasScrollbars),
+/* harmony export */   "isScrollable": () => (/* binding */ isScrollable)
+/* harmony export */ });
 /**
  * Check if  element has scrollable content
  * @param {Node} node
@@ -7180,7 +7848,7 @@ const hasScrollbars = function (node) {
  * @returns {Boolean}
  */
 const isScrollable = function (node) {
-  if (!node || node.classList.contains("carousel__track") || node === document.body) {
+  if (!node || node === document.body) {
     return false;
   }
 
@@ -7198,12 +7866,13 @@ const isScrollable = function (node) {
 /*!****************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/resolve.js ***!
   \****************************************************************/
-/*! exports provided: resolve */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resolve", function() { return resolve; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "resolve": () => (/* binding */ resolve)
+/* harmony export */ });
 /**
  * Access nested JavaScript objects by string path.
  * Example: `resolve("a.b.c", {a:{b:{c:"d"}})` would return `d`
@@ -7213,7 +7882,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 const resolve = function (path, obj) {
   return path.split(".").reduce(function (prev, curr) {
-    return prev[curr];
+    return prev && prev[curr];
   }, obj);
 };
 
@@ -7224,19 +7893,20 @@ const resolve = function (path, obj) {
 /*!**************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/round.js ***!
   \**************************************************************/
-/*! exports provided: round */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "round", function() { return round; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "round": () => (/* binding */ round)
+/* harmony export */ });
 /**
  * Round half up; to be more specific and to ensure things like 1.005 round correctly
  * @param {Float} value
  * @param {Integer} precision
  * @returns {Float}
  */
-const round = (value, precision = 1000) => {
+const round = (value, precision = 10000) => {
   value = parseFloat(value) || 0;
 
   return Math.round((value + Number.EPSILON) * precision) / precision;
@@ -7249,12 +7919,13 @@ const round = (value, precision = 1000) => {
 /*!*****************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/throttle.js ***!
   \*****************************************************************/
-/*! exports provided: throttle */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "throttle", function() { return throttle; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "throttle": () => (/* binding */ throttle)
+/* harmony export */ });
 /**
  * Throttling enforces a maximum number of times a function can be called over time
  * @param {Function} func Callback function
@@ -7280,12 +7951,87 @@ const throttle = (func, limit) => {
 
 /***/ }),
 
+/***/ "./resources/js/app.js":
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fancyapps_ui_src_Fancybox_Fancybox_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fancyapps/ui/src/Fancybox/Fancybox.js */ "./node_modules/@fancyapps/ui/src/Fancybox/Fancybox.js");
+/* harmony import */ var owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! owl.carousel/dist/owl.carousel.min.js */ "./node_modules/owl.carousel/dist/owl.carousel.min.js");
+/* harmony import */ var owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
+
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/Core/Footers/FOOT01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/Core/Footers/FOOT01/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.owl-carousel').owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/assets/js/base.js":
+/*!**************************************************!*\
+  !*** ./resources/views/Client/assets/js/base.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Core/Footers/FOOT01/src/main */ "./resources/views/Client/Core/Footers/FOOT01/src/main.js");
+/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
   \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * jQuery JavaScript Library v3.6.0
@@ -18131,7 +18877,7 @@ if ( true ) {
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
 		return jQuery;
 	}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 }
 
 
@@ -18173,140 +18919,199 @@ return jQuery;
 
 /***/ }),
 
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/owl.carousel/dist/owl.carousel.min.js":
 /*!************************************************************!*\
   !*** ./node_modules/owl.carousel/dist/owl.carousel.min.js ***!
   \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery, jQuery) {/**
+/* provided dependency */ var jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/**
  * Owl Carousel v2.3.4
  * Copyright 2013-2018 David Deutsch
  * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
  */
 !function(a,b,c,d){function e(b,c){this.settings=null,this.options=a.extend({},e.Defaults,c),this.$element=a(b),this._handlers={},this._plugins={},this._supress={},this._current=null,this._speed=null,this._coordinates=[],this._breakpoint=null,this._width=null,this._items=[],this._clones=[],this._mergers=[],this._widths=[],this._invalidated={},this._pipe=[],this._drag={time:null,target:null,pointer:null,stage:{start:null,current:null},direction:null},this._states={current:{},tags:{initializing:["busy"],animating:["busy"],dragging:["interacting"]}},a.each(["onResize","onThrottledResize"],a.proxy(function(b,c){this._handlers[c]=a.proxy(this[c],this)},this)),a.each(e.Plugins,a.proxy(function(a,b){this._plugins[a.charAt(0).toLowerCase()+a.slice(1)]=new b(this)},this)),a.each(e.Workers,a.proxy(function(b,c){this._pipe.push({filter:c.filter,run:a.proxy(c.run,this)})},this)),this.setup(),this.initialize()}e.Defaults={items:3,loop:!1,center:!1,rewind:!1,checkVisibility:!0,mouseDrag:!0,touchDrag:!0,pullDrag:!0,freeDrag:!1,margin:0,stagePadding:0,merge:!1,mergeFit:!0,autoWidth:!1,startPosition:0,rtl:!1,smartSpeed:250,fluidSpeed:!1,dragEndSpeed:!1,responsive:{},responsiveRefreshRate:200,responsiveBaseElement:b,fallbackEasing:"swing",slideTransition:"",info:!1,nestedItemSelector:!1,itemElement:"div",stageElement:"div",refreshClass:"owl-refresh",loadedClass:"owl-loaded",loadingClass:"owl-loading",rtlClass:"owl-rtl",responsiveClass:"owl-responsive",dragClass:"owl-drag",itemClass:"owl-item",stageClass:"owl-stage",stageOuterClass:"owl-stage-outer",grabClass:"owl-grab"},e.Width={Default:"default",Inner:"inner",Outer:"outer"},e.Type={Event:"event",State:"state"},e.Plugins={},e.Workers=[{filter:["width","settings"],run:function(){this._width=this.$element.width()}},{filter:["width","items","settings"],run:function(a){a.current=this._items&&this._items[this.relative(this._current)]}},{filter:["items","settings"],run:function(){this.$stage.children(".cloned").remove()}},{filter:["width","items","settings"],run:function(a){var b=this.settings.margin||"",c=!this.settings.autoWidth,d=this.settings.rtl,e={width:"auto","margin-left":d?b:"","margin-right":d?"":b};!c&&this.$stage.children().css(e),a.css=e}},{filter:["width","items","settings"],run:function(a){var b=(this.width()/this.settings.items).toFixed(3)-this.settings.margin,c=null,d=this._items.length,e=!this.settings.autoWidth,f=[];for(a.items={merge:!1,width:b};d--;)c=this._mergers[d],c=this.settings.mergeFit&&Math.min(c,this.settings.items)||c,a.items.merge=c>1||a.items.merge,f[d]=e?b*c:this._items[d].width();this._widths=f}},{filter:["items","settings"],run:function(){var b=[],c=this._items,d=this.settings,e=Math.max(2*d.items,4),f=2*Math.ceil(c.length/2),g=d.loop&&c.length?d.rewind?e:Math.max(e,f):0,h="",i="";for(g/=2;g>0;)b.push(this.normalize(b.length/2,!0)),h+=c[b[b.length-1]][0].outerHTML,b.push(this.normalize(c.length-1-(b.length-1)/2,!0)),i=c[b[b.length-1]][0].outerHTML+i,g-=1;this._clones=b,a(h).addClass("cloned").appendTo(this.$stage),a(i).addClass("cloned").prependTo(this.$stage)}},{filter:["width","items","settings"],run:function(){for(var a=this.settings.rtl?1:-1,b=this._clones.length+this._items.length,c=-1,d=0,e=0,f=[];++c<b;)d=f[c-1]||0,e=this._widths[this.relative(c)]+this.settings.margin,f.push(d+e*a);this._coordinates=f}},{filter:["width","items","settings"],run:function(){var a=this.settings.stagePadding,b=this._coordinates,c={width:Math.ceil(Math.abs(b[b.length-1]))+2*a,"padding-left":a||"","padding-right":a||""};this.$stage.css(c)}},{filter:["width","items","settings"],run:function(a){var b=this._coordinates.length,c=!this.settings.autoWidth,d=this.$stage.children();if(c&&a.items.merge)for(;b--;)a.css.width=this._widths[this.relative(b)],d.eq(b).css(a.css);else c&&(a.css.width=a.items.width,d.css(a.css))}},{filter:["items"],run:function(){this._coordinates.length<1&&this.$stage.removeAttr("style")}},{filter:["width","items","settings"],run:function(a){a.current=a.current?this.$stage.children().index(a.current):0,a.current=Math.max(this.minimum(),Math.min(this.maximum(),a.current)),this.reset(a.current)}},{filter:["position"],run:function(){this.animate(this.coordinates(this._current))}},{filter:["width","position","items","settings"],run:function(){var a,b,c,d,e=this.settings.rtl?1:-1,f=2*this.settings.stagePadding,g=this.coordinates(this.current())+f,h=g+this.width()*e,i=[];for(c=0,d=this._coordinates.length;c<d;c++)a=this._coordinates[c-1]||0,b=Math.abs(this._coordinates[c])+f*e,(this.op(a,"<=",g)&&this.op(a,">",h)||this.op(b,"<",g)&&this.op(b,">",h))&&i.push(c);this.$stage.children(".active").removeClass("active"),this.$stage.children(":eq("+i.join("), :eq(")+")").addClass("active"),this.$stage.children(".center").removeClass("center"),this.settings.center&&this.$stage.children().eq(this.current()).addClass("center")}}],e.prototype.initializeStage=function(){this.$stage=this.$element.find("."+this.settings.stageClass),this.$stage.length||(this.$element.addClass(this.options.loadingClass),this.$stage=a("<"+this.settings.stageElement+">",{class:this.settings.stageClass}).wrap(a("<div/>",{class:this.settings.stageOuterClass})),this.$element.append(this.$stage.parent()))},e.prototype.initializeItems=function(){var b=this.$element.find(".owl-item");if(b.length)return this._items=b.get().map(function(b){return a(b)}),this._mergers=this._items.map(function(){return 1}),void this.refresh();this.replace(this.$element.children().not(this.$stage.parent())),this.isVisible()?this.refresh():this.invalidate("width"),this.$element.removeClass(this.options.loadingClass).addClass(this.options.loadedClass)},e.prototype.initialize=function(){if(this.enter("initializing"),this.trigger("initialize"),this.$element.toggleClass(this.settings.rtlClass,this.settings.rtl),this.settings.autoWidth&&!this.is("pre-loading")){var a,b,c;a=this.$element.find("img"),b=this.settings.nestedItemSelector?"."+this.settings.nestedItemSelector:d,c=this.$element.children(b).width(),a.length&&c<=0&&this.preloadAutoWidthImages(a)}this.initializeStage(),this.initializeItems(),this.registerEventHandlers(),this.leave("initializing"),this.trigger("initialized")},e.prototype.isVisible=function(){return!this.settings.checkVisibility||this.$element.is(":visible")},e.prototype.setup=function(){var b=this.viewport(),c=this.options.responsive,d=-1,e=null;c?(a.each(c,function(a){a<=b&&a>d&&(d=Number(a))}),e=a.extend({},this.options,c[d]),"function"==typeof e.stagePadding&&(e.stagePadding=e.stagePadding()),delete e.responsive,e.responsiveClass&&this.$element.attr("class",this.$element.attr("class").replace(new RegExp("("+this.options.responsiveClass+"-)\\S+\\s","g"),"$1"+d))):e=a.extend({},this.options),this.trigger("change",{property:{name:"settings",value:e}}),this._breakpoint=d,this.settings=e,this.invalidate("settings"),this.trigger("changed",{property:{name:"settings",value:this.settings}})},e.prototype.optionsLogic=function(){this.settings.autoWidth&&(this.settings.stagePadding=!1,this.settings.merge=!1)},e.prototype.prepare=function(b){var c=this.trigger("prepare",{content:b});return c.data||(c.data=a("<"+this.settings.itemElement+"/>").addClass(this.options.itemClass).append(b)),this.trigger("prepared",{content:c.data}),c.data},e.prototype.update=function(){for(var b=0,c=this._pipe.length,d=a.proxy(function(a){return this[a]},this._invalidated),e={};b<c;)(this._invalidated.all||a.grep(this._pipe[b].filter,d).length>0)&&this._pipe[b].run(e),b++;this._invalidated={},!this.is("valid")&&this.enter("valid")},e.prototype.width=function(a){switch(a=a||e.Width.Default){case e.Width.Inner:case e.Width.Outer:return this._width;default:return this._width-2*this.settings.stagePadding+this.settings.margin}},e.prototype.refresh=function(){this.enter("refreshing"),this.trigger("refresh"),this.setup(),this.optionsLogic(),this.$element.addClass(this.options.refreshClass),this.update(),this.$element.removeClass(this.options.refreshClass),this.leave("refreshing"),this.trigger("refreshed")},e.prototype.onThrottledResize=function(){b.clearTimeout(this.resizeTimer),this.resizeTimer=b.setTimeout(this._handlers.onResize,this.settings.responsiveRefreshRate)},e.prototype.onResize=function(){return!!this._items.length&&(this._width!==this.$element.width()&&(!!this.isVisible()&&(this.enter("resizing"),this.trigger("resize").isDefaultPrevented()?(this.leave("resizing"),!1):(this.invalidate("width"),this.refresh(),this.leave("resizing"),void this.trigger("resized")))))},e.prototype.registerEventHandlers=function(){a.support.transition&&this.$stage.on(a.support.transition.end+".owl.core",a.proxy(this.onTransitionEnd,this)),!1!==this.settings.responsive&&this.on(b,"resize",this._handlers.onThrottledResize),this.settings.mouseDrag&&(this.$element.addClass(this.options.dragClass),this.$stage.on("mousedown.owl.core",a.proxy(this.onDragStart,this)),this.$stage.on("dragstart.owl.core selectstart.owl.core",function(){return!1})),this.settings.touchDrag&&(this.$stage.on("touchstart.owl.core",a.proxy(this.onDragStart,this)),this.$stage.on("touchcancel.owl.core",a.proxy(this.onDragEnd,this)))},e.prototype.onDragStart=function(b){var d=null;3!==b.which&&(a.support.transform?(d=this.$stage.css("transform").replace(/.*\(|\)| /g,"").split(","),d={x:d[16===d.length?12:4],y:d[16===d.length?13:5]}):(d=this.$stage.position(),d={x:this.settings.rtl?d.left+this.$stage.width()-this.width()+this.settings.margin:d.left,y:d.top}),this.is("animating")&&(a.support.transform?this.animate(d.x):this.$stage.stop(),this.invalidate("position")),this.$element.toggleClass(this.options.grabClass,"mousedown"===b.type),this.speed(0),this._drag.time=(new Date).getTime(),this._drag.target=a(b.target),this._drag.stage.start=d,this._drag.stage.current=d,this._drag.pointer=this.pointer(b),a(c).on("mouseup.owl.core touchend.owl.core",a.proxy(this.onDragEnd,this)),a(c).one("mousemove.owl.core touchmove.owl.core",a.proxy(function(b){var d=this.difference(this._drag.pointer,this.pointer(b));a(c).on("mousemove.owl.core touchmove.owl.core",a.proxy(this.onDragMove,this)),Math.abs(d.x)<Math.abs(d.y)&&this.is("valid")||(b.preventDefault(),this.enter("dragging"),this.trigger("drag"))},this)))},e.prototype.onDragMove=function(a){var b=null,c=null,d=null,e=this.difference(this._drag.pointer,this.pointer(a)),f=this.difference(this._drag.stage.start,e);this.is("dragging")&&(a.preventDefault(),this.settings.loop?(b=this.coordinates(this.minimum()),c=this.coordinates(this.maximum()+1)-b,f.x=((f.x-b)%c+c)%c+b):(b=this.settings.rtl?this.coordinates(this.maximum()):this.coordinates(this.minimum()),c=this.settings.rtl?this.coordinates(this.minimum()):this.coordinates(this.maximum()),d=this.settings.pullDrag?-1*e.x/5:0,f.x=Math.max(Math.min(f.x,b+d),c+d)),this._drag.stage.current=f,this.animate(f.x))},e.prototype.onDragEnd=function(b){var d=this.difference(this._drag.pointer,this.pointer(b)),e=this._drag.stage.current,f=d.x>0^this.settings.rtl?"left":"right";a(c).off(".owl.core"),this.$element.removeClass(this.options.grabClass),(0!==d.x&&this.is("dragging")||!this.is("valid"))&&(this.speed(this.settings.dragEndSpeed||this.settings.smartSpeed),this.current(this.closest(e.x,0!==d.x?f:this._drag.direction)),this.invalidate("position"),this.update(),this._drag.direction=f,(Math.abs(d.x)>3||(new Date).getTime()-this._drag.time>300)&&this._drag.target.one("click.owl.core",function(){return!1})),this.is("dragging")&&(this.leave("dragging"),this.trigger("dragged"))},e.prototype.closest=function(b,c){var e=-1,f=30,g=this.width(),h=this.coordinates();return this.settings.freeDrag||a.each(h,a.proxy(function(a,i){return"left"===c&&b>i-f&&b<i+f?e=a:"right"===c&&b>i-g-f&&b<i-g+f?e=a+1:this.op(b,"<",i)&&this.op(b,">",h[a+1]!==d?h[a+1]:i-g)&&(e="left"===c?a+1:a),-1===e},this)),this.settings.loop||(this.op(b,">",h[this.minimum()])?e=b=this.minimum():this.op(b,"<",h[this.maximum()])&&(e=b=this.maximum())),e},e.prototype.animate=function(b){var c=this.speed()>0;this.is("animating")&&this.onTransitionEnd(),c&&(this.enter("animating"),this.trigger("translate")),a.support.transform3d&&a.support.transition?this.$stage.css({transform:"translate3d("+b+"px,0px,0px)",transition:this.speed()/1e3+"s"+(this.settings.slideTransition?" "+this.settings.slideTransition:"")}):c?this.$stage.animate({left:b+"px"},this.speed(),this.settings.fallbackEasing,a.proxy(this.onTransitionEnd,this)):this.$stage.css({left:b+"px"})},e.prototype.is=function(a){return this._states.current[a]&&this._states.current[a]>0},e.prototype.current=function(a){if(a===d)return this._current;if(0===this._items.length)return d;if(a=this.normalize(a),this._current!==a){var b=this.trigger("change",{property:{name:"position",value:a}});b.data!==d&&(a=this.normalize(b.data)),this._current=a,this.invalidate("position"),this.trigger("changed",{property:{name:"position",value:this._current}})}return this._current},e.prototype.invalidate=function(b){return"string"===a.type(b)&&(this._invalidated[b]=!0,this.is("valid")&&this.leave("valid")),a.map(this._invalidated,function(a,b){return b})},e.prototype.reset=function(a){(a=this.normalize(a))!==d&&(this._speed=0,this._current=a,this.suppress(["translate","translated"]),this.animate(this.coordinates(a)),this.release(["translate","translated"]))},e.prototype.normalize=function(a,b){var c=this._items.length,e=b?0:this._clones.length;return!this.isNumeric(a)||c<1?a=d:(a<0||a>=c+e)&&(a=((a-e/2)%c+c)%c+e/2),a},e.prototype.relative=function(a){return a-=this._clones.length/2,this.normalize(a,!0)},e.prototype.maximum=function(a){var b,c,d,e=this.settings,f=this._coordinates.length;if(e.loop)f=this._clones.length/2+this._items.length-1;else if(e.autoWidth||e.merge){if(b=this._items.length)for(c=this._items[--b].width(),d=this.$element.width();b--&&!((c+=this._items[b].width()+this.settings.margin)>d););f=b+1}else f=e.center?this._items.length-1:this._items.length-e.items;return a&&(f-=this._clones.length/2),Math.max(f,0)},e.prototype.minimum=function(a){return a?0:this._clones.length/2},e.prototype.items=function(a){return a===d?this._items.slice():(a=this.normalize(a,!0),this._items[a])},e.prototype.mergers=function(a){return a===d?this._mergers.slice():(a=this.normalize(a,!0),this._mergers[a])},e.prototype.clones=function(b){var c=this._clones.length/2,e=c+this._items.length,f=function(a){return a%2==0?e+a/2:c-(a+1)/2};return b===d?a.map(this._clones,function(a,b){return f(b)}):a.map(this._clones,function(a,c){return a===b?f(c):null})},e.prototype.speed=function(a){return a!==d&&(this._speed=a),this._speed},e.prototype.coordinates=function(b){var c,e=1,f=b-1;return b===d?a.map(this._coordinates,a.proxy(function(a,b){return this.coordinates(b)},this)):(this.settings.center?(this.settings.rtl&&(e=-1,f=b+1),c=this._coordinates[b],c+=(this.width()-c+(this._coordinates[f]||0))/2*e):c=this._coordinates[f]||0,c=Math.ceil(c))},e.prototype.duration=function(a,b,c){return 0===c?0:Math.min(Math.max(Math.abs(b-a),1),6)*Math.abs(c||this.settings.smartSpeed)},e.prototype.to=function(a,b){var c=this.current(),d=null,e=a-this.relative(c),f=(e>0)-(e<0),g=this._items.length,h=this.minimum(),i=this.maximum();this.settings.loop?(!this.settings.rewind&&Math.abs(e)>g/2&&(e+=-1*f*g),a=c+e,(d=((a-h)%g+g)%g+h)!==a&&d-e<=i&&d-e>0&&(c=d-e,a=d,this.reset(c))):this.settings.rewind?(i+=1,a=(a%i+i)%i):a=Math.max(h,Math.min(i,a)),this.speed(this.duration(c,a,b)),this.current(a),this.isVisible()&&this.update()},e.prototype.next=function(a){a=a||!1,this.to(this.relative(this.current())+1,a)},e.prototype.prev=function(a){a=a||!1,this.to(this.relative(this.current())-1,a)},e.prototype.onTransitionEnd=function(a){if(a!==d&&(a.stopPropagation(),(a.target||a.srcElement||a.originalTarget)!==this.$stage.get(0)))return!1;this.leave("animating"),this.trigger("translated")},e.prototype.viewport=function(){var d;return this.options.responsiveBaseElement!==b?d=a(this.options.responsiveBaseElement).width():b.innerWidth?d=b.innerWidth:c.documentElement&&c.documentElement.clientWidth?d=c.documentElement.clientWidth:console.warn("Can not detect viewport width."),d},e.prototype.replace=function(b){this.$stage.empty(),this._items=[],b&&(b=b instanceof jQuery?b:a(b)),this.settings.nestedItemSelector&&(b=b.find("."+this.settings.nestedItemSelector)),b.filter(function(){return 1===this.nodeType}).each(a.proxy(function(a,b){b=this.prepare(b),this.$stage.append(b),this._items.push(b),this._mergers.push(1*b.find("[data-merge]").addBack("[data-merge]").attr("data-merge")||1)},this)),this.reset(this.isNumeric(this.settings.startPosition)?this.settings.startPosition:0),this.invalidate("items")},e.prototype.add=function(b,c){var e=this.relative(this._current);c=c===d?this._items.length:this.normalize(c,!0),b=b instanceof jQuery?b:a(b),this.trigger("add",{content:b,position:c}),b=this.prepare(b),0===this._items.length||c===this._items.length?(0===this._items.length&&this.$stage.append(b),0!==this._items.length&&this._items[c-1].after(b),this._items.push(b),this._mergers.push(1*b.find("[data-merge]").addBack("[data-merge]").attr("data-merge")||1)):(this._items[c].before(b),this._items.splice(c,0,b),this._mergers.splice(c,0,1*b.find("[data-merge]").addBack("[data-merge]").attr("data-merge")||1)),this._items[e]&&this.reset(this._items[e].index()),this.invalidate("items"),this.trigger("added",{content:b,position:c})},e.prototype.remove=function(a){(a=this.normalize(a,!0))!==d&&(this.trigger("remove",{content:this._items[a],position:a}),this._items[a].remove(),this._items.splice(a,1),this._mergers.splice(a,1),this.invalidate("items"),this.trigger("removed",{content:null,position:a}))},e.prototype.preloadAutoWidthImages=function(b){b.each(a.proxy(function(b,c){this.enter("pre-loading"),c=a(c),a(new Image).one("load",a.proxy(function(a){c.attr("src",a.target.src),c.css("opacity",1),this.leave("pre-loading"),!this.is("pre-loading")&&!this.is("initializing")&&this.refresh()},this)).attr("src",c.attr("src")||c.attr("data-src")||c.attr("data-src-retina"))},this))},e.prototype.destroy=function(){this.$element.off(".owl.core"),this.$stage.off(".owl.core"),a(c).off(".owl.core"),!1!==this.settings.responsive&&(b.clearTimeout(this.resizeTimer),this.off(b,"resize",this._handlers.onThrottledResize));for(var d in this._plugins)this._plugins[d].destroy();this.$stage.children(".cloned").remove(),this.$stage.unwrap(),this.$stage.children().contents().unwrap(),this.$stage.children().unwrap(),this.$stage.remove(),this.$element.removeClass(this.options.refreshClass).removeClass(this.options.loadingClass).removeClass(this.options.loadedClass).removeClass(this.options.rtlClass).removeClass(this.options.dragClass).removeClass(this.options.grabClass).attr("class",this.$element.attr("class").replace(new RegExp(this.options.responsiveClass+"-\\S+\\s","g"),"")).removeData("owl.carousel")},e.prototype.op=function(a,b,c){var d=this.settings.rtl;switch(b){case"<":return d?a>c:a<c;case">":return d?a<c:a>c;case">=":return d?a<=c:a>=c;case"<=":return d?a>=c:a<=c}},e.prototype.on=function(a,b,c,d){a.addEventListener?a.addEventListener(b,c,d):a.attachEvent&&a.attachEvent("on"+b,c)},e.prototype.off=function(a,b,c,d){a.removeEventListener?a.removeEventListener(b,c,d):a.detachEvent&&a.detachEvent("on"+b,c)},e.prototype.trigger=function(b,c,d,f,g){var h={item:{count:this._items.length,index:this.current()}},i=a.camelCase(a.grep(["on",b,d],function(a){return a}).join("-").toLowerCase()),j=a.Event([b,"owl",d||"carousel"].join(".").toLowerCase(),a.extend({relatedTarget:this},h,c));return this._supress[b]||(a.each(this._plugins,function(a,b){b.onTrigger&&b.onTrigger(j)}),this.register({type:e.Type.Event,name:b}),this.$element.trigger(j),this.settings&&"function"==typeof this.settings[i]&&this.settings[i].call(this,j)),j},e.prototype.enter=function(b){a.each([b].concat(this._states.tags[b]||[]),a.proxy(function(a,b){this._states.current[b]===d&&(this._states.current[b]=0),this._states.current[b]++},this))},e.prototype.leave=function(b){a.each([b].concat(this._states.tags[b]||[]),a.proxy(function(a,b){this._states.current[b]--},this))},e.prototype.register=function(b){if(b.type===e.Type.Event){if(a.event.special[b.name]||(a.event.special[b.name]={}),!a.event.special[b.name].owl){var c=a.event.special[b.name]._default;a.event.special[b.name]._default=function(a){return!c||!c.apply||a.namespace&&-1!==a.namespace.indexOf("owl")?a.namespace&&a.namespace.indexOf("owl")>-1:c.apply(this,arguments)},a.event.special[b.name].owl=!0}}else b.type===e.Type.State&&(this._states.tags[b.name]?this._states.tags[b.name]=this._states.tags[b.name].concat(b.tags):this._states.tags[b.name]=b.tags,this._states.tags[b.name]=a.grep(this._states.tags[b.name],a.proxy(function(c,d){return a.inArray(c,this._states.tags[b.name])===d},this)))},e.prototype.suppress=function(b){a.each(b,a.proxy(function(a,b){this._supress[b]=!0},this))},e.prototype.release=function(b){a.each(b,a.proxy(function(a,b){delete this._supress[b]},this))},e.prototype.pointer=function(a){var c={x:null,y:null};return a=a.originalEvent||a||b.event,a=a.touches&&a.touches.length?a.touches[0]:a.changedTouches&&a.changedTouches.length?a.changedTouches[0]:a,a.pageX?(c.x=a.pageX,c.y=a.pageY):(c.x=a.clientX,c.y=a.clientY),c},e.prototype.isNumeric=function(a){return!isNaN(parseFloat(a))},e.prototype.difference=function(a,b){return{x:a.x-b.x,y:a.y-b.y}},a.fn.owlCarousel=function(b){var c=Array.prototype.slice.call(arguments,1);return this.each(function(){var d=a(this),f=d.data("owl.carousel");f||(f=new e(this,"object"==typeof b&&b),d.data("owl.carousel",f),a.each(["next","prev","to","destroy","refresh","replace","add","remove"],function(b,c){f.register({type:e.Type.Event,name:c}),f.$element.on(c+".owl.carousel.core",a.proxy(function(a){a.namespace&&a.relatedTarget!==this&&(this.suppress([c]),f[c].apply(this,[].slice.call(arguments,1)),this.release([c]))},f))})),"string"==typeof b&&"_"!==b.charAt(0)&&f[b].apply(f,c)})},a.fn.owlCarousel.Constructor=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){var e=function(b){this._core=b,this._interval=null,this._visible=null,this._handlers={"initialized.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.autoRefresh&&this.watch()},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this._core.$element.on(this._handlers)};e.Defaults={autoRefresh:!0,autoRefreshInterval:500},e.prototype.watch=function(){this._interval||(this._visible=this._core.isVisible(),this._interval=b.setInterval(a.proxy(this.refresh,this),this._core.settings.autoRefreshInterval))},e.prototype.refresh=function(){this._core.isVisible()!==this._visible&&(this._visible=!this._visible,this._core.$element.toggleClass("owl-hidden",!this._visible),this._visible&&this._core.invalidate("width")&&this._core.refresh())},e.prototype.destroy=function(){var a,c;b.clearInterval(this._interval);for(a in this._handlers)this._core.$element.off(a,this._handlers[a]);for(c in Object.getOwnPropertyNames(this))"function"!=typeof this[c]&&(this[c]=null)},a.fn.owlCarousel.Constructor.Plugins.AutoRefresh=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){var e=function(b){this._core=b,this._loaded=[],this._handlers={"initialized.owl.carousel change.owl.carousel resized.owl.carousel":a.proxy(function(b){if(b.namespace&&this._core.settings&&this._core.settings.lazyLoad&&(b.property&&"position"==b.property.name||"initialized"==b.type)){var c=this._core.settings,e=c.center&&Math.ceil(c.items/2)||c.items,f=c.center&&-1*e||0,g=(b.property&&b.property.value!==d?b.property.value:this._core.current())+f,h=this._core.clones().length,i=a.proxy(function(a,b){this.load(b)},this);for(c.lazyLoadEager>0&&(e+=c.lazyLoadEager,c.loop&&(g-=c.lazyLoadEager,e++));f++<e;)this.load(h/2+this._core.relative(g)),h&&a.each(this._core.clones(this._core.relative(g)),i),g++}},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this._core.$element.on(this._handlers)};e.Defaults={lazyLoad:!1,lazyLoadEager:0},e.prototype.load=function(c){var d=this._core.$stage.children().eq(c),e=d&&d.find(".owl-lazy");!e||a.inArray(d.get(0),this._loaded)>-1||(e.each(a.proxy(function(c,d){var e,f=a(d),g=b.devicePixelRatio>1&&f.attr("data-src-retina")||f.attr("data-src")||f.attr("data-srcset");this._core.trigger("load",{element:f,url:g},"lazy"),f.is("img")?f.one("load.owl.lazy",a.proxy(function(){f.css("opacity",1),this._core.trigger("loaded",{element:f,url:g},"lazy")},this)).attr("src",g):f.is("source")?f.one("load.owl.lazy",a.proxy(function(){this._core.trigger("loaded",{element:f,url:g},"lazy")},this)).attr("srcset",g):(e=new Image,e.onload=a.proxy(function(){f.css({"background-image":'url("'+g+'")',opacity:"1"}),this._core.trigger("loaded",{element:f,url:g},"lazy")},this),e.src=g)},this)),this._loaded.push(d.get(0)))},e.prototype.destroy=function(){var a,b;for(a in this.handlers)this._core.$element.off(a,this.handlers[a]);for(b in Object.getOwnPropertyNames(this))"function"!=typeof this[b]&&(this[b]=null)},a.fn.owlCarousel.Constructor.Plugins.Lazy=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){var e=function(c){this._core=c,this._previousHeight=null,this._handlers={"initialized.owl.carousel refreshed.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.autoHeight&&this.update()},this),"changed.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.autoHeight&&"position"===a.property.name&&this.update()},this),"loaded.owl.lazy":a.proxy(function(a){a.namespace&&this._core.settings.autoHeight&&a.element.closest("."+this._core.settings.itemClass).index()===this._core.current()&&this.update()},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this._core.$element.on(this._handlers),this._intervalId=null;var d=this;a(b).on("load",function(){d._core.settings.autoHeight&&d.update()}),a(b).resize(function(){d._core.settings.autoHeight&&(null!=d._intervalId&&clearTimeout(d._intervalId),d._intervalId=setTimeout(function(){d.update()},250))})};e.Defaults={autoHeight:!1,autoHeightClass:"owl-height"},e.prototype.update=function(){var b=this._core._current,c=b+this._core.settings.items,d=this._core.settings.lazyLoad,e=this._core.$stage.children().toArray().slice(b,c),f=[],g=0;a.each(e,function(b,c){f.push(a(c).height())}),g=Math.max.apply(null,f),g<=1&&d&&this._previousHeight&&(g=this._previousHeight),this._previousHeight=g,this._core.$stage.parent().height(g).addClass(this._core.settings.autoHeightClass)},e.prototype.destroy=function(){var a,b;for(a in this._handlers)this._core.$element.off(a,this._handlers[a]);for(b in Object.getOwnPropertyNames(this))"function"!=typeof this[b]&&(this[b]=null)},a.fn.owlCarousel.Constructor.Plugins.AutoHeight=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){var e=function(b){this._core=b,this._videos={},this._playing=null,this._handlers={"initialized.owl.carousel":a.proxy(function(a){a.namespace&&this._core.register({type:"state",name:"playing",tags:["interacting"]})},this),"resize.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.video&&this.isInFullScreen()&&a.preventDefault()},this),"refreshed.owl.carousel":a.proxy(function(a){a.namespace&&this._core.is("resizing")&&this._core.$stage.find(".cloned .owl-video-frame").remove()},this),"changed.owl.carousel":a.proxy(function(a){a.namespace&&"position"===a.property.name&&this._playing&&this.stop()},this),"prepared.owl.carousel":a.proxy(function(b){if(b.namespace){var c=a(b.content).find(".owl-video");c.length&&(c.css("display","none"),this.fetch(c,a(b.content)))}},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this._core.$element.on(this._handlers),this._core.$element.on("click.owl.video",".owl-video-play-icon",a.proxy(function(a){this.play(a)},this))};e.Defaults={video:!1,videoHeight:!1,videoWidth:!1},e.prototype.fetch=function(a,b){var c=function(){return a.attr("data-vimeo-id")?"vimeo":a.attr("data-vzaar-id")?"vzaar":"youtube"}(),d=a.attr("data-vimeo-id")||a.attr("data-youtube-id")||a.attr("data-vzaar-id"),e=a.attr("data-width")||this._core.settings.videoWidth,f=a.attr("data-height")||this._core.settings.videoHeight,g=a.attr("href");if(!g)throw new Error("Missing video URL.");if(d=g.match(/(http:|https:|)\/\/(player.|www.|app.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com|be\-nocookie\.com)|vzaar\.com)\/(video\/|videos\/|embed\/|channels\/.+\/|groups\/.+\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/),d[3].indexOf("youtu")>-1)c="youtube";else if(d[3].indexOf("vimeo")>-1)c="vimeo";else{if(!(d[3].indexOf("vzaar")>-1))throw new Error("Video URL not supported.");c="vzaar"}d=d[6],this._videos[g]={type:c,id:d,width:e,height:f},b.attr("data-video",g),this.thumbnail(a,this._videos[g])},e.prototype.thumbnail=function(b,c){var d,e,f,g=c.width&&c.height?"width:"+c.width+"px;height:"+c.height+"px;":"",h=b.find("img"),i="src",j="",k=this._core.settings,l=function(c){e='<div class="owl-video-play-icon"></div>',d=k.lazyLoad?a("<div/>",{class:"owl-video-tn "+j,srcType:c}):a("<div/>",{class:"owl-video-tn",style:"opacity:1;background-image:url("+c+")"}),b.after(d),b.after(e)};if(b.wrap(a("<div/>",{class:"owl-video-wrapper",style:g})),this._core.settings.lazyLoad&&(i="data-src",j="owl-lazy"),h.length)return l(h.attr(i)),h.remove(),!1;"youtube"===c.type?(f="//img.youtube.com/vi/"+c.id+"/hqdefault.jpg",l(f)):"vimeo"===c.type?a.ajax({type:"GET",url:"//vimeo.com/api/v2/video/"+c.id+".json",jsonp:"callback",dataType:"jsonp",success:function(a){f=a[0].thumbnail_large,l(f)}}):"vzaar"===c.type&&a.ajax({type:"GET",url:"//vzaar.com/api/videos/"+c.id+".json",jsonp:"callback",dataType:"jsonp",success:function(a){f=a.framegrab_url,l(f)}})},e.prototype.stop=function(){this._core.trigger("stop",null,"video"),this._playing.find(".owl-video-frame").remove(),this._playing.removeClass("owl-video-playing"),this._playing=null,this._core.leave("playing"),this._core.trigger("stopped",null,"video")},e.prototype.play=function(b){var c,d=a(b.target),e=d.closest("."+this._core.settings.itemClass),f=this._videos[e.attr("data-video")],g=f.width||"100%",h=f.height||this._core.$stage.height();this._playing||(this._core.enter("playing"),this._core.trigger("play",null,"video"),e=this._core.items(this._core.relative(e.index())),this._core.reset(e.index()),c=a('<iframe frameborder="0" allowfullscreen mozallowfullscreen webkitAllowFullScreen ></iframe>'),c.attr("height",h),c.attr("width",g),"youtube"===f.type?c.attr("src","//www.youtube.com/embed/"+f.id+"?autoplay=1&rel=0&v="+f.id):"vimeo"===f.type?c.attr("src","//player.vimeo.com/video/"+f.id+"?autoplay=1"):"vzaar"===f.type&&c.attr("src","//view.vzaar.com/"+f.id+"/player?autoplay=true"),a(c).wrap('<div class="owl-video-frame" />').insertAfter(e.find(".owl-video")),this._playing=e.addClass("owl-video-playing"))},e.prototype.isInFullScreen=function(){var b=c.fullscreenElement||c.mozFullScreenElement||c.webkitFullscreenElement;return b&&a(b).parent().hasClass("owl-video-frame")},e.prototype.destroy=function(){var a,b;this._core.$element.off("click.owl.video");for(a in this._handlers)this._core.$element.off(a,this._handlers[a]);for(b in Object.getOwnPropertyNames(this))"function"!=typeof this[b]&&(this[b]=null)},a.fn.owlCarousel.Constructor.Plugins.Video=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){var e=function(b){this.core=b,this.core.options=a.extend({},e.Defaults,this.core.options),this.swapping=!0,this.previous=d,this.next=d,this.handlers={"change.owl.carousel":a.proxy(function(a){a.namespace&&"position"==a.property.name&&(this.previous=this.core.current(),this.next=a.property.value)},this),"drag.owl.carousel dragged.owl.carousel translated.owl.carousel":a.proxy(function(a){a.namespace&&(this.swapping="translated"==a.type)},this),"translate.owl.carousel":a.proxy(function(a){a.namespace&&this.swapping&&(this.core.options.animateOut||this.core.options.animateIn)&&this.swap()},this)},this.core.$element.on(this.handlers)};e.Defaults={animateOut:!1,
 animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.support.animation&&a.support.transition){this.core.speed(0);var b,c=a.proxy(this.clear,this),d=this.core.$stage.children().eq(this.previous),e=this.core.$stage.children().eq(this.next),f=this.core.settings.animateIn,g=this.core.settings.animateOut;this.core.current()!==this.previous&&(g&&(b=this.core.coordinates(this.previous)-this.core.coordinates(this.next),d.one(a.support.animation.end,c).css({left:b+"px"}).addClass("animated owl-animated-out").addClass(g)),f&&e.one(a.support.animation.end,c).addClass("animated owl-animated-in").addClass(f))}},e.prototype.clear=function(b){a(b.target).css({left:""}).removeClass("animated owl-animated-out owl-animated-in").removeClass(this.core.settings.animateIn).removeClass(this.core.settings.animateOut),this.core.onTransitionEnd()},e.prototype.destroy=function(){var a,b;for(a in this.handlers)this.core.$element.off(a,this.handlers[a]);for(b in Object.getOwnPropertyNames(this))"function"!=typeof this[b]&&(this[b]=null)},a.fn.owlCarousel.Constructor.Plugins.Animate=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){var e=function(b){this._core=b,this._call=null,this._time=0,this._timeout=0,this._paused=!0,this._handlers={"changed.owl.carousel":a.proxy(function(a){a.namespace&&"settings"===a.property.name?this._core.settings.autoplay?this.play():this.stop():a.namespace&&"position"===a.property.name&&this._paused&&(this._time=0)},this),"initialized.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.autoplay&&this.play()},this),"play.owl.autoplay":a.proxy(function(a,b,c){a.namespace&&this.play(b,c)},this),"stop.owl.autoplay":a.proxy(function(a){a.namespace&&this.stop()},this),"mouseover.owl.autoplay":a.proxy(function(){this._core.settings.autoplayHoverPause&&this._core.is("rotating")&&this.pause()},this),"mouseleave.owl.autoplay":a.proxy(function(){this._core.settings.autoplayHoverPause&&this._core.is("rotating")&&this.play()},this),"touchstart.owl.core":a.proxy(function(){this._core.settings.autoplayHoverPause&&this._core.is("rotating")&&this.pause()},this),"touchend.owl.core":a.proxy(function(){this._core.settings.autoplayHoverPause&&this.play()},this)},this._core.$element.on(this._handlers),this._core.options=a.extend({},e.Defaults,this._core.options)};e.Defaults={autoplay:!1,autoplayTimeout:5e3,autoplayHoverPause:!1,autoplaySpeed:!1},e.prototype._next=function(d){this._call=b.setTimeout(a.proxy(this._next,this,d),this._timeout*(Math.round(this.read()/this._timeout)+1)-this.read()),this._core.is("interacting")||c.hidden||this._core.next(d||this._core.settings.autoplaySpeed)},e.prototype.read=function(){return(new Date).getTime()-this._time},e.prototype.play=function(c,d){var e;this._core.is("rotating")||this._core.enter("rotating"),c=c||this._core.settings.autoplayTimeout,e=Math.min(this._time%(this._timeout||c),c),this._paused?(this._time=this.read(),this._paused=!1):b.clearTimeout(this._call),this._time+=this.read()%c-e,this._timeout=c,this._call=b.setTimeout(a.proxy(this._next,this,d),c-e)},e.prototype.stop=function(){this._core.is("rotating")&&(this._time=0,this._paused=!0,b.clearTimeout(this._call),this._core.leave("rotating"))},e.prototype.pause=function(){this._core.is("rotating")&&!this._paused&&(this._time=this.read(),this._paused=!0,b.clearTimeout(this._call))},e.prototype.destroy=function(){var a,b;this.stop();for(a in this._handlers)this._core.$element.off(a,this._handlers[a]);for(b in Object.getOwnPropertyNames(this))"function"!=typeof this[b]&&(this[b]=null)},a.fn.owlCarousel.Constructor.Plugins.autoplay=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){"use strict";var e=function(b){this._core=b,this._initialized=!1,this._pages=[],this._controls={},this._templates=[],this.$element=this._core.$element,this._overrides={next:this._core.next,prev:this._core.prev,to:this._core.to},this._handlers={"prepared.owl.carousel":a.proxy(function(b){b.namespace&&this._core.settings.dotsData&&this._templates.push('<div class="'+this._core.settings.dotClass+'">'+a(b.content).find("[data-dot]").addBack("[data-dot]").attr("data-dot")+"</div>")},this),"added.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.dotsData&&this._templates.splice(a.position,0,this._templates.pop())},this),"remove.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.dotsData&&this._templates.splice(a.position,1)},this),"changed.owl.carousel":a.proxy(function(a){a.namespace&&"position"==a.property.name&&this.draw()},this),"initialized.owl.carousel":a.proxy(function(a){a.namespace&&!this._initialized&&(this._core.trigger("initialize",null,"navigation"),this.initialize(),this.update(),this.draw(),this._initialized=!0,this._core.trigger("initialized",null,"navigation"))},this),"refreshed.owl.carousel":a.proxy(function(a){a.namespace&&this._initialized&&(this._core.trigger("refresh",null,"navigation"),this.update(),this.draw(),this._core.trigger("refreshed",null,"navigation"))},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this.$element.on(this._handlers)};e.Defaults={nav:!1,navText:['<span aria-label="Previous">&#x2039;</span>','<span aria-label="Next">&#x203a;</span>'],navSpeed:!1,navElement:'button type="button" role="presentation"',navContainer:!1,navContainerClass:"owl-nav",navClass:["owl-prev","owl-next"],slideBy:1,dotClass:"owl-dot",dotsClass:"owl-dots",dots:!0,dotsEach:!1,dotsData:!1,dotsSpeed:!1,dotsContainer:!1},e.prototype.initialize=function(){var b,c=this._core.settings;this._controls.$relative=(c.navContainer?a(c.navContainer):a("<div>").addClass(c.navContainerClass).appendTo(this.$element)).addClass("disabled"),this._controls.$previous=a("<"+c.navElement+">").addClass(c.navClass[0]).html(c.navText[0]).prependTo(this._controls.$relative).on("click",a.proxy(function(a){this.prev(c.navSpeed)},this)),this._controls.$next=a("<"+c.navElement+">").addClass(c.navClass[1]).html(c.navText[1]).appendTo(this._controls.$relative).on("click",a.proxy(function(a){this.next(c.navSpeed)},this)),c.dotsData||(this._templates=[a('<button role="button">').addClass(c.dotClass).append(a("<span>")).prop("outerHTML")]),this._controls.$absolute=(c.dotsContainer?a(c.dotsContainer):a("<div>").addClass(c.dotsClass).appendTo(this.$element)).addClass("disabled"),this._controls.$absolute.on("click","button",a.proxy(function(b){var d=a(b.target).parent().is(this._controls.$absolute)?a(b.target).index():a(b.target).parent().index();b.preventDefault(),this.to(d,c.dotsSpeed)},this));for(b in this._overrides)this._core[b]=a.proxy(this[b],this)},e.prototype.destroy=function(){var a,b,c,d,e;e=this._core.settings;for(a in this._handlers)this.$element.off(a,this._handlers[a]);for(b in this._controls)"$relative"===b&&e.navContainer?this._controls[b].html(""):this._controls[b].remove();for(d in this.overides)this._core[d]=this._overrides[d];for(c in Object.getOwnPropertyNames(this))"function"!=typeof this[c]&&(this[c]=null)},e.prototype.update=function(){var a,b,c,d=this._core.clones().length/2,e=d+this._core.items().length,f=this._core.maximum(!0),g=this._core.settings,h=g.center||g.autoWidth||g.dotsData?1:g.dotsEach||g.items;if("page"!==g.slideBy&&(g.slideBy=Math.min(g.slideBy,g.items)),g.dots||"page"==g.slideBy)for(this._pages=[],a=d,b=0,c=0;a<e;a++){if(b>=h||0===b){if(this._pages.push({start:Math.min(f,a-d),end:a-d+h-1}),Math.min(f,a-d)===f)break;b=0,++c}b+=this._core.mergers(this._core.relative(a))}},e.prototype.draw=function(){var b,c=this._core.settings,d=this._core.items().length<=c.items,e=this._core.relative(this._core.current()),f=c.loop||c.rewind;this._controls.$relative.toggleClass("disabled",!c.nav||d),c.nav&&(this._controls.$previous.toggleClass("disabled",!f&&e<=this._core.minimum(!0)),this._controls.$next.toggleClass("disabled",!f&&e>=this._core.maximum(!0))),this._controls.$absolute.toggleClass("disabled",!c.dots||d),c.dots&&(b=this._pages.length-this._controls.$absolute.children().length,c.dotsData&&0!==b?this._controls.$absolute.html(this._templates.join("")):b>0?this._controls.$absolute.append(new Array(b+1).join(this._templates[0])):b<0&&this._controls.$absolute.children().slice(b).remove(),this._controls.$absolute.find(".active").removeClass("active"),this._controls.$absolute.children().eq(a.inArray(this.current(),this._pages)).addClass("active"))},e.prototype.onTrigger=function(b){var c=this._core.settings;b.page={index:a.inArray(this.current(),this._pages),count:this._pages.length,size:c&&(c.center||c.autoWidth||c.dotsData?1:c.dotsEach||c.items)}},e.prototype.current=function(){var b=this._core.relative(this._core.current());return a.grep(this._pages,a.proxy(function(a,c){return a.start<=b&&a.end>=b},this)).pop()},e.prototype.getPosition=function(b){var c,d,e=this._core.settings;return"page"==e.slideBy?(c=a.inArray(this.current(),this._pages),d=this._pages.length,b?++c:--c,c=this._pages[(c%d+d)%d].start):(c=this._core.relative(this._core.current()),d=this._core.items().length,b?c+=e.slideBy:c-=e.slideBy),c},e.prototype.next=function(b){a.proxy(this._overrides.to,this._core)(this.getPosition(!0),b)},e.prototype.prev=function(b){a.proxy(this._overrides.to,this._core)(this.getPosition(!1),b)},e.prototype.to=function(b,c,d){var e;!d&&this._pages.length?(e=this._pages.length,a.proxy(this._overrides.to,this._core)(this._pages[(b%e+e)%e].start,c)):a.proxy(this._overrides.to,this._core)(b,c)},a.fn.owlCarousel.Constructor.Plugins.Navigation=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){"use strict";var e=function(c){this._core=c,this._hashes={},this.$element=this._core.$element,this._handlers={"initialized.owl.carousel":a.proxy(function(c){c.namespace&&"URLHash"===this._core.settings.startPosition&&a(b).trigger("hashchange.owl.navigation")},this),"prepared.owl.carousel":a.proxy(function(b){if(b.namespace){var c=a(b.content).find("[data-hash]").addBack("[data-hash]").attr("data-hash");if(!c)return;this._hashes[c]=b.content}},this),"changed.owl.carousel":a.proxy(function(c){if(c.namespace&&"position"===c.property.name){var d=this._core.items(this._core.relative(this._core.current())),e=a.map(this._hashes,function(a,b){return a===d?b:null}).join();if(!e||b.location.hash.slice(1)===e)return;b.location.hash=e}},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this.$element.on(this._handlers),a(b).on("hashchange.owl.navigation",a.proxy(function(a){var c=b.location.hash.substring(1),e=this._core.$stage.children(),f=this._hashes[c]&&e.index(this._hashes[c]);f!==d&&f!==this._core.current()&&this._core.to(this._core.relative(f),!1,!0)},this))};e.Defaults={URLhashListener:!1},e.prototype.destroy=function(){var c,d;a(b).off("hashchange.owl.navigation");for(c in this._handlers)this._core.$element.off(c,this._handlers[c]);for(d in Object.getOwnPropertyNames(this))"function"!=typeof this[d]&&(this[d]=null)},a.fn.owlCarousel.Constructor.Plugins.Hash=e}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document),function(a,b,c,d){function e(b,c){var e=!1,f=b.charAt(0).toUpperCase()+b.slice(1);return a.each((b+" "+h.join(f+" ")+f).split(" "),function(a,b){if(g[b]!==d)return e=!c||b,!1}),e}function f(a){return e(a,!0)}var g=a("<support>").get(0).style,h="Webkit Moz O ms".split(" "),i={transition:{end:{WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd",transition:"transitionend"}},animation:{end:{WebkitAnimation:"webkitAnimationEnd",MozAnimation:"animationend",OAnimation:"oAnimationEnd",animation:"animationend"}}},j={csstransforms:function(){return!!e("transform")},csstransforms3d:function(){return!!e("perspective")},csstransitions:function(){return!!e("transition")},cssanimations:function(){return!!e("animation")}};j.csstransitions()&&(a.support.transition=new String(f("transition")),a.support.transition.end=i.transition.end[a.support.transition]),j.cssanimations()&&(a.support.animation=new String(f("animation")),a.support.animation.end=i.animation.end[a.support.animation]),j.csstransforms()&&(a.support.transform=new String(f("transform")),a.support.transform3d=j.csstransforms3d())}(window.Zepto||__webpack_provided_window_dot_jQuery,window,document);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fancyapps_ui_src_Fancybox_Fancybox_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fancyapps/ui/src/Fancybox/Fancybox.js */ "./node_modules/@fancyapps/ui/src/Fancybox/Fancybox.js");
-/* harmony import */ var owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! owl.carousel/dist/owl.carousel.min.js */ "./node_modules/owl.carousel/dist/owl.carousel.min.js");
-/* harmony import */ var owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
-
-window.$ = __webpack_provided_window_dot_jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
-
-
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/views/Client/Core/Footers/FOOT01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Footers/FOOT01/src/main.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function($) {$('.owl-carousel').owlCarousel({
-  loop: true,
-  margin: 10,
-  nav: true,
-  responsive: {
-    0: {
-      items: 1
-    },
-    600: {
-      items: 3
-    },
-    1000: {
-      items: 5
-    }
-  }
-});
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
-/***/ "./resources/views/Client/assets/js/base.js":
-/*!**************************************************!*\
-  !*** ./resources/views/Client/assets/js/base.js ***!
-  \**************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Core/Footers/FOOT01/src/main */ "./resources/views/Client/Core/Footers/FOOT01/src/main.js");
-/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/Topics/TOPI01/src/main */ "./resources/views/Client/pages/Topics/TOPI01/src/main.js");
-/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Topics/TOPI01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI01/src/main.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! C:\xampp\htdocs\site\painelHoom\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\site\painelHoom\resources\sass\app.scss */"./resources/sass/app.scss");
-
 
 /***/ })
 
-/******/ });
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/app": 0,
+/******/ 			"css/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			for(moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 				}
+/******/ 			}
+/******/ 			if(runtime) var result = runtime(__webpack_require__);
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;

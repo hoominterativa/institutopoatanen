@@ -37,4 +37,3 @@ foreach ($modelsMain as $module => $model) {
     $modelLw = Str::lower($model->Code);
     include_once "{$module}/{$modelLw}.php";
 }
-

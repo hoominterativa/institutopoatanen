@@ -1,8 +1,5 @@
 const mix = require('laravel-mix');
 
-var LiveReloadPlugin = require('webpack-livereload-plugin');
-
-
 mix
 //JS
     .js('resources/js/app.js', 'public/js')
