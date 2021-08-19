@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('code.index')}}">Name</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">Name</a></li>
                                     <li class="breadcrumb-item active">Editar Name</li>
                                 </ol>
                             </div>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model(null, ['route' => 'code.update', 'class'=>'parsley-examples']) !!}
+                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-examples']) !!}
                     @include('Admin.Module.CODE.form')
                     {!! Form::submit('Salvar', ['class'=>'btn btn-primary float-end me-3']) !!}
                 {!! Form::close() !!}

@@ -18,6 +18,7 @@
 @push('createEditJs')
     <!-- Plugin js-->
     <script src="{{url(mix('admin/assets/libs/parsley.min.js'))}}"></script>
+    <script src="{{url(mix('admin/assets/libs/i18n/pt-br.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/selectize.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/switchery.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/jquery.multi-select.js'))}}"></script>

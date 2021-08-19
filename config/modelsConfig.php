@@ -23,12 +23,14 @@ return [
         // 'Topics' => (object)[
         //     'Code' => 'TOPI01',
         //     'ViewHome' => true,
+        //     'ViewListMenu' => true,
         //     'config' => (object) [
         //         'titleMenu' => 'Tópicos',
-        //         'anchorMenu' => 'javascript:void(0)',
-        //         'iconMenu' => '',
+        //         'achor' =>  false,
+        //         'linkMenu' => 'topi01.page',
+        //         'iconMenu' => 'mdi-box',
         //         'titlePanel' => 'Tópicos',
-        //         'iconPanel' => ''
+        //         'iconPanel' => 'mdi-box'
         //     ],
         //     'IncludeSections' => (object) []
         // ],

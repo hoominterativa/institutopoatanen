@@ -24,7 +24,14 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <button id="btSubmitDelete" data-route="{{route('delete')}}" type="button" class="btn btn-danger" onclick="" style="display: none;">Deletar selecionados</button>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <button id="btSubmitDelete" data-route="{{route('admin.code.deleteSelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                    </div>
+                                </div>
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered">
                                     <thead class="table-light">
                                         <tr>
@@ -58,9 +65,9 @@
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.code.update',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('code.delete')}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.code.destroy',['code' => $test->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

@@ -4,6 +4,8 @@ namespace {{ namespace }};
 
 use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
 
 class {{ class }} extends Controller
 {
@@ -110,10 +112,10 @@ class {{ class }} extends Controller
     /**
      * Display a listing of the resourcee.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page($id)
+    public function page(Request $request)
     {
         //
     }
