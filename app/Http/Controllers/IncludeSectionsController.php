@@ -33,8 +33,8 @@ class IncludeSectionsController extends Controller
 
         foreach($InsertModelsMain as $model => $view){
             $codeModel = $view->Code;
-            $Controller = $ModelsController->$model->$codeModel->Class;
             if($view->ViewHome){
+                $Controller = $ModelsController->$model->$codeModel->Class;
                 array_push($return, $Controller::section());
             }
         }

@@ -9,7 +9,12 @@
                 <li><a href="{{url('')}}" class="nav-link px-2 text-white">Home</a></li>
                 @foreach ($listMenu as $menu)
                     @if ($menu->ViewListMenu)
-                        <li><a href="{{route($menu->config->anchorMenu)}}" class="nav-link px-2 text-white">{{$menu->config->titleMenu}}</a></li>
+                        <li>
+                            <a href="{{$menu->config->achor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 text-white">
+                                @if ($menu->config->iconMenu) <i class="mdi {{$menu->config->iconMenu}}"></i> @endif
+                                {{$menu->config->titleMenu}}
+                            </a>
+                        </li>
                     @endif
                 @endforeach
             </ul>

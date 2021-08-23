@@ -32,8 +32,8 @@ Route::get('/painel', [DashboardController::class, 'index'])->name('admin.dashbo
 Route::get('/', [HomePageController::class ,'index'])->name('home');
 
 // INSERT ROUTES
-$modelsMain = config('modelsConfig.InsertModelsMain');
-foreach ($modelsMain as $module => $model) {
-    $modelLw = Str::lower($model->Code);
-    include_once "{$module}/{$modelLw}.php";
-}
+// $modelsMain = config('modelsConfig.InsertModelsMain');
+// foreach ($modelsMain as $module => $model) {
+//     $modelLw = Str::lower($model->Code);
+//     include_once "{$module}/{$modelLw}.php";
+// }

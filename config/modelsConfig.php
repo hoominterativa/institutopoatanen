@@ -20,20 +20,20 @@ return [
     ],
 
     'InsertModelsMain' => (object) [
-        // 'Topics' => (object)[
-        //     'Code' => 'TOPI01',
-        //     'ViewHome' => true,
-        //     'ViewListMenu' => true,
-        //     'config' => (object) [
-        //         'titleMenu' => 'Tópicos',
-        //         'achor' =>  false,
-        //         'linkMenu' => 'topi01.page',
-        //         'iconMenu' => 'mdi-box',
-        //         'titlePanel' => 'Tópicos',
-        //         'iconPanel' => 'mdi-box'
-        //     ],
-        //     'IncludeSections' => (object) []
-        // ],
+        'Topics' => (object)[
+            'Code' => 'TOPI01',
+            'ViewHome' => false,
+            'ViewListMenu' => true,
+            'config' => (object) [
+                'titleMenu' => 'Tópicos',
+                'achor' =>  false,
+                'linkMenu' => 'home',
+                'iconMenu' => 'mdi-home',
+                'titlePanel' => 'Tópicos',
+                'iconPanel' => 'mdi-box'
+            ],
+            'IncludeSections' => (object) []
+        ],
     ],
 
     'Models' => (object) [
