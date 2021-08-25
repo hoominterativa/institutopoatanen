@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
+use App\Http\Controllers\Helpers\HelperModule;
 
 class ModuleMakeCore extends Command
 {
@@ -38,21 +39,42 @@ class ModuleMakeCore extends Command
      */
     public function handle()
     {
+        $helper = new HelperModule();
         $arguments = $this->arguments();
-
         try {
             $pathCore = 'resources/views/Client/Core/';
+
+            if(!$helper->searchModulesJson($arguments['module'])){
+                $this->info('O Módulo informado não existe ou sua escrita está incorreta');
+                if(!$this->confirm('Deseja inserir o módulo informado na listagem?')){
+                    return;
+                }
+                $helper->refreshModulesJson($arguments['module']);
+            }
+
+            if($helper->searchModulesJson($arguments['module'], $arguments['code'])){
+                $this->error('O código informado já existe');
+                $this->comment('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+                return;
+            }
+
+            if(!$helper->refreshModulesJson($arguments['module'], $arguments['code'])){
+                $this->error('Erro ao atualizar o arquivo modules.json');
+                $this->info('Ignorar esse erro resultará no má funcionamento do sistema');
+                return;
+            }
+
             if(!is_dir($pathCore.$arguments['module'].'/'.$arguments['code'])) mkdir($pathCore.$arguments['module'].'/'.$arguments['code'], 0777, true);
             if(!is_dir($pathCore.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathCore.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
 
             if(copy('defaults/Client/archive/app.blade.php', $pathCore.$arguments['module'].'/'.$arguments['code'].'/app.blade.php')){
-                $this->info('Resource created '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/app.blade.php');
+                $this->info('Recurso criado '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/app.blade.php');
             }
             if(copy('defaults/Client/src/_main.scss', $pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
-                $this->info('Resource created '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
+                $this->info('Recurso criado '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
             }
             if(copy('defaults/Client/src/main.js', $pathCore.$arguments['module'].'/'.$arguments['code'].'/src/main.js')){
-                $this->info('Resource created '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
+                $this->info('Recurso criado '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
             }
         }catch(Exception $e) {
             dd($e->getMessage());

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\Helpers\HelperModule;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
@@ -21,7 +22,7 @@ class ModuleMakeController extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Create the controller code in module';
 
     /**
      * Create a new command instance.
@@ -40,9 +41,23 @@ class ModuleMakeController extends Command
      */
     public function handle()
     {
+        $helper = new HelperModule();
         $arguments = $this->arguments();
-        Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
 
-        $this->info('Controller created '.$arguments['module'].'/'.$arguments['code'].'Controller');
+        if(!$helper->searchModulesJson($arguments['module'])){
+            $this->error('O Módulo informado não existe ou sua escrita está incorreta');
+            $this->comment('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+            return;
+        }
+
+        if($helper->searchModulesJson($arguments['module'], $arguments['code'])){
+            $this->error('O código informado já existe, continuar com o processo substituirá o controller atual pelo controller padrões.');
+            if(!$this->confirm('Deseja continuar com o processo?')){
+                return;
+            }
+        }
+
+        Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
+        $this->info('Controller criado em '.$arguments['module'].'/'.$arguments['code'].'Controller');
     }
 }

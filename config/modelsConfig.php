@@ -46,3 +46,32 @@ return [
         // ],
     ]
 ];
+
+// 'Topics' => (object)[
+//     'TOPI01' => [
+//         'ViewHome' => false,
+//         'ViewListMenu' => true,
+//         'config' => (object) [
+//             'titleMenu' => 'Tópicos',
+//             'achor' =>  false,
+//             'linkMenu' => 'home',
+//             'iconMenu' => 'mdi-home',
+//             'titlePanel' => 'Tópicos',
+//             'iconPanel' => 'mdi-box'
+//         ],
+//         'IncludeSections' => (object) []
+//     ],
+//     'TOPI02' => [
+//         'ViewHome' => false,
+//         'ViewListMenu' => true,
+//         'config' => (object) [
+//             'titleMenu' => 'Tópicos',
+//             'achor' =>  false,
+//             'linkMenu' => 'home',
+//             'iconMenu' => 'mdi-home',
+//             'titlePanel' => 'Tópicos',
+//             'iconPanel' => 'mdi-box'
+//         ],
+//         'IncludeSections' => (object) []
+//     ],
+// ]

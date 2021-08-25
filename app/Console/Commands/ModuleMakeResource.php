@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Helpers\HelperModule;
 
 class ModuleMakeResource extends Command
 {
@@ -44,26 +45,47 @@ class ModuleMakeResource extends Command
      */
     public function handle()
     {
+        $helper = new HelperModule();
         $arguments = $this->arguments();
         $options = $this->options();
 
         try {
+
+            if(!$helper->searchModulesJson($arguments['module'])){
+                $this->error('O Módulo informado não existe ou sua escrita está incorreta');
+                $this->comment('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+                $this->comment('Use o camando artisan module:make para criar um novo módulo.');
+                return;
+            }
+
+            if($helper->searchModulesJson($arguments['module'], $arguments['code'])){
+                $this->error('O código informado já existe');
+                $this->comment('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+                return;
+            }
+
+            if(!$helper->refreshModulesJson($arguments['module'], $arguments['code'])){
+                $this->error('Erro ao atualizar o arquivo modules.json');
+                $this->info('Ignorar esse erro resultará no má funcionamento do sistema');
+                return;
+            }
+
             // Create views Admin
 
             $pathAdmin = 'resources/views/Admin/';
             if(!is_dir($pathAdmin.$arguments['module'].'/'.$arguments['code'])) mkdir($pathAdmin.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
             if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
-                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php');
+                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php');
             }
             if(copy('defaults/Admin/archive/edit.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php')){
-                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php');
+                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php');
             }
             if(copy('defaults/Admin/archive/index.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php')){
-                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
+                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
             }
             if(copy('defaults/Admin/archive/form.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php')){
-                $this->info('Resource created '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php');
+                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php');
             }
 
             // Create routes
@@ -75,21 +97,22 @@ class ModuleMakeResource extends Command
             // Create views client
 
             $pathClient = 'resources/views/Client/';
+
             if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
             if($options['section']){
                 if(copy('defaults/Client/archive/section.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
-                    $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
+                    $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
                 }
             }
             if($options['page']){
                 if(copy('defaults/Client/archive/page.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
-                    $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
+                    $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
                 }
             }
             if($options['content']){
                 if(copy('defaults/Client/archive/show.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
-                    $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
+                    $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
                 }
             }
 
@@ -97,14 +120,14 @@ class ModuleMakeResource extends Command
             if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
 
             if(copy('defaults/Client/src/_main.scss', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
-                $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
+                $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
             }
             if(copy('defaults/Client/src/main.js', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js')){
-                $this->info('Resource created '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
+                $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
             }
 
             Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
-            $this->info('Resources created successful!');
+            $this->info('Todos os recursos criados com sucesso!');
 
         }catch(Exception $e) {
             dd($e->getMessage());

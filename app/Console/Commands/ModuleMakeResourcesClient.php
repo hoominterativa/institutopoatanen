@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
+use App\Http\Controllers\Helpers\HelperModule;
 
 class ModuleMakeResourcesClient extends Command
 {
@@ -43,10 +44,26 @@ class ModuleMakeResourcesClient extends Command
      */
     public function handle()
     {
+        $helper = new HelperModule();
         $arguments = $this->arguments();
         $options = $this->options();
 
         try {
+
+            if(!$helper->searchModulesJson($arguments['module'])){
+                $this->error('O Módulo informado não existe ou sua escrita está incorreta');
+                $this->comment('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+                $this->comment('Use o camando artisan module:make para criar um novo módulo.');
+                return;
+            }
+
+            if($helper->searchModulesJson($arguments['module'], $arguments['code'])){
+                $this->error('O código informado já existe, continuar com o processo substituirá os arquivos atuais por arquivos padrões');
+                if(!$this->confirm('Deseja continuar com o processo?')){
+                    return;
+                }
+            }
+
             // Create views cliente
 
             $pathClient = 'resources/views/Client/';
