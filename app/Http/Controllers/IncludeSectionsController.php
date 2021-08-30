@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 
 class IncludeSectionsController extends Controller
 {
-    public static function IncludeSectionsPage($GetModel)
+    public static function IncludeSectionsPage($GetModule, $getModel)
     {
         $InsertSectionsPage = config('modelsConfig.InsertModelsMain');
-        $IncludeSections = $InsertSectionsPage->$GetModel->IncludeSections;
+        $IncludeSections = $InsertSectionsPage->$GetModule->$getModel->IncludeSections;
         $return = [];
 
         if($IncludeSections){
-            $ModelsController = config('modelsConfig.Models');
+            $ModelsController = config('modelsConfig.Class');
 
             foreach($IncludeSections as $model => $code){
-                $Controller = $ModelsController->$model->$code->class;
+                $Controller = $ModelsController->$model->$code;
                 array_push($return, $Controller::section());
             }
         }
@@ -28,14 +28,15 @@ class IncludeSectionsController extends Controller
     public static function IncludeSectionsHome()
     {
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
-        $ModelsController = config('modelsConfig.Models');
+        $ModelsController = config('modelsConfig.Class');
         $return = [];
 
-        foreach($InsertModelsMain as $model => $view){
-            $codeModel = $view->Code;
-            if($view->ViewHome){
-                $Controller = $ModelsController->$model->$codeModel->Class;
-                array_push($return, $Controller::section());
+        foreach($InsertModelsMain as $module => $model){
+            foreach ($model as $code => $config) {
+                if($config->ViewHome){
+                    $Controller = $ModelsController->$module->$code;
+                    array_push($return, $Controller::section());
+                }
             }
         }
 

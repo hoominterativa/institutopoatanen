@@ -3,18 +3,19 @@
 namespace App\Console\Commands;
 
 use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Helpers\HelperModule;
 
-class ModuleMakeResource extends Command
+class ModuleMakeModel extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'module:make-resources {module : Enter the name of the module for resource creation}
+    protected $signature = 'module:make-model {module : Enter the name of the module for resource creation}
         {code : Insert code the model}
         {--s|section : Create a section view in model}
         {--p|page : Create a page view in model}
@@ -126,7 +127,16 @@ class ModuleMakeResource extends Command
                 $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
             }
 
+            $lowerModule = Str::lower($arguments['module']);
+            $lowerModel = Str::lower($arguments['code']);
+            $nameMigration = 'create_'. $lowerModel.'_'.$lowerModule .'_table';
+
             Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
+            Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module']);
+            Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
+            Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['code'].'Seeder');
+            Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].'Factory');
+
             $this->info('Todos os recursos criados com sucesso!');
 
         }catch(Exception $e) {

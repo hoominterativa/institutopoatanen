@@ -56,13 +56,7 @@ class ModuleMake extends Command
                 return;
             }
 
-            $pathAdmin = 'resources/views/Admin/'.$arguments['module'];
-
-            if(!is_dir($pathAdmin)) mkdir($pathAdmin, 0777, true);
-            $this->info('Pasta criada em '.$pathAdmin);
-
-            Artisan::call('make:model '.$arguments['module'].' -msf');
-            $this->info('Módulo criado com sucesso!');
+            $this->info('Módulo registrado com sucesso!');
 
         }catch(Exception $e) {
             dd($e->getMessage());

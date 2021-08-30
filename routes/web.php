@@ -15,7 +15,7 @@ use App\Http\Controllers\DashboardController;
 
 View::composer('Client.Core.client', function ($view) {
     $renderCore = new CoreController();
-    return $view->with('renderFooter', $renderCore->renderFooter())->with('renderHeader', $renderCore->renderHeader());
+    return $view->with('renderHeader', $renderCore->renderHeader())->with('renderFooter', $renderCore->renderFooter());
 });
 
 View::composer('Admin.core.admin', function ($view) {

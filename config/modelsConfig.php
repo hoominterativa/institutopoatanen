@@ -3,75 +3,66 @@
 return [
 
     'InsertModelsCore' => (object)[
-        'Headers' => (object)[
-            'Code' => 'HEAD01',
-            'IncludeCategory' => (object) [
-                // 'Model' => 'CategoryProduct',
-                // 'Code' => 'CP001',
-                // 'Limit' => '3'
-            ],
-            'IncludeSubcategory' => (object)[]
-        ],
-        'Footers' => (object)[
-            'Code' => 'FOOT01',
-            'IncludeCategory' => (object)[],
-            'IncludeSubcategory' => (object)[]
-        ]
+        // 'Headers' => (object)[
+        //     'Code' => 'HEAD01',
+        //     'IncludeCategory' => (object) [
+        //         'Model' => 'CategoryProduct',
+        //         'Code' => 'CP001',
+        //         'Limit' => '3'
+        //     ],
+        //     'IncludeSubcategory' => (object)[]
+        // ],
+        // 'Footers' => (object)[
+        //     'Code' => 'FOOT01',
+        //     'IncludeCategory' => (object)[],
+        //     'IncludeSubcategory' => (object)[]
+        // ]
     ],
 
     'InsertModelsMain' => (object) [
-        'Topics' => (object)[
-            'Code' => 'TOPI01',
-            'ViewHome' => false,
-            'ViewListMenu' => true,
-            'config' => (object) [
-                'titleMenu' => 'Tópicos',
-                'achor' =>  false,
-                'linkMenu' => 'home',
-                'iconMenu' => 'mdi-home',
-                'titlePanel' => 'Tópicos',
-                'iconPanel' => 'mdi-box'
+        'Product' => (object)[
+            'PROD01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'config' => (object) [
+                    'titleMenu' => 'Produtos',
+                    'achor' =>  false,
+                    'linkMenu' => 'home',
+                    'iconMenu' => 'mdi-home',
+                    'titlePanel' => 'Produtos',
+                    'iconPanel' => 'mdi-box'
+                ],
+                'IncludeSections' => (object) []
             ],
-            'IncludeSections' => (object) []
-        ],
+            // 'PROD02' => (object)[
+            //     'ViewHome' => true,
+            //     'ViewListMenu' => true,
+            //     'config' => (object) [
+            //         'titleMenu' => 'Artigos',
+            //         'achor' =>  false,
+            //         'linkMenu' => 'home',
+            //         'iconMenu' => 'mdi-home',
+            //         'titlePanel' => 'Artigos',
+            //         'iconPanel' => 'mdi-box'
+            //     ],
+            //     'IncludeSections' => (object) []
+            // ],
+        ]
     ],
 
-    'Models' => (object) [
-        // 'Product' => (object)[
-        //     'PD001' => (object) [
-        //         'Class' => 'Class Model Product',
-        //         'Category' => 'Class Model Category',
-        //         'Subcategory' => 'Class Model Subcategory'
-        //     ]
-        // ],
-    ]
-];
+    'Relations' => (object) [
+        'Product' => [
+            'PROD01' => (object) [
+                'before' => ['ProductCategory' => 'PRCA01','ProductSubategory' => 'PRSU01'],
+                'after' => ['ProductGallery' => 'PRCA01','ProductPhoto' => 'PRSU01']
+            ]
+        ]
+    ],
 
-// 'Topics' => (object)[
-//     'TOPI01' => [
-//         'ViewHome' => false,
-//         'ViewListMenu' => true,
-//         'config' => (object) [
-//             'titleMenu' => 'Tópicos',
-//             'achor' =>  false,
-//             'linkMenu' => 'home',
-//             'iconMenu' => 'mdi-home',
-//             'titlePanel' => 'Tópicos',
-//             'iconPanel' => 'mdi-box'
-//         ],
-//         'IncludeSections' => (object) []
-//     ],
-//     'TOPI02' => [
-//         'ViewHome' => false,
-//         'ViewListMenu' => true,
-//         'config' => (object) [
-//             'titleMenu' => 'Tópicos',
-//             'achor' =>  false,
-//             'linkMenu' => 'home',
-//             'iconMenu' => 'mdi-home',
-//             'titlePanel' => 'Tópicos',
-//             'iconPanel' => 'mdi-box'
-//         ],
-//         'IncludeSections' => (object) []
-//     ],
-// ]
+    'Class' => (object) [
+        'Product' => (object)[
+            'PROD01' => App\Http\Controllers\Product\PROD01Controller::class,
+            'PROD02' => App\Http\Controllers\Product\PROD02Controller::class,
+        ],
+    ],
+];

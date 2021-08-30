@@ -1,1 +1,8 @@
-[]
+{
+    "Product": [
+        "PROD01"
+    ],
+    "ProductCategory": [
+        "PRCA01"
+    ]
+}

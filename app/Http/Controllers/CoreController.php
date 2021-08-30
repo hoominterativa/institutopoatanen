@@ -7,64 +7,69 @@ use Illuminate\Http\Request;
 class CoreController extends Controller
 {
     protected $InsertModelsCore;
-    protected $Models;
+    protected $Class;
     protected $InsertModelsMain;
 
     public function __construct()
     {
         $this->InsertModelsCore = config('modelsConfig.InsertModelsCore');
-        $this->Models = config('modelsConfig.Models');
+        $this->Class = config('modelsConfig.Class');
         $this->InsertModelsMain = config('modelsConfig.InsertModelsMain');
     }
 
 
     public function renderHeader()
     {
-        $Categories = [];
 
-        if(count(get_object_vars($this->InsertModelsCore->Headers->IncludeCategory))){
+        if(count(get_object_vars($this->InsertModelsCore))){
+            $Categories = [];
 
-            $ModelCategory = $this->InsertModelsCore->Headers->IncludeCategory->Model;
-            $LimitCategory = $this->InsertModelsCore->Headers->IncludeCategory->Limit;
-            $ModelClass = $this->Models->$ModelCategory->Model;
+            if(count(get_object_vars($this->InsertModelsCore->Headers->IncludeCategory))){
 
-            $Categories = $ModelClass::limit($LimitCategory)->get();
+                $ModelCategory = $this->InsertModelsCore->Headers->IncludeCategory->Model;
+                $LimitCategory = $this->InsertModelsCore->Headers->IncludeCategory->Limit;
+                $ModelClass = $this->Class->$ModelCategory->Model;
 
-            if(count(get_object_vars($this->InsertModelsCore->Headers->IncludeSubcategory))){
-                $ModelSubcategory = $this->InsertModelsCore->Headers->IncludeSubcategory->Model;
-                $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
+                $Categories = $ModelClass::limit($LimitCategory)->get();
+
+                if(count(get_object_vars($this->InsertModelsCore->Headers->IncludeSubcategory))){
+                    $ModelSubcategory = $this->InsertModelsCore->Headers->IncludeSubcategory->Model;
+                    $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
+                }
             }
-        }
 
-        return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
-            'categoryHeader' => $Categories,
-            'listMenu' => $this->InsertModelsMain
-        ]);
+            return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
+                'categoryHeader' => $Categories,
+                'listMenu' => $this->InsertModelsMain
+            ]);
+        }
     }
 
     public function renderFooter()
     {
 
-        $Categories = [];
+        if(count(get_object_vars($this->InsertModelsCore))){
+            $Categories = [];
 
-        if(count(get_object_vars($this->InsertModelsCore->Footers->IncludeCategory))){
+            if(count(get_object_vars($this->InsertModelsCore->Footers->IncludeCategory))){
 
-            $ModelCategory = $this->InsertModelsCore->Footers->IncludeCategory->Model;
-            $LimitCategory = $this->InsertModelsCore->Footers->IncludeCategory->Limit;
-            $ModelClass = $this->Models->$ModelCategory->Model;
+                $ModelCategory = $this->InsertModelsCore->Footers->IncludeCategory->Model;
+                $LimitCategory = $this->InsertModelsCore->Footers->IncludeCategory->Limit;
+                $ModelClass = $this->Class->$ModelCategory->Model;
 
-            $Categories = $ModelClass::limit($LimitCategory)->get();
+                $Categories = $ModelClass::limit($LimitCategory)->get();
 
-            if(count(get_object_vars($this->InsertModelsCore->Footers->IncludeSubcategory))){
-                $ModelSubcategory = $this->InsertModelsCore->Footers->IncludeSubcategory->Model;
-                $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
+                if(count(get_object_vars($this->InsertModelsCore->Footers->IncludeSubcategory))){
+                    $ModelSubcategory = $this->InsertModelsCore->Footers->IncludeSubcategory->Model;
+                    $Categories = $ModelClass::with('getHeader'.$ModelSubcategory)->limit($LimitCategory)->get();
+                }
+
             }
-        }
 
-        return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
-            'categoryFooter' => $Categories,
-            'listMenu' => $this->InsertModelsMain
-        ]);
-        // return view('Client.Core.Footers.FT001');
+            return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
+                'categoryFooter' => $Categories,
+                'listMenu' => $this->InsertModelsMain
+            ]);
+        }
     }
 }
