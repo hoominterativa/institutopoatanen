@@ -72,6 +72,7 @@ mix
     })
     .copyDirectory('resources/views/Admin/assets/fonts', 'public/admin/assets/fonts')
     .copyDirectory('resources/views/Admin/assets/images', 'public/admin/assets/images')
+    .copyDirectory('resources/views/Client/assets/images', 'public/images')
     .copyDirectory('node_modules/@ckeditor/ckeditor5-build-classic/build/translations', 'public/admin/assets/libs/translations')
     .copyDirectory('node_modules/parsleyjs/dist/i18n', 'public/admin/assets/libs/i18n')
     .version()

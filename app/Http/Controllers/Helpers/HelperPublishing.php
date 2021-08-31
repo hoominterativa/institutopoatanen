@@ -21,9 +21,11 @@ class HelperPublishing extends Controller
             }
 
             $mainConfig = config('modelsConfig.InsertModelsMain');
-            foreach ($mainConfig as $module => $code) {
-                $contentScss .= "@import '../../pages/{$module}/{$code->Code}/src/main';\n";
-                $contentJs .= "import '../../pages/{$module}/{$code->Code}/src/main';\n";
+            foreach ($mainConfig as $module => $models) {
+                foreach ($models as $code => $config) {
+                    $contentScss .= "@import '../../pages/{$module}/{$code}/src/main';\n";
+                    $contentJs .= "import '../../pages/{$module}/{$code}/src/main';\n";
+                }
             }
 
             $createArchive->createArchive('resources/views/Client/assets/scss/base.scss', $contentScss);

@@ -46,10 +46,8 @@ class ModuleMakeCore extends Command
 
             if(!$helper->searchModulesJson($arguments['module'])){
                 $this->info('O Módulo informado não existe ou sua escrita está incorreta');
-                if(!$this->confirm('Deseja inserir o módulo informado na listagem?')){
-                    return;
-                }
-                $helper->refreshModulesJson($arguments['module']);
+                $this->comment('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+                return;
             }
 
             if($helper->searchModulesJson($arguments['module'], $arguments['code'])){

@@ -20,34 +20,34 @@ return [
     ],
 
     'InsertModelsMain' => (object) [
-        'Product' => (object)[
-            'PROD01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'config' => (object) [
-                    'titleMenu' => 'Produtos',
-                    'achor' =>  false,
-                    'linkMenu' => 'home',
-                    'iconMenu' => 'mdi-home',
-                    'titlePanel' => 'Produtos',
-                    'iconPanel' => 'mdi-box'
-                ],
-                'IncludeSections' => (object) []
-            ],
-            // 'PROD02' => (object)[
-            //     'ViewHome' => true,
-            //     'ViewListMenu' => true,
-            //     'config' => (object) [
-            //         'titleMenu' => 'Artigos',
-            //         'achor' =>  false,
-            //         'linkMenu' => 'home',
-            //         'iconMenu' => 'mdi-home',
-            //         'titlePanel' => 'Artigos',
-            //         'iconPanel' => 'mdi-box'
-            //     ],
-            //     'IncludeSections' => (object) []
-            // ],
-        ]
+        // 'Product' => (object)[
+        //     'PROD01' => (object)[
+        //         'ViewHome' => true,
+        //         'ViewListMenu' => true,
+        //         'config' => (object) [
+        //             'titleMenu' => 'Produtos',
+        //             'achor' =>  false,
+        //             'linkMenu' => 'home',
+        //             'iconMenu' => 'mdi-home',
+        //             'titlePanel' => 'Produtos',
+        //             'iconPanel' => 'mdi-box'
+        //         ],
+        //         'IncludeSections' => (object) []
+        //     ],
+        //     'PROD02' => (object)[
+        //         'ViewHome' => true,
+        //         'ViewListMenu' => true,
+        //         'config' => (object) [
+        //             'titleMenu' => 'Artigos',
+        //             'achor' =>  false,
+        //             'linkMenu' => 'home',
+        //             'iconMenu' => 'mdi-home',
+        //             'titlePanel' => 'Artigos',
+        //             'iconPanel' => 'mdi-box'
+        //         ],
+        //         'IncludeSections' => (object) []
+        //     ],
+        // ]
     ],
 
     'Relations' => (object) [

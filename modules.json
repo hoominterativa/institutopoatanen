@@ -1,8 +1,4 @@
 {
-    "Product": [
-        "PROD01"
-    ],
-    "ProductCategory": [
-        "PRCA01"
-    ]
+    "Headers": [],
+    "Footers": []
 }

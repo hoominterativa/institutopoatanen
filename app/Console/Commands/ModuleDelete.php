@@ -123,12 +123,6 @@ class ModuleDelete extends Command
                 return;
 
             }else{
-                // Delete Core (Headers/Footers)
-                if($options['core']){
-                    if(is_dir($this->path['core'].$arguments['module'])) shell_exec('rm -r '.$this->path['core'].$arguments['module']);
-                    $this->info($arguments['module'].' deletado com sucesso');
-                    return;
-                }
 
                 // Delete Folders
                 if(is_dir($this->path['admin'].$arguments['module'])) shell_exec('rm -r '.$this->path['admin'].$arguments['module']);
