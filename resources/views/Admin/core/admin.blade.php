@@ -446,7 +446,7 @@
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
-        <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
+        {{-- <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script> --}}
 
         @stack('createEditJs')
         @stack('indexJs')

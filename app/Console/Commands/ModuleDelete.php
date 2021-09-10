@@ -120,6 +120,7 @@ class ModuleDelete extends Command
 
 
                 $this->info($arguments['module'].'/'.$arguments['code'].' deletado com sucesso');
+                $this->info('A tabela no banco de dados deverá ser deletada manualmente.');
                 return;
 
             }else{
@@ -135,7 +136,7 @@ class ModuleDelete extends Command
                 if(is_dir($this->path['migrations'].$arguments['module'])) shell_exec('rm -r '.$this->path['migrations'].$arguments['module']);
 
                 $this->info($arguments['module'].' deletado com sucesso');
-                $this->info('O arquivo do migration e a tabela no banco deverão ser deletados manualmente.');
+                $this->info('As tabelas no banco de dados deverão ser deletadas manualmente.');
                 return;
             }
 

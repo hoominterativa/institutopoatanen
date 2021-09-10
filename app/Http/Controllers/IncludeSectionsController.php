@@ -17,7 +17,7 @@ class IncludeSectionsController extends Controller
             $ModelsController = config('modelsConfig.Class');
 
             foreach($IncludeSections as $model => $code){
-                $Controller = $ModelsController->$model->$code;
+                $Controller = $ModelsController->$model->$code->controller;
                 array_push($return, $Controller::section());
             }
         }
@@ -34,7 +34,7 @@ class IncludeSectionsController extends Controller
         foreach($InsertModelsMain as $module => $model){
             foreach ($model as $code => $config) {
                 if($config->ViewHome){
-                    $Controller = $ModelsController->$module->$code;
+                    $Controller = $ModelsController->$module->$code->controller;
                     array_push($return, $Controller::section());
                 }
             }

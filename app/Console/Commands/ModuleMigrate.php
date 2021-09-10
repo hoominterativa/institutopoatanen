@@ -59,9 +59,6 @@ class ModuleMigrate extends Command
                 }
             }
 
-            $bar = $this->output->createProgressBar(count(get_object_vars($InsertModelsMain)));
-            $bar->start();
-
             foreach ($InsertModelsMain as $module => $model) {
                 foreach ($model as $code => $config) {
 
@@ -81,9 +78,7 @@ class ModuleMigrate extends Command
                     }
                 }
             }
-
-            $bar->finish();
-            $this->newLine();
+            Artisan::call('migrate');
             $this->info('Todas as migrations necessárias migradas com sucesso');
 
         } catch (Exception $e) {

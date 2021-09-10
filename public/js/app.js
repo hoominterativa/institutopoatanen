@@ -7964,7 +7964,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fancyapps_ui_src_Fancybox_Fancybox_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fancyapps/ui/src/Fancybox/Fancybox.js */ "./node_modules/@fancyapps/ui/src/Fancybox/Fancybox.js");
 /* harmony import */ var owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! owl.carousel/dist/owl.carousel.min.js */ "./node_modules/owl.carousel/dist/owl.carousel.min.js");
 /* harmony import */ var owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(owl_carousel_dist_owl_carousel_min_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_4__);
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
@@ -7972,41 +7975,6 @@ window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODU
 
 
 
-/***/ }),
-
-/***/ "./resources/views/Client/Core/Footers/FOOT01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Footers/FOOT01/src/main.js ***!
-  \****************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('.owl-carousel').owlCarousel({
-  loop: true,
-  margin: 10,
-  nav: true,
-  responsive: {
-    0: {
-      items: 1
-    },
-    600: {
-      items: 3
-    },
-    1000: {
-      items: 5
-    }
-  }
-});
 
 /***/ }),
 
@@ -8014,14 +7982,17 @@ $('.owl-carousel').owlCarousel({
 /*!**************************************************!*\
   !*** ./resources/views/Client/assets/js/base.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Core/Footers/FOOT01/src/main */ "./resources/views/Client/Core/Footers/FOOT01/src/main.js");
-/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/assets/js/config.js":
+/*!****************************************************!*\
+  !*** ./resources/views/Client/assets/js/config.js ***!
+  \****************************************************/
+/***/ (() => {
 
 
 
@@ -18932,6 +18903,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/views/Admin/assets/js/libs/app.index.css":
+/*!************************************************************!*\
+  !*** ./resources/views/Admin/assets/js/libs/app.index.css ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/owl.carousel/dist/owl.carousel.min.js":
 /*!************************************************************!*\
   !*** ./node_modules/owl.carousel/dist/owl.carousel.min.js ***!
@@ -19061,7 +19045,8 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"admin/assets/libs/app.index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -19109,8 +19094,9 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","admin/assets/libs/app.index"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","admin/assets/libs/app.index"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","admin/assets/libs/app.index"], () => (__webpack_require__("./resources/views/Admin/assets/js/libs/app.index.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
