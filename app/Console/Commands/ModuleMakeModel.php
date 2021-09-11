@@ -73,7 +73,7 @@ class ModuleMakeModel extends Command
 
             // Create views Admin
 
-            $pathAdmin = 'resources/views/Admin/';
+            $pathAdmin = 'resources/views/Admin/cruds/';
             if(!is_dir($pathAdmin.$arguments['module'].'/'.$arguments['code'])) mkdir($pathAdmin.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
             if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
@@ -97,34 +97,34 @@ class ModuleMakeModel extends Command
 
             // Create views client
 
-            $pathClient = 'resources/views/Client/';
+            $pathClient = 'resources/views/Client/pages/';
 
-            if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'], 0777, true);
+            if(!is_dir($pathClient.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
             if($options['section']){
-                if(copy('defaults/Client/archive/section.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
-                    $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
+                if(copy('defaults/Client/archive/section.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
+                    $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
                 }
             }
             if($options['page']){
-                if(copy('defaults/Client/archive/page.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
-                    $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
+                if(copy('defaults/Client/archive/page.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
+                    $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
                 }
             }
             if($options['content']){
-                if(copy('defaults/Client/archive/show.blade.php', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
-                    $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
+                if(copy('defaults/Client/archive/show.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
+                    $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
                 }
             }
 
             // Create assets
-            if(!is_dir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
+            if(!is_dir($pathClient.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathClient.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
 
-            if(copy('defaults/Client/src/_main.scss', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
-                $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
+            if(copy('defaults/Client/src/_main.scss', $pathClient.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
+                $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
             }
-            if(copy('defaults/Client/src/main.js', $pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js')){
-                $this->info('Recurso criado '.$pathClient.'pages/'.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
+            if(copy('defaults/Client/src/main.js', $pathClient.$arguments['module'].'/'.$arguments['code'].'/src/main.js')){
+                $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
             }
 
             $lowerModule = Str::lower($arguments['module']);

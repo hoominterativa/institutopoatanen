@@ -62,7 +62,7 @@ class ModuleMakeResourcesAdmin extends Command
 
             // Create views Admin
 
-            $pathAdmin = 'resources/views/Admin/';
+            $pathAdmin = 'resources/views/Admin/cruds/';
             if(!is_dir($pathAdmin.$arguments['module'].'/'.$arguments['code'])) mkdir($pathAdmin.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
             if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
