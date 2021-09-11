@@ -20,18 +20,23 @@ class CoreController extends Controller
 
     public function renderHeader()
     {
-        return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
-            'class' => $this->Class,
-            'listMenu' => $this->InsertModelsMain
-        ]);
+        if(isset($this->InsertModelsCore->Headers->Code)){
+            return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
+                'class' => $this->Class,
+                'listMenu' => $this->InsertModelsMain
+            ]);
+        }
+        return;
     }
 
     public function renderFooter()
     {
-        return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
-            // 'categoryFooter' => $Categories,
-            'listMenu' => $this->InsertModelsMain
-        ]);
-
+        if(isset($this->InsertModelsCore->Footers->Code)){
+            return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
+                'class' => $this->Class,
+                'listMenu' => $this->InsertModelsMain
+            ]);
+        }
+        return;
     }
 }

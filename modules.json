@@ -1,11 +1,4 @@
 {
-    "Headers": [
-        "HEAD01"
-    ],
-    "Footers": [
-        "FOOT01"
-    ],
-    "Products": [
-        "PROD01"
-    ]
+    "Headers": [],
+    "Footers": []
 }

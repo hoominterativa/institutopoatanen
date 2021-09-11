@@ -4,30 +4,30 @@ return [
 
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD01'
+            // 'Code' => 'HEAD01'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT01'
+            // 'Code' => 'FOOT01'
         ]
     ],
 
     'InsertModelsMain' => (object) [
-        'Products' => (object)[
-            'PROD01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'IncludeCore' => [false],
-                'config' => (object) [
-                    'titleMenu' => 'Produtos',
-                    'achor' =>  false,
-                    'linkMenu' => 'home',
-                    'iconMenu' => 'mdi-home',
-                    'titlePanel' => 'Produtos',
-                    'iconPanel' => 'mdi-box'
-                ],
-                'IncludeSections' => (object) []
-            ]
-        ]
+        // 'Products' => (object) [
+        //     'PROD01' => (object)[
+        //         'ViewHome' => true,
+        //         'ViewListMenu' => true,
+        //         'IncludeCore' => [true, 3], // @param 1 boolean | @param 2 Int Limit
+        //         'config' => (object) [
+        //             'titleMenu' => 'Produtos',
+        //             'achor' =>  false,
+        //             'linkMenu' => 'prod01.page',
+        //             'iconMenu' => 'mdi-home',
+        //             'titlePanel' => 'Produtos',
+        //             'iconPanel' => 'mdi-box'
+        //         ],
+        //         'IncludeSections' => (object) []
+        //     ]
+        // ]
     ],
 
     'Relations' => (object) [
