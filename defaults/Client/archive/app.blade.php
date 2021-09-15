@@ -6,7 +6,7 @@
         @endphp
         @if ($menu->ViewListMenu)
                 <li>
-                    <a href="{{$menu->config->achor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 text-white" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{!$menu->config->achor?isActive($menu->config->linkMenu):''}} {{$menu->config->achor?'data-toggle="jqueryAchor"':''}}>{{$menu->config->titleMenu}}</a>
+                    <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 text-white" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
                     @if ($menu->IncludeCore[0])
                         <ul class="dropdown-menu">
                             @foreach ($include as $item)

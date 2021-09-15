@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{config('app.locale')}}">
     <head>
         <meta charset="utf-8" />
-        <title>Painel Administrador</title>
+        <title>{{env('APP_NAME')}} - Painel Gerenciador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta name="author" content="Hoom interativa">
+        <meta name="description" content="Sistema de gerenciamento do site {{env('APP_NAME')}}">
+        <meta name="copyright" content="© 2021 Hoom insterativa." />
+        <meta name="robots" content="none">
+        <meta name="googlebot" content="noarchive">
+
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
@@ -260,12 +267,14 @@
                                 <i class="mdi mdi-chevron-down"></i>
                             </a>
                             <div class="dropdown-menu">
-                                @foreach ($modelsMain as $model)
-                                    <!-- item-->
-                                    <a href="{{route('admin.'.Str::lower($model->Code).'.create')}}" class="dropdown-item">
-                                        <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
-                                        <span>{{$model->config->titlePanel}}</span>
-                                    </a>
+                                @foreach ($modelsMain as $module => $models)
+                                    @foreach ($models as $code => $model)
+                                        <!-- item-->
+                                        <a href="{{route('admin.'.Str::lower($code).'.create')}}" class="dropdown-item">
+                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
+                                            <span>{{$model->config->titlePanel}}</span>
+                                        </a>
+                                    @endforeach
                                 @endforeach
 
                                 <div class="dropdown-divider"></div>
@@ -301,15 +310,16 @@
                                     <span> Dashboard </span>
                                 </a>
                             </li>
-                            @foreach ($modelsMain as $model)
-                                <li>
-                                    <a href="{{route('admin.'.Str::lower($model->Code).'.index')}}">
-                                        <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
-                                        <span> {{$model->config->titlePanel}} </span>
-                                    </a>
-                                </li>
+                            @foreach ($modelsMain as $module => $models)
+                                @foreach ($models as $code => $model)
+                                    <li>
+                                        <a href="{{route('admin.'.Str::lower($code).'.index')}}">
+                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
+                                            <span> {{$model->config->titlePanel}} </span>
+                                        </a>
+                                    </li>
+                                @endforeach
                             @endforeach
-
                             <li class="menu-title mt-2">Suporte</li>
 
                             <li>
@@ -446,8 +456,9 @@
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
-        {{-- <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script> --}}
+        <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
 
+        <script src="{{url(mix('admin/assets/libs/tippy.all.min.js'))}}"></script>
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')
