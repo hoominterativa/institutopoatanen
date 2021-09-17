@@ -1,8 +1,4 @@
 {
     "Headers": [],
-    "Footers": [],
-    "Products": [
-        "PROD01",
-        "PROD02"
-    ]
+    "Footers": []
 }
