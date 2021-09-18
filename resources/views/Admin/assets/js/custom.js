@@ -70,4 +70,31 @@ $(function() {
             }
         });
     })
+
+    $('.table-sortable tbody').sortable({
+        handle: '.btnDrag'
+    }).on('sortupdate', function(e, ui) {
+        var arrId = []
+        $(this).find('tr').each(function() {
+            var id = $(this).data('code')
+            arrId.push(id)
+        })
+
+        $.ajax({
+            type: 'POST',
+            url: $(this).data('route'),
+            data: { arrId: arrId },
+            success: function(data) {
+                if (data.status) {
+                    $.NotificationApp.send("Sucesso!", "Registros ordenado com sucesso", "bottom-left", "#00000080", "success", '3000');
+                } else {
+                    $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar os registros", "bottom-left", "#00000080", "error", '10000');
+                }
+            },
+            error: function() {
+                $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar os registros", "bottom-left", "#00000080", "error", '10000');
+            }
+        })
+    });
+
 })

@@ -65,7 +65,7 @@
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.code.update',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.code.edit',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
                                                         <form action="{{route('admin.code.destroy',['code' => $test->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
@@ -79,9 +79,9 @@
                                 </table>
 
                                 {{-- PAGINATION --}}
-                                {{-- <div class="mt-3 float-end">
+                                <div class="mt-3 float-end">
                                     {{$teste->links()}}
-                                </div> --}}
+                                </div>
                             </div>
                         </div> <!-- end card-->
                     </div> <!-- end col-->

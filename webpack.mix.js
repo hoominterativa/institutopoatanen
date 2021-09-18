@@ -28,6 +28,8 @@ mix
     .scripts('node_modules/bootstrap-table/dist/bootstrap-table.min.js', 'public/admin/assets/libs/bootstrap-table.min.js')
     .scripts('node_modules/jquery-tabledit/jquery.tabledit.min.js', 'public/admin/assets/libs/jquery.tabledit.min.js')
     .scripts('node_modules/sweetalert2/dist/sweetalert2.all.min.js', 'public/admin/assets/libs/sweetalert2.all.min.js')
+    .scripts('node_modules/jquery-toast-plugin/dist/jquery.toast.min.js', 'public/admin/assets/libs/jquery.toast.min.js')
+    .scripts('resources/views/Admin/assets/js/libs/jquery.sortable.min.js', 'public/admin/assets/libs/jquery.sortable.min.js')
     // Pages
     .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/admin/assets/js/pages/form-advanced.init.js')
@@ -38,6 +40,7 @@ mix
     .scripts('resources/views/Admin/assets/js/pages/ckeditor.init.js', 'public/admin/assets/js/pages/ckeditor.init.js')
     .scripts('resources/views/Admin/assets/js/pages/bootstrap-tables.init.js', 'public/admin/assets/js/pages/bootstrap-tables.init.js')
     .scripts('resources/views/Admin/assets/js/pages/tabledit.init.js', 'public/admin/assets/js/pages/tabledit.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/toastr.init.js', 'public/admin/assets/js/pages/toastr.init.js')
 
 //CSS
 .styles('resources/views/Admin/assets/css/config/bootstrap.min.css', 'public/admin/assets/css/config/bootstrap.min.css')
@@ -62,6 +65,7 @@ mix
     .styles('node_modules/dropify/dist/css/dropify.min.css', 'public/admin/assets/libs/dropify.min.css')
     .styles('node_modules/bootstrap-table/dist/bootstrap-table.min.css', 'public/admin/assets/libs/bootstrap-table.min.css')
     .styles('node_modules/sweetalert2/dist/sweetalert2.min.css', 'public/admin/assets/libs/sweetalert2.min.css')
+    .styles('node_modules/jquery-toast-plugin/dist/jquery.toast.min.css', 'public/admin/assets/libs/jquery.toast.min.css')
 
 //SASS
 .sass('resources/sass/app.scss', 'public/css')

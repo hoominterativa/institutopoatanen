@@ -20,3 +20,23 @@
     color: #fff;
     text-decoration: none;
 }
+
+.jq-icon-success {
+    background-color: #5ba035;
+    border-color: #5ba035;
+}
+
+.jq-icon-error {
+    background-color: #bf441d;
+    color: #dfdfdf;
+    border-color: #bf441d;
+}
+
+.jq-icon-info {
+    background-color: #3b98b5;
+    border-color: #3b98b5;
+}
+
+.sortable-placeholder {
+    height: 61px;
+}

@@ -14,6 +14,7 @@
         @stack('createEditCss')
         @stack('indexCss')
         @stack('dashboardCss')
+        <link href="{{url(mix('admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
 
 		<!-- App css -->
 		<link href="{{url(mix('admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
@@ -21,7 +22,6 @@
 
 		<link href="{{url(mix('admin/assets/css/config/bootstrap-dark.min.css'))}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
 		<link href="{{url(mix('admin/assets/css/config/app-dark.min.css'))}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
-
 		<!-- icons -->
 		<link href="{{url(mix('admin/assets/css/icons.min.css'))}}" rel="stylesheet" type="text/css" />
 
@@ -260,14 +260,15 @@
                                 <i class="mdi mdi-chevron-down"></i>
                             </a>
                             <div class="dropdown-menu">
-                                @foreach ($modelsMain as $model)
-                                    <!-- item-->
-                                    <a href="{{route('admin.'.Str::lower($model->Code).'.create')}}" class="dropdown-item">
-                                        <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
-                                        <span>{{$model->config->titlePanel}}</span>
-                                    </a>
+                                @foreach ($modelsMain as $module => $models)
+                                    @foreach ($models as $code => $model)
+                                        <!-- item-->
+                                        <a href="{{route('admin.'.Str::lower($code).'.create')}}" class="dropdown-item">
+                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
+                                            <span>{{$model->config->titlePanel}}</span>
+                                        </a>
+                                    @endforeach
                                 @endforeach
-
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
@@ -301,13 +302,15 @@
                                     <span> Dashboard </span>
                                 </a>
                             </li>
-                            @foreach ($modelsMain as $model)
-                                <li>
-                                    <a href="{{route('admin.'.Str::lower($model->Code).'.index')}}">
-                                        <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
-                                        <span> {{$model->config->titlePanel}} </span>
-                                    </a>
-                                </li>
+                            @foreach ($modelsMain as $module => $models)
+                                @foreach ($models as $code => $model)
+                                    <li>
+                                        <a href="{{route('admin.'.Str::lower($code).'.index')}}">
+                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
+                                            <span> {{$model->config->titlePanel}} </span>
+                                        </a>
+                                    </li>
+                                @endforeach
                             @endforeach
 
                             <li class="menu-title mt-2">Suporte</li>
@@ -446,8 +449,11 @@
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
-        {{-- <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script> --}}
+        <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
 
+        <script src="{{url(mix('admin/assets/libs/jquery.sortable.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/jquery.toast.min.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/js/pages/toastr.init.js'))}}"></script>
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')
@@ -455,5 +461,32 @@
         <!-- App js -->
         <script src="{{url(mix('admin/assets/js/app.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/js/custom.js'))}}"></script>
+
+        @if(Session::has('success'))
+            <script>
+                $.NotificationApp.send("Sucesso!", "{{Session::get('success')}}", "bottom-left", "#00000080", "success", '8000')
+            </script>
+        @endif
+        @if(Session::has('error'))
+            <script>
+                $.NotificationApp.send("Erro!", "{{Session::get('error')}}", "bottom-left", "#00000080", "error", '8000');
+            </script>
+        @endif
+        @if(Session::has('info'))
+            <script>
+                $.NotificationApp.send("Atenção!", "{{Session::get('info')}}", "bottom-left", "#00000080", "info", '8000');
+            </script>
+        @endif
+
+        @if(count($errors)>0)
+            <ul class="list-group">
+                @foreach($errors->all() as $error)
+                    <script>
+                        $.NotificationApp.send("Erro!", "{{$error}}", "bottom-left", "#00000080", "error", '8000');
+                    </script>
+                @endforeach
+            </ul>
+        @endif
+
     </body>
 </html>
