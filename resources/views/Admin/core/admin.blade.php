@@ -172,7 +172,7 @@
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src="{{asset('admin/assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ms-1">
-                                    Geneva <i class="mdi mdi-chevron-down"></i>
+                                    {{explode(' ', Auth::user()->name)[0]}} <i class="mdi mdi-chevron-down"></i>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -182,13 +182,7 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-user"></i>
-                                    <span>Minha Conta</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="javascript:void(0);" class="dropdown-item right-bar-toggle notify-item">
                                     <i class="fe-settings"></i>
                                     <span>Configurações</span>
                                 </a>
@@ -196,18 +190,12 @@
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{route('admin.user.logout')}}" class="dropdown-item notify-item">
                                     <i class="fe-log-out"></i>
                                     <span>Sair</span>
                                 </a>
 
                             </div>
-                        </li>
-
-                        <li class="dropdown notification-list">
-                            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                                <i class="fe-settings noti-icon"></i>
-                            </a>
                         </li>
 
                     </ul>

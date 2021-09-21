@@ -33,17 +33,15 @@ View::composer('Admin.dashboard', function ($view) {
 
 Route::prefix('painel')->group(function () {
     Route::get('login', [UserAuthController::class, 'index'])->name('admin.user.login');
-    Route::get('login.do', [UserAuthController::class, 'authentication'])->name('admin.user.authentication');
+    Route::post('login.do', [UserAuthController::class, 'authenticate'])->name('admin.user.authenticate');
 
-    Route::middleware('user')->group(function () {
-
+    Route::middleware('auth')->group(function () {
+        Route::resource('usuarios', UserController::class)->names('admin.user')->parameters(['usuarios' => 'user']);
+        Route::post('usuarios/delete', [UserController::class, 'destroySelected'])->name('admin.user.destroySelected');
+        Route::post('usuarios/sorting', [UserController::class, 'sorting'])->name('admin.user.sorting');
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('logout', [UserAuthController::class, 'logout'])->name('admin.user.logout');
     });
-
-    Route::resource('usuarios', UserController::class)->names('admin.user')->parameters(['usuarios' => 'user']);
-    Route::post('usuarios/delete', [UserController::class, 'destroySelected'])->name('admin.user.destroySelected');
-    Route::post('usuarios/sorting', [UserController::class, 'sorting'])->name('admin.user.sorting');
-    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('logout', [UserAuthController::class, 'logout'])->name('admin.user.logout');
 });
 
 Route::get('/', [HomePageController::class ,'index'])->name('home');

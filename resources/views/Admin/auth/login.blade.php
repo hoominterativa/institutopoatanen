@@ -24,20 +24,30 @@
                     </div>
 
                     <!-- title-->
-                    <h4 class="mt-0">Sign In</h4>
-                    <p class="text-muted mb-4">Enter your email address and password to access account.</p>
+                    <h4 class="mt-0">Entrar</h4>
+                    <p class="text-muted mb-4">Digite seu endereço de e-mail e senha para acessar a conta.</p>
 
                     <!-- form -->
-                    <form action="#">
+                    <form action="{{route('admin.user.authenticate')}}" method="POST">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @csrf
                         <div class="mb-3">
-                            <label for="emailaddress" class="form-label">Email address</label>
-                            <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                            <label for="emailaddress" class="form-label">E-mail</label>
+                            <input class="form-control" type="email" name="email" id="emailaddress" required="">
                         </div>
                         <div class="mb-3">
-                            <a href="auth-recoverpw-2.html" class="text-muted float-end"><small>Forgot your password?</small></a>
-                            <label for="password" class="form-label">Password</label>
+                            <a href="auth-recoverpw-2.html" class="text-muted float-end"><small>Esqueceu sua senha?</small></a>
+                            <label for="password" class="form-label">Senha</label>
                             <div class="input-group input-group-merge">
-                                <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                                <input type="password" id="password" name="password" class="form-control">
                                 <div class="input-group-text" data-password="false">
                                     <span class="password-eye"></span>
                                 </div>
@@ -47,37 +57,14 @@
                         <div class="mb-3">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox-signin">
-                                <label class="form-check-label" for="checkbox-signin">Remember me</label>
+                                <label class="form-check-label" name="remember" value="1" for="checkbox-signin">Lembre de mim</label>
                             </div>
                         </div>
                         <div class="text-center d-grid">
-                            <button class="btn btn-primary" type="submit">Log In </button>
-                        </div>
-                        <!-- social-->
-                        <div class="text-center mt-4">
-                            <p class="text-muted font-16">Sign in with</p>
-                            <ul class="social-list list-inline mt-3">
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
-                                </li>
-                            </ul>
+                            <button class="btn btn-primary" type="submit">Entrar</button>
                         </div>
                     </form>
                     <!-- end form-->
-
-                    <!-- Footer-->
-                    <footer class="footer footer-alt">
-                        <p class="text-muted">Don't have an account? <a href="auth-register-2.html" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                    </footer>
 
                 </div> <!-- end .card-body -->
             </div> <!-- end .align-items-center.d-flex.h-100-->
