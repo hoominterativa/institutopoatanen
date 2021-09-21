@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\CoreController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\User\AuthController as UserAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +31,19 @@ View::composer('Admin.dashboard', function ($view) {
     return $view->with('modelsMain', $modelsMain);
 });
 
-Route::get('/painel', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::post('/painel/create', [DashboardController::class, 'create'])->name('admin.dashboard.create');
+Route::prefix('painel')->group(function () {
+    Route::get('login', [UserAuthController::class, 'index'])->name('admin.user.login');
+    Route::post('login.do', [UserAuthController::class, 'authenticate'])->name('admin.user.authenticate');
+
+    Route::middleware('auth')->group(function () {
+        Route::resource('usuarios', UserController::class)->names('admin.user')->parameters(['usuarios' => 'user']);
+        Route::post('usuarios/delete', [UserController::class, 'destroySelected'])->name('admin.user.destroySelected');
+        Route::post('usuarios/sorting', [UserController::class, 'sorting'])->name('admin.user.sorting');
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('logout', [UserAuthController::class, 'logout'])->name('admin.user.logout');
+    });
+});
+
 Route::get('/', [HomePageController::class ,'index'])->name('home');
 
 // INSERT ROUTES
