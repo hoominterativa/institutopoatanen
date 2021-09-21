@@ -257,6 +257,10 @@
                                         </a>
                                     @endforeach
                                 @endforeach
+                                <a href="{{route('admin.user.create')}}" class="dropdown-item">
+                                    <i class="mdi-account mdi me-1"></i>
+                                    <span>Usuário</span>
+                                </a>
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
@@ -300,7 +304,12 @@
                                     </li>
                                 @endforeach
                             @endforeach
-
+                            <li>
+                                <a href="{{route('admin.user.index')}}">
+                                    <i class="mdi-account mdi"></i>
+                                    <span> Usuários </span>
+                                </a>
+                            </li>
                             <li class="menu-title mt-2">Suporte</li>
 
                             <li>

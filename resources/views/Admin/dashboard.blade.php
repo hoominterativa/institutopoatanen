@@ -48,7 +48,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-user font-24 avatar-title text-dark"></i>
+                                                <i class="mdi mdi-account font-24 avatar-title text-dark"></i>
                                             </div>
                                         </div>
                                         <div class="col-12">
