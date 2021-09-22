@@ -32,9 +32,10 @@
                                         <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
-                                <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered">
+                                <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
+                                            <th></th>
                                             <th class="bs-checkbox">
                                                 <label><input name="btSelectAll" type="checkbox"></label>
                                             </th>
@@ -47,9 +48,10 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody data-route="{{route('admin.code.sorting')}}">
                                         @foreach ($teste as $key => $test)
                                             <tr>
+                                                <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="{{$key}}" name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$test->id}}"></label>
                                                 </td>

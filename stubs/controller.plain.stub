@@ -101,7 +101,7 @@ class {{ class }} extends Controller
     * @return \Illuminate\Http\Response
     */
 
-    public function order(Request $request)
+    public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
             Model::where('id', $id)->update(['sorting' => $sorting]);
