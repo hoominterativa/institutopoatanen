@@ -18,67 +18,67 @@
                     <span class="d-block py-1">Configurações de tema</span>
                 </h6>
 
-                <div class="p-3">
-                    <h6 class="fw-medium font-14 mb-2 pb-1">Tema</h6>
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="color-scheme-mode" value="light"
-                            id="light-mode-check" checked />
-                        <label class="form-check-label" for="light-mode-check">Light</label>
-                    </div>
+                <div id="settingTheme" class="p-3">
+                    <form action="{{route('admin.settingTheme')}}" method="post">
+                        <h6 class="fw-medium font-14 mb-2 pb-1">Tema</h6>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="color-scheme-mode" {{$settingTheme->color_scheme_mode=='light'?'checked':''}} value="light" id="light-mode-check" />
+                            <label class="form-check-label" for="light-mode-check">Light</label>
+                        </div>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="color-scheme-mode" value="dark"
-                            id="dark-mode-check" />
-                        <label class="form-check-label" for="dark-mode-check">Dark</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="color-scheme-mode" {{$settingTheme->color_scheme_mode=='dark'?'checked':''}} value="dark" id="dark-mode-check" />
+                            <label class="form-check-label" for="dark-mode-check">Dark</label>
+                        </div>
 
-                    <!-- Left Sidebar-->
-                    <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Cor do Menu</h6>
+                        <!-- Left Sidebar-->
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Cor do Menu</h6>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="leftsidebar-color" value="light" id="light-check" />
-                        <label class="form-check-label" for="light-check">Light</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftsidebar-color" {{$settingTheme->leftsidebar_color=='light'?'checked':''}} value="light" id="light-check" />
+                            <label class="form-check-label" for="light-check">Light</label>
+                        </div>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="leftsidebar-color" value="dark" id="dark-check" checked/>
-                        <label class="form-check-label" for="dark-check">Dark</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftsidebar-color" {{$settingTheme->leftsidebar_color=='dark'?'checked':''}} value="dark" id="dark-check"/>
+                            <label class="form-check-label" for="dark-check">Dark</label>
+                        </div>
 
-                    <!-- size -->
-                    <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Tamanho do Menu</h6>
+                        <!-- size -->
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Tamanho do Menu</h6>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="leftsidebar-size" value="default"
-                            id="default-size-check" checked />
-                        <label class="form-check-label" for="default-size-check">Padrão</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftsidebar-size" {{$settingTheme->leftsidebar_size=='default'?'checked':''}} value="default"
+                                id="default-size-check" checked />
+                            <label class="form-check-label" for="default-size-check">Padrão</label>
+                        </div>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="leftsidebar-size" value="condensed"
-                            id="condensed-check" />
-                        <label class="form-check-label" for="condensed-check">Pequeno</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftsidebar-size" {{$settingTheme->leftsidebar_size=='condensed'?'checked':''}} value="condensed"
+                                id="condensed-check" />
+                            <label class="form-check-label" for="condensed-check">Pequeno</label>
+                        </div>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="leftsidebar-size" value="compact"
-                            id="compact-check" />
-                        <label class="form-check-label" for="compact-check">Compacto</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftsidebar-size" {{$settingTheme->leftsidebar_size=='compact'?'checked':''}} value="compact"
+                                id="compact-check" />
+                            <label class="form-check-label" for="compact-check">Compacto</label>
+                        </div>
 
-                    <!-- Topbar -->
-                    <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Barra superior</h6>
+                        <!-- Topbar -->
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Barra superior</h6>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="topbar-color" value="dark" id="darktopbar-check"
-                            checked />
-                        <label class="form-check-label" for="darktopbar-check">Dark</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="topbar-color" {{$settingTheme->topbar_color=='dark'?'checked':''}} value="dark" id="darktopbar-check"
+                                checked />
+                            <label class="form-check-label" for="darktopbar-check">Dark</label>
+                        </div>
 
-                    <div class="form-check form-switch mb-1">
-                        <input type="checkbox" class="form-check-input" name="topbar-color" value="light" id="lighttopbar-check" />
-                        <label class="form-check-label" for="lighttopbar-check">Light</label>
-                    </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="topbar-color" {{$settingTheme->topbar_color=='light'?'checked':''}} value="light" id="lighttopbar-check" />
+                            <label class="form-check-label" for="lighttopbar-check">Light</label>
+                        </div>
+                    </form>
                 </div>
 
             </div>

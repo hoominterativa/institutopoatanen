@@ -31,7 +31,7 @@
     </head>
 
     <!-- body start -->
-    <body class="loading" data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+    <body class="loading" data-layout='{"mode": "{{$settingTheme->color_scheme_mode}}", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "{{$settingTheme->leftsidebar_color}}", "size": "{{$settingTheme->leftsidebar_size}}", "showuser": false}, "topbar": {"color": "{{$settingTheme->topbar_color}}"}, "showRightSidebarOnPageLoad": true}'>
 
         <!-- Begin page -->
         <div id="wrapper">
@@ -294,6 +294,7 @@
                                     <span> Dashboard </span>
                                 </a>
                             </li>
+
                             @foreach ($modelsMain as $module => $models)
                                 @foreach ($models as $code => $model)
                                     <li>
@@ -304,6 +305,7 @@
                                     </li>
                                 @endforeach
                             @endforeach
+
                             <li>
                                 <a href="{{route('admin.user.index')}}">
                                     <i class="mdi-account mdi"></i>
@@ -349,7 +351,6 @@
         <!-- END wrapper -->
         @include('Admin.components.models.settingsTheme')
 
-
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
@@ -359,6 +360,7 @@
         <script src="{{url(mix('admin/assets/libs/jquery.sortable.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/libs/jquery.toast.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/js/pages/toastr.init.js'))}}"></script>
+
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Str;
+use App\Models\SettingTheme;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -8,6 +10,7 @@ use App\Http\Controllers\CoreController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 
 /*
@@ -23,7 +26,8 @@ View::composer('Client.Core.client', function ($view) {
 
 View::composer('Admin.core.admin', function ($view) {
     $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
-    return $view->with('modelsMain', $modelsMain);
+    $settingTheme = SettingTheme::where('user_id', Auth::user()->id)->first();
+    return $view->with('modelsMain', $modelsMain)->with('settingTheme', $settingTheme);
 });
 
 View::composer('Admin.dashboard', function ($view) {
@@ -41,6 +45,7 @@ Route::prefix('painel')->group(function () {
         Route::post('usuarios/sorting', [UserController::class, 'sorting'])->name('admin.user.sorting');
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('logout', [UserAuthController::class, 'logout'])->name('admin.user.logout');
+        Route::post('setting', [SettingThemeController::class, 'setting'])->name('admin.settingTheme');
     });
 });
 

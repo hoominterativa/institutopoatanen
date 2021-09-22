@@ -96,5 +96,23 @@ $(function() {
             }
         })
     });
+    $('#settingTheme input[type=checkbox]').on('click', function() {
+        setTimeout(() => {
+            var formData = new FormData(),
+                route = $(this).parents('form').attr('action')
+            formData.append('color_scheme_mode', $(this).parents('form').find('[name=color-scheme-mode]:checked').val())
+            formData.append('leftsidebar_color', $(this).parents('form').find('[name=leftsidebar-color]:checked').val())
+            formData.append('leftsidebar_size', $(this).parents('form').find('[name=leftsidebar-size]:checked').val())
+            formData.append('topbar_color', $(this).parents('form').find('[name=topbar-color]:checked').val())
 
+            $.ajax({
+                type: 'POST',
+                url: route,
+                data: formData,
+                processData: false,
+                contentType: false
+            })
+        }, 800);
+
+    })
 })
