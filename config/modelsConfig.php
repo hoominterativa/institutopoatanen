@@ -18,11 +18,11 @@ return [
         //         'ViewListMenu' => true,
         //         'IncludeCore' => [true, 3], // @param 1 boolean | @param 2 Int Limit
         //         'config' => (object) [
-        //             'titleMenu' => 'Produtos',
+        //             'titleMenu' => 'Artigos',
         //             'achor' =>  false,
         //             'linkMenu' => 'prod01.page',
         //             'iconMenu' => 'mdi-home',
-        //             'titlePanel' => 'Produtos',
+        //             'titlePanel' => 'Configurações',
         //             'iconPanel' => 'mdi-box'
         //         ],
         //         'IncludeSections' => (object) []

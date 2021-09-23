@@ -131,8 +131,8 @@ class ModuleMakeModel extends Command
             $lowerModel = Str::lower($arguments['code']);
             $nameMigration = 'create_'. $lowerModel.'_'.$lowerModule .'_table';
 
-            Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
             Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module']);
+            Artisan::call('make:controller --model='.$arguments['module'].'/'.$arguments['code'].$arguments['module'].' '.$arguments['module'].'/'.$arguments['code'].'Controller');
             Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
             Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['code'].'Seeder');
             Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].'Factory');

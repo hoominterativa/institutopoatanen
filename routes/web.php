@@ -33,11 +33,36 @@ Route::get('/painel', [DashboardController::class, 'index'])->name('admin.dashbo
 Route::post('/painel/create', [DashboardController::class, 'create'])->name('admin.dashboard.create');
 Route::get('/', [HomePageController::class ,'index'])->name('home');
 
-// INSERT ROUTES
+/**
+ *
+ * Create essential routes according to the configurations of modules and templates
+ * to create new routes, insert them into your template's web file
+ *
+ */
+
+$class = config('modelsConfig.Class');
 $modelsMain = config('modelsConfig.InsertModelsMain');
+
 foreach ($modelsMain as $module => $models) {
     foreach ($models as $code => $model) {
-        $modelLw = Str::lower($code);
-        include_once "{$module}/{$modelLw}.php";
+        $modelConfig = $model->config;
+
+        $route = Str::slug($modelConfig->titlePanel);
+        $routeName = Str::lower($code);
+        $controller = $class->$module->$code->controller;
+        $parameters = $code.$module;
+
+        // ADMIN
+        Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $controller, $routeName, $parameters){
+            Route::resource($route, $controller)->names('admin.'.$routeName)->parameters([$route => $parameters]);
+            Route::post($route.'/delete', [$controller, 'destroySelected'])->name('admin.'.$routeName.'.destroySelected');
+            Route::post($route.'/sorting', [$controller, 'sorting'])->name('admin.'.$routeName.'.sorting');
+        });
+
+        // CLIENT
+        Route::get($route, [$controller, 'page'])->name($routeName.'.page');
+        Route::get($route.'/{'.$parameters.'}', [$controller, 'show'])->name($routeName.'.show');
+
+        include_once "{$module}/{$code}.php";
     }
 }

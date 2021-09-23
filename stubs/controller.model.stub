@@ -5,6 +5,8 @@ namespace {{ namespace }};
 use {{ namespacedModel }};
 use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
 
 class {{ class }} extends Controller
 {
@@ -36,27 +38,17 @@ class {{ class }} extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function show({{ model }} ${{ modelVariable }})
-    {
-        //
+        Session::flash('success', 'Item cadastrado com sucessso');
+        return;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @param  \{{ namespacedModel }}  ${{ model }}
      * @return \Illuminate\Http\Response
      */
-    public function edit({{ model }} ${{ modelVariable }})
+    public function edit({{ model }} ${{ model }})
     {
         //
     }
@@ -65,22 +57,89 @@ class {{ class }} extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @param  \{{ namespacedModel }}  ${{ model }}
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, {{ model }} ${{ modelVariable }})
+    public function update(Request $request, {{ model }} ${{ model }})
     {
-        //
+        Session::flash('success', 'Item atualizado com sucessso');
+        return;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @param  \{{ namespacedModel }}  ${{ model }}
      * @return \Illuminate\Http\Response
      */
-    public function destroy({{ model }} ${{ modelVariable }})
+    public function destroy({{ model }} ${{ model }})
+    {
+        if(${{ model }}->delete()){
+            Session::flash('success', 'Item deletado com sucessso');
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Remove the selected resource from storage.
+     *
+     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroySelected(Request $request)
+    {
+        if($deleted = {{ model }}::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        }
+    }
+    /**
+    * Sort record by dragging and dropping
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+
+    public function sorting(Request $request)
+    {
+        foreach($request->arrId as $sorting => $id){
+            {{ model }}::where('id', $id)->update(['sorting' => $sorting]);
+        }
+        return Response::json(['status' => 'success']);
+    }
+
+    // METHODS CLIENT
+
+    /**
+     * Display the specified resource.
+     * Content method
+     *
+     * @param  \{{ namespacedModel }}  ${{ model }}
+     * @return \Illuminate\Http\Response
+     */
+    public function show({{ model }} ${{ model }})
     {
         //
+    }
+
+    /**
+     * Display a listing of the resourcee.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function page(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Section index resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function section()
+    {
+        return view('');
     }
 }
