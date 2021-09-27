@@ -27,6 +27,7 @@ class UserFactory extends Factory
             'name' => 'Administrador',
             'email' => 'developer@hoom.com.br',
             'password' => Hash::make('@Hoomdeveloper'),
+            'active' => 1,
             'remember_token' => Str::random(10),
         ];
     }
