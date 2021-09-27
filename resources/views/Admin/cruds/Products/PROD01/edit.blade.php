@@ -24,6 +24,7 @@
                     @include('Admin.Module.CODE.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    {!! Form::submit('Salvar', ['class'=>'btn btn-primary float-end me-3']) !!}
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

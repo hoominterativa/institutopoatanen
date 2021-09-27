@@ -27,6 +27,7 @@
     "/admin/assets/libs/sweetalert2.all.min.js": "/admin/assets/libs/sweetalert2.all.min.js?id=1c02231377f23278d072",
     "/admin/assets/libs/jquery.toast.min.js": "/admin/assets/libs/jquery.toast.min.js?id=076931b6313245f825e7",
     "/admin/assets/libs/jquery.sortable.min.js": "/admin/assets/libs/jquery.sortable.min.js?id=d6d524d9cdc0ee5ff9cf",
+    "/admin/assets/libs/tippy.all.min.js": "/admin/assets/libs/tippy.all.min.js?id=907b81117e918fc906e2",
     "/admin/assets/js/pages/form-validation.init.js": "/admin/assets/js/pages/form-validation.init.js?id=8acea4cc2bf72737036c",
     "/admin/assets/js/pages/form-advanced.init.js": "/admin/assets/js/pages/form-advanced.init.js?id=745aea8078d701cd32d9",
     "/admin/assets/js/pages/form-pickers.init.js": "/admin/assets/js/pages/form-pickers.init.js?id=f454b086c3342073ef92",
@@ -58,8 +59,11 @@
     "/admin/assets/libs/dropify.min.css": "/admin/assets/libs/dropify.min.css?id=079123976391b5ccb54e",
     "/admin/assets/libs/bootstrap-table.min.css": "/admin/assets/libs/bootstrap-table.min.css?id=351872f8e4e118f92dbc",
     "/admin/assets/libs/sweetalert2.min.css": "/admin/assets/libs/sweetalert2.min.css?id=a9c2f4051b00fbcf2987",
-    "/admin/assets/libs/jquery.toast.min.css": "/admin/assets/libs/jquery.toast.min.css?id=be8a6c1b1899c2ce48fd",
-    "/admin/assets/fonts/cerebrisans-bold.eot": "/admin/assets/fonts/cerebrisans-bold.eot?id=d54bab01eba3f7bbee45",
+    <<
+    << << < HEAD "/admin/assets/libs/jquery.toast.min.css": "/admin/assets/libs/jquery.toast.min.css?id=be8a6c1b1899c2ce48fd",
+    ===
+    === = >>>
+    >>> > feature / SEO / v0 .0 .1 "/admin/assets/fonts/cerebrisans-bold.eot": "/admin/assets/fonts/cerebrisans-bold.eot?id=d54bab01eba3f7bbee45",
     "/admin/assets/fonts/cerebrisans-bold.svg": "/admin/assets/fonts/cerebrisans-bold.svg?id=9d5cea304e5db4dfc6d5",
     "/admin/assets/fonts/cerebrisans-bold.ttf": "/admin/assets/fonts/cerebrisans-bold.ttf?id=bb6fcc9405c8fdba329e",
     "/admin/assets/fonts/cerebrisans-bold.woff": "/admin/assets/fonts/cerebrisans-bold.woff?id=9c3e2df4858f97180df2",

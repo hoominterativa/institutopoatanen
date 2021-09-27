@@ -11,20 +11,19 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">Name</a></li>
-                                    <li class="breadcrumb-item active">Cadastro de Name</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.optimization.index')}}">Informações de SEO</a></li>
+                                    <li class="breadcrumb-item active">Editar  Informações de SEO</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro de Name</h4>
+                            <h4 class="page-title">Editar Informações de SEO</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model(null, ['route' => 'admin.code.store', 'class'=>'parsley-examples']) !!}
-                    @include('Admin.Module.CODE.form')
-                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                    {!! Form::submit('Cadastrar', ['class'=>'btn btn-primary float-end me-3']) !!}
+                {!! Form::model($optimization, ['route' => ['admin.optimization.update', $optimization->id], 'method' => 'PUT', 'class'=>'parsley-examples']) !!}
+                    @include('Admin.cruds.Optimization.form')
+                    {!! Form::submit('Salvar', ['class'=>'btn btn-primary float-end me-3']) !!}
+                    <a class="btn btn-secondary float-end me-1" href="{{route('admin.optimization.index')}}">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

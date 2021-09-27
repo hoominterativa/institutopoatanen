@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{config('app.locale')}}">
     <head>
         <meta charset="utf-8" />
-        <title>Painel Administrador</title>
+        <title>{{env('APP_NAME')}} - Painel Gerenciador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta name="author" content="Hoom interativa">
+        <meta name="description" content="Sistema de gerenciamento do site {{env('APP_NAME')}}">
+        <meta name="copyright" content="© 2021 Hoom insterativa." />
+        <meta name="robots" content="none">
+        <meta name="googlebot" content="noarchive">
+
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
@@ -361,6 +368,7 @@
         <script src="{{url(mix('admin/assets/libs/jquery.toast.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/js/pages/toastr.init.js'))}}"></script>
 
+        <script src="{{url(mix('admin/assets/libs/tippy.all.min.js'))}}"></script>
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')

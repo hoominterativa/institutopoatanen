@@ -14,19 +14,33 @@ return [
     'InsertModelsMain' => (object) [
         // 'Products' => (object) [
         //     'PROD01' => (object)[
-        //         'ViewHome' => true,
+        //         'ViewHome' => false,
         //         'ViewListMenu' => true,
         //         'IncludeCore' => [true, 3], // @param 1 boolean | @param 2 Int Limit
         //         'config' => (object) [
-        //             'titleMenu' => 'Artigos',
-        //             'achor' =>  false,
+        //             'titleMenu' => 'Produtos',
+        //             'anchor' =>  false,
         //             'linkMenu' => 'prod01.page',
         //             'iconMenu' => 'mdi-home',
         //             'titlePanel' => 'Configurações',
         //             'iconPanel' => 'mdi-box'
         //         ],
         //         'IncludeSections' => (object) []
-        //     ]
+        //     ],
+        //     'PROD02' => (object)[
+        //         'ViewHome' => false,
+        //         'ViewListMenu' => true,
+        //         'IncludeCore' => [true, 3], // @param 1 boolean | @param 2 Int Limit
+        //         'config' => (object) [
+        //             'titleMenu' => 'Artigos',
+        //             'anchor' =>  false,
+        //             'linkMenu' => 'prod02.page',
+        //             'iconMenu' => 'mdi-home',
+        //             'titlePanel' => 'Artigos',
+        //             'iconPanel' => 'mdi-box'
+        //         ],
+        //         'IncludeSections' => (object) []
+        //     ],
         // ]
     ],
 

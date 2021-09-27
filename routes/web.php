@@ -3,6 +3,8 @@
 use Illuminate\Support\Str;
 use App\Models\SettingTheme;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Optimization;
+use App\Models\OptimizePage;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -12,6 +14,9 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
+use App\Http\Controllers\OptimizationController;
+use App\Http\Controllers\OptimizePageController;
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +26,12 @@ use App\Http\Controllers\User\AuthController as UserAuthController;
 
 View::composer('Client.Core.client', function ($view) {
     $renderCore = new CoreController();
-    return $view->with('renderHeader', $renderCore->renderHeader())->with('renderFooter', $renderCore->renderFooter());
+    $optimization = Optimization::first();
+    $optimizePage = OptimizePage::where('page', Request::path())->first();
+    return $view->with('renderHeader', $renderCore->renderHeader())
+        ->with('renderFooter', $renderCore->renderFooter())
+        ->with('optimizePage', $optimizePage)
+        ->with('optimization', $optimization);
 });
 
 View::composer('Admin.core.admin', function ($view) {
@@ -40,12 +50,24 @@ Route::prefix('painel')->group(function () {
     Route::post('login.do', [UserAuthController::class, 'authenticate'])->name('admin.user.authenticate');
 
     Route::middleware('auth')->group(function () {
+        // DASHBOARD
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+        // CRUD USER
         Route::resource('usuarios', UserController::class)->names('admin.user')->parameters(['usuarios' => 'user']);
         Route::post('usuarios/delete', [UserController::class, 'destroySelected'])->name('admin.user.destroySelected');
         Route::post('usuarios/sorting', [UserController::class, 'sorting'])->name('admin.user.sorting');
-        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-        Route::get('logout', [UserAuthController::class, 'logout'])->name('admin.user.logout');
+
+        // SETTINGS THEME
         Route::post('setting', [SettingThemeController::class, 'setting'])->name('admin.settingTheme');
+
+        // CRUD SEO
+        Route::resource('otimizacao', OptimizationController::class)->names('admin.optimization')->parameters(['otimizacao' => 'optimization']);
+        Route::resource('otimizar-pagina', OptimizePageController::class)->names('admin.optimizePage')->parameters(['otimizar-pagina' => 'optimizePage']);
+        Route::post('otimizar-pagina/delete', [OptimizePageController::class, 'destroySelected'])->name('admin.optimizePage.destroySelected');
+
+        // LOGOUT
+        Route::get('logout', [UserAuthController::class, 'logout'])->name('admin.user.logout');
     });
 });
 
@@ -60,7 +82,6 @@ Route::get('/', [HomePageController::class ,'index'])->name('home');
 
 $class = config('modelsConfig.Class');
 $modelsMain = config('modelsConfig.InsertModelsMain');
-
 foreach ($modelsMain as $module => $models) {
     foreach ($models as $code => $model) {
         $modelConfig = $model->config;

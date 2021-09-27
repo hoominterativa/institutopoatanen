@@ -30,6 +30,7 @@ mix
     .scripts('node_modules/sweetalert2/dist/sweetalert2.all.min.js', 'public/admin/assets/libs/sweetalert2.all.min.js')
     .scripts('node_modules/jquery-toast-plugin/dist/jquery.toast.min.js', 'public/admin/assets/libs/jquery.toast.min.js')
     .scripts('resources/views/Admin/assets/js/libs/jquery.sortable.min.js', 'public/admin/assets/libs/jquery.sortable.min.js')
+    .scripts('node_modules/tippy.js/dist/tippy.all.min.js', 'public/admin/assets/libs/tippy.all.min.js')
     // Pages
     .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/admin/assets/js/pages/form-advanced.init.js')
