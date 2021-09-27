@@ -42,6 +42,7 @@ mix
     .scripts('resources/views/Admin/assets/js/pages/bootstrap-tables.init.js', 'public/admin/assets/js/pages/bootstrap-tables.init.js')
     .scripts('resources/views/Admin/assets/js/pages/tabledit.init.js', 'public/admin/assets/js/pages/tabledit.init.js')
     .scripts('resources/views/Admin/assets/js/pages/toastr.init.js', 'public/admin/assets/js/pages/toastr.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/materialdesign.init.js', 'public/admin/assets/js/pages/materialdesign.init.js')
 
 //CSS
 .styles('resources/views/Admin/assets/css/config/bootstrap.min.css', 'public/admin/assets/css/config/bootstrap.min.css')

@@ -296,7 +296,7 @@
                             <li class="menu-title">Navegação</li>
 
                             <li>
-                                <a href="{{route('admin.dashboard')}}">
+                                <a nofollow href="{{route('admin.dashboard')}}">
                                     <i class="mdi mdi-view-dashboard-outline"></i>
                                     <span> Dashboard </span>
                                 </a>
@@ -305,7 +305,7 @@
                             @foreach ($modelsMain as $module => $models)
                                 @foreach ($models as $code => $model)
                                     <li>
-                                        <a href="{{route('admin.'.Str::lower($code).'.index')}}">
+                                        <a nofollow href="{{route('admin.'.Str::lower($code).'.index')}}">
                                             <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
                                             <span> {{$model->config->titlePanel}} </span>
                                         </a>
@@ -314,7 +314,13 @@
                             @endforeach
 
                             <li>
-                                <a href="{{route('admin.user.index')}}">
+                                <a nofollow href="{{route('admin.optimization.index')}}">
+                                    <i class="mdi-google-analytics mdi"></i>
+                                    <span> SEO </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a nofollow href="{{route('admin.user.index')}}">
                                     <i class="mdi-account mdi"></i>
                                     <span> Usuários </span>
                                 </a>
@@ -322,13 +328,13 @@
                             <li class="menu-title mt-2">Suporte</li>
 
                             <li>
-                                <a href="apps-calendar.html">
+                                <a nofollow href="#">
                                     <i class="mdi mdi-headphones"></i>
                                     <span> Chamados </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="apps-calendar.html">
+                                <a nofollow href="#">
                                     <i class="mdi mdi-help-box"></i>
                                     <span> Tutoriais </span>
                                 </a>

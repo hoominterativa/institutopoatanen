@@ -3,7 +3,7 @@
     "/css/app.css": "/css/app.css?id=daa888c679b04ce22238",
     "/admin/assets/js/app.min.js": "/admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc",
     "/admin/assets/js/vendor.min.js": "/admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026",
-    "/admin/assets/js/custom.js": "/admin/assets/js/custom.js?id=0407b076987d9e1228b2",
+    "/admin/assets/js/custom.js": "/admin/assets/js/custom.js?id=c57f55e23ffce9f7e50e",
     "/admin/assets/libs/parsley.min.js": "/admin/assets/libs/parsley.min.js?id=fcfe6ae30a25b06f0c24",
     "/admin/assets/libs/selectize.min.js": "/admin/assets/libs/selectize.min.js?id=567d7ca1bb35dea2958a",
     "/admin/assets/libs/switchery.min.js": "/admin/assets/libs/switchery.min.js?id=05e4a5e605c1727da272",
@@ -38,6 +38,7 @@
     "/admin/assets/js/pages/bootstrap-tables.init.js": "/admin/assets/js/pages/bootstrap-tables.init.js?id=a5a1b0f3dc2f03015a4e",
     "/admin/assets/js/pages/tabledit.init.js": "/admin/assets/js/pages/tabledit.init.js?id=fe0b10a1b26b92ef1a8d",
     "/admin/assets/js/pages/toastr.init.js": "/admin/assets/js/pages/toastr.init.js?id=840ac92f4b798c56e1dd",
+    "/admin/assets/js/pages/materialdesign.init.js": "/admin/assets/js/pages/materialdesign.init.js?id=a965c953ae797f1d89a7",
     "/admin/assets/css/config/bootstrap.min.css": "/admin/assets/css/config/bootstrap.min.css?id=3eb7b516b7e330bf0701",
     "/admin/assets/css/config/app.min.css": "/admin/assets/css/config/app.min.css?id=bc8a408218ed01b7c142",
     "/admin/assets/css/config/bootstrap-dark.min.css": "/admin/assets/css/config/bootstrap-dark.min.css?id=bcddd60d520f8a17a7ca",
@@ -59,11 +60,8 @@
     "/admin/assets/libs/dropify.min.css": "/admin/assets/libs/dropify.min.css?id=079123976391b5ccb54e",
     "/admin/assets/libs/bootstrap-table.min.css": "/admin/assets/libs/bootstrap-table.min.css?id=351872f8e4e118f92dbc",
     "/admin/assets/libs/sweetalert2.min.css": "/admin/assets/libs/sweetalert2.min.css?id=a9c2f4051b00fbcf2987",
-    <<
-    << << < HEAD "/admin/assets/libs/jquery.toast.min.css": "/admin/assets/libs/jquery.toast.min.css?id=be8a6c1b1899c2ce48fd",
-    ===
-    === = >>>
-    >>> > feature / SEO / v0 .0 .1 "/admin/assets/fonts/cerebrisans-bold.eot": "/admin/assets/fonts/cerebrisans-bold.eot?id=d54bab01eba3f7bbee45",
+    "/admin/assets/libs/jquery.toast.min.css": "/admin/assets/libs/jquery.toast.min.css?id=be8a6c1b1899c2ce48fd",
+    "/admin/assets/fonts/cerebrisans-bold.eot": "/admin/assets/fonts/cerebrisans-bold.eot?id=d54bab01eba3f7bbee45",
     "/admin/assets/fonts/cerebrisans-bold.svg": "/admin/assets/fonts/cerebrisans-bold.svg?id=9d5cea304e5db4dfc6d5",
     "/admin/assets/fonts/cerebrisans-bold.ttf": "/admin/assets/fonts/cerebrisans-bold.ttf?id=bb6fcc9405c8fdba329e",
     "/admin/assets/fonts/cerebrisans-bold.woff": "/admin/assets/fonts/cerebrisans-bold.woff?id=9c3e2df4858f97180df2",

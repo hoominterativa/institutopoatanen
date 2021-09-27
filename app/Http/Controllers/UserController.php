@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate('20');
-        return view('Admin.User.index',[
+        return view('Admin.cruds.User.index',[
             'users' => $users
         ]);
     }
@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('Admin.User.create');
+        return view('Admin.cruds.User.create');
     }
 
     /**
@@ -80,7 +80,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('Admin.user.edit',[
+        return view('Admin.cruds.user.edit',[
             'user' => $user
         ]);
     }

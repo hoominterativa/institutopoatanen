@@ -68,6 +68,11 @@ Route::prefix('painel')->group(function () {
 
         // LOGOUT
         Route::get('logout', [UserAuthController::class, 'logout'])->name('admin.user.logout');
+
+        // ICONS
+        Route::get('icones', function(){
+            return view('Admin.icons');
+        });
     });
 });
 
