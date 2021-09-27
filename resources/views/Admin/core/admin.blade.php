@@ -31,7 +31,7 @@
     </head>
 
     <!-- body start -->
-    <body class="loading" data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+    <body class="loading" data-layout='{"mode": "{{$settingTheme->color_scheme_mode}}", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "{{$settingTheme->leftsidebar_color}}", "size": "{{$settingTheme->leftsidebar_size}}", "showuser": false}, "topbar": {"color": "{{$settingTheme->topbar_color}}"}, "showRightSidebarOnPageLoad": true}'>
 
         <!-- Begin page -->
         <div id="wrapper">
@@ -172,7 +172,7 @@
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src="{{asset('admin/assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ms-1">
-                                    Geneva <i class="mdi mdi-chevron-down"></i>
+                                    {{explode(' ', Auth::user()->name)[0]}} <i class="mdi mdi-chevron-down"></i>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -182,13 +182,7 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-user"></i>
-                                    <span>Minha Conta</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="javascript:void(0);" class="dropdown-item right-bar-toggle notify-item">
                                     <i class="fe-settings"></i>
                                     <span>Configurações</span>
                                 </a>
@@ -196,18 +190,12 @@
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{route('admin.user.logout')}}" class="dropdown-item notify-item">
                                     <i class="fe-log-out"></i>
                                     <span>Sair</span>
                                 </a>
 
                             </div>
-                        </li>
-
-                        <li class="dropdown notification-list">
-                            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                                <i class="fe-settings noti-icon"></i>
-                            </a>
                         </li>
 
                     </ul>
@@ -269,6 +257,10 @@
                                         </a>
                                     @endforeach
                                 @endforeach
+                                <a href="{{route('admin.user.create')}}" class="dropdown-item">
+                                    <i class="mdi-account mdi me-1"></i>
+                                    <span>Usuário</span>
+                                </a>
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
@@ -302,6 +294,7 @@
                                     <span> Dashboard </span>
                                 </a>
                             </li>
+
                             @foreach ($modelsMain as $module => $models)
                                 @foreach ($models as $code => $model)
                                     <li>
@@ -313,6 +306,12 @@
                                 @endforeach
                             @endforeach
 
+                            <li>
+                                <a href="{{route('admin.user.index')}}">
+                                    <i class="mdi-account mdi"></i>
+                                    <span> Usuários </span>
+                                </a>
+                            </li>
                             <li class="menu-title mt-2">Suporte</li>
 
                             <li>
@@ -350,100 +349,7 @@
 
         </div>
         <!-- END wrapper -->
-
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div data-simplebar class="h-100">
-
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-bordered nav-justified" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link py-2 active" data-bs-toggle="tab" href="#settings-tab" role="tab">
-                            <i class="mdi mdi-cog-outline d-block font-22 my-1"></i>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content pt-0">
-                    <div class="tab-pane active" id="settings-tab" role="tabpanel">
-                        <h6 class="fw-medium px-3 m-0 py-2 font-13 text-uppercase bg-light">
-                            <span class="d-block py-1">Configurações de tema</span>
-                        </h6>
-
-                        <div class="p-3">
-                            <div class="alert alert-warning" role="alert">
-                                <strong>Personalize</strong> o esquema geral de cores, o menu da barra lateral, Topo, etc..
-                            </div>
-
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Esquema de cores</h6>
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="color-scheme-mode" value="light"
-                                    id="light-mode-check" checked />
-                                <label class="form-check-label" for="light-mode-check">Light</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="color-scheme-mode" value="dark"
-                                    id="dark-mode-check" />
-                                <label class="form-check-label" for="dark-mode-check">Dark</label>
-                            </div>
-
-                            <!-- Left Sidebar-->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Cor da barra lateral esquerda</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftsidebar-color" value="light" id="light-check" />
-                                <label class="form-check-label" for="light-check">Light</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftsidebar-color" value="dark" id="dark-check" checked/>
-                                <label class="form-check-label" for="dark-check">Dark</label>
-                            </div>
-
-                            <!-- size -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Tamanho da barra lateral esquerda</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftsidebar-size" value="default"
-                                    id="default-size-check" checked />
-                                <label class="form-check-label" for="default-size-check">Default</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftsidebar-size" value="condensed"
-                                    id="condensed-check" />
-                                <label class="form-check-label" for="condensed-check">Condensed <small>(Extra Small size)</small></label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftsidebar-size" value="compact"
-                                    id="compact-check" />
-                                <label class="form-check-label" for="compact-check">Compact <small>(Small size)</small></label>
-                            </div>
-
-                            <!-- Topbar -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Barra superior</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="topbar-color" value="dark" id="darktopbar-check"
-                                    checked />
-                                <label class="form-check-label" for="darktopbar-check">Dark</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="topbar-color" value="light" id="lighttopbar-check" />
-                                <label class="form-check-label" for="lighttopbar-check">Light</label>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
+        @include('Admin.components.models.settingsTheme')
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
@@ -454,6 +360,7 @@
         <script src="{{url(mix('admin/assets/libs/jquery.sortable.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/libs/jquery.toast.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/js/pages/toastr.init.js'))}}"></script>
+
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')
