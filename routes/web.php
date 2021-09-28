@@ -1,22 +1,27 @@
 <?php
 
 use Illuminate\Support\Str;
-use App\Models\SettingTheme;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Optimization;
 use App\Models\OptimizePage;
+use App\Models\SettingTheme;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\CoreController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\SettingThemeController;
-use App\Http\Controllers\User\AuthController as UserAuthController;
+use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ContactLeadController;
 use App\Http\Controllers\OptimizationController;
 use App\Http\Controllers\OptimizePageController;
-use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\SettingThemeController;
+use App\Http\Controllers\GeneralSettingController;
+use App\Http\Controllers\NewsletterLeadController;
+use App\Http\Controllers\User\AuthController as UserAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +78,23 @@ Route::prefix('painel')->group(function () {
         Route::get('icones', function(){
             return view('Admin.icons');
         });
+
+        // GENERAL SETTING
+        Route::resource('configuracoes-gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['configuracoes-gerais' => 'GeneralSetting']);
+
+        // SOCIAL
+        Route::resource('social', SocialController::class)->names('admin.social')->parameters(['social' => 'Social']);
+        Route::post('social/delete', [SocialController::class, 'destroySelected'])->name('admin.social.destroySelected');
+        Route::post('social/sorting', [SocialController::class, 'sorting'])->name('admin.social.sorting');
+
+        // LEAD CONTACT
+        Route::get('contatos', [ContactLeadController::class, 'index'])->name('admin.contact.index');
+
+        // LEAD NEWSLETTER
+        Route::get('newsletter', [NewsletterLeadController::class, 'index'])->name('admin.newsletter.index');
+
+        // SETTING FORM CONTACT
+        Route::get('configuracao-formulario', [ContactFormController::class, 'index'])->name('admin.newsletter.index');
     });
 });
 

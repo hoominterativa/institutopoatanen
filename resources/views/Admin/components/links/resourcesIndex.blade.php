@@ -12,5 +12,4 @@
 
     <!-- Pages init js-->
     <script src="{{url(mix('admin/assets/js/pages/bootstrap-tables.init.js'))}}"></script>
-    <script src="{{url(mix('admin/assets/js/pages/tabledit.init.js'))}}"></script>
 @endpush

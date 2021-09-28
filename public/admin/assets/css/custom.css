@@ -40,3 +40,8 @@
 .sortable-placeholder {
     height: 61px;
 }
+
+.rightbar-overlay,
+.modal {
+    background-color: rgb(0 0 0 / 42%) !important;
+}

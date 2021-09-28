@@ -15,7 +15,16 @@ class CreateGeneralSettingsTable extends Migration
     {
         Schema::create('general_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('')->nullable();
+            $table->string('path_logo_header')->nullable();
+            $table->string('path_logo_footer')->nullable();
+            $table->string('path_logo_share')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('address')->nullable();
+            $table->string('smtp_host')->nullable();
+            $table->string('smtp_port')->nullable();
+            $table->string('smtp_user')->nullable();
+            $table->string('smtp_password')->nullable();
             $table->timestamps();
         });
     }

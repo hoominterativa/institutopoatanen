@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             SettingThemeSeeder::class,
-            OptimizationSeeder::class
+            OptimizationSeeder::class,
+            GeneralSettingSeeder::class,
         ]);
     }
 }
