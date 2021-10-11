@@ -26,27 +26,23 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-3"></div>
-                                <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered">
+                                <table class="table table-bordered">
                                     <thead class="table-light">
                                         <tr>
                                             <th>Título Página</th>
                                             <th>Autor</th>
                                             <th>Descrição</th>
-                                            <th>Ações</th>
+                                            <th width="50px">Ações</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr>
-                                            <td>{{$optimization->title}}</td>
-                                            <td>{{$optimization->author}}</td>
-                                            <td>{{$optimization->description}}</td>
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <a href="{{route('admin.optimization.edit',['optimization' => $optimization->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                    </div>
-                                                </div>
+                                            <td class="align-middle">{{$optimization->title}}</td>
+                                            <td class="align-middle">{{$optimization->author}}</td>
+                                            <td class="align-middle">{{$optimization->description}}</td>
+                                            <td class="align-middle text-center">
+                                                <a href="{{route('admin.optimization.edit',['optimization' => $optimization->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -79,31 +75,33 @@
                                         <a href="{{route('admin.optimizePage.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
-                                <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered">
+                                <table class="table table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
-                                            <th class="bs-checkbox">
+                                            <th width="50px"></th>
+                                            <th width="30px" class="bs-checkbox">
                                                 <label><input name="btSelectAll" type="checkbox"></label>
                                             </th>
                                             <th>Página</th>
                                             <th>Título</th>
                                             <th>Autor</th>
                                             <th>Descrição</th>
-                                            <th>Ações</th>
+                                            <th width="90px">Ações</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody>
-                                        @foreach ($optimizePages as $key => $optimizePage)
+                                    <tbody data-route="{{route('admin.optimizePage.sorting')}}">
+                                        @foreach ($optimizePages as $optimizePage)
                                             <tr>
-                                                <td class="bs-checkbox">
-                                                    <label><input data-index="{{$key}}" name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$optimizePage->id}}"></label>
+                                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                                <td class="bs-checkbox align-middle">
+                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$optimizePage->id}}"></label>
                                                 </td>
-                                                <td>{{$optimizePage->page}}</td>
-                                                <td>{{$optimizePage->title}}</td>
-                                                <td>{{$optimizePage->author}}</td>
-                                                <td>{{$optimizePage->description}}</td>
-                                                <td>
+                                                <td class="align-middle">{{$optimizePage->page}}</td>
+                                                <td class="align-middle">{{$optimizePage->title}}</td>
+                                                <td class="align-middle">{{$optimizePage->author}}</td>
+                                                <td class="align-middle">{{$optimizePage->description}}</td>
+                                                <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
                                                             <a href="{{route('admin.optimizePage.edit',['optimizePage' => $optimizePage->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>

@@ -70,27 +70,45 @@ class GeneralSettingController extends Controller
     {
         $path = 'uploads/images/generalSetting/';
         $helperArchive = new HelperArchive();
-        $path_logo_header = $helperArchive->renameArchiveUpload($request, 'path_logo_header');
-        $path_logo_footer = $helperArchive->renameArchiveUpload($request, 'path_logo_footer');
+        $path_logo_header_light = $helperArchive->renameArchiveUpload($request, 'path_logo_header_light');
+        $path_logo_header_dark = $helperArchive->renameArchiveUpload($request, 'path_logo_header_dark');
+        $path_logo_footer_light = $helperArchive->renameArchiveUpload($request, 'path_logo_footer_light');
+        $path_logo_footer_dark = $helperArchive->renameArchiveUpload($request, 'path_logo_footer_dark');
         $path_logo_share = $helperArchive->renameArchiveUpload($request, 'path_logo_share');
+        $path_favicon = $helperArchive->renameArchiveUpload($request, 'path_favicon');
 
-
-        if($path_logo_header){
-            Storage::delete($GeneralSetting->path_logo_header);
-            $GeneralSetting->path_logo_header = $path.$path_logo_header;
-            $request->path_logo_header->storeAs($path, $path_logo_header);
+        if($path_logo_header_light){
+            Storage::delete($GeneralSetting->path_logo_header_light);
+            $GeneralSetting->path_logo_header_light = $path.$path_logo_header_light;
+            $request->path_logo_header_light->storeAs($path, $path_logo_header_light);
+        }
+        if($path_logo_header_dark){
+            Storage::delete($GeneralSetting->path_logo_header_dark);
+            $GeneralSetting->path_logo_header_dark = $path.$path_logo_header_dark;
+            $request->path_logo_header_dark->storeAs($path, $path_logo_header_dark);
         }
 
-        if($path_logo_footer){
-            Storage::delete($GeneralSetting->path_logo_footer);
-            $GeneralSetting->path_logo_footer = $path.$path_logo_footer;
-            $request->path_logo_footer->storeAs($path, $path_logo_footer);
+        if($path_logo_footer_light){
+            Storage::delete($GeneralSetting->path_logo_footer_light);
+            $GeneralSetting->path_logo_footer_light = $path.$path_logo_footer_light;
+            $request->path_logo_footer_light->storeAs($path, $path_logo_footer_light);
+        }
+        if($path_logo_footer_dark){
+            Storage::delete($GeneralSetting->path_logo_footer_dark);
+            $GeneralSetting->path_logo_footer_dark = $path.$path_logo_footer_dark;
+            $request->path_logo_footer_dark->storeAs($path, $path_logo_footer_dark);
         }
 
         if($path_logo_share){
             Storage::delete($GeneralSetting->path_logo_share);
 		    $GeneralSetting->path_logo_share = $path.$path_logo_share;
             $request->path_logo_share->storeAs($path, $path_logo_share);
+        }
+
+        if($path_favicon){
+            Storage::delete($GeneralSetting->path_favicon);
+		    $GeneralSetting->path_favicon = $path.$path_favicon;
+            $request->path_favicon->storeAs($path, $path_favicon);
         }
 
 		$GeneralSetting->phone = $request->phone;

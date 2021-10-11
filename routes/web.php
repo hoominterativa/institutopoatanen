@@ -22,6 +22,7 @@ use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
+use App\Models\GeneralSetting;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +40,16 @@ View::composer('Client.Core.client', function ($view) {
         ->with('optimization', $optimization);
 });
 
+View::composer('Admin.Core.auth', function ($view) {
+    $generalSetting = GeneralSetting::first();
+    return $view->with('generalSetting', $generalSetting);
+});
+
 View::composer('Admin.core.admin', function ($view) {
     $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     $settingTheme = SettingTheme::where('user_id', Auth::user()->id)->first();
-    return $view->with('modelsMain', $modelsMain)->with('settingTheme', $settingTheme);
+    $generalSetting = GeneralSetting::first();
+    return $view->with('modelsMain', $modelsMain)->with('settingTheme', $settingTheme)->with('generalSetting', $generalSetting);
 });
 
 View::composer('Admin.dashboard', function ($view) {
@@ -69,6 +76,7 @@ Route::prefix('painel')->group(function () {
         // CRUD SEO
         Route::resource('otimizacao', OptimizationController::class)->names('admin.optimization')->parameters(['otimizacao' => 'optimization']);
         Route::resource('otimizar-pagina', OptimizePageController::class)->names('admin.optimizePage')->parameters(['otimizar-pagina' => 'optimizePage']);
+        Route::post('otimizar-pagina/sorting', [OptimizePageController::class, 'sorting'])->name('admin.optimizePage.sorting');
         Route::post('otimizar-pagina/delete', [OptimizePageController::class, 'destroySelected'])->name('admin.optimizePage.destroySelected');
 
         // LOGOUT
@@ -94,7 +102,7 @@ Route::prefix('painel')->group(function () {
         Route::get('newsletter', [NewsletterLeadController::class, 'index'])->name('admin.newsletter.index');
 
         // SETTING FORM CONTACT
-        Route::get('configuracao-formulario', [ContactFormController::class, 'index'])->name('admin.newsletter.index');
+        Route::resource('configuracao-formulario', ContactFormController::class)->names('admin.contactForm')->parameters(['configuracao-formulario' => 'ContactForm']);
     });
 });
 

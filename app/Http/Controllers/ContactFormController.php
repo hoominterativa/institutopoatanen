@@ -17,7 +17,11 @@ class ContactFormController extends Controller
      */
     public function index()
     {
-        //
+        $ContactForm = ContactForm::first();
+        return view('Admin.cruds.contactForm.edit',[
+            'contactForm' => $ContactForm,
+            'configForm' => json_decode($ContactForm->inputs)
+        ]);
     }
 
     /**
@@ -62,8 +66,34 @@ class ContactFormController extends Controller
      */
     public function update(Request $request, ContactForm $ContactForm)
     {
-        Session::flash('success', 'Item atualizado com sucessso');
-        return;
+        // dd($request->all());
+        $arrayInputs = [];
+
+        foreach ($request->typeInput as $value) {
+            $titleInput = 'title_'.$value;
+            $optionInput = 'option_'.$value;
+
+            $requestTitle = $request->$titleInput;
+            $requestOption = $request->$optionInput;
+
+            $pushArray = [
+                $value => [
+                    'title' => $requestTitle,
+                    'option' => $requestOption
+                ]
+            ];
+            $arrayInputs = array_merge($arrayInputs, $pushArray);
+        }
+
+        $jsonInputs = json_encode($arrayInputs);
+
+        $ContactForm->email = $request->email;
+        $ContactForm->inputs = $jsonInputs;
+        $ContactForm->external_structure = $request->external_structure;
+        $ContactForm->save();
+
+        Session::flash('success', 'Configuração atualizada com sucessso');
+        return redirect()->back();
     }
 
     /**

@@ -17,6 +17,9 @@
                             <h4 class="page-title">Configurações Gerais</h4>
                         </div>
                     </div>
+                    <div class="col-12 mb-3">
+                        <a href="{{route('admin.contactForm.index')}}" class="btn btn-primary">Configurar Formulário de contato</i></a>
+                    </div>
                 </div>
                 <!-- end page title -->
                 {!! Form::model($generalSetting, ['autocomplete' => 'off', 'method' => 'PUT', 'enctype' => 'multipart/form-data', 'route' => ['admin.generalSetting.update', $generalSetting->id], 'class'=>'parsley-examples']) !!}
@@ -50,22 +53,22 @@
                                         <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#create-social-modal">Adicionar novo <i class="mdi mdi-plus"></i></button>
                                     </div>
                                 </div>
-                                <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
+                                <table class="table table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
-                                            <th></th>
-                                            <th class="bs-checkbox">
+                                            <th width="50"></th>
+                                            <th width="30px" class="bs-checkbox">
                                                 <label><input name="btSelectAll" type="checkbox"></label>
                                             </th>
                                             <th>Link</th>
-                                            <th>Icone</th>
-                                            <th>Ações</th>
+                                            <th width="50">Icone</th>
+                                            <th width="90">Ações</th>
                                         </tr>
                                     </thead>
 
                                     <tbody data-route="{{route('admin.social.sorting')}}">
                                         @foreach ($socials as $key => $social)
-                                            <tr>
+                                            <tr data-code="{{$social->id}}">
                                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="{{$key}}" name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$social->id}}"></label>

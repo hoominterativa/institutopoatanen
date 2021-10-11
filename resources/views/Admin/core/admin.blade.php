@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="{{mix('css/app.css')}}">
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="../assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
 
         @stack('createEditCss')
         @stack('indexCss')
@@ -47,25 +47,15 @@
             <div class="navbar-custom">
                 <div class="container-fluid">
                     <ul class="list-unstyled topnav-menu float-end mb-0">
-                        <li class="dropdown d-inline-block d-lg-none">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fe-search noti-icon"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
-                                <form class="p-3">
-                                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                </form>
-                            </div>
-                        </li>
 
                         <li class="dropdown d-none d-lg-inline-block">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">
+                            <a class="nav-link arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">
                                 <i class="fe-maximize noti-icon"></i>
                             </a>
                         </li>
 
                         <li class="dropdown d-none d-lg-inline-block topbar-dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toogle="tooltip" title="TESTE" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fe-grid noti-icon"></i>
                             </a>
                             <div class="dropdown-menu dropdown-lg dropdown-menu-end">
@@ -179,7 +169,7 @@
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src="{{asset('admin/assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ms-1">
-                                    {{explode(' ', Auth::user()->name)[0]}} <i class="mdi mdi-chevron-down"></i>
+                                    {{explode(' ', Auth::user()->name)[0]}}
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -211,21 +201,21 @@
                     <div class="logo-box">
                         <a href="{{route('admin.dashboard')}}" class="logo logo-dark text-center">
                             <span class="logo-sm">
-                                <img src="{{asset('admin/assets/images/logo-sm.png')}}" alt="" height="22">
+                                <img src="{{url('storage/'.$generalSetting->path_favicon)}}" alt="" height="22">
                                 <!-- <span class="logo-lg-text-light">UBold</span> -->
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('admin/assets/images/logo-dark.png')}}" alt="" height="20">
+                                <img src="{{url('storage/'.$generalSetting->path_logo_header_dark)}}" alt="" height="30">
                                 <!-- <span class="logo-lg-text-light">U</span> -->
                             </span>
                         </a>
 
                         <a href="{{route('admin.dashboard')}}" class="logo logo-light text-center">
                             <span class="logo-sm">
-                                <img src="{{asset('admin/assets/images/logo-sm.png')}}" alt="" height="22">
+                                <img src="{{url('storage/'.$generalSetting->path_favicon)}}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('admin/assets/images/logo-light.png')}}" alt="" height="20">
+                                <img src="{{url('storage/'.$generalSetting->path_logo_header_light)}}" alt="" height="40">
                             </span>
                         </a>
                     </div>
@@ -264,10 +254,12 @@
                                         </a>
                                     @endforeach
                                 @endforeach
+
                                 <a href="{{route('admin.user.create')}}" class="dropdown-item">
                                     <i class="mdi-account mdi me-1"></i>
                                     <span>Usuário</span>
                                 </a>
+
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
@@ -314,9 +306,21 @@
                             @endforeach
 
                             <li>
+                                <a nofollow href="{{route('admin.contact.index')}}">
+                                    <i class="mdi-handshake-outline mdi"></i>
+                                    <span> Lead Contato </span>
+                                </a>
+                            </li>
+                            <li>
                                 <a nofollow href="{{route('admin.optimization.index')}}">
                                     <i class="mdi-google-analytics mdi"></i>
                                     <span> SEO </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a nofollow href="{{route('admin.generalSetting.index')}}">
+                                    <i class="mdi mdi-hammer-wrench"></i>
+                                    <span> Configurações Gerais </span>
                                 </a>
                             </li>
                             <li>

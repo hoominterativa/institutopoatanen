@@ -25,48 +25,7 @@
                     'id'=>'message',
                 ]) !!}
             </div>
-        </div> <!-- end card-body-->
-    </div> <!-- end card-->
-    <div class="card col-12 col-lg-6">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="mb-3">
-                        {!! Form::label('file', 'Logo Topo', ['class'=>'form-label']) !!}
-                        {!! Form::file('path_logo_header', [
-                            'data-plugins'=>'dropify',
-                            'data-height'=>'150',
-                            'data-max-file-size-preview'=>'2M',
-                            'accept'=>'image/*',
-                            'data-default-file'=> asset('storage/'.$generalSetting->path_logo_header),
-                        ]) !!}
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mb-3">
-                        {!! Form::label('file', 'Logo Rodapé', ['class'=>'form-label']) !!}
-                        {!! Form::file('path_logo_footer', [
-                            'data-plugins'=>'dropify',
-                            'data-height'=>'150',
-                            'data-max-file-size-preview'=>'2M',
-                            'accept'=>'image/*',
-                            'data-default-file'=> asset('storage/'.$generalSetting->path_logo_footer),
-                        ]) !!}
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mb-3">
-                        {!! Form::label('file', 'Logo compartilhar', ['class'=>'form-label']) !!}
-                        {!! Form::file('path_logo_share', [
-                            'data-plugins'=>'dropify',
-                            'data-height'=>'150',
-                            'data-max-file-size-preview'=>'2M',
-                            'accept'=>'image/*',
-                            'data-default-file'=> asset('storage/'.$generalSetting->path_logo_share),
-                        ]) !!}
-                    </div>
-                </div>
-            </div>
+
             <h4 class="mb-3 mt-3">SMTP</h4>
 
             <div class="mb-3">
@@ -98,6 +57,109 @@
                         'class'=>'form-control',
                         'required'=>'required',
                     ])!!}
+            </div>
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+    <div class="card col-12 col-lg-6" id="tooltip-container">
+        <div class="card-body">
+            <p class="mt-2 mb-3 alert-warning p-2">As logos são usadas par o site e gerenciador recomendamos cadastrar todas as versões para que as mesmas não aparceçam quebradas em alguma parte do site ou gerenciador</p>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo normal Topo ', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos escuros, aparecerá no topo do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_header_light', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_header_light?asset('storage/'.$generalSetting->path_logo_header_light):'',
+                        ]) !!}
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo escura Topo ', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos claros, aparecerá no topo do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_header_dark', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_header_dark?asset('storage/'.$generalSetting->path_logo_header_dark):'',
+                        ]) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo normal Rodapé', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos escuros, aparecerá no final do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_footer_light', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_footer_light?asset('storage/'.$generalSetting->path_logo_footer_light):'',
+                        ]) !!}
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo escura Rodapé', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos claros, aparecerá no final do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_footer_dark', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_footer_dark?asset('storage/'.$generalSetting->path_logo_footer_dark):'',
+                        ]) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex align-items-center mb-1">
+                    {!! Form::label('file', 'Logo compartilhar', ['class'=>'form-label mb-0']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Logo que aparece quando o link do site é compartilhado"></i>
+                </div>
+                {!! Form::file('path_logo_share', [
+                    'data-plugins'=>'dropify',
+                    'data-height'=>'150',
+                    'data-max-file-size-preview'=>'2M',
+                    'accept'=>'image/*',
+                    'data-default-file'=> $generalSetting->path_logo_share?asset('storage/'.$generalSetting->path_logo_share):'',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                <div class="d-flex align-items-center mb-1">
+                    {!! Form::label('file', 'Icone de Favoritos (Favicon)', ['class'=>'form-label mb-0']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Icone que aparece na aba do navegador e/ou nos favoritos"></i>
+                </div>
+                {!! Form::file('path_favicon', [
+                    'data-plugins'=>'dropify',
+                    'data-height'=>'150',
+                    'data-max-file-size-preview'=>'2M',
+                    'accept'=>'image/*',
+                    'data-default-file'=> $generalSetting->path_favicon?asset('storage/'.$generalSetting->path_favicon):'',
+                ]) !!}
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->

@@ -32,39 +32,43 @@
                                         <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
-                                <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
+                                <table class="table table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
-                                            <th></th>
-                                            <th class="bs-checkbox">
+                                            <th width="50px"></th>
+                                            <th width="30px" class="bs-checkbox">
                                                 <label><input name="btSelectAll" type="checkbox"></label>
                                             </th>
+                                            <th>Imagem</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Job Title</th>
                                             <th>DOB</th>
-                                            <th>Status</th>
-                                            <th>Ações</th>
+                                            <th width="100px">Status</th>
+                                            <th width="90px">Ações</th>
                                         </tr>
                                     </thead>
 
                                     <tbody data-route="{{route('admin.code.sorting')}}">
-                                        @foreach ($teste as $key => $test)
-                                            <tr>
-                                                <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                                <td class="bs-checkbox">
-                                                    <label><input data-index="{{$key}}" name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$test->id}}"></label>
+                                        @foreach ($teste as $test)
+                                            <tr data-code="{{$test->id}}">
+                                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                                <td class="bs-checkbox align-middle">
+                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$test->id}}"></label>
                                                 </td>
-                                                <td>Isidra</td>
-                                                <td>Boudreaux</td>
-                                                <td>Traffic Court Referee</td>
-                                                <td>22 Jun 1972</td>
-                                                <td>
+                                                <td class="align-middle">
+                                                    <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('admin/assets/images/users/user-10.jpg')}})"></div>
+                                                </td>
+                                                <td class="align-middle">Boudreaux</td>
+                                                <td class="align-middle">Traffic Court Referee</td>
+                                                <td class="align-middle">22 Jun 1972</td>
+                                                <td class="align-middle">22 Jun 1972</td>
+                                                <td class="align-middle">
                                                     <span class="badge bg-success">Ativo</span>
                                                     <span class="badge bg-primary text-white">Destaque</span>
                                                     <span class="badge bg-danger">Inativo</span>
                                                 </td>
-                                                <td>
+                                                <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
                                                             <a href="{{route('admin.code.edit',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>

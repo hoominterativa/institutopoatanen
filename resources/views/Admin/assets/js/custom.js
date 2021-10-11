@@ -74,12 +74,14 @@ $(function() {
     $('.table-sortable tbody').sortable({
         handle: '.btnDrag'
     }).on('sortupdate', function(e, ui) {
+
         var arrId = []
         $(this).find('tr').each(function() {
             var id = $(this).data('code')
             arrId.push(id)
         })
 
+        console.log(arrId)
         $.ajax({
             type: 'POST',
             url: $(this).data('route'),
@@ -115,4 +117,61 @@ $(function() {
         }, 800);
 
     })
+
+    $('.selectTypeInput').on('change', function() {
+        var type = $(this).val()
+        var html = '<div class="infoInputs">'
+
+        // $(this).attr('name', type)
+
+        html += `
+                <div class="mb-3">
+                    <label class="form-label">Titulo</label>
+                    <input type="text" name="title_${type}" class="form-control" placeholder="Nome que será exibido para o cliente">
+                </div>
+            `
+        switch (type) {
+            case 'subject':
+            case 'met_us':
+                html += `
+                        <div class="mb-3">
+                            <label class="form-label">Opções</label>
+                            <input type="text" name="option_${type}" class="form-control" placeholder="Separar as opções com vírgula">
+                        </div>
+                    `
+                break;
+        }
+        html += '</div>'
+
+
+        $(this).parents('.container-type-input').find('.infoInputs').remove()
+        $(this).parents('.container-type-input').append(html);
+    })
+
+    $('.cloneTypeButton').on('click', function() {
+        $('.container-type-input:first').clone(true).appendTo('.container-inputs-contact');
+        $('.infoInputs:last').remove()
+    })
+
+    $('.deleteTypeButton').on('click', function() {
+        if ($('.container-type-input').length > 1) {
+            $(this).parents('.container-type-input').remove();
+        }
+    })
+
+    $('input[name=btSelectAll]').on('click', function() {
+        console.log($('.btSelectItem:checked').length)
+        if ($('.btSelectItem:checked').length == $('.btSelectItem').length) {
+            $('#btSubmitDelete').fadeOut('fast');
+            var checked = false
+        } else {
+            $('input[name=btSelectAll]').prop('checked', true)
+            $('#btSubmitDelete').fadeIn('fast');
+            var checked = true
+        }
+        $('.btSelectItem').each(function() {
+            $('.btSelectItem').prop("checked", checked)
+        })
+    })
+
 })

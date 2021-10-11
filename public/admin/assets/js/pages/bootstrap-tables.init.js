@@ -1,6 +1,8 @@
 $(function() {
     var e = $('input[name=btSelectAll]'),
         f = function() {
+            $('input[name=btSelectAll]').prop('checked', false)
+
             if ($('.btSelectItem:checked').length) {
                 $('#btSubmitDelete').fadeIn('fast')
             } else {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactLead;
 use App\Http\Controllers\Controller;
+use App\Models\ContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
@@ -17,7 +18,12 @@ class ContactLeadController extends Controller
      */
     public function index()
     {
-        //
+        $contactLeads = ContactLead::orderBy('created_at', 'DESC')->get();
+        $contactForm = ContactForm::first();
+        return view('Admin.cruds.contactLead.index', [
+            'contactLeads' => $contactLeads,
+            'contactForm' => json_decode($contactForm->inputs)
+        ]);
     }
 
     /**
