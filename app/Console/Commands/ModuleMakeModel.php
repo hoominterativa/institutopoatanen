@@ -20,6 +20,8 @@ class ModuleMakeModel extends Command
         {--s|section : Create a section view in model}
         {--p|page : Create a page view in model}
         {--c|content : Create a content view in model}
+        {--admin : Create administrator resources the model}
+        {--client : Create client resources the model}
     ';
 
     /**
@@ -72,21 +74,22 @@ class ModuleMakeModel extends Command
             }
 
             // Create views Admin
+            if($options['admin']){
+                $pathAdmin = 'resources/views/Admin/cruds/';
+                if(!is_dir($pathAdmin.$arguments['module'].'/'.$arguments['code'])) mkdir($pathAdmin.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
-            $pathAdmin = 'resources/views/Admin/cruds/';
-            if(!is_dir($pathAdmin.$arguments['module'].'/'.$arguments['code'])) mkdir($pathAdmin.$arguments['module'].'/'.$arguments['code'], 0777, true);
-
-            if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
-                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php');
-            }
-            if(copy('defaults/Admin/archive/edit.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php')){
-                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php');
-            }
-            if(copy('defaults/Admin/archive/index.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php')){
-                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
-            }
-            if(copy('defaults/Admin/archive/form.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php')){
-                $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php');
+                if(copy('defaults/Admin/archive/create.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php')){
+                    $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/create.blade.php');
+                }
+                if(copy('defaults/Admin/archive/edit.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php')){
+                    $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/edit.blade.php');
+                }
+                if(copy('defaults/Admin/archive/index.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php')){
+                    $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/index.blade.php');
+                }
+                if(copy('defaults/Admin/archive/form.blade.php', $pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php')){
+                    $this->info('Recurso criado '.$pathAdmin.$arguments['module'].'/'.$arguments['code'].'/form.blade.php');
+                }
             }
 
             // Create routes
@@ -96,24 +99,25 @@ class ModuleMakeModel extends Command
             }
 
             // Create views client
+            if($options['client']){
+                $pathClient = 'resources/views/Client/pages/';
 
-            $pathClient = 'resources/views/Client/pages/';
+                if(!is_dir($pathClient.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.$arguments['module'].'/'.$arguments['code'], 0777, true);
 
-            if(!is_dir($pathClient.$arguments['module'].'/'.$arguments['code'])) mkdir($pathClient.$arguments['module'].'/'.$arguments['code'], 0777, true);
-
-            if($options['section']){
-                if(copy('defaults/Client/archive/section.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
-                    $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
+                if($options['section']){
+                    if(copy('defaults/Client/archive/section.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/section.blade.php')){
+                        $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/section.blade.php');
+                    }
                 }
-            }
-            if($options['page']){
-                if(copy('defaults/Client/archive/page.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
-                    $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
+                if($options['page']){
+                    if(copy('defaults/Client/archive/page.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/page.blade.php')){
+                        $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/page.blade.php');
+                    }
                 }
-            }
-            if($options['content']){
-                if(copy('defaults/Client/archive/show.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
-                    $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
+                if($options['content']){
+                    if(copy('defaults/Client/archive/show.blade.php', $pathClient.$arguments['module'].'/'.$arguments['code'].'/show.blade.php')){
+                        $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/show.blade.php');
+                    }
                 }
             }
 
@@ -131,11 +135,18 @@ class ModuleMakeModel extends Command
             $lowerModel = Str::lower($arguments['code']);
             $nameMigration = 'create_'. $lowerModel.'_'.$lowerModule .'_table';
 
-            Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module']);
-            Artisan::call('make:controller --model='.$arguments['module'].'/'.$arguments['code'].$arguments['module'].' '.$arguments['module'].'/'.$arguments['code'].'Controller');
-            Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
-            Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['code'].'Seeder');
-            Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].'Factory');
+            if($options['admin']){
+                Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module']);
+                Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
+                Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['code'].'Seeder');
+                Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].'Factory');
+            }
+
+            if(!$options['admin'] && $options['client']){
+                Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].'Controller');
+            }else{
+                Artisan::call('make:controller --model='.$arguments['module'].'/'.$arguments['code'].$arguments['module'].' '.$arguments['module'].'/'.$arguments['code'].'Controller');
+            }
 
             $this->info('Todos os recursos criados com sucesso!');
 

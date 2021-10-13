@@ -12,31 +12,18 @@ return [
     ],
 
     'InsertModelsMain' => (object) [
-        // 'Products' => (object) [
-        //     'PROD01' => (object)[
+        // 'Contacts' => (object) [
+        //     'CONT01' => (object)[
         //         'ViewHome' => false,
         //         'ViewListMenu' => true,
-        //         'IncludeCore' => [true, 3], // @param 1 boolean | @param 2 Int Limit
+        //         'ViewListPanel' => true,
+        //         'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
         //         'config' => (object) [
-        //             'titleMenu' => 'Produtos',
+        //             'titleMenu' => 'Contato',
         //             'anchor' =>  false,
-        //             'linkMenu' => 'prod01.page',
-        //             'iconMenu' => 'mdi-home',
-        //             'titlePanel' => 'Configurações',
-        //             'iconPanel' => 'mdi-box'
-        //         ],
-        //         'IncludeSections' => (object) []
-        //     ],
-        //     'PROD02' => (object)[
-        //         'ViewHome' => false,
-        //         'ViewListMenu' => true,
-        //         'IncludeCore' => [true, 3], // @param 1 boolean | @param 2 Int Limit
-        //         'config' => (object) [
-        //             'titleMenu' => 'Artigos',
-        //             'anchor' =>  false,
-        //             'linkMenu' => 'prod02.page',
-        //             'iconMenu' => 'mdi-home',
-        //             'titlePanel' => 'Artigos',
+        //             'linkMenu' => 'cont01.page',
+        //             'iconMenu' => '',
+        //             'titlePanel' => 'Contato',
         //             'iconPanel' => 'mdi-box'
         //         ],
         //         'IncludeSections' => (object) []
@@ -54,11 +41,11 @@ return [
     ],
 
     'Class' => (object) [
-        'Products' => (object)[
-            'PROD01' => (object)[
-                'controller' => App\Http\Controllers\Products\PROD01Controller::class,
-                'model' => App\Models\Products\PROD01Products::class,
-            ],
-        ],
+        // 'Contacts' => (object)[
+        //     'CONT01' => (object)[
+        //         'controller' => App\Http\Controllers\Products\CONT01Controller::class,
+        //         'model' => App\Models\Products\CONT01Contacts::class,
+        //     ],
+        // ],
     ],
 ];

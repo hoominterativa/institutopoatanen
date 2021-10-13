@@ -52,11 +52,6 @@ View::composer('Admin.core.admin', function ($view) {
     return $view->with('modelsMain', $modelsMain)->with('settingTheme', $settingTheme)->with('generalSetting', $generalSetting);
 });
 
-View::composer('Admin.dashboard', function ($view) {
-    $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
-    return $view->with('modelsMain', $modelsMain);
-});
-
 Route::prefix('painel')->group(function () {
     Route::get('login', [UserAuthController::class, 'index'])->name('admin.user.login');
     Route::post('login.do', [UserAuthController::class, 'authenticate'])->name('admin.user.authenticate');

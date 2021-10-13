@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Teste;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Kodeine\Acl\Models\Eloquent\Role;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Kodeine\Acl\Models\Eloquent\Permission;
 
@@ -19,7 +21,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('Admin.dashboard');
+        $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
+        return view('Admin.dashboard',[
+            'modelsMain' => $modelsMain
+        ]);
     }
 
     /**

@@ -14,7 +14,7 @@ class ModuleDelete extends Command
         "factories" => "database/factories/",
         "seeders" => "database/seeders/",
         "migrations" => "database/migrations/",
-        "admin" => "resources/views/Admin/",
+        "admin" => "resources/views/Admin/cruds/",
         "client" => "resources/views/Client/pages/",
         "core" => "resources/views/Client/Core/",
         "routes" => "routes/",

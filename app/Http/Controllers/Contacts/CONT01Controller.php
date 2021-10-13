@@ -1,13 +1,13 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Http\Controllers\Contacts;
 
-use {{ rootNamespace }}Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
 
-class {{ class }} extends Controller
+class CONT01Controller extends Controller
 {
     /**
      * Display a listing of the resource.
