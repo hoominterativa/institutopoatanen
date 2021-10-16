@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use App\Models\GeneralSetting;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -19,7 +20,10 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return view('Admin.auth.login');
+        $generalSetting = GeneralSetting::first();
+        return view('Admin.auth.login',[
+            'generalSetting' => $generalSetting
+        ]);
     }
 
     /**

@@ -242,16 +242,17 @@
                         <li class="dropdown d-none d-xl-block">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 Cadastre novo
-                                <i class="mdi mdi-chevron-down"></i>
                             </a>
                             <div class="dropdown-menu">
                                 @foreach ($modelsMain as $module => $models)
                                     @foreach ($models as $code => $model)
-                                        <!-- item-->
-                                        <a href="{{route('admin.'.Str::lower($code).'.create')}}" class="dropdown-item">
-                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
-                                            <span>{{$model->config->titlePanel}}</span>
-                                        </a>
+                                        @if ($model->ViewListPanel)
+                                            <!-- item-->
+                                            <a href="{{route('admin.'.Str::lower($code).'.create')}}" class="dropdown-item">
+                                                <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
+                                                <span>{{$model->config->titlePanel}}</span>
+                                            </a>
+                                        @endif
                                     @endforeach
                                 @endforeach
 
@@ -296,12 +297,14 @@
 
                             @foreach ($modelsMain as $module => $models)
                                 @foreach ($models as $code => $model)
-                                    <li>
-                                        <a nofollow href="{{route('admin.'.Str::lower($code).'.index')}}">
-                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
-                                            <span> {{$model->config->titlePanel}} </span>
-                                        </a>
-                                    </li>
+                                    @if ($model->ViewListPanel)
+                                        <li>
+                                            <a nofollow href="{{route('admin.'.Str::lower($code).'.index')}}">
+                                                <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi"></i>
+                                                <span> {{$model->config->titlePanel}} </span>
+                                            </a>
+                                        </li>
+                                    @endif
                                 @endforeach
                             @endforeach
 

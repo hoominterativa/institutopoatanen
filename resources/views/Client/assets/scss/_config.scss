@@ -1,1 +1,174 @@
-@import "icons/materialdesignicons";
+body {
+    overflow-x: hidden;
+}
+
+#root {
+    overflow-x: hidden;
+    width: 100%;
+    display: block;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: rgba($primary, 0.50);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba($primary, 0.80);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: $primary;
+}
+
+.text-primary {
+    color: $primary !important;
+}
+
+.text-secondary {
+    color: $secondary !important;
+}
+
+// Font sizes (Custom)
+.font-11 {
+    font-size: 11px !important;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.font-13 {
+    font-size: 13px !important;
+}
+
+.font-14 {
+    font-size: 14px !important;
+}
+
+.font-15 {
+    font-size: 15px !important;
+}
+
+.font-16 {
+    font-size: 16px !important;
+}
+
+.font-17 {
+    font-size: 17px !important;
+}
+
+.font-18 {
+    font-size: 18px !important;
+}
+
+.font-19 {
+    font-size: 19px !important;
+}
+
+.font-20 {
+    font-size: 20px !important;
+}
+
+.font-22 {
+    font-size: 22px !important;
+}
+
+.font-24 {
+    font-size: 24px !important;
+}
+
+.font-26 {
+    font-size: 26px !important;
+}
+
+.font-28 {
+    font-size: 28px !important;
+}
+
+// Font Weight
+.fw-medium {
+    font-weight: 600;
+}
+
+.fw-semibold {
+    font-weight: 900;
+}
+
+.btn-icon {
+    transform: scale(1);
+    transition: ease all 0.4s;
+    &:hover {
+        transform: scale(1.15);
+        transition: ease all 0.4s;
+    }
+}
+
+.btn-check:checked+.btn-primary:focus,
+.btn-check:active+.btn-primary:focus,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba($primary, 50%);
+}
+
+.btn-primary,
+.btn-primary:disabled,
+.btn-primary.disabled {
+    color: #fff;
+    background-color: $primary;
+    border-color: $primary;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: #fff;
+        background-color: rgba($primary, 0.9);
+        border-color: rgba($primary, 0.9);
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba($primary, 0.5);
+    }
+}
+
+.btn-check:checked+.btn-primary,
+.btn-check:active+.btn-primary,
+.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: rgba($primary, 0.9);
+    border-color: rgba($primary, 0.9);
+}
+
+.btn-check:checked+.btn-primary:focus,
+.btn-check:active+.btn-primary:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba($primary, 0.5);
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: initial;
+    border-color: initial;
+    outline: 0;
+    box-shadow: none;
+}
+
+.body-section {
+    width: $wp-90;
+    max-width: $wp-90;
+    margin: 0 auto;
+}
+
+.parsley-error {
+    border-color: $danger;
+}
+
+.parsley-errors-list {
+    padding-left: 0;
+    font-size: 13px;
+    color: $danger;
+    li {
+        list-style: none;
+    }
+}

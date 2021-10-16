@@ -40,7 +40,7 @@ class ModulePublishAssets extends Command
     {
         $helperPublishing = new HelperPublishing();
         $return = $helperPublishing->createScssApp();
-        if($return == true){
+        if($return === true){
             $this->info("Assets published successful");
             return;
         }

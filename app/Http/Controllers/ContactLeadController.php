@@ -44,8 +44,10 @@ class ContactLeadController extends Controller
      */
     public function store(Request $request)
     {
+        $contactLead = ContactLead::create($request->toArray());
+
         Session::flash('success', 'Item cadastrado com sucessso');
-        return;
+        return redirect()->route('cont01.confirmation');
     }
 
     /**

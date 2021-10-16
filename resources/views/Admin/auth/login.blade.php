@@ -11,13 +11,13 @@
                         <div class="auth-logo">
                             <a href="index.html" class="logo logo-dark text-center">
                                 <span class="logo-lg">
-                                    <img src="{{asset('admin/assets/images/logo-dark.png')}}" alt="" height="22">
+                                    <img src="{{url('storage/'.$generalSetting->path_logo_header_dark)}}" alt="" height="40">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light text-center">
                                 <span class="logo-lg">
-                                    <img src="{{asset('admin/assets/images/logo-light.png')}}" alt="" height="22">
+                                    <img src="{{url('storage/'.$generalSetting->path_logo_header_light)}}" alt="" height="40">
                                 </span>
                             </a>
                         </div>

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContactLeadController;
 use Illuminate\Support\Str;
+use App\Http\Controllers\Contacts\CONT01Controller;
 
 /**
  * Uncomment the code below
@@ -11,19 +13,16 @@ use Illuminate\Support\Str;
  * Don't create  resource route
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Contacts';
+$model = 'CONT01';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::post($route.'/teste', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.sorting');
-// });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// CLIENT
+Route::post($route.'/send', [ContactLeadController::class, 'store'])->name($routeName.'.store');
+Route::get($route.'/confirmacao-contato', [CONT01Controller::class, 'confirmation'])->name($routeName.'.confirmation');

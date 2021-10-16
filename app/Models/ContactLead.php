@@ -10,4 +10,5 @@ class ContactLead extends Model
     use HasFactory;
 
     protected $table = "contact_lead";
+    protected $fillable = ['name', 'email', 'cellphone', 'phone', 'subject', 'met_us', 'description'];
 }

@@ -40,12 +40,13 @@ View::composer('Client.Core.client', function ($view) {
         ->with('optimization', $optimization);
 });
 
-View::composer('Admin.Core.auth', function ($view) {
+View::composer('Admin.core.auth', function ($view) {
     $generalSetting = GeneralSetting::first();
     return $view->with('generalSetting', $generalSetting);
 });
 
 View::composer('Admin.core.admin', function ($view) {
+
     $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     $settingTheme = SettingTheme::where('user_id', Auth::user()->id)->first();
     $generalSetting = GeneralSetting::first();
@@ -91,7 +92,7 @@ Route::prefix('painel')->group(function () {
         Route::post('social/sorting', [SocialController::class, 'sorting'])->name('admin.social.sorting');
 
         // LEAD CONTACT
-        Route::get('contatos', [ContactLeadController::class, 'index'])->name('admin.contact.index');
+        Route::resource('contatos', ContactLeadController::class)->names('admin.contact')->parameters(['contato' => 'ContactLead']);
 
         // LEAD NEWSLETTER
         Route::get('newsletter', [NewsletterLeadController::class, 'index'])->name('admin.newsletter.index');

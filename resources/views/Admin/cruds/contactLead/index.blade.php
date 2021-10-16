@@ -83,7 +83,7 @@
                                                                     <h4 class="modal-title">Detalhes do lead</h4>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
-                                                                <div class="modal-body p-4">
+                                                                <div class="text-start modal-body p-4">
                                                                     <div class="mb-3">
                                                                         @if (isset($contactForm->name))
                                                                             <div class="mb-3">

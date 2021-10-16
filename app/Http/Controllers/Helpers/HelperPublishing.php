@@ -13,11 +13,14 @@ class HelperPublishing extends Controller
         try{
             $createArchive = new HelperArchive();
             $coreConfig = config('modelsConfig.InsertModelsCore');
-            $contentScss = "@import 'config';\n@import 'fonts';\n";
+            $contentScss = "@import 'variables';\n@import 'config';\n@import 'fonts';\n";
             $contentJs="";
             foreach ($coreConfig as $module => $code) {
-                $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/main';\n";
-                $contentJs .= "import '../../Core/{$module}/{$code->Code}/src/main';\n";
+                $codeIf = (array) $code;
+                if(count($codeIf)){
+                    $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/main';\n";
+                    $contentJs .= "import '../../Core/{$module}/{$code->Code}/src/main';\n";
+                }
             }
 
             $mainConfig = config('modelsConfig.InsertModelsMain');

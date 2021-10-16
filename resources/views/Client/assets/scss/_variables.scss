@@ -1,3 +1,5 @@
+/* grayscale */
+
 $white: #fff;
 $gray-100: #f7f8f9;
 $gray-200: #eceff1;
@@ -10,7 +12,7 @@ $gray-800: #343a40;
 $gray-900: #323a46;
 $black: #262626;
 
-/* colors theme */
+/* general colors */
 
 $blue: #4a81d4;
 $indigo: #8064fa;
@@ -34,3 +36,35 @@ $danger: $red;
 $blue: $blue;
 $light: $gray-200;
 $dark: $gray-900;
+
+/* Text color */
+
+$text-gray-400: $gray-400;
+$text-gray-500: $gray-500;
+$text-gray-600: $gray-600;
+$text-gray-700: $gray-700;
+$text-gray-900: $gray-900;
+$text-primary: $primary;
+
+/* Text size */
+
+$text-size-primary: 45px;
+$text-size-secondary: 35px;
+$text-size-tertiary: 25px;
+
+/* backgrounds */
+
+$bg-primary: $primary;
+
+/* Width percent section body */
+
+$wp-100: 100%;
+$wp-90: 90%;
+$wp-80: 80%;
+$wp-70: 70%;
+$wp-60: 60%;
+$wp-50: 50%;
+$wp-40: 40%;
+$wp-30: 30%;
+$wp-20: 20%;
+$wp-10: 10%;
