@@ -60,6 +60,7 @@
                                             <th width="30px" class="bs-checkbox">
                                                 <label><input name="btSelectAll" type="checkbox"></label>
                                             </th>
+                                            <th>Title</th>
                                             <th>Link</th>
                                             <th width="50">Icone</th>
                                             <th width="90">Ações</th>
@@ -73,6 +74,7 @@
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="{{$key}}" name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$social->id}}"></label>
                                                 </td>
+                                                <td>{{$social->title}}</td>
                                                 <td><a class="breakText text-muted" href="{{$social->link}}">{{$social->link}}</a></td>
                                                 <td><i class="mdi {{$social->icon}} font-22"></i></td>
                                                 <td>
@@ -97,12 +99,16 @@
                                                                         <div class="modal-body p-4">
                                                                             <div class="mb-3">
                                                                                 <div class="mb-3">
-                                                                                {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                                                                                {!! Form::url('link', null, [
-                                                                                    'class'=>'form-control',
-                                                                                    'required'=>'required',
-                                                                                    'parsley-type'=>'url',
-                                                                                ]) !!}
+                                                                                    {!! Form::label(null, 'Titulo', ['class'=>'form-label']) !!}
+                                                                                    {!! Form::text('title', null, ['class'=>'form-control']) !!}
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
+                                                                                    {!! Form::url('link', null, [
+                                                                                        'class'=>'form-control',
+                                                                                        'required'=>'required',
+                                                                                        'parsley-type'=>'url',
+                                                                                    ]) !!}
                                                                                 </div>
                                                                                 <div class="mb-3">
                                                                                     {!! Form::label(null, 'Tipo', ['class'=>'form-label']) !!}

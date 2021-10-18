@@ -39,6 +39,7 @@ class SocialController extends Controller
     public function store(Request $request)
     {
         $social = new Social();
+        $social->title = $request->title;
         $social->link = $request->link;
         $social->icon = $request->icon;
         $social->save();
@@ -67,6 +68,7 @@ class SocialController extends Controller
      */
     public function update(Request $request, Social $Social)
     {
+        $Social->title = $request->title;
         $Social->link = $request->link;
         $Social->icon = $request->icon;
         $Social->save();

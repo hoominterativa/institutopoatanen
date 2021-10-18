@@ -13,7 +13,7 @@
                         </p>
                         <nav class="d-flex align-items-center mt-5">
                             @foreach ($socials as $social)
-                                <a href="{{$social->link}}" target="_blank" title="{{$social->name}}" class="mx-1 icon-social-contact font-28 mdi {{$social->icon}}"></a>
+                                <a href="{{$social->link}}" target="_blank" title="{{$social->title}}" class="mx-1 icon-social-contact font-28 mdi {{$social->icon}}"></a>
                             @endforeach
                         </nav>
                     </div>
