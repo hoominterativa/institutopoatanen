@@ -1,7 +1,9 @@
 <section id="top-bar" class="container-fluid">
     <div class="row align-items-center">
         <div class="logo-top-bar py-3 col-12 col-lg-3 d-flex align-items-center justify-content-center">
-            <img src="{{url('storage/'.$generalSetting->path_logo_header_dark)}}" height="60" alt="">
+            <a href="{{route('home')}}">
+                <img src="{{url('storage/'.$generalSetting->path_logo_header_dark)}}" height="60" alt="">
+            </a>
         </div>
         <nav class="menu-top-bar col-12 col-lg-7 d-flex align-items-center justify-content-end">
             <ul class="list-inline d-flex h-100 align-items-end mb-0">

@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="logo-footer-bar col-12 col-lg-2">
-                <img src="{{url('storage/'.$generalSetting->path_logo_footer_dark)}}" height="60" alt="">
+                <a href="{{route('home')}}">
+                    <img src="{{url('storage/'.$generalSetting->path_logo_footer_dark)}}" height="60" alt="">
+                </a>
             </div>
             {{-- end .logo-footer-bar --}}
             <div class="social-footer-bar col-12 col-lg-3 ps-5">
