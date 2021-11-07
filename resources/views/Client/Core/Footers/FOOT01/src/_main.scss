@@ -1,6 +1,6 @@
 #footer-bar {
     .title-footer-bar {
-        font-family: $family-roboto;
+        font-family: $font-primary;
         font-size: $text-size-tertiary;
         color: $text-primary;
     }
@@ -19,6 +19,7 @@
                     color: $text-gray-700;
                     &:hover {
                         font-weight: bold;
+                        color: $primary;
                     }
                 }
             }
@@ -27,8 +28,8 @@
     .contact-footer-bar {
         .phone {
             font-size: 18px;
-            font-family: $family-roboto;
-            font-weight: 900;
+            font-family: $font-secondary;
+            font-weight: $font-weight-primary;
         }
     }
 }

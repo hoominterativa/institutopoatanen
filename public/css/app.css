@@ -16,10 +16,12 @@
 /* grayscale */
 /* general colors */
 /* colors theme */
-/* Text color */
 /* Border */
+/* Weight */
+/* Text color */
 /* Text size */
 /* Fonts Family */
+/* Fonts weight */
 /* backgrounds */
 /* Width percent section body */
 body {
@@ -35,19 +37,19 @@ body {
 body::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  background: rgba(100, 5, 195, 0.5);
+  background: rgba(253, 126, 20, 0.5);
 }
 
 body::-webkit-scrollbar-thumb {
-  background: rgba(100, 5, 195, 0.8);
+  background: rgba(253, 126, 20, 0.8);
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: #6405c3;
+  background: #fd7e14;
 }
 
 .text-primary {
-  color: #6405c3 !important;
+  color: #fd7e14 !important;
 }
 
 .text-secondary {
@@ -132,15 +134,15 @@ body::-webkit-scrollbar-thumb:hover {
 .btn-primary:active:focus,
 .btn-primary.active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(100, 5, 195, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.5);
 }
 
 .btn-primary,
 .btn-primary:disabled,
 .btn-primary.disabled {
   color: #fff;
-  background-color: #6405c3;
-  border-color: #6405c3;
+  background-color: #fd7e14;
+  border-color: #fd7e14;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 .btn-primary:disabled:hover,
@@ -152,27 +154,27 @@ body::-webkit-scrollbar-thumb:hover {
 .btn-primary.disabled:active,
 .btn-primary.disabled.active {
   color: #fff;
-  background-color: rgba(100, 5, 195, 0.9);
-  border-color: rgba(100, 5, 195, 0.9);
+  background-color: rgba(253, 126, 20, 0.9);
+  border-color: rgba(253, 126, 20, 0.9);
 }
 .btn-primary:focus,
 .btn-primary:disabled:focus,
 .btn-primary.disabled:focus {
-  box-shadow: 0 0 0 0.25rem rgba(100, 5, 195, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.5);
 }
 
 .btn-check:checked + .btn-primary,
 .btn-check:active + .btn-primary,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: rgba(100, 5, 195, 0.9);
-  border-color: rgba(100, 5, 195, 0.9);
+  background-color: rgba(253, 126, 20, 0.9);
+  border-color: rgba(253, 126, 20, 0.9);
 }
 
 .btn-check:checked + .btn-primary:focus,
 .btn-check:active + .btn-primary:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(100, 5, 195, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.5);
 }
 
 .form-control:focus {
@@ -24289,8 +24291,8 @@ body::-webkit-scrollbar-thumb:hover {
   margin-bottom: -4px;
 }
 #top-bar .menu-top-bar ul li:hover a {
-  color: #6405c3;
-  border-color: #6405c3;
+  color: #fd7e14;
+  border-color: #fd7e14;
 }
 #top-bar .social-top-bar {
   border-left: 2px solid #f7f8f9;
@@ -24299,7 +24301,7 @@ body::-webkit-scrollbar-thumb:hover {
 #footer-bar .title-footer-bar {
   font-family: "Roboto";
   font-size: 25px;
-  color: #6405c3;
+  color: #fd7e14;
 }
 #footer-bar .social-footer-bar a:first-of-type {
   margin-left: 0 !important;
@@ -24312,6 +24314,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 #footer-bar .sitemap-footer-bar ul li a:hover {
   font-weight: bold;
+  color: #fd7e14;
 }
 #footer-bar .contact-footer-bar .phone {
   font-size: 18px;
@@ -24325,16 +24328,16 @@ body::-webkit-scrollbar-thumb:hover {
 
 .contact-container .contact-content .title {
   font-size: 45px;
-  color: #6405c3;
+  color: #fd7e14;
 }
 .contact-container .contact-content .title .line {
   width: 40%;
   height: 0.3rem;
-  background-color: #6405c3;
+  background-color: #fd7e14;
   display: block;
 }
 .contact-container .contact-content .icon-social-contact {
-  color: #6405c3;
+  color: #fd7e14;
   display: block;
   transition: ease all 0.3s;
 }
