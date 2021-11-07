@@ -4,7 +4,7 @@ return [
 
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            // 'Code' => 'HEAD01'
+            'Code' => 'HEAD01'
         ],
         'Footers' => (object)[
             // 'Code' => 'FOOT01'

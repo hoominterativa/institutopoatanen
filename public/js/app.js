@@ -8049,6 +8049,16 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./resources/views/Client/assets/js/base.js":
 /*!**************************************************!*\
   !*** ./resources/views/Client/assets/js/base.js ***!
@@ -8057,8 +8067,11 @@ $(document).ready(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Contacts/CONT01/src/main */ "./resources/views/Client/pages/Contacts/CONT01/src/main.js");
-/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/Contacts/CONT01/src/main */ "./resources/views/Client/pages/Contacts/CONT01/src/main.js");
+/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 /***/ }),

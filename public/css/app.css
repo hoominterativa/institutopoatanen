@@ -24270,6 +24270,30 @@ body::-webkit-scrollbar-thumb:hover {
     transform: rotate(359deg);
   }
 }
+#top-bar {
+  font-family: "Roboto";
+  border-bottom: 4px solid #adb5bd;
+}
+#top-bar .logo-top-bar {
+  background-color: #f7f8f9;
+}
+#top-bar .menu-top-bar {
+  height: 92px;
+}
+#top-bar .menu-top-bar ul li a {
+  color: #343a40;
+  padding-bottom: 35px;
+  border-bottom: 4px solid transparent;
+  margin-bottom: -4px;
+}
+#top-bar .menu-top-bar ul li:hover a {
+  color: #6405c3;
+  border-color: #6405c3;
+}
+#top-bar .social-top-bar {
+  border-left: 2px solid #f7f8f9;
+}
+
 .contact-container .contact-content .title {
   font-size: 45px;
   color: #6405c3;

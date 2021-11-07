@@ -23,6 +23,7 @@ use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Models\GeneralSetting;
+use App\Models\Social;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +104,28 @@ Route::prefix('painel')->group(function () {
 });
 
 Route::get('/', [HomePageController::class ,'index'])->name('home');
+
+/**
+ *
+ * Send from core view general settings and social
+ *
+ */
+
+$modelsCore = config('modelsConfig.InsertModelsCore');
+if(isset($modelsCore->Headers->Code)){
+    View::composer('Client.Core.Headers.'.$modelsCore->Headers->Code.'.app', function ($view) {
+        $generalSetting = GeneralSetting::first();
+        $socials = Social::get();
+        return $view->with('generalSetting', $generalSetting)->with('socials', $socials);
+    });
+}
+if(isset($modelsCore->Footers->Code)){
+    View::composer('Client.Core.Footers.'.$modelsCore->Footers->Code.'.app', function ($view) {
+        $generalSetting = GeneralSetting::first();
+        $social = Social::get();
+        return $view->with('generalSetting', $generalSetting)->with('social', $social);
+    });
+}
 
 /**
  *

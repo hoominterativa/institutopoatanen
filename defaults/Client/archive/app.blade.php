@@ -2,7 +2,7 @@
     @foreach ($menus as $model => $menu)
         @php
             $limit = isset($menu->IncludeCore[1])?$menu->IncludeCore[1]:999;
-            $include = $class->$module->$model->model::limit($limit)->get();
+            $include = isset($class->$module->$model->model)?$class->$module->$model->model::limit($limit)->get():[];
         @endphp
         @if ($menu->ViewListMenu)
                 <li>
