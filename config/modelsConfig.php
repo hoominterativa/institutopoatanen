@@ -7,7 +7,7 @@ return [
             'Code' => 'HEAD01'
         ],
         'Footers' => (object)[
-            // 'Code' => 'FOOT01'
+            'Code' => 'FOOT01'
         ]
     ],
 

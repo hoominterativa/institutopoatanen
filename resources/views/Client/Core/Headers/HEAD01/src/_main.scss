@@ -1,15 +1,15 @@
 #top-bar {
-    font-family: "Roboto";
-    border-bottom: 4px solid $gray-500;
+    font-family: $family-roboto;
+    border-bottom: 4px solid $border-gray-500;
     .logo-top-bar {
-        background-color: $gray-100;
+        background-color: $bg-gray-100;
     }
     .menu-top-bar {
         height: 92px;
         ul {
             li {
                 a {
-                    color: $gray-800;
+                    color: $text-gray-900;
                     padding-bottom: 35px;
                     border-bottom: 4px solid transparent;
                     margin-bottom: -4px;
@@ -24,6 +24,6 @@
         }
     }
     .social-top-bar {
-        border-left: 2px solid $gray-100;
+        border-left: 2px solid $border-gray-100;
     }
 }

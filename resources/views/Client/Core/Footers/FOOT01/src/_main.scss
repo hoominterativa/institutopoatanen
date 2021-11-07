@@ -1,0 +1,38 @@
+#footer-bar {
+    .title-footer-bar {
+        font-family: $family-roboto;
+        font-size: $text-size-tertiary;
+        color: $text-primary;
+    }
+    .social-footer-bar {
+        a:first-of-type {
+            margin-left: 0 !important;
+        }
+    }
+    .sitemap-footer-bar {
+        .border-sitemap-footer-bar {
+            border-right: 1px solid $border-gray-200;
+        }
+        ul {
+            li {
+                a {
+                    color: $text-gray-700;
+                    &:hover {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    .contact-footer-bar {
+        .phone {
+            font-size: 18px;
+            font-family: $family-roboto;
+            font-weight: 900;
+        }
+    }
+}
+
+#credits-footer-bar {
+    background-color: $gray-200;
+}

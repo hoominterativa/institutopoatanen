@@ -17,7 +17,9 @@
 /* general colors */
 /* colors theme */
 /* Text color */
+/* Border */
 /* Text size */
+/* Fonts Family */
 /* backgrounds */
 /* Width percent section body */
 body {
@@ -24281,7 +24283,7 @@ body::-webkit-scrollbar-thumb:hover {
   height: 92px;
 }
 #top-bar .menu-top-bar ul li a {
-  color: #343a40;
+  color: #323a46;
   padding-bottom: 35px;
   border-bottom: 4px solid transparent;
   margin-bottom: -4px;
@@ -24292,6 +24294,33 @@ body::-webkit-scrollbar-thumb:hover {
 }
 #top-bar .social-top-bar {
   border-left: 2px solid #f7f8f9;
+}
+
+#footer-bar .title-footer-bar {
+  font-family: "Roboto";
+  font-size: 25px;
+  color: #6405c3;
+}
+#footer-bar .social-footer-bar a:first-of-type {
+  margin-left: 0 !important;
+}
+#footer-bar .sitemap-footer-bar .border-sitemap-footer-bar {
+  border-right: 1px solid #eceff1;
+}
+#footer-bar .sitemap-footer-bar ul li a {
+  color: #6c757d;
+}
+#footer-bar .sitemap-footer-bar ul li a:hover {
+  font-weight: bold;
+}
+#footer-bar .contact-footer-bar .phone {
+  font-size: 18px;
+  font-family: "Roboto";
+  font-weight: 900;
+}
+
+#credits-footer-bar {
+  background-color: #eceff1;
 }
 
 .contact-container .contact-content .title {

@@ -2,7 +2,9 @@
     "Headers": [
         "HEAD01"
     ],
-    "Footers": [],
+    "Footers": [
+        "FOOT01"
+    ],
     "Contacts": [
         "CONT01"
     ]

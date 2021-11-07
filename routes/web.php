@@ -122,8 +122,8 @@ if(isset($modelsCore->Headers->Code)){
 if(isset($modelsCore->Footers->Code)){
     View::composer('Client.Core.Footers.'.$modelsCore->Footers->Code.'.app', function ($view) {
         $generalSetting = GeneralSetting::first();
-        $social = Social::get();
-        return $view->with('generalSetting', $generalSetting)->with('social', $social);
+        $socials = Social::get();
+        return $view->with('generalSetting', $generalSetting)->with('socials', $socials);
     });
 }
 

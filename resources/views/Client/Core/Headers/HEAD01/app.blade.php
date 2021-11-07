@@ -1,4 +1,4 @@
-<header id="top-bar" class="container-fluid">
+<section id="top-bar" class="container-fluid">
     <div class="row align-items-center">
         <div class="logo-top-bar py-3 col-12 col-lg-3 d-flex align-items-center justify-content-center">
             <img src="{{url('storage/'.$generalSetting->path_logo_header_dark)}}" height="60" alt="">
@@ -34,7 +34,7 @@
         </nav>
     </div>
 
-</header>
+</section>
 
 
 
