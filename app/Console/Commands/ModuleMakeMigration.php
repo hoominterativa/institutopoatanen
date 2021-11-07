@@ -14,7 +14,8 @@ class ModuleMakeMigration extends Command
      *
      * @var string
      */
-    protected $signature = 'module:make-migration';
+    protected $signature = 'module:make-migration {module : Enter the name of the module for migration creation}
+    {code : Insert code the model}';
 
     /**
      * The console command description.
