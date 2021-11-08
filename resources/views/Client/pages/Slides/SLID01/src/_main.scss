@@ -1,0 +1,13 @@
+#slide {
+    .content-slide {
+        .title {
+            font-family: $font-primary;
+            font-weight: $font-weight-secondary;
+            font-size: 54px;
+            .subtitle {
+                display: block;
+                font-size: 31px;
+            }
+        }
+    }
+}
