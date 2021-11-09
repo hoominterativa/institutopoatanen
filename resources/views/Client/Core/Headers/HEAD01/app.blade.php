@@ -7,6 +7,9 @@
         </div>
         <nav class="menu-top-bar col-12 col-lg-7 d-flex align-items-center justify-content-end">
             <ul class="list-inline d-flex h-100 align-items-end mb-0">
+                <li class="mb-0 px-2">
+                    <a href="{{route('home')}}" class="nav-link px-2 {{isActive('home')}}" >Home</a>
+                </li>
                 @foreach ($listMenu as $module => $menus)
                     @foreach ($menus as $model => $menu)
                         @php
@@ -14,8 +17,8 @@
                             $include = isset($class->$module->$model->model)?$class->$module->$model->model::limit($limit)->get():[];
                         @endphp
                         @if ($menu->ViewListMenu)
-                            <li class="mb-0">
-                                <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
+                            <li class="mb-0 px-2">
+                                <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}}" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
                                 @if ($menu->IncludeCore[0])
                                     <ul class="dropdown-menu">
                                         @foreach ($include as $item)

@@ -1,13 +1,65 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+
 #slide {
-    .content-slide {
-        .title {
-            font-family: $font-primary;
-            font-weight: $font-weight-secondary;
-            font-size: 54px;
-            .subtitle {
-                display: block;
-                font-size: 31px;
+    height: $slide_height;
+    overflow: hidden;
+    .slide-carousel {
+        height: $slide_height;
+        .slide-carousel-blade {
+            height: $slide_height;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .content-slide {
+            padding-left: 12%;
+            .title {
+                font-family: $font-primary;
+                font-size: $title_size;
+                color: $title_color;
+                border-bottom: $title_border_bottom;
+                .subtitle {
+                    display: block;
+                    font-size: $subtitle_size;
+                    color: $subtitle_color;
+                }
+            }
+            p {
+                color: $paragraph_color;
+            }
+        } // End .content-slide
+        .image-png-slide {
+            margin-top: $margin_top_image_png;
+            max-width: $max_width_image_png;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    } //  End .slide-carousel
+    .navigation-slide {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        z-index: 90;
+        transform: translate(-595px, 0);
+        .owl-dot {
+            width: 13px;
+            height: 13px;
+            display: inline-block;
+            margin-right: 19px;
+            background-color: $dot_bg_color;
+            border-radius: 50%;
+            padding: 0;
+            border: none;
+            transition: ease all 0.3s;
+            &:hover,
+            &.active {
+                background-color: $dot_bg_color_active;
+                transition: ease all 0.3s;
             }
         }
     }
-}
+} // End #slide

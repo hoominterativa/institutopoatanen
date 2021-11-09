@@ -20,20 +20,14 @@
                 <div class="border-sitemap-footer-bar h-100">
                     <h3 class="title-footer-bar mb-3">SITEMAP</h3>
                     <ul class="list-inline row">
+                        <li class="col-12 col-lg-6 ps-2">
+                            <a href="{{route('home')}}" class="nav-link px-2 py-0 {{isActive('home')}}">Home</a>
+                        </li>
                         @foreach ($listMenu as $module => $menus)
                             @foreach ($menus as $model => $menu)
                                 @if ($menu->ViewListMenu)
                                     <li class="col-12 col-lg-6 ps-2">
-                                        <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 py-0" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
-                                    </li>
-                                    <li class="col-12 col-lg-6 ps-2">
-                                        <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 py-0" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
-                                    </li>
-                                    <li class="col-12 col-lg-6 ps-2">
-                                        <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 py-0" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
-                                    </li>
-                                    <li class="col-12 col-lg-6 ps-2">
-                                        <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 py-0" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
+                                        <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 py-0 {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}}">{{$menu->config->titleMenu}}</a>
                                     </li>
                                 @endif
                             @endforeach

@@ -8116,9 +8116,24 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************!*\
   !*** ./resources/views/Client/pages/Slides/SLID01/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.slide-carousel-fade').owlCarousel({
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+    nav: false,
+    dots: true,
+    items: 1,
+    margin: 0,
+    stagePadding: 0,
+    dotsContainer: ".navigation-slide"
+  });
+});
 
 /***/ }),
 

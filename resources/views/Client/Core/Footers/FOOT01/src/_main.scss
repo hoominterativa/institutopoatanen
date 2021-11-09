@@ -1,8 +1,12 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+
 #footer-bar {
     .title-footer-bar {
         font-family: $font-primary;
-        font-size: $text-size-tertiary;
-        color: $text-primary;
+        font-size: $footer_bar_title_size;
+        color: $footer_bar_title_color;
     }
     .social-footer-bar {
         a:first-of-type {
@@ -16,10 +20,12 @@
         ul {
             li {
                 a {
-                    color: $text-gray-700;
-                    &:hover {
-                        font-weight: bold;
-                        color: $primary;
+                    color: $footer_bar_sitemap_link_color;
+                    &:hover,
+                    &.active {
+                        font-weight: $footer_bar_sitemap_link_font_weight_active_hover;
+                        color: $footer_bar_sitemap_link_color_active_hover;
+                        transition: ease all 0.3s;
                     }
                 }
             }
@@ -27,9 +33,9 @@
     }
     .contact-footer-bar {
         .phone {
-            font-size: 18px;
+            font-size: $footer_bar_contact_phone_size;
             font-family: $font-secondary;
-            font-weight: $font-weight-primary;
+            font-weight: $footer_bar_contact_phone_font_weight;
         }
     }
 }

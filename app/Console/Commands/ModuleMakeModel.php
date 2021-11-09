@@ -124,6 +124,9 @@ class ModuleMakeModel extends Command
             // Create assets
             if(!is_dir($pathClient.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathClient.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
 
+            if(copy('defaults/Client/src/_variables.scss', $pathClient.$arguments['module'].'/'.$arguments['code'].'/src/_variables.scss')){
+                $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/src/_variables.scss');
+            }
             if(copy('defaults/Client/src/_main.scss', $pathClient.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
                 $this->info('Recurso criado '.$pathClient.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
             }
