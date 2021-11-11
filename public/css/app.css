@@ -24368,6 +24368,18 @@ body::-webkit-scrollbar-thumb:hover {
   background-size: cover;
   background-repeat: no-repeat;
 }
+#slide .slide-carousel .wrap-content-slide {
+  z-index: 10;
+}
+#slide .slide-carousel .slide-blade-transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
 #slide .slide-carousel .content-slide {
   padding-left: 12%;
 }

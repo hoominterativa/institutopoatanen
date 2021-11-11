@@ -53,6 +53,8 @@ class SLID01Controller extends Controller
         $SLID01Slides->title = $request->title;
         $SLID01Slides->subtitle = $request->subtitle;
         $SLID01Slides->description = $request->description;
+        $SLID01Slides->blade = $request->blade;
+        $SLID01Slides->content_position = $request->content_position;
         $SLID01Slides->active = $request->active?:0;
         $SLID01Slides->button_link = $request->button_link;
         $SLID01Slides->button_title = $request->button_title;
@@ -103,6 +105,8 @@ class SLID01Controller extends Controller
         $SLID01Slides->title = $request->title;
         $SLID01Slides->subtitle = $request->subtitle;
         $SLID01Slides->description = $request->description;
+        $SLID01Slides->blade = $request->blade;
+        $SLID01Slides->content_position = $request->content_position;
         $SLID01Slides->active = $request->active?:0;
         $SLID01Slides->button_link = $request->button_link;
         $SLID01Slides->button_title = $request->button_title;

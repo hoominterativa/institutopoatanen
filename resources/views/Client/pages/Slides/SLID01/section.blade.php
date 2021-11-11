@@ -2,8 +2,9 @@
     <div class="navigation-slide"></div>
     <div class="slide-carousel slide-carousel-fade owl-carousel">
         @foreach ($slides as $slide)
-            <div class="slide-carousel-blade" style="background-image: url({{url('storage/'.$slide->path_image_background)}})">
-                <div class="row h-100">
+            <div class="slide-carousel-blade position-relative" style="background-image: url({{url('storage/'.$slide->path_image_background)}})">
+                <div class="slide-blade-transparent" style="background-color: {{$slide->blade}}"></div>
+                <div class="wrap-content-slide position-relative row h-100 {{$slide->content_position}}">
                     <div class="col-12 col-lg-6">
                         <div class="h-100 content-slide d-flex align-items-center flex-nowrap pe-5">
                             <div>

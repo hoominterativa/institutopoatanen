@@ -18,6 +18,8 @@ class CreateSlid01SlidesTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
+            $table->string('blade')->nullable();
+            $table->string('content_position')->nullable();
             $table->string('button_title')->nullable();
             $table->string('button_link')->nullable();
             $table->string('path_image_background')->nullable();
