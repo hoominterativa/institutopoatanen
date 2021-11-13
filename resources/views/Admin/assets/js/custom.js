@@ -174,4 +174,9 @@ $(function() {
         })
     })
 
+    $('body').on('click', '.dropify-clear', function() {
+        var nameInput = $(this).parent().find('input:first').attr('name')
+        $(this).parent().find('input[name=delete]').remove()
+        $(this).parent().append(`<input type="hidden" name="delete_${nameInput}" value="${nameInput}" />`);
+    })
 })

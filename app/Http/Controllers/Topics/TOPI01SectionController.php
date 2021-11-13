@@ -38,8 +38,15 @@ class TOPI01SectionController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('success', 'Item cadastrado com sucessso');
-        return;
+        $TOPI01SectionTopics = new TOPI01SectionTopics();
+        $TOPI01SectionTopics->title = $request->title;
+        $TOPI01SectionTopics->description = $request->description;
+        $TOPI01SectionTopics->active = $request->active?:0;
+
+        if($TOPI01SectionTopics->save()){
+            Session::flash('success', 'Sessão cadastrada com sucessso');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -62,8 +69,14 @@ class TOPI01SectionController extends Controller
      */
     public function update(Request $request, TOPI01SectionTopics $TOPI01SectionTopics)
     {
-        Session::flash('success', 'Item atualizado com sucessso');
-        return;
+        $TOPI01SectionTopics->title = $request->title;
+        $TOPI01SectionTopics->description = $request->description;
+        $TOPI01SectionTopics->active = $request->active?:0;
+
+        if($TOPI01SectionTopics->save()){
+            Session::flash('success', 'Sessão atualizada com sucessso');
+            return redirect()->back();
+        }
     }
 
     /**

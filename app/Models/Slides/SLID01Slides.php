@@ -9,4 +9,9 @@ class SLID01Slides extends Model
 {
     use HasFactory;
     protected $table = 'slid01_slides';
+
+    public function scopeSorting()
+    {
+        return $this->orderBy('sorting', 'ASC');
+    }
 }

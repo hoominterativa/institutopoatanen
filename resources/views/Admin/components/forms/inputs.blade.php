@@ -279,6 +279,6 @@
         'data-height'=>'300',
         'data-max-file-size-preview'=>'2M',
         'accept'=>'image/*',
-        'data-default-file'=> '',
+        'data-default-file'=> isset($test)?$test->path_image<>''?url('storage/'.$test->path_image):'':'',
     ]) !!}
 </div>

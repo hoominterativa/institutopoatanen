@@ -58,6 +58,7 @@ class ModuleDelete extends Command
         $helper = new HelperModule();
         $arguments = $this->arguments();
         $options = $this->options();
+        $listModel = $helper->listModules($arguments['module']);
 
         try {
             $arrayModule = $helper->listModules();
@@ -115,7 +116,7 @@ class ModuleDelete extends Command
                 if(file_exists($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'.php')) unlink($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'.php');
                 if(file_exists($this->path['controller'].$arguments['module'].'/'.$arguments['code'].'Controller.php')) unlink($this->path['controller'].$arguments['module'].'/'.$arguments['code'].'Controller.php');
                 if(file_exists($this->path['routes'].$arguments['module'].'/'.$arguments['code'].'.php')) unlink($this->path['routes'].$arguments['module'].'/'.$arguments['code'].'.php');
-                if(file_exists($this->path['factories'].$arguments['module'].'/'.$arguments['code'].'Factory.php')) unlink($this->path['factories'].$arguments['module'].'/'.$arguments['code'].'Factory.php');
+                if(file_exists($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory.php')) unlink($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory.php');
                 if(file_exists($this->path['seeders'].$arguments['module'].'/'.$arguments['code'].'Seeder.php')) unlink($this->path['seeders'].$arguments['module'].'/'.$arguments['code'].'Seeder.php');
 
 
@@ -131,9 +132,12 @@ class ModuleDelete extends Command
                 if(is_dir($this->path['routes'].$arguments['module'])) shell_exec('rm -r '.$this->path['routes'].$arguments['module']);
                 if(is_dir($this->path['controller'].$arguments['module'])) shell_exec('rm -r '.$this->path['controller'].$arguments['module']);
                 if(is_dir($this->path['models'].$arguments['module'])) shell_exec('rm -r '.$this->path['models'].$arguments['module']);
-                if(is_dir($this->path['factories'].$arguments['module'])) shell_exec('rm -r '.$this->path['factories'].$arguments['module']);
-                if(is_dir($this->path['seeders'].$arguments['module'])) shell_exec('rm -r '.$this->path['seeders'].$arguments['module']);
                 if(is_dir($this->path['migrations'].$arguments['module'])) shell_exec('rm -r '.$this->path['migrations'].$arguments['module']);
+
+                foreach ($listModel[$arguments['module']] as $code) {
+                    if(file_exists($this->path['factories'].$code.$arguments['module'].'Factory.php')) unlink($this->path['factories'].$code.$arguments['module'].'Factory.php');
+                    if(file_exists($this->path['seeders'].$code.'Seeder.php')) unlink($this->path['seeders'].$code.'Seeder.php');
+                }
 
                 $this->info($arguments['module'].' deletado com sucesso');
                 $this->info('As tabelas no banco de dados deverão ser deletadas manualmente.');

@@ -10,4 +10,9 @@ class Social extends Model
     use HasFactory;
 
     protected $table = 'social';
+
+    public function scopeSorting()
+    {
+        return $this->orderBy('sorting', 'ASC');
+    }
 }

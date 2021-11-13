@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Topics;
 
+use Illuminate\Http\Request;
 use App\Models\Topics\TOPI01Topics;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Topics\TOPI01SectionTopics;
+use App\Http\Controllers\Helpers\HelperArchive;
 
 class TOPI01Controller extends Controller
 {
@@ -17,7 +20,13 @@ class TOPI01Controller extends Controller
      */
     public function index()
     {
-        //
+        $TOPI01Topics = TOPI01Topics::sorting()->paginate('15');
+        $TOPI01SectionTopics = TOPI01SectionTopics::first();
+
+        return view('Admin.cruds.Topics.TOPI01.index',[
+            'topics'=>$TOPI01Topics,
+            'topicSection'=>$TOPI01SectionTopics
+        ]);
     }
 
     /**
@@ -27,7 +36,7 @@ class TOPI01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Topics.TOPI01.create');
     }
 
     /**
@@ -38,8 +47,23 @@ class TOPI01Controller extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('success', 'Item cadastrado com sucessso');
-        return;
+        $path = 'uploads/images/Topics/TOPI01/';
+        $helperArchive = new HelperArchive();
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+
+        $TOPI01Topics = new TOPI01Topics();
+        $TOPI01Topics->title = $request->title;
+        $TOPI01Topics->description = $request->description;
+        $TOPI01Topics->active = $request->active?:0;
+
+        if($path_image){
+            $TOPI01Topics->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
+        }
+        if($TOPI01Topics->save()){
+            Session::flash('success', 'Tópico cadastrado com sucessso');
+            return redirect()->route('admin.topi01.index');
+        }
     }
 
     /**
@@ -50,7 +74,9 @@ class TOPI01Controller extends Controller
      */
     public function edit(TOPI01Topics $TOPI01Topics)
     {
-        //
+        return view('Admin.cruds.Topics.TOPI01.edit', [
+            'topic'=>$TOPI01Topics
+        ]);
     }
 
     /**
@@ -62,8 +88,30 @@ class TOPI01Controller extends Controller
      */
     public function update(Request $request, TOPI01Topics $TOPI01Topics)
     {
-        Session::flash('success', 'Item atualizado com sucessso');
-        return;
+        $path = 'uploads/images/Topics/TOPI01/';
+        $helperArchive = new HelperArchive();
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+
+        $TOPI01Topics->title = $request->title;
+        $TOPI01Topics->description = $request->description;
+        $TOPI01Topics->active = $request->active?:0;
+
+        if(isset($request->delete_path_image) && !$path_image){
+            $inputFile = $request->delete_path_image;
+            Storage::delete($TOPI01Topics->$inputFile);
+            $TOPI01Topics->path_image = null;
+        }
+
+        if($path_image){
+            Storage::delete($TOPI01Topics->path_image);
+            $TOPI01Topics->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
+        }
+
+        if($TOPI01Topics->save()){
+            Session::flash('success', 'Tópico atualizado com sucessso');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -74,8 +122,10 @@ class TOPI01Controller extends Controller
      */
     public function destroy(TOPI01Topics $TOPI01Topics)
     {
+        Storage::delete($TOPI01Topics->path_image);
+
         if($TOPI01Topics->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -90,7 +140,7 @@ class TOPI01Controller extends Controller
     public function destroySelected(Request $request)
     {
         if($deleted = TOPI01Topics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' tópicos deletados com sucessso']);
         }
     }
     /**
@@ -140,6 +190,11 @@ class TOPI01Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        $TOPI01Topics = TOPI01Topics::sorting()->get();
+        $TOPI01SectionTopics = TOPI01SectionTopics::first();
+        return view('Client.pages.Topics.TOPI01.section',[
+            'topics'=>$TOPI01Topics,
+            'topicSection'=>$TOPI01SectionTopics
+        ]);
     }
 }

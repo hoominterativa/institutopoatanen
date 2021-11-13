@@ -11,19 +11,19 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">Name</a></li>
-                                    <li class="breadcrumb-item active">Editar Name</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.topi01.index')}}">Tópicos</a></li>
+                                    <li class="breadcrumb-item active">Editar Tópico</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Name</h4>
+                            <h4 class="page-title">Editar Tópico</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-examples']) !!}
-                    @include('Admin.Module.CODE.form')
+                {!! Form::model($topic, ['route' => ['admin.topi01.update', $topic->id], 'class'=>'parsley-examples', 'method'=>'PUT', 'files'=>true]) !!}
+                    @include('Admin.Cruds.Topics.topi01.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.topi01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

@@ -64,7 +64,7 @@
                     'data-height'=>'180',
                     'data-max-file-size-preview'=>'2M',
                     'accept'=>'image/*',
-                    'data-default-file'=> isset($slide)?url('storage/'.$slide->path_image_background):'',
+                    'data-default-file'=> isset($slide)?$slide->path_image_background<>''?url('storage/'.$slide->path_image_background):'':'',
                 ]) !!}
             </div>
             <div class="mb-3">
@@ -74,7 +74,7 @@
                     'data-height'=>'180',
                     'data-max-file-size-preview'=>'2M',
                     'accept'=>'image/*',
-                    'data-default-file'=> isset($slide)?url('storage/'.$slide->path_image_png):'',
+                    'data-default-file'=> isset($slide)?$slide->path_image_png<>''?url('storage/'.$slide->path_image_png):'':'',
                 ]) !!}
             </div>
         </div> <!-- end card-body-->

@@ -1,4 +1,4 @@
-<section id="slide">
+<section id="SLID01" class="slide">
     <div class="navigation-slide"></div>
     <div class="slide-carousel slide-carousel-fade owl-carousel">
         @foreach ($slides as $slide)

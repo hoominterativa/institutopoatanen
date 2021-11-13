@@ -1,21 +1,41 @@
-{{--
-    Para uma boa organização dos inputs, em caso de uma tela de cadastro com muitos campos, recomendamos dividir em dua colunas
-    o "div class=card" adicionando a classe 'col-lg-6' e duplicando toda a div class=card e distribuir os inputs nessas colunas.
 
-    Lista de Inputs se encontra no arquivo 'resources/views/Admin/components/forms/inputs.blade.php' é só copiar a estrutura do blase desejada e colar
-    na área indicada abaixo. Veja abaixo um exemplo da estrutura do input.
-
-    <div class="mb-3">
-        {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'First name', 'required'=>'required']) !!}
-    </div>
-
-    PS.: Excluir esse comentário e todos relacioado a instruções.
---}}
 <div class="row col-12">
-    <div class="card col-12">
+    <div class="card col-12 col-lg-6">
         <div class="card-body">
-            {{-- INSERI OS INPUTS DOS FORMULARIOS AQUI --}}
+            <div class="mb-3">
+                {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
+                {!! Form::text('title', null, ['class'=>'form-control', 'required'=>'required']) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label('message', 'Descrição', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description', null, [
+                    'class'=>'form-control',
+                    'id'=>'message',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-maxlength'=>'200',
+                    'data-parsley-maxlength-message'=>'Vamos lá! Você só pode inserir um texto com no máximo 200 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
+                    'rows'=>'5'
+                ]) !!}
+            </div>
+            <div class="form-check">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Exibir?', ['class'=>'form-check-label']) !!}
+            </div>
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+    <div class="card col-12 col-lg-6">
+        <div class="card-body">
+            <div class="mb-3">
+                {!! Form::label(null, 'Icone', ['class'=>'form-label']) !!}
+                {!! Form::file('path_image', [
+                    'data-plugins'=>'dropify',
+                    'data-height'=>'230',
+                    'data-max-file-size-preview'=>'2M',
+                    'accept'=>'image/*',
+                    'data-default-file'=> isset($topic)?$topic->path_image<>''?url('storage/'.$topic->path_image):'':'',
+                ]) !!}
+            </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
 </div>

@@ -97,7 +97,7 @@ class SLID01Controller extends Controller
      */
     public function update(Request $request, SLID01Slides $SLID01Slides)
     {
-        $path = 'uploads/images/SLID01/';
+        $path = 'uploads/images/Slides/SLID01/';
         $helperArchive = new HelperArchive();
         $path_image_background = $helperArchive->renameArchiveUpload($request, 'path_image_background');
         $path_image_png = $helperArchive->renameArchiveUpload($request, 'path_image_png');
@@ -110,6 +110,18 @@ class SLID01Controller extends Controller
         $SLID01Slides->active = $request->active?:0;
         $SLID01Slides->button_link = $request->button_link;
         $SLID01Slides->button_title = $request->button_title;
+
+        if(isset($request->delete_path_image_background) && !$path_image_background){
+            $inputFile = $request->delete_path_image_background;
+            Storage::delete($SLID01Slides->$inputFile);
+            $SLID01Slides->path_image_background = null;
+        }
+
+        if(isset($request->delete_path_image_png) && !$path_image_png){
+            $inputFile = $request->delete_path_image_png;
+            Storage::delete($SLID01Slides->$inputFile);
+            $SLID01Slides->path_image_png = null;
+        }
 
         if($path_image_background){
             Storage::delete($SLID01Slides->path_image_background);

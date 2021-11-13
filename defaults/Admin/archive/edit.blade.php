@@ -20,8 +20,8 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-examples']) !!}
-                    @include('Admin.Module.CODE.form')
+                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-examples', 'method'=>'PUT', 'files'=>true]) !!}
+                    @include('Admin.Cruds.Module.CODE.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use App\Models\Topics\TOPI01Topics;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,9 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(1)->create();
+        User::factory(1)->create();
+        TOPI01Topics::factory()->count(3)->create();
 
         $this->call([
+            SLID01Seeder::class,
             SettingThemeSeeder::class,
             OptimizationSeeder::class,
             GeneralSettingSeeder::class,

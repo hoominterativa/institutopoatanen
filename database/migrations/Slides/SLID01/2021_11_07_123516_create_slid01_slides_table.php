@@ -25,6 +25,7 @@ class CreateSlid01SlidesTable extends Migration
             $table->string('path_image_background')->nullable();
             $table->string('path_image_png')->nullable();
             $table->integer('active')->default(0);
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }

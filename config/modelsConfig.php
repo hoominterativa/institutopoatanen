@@ -29,6 +29,23 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
+        'Topics' => (object) [
+            'TOPI01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos',
+                    'iconPanel' => 'mdi-bookmark-multiple'
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
         'Contacts' => (object) [
             'CONT01' => (object)[
                 'ViewHome' => false,
@@ -58,6 +75,12 @@ return [
             'SLID01' => (object)[
                 'controller' => App\Http\Controllers\Slides\SLID01Controller::class,
                 'modelo' => App\Models\Slides\SLID01Slides::class
+            ],
+        ],
+        'Topics' => (object)[
+            'TOPI01' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI01Controller::class,
+                'modelo' => App\Models\Topics\TOPI01Topics::class
             ],
         ],
     ],

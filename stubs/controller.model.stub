@@ -7,6 +7,8 @@ use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Helpers\HelperArchive;
 
 class {{ class }} extends Controller
 {
@@ -38,8 +40,26 @@ class {{ class }} extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('success', 'Item cadastrado com sucessso');
-        return;
+        /* Use the code below to upload files, if not, delete code
+
+        $path = 'uploads/images/Module/Code/';
+        $helperArchive = new HelperArchive();
+
+        ** Duplicate the code below for each file field by changing the variable names **
+
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+
+        if($path_image){
+            ${{ model }}->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
+        }
+
+        */
+
+        if(${{ model }}->save()){
+            Session::flash('success', 'Item cadastrado com sucessso');
+            return redirect()->route('admin.code.index');
+        }
     }
 
     /**
@@ -62,8 +82,33 @@ class {{ class }} extends Controller
      */
     public function update(Request $request, {{ model }} ${{ model }})
     {
-        Session::flash('success', 'Item atualizado com sucessso');
-        return;
+        /* Use the code below to upload files, if not, delete code
+
+        $path = 'uploads/images/Module/Code/';
+        $helperArchive = new HelperArchive();
+
+        ** Duplicate the code below for each file field by changing the variable names **
+        ** Reference field to delete image: delete_name_input
+
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+        if(isset($request->delete_path_image) && !$path_image){
+            $inputFile = $request->delete_path_image;
+            Storage::delete(${{ model }}->$inputFile);
+            ${{ model }}->path_image = null;
+        }
+
+        if($path_image){
+            Storage::delete(${{ model }}->path_image);
+            ${{ model }}->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
+        }
+
+        */
+
+        if(${{ model }}->save()){
+            Session::flash('success', 'Item atualizado com sucessso');
+            return redirect()->back();
+        }
     }
 
     /**

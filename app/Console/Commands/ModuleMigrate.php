@@ -16,6 +16,8 @@ class ModuleMigrate extends Command
     protected $signature = 'module:migrate
         {module? : Insert model name}
         {code? : Insert model code}
+        {--f|fresh : run the command with :fresh}
+        {--s|seed : run the command with --seed}
     ';
 
     /**
@@ -23,7 +25,7 @@ class ModuleMigrate extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Perform one or all migrations';
 
     /**
      * Create a new command instance.
@@ -43,6 +45,7 @@ class ModuleMigrate extends Command
     public function handle()
     {
         $arguments = $this->arguments();
+        $options = $this->options();
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
         $relations = config('modelsConfig.Relations');
 
@@ -58,6 +61,15 @@ class ModuleMigrate extends Command
                     return;
                 }
             }
+
+            if($options['fresh']){
+                Artisan::call('migrate:fresh');
+            }else{
+                Artisan::call('migrate');
+            }
+
+            $bar = $this->output->createProgressBar(count(get_object_vars($InsertModelsMain)));
+            $bar->start();
 
             foreach ($InsertModelsMain as $module => $model) {
                 foreach ($model as $code => $config) {
@@ -78,7 +90,13 @@ class ModuleMigrate extends Command
                     }
                 }
             }
-            Artisan::call('migrate');
+
+            $bar->finish();
+
+            if($options['seed']){
+                Artisan::call('migrate --seed');
+            }
+            $this->newLine();
             $this->info('Todas as migrations necessárias migradas com sucesso');
 
         } catch (Exception $e) {

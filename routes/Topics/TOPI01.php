@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Topics\TOPI01SectionController;
 use Illuminate\Support\Str;
 
 /**
@@ -8,8 +9,12 @@ use Illuminate\Support\Str;
  * Create new routes to admin or client according to the model below
  * Define the variables ​​$module, $model and import the controller class
  *
- * Don't create  resource route
+ * Do not create a resource route for this model
+ *
+ * Ps: use the code below if the route to be inserted belongs to this model
  */
+
+ Route::resource('painel/TOPI01SectionTopics', TOPI01SectionController::class)->names('admin.topi01section')->parameters(['TOPI01SectionTopics'=>'TOPI01SectionTopics']);
 
 // $module = 'TEST';
 // $model = 'TEST01';

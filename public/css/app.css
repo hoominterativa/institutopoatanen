@@ -24355,23 +24355,23 @@ body::-webkit-scrollbar-thumb:hover {
 /* Dot Slide color */
 /* Image Png */
 /* BEGIN STYLE */
-#slide {
+#SLID01 {
   height: 600px;
   overflow: hidden;
 }
-#slide .slide-carousel {
+#SLID01 .slide-carousel {
   height: 600px;
 }
-#slide .slide-carousel .slide-carousel-blade {
+#SLID01 .slide-carousel .slide-carousel-blade {
   height: 600px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-#slide .slide-carousel .wrap-content-slide {
+#SLID01 .slide-carousel .wrap-content-slide {
   z-index: 10;
 }
-#slide .slide-carousel .slide-blade-transparent {
+#SLID01 .slide-carousel .slide-blade-transparent {
   position: absolute;
   top: 0;
   left: 0;
@@ -24380,24 +24380,24 @@ body::-webkit-scrollbar-thumb:hover {
   display: block;
   z-index: 1;
 }
-#slide .slide-carousel .content-slide {
+#SLID01 .slide-carousel .content-slide {
   padding-left: 12%;
 }
-#slide .slide-carousel .content-slide .title {
+#SLID01 .slide-carousel .content-slide .title {
   font-family: "Roboto";
   font-size: 54px;
   color: #6405c3;
   border-bottom: 4px solid #6405c3;
 }
-#slide .slide-carousel .content-slide .title .subtitle {
+#SLID01 .slide-carousel .content-slide .title .subtitle {
   display: block;
   font-size: 31px;
   color: #6405c3;
 }
-#slide .slide-carousel .content-slide p {
+#SLID01 .slide-carousel .content-slide p {
   color: #6405c3;
 }
-#slide .slide-carousel .image-png-slide {
+#SLID01 .slide-carousel .image-png-slide {
   margin-top: 50px;
   max-width: 460px;
   position: absolute;
@@ -24405,14 +24405,14 @@ body::-webkit-scrollbar-thumb:hover {
   left: 50%;
   transform: translate(-50%);
 }
-#slide .navigation-slide {
+#SLID01 .navigation-slide {
   position: absolute;
   bottom: 0;
   left: 50%;
   z-index: 90;
   transform: translate(-595px, 0);
 }
-#slide .navigation-slide .owl-dot {
+#SLID01 .navigation-slide .owl-dot {
   width: 13px;
   height: 13px;
   display: inline-block;
@@ -24423,7 +24423,7 @@ body::-webkit-scrollbar-thumb:hover {
   border: none;
   transition: ease all 0.3s;
 }
-#slide .navigation-slide .owl-dot:hover, #slide .navigation-slide .owl-dot.active {
+#SLID01 .navigation-slide .owl-dot:hover, #SLID01 .navigation-slide .owl-dot.active {
   background-color: #6405c3;
   transition: ease all 0.3s;
 }
