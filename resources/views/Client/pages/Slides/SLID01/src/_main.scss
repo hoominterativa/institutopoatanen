@@ -28,23 +28,23 @@
         .content-slide {
             padding-left: 12%;
             .title {
-                font-family: $font-primary;
-                font-size: $title_size;
-                color: $title_color;
-                border-bottom: $title_border_bottom;
+                font-family: $slide_title;
+                font-size: $slide_title_size;
+                color: $slide_title_color;
+                border-bottom: $slide_title_border_bottom;
                 .subtitle {
                     display: block;
-                    font-size: $subtitle_size;
-                    color: $subtitle_color;
+                    font-size: $slide_subtitle_size;
+                    color: $slide_subtitle_color;
                 }
             }
             p {
-                color: $paragraph_color;
+                color: $slide_paragraph_color;
             }
         } // End .content-slide
         .image-png-slide {
-            margin-top: $margin_top_image_png;
-            max-width: $max_width_image_png;
+            margin-top: $slide_margin_top_image_png;
+            max-width: $slide_max_width_image_png;
             position: absolute;
             bottom: 0;
             left: 50%;
@@ -62,14 +62,14 @@
             height: 13px;
             display: inline-block;
             margin-right: 19px;
-            background-color: $dot_bg_color;
+            background-color: $slide_dot_bg_color;
             border-radius: 50%;
             padding: 0;
             border: none;
             transition: ease all 0.3s;
             &:hover,
             &.active {
-                background-color: $dot_bg_color_active;
+                background-color: $slide_dot_bg_color_active;
                 transition: ease all 0.3s;
             }
         }

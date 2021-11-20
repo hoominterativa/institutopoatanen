@@ -24428,6 +24428,59 @@ body::-webkit-scrollbar-thumb:hover {
   transition: ease all 0.3s;
 }
 
+/* Topic section Settings */
+/* Begin header */
+/* Begin header title */
+/* Begin header paragraph */
+/* Begin topic box */
+/* BEGIN STYLE */
+#TOPI01 .header-topic {
+  width: 100%;
+  text-align: center;
+}
+#TOPI01 .header-topic .title {
+  font-family: "Roboto";
+  font-size: 45px;
+  color: #6405c3;
+}
+#TOPI01 .header-topic .title:after {
+  content: "";
+  width: 20%;
+  height: 5px;
+  background-color: #6405c3;
+  display: block;
+  margin: 15px auto;
+}
+#TOPI01 .header-topic p {
+  width: 50%;
+}
+#TOPI01 .wrap-box-topic .box-topic .content {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 22px;
+}
+#TOPI01 .wrap-box-topic .box-topic .content .image {
+  width: 80px;
+  height: 80px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  overflow: hidden;
+}
+#TOPI01 .wrap-box-topic .box-topic .content .description {
+  width: calc(100% - 80px);
+  padding-left: 20px;
+}
+#TOPI01 .wrap-box-topic .box-topic .content .description .title {
+  font-family: "Roboto";
+  font-size: 14px;
+  color: #6405c3;
+}
+#TOPI01 .wrap-box-topic .box-topic .content .description p {
+  font-size: 14px;
+}
+
 .contact-container .contact-content .title {
   font-size: 45px;
   color: #6405c3;

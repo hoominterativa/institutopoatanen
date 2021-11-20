@@ -88,9 +88,15 @@ class TOPI01Controller extends Controller
      */
     public function update(Request $request, TOPI01Topics $TOPI01Topics)
     {
+
+
         $path = 'uploads/images/Topics/TOPI01/';
         $helperArchive = new HelperArchive();
         $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+
+        Storage::put($path.$path_image, base64_decode($request->path_image_cropped));
+
+        dd($path.$path_image);
 
         $TOPI01Topics->title = $request->title;
         $TOPI01Topics->description = $request->description;

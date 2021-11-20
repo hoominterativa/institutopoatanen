@@ -26,7 +26,7 @@
     </div> <!-- end card-->
     <div class="card col-12 col-lg-6">
         <div class="card-body">
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 {!! Form::label(null, 'Icone', ['class'=>'form-label']) !!}
                 {!! Form::file('path_image', [
                     'data-plugins'=>'dropify',
@@ -35,6 +35,21 @@
                     'accept'=>'image/*',
                     'data-default-file'=> isset($topic)?$topic->path_image<>''?url('storage/'.$topic->path_image):'':'',
                 ]) !!}
+            </div> --}}
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
+                        {!! Form::file('path_image', [
+                            'id'=>'inputImage',
+                            'class'=>'visually-hidden inputImage',
+                            'data-mincropwidth'=>'80',
+                            'data-scale'=>'1/1',
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file'=> isset($topic)?$topic->path_image<>''?url('storage/'.$topic->path_image):'':'',
+                        ]) !!}
+                    </label>
+                    <div class="crop-img-preview d-block float-start "></div>
+                </div><!-- END container image crop -->
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->

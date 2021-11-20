@@ -16,15 +16,17 @@
         <meta name="keywords" content="{{$optimization->keywords}}" />
         <meta name="author" content="{{$optimization->author}}">
     @endif
-
     <meta name="robots" content="follow">
     <meta name="copyright" content="© 2021 {{env('APP_NAME')}}." />
     <meta name="generator" content="Laravel 8" />
 
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
+
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
-    {!!$optimization->other_scripts!!}
 </head>
 <body>
+    {!!$optimization->other_scripts!!}
     <header id="mainHeader">
         {!!$renderHeader!!}
     </header>

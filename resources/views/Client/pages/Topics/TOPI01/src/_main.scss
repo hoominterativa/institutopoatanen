@@ -1,3 +1,56 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+
+#TOPI01 {
+    .header-topic {
+        width: $wp-100;
+        text-align: $topic_text_align_header;
+        .title {
+            font-family: $topic_title_header;
+            font-size: $topic_size_title_header;
+            color: $topic_color_title_header;
+            &:after {
+                content: '';
+                width: $topic_width_after_title_header;
+                height: $topic_height_after_title_header;
+                background-color: $topic_color_after_title_header;
+                display: block;
+                margin: 15px auto;
+            }
+        }
+        p {
+            width: $topic_paragraph_header;
+        }
+    }
+    .wrap-box-topic {
+        .box-topic {
+            .content {
+                display: flex;
+                align-items: center;
+                border: 1px solid #ccc;
+                padding: 22px;
+                .image {
+                    width: 80px;
+                    height: 80px;
+                    display: block;
+                    border: 1px solid #ccc;
+                    border-radius: 15px;
+                    overflow: hidden;
+                }
+                .description {
+                    width: calc(100% - 80px);
+                    padding-left: 20px;
+                    .title {
+                        font-family: $font-primary;
+                        font-size: 14px;
+                        color: $text-primary
+                    }
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

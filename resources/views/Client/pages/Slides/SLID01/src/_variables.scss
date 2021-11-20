@@ -4,25 +4,26 @@ $slide_height: 600px;
 
 /* Begin variables title */
 
-$title_size: 54px;
-$title_color: $primary;
-$title_border_bottom: 4px solid $primary;
+$slide_title: $font-primary;
+$slide_title_size: 54px;
+$slide_title_color: $primary;
+$slide_title_border_bottom: 4px solid $primary;
 
 /* Begin variables subtitle */
 
-$subtitle_size: 31px;
-$subtitle_color: $primary;
+$slide_subtitle_size: 31px;
+$slide_subtitle_color: $primary;
 
 /* Begin variables paragraph */
 
-$paragraph_color: $primary;
+$slide_paragraph_color: $primary;
 
 /* Dot Slide color */
 
-$dot_bg_color_active: $primary;
-$dot_bg_color: $gray-400;
+$slide_dot_bg_color_active: $primary;
+$slide_dot_bg_color: $gray-400;
 
 /* Image Png */
 
-$margin_top_image_png: 50px;
-$max_width_image_png: 460px;
+$slide_margin_top_image_png: 50px;
+$slide_max_width_image_png: 460px;

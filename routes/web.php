@@ -35,10 +35,12 @@ View::composer('Client.Core.client', function ($view) {
     $renderCore = new CoreController();
     $optimization = Optimization::first();
     $optimizePage = OptimizePage::where('page', Request::path())->first();
+    $generalSetting = GeneralSetting::first();
     return $view->with('renderHeader', $renderCore->renderHeader())
         ->with('renderFooter', $renderCore->renderFooter())
         ->with('optimizePage', $optimizePage)
-        ->with('optimization', $optimization);
+        ->with('optimization', $optimization)
+        ->with('generalSetting', $generalSetting);
 });
 
 View::composer('Admin.core.auth', function ($view) {
