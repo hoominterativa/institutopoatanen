@@ -282,3 +282,19 @@
         'data-default-file'=> isset($test)?$test->path_image<>''?url('storage/'.$test->path_image):'':'',
     ]) !!}
 </div>
+
+{{-- Image Crop --}}
+<div class="mb-3">
+    <div class="container-image-crop">
+        <label class="area-input-image-crop" for="inputImage" title="Upload image file">
+            {!! Form::file('path_image', [
+                'id'=>'inputImage',
+                'class'=>'inputImage',
+                'data-mincropwidth'=>'80',
+                'data-scale'=>'1/1',
+                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                'data-default-file'=> isset($test)?$test->path_image<>''?url('storage/'.$test->path_image):'':'',
+            ]) !!}
+        </label>
+    </div><!-- END container image crop -->
+</div>

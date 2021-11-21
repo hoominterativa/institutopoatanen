@@ -24433,6 +24433,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Begin header title */
 /* Begin header paragraph */
 /* Begin topic box */
+/* Dot Topic color */
 /* BEGIN STYLE */
 #TOPI01 .header-topic {
   width: 100%;
@@ -24479,6 +24480,26 @@ body::-webkit-scrollbar-thumb:hover {
 }
 #TOPI01 .wrap-box-topic .box-topic .content .description p {
   font-size: 14px;
+}
+#TOPI01 .wrap-box-topic .carousel-box-topic .owl-dots {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+#TOPI01 .wrap-box-topic .carousel-box-topic .owl-dots .owl-dot {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  margin-right: 19px;
+  background-color: #ced4da;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  transition: ease all 0.3s;
+}
+#TOPI01 .wrap-box-topic .carousel-box-topic .owl-dots .owl-dot:hover, #TOPI01 .wrap-box-topic .carousel-box-topic .owl-dots .owl-dot.active {
+  background-color: #6405c3;
+  transition: ease all 0.3s;
 }
 
 .contact-container .contact-content .title {

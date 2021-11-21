@@ -35,10 +35,39 @@ class HelperArchive extends Controller
      */
     public function renameArchiveUpload($request, $column)
     {
-        if ($request->hasFile($column) && $request->file($column)->isValid()) {
-            $extension = $request->$column->extension();
-            $originalName = Str::of(pathinfo($request->$column->getClientOriginalName(), PATHINFO_FILENAME))->slug().'-'.time();
+        $columnCrop = $column.'_cropped';
+        if($request->has($columnCrop) && strpos($request->$columnCrop, ';base64')){
+            //Get image base64
+            $fileBase64 = explode(',', $request->$columnCrop)[1];
+            // Rename file
+            $nameFile = $request->$column->getClientOriginalName();
+            $originalName = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time();
+            $arrayName = explode('.', $nameFile);
+            $extension = end($arrayName);
             $nameFile = "{$originalName}.{$extension}";
+
+            return [$fileBase64, $nameFile];
+        }
+
+        if ($request->hasFile($column)) {
+            if(is_array($request->$column)){
+                $arrNameFile = [];
+                foreach ($request->$column as $key => $value) {
+                    $nameFile = $request->$column[$key]->getClientOriginalName();
+                    $originalName = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time();
+                    $arrayName = explode('.', $nameFile);
+                    $extension = end($arrayName);
+                    array_push($arrNameFile, "{$originalName}.{$extension}");
+                    $nameFile = $arrNameFile;
+                }
+            }else{
+                $nameFile = $request->$column->getClientOriginalName();
+                $originalName = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time();
+                $arrayName = explode('.', $nameFile);
+                $extension = end($arrayName);
+                $nameFile = "{$originalName}.{$extension}";
+            }
+
             return $nameFile;
         }else{
             return false;

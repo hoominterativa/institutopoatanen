@@ -56,10 +56,11 @@ class TOPI01Controller extends Controller
         $TOPI01Topics->description = $request->description;
         $TOPI01Topics->active = $request->active?:0;
 
-        if($path_image){
-            $TOPI01Topics->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
+        if(is_array($path_image)){
+            $TOPI01Topics->path_image = $path.$path_image[1];
+            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
         }
+
         if($TOPI01Topics->save()){
             Session::flash('success', 'Tópico cadastrado com sucessso');
             return redirect()->route('admin.topi01.index');
@@ -88,15 +89,9 @@ class TOPI01Controller extends Controller
      */
     public function update(Request $request, TOPI01Topics $TOPI01Topics)
     {
-
-
         $path = 'uploads/images/Topics/TOPI01/';
         $helperArchive = new HelperArchive();
         $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
-
-        Storage::put($path.$path_image, base64_decode($request->path_image_cropped));
-
-        dd($path.$path_image);
 
         $TOPI01Topics->title = $request->title;
         $TOPI01Topics->description = $request->description;
@@ -108,10 +103,10 @@ class TOPI01Controller extends Controller
             $TOPI01Topics->path_image = null;
         }
 
-        if($path_image){
+        if(is_array($path_image)){
             Storage::delete($TOPI01Topics->path_image);
-            $TOPI01Topics->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
+            $TOPI01Topics->path_image = $path.$path_image[1];
+            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
         }
 
         if($TOPI01Topics->save()){

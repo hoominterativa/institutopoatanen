@@ -14,27 +14,24 @@ $(function() {
                     <i class="mdi mdi-upload"></i>
                     <p>Arraste e solte um arquivo aqui ou clique</p>
                 </div>
-                <div class="wrap-button-action">
-                    <button type="button" class="dropify-clear mb-2">Remover</button>
-                    <button type="button" class="button-crop">Recortar Imagem</button>
-                </div>
+                <button type="button" class="dropify-clear mb-2">Remover</button>
             `;
             var htmlModal = `
-                <div id="modal-crop-image" class="modal fade modal-crop-image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Recortar imagem</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="img-container mb-1 float-start me-2">
+                <div id="modal-crop-image" class="modal-crop-image">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Recortar imagem</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row align-content-stretch">
+                                <div class="img-container me-3 col-6">
                                     <img id="CropImage" src="" alt="Picture" class="img-fluid">
                                 </div>
-
+                                <div class="crop-img-preview"></div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" id="cropped" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Salvar recorte</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="cropped" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Salvar recorte</button>
                         </div>
                     </div>
                 </div>
@@ -57,8 +54,6 @@ $(function() {
                 aspectRatio: $scale,
                 viewMode: 0,
                 preview: $this.find('.crop-img-preview'),
-                minContainerWidth: 350,
-                minContainerHeight: 350,
                 minCropBoxWidth: $data.mincropwidth ? parseInt($data.mincropwidth) : 0,
                 crop: function(e) {
                     $dataHeight = Math.round(e.detail.height);
@@ -68,7 +63,6 @@ $(function() {
             var uploadedImageName = 'cropped.jpg';
             var uploadedImageType = 'image/jpeg';
             var uploadedImageURL;
-            var myModal = new bootstrap.Modal($this.find('#modal-crop-image'))
 
             $image.cropper(options);
 
@@ -88,8 +82,6 @@ $(function() {
 
                         if (/^image\/\w+$/.test(file.type)) {
 
-                            myModal.show();
-
                             uploadedImageName = file.name;
                             uploadedImageType = file.type;
 
@@ -100,6 +92,9 @@ $(function() {
                             uploadedImageURL = URL.createObjectURL(file);
                             console.log(uploadedImageURL)
                             $image.cropper('destroy').attr('src', uploadedImageURL).cropper(options);
+                            $this.find('.content-area-image-crop').hide()
+                            $this.find('> .modal-crop-image').addClass('show')
+
 
                         } else {
                             window.alert('Please choose an image file.');
@@ -114,15 +109,13 @@ $(function() {
                 var result = $image.cropper("getCroppedCanvas", { maxWidth: $dataWidth, maxHeight: $dataHeight }).toDataURL(uploadedImageType);
                 var nameInputFIle = $inputImage.attr('name');
                 $inputImage.parent().append(`<input type="hidden" name="${nameInputFIle}_cropped" value="${result}" />`)
-                $inputImage.parent().find('.button-crop').show()
                 $this.find('.preview-image').css('background-image', `url(${result})`)
+                $this.find('.dropify-clear').show()
+                $this.find('> .modal-crop-image').removeClass('show')
             })
 
-            $this.find('.wrap-button-action .button-crop').on('click', function() {
-                myModal.show();
-            })
-            $this.find('.wrap-button-action .dropify-clear').on('click', function() {
-                $this.find('.wrap-button-action button').hide()
+            $this.find('.dropify-clear').on('click', function() {
+                $(this).hide()
                 $this.find('.preview-image').css('background-image', `url()`)
                 $this.find('.content-area-image-crop').show()
             });
@@ -133,7 +126,7 @@ $(function() {
                     var file = $(this).data('default-file')
                     if (file != '') {
                         $(this).parent().find('.preview-image').css('background-image', `url(${file})`)
-                        $(this).parent().find('.wrap-button-action button').show()
+                        $(this).parent().find('.dropify-clear').show()
                         $(this).parent().find('.content-area-image-crop').hide()
                         $image.cropper('destroy').attr('src', file).cropper(options);
                     }

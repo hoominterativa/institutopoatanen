@@ -52,5 +52,28 @@
                 }
             }
         }
+        .carousel-box-topic {
+            .owl-dots {
+                width: 100%;
+                text-align: center;
+                margin-top: 50px;
+                .owl-dot {
+                    width: 13px;
+                    height: 13px;
+                    display: inline-block;
+                    margin-right: 19px;
+                    background-color: $topic_dot_bg_color;
+                    border-radius: 50%;
+                    padding: 0;
+                    border: none;
+                    transition: ease all 0.3s;
+                    &:hover,
+                    &.active {
+                        background-color: $topic_dot_bg_color_active;
+                        transition: ease all 0.3s;
+                    }
+                }
+            }
+        }
     }
 }
