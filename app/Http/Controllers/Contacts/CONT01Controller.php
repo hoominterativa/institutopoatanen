@@ -45,22 +45,26 @@ class CONT01Controller extends Controller
         $socials = Social::all();
 
         // Treats subject options
-        $optionsSubject = json_decode($contactForm->inputs)->subject->option;
-        $arrOptSubject = explode(',', $optionsSubject);
         $subject = [];
-        if($optionsSubject){
-            foreach ($arrOptSubject as $valueSubject) {
-                $subject = array_merge($subject, [ltrim(rtrim($valueSubject)) => ltrim(rtrim($valueSubject))]);
+        if(isset(json_decode($contactForm->inputs)->subject)){
+            $optionsSubject = json_decode($contactForm->inputs)->subject->option;
+            $arrOptSubject = explode(',', $optionsSubject);
+            if($optionsSubject){
+                foreach ($arrOptSubject as $valueSubject) {
+                    $subject = array_merge($subject, [ltrim(rtrim($valueSubject)) => ltrim(rtrim($valueSubject))]);
+                }
             }
         }
 
         // Treats met us options
-        $optionsMetUs = json_decode($contactForm->inputs)->subject->option;
-        $arrOptMetUs = explode(',', $optionsMetUs);
         $metUs = [];
-        if($optionsSubject){
-            foreach ($arrOptMetUs as $valueMetUs) {
-                $metUs = array_merge($metUs, [ltrim(rtrim($valueMetUs)) => ltrim(rtrim($valueMetUs))]);
+        if(isset(json_decode($contactForm->inputs)->met_us)){
+            $optionsMetUs = json_decode($contactForm->inputs)->met_us->option?:[];
+            $arrOptMetUs = explode(',', $optionsMetUs);
+            if($optionsSubject){
+                foreach ($arrOptMetUs as $valueMetUs) {
+                    $metUs = array_merge($metUs, [ltrim(rtrim($valueMetUs)) => ltrim(rtrim($valueMetUs))]);
+                }
             }
         }
 
