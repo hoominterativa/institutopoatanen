@@ -46,6 +46,23 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
+        'Services' => (object) [
+            'SERV01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
+                'config' => (object) [
+                    'titleMenu' => 'Serviços',
+                    'anchor' =>  false,
+                    'linkMenu' => 'serv01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-room-service-outline'
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
         'Contacts' => (object) [
             'CONT01' => (object)[
                 'ViewHome' => false,
@@ -74,23 +91,31 @@ return [
         'Slides' => (object)[
             'SLID01' => (object)[
                 'controller' => App\Http\Controllers\Slides\SLID01Controller::class,
-                'modelo' => App\Models\Slides\SLID01Slides::class
+                'model' => App\Models\Slides\SLID01Slides::class
             ],
         ],
         'Topics' => (object)[
             'TOPI01' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI01Controller::class,
-                'modelo' => App\Models\Topics\TOPI01Topics::class
+                'model' => App\Models\Topics\TOPI01Topics::class
+            ],
+        ],
+        'Services' => (object)[
+            'SERV01' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV01Controller::class,
+                'model' => App\Models\Services\SERV01Services::class
             ],
         ],
     ],
 
-    'Relations' => (object) [
-        // 'Product' => [
-        //     'PROD01' => (object) [
-        //         'before' => ['ProductCategory' => 'PRCA01','ProductSubategory' => 'PRSU01'],
-        //         'after' => ['ProductGallery' => 'PRCA01','ProductPhoto' => 'PRSU01']
-        //     ]
-        // ]
-    ],
+    // 'Relations' => (object) [
+    //     'Services' => [
+    //         'SERV01' => (object) [
+    //             'before' => [
+    //                 'Categories' => 'ART01',
+    //             ],
+    //             'after' => ['ProductGallery' => 'PRCA01','ProductPhoto' => 'PRSU01']
+    //         ]
+    //     ]
+    // ],
 ];

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Teste;
 use App\Models\User;
+use App\Mail\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use Kodeine\Acl\Models\Eloquent\Role;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;

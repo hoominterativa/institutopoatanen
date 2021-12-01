@@ -14,8 +14,11 @@ class ModuleMakeMigration extends Command
      *
      * @var string
      */
-    protected $signature = 'module:make-migration {module : Enter the name of the module for migration creation}
-    {code : Insert code the model}';
+    protected $signature = 'module:make-migration
+        {module : Enter the name of the module for migration creation}
+        {code : Insert code the model}
+        {--migration= : Insert name custom the migration in laravel default}
+    ';
 
     /**
      * The console command description.
@@ -43,11 +46,25 @@ class ModuleMakeMigration extends Command
     {
         $helper = new HelperModule();
         $arguments = $this->arguments();
+        $options = $this->options();
 
         if(!$helper->searchModulesJson($arguments['module'])){
             $this->error('O Módulo informado não existe ou sua escrita está incorreta');
-            $this->comment('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
-            $this->comment('Use o camando artisan module:make para criar um novo módulo.');
+            $this->info('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+            $this->info('Use o camando artisan module:make para criar um novo módulo.');
+            return;
+        }
+
+        if($options['migration']){
+            if(!$helper->searchModulesJson($arguments['module'], $arguments['code'])){
+                $this->error('O código informado não existe ou sua escrita está incorreta');
+                $this->info('Use o camando artisan module:list para visualizar os módulos e códigos existentes.');
+                $this->info('Use o camando artisan module:model para criar um novo modelo.');
+                return;
+            }
+
+            Artisan::call('make:migration '.$options['migration'].' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
+            $this->info('Migrate criada com sucesso!');
             return;
         }
 

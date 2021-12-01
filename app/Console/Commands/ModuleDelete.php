@@ -29,7 +29,9 @@ class ModuleDelete extends Command
     protected $signature = 'module:delete
         {module : Insert name the module}
         {code? : Insert code the model}
-        {--c|core : if the module to be deleted is a footer or a header}';
+        {--c|core : if the module to be deleted is a footer or a header}
+        {--relation= : if the module to be deleted is a relationship}
+    ';
 
     /**
      * The console command description.
@@ -58,10 +60,10 @@ class ModuleDelete extends Command
         $helper = new HelperModule();
         $arguments = $this->arguments();
         $options = $this->options();
+        $arrayModule = $helper->listModules();
         $listModel = $helper->listModules($arguments['module']);
 
         try {
-            $arrayModule = $helper->listModules();
 
             if(!$this->confirm('Esta ação não poderá ser desfeita, deseja continuar?')){
                 return;
@@ -82,7 +84,11 @@ class ModuleDelete extends Command
             }
 
             if($arguments['code']){
-                $indexRemove = array_search($arguments['code'] ,$arrayModule[$arguments['module']]);
+                if($options['relation']){
+                    $indexRemove = array_search($arguments['code'].$options['relation'] ,$arrayModule[$arguments['module']]);
+                }else{
+                    $indexRemove = array_search($arguments['code'] ,$arrayModule[$arguments['module']]);
+                }
                 unset($arrayModule[$arguments['module']][$indexRemove]);
             }else{
                 unset($arrayModule[$arguments['module']]);
@@ -95,6 +101,22 @@ class ModuleDelete extends Command
 
             if(!$written){
                 $this->error('Erro ao atualizar o arquivo modules.json');
+                return;
+            }
+
+            if($options['relation']){
+                if(is_dir($this->path['admin'].$arguments['module'].'/'.$arguments['code'].'/'.$options['relation'])) shell_exec('rm -r '.$this->path['admin'].$arguments['module'].'/'.$arguments['code'].'/'.$options['relation']);
+
+                // Delete archives
+                if(file_exists($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].'.php')) unlink($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].'.php');
+                if(file_exists($this->path['controller'].$arguments['module'].'/'.$arguments['code'].$options['relation'].'Controller.php')) unlink($this->path['controller'].$arguments['module'].'/'.$arguments['code'].$options['relation'].'Controller.php');
+                if(file_exists($this->path['factories'].$arguments['code'].$arguments['module'].$options['relation'].'Factory.php')) unlink($this->path['factories'].$arguments['code'].$arguments['module'].$options['relation'].'Factory.php');
+                if(file_exists($this->path['seeders'].$arguments['code'].$options['relation'].'Seeder.php')) unlink($this->path['seeders'].$arguments['code'].$options['relation'].'Seeder.php');
+
+
+                $this->info('Módulo relacional '.$options['relation'].' deletado com sucesso');
+                $this->info('As migrations e tabelas no banco de dados deveram ser deletadas manualmente.');
+                $this->info('As rotas de recursos do modulo relacional deveram ser deletadas manualmente.');
                 return;
             }
 
@@ -116,8 +138,8 @@ class ModuleDelete extends Command
                 if(file_exists($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'.php')) unlink($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'.php');
                 if(file_exists($this->path['controller'].$arguments['module'].'/'.$arguments['code'].'Controller.php')) unlink($this->path['controller'].$arguments['module'].'/'.$arguments['code'].'Controller.php');
                 if(file_exists($this->path['routes'].$arguments['module'].'/'.$arguments['code'].'.php')) unlink($this->path['routes'].$arguments['module'].'/'.$arguments['code'].'.php');
-                if(file_exists($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory.php')) unlink($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory.php');
-                if(file_exists($this->path['seeders'].$arguments['module'].'/'.$arguments['code'].'Seeder.php')) unlink($this->path['seeders'].$arguments['module'].'/'.$arguments['code'].'Seeder.php');
+                if(file_exists($this->path['factories'].$arguments['code'].$arguments['module'].'Factory.php')) unlink($this->path['factories'].$arguments['code'].$arguments['module'].'Factory.php');
+                if(file_exists($this->path['seeders'].$arguments['code'].'Seeder.php')) unlink($this->path['seeders'].$arguments['code'].'Seeder.php');
 
 
                 $this->info($arguments['module'].'/'.$arguments['code'].' deletado com sucesso');
