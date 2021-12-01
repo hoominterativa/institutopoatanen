@@ -37,8 +37,14 @@ class ModulePublish extends Command
      */
     public function handle()
     {
-        $returnShell = shell_exec('git checkout -b publish');
-        $this->info($returnShell);
+        shell_exec('git checkout -b Publishing');
+        shell_exec('git commit -m "Site Publishing Branch"');
+        shell_exec('git push --set-upstream origin Publishing');
+
+        $this->newLine();
+
+        $this->info('Branch Publishing criada com sucesso, publique o site a partir da mesma');
+        $this->warn('Antes de publicar o site solicite a alteração da branch padrão do seu projeto para a branch Publishing.');
         return;
     }
 }
