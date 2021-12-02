@@ -43,15 +43,53 @@ class ModulePublish extends Command
                 return;
             }
 
-            $verifyBranch = shell_exec('git rev-parse --verify Publishing');
-            if($verifyBranch){
-                shell_exec('git checkout Publishing');
-            }else{
-                shell_exec('git checkout -b Publishing');
-            }
+            $bar = $this->output->createProgressBar();
 
+            $this->comment('Verificando se a branch Publishing existe');
+            $verifyBranch = shell_exec('git rev-parse --verify Publishing');
+            $bar->finish();
+
+            if($verifyBranch){
+
+                $this->comment('Migrando para a branch Publishing');
+                shell_exec('git checkout Publishing');
+                $bar->finish();
+
+                $this->comment('Atualizando a branch Publishing a partir da Developer');
+                shell_exec('git merge feature/developer');
+                $bar->finish();
+
+            }else{
+
+                $this->comment('Criando e migrando a branch Publishing');
+                shell_exec('git checkout -b Publishing');
+                $bar->finish();
+
+            }
+            /**
+             * Cleans all system files for online publication the website
+            */
+
+            $this->comment('Limpando Arquivos');
+            $bar->finish();
+
+            /**
+             * End Clear
+            */
+
+            $this->comment('Adicionando as alterações para realização do commit');
+            shell_exec('git add .');
+            $bar->finish();
+
+            $this->comment('Subindo as alterações');
             shell_exec('git commit -m "Site Publishing Branch"');
+            $bar->finish();
+
+            $this->comment('Publicando as alterações na branch Publishing');
             shell_exec('git push --set-upstream origin Publishing');
+            $bar->finish();
+
+            $bar->finish();
 
             $this->newLine();
 
