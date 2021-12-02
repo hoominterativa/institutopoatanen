@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 
 class ModulePublish extends Command
@@ -37,14 +38,28 @@ class ModulePublish extends Command
      */
     public function handle()
     {
-        shell_exec('git checkout -b Publishing');
-        shell_exec('git commit -m "Site Publishing Branch"');
-        shell_exec('git push --set-upstream origin Publishing');
+        try {
+            if(!$this->confirm('ATENÇÃO: Já realizou o commit e push das alterações realizadas?')){
+                return;
+            }
 
-        $this->newLine();
+            $verifyBranch = shell_exec('git rev-parse --verify Publishing');
+            if($verifyBranch){
+                shell_exec('git checkout Publishing');
+            }else{
+                shell_exec('git checkout -b Publishing');
+            }
 
-        $this->info('Branch Publishing criada com sucesso, publique o site a partir da mesma');
-        $this->warn('Antes de publicar o site solicite a alteração da branch padrão do seu projeto para a branch Publishing.');
-        return;
+            shell_exec('git commit -m "Site Publishing Branch"');
+            shell_exec('git push --set-upstream origin Publishing');
+
+            $this->newLine();
+
+            $this->info('Branch Publishing criada com sucesso, publique o site a partir da mesma');
+            $this->warn('Antes de publicar o site solicite a alteração da branch padrão do seu projeto para a branch Publishing.');
+            return;
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
     }
 }
