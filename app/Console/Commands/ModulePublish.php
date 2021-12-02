@@ -81,8 +81,8 @@ class ModulePublish extends Command
 
             $this->newLine();
 
-            $this->info('Branch Publishing criada com sucesso, publique o site a partir da mesma');
-            $this->warn('Antes de publicar o site solicite a alteração da branch padrão do seu projeto para a branch Publishing.');
+            $this->comment('Branch Publishing criada com sucesso, publique o site a partir da mesma');
+            $this->comment('Antes de publicar o site solicite a alteração da branch padrão do seu projeto para a branch Publishing.');
             return;
         } catch (Exception $e) {
             dd($e->getMessage());
