@@ -43,27 +43,21 @@ class ModulePublish extends Command
                 return;
             }
 
-            $bar = $this->output->createProgressBar();
-
             $this->comment('Verificando se a branch Publishing existe');
             $verifyBranch = shell_exec('git rev-parse --verify Publishing');
-            $bar->advance();
 
             if($verifyBranch){
 
                 $this->comment('Migrando para a branch Publishing');
                 shell_exec('git checkout Publishing');
-                $bar->advance();
 
                 $this->comment('Atualizando a branch Publishing a partir da Developer');
                 shell_exec('git merge feature/developer');
-                $bar->advance();
 
             }else{
 
                 $this->comment('Criando e migrando a branch Publishing');
                 shell_exec('git checkout -b Publishing');
-                $bar->advance();
 
             }
             /**
@@ -71,7 +65,6 @@ class ModulePublish extends Command
             */
 
             $this->comment('Limpando Arquivos');
-            $bar->advance();
 
             /**
              * End Clear
@@ -79,17 +72,12 @@ class ModulePublish extends Command
 
             $this->comment('Adicionando as alterações para realização do commit');
             shell_exec('git add .');
-            $bar->advance();
 
             $this->comment('Subindo as alterações');
             shell_exec('git commit -m "Site Publishing Branch"');
-            $bar->advance();
 
             $this->comment('Publicando as alterações na branch Publishing');
             shell_exec('git push --set-upstream origin Publishing');
-            $bar->advance();
-
-            $bar->finish();
 
             $this->newLine();
 
