@@ -46,23 +46,23 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
-        'Services' => (object) [
-            'SERV01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
-                'config' => (object) [
-                    'titleMenu' => 'Serviços',
-                    'anchor' =>  false,
-                    'linkMenu' => 'serv01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
-                    'iconPanel' => 'mdi-room-service-outline'
-                ],
-                'IncludeSections' => (object) []
-            ],
-        ],
+        // 'Services' => (object) [
+        //     'SERV01' => (object)[
+        //         'ViewHome' => true,
+        //         'ViewListMenu' => true,
+        //         'ViewListPanel' => true,
+        //         'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
+        //         'config' => (object) [
+        //             'titleMenu' => 'Serviços',
+        //             'anchor' =>  false,
+        //             'linkMenu' => 'serv01.page',
+        //             'iconMenu' => '',
+        //             'titlePanel' => 'Serviços',
+        //             'iconPanel' => 'mdi-room-service-outline'
+        //         ],
+        //         'IncludeSections' => (object) []
+        //     ],
+        // ],
         'Contacts' => (object) [
             'CONT01' => (object)[
                 'ViewHome' => false,

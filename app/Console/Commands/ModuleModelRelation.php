@@ -96,7 +96,7 @@ class ModuleModelRelation extends Command
 
             Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation']);
             Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
-            Artisan::call('make:seeder '.$arguments['code'].$options['relation'].'Seeder');
+            Artisan::call('make:seeder '.$arguments['code'].$arguments['module'].$options['relation'].'Seeder');
             Artisan::call('make:factory '.$arguments['code'].$arguments['module'].$options['relation'].'Factory --model='.$arguments['code'].$arguments['module'].$options['relation']);
             Artisan::call('make:controller --model='.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].' '.$arguments['module'].'/'.$arguments['code'].$options['relation'].'Controller');
 

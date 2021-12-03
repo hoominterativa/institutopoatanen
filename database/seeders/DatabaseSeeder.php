@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         TOPI01Topics::factory()->count(3)->create();
 
         $this->call([
-            SLID01Seeder::class,
+            SLID01SlidesSeeder::class,
             SettingThemeSeeder::class,
             OptimizationSeeder::class,
             GeneralSettingSeeder::class,

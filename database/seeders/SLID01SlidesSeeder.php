@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class SLID01Seeder extends Seeder
+class SLID01SlidesSeeder extends Seeder
 {
     /**
      * Run the database seeds.

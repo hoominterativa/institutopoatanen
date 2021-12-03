@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class SERV01SubcategoriesSeeder extends Seeder
+class SERV01ServicesCategoriesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
