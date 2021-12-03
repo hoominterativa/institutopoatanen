@@ -15,10 +15,20 @@ class SERV01Services extends Model
         return SERV01ServicesFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "serv01_services";
 
     public function scopeSorting($query)
     {
         return $this->orderBy('sorting', 'ASC');
+    }
+
+    public function getCategory()
+    {
+        return $this->belongsTo(SERV01ServicesCategories::class, 'category_id');
+    }
+
+    public function getSubcategory()
+    {
+        return $this->belongsTo(SERV01ServicesSubcategories::class, 'subcategory_id');
     }
 }

@@ -18,6 +18,7 @@ class CreateServ01ServicesSubcategoriesTable extends Migration
             $table->string('name')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
+            $table->string('slug');
             $table->timestamps();
         });
     }

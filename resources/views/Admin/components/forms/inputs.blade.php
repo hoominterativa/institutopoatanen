@@ -267,7 +267,7 @@
     {!! Form::label('complete-editor', 'Complete Editor', ['class'=>'form-label']) !!}
     {!! Form::textarea('description', null, [
         'class'=>'form-control',
-        'id'=>'basic-editor',
+        'id'=>'complete-editor',
     ]) !!}
 </div>
 

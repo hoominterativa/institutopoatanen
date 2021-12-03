@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\Services\SERV01ServicesSubcategories;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV01ServicesSubcategories;
 
 class SERV01SubcategoriesController extends Controller
 {
@@ -19,7 +20,10 @@ class SERV01SubcategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $subcategories = SERV01ServicesSubcategories::sorting()->paginate('32');
+        return view('Admin.cruds.Services.SERV01.Subcategories.index',[
+            'subcategories' => $subcategories
+        ]);
     }
 
     /**
@@ -29,7 +33,7 @@ class SERV01SubcategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Services.SERV01.Subcategories.create');
     }
 
     /**
@@ -40,32 +44,14 @@ class SERV01SubcategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        /* Use the code below to upload files, if not, delete code
-
-        $path = 'uploads/images/Module/Code/';
-        $helperArchive = new HelperArchive();
-
-        ** Duplicate the code below for each file field by changing the variable names **
-
-        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
-
-        // Use this for normal image upload
-        if($path_image){
-            $SERV01ServicesSubcategories->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
-        }
-
-        // Use this one for image upload with cropping
-        if(is_array($path_image)){
-            $SERV01ServicesSubcategories->path_image = $path.$path_image[1];
-            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
-        }
-
-        */
+        $SERV01ServicesSubcategories = new SERV01ServicesSubcategories();
+        $SERV01ServicesSubcategories->name = $request->name;
+        $SERV01ServicesSubcategories->active = $request->active?:0;
+        $SERV01ServicesSubcategories->slug = Str::slug($request->name, '-', 'pt_BR');
 
         if($SERV01ServicesSubcategories->save()){
-            Session::flash('success', 'Item cadastrado com sucessso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Subcategoria cadastrada com sucessso');
+            return redirect()->route('admin.serv01.subcategory.index');
         }
     }
 
@@ -77,7 +63,9 @@ class SERV01SubcategoriesController extends Controller
      */
     public function edit(SERV01ServicesSubcategories $SERV01ServicesSubcategories)
     {
-        //
+        return view('Admin.cruds.Services.SERV01.Subcategories.edit',[
+            'subcategory' => $SERV01ServicesSubcategories
+        ]);
     }
 
     /**
@@ -89,41 +77,12 @@ class SERV01SubcategoriesController extends Controller
      */
     public function update(Request $request, SERV01ServicesSubcategories $SERV01ServicesSubcategories)
     {
-        /* Use the code below to upload files, if not, delete code
-
-        $path = 'uploads/images/Module/Code/';
-        $helperArchive = new HelperArchive();
-
-        ** Duplicate the code below for each file field by changing the variable names **
-        ** Reference field to delete image: delete_name_input
-
-        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
-
-
-        if(isset($request->delete_path_image) && !$path_image){
-            $inputFile = $request->delete_path_image;
-            Storage::delete($SERV01ServicesSubcategories->$inputFile);
-            $SERV01ServicesSubcategories->path_image = null;
-        }
-
-        // Use this for normal image upload
-        if($path_image){
-            Storage::delete($SERV01ServicesSubcategories->path_image);
-            $SERV01ServicesSubcategories->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
-        }
-
-        // Use this one for image upload with cropping
-        if(is_array($path_image)){
-            Storage::delete($SERV01ServicesSubcategories->path_image);
-            $SERV01ServicesSubcategories->path_image = $path.$path_image[1];
-            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
-        }
-
-        */
+        $SERV01ServicesSubcategories->name = $request->name;
+        $SERV01ServicesSubcategories->active = $request->active?:0;
+        $SERV01ServicesSubcategories->slug = Str::slug($request->name, '-', 'pt_BR');
 
         if($SERV01ServicesSubcategories->save()){
-            Session::flash('success', 'Item atualizado com sucessso');
+            Session::flash('success', 'Subcategoria atualizada com sucessso');
             return redirect()->back();
         }
     }

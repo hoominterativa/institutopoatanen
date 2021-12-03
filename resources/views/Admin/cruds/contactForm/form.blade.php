@@ -1,6 +1,6 @@
 <div class="row col-12">
-    <div class="card col-12">
-        <div class="card-body" id="tooltip-container">
+    <div class="col-12">
+        <div class="card card-body" id="tooltip-container">
             <div>
                 {!! Form::label(null, 'E-mail destinatário', ['class'=>'form-label']) !!}
                 {!! Form::email('email', null, [

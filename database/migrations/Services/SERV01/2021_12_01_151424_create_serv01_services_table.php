@@ -22,7 +22,9 @@ class CreateServ01ServicesTable extends Migration
             $table->longText('text')->nullable();
             $table->string('path_image_box')->nullable();
             $table->string('path_image_inner')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
+            $table->string('slug');
             $table->timestamps();
 
             $table->index('category_id', 'fk_serv01_services_serv01_services_categories1_idx');

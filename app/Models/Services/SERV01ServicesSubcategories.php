@@ -15,7 +15,7 @@ class SERV01ServicesSubcategories extends Model
         return SERV01ServicesSubcategoriesFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "serv01_services_subcategories";
 
     public function scopeSorting($query)
     {

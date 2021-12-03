@@ -1,6 +1,6 @@
 <div class="row col-12">
-    <div class="card col-12 col-lg-6">
-        <div class="card-body">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body">
             <h4 class="mb-3">Infomações de Contato</h4>
             <div class="mb-3">
                 {!! Form::label(null, 'Telefone', ['class'=>'form-label']) !!}
@@ -60,8 +60,8 @@
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
-    <div class="card col-12 col-lg-6" id="tooltip-container">
-        <div class="card-body">
+    <div class="col-12 col-lg-6" id="tooltip-container">
+        <div class="card card-body">
             <p class="mt-2 mb-3 alert-warning p-2">As logos são usadas par o site e gerenciador recomendamos cadastrar todas as versões para que as mesmas não aparceçam quebradas em alguma parte do site ou gerenciador</p>
             <div class="mb-3">
                 <div class="row">

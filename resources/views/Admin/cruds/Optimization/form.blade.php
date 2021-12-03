@@ -1,6 +1,6 @@
 <div class="row col-12">
-    <div class="card col-12">
-        <div class="card-body" id="tooltip-container">
+    <div class="col-12">
+        <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="d-flex justify-content-start align-items-center">
                     {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}

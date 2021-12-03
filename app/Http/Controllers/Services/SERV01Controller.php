@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\Services\SERV01Services;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Controller;
+use App\Models\Services\SERV01Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV01ServicesCategories;
+use App\Models\Services\SERV01ServicesSubcategories;
 
 class SERV01Controller extends Controller
 {
@@ -19,7 +22,10 @@ class SERV01Controller extends Controller
      */
     public function index()
     {
-        //
+        $services = SERV01Services::with(['getCategory', 'getSubcategory'])->sorting()->paginate('32');
+        return view('Admin.cruds.Services.SERV01.index',[
+            'services' => $services
+        ]);
     }
 
     /**
@@ -29,7 +35,12 @@ class SERV01Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = SERV01ServicesCategories::sorting()->pluck('name', 'id');
+        $subcategories = SERV01ServicesSubcategories::sorting()->pluck('name', 'id');
+        return view('Admin.cruds.Services.SERV01.create',[
+            'categories' => $categories,
+            'subcategories' => $subcategories
+        ]);
     }
 
     /**
@@ -40,32 +51,34 @@ class SERV01Controller extends Controller
      */
     public function store(Request $request)
     {
-        /* Use the code below to upload files, if not, delete code
-
-        $path = 'uploads/images/Module/Code/';
+        $path = 'uploads/images/Services/SERV01/';
         $helperArchive = new HelperArchive();
+        $path_image_box = $helperArchive->renameArchiveUpload($request, 'path_image_box');
+        $path_image_inner = $helperArchive->renameArchiveUpload($request, 'path_image_inner');
 
-        ** Duplicate the code below for each file field by changing the variable names **
+        $SERV01Services = new SERV01Services();
 
-        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
-
-        // Use this for normal image upload
-        if($path_image){
-            $SERV01Services->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
+        if($path_image_inner){
+            $SERV01Services->path_image_inner = $path.$path_image_inner;
+            $request->path_image_inner->storeAs($path, $path_image_inner);
         }
 
-        // Use this one for image upload with cropping
-        if(is_array($path_image)){
-            $SERV01Services->path_image = $path.$path_image[1];
-            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
+        if(is_array($path_image_box)){
+            $SERV01Services->path_image_box = $path.$path_image_box[1];
+            Storage::put($path.$path_image_box[1], base64_decode($path_image_box[0]));
         }
 
-        */
+        $SERV01Services->category_id = $request->category_id?:null;
+        $SERV01Services->subcategory_id = $request->subcategory_id?:null;
+        $SERV01Services->title = $request->title;
+        $SERV01Services->description = $request->description;
+        $SERV01Services->text = $request->text;
+        $SERV01Services->slug = Str::slug($request->title);
+        $SERV01Services->active = $request->active;
 
         if($SERV01Services->save()){
-            Session::flash('success', 'Item cadastrado com sucessso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço cadastrado com sucessso');
+            return redirect()->route('admin.serv01.index');
         }
     }
 
@@ -77,7 +90,13 @@ class SERV01Controller extends Controller
      */
     public function edit(SERV01Services $SERV01Services)
     {
-        //
+        $categories = SERV01ServicesCategories::sorting()->pluck('name', 'id');
+        $subcategories = SERV01ServicesSubcategories::sorting()->pluck('name', 'id');
+        return view('Admin.cruds.Services.SERV01.edit',[
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'service' => $SERV01Services
+        ]);
     }
 
     /**
@@ -89,41 +108,45 @@ class SERV01Controller extends Controller
      */
     public function update(Request $request, SERV01Services $SERV01Services)
     {
-        /* Use the code below to upload files, if not, delete code
-
-        $path = 'uploads/images/Module/Code/';
+        $path = 'uploads/images/Services/SERV01/';
         $helperArchive = new HelperArchive();
 
-        ** Duplicate the code below for each file field by changing the variable names **
-        ** Reference field to delete image: delete_name_input
+        $path_image_inner = $helperArchive->renameArchiveUpload($request, 'path_image_inner');
+        $path_image_box = $helperArchive->renameArchiveUpload($request, 'path_image_box');
 
-        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
-
-
-        if(isset($request->delete_path_image) && !$path_image){
-            $inputFile = $request->delete_path_image;
+        if(isset($request->delete_path_image_inner) && !$path_image_inner){
+            $inputFile = $request->delete_path_image_inner;
             Storage::delete($SERV01Services->$inputFile);
-            $SERV01Services->path_image = null;
+            $SERV01Services->path_image_inner = null;
+        }
+        if(isset($request->delete_path_image_box) && !$path_image_box){
+            $inputFile = $request->delete_path_image_box;
+            Storage::delete($SERV01Services->$inputFile);
+            $SERV01Services->path_image_box = null;
         }
 
-        // Use this for normal image upload
-        if($path_image){
-            Storage::delete($SERV01Services->path_image);
-            $SERV01Services->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
+        if($path_image_inner){
+            Storage::delete($SERV01Services->path_image_inner);
+            $SERV01Services->path_image_inner = $path.$path_image_inner;
+            $request->path_image_inner->storeAs($path, $path_image_inner);
         }
 
-        // Use this one for image upload with cropping
-        if(is_array($path_image)){
-            Storage::delete($SERV01Services->path_image);
-            $SERV01Services->path_image = $path.$path_image[1];
-            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
+        if(is_array($path_image_box)){
+            Storage::delete($SERV01Services->path_image_box);
+            $SERV01Services->path_image_box = $path.$path_image_box[1];
+            Storage::put($path.$path_image_box[1], base64_decode($path_image_box[0]));
         }
 
-        */
+        $SERV01Services->category_id = $request->category_id?:null;
+        $SERV01Services->subcategory_id = $request->subcategory_id?:null;
+        $SERV01Services->title = $request->title;
+        $SERV01Services->description = $request->description;
+        $SERV01Services->text = $request->text;
+        $SERV01Services->slug = Str::slug($request->title);
+        $SERV01Services->active = $request->active;
 
         if($SERV01Services->save()){
-            Session::flash('success', 'Item atualizado com sucessso');
+            Session::flash('success', 'Serviço atualizado com sucessso');
             return redirect()->back();
         }
     }
@@ -137,7 +160,7 @@ class SERV01Controller extends Controller
     public function destroy(SERV01Services $SERV01Services)
     {
         if($SERV01Services->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Serviço deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -152,7 +175,7 @@ class SERV01Controller extends Controller
     public function destroySelected(Request $request)
     {
         if($deleted = SERV01Services::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' serviços deletados com sucessso']);
         }
     }
     /**
@@ -181,7 +204,9 @@ class SERV01Controller extends Controller
      */
     public function show(SERV01Services $SERV01Services)
     {
-        //
+        return view('Client.pages.Services.SERV01.show',[
+            'service' => $SERV01Services
+        ]);
     }
 
     /**
@@ -192,7 +217,14 @@ class SERV01Controller extends Controller
      */
     public function page(Request $request)
     {
-        //
+        $services = SERV01Services::sorting()->paginate(16);
+        $categories = SERV01ServicesCategories::sorting()->get();
+        $subcategories = SERV01ServicesSubcategories::sorting()->get();
+        return view('Client.pages.Services.SERV01.page',[
+            'services' => $services,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 
     /**
@@ -202,6 +234,14 @@ class SERV01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV01.section');
+        $services = SERV01Services::sorting()->paginate(16);
+        $categories = SERV01ServicesCategories::sorting()->get();
+        $subcategories = SERV01ServicesSubcategories::sorting()->get();
+
+        return view('Client.pages.Services.SERV01.section',[
+            'services' => $services,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 }

@@ -1,7 +1,7 @@
 <input type="hidden" name="_previous" value="{{url()->previous()}}">
 <div class="row col-12">
-    <div class="card col-12 col-lg-6">
-        <div class="card-body" id="tooltip-container">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 {!! Form::label(null, 'Página', ['class'=>'form-label']) !!}
                 {!! Form::select('page', $listPages, null, [
@@ -26,8 +26,8 @@
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
-    <div class="card col-12 col-lg-6">
-        <div class="card-body" id="tooltip-container">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="d-flex justify-content-start align-items-center">
                     {!! Form::label(null, 'Palavras Chaves', ['class'=>'form-label']) !!}

@@ -13,8 +13,8 @@
     PS.: Excluir esse comentário e todos relacioado a instruções.
 --}}
 <div class="row col-12">
-    <div class="card col-12">
-        <div class="card-body">
+    <div class="col-12">
+        <div class="card card-body">
             {{-- INSERI OS INPUTS DOS FORMULARIOS AQUI --}}
         </div> <!-- end card-body-->
     </div> <!-- end card-->

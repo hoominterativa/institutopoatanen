@@ -1,7 +1,7 @@
 
 <div class="row col-12">
-    <div class="card col-12 col-lg-6">
-        <div class="card-body">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body">
             <div class="mb-3">
                 {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
                 {!! Form::text('title', null, ['class'=>'form-control', 'required'=>'required']) !!}
@@ -24,8 +24,8 @@
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
-    <div class="card col-12 col-lg-6">
-        <div class="card-body">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body">
             <div class="mb-3">
                 <div class="container-image-crop">
                     <label class="area-input-image-crop" for="inputImage" title="Upload image file">

@@ -1,7 +1,7 @@
 
 <div class="row col-12">
-    <div class="card col-12 col-lg-6">
-        <div class="card-body">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body">
             <div class="mb-3">
                 {!! Form::label(null, 'Nome', ['class'=>'form-label']) !!}
                 {!! Form::text('name', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'required'=>'required']) !!}
@@ -17,8 +17,8 @@
 
         </div> <!-- end card-body-->
     </div> <!-- end card-->
-    <div class="card col-12 col-lg-6">
-        <div class="card-body">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body">
             <div class="mb-3">
                 {!! Form::label(null, 'Senha', ['class'=>'form-label']) !!}
                 {!! Form::password('password', [
