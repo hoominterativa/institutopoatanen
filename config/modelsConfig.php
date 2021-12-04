@@ -60,7 +60,7 @@ return [
                     'titlePanel' => 'Serviços',
                     'iconPanel' => 'mdi-room-service-outline'
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [],
             ],
         ],
         'Contacts' => (object) [

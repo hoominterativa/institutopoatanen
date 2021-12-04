@@ -8085,8 +8085,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Topics/TOPI01/src/main */ "./resources/views/Client/pages/Topics/TOPI01/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Contacts/CONT01/src/main */ "./resources/views/Client/pages/Contacts/CONT01/src/main.js");
-/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Services/SERV01/src/main */ "./resources/views/Client/pages/Services/SERV01/src/main.js");
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Contacts/CONT01/src/main */ "./resources/views/Client/pages/Contacts/CONT01/src/main.js");
+/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -8112,6 +8115,25 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Services/SERV01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Services/SERV01/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('#SERV01 .carousel-box-service').owlCarousel({
+  loop: true,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  nav: false,
+  dots: true,
+  items: 4,
+  margin: 10
+});
 
 /***/ }),
 

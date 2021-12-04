@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-6">
                                         <a href="{{route('admin.topi01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                                        <button type="button" class="btn btn-primary float-end me-3" data-bs-toggle="modal" data-bs-target="#create-topics-section">Editar Título da Seção</button>
+                                        <button type="button" class="btn btn-primary float-end me-3" data-bs-toggle="modal" data-bs-target="#create-topics-section">Editar Informações da Seção</button>
                                     </div>
                                 </div>
                                 <table class="table table-bordered table-sortable">

@@ -48,6 +48,17 @@ body::-webkit-scrollbar-thumb:hover {
   background: #6405c3;
 }
 
+.content {
+  position: relative;
+}
+
+.link-full {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .text-primary {
   color: #6405c3 !important;
 }
@@ -24435,6 +24446,9 @@ body::-webkit-scrollbar-thumb:hover {
 /* Begin topic box */
 /* Dot Topic color */
 /* BEGIN STYLE */
+#TOPI01 {
+  background-color: #f3f3f3;
+}
 #TOPI01 .header-topic {
   width: 100%;
   text-align: center;
@@ -24498,6 +24512,55 @@ body::-webkit-scrollbar-thumb:hover {
   transition: ease all 0.3s;
 }
 #TOPI01 .wrap-box-topic .carousel-box-topic .owl-dots .owl-dot:hover, #TOPI01 .wrap-box-topic .carousel-box-topic .owl-dots .owl-dot.active {
+  background-color: #6405c3;
+  transition: ease all 0.3s;
+}
+
+/* Begin header */
+/* Begin header title */
+/* Begin header paragraph */
+/* Dot service color */
+/* BEGIN STYLE */
+#SERV01 {
+  background-color: #f3f3f3;
+}
+#SERV01 .header-service {
+  width: 100%;
+  text-align: center;
+}
+#SERV01 .header-service .title {
+  font-family: "Roboto";
+  font-size: 45px;
+  color: #6405c3;
+}
+#SERV01 .header-service .title:after {
+  content: "";
+  width: 20%;
+  height: 5px;
+  background-color: #6405c3;
+  display: block;
+  margin: 15px auto;
+}
+#SERV01 .header-service p {
+  width: 50%;
+}
+#SERV01 .wrap-box-service .carousel-box-service .owl-dots {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+#SERV01 .wrap-box-service .carousel-box-service .owl-dots .owl-dot {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  margin-right: 19px;
+  background-color: #ced4da;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  transition: ease all 0.3s;
+}
+#SERV01 .wrap-box-service .carousel-box-service .owl-dots .owl-dot:hover, #SERV01 .wrap-box-service .carousel-box-service .owl-dots .owl-dot.active {
   background-color: #6405c3;
   transition: ease all 0.3s;
 }

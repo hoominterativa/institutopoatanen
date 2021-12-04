@@ -3,24 +3,25 @@
 /* BEGIN STYLE */
 
 #TOPI01 {
+    background-color: $topi01_bg_section;
     .header-topic {
         width: $wp-100;
-        text-align: $topic_text_align_header;
+        text-align: $topi01_text_align_header;
         .title {
-            font-family: $topic_title_header;
-            font-size: $topic_size_title_header;
-            color: $topic_color_title_header;
+            font-family: $topi01_title_header;
+            font-size: $topi01_size_title_header;
+            color: $topi01_color_title_header;
             &:after {
                 content: '';
-                width: $topic_width_after_title_header;
-                height: $topic_height_after_title_header;
-                background-color: $topic_color_after_title_header;
+                width: $topi01_width_after_title_header;
+                height: $topi01_height_after_title_header;
+                background-color: $topi01_color_after_title_header;
                 display: block;
                 margin: 15px auto;
             }
         }
         p {
-            width: $topic_paragraph_header;
+            width: $topi01_paragraph_header;
         }
     }
     .wrap-box-topic {
@@ -62,14 +63,14 @@
                     height: 13px;
                     display: inline-block;
                     margin-right: 19px;
-                    background-color: $topic_dot_bg_color;
+                    background-color: $topi01_dot_bg_color;
                     border-radius: 50%;
                     padding: 0;
                     border: none;
                     transition: ease all 0.3s;
                     &:hover,
                     &.active {
-                        background-color: $topic_dot_bg_color_active;
+                        background-color: $topi01_dot_bg_color_active;
                         transition: ease all 0.3s;
                     }
                 }

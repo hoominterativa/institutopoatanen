@@ -22,6 +22,17 @@ body::-webkit-scrollbar-thumb:hover {
     background: $primary;
 }
 
+.content {
+    position: relative;
+}
+
+.link-full {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 .text-primary {
     color: $primary !important;
 }

@@ -43,6 +43,21 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body">
             <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label(null, 'Imagem Box', ['class'=>'form-label']) !!}
+                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
+                        {!! Form::file('path_image_box', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-mincropwidth'=>'250',
+                            'data-scale'=>'6/4',
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file'=> isset($service)?$service->path_image_box<>''?url('storage/'.$service->path_image_box):'':'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+            <div class="mb-3">
                 {!! Form::label('file', 'Imagem interna', ['class'=>'form-label']) !!}
                 {!! Form::file('path_image_inner', [
                     'data-plugins'=>'dropify',
@@ -51,22 +66,6 @@
                     'accept'=>'image/*',
                     'data-default-file'=> isset($service)?$service->path_image_inner<>''?url('storage/'.$service->path_image_inner):'':'',
                 ]) !!}
-            </div>
-
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label(null, 'Imagem Box', ['class'=>'form-label']) !!}
-                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
-                        {!! Form::file('path_image_box', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-mincropwidth'=>'250',
-                            'data-scale'=>'8/5',
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
-                            'data-default-file'=> isset($service)?$service->path_image_box<>''?url('storage/'.$service->path_image_box):'':'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV01SectionServices;
 use App\Models\Services\SERV01ServicesCategories;
 use App\Models\Services\SERV01ServicesSubcategories;
 
@@ -23,8 +24,10 @@ class SERV01Controller extends Controller
     public function index()
     {
         $services = SERV01Services::with(['getCategory', 'getSubcategory'])->sorting()->paginate('32');
+        $serviceSection = SERV01SectionServices::first();
         return view('Admin.cruds.Services.SERV01.index',[
-            'services' => $services
+            'services' => $services,
+            'serviceSection' => $serviceSection
         ]);
     }
 
@@ -200,9 +203,11 @@ class SERV01Controller extends Controller
      * Content method
      *
      * @param  \App\Models\Services\SERV01Services  $SERV01Services
+     * @param  string  $SERV01ServicesCategories
+     * @param  string  $SERV01ServicesSubcategories
      * @return \Illuminate\Http\Response
      */
-    public function show(SERV01Services $SERV01Services)
+    public function show($SERV01ServicesCategories, $SERV01ServicesSubcategories, SERV01Services $SERV01Services)
     {
         return view('Client.pages.Services.SERV01.show',[
             'service' => $SERV01Services
@@ -213,9 +218,10 @@ class SERV01Controller extends Controller
      * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Services\SERV01ServicesCategories  $SERV01ServicesCategories
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV01ServicesCategories $SERV01ServicesCategories)
     {
         $services = SERV01Services::sorting()->paginate(16);
         $categories = SERV01ServicesCategories::sorting()->get();
@@ -234,14 +240,16 @@ class SERV01Controller extends Controller
      */
     public static function section()
     {
-        $services = SERV01Services::sorting()->paginate(16);
-        $categories = SERV01ServicesCategories::sorting()->get();
-        $subcategories = SERV01ServicesSubcategories::sorting()->get();
+        $services = SERV01Services::with(['getCategory', 'getSubcategory'])->sorting()->limit(8)->get();
+        $categories = SERV01ServicesCategories::sorting()->existsService()->get();
+        $subcategories = SERV01ServicesSubcategories::sorting()->existsService()->get();
+        $serviceSection = SERV01SectionServices::first();
 
         return view('Client.pages.Services.SERV01.section',[
             'services' => $services,
             'categories' => $categories,
             'subcategories' => $subcategories,
+            'serviceSection' => $serviceSection
         ]);
     }
 }

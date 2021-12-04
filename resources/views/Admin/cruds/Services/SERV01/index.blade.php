@@ -25,11 +25,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-3">
-                                    <div class="col-4">
+                                    <div class="col-3">
                                         <button id="btSubmitDelete" data-route="{{route('admin.serv01.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-9">
                                         <a href="{{route('admin.serv01.create')}}" class="btn btn-success float-end">Cadastrar Serviço <i class="mdi mdi-plus"></i></a>
+                                        <button type="button" class="btn btn-secondary float-end me-2" data-bs-toggle="modal" data-bs-target="#create-services-section">Informações da Seção</button>
                                         <a href="{{route('admin.serv01.subcategory.index')}}" class="btn btn-primary float-end me-2">Lista de Subcategorias <i class="mdi mdi-plus"></i></a>
                                         <a href="{{route('admin.serv01.category.index')}}" class="btn btn-primary float-end me-2">Lista de Categorias <i class="mdi mdi-plus"></i></a>
                                     </div>
@@ -98,5 +99,48 @@
             </div> <!-- container -->
         </div> <!-- content -->
     </div>
+    <div id="create-services-section" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar Título da Seção</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                {!! Form::model($serviceSection, ['autocomplete' => 'off', 'method' => $serviceSection?'PUT':'POST', 'route' => $serviceSection?['admin.serv01section.update',$serviceSection->id]:['admin.serv01section.store'], 'class'=>'parsley-examples']) !!}
+                    <div class="modal-body p-4">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                            {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
+                            {!! Form::text('title', null, [
+                                'class'=>'form-control',
+                                'parsley-type'=>'url',
+                            ]) !!}
+                            </div>
+                            <div class="mb-3">
+                                {!! Form::label('message', 'Descrição', ['class'=>'form-label']) !!}
+                                {!! Form::textarea('description', null, [
+                                    'class'=>'form-control',
+                                    'id'=>'message',
+                                    'data-parsley-trigger'=>'keyup',
+                                    'data-parsley-maxlength'=>'200',
+                                    'data-parsley-maxlength-message'=>'Vamos lá! Você só pode inserir um texto com no máximo 200 caracteres.',
+                                    'data-parsley-validation-threshold'=>'10',
+                                    'rows'=>'5'
+                                ]) !!}
+                            </div>
+                            <div class="form-check">
+                                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                                {!! Form::label('active', 'Exibir?', ['class'=>'form-check-label']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Cancelar</button>
+                        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div><!-- /.create-social-modal -->
     @include('Admin.components.links.resourcesIndex')
 @endsection
