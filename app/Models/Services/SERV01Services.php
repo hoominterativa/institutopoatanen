@@ -17,9 +17,9 @@ class SERV01Services extends Model
 
     protected $table = "serv01_services";
 
-    public function scopeSorting($query)
+    public function getRouteKeyName()
     {
-        return $this->orderBy('sorting', 'ASC');
+        return 'slug';
     }
 
     public function getCategory()
@@ -30,5 +30,20 @@ class SERV01Services extends Model
     public function getSubcategory()
     {
         return $this->belongsTo(SERV01ServicesSubcategories::class, 'subcategory_id');
+    }
+
+    public function scopeSorting($query)
+    {
+        return $this->orderBy('sorting', 'ASC');
+    }
+
+    public function scopeFilterCategorySubcategory($query, $category, $subcategory=null)
+    {
+        if($category){
+            return $this->where('category_id', $category->id);
+        }
+        if($subcategory){
+            return $this->where(['category_id' => $category->id, 'subcategory_id' => $subcategory->id]);
+        }
     }
 }

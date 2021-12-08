@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($subcategory, ['route' => ['admin.serv01.subcategory.update', $subcategory->id], 'class'=>'parsley-examples', 'method'=>'PUT', 'files'=>true]) !!}
+                {!! Form::model($subcategory, ['route' => ['admin.serv01.subcategory.update', $subcategory->slug], 'class'=>'parsley-examples', 'method'=>'PUT', 'files'=>true]) !!}
                     @include('Admin.Cruds.Services.SERV01.Subcategories.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.serv01.subcategory.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

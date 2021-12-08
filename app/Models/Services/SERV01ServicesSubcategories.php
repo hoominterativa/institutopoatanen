@@ -18,6 +18,11 @@ class SERV01ServicesSubcategories extends Model
 
     protected $table = "serv01_services_subcategories";
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function scopeSorting($query)
     {
         return $this->orderBy('sorting', 'ASC');

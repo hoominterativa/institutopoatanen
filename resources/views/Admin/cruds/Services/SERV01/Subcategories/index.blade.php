@@ -48,10 +48,10 @@
 
                                     <tbody data-route="{{route('admin.serv01.subcategory.sorting')}}">
                                         @foreach ($subcategories as $subcategory)
-                                            <tr data-code="{{$subcategory->id}}">
+                                            <tr data-code="{{$subcategory->slug}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$subcategory->id}}"></label>
+                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$subcategory->slug}}"></label>
                                                 </td>
                                                 <td class="align-middle">{{$subcategory->name}}</td>
                                                 <td class="align-middle">
@@ -64,9 +64,9 @@
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.serv01.subcategory.edit',['SERV01ServicesSubcategories' => $subcategory->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.serv01.subcategory.edit',['SERV01ServicesSubcategories' => $subcategory->slug])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.serv01.subcategory.destroy',['SERV01ServicesSubcategories' => $subcategory->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.serv01.subcategory.destroy',['SERV01ServicesSubcategories' => $subcategory->slug])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

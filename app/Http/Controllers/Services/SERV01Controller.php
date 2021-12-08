@@ -203,11 +203,11 @@ class SERV01Controller extends Controller
      * Content method
      *
      * @param  \App\Models\Services\SERV01Services  $SERV01Services
-     * @param  string  $SERV01ServicesCategories
-     * @param  string  $SERV01ServicesSubcategories
+     * @param  \App\Models\Services\SERV01ServicesCategories  $SERV01ServicesCategories
+     * @param  \App\Models\Services\SERV01ServicesSubcategories  $SERV01ServicesSubcategories
      * @return \Illuminate\Http\Response
      */
-    public function show($SERV01ServicesCategories, $SERV01ServicesSubcategories, SERV01Services $SERV01Services)
+    public function show(SERV01ServicesCategories $SERV01ServicesCategories, SERV01ServicesSubcategories $SERV01ServicesSubcategories, SERV01Services $SERV01Services)
     {
         return view('Client.pages.Services.SERV01.show',[
             'service' => $SERV01Services
@@ -219,15 +219,23 @@ class SERV01Controller extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Services\SERV01ServicesCategories  $SERV01ServicesCategories
+     * @param  \App\Models\Services\SERV01ServicesSubcategories  $SERV01ServicesSubcategories
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request, SERV01ServicesCategories $SERV01ServicesCategories)
+    public function page(SERV01ServicesCategories $SERV01ServicesCategories, SERV01ServicesSubcategories $SERV01ServicesSubcategories, Request $request)
     {
-        $services = SERV01Services::sorting()->paginate(16);
-        $categories = SERV01ServicesCategories::sorting()->get();
-        $subcategories = SERV01ServicesSubcategories::sorting()->get();
+        $services = SERV01Services::sorting();
+        if($SERV01ServicesCategories->exists){
+            $services = $services->filterCategorySubcategory($SERV01ServicesCategories);
+        }
+        if($SERV01ServicesSubcategories->exists){
+            $services = $services->filterCategorySubcategory($SERV01ServicesCategories, $SERV01ServicesSubcategories);
+        }
+
+        $categories = SERV01ServicesCategories::sorting()->existsService()->get();
+        $subcategories = SERV01ServicesSubcategories::sorting()->existsService()->get();
         return view('Client.pages.Services.SERV01.page',[
-            'services' => $services,
+            'services' => $services->get(),
             'categories' => $categories,
             'subcategories' => $subcategories,
         ]);

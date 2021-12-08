@@ -53,10 +53,10 @@
 
                                     <tbody data-route="{{route('admin.serv01.sorting')}}">
                                         @foreach ($services as $service)
-                                            <tr data-code="{{$service->id}}">
+                                            <tr data-code="{{$service->slug}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$service->id}}"></label>
+                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$service->slug}}"></label>
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{url('storage/'.$service->path_image_box)}})"></div>
@@ -74,9 +74,9 @@
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.serv01.edit',['SERV01Services' => $service->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.serv01.edit',['SERV01Services' => $service->slug])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.serv01.destroy',['SERV01Services' => $service->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.serv01.destroy',['SERV01Services' => $service->slug])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($service, ['route' => ['admin.serv01.update', $service->id], 'class'=>'parsley-examples', 'method'=>'PUT', 'files'=>true]) !!}
+                {!! Form::model($service, ['route' => ['admin.serv01.update', $service->slug], 'class'=>'parsley-examples', 'method'=>'PUT', 'files'=>true]) !!}
                     @include('Admin.Cruds.Services.SERV01.form',['service'=>$service])
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.serv01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
