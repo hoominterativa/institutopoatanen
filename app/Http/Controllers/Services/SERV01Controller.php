@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Services;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 use App\Models\Services\SERV01Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
-use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV01SectionServices;
+use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV01ServicesCategories;
 use App\Models\Services\SERV01ServicesSubcategories;
 
@@ -23,7 +25,7 @@ class SERV01Controller extends Controller
      */
     public function index()
     {
-        $services = SERV01Services::with(['getCategory', 'getSubcategory'])->sorting()->paginate('32');
+        $services = SERV01Services::with(['category', 'subcategory'])->sorting()->paginate('32');
         $serviceSection = SERV01SectionServices::first();
         return view('Admin.cruds.Services.SERV01.index',[
             'services' => $services,
@@ -210,7 +212,9 @@ class SERV01Controller extends Controller
     public function show(SERV01ServicesCategories $SERV01ServicesCategories, SERV01ServicesSubcategories $SERV01ServicesSubcategories, SERV01Services $SERV01Services)
     {
         return view('Client.pages.Services.SERV01.show',[
-            'service' => $SERV01Services
+            'category' => $SERV01ServicesCategories,
+            'subcategory' => $SERV01ServicesSubcategories,
+            'service' => $SERV01Services,
         ]);
     }
 
@@ -234,10 +238,13 @@ class SERV01Controller extends Controller
 
         $categories = SERV01ServicesCategories::sorting()->existsService()->get();
         $subcategories = SERV01ServicesSubcategories::sorting()->existsService()->get();
+        $serviceSection = SERV01SectionServices::first();
+
         return view('Client.pages.Services.SERV01.page',[
-            'services' => $services->get(),
+            'services' => $services->paginate(16),
             'categories' => $categories,
             'subcategories' => $subcategories,
+            'serviceSection' => $serviceSection
         ]);
     }
 
@@ -248,8 +255,8 @@ class SERV01Controller extends Controller
      */
     public static function section()
     {
-        $services = SERV01Services::with(['getCategory', 'getSubcategory'])->sorting()->limit(8)->get();
-        $categories = SERV01ServicesCategories::sorting()->existsService()->get();
+        $services = SERV01Services::with(['category', 'subcategory'])->sorting()->limit(8)->get();
+        $categories = SERV01ServicesCategories::with('subcategories')->existsService()->sorting()->get();
         $subcategories = SERV01ServicesSubcategories::sorting()->existsService()->get();
         $serviceSection = SERV01SectionServices::first();
 

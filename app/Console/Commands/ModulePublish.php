@@ -25,7 +25,10 @@ class ModulePublish extends Command
         'factories' => 'database/factories/',
         'seeders' => 'database/seeders/',
     ];
-    protected $pathsCore = ['resources/views/Client/'];
+    protected $pathsCore = [
+        'resources/views/Client/Core/Footers',
+        'resources/views/Client/Core/Headers'
+    ];
     protected $rootDirectory = ['stubs', 'defaults', 'app/Console/Commands', 'modules.json'];
     protected $exception = [
         'contactForm',
@@ -70,6 +73,7 @@ class ModulePublish extends Command
         $InsertModelsCore = config('modelsConfig.InsertModelsCore');
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
         $arrayModelsMain = get_object_vars($InsertModelsMain);
+        $arrayModelsCore = get_object_vars($InsertModelsCore);
 
         try {
             if(!$this->confirm('ATENÇÃO: Já realizou o commit e push das alterações realizadas?')){
@@ -103,7 +107,22 @@ class ModulePublish extends Command
 
             $bar->start();
             $this->newLine();
+
             // Exclude directories and files the modules
+            foreach ($this->pathsCore as $pathCore) {
+                $directories = array_diff(scandir($pathCore), array('..', '.'));
+                $Module = explode('/', $pathCore);
+                foreach ($directories as $dir) {
+                    if(!array_search($dir, get_object_vars($arrayModelsCore[end($Module)]))){
+                        if(is_dir($pathCore.'/'.$dir) && !array_keys($this->exception, $dir)){
+                            // rmdir($pathCore.'/'.$dir);
+                            $this->info($pathCore.'/'.$dir);
+                        }
+                    }
+                }
+                $bar->advance();
+            }
+
             foreach ($this->pathsDirectories as $pathDir) {
                 $directories = array_diff(scandir($pathDir), array('..', '.'));
                 foreach ($directories as $dir) {

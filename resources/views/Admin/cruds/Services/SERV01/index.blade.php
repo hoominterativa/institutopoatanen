@@ -62,8 +62,8 @@
                                                     <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{url('storage/'.$service->path_image_box)}})"></div>
                                                 </td>
                                                 <td class="align-middle">{{$service->title}}</td>
-                                                <td class="align-middle">{{$service->getCategory?$service->getCategory->name:'--'}}</td>
-                                                <td class="align-middle">{{$service->getSubcategory?$service->getSubcategory->name:'--'}}</td>
+                                                <td class="align-middle">{{$service->category?$service->category->name:'--'}}</td>
+                                                <td class="align-middle">{{$service->subcategory?$service->subcategory->name:'--'}}</td>
                                                 <td class="align-middle">
                                                     @if ($service->active == 1)
                                                         <span class="badge bg-success">Ativo</span>

@@ -11,7 +11,9 @@
         <nav class="wrap-categories-service">
             <ul class="list-inline d-flex">
                 @foreach ($categories as $category)
-                    <li><a href="{{route('serv01.category.page', ['SERV01ServicesCategories' => $category->slug])}}">{{$category->name}}</a></li>
+                    <li>
+                        <a href="{{route('serv01.subcategory.page', ['SERV01ServicesCategories' => $category->slug])}}">{{$category->name}}</a>
+                    </li>
                 @endforeach
             </ul>
         </nav>
@@ -20,7 +22,7 @@
                 @foreach ($services as $service)
                     <article class="box-service">
                         <div class="content">
-                            <a href="{{route('serv01.service.show', ['SERV01ServicesCategories' => $service->getCategory->slug, 'SERV01ServicesSubcategories' => $service->getSubcategory->slug, 'SERV01Services' => $service->slug])}}" class="link-full"></a>
+                            <a href="{{route('serv01.service.show', ['SERV01ServicesCategories' => $service->category->slug, 'SERV01ServicesSubcategories' => $service->subcategory->slug, 'SERV01Services' => $service->slug])}}" class="link-full"></a>
                             <div class="image">
                                 <img class="w-100" src="{{url('storage/'.$service->path_image_box)}}" title="{{$service->title}}" alt="{{$service->title}}">
                             </div>

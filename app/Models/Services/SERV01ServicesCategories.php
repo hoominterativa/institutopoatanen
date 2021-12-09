@@ -25,25 +25,25 @@ class SERV01ServicesCategories extends Model
 
     public function scopeSorting($query)
     {
-        return $this->orderBy('sorting', 'ASC');
+        return $query->orderBy('sorting', 'ASC');
     }
 
     public function scopeExistsService($query)
     {
-        return $this->whereExists(function($query){
+        return $query->whereExists(function($query){
             $query->select(SERV01Services::raw('id'))
                 ->from('serv01_services')
                 ->whereRaw('serv01_services.category_id = serv01_services_categories.id');
         });
     }
 
-    public function getSubcategories()
+    public function subcategories()
     {
-        return $this->hasManyThrough(SERV01ServicesSubcategories::class, SERV01Services::class);
+        return $this->belongsToMany(SERV01ServicesSubcategories::class, 'serv01_services', 'category_id', 'subcategory_id')->sorting()->existsService()->groupBy('pivot_subcategory_id','pivot_category_id');
     }
 
-    public function getServices()
+    public function services()
     {
-        return $this->hasMany(SERV01Services::class, 'category_id')->sorting();
+        return $this->hasMany(SERV01Services::class, 'category_id')->with('subcategories');
     }
 }
