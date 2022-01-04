@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\IncludeSectionsController;
 
 class {{ class }} extends Controller
 {
@@ -192,7 +193,12 @@ class {{ class }} extends Controller
      */
     public function page(Request $request)
     {
-        //
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+
+        return view('Client.pages.Module.Model.page',[
+            'sections' => $sections
+        ]);
     }
 
     /**

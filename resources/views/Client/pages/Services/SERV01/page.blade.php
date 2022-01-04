@@ -45,4 +45,7 @@
         </div>
     </div>
 </section>
+@foreach ($sections as $section)
+    {!!$section!!}
+@endforeach
 @endsection

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\Helpers\HelperPublishing;
-use Illuminate\Http\Request;
+use App\Http\Controllers\IncludeSectionsController;
 
 class HomePageController extends Controller
 {
@@ -15,8 +16,9 @@ class HomePageController extends Controller
      */
     public function index()
     {
+        $IncludeSectionsController = new IncludeSectionsController();
         return view('Client.home', [
-            'sections' => IncludeSectionsController::IncludeSectionsHome()
+            'sections' => $IncludeSectionsController->IncludeSectionsHome()
         ]);
     }
 

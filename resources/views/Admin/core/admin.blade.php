@@ -346,6 +346,12 @@
                                     <span> Tutoriais </span>
                                 </a>
                             </li>
+                            <li>
+                                <a nofollow href="{{route('admin.icons')}}">
+                                    <i class="mdi mdi-bullseye"></i>
+                                    <span> Icones </span>
+                                </a>
+                            </li>
                         </ul>
 
                     </div>

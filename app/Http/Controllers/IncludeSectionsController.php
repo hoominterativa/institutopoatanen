@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class IncludeSectionsController extends Controller
 {
-    public static function IncludeSectionsPage($GetModule, $getModel)
+    public function IncludeSectionsPage($GetModule, $getModel)
     {
         $InsertSectionsPage = config('modelsConfig.InsertModelsMain');
         $IncludeSections = $InsertSectionsPage->$GetModule->$getModel->IncludeSections;
@@ -25,7 +25,7 @@ class IncludeSectionsController extends Controller
         return $return;
     }
 
-    public static function IncludeSectionsHome()
+    public function IncludeSectionsHome()
     {
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
         $ModelsController = config('modelsConfig.Class');
@@ -35,7 +35,7 @@ class IncludeSectionsController extends Controller
             foreach ($model as $code => $config) {
                 if($config->ViewHome){
                     $Controller = $ModelsController->$module->$code->controller;
-                    array_push($return, $Controller::section());
+                    array_push($return, $Controller::section()->render());
                 }
             }
         }

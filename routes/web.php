@@ -84,7 +84,7 @@ Route::prefix('painel')->group(function () {
         // ICONS
         Route::get('icones', function(){
             return view('Admin.icons');
-        });
+        })->name('admin.icons');
 
         // GENERAL SETTING
         Route::resource('configuracoes-gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['configuracoes-gerais' => 'GeneralSetting']);

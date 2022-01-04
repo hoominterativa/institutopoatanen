@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Services\SERV01SectionServices;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV01ServicesCategories;
+use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Services\SERV01ServicesSubcategories;
 
 class SERV01Controller extends Controller
@@ -228,7 +229,11 @@ class SERV01Controller extends Controller
      */
     public function page(SERV01ServicesCategories $SERV01ServicesCategories, SERV01ServicesSubcategories $SERV01ServicesSubcategories, Request $request)
     {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV01');
+
         $services = SERV01Services::sorting();
+
         if($SERV01ServicesCategories->exists){
             $services = $services->filterCategorySubcategory($SERV01ServicesCategories);
         }
@@ -240,11 +245,13 @@ class SERV01Controller extends Controller
         $subcategories = SERV01ServicesSubcategories::sorting()->existsService()->get();
         $serviceSection = SERV01SectionServices::first();
 
+
         return view('Client.pages.Services.SERV01.page',[
             'services' => $services->paginate(16),
             'categories' => $categories,
             'subcategories' => $subcategories,
-            'serviceSection' => $serviceSection
+            'serviceSection' => $serviceSection,
+            'sections' => $sections
         ]);
     }
 
