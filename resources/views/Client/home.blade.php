@@ -2,7 +2,7 @@
 @section('content')
     <main id="root">
         @foreach ($sections as $section)
-            {{$section}}
+            {!!$section!!}
         @endforeach
     </main>
 @endsection

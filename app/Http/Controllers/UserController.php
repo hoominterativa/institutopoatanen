@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
@@ -18,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate('20');
+        $users = User::where('id','!=', Auth::guard('web')->user()->id)->paginate('20');
         return view('Admin.cruds.User.index',[
             'users' => $users
         ]);
@@ -64,7 +65,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $user
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -75,7 +76,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $user
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -89,7 +90,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int $user
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -107,7 +108,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $user
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

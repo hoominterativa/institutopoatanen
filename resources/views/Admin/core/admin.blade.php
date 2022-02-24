@@ -55,7 +55,7 @@
                         </li>
 
                         <li class="dropdown d-none d-lg-inline-block topbar-dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fe-grid noti-icon"></i>
                             </a>
                             <div class="dropdown-menu dropdown-lg dropdown-menu-end">
