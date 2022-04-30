@@ -18,6 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/utils/round.js */ "./node_modules/@fancyapps/ui/src/shared/utils/round.js");
 /* harmony import */ var _shared_utils_throttle_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/utils/throttle.js */ "./node_modules/@fancyapps/ui/src/shared/utils/throttle.js");
 /* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Carousel/plugins/index.js");
+/* harmony import */ var _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./l10n/en.js */ "./node_modules/@fancyapps/ui/src/Carousel/l10n/en.js");
 
 
 
@@ -25,6 +26,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+// Default language
 
 
 const defaults = {
@@ -60,7 +64,10 @@ const defaults = {
   // Should Carousel settle at any position after a swipe.
   dragFree: false,
 
-  // Customizable class names for DOM elements
+  // Prefix for CSS classes, must be the same as the  SCSS `$carousel-prefix` variable
+  prefix: "",
+
+  // Class names for DOM elements (without prefix)
   classNames: {
     viewport: "carousel__viewport",
     track: "carousel__track",
@@ -70,12 +77,8 @@ const defaults = {
     slideSelected: "is-selected",
   },
 
-  // Translations
-  l10n: {
-    NEXT: "Next slide",
-    PREV: "Previous slide",
-    GOTO: "Go to slide %d",
-  },
+  // Localization of strings
+  l10n: _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__["default"],
 };
 
 class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
@@ -122,7 +125,9 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
     this.updateMetrics();
 
-    this.$track.style.transform = `translate3d(${this.pages[this.page].left * -1}px, 0px, 0) scale(1)`;
+    if (this.$track && this.pages.length) {
+      this.$track.style.transform = `translate3d(${this.pages[this.page].left * -1}px, 0px, 0) scale(1)`;
+    }
 
     this.manageSlideVisiblity();
 
@@ -137,24 +142,25 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
    * Initialize layout; create necessary elements
    */
   initLayout() {
+    const prefix = this.option("prefix");
     const classNames = this.option("classNames");
 
-    this.$viewport = this.option("viewport") || this.$container.querySelector("." + classNames.viewport);
+    this.$viewport = this.option("viewport") || this.$container.querySelector(`.${prefix}${classNames.viewport}`);
 
     if (!this.$viewport) {
       this.$viewport = document.createElement("div");
-      this.$viewport.classList.add(classNames.viewport);
+      this.$viewport.classList.add(prefix + classNames.viewport);
 
       this.$viewport.append(...this.$container.childNodes);
 
       this.$container.appendChild(this.$viewport);
     }
 
-    this.$track = this.option("track") || this.$container.querySelector("." + classNames.track);
+    this.$track = this.option("track") || this.$container.querySelector(`.${prefix}${classNames.track}`);
 
     if (!this.$track) {
       this.$track = document.createElement("div");
-      this.$track.classList.add(classNames.track);
+      this.$track.classList.add(prefix + classNames.track);
 
       this.$track.append(...this.$viewport.childNodes);
 
@@ -169,7 +175,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     this.slides = [];
 
     // Get existing slides from the DOM
-    const elems = this.$viewport.querySelectorAll("." + this.option("classNames.slide"));
+    const elems = this.$viewport.querySelectorAll(`.${this.option("prefix")}${this.option("classNames.slide")}`);
 
     elems.forEach((el) => {
       const slide = {
@@ -215,7 +221,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
     let viewportWidth = Math.max(this.$track.offsetWidth, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__.round)(this.$track.getBoundingClientRect().width));
 
-    let viewportStyles = window.getComputedStyle(this.$track);
+    let viewportStyles = getComputedStyle(this.$track);
     viewportWidth = viewportWidth - (parseFloat(viewportStyles.paddingLeft) + parseFloat(viewportStyles.paddingRight));
 
     this.contentWidth = contentWidth;
@@ -313,7 +319,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
       if (initialSlide !== null) {
         page = this.findPageForSlide(initialSlide);
       } else {
-        page = this.option("initialPage", 0);
+        page = parseInt(this.option("initialPage", 0), 10) || 0;
       }
 
       if (!rez[page]) {
@@ -342,7 +348,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
       node.dataset.isTestEl = 1;
       node.style.visibility = "hidden";
-      node.classList.add(this.option("classNames.slide"));
+      node.classList.add(this.option("prefix") + this.option("classNames.slide"));
 
       // Assume all slides have the same custom class, if any
       if (firstSlide.customClass) {
@@ -371,6 +377,8 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
    * @returns {Integer|null} Index of the page if found, or null
    */
   findPageForSlide(index) {
+    index = parseInt(index, 10) || 0;
+
     const page = this.pages.find((page) => {
       return page.indexes.indexOf(index) > -1;
     });
@@ -441,7 +449,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
         // Right now, only horizontal navigation is supported
         lockAxis: "x",
 
-        x: this.pages[this.page].left * -1,
+        x: this.pages.length ? this.pages[this.page].left * -1 : 0,
         centerOnStart: false,
 
         // Make `textSelection` option more easy to customize
@@ -449,7 +457,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
         // Disable dragging if content (e.g. all slides) fits inside viewport
         panOnlyZoomed: function () {
-          return this.content.width < this.viewport.width;
+          return this.content.width <= this.viewport.width;
         },
       },
       this.option("Panzoom")
@@ -492,7 +500,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
     if (this.pages.length > 1 && this.option("infiniteX", this.option("infinite"))) {
       this.Panzoom.boundX = null;
-    } else {
+    } else if (this.pages.length) {
       this.Panzoom.boundX = {
         from: this.pages[this.pages.length - 1].left * -1,
         to: this.pages[0].left * -1,
@@ -507,19 +515,21 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
         to: 0,
       };
     }
+
+    this.Panzoom.handleCursor();
   }
 
   manageSlideVisiblity() {
     const contentWidth = this.contentWidth;
     const viewportWidth = this.viewportWidth;
 
-    let currentX = this.Panzoom ? this.Panzoom.content.x * -1 : this.pages[this.page].left;
+    let currentX = this.Panzoom ? this.Panzoom.content.x * -1 : this.pages.length ? this.pages[this.page].left : 0;
 
     const preload = this.option("preload");
     const infinite = this.option("infiniteX", this.option("infinite"));
 
-    const paddingLeft = parseFloat(window.getComputedStyle(this.$viewport, null).getPropertyValue("padding-left"));
-    const paddingRight = parseFloat(window.getComputedStyle(this.$viewport, null).getPropertyValue("padding-right"));
+    const paddingLeft = parseFloat(getComputedStyle(this.$viewport, null).getPropertyValue("padding-left"));
+    const paddingRight = parseFloat(getComputedStyle(this.$viewport, null).getPropertyValue("padding-right"));
 
     // Check visibility of each slide
     this.slides.forEach((slide) => {
@@ -617,15 +627,18 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     }
 
     if (slide.$el) {
-      let curentIndex = parseInt(slide.$el.dataset.index, 10);
+      let curentIndex = slide.$el.dataset.index;
 
-      if (curentIndex !== slide.index) {
+      if (!curentIndex || parseInt(curentIndex, 10) !== slide.index) {
         slide.$el.dataset.index = slide.index;
 
         // Lazy load images
-        const $lazyNodes = slide.$el.querySelectorAll("[data-lazy-src]");
+        // ===
+        slide.$el.querySelectorAll("[data-lazy-srcset]").forEach((node) => {
+          node.srcset = node.dataset.lazySrcset;
+        });
 
-        $lazyNodes.forEach((node) => {
+        slide.$el.querySelectorAll("[data-lazy-src]").forEach((node) => {
           let lazySrc = node.dataset.lazySrc;
 
           if (node instanceof HTMLImageElement) {
@@ -635,6 +648,8 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
           }
         });
 
+        // Lazy load slide background image
+        // ===
         let lazySrc;
 
         if ((lazySrc = slide.$el.dataset.lazySrc)) {
@@ -650,7 +665,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     const div = document.createElement("div");
 
     div.dataset.index = slide.index;
-    div.classList.add(this.option("classNames.slide"));
+    div.classList.add(this.option("prefix") + this.option("classNames.slide"));
 
     if (slide.customClass) {
       div.classList.add(...slide.customClass.split(" "));
@@ -738,6 +753,9 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     });
   }
 
+  /**
+   * Perform all calculations and center current page
+   */
   updatePage() {
     this.updateMetrics();
 
@@ -905,7 +923,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     } else {
       page = pageIndex = Math.max(0, Math.min(pageIndex, pageCount - 1));
 
-      nextPosition = this.pages[page].left;
+      nextPosition = this.pages.length ? this.pages[page].left : 0;
     }
 
     this.page = page;
@@ -948,6 +966,26 @@ Carousel.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__.Plugins;
 
 /***/ }),
 
+/***/ "./node_modules/@fancyapps/ui/src/Carousel/l10n/en.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@fancyapps/ui/src/Carousel/l10n/en.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  NEXT: "Next slide",
+  PREV: "Previous slide",
+  GOTO: "Go to slide #%d",
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/@fancyapps/ui/src/Carousel/plugins/Dots/Dots.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Carousel/plugins/Dots/Dots.js ***!
@@ -959,6 +997,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Dots": () => (/* binding */ Dots)
 /* harmony export */ });
+const defaults = {
+  // The minimum number of slides to display dots
+  minSlideCount: 2,
+};
+
 class Dots {
   constructor(carousel) {
     this.carousel = carousel;
@@ -975,7 +1018,7 @@ class Dots {
    * Build wrapping DOM element containing all dots
    */
   buildList() {
-    if (this.carousel.pages.length < 2) {
+    if (this.carousel.pages.length < this.carousel.option("Dots.minSlideCount")) {
       return;
     }
 
@@ -1510,11 +1553,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 /* harmony import */ var _shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/utils/canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
-/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
-/* harmony import */ var _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Carousel/Carousel.js */ "./node_modules/@fancyapps/ui/src/Carousel/Carousel.js");
-/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/index.js");
-/* harmony import */ var _l10n_en_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./l10n/en.js */ "./node_modules/@fancyapps/ui/src/Fancybox/l10n/en.js");
-// var global = global || window;
+/* harmony import */ var _shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/utils/setFocusOn.js */ "./node_modules/@fancyapps/ui/src/shared/utils/setFocusOn.js");
+/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
+/* harmony import */ var _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Carousel/Carousel.js */ "./node_modules/@fancyapps/ui/src/Carousel/Carousel.js");
+/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/index.js");
+/* harmony import */ var _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./l10n/en.js */ "./node_modules/@fancyapps/ui/src/Fancybox/l10n/en.js");
 
 
 
@@ -1525,7 +1568,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// Default language
 
+
+// Default settings
 const defaults = {
   // Index of active slide on the start
   startIndex: 0,
@@ -1606,12 +1652,16 @@ const defaults = {
   */
 
   // Localization of strings
-  l10n: _l10n_en_js__WEBPACK_IMPORTED_MODULE_5__.default,
+  l10n: _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__["default"],
 };
 
+// Object that contains all active instances of Fancybox
+const instances = {};
+
+// Number of Fancybox instances created, it is used to generate new instance "id"
 let called = 0;
 
-class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
+class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
   /**
    * Fancybox constructor
    * @constructs Fancybox
@@ -1641,6 +1691,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
 
     this.attachEvents();
 
+    instances[this.id] = this;
+
     // "prepare" event will trigger the creation of additional layout elements, such as thumbnails and toolbar
     this.trigger("prepare");
 
@@ -1652,8 +1704,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
     // Reveal container
     this.$container.setAttribute("aria-hidden", "false");
 
-    // Focus on the first focus element in this instance
-    this.focus();
+    // Set focus on the first focusable element inside this instance
+    if (this.option("trapFocus")) {
+      this.focus();
+    }
   }
 
   /**
@@ -1665,7 +1719,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       "onKeydown",
       "onClick",
 
+      "onFocus",
+
       "onCreateSlide",
+      "onSettle",
 
       "onTouchMove",
       "onTouchEnd",
@@ -1681,7 +1738,12 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    */
   attachEvents() {
     document.addEventListener("mousedown", this.onMousedown);
-    document.addEventListener("keydown", this.onKeydown);
+    document.addEventListener("keydown", this.onKeydown, true);
+
+    // Trap keyboard focus inside of the modal
+    if (this.option("trapFocus")) {
+      document.addEventListener("focus", this.onFocus, true);
+    }
 
     this.$container.addEventListener("click", this.onClick);
   }
@@ -1691,7 +1753,9 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    */
   detachEvents() {
     document.removeEventListener("mousedown", this.onMousedown);
-    document.removeEventListener("keydown", this.onKeydown);
+    document.removeEventListener("keydown", this.onKeydown, true);
+
+    document.removeEventListener("focus", this.onFocus, true);
 
     this.$container.removeEventListener("click", this.onClick);
   }
@@ -1726,6 +1790,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
     Object.entries({
       class: "fancybox__container",
       role: "dialog",
+      tabIndex: "-1",
       "aria-modal": "true",
       "aria-hidden": "true",
       "aria-label": this.localize("{{MODAL}}"),
@@ -1827,8 +1892,12 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       // Get thumbnail image source
       let thumb = slide.thumb;
 
-      if (!thumb && slide.$thumb) {
+      if (!thumb && $thumb) {
         thumb = $thumb.currentSrc || $thumb.src;
+
+        if (!thumb && $thumb.dataset) {
+          thumb = $thumb.dataset.lazySrc || $thumb.dataset.src;
+        }
       }
 
       // Assume we have image, then use it as thumbnail
@@ -1852,12 +1921,14 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    * @param {Array} slides
    */
   initCarousel() {
-    this.Carousel = new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_3__.Carousel(
+    this.Carousel = new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_4__.Carousel(
       this.$carousel,
       (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(
         true,
         {},
         {
+          prefix: "",
+
           classNames: {
             viewport: "fancybox__viewport",
             track: "fancybox__track",
@@ -1897,6 +1968,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
                 this.Carousel && this.Carousel.pages && this.Carousel.pages.length < 2 && !this.options.dragToClose
               );
             },
+
             lockAxis: () => {
               if (this.Carousel) {
                 let rez = "x";
@@ -1914,6 +1986,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
             "*": (name, ...details) => this.trigger(`Carousel.${name}`, ...details),
             init: (carousel) => (this.Carousel = carousel),
             createSlide: this.onCreateSlide,
+            settle: this.onSettle,
           },
         },
 
@@ -1965,6 +2038,23 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
   }
 
   /**
+   * Handle Carousel `settle` event
+   */
+  onSettle() {
+    if (this.option("autoFocus")) {
+      this.focus();
+    }
+  }
+
+  /**
+   * Handle focus event
+   * @param {Event} event - Focus event
+   */
+  onFocus(event) {
+    this.focus(event);
+  }
+
+  /**
    * Handle click event on the container
    * @param {Event} event - Click event
    */
@@ -1973,13 +2063,36 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       return;
     }
 
+    let eventTarget = event.target;
+
+    if (eventTarget.matches("[data-fancybox-close]")) {
+      event.preventDefault();
+      Fancybox.close(false);
+
+      return;
+    }
+
+    if (eventTarget.matches("[data-fancybox-next]")) {
+      event.preventDefault();
+      Fancybox.next();
+
+      return;
+    }
+
+    if (eventTarget.matches("[data-fancybox-prev]")) {
+      event.preventDefault();
+      Fancybox.prev();
+
+      return;
+    }
+
     // Skip if clicked inside content area
-    if (event.target.closest(".fancybox__content")) {
+    if (eventTarget.closest(".fancybox__content")) {
       return;
     }
 
     // Skip if text is selected
-    if (window.getSelection().toString().length) {
+    if (getSelection().toString().length) {
       return;
     }
 
@@ -2046,7 +2159,9 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    * Handle `mousedown` event to mark that the mouse is in use
    */
   onMousedown() {
-    document.body.classList.add("is-using-mouse");
+    if (this.state === "ready") {
+      document.body.classList.add("is-using-mouse");
+    }
   }
 
   /**
@@ -2061,14 +2176,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
     document.body.classList.remove("is-using-mouse");
 
     const key = event.key;
-
-    // Trap keyboard focus inside of the modal
-    if (key === "Tab" && this.option("trapFocus")) {
-      this.focus(event);
-
-      return;
-    }
-
     const keyboard = this.option("keyboard");
 
     if (!keyboard || event.ctrlKey || event.altKey || event.shiftKey) {
@@ -2123,35 +2230,9 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    * @param {Event} [event] - Focus event
    */
   focus(event) {
-    if (Fancybox.preventScrollSupported === undefined) {
-      // Detect if .focus() method  supports `preventScroll` option,
-      // see https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/focus
-      Fancybox.preventScrollSupported = (function () {
-        let rez = false;
-
-        document.createElement("div").focus({
-          get preventScroll() {
-            rez = true;
-            return false;
-          },
-        });
-
-        return rez;
-      })();
+    if (Fancybox.ignoreFocusChange) {
+      return;
     }
-
-    const setFocusOn = (node) => {
-      if (node.setActive) {
-        // IE/Edge
-        node.setActive();
-      } else if (Fancybox.preventScrollSupported) {
-        // Modern browsers
-        node.focus({ preventScroll: true });
-      } else {
-        // Safari
-        node.focus();
-      }
-    };
 
     if (["init", "closing", "customClosing", "destroy"].indexOf(this.state) > -1) {
       return;
@@ -2161,92 +2242,68 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       event.preventDefault();
     }
 
-    const FOCUSABLE_ELEMENTS = [
-      "a[href]",
-      "area[href]",
-      'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
-      "select:not([disabled]):not([aria-hidden])",
-      "textarea:not([disabled]):not([aria-hidden])",
-      "button:not([disabled]):not([aria-hidden])",
-      "iframe",
-      "object",
-      "embed",
-      "video",
-      "audio",
-      "[contenteditable]",
-      '[tabindex]:not([tabindex^="-"]):not([disabled]):not([aria-hidden])',
-    ];
+    Fancybox.ignoreFocusChange = true;
 
-    const $currentSlide = this.getSlide().$el;
+    const $container = this.$container;
+    const currentSlide = this.getSlide();
+    const $currentSlide = currentSlide.state === "done" ? currentSlide.$el : null;
 
-    if (!$currentSlide) {
-      return;
-    }
-
-    // Setting `tabIndex` here helps to avoid Safari issues with random focusing and scrolling
-    $currentSlide.tabIndex = 0;
-
-    const allFocusableElems = [].slice.call(this.$container.querySelectorAll(FOCUSABLE_ELEMENTS));
+    const allFocusableElems = Array.from($container.querySelectorAll(_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.FOCUSABLE_ELEMENTS));
 
     let enabledElems = [];
+    let $firstEl;
 
     for (let node of allFocusableElems) {
-      // Slide element will be the last one, the highest priority has elements having `autofocus` attribute
-      if (node.classList && node.classList.contains("fancybox__slide")) {
-        continue;
-      }
+      // Enable element if it's visible and
+      // is inside the current slide or is outside main carousel (for example, inside the toolbar)
+      const isNodeVisible = node.offsetParent;
+      const isNodeInsideCurrentSlide = $currentSlide && $currentSlide.contains(node);
+      const isNodeOutsideCarousel = !this.Carousel.$viewport.contains(node);
 
-      const $closestSlide = node.closest(".fancybox__slide");
+      if (isNodeVisible && (isNodeInsideCurrentSlide || isNodeOutsideCarousel)) {
+        enabledElems.push(node);
 
-      if ($closestSlide) {
-        if ($closestSlide === $currentSlide) {
-          enabledElems[node.hasAttribute("autofocus") ? "unshift" : "push"](node);
+        if (node.dataset.origTabindex !== undefined) {
+          node.tabIndex = node.dataset.origTabindex;
+          node.removeAttribute("data-orig-tabindex");
+        }
+
+        if (
+          node.hasAttribute("autoFocus") ||
+          (!$firstEl && isNodeInsideCurrentSlide && !node.classList.contains("carousel__button"))
+        ) {
+          $firstEl = node;
         }
       } else {
-        enabledElems.push(node);
+        // Element is either hidden or is inside preloaded slide (e.g., not inside current slide, but next/prev)
+        node.dataset.origTabindex =
+          node.dataset.origTabindex === undefined ? node.getAttribute("tabindex") : node.dataset.origTabindex;
+
+        node.tabIndex = -1;
       }
     }
 
-    if (!enabledElems.length) {
-      return;
-    }
-
-    if (this.Carousel.pages.length > 1) {
-      enabledElems.push($currentSlide);
-    }
-
-    // Sort by tabindex
-    enabledElems.sort(function (a, b) {
-      if (a.tabIndex > b.tabIndex) return -1;
-      if (a.tabIndex < b.tabIndex) return 1;
-
-      return 0;
-    });
-
-    const focusedElementIndex = enabledElems.indexOf(document.activeElement);
-
-    const moveForward = event && !event.shiftKey;
-    const moveBackward = event && event.shiftKey;
-
-    if (moveForward) {
-      if (focusedElementIndex === enabledElems.length - 1) {
-        return setFocusOn(enabledElems[0]);
+    if (!event) {
+      if (this.option("autoFocus") && $firstEl) {
+        (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($firstEl);
+      } else if (enabledElems.indexOf(document.activeElement) < 0) {
+        (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($container);
       }
-
-      return setFocusOn(enabledElems[focusedElementIndex + 1]);
-    }
-
-    if (moveBackward) {
-      if (focusedElementIndex === 0) {
-        return setFocusOn(enabledElems[enabledElems.length - 1]);
+    } else {
+      if (enabledElems.indexOf(event.target) > -1) {
+        this.lastFocus = event.target;
+      } else {
+        if (this.lastFocus === $container) {
+          (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)(enabledElems[enabledElems.length - 1]);
+        } else {
+          (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($container);
+        }
       }
-
-      return setFocusOn(enabledElems[focusedElementIndex - 1]);
     }
 
-    if (focusedElementIndex < 0) {
-      return setFocusOn(enabledElems[0]);
-    }
+    this.lastFocus = document.activeElement;
+
+    Fancybox.ignoreFocusChange = false;
   }
 
   /**
@@ -2306,6 +2363,11 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       slide.$content = null;
     }
 
+    if (slide.$closeButton) {
+      slide.$closeButton.remove();
+      slide.$closeButton = null;
+    }
+
     if (slide._className) {
       slide.$el.classList.remove(slide._className);
     }
@@ -2330,12 +2392,20 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
         $content = html;
       }
     } else {
+      const $fragment = document.createRange().createContextualFragment(html);
+
       $content = document.createElement("div");
-      $content.innerHTML = html;
+      $content.appendChild($fragment);
+    }
+
+    if (slide.filter && !slide.error) {
+      $content = $content.querySelector(slide.filter);
     }
 
     if (!($content instanceof Element)) {
-      throw new Error("Element expected");
+      this.setError(slide, "{{ELEMENT_NOT_FOUND}}");
+
+      return;
     }
 
     // * Add class name indicating content type, for example `has-image`
@@ -2347,8 +2417,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
     $content.classList.add("fancybox__content");
 
     // Make sure that content is not hidden and will be visible
-    if ($content.style.display === "none" || window.getComputedStyle($content).getPropertyValue("display") === "none") {
-      $content.style.display = "flex";
+    if ($content.style.display === "none" || getComputedStyle($content).getPropertyValue("display") === "none") {
+      $content.style.display = slide.display || this.option("defaultDisplay") || "flex";
     }
 
     if (slide.id) {
@@ -2595,7 +2665,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
 
     // First, stop further execution if this instance is already closing
     // (this can happen if, for example, user clicks close button multiple times really fast)
-    if (["closing", "customClosing", "destroy"].indexOf(this.state) > -1) {
+    if (["closing", "customClosing", "destroy"].includes(this.state)) {
       return;
     }
 
@@ -2649,6 +2719,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    * Clean up after closing fancybox
    */
   destroy() {
+    if (this.state === "destroy") {
+      return;
+    }
+
     this.state = "destroy";
 
     this.trigger("destroy");
@@ -2671,17 +2745,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
     this.$container = this.$backdrop = this.$carousel = null;
 
     if ($trigger) {
-      // `preventScroll` option is not yet supported by Safari
-      // https://bugs.webkit.org/show_bug.cgi?id=178583
-
-      if (Fancybox.preventScrollSupported) {
-        $trigger.focus({ preventScroll: true });
-      } else {
-        const scrollTop = document.body.scrollTop; // Save position
-        $trigger.focus();
-        document.body.scrollTop = scrollTop;
-      }
+      (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($trigger);
     }
+
+    delete instances[this.id];
 
     const nextInstance = Fancybox.getInstance();
 
@@ -2729,9 +2796,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       return;
     }
 
+    let eventTarget = event.target;
+
     // Support `trigger` element, e.g., start fancybox from different DOM element, for example,
     // to have one preview image for hidden image gallery
-    let eventTarget = event.target;
     let triggerGroupName;
 
     if (
@@ -2761,17 +2829,23 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       .some((opener) => {
         target = eventTarget;
 
-        // Chain closest() to event.target to find and return the parent element,
-        // regardless if clicking on the child elements (icon, label, etc)
-        if (!(target.matches(opener) || (target = target.closest(opener)))) {
-          return;
+        let found = false;
+
+        try {
+          if (target instanceof Element && (typeof opener === "string" || opener instanceof String)) {
+            // Chain closest() to event.target to find and return the parent element,
+            // regardless if clicking on the child elements (icon, label, etc)
+            found = target.matches(opener) || (target = target.closest(opener));
+          }
+        } catch (error) {}
+
+        if (found) {
+          event.preventDefault();
+          matchingOpener = opener;
+          return true;
         }
 
-        event.preventDefault();
-
-        matchingOpener = opener;
-
-        return true;
+        return false;
       });
 
     let rez = false;
@@ -2810,10 +2884,17 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       const falseValues = ["false", "0", "no", "null", "undefined"];
       const trueValues = ["true", "1", "yes"];
 
-      const options = Object.assign({}, el.dataset);
+      const dataset = Object.assign({}, el.dataset);
+      const options = {};
 
-      for (let [key, value] of Object.entries(options)) {
-        if (typeof value === "string" || value instanceof String) {
+      for (let [key, value] of Object.entries(dataset)) {
+        if (key === "fancybox") {
+          continue;
+        }
+
+        if (key === "width" || key === "height") {
+          options[`_${key}`] = value;
+        } else if (typeof value === "string" || value instanceof String) {
           if (falseValues.indexOf(value) > -1) {
             options[key] = false;
           } else if (trueValues.indexOf(options[key]) > -1) {
@@ -2825,11 +2906,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
               options[key] = value;
             }
           }
+        } else {
+          options[key] = value;
         }
       }
-
-      delete options.fancybox;
-      delete options.type;
 
       if (el instanceof Element) {
         options.$trigger = el;
@@ -2843,22 +2923,26 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       target = options.target || null;
 
     // Get options
+    // ===
     options = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, options, Fancybox.openers.get(opener));
 
     // Get matching nodes
-    const groupAttr = options.groupAttr === undefined ? "data-fancybox" : options.groupAttr;
-    const groupValue = groupAttr && target && target.getAttribute(`${groupAttr}`);
-
+    // ===
     const groupAll = options.groupAll === undefined ? false : options.groupAll;
 
-    if (groupAll || groupValue) {
-      items = [].slice.call(document.querySelectorAll(opener));
+    const groupAttr = options.groupAttr === undefined ? "data-fancybox" : options.groupAttr;
+    const groupValue = groupAttr && target ? target.getAttribute(`${groupAttr}`) : "";
 
-      if (!groupAll) {
+    if (!target || groupValue || groupAll) {
+      items = [].slice.call(document.querySelectorAll(opener));
+    }
+
+    if (target && !groupAll) {
+      if (groupValue) {
         items = items.filter((el) => el.getAttribute(`${groupAttr}`) === groupValue);
+      } else {
+        items = [target];
       }
-    } else {
-      items = [target];
     }
 
     if (!items.length) {
@@ -2866,13 +2950,17 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
     }
 
     // Exit if current instance is triggered from the same element
+    // ===
     const currentInstance = Fancybox.getInstance();
 
     if (currentInstance && items.indexOf(currentInstance.options.$trigger) > -1) {
       return false;
     }
 
-    // Index of current item in the gallery
+    // Start Fancybox
+    // ===
+
+    // Get index of current item in the gallery
     index = target ? items.indexOf(target) : index;
 
     // Convert items in a format supported by fancybox
@@ -2894,20 +2982,19 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    * @param {Object} [options] - Custom options
    */
   static bind(selector, options = {}) {
+    function attachClickEvent() {
+      document.body.addEventListener("click", Fancybox.fromEvent, false);
+    }
+
     if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__.canUseDOM) {
       return;
     }
 
     if (!Fancybox.openers.size) {
-      document.body.addEventListener("click", Fancybox.fromEvent, false);
-
-      // Pass self to plugins to avoid circular dependencies
-      for (const [key, Plugin] of Object.entries(Fancybox.Plugins || {})) {
-        Plugin.Fancybox = this;
-
-        if (typeof Plugin.create === "function") {
-          Plugin.create();
-        }
+      if (/complete|interactive|loaded/.test(document.readyState)) {
+        attachClickEvent();
+      } else {
+        document.addEventListener("DOMContentLoaded", attachClickEvent);
       }
     }
 
@@ -2946,23 +3033,21 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
    * @param {String|Numeric} [id] - Optional instance identifier
    */
   static getInstance(id) {
-    let nodes = [];
-
     if (id) {
-      nodes = [document.getElementById(`fancybox-${id}`)];
-    } else {
-      nodes = Array.from(document.querySelectorAll(".fancybox__container")).reverse();
+      return instances[id];
     }
 
-    for (const $container of nodes) {
-      const instance = $container && $container.Fancybox;
+    const instance = Object.values(instances)
+      .reverse()
+      .find((instance) => {
+        if (!["closing", "customClosing", "destroy"].includes(instance.state)) {
+          return instance;
+        }
 
-      if (instance && instance.state !== "closing" && instance.state !== "customClosing") {
-        return instance;
-      }
-    }
+        return false;
+      });
 
-    return null;
+    return instance || null;
   }
 
   /**
@@ -2978,6 +3063,28 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
       if (!all) return;
     }
   }
+
+  /**
+   * Slide topmost currently active instance to next page
+   */
+  static next() {
+    const instance = Fancybox.getInstance();
+
+    if (instance) {
+      instance.next();
+    }
+  }
+
+  /**
+   * Slide topmost currently active instance to previous page
+   */
+  static prev() {
+    const instance = Fancybox.getInstance();
+
+    if (instance) {
+      instance.prev();
+    }
+  }
 }
 
 // Expose version
@@ -2990,10 +3097,17 @@ Fancybox.defaults = defaults;
 Fancybox.openers = new Map();
 
 // Add default plugins
-Fancybox.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_4__.Plugins;
+Fancybox.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__.Plugins;
 
 // Auto init with default options
 Fancybox.bind("[data-fancybox]");
+
+// Prepare plugins
+for (const [key, Plugin] of Object.entries(Fancybox.Plugins || {})) {
+  if (typeof Plugin.create === "function") {
+    Plugin.create(Fancybox);
+  }
+}
 
 
 
@@ -3046,22 +3160,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
 
 
-/**
- * Helper method to split URL hash into useful pieces
- */
-const getParsedURL = function () {
-  const hash = window.location.hash.substr(1),
-    tmp = hash.split("-"),
-    index = tmp.length > 1 && /^\+?\d+$/.test(tmp[tmp.length - 1]) ? parseInt(tmp.pop(-1), 10) || null : null,
-    slug = tmp.join("-");
-
-  return {
-    hash,
-    slug,
-    index,
-  };
-};
-
 class Hash {
   constructor(fancybox) {
     this.fancybox = fancybox;
@@ -3095,22 +3193,19 @@ class Hash {
     }
 
     const firstRun = carousel.prevPage === null;
-
-    const slide = fancybox.getSlide();
-
-    const dataset = slide.$trigger && slide.$trigger.dataset;
-
     const currentHash = window.location.hash.substr(1);
+    const slide = fancybox.getSlide();
 
     let newHash = false;
 
     if (slide.slug) {
       newHash = slide.slug;
     } else {
-      let dataAttribute = dataset && dataset.fancybox;
+      const dataset = slide.$trigger && slide.$trigger.dataset;
+      const slug = fancybox.option("slug") || (dataset && dataset.fancybox);
 
-      if (dataAttribute && dataAttribute.length && dataAttribute !== "true") {
-        newHash = dataAttribute + (carousel.slides.length > 1 ? "-" + (slide.index + 1) : "");
+      if (slug && slug.length && slug !== "true") {
+        newHash = slug + (carousel.slides.length > 1 ? "-" + (slide.index + 1) : "");
       }
     }
 
@@ -3179,17 +3274,18 @@ class Hash {
    * @param {Class} Fancybox
    */
   static startFromUrl() {
-    if (Hash.Fancybox.getInstance()) {
+    if (!Hash.Fancybox || Hash.Fancybox.getInstance()) {
       return;
     }
 
-    const { hash, slug, index } = getParsedURL();
+    const { hash, slug, index } = Hash.getParsedURL();
 
     if (!slug) {
       return;
     }
 
     // Support custom slug
+    // ===
     let selectedElem = document.querySelector(`[data-slug="${hash}"]`);
 
     if (selectedElem) {
@@ -3200,7 +3296,8 @@ class Hash {
       return;
     }
 
-    // Use URL hash value as group name
+    // If elements are not found by custom slug, use URL hash value as group name
+    // ===
     const groupElems = document.querySelectorAll(`[data-fancybox="${slug}"]`);
 
     if (!groupElems.length) {
@@ -3222,7 +3319,7 @@ class Hash {
    * Handle `hash` change, change gallery item to current index or start/close current instance
    */
   static onHashChange() {
-    const { slug, index } = getParsedURL();
+    const { slug, index } = Hash.getParsedURL();
 
     const instance = Hash.Fancybox.getInstance();
 
@@ -3230,6 +3327,14 @@ class Hash {
       // Look if this is inside currently active gallery
       if (slug) {
         const carousel = instance.Carousel;
+
+        /**
+         * Support manually opened gallery
+         */
+        if (slug === instance.option("slug")) {
+          return carousel.slideTo(index - 1);
+        }
+
         /**
          * Check if URL hash matches `data-slug` value of active element
          */
@@ -3268,29 +3373,44 @@ class Hash {
   /**
    * Add event bindings that will start new Fancybox instance based in the current URL
    */
+  static create(Fancybox) {
+    Hash.Fancybox = Fancybox;
 
-  static onReady() {
-    window.addEventListener("hashchange", Hash.onHashChange, false);
+    function proceed() {
+      window.addEventListener("hashchange", Hash.onHashChange, false);
 
-    Hash.startFromUrl();
-  }
-
-  static create() {
-    // Skip if SSR
-    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__.canUseDOM) {
-      return;
+      Hash.startFromUrl();
     }
 
-    /**
-     * Attempt to start Fancybox
-     */
-    window.requestAnimationFrame(() => {
-      Hash.onReady();
-    });
+    if (_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__.canUseDOM) {
+      window.requestAnimationFrame(() => {
+        if (/complete|interactive|loaded/.test(document.readyState)) {
+          proceed();
+        } else {
+          document.addEventListener("DOMContentLoaded", proceed);
+        }
+      });
+    }
   }
 
   static destroy() {
     window.removeEventListener("hashchange", Hash.onHashChange, false);
+  }
+
+  /**
+   * Helper method to split URL hash into useful pieces
+   */
+  static getParsedURL() {
+    const hash = window.location.hash.substr(1),
+      tmp = hash.split("-"),
+      index = tmp.length > 1 && /^\+?\d+$/.test(tmp[tmp.length - 1]) ? parseInt(tmp.pop(-1), 10) || null : null,
+      slug = tmp.join("-");
+
+    return {
+      hash,
+      slug,
+      index,
+    };
   }
 }
 
@@ -3311,10 +3431,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 
 
-const buildURLQuery = (obj) => {
-  return Object.entries(obj)
-    .map((pair) => pair.map(encodeURIComponent).join("="))
-    .join("&");
+const buildURLQuery = (src, obj) => {
+  const url = new URL(src);
+  const params = new URLSearchParams(url.search);
+
+  let rez = new URLSearchParams();
+
+  for (const [key, value] of [...params, ...Object.entries(obj)]) {
+    // Youtube
+    if (key === "t") {
+      rez.set("start", parseInt(value));
+    } else {
+      rez.set(key, value);
+    }
+  }
+
+  // Convert to 'foo=1&bar=2&baz=3'
+  rez = rez.toString();
+
+  // Vimeo
+  // https://vimeo.zendesk.com/hc/en-us/articles/360000121668-Starting-playback-at-a-specific-timecode
+  let matches = src.match(/#t=((.*)?\d+s)/);
+
+  if (matches) {
+    rez += `#t=${matches[1]}`;
+  }
+
+  return rez;
 };
 
 const defaults = {
@@ -3344,9 +3487,7 @@ const defaults = {
   // HTML5 video parameters
   html5video: {
     tpl: `<video class="fancybox__html5video" playsinline controls controlsList="nodownload" poster="{{poster}}">
-  <source src="{{src}}" type="{{format}}" />
-  Sorry, your browser doesn\'t support embedded videos, <a href="{{src}}">download</a> and watch with your favorite video player!
-</video>`,
+  <source src="{{src}}" type="{{format}}" />Sorry, your browser doesn't support embedded videos.</video>`,
     format: "",
   },
 };
@@ -3425,7 +3566,7 @@ class Html {
         /(?:youtube\.com|youtu\.be|youtube\-nocookie\.com)\/(?:watch\?(?:.*&)?v=|v\/|u\/|embed\/?)?(videoseries\?list=(?:.*)|[\w-]{11}|\?listType=(?:.*)&list=(?:.*))(?:.*)/i
       ))
     ) {
-      const params = buildURLQuery(this.fancybox.option("Html.youtube"));
+      const params = buildURLQuery(src, this.fancybox.option("Html.youtube"));
       const videoId = encodeURIComponent(rez[1]);
 
       slide.videoId = videoId;
@@ -3435,7 +3576,7 @@ class Html {
 
       type = "video";
     } else if ((rez = src.match(/^.+vimeo.com\/(?:\/)?([\d]+)(.*)?/))) {
-      const params = buildURLQuery(this.fancybox.option("Html.vimeo"));
+      const params = buildURLQuery(src, this.fancybox.option("Html.vimeo"));
       const videoId = encodeURIComponent(rez[1]);
 
       slide.videoId = videoId;
@@ -3480,10 +3621,10 @@ class Html {
     if (type === "html5video" || type === "video") {
       slide.video = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, this.fancybox.option("Html.video"), slide.video);
 
-      if (slide.width && slide.height) {
-        slide.ratio = parseFloat(slide.width) / parseFloat(slide.height);
+      if (slide._width && slide._height) {
+        slide.ratio = parseFloat(slide._width) / parseFloat(slide._height);
       } else {
-        slide.ratio = slide.ratio || slide.video.ratio;
+        slide.ratio = slide.ratio || slide.video.ratio || defaults.video.ratio;
       }
     }
   }
@@ -3579,6 +3720,7 @@ class Html {
     };
 
     xhr.open("GET", slide.src);
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.send(slide.ajax || null);
 
     slide.xhr = xhr;
@@ -3606,6 +3748,8 @@ class Html {
 
       this.fancybox.setContent(slide, $iframe);
 
+      this.resizeIframe(slide);
+
       return;
     }
 
@@ -3627,8 +3771,8 @@ class Html {
 
       let isFirstLoad = false;
 
-      if ($iframe.dataset.ready !== "yes") {
-        $iframe.dataset.ready = "yes";
+      if (!$iframe.isReady) {
+        $iframe.isReady = true;
         isFirstLoad = true;
       }
 
@@ -3638,9 +3782,7 @@ class Html {
 
       $iframe.parentNode.style.visibility = "";
 
-      if (slide.autoSize !== false) {
-        this.autoSizeIframe($iframe);
-      }
+      this.resizeIframe(slide);
 
       if (isFirstLoad) {
         fancybox.revealContent(slide);
@@ -3655,78 +3797,117 @@ class Html {
    * @param {Object} slide
    */
   setAspectRatio(slide) {
-    let ratio = slide.ratio;
+    const $content = slide.$content;
+    const ratio = slide.ratio;
 
-    if (!ratio || !slide.$content) {
+    if (!$content) {
       return;
     }
 
-    slide.$content.style.maxWidth = "";
-    slide.$content.style.maxHeight = "";
+    let width = slide._width;
+    let height = slide._height;
 
-    let width = slide.$content.offsetWidth;
-    let height = slide.$content.offsetHeight;
+    if (ratio || (width && height)) {
+      Object.assign($content.style, {
+        width: width && height ? "100%" : "",
+        height: width && height ? "100%" : "",
+        maxWidth: "",
+        maxHeight: "",
+      });
 
-    let maxWidth = slide.width;
-    let maxHeight = slide.height;
+      let maxWidth = $content.offsetWidth;
+      let maxHeight = $content.offsetHeight;
 
-    if (maxWidth && maxHeight && (width > maxWidth || height > maxHeight)) {
-      let maxRatio = Math.min(maxWidth / width, maxHeight / height);
+      width = width || maxWidth;
+      height = height || maxHeight;
 
-      width = width * maxRatio;
-      height = height * maxRatio;
+      // Resize to fit
+      if (width > maxWidth || height > maxHeight) {
+        let maxRatio = Math.min(maxWidth / width, maxHeight / height);
+
+        width = width * maxRatio;
+        height = height * maxRatio;
+      }
+
+      // Recheck ratio
+      if (Math.abs(width / height - ratio) > 0.01) {
+        if (ratio < width / height) {
+          width = height * ratio;
+        } else {
+          height = width / ratio;
+        }
+      }
+
+      Object.assign($content.style, {
+        width: `${width}px`,
+        height: `${height}px`,
+      });
     }
-
-    if (ratio < width / height) {
-      width = height * ratio;
-    } else {
-      height = width / ratio;
-    }
-
-    slide.$content.style.maxWidth = `${width}px`;
-    slide.$content.style.maxHeight = `${height}px`;
   }
 
   /**
-   * Adjust the width and height of iframe to fit with content
-   * @param {Object} $iframe
+   * Adjust the width and height of the iframe according to the content dimensions, or defined sizes
+   * @param {Object} slide
    */
-  autoSizeIframe($iframe) {
-    if (!$iframe.dataset || $iframe.dataset.ready !== "yes") {
+  resizeIframe(slide) {
+    const $iframe = slide.$iframe;
+
+    if (!$iframe) {
       return;
     }
 
-    let parentStyle = $iframe.parentNode.style;
+    let width_ = slide._width || 0;
+    let height_ = slide._height || 0;
 
-    parentStyle.flex = "1 1 auto";
-    parentStyle.width = "";
-    parentStyle.height = "";
+    if (width_ && height_) {
+      slide.autoSize = false;
+    }
 
-    try {
-      const document = $iframe.contentWindow.document,
-        $html = document.getElementsByTagName("html")[0],
-        $body = document.body,
-        style = window.getComputedStyle($iframe.parentNode),
-        paddingX = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight),
-        paddingY = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+    const $parent = $iframe.parentNode;
+    const parentStyle = $parent.style;
 
-      // Get rid of vertical scrollbar
-      $body.style.overflow = "hidden";
+    if (slide.preload !== false && slide.autoSize !== false) {
+      try {
+        const compStyles = window.getComputedStyle($parent),
+          paddingX = parseFloat(compStyles.paddingLeft) + parseFloat(compStyles.paddingRight),
+          paddingY = parseFloat(compStyles.paddingTop) + parseFloat(compStyles.paddingBottom);
 
-      const width = $html.scrollWidth;
-      parentStyle.width = `${width + paddingX}px`;
+        const document = $iframe.contentWindow.document,
+          $html = document.getElementsByTagName("html")[0],
+          $body = document.body;
 
-      $body.style.overflow = "";
+        // Get rid of vertical scrollbar
+        $body.style.overflow = "hidden";
 
-      parentStyle.flex = "";
-      parentStyle.flexShrink = "0";
-      parentStyle.height = `${$body.scrollHeight}px`;
+        width_ = width_ || $html.scrollWidth + paddingX;
 
-      const height = $html.scrollHeight;
+        parentStyle.width = `${width_}px`;
 
-      parentStyle.height = `${height + paddingY}px`;
-    } catch (error) {
-      parentStyle = "";
+        $body.style.overflow = "";
+
+        parentStyle.flex = "0 0 auto";
+        parentStyle.height = `${$body.scrollHeight}px`;
+
+        height_ = $html.scrollHeight + paddingY;
+      } catch (error) {
+        //
+      }
+    }
+
+    if (width_ || height_) {
+      const newStyle = {
+        flex: "0 1 auto",
+      };
+
+      if (width_) {
+        newStyle.width = `${width_}px`;
+      }
+
+      if (height_) {
+        newStyle.height = `${height_}px`;
+      }
+
+      Object.assign(parentStyle, newStyle);
     }
   }
 
@@ -3742,8 +3923,8 @@ class Html {
         return;
       }
 
-      if (slide.$iframe && slide.autoSize !== false) {
-        this.autoSizeIframe(slide.$iframe);
+      if (slide.$iframe) {
+        this.resizeIframe(slide);
       }
 
       if (slide.ratio) {
@@ -3775,7 +3956,7 @@ class Html {
             .option("Html.html5video.tpl")
             .replace(/\{\{src\}\}/gi, slide.src)
             .replace("{{format}}", slide.format || (slide.html5video && slide.html5video.format) || "")
-            .replace("{{poster}}", slide.thumb || "")
+            .replace("{{poster}}", slide.poster || slide.thumb || "")
         );
 
         break;
@@ -3789,10 +3970,12 @@ class Html {
         this.loadAjaxContent(slide);
         break;
 
-      case "iframe":
       case "pdf":
       case "video":
       case "map":
+        slide.preload = false;
+
+      case "iframe":
         this.loadIframeContent(slide);
 
         break;
@@ -3820,14 +4003,26 @@ class Html {
    * @param {Object} slide
    */
   playVideo(slide) {
-    if (slide.type === "html5video") {
-      const videoElem = slide.$el.querySelector("video");
+    if (slide.type === "html5video" && slide.video.autoplay) {
+      try {
+        const $video = slide.$el.querySelector("video");
 
-      if (videoElem) {
-        try {
-          videoElem.play();
-        } catch (err) {}
-      }
+        if ($video) {
+          const promise = $video.play();
+
+          if (promise !== undefined) {
+            promise
+              .then(() => {
+                // Autoplay started
+              })
+              .catch((error) => {
+                // Autoplay was prevented.
+                $video.muted = true;
+                $video.play();
+              });
+          }
+        }
+      } catch (err) {}
     }
 
     if (slide.type !== "video" || !(slide.$iframe && slide.$iframe.contentWindow)) {
@@ -3837,41 +4032,39 @@ class Html {
     // This function will be repeatedly called to check
     // if video iframe has been loaded to send message to start the video
     const poller = () => {
-      if (slide.state !== "done" || !slide.$iframe || !slide.$iframe.contentWindow) {
-        return;
-      }
+      if (slide.state === "done" && slide.$iframe && slide.$iframe.contentWindow) {
+        let command;
 
-      let command;
-
-      if (slide.$iframe.isReady) {
-        if (slide.video && slide.video.autoplay) {
-          if (slide.vendor == "youtube") {
-            command = {
-              event: "command",
-              func: "playVideo",
-            };
-          } else {
-            command = {
-              method: "play",
-              value: "true",
-            };
+        if (slide.$iframe.isReady) {
+          if (slide.video && slide.video.autoplay) {
+            if (slide.vendor == "youtube") {
+              command = {
+                event: "command",
+                func: "playVideo",
+              };
+            } else {
+              command = {
+                method: "play",
+                value: "true",
+              };
+            }
           }
+
+          if (command) {
+            slide.$iframe.contentWindow.postMessage(JSON.stringify(command), "*");
+          }
+
+          return;
         }
 
-        if (command) {
+        if (slide.vendor === "youtube") {
+          command = {
+            event: "listening",
+            id: slide.$iframe.getAttribute("id"),
+          };
+
           slide.$iframe.contentWindow.postMessage(JSON.stringify(command), "*");
         }
-
-        return;
-      }
-
-      if (slide.vendor === "youtube") {
-        command = {
-          event: "listening",
-          id: slide.$iframe.getAttribute("id"),
-        };
-
-        slide.$iframe.contentWindow.postMessage(JSON.stringify(command), "*");
       }
 
       slide.poller = setTimeout(poller, 250);
@@ -3946,11 +4139,11 @@ class Html {
       if ($content.style.display !== "none") {
         $content.style.display = "none";
       }
+    }
 
-      if (slide.$closeButton) {
-        slide.$closeButton.remove();
-        slide.$closeButton = null;
-      }
+    if (slide.$closeButton) {
+      slide.$closeButton.remove();
+      slide.$closeButton = null;
     }
 
     const $placeHolder = $content && $content.$placeHolder;
@@ -4123,6 +4316,7 @@ class Image {
    */
   onClosing(fancybox) {
     clearTimeout(this.clickTimer);
+    this.clickTimer = null;
 
     // Remove events
     fancybox.Carousel.slides.forEach((slide) => {
@@ -4306,6 +4500,9 @@ class Image {
         viewport: slide.$wrap,
         content: slide.$image,
 
+        width: slide._width,
+        height: slide._height,
+
         wrapInner: false,
 
         // Allow to select caption text
@@ -4389,7 +4586,7 @@ class Image {
     return {
       top: shiftedTop,
       left: shiftedLeft,
-      scale: thumbRect.width / contentWidth,
+      scale: contentWidth && thumbWidth ? thumbWidth / contentWidth : 1,
       opacity: opacity,
     };
   }
@@ -4402,6 +4599,10 @@ class Image {
       $container = fancybox.$container;
 
     if (window.visualViewport && window.visualViewport.scale !== 1) {
+      return false;
+    }
+
+    if (slide.Panzoom && !slide.Panzoom.content.width) {
       return false;
     }
 
@@ -4447,8 +4648,6 @@ class Image {
 
     const { top, left, scale, opacity } = this.getZoomInfo(slide);
 
-    slide.state = "zoomIn";
-
     fancybox.trigger("reveal", slide);
 
     // Scale and move to start position
@@ -4461,6 +4660,8 @@ class Image {
     });
 
     slide.$content.style.visibility = "";
+
+    slide.state = "zoomIn";
 
     if (opacity === true) {
       Panzoom.on("afterTransform", (panzoom) => {
@@ -4524,7 +4725,7 @@ class Image {
     // therefore animation end position has to be recalculated after each page scroll
     window.addEventListener("scroll", animatePosition);
 
-    Panzoom.on("endAnimation", () => {
+    Panzoom.once("endAnimation", () => {
       window.removeEventListener("scroll", animatePosition);
       fancybox.destroy();
     });
@@ -4537,21 +4738,31 @@ class Image {
    * @param {Object} slide
    */
   handleCursor(slide) {
-    if (slide.type !== "image") {
+    if (slide.type !== "image" || !slide.$el) {
       return;
     }
 
     const panzoom = slide.Panzoom;
-    const clickAction = this.fancybox.option("Image.click");
+    const clickAction = this.fancybox.option("Image.click", false, slide);
+    const touchIsEnabled = this.fancybox.option("Image.touch");
+
     const classList = slide.$el.classList;
 
+    const zoomInClass = this.fancybox.option("Image.canZoomInClass");
+    const zoomOutClass = this.fancybox.option("Image.canZoomOutClass");
+
     if (panzoom && clickAction === "toggleZoom") {
-      const canZoom =
+      const canZoomIn =
         panzoom && panzoom.content.scale === 1 && panzoom.option("maxScale") - panzoom.content.scale > 0.01;
 
-      classList[canZoom ? "add" : "remove"](this.fancybox.option("Image.canZoomInClass"));
+      if (canZoomIn) {
+        classList.remove(zoomOutClass);
+        classList.add(zoomInClass);
+      } else if (panzoom.content.scale > 1 && !touchIsEnabled) {
+        classList.add(zoomOutClass);
+      }
     } else if (clickAction === "close") {
-      classList.add(this.fancybox.option("Image.canZoomOutClass"));
+      classList.add(zoomOutClass);
     }
   }
 
@@ -4593,7 +4804,7 @@ class Image {
    * @param {Object} event
    */
   onClick(slide, event) {
-    // Check if can click
+    // Check that clicks should be allowed
     if (this.fancybox.state !== "ready") {
       return;
     }
@@ -4615,10 +4826,6 @@ class Image {
     }
 
     const process = (action) => {
-      if (this.fancybox.trigger("Image.click", event) === false) {
-        return;
-      }
-
       switch (action) {
         case "toggleZoom":
           event.stopPropagation();
@@ -4641,22 +4848,20 @@ class Image {
       }
     };
 
-    // Clear pending single click
-    if (this.clickTimer) {
-      clearTimeout(this.clickTimer);
-      this.clickTimer = null;
-    }
-
     const clickAction = this.fancybox.option("Image.click");
     const dblclickAction = this.fancybox.option("Image.doubleClick");
 
     if (dblclickAction) {
-      if (event.detail === 1) {
+      if (this.clickTimer) {
+        clearTimeout(this.clickTimer);
+        this.clickTimer = null;
+
+        process(dblclickAction);
+      } else {
         this.clickTimer = setTimeout(() => {
+          this.clickTimer = null;
           process(clickAction);
         }, 300);
-      } else if (event.detail === 2) {
-        process(dblclickAction);
       }
     } else {
       process(clickAction);
@@ -4803,6 +5008,10 @@ class ScrollLock {
     const startY = this.startY;
     const zoom = window.innerWidth / window.document.documentElement.clientWidth;
 
+    if (!event.cancelable) {
+      return;
+    }
+
     if (event.touches.length > 1 || zoom !== 1) {
       return;
     }
@@ -4890,6 +5099,9 @@ const defaults = {
 
   // Keyboard shortcut to toggle thumbnail container
   key: "t",
+
+  // Customize Carousel instance
+  Carousel: {},
 };
 
 class Thumbs {
@@ -5031,26 +5243,38 @@ class Thumbs {
    */
   toggle() {
     if (this.state === "visible") {
-      this.Carousel.Panzoom.detachEvents();
-
-      this.$container.style.display = "none";
-
-      this.state = "hidden";
-
-      return;
+      this.hide();
+    } else if (this.state === "hidden") {
+      this.show();
+    } else {
+      this.build();
     }
+  }
 
+  /**
+   * Show thumbnail list
+   */
+  show() {
     if (this.state === "hidden") {
       this.$container.style.display = "";
 
       this.Carousel.Panzoom.attachEvents();
 
       this.state = "visible";
-
-      return;
     }
+  }
 
-    this.build();
+  /**
+   * Hide thumbnail list
+   */
+  hide() {
+    if (this.state === "visible") {
+      this.Carousel.Panzoom.detachEvents();
+
+      this.$container.style.display = "none";
+
+      this.state = "hidden";
+    }
   }
 
   /**
@@ -5109,42 +5333,50 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const defaults = {
+  // What toolbar items to display
+  display: [
+    "counter",
+    //"prev",
+    //"next",
+    //"download",
+    "zoom",
+    "slideshow",
+    "fullscreen",
+    "thumbs",
+    "close",
+  ],
+
+  // Only create a toolbar item if there is at least one image in the group
+  autoEnable: true,
+
   // Toolbar items; can be links, buttons or `div` elements
   items: {
     counter: {
+      position: "left",
       type: "div",
       class: "fancybox__counter",
       html: '<span data-fancybox-index=""></span>&nbsp;/&nbsp;<span data-fancybox-count=""></span>',
-      tabindex: -1,
-      position: "left",
+      attr: { tabindex: -1 },
     },
     prev: {
       type: "button",
       class: "fancybox__button--prev",
       label: "PREV",
-      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M15 4l-8 8 8 8"/></svg>',
-      click: function (event) {
-        event.preventDefault();
-
-        this.fancybox.prev();
-      },
+      html: '<svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg>',
+      attr: { "data-fancybox-prev": "" },
     },
     next: {
       type: "button",
       class: "fancybox__button--next",
       label: "NEXT",
-      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M8 4l8 8-8 8"/></svg>',
-      click: function (event) {
-        event.preventDefault();
-
-        this.fancybox.next();
-      },
+      html: '<svg viewBox="0 0 24 24"><path d="M8 4l8 8-8 8"/></svg>',
+      attr: { "data-fancybox-next": "" },
     },
     fullscreen: {
       type: "button",
       class: "fancybox__button--fullscreen",
       label: "TOGGLE_FULLSCREEN",
-      html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
+      html: `<svg viewBox="0 0 24 24">
                 <g><path d="M3 8 V3h5"></path><path d="M21 8V3h-5"></path><path d="M8 21H3v-5"></path><path d="M16 21h5v-5"></path></g>
                 <g><path d="M7 2v5H2M17 2v5h5M2 17h5v5M22 17h-5v5"/></g>
             </svg>`,
@@ -5162,7 +5394,7 @@ const defaults = {
       type: "button",
       class: "fancybox__button--slideshow",
       label: "TOGGLE_SLIDESHOW",
-      html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
+      html: `<svg viewBox="0 0 24 24">
                 <g><path d="M6 4v16"/><path d="M20 12L6 20"/><path d="M20 12L6 4"/></g>
                 <g><path d="M7 4v15M17 4v15"/></g>
             </svg>`,
@@ -5176,7 +5408,7 @@ const defaults = {
       type: "button",
       class: "fancybox__button--zoom",
       label: "TOGGLE_ZOOM",
-      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><circle cx="10" cy="10" r="7"></circle><path d="M16 16 L21 21"></svg>',
+      html: '<svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"></circle><path d="M16 16 L21 21"></svg>',
       click: function (event) {
         event.preventDefault();
 
@@ -5191,7 +5423,7 @@ const defaults = {
       type: "link",
       label: "DOWNLOAD",
       class: "fancybox__button--download",
-      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.62 2.48A2 2 0 004.56 21h14.88a2 2 0 001.94-1.51L22 17"/></svg>',
+      html: '<svg viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.62 2.48A2 2 0 004.56 21h14.88a2 2 0 001.94-1.51L22 17"/></svg>',
       click: function (event) {
         event.stopPropagation();
       },
@@ -5200,7 +5432,7 @@ const defaults = {
       type: "button",
       label: "TOGGLE_THUMBS",
       class: "fancybox__button--thumbs",
-      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><circle cx="4" cy="4" r="1" /><circle cx="12" cy="4" r="1" transform="rotate(90 12 4)"/><circle cx="20" cy="4" r="1" transform="rotate(90 20 4)"/><circle cx="4" cy="12" r="1" transform="rotate(90 4 12)"/><circle cx="12" cy="12" r="1" transform="rotate(90 12 12)"/><circle cx="20" cy="12" r="1" transform="rotate(90 20 12)"/><circle cx="4" cy="20" r="1" transform="rotate(90 4 20)"/><circle cx="12" cy="20" r="1" transform="rotate(90 12 20)"/><circle cx="20" cy="20" r="1" transform="rotate(90 20 20)"/></svg>',
+      html: '<svg viewBox="0 0 24 24"><circle cx="4" cy="4" r="1" /><circle cx="12" cy="4" r="1" transform="rotate(90 12 4)"/><circle cx="20" cy="4" r="1" transform="rotate(90 20 4)"/><circle cx="4" cy="12" r="1" transform="rotate(90 4 12)"/><circle cx="12" cy="12" r="1" transform="rotate(90 12 12)"/><circle cx="20" cy="12" r="1" transform="rotate(90 20 12)"/><circle cx="4" cy="20" r="1" transform="rotate(90 4 20)"/><circle cx="12" cy="20" r="1" transform="rotate(90 12 20)"/><circle cx="20" cy="20" r="1" transform="rotate(90 20 20)"/></svg>',
       click: function (event) {
         event.stopPropagation();
 
@@ -5215,22 +5447,10 @@ const defaults = {
       type: "button",
       label: "CLOSE",
       class: "fancybox__button--close",
-      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M20 20L4 4m16 0L4 20"></path></svg>',
-      tabindex: 1,
-      click: function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-
-        this.fancybox.close();
-      },
+      html: '<svg viewBox="0 0 24 24"><path d="M20 20L4 4m16 0L4 20"></path></svg>',
+      attr: { "data-fancybox-close": "", tabindex: 0 },
     },
   },
-
-  // What toolbar items to display
-  display: ["counter", "zoom", "slideshow", "fullscreen", "thumbs", "close"],
-
-  // Only create a toolbar item if there is at least one image in the group
-  autoEnable: true,
 };
 
 class Toolbar {
@@ -5305,6 +5525,7 @@ class Toolbar {
   }
 
   onPrepare() {
+    const fancybox = this.fancybox;
     // Skip if disabled
     if (this.state !== "init") {
       return;
@@ -5314,16 +5535,16 @@ class Toolbar {
 
     this.update();
 
-    this.Slideshow = new _shared_utils_Slideshow_js__WEBPACK_IMPORTED_MODULE_3__.Slideshow(this.fancybox);
+    this.Slideshow = new _shared_utils_Slideshow_js__WEBPACK_IMPORTED_MODULE_3__.Slideshow(fancybox);
 
-    if (!this.fancybox.Carousel.prevPage) {
-      if (this.fancybox.option("slideshow.autoStart")) {
+    if (!fancybox.Carousel.prevPage) {
+      if (fancybox.option("slideshow.autoStart")) {
         this.Slideshow.activate();
       }
 
-      if (this.fancybox.option("fullscreen.autoStart") && !_shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.element()) {
+      if (fancybox.option("fullscreen.autoStart") && !_shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.element()) {
         try {
-          _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.activate(this.fancybox.$container);
+          _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.activate(fancybox.$container);
         } catch (error) {}
       }
     }
@@ -5334,14 +5555,14 @@ class Toolbar {
   }
 
   onSettle() {
-    if (this.Slideshow && this.Slideshow.isActive()) {
-      if (
-        this.fancybox.getSlide().index === this.fancybox.Carousel.slides.length - 1 &&
-        !this.fancybox.option("infinite")
-      ) {
-        this.Slideshow.deactivate();
-      } else if (this.fancybox.getSlide().state === "done") {
-        this.Slideshow.setTimer();
+    const fancybox = this.fancybox;
+    const slideshow = this.Slideshow;
+
+    if (slideshow && slideshow.isActive()) {
+      if (fancybox.getSlide().index === fancybox.Carousel.slides.length - 1 && !fancybox.option("infinite")) {
+        slideshow.deactivate();
+      } else if (fancybox.getSlide().state === "done") {
+        slideshow.setTimer();
       }
     }
   }
@@ -5355,14 +5576,16 @@ class Toolbar {
   }
 
   onDone(fancybox, slide) {
+    const slideshow = this.Slideshow;
+
     if (slide.index === fancybox.getSlide().index) {
       this.update();
 
-      if (this.Slideshow && this.Slideshow.isActive()) {
-        if (!this.fancybox.option("infinite") && slide.index === this.fancybox.Carousel.slides.length - 1) {
-          this.Slideshow.deactivate();
+      if (slideshow && slideshow.isActive()) {
+        if (!fancybox.option("infinite") && slide.index === fancybox.Carousel.slides.length - 1) {
+          slideshow.deactivate();
         } else {
-          this.Slideshow.setTimer();
+          slideshow.setTimer();
         }
       }
     }
@@ -5379,7 +5602,7 @@ class Toolbar {
   }
 
   onKeydown(fancybox, key, event) {
-    if (key === " ") {
+    if (key === " " && this.Slideshow) {
       this.Slideshow.toggle();
 
       event.preventDefault();
@@ -5417,6 +5640,10 @@ class Toolbar {
       $el.classList.add(...obj.class.split(" "));
     }
 
+    for (const prop in obj.attr) {
+      $el.setAttribute(prop, obj.attr[prop]);
+    }
+
     if (obj.label) {
       $el.setAttribute("title", this.fancybox.localize(`{{${obj.label}}}`));
     }
@@ -5431,6 +5658,14 @@ class Toolbar {
 
     if (obj.id === "next") {
       $el.setAttribute("data-fancybox-next", "");
+    }
+
+    const $svg = $el.querySelector("svg");
+
+    if ($svg) {
+      $svg.setAttribute("role", "img");
+      $svg.setAttribute("tabindex", "-1");
+      $svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     }
 
     return $el;
@@ -5540,19 +5775,21 @@ class Toolbar {
     for (const $el of this.fancybox.$container.querySelectorAll("a.fancybox__button--download")) {
       if (src) {
         $el.removeAttribute("disabled");
+        $el.removeAttribute("tabindex");
 
         $el.setAttribute("href", src);
         $el.setAttribute("download", src);
         $el.setAttribute("target", "_blank");
       } else {
         $el.setAttribute("disabled", "");
+        $el.setAttribute("tabindex", -1);
 
         $el.removeAttribute("href");
         $el.removeAttribute("download");
       }
     }
 
-    // Zoom buttons
+    // Zoom button
     // ===
     const panzoom = slide.Panzoom;
     const canZoom = panzoom && panzoom.option("maxScale") > panzoom.option("baseScale");
@@ -5575,7 +5812,8 @@ class Toolbar {
       $el.innerHTML = cnt;
     }
 
-    // Disable prev/next links if gallery is not infinite and reached start/end
+    // Disable previous/next links if gallery is not infinite and has reached start/end
+    // ===
     if (!this.fancybox.option("infinite")) {
       for (const $el of this.fancybox.$container.querySelectorAll("[data-fancybox-prev]")) {
         if (idx === 0) {
@@ -5675,12 +5913,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/utils/round.js */ "./node_modules/@fancyapps/ui/src/shared/utils/round.js");
 /* harmony import */ var _shared_utils_ResizeObserver_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/utils/ResizeObserver.js */ "./node_modules/@fancyapps/ui/src/shared/utils/ResizeObserver.js");
 /* harmony import */ var _shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/utils/PointerTracker.js */ "./node_modules/@fancyapps/ui/src/shared/utils/PointerTracker.js");
-/* harmony import */ var _shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/utils/isScrollable.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isScrollable.js");
-/* harmony import */ var _shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/utils/getTextNodeFromPoint.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getTextNodeFromPoint.js");
-/* harmony import */ var _shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/utils/getDimensions.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getDimensions.js");
-/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
-/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Panzoom/plugins/index.js");
-
+/* harmony import */ var _shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/utils/getTextNodeFromPoint.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getTextNodeFromPoint.js");
+/* harmony import */ var _shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/utils/getDimensions.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getDimensions.js");
+/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
+/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Panzoom/plugins/index.js");
 
 
 
@@ -5769,7 +6005,7 @@ const defaults = {
   ratio: 1,
 };
 
-class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
+class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
   /**
    * Panzoom constructor
    * @constructs Panzoom
@@ -5803,8 +6039,6 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
     this.trigger("ready");
 
     if (this.option("centerOnStart") === false) {
-      this.handleCursor();
-
       this.state = "ready";
     } else {
       this.panTo({
@@ -5865,8 +6099,8 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
 
     this.content = {
       // Full content dimensions (naturalWidth/naturalHeight for images)
-      origHeight: 0,
       origWidth: 0,
+      origHeight: 0,
 
       // Current dimensions of the content
       width: 0,
@@ -6045,11 +6279,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
           }
 
           // Allow text selection
-          if (this.option("textSelection") && (0,_shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_5__.getTextNodeFromPoint)(event.target, event.clientX, event.clientY)) {
-            return false;
-          }
-          // Allow scrolling
-          if ((0,_shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_4__.isScrollable)(event.target)) {
+          if (this.option("textSelection") && (0,_shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_4__.getTextNodeFromPoint)(event.target, event.clientX, event.clientY)) {
             return false;
           }
         }
@@ -6080,8 +6310,10 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
         // Disable touch action if current zoom level is below base level
         if (
           currentPointers.length < 2 &&
-          this.transform.scale === this.option("baseScale") &&
-          this.option("panOnlyZoomed") == true
+          this.option("panOnlyZoomed") == true &&
+          this.content.width <= this.viewport.width &&
+          this.content.height <= this.viewport.height &&
+          this.transform.scale <= this.option("baseScale")
         ) {
           return;
         }
@@ -6155,9 +6387,9 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
           this.dragPosition.y -= deltaY;
 
           this.dragPosition.midPoint = newMidpoint;
+        } else {
+          this.setDragResistance();
         }
-
-        this.setDragResistance();
 
         // Update final position
         this.transform = {
@@ -6249,7 +6481,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
         // Check to see if there are any changes
         if (Math.abs(rect.width - this.container.width) > 1 || Math.abs(rect.height - this.container.height) > 1) {
           if (this.isAnimating()) {
-            this.endAnimation();
+            this.endAnimation(true);
           }
 
           this.updateMetrics();
@@ -6318,16 +6550,19 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
     const $content = this.$content;
     const $viewport = this.$viewport;
 
-    const contentIsImage = this.$content instanceof HTMLImageElement;
+    const contentIsImage = $content instanceof HTMLImageElement;
     const contentIsZoomable = this.option("zoom");
     const shouldResizeParent = this.option("resizeParent", contentIsZoomable);
 
-    let origWidth = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.getFullWidth)(this.$content);
-    let origHeight = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.getFullHeight)(this.$content);
+    let width = this.option("width");
+    let height = this.option("height");
+
+    let origWidth = width || (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__.getFullWidth)($content);
+    let origHeight = height || (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__.getFullHeight)($content);
 
     Object.assign($content.style, {
-      width: "",
-      height: "",
+      width: width ? `${width}px` : "",
+      height: height ? `${height}px` : "",
       maxWidth: "",
       maxHeight: "",
     });
@@ -6341,24 +6576,27 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
     origWidth = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(origWidth * ratio);
     origHeight = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(origHeight * ratio);
 
-    let width = origWidth;
-    let height = origHeight;
+    width = origWidth;
+    height = origHeight;
 
     const contentRect = $content.getBoundingClientRect();
     const viewportRect = $viewport.getBoundingClientRect();
 
     const containerRect = $viewport == $container ? viewportRect : $container.getBoundingClientRect();
 
-    this.viewport = { ...this.viewport, width: viewportRect.width, height: viewportRect.height };
+    let viewportWidth = Math.max($viewport.offsetWidth, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportRect.width));
+    let viewportHeight = Math.max($viewport.offsetHeight, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportRect.height));
 
-    var styles = window.getComputedStyle($viewport);
+    let viewportStyles = window.getComputedStyle($viewport);
+    viewportWidth -= parseFloat(viewportStyles.paddingLeft) + parseFloat(viewportStyles.paddingRight);
+    viewportHeight -= parseFloat(viewportStyles.paddingTop) + parseFloat(viewportStyles.paddingBottom);
 
-    this.viewport.width -= parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
-    this.viewport.height -= parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+    this.viewport.width = viewportWidth;
+    this.viewport.height = viewportHeight;
 
     if (contentIsZoomable) {
       if (Math.abs(origWidth - contentRect.width) > 0.1 || Math.abs(origHeight - contentRect.height) > 0.1) {
-        const rez = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.calculateAspectRatioFit)(
+        const rez = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__.calculateAspectRatioFit)(
           origWidth,
           origHeight,
           Math.min(origWidth, contentRect.width),
@@ -6518,6 +6756,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
     this.friction = friction;
 
     this.transform = {
+      ...this.transform,
       x,
       y,
       scale,
@@ -6573,8 +6812,6 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
     } else if (this.state !== "pointerdown") {
       this.endAnimation();
 
-      this.trigger("endAnimation");
-
       return;
     }
 
@@ -6597,33 +6834,28 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
 
     scale = scale || this.transform.scale;
 
-    const fitWidth = this.content.fitWidth;
-    const fitHeight = this.content.fitHeight;
-
-    const width = fitWidth * scale;
-    const height = fitHeight * scale;
+    const width = this.content.fitWidth * scale;
+    const height = this.content.fitHeight * scale;
 
     const viewportWidth = this.viewport.width;
     const viewportHeight = this.viewport.height;
 
-    if (fitWidth <= viewportWidth) {
-      const deltaX1 = (viewportWidth - width) * 0.5;
-      const deltaX2 = (width - fitWidth) * 0.5;
+    if (width < viewportWidth) {
+      const deltaX = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)((viewportWidth - width) * 0.5);
 
-      boundX.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaX1 - deltaX2);
-      boundX.to = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaX1 + deltaX2);
+      boundX.from = deltaX;
+      boundX.to = deltaX;
     } else {
       boundX.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportWidth - width);
     }
 
-    if (fitHeight <= viewportHeight) {
-      const deltaY1 = (viewportHeight - height) * 0.5;
-      const deltaY2 = (height - fitHeight) * 0.5;
+    if (height < viewportHeight) {
+      const deltaY = (viewportHeight - height) * 0.5;
 
-      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaY1 - deltaY2);
-      boundY.to = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaY1 + deltaY2);
+      boundY.from = deltaY;
+      boundY.to = deltaY;
     } else {
-      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportHeight - width);
+      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportHeight - height);
     }
 
     return { boundX, boundY };
@@ -6812,7 +7044,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
   /**
    * Stop animation loop
    */
-  endAnimation() {
+  endAnimation(silently) {
     cancelAnimationFrame(this.rAF);
     this.rAF = null;
 
@@ -6827,6 +7059,10 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
     this.state = "ready";
 
     this.handleCursor();
+
+    if (silently !== true) {
+      this.trigger("endAnimation");
+    }
   }
 
   /**
@@ -6841,7 +7077,8 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
 
     if (
       this.option("panOnlyZoomed") == true &&
-      this.content.width <= this.content.fitWidth &&
+      this.content.width <= this.viewport.width &&
+      this.content.height <= this.viewport.height &&
       this.transform.scale <= this.option("baseScale")
     ) {
       this.$container.classList.remove(draggableClass);
@@ -6898,7 +7135,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
 Panzoom.version = "__VERSION__";
 
 // Static properties are a recent addition that dont work in all browsers yet
-Panzoom.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_8__.Plugins;
+Panzoom.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_7__.Plugins;
 
 
 /***/ }),
@@ -6965,7 +7202,7 @@ class Base {
    * @param {*} [fallback] Fallback value for non-existing key
    * @returns {*}
    */
-  option(key, fallback) {
+  option(key, fallback, ...rest) {
     // Make sure it is string
     key = String(key);
 
@@ -6973,7 +7210,7 @@ class Base {
 
     // Allow to have functions as options
     if (typeof value === "function") {
-      value = value.call(this, key);
+      value = value.call(this, this, ...rest);
     }
 
     return value === undefined ? fallback : value;
@@ -6987,18 +7224,18 @@ class Base {
    * @returns {String}
    */
   localize(str, params = []) {
-    return String(str).replace(/\{\{(\w+).?(\w+)?\}\}/g, (match, key, subkey) => {
-      let rez = false;
+    str = String(str).replace(/\{\{(\w+).?(\w+)?\}\}/g, (match, key, subkey) => {
+      let rez = "";
 
       // Plugins have `Plugin.l10n.KEY`
       if (subkey) {
         rez = this.option(`${key[0] + key.toLowerCase().substring(1)}.l10n.${subkey}`);
-      } else {
+      } else if (key) {
         rez = this.option(`l10n.${key}`);
       }
 
       if (!rez) {
-        return key;
+        rez = match;
       }
 
       for (let index = 0; index < params.length; index++) {
@@ -7007,6 +7244,12 @@ class Base {
 
       return rez;
     });
+
+    str = str.replace(/\{\{(.*)\}\}/, (match, key) => {
+      return key;
+    });
+
+    return str;
   }
 
   /**
@@ -7251,8 +7494,6 @@ __webpack_require__.r(__webpack_exports__);
 
 class Pointer {
   constructor(nativePointer) {
-    this.id = -1;
-
     this.id = nativePointer.pointerId || nativePointer.identifier || -1;
 
     this.pageX = nativePointer.pageX;
@@ -7583,12 +7824,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Detect if rendering from the client or the server
  */
-const canUseDOM = !!(
-  typeof window !== "undefined" &&
-  window.document &&
-  window.document.createElement &&
-  window.document.body
-);
+const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
 
 
 /***/ }),
@@ -7834,8 +8070,8 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Boolean}
  */
 const hasScrollbars = function (node) {
-  const overflowY = window.getComputedStyle(node)["overflow-y"],
-    overflowX = window.getComputedStyle(node)["overflow-x"],
+  const overflowY = getComputedStyle(node)["overflow-y"],
+    overflowX = getComputedStyle(node)["overflow-x"],
     vertical = (overflowY === "scroll" || overflowY === "auto") && Math.abs(node.scrollHeight - node.clientHeight) > 1,
     horizontal = (overflowX === "scroll" || overflowX === "auto") && Math.abs(node.scrollWidth - node.clientWidth) > 1;
 
@@ -7848,7 +8084,7 @@ const hasScrollbars = function (node) {
  * @returns {Boolean}
  */
 const isScrollable = function (node) {
-  if (!node || node === document.body) {
+  if (!node || !(typeof node === "object" && node instanceof Element) || node === document.body) {
     return false;
   }
 
@@ -7910,6 +8146,83 @@ const round = (value, precision = 10000) => {
   value = parseFloat(value) || 0;
 
   return Math.round((value + Number.EPSILON) * precision) / precision;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@fancyapps/ui/src/shared/utils/setFocusOn.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@fancyapps/ui/src/shared/utils/setFocusOn.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FOCUSABLE_ELEMENTS": () => (/* binding */ FOCUSABLE_ELEMENTS),
+/* harmony export */   "setFocusOn": () => (/* binding */ setFocusOn)
+/* harmony export */ });
+/* harmony import */ var _canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
+
+
+let preventScrollSupported = null;
+
+const FOCUSABLE_ELEMENTS = [
+  "a[href]",
+  "area[href]",
+  'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
+  "select:not([disabled]):not([aria-hidden])",
+  "textarea:not([disabled]):not([aria-hidden])",
+  "button:not([disabled]):not([aria-hidden])",
+  "iframe",
+  "object",
+  "embed",
+  "video",
+  "audio",
+  "[contenteditable]",
+  '[tabindex]:not([tabindex^="-"]):not([disabled]):not([aria-hidden])',
+];
+
+const setFocusOn = (node) => {
+  if (!node || !_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__.canUseDOM) {
+    return;
+  }
+
+  if (preventScrollSupported === null) {
+    document.createElement("div").focus({
+      get preventScroll() {
+        preventScrollSupported = true;
+
+        return false;
+      },
+    });
+  }
+
+  try {
+    if (node.setActive) {
+      // IE/Edge
+      node.setActive();
+    } else if (preventScrollSupported) {
+      // Modern browsers
+      node.focus({ preventScroll: true });
+    } else {
+      // Safari does not support `preventScroll` option
+      // https://bugs.webkit.org/show_bug.cgi?id=178583
+
+      // Save position
+      const scrollTop = window.pageXOffset || document.body.scrollTop;
+      const scrollLeft = window.pageYOffset || document.body.scrollLeft;
+
+      node.focus();
+
+      document.body.scrollTo({
+        top: scrollTop,
+        left: scrollLeft,
+        behavior: "auto",
+      });
+    }
+  } catch (e) {}
 };
 
 
@@ -19294,19 +19607,21 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
 /******/ 			var moduleId, chunkId, i = 0;
-/******/ 			for(moduleId in moreModules) {
-/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
 /******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
 /******/ 			}
-/******/ 			if(runtime) var result = runtime(__webpack_require__);
 /******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
 /******/ 			for(;i < chunkIds.length; i++) {
 /******/ 				chunkId = chunkIds[i];
 /******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 					installedChunks[chunkId][0]();
 /******/ 				}
-/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 				installedChunks[chunkId] = 0;
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}

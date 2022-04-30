@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactForm;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 
@@ -17,10 +19,9 @@ class ContactFormController extends Controller
      */
     public function index()
     {
-        $ContactForm = ContactForm::first();
-        return view('Admin.cruds.contactForm.edit',[
-            'contactForm' => $ContactForm,
-            'configForm' => json_decode($ContactForm->inputs)
+        $ContactForms = ContactForm::get();
+        return view('Admin.cruds.contactForm.index',[
+            'contactForms' => $ContactForms,
         ]);
     }
 
@@ -54,7 +55,25 @@ class ContactFormController extends Controller
      */
     public function edit(ContactForm $ContactForm)
     {
-        //
+        $modelsMain = Config::get('modelsConfig.InsertModelsMain');
+        $sessions = [];
+        $pages = ['home' => 'Home'];
+        foreach ($modelsMain as $models) {
+            foreach ($models as $key => $model) {
+                $nameModel = $model->config->titleMenu<>''?$model->config->titleMenu:$model->config->titlePanel;
+                if($model->ViewListMenu){
+                    $pages = array_merge($pages, [Str::slug($nameModel) => $nameModel]);
+                }
+                $sessions = array_merge($sessions, [$key => $nameModel]);
+            }
+        }
+
+        return view('Admin.cruds.contactForm.edit',[
+            'contactForm' => $ContactForm,
+            'sessions' => $sessions,
+            'pages' => $pages,
+            'configForm' => json_decode($ContactForm->inputs)
+        ]);
     }
 
     /**
@@ -68,26 +87,32 @@ class ContactFormController extends Controller
     {
         // dd($request->all());
         $arrayInputs = [];
-
-        foreach ($request->typeInput as $value) {
-            $titleInput = 'title_'.$value;
-            $optionInput = 'option_'.$value;
-
-            $requestTitle = $request->$titleInput;
-            $requestOption = $request->$optionInput;
-
-            $pushArray = [
-                $value => [
-                    'title' => $requestTitle,
-                    'option' => $requestOption
-                ]
-            ];
-            $arrayInputs = array_merge($arrayInputs, $pushArray);
+        $data = $request->all();
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'title'){
+                $type = end($arrayName);
+                $inputOption = str_replace('title', 'option', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
         }
 
         $jsonInputs = json_encode($arrayInputs);
 
-        $ContactForm->email = $request->email;
+        $ContactForm->after_session = $request->after_session;
+        $ContactForm->page = $request->page;
+        $ContactForm->model = $request->model;
         $ContactForm->inputs = $jsonInputs;
         $ContactForm->external_structure = $request->external_structure;
         $ContactForm->save();

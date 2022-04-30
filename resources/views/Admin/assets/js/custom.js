@@ -1,3 +1,13 @@
+function slugify(text) {
+    return text
+        .toString() // Cast to string (optional)
+        .normalize('NFKD') // The normalize() using NFKD method returns the Unicode Normalization Form of a given string.
+        .toLowerCase() // Convert the string to lowercase letters
+        .trim() // Remove whitespace from both sides of a string (optional)
+        .replace(/\s+/g, '') // Replace spaces with -
+        .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+        .replace(/\-\-+/g, ''); // Replace multiple - with single -
+}
 $(function() {
     $.ajaxSetup({
         headers: {
@@ -120,25 +130,23 @@ $(function() {
 
     $('.selectTypeInput').on('change', function() {
         var type = $(this).val()
-        var html = '<div class="infoInputs">'
-
-        // $(this).attr('name', type)
-
-        html += `
+        var html = `
+            <div class="infoInputs">
                 <div class="mb-3">
                     <label class="form-label">Titulo</label>
-                    <input type="text" name="title_${type}" class="form-control" placeholder="Nome que será exibido para o cliente">
+                    <input type="text" name="title_" required class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente">
                 </div>
             `
         switch (type) {
-            case 'subject':
-            case 'met_us':
+            case 'select':
+            case 'checkbox':
+            case 'radio':
                 html += `
-                        <div class="mb-3">
-                            <label class="form-label">Opções</label>
-                            <input type="text" name="option_${type}" class="form-control" placeholder="Separar as opções com vírgula">
-                        </div>
-                    `
+                    <div class="mb-3">
+                        <label class="form-label">Opções</label>
+                        <input type="text" name="option_" required class="form-control inputSetOption" placeholder="Separar as opções com vírgula">
+                    </div>
+                `
                 break;
         }
         html += '</div>'
@@ -148,8 +156,18 @@ $(function() {
         $(this).parents('.container-type-input').append(html);
     })
 
+    $('body').on('change', '.inputSetTitle', function() {
+        var val = $(this).val()
+        var type = $(this).parents('.container-type-input').find('select').val()
+
+        $(this).attr('name', 'title_' + slugify(val) + '_' + type)
+        $(this).parents('.container-type-input').find('.inputSetOption').attr('name', 'option_' + slugify(val) + '_' + type)
+    })
+
     $('.cloneTypeButton').on('click', function() {
         $('.container-type-input:first').clone(true).appendTo('.container-inputs-contact');
+        $('.container-type-input:last').find('select option').removeAttr('selected');
+        $('.container-type-input:last').find('select option:first').attr('selected', 'selected');
         $('.infoInputs:last').remove()
     })
 

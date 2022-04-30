@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactLeadTable extends Migration
+class CreateFormStructuresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateContactLeadTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact_lead', function (Blueprint $table) {
+        Schema::create('form_structures', function (Blueprint $table) {
             $table->id();
-            $table->longText('json')->nullable();
+            $table->string('name')->nullable();
+            $table->integer('limit_input')->default(2);
+            $table->string('path_image')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateContactLeadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_lead');
+        Schema::dropIfExists('form_structures');
     }
 }

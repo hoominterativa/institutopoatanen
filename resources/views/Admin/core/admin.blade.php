@@ -35,6 +35,10 @@
         <!-- Custom -->
         <link href="{{url(mix('admin/assets/css/custom.css'))}}" rel="stylesheet" type="text/css" />
 
+        <script>
+            $url = "{{url('')}}";
+        </script>
+
     </head>
 
     <!-- body start -->

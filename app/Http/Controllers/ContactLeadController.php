@@ -44,7 +44,22 @@ class ContactLeadController extends Controller
      */
     public function store(Request $request)
     {
-        $contactLead = ContactLead::create($request->toArray());
+        $data = $request->all();
+        unset($data['_token']);
+
+        $arrayInsert = [];
+        foreach ($data as $key => $value) {
+            $array = explode('_', $key);
+            if(COUNT($array) >= 3 ){
+                $type = end($array);
+                $name = str_replace('_'.$type, '', $key);
+
+                // $arrayInsert = array_merge($arrayInsert, [$name]);
+                $arrayInsert = array_merge($arrayInsert, [$data[$name] => ['value' => $value, 'type' => $type]]);
+            }
+        }
+
+        $contactLead = ContactLead::create(['json' => json_encode($arrayInsert)]);
 
         Session::flash('success', 'Item cadastrado com sucessso');
         return redirect()->route('cont01.confirmation');

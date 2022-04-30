@@ -16,6 +16,9 @@ class CreateContactFormTable extends Migration
         Schema::create('contact_form', function (Blueprint $table) {
             $table->id();
             $table->string('email')->nullable();
+            $table->string('after_session')->nullable();
+            $table->string('page')->nullable();
+            $table->foreignId('model')->nullable()->constrained('form_structures');
             $table->json('inputs')->nullable();
             $table->text('external_structure')->nullable();
             $table->timestamps();
