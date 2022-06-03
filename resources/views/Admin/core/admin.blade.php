@@ -42,7 +42,7 @@
     </head>
 
     <!-- body start -->
-    <body class="loading" data-layout='{"mode": "{{$settingTheme->color_scheme_mode}}", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "{{$settingTheme->leftsidebar_color}}", "size": "{{$settingTheme->leftsidebar_size}}", "showuser": false}, "topbar": {"color": "{{$settingTheme->topbar_color}}"}, "showRightSidebarOnPageLoad": true}'>
+    <body class="loading" data-layout='{"mode": "{{$settingTheme->color_scheme_mode}}", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "{{$settingTheme->leftsidebar_color}}", "size": "{{$settingTheme->leftsidebar_size}}", "showuser": false}, "topbar": {"color": "{{$settingTheme->topbar_color}}"}, "showRightSidebarOnPageLoad": false}'>
 
         <!-- Begin page -->
         <div id="wrapper">

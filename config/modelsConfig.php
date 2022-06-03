@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
             'Code' => 'HEAD01'
@@ -11,6 +11,7 @@ return [
         ]
     ],
 
+    // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Slides' => (object) [
             'SLID01' => (object)[
@@ -84,6 +85,11 @@ return [
         ]
     ],
 
+    'ModelsForm' => (object)[
+        'Contacts' => (object) ['CONT01']
+    ],
+
+    // Change only in case of new modules or models
     'Class' => (object) [
         'Contacts' => (object)[
             'CONT01' => (object)[
@@ -110,14 +116,4 @@ return [
         ],
     ],
 
-    // 'Relations' => (object) [
-    //     'Services' => [
-    //         'SERV01' => (object) [
-    //             'before' => [
-    //                 'Categories' => 'ART01',
-    //             ],
-    //             'after' => ['ProductGallery' => 'PRCA01','ProductPhoto' => 'PRSU01']
-    //         ]
-    //     ]
-    // ],
 ];

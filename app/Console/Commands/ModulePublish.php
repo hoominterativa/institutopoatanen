@@ -7,11 +7,6 @@ use Illuminate\Console\Command;
 
 class ModulePublish extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'module:publish';
     protected $pathsDirectories = [
         'clientPages' => 'resources/views/Client/pages/',
@@ -72,8 +67,10 @@ class ModulePublish extends Command
     {
         $InsertModelsCore = config('modelsConfig.InsertModelsCore');
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
+        $ModelsForm = config('modelsConfig.ModelsForm');
         $arrayModelsMain = get_object_vars($InsertModelsMain);
         $arrayModelsCore = get_object_vars($InsertModelsCore);
+        $arrayModelsForm = get_object_vars($ModelsForm);
 
         try {
             if(!$this->confirm('ATENÇÃO: Já realizou o commit e push das alterações realizadas?')){
@@ -85,24 +82,28 @@ class ModulePublish extends Command
 
             if($verifyBranch){
 
+                $this->comment('Branch Publishing encontrada');
+                $this->newLine();
                 $this->comment('Migrando para a branch Publishing');
-                // shell_exec('git checkout Publishing');
+                shell_exec('git checkout Publishing');
 
-                $this->comment('Atualizando a branch Publishing a partir da Developer');
-                // shell_exec('git merge feature/developer');
+                $this->comment('Atualizando a branch Publishing à partir da Developer');
+                shell_exec('git merge feature/developer');
 
             }else{
-
+                $this->comment('Branch Publishing não encontrada');
+                $this->newLine();
                 $this->comment('Criando e migrando a branch Publishing');
-                // shell_exec('git checkout -b Publishing');
+                shell_exec('git checkout -b Publishing');
 
             }
+
             /**
              * Cleans all system files for online publication the website
             */
 
             $this->comment('Limpando Arquivos');
-            $totalProcess = count($this->rootDirectory) + count($this->pathsCore) + count($this->pathsFiles) + count($this->pathsDirectories);
+            $totalProcess = (count($this->rootDirectory) + count($this->pathsCore) + count($this->pathsFiles) + count($this->pathsDirectories));
             $bar = $this->output->createProgressBar($totalProcess);
 
             $bar->start();
@@ -115,7 +116,7 @@ class ModulePublish extends Command
                 foreach ($directories as $dir) {
                     if(!array_search($dir, get_object_vars($arrayModelsCore[end($Module)]))){
                         if(is_dir($pathCore.'/'.$dir) && !array_keys($this->exception, $dir)){
-                            // rmdir($pathCore.'/'.$dir);
+                            rmdir($pathCore.'/'.$dir);
                             $this->info($pathCore.'/'.$dir);
                         }
                     }
@@ -124,12 +125,16 @@ class ModulePublish extends Command
             }
 
             foreach ($this->pathsDirectories as $pathDir) {
+
                 $directories = array_diff(scandir($pathDir), array('..', '.'));
+
                 foreach ($directories as $dir) {
-                    if(!array_key_exists($dir, $arrayModelsMain)){
-                        if(is_dir($pathDir.$dir) && !array_keys($this->exception, $dir)){
-                            // rmdir($pathDir.$dir);
-                            $this->info($pathDir.$dir);
+                    if(!array_key_exists($dir, $arrayModelsForm)){
+                        if(!array_key_exists($dir, $arrayModelsMain)){
+                            if(is_dir($pathDir.$dir) && !array_keys($this->exception, $dir)){
+                                rmdir($pathDir.$dir);
+                                $this->info($pathDir.$dir);
+                            }
                         }
                     }
                 }
@@ -138,29 +143,31 @@ class ModulePublish extends Command
                     if(is_dir($pathDir.$module)){
                         $directories = array_diff(scandir($pathDir.$module), array('..', '.'));
                         foreach ($directories as $dir) {
-                            if(!array_key_exists($dir, get_object_vars($models))){
-                                if(is_dir($pathDir.$module.'/'.$dir)){
-                                    // rmdir($pathDir.$dir);
-                                    $this->info($pathDir.$dir);
-                                }else{
-                                    foreach ($directories as $file) {
-                                        if(!is_dir($pathDir.$module.'/'.$file) && !array_keys($this->exception, $file)){
-                                            foreach ($models as $code => $config) {
-                                                if(strstr($file, $code)){
-                                                    $index = array_search($file ,$directories);
-                                                    unset($directories[$index]);
-                                                    break;
+                            if(!array_key_exists($dir, get_object_vars($arrayModelsForm[$module]))){
+                                if(!array_key_exists($dir, get_object_vars($models))){
+                                    if(is_dir($pathDir.$module.'/'.$dir)){
+                                        rmdir($pathDir.$dir);
+                                        $this->info($pathDir.$dir);
+                                    }else{
+                                        foreach ($directories as $file) {
+                                            if(!is_dir($pathDir.$module.'/'.$file) && !array_keys($this->exception, $file)){
+                                                foreach ($models as $code => $config) {
+                                                    if(strstr($file, $code)){
+                                                        $index = array_search($file ,$directories);
+                                                        unset($directories[$index]);
+                                                        break;
+                                                    }
                                                 }
                                             }
                                         }
-                                    }
-                                    foreach ($directories as $file) {
-                                        if(!is_dir($pathDir.$module.'/'.$file) && !array_keys($this->exception, $file)){
-                                            // unlink($pathDir.$module.'/'.$file);
-                                            $this->info($pathDir.$module.'/'.$file);
+                                        foreach ($directories as $file) {
+                                            if(!is_dir($pathDir.$module.'/'.$file) && !array_keys($this->exception, $file)){
+                                                unlink($pathDir.$module.'/'.$file);
+                                                $this->info($pathDir.$module.'/'.$file);
+                                            }
                                         }
+                                        break;
                                     }
-                                    break;
                                 }
                             }
                         }
@@ -185,7 +192,7 @@ class ModulePublish extends Command
                 }
                 foreach ($files as $file) {
                     if(!is_dir($pathFile.$file) && !array_keys($this->exception, $file)){
-                        // unlink($pathFile.$file);
+                        unlink($pathFile.$file);
                         $this->info($pathFile.$file);
                     }
                 }
@@ -194,11 +201,11 @@ class ModulePublish extends Command
             }
 
             foreach ($this->rootDirectory as $dir) {
-                // if(!is_dir($dir)){
-                //     unlink($dir);
-                // }else{
-                //     rmdir($dir);
-                // }
+                if(!is_dir($dir)){
+                    unlink($dir);
+                }else{
+                    rmdir($dir);
+                }
                 $this->info($dir);
                 $bar->advance();
             }
@@ -211,13 +218,13 @@ class ModulePublish extends Command
             */
 
             $this->comment('Adicionando as alterações para realização do commit');
-            // shell_exec('git add .');
+            shell_exec('git add .');
 
             $this->comment('Subindo as alterações');
-            // shell_exec('git commit -m "Site Publishing Branch"');
+            shell_exec('git commit -m "Site Publishing Branch"');
 
             $this->comment('Publicando as alterações na branch Publishing');
-            // shell_exec('git push --set-upstream origin Publishing');
+            shell_exec('git push --set-upstream origin Publishing');
 
             $this->newLine();
 

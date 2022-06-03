@@ -35,7 +35,7 @@ class IncludeSectionsController extends Controller
             foreach ($model as $code => $config) {
                 if($config->ViewHome){
                     $Controller = $ModelsController->$module->$code->controller;
-                    array_push($return, $Controller::section()->render());
+                    $return = array_merge($return, [$code => $Controller::section()->render()]);
                 }
             }
         }

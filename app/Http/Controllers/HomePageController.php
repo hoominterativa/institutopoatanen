@@ -17,8 +17,12 @@ class HomePageController extends Controller
     public function index()
     {
         $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsHome();
+        foreach ($sections as $code => $html) {
+            $sections[$code] = '<section id="formIncludeSection"><form action="teste"><input type="text" placeholder="Teste com formulário"></form></section>'.$html;
+        }
         return view('Client.home', [
-            'sections' => $IncludeSectionsController->IncludeSectionsHome()
+            'sections' => $sections
         ]);
     }
 

@@ -31,37 +31,39 @@
 
                     @if ($configForm)
                         @foreach ($configForm as $key => $value)
-                            <div class="container-type-input col-12 col-lg-6 mb-2 pb-2 border-bottom">
-                                <div class="d-flex align-items-center">
-                                    <div class="mb-3 w-100">
-                                        {!! Form::label(null, 'Tipo do Campo', ['class'=>'form-label']) !!}
-                                        {!! Form::select('', [
-                                            'text' => 'Texto comum',
-                                            'textarea' => 'Texto Longo',
-                                            'email' => 'E-mail',
-                                            'phone' => 'Telefone',
-                                            'cellphone' => 'Celular',
-                                            'select' => 'Opções',
-                                            'checkbox' => 'Multiplas escolhas',
-                                            'radio' => 'Escolha única (Um ou outro)',
-                                            'date' => 'Calendário',
-                                        ], $value->type, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
+                            <div class="container-type-input col-12 col-lg-6 p-1">
+                                <div class="border p-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mb-3 w-100">
+                                            {!! Form::label(null, 'Tipo do Campo', ['class'=>'form-label']) !!}
+                                            {!! Form::select('', [
+                                                'text' => 'Texto comum',
+                                                'textarea' => 'Texto Longo',
+                                                'email' => 'E-mail',
+                                                'phone' => 'Telefone',
+                                                'cellphone' => 'Celular',
+                                                'select' => 'Opções',
+                                                'checkbox' => 'Multiplas escolhas',
+                                                'radio' => 'Escolha única (Um ou outro)',
+                                                'date' => 'Calendário',
+                                            ], $value->type, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
+                                        </div>
+                                        <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>
                                     </div>
-                                    <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>
-                                </div>
-                                <div class="infoInputs">
-                                    @if ($value->placeholder)
-                                        <div class="mb-3">
-                                            <label class="form-label">Titulo</label>
-                                            <input type="text" name="{{$key}}" class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente" value="{{$value->placeholder}}">
-                                        </div>
-                                    @endif
-                                    @if ($value->option)
-                                        <div class="mb-3">
-                                            <label class="form-label">Opções</label>
-                                            <input type="text" name="{{str_replace('title', 'option', $key)}}" class="form-control inputSetOption" placeholder="Separar as opções com vírgula" value="{{$value->option}}">
-                                        </div>
-                                    @endif
+                                    <div class="infoInputs">
+                                        @if ($value->placeholder)
+                                            <div class="mb-3">
+                                                <label class="form-label">Titulo</label>
+                                                <input type="text" name="{{$key}}" class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente" value="{{$value->placeholder}}">
+                                            </div>
+                                        @endif
+                                        @if ($value->option)
+                                            <div class="mb-3">
+                                                <label class="form-label">Opções</label>
+                                                <input type="text" name="{{str_replace('title', 'option', $key)}}" class="form-control inputSetOption" placeholder="Separar as opções com vírgula" value="{{$value->option}}">
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

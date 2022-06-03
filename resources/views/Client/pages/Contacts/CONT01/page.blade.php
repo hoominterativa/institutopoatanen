@@ -1,6 +1,6 @@
 @extends('Client.Core.client')
 @section('content')
-    <section id="cont01" class="contact-container container-fluid">
+    <section id="CONT01" class="contact-container container-fluid">
         <div class="body-section">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
