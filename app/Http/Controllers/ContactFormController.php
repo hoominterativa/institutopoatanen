@@ -20,6 +20,7 @@ class ContactFormController extends Controller
     public function index()
     {
         $ContactForms = ContactForm::get();
+        $ModelsForm = config('modelsConfig.ModelsForm');
         return view('Admin.cruds.contactForm.index',[
             'contactForms' => $ContactForms,
         ]);

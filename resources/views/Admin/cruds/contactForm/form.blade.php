@@ -23,6 +23,14 @@
                 <span class="ms-1 mb-1" data-bs-original-title="Informe após qual sessão da página o formulário será implementado." data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span>
                 {!! Form::select('after_session', $sessions, null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
             </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="mb-3 form-check">
+                        {!! Form::checkbox('checkbox', '1', null, ['class'=>'form-check-input', 'id'=>'invalidCheck', 'required'=>'required']) !!}
+                        {!! Form::label('invalidCheck', 'Checkbox 1', ['class'=>'form-check-label']) !!}
+                    </div>
+                </div>
+            </div>
             <div class="p-3 my-3 border">
                 <div class="row container-inputs-contact">
                     <h4 class="mb-3">
