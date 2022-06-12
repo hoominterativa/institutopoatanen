@@ -102,6 +102,7 @@ Route::prefix('painel')->group(function () {
 
         // SETTING FORM CONTACT
         Route::resource('configuracao-formulario', ContactFormController::class)->names('admin.contactForm')->parameters(['configuracao-formulario' => 'ContactForm']);
+        Route::post('configuracao-formulario/delete', [ContactFormController::class, 'destroySelected'])->name('admin.contactForm.destroySelected');
     });
 });
 

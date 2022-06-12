@@ -49,8 +49,8 @@
                 <div class="row">
                     <div class="col-12 col-lg-6">
                         <div class="mb-3">
-                            {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                            {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                            {!! Form::label('section_title', 'Título', ['class'=>'form-label']) !!}
+                            {!! Form::text('section_title', null, ['class'=>'form-control', 'id'=>'section_title']) !!}
                         </div>
                         <div class="mb-3">
                             {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
@@ -83,7 +83,7 @@
                         <div class="row ps-2">
                             @foreach ($socials as $social)
                                 <div class="mb-3 form-check col">
-                                    <input type="checkbox" name="social_id[]" id="social{{$social->id}}" value="{{$social->id}}" class="form-check-input" {{array_search($social->id, $socialsCheck)!==false?'checked':''}}>
+                                    <input type="checkbox" name="social_id[]" id="social{{$social->id}}" value="{{$social->id}}" class="form-check-input" {{isset($socialsCheck)?array_search($social->id, $socialsCheck)!==false?'checked':'':''}}>
                                     {!! Form::label('social'.$social->id, $social->title, ['class'=>'form-check-label']) !!}
                                 </div>
                             @endforeach
@@ -95,7 +95,7 @@
                 <div class="row container-inputs-contact">
                     <h4 class="mb-3">Campos do Formulário</h4>
 
-                    @if ($configForm)
+                    @if (isset($configForm))
                         @foreach ($configForm as $key => $value)
                             <div class="container-type-input col-12 col-lg-6 p-1">
                                 <div class="border p-2">

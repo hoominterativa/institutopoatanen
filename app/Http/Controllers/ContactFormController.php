@@ -35,7 +35,27 @@ class ContactFormController extends Controller
      */
     public function create()
     {
-        //
+        $modelsMain = config('modelsConfig.InsertModelsMain');
+        $modelsForm = config('modelsConfig.ModelsForm');
+        $socials = Social::get();
+        $sessions = [];
+        $pages = ['home' => 'Home'];
+        foreach ($modelsMain as $models) {
+            foreach ($models as $key => $model) {
+                $nameModel = $model->config->titleMenu<>''?$model->config->titleMenu:$model->config->titlePanel;
+                if($model->ViewListMenu){
+                    $pages = array_merge($pages, [Str::slug($nameModel) => $nameModel]);
+                }
+                $sessions = array_merge($sessions, [$key => $nameModel]);
+            }
+        }
+
+        return view('Admin.cruds.contactForm.create',[
+            'sessions' => $sessions,
+            'pages' => $pages,
+            'modelsForm' => $modelsForm,
+            'socials' => $socials,
+        ]);
     }
 
     /**
@@ -46,8 +66,57 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('success', 'Item cadastrado com sucessso');
-        return;
+        // dd($request->all());
+        $path = 'uploads/images/contactForm/';
+        $helperArchive = new HelperArchive();
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+        $arrayInputs = [];
+        $data = $request->all();
+
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'title'){
+                $type = end($arrayName);
+                $inputOption = str_replace('title', 'option', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
+        $jsonInputs = json_encode($arrayInputs);
+        $social = json_encode($request->social_id, true);
+
+        $ContactForm = new ContactForm();
+
+        if($path_image){
+            Storage::delete($ContactForm->path_image);
+            $ContactForm->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
+        }
+
+        $ContactForm->email = $request->email;
+        $ContactForm->session = $request->session;
+        $ContactForm->position = $request->position;
+        $ContactForm->page = $request->page;
+        $ContactForm->model = $request->model;
+        $ContactForm->section_title = $request->section_title;
+        $ContactForm->description = $request->description;
+        $ContactForm->social_id = $social;
+        $ContactForm->inputs = $jsonInputs;
+        $ContactForm->external_structure = $request->external_structure;
+        $ContactForm->save();
+
+        Session::flash('success', 'Formulário atualizado com sucessso');
+        return redirect()->route('admin.contactForm.index');
     }
 
     /**
@@ -127,11 +196,12 @@ class ContactFormController extends Controller
             $request->path_image->storeAs($path, $path_image);
         }
 
+        $ContactForm->email = $request->email;
         $ContactForm->session = $request->session;
         $ContactForm->position = $request->position;
         $ContactForm->page = $request->page;
         $ContactForm->model = $request->model;
-        $ContactForm->title = $request->title;
+        $ContactForm->section_title = $request->section_title;
         $ContactForm->description = $request->description;
         $ContactForm->social_id = $social;
         $ContactForm->inputs = $jsonInputs;
@@ -184,38 +254,38 @@ class ContactFormController extends Controller
         return Response::json(['status' => 'success']);
     }
 
-    // METHODS CLIENT
-
     /**
-     * Display the specified resource.
-     * Content method
+     * Get section form.
      *
-     * @param  \App\Models\ContactForm  $ContactForm
-     * @return \Illuminate\Http\Response
+     * @return array
      */
-    public function show(ContactForm $ContactForm)
+    public static function section($section)
     {
-        //
-    }
+        $ContactForms = ContactForm::where('session', $section)->get();
 
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        //
-    }
+        $view = '<section id="contactFormTemplate">';
 
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
+        foreach ($ContactForms as $ContactForm) {
+            $socials = Social::whereIn('id', [$ContactForm->social_id])->get();
+            $view .= view('Client.Components.contactForm',[
+                'contactForm' => $ContactForm,
+                'inputs' => json_decode($ContactForm->inputs),
+                'model' => $ContactForm->model,
+                'socials' => $socials
+            ]);
+        }
+
+        $view .= '</section>';
+
+        $response = [];
+
+        if($ContactForms->count()){
+            $response = [
+                'view' => $view,
+                'position' => $ContactForm->position
+            ];
+        }
+
+        return $response;
     }
 }

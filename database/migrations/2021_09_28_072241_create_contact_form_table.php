@@ -20,7 +20,7 @@ class CreateContactFormTable extends Migration
             $table->string('session')->nullable();
             $table->string('position')->nullable();
             $table->string('model')->nullable();
-            $table->string('title')->nullable();
+            $table->string('section_title')->nullable();
             $table->string('description')->nullable();
             $table->string('path_image')->nullable();
             $table->json('social_id')->nullable();

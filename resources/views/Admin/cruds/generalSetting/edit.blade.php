@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="col-12 mb-3">
-                        <a href="{{route('admin.contactForm.index')}}" class="btn btn-primary">Configurar Formulário de contato</i></a>
+                        <a href="{{route('admin.contactForm.index')}}" class="btn btn-primary">Cadastro de Formulários</i></a>
                     </div>
                 </div>
                 <!-- end page title -->

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             SettingThemeSeeder::class,
             OptimizationSeeder::class,
             GeneralSettingSeeder::class,
-            ContactFormSeeder::class,
+            // ContactFormSeeder::class,
         ]);
     }
 }

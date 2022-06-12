@@ -13,19 +13,17 @@
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.generalSetting.index')}}">Configurações Gerais</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.contactForm.index')}}">Formulários</a></li>
-                                    <li class="breadcrumb-item active">Configuração do formulário</li>
+                                    <li class="breadcrumb-item active">Cadastro de formulário</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Configuração do formulário</h4>
+                            <h4 class="page-title">Cadastro de formulário</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($contactForm, ['route' => ['admin.contactForm.update', $contactForm->id], 'method' => 'PUT', 'files' => true, 'class'=>'parsley-examples']) !!}
-                    @include('Admin.cruds.contactForm.form', [
-                        'configForm' => $configForm
-                    ])
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                {!! Form::model(null, ['route' => 'admin.contactForm.store', 'method' => 'POST', 'files' => true, 'class'=>'parsley-examples']) !!}
+                    @include('Admin.cruds.contactForm.form')
+                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.generalSetting.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->

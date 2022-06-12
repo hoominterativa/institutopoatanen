@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\Helpers\HelperPublishing;
 use App\Http\Controllers\IncludeSectionsController;
@@ -18,9 +19,22 @@ class HomePageController extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsHome();
+        $contactForm = new ContactFormController();
+
         foreach ($sections as $code => $html) {
-            $sections[$code] = '<section id="formIncludeSection"><form action="teste"><input type="text" placeholder="Teste com formulário"></form></section>'.$html;
+            $form = $contactForm->section($code);
+            if(COUNT($form)){
+                switch ($form['position']) {
+                    case 'after':
+                        $sections[$code] = $html.$form['view'];
+                    break;
+                    case 'before':
+                        $sections[$code] = $form['view'].$html;
+                    break;
+                }
+            }
         }
+
         return view('Client.home', [
             'sections' => $sections
         ]);
