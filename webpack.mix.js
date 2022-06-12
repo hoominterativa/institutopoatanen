@@ -8,6 +8,7 @@ mix
     .scripts('resources/views/Admin/assets/js/custom.js', 'public/admin/assets/js/custom.js')
     // plugins
     .scripts('node_modules/parsleyjs/dist/parsley.min.js', 'public/admin/assets/libs/parsley.min.js')
+    .scripts('node_modules/@fancyapps/ui/dist/fancybox.umd.js', 'public/admin/assets/libs/fancybox.js')
     .scripts('node_modules/selectize/dist/js/selectize.min.js', 'public/admin/assets/libs/selectize.min.js')
     .scripts('node_modules/mohithg-switchery/dist/switchery.min.js', 'public/admin/assets/libs/switchery.min.js')
     .scripts('node_modules/multiselect/js/jquery.multi-select.js', 'public/admin/assets/libs/jquery.multi-select.js')
@@ -55,6 +56,7 @@ mix
     .styles('resources/views/Admin/assets/css/custom.css', 'public/admin/assets/css/custom.css')
     //Plugins
     .styles('node_modules/mohithg-switchery/dist/switchery.min.css', 'public/admin/assets/libs/switchery.min.css')
+    .styles('node_modules/@fancyapps/ui/dist/fancybox.css', 'public/admin/assets/libs/fancybox.css')
     .styles('node_modules/multiselect/css/multi-select.css', 'public/admin/assets/libs/multi-select.css')
     .styles('node_modules/select2/dist/css/select2.min.css', 'public/admin/assets/libs/select2.min.css')
     .styles('node_modules/selectize/dist/css/selectize.bootstrap3.css', 'public/admin/assets/libs/selectize.bootstrap3.css')

@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Social;
 use App\Models\ContactForm;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Helpers\HelperArchive;
 
 class ContactFormController extends Controller
 {
@@ -20,7 +23,6 @@ class ContactFormController extends Controller
     public function index()
     {
         $ContactForms = ContactForm::get();
-        $ModelsForm = config('modelsConfig.ModelsForm');
         return view('Admin.cruds.contactForm.index',[
             'contactForms' => $ContactForms,
         ]);
@@ -56,7 +58,9 @@ class ContactFormController extends Controller
      */
     public function edit(ContactForm $ContactForm)
     {
-        $modelsMain = Config::get('modelsConfig.InsertModelsMain');
+        $modelsMain = config('modelsConfig.InsertModelsMain');
+        $modelsForm = config('modelsConfig.ModelsForm');
+        $socials = Social::get();
         $sessions = [];
         $pages = ['home' => 'Home'];
         foreach ($modelsMain as $models) {
@@ -73,7 +77,10 @@ class ContactFormController extends Controller
             'contactForm' => $ContactForm,
             'sessions' => $sessions,
             'pages' => $pages,
-            'configForm' => json_decode($ContactForm->inputs)
+            'configForm' => json_decode($ContactForm->inputs),
+            'modelsForm' => $modelsForm,
+            'socials' => $socials,
+            'socialsCheck' => json_decode($ContactForm->social_id),
         ]);
     }
 
@@ -87,6 +94,9 @@ class ContactFormController extends Controller
     public function update(Request $request, ContactForm $ContactForm)
     {
         // dd($request->all());
+        $path = 'uploads/images/contactForm/';
+        $helperArchive = new HelperArchive();
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
         $arrayInputs = [];
         $data = $request->all();
         foreach ($data as $name => $value) {
@@ -108,17 +118,27 @@ class ContactFormController extends Controller
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
             }
         }
-
         $jsonInputs = json_encode($arrayInputs);
+        $social = json_encode($request->social_id, true);
 
-        $ContactForm->after_session = $request->after_session;
+        if($path_image){
+            Storage::delete($ContactForm->path_image);
+            $ContactForm->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
+        }
+
+        $ContactForm->session = $request->session;
+        $ContactForm->position = $request->position;
         $ContactForm->page = $request->page;
         $ContactForm->model = $request->model;
+        $ContactForm->title = $request->title;
+        $ContactForm->description = $request->description;
+        $ContactForm->social_id = $social;
         $ContactForm->inputs = $jsonInputs;
         $ContactForm->external_structure = $request->external_structure;
         $ContactForm->save();
 
-        Session::flash('success', 'Configuração atualizada com sucessso');
+        Session::flash('success', 'Formulário atualizado com sucessso');
         return redirect()->back();
     }
 

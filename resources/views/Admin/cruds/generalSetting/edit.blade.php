@@ -165,12 +165,16 @@
                     <div class="modal-body p-4">
                         <div class="mb-3">
                             <div class="mb-3">
-                            {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                            {!! Form::url('link', null, [
-                                'class'=>'form-control',
-                                'required'=>'required',
-                                'parsley-type'=>'url',
-                            ]) !!}
+                                {!! Form::label(null, 'Titulo', ['class'=>'form-label']) !!}
+                                {!! Form::text('title', null, ['class'=>'form-control']) !!}
+                            </div>
+                            <div class="mb-3">
+                                {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
+                                {!! Form::url('link', null, [
+                                    'class'=>'form-control',
+                                    'required'=>'required',
+                                    'parsley-type'=>'url',
+                                ]) !!}
                             </div>
                             <div class="mb-3">
                                 {!! Form::label(null, 'Tipo', ['class'=>'form-label']) !!}

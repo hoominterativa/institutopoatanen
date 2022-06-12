@@ -13,8 +13,6 @@
         <meta name="robots" content="none">
         <meta name="googlebot" content="noarchive">
 
-        <link rel="stylesheet" href="{{mix('css/app.css')}}">
-
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
 
@@ -22,6 +20,7 @@
         @stack('indexCss')
         @stack('dashboardCss')
         <link href="{{url(mix('admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
+        <link href="{{url(mix('admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
 
 		<!-- App css -->
 		<link href="{{url(mix('admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
@@ -387,11 +386,12 @@
         <!-- Vendor js -->
         <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
 
+        <script src="{{url(mix('admin/assets/libs/fancybox.js'))}}"></script>
+        <script src="{{url(mix('admin/assets/libs/tippy.all.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/libs/jquery.sortable.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/libs/jquery.toast.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/js/pages/toastr.init.js'))}}"></script>
 
-        <script src="{{url(mix('admin/assets/libs/tippy.all.min.js'))}}"></script>
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')

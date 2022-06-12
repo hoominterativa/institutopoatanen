@@ -97,7 +97,7 @@ class ModuleMigrate extends Command
                 Artisan::call('migrate --seed');
             }
             $this->newLine();
-            $this->info('Todas as migrations necessárias migradas com sucesso');
+            $this->info('Todas as migrations necessárias foram migradas com sucesso');
 
         } catch (Exception $e) {
             $this->error($e->getMessage());

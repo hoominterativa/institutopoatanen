@@ -9,6 +9,9 @@ function slugify(text) {
         .replace(/\-\-+/g, ''); // Replace multiple - with single -
 }
 $(function() {
+
+    Fancybox.bind('[data-fancybox]');
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
