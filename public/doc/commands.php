@@ -90,15 +90,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><code>php artisan module:make-relation</code></td>
-                        <td>
-                            Use esse comando caso queira criar um modelo de relacionamento. Deve ser informado os parametros <code>{module}</code> e <code>{code}</code> como também a opção <code>{--relation=}</code> que deve ser
-                            preenchido com o nome do relacionamento.
-                            <br>Um exemplo de uso para esse comando é se o Modelo criado tem Categoria e/ou Subcategoria ou até mesmo uma galeria de imagem.
-                            <br>Não recomendamos usar esse comando caso o relacionamento seja de outro Módulo que terá modelos diferentes.
-                        </td>
-                    </tr>
-                    <tr>
                         <td><code>php artisan module:make-core</code></td>
                         <td>
                             Nesse comando os módulos <code>{module}</code> já estão registrados que são <code>Headers</code> e <code>Footers</code> e o parametro <code>{module}</code> deverá constar um desses dois módulos, já o
@@ -108,7 +99,10 @@
                     <tr>
                         <td><code>php artisan module:migrate</code></td>
                         <td>
-                            Caso ele seja rodado sem nenhuma opção, roda todas as migrations dos módulos e modelos informado no arquivo de configuração do sistema, se informar as opções <code>{module}</code> e <code>{code}</code>                                                    ele rodará as migrations do módulo e modelo informado.
+                            Caso ele seja rodado sem nenhuma opção, roda todas as migrations dos módulos e modelos informado no arquivo de configuração do sistema, se informar as opções <code>{module}</code> e <code>{code}</code> ele rodará as migrations do módulo e modelo informado.
+                            <br>Esse comando disponibiliza 2 opções:<br>
+                            <code>{--s|seed}</code> Roda as seeds existentes<br>
+                            <code>{--f|fresh}</code> Roda o comando migrate:fresh que deleta todas as tabelas e as criam novamente<br>
                         </td>
                     </tr>
                     <tr>

@@ -3,17 +3,17 @@
     <div class="card ">
         <div class="card-body">
             <h1 class="mb-3 font-weight-bold">Configurando Modelos</h1>
-            
+
             <div id="settingsModel">
                 <div>
                     <p>
-                       Após a criação do modelo devemos configura-lo para que seja possível a exibição do mesmo no site, essa configuração é feita atravéz do arquivo <code>config/modelsConfig.php</code>. 
+                       Após a criação do modelo devemos configura-lo para que seja possível a exibição do mesmo no site, essa configuração é feita atravéz do arquivo <code>config/modelsConfig.php</code>.
                        Antes vamos entender como que funciona o arquivo de configuração dos modelos para exibição no site.
                     </p>
                     <p>
-                        Existem três estruturas bases no arquivo de configuração, são elas: 
-                        <a href="#InsertModelsCore" class="text-pink"><code>InsertModelsCore[]</code></a>, 
-                        <a href="#InsertModelsMain" class="text-pink"><code>InsertModelsMain[]</code></a>, 
+                        Existem três estruturas bases no arquivo de configuração, são elas:
+                        <a href="#InsertModelsCore" class="text-pink"><code>InsertModelsCore[]</code></a>,
+                        <a href="#InsertModelsMain" class="text-pink"><code>InsertModelsMain[]</code></a>,
                         <a href="#Class" class="text-pink"><code>Class[]</code></a>
                     </p>
 
@@ -21,7 +21,7 @@
                     <p>
                     A estrutura <code>InsertModelsCore[]</code> já tem um conteúdo pré definido e só deverá ser modificado substituindo o nome do modelo (Code) que será usado no site.
                     </p>
-                    
+
                     <div class="docs_main bg-light p-2 mb-2">
 
 <pre class="mb-0"><code class="language-php">&lt;?php
@@ -97,27 +97,27 @@
                             <tr>
                                 <td><code>ViewHome</code></td>
                                 <td>
-                                    É possível que alguns modelos só tenham uma seção dedicada a página principal do site e outras que támbem tenham uma sessão dedicada a página principal do site e esse índice informa se o modelo deve exibir a seção na home ou não 
+                                    É possível que alguns modelos tenham uma seção dedicada a página principal do site e esse índice informa se o modelo deve exibir a seção na home ou não,
                                     é só utilizar <code>true</code> ou <code>false</code> como valores para o índice.
                                 </td>
                             </tr>
                             <tr>
                                 <td><code>ViewListMenu</code></td>
                                 <td>
-                                    Com os valores <code>true</code> ou <code>false</code> você informa ao sistema se o modelo vai exibir o link para a página interna no menu do topo, rodapé e do sidebar do site.
-                                    Esse índice só terá um valor verdadeiro se o modelo informado tiver uma página interna para exibir caso contrário exibirá uma página em branco ou um 404 (Not Found).
+                                    Com os valores <code>true</code> ou <code>false</code> você informa ao sistema se o modelo vai exibir o link para a página no menu do topo, rodapé e do sidebar do site.
+                                    Esse índice só terá um valor verdadeiro se o modelo informado tiver uma página para exibir caso contrário exibirá uma página com erro 500 ou uma página de 404 (Not Found).
                                 </td>
                             </tr>
                             <tr>
                                 <td><code>ViewListPanel</code></td>
                                 <td>
-                                    Provavelmente será sempre definido como verdadeiro, esse índice indica ao sistema que o modelo irá exibir os links de navegação no painel gerenciado do site.
+                                    Provavelmente será sempre definido como verdadeiro, esse índice indica ao sistema que o modelo irá exibir os links de navegação no painel gerenciador do site.
                                 </td>
                             </tr>
                             <tr>
                                 <td><code>IncludeCore</code></td>
                                 <td>
-                                    <span class="bg-danger text-white p-1">Ainda em Desemvolvimento</span><br><br>
+                                    <span class="bg-danger text-white p-1">Em Desemvolvimento</span><br><br>
                                     Deverá criar um link colapsable no menu topo, rodapé e no sidebar do site
                                 </td>
                             </tr>
@@ -126,20 +126,20 @@
                                 <td>Comporta as demais configurações de exibição do modelo.</td>
                             </tr>
                             <tr>
-                                <td><code>titleMenu</code></td>
+                                <td><code>config - titleMenu</code></td>
                                 <td>
                                     Define qual título será exibido no menu do topo, rodapé e do sidebar. Lembre-se que o ídice <code>ViewListMenu</code> deve está definido como true
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>anchor</code></td>
+                                <td><code>config - anchor</code></td>
                                 <td>
                                     Indica ao sistema se o link exibido no menu topo, rodapé e no sidebar será uma âncora ou não, caso seja definido como verdadeiro o índice <code>linkMenu</code> deve ser definido com o id da seção do modelo pertencente. Ex.: '#ARTI01'.
                                     Lembre-se que o ídice <code>ViewListMenu</code> deve está definido como true
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>iconMenu | iconPanel</code></td>
+                                <td><code>config - iconMenu | config - iconPanel</code></td>
                                 <td>
                                     Como a lista dos links no menu é montado dinâmicamente, existe a possibilidade de um modelo ser criado com alguns icones, assim existiu esses índices.
                                     Ele deve ser definido com o código do icone da biblioteca <i>Material Icon Design</i>. Para visualizar a listagem de icones você deve, no painel gerenciador, navegar até o menu de suporte e clicar em icones.
@@ -147,9 +147,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><code>titlePanel</code></td>
+                                <td><code>config - titlePanel</code></td>
                                 <td>
-                                    Assim como o <code>titleMenu</code> esse índice define qual título será exibido nos links do painel gerenciador. Lembre-se que o ídice <code>ViewListPanel</code> deve está definido como true
+                                    Assim como o <code>titleMenu</code> esse índice define qual título será exibido nos links do painel gerenciador. Lembre-se que o ídice <code>ViewListPanel</code> deve está definido como <code>true</code>
                                 </td>
                             </tr>
                             <tr>
@@ -193,7 +193,7 @@
         'model' => App\Models\Articles\ARTI01Services::class
     ],
 ],</code></pre>
-                    
+
                 </div>
             </div>
             <h5 id="InsertModelsMain" class="mt-4"><b>Exemplo Completo do arquivo <code>modelsConfig.php</code></b></h5>
