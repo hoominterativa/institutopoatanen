@@ -1,5 +1,5 @@
 $('#SERV01 .carousel-box-service').owlCarousel({
-    loop: true,
+    loop: false,
     autoplay: true,
     autoplayTimeout: 5000,
     nav: false,
