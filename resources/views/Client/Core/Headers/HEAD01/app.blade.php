@@ -10,25 +10,28 @@
                 <li class="mb-0 px-2">
                     <a href="{{route('home')}}" class="nav-link px-2 {{isActive('home')}}" >Home</a>
                 </li>
-                @foreach ($listMenu as $module => $menus)
-                    @foreach ($menus as $model => $menu)
-                        @if ($menu->ViewListMenu)
-                            <li class="mb-0 px-2">
-                                <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}" class="nav-link px-2 {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}}" {{$menu->IncludeCore[0]?'data-toggle="dropdow"':''}} {{$menu->config->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->config->titleMenu}}</a>
-                                @if ($menu->IncludeCore[0])
-                                    @php
-                                        $limit = isset($menu->IncludeCore[1])?$menu->IncludeCore[1]:999;
-                                        $include = isset($class->$module->$model->model)?$class->$module->$model->model::limit($limit)->get():[];
-                                    @endphp
-                                    <ul class="dropdown-menu">
-                                        @foreach ($include as $item)
-                                            <li><a href="{{route(Str::lower($model).'.show', [$model.$module => $item->id])}}">{{$item->title}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </li>
+                @foreach ($listMenu as $menu)
+                    <li class="mb-0 px-2">
+                        <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" class="nav-link px-2 {{!$menu->anchor?isActive($menu->link):''}}" {{$menu->dropdown?'data-toggle="dropdow"':''}} {{$menu->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->title}}</a>
+                        @if ($menu->dropdown)
+                            <ul class="dropdown-menu">
+                                @foreach ($menu->dropdown as $dropdown)
+                                    <li>
+                                        <a href="{{route($dropdown->route, $dropdown->model)}}" {{count($dropdown->subList)?'data-toggle="dropdow"':''}}>{{$dropdown->name}}</a>
+                                        @if ($dropdown->subList)
+                                            <ul class="dropdown-menu">
+                                                @foreach ($dropdown->subList as $subdropdown)
+                                                    <li>
+                                                        <a href="{{route($subdropdown->route, $subdropdown->model)}}">{{$subdropdown->name}}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
+                            </ul>
                         @endif
-                    @endforeach
+                    </li>
                 @endforeach
             </ul>
         </nav>

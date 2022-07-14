@@ -21,4 +21,9 @@ class {{ class }} extends Model
     {
         return $this->orderBy('sorting', 'ASC');
     }
+
+    // public function getRelationCore()
+    // {
+    //     return null;
+    // }
 }

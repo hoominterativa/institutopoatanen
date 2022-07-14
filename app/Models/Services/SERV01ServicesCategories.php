@@ -46,4 +46,9 @@ class SERV01ServicesCategories extends Model
     {
         return $this->hasMany(SERV01Services::class, 'category_id')->with('subcategories');
     }
+
+    public function getRelationCore()
+    {
+        return $this->belongsToMany(SERV01ServicesSubcategories::class, 'serv01_services', 'category_id', 'subcategory_id')->sorting()->existsService()->groupBy('pivot_subcategory_id','pivot_category_id');
+    }
 }

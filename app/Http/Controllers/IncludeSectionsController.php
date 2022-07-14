@@ -32,6 +32,7 @@ class IncludeSectionsController extends Controller
         $return = [];
 
         foreach($InsertModelsMain as $module => $model){
+            $module = explode('.', $module)[0];
             foreach ($model as $code => $config) {
                 if($config->ViewHome){
                     $Controller = $ModelsController->$module->$code->controller;

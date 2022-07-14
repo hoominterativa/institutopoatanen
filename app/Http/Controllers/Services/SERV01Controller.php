@@ -241,15 +241,13 @@ class SERV01Controller extends Controller
             $services = $services->filterCategorySubcategory($SERV01ServicesCategories, $SERV01ServicesSubcategories);
         }
 
-        $categories = SERV01ServicesCategories::sorting()->existsService()->get();
-        $subcategories = SERV01ServicesSubcategories::sorting()->existsService()->get();
+        $categories = SERV01ServicesCategories::with('subcategories')->sorting()->existsService()->get();
         $serviceSection = SERV01SectionServices::first();
 
 
         return view('Client.pages.Services.SERV01.page',[
             'services' => $services->paginate(16),
             'categories' => $categories,
-            'subcategories' => $subcategories,
             'serviceSection' => $serviceSection,
             'sections' => $sections
         ]);

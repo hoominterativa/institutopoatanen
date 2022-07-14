@@ -19,7 +19,7 @@ Route::prefix('painel')->middleware('auth')->group(function (){
 });
 
 // CLIENT
-// Route::get('servicos/categoria/{SERV01ServicesCategories}', [SERV01Controller::class, 'page'])->name('serv01.category.page');
+Route::get('servicos/categoria/{SERV01ServicesCategories}', [SERV01Controller::class, 'page'])->name('serv01.category.page');
 Route::get('servicos/all/{SERV01ServicesCategories}/{SERV01ServicesSubcategories?}', [SERV01Controller::class, 'page'])->name('serv01.subcategory.page');
 Route::get('servicos/{SERV01ServicesCategories}/{SERV01ServicesSubcategories}/{SERV01Services}', [SERV01Controller::class, 'show'])->name('serv01.service.show');
 

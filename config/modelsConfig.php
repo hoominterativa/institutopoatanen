@@ -18,7 +18,12 @@ return [
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
+                'IncludeCore' => (object) [
+                    'include' => false,
+                    'limit' => 0,
+                    'condition' => null,
+                    'relation' => null,
+                ],
                 'config' => (object) [
                     'titleMenu' => '',
                     'anchor' =>  false,
@@ -35,7 +40,12 @@ return [
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
+                'IncludeCore' => (object) [
+                    'include' => false,
+                    'limit' => 0,
+                    'condition' => null,
+                    'relation' => null,
+                ],
                 'config' => (object) [
                     'titleMenu' => '',
                     'anchor' =>  false,
@@ -52,7 +62,12 @@ return [
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'limit' => 3,
+                    'condition' => 'active',
+                    'relation' => 'category,subcategory',
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Serviços',
                     'anchor' =>  false,
@@ -71,7 +86,12 @@ return [
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => false,
-                'IncludeCore' => [false, 3], // @param 1 boolean | @param 2 Int Limit
+                'IncludeCore' => (object) [
+                    'include' => false,
+                    'limit' => 0,
+                    'condition' => null,
+                    'relation' => null,
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Contato',
                     'anchor' =>  false,
@@ -114,7 +134,11 @@ return [
         'Services' => (object)[
             'SERV01' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV01Controller::class,
-                'model' => App\Models\Services\SERV01Services::class
+                'model' => App\Models\Services\SERV01Services::class,
+                'relationship' => [
+                    'category' => App\Models\Services\SERV01ServicesCategories::class,
+                    'subcategory' => App\Models\Services\SERV01ServicesSubcategories::class,
+                ]
             ],
         ],
     ],
