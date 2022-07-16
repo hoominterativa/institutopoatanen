@@ -137,7 +137,7 @@ if(isset($modelsCore->Footers->Code)){
  *
  */
 
-$class = config('modelsConfig.Class');
+$class = config('modelsClass.Class');
 $modelsMain = config('modelsConfig.InsertModelsMain');
 foreach ($modelsMain as $module => $models) {
     $module = explode('.', $module)[0];

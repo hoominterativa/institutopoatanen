@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class CoreController extends Controller
 {
@@ -14,8 +16,14 @@ class CoreController extends Controller
     public function __construct()
     {
         $this->InsertModelsCore = config('modelsConfig.InsertModelsCore');
-        $this->Class = config('modelsConfig.Class');
+        $this->Class = config('modelsClass.Class');
         $this->InsertModelsMain = config('modelsConfig.InsertModelsMain');
+    }
+
+    public function getModelParameters($class)
+    {
+        $arrayModelElloquent = explode('\\', $class);
+        return end($arrayModelElloquent);
     }
 
     public function getRelations($module, $code, $config)
@@ -29,10 +37,8 @@ class CoreController extends Controller
         $include = isset($config->IncludeCore->include)?$config->IncludeCore->include:false;
 
         if($include){
-
             $modelElloquent = $this->Class->$module->$code->model;
-            $arrayModelElloquent = explode('\\', $modelElloquent);
-            $modelDB = end($arrayModelElloquent);
+            $modelDB = self::getModelParameters($modelElloquent);
 
             $relations = $modelElloquent::limit(9999);
 
@@ -44,24 +50,20 @@ class CoreController extends Controller
                 $relations = $relations->where($config->IncludeCore->condition, 1);
             }
 
+            $existsRelation = false;
             if($config->IncludeCore->relation <> null && $config->IncludeCore->relation <> ''){
-
+                $existsRelation = true;
                 $relationship = explode(',', $config->IncludeCore->relation);
 
-                $modelElloquentRelation = $this->Class->$module->$code->relationship[$relationship[0]];
-                $arrayModelElloquentRelation = explode('\\', $modelElloquentRelation);
-                $modelDB = end($arrayModelElloquentRelation);
+                $modelDB = self::getModelParameters($this->Class->$module->$code->relationship[$relationship[0]]['class']);
 
                 $route = Str::lower($code).'.'.$relationship[0].'.page';
 
-                $relations = $this->Class->$module->$code->relationship[$relationship[0]]::existsService()->limit(9999);
+                $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::existsService()->limit(9999);
 
                 if(count($relationship) > 1){
-                    $modelElloquentSubrelation = $this->Class->$module->$code->relationship[$relationship[1]];
-                    $arrayModelElloquentSubrelation = explode('\\', $modelElloquentSubrelation);
-                    $modelDBSubrelation = end($arrayModelElloquentSubrelation);
-
-                    $relations = $this->Class->$module->$code->relationship[$relationship[0]]::with('getRelationCore')->existsService()->limit(9999);
+                    $modelDBSubrelation = self::getModelParameters($this->Class->$module->$code->relationship[$relationship[1]]['class']);
+                    $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::with('getRelationCore')->existsService()->limit(9999);
                 }
             }
 
@@ -75,32 +77,42 @@ class CoreController extends Controller
 
             foreach ($relations->sorting()->get() as $relation) {
                 $sublistDropdown = [];
+                $buildRouteParameters = [$modelDB => $relation->slug];
                 if(isset($relation->getRelationCore)){
                     foreach ($relation->getRelationCore as $relationCore) {
                         $subRoute = Str::lower($code).'.'.$relationship[1].'.page';
 
                         $subMenu = (object) [
                             "id" => $relationCore->id,
-                            "name" => $relationCore->name,
+                            "name" => $relationCore->name??$relationCore->title,
                             "slug" => $relationCore->slug,
-                            "route" => $subRoute,
-                            "model" => [$modelDB => $relation->slug, $modelDBSubrelation => $relationCore->slug],
+                            "route" => route($subRoute, [$modelDB => $relation->slug, $modelDBSubrelation => $relationCore->slug]),
                         ];
 
                         array_push($sublistDropdown, $subMenu);
                     }
                 }
 
+                if(!$existsRelation){
+                    $buildRouteParameters = [];
+                    $queryRelationship = $this->Class->$module->$code->relationship;
+
+                    foreach ($queryRelationship as $relationship) {
+                        $column = $relationship['column'];
+                        $slugRelationShip = $relationship['class']::where('id', $relation->$column)->first();
+                        $routeParameters = self::getModelParameters($relationship['class']);
+                        $buildRouteParameters = array_merge($buildRouteParameters, [$routeParameters => $slugRelationShip->slug]);
+                    }
+                    $buildRouteParameters = array_merge($buildRouteParameters, [$modelDB => $relation->slug]);
+                }
+
                 $menu = (object) [
                     "id" => $relation->id,
-                    "name" => $relation->name,
+                    "name" => $relation->name??$relation->title,
                     "slug" => $relation->slug,
-                    "route" => $route,
-                    "model" => [$modelDB => $relation->slug],
+                    "route" => route($route, $buildRouteParameters),
                     'subList' => $sublistDropdown
                 ];
-
-
 
                 array_push($listDropdown, $menu);
             }
@@ -121,6 +133,7 @@ class CoreController extends Controller
 
                     $menu = (object) [
                         "title" => $config->config->titleMenu,
+                        "slug" => Str::slug($config->config->titleMenu),
                         "anchor" => $config->config->anchor,
                         "link" => $config->config->linkMenu,
                         "dropdown" => $dropdown,
@@ -130,6 +143,12 @@ class CoreController extends Controller
                 }
             }
         }
+
+        // dd(
+        //     Route::current(),
+        //     Route::currentRouteName(),
+        //     Route::currentRouteAction(),
+        // );
 
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [

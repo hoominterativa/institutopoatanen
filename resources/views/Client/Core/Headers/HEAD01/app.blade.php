@@ -11,26 +11,52 @@
                     <a href="{{route('home')}}" class="nav-link px-2 {{isActive('home')}}" >Home</a>
                 </li>
                 @foreach ($listMenu as $menu)
-                    <li class="mb-0 px-2">
-                        <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" class="nav-link px-2 {{!$menu->anchor?isActive($menu->link):''}}" {{$menu->dropdown?'data-toggle="dropdow"':''}} {{$menu->anchor?'data-toggle="jqueryanchor"':''}}>{{$menu->title}}</a>
-                        @if ($menu->dropdown)
-                            <ul class="dropdown-menu">
-                                @foreach ($menu->dropdown as $dropdown)
-                                    <li>
-                                        <a href="{{route($dropdown->route, $dropdown->model)}}" {{count($dropdown->subList)?'data-toggle="dropdow"':''}}>{{$dropdown->name}}</a>
-                                        @if ($dropdown->subList)
-                                            <ul class="dropdown-menu">
-                                                @foreach ($dropdown->subList as $subdropdown)
+                    <li class="mb-0 px-2 dropdown">
+                        <div class="btn-group">
+                            <a
+                                href="{{$menu->dropdown?'javascript:void()':($menu->anchor?$menu->link:route($menu->link))}}"
+                                class="nav-link px-2 {{!$menu->anchor?isActive($menu->link):''}} {{$menu->dropdown?'dropdown-toggle':''}}"
+                                id="dropdown{{$menu->slug}}"
+                                {{$menu->dropdown?'data-bs-toggle=dropdown aria-expanded=false data-bs-auto-close=outside':''}}
+                                {{$menu->dropdown?'#':($menu->anchor?$menu->link:route($menu->link))}}
+                                {{$menu->dropdown?'':($menu->anchor?'data-toggle=jqueryanchor':'')}}
+                            >
+                                {{$menu->title}}
+                            </a>
+                            @if ($menu->dropdown)
+                                <ul class="dropdown-menu" aria-labelledby="dropdown{{$menu->slug}}">
+                                    @foreach ($menu->dropdown as $dropdown)
+                                        <li class="btn-group dropend">
+                                            <a
+                                                href="{{$dropdown->subList?'javascript:void()':$dropdown->route}}"
+                                                id="subdropdown{{$dropdown->slug}}"
+                                                {{count($dropdown->subList)?'data-bs-toggle=dropdown aria-expanded=false data-bs-auto-close=outside':''}}
+                                                class="dropdown-item {{$dropdown->subList?'dropdown-toggle':''}}"
+                                            >
+                                                {{$dropdown->name}}
+                                            </a>
+                                            @if ($dropdown->subList)
+                                                <ul class="dropdown-menu" aria-labelledby="subdropdown{{$dropdown->slug}}">
+                                                    @foreach ($dropdown->subList as $subdropdown)
+                                                        <li>
+                                                            <a href="{{$subdropdown->route}}" class="dropdown-item">{{$subdropdown->name}}</a>
+                                                        </li>
+                                                    @endforeach
+                                                    <li><hr class="dropdown-divider"></li>
                                                     <li>
-                                                        <a href="{{route($subdropdown->route, $subdropdown->model)}}">{{$subdropdown->name}}</a>
+                                                        <a href="{{$dropdown->route}}" class="dropdown-item">Ver Todos</a>
                                                     </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->anchor?'data-toggle=jqueryanchor':''}} class="dropdown-item">Ver Todos</a>
                                     </li>
-                                @endforeach
-                            </ul>
-                        @endif
+                                </ul>
+                            @endif
+                        </div>
                     </li>
                 @endforeach
             </ul>
