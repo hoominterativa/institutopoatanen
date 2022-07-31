@@ -3,16 +3,16 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Model;
+use App\Models\SLID01Slides;
 
-class SLID01Factory extends Factory
+class SLID01SlidesFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = SLID01Slides::class;
 
     /**
      * Define the model's default state.

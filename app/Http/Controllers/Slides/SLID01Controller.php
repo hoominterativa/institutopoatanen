@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Slides;
 
-use Illuminate\Http\Request;
 use App\Models\Slides\SLID01Slides;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\IncludeSectionsController;
 
 class SLID01Controller extends Controller
 {
@@ -19,10 +20,7 @@ class SLID01Controller extends Controller
      */
     public function index()
     {
-        $slides = SLID01Slides::paginate('12');
-        return view('Admin.cruds.Slides.SLID01.index',[
-            'slides' => $slides
-        ]);
+        //
     }
 
     /**
@@ -32,7 +30,7 @@ class SLID01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Slides.SLID01.create');
+        //
     }
 
     /**
@@ -43,35 +41,32 @@ class SLID01Controller extends Controller
      */
     public function store(Request $request)
     {
-        $path = 'uploads/images/SLID01/';
+        /* Use the code below to upload files, if not, delete code
+
+        $path = 'uploads/images/Module/Code/';
         $helperArchive = new HelperArchive();
-        $path_image_background = $helperArchive->renameArchiveUpload($request, 'path_image_background');
-        $path_image_png = $helperArchive->renameArchiveUpload($request, 'path_image_png');
 
+        ** Duplicate the code below for each file field by changing the variable names **
 
-        $SLID01Slides = new SLID01Slides();
-        $SLID01Slides->title = $request->title;
-        $SLID01Slides->subtitle = $request->subtitle;
-        $SLID01Slides->description = $request->description;
-        $SLID01Slides->blade = $request->blade;
-        $SLID01Slides->content_position = $request->content_position;
-        $SLID01Slides->active = $request->active?:0;
-        $SLID01Slides->button_link = $request->button_link;
-        $SLID01Slides->button_title = $request->button_title;
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
 
-        if($path_image_background){
-            $SLID01Slides->path_image_background = $path.$path_image_background;
-            $request->path_image_background->storeAs($path, $path_image_background);
+        // Use this for normal image upload
+        if($path_image){
+            $SLID01Slides->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
         }
 
-        if($path_image_png){
-            $SLID01Slides->path_image_png = $path.$path_image_png;
-            $request->path_image_png->storeAs($path, $path_image_png);
+        // Use this one for image upload with cropping
+        if(is_array($path_image)){
+            $SLID01Slides->path_image = $path.$path_image[1];
+            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
         }
+
+        */
 
         if($SLID01Slides->save()){
-            Session::flash('success', 'Banner cadastrado com sucessso');
-            return redirect()->route('admin.slid01.index');
+            Session::flash('success', 'Item cadastrado com sucessso');
+            return redirect()->route('admin.code.index');
         }
     }
 
@@ -83,9 +78,7 @@ class SLID01Controller extends Controller
      */
     public function edit(SLID01Slides $SLID01Slides)
     {
-        return view('Admin.cruds.Slides.SLID01.edit',[
-            'slide' => $SLID01Slides
-        ]);
+        //
     }
 
     /**
@@ -97,46 +90,41 @@ class SLID01Controller extends Controller
      */
     public function update(Request $request, SLID01Slides $SLID01Slides)
     {
-        $path = 'uploads/images/Slides/SLID01/';
+        /* Use the code below to upload files, if not, delete code
+
+        $path = 'uploads/images/Module/Code/';
         $helperArchive = new HelperArchive();
-        $path_image_background = $helperArchive->renameArchiveUpload($request, 'path_image_background');
-        $path_image_png = $helperArchive->renameArchiveUpload($request, 'path_image_png');
 
-        $SLID01Slides->title = $request->title;
-        $SLID01Slides->subtitle = $request->subtitle;
-        $SLID01Slides->description = $request->description;
-        $SLID01Slides->blade = $request->blade;
-        $SLID01Slides->content_position = $request->content_position;
-        $SLID01Slides->active = $request->active?:0;
-        $SLID01Slides->button_link = $request->button_link;
-        $SLID01Slides->button_title = $request->button_title;
+        ** Duplicate the code below for each file field by changing the variable names **
+        ** Reference field to delete image: delete_name_input
 
-        if(isset($request->delete_path_image_background) && !$path_image_background){
-            $inputFile = $request->delete_path_image_background;
+        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+
+
+        if(isset($request->delete_path_image) && !$path_image){
+            $inputFile = $request->delete_path_image;
             Storage::delete($SLID01Slides->$inputFile);
-            $SLID01Slides->path_image_background = null;
+            $SLID01Slides->path_image = null;
         }
 
-        if(isset($request->delete_path_image_png) && !$path_image_png){
-            $inputFile = $request->delete_path_image_png;
-            Storage::delete($SLID01Slides->$inputFile);
-            $SLID01Slides->path_image_png = null;
+        // Use this for normal image upload
+        if($path_image){
+            Storage::delete($SLID01Slides->path_image);
+            $SLID01Slides->path_image = $path.$path_image;
+            $request->path_image->storeAs($path, $path_image);
         }
 
-        if($path_image_background){
-            Storage::delete($SLID01Slides->path_image_background);
-            $SLID01Slides->path_image_background = $path.$path_image_background;
-            $request->path_image_background->storeAs($path, $path_image_background);
+        // Use this one for image upload with cropping
+        if(is_array($path_image)){
+            Storage::delete($SLID01Slides->path_image);
+            $SLID01Slides->path_image = $path.$path_image[1];
+            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
         }
 
-        if($path_image_png){
-            Storage::delete($SLID01Slides->path_image_png);
-            $SLID01Slides->path_image_png = $path.$path_image_png;
-            $request->path_image_png->storeAs($path, $path_image_png);
-        }
+        */
 
         if($SLID01Slides->save()){
-            Session::flash('success', 'Banner atualizado com sucessso');
+            Session::flash('success', 'Item atualizado com sucessso');
             return redirect()->back();
         }
     }
@@ -149,11 +137,8 @@ class SLID01Controller extends Controller
      */
     public function destroy(SLID01Slides $SLID01Slides)
     {
-        Storage::delete($SLID01Slides->path_image_background);
-        Storage::delete($SLID01Slides->path_image_png);
-
         if($SLID01Slides->delete()){
-            Session::flash('success', 'Banner deletado com sucessso');
+            Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -167,14 +152,7 @@ class SLID01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        $SLID01Slides = SLID01Slides::whereIn('id', $request->deleteAll)->get();
-
-        foreach ($SLID01Slides as $SLID01Slide) {
-            Storage::delete($SLID01Slide->path_image_background);
-            Storage::delete($SLID01Slide->path_image_png);
-        }
-
-        if($deleted = $SLID01Slides->delete()){
+        if($deleted = SLID01Slides::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
@@ -208,14 +186,19 @@ class SLID01Controller extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function page(Request $request)
     {
-        //
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+
+        return view('Client.pages.Module.Model.page',[
+            'sections' => $sections
+        ]);
     }
 
     /**
@@ -225,9 +208,6 @@ class SLID01Controller extends Controller
      */
     public static function section()
     {
-        $SLID01Slides = SLID01Slides::where('active', 1)->get();
-        return view('Client.pages.Slides.SLID01.section',[
-            'slides'=>$SLID01Slides
-        ]);
+        return view('');
     }
 }

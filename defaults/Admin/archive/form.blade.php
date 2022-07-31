@@ -16,7 +16,9 @@
     <div class="col-12">
         <div class="card card-body">
             {{-- INSERI OS INPUTS DOS FORMULARIOS AQUI --}}
-        </div> <!-- end card-body-->
-    </div> <!-- end card-->
+        </div>
+        {{-- end card-body --}}
+    </div>
+    {{-- end card --}}
 </div>
-<!-- end row -->
+{{-- end row --}}

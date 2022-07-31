@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopi01sectionTopicsTable extends Migration
+class CreateSlid01SlidesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTopi01sectionTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topi01section_topics', function (Blueprint $table) {
+        Schema::create('slid01_slides', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('active');
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateTopi01sectionTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topi01section_topics');
+        Schema::dropIfExists('slid01_slides');
     }
 }

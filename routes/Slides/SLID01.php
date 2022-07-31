@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
  * Create new routes to admin or client according to the model below
  * Define the variables ​​$module, $model and import the controller class
  *
- * Don't create  resource route
  */
 
 // $module = 'TEST';
