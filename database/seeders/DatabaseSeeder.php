@@ -16,10 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(1)->create();
-        TOPI01Topics::factory()->count(3)->create();
 
         $this->call([
-            SLID01SlidesSeeder::class,
             SettingThemeSeeder::class,
             OptimizationSeeder::class,
             GeneralSettingSeeder::class,

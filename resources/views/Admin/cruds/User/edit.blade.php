@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model($user, ['route' => ['admin.user.update', $user->id], 'class'=>'parsley-examples', 'method' => 'PUT']) !!}
-                    @include('Admin.user.form')
+                    @include('Admin.cruds.user.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.user.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
