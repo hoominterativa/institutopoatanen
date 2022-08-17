@@ -23,7 +23,7 @@ class GeneralSettingSeeder extends Seeder
             'smtp_host' => 'smtp.gmail.com',
             'smtp_port' => '465',
             'smtp_user' => 'anderson@hoom.com.br',
-            'smtp_password' => 'Nandos1306@',
+            'smtp_password' => 'Nandos1306#',
             'path_logo_header_light' => 'uploads/tmp/logo-light.svg',
             'path_logo_header_dark' => 'uploads/tmp/logo-dark.svg',
             'path_logo_footer_light' => 'uploads/tmp/logo-light.svg',

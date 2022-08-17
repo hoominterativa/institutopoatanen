@@ -22,7 +22,7 @@ class ContactLeadController extends Controller
         $contactForm = ContactForm::first();
         return view('Admin.cruds.contactLead.index', [
             'contactLeads' => $contactLeads,
-            'contactForm' => json_decode($contactForm->inputs)
+            'contactForm' => $contactForm?json_decode($contactForm->inputs):null
         ]);
     }
 
