@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.537" height="90.753" viewBox="0 0 265.537 90.753">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.749" y1="0.933" x2="0.037" y2="-0.302" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7e4afc"/>
+      <stop offset="0.16" stop-color="#7643f3"/>
+      <stop offset="0.411" stop-color="#6232dd"/>
+      <stop offset="0.616" stop-color="#4e21c6"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_3742" data-name="Grupo 3742" transform="translate(-1645.774 145.753)">
+    <path id="Caminho_1" data-name="Caminho 1" d="M891.885,1064.722A29.146,29.146,0,1,0,912.8,1080.91a6.9,6.9,0,0,0-12.482,5.9,15.341,15.341,0,1,1-11.072-8.538l.118.022a6.9,6.9,0,0,0,2.52-13.573Z" transform="translate(914.739 -1196.883)" fill="url(#linear-gradient)"/>
+    <ellipse id="Elipse_7" data-name="Elipse 7" cx="6.056" cy="6.056" rx="6.056" ry="6.056" transform="translate(1899.199 -87.466)" fill="#fff"/>
+    <path id="Caminho_2" data-name="Caminho 2" d="M761.969,1064.45a28.844,28.844,0,1,0,28.844,28.848,28.876,28.876,0,0,0-28.844-28.848l0-.384h0Zm15,28.844a15,15,0,1,1-15-15A15.016,15.016,0,0,1,776.967,1093.294Z" transform="translate(975.319 -1196.806)" fill="#fff"/>
+    <path id="Caminho_68" data-name="Caminho 68" d="M652.986,1045.695V1065.2a1.609,1.609,0,0,1-1.609,1.609h-24.94a1.609,1.609,0,0,1-1.61-1.608h0v-19.508a7.039,7.039,0,0,0-7.038-7.04h0a7.04,7.04,0,0,0-7.04,7.04h0v56.316a7.04,7.04,0,0,0,7.04,7.04h0a7.039,7.039,0,0,0,7.039-7.039h0V1082.5a1.609,1.609,0,0,1,1.609-1.609h24.941a1.609,1.609,0,0,1,1.609,1.609h0v19.508a7.039,7.039,0,0,0,7.039,7.04h0a7.04,7.04,0,0,0,7.04-7.04v-56.316a7.04,7.04,0,0,0-7.04-7.04h0A7.04,7.04,0,0,0,652.986,1045.695Z" transform="translate(1035.026 -1184.408)" fill="#fff"/>
+    <path id="Caminho_3" data-name="Caminho 3" d="M1031.418,1122.459a6.791,6.791,0,0,0,6.783-6.783v-42.238a6.792,6.792,0,0,0-6.782-6.784h0a6.824,6.824,0,0,0-4.07,1.357l-15.931,11.947a1.873,1.873,0,0,1-2.238,0l-15.929-11.947a6.782,6.782,0,0,0-9.5,1.356,6.826,6.826,0,0,0-1.358,4.071v42.237a6.784,6.784,0,1,0,13.567,0v-29.063a1.049,1.049,0,0,1,.31-.75,1.086,1.086,0,0,1,1.386-.1l10.378,7.784a3.785,3.785,0,0,0,4.52,0l10.378-7.784a1.052,1.052,0,0,1,.635-.213,1.148,1.148,0,0,1,.151.011,1.052,1.052,0,0,1,.7.413,1.069,1.069,0,0,1,.213.637v29.063A6.792,6.792,0,0,0,1031.418,1122.459Z" transform="translate(853.702 -1198.068)" fill="#fff"/>
+    <ellipse id="Elipse_6" data-name="Elipse 6" cx="5.395" cy="5.395" rx="5.395" ry="5.395" transform="translate(1815.876 -118.508)" fill="#8169f7" opacity="0.73"/>
+    <text id="DOCUMENTAÇÕES" transform="translate(1646 -58)" fill="#fff" font-size="13" font-family="Montserrat-Regular, Montserrat" letter-spacing="0.917em"><tspan x="0" y="0">DOCUMENTAÇÕES</tspan></text>
+  </g>
+</svg>
