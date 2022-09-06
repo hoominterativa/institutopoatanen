@@ -41,28 +41,38 @@ class {{ class }} extends Controller
      */
     public function store(Request $request)
     {
-        /* Use the code below to upload files, if not, delete code
+        $data = $request->all();
 
-        $path = 'uploads/images/Module/Code/';
-        $helperArchive = new HelperArchive();
+        /*
+        Use the code below to upload image, if not, delete code
 
-        ** Duplicate the code below for each file field by changing the variable names **
+        $path = 'uploads/Module/Code/images/';
+        $helper = new HelperArchive();
 
-        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
 
-        // Use this for normal image upload
-        if($path_image){
-            ${{ model }}->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
-        }
+        if($path_image) $data['path_image'] = $path_image;
 
-        // Use this one for image upload with cropping
-        if(is_array($path_image)){
-            ${{ model }}->path_image = $path.$path_image[1];
-            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
-        }
+        Use the code below to upload archive, if not, delete code
+
+        $path = 'uploads/Module/Code/archives/';
+        $helper = new HelperArchive();
+
+        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
+
+        if($path_archive) $data['path_archive'] = $path_archive;
 
         */
+
+        if({{ model }}::create($data)){
+            Session::flash('success', 'Usuário cadastrado com sucesso');
+            return redirect()->route('admin.user.index');
+        }else{
+            //Storage::delete($path_image);
+            //Storage::delete($path_archive);
+            Session::flash('success', 'Erro ao cadastradar o usuário');
+            return redirect()->back();
+        }
 
         if(${{ model }}->save()){
             Session::flash('success', 'Item cadastrado com sucessso');
@@ -90,41 +100,52 @@ class {{ class }} extends Controller
      */
     public function update(Request $request, {{ model }} ${{ model }})
     {
-        /* Use the code below to upload files, if not, delete code
+        $data = $request->all();
 
-        $path = 'uploads/images/Module/Code/';
-        $helperArchive = new HelperArchive();
+        /*
+        Use the code below to upload image, if not, delete code
 
-        ** Duplicate the code below for each file field by changing the variable names **
-        ** Reference field to delete image: delete_name_input
+        $path = 'uploads/Module/Code/images/';
+        $helper = new HelperArchive();
 
-        $path_image = $helperArchive->renameArchiveUpload($request, 'path_image');
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
 
-
-        if(isset($request->delete_path_image) && !$path_image){
-            $inputFile = $request->delete_path_image;
-            Storage::delete(${{ model }}->$inputFile);
-            ${{ model }}->path_image = null;
-        }
-
-        // Use this for normal image upload
         if($path_image){
-            Storage::delete(${{ model }}->path_image);
-            ${{ model }}->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
+            Storage::delete($user->path_image);
+            $data['path_image'] = $path_image;
         }
 
-        // Use this one for image upload with cropping
-        if(is_array($path_image)){
+        if($request->delete_path_image && !$path_image){
             Storage::delete(${{ model }}->path_image);
-            ${{ model }}->path_image = $path.$path_image[1];
-            Storage::put($path.$path_image[1], base64_decode($path_image[0]));
+            $data['path_image'] = null;
+        }
+
+        Use the code below to upload archive, if not, delete code
+
+        $path = 'uploads/Module/Code/archives/';
+        $helper = new HelperArchive();
+
+        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
+
+        if($path_archive){
+            Storage::delete(${{ model }}->path_archive);
+            $data['path_archive'] = $path_archive;
+        }
+
+        if($request->delete_path_archive && !$path_archive){
+            Storage::delete($user->path_archive);
+            $data['path_archive'] = null;
         }
 
         */
 
-        if(${{ model }}->save()){
-            Session::flash('success', 'Item atualizado com sucessso');
+        if(${{ model }}->fill($data)->save()){
+            Session::flash('success', 'Item atualizado com sucesso');
+            return redirect()->route('admin.user.index');
+        }else{
+            //Storage::delete($path_image);
+            //Storage::delete($path_archive);
+            Session::flash('success', 'Erro ao atualizar item');
             return redirect()->back();
         }
     }
@@ -137,6 +158,9 @@ class {{ class }} extends Controller
      */
     public function destroy({{ model }} ${{ model }})
     {
+        //Storage::delete(${{ model }}->path_image);
+        //Storage::delete(${{ model }}->path_archive);
+
         if(${{ model }}->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
@@ -144,14 +168,22 @@ class {{ class }} extends Controller
     }
 
     /**
-     * Remove the selected resource from storage.
+     * Remove the selected resources from storage.
      *
-     * @param  int  $id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function destroySelected(Request $request)
     {
+        /* Use the code below to upload image or archive, if not, delete code
+
+        ${{ model }}s = {{ model }}::whereIn('id', $request->deleteAll)->get();
+        foreach(${{ model }}s as ${{ model }}){
+            Storage::delete(${{ model }}->path_image);
+            Storage::delete(${{ model }}->path_archive);
+        }
+        */
+
         if($deleted = {{ model }}::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }

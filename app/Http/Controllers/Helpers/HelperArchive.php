@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Helpers;
 
+use Gumlet\ImageResize;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class HelperArchive extends Controller
 {
@@ -26,49 +29,133 @@ class HelperArchive extends Controller
     }
 
     /**
-     * Rename file for uploads
+     * Upload archives
      *
      * @param Illuminate\Http\Request $request
      * @param string $column
      *
-     * @return string|boolean
+     * @return object
      */
-    public function renameArchiveUpload($request, $column)
+    public function uploadArchive($request, $column, $path)
     {
-        $columnCrop = $column.'_cropped';
-        if($request->has($columnCrop) && strpos($request->$columnCrop, ';base64')){
-            //Get image base64
-            $fileBase64 = explode(',', $request->$columnCrop)[1];
-            // Rename file
-            $nameFile = $request->$column->getClientOriginalName();
-            $originalName = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time();
-            $arrayName = explode('.', $nameFile);
-            $extension = end($arrayName);
-            $nameFile = "{$originalName}.{$extension}";
-
-            return [$fileBase64, $nameFile];
-        }
-
         if ($request->hasFile($column)) {
-            if(is_array($request->$column)){
-                $arrNameFile = [];
-                foreach ($request->$column as $key => $value) {
-                    $nameFile = $request->$column[$key]->getClientOriginalName();
-                    $originalName = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time();
-                    $arrayName = explode('.', $nameFile);
-                    $extension = end($arrayName);
-                    array_push($arrNameFile, "{$originalName}.{$extension}");
-                    $nameFile = $arrNameFile;
-                }
-            }else{
-                $nameFile = $request->$column->getClientOriginalName();
-                $originalName = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time();
-                $arrayName = explode('.', $nameFile);
-                $extension = end($arrayName);
-                $nameFile = "{$originalName}.{$extension}";
+            $nameFile = $request->$column->getClientOriginalName();
+            $name = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time().'.'.$request->$column->getClientOriginalExtension();
+            $request->$column->storeAs($path, $name);
+            return $name;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Upload Multiple images
+     *
+     * @param Illuminate\Http\Request $request
+     * @param string $column
+     *
+     * @return object
+     */
+    public function uploadMultipleImage($request, $column, $path)
+    {
+        if ($request->hasFile($column)) {
+            $nameFile = $request->$column->getClientOriginalName();
+            $name = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time().'.'.$request->$column->getClientOriginalExtension();
+            $request->$column->storeAs($path, $name);
+            return $name;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Optimize and save image
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param string $column Post field
+     * @param string $path Image path to save
+     * @param integer $width Max width resize image
+     * @param integer $quality Quality the image
+     *
+     * @return string|bool False if no image form loaded and image path after optimization
+     */
+
+    public function optimizeImage($request, $column, $path, $width=null, $quality=null)
+    {
+        if ($request->hasFile($column)) {
+
+            // Max width of image
+            $sizeBase = 2000;
+
+            // Protection from image clone
+            !Session::has('timestampArchive')?Session::put('timestampArchive', 1):Session::put('timestampArchive', Session::get('timestampArchive')+1);
+            $timestampArchive = Session::get('timestampArchive');
+
+            // Verify image crop
+            $columnCrop = $column.'_cropped';
+
+            if(!$request->has($columnCrop)){
+                $this->validate($request, [
+                    $column => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
+                ],[
+                    $column.'.image' => 'Formato de imagem inválido, formatos aceitos jpeg,png,jpg,gif,svg,webp',
+                    $column.'.mime' => 'Formato de imagem inválido, formatos aceitos jpeg,png,jpg,gif,svg,webp',
+                    $column.'.max' => 'Imagem grande demais, a imagem deve ser menor que 2mb'
+                ],['path_image' => 'Imagem']);
             }
 
-            return $nameFile;
+            // Create path if not exist
+            if(!is_dir(storage_path('app/public/'.$path))) mkdir(storage_path('app/public/'.$path), 0777, true);
+
+            // Image name slug
+            $name = Str::of(pathinfo($request->$column->getClientOriginalName(), PATHINFO_FILENAME))->slug().'-'. (time()+$timestampArchive);
+
+            // Destination the image save
+            $destinationPath = storage_path('app/public/'.$path);
+
+            // If base64 encoded image exists, convert and save image
+            if($request->has($columnCrop) && strpos($request->$columnCrop, ';base64')){
+                $fileBase64 = explode(',', $request->$columnCrop)[1];
+                Storage::put($path.$name.'.'.$request->$column->getClientOriginalExtension(), base64_decode($fileBase64));
+                $fileImage = $destinationPath.$name.'.'.$request->$column->getClientOriginalExtension();
+            }else{
+                $fileImage = $request->$column->getRealPath();
+            }
+
+            $image = new ImageResize($fileImage);
+            $widthImage = $image->getDestWidth();
+
+            if($width){
+                // Resize image as of width
+                $image->resizeToWidth($width);
+            }else{
+                // Resize image as of scale
+                if($widthImage > $sizeBase){
+                    $image->scale(80);
+                }else{
+                    $image->scale(100);
+                }
+            }
+
+            // Save image optimized
+            $image->save($destinationPath.$name.'.webp', IMAGETYPE_WEBP, $quality);
+
+            // Ensures the image has been optimized
+            $optimizedImage = new ImageResize($destinationPath.$name.'.webp');
+            $currentWidth = $optimizedImage->getDestWidth();
+            if($currentWidth > $sizeBase){
+                for ($size=$currentWidth; $size > $sizeBase;) {
+                    $optimizedImage = new ImageResize($destinationPath.$name.'.webp');
+                    $optimizedImage->scale(70)->save($destinationPath.$name.'.webp', IMAGETYPE_WEBP);
+                    $optimizedImageCurrent = new ImageResize($destinationPath.$name.'.webp');
+                    $size = $optimizedImageCurrent->getDestWidth();
+                }
+            }
+
+            // Delete image converted
+            if($request->has($columnCrop)) Storage::delete($path.$name.'.'.$request->$column->getClientOriginalExtension());
+
+            return $path.$name.'.webp';
         }else{
             return false;
         }

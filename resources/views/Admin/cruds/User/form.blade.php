@@ -14,11 +14,6 @@
                     'parsley-type'=>'email',
                 ]) !!}
             </div>
-
-        </div> <!-- end card-body-->
-    </div> <!-- end card-->
-    <div class="col-12 col-lg-6">
-        <div class="card card-body">
             <div class="mb-3">
                 {!! Form::label(null, 'Senha', ['class'=>'form-label']) !!}
                 {!! Form::password('password', [
@@ -34,6 +29,25 @@
             <div class="mb-3 form-check">
                 {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active', 'required'=>'required']) !!}
                 {!! Form::label('active', 'Ativar usuário?', ['class'=>'form-check-label']) !!}
+            </div>
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+    <div class="col-12 col-lg-6">
+        <div class="card card-body">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label(null, 'Imagem', ['class'=>'form-label']) !!}
+                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
+                        {!! Form::file('path_image', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-mincropwidth'=>'80',
+                            'data-scale'=>'1/1',
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($user)?$user->path_image<>''?url('storage/'.$user->path_image):'':'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->

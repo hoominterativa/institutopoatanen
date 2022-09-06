@@ -18,7 +18,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/utils/round.js */ "./node_modules/@fancyapps/ui/src/shared/utils/round.js");
 /* harmony import */ var _shared_utils_throttle_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/utils/throttle.js */ "./node_modules/@fancyapps/ui/src/shared/utils/throttle.js");
 /* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Carousel/plugins/index.js");
-/* harmony import */ var _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./l10n/en.js */ "./node_modules/@fancyapps/ui/src/Carousel/l10n/en.js");
 
 
 
@@ -26,9 +25,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-// Default language
 
 
 const defaults = {
@@ -64,10 +60,7 @@ const defaults = {
   // Should Carousel settle at any position after a swipe.
   dragFree: false,
 
-  // Prefix for CSS classes, must be the same as the  SCSS `$carousel-prefix` variable
-  prefix: "",
-
-  // Class names for DOM elements (without prefix)
+  // Customizable class names for DOM elements
   classNames: {
     viewport: "carousel__viewport",
     track: "carousel__track",
@@ -77,8 +70,12 @@ const defaults = {
     slideSelected: "is-selected",
   },
 
-  // Localization of strings
-  l10n: _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+  // Translations
+  l10n: {
+    NEXT: "Next slide",
+    PREV: "Previous slide",
+    GOTO: "Go to slide %d",
+  },
 };
 
 class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
@@ -125,9 +122,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
     this.updateMetrics();
 
-    if (this.$track && this.pages.length) {
-      this.$track.style.transform = `translate3d(${this.pages[this.page].left * -1}px, 0px, 0) scale(1)`;
-    }
+    this.$track.style.transform = `translate3d(${this.pages[this.page].left * -1}px, 0px, 0) scale(1)`;
 
     this.manageSlideVisiblity();
 
@@ -142,25 +137,24 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
    * Initialize layout; create necessary elements
    */
   initLayout() {
-    const prefix = this.option("prefix");
     const classNames = this.option("classNames");
 
-    this.$viewport = this.option("viewport") || this.$container.querySelector(`.${prefix}${classNames.viewport}`);
+    this.$viewport = this.option("viewport") || this.$container.querySelector("." + classNames.viewport);
 
     if (!this.$viewport) {
       this.$viewport = document.createElement("div");
-      this.$viewport.classList.add(prefix + classNames.viewport);
+      this.$viewport.classList.add(classNames.viewport);
 
       this.$viewport.append(...this.$container.childNodes);
 
       this.$container.appendChild(this.$viewport);
     }
 
-    this.$track = this.option("track") || this.$container.querySelector(`.${prefix}${classNames.track}`);
+    this.$track = this.option("track") || this.$container.querySelector("." + classNames.track);
 
     if (!this.$track) {
       this.$track = document.createElement("div");
-      this.$track.classList.add(prefix + classNames.track);
+      this.$track.classList.add(classNames.track);
 
       this.$track.append(...this.$viewport.childNodes);
 
@@ -175,7 +169,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     this.slides = [];
 
     // Get existing slides from the DOM
-    const elems = this.$viewport.querySelectorAll(`.${this.option("prefix")}${this.option("classNames.slide")}`);
+    const elems = this.$viewport.querySelectorAll("." + this.option("classNames.slide"));
 
     elems.forEach((el) => {
       const slide = {
@@ -221,7 +215,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
     let viewportWidth = Math.max(this.$track.offsetWidth, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_3__.round)(this.$track.getBoundingClientRect().width));
 
-    let viewportStyles = getComputedStyle(this.$track);
+    let viewportStyles = window.getComputedStyle(this.$track);
     viewportWidth = viewportWidth - (parseFloat(viewportStyles.paddingLeft) + parseFloat(viewportStyles.paddingRight));
 
     this.contentWidth = contentWidth;
@@ -319,7 +313,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
       if (initialSlide !== null) {
         page = this.findPageForSlide(initialSlide);
       } else {
-        page = parseInt(this.option("initialPage", 0), 10) || 0;
+        page = this.option("initialPage", 0);
       }
 
       if (!rez[page]) {
@@ -348,7 +342,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
       node.dataset.isTestEl = 1;
       node.style.visibility = "hidden";
-      node.classList.add(this.option("prefix") + this.option("classNames.slide"));
+      node.classList.add(this.option("classNames.slide"));
 
       // Assume all slides have the same custom class, if any
       if (firstSlide.customClass) {
@@ -377,8 +371,6 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
    * @returns {Integer|null} Index of the page if found, or null
    */
   findPageForSlide(index) {
-    index = parseInt(index, 10) || 0;
-
     const page = this.pages.find((page) => {
       return page.indexes.indexOf(index) > -1;
     });
@@ -449,7 +441,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
         // Right now, only horizontal navigation is supported
         lockAxis: "x",
 
-        x: this.pages.length ? this.pages[this.page].left * -1 : 0,
+        x: this.pages[this.page].left * -1,
         centerOnStart: false,
 
         // Make `textSelection` option more easy to customize
@@ -457,7 +449,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
         // Disable dragging if content (e.g. all slides) fits inside viewport
         panOnlyZoomed: function () {
-          return this.content.width <= this.viewport.width;
+          return this.content.width < this.viewport.width;
         },
       },
       this.option("Panzoom")
@@ -500,7 +492,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
 
     if (this.pages.length > 1 && this.option("infiniteX", this.option("infinite"))) {
       this.Panzoom.boundX = null;
-    } else if (this.pages.length) {
+    } else {
       this.Panzoom.boundX = {
         from: this.pages[this.pages.length - 1].left * -1,
         to: this.pages[0].left * -1,
@@ -515,21 +507,19 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
         to: 0,
       };
     }
-
-    this.Panzoom.handleCursor();
   }
 
   manageSlideVisiblity() {
     const contentWidth = this.contentWidth;
     const viewportWidth = this.viewportWidth;
 
-    let currentX = this.Panzoom ? this.Panzoom.content.x * -1 : this.pages.length ? this.pages[this.page].left : 0;
+    let currentX = this.Panzoom ? this.Panzoom.content.x * -1 : this.pages[this.page].left;
 
     const preload = this.option("preload");
     const infinite = this.option("infiniteX", this.option("infinite"));
 
-    const paddingLeft = parseFloat(getComputedStyle(this.$viewport, null).getPropertyValue("padding-left"));
-    const paddingRight = parseFloat(getComputedStyle(this.$viewport, null).getPropertyValue("padding-right"));
+    const paddingLeft = parseFloat(window.getComputedStyle(this.$viewport, null).getPropertyValue("padding-left"));
+    const paddingRight = parseFloat(window.getComputedStyle(this.$viewport, null).getPropertyValue("padding-right"));
 
     // Check visibility of each slide
     this.slides.forEach((slide) => {
@@ -627,18 +617,15 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     }
 
     if (slide.$el) {
-      let curentIndex = slide.$el.dataset.index;
+      let curentIndex = parseInt(slide.$el.dataset.index, 10);
 
-      if (!curentIndex || parseInt(curentIndex, 10) !== slide.index) {
+      if (curentIndex !== slide.index) {
         slide.$el.dataset.index = slide.index;
 
         // Lazy load images
-        // ===
-        slide.$el.querySelectorAll("[data-lazy-srcset]").forEach((node) => {
-          node.srcset = node.dataset.lazySrcset;
-        });
+        const $lazyNodes = slide.$el.querySelectorAll("[data-lazy-src]");
 
-        slide.$el.querySelectorAll("[data-lazy-src]").forEach((node) => {
+        $lazyNodes.forEach((node) => {
           let lazySrc = node.dataset.lazySrc;
 
           if (node instanceof HTMLImageElement) {
@@ -648,8 +635,6 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
           }
         });
 
-        // Lazy load slide background image
-        // ===
         let lazySrc;
 
         if ((lazySrc = slide.$el.dataset.lazySrc)) {
@@ -665,7 +650,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     const div = document.createElement("div");
 
     div.dataset.index = slide.index;
-    div.classList.add(this.option("prefix") + this.option("classNames.slide"));
+    div.classList.add(this.option("classNames.slide"));
 
     if (slide.customClass) {
       div.classList.add(...slide.customClass.split(" "));
@@ -753,9 +738,6 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     });
   }
 
-  /**
-   * Perform all calculations and center current page
-   */
   updatePage() {
     this.updateMetrics();
 
@@ -923,7 +905,7 @@ class Carousel extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base {
     } else {
       page = pageIndex = Math.max(0, Math.min(pageIndex, pageCount - 1));
 
-      nextPosition = this.pages.length ? this.pages[page].left : 0;
+      nextPosition = this.pages[page].left;
     }
 
     this.page = page;
@@ -966,26 +948,6 @@ Carousel.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__.Plugins;
 
 /***/ }),
 
-/***/ "./node_modules/@fancyapps/ui/src/Carousel/l10n/en.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@fancyapps/ui/src/Carousel/l10n/en.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  NEXT: "Next slide",
-  PREV: "Previous slide",
-  GOTO: "Go to slide #%d",
-});
-
-
-/***/ }),
-
 /***/ "./node_modules/@fancyapps/ui/src/Carousel/plugins/Dots/Dots.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/Carousel/plugins/Dots/Dots.js ***!
@@ -997,11 +959,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Dots": () => (/* binding */ Dots)
 /* harmony export */ });
-const defaults = {
-  // The minimum number of slides to display dots
-  minSlideCount: 2,
-};
-
 class Dots {
   constructor(carousel) {
     this.carousel = carousel;
@@ -1018,7 +975,7 @@ class Dots {
    * Build wrapping DOM element containing all dots
    */
   buildList() {
-    if (this.carousel.pages.length < this.carousel.option("Dots.minSlideCount")) {
+    if (this.carousel.pages.length < 2) {
       return;
     }
 
@@ -1553,11 +1510,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 /* harmony import */ var _shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/utils/canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
-/* harmony import */ var _shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/utils/setFocusOn.js */ "./node_modules/@fancyapps/ui/src/shared/utils/setFocusOn.js");
-/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
-/* harmony import */ var _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Carousel/Carousel.js */ "./node_modules/@fancyapps/ui/src/Carousel/Carousel.js");
-/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/index.js");
-/* harmony import */ var _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./l10n/en.js */ "./node_modules/@fancyapps/ui/src/Fancybox/l10n/en.js");
+/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
+/* harmony import */ var _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Carousel/Carousel.js */ "./node_modules/@fancyapps/ui/src/Carousel/Carousel.js");
+/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Fancybox/plugins/index.js");
+/* harmony import */ var _l10n_en_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./l10n/en.js */ "./node_modules/@fancyapps/ui/src/Fancybox/l10n/en.js");
+// var global = global || window;
 
 
 
@@ -1568,10 +1525,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// Default language
 
-
-// Default settings
 const defaults = {
   // Index of active slide on the start
   startIndex: 0,
@@ -1652,16 +1606,12 @@ const defaults = {
   */
 
   // Localization of strings
-  l10n: _l10n_en_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+  l10n: _l10n_en_js__WEBPACK_IMPORTED_MODULE_5__.default,
 };
 
-// Object that contains all active instances of Fancybox
-const instances = {};
-
-// Number of Fancybox instances created, it is used to generate new instance "id"
 let called = 0;
 
-class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
+class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_2__.Base {
   /**
    * Fancybox constructor
    * @constructs Fancybox
@@ -1691,8 +1641,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
 
     this.attachEvents();
 
-    instances[this.id] = this;
-
     // "prepare" event will trigger the creation of additional layout elements, such as thumbnails and toolbar
     this.trigger("prepare");
 
@@ -1704,10 +1652,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
     // Reveal container
     this.$container.setAttribute("aria-hidden", "false");
 
-    // Set focus on the first focusable element inside this instance
-    if (this.option("trapFocus")) {
-      this.focus();
-    }
+    // Focus on the first focus element in this instance
+    this.focus();
   }
 
   /**
@@ -1719,10 +1665,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       "onKeydown",
       "onClick",
 
-      "onFocus",
-
       "onCreateSlide",
-      "onSettle",
 
       "onTouchMove",
       "onTouchEnd",
@@ -1738,12 +1681,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    */
   attachEvents() {
     document.addEventListener("mousedown", this.onMousedown);
-    document.addEventListener("keydown", this.onKeydown, true);
-
-    // Trap keyboard focus inside of the modal
-    if (this.option("trapFocus")) {
-      document.addEventListener("focus", this.onFocus, true);
-    }
+    document.addEventListener("keydown", this.onKeydown);
 
     this.$container.addEventListener("click", this.onClick);
   }
@@ -1753,9 +1691,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    */
   detachEvents() {
     document.removeEventListener("mousedown", this.onMousedown);
-    document.removeEventListener("keydown", this.onKeydown, true);
-
-    document.removeEventListener("focus", this.onFocus, true);
+    document.removeEventListener("keydown", this.onKeydown);
 
     this.$container.removeEventListener("click", this.onClick);
   }
@@ -1790,7 +1726,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
     Object.entries({
       class: "fancybox__container",
       role: "dialog",
-      tabIndex: "-1",
       "aria-modal": "true",
       "aria-hidden": "true",
       "aria-label": this.localize("{{MODAL}}"),
@@ -1892,12 +1827,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       // Get thumbnail image source
       let thumb = slide.thumb;
 
-      if (!thumb && $thumb) {
+      if (!thumb && slide.$thumb) {
         thumb = $thumb.currentSrc || $thumb.src;
-
-        if (!thumb && $thumb.dataset) {
-          thumb = $thumb.dataset.lazySrc || $thumb.dataset.src;
-        }
       }
 
       // Assume we have image, then use it as thumbnail
@@ -1921,14 +1852,12 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    * @param {Array} slides
    */
   initCarousel() {
-    this.Carousel = new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_4__.Carousel(
+    this.Carousel = new _Carousel_Carousel_js__WEBPACK_IMPORTED_MODULE_3__.Carousel(
       this.$carousel,
       (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)(
         true,
         {},
         {
-          prefix: "",
-
           classNames: {
             viewport: "fancybox__viewport",
             track: "fancybox__track",
@@ -1968,7 +1897,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
                 this.Carousel && this.Carousel.pages && this.Carousel.pages.length < 2 && !this.options.dragToClose
               );
             },
-
             lockAxis: () => {
               if (this.Carousel) {
                 let rez = "x";
@@ -1986,7 +1914,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
             "*": (name, ...details) => this.trigger(`Carousel.${name}`, ...details),
             init: (carousel) => (this.Carousel = carousel),
             createSlide: this.onCreateSlide,
-            settle: this.onSettle,
           },
         },
 
@@ -2038,23 +1965,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
   }
 
   /**
-   * Handle Carousel `settle` event
-   */
-  onSettle() {
-    if (this.option("autoFocus")) {
-      this.focus();
-    }
-  }
-
-  /**
-   * Handle focus event
-   * @param {Event} event - Focus event
-   */
-  onFocus(event) {
-    this.focus(event);
-  }
-
-  /**
    * Handle click event on the container
    * @param {Event} event - Click event
    */
@@ -2063,36 +1973,13 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       return;
     }
 
-    let eventTarget = event.target;
-
-    if (eventTarget.matches("[data-fancybox-close]")) {
-      event.preventDefault();
-      Fancybox.close(false);
-
-      return;
-    }
-
-    if (eventTarget.matches("[data-fancybox-next]")) {
-      event.preventDefault();
-      Fancybox.next();
-
-      return;
-    }
-
-    if (eventTarget.matches("[data-fancybox-prev]")) {
-      event.preventDefault();
-      Fancybox.prev();
-
-      return;
-    }
-
     // Skip if clicked inside content area
-    if (eventTarget.closest(".fancybox__content")) {
+    if (event.target.closest(".fancybox__content")) {
       return;
     }
 
     // Skip if text is selected
-    if (getSelection().toString().length) {
+    if (window.getSelection().toString().length) {
       return;
     }
 
@@ -2159,9 +2046,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    * Handle `mousedown` event to mark that the mouse is in use
    */
   onMousedown() {
-    if (this.state === "ready") {
-      document.body.classList.add("is-using-mouse");
-    }
+    document.body.classList.add("is-using-mouse");
   }
 
   /**
@@ -2176,6 +2061,14 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
     document.body.classList.remove("is-using-mouse");
 
     const key = event.key;
+
+    // Trap keyboard focus inside of the modal
+    if (key === "Tab" && this.option("trapFocus")) {
+      this.focus(event);
+
+      return;
+    }
+
     const keyboard = this.option("keyboard");
 
     if (!keyboard || event.ctrlKey || event.altKey || event.shiftKey) {
@@ -2230,9 +2123,35 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    * @param {Event} [event] - Focus event
    */
   focus(event) {
-    if (Fancybox.ignoreFocusChange) {
-      return;
+    if (Fancybox.preventScrollSupported === undefined) {
+      // Detect if .focus() method  supports `preventScroll` option,
+      // see https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/focus
+      Fancybox.preventScrollSupported = (function () {
+        let rez = false;
+
+        document.createElement("div").focus({
+          get preventScroll() {
+            rez = true;
+            return false;
+          },
+        });
+
+        return rez;
+      })();
     }
+
+    const setFocusOn = (node) => {
+      if (node.setActive) {
+        // IE/Edge
+        node.setActive();
+      } else if (Fancybox.preventScrollSupported) {
+        // Modern browsers
+        node.focus({ preventScroll: true });
+      } else {
+        // Safari
+        node.focus();
+      }
+    };
 
     if (["init", "closing", "customClosing", "destroy"].indexOf(this.state) > -1) {
       return;
@@ -2242,68 +2161,92 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       event.preventDefault();
     }
 
-    Fancybox.ignoreFocusChange = true;
+    const FOCUSABLE_ELEMENTS = [
+      "a[href]",
+      "area[href]",
+      'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
+      "select:not([disabled]):not([aria-hidden])",
+      "textarea:not([disabled]):not([aria-hidden])",
+      "button:not([disabled]):not([aria-hidden])",
+      "iframe",
+      "object",
+      "embed",
+      "video",
+      "audio",
+      "[contenteditable]",
+      '[tabindex]:not([tabindex^="-"]):not([disabled]):not([aria-hidden])',
+    ];
 
-    const $container = this.$container;
-    const currentSlide = this.getSlide();
-    const $currentSlide = currentSlide.state === "done" ? currentSlide.$el : null;
+    const $currentSlide = this.getSlide().$el;
 
-    const allFocusableElems = Array.from($container.querySelectorAll(_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.FOCUSABLE_ELEMENTS));
+    if (!$currentSlide) {
+      return;
+    }
+
+    // Setting `tabIndex` here helps to avoid Safari issues with random focusing and scrolling
+    $currentSlide.tabIndex = 0;
+
+    const allFocusableElems = [].slice.call(this.$container.querySelectorAll(FOCUSABLE_ELEMENTS));
 
     let enabledElems = [];
-    let $firstEl;
 
     for (let node of allFocusableElems) {
-      // Enable element if it's visible and
-      // is inside the current slide or is outside main carousel (for example, inside the toolbar)
-      const isNodeVisible = node.offsetParent;
-      const isNodeInsideCurrentSlide = $currentSlide && $currentSlide.contains(node);
-      const isNodeOutsideCarousel = !this.Carousel.$viewport.contains(node);
+      // Slide element will be the last one, the highest priority has elements having `autofocus` attribute
+      if (node.classList && node.classList.contains("fancybox__slide")) {
+        continue;
+      }
 
-      if (isNodeVisible && (isNodeInsideCurrentSlide || isNodeOutsideCarousel)) {
+      const $closestSlide = node.closest(".fancybox__slide");
+
+      if ($closestSlide) {
+        if ($closestSlide === $currentSlide) {
+          enabledElems[node.hasAttribute("autofocus") ? "unshift" : "push"](node);
+        }
+      } else {
         enabledElems.push(node);
-
-        if (node.dataset.origTabindex !== undefined) {
-          node.tabIndex = node.dataset.origTabindex;
-          node.removeAttribute("data-orig-tabindex");
-        }
-
-        if (
-          node.hasAttribute("autoFocus") ||
-          (!$firstEl && isNodeInsideCurrentSlide && !node.classList.contains("carousel__button"))
-        ) {
-          $firstEl = node;
-        }
-      } else {
-        // Element is either hidden or is inside preloaded slide (e.g., not inside current slide, but next/prev)
-        node.dataset.origTabindex =
-          node.dataset.origTabindex === undefined ? node.getAttribute("tabindex") : node.dataset.origTabindex;
-
-        node.tabIndex = -1;
       }
     }
 
-    if (!event) {
-      if (this.option("autoFocus") && $firstEl) {
-        (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($firstEl);
-      } else if (enabledElems.indexOf(document.activeElement) < 0) {
-        (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($container);
-      }
-    } else {
-      if (enabledElems.indexOf(event.target) > -1) {
-        this.lastFocus = event.target;
-      } else {
-        if (this.lastFocus === $container) {
-          (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)(enabledElems[enabledElems.length - 1]);
-        } else {
-          (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($container);
-        }
-      }
+    if (!enabledElems.length) {
+      return;
     }
 
-    this.lastFocus = document.activeElement;
+    if (this.Carousel.pages.length > 1) {
+      enabledElems.push($currentSlide);
+    }
 
-    Fancybox.ignoreFocusChange = false;
+    // Sort by tabindex
+    enabledElems.sort(function (a, b) {
+      if (a.tabIndex > b.tabIndex) return -1;
+      if (a.tabIndex < b.tabIndex) return 1;
+
+      return 0;
+    });
+
+    const focusedElementIndex = enabledElems.indexOf(document.activeElement);
+
+    const moveForward = event && !event.shiftKey;
+    const moveBackward = event && event.shiftKey;
+
+    if (moveForward) {
+      if (focusedElementIndex === enabledElems.length - 1) {
+        return setFocusOn(enabledElems[0]);
+      }
+
+      return setFocusOn(enabledElems[focusedElementIndex + 1]);
+    }
+
+    if (moveBackward) {
+      if (focusedElementIndex === 0) {
+        return setFocusOn(enabledElems[enabledElems.length - 1]);
+      }
+
+      return setFocusOn(enabledElems[focusedElementIndex - 1]);
+    }
+
+    if (focusedElementIndex < 0) {
+      return setFocusOn(enabledElems[0]);
+    }
   }
 
   /**
@@ -2363,11 +2306,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       slide.$content = null;
     }
 
-    if (slide.$closeButton) {
-      slide.$closeButton.remove();
-      slide.$closeButton = null;
-    }
-
     if (slide._className) {
       slide.$el.classList.remove(slide._className);
     }
@@ -2392,20 +2330,12 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
         $content = html;
       }
     } else {
-      const $fragment = document.createRange().createContextualFragment(html);
-
       $content = document.createElement("div");
-      $content.appendChild($fragment);
-    }
-
-    if (slide.filter && !slide.error) {
-      $content = $content.querySelector(slide.filter);
+      $content.innerHTML = html;
     }
 
     if (!($content instanceof Element)) {
-      this.setError(slide, "{{ELEMENT_NOT_FOUND}}");
-
-      return;
+      throw new Error("Element expected");
     }
 
     // * Add class name indicating content type, for example `has-image`
@@ -2417,8 +2347,8 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
     $content.classList.add("fancybox__content");
 
     // Make sure that content is not hidden and will be visible
-    if ($content.style.display === "none" || getComputedStyle($content).getPropertyValue("display") === "none") {
-      $content.style.display = slide.display || this.option("defaultDisplay") || "flex";
+    if ($content.style.display === "none" || window.getComputedStyle($content).getPropertyValue("display") === "none") {
+      $content.style.display = "flex";
     }
 
     if (slide.id) {
@@ -2665,7 +2595,7 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
 
     // First, stop further execution if this instance is already closing
     // (this can happen if, for example, user clicks close button multiple times really fast)
-    if (["closing", "customClosing", "destroy"].includes(this.state)) {
+    if (["closing", "customClosing", "destroy"].indexOf(this.state) > -1) {
       return;
     }
 
@@ -2719,10 +2649,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    * Clean up after closing fancybox
    */
   destroy() {
-    if (this.state === "destroy") {
-      return;
-    }
-
     this.state = "destroy";
 
     this.trigger("destroy");
@@ -2745,10 +2671,17 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
     this.$container = this.$backdrop = this.$carousel = null;
 
     if ($trigger) {
-      (0,_shared_utils_setFocusOn_js__WEBPACK_IMPORTED_MODULE_2__.setFocusOn)($trigger);
-    }
+      // `preventScroll` option is not yet supported by Safari
+      // https://bugs.webkit.org/show_bug.cgi?id=178583
 
-    delete instances[this.id];
+      if (Fancybox.preventScrollSupported) {
+        $trigger.focus({ preventScroll: true });
+      } else {
+        const scrollTop = document.body.scrollTop; // Save position
+        $trigger.focus();
+        document.body.scrollTop = scrollTop;
+      }
+    }
 
     const nextInstance = Fancybox.getInstance();
 
@@ -2796,10 +2729,9 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       return;
     }
 
-    let eventTarget = event.target;
-
     // Support `trigger` element, e.g., start fancybox from different DOM element, for example,
     // to have one preview image for hidden image gallery
+    let eventTarget = event.target;
     let triggerGroupName;
 
     if (
@@ -2829,23 +2761,17 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       .some((opener) => {
         target = eventTarget;
 
-        let found = false;
-
-        try {
-          if (target instanceof Element && (typeof opener === "string" || opener instanceof String)) {
-            // Chain closest() to event.target to find and return the parent element,
-            // regardless if clicking on the child elements (icon, label, etc)
-            found = target.matches(opener) || (target = target.closest(opener));
-          }
-        } catch (error) {}
-
-        if (found) {
-          event.preventDefault();
-          matchingOpener = opener;
-          return true;
+        // Chain closest() to event.target to find and return the parent element,
+        // regardless if clicking on the child elements (icon, label, etc)
+        if (!(target.matches(opener) || (target = target.closest(opener)))) {
+          return;
         }
 
-        return false;
+        event.preventDefault();
+
+        matchingOpener = opener;
+
+        return true;
       });
 
     let rez = false;
@@ -2884,17 +2810,10 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       const falseValues = ["false", "0", "no", "null", "undefined"];
       const trueValues = ["true", "1", "yes"];
 
-      const dataset = Object.assign({}, el.dataset);
-      const options = {};
+      const options = Object.assign({}, el.dataset);
 
-      for (let [key, value] of Object.entries(dataset)) {
-        if (key === "fancybox") {
-          continue;
-        }
-
-        if (key === "width" || key === "height") {
-          options[`_${key}`] = value;
-        } else if (typeof value === "string" || value instanceof String) {
+      for (let [key, value] of Object.entries(options)) {
+        if (typeof value === "string" || value instanceof String) {
           if (falseValues.indexOf(value) > -1) {
             options[key] = false;
           } else if (trueValues.indexOf(options[key]) > -1) {
@@ -2906,10 +2825,11 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
               options[key] = value;
             }
           }
-        } else {
-          options[key] = value;
         }
       }
+
+      delete options.fancybox;
+      delete options.type;
 
       if (el instanceof Element) {
         options.$trigger = el;
@@ -2923,26 +2843,22 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       target = options.target || null;
 
     // Get options
-    // ===
     options = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, options, Fancybox.openers.get(opener));
 
     // Get matching nodes
-    // ===
+    const groupAttr = options.groupAttr === undefined ? "data-fancybox" : options.groupAttr;
+    const groupValue = groupAttr && target && target.getAttribute(`${groupAttr}`);
+
     const groupAll = options.groupAll === undefined ? false : options.groupAll;
 
-    const groupAttr = options.groupAttr === undefined ? "data-fancybox" : options.groupAttr;
-    const groupValue = groupAttr && target ? target.getAttribute(`${groupAttr}`) : "";
-
-    if (!target || groupValue || groupAll) {
+    if (groupAll || groupValue) {
       items = [].slice.call(document.querySelectorAll(opener));
-    }
 
-    if (target && !groupAll) {
-      if (groupValue) {
+      if (!groupAll) {
         items = items.filter((el) => el.getAttribute(`${groupAttr}`) === groupValue);
-      } else {
-        items = [target];
       }
+    } else {
+      items = [target];
     }
 
     if (!items.length) {
@@ -2950,17 +2866,13 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
     }
 
     // Exit if current instance is triggered from the same element
-    // ===
     const currentInstance = Fancybox.getInstance();
 
     if (currentInstance && items.indexOf(currentInstance.options.$trigger) > -1) {
       return false;
     }
 
-    // Start Fancybox
-    // ===
-
-    // Get index of current item in the gallery
+    // Index of current item in the gallery
     index = target ? items.indexOf(target) : index;
 
     // Convert items in a format supported by fancybox
@@ -2982,19 +2894,20 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    * @param {Object} [options] - Custom options
    */
   static bind(selector, options = {}) {
-    function attachClickEvent() {
-      document.body.addEventListener("click", Fancybox.fromEvent, false);
-    }
-
     if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_1__.canUseDOM) {
       return;
     }
 
     if (!Fancybox.openers.size) {
-      if (/complete|interactive|loaded/.test(document.readyState)) {
-        attachClickEvent();
-      } else {
-        document.addEventListener("DOMContentLoaded", attachClickEvent);
+      document.body.addEventListener("click", Fancybox.fromEvent, false);
+
+      // Pass self to plugins to avoid circular dependencies
+      for (const [key, Plugin] of Object.entries(Fancybox.Plugins || {})) {
+        Plugin.Fancybox = this;
+
+        if (typeof Plugin.create === "function") {
+          Plugin.create();
+        }
       }
     }
 
@@ -3033,21 +2946,23 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
    * @param {String|Numeric} [id] - Optional instance identifier
    */
   static getInstance(id) {
+    let nodes = [];
+
     if (id) {
-      return instances[id];
+      nodes = [document.getElementById(`fancybox-${id}`)];
+    } else {
+      nodes = Array.from(document.querySelectorAll(".fancybox__container")).reverse();
     }
 
-    const instance = Object.values(instances)
-      .reverse()
-      .find((instance) => {
-        if (!["closing", "customClosing", "destroy"].includes(instance.state)) {
-          return instance;
-        }
+    for (const $container of nodes) {
+      const instance = $container && $container.Fancybox;
 
-        return false;
-      });
+      if (instance && instance.state !== "closing" && instance.state !== "customClosing") {
+        return instance;
+      }
+    }
 
-    return instance || null;
+    return null;
   }
 
   /**
@@ -3063,28 +2978,6 @@ class Fancybox extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_3__.Base {
       if (!all) return;
     }
   }
-
-  /**
-   * Slide topmost currently active instance to next page
-   */
-  static next() {
-    const instance = Fancybox.getInstance();
-
-    if (instance) {
-      instance.next();
-    }
-  }
-
-  /**
-   * Slide topmost currently active instance to previous page
-   */
-  static prev() {
-    const instance = Fancybox.getInstance();
-
-    if (instance) {
-      instance.prev();
-    }
-  }
 }
 
 // Expose version
@@ -3097,17 +2990,10 @@ Fancybox.defaults = defaults;
 Fancybox.openers = new Map();
 
 // Add default plugins
-Fancybox.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_5__.Plugins;
+Fancybox.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_4__.Plugins;
 
 // Auto init with default options
 Fancybox.bind("[data-fancybox]");
-
-// Prepare plugins
-for (const [key, Plugin] of Object.entries(Fancybox.Plugins || {})) {
-  if (typeof Plugin.create === "function") {
-    Plugin.create(Fancybox);
-  }
-}
 
 
 
@@ -3160,6 +3046,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
 
 
+/**
+ * Helper method to split URL hash into useful pieces
+ */
+const getParsedURL = function () {
+  const hash = window.location.hash.substr(1),
+    tmp = hash.split("-"),
+    index = tmp.length > 1 && /^\+?\d+$/.test(tmp[tmp.length - 1]) ? parseInt(tmp.pop(-1), 10) || null : null,
+    slug = tmp.join("-");
+
+  return {
+    hash,
+    slug,
+    index,
+  };
+};
+
 class Hash {
   constructor(fancybox) {
     this.fancybox = fancybox;
@@ -3193,19 +3095,22 @@ class Hash {
     }
 
     const firstRun = carousel.prevPage === null;
-    const currentHash = window.location.hash.substr(1);
+
     const slide = fancybox.getSlide();
+
+    const dataset = slide.$trigger && slide.$trigger.dataset;
+
+    const currentHash = window.location.hash.substr(1);
 
     let newHash = false;
 
     if (slide.slug) {
       newHash = slide.slug;
     } else {
-      const dataset = slide.$trigger && slide.$trigger.dataset;
-      const slug = fancybox.option("slug") || (dataset && dataset.fancybox);
+      let dataAttribute = dataset && dataset.fancybox;
 
-      if (slug && slug.length && slug !== "true") {
-        newHash = slug + (carousel.slides.length > 1 ? "-" + (slide.index + 1) : "");
+      if (dataAttribute && dataAttribute.length && dataAttribute !== "true") {
+        newHash = dataAttribute + (carousel.slides.length > 1 ? "-" + (slide.index + 1) : "");
       }
     }
 
@@ -3274,18 +3179,17 @@ class Hash {
    * @param {Class} Fancybox
    */
   static startFromUrl() {
-    if (!Hash.Fancybox || Hash.Fancybox.getInstance()) {
+    if (Hash.Fancybox.getInstance()) {
       return;
     }
 
-    const { hash, slug, index } = Hash.getParsedURL();
+    const { hash, slug, index } = getParsedURL();
 
     if (!slug) {
       return;
     }
 
     // Support custom slug
-    // ===
     let selectedElem = document.querySelector(`[data-slug="${hash}"]`);
 
     if (selectedElem) {
@@ -3296,8 +3200,7 @@ class Hash {
       return;
     }
 
-    // If elements are not found by custom slug, use URL hash value as group name
-    // ===
+    // Use URL hash value as group name
     const groupElems = document.querySelectorAll(`[data-fancybox="${slug}"]`);
 
     if (!groupElems.length) {
@@ -3319,7 +3222,7 @@ class Hash {
    * Handle `hash` change, change gallery item to current index or start/close current instance
    */
   static onHashChange() {
-    const { slug, index } = Hash.getParsedURL();
+    const { slug, index } = getParsedURL();
 
     const instance = Hash.Fancybox.getInstance();
 
@@ -3327,14 +3230,6 @@ class Hash {
       // Look if this is inside currently active gallery
       if (slug) {
         const carousel = instance.Carousel;
-
-        /**
-         * Support manually opened gallery
-         */
-        if (slug === instance.option("slug")) {
-          return carousel.slideTo(index - 1);
-        }
-
         /**
          * Check if URL hash matches `data-slug` value of active element
          */
@@ -3373,44 +3268,29 @@ class Hash {
   /**
    * Add event bindings that will start new Fancybox instance based in the current URL
    */
-  static create(Fancybox) {
-    Hash.Fancybox = Fancybox;
 
-    function proceed() {
-      window.addEventListener("hashchange", Hash.onHashChange, false);
+  static onReady() {
+    window.addEventListener("hashchange", Hash.onHashChange, false);
 
-      Hash.startFromUrl();
+    Hash.startFromUrl();
+  }
+
+  static create() {
+    // Skip if SSR
+    if (!_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__.canUseDOM) {
+      return;
     }
 
-    if (_shared_utils_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__.canUseDOM) {
-      window.requestAnimationFrame(() => {
-        if (/complete|interactive|loaded/.test(document.readyState)) {
-          proceed();
-        } else {
-          document.addEventListener("DOMContentLoaded", proceed);
-        }
-      });
-    }
+    /**
+     * Attempt to start Fancybox
+     */
+    window.requestAnimationFrame(() => {
+      Hash.onReady();
+    });
   }
 
   static destroy() {
     window.removeEventListener("hashchange", Hash.onHashChange, false);
-  }
-
-  /**
-   * Helper method to split URL hash into useful pieces
-   */
-  static getParsedURL() {
-    const hash = window.location.hash.substr(1),
-      tmp = hash.split("-"),
-      index = tmp.length > 1 && /^\+?\d+$/.test(tmp[tmp.length - 1]) ? parseInt(tmp.pop(-1), 10) || null : null,
-      slug = tmp.join("-");
-
-    return {
-      hash,
-      slug,
-      index,
-    };
   }
 }
 
@@ -3431,33 +3311,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/extend.js */ "./node_modules/@fancyapps/ui/src/shared/utils/extend.js");
 
 
-const buildURLQuery = (src, obj) => {
-  const url = new URL(src);
-  const params = new URLSearchParams(url.search);
-
-  let rez = new URLSearchParams();
-
-  for (const [key, value] of [...params, ...Object.entries(obj)]) {
-    // Youtube
-    if (key === "t") {
-      rez.set("start", parseInt(value));
-    } else {
-      rez.set(key, value);
-    }
-  }
-
-  // Convert to 'foo=1&bar=2&baz=3'
-  rez = rez.toString();
-
-  // Vimeo
-  // https://vimeo.zendesk.com/hc/en-us/articles/360000121668-Starting-playback-at-a-specific-timecode
-  let matches = src.match(/#t=((.*)?\d+s)/);
-
-  if (matches) {
-    rez += `#t=${matches[1]}`;
-  }
-
-  return rez;
+const buildURLQuery = (obj) => {
+  return Object.entries(obj)
+    .map((pair) => pair.map(encodeURIComponent).join("="))
+    .join("&");
 };
 
 const defaults = {
@@ -3487,7 +3344,9 @@ const defaults = {
   // HTML5 video parameters
   html5video: {
     tpl: `<video class="fancybox__html5video" playsinline controls controlsList="nodownload" poster="{{poster}}">
-  <source src="{{src}}" type="{{format}}" />Sorry, your browser doesn't support embedded videos.</video>`,
+  <source src="{{src}}" type="{{format}}" />
+  Sorry, your browser doesn\'t support embedded videos, <a href="{{src}}">download</a> and watch with your favorite video player!
+</video>`,
     format: "",
   },
 };
@@ -3566,7 +3425,7 @@ class Html {
         /(?:youtube\.com|youtu\.be|youtube\-nocookie\.com)\/(?:watch\?(?:.*&)?v=|v\/|u\/|embed\/?)?(videoseries\?list=(?:.*)|[\w-]{11}|\?listType=(?:.*)&list=(?:.*))(?:.*)/i
       ))
     ) {
-      const params = buildURLQuery(src, this.fancybox.option("Html.youtube"));
+      const params = buildURLQuery(this.fancybox.option("Html.youtube"));
       const videoId = encodeURIComponent(rez[1]);
 
       slide.videoId = videoId;
@@ -3576,7 +3435,7 @@ class Html {
 
       type = "video";
     } else if ((rez = src.match(/^.+vimeo.com\/(?:\/)?([\d]+)(.*)?/))) {
-      const params = buildURLQuery(src, this.fancybox.option("Html.vimeo"));
+      const params = buildURLQuery(this.fancybox.option("Html.vimeo"));
       const videoId = encodeURIComponent(rez[1]);
 
       slide.videoId = videoId;
@@ -3621,10 +3480,10 @@ class Html {
     if (type === "html5video" || type === "video") {
       slide.video = (0,_shared_utils_extend_js__WEBPACK_IMPORTED_MODULE_0__.extend)({}, this.fancybox.option("Html.video"), slide.video);
 
-      if (slide._width && slide._height) {
-        slide.ratio = parseFloat(slide._width) / parseFloat(slide._height);
+      if (slide.width && slide.height) {
+        slide.ratio = parseFloat(slide.width) / parseFloat(slide.height);
       } else {
-        slide.ratio = slide.ratio || slide.video.ratio || defaults.video.ratio;
+        slide.ratio = slide.ratio || slide.video.ratio;
       }
     }
   }
@@ -3720,7 +3579,6 @@ class Html {
     };
 
     xhr.open("GET", slide.src);
-    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.send(slide.ajax || null);
 
     slide.xhr = xhr;
@@ -3748,8 +3606,6 @@ class Html {
 
       this.fancybox.setContent(slide, $iframe);
 
-      this.resizeIframe(slide);
-
       return;
     }
 
@@ -3771,8 +3627,8 @@ class Html {
 
       let isFirstLoad = false;
 
-      if (!$iframe.isReady) {
-        $iframe.isReady = true;
+      if ($iframe.dataset.ready !== "yes") {
+        $iframe.dataset.ready = "yes";
         isFirstLoad = true;
       }
 
@@ -3782,7 +3638,9 @@ class Html {
 
       $iframe.parentNode.style.visibility = "";
 
-      this.resizeIframe(slide);
+      if (slide.autoSize !== false) {
+        this.autoSizeIframe($iframe);
+      }
 
       if (isFirstLoad) {
         fancybox.revealContent(slide);
@@ -3797,117 +3655,78 @@ class Html {
    * @param {Object} slide
    */
   setAspectRatio(slide) {
-    const $content = slide.$content;
-    const ratio = slide.ratio;
+    let ratio = slide.ratio;
 
-    if (!$content) {
+    if (!ratio || !slide.$content) {
       return;
     }
 
-    let width = slide._width;
-    let height = slide._height;
+    slide.$content.style.maxWidth = "";
+    slide.$content.style.maxHeight = "";
 
-    if (ratio || (width && height)) {
-      Object.assign($content.style, {
-        width: width && height ? "100%" : "",
-        height: width && height ? "100%" : "",
-        maxWidth: "",
-        maxHeight: "",
-      });
+    let width = slide.$content.offsetWidth;
+    let height = slide.$content.offsetHeight;
 
-      let maxWidth = $content.offsetWidth;
-      let maxHeight = $content.offsetHeight;
+    let maxWidth = slide.width;
+    let maxHeight = slide.height;
 
-      width = width || maxWidth;
-      height = height || maxHeight;
+    if (maxWidth && maxHeight && (width > maxWidth || height > maxHeight)) {
+      let maxRatio = Math.min(maxWidth / width, maxHeight / height);
 
-      // Resize to fit
-      if (width > maxWidth || height > maxHeight) {
-        let maxRatio = Math.min(maxWidth / width, maxHeight / height);
-
-        width = width * maxRatio;
-        height = height * maxRatio;
-      }
-
-      // Recheck ratio
-      if (Math.abs(width / height - ratio) > 0.01) {
-        if (ratio < width / height) {
-          width = height * ratio;
-        } else {
-          height = width / ratio;
-        }
-      }
-
-      Object.assign($content.style, {
-        width: `${width}px`,
-        height: `${height}px`,
-      });
+      width = width * maxRatio;
+      height = height * maxRatio;
     }
+
+    if (ratio < width / height) {
+      width = height * ratio;
+    } else {
+      height = width / ratio;
+    }
+
+    slide.$content.style.maxWidth = `${width}px`;
+    slide.$content.style.maxHeight = `${height}px`;
   }
 
   /**
-   * Adjust the width and height of the iframe according to the content dimensions, or defined sizes
-   * @param {Object} slide
+   * Adjust the width and height of iframe to fit with content
+   * @param {Object} $iframe
    */
-  resizeIframe(slide) {
-    const $iframe = slide.$iframe;
-
-    if (!$iframe) {
+  autoSizeIframe($iframe) {
+    if (!$iframe.dataset || $iframe.dataset.ready !== "yes") {
       return;
     }
 
-    let width_ = slide._width || 0;
-    let height_ = slide._height || 0;
+    let parentStyle = $iframe.parentNode.style;
 
-    if (width_ && height_) {
-      slide.autoSize = false;
-    }
+    parentStyle.flex = "1 1 auto";
+    parentStyle.width = "";
+    parentStyle.height = "";
 
-    const $parent = $iframe.parentNode;
-    const parentStyle = $parent.style;
+    try {
+      const document = $iframe.contentWindow.document,
+        $html = document.getElementsByTagName("html")[0],
+        $body = document.body,
+        style = window.getComputedStyle($iframe.parentNode),
+        paddingX = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight),
+        paddingY = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
 
-    if (slide.preload !== false && slide.autoSize !== false) {
-      try {
-        const compStyles = window.getComputedStyle($parent),
-          paddingX = parseFloat(compStyles.paddingLeft) + parseFloat(compStyles.paddingRight),
-          paddingY = parseFloat(compStyles.paddingTop) + parseFloat(compStyles.paddingBottom);
+      // Get rid of vertical scrollbar
+      $body.style.overflow = "hidden";
 
-        const document = $iframe.contentWindow.document,
-          $html = document.getElementsByTagName("html")[0],
-          $body = document.body;
+      const width = $html.scrollWidth;
+      parentStyle.width = `${width + paddingX}px`;
 
-        // Get rid of vertical scrollbar
-        $body.style.overflow = "hidden";
+      $body.style.overflow = "";
 
-        width_ = width_ || $html.scrollWidth + paddingX;
+      parentStyle.flex = "";
+      parentStyle.flexShrink = "0";
+      parentStyle.height = `${$body.scrollHeight}px`;
 
-        parentStyle.width = `${width_}px`;
+      const height = $html.scrollHeight;
 
-        $body.style.overflow = "";
-
-        parentStyle.flex = "0 0 auto";
-        parentStyle.height = `${$body.scrollHeight}px`;
-
-        height_ = $html.scrollHeight + paddingY;
-      } catch (error) {
-        //
-      }
-    }
-
-    if (width_ || height_) {
-      const newStyle = {
-        flex: "0 1 auto",
-      };
-
-      if (width_) {
-        newStyle.width = `${width_}px`;
-      }
-
-      if (height_) {
-        newStyle.height = `${height_}px`;
-      }
-
-      Object.assign(parentStyle, newStyle);
+      parentStyle.height = `${height + paddingY}px`;
+    } catch (error) {
+      parentStyle = "";
     }
   }
 
@@ -3923,8 +3742,8 @@ class Html {
         return;
       }
 
-      if (slide.$iframe) {
-        this.resizeIframe(slide);
+      if (slide.$iframe && slide.autoSize !== false) {
+        this.autoSizeIframe(slide.$iframe);
       }
 
       if (slide.ratio) {
@@ -3956,7 +3775,7 @@ class Html {
             .option("Html.html5video.tpl")
             .replace(/\{\{src\}\}/gi, slide.src)
             .replace("{{format}}", slide.format || (slide.html5video && slide.html5video.format) || "")
-            .replace("{{poster}}", slide.poster || slide.thumb || "")
+            .replace("{{poster}}", slide.thumb || "")
         );
 
         break;
@@ -3970,12 +3789,10 @@ class Html {
         this.loadAjaxContent(slide);
         break;
 
+      case "iframe":
       case "pdf":
       case "video":
       case "map":
-        slide.preload = false;
-
-      case "iframe":
         this.loadIframeContent(slide);
 
         break;
@@ -4003,26 +3820,14 @@ class Html {
    * @param {Object} slide
    */
   playVideo(slide) {
-    if (slide.type === "html5video" && slide.video.autoplay) {
-      try {
-        const $video = slide.$el.querySelector("video");
+    if (slide.type === "html5video") {
+      const videoElem = slide.$el.querySelector("video");
 
-        if ($video) {
-          const promise = $video.play();
-
-          if (promise !== undefined) {
-            promise
-              .then(() => {
-                // Autoplay started
-              })
-              .catch((error) => {
-                // Autoplay was prevented.
-                $video.muted = true;
-                $video.play();
-              });
-          }
-        }
-      } catch (err) {}
+      if (videoElem) {
+        try {
+          videoElem.play();
+        } catch (err) {}
+      }
     }
 
     if (slide.type !== "video" || !(slide.$iframe && slide.$iframe.contentWindow)) {
@@ -4032,39 +3837,41 @@ class Html {
     // This function will be repeatedly called to check
     // if video iframe has been loaded to send message to start the video
     const poller = () => {
-      if (slide.state === "done" && slide.$iframe && slide.$iframe.contentWindow) {
-        let command;
+      if (slide.state !== "done" || !slide.$iframe || !slide.$iframe.contentWindow) {
+        return;
+      }
 
-        if (slide.$iframe.isReady) {
-          if (slide.video && slide.video.autoplay) {
-            if (slide.vendor == "youtube") {
-              command = {
-                event: "command",
-                func: "playVideo",
-              };
-            } else {
-              command = {
-                method: "play",
-                value: "true",
-              };
-            }
+      let command;
+
+      if (slide.$iframe.isReady) {
+        if (slide.video && slide.video.autoplay) {
+          if (slide.vendor == "youtube") {
+            command = {
+              event: "command",
+              func: "playVideo",
+            };
+          } else {
+            command = {
+              method: "play",
+              value: "true",
+            };
           }
-
-          if (command) {
-            slide.$iframe.contentWindow.postMessage(JSON.stringify(command), "*");
-          }
-
-          return;
         }
 
-        if (slide.vendor === "youtube") {
-          command = {
-            event: "listening",
-            id: slide.$iframe.getAttribute("id"),
-          };
-
+        if (command) {
           slide.$iframe.contentWindow.postMessage(JSON.stringify(command), "*");
         }
+
+        return;
+      }
+
+      if (slide.vendor === "youtube") {
+        command = {
+          event: "listening",
+          id: slide.$iframe.getAttribute("id"),
+        };
+
+        slide.$iframe.contentWindow.postMessage(JSON.stringify(command), "*");
       }
 
       slide.poller = setTimeout(poller, 250);
@@ -4139,11 +3946,11 @@ class Html {
       if ($content.style.display !== "none") {
         $content.style.display = "none";
       }
-    }
 
-    if (slide.$closeButton) {
-      slide.$closeButton.remove();
-      slide.$closeButton = null;
+      if (slide.$closeButton) {
+        slide.$closeButton.remove();
+        slide.$closeButton = null;
+      }
     }
 
     const $placeHolder = $content && $content.$placeHolder;
@@ -4316,7 +4123,6 @@ class Image {
    */
   onClosing(fancybox) {
     clearTimeout(this.clickTimer);
-    this.clickTimer = null;
 
     // Remove events
     fancybox.Carousel.slides.forEach((slide) => {
@@ -4500,9 +4306,6 @@ class Image {
         viewport: slide.$wrap,
         content: slide.$image,
 
-        width: slide._width,
-        height: slide._height,
-
         wrapInner: false,
 
         // Allow to select caption text
@@ -4586,7 +4389,7 @@ class Image {
     return {
       top: shiftedTop,
       left: shiftedLeft,
-      scale: contentWidth && thumbWidth ? thumbWidth / contentWidth : 1,
+      scale: thumbRect.width / contentWidth,
       opacity: opacity,
     };
   }
@@ -4599,10 +4402,6 @@ class Image {
       $container = fancybox.$container;
 
     if (window.visualViewport && window.visualViewport.scale !== 1) {
-      return false;
-    }
-
-    if (slide.Panzoom && !slide.Panzoom.content.width) {
       return false;
     }
 
@@ -4648,6 +4447,8 @@ class Image {
 
     const { top, left, scale, opacity } = this.getZoomInfo(slide);
 
+    slide.state = "zoomIn";
+
     fancybox.trigger("reveal", slide);
 
     // Scale and move to start position
@@ -4660,8 +4461,6 @@ class Image {
     });
 
     slide.$content.style.visibility = "";
-
-    slide.state = "zoomIn";
 
     if (opacity === true) {
       Panzoom.on("afterTransform", (panzoom) => {
@@ -4725,7 +4524,7 @@ class Image {
     // therefore animation end position has to be recalculated after each page scroll
     window.addEventListener("scroll", animatePosition);
 
-    Panzoom.once("endAnimation", () => {
+    Panzoom.on("endAnimation", () => {
       window.removeEventListener("scroll", animatePosition);
       fancybox.destroy();
     });
@@ -4738,31 +4537,21 @@ class Image {
    * @param {Object} slide
    */
   handleCursor(slide) {
-    if (slide.type !== "image" || !slide.$el) {
+    if (slide.type !== "image") {
       return;
     }
 
     const panzoom = slide.Panzoom;
-    const clickAction = this.fancybox.option("Image.click", false, slide);
-    const touchIsEnabled = this.fancybox.option("Image.touch");
-
+    const clickAction = this.fancybox.option("Image.click");
     const classList = slide.$el.classList;
 
-    const zoomInClass = this.fancybox.option("Image.canZoomInClass");
-    const zoomOutClass = this.fancybox.option("Image.canZoomOutClass");
-
     if (panzoom && clickAction === "toggleZoom") {
-      const canZoomIn =
+      const canZoom =
         panzoom && panzoom.content.scale === 1 && panzoom.option("maxScale") - panzoom.content.scale > 0.01;
 
-      if (canZoomIn) {
-        classList.remove(zoomOutClass);
-        classList.add(zoomInClass);
-      } else if (panzoom.content.scale > 1 && !touchIsEnabled) {
-        classList.add(zoomOutClass);
-      }
+      classList[canZoom ? "add" : "remove"](this.fancybox.option("Image.canZoomInClass"));
     } else if (clickAction === "close") {
-      classList.add(zoomOutClass);
+      classList.add(this.fancybox.option("Image.canZoomOutClass"));
     }
   }
 
@@ -4804,7 +4593,7 @@ class Image {
    * @param {Object} event
    */
   onClick(slide, event) {
-    // Check that clicks should be allowed
+    // Check if can click
     if (this.fancybox.state !== "ready") {
       return;
     }
@@ -4826,6 +4615,10 @@ class Image {
     }
 
     const process = (action) => {
+      if (this.fancybox.trigger("Image.click", event) === false) {
+        return;
+      }
+
       switch (action) {
         case "toggleZoom":
           event.stopPropagation();
@@ -4848,20 +4641,22 @@ class Image {
       }
     };
 
+    // Clear pending single click
+    if (this.clickTimer) {
+      clearTimeout(this.clickTimer);
+      this.clickTimer = null;
+    }
+
     const clickAction = this.fancybox.option("Image.click");
     const dblclickAction = this.fancybox.option("Image.doubleClick");
 
     if (dblclickAction) {
-      if (this.clickTimer) {
-        clearTimeout(this.clickTimer);
-        this.clickTimer = null;
-
-        process(dblclickAction);
-      } else {
+      if (event.detail === 1) {
         this.clickTimer = setTimeout(() => {
-          this.clickTimer = null;
           process(clickAction);
         }, 300);
+      } else if (event.detail === 2) {
+        process(dblclickAction);
       }
     } else {
       process(clickAction);
@@ -5008,10 +4803,6 @@ class ScrollLock {
     const startY = this.startY;
     const zoom = window.innerWidth / window.document.documentElement.clientWidth;
 
-    if (!event.cancelable) {
-      return;
-    }
-
     if (event.touches.length > 1 || zoom !== 1) {
       return;
     }
@@ -5099,9 +4890,6 @@ const defaults = {
 
   // Keyboard shortcut to toggle thumbnail container
   key: "t",
-
-  // Customize Carousel instance
-  Carousel: {},
 };
 
 class Thumbs {
@@ -5243,38 +5031,26 @@ class Thumbs {
    */
   toggle() {
     if (this.state === "visible") {
-      this.hide();
-    } else if (this.state === "hidden") {
-      this.show();
-    } else {
-      this.build();
-    }
-  }
+      this.Carousel.Panzoom.detachEvents();
 
-  /**
-   * Show thumbnail list
-   */
-  show() {
+      this.$container.style.display = "none";
+
+      this.state = "hidden";
+
+      return;
+    }
+
     if (this.state === "hidden") {
       this.$container.style.display = "";
 
       this.Carousel.Panzoom.attachEvents();
 
       this.state = "visible";
+
+      return;
     }
-  }
 
-  /**
-   * Hide thumbnail list
-   */
-  hide() {
-    if (this.state === "visible") {
-      this.Carousel.Panzoom.detachEvents();
-
-      this.$container.style.display = "none";
-
-      this.state = "hidden";
-    }
+    this.build();
   }
 
   /**
@@ -5333,50 +5109,42 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const defaults = {
-  // What toolbar items to display
-  display: [
-    "counter",
-    //"prev",
-    //"next",
-    //"download",
-    "zoom",
-    "slideshow",
-    "fullscreen",
-    "thumbs",
-    "close",
-  ],
-
-  // Only create a toolbar item if there is at least one image in the group
-  autoEnable: true,
-
   // Toolbar items; can be links, buttons or `div` elements
   items: {
     counter: {
-      position: "left",
       type: "div",
       class: "fancybox__counter",
       html: '<span data-fancybox-index=""></span>&nbsp;/&nbsp;<span data-fancybox-count=""></span>',
-      attr: { tabindex: -1 },
+      tabindex: -1,
+      position: "left",
     },
     prev: {
       type: "button",
       class: "fancybox__button--prev",
       label: "PREV",
-      html: '<svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg>',
-      attr: { "data-fancybox-prev": "" },
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M15 4l-8 8 8 8"/></svg>',
+      click: function (event) {
+        event.preventDefault();
+
+        this.fancybox.prev();
+      },
     },
     next: {
       type: "button",
       class: "fancybox__button--next",
       label: "NEXT",
-      html: '<svg viewBox="0 0 24 24"><path d="M8 4l8 8-8 8"/></svg>',
-      attr: { "data-fancybox-next": "" },
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M8 4l8 8-8 8"/></svg>',
+      click: function (event) {
+        event.preventDefault();
+
+        this.fancybox.next();
+      },
     },
     fullscreen: {
       type: "button",
       class: "fancybox__button--fullscreen",
       label: "TOGGLE_FULLSCREEN",
-      html: `<svg viewBox="0 0 24 24">
+      html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
                 <g><path d="M3 8 V3h5"></path><path d="M21 8V3h-5"></path><path d="M8 21H3v-5"></path><path d="M16 21h5v-5"></path></g>
                 <g><path d="M7 2v5H2M17 2v5h5M2 17h5v5M22 17h-5v5"/></g>
             </svg>`,
@@ -5394,7 +5162,7 @@ const defaults = {
       type: "button",
       class: "fancybox__button--slideshow",
       label: "TOGGLE_SLIDESHOW",
-      html: `<svg viewBox="0 0 24 24">
+      html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
                 <g><path d="M6 4v16"/><path d="M20 12L6 20"/><path d="M20 12L6 4"/></g>
                 <g><path d="M7 4v15M17 4v15"/></g>
             </svg>`,
@@ -5408,7 +5176,7 @@ const defaults = {
       type: "button",
       class: "fancybox__button--zoom",
       label: "TOGGLE_ZOOM",
-      html: '<svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"></circle><path d="M16 16 L21 21"></svg>',
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><circle cx="10" cy="10" r="7"></circle><path d="M16 16 L21 21"></svg>',
       click: function (event) {
         event.preventDefault();
 
@@ -5423,7 +5191,7 @@ const defaults = {
       type: "link",
       label: "DOWNLOAD",
       class: "fancybox__button--download",
-      html: '<svg viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.62 2.48A2 2 0 004.56 21h14.88a2 2 0 001.94-1.51L22 17"/></svg>',
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.62 2.48A2 2 0 004.56 21h14.88a2 2 0 001.94-1.51L22 17"/></svg>',
       click: function (event) {
         event.stopPropagation();
       },
@@ -5432,7 +5200,7 @@ const defaults = {
       type: "button",
       label: "TOGGLE_THUMBS",
       class: "fancybox__button--thumbs",
-      html: '<svg viewBox="0 0 24 24"><circle cx="4" cy="4" r="1" /><circle cx="12" cy="4" r="1" transform="rotate(90 12 4)"/><circle cx="20" cy="4" r="1" transform="rotate(90 20 4)"/><circle cx="4" cy="12" r="1" transform="rotate(90 4 12)"/><circle cx="12" cy="12" r="1" transform="rotate(90 12 12)"/><circle cx="20" cy="12" r="1" transform="rotate(90 20 12)"/><circle cx="4" cy="20" r="1" transform="rotate(90 4 20)"/><circle cx="12" cy="20" r="1" transform="rotate(90 12 20)"/><circle cx="20" cy="20" r="1" transform="rotate(90 20 20)"/></svg>',
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><circle cx="4" cy="4" r="1" /><circle cx="12" cy="4" r="1" transform="rotate(90 12 4)"/><circle cx="20" cy="4" r="1" transform="rotate(90 20 4)"/><circle cx="4" cy="12" r="1" transform="rotate(90 4 12)"/><circle cx="12" cy="12" r="1" transform="rotate(90 12 12)"/><circle cx="20" cy="12" r="1" transform="rotate(90 20 12)"/><circle cx="4" cy="20" r="1" transform="rotate(90 4 20)"/><circle cx="12" cy="20" r="1" transform="rotate(90 12 20)"/><circle cx="20" cy="20" r="1" transform="rotate(90 20 20)"/></svg>',
       click: function (event) {
         event.stopPropagation();
 
@@ -5447,10 +5215,22 @@ const defaults = {
       type: "button",
       label: "CLOSE",
       class: "fancybox__button--close",
-      html: '<svg viewBox="0 0 24 24"><path d="M20 20L4 4m16 0L4 20"></path></svg>',
-      attr: { "data-fancybox-close": "", tabindex: 0 },
+      html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M20 20L4 4m16 0L4 20"></path></svg>',
+      tabindex: 1,
+      click: function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        this.fancybox.close();
+      },
     },
   },
+
+  // What toolbar items to display
+  display: ["counter", "zoom", "slideshow", "fullscreen", "thumbs", "close"],
+
+  // Only create a toolbar item if there is at least one image in the group
+  autoEnable: true,
 };
 
 class Toolbar {
@@ -5525,7 +5305,6 @@ class Toolbar {
   }
 
   onPrepare() {
-    const fancybox = this.fancybox;
     // Skip if disabled
     if (this.state !== "init") {
       return;
@@ -5535,16 +5314,16 @@ class Toolbar {
 
     this.update();
 
-    this.Slideshow = new _shared_utils_Slideshow_js__WEBPACK_IMPORTED_MODULE_3__.Slideshow(fancybox);
+    this.Slideshow = new _shared_utils_Slideshow_js__WEBPACK_IMPORTED_MODULE_3__.Slideshow(this.fancybox);
 
-    if (!fancybox.Carousel.prevPage) {
-      if (fancybox.option("slideshow.autoStart")) {
+    if (!this.fancybox.Carousel.prevPage) {
+      if (this.fancybox.option("slideshow.autoStart")) {
         this.Slideshow.activate();
       }
 
-      if (fancybox.option("fullscreen.autoStart") && !_shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.element()) {
+      if (this.fancybox.option("fullscreen.autoStart") && !_shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.element()) {
         try {
-          _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.activate(fancybox.$container);
+          _shared_utils_Fullscreen_js__WEBPACK_IMPORTED_MODULE_2__.Fullscreen.activate(this.fancybox.$container);
         } catch (error) {}
       }
     }
@@ -5555,14 +5334,14 @@ class Toolbar {
   }
 
   onSettle() {
-    const fancybox = this.fancybox;
-    const slideshow = this.Slideshow;
-
-    if (slideshow && slideshow.isActive()) {
-      if (fancybox.getSlide().index === fancybox.Carousel.slides.length - 1 && !fancybox.option("infinite")) {
-        slideshow.deactivate();
-      } else if (fancybox.getSlide().state === "done") {
-        slideshow.setTimer();
+    if (this.Slideshow && this.Slideshow.isActive()) {
+      if (
+        this.fancybox.getSlide().index === this.fancybox.Carousel.slides.length - 1 &&
+        !this.fancybox.option("infinite")
+      ) {
+        this.Slideshow.deactivate();
+      } else if (this.fancybox.getSlide().state === "done") {
+        this.Slideshow.setTimer();
       }
     }
   }
@@ -5576,16 +5355,14 @@ class Toolbar {
   }
 
   onDone(fancybox, slide) {
-    const slideshow = this.Slideshow;
-
     if (slide.index === fancybox.getSlide().index) {
       this.update();
 
-      if (slideshow && slideshow.isActive()) {
-        if (!fancybox.option("infinite") && slide.index === fancybox.Carousel.slides.length - 1) {
-          slideshow.deactivate();
+      if (this.Slideshow && this.Slideshow.isActive()) {
+        if (!this.fancybox.option("infinite") && slide.index === this.fancybox.Carousel.slides.length - 1) {
+          this.Slideshow.deactivate();
         } else {
-          slideshow.setTimer();
+          this.Slideshow.setTimer();
         }
       }
     }
@@ -5602,7 +5379,7 @@ class Toolbar {
   }
 
   onKeydown(fancybox, key, event) {
-    if (key === " " && this.Slideshow) {
+    if (key === " ") {
       this.Slideshow.toggle();
 
       event.preventDefault();
@@ -5640,10 +5417,6 @@ class Toolbar {
       $el.classList.add(...obj.class.split(" "));
     }
 
-    for (const prop in obj.attr) {
-      $el.setAttribute(prop, obj.attr[prop]);
-    }
-
     if (obj.label) {
       $el.setAttribute("title", this.fancybox.localize(`{{${obj.label}}}`));
     }
@@ -5658,14 +5431,6 @@ class Toolbar {
 
     if (obj.id === "next") {
       $el.setAttribute("data-fancybox-next", "");
-    }
-
-    const $svg = $el.querySelector("svg");
-
-    if ($svg) {
-      $svg.setAttribute("role", "img");
-      $svg.setAttribute("tabindex", "-1");
-      $svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     }
 
     return $el;
@@ -5775,21 +5540,19 @@ class Toolbar {
     for (const $el of this.fancybox.$container.querySelectorAll("a.fancybox__button--download")) {
       if (src) {
         $el.removeAttribute("disabled");
-        $el.removeAttribute("tabindex");
 
         $el.setAttribute("href", src);
         $el.setAttribute("download", src);
         $el.setAttribute("target", "_blank");
       } else {
         $el.setAttribute("disabled", "");
-        $el.setAttribute("tabindex", -1);
 
         $el.removeAttribute("href");
         $el.removeAttribute("download");
       }
     }
 
-    // Zoom button
+    // Zoom buttons
     // ===
     const panzoom = slide.Panzoom;
     const canZoom = panzoom && panzoom.option("maxScale") > panzoom.option("baseScale");
@@ -5812,8 +5575,7 @@ class Toolbar {
       $el.innerHTML = cnt;
     }
 
-    // Disable previous/next links if gallery is not infinite and has reached start/end
-    // ===
+    // Disable prev/next links if gallery is not infinite and reached start/end
     if (!this.fancybox.option("infinite")) {
       for (const $el of this.fancybox.$container.querySelectorAll("[data-fancybox-prev]")) {
         if (idx === 0) {
@@ -5913,10 +5675,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/utils/round.js */ "./node_modules/@fancyapps/ui/src/shared/utils/round.js");
 /* harmony import */ var _shared_utils_ResizeObserver_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/utils/ResizeObserver.js */ "./node_modules/@fancyapps/ui/src/shared/utils/ResizeObserver.js");
 /* harmony import */ var _shared_utils_PointerTracker_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/utils/PointerTracker.js */ "./node_modules/@fancyapps/ui/src/shared/utils/PointerTracker.js");
-/* harmony import */ var _shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/utils/getTextNodeFromPoint.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getTextNodeFromPoint.js");
-/* harmony import */ var _shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/utils/getDimensions.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getDimensions.js");
-/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
-/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Panzoom/plugins/index.js");
+/* harmony import */ var _shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/utils/isScrollable.js */ "./node_modules/@fancyapps/ui/src/shared/utils/isScrollable.js");
+/* harmony import */ var _shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/utils/getTextNodeFromPoint.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getTextNodeFromPoint.js");
+/* harmony import */ var _shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/utils/getDimensions.js */ "./node_modules/@fancyapps/ui/src/shared/utils/getDimensions.js");
+/* harmony import */ var _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/Base/Base.js */ "./node_modules/@fancyapps/ui/src/shared/Base/Base.js");
+/* harmony import */ var _plugins_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./plugins/index.js */ "./node_modules/@fancyapps/ui/src/Panzoom/plugins/index.js");
+
 
 
 
@@ -6005,7 +5769,7 @@ const defaults = {
   ratio: 1,
 };
 
-class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
+class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_7__.Base {
   /**
    * Panzoom constructor
    * @constructs Panzoom
@@ -6039,6 +5803,8 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
     this.trigger("ready");
 
     if (this.option("centerOnStart") === false) {
+      this.handleCursor();
+
       this.state = "ready";
     } else {
       this.panTo({
@@ -6099,8 +5865,8 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
 
     this.content = {
       // Full content dimensions (naturalWidth/naturalHeight for images)
-      origWidth: 0,
       origHeight: 0,
+      origWidth: 0,
 
       // Current dimensions of the content
       width: 0,
@@ -6279,7 +6045,11 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
           }
 
           // Allow text selection
-          if (this.option("textSelection") && (0,_shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_4__.getTextNodeFromPoint)(event.target, event.clientX, event.clientY)) {
+          if (this.option("textSelection") && (0,_shared_utils_getTextNodeFromPoint_js__WEBPACK_IMPORTED_MODULE_5__.getTextNodeFromPoint)(event.target, event.clientX, event.clientY)) {
+            return false;
+          }
+          // Allow scrolling
+          if ((0,_shared_utils_isScrollable_js__WEBPACK_IMPORTED_MODULE_4__.isScrollable)(event.target)) {
             return false;
           }
         }
@@ -6310,10 +6080,8 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
         // Disable touch action if current zoom level is below base level
         if (
           currentPointers.length < 2 &&
-          this.option("panOnlyZoomed") == true &&
-          this.content.width <= this.viewport.width &&
-          this.content.height <= this.viewport.height &&
-          this.transform.scale <= this.option("baseScale")
+          this.transform.scale === this.option("baseScale") &&
+          this.option("panOnlyZoomed") == true
         ) {
           return;
         }
@@ -6387,9 +6155,9 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
           this.dragPosition.y -= deltaY;
 
           this.dragPosition.midPoint = newMidpoint;
-        } else {
-          this.setDragResistance();
         }
+
+        this.setDragResistance();
 
         // Update final position
         this.transform = {
@@ -6481,7 +6249,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
         // Check to see if there are any changes
         if (Math.abs(rect.width - this.container.width) > 1 || Math.abs(rect.height - this.container.height) > 1) {
           if (this.isAnimating()) {
-            this.endAnimation(true);
+            this.endAnimation();
           }
 
           this.updateMetrics();
@@ -6550,19 +6318,16 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
     const $content = this.$content;
     const $viewport = this.$viewport;
 
-    const contentIsImage = $content instanceof HTMLImageElement;
+    const contentIsImage = this.$content instanceof HTMLImageElement;
     const contentIsZoomable = this.option("zoom");
     const shouldResizeParent = this.option("resizeParent", contentIsZoomable);
 
-    let width = this.option("width");
-    let height = this.option("height");
-
-    let origWidth = width || (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__.getFullWidth)($content);
-    let origHeight = height || (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__.getFullHeight)($content);
+    let origWidth = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.getFullWidth)(this.$content);
+    let origHeight = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.getFullHeight)(this.$content);
 
     Object.assign($content.style, {
-      width: width ? `${width}px` : "",
-      height: height ? `${height}px` : "",
+      width: "",
+      height: "",
       maxWidth: "",
       maxHeight: "",
     });
@@ -6576,27 +6341,24 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
     origWidth = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(origWidth * ratio);
     origHeight = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(origHeight * ratio);
 
-    width = origWidth;
-    height = origHeight;
+    let width = origWidth;
+    let height = origHeight;
 
     const contentRect = $content.getBoundingClientRect();
     const viewportRect = $viewport.getBoundingClientRect();
 
     const containerRect = $viewport == $container ? viewportRect : $container.getBoundingClientRect();
 
-    let viewportWidth = Math.max($viewport.offsetWidth, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportRect.width));
-    let viewportHeight = Math.max($viewport.offsetHeight, (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportRect.height));
+    this.viewport = { ...this.viewport, width: viewportRect.width, height: viewportRect.height };
 
-    let viewportStyles = window.getComputedStyle($viewport);
-    viewportWidth -= parseFloat(viewportStyles.paddingLeft) + parseFloat(viewportStyles.paddingRight);
-    viewportHeight -= parseFloat(viewportStyles.paddingTop) + parseFloat(viewportStyles.paddingBottom);
+    var styles = window.getComputedStyle($viewport);
 
-    this.viewport.width = viewportWidth;
-    this.viewport.height = viewportHeight;
+    this.viewport.width -= parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    this.viewport.height -= parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
 
     if (contentIsZoomable) {
       if (Math.abs(origWidth - contentRect.width) > 0.1 || Math.abs(origHeight - contentRect.height) > 0.1) {
-        const rez = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_5__.calculateAspectRatioFit)(
+        const rez = (0,_shared_utils_getDimensions_js__WEBPACK_IMPORTED_MODULE_6__.calculateAspectRatioFit)(
           origWidth,
           origHeight,
           Math.min(origWidth, contentRect.width),
@@ -6756,7 +6518,6 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
     this.friction = friction;
 
     this.transform = {
-      ...this.transform,
       x,
       y,
       scale,
@@ -6812,6 +6573,8 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
     } else if (this.state !== "pointerdown") {
       this.endAnimation();
 
+      this.trigger("endAnimation");
+
       return;
     }
 
@@ -6834,28 +6597,33 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
 
     scale = scale || this.transform.scale;
 
-    const width = this.content.fitWidth * scale;
-    const height = this.content.fitHeight * scale;
+    const fitWidth = this.content.fitWidth;
+    const fitHeight = this.content.fitHeight;
+
+    const width = fitWidth * scale;
+    const height = fitHeight * scale;
 
     const viewportWidth = this.viewport.width;
     const viewportHeight = this.viewport.height;
 
-    if (width < viewportWidth) {
-      const deltaX = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)((viewportWidth - width) * 0.5);
+    if (fitWidth <= viewportWidth) {
+      const deltaX1 = (viewportWidth - width) * 0.5;
+      const deltaX2 = (width - fitWidth) * 0.5;
 
-      boundX.from = deltaX;
-      boundX.to = deltaX;
+      boundX.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaX1 - deltaX2);
+      boundX.to = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaX1 + deltaX2);
     } else {
       boundX.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportWidth - width);
     }
 
-    if (height < viewportHeight) {
-      const deltaY = (viewportHeight - height) * 0.5;
+    if (fitHeight <= viewportHeight) {
+      const deltaY1 = (viewportHeight - height) * 0.5;
+      const deltaY2 = (height - fitHeight) * 0.5;
 
-      boundY.from = deltaY;
-      boundY.to = deltaY;
+      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaY1 - deltaY2);
+      boundY.to = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(deltaY1 + deltaY2);
     } else {
-      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportHeight - height);
+      boundY.from = (0,_shared_utils_round_js__WEBPACK_IMPORTED_MODULE_1__.round)(viewportHeight - width);
     }
 
     return { boundX, boundY };
@@ -7044,7 +6812,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
   /**
    * Stop animation loop
    */
-  endAnimation(silently) {
+  endAnimation() {
     cancelAnimationFrame(this.rAF);
     this.rAF = null;
 
@@ -7059,10 +6827,6 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
     this.state = "ready";
 
     this.handleCursor();
-
-    if (silently !== true) {
-      this.trigger("endAnimation");
-    }
   }
 
   /**
@@ -7077,8 +6841,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
 
     if (
       this.option("panOnlyZoomed") == true &&
-      this.content.width <= this.viewport.width &&
-      this.content.height <= this.viewport.height &&
+      this.content.width <= this.content.fitWidth &&
       this.transform.scale <= this.option("baseScale")
     ) {
       this.$container.classList.remove(draggableClass);
@@ -7135,7 +6898,7 @@ class Panzoom extends _shared_Base_Base_js__WEBPACK_IMPORTED_MODULE_6__.Base {
 Panzoom.version = "__VERSION__";
 
 // Static properties are a recent addition that dont work in all browsers yet
-Panzoom.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_7__.Plugins;
+Panzoom.Plugins = _plugins_index_js__WEBPACK_IMPORTED_MODULE_8__.Plugins;
 
 
 /***/ }),
@@ -7202,7 +6965,7 @@ class Base {
    * @param {*} [fallback] Fallback value for non-existing key
    * @returns {*}
    */
-  option(key, fallback, ...rest) {
+  option(key, fallback) {
     // Make sure it is string
     key = String(key);
 
@@ -7210,7 +6973,7 @@ class Base {
 
     // Allow to have functions as options
     if (typeof value === "function") {
-      value = value.call(this, this, ...rest);
+      value = value.call(this, key);
     }
 
     return value === undefined ? fallback : value;
@@ -7224,18 +6987,18 @@ class Base {
    * @returns {String}
    */
   localize(str, params = []) {
-    str = String(str).replace(/\{\{(\w+).?(\w+)?\}\}/g, (match, key, subkey) => {
-      let rez = "";
+    return String(str).replace(/\{\{(\w+).?(\w+)?\}\}/g, (match, key, subkey) => {
+      let rez = false;
 
       // Plugins have `Plugin.l10n.KEY`
       if (subkey) {
         rez = this.option(`${key[0] + key.toLowerCase().substring(1)}.l10n.${subkey}`);
-      } else if (key) {
+      } else {
         rez = this.option(`l10n.${key}`);
       }
 
       if (!rez) {
-        rez = match;
+        return key;
       }
 
       for (let index = 0; index < params.length; index++) {
@@ -7244,12 +7007,6 @@ class Base {
 
       return rez;
     });
-
-    str = str.replace(/\{\{(.*)\}\}/, (match, key) => {
-      return key;
-    });
-
-    return str;
   }
 
   /**
@@ -7494,6 +7251,8 @@ __webpack_require__.r(__webpack_exports__);
 
 class Pointer {
   constructor(nativePointer) {
+    this.id = -1;
+
     this.id = nativePointer.pointerId || nativePointer.identifier || -1;
 
     this.pageX = nativePointer.pageX;
@@ -7824,7 +7583,12 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Detect if rendering from the client or the server
  */
-const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+const canUseDOM = !!(
+  typeof window !== "undefined" &&
+  window.document &&
+  window.document.createElement &&
+  window.document.body
+);
 
 
 /***/ }),
@@ -8070,8 +7834,8 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Boolean}
  */
 const hasScrollbars = function (node) {
-  const overflowY = getComputedStyle(node)["overflow-y"],
-    overflowX = getComputedStyle(node)["overflow-x"],
+  const overflowY = window.getComputedStyle(node)["overflow-y"],
+    overflowX = window.getComputedStyle(node)["overflow-x"],
     vertical = (overflowY === "scroll" || overflowY === "auto") && Math.abs(node.scrollHeight - node.clientHeight) > 1,
     horizontal = (overflowX === "scroll" || overflowX === "auto") && Math.abs(node.scrollWidth - node.clientWidth) > 1;
 
@@ -8084,7 +7848,7 @@ const hasScrollbars = function (node) {
  * @returns {Boolean}
  */
 const isScrollable = function (node) {
-  if (!node || !(typeof node === "object" && node instanceof Element) || node === document.body) {
+  if (!node || node === document.body) {
     return false;
   }
 
@@ -8151,83 +7915,6 @@ const round = (value, precision = 10000) => {
 
 /***/ }),
 
-/***/ "./node_modules/@fancyapps/ui/src/shared/utils/setFocusOn.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@fancyapps/ui/src/shared/utils/setFocusOn.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FOCUSABLE_ELEMENTS": () => (/* binding */ FOCUSABLE_ELEMENTS),
-/* harmony export */   "setFocusOn": () => (/* binding */ setFocusOn)
-/* harmony export */ });
-/* harmony import */ var _canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./canUseDOM.js */ "./node_modules/@fancyapps/ui/src/shared/utils/canUseDOM.js");
-
-
-let preventScrollSupported = null;
-
-const FOCUSABLE_ELEMENTS = [
-  "a[href]",
-  "area[href]",
-  'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
-  "select:not([disabled]):not([aria-hidden])",
-  "textarea:not([disabled]):not([aria-hidden])",
-  "button:not([disabled]):not([aria-hidden])",
-  "iframe",
-  "object",
-  "embed",
-  "video",
-  "audio",
-  "[contenteditable]",
-  '[tabindex]:not([tabindex^="-"]):not([disabled]):not([aria-hidden])',
-];
-
-const setFocusOn = (node) => {
-  if (!node || !_canUseDOM_js__WEBPACK_IMPORTED_MODULE_0__.canUseDOM) {
-    return;
-  }
-
-  if (preventScrollSupported === null) {
-    document.createElement("div").focus({
-      get preventScroll() {
-        preventScrollSupported = true;
-
-        return false;
-      },
-    });
-  }
-
-  try {
-    if (node.setActive) {
-      // IE/Edge
-      node.setActive();
-    } else if (preventScrollSupported) {
-      // Modern browsers
-      node.focus({ preventScroll: true });
-    } else {
-      // Safari does not support `preventScroll` option
-      // https://bugs.webkit.org/show_bug.cgi?id=178583
-
-      // Save position
-      const scrollTop = window.pageXOffset || document.body.scrollTop;
-      const scrollLeft = window.pageYOffset || document.body.scrollLeft;
-
-      node.focus();
-
-      document.body.scrollTo({
-        top: scrollTop,
-        left: scrollLeft,
-        behavior: "auto",
-      });
-    }
-  } catch (e) {}
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/@fancyapps/ui/src/shared/utils/throttle.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@fancyapps/ui/src/shared/utils/throttle.js ***!
@@ -8275,7 +7962,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "popperGenerator": () => (/* binding */ popperGenerator),
 /* harmony export */   "createPopper": () => (/* binding */ createPopper),
-/* harmony export */   "detectOverflow": () => (/* reexport safe */ _utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_13__["default"])
+/* harmony export */   "detectOverflow": () => (/* reexport safe */ _utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_13__.default)
 /* harmony export */ });
 /* harmony import */ var _dom_utils_getCompositeRect_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dom-utils/getCompositeRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js");
 /* harmony import */ var _dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dom-utils/getLayoutRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js");
@@ -8354,17 +8041,16 @@ function popperGenerator(generatorOptions) {
     var isDestroyed = false;
     var instance = {
       state: state,
-      setOptions: function setOptions(setOptionsAction) {
-        var options = typeof setOptionsAction === 'function' ? setOptionsAction(state.options) : setOptionsAction;
+      setOptions: function setOptions(options) {
         cleanupModifierEffects();
         state.options = Object.assign({}, defaultOptions, state.options, options);
         state.scrollParents = {
-          reference: (0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isElement)(reference) ? (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(reference) : reference.contextElement ? (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(reference.contextElement) : [],
-          popper: (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(popper)
+          reference: (0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isElement)(reference) ? (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__.default)(reference) : reference.contextElement ? (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__.default)(reference.contextElement) : [],
+          popper: (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__.default)(popper)
         }; // Orders the modifiers based on their dependencies and `phase`
         // properties
 
-        var orderedModifiers = (0,_utils_orderModifiers_js__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_utils_mergeByName_js__WEBPACK_IMPORTED_MODULE_3__["default"])([].concat(defaultModifiers, state.options.modifiers))); // Strip out disabled modifiers
+        var orderedModifiers = (0,_utils_orderModifiers_js__WEBPACK_IMPORTED_MODULE_2__.default)((0,_utils_mergeByName_js__WEBPACK_IMPORTED_MODULE_3__.default)([].concat(defaultModifiers, state.options.modifiers))); // Strip out disabled modifiers
 
         state.orderedModifiers = orderedModifiers.filter(function (m) {
           return m.enabled;
@@ -8372,13 +8058,13 @@ function popperGenerator(generatorOptions) {
         // if one of the modifiers is invalid for any reason
 
         if (true) {
-          var modifiers = (0,_utils_uniqueBy_js__WEBPACK_IMPORTED_MODULE_4__["default"])([].concat(orderedModifiers, state.options.modifiers), function (_ref) {
+          var modifiers = (0,_utils_uniqueBy_js__WEBPACK_IMPORTED_MODULE_4__.default)([].concat(orderedModifiers, state.options.modifiers), function (_ref) {
             var name = _ref.name;
             return name;
           });
-          (0,_utils_validateModifiers_js__WEBPACK_IMPORTED_MODULE_5__["default"])(modifiers);
+          (0,_utils_validateModifiers_js__WEBPACK_IMPORTED_MODULE_5__.default)(modifiers);
 
-          if ((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_6__["default"])(state.options.placement) === _enums_js__WEBPACK_IMPORTED_MODULE_7__.auto) {
+          if ((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_6__.default)(state.options.placement) === _enums_js__WEBPACK_IMPORTED_MODULE_7__.auto) {
             var flipModifier = state.orderedModifiers.find(function (_ref2) {
               var name = _ref2.name;
               return name === 'flip';
@@ -8389,7 +8075,7 @@ function popperGenerator(generatorOptions) {
             }
           }
 
-          var _getComputedStyle = (0,_dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popper),
+          var _getComputedStyle = (0,_dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_8__.default)(popper),
               marginTop = _getComputedStyle.marginTop,
               marginRight = _getComputedStyle.marginRight,
               marginBottom = _getComputedStyle.marginBottom,
@@ -8432,8 +8118,8 @@ function popperGenerator(generatorOptions) {
 
 
         state.rects = {
-          reference: (0,_dom_utils_getCompositeRect_js__WEBPACK_IMPORTED_MODULE_9__["default"])(reference, (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_10__["default"])(popper), state.options.strategy === 'fixed'),
-          popper: (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_11__["default"])(popper)
+          reference: (0,_dom_utils_getCompositeRect_js__WEBPACK_IMPORTED_MODULE_9__.default)(reference, (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_10__.default)(popper), state.options.strategy === 'fixed'),
+          popper: (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_11__.default)(popper)
         }; // Modifiers have the ability to reset the current update cycle. The
         // most common use case for this is the `flip` modifier changing the
         // placement, which then needs to re-run all the modifiers, because the
@@ -8485,7 +8171,7 @@ function popperGenerator(generatorOptions) {
       },
       // Async and optimistically optimized update – it will not be executed if
       // not necessary (debounced to run at most once-per-tick)
-      update: (0,_utils_debounce_js__WEBPACK_IMPORTED_MODULE_12__["default"])(function () {
+      update: (0,_utils_debounce_js__WEBPACK_IMPORTED_MODULE_12__.default)(function () {
         return new Promise(function (resolve) {
           instance.forceUpdate();
           resolve(state);
@@ -8603,9 +8289,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ getBoundingClientRect)
 /* harmony export */ });
 /* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
-/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
 
-
+var round = Math.round;
 function getBoundingClientRect(element, includeScale) {
   if (includeScale === void 0) {
     includeScale = false;
@@ -8616,28 +8301,20 @@ function getBoundingClientRect(element, includeScale) {
   var scaleY = 1;
 
   if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) && includeScale) {
-    var offsetHeight = element.offsetHeight;
-    var offsetWidth = element.offsetWidth; // Do not attempt to divide by 0, otherwise we get `Infinity` as scale
     // Fallback to 1 in case both values are `0`
-
-    if (offsetWidth > 0) {
-      scaleX = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_1__.round)(rect.width) / offsetWidth || 1;
-    }
-
-    if (offsetHeight > 0) {
-      scaleY = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_1__.round)(rect.height) / offsetHeight || 1;
-    }
+    scaleX = rect.width / element.offsetWidth || 1;
+    scaleY = rect.height / element.offsetHeight || 1;
   }
 
   return {
-    width: rect.width / scaleX,
-    height: rect.height / scaleY,
-    top: rect.top / scaleY,
-    right: rect.right / scaleX,
-    bottom: rect.bottom / scaleY,
-    left: rect.left / scaleX,
-    x: rect.left / scaleX,
-    y: rect.top / scaleY
+    width: round(rect.width / scaleX),
+    height: round(rect.height / scaleY),
+    top: round(rect.top / scaleY),
+    right: round(rect.right / scaleX),
+    bottom: round(rect.bottom / scaleY),
+    left: round(rect.left / scaleX),
+    x: round(rect.left / scaleX),
+    y: round(rect.top / scaleY)
   };
 }
 
@@ -8684,7 +8361,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getInnerBoundingClientRect(element) {
-  var rect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element);
+  var rect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__.default)(element);
   rect.top = rect.top + element.clientTop;
   rect.left = rect.left + element.clientLeft;
   rect.bottom = rect.top + element.clientHeight;
@@ -8697,16 +8374,16 @@ function getInnerBoundingClientRect(element) {
 }
 
 function getClientRectFromMixedType(element, clippingParent) {
-  return clippingParent === _enums_js__WEBPACK_IMPORTED_MODULE_1__.viewport ? (0,_utils_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_getViewportRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])(element)) : (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(clippingParent) ? getInnerBoundingClientRect(clippingParent) : (0,_utils_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_getDocumentRect_js__WEBPACK_IMPORTED_MODULE_5__["default"])((0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_6__["default"])(element)));
+  return clippingParent === _enums_js__WEBPACK_IMPORTED_MODULE_1__.viewport ? (0,_utils_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_2__.default)((0,_getViewportRect_js__WEBPACK_IMPORTED_MODULE_3__.default)(element)) : (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isHTMLElement)(clippingParent) ? getInnerBoundingClientRect(clippingParent) : (0,_utils_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_2__.default)((0,_getDocumentRect_js__WEBPACK_IMPORTED_MODULE_5__.default)((0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_6__.default)(element)));
 } // A "clipping parent" is an overflowable container with the characteristic of
 // clipping (or hiding) overflowing elements with a position different from
 // `initial`
 
 
 function getClippingParents(element) {
-  var clippingParents = (0,_listScrollParents_js__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_8__["default"])(element));
-  var canEscapeClipping = ['absolute', 'fixed'].indexOf((0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_9__["default"])(element).position) >= 0;
-  var clipperElement = canEscapeClipping && (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isHTMLElement)(element) ? (0,_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_10__["default"])(element) : element;
+  var clippingParents = (0,_listScrollParents_js__WEBPACK_IMPORTED_MODULE_7__.default)((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_8__.default)(element));
+  var canEscapeClipping = ['absolute', 'fixed'].indexOf((0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_9__.default)(element).position) >= 0;
+  var clipperElement = canEscapeClipping && (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isHTMLElement)(element) ? (0,_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_10__.default)(element) : element;
 
   if (!(0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(clipperElement)) {
     return [];
@@ -8714,7 +8391,7 @@ function getClippingParents(element) {
 
 
   return clippingParents.filter(function (clippingParent) {
-    return (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(clippingParent) && (0,_contains_js__WEBPACK_IMPORTED_MODULE_11__["default"])(clippingParent, clipperElement) && (0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_12__["default"])(clippingParent) !== 'body';
+    return (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(clippingParent) && (0,_contains_js__WEBPACK_IMPORTED_MODULE_11__.default)(clippingParent, clipperElement) && (0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_12__.default)(clippingParent) !== 'body';
   });
 } // Gets the maximum area that the element is visible in due to any number of
 // clipping parents
@@ -8752,15 +8429,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ getCompositeRect)
 /* harmony export */ });
-/* harmony import */ var _getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
-/* harmony import */ var _getNodeScroll_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./getNodeScroll.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js");
-/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
-/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
-/* harmony import */ var _getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getWindowScrollBarX.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js");
-/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
-/* harmony import */ var _isScrollParent_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isScrollParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js");
-/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
-
+/* harmony import */ var _getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
+/* harmony import */ var _getNodeScroll_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./getNodeScroll.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js");
+/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+/* harmony import */ var _getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./getWindowScrollBarX.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js");
+/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _isScrollParent_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isScrollParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js");
 
 
 
@@ -8771,8 +8446,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function isElementScaled(element) {
   var rect = element.getBoundingClientRect();
-  var scaleX = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(rect.width) / element.offsetWidth || 1;
-  var scaleY = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(rect.height) / element.offsetHeight || 1;
+  var scaleX = rect.width / element.offsetWidth || 1;
+  var scaleY = rect.height / element.offsetHeight || 1;
   return scaleX !== 1 || scaleY !== 1;
 } // Returns the composite rect of an element relative to its offsetParent.
 // Composite means it takes into account transforms as well as layout.
@@ -8783,10 +8458,10 @@ function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
     isFixed = false;
   }
 
-  var isOffsetParentAnElement = (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(offsetParent);
-  var offsetParentIsScaled = (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(offsetParent) && isElementScaled(offsetParent);
-  var documentElement = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(offsetParent);
-  var rect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])(elementOrVirtualElement, offsetParentIsScaled);
+  var isOffsetParentAnElement = (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(offsetParent);
+  var offsetParentIsScaled = (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(offsetParent) && isElementScaled(offsetParent);
+  var documentElement = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__.default)(offsetParent);
+  var rect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_2__.default)(elementOrVirtualElement, offsetParentIsScaled);
   var scroll = {
     scrollLeft: 0,
     scrollTop: 0
@@ -8797,17 +8472,17 @@ function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
   };
 
   if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
-    if ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_4__["default"])(offsetParent) !== 'body' || // https://github.com/popperjs/popper-core/issues/1078
-    (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_5__["default"])(documentElement)) {
-      scroll = (0,_getNodeScroll_js__WEBPACK_IMPORTED_MODULE_6__["default"])(offsetParent);
+    if ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_3__.default)(offsetParent) !== 'body' || // https://github.com/popperjs/popper-core/issues/1078
+    (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_4__.default)(documentElement)) {
+      scroll = (0,_getNodeScroll_js__WEBPACK_IMPORTED_MODULE_5__.default)(offsetParent);
     }
 
-    if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(offsetParent)) {
-      offsets = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])(offsetParent, true);
+    if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(offsetParent)) {
+      offsets = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_2__.default)(offsetParent, true);
       offsets.x += offsetParent.clientLeft;
       offsets.y += offsetParent.clientTop;
     } else if (documentElement) {
-      offsets.x = (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_7__["default"])(documentElement);
+      offsets.x = (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_6__.default)(documentElement);
     }
   }
 
@@ -8835,7 +8510,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
 
 function getComputedStyle(element) {
-  return (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element).getComputedStyle(element);
+  return (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(element).getComputedStyle(element);
 }
 
 /***/ }),
@@ -8887,15 +8562,15 @@ __webpack_require__.r(__webpack_exports__);
 function getDocumentRect(element) {
   var _element$ownerDocumen;
 
-  var html = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element);
-  var winScroll = (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element);
+  var html = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_0__.default)(element);
+  var winScroll = (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_1__.default)(element);
   var body = (_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body;
   var width = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_2__.max)(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
   var height = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_2__.max)(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
-  var x = -winScroll.scrollLeft + (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_3__["default"])(element);
+  var x = -winScroll.scrollLeft + (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_3__.default)(element);
   var y = -winScroll.scrollTop;
 
-  if ((0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_4__["default"])(body || html).direction === 'rtl') {
+  if ((0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_4__.default)(body || html).direction === 'rtl') {
     x += (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_2__.max)(html.clientWidth, body ? body.clientWidth : 0) - width;
   }
 
@@ -8945,7 +8620,7 @@ __webpack_require__.r(__webpack_exports__);
 // means it doesn't take into account transforms.
 
 function getLayoutRect(element) {
-  var clientRect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element); // Use the clientRect sizes if it's not been transformed.
+  var clientRect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__.default)(element); // Use the clientRect sizes if it's not been transformed.
   // Fixes https://github.com/popperjs/popper-core/issues/1223
 
   var width = element.offsetWidth;
@@ -9006,10 +8681,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getNodeScroll(node) {
-  if (node === (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node) || !(0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(node)) {
-    return (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__["default"])(node);
+  if (node === (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(node) || !(0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(node)) {
+    return (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__.default)(node);
   } else {
-    return (0,_getHTMLElementScroll_js__WEBPACK_IMPORTED_MODULE_3__["default"])(node);
+    return (0,_getHTMLElementScroll_js__WEBPACK_IMPORTED_MODULE_3__.default)(node);
   }
 }
 
@@ -9041,7 +8716,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function getTrueOffsetParent(element) {
   if (!(0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || // https://github.com/popperjs/popper-core/issues/837
-  (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element).position === 'fixed') {
+  (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__.default)(element).position === 'fixed') {
     return null;
   }
 
@@ -9056,17 +8731,17 @@ function getContainingBlock(element) {
 
   if (isIE && (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element)) {
     // In IE 9, 10 and 11 fixed elements containing block is always established by the viewport
-    var elementCss = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element);
+    var elementCss = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__.default)(element);
 
     if (elementCss.position === 'fixed') {
       return null;
     }
   }
 
-  var currentNode = (0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
+  var currentNode = (0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_2__.default)(element);
 
-  while ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(currentNode) && ['html', 'body'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_3__["default"])(currentNode)) < 0) {
-    var css = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(currentNode); // This is non-exhaustive but covers the most common CSS properties that
+  while ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(currentNode) && ['html', 'body'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_3__.default)(currentNode)) < 0) {
+    var css = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__.default)(currentNode); // This is non-exhaustive but covers the most common CSS properties that
     // create a containing block.
     // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
 
@@ -9083,14 +8758,14 @@ function getContainingBlock(element) {
 
 
 function getOffsetParent(element) {
-  var window = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_4__["default"])(element);
+  var window = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_4__.default)(element);
   var offsetParent = getTrueOffsetParent(element);
 
-  while (offsetParent && (0,_isTableElement_js__WEBPACK_IMPORTED_MODULE_5__["default"])(offsetParent) && (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(offsetParent).position === 'static') {
+  while (offsetParent && (0,_isTableElement_js__WEBPACK_IMPORTED_MODULE_5__.default)(offsetParent) && (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__.default)(offsetParent).position === 'static') {
     offsetParent = getTrueOffsetParent(offsetParent);
   }
 
-  if (offsetParent && ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_3__["default"])(offsetParent) === 'html' || (0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_3__["default"])(offsetParent) === 'body' && (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(offsetParent).position === 'static')) {
+  if (offsetParent && ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_3__.default)(offsetParent) === 'html' || (0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_3__.default)(offsetParent) === 'body' && (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__.default)(offsetParent).position === 'static')) {
     return window;
   }
 
@@ -9117,7 +8792,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getParentNode(element) {
-  if ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element) === 'html') {
+  if ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__.default)(element) === 'html') {
     return element;
   }
 
@@ -9128,7 +8803,7 @@ function getParentNode(element) {
     element.parentNode || ( // DOM Element detected
     (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isShadowRoot)(element) ? element.host : null) || // ShadowRoot detected
     // $FlowFixMe[incompatible-call]: HTMLElement is a Node
-    (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(element) // fallback
+    (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__.default)(element) // fallback
 
   );
 }
@@ -9155,16 +8830,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getScrollParent(node) {
-  if (['html', 'body', '#document'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node)) >= 0) {
+  if (['html', 'body', '#document'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__.default)(node)) >= 0) {
     // $FlowFixMe[incompatible-return]: assume body is always available
     return node.ownerDocument.body;
   }
 
-  if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(node) && (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__["default"])(node)) {
+  if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(node) && (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__.default)(node)) {
     return node;
   }
 
-  return getScrollParent((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_3__["default"])(node));
+  return getScrollParent((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_3__.default)(node));
 }
 
 /***/ }),
@@ -9187,8 +8862,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getViewportRect(element) {
-  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element);
-  var html = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element);
+  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(element);
+  var html = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__.default)(element);
   var visualViewport = win.visualViewport;
   var width = html.clientWidth;
   var height = html.clientHeight;
@@ -9219,7 +8894,7 @@ function getViewportRect(element) {
   return {
     width: width,
     height: height,
-    x: x + (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_2__["default"])(element),
+    x: x + (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_2__.default)(element),
     y: y
   };
 }
@@ -9266,7 +8941,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
 
 function getWindowScroll(node) {
-  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node);
+  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(node);
   var scrollLeft = win.pageXOffset;
   var scrollTop = win.pageYOffset;
   return {
@@ -9302,7 +8977,7 @@ function getWindowScrollBarX(element) {
   // anyway.
   // Browsers where the left scrollbar doesn't cause an issue report `0` for
   // this (e.g. Edge 2019, IE11, Safari)
-  return (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element)).left + (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__["default"])(element).scrollLeft;
+  return (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__.default)((0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__.default)(element)).left + (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__.default)(element).scrollLeft;
 }
 
 /***/ }),
@@ -9324,12 +8999,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function isElement(node) {
-  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node).Element;
+  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(node).Element;
   return node instanceof OwnElement || node instanceof Element;
 }
 
 function isHTMLElement(node) {
-  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node).HTMLElement;
+  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(node).HTMLElement;
   return node instanceof OwnElement || node instanceof HTMLElement;
 }
 
@@ -9339,7 +9014,7 @@ function isShadowRoot(node) {
     return false;
   }
 
-  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node).ShadowRoot;
+  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(node).ShadowRoot;
   return node instanceof OwnElement || node instanceof ShadowRoot;
 }
 
@@ -9362,7 +9037,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function isScrollParent(element) {
   // Firefox wants us to check `-x` and `-y` variations as well
-  var _getComputedStyle = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element),
+  var _getComputedStyle = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_0__.default)(element),
       overflow = _getComputedStyle.overflow,
       overflowX = _getComputedStyle.overflowX,
       overflowY = _getComputedStyle.overflowY;
@@ -9386,7 +9061,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
 
 function isTableElement(element) {
-  return ['table', 'td', 'th'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element)) >= 0;
+  return ['table', 'td', 'th'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__.default)(element)) >= 0;
 }
 
 /***/ }),
@@ -9424,13 +9099,13 @@ function listScrollParents(element, list) {
     list = [];
   }
 
-  var scrollParent = (0,_getScrollParent_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element);
+  var scrollParent = (0,_getScrollParent_js__WEBPACK_IMPORTED_MODULE_0__.default)(element);
   var isBody = scrollParent === ((_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body);
-  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_1__["default"])(scrollParent);
-  var target = isBody ? [win].concat(win.visualViewport || [], (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__["default"])(scrollParent) ? scrollParent : []) : scrollParent;
+  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_1__.default)(scrollParent);
+  var target = isBody ? [win].concat(win.visualViewport || [], (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__.default)(scrollParent) ? scrollParent : []) : scrollParent;
   var updatedList = list.concat(target);
   return isBody ? updatedList : // $FlowFixMe[incompatible-call]: isBody tells us target will be an HTMLElement here
-  updatedList.concat(listScrollParents((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_3__["default"])(target)));
+  updatedList.concat(listScrollParents((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_3__.default)(target)));
 }
 
 /***/ }),
@@ -9546,7 +9221,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "popperOffsets": () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_1__.popperOffsets),
 /* harmony export */   "preventOverflow": () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_1__.preventOverflow),
 /* harmony export */   "popperGenerator": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_2__.popperGenerator),
-/* harmony export */   "detectOverflow": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   "detectOverflow": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_3__.default),
 /* harmony export */   "createPopperBase": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_2__.createPopper),
 /* harmony export */   "createPopper": () => (/* reexport safe */ _popper_js__WEBPACK_IMPORTED_MODULE_4__.createPopper),
 /* harmony export */   "createPopperLite": () => (/* reexport safe */ _popper_lite_js__WEBPACK_IMPORTED_MODULE_5__.createPopper)
@@ -9592,7 +9267,7 @@ function applyStyles(_ref) {
     var attributes = state.attributes[name] || {};
     var element = state.elements[name]; // arrow is optional + virtual elements
 
-    if (!(0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || !(0,_dom_utils_getNodeName_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element)) {
+    if (!(0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || !(0,_dom_utils_getNodeName_js__WEBPACK_IMPORTED_MODULE_1__.default)(element)) {
       return;
     } // Flow doesn't support to extend this property, but it's the most
     // effective way to apply styles to an HTMLElement
@@ -9644,7 +9319,7 @@ function effect(_ref2) {
         return style;
       }, {}); // arrow is optional + virtual elements
 
-      if (!(0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || !(0,_dom_utils_getNodeName_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element)) {
+      if (!(0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || !(0,_dom_utils_getNodeName_js__WEBPACK_IMPORTED_MODULE_1__.default)(element)) {
         return;
       }
 
@@ -9704,7 +9379,7 @@ var toPaddingObject = function toPaddingObject(padding, state) {
   padding = typeof padding === 'function' ? padding(Object.assign({}, state.rects, {
     placement: state.placement
   })) : padding;
-  return (0,_utils_mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_0__["default"])(typeof padding !== 'number' ? padding : (0,_utils_expandToHashMap_js__WEBPACK_IMPORTED_MODULE_1__["default"])(padding, _enums_js__WEBPACK_IMPORTED_MODULE_2__.basePlacements));
+  return (0,_utils_mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_0__.default)(typeof padding !== 'number' ? padding : (0,_utils_expandToHashMap_js__WEBPACK_IMPORTED_MODULE_1__.default)(padding, _enums_js__WEBPACK_IMPORTED_MODULE_2__.basePlacements));
 };
 
 function arrow(_ref) {
@@ -9715,8 +9390,8 @@ function arrow(_ref) {
       options = _ref.options;
   var arrowElement = state.elements.arrow;
   var popperOffsets = state.modifiersData.popperOffsets;
-  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(state.placement);
-  var axis = (0,_utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_4__["default"])(basePlacement);
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__.default)(state.placement);
+  var axis = (0,_utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_4__.default)(basePlacement);
   var isVertical = [_enums_js__WEBPACK_IMPORTED_MODULE_2__.left, _enums_js__WEBPACK_IMPORTED_MODULE_2__.right].indexOf(basePlacement) >= 0;
   var len = isVertical ? 'height' : 'width';
 
@@ -9725,12 +9400,12 @@ function arrow(_ref) {
   }
 
   var paddingObject = toPaddingObject(options.padding, state);
-  var arrowRect = (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_5__["default"])(arrowElement);
+  var arrowRect = (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_5__.default)(arrowElement);
   var minProp = axis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_2__.top : _enums_js__WEBPACK_IMPORTED_MODULE_2__.left;
   var maxProp = axis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_2__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_2__.right;
   var endDiff = state.rects.reference[len] + state.rects.reference[axis] - popperOffsets[axis] - state.rects.popper[len];
   var startDiff = popperOffsets[axis] - state.rects.reference[axis];
-  var arrowOffsetParent = (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_6__["default"])(arrowElement);
+  var arrowOffsetParent = (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_6__.default)(arrowElement);
   var clientSize = arrowOffsetParent ? axis === 'y' ? arrowOffsetParent.clientHeight || 0 : arrowOffsetParent.clientWidth || 0 : 0;
   var centerToReference = endDiff / 2 - startDiff / 2; // Make sure the arrow doesn't overflow the popper if the center point is
   // outside of the popper bounds
@@ -9738,7 +9413,7 @@ function arrow(_ref) {
   var min = paddingObject[minProp];
   var max = clientSize - arrowRect[len] - paddingObject[maxProp];
   var center = clientSize / 2 - arrowRect[len] / 2 + centerToReference;
-  var offset = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_7__.within)(min, center, max); // Prevents breaking syntax highlighting...
+  var offset = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_7__.default)(min, center, max); // Prevents breaking syntax highlighting...
 
   var axisProp = axis;
   state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
@@ -9769,7 +9444,7 @@ function effect(_ref2) {
     }
   }
 
-  if (!(0,_dom_utils_contains_js__WEBPACK_IMPORTED_MODULE_9__["default"])(state.elements.popper, arrowElement)) {
+  if (!(0,_dom_utils_contains_js__WEBPACK_IMPORTED_MODULE_9__.default)(state.elements.popper, arrowElement)) {
     if (true) {
       console.error(['Popper: "arrow" modifier\'s `element` must be a child of the popper', 'element.'].join(' '));
     }
@@ -9811,9 +9486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dom-utils/getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
 /* harmony import */ var _dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dom-utils/getComputedStyle.js */ "./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js");
 /* harmony import */ var _utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
-/* harmony import */ var _utils_getVariation_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/getVariation.js */ "./node_modules/@popperjs/core/lib/utils/getVariation.js");
 /* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
-
 
 
 
@@ -9837,8 +9510,8 @@ function roundOffsetsByDPR(_ref) {
   var win = window;
   var dpr = win.devicePixelRatio || 1;
   return {
-    x: (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(x * dpr) / dpr || 0,
-    y: (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(y * dpr) / dpr || 0
+    x: (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)((0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(x * dpr) / dpr) || 0,
+    y: (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)((0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(y * dpr) / dpr) || 0
   };
 }
 
@@ -9848,28 +9521,18 @@ function mapToStyles(_ref2) {
   var popper = _ref2.popper,
       popperRect = _ref2.popperRect,
       placement = _ref2.placement,
-      variation = _ref2.variation,
       offsets = _ref2.offsets,
       position = _ref2.position,
       gpuAcceleration = _ref2.gpuAcceleration,
       adaptive = _ref2.adaptive,
-      roundOffsets = _ref2.roundOffsets,
-      isFixed = _ref2.isFixed;
-  var _offsets$x = offsets.x,
-      x = _offsets$x === void 0 ? 0 : _offsets$x,
-      _offsets$y = offsets.y,
-      y = _offsets$y === void 0 ? 0 : _offsets$y;
+      roundOffsets = _ref2.roundOffsets;
 
-  var _ref3 = typeof roundOffsets === 'function' ? roundOffsets({
-    x: x,
-    y: y
-  }) : {
-    x: x,
-    y: y
-  };
+  var _ref3 = roundOffsets === true ? roundOffsetsByDPR(offsets) : typeof roundOffsets === 'function' ? roundOffsets(offsets) : offsets,
+      _ref3$x = _ref3.x,
+      x = _ref3$x === void 0 ? 0 : _ref3$x,
+      _ref3$y = _ref3.y,
+      y = _ref3$y === void 0 ? 0 : _ref3$y;
 
-  x = _ref3.x;
-  y = _ref3.y;
   var hasX = offsets.hasOwnProperty('x');
   var hasY = offsets.hasOwnProperty('y');
   var sideX = _enums_js__WEBPACK_IMPORTED_MODULE_1__.left;
@@ -9877,14 +9540,14 @@ function mapToStyles(_ref2) {
   var win = window;
 
   if (adaptive) {
-    var offsetParent = (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_2__["default"])(popper);
+    var offsetParent = (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_2__.default)(popper);
     var heightProp = 'clientHeight';
     var widthProp = 'clientWidth';
 
-    if (offsetParent === (0,_dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_3__["default"])(popper)) {
-      offsetParent = (0,_dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_4__["default"])(popper);
+    if (offsetParent === (0,_dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_3__.default)(popper)) {
+      offsetParent = (0,_dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_4__.default)(popper);
 
-      if ((0,_dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_5__["default"])(offsetParent).position !== 'static' && position === 'absolute') {
+      if ((0,_dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_5__.default)(offsetParent).position !== 'static') {
         heightProp = 'scrollHeight';
         widthProp = 'scrollWidth';
       }
@@ -9893,19 +9556,17 @@ function mapToStyles(_ref2) {
 
     offsetParent = offsetParent;
 
-    if (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.top || (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.left || placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.right) && variation === _enums_js__WEBPACK_IMPORTED_MODULE_1__.end) {
-      sideY = _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom;
-      var offsetY = isFixed && win.visualViewport ? win.visualViewport.height : // $FlowFixMe[prop-missing]
-      offsetParent[heightProp];
-      y -= offsetY - popperRect.height;
+    if (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.top) {
+      sideY = _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom; // $FlowFixMe[prop-missing]
+
+      y -= offsetParent[heightProp] - popperRect.height;
       y *= gpuAcceleration ? 1 : -1;
     }
 
-    if (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.left || (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.top || placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom) && variation === _enums_js__WEBPACK_IMPORTED_MODULE_1__.end) {
-      sideX = _enums_js__WEBPACK_IMPORTED_MODULE_1__.right;
-      var offsetX = isFixed && win.visualViewport ? win.visualViewport.width : // $FlowFixMe[prop-missing]
-      offsetParent[widthProp];
-      x -= offsetX - popperRect.width;
+    if (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.left) {
+      sideX = _enums_js__WEBPACK_IMPORTED_MODULE_1__.right; // $FlowFixMe[prop-missing]
+
+      x -= offsetParent[widthProp] - popperRect.width;
       x *= gpuAcceleration ? 1 : -1;
     }
   }
@@ -9914,29 +9575,18 @@ function mapToStyles(_ref2) {
     position: position
   }, adaptive && unsetSides);
 
-  var _ref4 = roundOffsets === true ? roundOffsetsByDPR({
-    x: x,
-    y: y
-  }) : {
-    x: x,
-    y: y
-  };
-
-  x = _ref4.x;
-  y = _ref4.y;
-
   if (gpuAcceleration) {
     var _Object$assign;
 
-    return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+    return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) < 2 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
   }
 
   return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y + "px" : '', _Object$assign2[sideX] = hasX ? x + "px" : '', _Object$assign2.transform = '', _Object$assign2));
 }
 
-function computeStyles(_ref5) {
-  var state = _ref5.state,
-      options = _ref5.options;
+function computeStyles(_ref4) {
+  var state = _ref4.state,
+      options = _ref4.options;
   var _options$gpuAccelerat = options.gpuAcceleration,
       gpuAcceleration = _options$gpuAccelerat === void 0 ? true : _options$gpuAccelerat,
       _options$adaptive = options.adaptive,
@@ -9945,7 +9595,7 @@ function computeStyles(_ref5) {
       roundOffsets = _options$roundOffsets === void 0 ? true : _options$roundOffsets;
 
   if (true) {
-    var transitionProperty = (0,_dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_5__["default"])(state.elements.popper).transitionProperty || '';
+    var transitionProperty = (0,_dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_5__.default)(state.elements.popper).transitionProperty || '';
 
     if (adaptive && ['transform', 'top', 'right', 'bottom', 'left'].some(function (property) {
       return transitionProperty.indexOf(property) >= 0;
@@ -9955,12 +9605,10 @@ function computeStyles(_ref5) {
   }
 
   var commonStyles = {
-    placement: (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_6__["default"])(state.placement),
-    variation: (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_7__["default"])(state.placement),
+    placement: (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_6__.default)(state.placement),
     popper: state.elements.popper,
     popperRect: state.rects.popper,
-    gpuAcceleration: gpuAcceleration,
-    isFixed: state.options.strategy === 'fixed'
+    gpuAcceleration: gpuAcceleration
   };
 
   if (state.modifiersData.popperOffsets != null) {
@@ -10023,7 +9671,7 @@ function effect(_ref) {
       scroll = _options$scroll === void 0 ? true : _options$scroll,
       _options$resize = options.resize,
       resize = _options$resize === void 0 ? true : _options$resize;
-  var window = (0,_dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state.elements.popper);
+  var window = (0,_dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_0__.default)(state.elements.popper);
   var scrollParents = [].concat(state.scrollParents.reference, state.scrollParents.popper);
 
   if (scroll) {
@@ -10088,12 +9736,12 @@ __webpack_require__.r(__webpack_exports__);
  // eslint-disable-next-line import/no-unused-modules
 
 function getExpandedFallbackPlacements(placement) {
-  if ((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.auto) {
+  if ((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__.default)(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.auto) {
     return [];
   }
 
-  var oppositePlacement = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(placement);
-  return [(0,_utils_getOppositeVariationPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(placement), oppositePlacement, (0,_utils_getOppositeVariationPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(oppositePlacement)];
+  var oppositePlacement = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__.default)(placement);
+  return [(0,_utils_getOppositeVariationPlacement_js__WEBPACK_IMPORTED_MODULE_3__.default)(placement), oppositePlacement, (0,_utils_getOppositeVariationPlacement_js__WEBPACK_IMPORTED_MODULE_3__.default)(oppositePlacement)];
 }
 
 function flip(_ref) {
@@ -10118,11 +9766,11 @@ function flip(_ref) {
       flipVariations = _options$flipVariatio === void 0 ? true : _options$flipVariatio,
       allowedAutoPlacements = options.allowedAutoPlacements;
   var preferredPlacement = state.options.placement;
-  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(preferredPlacement);
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__.default)(preferredPlacement);
   var isBasePlacement = basePlacement === preferredPlacement;
-  var fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipVariations ? [(0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(preferredPlacement)] : getExpandedFallbackPlacements(preferredPlacement));
+  var fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipVariations ? [(0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__.default)(preferredPlacement)] : getExpandedFallbackPlacements(preferredPlacement));
   var placements = [preferredPlacement].concat(fallbackPlacements).reduce(function (acc, placement) {
-    return acc.concat((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.auto ? (0,_utils_computeAutoPlacement_js__WEBPACK_IMPORTED_MODULE_4__["default"])(state, {
+    return acc.concat((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__.default)(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.auto ? (0,_utils_computeAutoPlacement_js__WEBPACK_IMPORTED_MODULE_4__.default)(state, {
       placement: placement,
       boundary: boundary,
       rootBoundary: rootBoundary,
@@ -10140,12 +9788,12 @@ function flip(_ref) {
   for (var i = 0; i < placements.length; i++) {
     var placement = placements[i];
 
-    var _basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement);
+    var _basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__.default)(placement);
 
-    var isStartVariation = (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_5__["default"])(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.start;
+    var isStartVariation = (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_5__.default)(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.start;
     var isVertical = [_enums_js__WEBPACK_IMPORTED_MODULE_1__.top, _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom].indexOf(_basePlacement) >= 0;
     var len = isVertical ? 'width' : 'height';
-    var overflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_6__["default"])(state, {
+    var overflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_6__.default)(state, {
       placement: placement,
       boundary: boundary,
       rootBoundary: rootBoundary,
@@ -10155,10 +9803,10 @@ function flip(_ref) {
     var mainVariationSide = isVertical ? isStartVariation ? _enums_js__WEBPACK_IMPORTED_MODULE_1__.right : _enums_js__WEBPACK_IMPORTED_MODULE_1__.left : isStartVariation ? _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_1__.top;
 
     if (referenceRect[len] > popperRect[len]) {
-      mainVariationSide = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(mainVariationSide);
+      mainVariationSide = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__.default)(mainVariationSide);
     }
 
-    var altVariationSide = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(mainVariationSide);
+    var altVariationSide = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__.default)(mainVariationSide);
     var checks = [];
 
     if (checkMainAxis) {
@@ -10273,10 +9921,10 @@ function hide(_ref) {
   var referenceRect = state.rects.reference;
   var popperRect = state.rects.popper;
   var preventedOffsets = state.modifiersData.preventOverflow;
-  var referenceOverflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_1__["default"])(state, {
+  var referenceOverflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_1__.default)(state, {
     elementContext: 'reference'
   });
-  var popperAltOverflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_1__["default"])(state, {
+  var popperAltOverflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_1__.default)(state, {
     altBoundary: true
   });
   var referenceClippingOffsets = getSideOffsets(referenceOverflow, referenceRect);
@@ -10315,15 +9963,15 @@ function hide(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "applyStyles": () => (/* reexport safe */ _applyStyles_js__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "arrow": () => (/* reexport safe */ _arrow_js__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "computeStyles": () => (/* reexport safe */ _computeStyles_js__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   "eventListeners": () => (/* reexport safe */ _eventListeners_js__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   "flip": () => (/* reexport safe */ _flip_js__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   "hide": () => (/* reexport safe */ _hide_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "offset": () => (/* reexport safe */ _offset_js__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   "popperOffsets": () => (/* reexport safe */ _popperOffsets_js__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "preventOverflow": () => (/* reexport safe */ _preventOverflow_js__WEBPACK_IMPORTED_MODULE_8__["default"])
+/* harmony export */   "applyStyles": () => (/* reexport safe */ _applyStyles_js__WEBPACK_IMPORTED_MODULE_0__.default),
+/* harmony export */   "arrow": () => (/* reexport safe */ _arrow_js__WEBPACK_IMPORTED_MODULE_1__.default),
+/* harmony export */   "computeStyles": () => (/* reexport safe */ _computeStyles_js__WEBPACK_IMPORTED_MODULE_2__.default),
+/* harmony export */   "eventListeners": () => (/* reexport safe */ _eventListeners_js__WEBPACK_IMPORTED_MODULE_3__.default),
+/* harmony export */   "flip": () => (/* reexport safe */ _flip_js__WEBPACK_IMPORTED_MODULE_4__.default),
+/* harmony export */   "hide": () => (/* reexport safe */ _hide_js__WEBPACK_IMPORTED_MODULE_5__.default),
+/* harmony export */   "offset": () => (/* reexport safe */ _offset_js__WEBPACK_IMPORTED_MODULE_6__.default),
+/* harmony export */   "popperOffsets": () => (/* reexport safe */ _popperOffsets_js__WEBPACK_IMPORTED_MODULE_7__.default),
+/* harmony export */   "preventOverflow": () => (/* reexport safe */ _preventOverflow_js__WEBPACK_IMPORTED_MODULE_8__.default)
 /* harmony export */ });
 /* harmony import */ var _applyStyles_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./applyStyles.js */ "./node_modules/@popperjs/core/lib/modifiers/applyStyles.js");
 /* harmony import */ var _arrow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./arrow.js */ "./node_modules/@popperjs/core/lib/modifiers/arrow.js");
@@ -10361,10 +10009,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
 /* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
 
- // eslint-disable-next-line import/no-unused-modules
 
 function distanceAndSkiddingToXY(placement, rects, offset) {
-  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement);
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__.default)(placement);
   var invertDistance = [_enums_js__WEBPACK_IMPORTED_MODULE_1__.left, _enums_js__WEBPACK_IMPORTED_MODULE_1__.top].indexOf(basePlacement) >= 0 ? -1 : 1;
 
   var _ref = typeof offset === 'function' ? offset(Object.assign({}, rects, {
@@ -10438,7 +10085,7 @@ function popperOffsets(_ref) {
   // properly positioned near its reference element
   // This is the most basic placement, and will be adjusted by
   // the modifiers in the next step
-  state.modifiersData[name] = (0,_utils_computeOffsets_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  state.modifiersData[name] = (0,_utils_computeOffsets_js__WEBPACK_IMPORTED_MODULE_0__.default)({
     reference: state.rects.reference,
     element: state.rects.popper,
     strategy: 'absolute',
@@ -10507,31 +10154,23 @@ function preventOverflow(_ref) {
       tether = _options$tether === void 0 ? true : _options$tether,
       _options$tetherOffset = options.tetherOffset,
       tetherOffset = _options$tetherOffset === void 0 ? 0 : _options$tetherOffset;
-  var overflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state, {
+  var overflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_0__.default)(state, {
     boundary: boundary,
     rootBoundary: rootBoundary,
     padding: padding,
     altBoundary: altBoundary
   });
-  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_1__["default"])(state.placement);
-  var variation = (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_2__["default"])(state.placement);
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_1__.default)(state.placement);
+  var variation = (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_2__.default)(state.placement);
   var isBasePlacement = !variation;
-  var mainAxis = (0,_utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(basePlacement);
-  var altAxis = (0,_utils_getAltAxis_js__WEBPACK_IMPORTED_MODULE_4__["default"])(mainAxis);
+  var mainAxis = (0,_utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__.default)(basePlacement);
+  var altAxis = (0,_utils_getAltAxis_js__WEBPACK_IMPORTED_MODULE_4__.default)(mainAxis);
   var popperOffsets = state.modifiersData.popperOffsets;
   var referenceRect = state.rects.reference;
   var popperRect = state.rects.popper;
   var tetherOffsetValue = typeof tetherOffset === 'function' ? tetherOffset(Object.assign({}, state.rects, {
     placement: state.placement
   })) : tetherOffset;
-  var normalizedTetherOffsetValue = typeof tetherOffsetValue === 'number' ? {
-    mainAxis: tetherOffsetValue,
-    altAxis: tetherOffsetValue
-  } : Object.assign({
-    mainAxis: 0,
-    altAxis: 0
-  }, tetherOffsetValue);
-  var offsetModifierState = state.modifiersData.offset ? state.modifiersData.offset[state.placement] : null;
   var data = {
     x: 0,
     y: 0
@@ -10541,26 +10180,24 @@ function preventOverflow(_ref) {
     return;
   }
 
-  if (checkMainAxis) {
-    var _offsetModifierState$;
-
+  if (checkMainAxis || checkAltAxis) {
     var mainSide = mainAxis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.top : _enums_js__WEBPACK_IMPORTED_MODULE_5__.left;
     var altSide = mainAxis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_5__.right;
     var len = mainAxis === 'y' ? 'height' : 'width';
     var offset = popperOffsets[mainAxis];
-    var min = offset + overflow[mainSide];
-    var max = offset - overflow[altSide];
+    var min = popperOffsets[mainAxis] + overflow[mainSide];
+    var max = popperOffsets[mainAxis] - overflow[altSide];
     var additive = tether ? -popperRect[len] / 2 : 0;
     var minLen = variation === _enums_js__WEBPACK_IMPORTED_MODULE_5__.start ? referenceRect[len] : popperRect[len];
     var maxLen = variation === _enums_js__WEBPACK_IMPORTED_MODULE_5__.start ? -popperRect[len] : -referenceRect[len]; // We need to include the arrow in the calculation so the arrow doesn't go
     // outside the reference bounds
 
     var arrowElement = state.elements.arrow;
-    var arrowRect = tether && arrowElement ? (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_6__["default"])(arrowElement) : {
+    var arrowRect = tether && arrowElement ? (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_6__.default)(arrowElement) : {
       width: 0,
       height: 0
     };
-    var arrowPaddingObject = state.modifiersData['arrow#persistent'] ? state.modifiersData['arrow#persistent'].padding : (0,_utils_getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+    var arrowPaddingObject = state.modifiersData['arrow#persistent'] ? state.modifiersData['arrow#persistent'].padding : (0,_utils_getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_7__.default)();
     var arrowPaddingMin = arrowPaddingObject[mainSide];
     var arrowPaddingMax = arrowPaddingObject[altSide]; // If the reference length is smaller than the arrow length, we don't want
     // to include its full size in the calculation. If the reference is small
@@ -10568,46 +10205,37 @@ function preventOverflow(_ref) {
     // reference is not overflowing as well (e.g. virtual elements with no
     // width or height)
 
-    var arrowLen = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.within)(0, referenceRect[len], arrowRect[len]);
-    var minOffset = isBasePlacement ? referenceRect[len] / 2 - additive - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis : minLen - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis;
-    var maxOffset = isBasePlacement ? -referenceRect[len] / 2 + additive + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis : maxLen + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis;
-    var arrowOffsetParent = state.elements.arrow && (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_9__["default"])(state.elements.arrow);
+    var arrowLen = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.default)(0, referenceRect[len], arrowRect[len]);
+    var minOffset = isBasePlacement ? referenceRect[len] / 2 - additive - arrowLen - arrowPaddingMin - tetherOffsetValue : minLen - arrowLen - arrowPaddingMin - tetherOffsetValue;
+    var maxOffset = isBasePlacement ? -referenceRect[len] / 2 + additive + arrowLen + arrowPaddingMax + tetherOffsetValue : maxLen + arrowLen + arrowPaddingMax + tetherOffsetValue;
+    var arrowOffsetParent = state.elements.arrow && (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_9__.default)(state.elements.arrow);
     var clientOffset = arrowOffsetParent ? mainAxis === 'y' ? arrowOffsetParent.clientTop || 0 : arrowOffsetParent.clientLeft || 0 : 0;
-    var offsetModifierValue = (_offsetModifierState$ = offsetModifierState == null ? void 0 : offsetModifierState[mainAxis]) != null ? _offsetModifierState$ : 0;
-    var tetherMin = offset + minOffset - offsetModifierValue - clientOffset;
-    var tetherMax = offset + maxOffset - offsetModifierValue;
-    var preventedOffset = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.within)(tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.min)(min, tetherMin) : min, offset, tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.max)(max, tetherMax) : max);
-    popperOffsets[mainAxis] = preventedOffset;
-    data[mainAxis] = preventedOffset - offset;
-  }
+    var offsetModifierValue = state.modifiersData.offset ? state.modifiersData.offset[state.placement][mainAxis] : 0;
+    var tetherMin = popperOffsets[mainAxis] + minOffset - offsetModifierValue - clientOffset;
+    var tetherMax = popperOffsets[mainAxis] + maxOffset - offsetModifierValue;
 
-  if (checkAltAxis) {
-    var _offsetModifierState$2;
+    if (checkMainAxis) {
+      var preventedOffset = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.default)(tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.min)(min, tetherMin) : min, offset, tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.max)(max, tetherMax) : max);
+      popperOffsets[mainAxis] = preventedOffset;
+      data[mainAxis] = preventedOffset - offset;
+    }
 
-    var _mainSide = mainAxis === 'x' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.top : _enums_js__WEBPACK_IMPORTED_MODULE_5__.left;
+    if (checkAltAxis) {
+      var _mainSide = mainAxis === 'x' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.top : _enums_js__WEBPACK_IMPORTED_MODULE_5__.left;
 
-    var _altSide = mainAxis === 'x' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_5__.right;
+      var _altSide = mainAxis === 'x' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_5__.right;
 
-    var _offset = popperOffsets[altAxis];
+      var _offset = popperOffsets[altAxis];
 
-    var _len = altAxis === 'y' ? 'height' : 'width';
+      var _min = _offset + overflow[_mainSide];
 
-    var _min = _offset + overflow[_mainSide];
+      var _max = _offset - overflow[_altSide];
 
-    var _max = _offset - overflow[_altSide];
+      var _preventedOffset = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.default)(tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.min)(_min, tetherMin) : _min, _offset, tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.max)(_max, tetherMax) : _max);
 
-    var isOriginSide = [_enums_js__WEBPACK_IMPORTED_MODULE_5__.top, _enums_js__WEBPACK_IMPORTED_MODULE_5__.left].indexOf(basePlacement) !== -1;
-
-    var _offsetModifierValue = (_offsetModifierState$2 = offsetModifierState == null ? void 0 : offsetModifierState[altAxis]) != null ? _offsetModifierState$2 : 0;
-
-    var _tetherMin = isOriginSide ? _min : _offset - referenceRect[_len] - popperRect[_len] - _offsetModifierValue + normalizedTetherOffsetValue.altAxis;
-
-    var _tetherMax = isOriginSide ? _offset + referenceRect[_len] + popperRect[_len] - _offsetModifierValue - normalizedTetherOffsetValue.altAxis : _max;
-
-    var _preventedOffset = tether && isOriginSide ? (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.withinMaxClamp)(_tetherMin, _offset, _tetherMax) : (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.within)(tether ? _tetherMin : _min, _offset, tether ? _tetherMax : _max);
-
-    popperOffsets[altAxis] = _preventedOffset;
-    data[altAxis] = _preventedOffset - _offset;
+      popperOffsets[altAxis] = _preventedOffset;
+      data[altAxis] = _preventedOffset - _offset;
+    }
   }
 
   state.modifiersData[name] = data;
@@ -10636,7 +10264,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createPopper": () => (/* binding */ createPopper),
 /* harmony export */   "popperGenerator": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_4__.popperGenerator),
 /* harmony export */   "defaultModifiers": () => (/* binding */ defaultModifiers),
-/* harmony export */   "detectOverflow": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_5__["default"])
+/* harmony export */   "detectOverflow": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_5__.default)
 /* harmony export */ });
 /* harmony import */ var _createPopper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createPopper.js */ "./node_modules/@popperjs/core/lib/createPopper.js");
 /* harmony import */ var _createPopper_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./createPopper.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
@@ -10649,7 +10277,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var defaultModifiers = [_modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__["default"], _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__["default"], _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__["default"], _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__["default"]];
+var defaultModifiers = [_modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__.default, _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__.default, _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__.default, _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__.default];
 var createPopper = /*#__PURE__*/(0,_createPopper_js__WEBPACK_IMPORTED_MODULE_4__.popperGenerator)({
   defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
@@ -10670,7 +10298,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createPopper": () => (/* binding */ createPopper),
 /* harmony export */   "popperGenerator": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_9__.popperGenerator),
 /* harmony export */   "defaultModifiers": () => (/* binding */ defaultModifiers),
-/* harmony export */   "detectOverflow": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "detectOverflow": () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_10__.default),
 /* harmony export */   "createPopperLite": () => (/* reexport safe */ _popper_lite_js__WEBPACK_IMPORTED_MODULE_11__.createPopper),
 /* harmony export */   "applyStyles": () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.applyStyles),
 /* harmony export */   "arrow": () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.arrow),
@@ -10705,7 +10333,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var defaultModifiers = [_modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__["default"], _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__["default"], _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__["default"], _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__["default"], _modifiers_offset_js__WEBPACK_IMPORTED_MODULE_4__["default"], _modifiers_flip_js__WEBPACK_IMPORTED_MODULE_5__["default"], _modifiers_preventOverflow_js__WEBPACK_IMPORTED_MODULE_6__["default"], _modifiers_arrow_js__WEBPACK_IMPORTED_MODULE_7__["default"], _modifiers_hide_js__WEBPACK_IMPORTED_MODULE_8__["default"]];
+var defaultModifiers = [_modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__.default, _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__.default, _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__.default, _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__.default, _modifiers_offset_js__WEBPACK_IMPORTED_MODULE_4__.default, _modifiers_flip_js__WEBPACK_IMPORTED_MODULE_5__.default, _modifiers_preventOverflow_js__WEBPACK_IMPORTED_MODULE_6__.default, _modifiers_arrow_js__WEBPACK_IMPORTED_MODULE_7__.default, _modifiers_hide_js__WEBPACK_IMPORTED_MODULE_8__.default];
 var createPopper = /*#__PURE__*/(0,_createPopper_js__WEBPACK_IMPORTED_MODULE_9__.popperGenerator)({
   defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
@@ -10750,9 +10378,9 @@ function computeAutoPlacement(state, options) {
       flipVariations = _options.flipVariations,
       _options$allowedAutoP = _options.allowedAutoPlacements,
       allowedAutoPlacements = _options$allowedAutoP === void 0 ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.placements : _options$allowedAutoP;
-  var variation = (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(placement);
+  var variation = (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__.default)(placement);
   var placements = variation ? flipVariations ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.variationPlacements : _enums_js__WEBPACK_IMPORTED_MODULE_0__.variationPlacements.filter(function (placement) {
-    return (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(placement) === variation;
+    return (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__.default)(placement) === variation;
   }) : _enums_js__WEBPACK_IMPORTED_MODULE_0__.basePlacements;
   var allowedPlacements = placements.filter(function (placement) {
     return allowedAutoPlacements.indexOf(placement) >= 0;
@@ -10768,12 +10396,12 @@ function computeAutoPlacement(state, options) {
 
 
   var overflows = allowedPlacements.reduce(function (acc, placement) {
-    acc[placement] = (0,_detectOverflow_js__WEBPACK_IMPORTED_MODULE_2__["default"])(state, {
+    acc[placement] = (0,_detectOverflow_js__WEBPACK_IMPORTED_MODULE_2__.default)(state, {
       placement: placement,
       boundary: boundary,
       rootBoundary: rootBoundary,
       padding: padding
-    })[(0,_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(placement)];
+    })[(0,_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__.default)(placement)];
     return acc;
   }, {});
   return Object.keys(overflows).sort(function (a, b) {
@@ -10806,8 +10434,8 @@ function computeOffsets(_ref) {
   var reference = _ref.reference,
       element = _ref.element,
       placement = _ref.placement;
-  var basePlacement = placement ? (0,_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement) : null;
-  var variation = placement ? (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(placement) : null;
+  var basePlacement = placement ? (0,_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__.default)(placement) : null;
+  var variation = placement ? (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__.default)(placement) : null;
   var commonX = reference.x + reference.width / 2 - element.width / 2;
   var commonY = reference.y + reference.height / 2 - element.height / 2;
   var offsets;
@@ -10848,7 +10476,7 @@ function computeOffsets(_ref) {
       };
   }
 
-  var mainAxis = basePlacement ? (0,_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(basePlacement) : null;
+  var mainAxis = basePlacement ? (0,_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__.default)(basePlacement) : null;
 
   if (mainAxis != null) {
     var len = mainAxis === 'y' ? 'height' : 'width';
@@ -10911,9 +10539,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ detectOverflow)
 /* harmony export */ });
+/* harmony import */ var _dom_utils_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dom-utils/getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
 /* harmony import */ var _dom_utils_getClippingRect_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../dom-utils/getClippingRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js");
 /* harmony import */ var _dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dom-utils/getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
-/* harmony import */ var _dom_utils_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dom-utils/getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
 /* harmony import */ var _computeOffsets_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./computeOffsets.js */ "./node_modules/@popperjs/core/lib/utils/computeOffsets.js");
 /* harmony import */ var _rectToClientRect_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./rectToClientRect.js */ "./node_modules/@popperjs/core/lib/utils/rectToClientRect.js");
 /* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
@@ -10948,19 +10576,20 @@ function detectOverflow(state, options) {
       altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary,
       _options$padding = _options.padding,
       padding = _options$padding === void 0 ? 0 : _options$padding;
-  var paddingObject = (0,_mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_1__["default"])(typeof padding !== 'number' ? padding : (0,_expandToHashMap_js__WEBPACK_IMPORTED_MODULE_2__["default"])(padding, _enums_js__WEBPACK_IMPORTED_MODULE_0__.basePlacements));
+  var paddingObject = (0,_mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_1__.default)(typeof padding !== 'number' ? padding : (0,_expandToHashMap_js__WEBPACK_IMPORTED_MODULE_2__.default)(padding, _enums_js__WEBPACK_IMPORTED_MODULE_0__.basePlacements));
   var altContext = elementContext === _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.reference : _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper;
+  var referenceElement = state.elements.reference;
   var popperRect = state.rects.popper;
   var element = state.elements[altBoundary ? altContext : elementContext];
-  var clippingClientRect = (0,_dom_utils_getClippingRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(element) ? element : element.contextElement || (0,_dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_5__["default"])(state.elements.popper), boundary, rootBoundary);
-  var referenceClientRect = (0,_dom_utils_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_6__["default"])(state.elements.reference);
-  var popperOffsets = (0,_computeOffsets_js__WEBPACK_IMPORTED_MODULE_7__["default"])({
+  var clippingClientRect = (0,_dom_utils_getClippingRect_js__WEBPACK_IMPORTED_MODULE_3__.default)((0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(element) ? element : element.contextElement || (0,_dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_5__.default)(state.elements.popper), boundary, rootBoundary);
+  var referenceClientRect = (0,_dom_utils_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_6__.default)(referenceElement);
+  var popperOffsets = (0,_computeOffsets_js__WEBPACK_IMPORTED_MODULE_7__.default)({
     reference: referenceClientRect,
     element: popperRect,
     strategy: 'absolute',
     placement: placement
   });
-  var popperClientRect = (0,_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_8__["default"])(Object.assign({}, popperRect, popperOffsets));
+  var popperClientRect = (0,_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_8__.default)(Object.assign({}, popperRect, popperOffsets));
   var elementClientRect = elementContext === _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper ? popperClientRect : referenceClientRect; // positive = overflowing the clipping rect
   // 0 or negative = within the clipping rect
 
@@ -11229,7 +10858,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getFreshSideObject.js */ "./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js");
 
 function mergePaddingObject(paddingObject) {
-  return Object.assign({}, (0,_getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), paddingObject);
+  return Object.assign({}, (0,_getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_0__.default)(), paddingObject);
 }
 
 /***/ }),
@@ -11360,56 +10989,51 @@ var MISSING_DEPENDENCY_ERROR = 'Popper: modifier "%s" requires "%s", but "%s" mo
 var VALID_PROPERTIES = ['name', 'enabled', 'phase', 'fn', 'effect', 'requires', 'options'];
 function validateModifiers(modifiers) {
   modifiers.forEach(function (modifier) {
-    [].concat(Object.keys(modifier), VALID_PROPERTIES) // IE11-compatible replacement for `new Set(iterable)`
-    .filter(function (value, index, self) {
-      return self.indexOf(value) === index;
-    }).forEach(function (key) {
+    Object.keys(modifier).forEach(function (key) {
       switch (key) {
         case 'name':
           if (typeof modifier.name !== 'string') {
-            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(INVALID_MODIFIER_ERROR, String(modifier.name), '"name"', '"string"', "\"" + String(modifier.name) + "\""));
+            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(INVALID_MODIFIER_ERROR, String(modifier.name), '"name"', '"string"', "\"" + String(modifier.name) + "\""));
           }
 
           break;
 
         case 'enabled':
           if (typeof modifier.enabled !== 'boolean') {
-            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(INVALID_MODIFIER_ERROR, modifier.name, '"enabled"', '"boolean"', "\"" + String(modifier.enabled) + "\""));
+            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(INVALID_MODIFIER_ERROR, modifier.name, '"enabled"', '"boolean"', "\"" + String(modifier.enabled) + "\""));
           }
-
-          break;
 
         case 'phase':
           if (_enums_js__WEBPACK_IMPORTED_MODULE_1__.modifierPhases.indexOf(modifier.phase) < 0) {
-            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(INVALID_MODIFIER_ERROR, modifier.name, '"phase"', "either " + _enums_js__WEBPACK_IMPORTED_MODULE_1__.modifierPhases.join(', '), "\"" + String(modifier.phase) + "\""));
+            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(INVALID_MODIFIER_ERROR, modifier.name, '"phase"', "either " + _enums_js__WEBPACK_IMPORTED_MODULE_1__.modifierPhases.join(', '), "\"" + String(modifier.phase) + "\""));
           }
 
           break;
 
         case 'fn':
           if (typeof modifier.fn !== 'function') {
-            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(INVALID_MODIFIER_ERROR, modifier.name, '"fn"', '"function"', "\"" + String(modifier.fn) + "\""));
+            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(INVALID_MODIFIER_ERROR, modifier.name, '"fn"', '"function"', "\"" + String(modifier.fn) + "\""));
           }
 
           break;
 
         case 'effect':
-          if (modifier.effect != null && typeof modifier.effect !== 'function') {
-            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(INVALID_MODIFIER_ERROR, modifier.name, '"effect"', '"function"', "\"" + String(modifier.fn) + "\""));
+          if (typeof modifier.effect !== 'function') {
+            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(INVALID_MODIFIER_ERROR, modifier.name, '"effect"', '"function"', "\"" + String(modifier.fn) + "\""));
           }
 
           break;
 
         case 'requires':
-          if (modifier.requires != null && !Array.isArray(modifier.requires)) {
-            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(INVALID_MODIFIER_ERROR, modifier.name, '"requires"', '"array"', "\"" + String(modifier.requires) + "\""));
+          if (!Array.isArray(modifier.requires)) {
+            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(INVALID_MODIFIER_ERROR, modifier.name, '"requires"', '"array"', "\"" + String(modifier.requires) + "\""));
           }
 
           break;
 
         case 'requiresIfExists':
           if (!Array.isArray(modifier.requiresIfExists)) {
-            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(INVALID_MODIFIER_ERROR, modifier.name, '"requiresIfExists"', '"array"', "\"" + String(modifier.requiresIfExists) + "\""));
+            console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(INVALID_MODIFIER_ERROR, modifier.name, '"requiresIfExists"', '"array"', "\"" + String(modifier.requiresIfExists) + "\""));
           }
 
           break;
@@ -11428,7 +11052,7 @@ function validateModifiers(modifiers) {
         if (modifiers.find(function (mod) {
           return mod.name === requirement;
         }) == null) {
-          console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__["default"])(MISSING_DEPENDENCY_ERROR, String(modifier.name), requirement, requirement));
+          console.error((0,_format_js__WEBPACK_IMPORTED_MODULE_0__.default)(MISSING_DEPENDENCY_ERROR, String(modifier.name), requirement, requirement));
         }
       });
     });
@@ -11446,17 +11070,12 @@ function validateModifiers(modifiers) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "within": () => (/* binding */ within),
-/* harmony export */   "withinMaxClamp": () => (/* binding */ withinMaxClamp)
+/* harmony export */   "default": () => (/* binding */ within)
 /* harmony export */ });
 /* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
 
 function within(min, value, max) {
   return (0,_math_js__WEBPACK_IMPORTED_MODULE_0__.max)(min, (0,_math_js__WEBPACK_IMPORTED_MODULE_0__.min)(value, max));
-}
-function withinMaxClamp(min, value, max) {
-  var v = within(min, value, max);
-  return v > max ? max : v;
 }
 
 /***/ }),
@@ -11505,6 +11124,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
 /* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10__);
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
@@ -11563,50 +11183,11 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Footers/FOOT01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Footers/FOOT01/src/main.js ***!
-  \****************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
-  \****************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
 /***/ "./resources/views/Client/assets/js/base.js":
 /*!**************************************************!*\
   !*** ./resources/views/Client/assets/js/base.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Core/Footers/FOOT01/src/main */ "./resources/views/Client/Core/Footers/FOOT01/src/main.js");
-/* harmony import */ var _Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT01_src_main__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
-/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Topics/TOPI01/src/main */ "./resources/views/Client/pages/Topics/TOPI01/src/main.js");
-/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Services/SERV01/src/main */ "./resources/views/Client/pages/Services/SERV01/src/main.js");
-/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Contacts/CONT01/src/main */ "./resources/views/Client/pages/Contacts/CONT01/src/main.js");
-/* harmony import */ var _pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_CONT01_src_main__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
+/***/ (() => {
 
 
 
@@ -11622,79 +11203,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contacts/CONT01/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contacts/CONT01/src/main.js ***!
-  \******************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Services/SERV01/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Services/SERV01/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('#SERV01 .carousel-box-service').owlCarousel({
-  loop: false,
-  autoplay: true,
-  autoplayTimeout: 5000,
-  nav: false,
-  dots: true,
-  items: 4,
-  margin: 10
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Slides/SLID01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Slides/SLID01/src/main.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  $('.slide-carousel-fade').owlCarousel({
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav: false,
-    dots: true,
-    items: 1,
-    margin: 0,
-    stagePadding: 0,
-    dotsContainer: ".navigation-slide"
-  });
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Topics/TOPI01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI01/src/main.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('#TOPI01 .carousel-box-topic').owlCarousel({
-  loop: true,
-  autoplay: true,
-  autoplayTimeout: 5000,
-  nav: false,
-  dots: true,
-  items: 3,
-  margin: 10
-});
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap/js/dist/base-component.js":
 /*!**********************************************************!*\
   !*** ./node_modules/bootstrap/js/dist/base-component.js ***!
@@ -11702,23 +11210,23 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap base-component.js v5.1.3 (https://getbootstrap.com/)
+  * Bootstrap base-component.js v5.1.0 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory(__webpack_require__(/*! ./dom/data.js */ "./node_modules/bootstrap/js/dist/dom/data.js"), __webpack_require__(/*! ./dom/event-handler.js */ "./node_modules/bootstrap/js/dist/dom/event-handler.js")) :
   0;
-})(this, (function (Data, EventHandler) { 'use strict';
+}(this, (function (Data, EventHandler) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-  const Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): util/index.js
+   * Bootstrap (v5.1.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -11815,7 +11323,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): base-component.js
+   * Bootstrap (v5.1.0): base-component.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -11825,7 +11333,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
    * ------------------------------------------------------------------------
    */
 
-  const VERSION = '5.1.3';
+  const VERSION = '5.1.0';
 
   class BaseComponent {
     constructor(element) {
@@ -11836,12 +11344,12 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
       }
 
       this._element = element;
-      Data__default.default.set(this._element, this.constructor.DATA_KEY, this);
+      Data__default['default'].set(this._element, this.constructor.DATA_KEY, this);
     }
 
     dispose() {
-      Data__default.default.remove(this._element, this.constructor.DATA_KEY);
-      EventHandler__default.default.off(this._element, this.constructor.EVENT_KEY);
+      Data__default['default'].remove(this._element, this.constructor.DATA_KEY);
+      EventHandler__default['default'].off(this._element, this.constructor.EVENT_KEY);
       Object.getOwnPropertyNames(this).forEach(propertyName => {
         this[propertyName] = null;
       });
@@ -11854,7 +11362,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
 
     static getInstance(element) {
-      return Data__default.default.get(getElement(element), this.DATA_KEY);
+      return Data__default['default'].get(getElement(element), this.DATA_KEY);
     }
 
     static getOrCreateInstance(element, config = {}) {
@@ -11881,7 +11389,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   return BaseComponent;
 
-}));
+})));
 //# sourceMappingURL=base-component.js.map
 
 
@@ -11894,18 +11402,18 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 /***/ (function(module) {
 
 /*!
-  * Bootstrap data.js v5.1.3 (https://getbootstrap.com/)
+  * Bootstrap data.js v5.1.0 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory() :
   0;
-})(this, (function () { 'use strict';
+}(this, (function () { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): dom/data.js
+   * Bootstrap (v5.1.0): dom/data.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -11916,7 +11424,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
    * ------------------------------------------------------------------------
    */
   const elementMap = new Map();
-  const data = {
+  var data = {
     set(element, key, instance) {
       if (!elementMap.has(element)) {
         elementMap.set(element, new Map());
@@ -11959,7 +11467,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   return data;
 
-}));
+})));
 //# sourceMappingURL=data.js.map
 
 
@@ -11972,18 +11480,18 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 /***/ (function(module) {
 
 /*!
-  * Bootstrap event-handler.js v5.1.3 (https://getbootstrap.com/)
+  * Bootstrap event-handler.js v5.1.0 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory() :
   0;
-})(this, (function () { 'use strict';
+}(this, (function () { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): util/index.js
+   * Bootstrap (v5.1.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12002,7 +11510,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): dom/event-handler.js
+   * Bootstrap (v5.1.0): dom/event-handler.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12065,6 +11573,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
             event.delegateTarget = target;
 
             if (handler.oneOff) {
+              // eslint-disable-next-line unicorn/consistent-destructuring
               EventHandler.off(element, event.type, selector, fn);
             }
 
@@ -12290,7 +11799,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   return EventHandler;
 
-}));
+})));
 //# sourceMappingURL=event-handler.js.map
 
 
@@ -12303,18 +11812,18 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 /***/ (function(module) {
 
 /*!
-  * Bootstrap manipulator.js v5.1.3 (https://getbootstrap.com/)
+  * Bootstrap manipulator.js v5.1.0 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory() :
   0;
-})(this, (function () { 'use strict';
+}(this, (function () { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): dom/manipulator.js
+   * Bootstrap (v5.1.0): dom/manipulator.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12388,7 +11897,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   return Manipulator;
 
-}));
+})));
 //# sourceMappingURL=manipulator.js.map
 
 
@@ -12401,18 +11910,18 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 /***/ (function(module) {
 
 /*!
-  * Bootstrap selector-engine.js v5.1.3 (https://getbootstrap.com/)
+  * Bootstrap selector-engine.js v5.1.0 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory() :
   0;
-})(this, (function () { 'use strict';
+}(this, (function () { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): util/index.js
+   * Bootstrap (v5.1.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12455,7 +11964,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): dom/selector-engine.js
+   * Bootstrap (v5.1.0): dom/selector-engine.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12525,7 +12034,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   return SelectorEngine;
 
-}));
+})));
 //# sourceMappingURL=selector-engine.js.map
 
 
@@ -12538,44 +12047,46 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap dropdown.js v5.1.3 (https://getbootstrap.com/)
+  * Bootstrap dropdown.js v5.1.0 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory(__webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/index.js"), __webpack_require__(/*! ./dom/event-handler.js */ "./node_modules/bootstrap/js/dist/dom/event-handler.js"), __webpack_require__(/*! ./dom/manipulator.js */ "./node_modules/bootstrap/js/dist/dom/manipulator.js"), __webpack_require__(/*! ./dom/selector-engine.js */ "./node_modules/bootstrap/js/dist/dom/selector-engine.js"), __webpack_require__(/*! ./base-component.js */ "./node_modules/bootstrap/js/dist/base-component.js")) :
   0;
-})(this, (function (Popper, EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
+}(this, (function (Popper, EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   function _interopNamespace(e) {
     if (e && e.__esModule) return e;
-    const n = Object.create(null);
+    var n = Object.create(null);
     if (e) {
-      for (const k in e) {
+      Object.keys(e).forEach(function (k) {
         if (k !== 'default') {
-          const d = Object.getOwnPropertyDescriptor(e, k);
+          var d = Object.getOwnPropertyDescriptor(e, k);
           Object.defineProperty(n, k, d.get ? d : {
             enumerable: true,
-            get: () => e[k]
+            get: function () {
+              return e[k];
+            }
           });
         }
-      }
+      });
     }
-    n.default = e;
+    n['default'] = e;
     return Object.freeze(n);
   }
 
-  const Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
+  var Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): util/index.js
+   * Bootstrap (v5.1.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12759,7 +12270,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): dropdown.js
+   * Bootstrap (v5.1.0): dropdown.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12825,7 +12336,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
    * ------------------------------------------------------------------------
    */
 
-  class Dropdown extends BaseComponent__default.default {
+  class Dropdown extends BaseComponent__default['default'] {
     constructor(element, config) {
       super(element);
       this._popper = null;
@@ -12860,7 +12371,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
       const relatedTarget = {
         relatedTarget: this._element
       };
-      const showEvent = EventHandler__default.default.trigger(this._element, EVENT_SHOW, relatedTarget);
+      const showEvent = EventHandler__default['default'].trigger(this._element, EVENT_SHOW, relatedTarget);
 
       if (showEvent.defaultPrevented) {
         return;
@@ -12869,7 +12380,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
       const parent = Dropdown.getParentFromElement(this._element); // Totally disable Popper for Dropdowns in Navbar
 
       if (this._inNavbar) {
-        Manipulator__default.default.setDataAttribute(this._menu, 'popper', 'none');
+        Manipulator__default['default'].setDataAttribute(this._menu, 'popper', 'none');
       } else {
         this._createPopper(parent);
       } // If this is a touch-enabled device we add extra
@@ -12879,7 +12390,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
 
       if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
-        [].concat(...document.body.children).forEach(elem => EventHandler__default.default.on(elem, 'mouseover', noop));
+        [].concat(...document.body.children).forEach(elem => EventHandler__default['default'].on(elem, 'mouseover', noop));
       }
 
       this._element.focus();
@@ -12890,7 +12401,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
       this._element.classList.add(CLASS_NAME_SHOW);
 
-      EventHandler__default.default.trigger(this._element, EVENT_SHOWN, relatedTarget);
+      EventHandler__default['default'].trigger(this._element, EVENT_SHOWN, relatedTarget);
     }
 
     hide() {
@@ -12923,7 +12434,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
 
     _completeHide(relatedTarget) {
-      const hideEvent = EventHandler__default.default.trigger(this._element, EVENT_HIDE, relatedTarget);
+      const hideEvent = EventHandler__default['default'].trigger(this._element, EVENT_HIDE, relatedTarget);
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -12932,7 +12443,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
 
       if ('ontouchstart' in document.documentElement) {
-        [].concat(...document.body.children).forEach(elem => EventHandler__default.default.off(elem, 'mouseover', noop));
+        [].concat(...document.body.children).forEach(elem => EventHandler__default['default'].off(elem, 'mouseover', noop));
       }
 
       if (this._popper) {
@@ -12945,13 +12456,13 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
       this._element.setAttribute('aria-expanded', 'false');
 
-      Manipulator__default.default.removeDataAttribute(this._menu, 'popper');
-      EventHandler__default.default.trigger(this._element, EVENT_HIDDEN, relatedTarget);
+      Manipulator__default['default'].removeDataAttribute(this._menu, 'popper');
+      EventHandler__default['default'].trigger(this._element, EVENT_HIDDEN, relatedTarget);
     }
 
     _getConfig(config) {
       config = { ...this.constructor.Default,
-        ...Manipulator__default.default.getDataAttributes(this._element),
+        ...Manipulator__default['default'].getDataAttributes(this._element),
         ...config
       };
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
@@ -12985,7 +12496,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
       this._popper = Popper__namespace.createPopper(referenceElement, this._menu, popperConfig);
 
       if (isDisplayStatic) {
-        Manipulator__default.default.setDataAttribute(this._menu, 'popper', 'static');
+        Manipulator__default['default'].setDataAttribute(this._menu, 'popper', 'static');
       }
     }
 
@@ -12994,7 +12505,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
     }
 
     _getMenuElement() {
-      return SelectorEngine__default.default.next(this._element, SELECTOR_MENU)[0];
+      return SelectorEngine__default['default'].next(this._element, SELECTOR_MENU)[0];
     }
 
     _getPlacement() {
@@ -13070,7 +12581,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
       key,
       target
     }) {
-      const items = SelectorEngine__default.default.find(SELECTOR_VISIBLE_ITEMS, this._menu).filter(isVisible);
+      const items = SelectorEngine__default['default'].find(SELECTOR_VISIBLE_ITEMS, this._menu).filter(isVisible);
 
       if (!items.length) {
         return;
@@ -13103,7 +12614,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
         return;
       }
 
-      const toggles = SelectorEngine__default.default.find(SELECTOR_DATA_TOGGLE);
+      const toggles = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE);
 
       for (let i = 0, len = toggles.length; i < len; i++) {
         const context = Dropdown.getInstance(toggles[i]);
@@ -13171,7 +12682,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
         return;
       }
 
-      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default.default.prev(this, SELECTOR_DATA_TOGGLE)[0];
+      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default['default'].prev(this, SELECTOR_DATA_TOGGLE)[0];
       const instance = Dropdown.getOrCreateInstance(getToggleButton);
 
       if (event.key === ESCAPE_KEY) {
@@ -13202,11 +12713,11 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
    */
 
 
-  EventHandler__default.default.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE, Dropdown.dataApiKeydownHandler);
-  EventHandler__default.default.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
-  EventHandler__default.default.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+  EventHandler__default['default'].on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE, Dropdown.dataApiKeydownHandler);
+  EventHandler__default['default'].on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
+  EventHandler__default['default'].on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     event.preventDefault();
     Dropdown.getOrCreateInstance(this).toggle();
   });
@@ -13221,7 +12732,7 @@ $('#TOPI01 .carousel-box-topic').owlCarousel({
 
   return Dropdown;
 
-}));
+})));
 //# sourceMappingURL=dropdown.js.map
 
 
@@ -24340,21 +23851,19 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
 /******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
+/******/ 			for(moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
 /******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
 /******/ 			}
+/******/ 			if(runtime) var result = runtime(__webpack_require__);
 /******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
 /******/ 			for(;i < chunkIds.length; i++) {
 /******/ 				chunkId = chunkIds[i];
 /******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 					installedChunks[chunkId][0]();
 /******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
+/******/ 				installedChunks[chunkIds[i]] = 0;
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}

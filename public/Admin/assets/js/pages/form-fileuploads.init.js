@@ -25,6 +25,12 @@
 })(),
 0 < $('[data-plugins="dropify"]').length &&
     $('[data-plugins="dropify"]').dropify({
-        messages: { default: "Arraste e solte um arquivo aqui ou clique", replace: "Arrastar e solte ou clicar para substituir", remove: "Remover", error: "Ooops, algo errado foi acrescentado." },
+        imgFileExtensions: ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp'],
+        messages: {
+            default: "Arraste e solte um arquivo aqui ou clique",
+            replace: "Arrastar e solte ou clicar para substituir",
+            remove: "Remover",
+            error: "Ooops, algo errado foi acrescentado."
+        },
         error: { fileSize: "O tamanho do arquivo é muito grande (2M max)." },
     });

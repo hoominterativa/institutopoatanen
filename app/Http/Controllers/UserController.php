@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Helpers\HelperArchive;
 
 class UserController extends Controller
 {
@@ -51,14 +53,23 @@ class UserController extends Controller
             'email.unique' => 'E-mail já cadastrado no sistema'
         ]);
 
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->active = $request->active?:0;
-        $user->password = Hash::make($request->password);
-        if($user->save()){
+        $data = $request->all();
+        $helper = new HelperArchive();
+
+        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', 200, 80);
+
+        if($path_image) $data['path_image'] = $path_image;
+
+        $data['password'] = Hash::make($request->password);
+        $data['active'] = $request->active?:0;
+
+        if(User::create($data)){
             Session::flash('success', 'Usuário cadastrado com sucesso');
             return redirect()->route('admin.user.index');
+        }else{
+            Storage::delete($path_image);
+            Session::flash('success', 'Erro ao cadastradar o usuário');
+            return redirect()->back();
         }
     }
 
@@ -95,13 +106,33 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->active = $request->active?:0;
-        if($user->password <> '') $user->password = Hash::make($request->password);
-        if($user->save()){
+        $data = $request->all();
+        $helper = new HelperArchive();
+
+        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', 200, 80);
+
+        if($path_image){
+            Storage::delete($user->path_image);
+            $data['path_image'] = $path_image;
+        }
+
+        if($request->delete_path_image && !$path_image){
+            Storage::delete($user->path_image);
+            $data['path_image'] = null;
+        }
+
+        $data['password'] = Hash::make($request->password);
+        $data['active'] = $request->active?:0;
+
+        if($request->password == '') unset($data['password']);
+
+        if($user->fill($data)->save()){
             Session::flash('success', 'Usuário atualizado com sucesso');
             return redirect()->route('admin.user.index');
+        }else{
+            Storage::delete($path_image);
+            Session::flash('success', 'Erro ao atualizar os dados do usuário');
+            return redirect()->back();
         }
     }
 
