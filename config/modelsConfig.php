@@ -3,7 +3,9 @@
 return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
-        'Headers' => (object)[],
+        'Headers' => (object)[
+            'Code' => 'HEAD01'
+        ],
         'Footers' => (object)[]
     ],
 

@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($optimization, ['route' => ['admin.optimization.update', $optimization->id], 'method' => 'PUT', 'class'=>'parsley-examples']) !!}
+                {!! Form::model($optimization, ['route' => ['admin.optimization.update', $optimization->id], 'method' => 'PUT', 'class'=>'parsley-validate']) !!}
                     @include('Admin.cruds.Optimization.form')
                     {!! Form::submit('Salvar', ['class'=>'btn btn-primary float-end me-3']) !!}
                     <a class="btn btn-secondary float-end me-1" href="{{route('admin.optimization.index')}}">Voltar</a>

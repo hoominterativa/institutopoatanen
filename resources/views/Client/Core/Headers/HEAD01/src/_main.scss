@@ -1,0 +1,41 @@
+@import 'variables';
+/* BEGIN STYLE */
+#HEAD01{
+    background-color: $head01-bg-theme;
+
+    .btn-rounded-edge-theme{
+        border-radius: $head01-btn-rounded-edge-theme;
+    }
+    .btn-bg-theme{
+        background-color: $head01-btn-bg-theme;
+        &:hover{
+            background-color: adjust-color($head01-btn-bg-theme, $red: 50, $green: 50, $blue: 50);
+        }
+    }
+    .btn-color-theme{
+        color: $head01-btn-color-theme;
+    }
+    .navigation-header{
+        .content-btn-cta{
+            .btn-cta{
+                font-size: 14px;
+                font-family: $font-primary;
+                font-weight: 700;
+            }
+        }
+        .link-translate{
+            .btn-translate{
+                font-size: 15px;
+                font-family: $font-primary;
+                font-weight: 600;
+                border-right: 1px solid #fff;
+                line-height: 15px;
+            }
+        }
+        .btn-menu-default-header{
+            .btn-menu-theme-1{
+
+            }
+        }
+    }
+}

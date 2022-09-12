@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($user, ['route' => ['admin.user.update', $user->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
+                {!! Form::model($user, ['route' => ['admin.user.update', $user->id], 'class'=>'parsley-validate', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.user.form',[
                         'user' => $user
                     ])

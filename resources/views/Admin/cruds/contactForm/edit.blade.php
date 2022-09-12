@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($contactForm, ['route' => ['admin.contactForm.update', $contactForm->id], 'method' => 'PUT', 'files' => true, 'class'=>'parsley-examples']) !!}
+                {!! Form::model($contactForm, ['route' => ['admin.contactForm.update', $contactForm->id], 'method' => 'PUT', 'files' => true, 'class'=>'parsley-validate']) !!}
                     @include('Admin.cruds.contactForm.form', [
                         'configForm' => $configForm
                     ])

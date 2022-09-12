@@ -106,7 +106,8 @@ Route::prefix('painel')->group(function () {
     });
 });
 
-Route::get('/', [HomePageController::class ,'index'])->name('home');
+Route::get('/home', [HomePageController::class ,'index'])->name('home');
+Route::get('/', function(){return redirect()->route('home');});
 
 /**
  *

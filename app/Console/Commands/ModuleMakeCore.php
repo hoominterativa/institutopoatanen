@@ -71,6 +71,9 @@ class ModuleMakeCore extends Command
             if(copy('defaults/Client/src/_main.scss', $pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){
                 $this->info('Recurso criado '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss');
             }
+            if(copy('defaults/Client/src/_variables.scss', $pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_variables.scss')){
+                $this->info('Recurso criado '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_variables.scss');
+            }
             if(copy('defaults/Client/src/main.js', $pathCore.$arguments['module'].'/'.$arguments['code'].'/src/main.js')){
                 $this->info('Recurso criado '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/src/main.js');
             }

@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($generalSetting, ['autocomplete' => 'off', 'method' => 'PUT', 'enctype' => 'multipart/form-data', 'route' => ['admin.generalSetting.update', $generalSetting->id], 'class'=>'parsley-examples']) !!}
+                {!! Form::model($generalSetting, ['autocomplete' => 'off', 'method' => 'PUT', 'enctype' => 'multipart/form-data', 'route' => ['admin.generalSetting.update', $generalSetting->id], 'class'=>'parsley-validate']) !!}
                     @include('Admin.cruds.generalSetting.form',[
                         'generalSetting' => $generalSetting
                     ])
@@ -95,7 +95,7 @@
                                                                         <h4 class="modal-title">Editar rede Social</h4>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
-                                                                    {!! Form::model($social, ['autocomplete' => 'off', 'method' => 'PUT', 'route' => ['admin.social.update', $social->id], 'class'=>'parsley-examples']) !!}
+                                                                    {!! Form::model($social, ['autocomplete' => 'off', 'method' => 'PUT', 'route' => ['admin.social.update', $social->id], 'class'=>'parsley-validate']) !!}
                                                                         <div class="modal-body p-4">
                                                                             <div class="mb-3">
                                                                                 <div class="mb-3">
@@ -161,7 +161,7 @@
                     <h4 class="modal-title">Cadastrar Rede Social</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                {!! Form::model(null, ['autocomplete' => 'off', 'route' => ['admin.social.store'], 'class'=>'parsley-examples']) !!}
+                {!! Form::model(null, ['autocomplete' => 'off', 'route' => ['admin.social.store'], 'class'=>'parsley-validate']) !!}
                     <div class="modal-body p-4">
                         <div class="mb-3">
                             <div class="mb-3">

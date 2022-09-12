@@ -19,6 +19,7 @@ class HelperPublishing extends Controller
                 $codeIf = (array) $code;
                 if(count($codeIf)){
                     $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/main';\n";
+                    $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/variables';\n";
                     $contentJs .= "import '../../Core/{$module}/{$code->Code}/src/main';\n";
                 }
             }

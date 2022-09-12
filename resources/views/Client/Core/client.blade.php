@@ -22,8 +22,8 @@
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
+    <link rel="canonical" href="{{url(Route::current()->uri)}}">
 
-    <link rel="stylesheet" href="{{mix('css/app.css')}}">
 </head>
 <body>
     {!!$optimization->other_scripts!!}
@@ -34,6 +34,7 @@
     <footer id="mainFooter">
         {!!$renderFooter!!}
     </footer>
-    <script src="{{mix('js/app.js')}}"></script>
+    <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
+    <script src="{{asset(mix('js/app.js'))}}"></script>
 </body>
 </html>

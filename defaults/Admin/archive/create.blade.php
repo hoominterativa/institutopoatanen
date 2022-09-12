@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model(null, ['route' => 'admin.code.store', 'class'=>'parsley-examples', 'files'=>true]) !!}
+                {!! Form::model(null, ['route' => 'admin.code.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
                     @include('Admin.Cruds.Module.CODE.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

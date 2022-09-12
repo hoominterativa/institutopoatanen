@@ -70,9 +70,9 @@ $text-size-tertiary: 25px;
 
 /* Fonts Family */
 
-$font-primary: "Roboto";
-$font-secondary: "Roboto";
-$font-paragraph: "Roboto";
+$font-primary: 'Poppins', sans-serif, arial;
+$font-secondary: 'Poppins', sans-serif, arial;
+$font-paragraph: 'Montserrat', sans-serif, arial;
 
 /* Fonts weight */
 
@@ -102,3 +102,9 @@ $wp-40: 40%;
 $wp-30: 30%;
 $wp-20: 20%;
 $wp-10: 10%;
+
+
+// THEMES BTN
+$btn-rounded-edge-theme: 0;
+$btn-bg-theme-1: #fff;
+$btn-color-theme-1: #000;

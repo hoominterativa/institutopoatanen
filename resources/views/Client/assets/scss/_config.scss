@@ -22,6 +22,10 @@ body::-webkit-scrollbar-thumb:hover {
     background: $primary;
 }
 
+a{
+    text-decoration: none;
+}
+
 .content {
     position: relative;
 }

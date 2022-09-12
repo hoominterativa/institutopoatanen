@@ -11124,7 +11124,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
 /* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
-/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10__);
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
@@ -11171,15 +11170,18 @@ $(document).ready(function () {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(document).ready(function () {
-  $(".parsley-examples").parsley();
-}), $(function () {
-  $("#demo-form").parsley().on("field:validated", function () {
-    var e = 0 === $(".parsley-error").length;
-    $(".alert-info").toggleClass("d-none", !e), $(".alert-warning").toggleClass("d-none", e);
-  }).on("form:submit", function () {
-    return !1;
-  });
+  $(".parsley-validate").parsley();
 });
+
+/***/ }),
+
+/***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 
@@ -11187,8 +11189,12 @@ $(document).ready(function () {
 /*!**************************************************!*\
   !*** ./resources/views/Client/assets/js/base.js ***!
   \**************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
