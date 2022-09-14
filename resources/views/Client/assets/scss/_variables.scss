@@ -1,6 +1,5 @@
 /* grayscale */
 
-$white: #fff;
 $gray-100: #f7f8f9;
 $gray-200: #eceff1;
 $gray-300: #dee2e6;
@@ -10,40 +9,21 @@ $gray-600: #98a6ad;
 $gray-700: #6c757d;
 $gray-800: #343a40;
 $gray-900: #323a46;
-$black: #262626;
 
-/* general colors */
-
-$blue: #4a81d4;
-$indigo: #8064fa;
-$purple: #6405c3;
-$pink: #f672a7;
-$red: #f1556c;
-$orange: #fd7e14;
-$yellow: #f7b84b;
-$green: #1abc9c;
-$teal: #02a8b5;
-$cyan: #4fc6e1;
 
 /* colors theme */
 
-$primary: $purple;
-$secondary: $gray-700;
-$success: $green;
-$info: $cyan;
-$warning: $yellow;
-$danger: $red;
-$blue: $blue;
-$light: $gray-200;
-$dark: $gray-900;
+$color-main: #6F3BED;
+$color-secondary: #5CFFC4;
+$color-extra: #0D84F5;
+$color-soft: #CCCEE5;
+$color-light: #EFF0F7;
+$color-white: #fff;
+$color-black: #000;
 
-/* Border */
-
-$border-gray-100: $gray-100;
-$border-gray-200: $gray-200;
-$border-gray-300: $gray-300;
-$border-gray-400: $gray-400;
-$border-gray-500: $gray-500;
+$color-info: #0D84F5;
+$color-warning: #f5980d;
+$color-danger: #c90000;
 
 /* Weight */
 
@@ -53,20 +33,6 @@ $weight-500: 500;
 $weight-700: 700;
 $weight-900: 900;
 
-/* Text color */
-
-$text-gray-400: $gray-400;
-$text-gray-500: $gray-500;
-$text-gray-600: $gray-600;
-$text-gray-700: $gray-700;
-$text-gray-900: $gray-900;
-$text-primary: $primary;
-
-/* Text size */
-
-$text-size-primary: 45px;
-$text-size-secondary: 35px;
-$text-size-tertiary: 25px;
 
 /* Fonts Family */
 
@@ -74,21 +40,20 @@ $font-primary: 'Poppins', sans-serif, arial;
 $font-secondary: 'Poppins', sans-serif, arial;
 $font-paragraph: 'Montserrat', sans-serif, arial;
 
-/* Fonts weight */
-
-$font-weight-primary: $weight-900;
-$font-weight-secondary: $weight-700;
-$font-weight-paragraph: $weight-300;
-
 /* backgrounds */
 
-$bg-primary: $primary;
-$bg-secondary: $secondary;
-$bg-gray-100: $gray-100;
-$bg-gray-200: $gray-200;
-$bg-gray-300: $gray-300;
-$bg-gray-400: $gray-400;
-$bg-gray-500: $gray-500;
+$bg-main: $color-main;
+$bg-secondary: $color-secondary;
+$bg-extra: $color-extra;
+$bg-soft: $color-soft;
+$bg-light: $color-light;
+$bg-white: $color-white;
+$bg-black: $color-black;
+$bg-gray: $gray-300;
+
+$bg-info: $color-info;
+$bg-warning: $color-warning;
+$bg-danger: $color-danger;
 
 /* Width percent section body */
 
@@ -103,8 +68,8 @@ $wp-30: 30%;
 $wp-20: 20%;
 $wp-10: 10%;
 
-
-// THEMES BTN
-$btn-rounded-edge-theme: 0;
-$btn-bg-theme-1: #fff;
-$btn-color-theme-1: #000;
+// EDGE
+$edge-rounded-none: 0;
+$edge-rounded-soft: 5px;
+$edge-rounded: 50px;
+$edge-rounded-full: 100%;

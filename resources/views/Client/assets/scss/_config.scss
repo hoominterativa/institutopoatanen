@@ -11,15 +11,15 @@ body {
 body::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-    background: rgba($primary, 0.50);
+    background: rgba($color-main, 0.50);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: rgba($primary, 0.80);
+    background: rgba($color-main, 0.80);
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: $primary;
+    background: $color-main;
 }
 
 a{
@@ -38,11 +38,11 @@ a{
 }
 
 .text-primary {
-    color: $primary !important;
+    color: $color-main !important;
 }
 
 .text-secondary {
-    color: $secondary !important;
+    color: $color-secondary !important;
 }
 
 // Font sizes (Custom)
@@ -125,25 +125,25 @@ a{
 .btn-primary:active:focus,
 .btn-primary.active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.25rem rgba($primary, 50%);
+    box-shadow: 0 0 0 0.25rem rgba($color-main, 50%);
 }
 
 .btn-primary,
 .btn-primary:disabled,
 .btn-primary.disabled {
     color: #fff;
-    background-color: $primary;
-    border-color: $primary;
+    background-color: $color-main;
+    border-color: $color-main;
     &:hover,
     &:focus,
     &:active,
     &.active {
         color: #fff;
-        background-color: rgba($primary, 0.9);
-        border-color: rgba($primary, 0.9);
+        background-color: rgba($color-main, 0.9);
+        border-color: rgba($color-main, 0.9);
     }
     &:focus {
-        box-shadow: 0 0 0 0.25rem rgba($primary, 0.5);
+        box-shadow: 0 0 0 0.25rem rgba($color-main, 0.5);
     }
 }
 
@@ -151,14 +151,14 @@ a{
 .btn-check:active+.btn-primary,
 .show>.btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: rgba($primary, 0.9);
-    border-color: rgba($primary, 0.9);
+    background-color: rgba($color-main, 0.9);
+    border-color: rgba($color-main, 0.9);
 }
 
 .btn-check:checked+.btn-primary:focus,
 .btn-check:active+.btn-primary:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.25rem rgba($primary, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba($color-main, 0.5);
 }
 
 .form-control:focus {
@@ -176,13 +176,13 @@ a{
 }
 
 .parsley-error {
-    border-color: $danger;
+    border-color: $color-danger;
 }
 
 .parsley-errors-list {
     padding-left: 0;
     font-size: 13px;
-    color: $danger;
+    color: $color-danger;
     li {
         list-style: none;
     }

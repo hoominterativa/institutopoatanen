@@ -1,19 +1,19 @@
 @import 'variables';
 /* BEGIN STYLE */
 #HEAD01{
-    background-color: $head01-bg-theme;
+    background-color: $bg-gray;
 
     .btn-rounded-edge-theme{
-        border-radius: $head01-btn-rounded-edge-theme;
+        border-radius: $edge-rounded;
     }
     .btn-bg-theme{
-        background-color: $head01-btn-bg-theme;
+        background-color: $bg-secondary;
         &:hover{
-            background-color: adjust-color($head01-btn-bg-theme, $red: 50, $green: 50, $blue: 50);
+            background-color: adjust-color($bg-secondary, $red: 50, $green: 50, $blue: 50);
         }
     }
     .btn-color-theme{
-        color: $head01-btn-color-theme;
+        color: $color-black;
     }
     .navigation-header{
         .content-btn-cta{
