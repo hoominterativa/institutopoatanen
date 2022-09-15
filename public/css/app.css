@@ -216,6 +216,11 @@ a {
   list-style: none;
 }
 
+.animation-hover {
+  transition: ease all 0.2s;
+  -webkit-transition: ease all 0.2s;
+}
+
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
@@ -24290,27 +24295,27 @@ a {
 #HEAD01 {
   background-color: #dee2e6;
 }
-#HEAD01 .btn-rounded-edge-theme {
+#HEAD01 .navigation-header .content-btn-cta .btn-cta {
+  font-size: 0.875rem;
+  font-family: "Poppins", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
   border-radius: 50px;
-}
-#HEAD01 .btn-bg-theme {
   background-color: #5CFFC4;
 }
-#HEAD01 .btn-bg-theme:hover {
-  background-color: #8efff6;
-}
-#HEAD01 .btn-color-theme {
-  color: #000;
-}
-#HEAD01 .navigation-header .content-btn-cta .btn-cta {
-  font-size: 14px;
-  font-family: "Poppins", sans-serif, arial;
-  font-weight: 700;
+#HEAD01 .navigation-header .content-btn-cta .btn-cta:hover {
+  background-color: #6F3BED;
+  color: #fff;
 }
 #HEAD01 .navigation-header .link-translate .btn-translate {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-family: "Poppins", sans-serif, arial;
   font-weight: 600;
-  border-right: 1px solid #fff;
+  color: #000;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   line-height: 15px;
+}
+#HEAD01 .navigation-header .menu-sidebar-header .btn-menu-sidebar-header .title {
+  color: #6F3BED;
+  font-size: 0.9375rem;
 }

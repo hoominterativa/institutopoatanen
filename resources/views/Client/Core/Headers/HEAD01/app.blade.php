@@ -10,26 +10,27 @@
             {{-- END LOGOTIPO --}}
             <div class="navigation-header d-flex align-items-center">
                 <div class="content-btn-cta me-4">
-                    <a href="#" alt="" nofollow class="btn-cta btn-rounded-edge-theme btn-bg-theme btn-color-theme py-1 px-3">Call to Action</a>
+                    <a href="#" alt="" nofollow class="btn-cta py-1 px-3 animation-hover">Call to Action</a>
                 </div>
+                {{-- END .content-btn-cta --}}
                 <nav class="d-flex align-items-center link-translate me-4">
                     <a href="#" class="btn-translate px-2" alt="{{__('Traduzir para Inglês')}}">EN</a>
                     <a href="#" class="btn-translate px-2 border-0" alt="{{__('Traduzir para Portugês')}}">PT</a>
                 </nav>
-                <div class="menu-default-header">
-                    <div class="btn-menu-default-header">
-                        <div class="btn-menu-theme-1">
-                            <a href="#" alt="Abrir menu" class="d-flex">
-                                <span class="title me-2">Menu</span>
-                                <div class="lines">
-                                    <i class="w-90 mb-1"></i>
-                                    <i class="w-100 mb-1"></i>
-                                    <i class="w-90 mb-0"></i>
-                                </div>
-                            </a>
-                        </div>
+                {{-- END .link-translate --}}
+                <div class="menu-sidebar-header">
+                    <div class="btn-menu-sidebar-header">
+                        <a href="#sidebar-right" alt="Abrir menu" nofollow data-plugin="sidebar" data-sb-position="right" data-sb-width="100%" class="d-flex">
+                            <span class="title me-2">Menu</span>
+                            <div class="lines">
+                                <i class="w-90 mb-1"></i>
+                                <i class="w-100 mb-1"></i>
+                                <i class="w-90 mb-0"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
+                {{-- END .menu-sidebar-header --}}
             </div>
             {{-- END .navigation-header --}}
         </div>

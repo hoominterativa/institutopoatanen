@@ -3,39 +3,39 @@
 #HEAD01{
     background-color: $bg-gray;
 
-    .btn-rounded-edge-theme{
-        border-radius: $edge-rounded;
-    }
-    .btn-bg-theme{
-        background-color: $bg-secondary;
-        &:hover{
-            background-color: adjust-color($bg-secondary, $red: 50, $green: 50, $blue: 50);
-        }
-    }
-    .btn-color-theme{
-        color: $color-black;
-    }
     .navigation-header{
         .content-btn-cta{
             .btn-cta{
-                font-size: 14px;
-                font-family: $font-primary;
-                font-weight: 700;
+                font-size: $head01-cta-size;
+                font-family: $head01-cta-family;
+                color: $head01-cta-color;
+                font-weight: $head01-cta-weight;
+                border-radius: $head01-cta-border-radius;
+                background-color: $head01-cta-bg-color;
+                &:hover{
+                    background-color: $head01-cta-bg-hover;
+                    color: $head01-cta-color-hover;
+                }
             }
         }
         .link-translate{
             .btn-translate{
-                font-size: 15px;
-                font-family: $font-primary;
-                font-weight: 600;
-                border-right: 1px solid #fff;
+                font-size: $head01-btn-translate-font;
+                font-family: $head01-btn-translate-family;
+                font-weight: $head01-btn-translate-weight;
+                color: $head01-btn-translate-color;
+                border-right: 1px solid adjust-color($head01-btn-translate-color, $alpha: -0.9);
                 line-height: 15px;
             }
         }
-        .btn-menu-default-header{
-            .btn-menu-theme-1{
-
+        .menu-sidebar-header{
+            .btn-menu-sidebar-header{
+                .title{
+                    color: $head01-title-menu-color;
+                    font-size: $head01-title-menu-size;
+                }
             }
         }
+
     }
 }
