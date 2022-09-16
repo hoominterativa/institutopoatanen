@@ -11203,9 +11203,31 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/views/Client/assets/js/config.js ***!
   \****************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  var minScrolling = $('.fixed-floating-top').data('min-scrolling');
+  $(window).on('scroll', function () {
+    var height = $('.fixed-floating-top').outerHeight();
 
+    if ($(this).scrollTop() >= minScrolling) {
+      $('.fixed-floating-top').parent().css('padding-top', height);
+      $('.fixed-floating-top').addClass('floating');
+      $('.fixed-floating-top').css('margin-top', -height);
+      setTimeout(function () {
+        $('.fixed-floating-top').css('margin-top', 0);
+      }, 500);
+    } else if ($(this).scrollTop() < 90) {
+      $('.fixed-floating-top').css('margin-top', -height);
+      $('.fixed-floating-top').parent().removeAttr('style');
+      $('.fixed-floating-top').removeClass('floating');
+      setTimeout(function () {
+        $('.fixed-floating-top').css('margin-top', 0);
+      }, 500);
+    }
+  });
+});
 
 /***/ }),
 

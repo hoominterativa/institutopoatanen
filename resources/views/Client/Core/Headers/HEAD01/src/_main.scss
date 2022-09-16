@@ -1,7 +1,7 @@
 @import 'variables';
 /* BEGIN STYLE */
 #HEAD01{
-    background-color: $bg-gray;
+    background-color: $head01-main-background-color;
 
     .navigation-header{
         .content-btn-cta{
@@ -24,7 +24,7 @@
                 font-family: $head01-btn-translate-family;
                 font-weight: $head01-btn-translate-weight;
                 color: $head01-btn-translate-color;
-                border-right: 1px solid adjust-color($head01-btn-translate-color, $alpha: -0.9);
+                border-right: 1px solid adjust-color($head01-btn-translate-color, $alpha: -0.7);
                 line-height: 15px;
             }
         }
@@ -33,9 +33,38 @@
                 .title{
                     color: $head01-title-menu-color;
                     font-size: $head01-title-menu-size;
+                    font-family: $head01-title-menu-family;
+                }
+                .lines{
+                    width: 43px;
+                    >i{
+                        height: 1.3px;
+                        display: block;
+                        background-color: adjust-color($head01-btn-menu-lines-bg-color, $alpha: -0.7);
+                    }
+                }
+
+                &:hover{
+                    .title{
+                        color: $head01-title-menu-color-hover;
+                    }
+                    .lines > i{
+                        background-color: adjust-color($head01-btn-menu-lines-bg-color, $alpha: -0.4);
+                    }
                 }
             }
         }
+    }
 
+    // FIXED FLOATING TOP
+    &.fixed-floating-top{
+        &.floating{
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+        }
     }
 }
+
+

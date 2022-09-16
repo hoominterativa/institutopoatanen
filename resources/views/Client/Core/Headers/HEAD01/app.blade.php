@@ -1,16 +1,16 @@
 
-<div id="HEAD01" class="container-fluid bg-theme py-4">
+<div id="HEAD01" class="container-fluid bg-theme py-4 fixed-floating-top transition" data-min-scrolling="300">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <div id="logotipo" class="logotipo">
                 <a href="{{route('home')}}" alt="NOME SITE">
-                    <img src="{{asset('storage/'.$generalSetting->path_logo_header_dark)}}" width="271" alt="NOME SITE" sizes="(max-width=320px) 250px" srcset="">
+                    <img src="{{asset('storage/'.$generalSetting->path_logo_header_light)}}" width="271" alt="NOME SITE" sizes="(max-width=320px) 250px" srcset="">
                 </a>
             </div>
             {{-- END LOGOTIPO --}}
             <div class="navigation-header d-flex align-items-center">
                 <div class="content-btn-cta me-4">
-                    <a href="#" alt="" nofollow class="btn-cta py-1 px-3 animation-hover">Call to Action</a>
+                    <a href="#" alt="" nofollow class="btn-cta py-1 px-3 transition">Call to Action</a>
                 </div>
                 {{-- END .content-btn-cta --}}
                 <nav class="d-flex align-items-center link-translate me-4">
@@ -20,12 +20,12 @@
                 {{-- END .link-translate --}}
                 <div class="menu-sidebar-header">
                     <div class="btn-menu-sidebar-header">
-                        <a href="#sidebar-right" alt="Abrir menu" nofollow data-plugin="sidebar" data-sb-position="right" data-sb-width="100%" class="d-flex">
-                            <span class="title me-2">Menu</span>
+                        <a href="#sidebar-right" alt="Abrir menu" nofollow data-plugin="sidebar" data-sb-position="right" data-sb-width="100%" class="d-flex align-items-center">
+                            <span class="title me-3">Menu</span>
                             <div class="lines">
-                                <i class="w-90 mb-1"></i>
-                                <i class="w-100 mb-1"></i>
-                                <i class="w-90 mb-0"></i>
+                                <i class="w-80 mb-2 mx-auto transition"></i>
+                                <i class="w-100 mb-2 mx-auto transition"></i>
+                                <i class="w-80 mb-0 mx-auto transition"></i>
                             </div>
                         </a>
                     </div>

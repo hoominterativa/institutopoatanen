@@ -27,39 +27,6 @@ class GeneralSettingController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        Session::flash('success', 'Item cadastrado com sucessso');
-        return;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\GeneralSetting  $GeneralSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(GeneralSetting $GeneralSetting)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,59 +36,59 @@ class GeneralSettingController extends Controller
     public function update(Request $request, GeneralSetting $GeneralSetting)
     {
         $path = 'uploads/images/generalSetting/';
-        $helperArchive = new HelperArchive();
-        $path_logo_header_light = $helperArchive->renameArchiveUpload($request, 'path_logo_header_light');
-        $path_logo_header_dark = $helperArchive->renameArchiveUpload($request, 'path_logo_header_dark');
-        $path_logo_footer_light = $helperArchive->renameArchiveUpload($request, 'path_logo_footer_light');
-        $path_logo_footer_dark = $helperArchive->renameArchiveUpload($request, 'path_logo_footer_dark');
-        $path_logo_share = $helperArchive->renameArchiveUpload($request, 'path_logo_share');
-        $path_favicon = $helperArchive->renameArchiveUpload($request, 'path_favicon');
+        $helper = new HelperArchive();
+        $data = $request->all();
+
+        $path_logo_header_light = $helper->optimizeImage($request, 'path_logo_header_light', $path, null, 100);
+        $path_logo_header_dark = $helper->optimizeImage($request, 'path_logo_header_dark', $path, null, 100);
+        $path_logo_footer_light = $helper->optimizeImage($request, 'path_logo_footer_light', $path, null, 100);
+        $path_logo_footer_dark = $helper->optimizeImage($request, 'path_logo_footer_dark', $path, null, 100);
+        $path_logo_share = $helper->optimizeImage($request, 'path_logo_share', $path, null, 100);
+        $path_favicon = $helper->optimizeImage($request, 'path_favicon', $path, null, 100);
 
         if($path_logo_header_light){
             Storage::delete($GeneralSetting->path_logo_header_light);
-            $GeneralSetting->path_logo_header_light = $path.$path_logo_header_light;
-            $request->path_logo_header_light->storeAs($path, $path_logo_header_light);
+            $data["path_logo_header_light"] = $path_logo_header_light;
         }
         if($path_logo_header_dark){
             Storage::delete($GeneralSetting->path_logo_header_dark);
-            $GeneralSetting->path_logo_header_dark = $path.$path_logo_header_dark;
-            $request->path_logo_header_dark->storeAs($path, $path_logo_header_dark);
+            $data["path_logo_header_dark"] = $path_logo_header_dark;
         }
 
         if($path_logo_footer_light){
             Storage::delete($GeneralSetting->path_logo_footer_light);
-            $GeneralSetting->path_logo_footer_light = $path.$path_logo_footer_light;
-            $request->path_logo_footer_light->storeAs($path, $path_logo_footer_light);
+            $data["path_logo_footer_light"] = $path_logo_footer_light;
         }
         if($path_logo_footer_dark){
             Storage::delete($GeneralSetting->path_logo_footer_dark);
-            $GeneralSetting->path_logo_footer_dark = $path.$path_logo_footer_dark;
-            $request->path_logo_footer_dark->storeAs($path, $path_logo_footer_dark);
+            $data["path_logo_footer_dark"] = $path_logo_footer_dark;
         }
 
         if($path_logo_share){
             Storage::delete($GeneralSetting->path_logo_share);
-		    $GeneralSetting->path_logo_share = $path.$path_logo_share;
-            $request->path_logo_share->storeAs($path, $path_logo_share);
+		    $data["path_logo_share"] = $path_logo_share;
         }
 
         if($path_favicon){
             Storage::delete($GeneralSetting->path_favicon);
-		    $GeneralSetting->path_favicon = $path.$path_favicon;
-            $request->path_favicon->storeAs($path, $path_favicon);
+		    $data["path_favicon"] = $path_favicon;
         }
 
-		$GeneralSetting->phone = $request->phone;
-		$GeneralSetting->whatsapp = $request->whatsapp;
-		$GeneralSetting->address = $request->address;
-		$GeneralSetting->smtp_host = $request->smtp_host;
-		$GeneralSetting->smtp_port = $request->smtp_port;
-		$GeneralSetting->smtp_user = $request->smtp_user;
-		$GeneralSetting->smtp_password = $request->smtp_password;
-        $GeneralSetting->save();
+        if($GeneralSetting->fill($data)->save()){
+            Session::flash('success', 'Informações atualizadas com sucessso');
+            return redirect()->back();
+        }else{
+            Storage::delete($path_logo_header_light);
+            Storage::delete($path_logo_header_dark);
+            Storage::delete($path_logo_footer_light);
+            Storage::delete($path_logo_footer_dark);
+            Storage::delete($path_logo_share);
+            Storage::delete($path_favicon);
 
-        Session::flash('success', 'Informações atualizadas com sucessso');
-        return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar informações');
+            return redirect()->back();
+        }
+
     }
 
     /**
@@ -136,68 +103,5 @@ class GeneralSettingController extends Controller
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
-    }
-
-    /**
-     * Remove the selected resource from storage.
-     *
-     * @param  int  $id
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        if($deleted = GeneralSetting::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            GeneralSetting::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\GeneralSetting  $GeneralSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(GeneralSetting $GeneralSetting)
-    {
-        //
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

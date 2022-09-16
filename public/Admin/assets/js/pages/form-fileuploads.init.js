@@ -25,7 +25,7 @@
 })(),
 0 < $('[data-plugins="dropify"]').length &&
     $('[data-plugins="dropify"]').dropify({
-        imgFileExtensions: ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp'],
+        imgFileExtensions: ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'svg'],
         messages: {
             default: "Arraste e solte um arquivo aqui ou clique",
             replace: "Arrastar e solte ou clicar para substituir",

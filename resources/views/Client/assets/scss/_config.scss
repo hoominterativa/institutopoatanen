@@ -111,6 +111,32 @@ a{
     font-weight: 900;
 }
 
+// Width
+.w-10{
+    width: 10% !important;
+}
+.w-20{
+    width: 20% !important;
+}
+.w-30{
+    width: 30% !important;
+}
+.w-40{
+    width: 40% !important;
+}
+.w-60{
+    width: 60% !important;
+}
+.w-70{
+    width: 70% !important;
+}
+.w-80{
+    width: 80% !important;
+}
+.w-90{
+    width: 90% !important;
+}
+
 .btn-icon {
     transform: scale(1);
     transition: ease all 0.4s;
@@ -188,7 +214,7 @@ a{
     }
 }
 
-.animation-hover{
+.transition{
     transition: ease all 0.2s;
     -webkit-transition: ease all 0.2s;
 }

@@ -1,6 +1,6 @@
 
 // HEADER
-$head01-main-background-color: $bg-gray;
+$head01-main-background-color: $bg-black;
 
 // CALL TO ACTION
 $head01-cta-size: $font-14;
@@ -16,8 +16,11 @@ $head01-cta-color-hover: $color-white;
 $head01-btn-translate-font: $font-15;
 $head01-btn-translate-family: $font-primary;
 $head01-btn-translate-weight: $weight-600;
-$head01-btn-translate-color: $color-black;
+$head01-btn-translate-color: $color-white;
 
 // BTN MENU SIDEBAR
-$head01-title-menu-color: $color-main;
+$head01-title-menu-color: $color-secondary;
+$head01-title-menu-color-hover: $color-white;
 $head01-title-menu-size: $font-15;
+$head01-title-menu-family: $font-primary;
+$head01-btn-menu-lines-bg-color: $color-white;
