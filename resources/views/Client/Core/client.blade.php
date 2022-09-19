@@ -25,9 +25,9 @@
     <link rel="canonical" href="{{url(Route::current()->uri)}}">
 
 </head>
-<body>
+<body style="height: 1500px;">
     {!!$optimization->other_scripts!!}
-    <header id="mainHeader">
+    <header id="mainHeader" class="fixed-floating top" data-min-scrolling="600">
         {!!$renderHeader!!}
     </header>
     @yield('content')

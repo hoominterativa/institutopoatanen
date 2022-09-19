@@ -1,27 +1,29 @@
 $(function(){
-    const minScrolling = $('.fixed-floating-top').data('min-scrolling')
+    const ff = $('.fixed-floating'),
+        hf = ff.find('.header-floating'),
+        minScrolling = ff.data('min-scrolling')
+
     $(window).on('scroll', function(){
-        var height = $('.fixed-floating-top').outerHeight()
+        var height = ff.outerHeight()
 
-        if($(this).scrollTop() >= minScrolling){
-
-            $('.fixed-floating-top').parent().css('padding-top', height)
-            $('.fixed-floating-top').addClass('floating')
-            $('.fixed-floating-top').css('margin-top', -height)
-
-            setTimeout(() => {
-                $('.fixed-floating-top').css('margin-top', 0)
-            }, 500);
-
-        }else if($(this).scrollTop() < 90){
-
-            $('.fixed-floating-top').css('margin-top', -height)
-            $('.fixed-floating-top').parent().removeAttr('style')
-            $('.fixed-floating-top').removeClass('floating')
+        if($(this).scrollTop() >= minScrolling && !hf.hasClass('floating')){
+            hf.stop().addClass('floating')
+            hf.stop().css('margin-top', -height)
+            ff.stop().css('padding-top', height)
 
             setTimeout(() => {
-                $('.fixed-floating-top').css('margin-top', 0)
+                hf.stop().animate({'margin-top': 0}, 300)
             }, 500);
+
+        }else if($(this).scrollTop() < (minScrolling-10) && hf.hasClass('floating')){
+
+            hf.stop().animate({'margin-top': -height}, 300)
+
+            setTimeout(() => {
+                hf.stop().removeClass('floating')
+                hf.stop().css('margin-top', 0)
+                ff.stop().css('padding-top', 0)
+            }, 800);
 
         }
     })

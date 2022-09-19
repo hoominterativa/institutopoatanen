@@ -1,5 +1,5 @@
 
-<div id="HEAD01" class="container-fluid bg-theme py-4 fixed-floating-top transition" data-min-scrolling="300">
+<div id="HEAD01" class="container-fluid bg-theme py-4 header-floating">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <div id="logotipo" class="logotipo">

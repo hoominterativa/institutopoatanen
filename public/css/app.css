@@ -253,6 +253,13 @@ a {
   -webkit-transition: ease all 0.2s;
 }
 
+.fixed-floating.top .floating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
@@ -24365,10 +24372,4 @@ a {
 }
 #HEAD01 .navigation-header .menu-sidebar-header .btn-menu-sidebar-header:hover .lines > i {
   background-color: rgba(255, 255, 255, 0.6);
-}
-#HEAD01.fixed-floating-top.floating {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
 }
