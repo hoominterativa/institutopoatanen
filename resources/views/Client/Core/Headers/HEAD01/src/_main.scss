@@ -55,6 +55,16 @@
             }
         }
     }
+
+    &.header-floating.floating{
+        padding-top: 0.7rem !important;
+        padding-bottom: 0.7rem !important;
+        #logotipo{
+            img{
+                width: 120px;
+            }
+        }
+    }
 }
 
 

@@ -1,0 +1,137 @@
+@import 'variables';
+/* BEGIN STYLE */
+#menu01--sidebar-right{
+    max-width: $menu01-max-width;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: $menu01-bg;
+    z-index: 1000;
+    height: 100%;
+    display: block;
+    &.hidden{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .content--sidebar-right{
+        .header--sidebar-right{
+            max-width: 80%;
+            .traslate{
+                .btn-translate{
+                    font-size: $menu01-btn-translate-font;
+                    font-family: $menu01-btn-translate-family;
+                    font-weight: $menu01-btn-translate-weight;
+                    color: $menu01-btn-translate-color;
+                    border-right: 1px solid adjust-color($menu01-btn-translate-color, $alpha: -0.7);
+                    line-height: 15px;
+
+                    &:hover{
+                        color: $menu01-btn-translate-color-hover;
+                    }
+                }
+            }
+            .button---close--sidebar-right{
+                color: $menu01-button-close-color;
+                font-weight: $menu01-button-close-font-weight;
+                background-color: $menu01-button-close-bg;
+                border: $menu01-button-close-border;
+                padding: $menu01-button-close-padding;
+                font-size: $menu01-button-close-font-size;
+                font-family: $menu01-button-close-font-family;
+                &:hover{
+                    color: $menu01-button-close-color-hover;
+                }
+            }
+        }
+
+        .list-link--sidebar-right{
+            text-align: $menu01-list-link-text-align;
+            .link-item{
+                font-family: $menu01-link-item-font-family;
+                font-size: $menu01-link-item-font-size;
+                font-weight: $menu01-link-item-font-weight;
+                color: $menu01-link-item-color;
+
+                &:hover{
+                    color: $menu01-link-item-color-hover;
+                }
+            }
+
+            .sublink--sidebar-right{
+                width: 100%;
+                background-color: $menu01-sublink-sidebar-bg-color;
+                border: none;
+                padding: 25px 0;
+                .sublink-item{
+                    font-size: $menu01-sublink-item-font-size;
+                    font-family: $menu01-sublink-item-font-family;
+                    color: $menu01-sublink-item-color;
+                    &:after{
+                        content: '';
+                        width: 10px;
+                        height: 10px;
+                        display: inline-block;
+                        margin-left: 18px;
+                        background-color: $menu01-sublink-item-dot-color;
+                        border-radius: 100%;
+                    }
+                    &:hover{
+                        color: $menu01-sublink-item-color-hover;
+                        &::after{
+                            background-color: $menu01-sublink-item-dot-hover-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .social-network{
+            flex-direction: column;
+            position: absolute;
+            left: 3rem;
+            top: 0;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+
+            &:after,
+            &:before{
+                content: '';
+                width: 1px;
+                height: 20%;
+                background-color: rgb(92 255 196 / 20%);
+            }
+            &:after{
+                margin-top: 25px;
+            }
+            &:before{
+                margin-bottom: 25px;
+            }
+
+            .social-link{
+                font-size: 1.8rem;
+                color: $color-secondary;
+                margin: 0.5rem 0 0.5rem 0;
+                line-height: 23px;
+                &:hover{
+                    color: $color-white;
+                }
+            }
+        }
+        .cta--sidebar-right{
+            .btn-cta{
+                font-size: $menu01-cta-size;
+                font-family: $menu01-cta-family;
+                color: $menu01-cta-color;
+                font-weight: $menu01-cta-weight;
+                border-radius: $menu01-cta-border-radius;
+                background-color: $menu01-cta-bg-color;
+                &:hover{
+                    background-color: $menu01-cta-bg-hover;
+                    color: $menu01-cta-color-hover;
+                }
+            }
+        }
+    }
+}

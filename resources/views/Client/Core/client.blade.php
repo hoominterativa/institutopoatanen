@@ -17,7 +17,7 @@
         <meta name="author" content="{{$optimization->author}}">
     @endif
     <meta name="robots" content="follow">
-    <meta name="copyright" content="© 2021 {{env('APP_NAME')}}." />
+    <meta name="copyright" content="© 2022 {{env('APP_NAME')}}." />
     <meta name="generator" content="Laravel 8" />
 
     <!-- App favicon -->
@@ -25,7 +25,7 @@
     <link rel="canonical" href="{{url(Route::current()->uri)}}">
 
 </head>
-<body style="height: 1500px;">
+<body>
     {!!$optimization->other_scripts!!}
     <header id="mainHeader" class="fixed-floating top" data-min-scrolling="600">
         {!!$renderHeader!!}
@@ -36,5 +36,10 @@
     </footer>
     <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
     <script src="{{asset(mix('js/app.js'))}}"></script>
+    @if ($themeMenu)
+        @include('Client.Components.themeMenu.'.$themeMenu.'.structure',[
+            "listMenu" => $listMenu
+        ])
+    @endif
 </body>
 </html>

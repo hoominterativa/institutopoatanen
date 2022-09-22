@@ -11175,6 +11175,54 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/Components/themeMenu/MENU01/main.js":
+/*!********************************************************************!*\
+  !*** ./resources/views/Client/Components/themeMenu/MENU01/main.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function adJustPosition() {
+  $('[data-plugin=sidebar]').each(function () {
+    var sdTarget = $(this).attr('href'),
+        sdWidth = $(sdTarget).outerWidth();
+    $(sdTarget).css('right', -sdWidth).removeClass('hidden').removeClass('open');
+  });
+}
+
+$(function () {
+  adJustPosition();
+  $(window).on('resize', function () {
+    adJustPosition();
+  });
+  $('html').on('click', '[data-plugin=sidebar]', function (e) {
+    e.preventDefault();
+    var sdTarget = $(this).attr('href'),
+        sdWidth = $(sdTarget).outerWidth();
+
+    if ($(sdTarget).hasClass('open')) {
+      $(sdTarget).animate({
+        'right': -sdWidth
+      }, 400).removeClass('open');
+      $('body').removeClass('no-scroll');
+    } else {
+      $('body').addClass('no-scroll');
+      $(sdTarget).animate({
+        'right': 0
+      }, 400).addClass('open');
+    }
+  });
+  $('html').on('click', '.button---close--sidebar-right', function (e) {
+    var sdWidth = $(this).parents('.main--sidebar-right').outerWidth();
+    $(this).parents('.main--sidebar-right').animate({
+      'right': -sdWidth
+    }, 400).removeClass('open');
+    $('body').removeClass('no-scroll');
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
 /*!****************************************************************!*\
   !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
@@ -11195,6 +11243,9 @@ $(document).ready(function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
 /* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/MENU01/main */ "./resources/views/Client/Components/themeMenu/MENU01/main.js");
+/* harmony import */ var _Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 /***/ }),
@@ -11207,6 +11258,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(function () {
+  // SET HEADER FLOATING
   var ff = $('.fixed-floating'),
       hf = ff.find('.header-floating'),
       minScrolling = ff.data('min-scrolling');

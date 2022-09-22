@@ -36,10 +36,18 @@ View::composer('Client.Core.client', function ($view) {
     $optimization = Optimization::first();
     $optimizePage = OptimizePage::where('page', Request::path())->first();
     $generalSetting = GeneralSetting::first();
+    $socials = Social::orderBy('sorting', 'ASC')->get();
+    $themeMenu = config('modelsConfig.InsertModelsCore');
+    $coreRender = new CoreController();
+    $listMenu = $coreRender->relationsHeaderMenu();
+
     return $view->with('renderHeader', $renderCore->renderHeader())
         ->with('renderFooter', $renderCore->renderFooter())
         ->with('optimizePage', $optimizePage)
         ->with('optimization', $optimization)
+        ->with('socials', $socials)
+        ->with('themeMenu', $themeMenu->Headers->themeMenu??null)
+        ->with('listMenu', $listMenu)
         ->with('generalSetting', $generalSetting);
 });
 

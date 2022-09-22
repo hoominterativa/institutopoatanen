@@ -1,4 +1,5 @@
 $(function(){
+    // SET HEADER FLOATING
     const ff = $('.fixed-floating'),
         hf = ff.find('.header-floating'),
         minScrolling = ff.data('min-scrolling')

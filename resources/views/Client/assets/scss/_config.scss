@@ -1,5 +1,11 @@
 body {
     overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
+    &.no-scroll{
+        overflow-y: hidden;
+    }
 }
 
 #root {
@@ -146,6 +152,20 @@ a{
     }
 }
 
+// Object Fit
+.object-fit-contain{
+    object-fit: contain;
+}
+.object-fit-cover{
+    object-fit: cover;
+}
+.object-fit-none{
+    object-fit: none;
+}
+.object-fit-fill{
+    object-fit: fill;
+}
+
 .btn-check:checked+.btn-primary:focus,
 .btn-check:active+.btn-primary:focus,
 .btn-primary:active:focus,
@@ -219,6 +239,43 @@ a{
     -webkit-transition: ease all 0.2s;
 }
 
+.dropdown-menu {
+    padding: 0.3rem;
+    animation-name: DropDownSlide;
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    top: 100%;
+
+    &.show {
+        top: 100%!important;
+    }
+
+    i {
+        display: inline-block;
+    }
+}
+
+.dropdown-menu-end {
+    right: 0!important;
+    left: auto!important;
+}
+
+.dropdown-menu[data-popper-placement^=right],
+.dropdown-menu[data-popper-placement^=top],
+.dropdown-menu[data-popper-placement^=left]{
+    top: auto !important;
+    animation: none !important;
+}
+
+@keyframes DropDownSlide {
+    100% {
+        transform: translateY(0)
+    }
+    0% {
+        transform: translateY(15px)
+    }
+}
+
 // FIXED FLOATING TOP
 .fixed-floating.top{
     .floating{
@@ -228,3 +285,4 @@ a{
         right: 0;
     }
 }
+

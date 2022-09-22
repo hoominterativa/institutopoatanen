@@ -121,8 +121,7 @@ class CoreController extends Controller
         }
     }
 
-
-    public function renderHeader()
+    public function relationsHeaderMenu()
     {
         $listMenu = [];
 
@@ -144,11 +143,23 @@ class CoreController extends Controller
             }
         }
 
-        // dd(
-        //     Route::current(),
-        //     Route::currentRouteName(),
-        //     Route::currentRouteAction(),
-        // );
+        foreach ($listMenu as $module => $menus){
+            foreach ($menus as $model => $menu){
+                if ($menu->ViewListMenu){
+                    $limit = isset($menu->IncludeCore[1])?$menu->IncludeCore[1]:999;
+                    $subItems = isset($this->Class->$module->$model->model)?$this->Class->$module->$model->model::limit($limit)->get():[];
+                    $menu->subItems = $subItems;
+                }
+            }
+        }
+
+        return $listMenu;
+    }
+
+
+    public function renderHeader()
+    {
+        $listMenu = self::relationsHeaderMenu();
 
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [

@@ -1,0 +1,49 @@
+// SIDEBAR RIGHT
+$menu01-bg: $bg-main;
+$menu01-max-width: 100%;
+
+// CALL TO ACTION
+$menu01-cta-size: $font-14;
+$menu01-cta-family: $font-primary;
+$menu01-cta-color: $color-black;
+$menu01-cta-weight: $weight-700;
+$menu01-cta-border-radius: $edge-rounded;
+$menu01-cta-bg-color: $bg-secondary;
+$menu01-cta-bg-hover: $bg-white;
+$menu01-cta-color-hover: $color-main;
+
+// BTN TRANSLATE
+$menu01-btn-translate-font: $font-15;
+$menu01-btn-translate-family: $font-primary;
+$menu01-btn-translate-weight: $weight-600;
+$menu01-btn-translate-color: $color-white;
+$menu01-btn-translate-color-hover: $color-secondary;
+
+// BTN CLOSE
+$menu01-button-close-bg: transparent;
+$menu01-button-close-border: none;
+$menu01-button-close-padding: 0 0.5rem 0 0;
+$menu01-button-close-color: $color-secondary;
+$menu01-button-close-color-hover: $color-white;
+$menu01-button-close-font-size: $font-44;
+$menu01-button-close-font-family: $font-primary;
+$menu01-button-close-font-weight: $weight-100;
+
+// LIST LINK
+$menu01-list-link-text-align: right;
+
+// LINK ITEM
+$menu01-link-item-font-family: $font-primary;
+$menu01-link-item-font-size: $font-40;
+$menu01-link-item-color: $color-white;
+$menu01-link-item-color-hover: $color-secondary;
+$menu01-link-item-font-weight: $weight-700;
+
+// SUBLINK
+$menu01-sublink-sidebar-bg-color: $bg-main;
+$menu01-sublink-item-font-size: $font-24;
+$menu01-sublink-item-font-family: $font-primary;
+$menu01-sublink-item-color: $color-white;
+$menu01-sublink-item-dot-color: $bg-white;
+$menu01-sublink-item-color-hover: $color-secondary;
+$menu01-sublink-item-dot-hover-color: $bg-secondary;
