@@ -20,7 +20,10 @@ class SLID01Controller extends Controller
      */
     public function index()
     {
-        //
+        $slides = SLID01Slides::sorting()->get();
+        return view('Admin.cruds.Slides.SLID01.index',[
+            'slides' => $slides
+        ]);
     }
 
     /**
@@ -30,7 +33,7 @@ class SLID01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Slides.SLID01.create');
     }
 
     /**
@@ -43,40 +46,29 @@ class SLID01Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
+        $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 80);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 1000, 80);
+        if($path_image_png) $data['path_image_png'] = $path_image_png;
 
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if(SLID01Slides::create($data)){
-            Session::flash('success', 'Usuário cadastrado com sucesso');
-            return redirect()->route('admin.user.index');
+            Session::flash('success', 'Banner cadastrado com sucesso');
+            return redirect()->route('admin.slid01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o usuário');
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_png);
+            Session::flash('success', 'Erro ao cadastradar o banner');
             return redirect()->back();
-        }
-
-        if($SLID01Slides->save()){
-            Session::flash('success', 'Item cadastrado com sucessso');
-            return redirect()->route('admin.code.index');
         }
     }
 
@@ -88,7 +80,9 @@ class SLID01Controller extends Controller
      */
     public function edit(SLID01Slides $SLID01Slides)
     {
-        //
+        return view('Admin.cruds.Slides.SLID01.edit',[
+            'slide' => $SLID01Slides
+        ]);
     }
 
     /**
@@ -102,50 +96,53 @@ class SLID01Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
 
-        $path = 'uploads/Module/Code/images/';
+        $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-
-        if($path_image){
-            Storage::delete($user->path_image);
-            $data['path_image'] = $path_image;
+        // IMAGE DESKTOP
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 200, 80);
+        if($path_image_desktop){
+            Storage::delete($SLID01Slides->path_image_desktop);
+            $data['path_image_desktop'] = $path_image_desktop;
+        }
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            Storage::delete($SLID01Slides->path_image_desktop);
+            $data['path_image_desktop'] = null;
         }
 
-        if($request->delete_path_image && !$path_image){
-            Storage::delete($SLID01Slides->path_image);
-            $data['path_image'] = null;
+        // IMAGE MOBILE
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 200, 80);
+        if($path_image_mobile){
+            Storage::delete($SLID01Slides->path_image_mobile);
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            Storage::delete($SLID01Slides->path_image_mobile);
+            $data['path_image_mobile'] = null;
         }
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            Storage::delete($SLID01Slides->path_archive);
-            $data['path_archive'] = $path_archive;
+        // IMAGE PNG
+        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 200, 80);
+        if($path_image_png){
+            Storage::delete($SLID01Slides->path_image_png);
+            $data['path_image_png'] = $path_image_png;
+        }
+        if($request->delete_path_image_png && !$path_image_png){
+            Storage::delete($SLID01Slides->path_image_png);
+            $data['path_image_png'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            Storage::delete($user->path_archive);
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if($SLID01Slides->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.user.index');
+            Session::flash('success', 'Banner atualizado com sucesso');
+            return redirect()->route('admin.slid01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_png);
+            Session::flash('success', 'Erro ao atualizar banner');
             return redirect()->back();
         }
     }
@@ -158,11 +155,12 @@ class SLID01Controller extends Controller
      */
     public function destroy(SLID01Slides $SLID01Slides)
     {
-        //Storage::delete($SLID01Slides->path_image);
-        //Storage::delete($SLID01Slides->path_archive);
+        Storage::delete($SLID01Slides->path_image_desktop);
+        Storage::delete($SLID01Slides->path_image_mobile);
+        Storage::delete($SLID01Slides->path_image_png);
 
         if($SLID01Slides->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Banner deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -175,14 +173,12 @@ class SLID01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $SLID01Slidess = SLID01Slides::whereIn('id', $request->deleteAll)->get();
         foreach($SLID01Slidess as $SLID01Slides){
-            Storage::delete($SLID01Slides->path_image);
-            Storage::delete($SLID01Slides->path_archive);
+            Storage::delete($SLID01Slides->path_image_desktop);
+            Storage::delete($SLID01Slides->path_image_mobile);
+            Storage::delete($SLID01Slides->path_image_png);
         }
-        */
 
         if($deleted = SLID01Slides::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -203,36 +199,6 @@ class SLID01Controller extends Controller
         return Response::json(['status' => 'success']);
     }
 
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Slides\SLID01Slides  $SLID01Slides
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SLID01Slides $SLID01Slides)
-    {
-        //
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
     /**
      * Section index resource.
      *
@@ -240,6 +206,6 @@ class SLID01Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Slides.SLID01.section');
     }
 }

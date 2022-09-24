@@ -65,18 +65,13 @@ class {{ class }} extends Controller
         */
 
         if({{ model }}::create($data)){
-            Session::flash('success', 'Usuário cadastrado com sucesso');
-            return redirect()->route('admin.user.index');
+            Session::flash('success', 'Item cadastrado com sucesso');
+            return redirect()->route('admin.code.index');
         }else{
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o usuário');
+            Session::flash('success', 'Erro ao cadastradar o item');
             return redirect()->back();
-        }
-
-        if(${{ model }}->save()){
-            Session::flash('success', 'Item cadastrado com sucessso');
-            return redirect()->route('admin.code.index');
         }
     }
 
@@ -109,17 +104,17 @@ class {{ class }} extends Controller
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-
         if($path_image){
-            Storage::delete($user->path_image);
+            Storage::delete(${{ model }}->path_image);
             $data['path_image'] = $path_image;
         }
-
         if($request->delete_path_image && !$path_image){
             Storage::delete(${{ model }}->path_image);
             $data['path_image'] = null;
         }
+        */
 
+        /*
         Use the code below to upload archive, if not, delete code
 
         $path = 'uploads/Module/Code/archives/';
@@ -133,7 +128,7 @@ class {{ class }} extends Controller
         }
 
         if($request->delete_path_archive && !$path_archive){
-            Storage::delete($user->path_archive);
+            Storage::delete(${{ model }}->path_archive);
             $data['path_archive'] = null;
         }
 
@@ -141,7 +136,7 @@ class {{ class }} extends Controller
 
         if(${{ model }}->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.user.index');
+            return redirect()->route('admin.code.index');
         }else{
             //Storage::delete($path_image);
             //Storage::delete($path_archive);

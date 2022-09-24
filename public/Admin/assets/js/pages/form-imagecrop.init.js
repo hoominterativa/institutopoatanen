@@ -64,6 +64,8 @@ $(function() {
             var uploadedImageType = 'image/jpeg';
             var uploadedImageURL;
 
+            $this.find('.area-input-image-crop').css('height', $data.height)
+
             $image.cropper(options);
 
             // Import image
