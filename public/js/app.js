@@ -11809,6 +11809,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/MENU01/main */ "./resources/views/Client/Components/themeMenu/MENU01/main.js");
 /* harmony import */ var _Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
+/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -11849,7 +11852,20 @@ $(function () {
       }, 800);
     }
   });
+  var heightSlide = $('[data-slide-height]').data('slide-height'),
+      bodyHeight = heightSlide == 'auto' ? $(window).outerHeight() : heightSlide;
+  $('[data-slide-height]').css('height', bodyHeight);
 });
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Slides/SLID01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Slides/SLID01/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 

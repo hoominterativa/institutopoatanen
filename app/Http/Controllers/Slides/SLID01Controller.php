@@ -206,6 +206,9 @@ class SLID01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Slides.SLID01.section');
+        $slides = SLID01Slides::sorting()->active()->get();
+        return view('Client.pages.Slides.SLID01.section',[
+            'slides' => $slides
+        ]);
     }
 }

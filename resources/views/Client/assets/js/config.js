@@ -28,4 +28,8 @@ $(function(){
 
         }
     })
+
+    var heightSlide = $('[data-slide-height]').data('slide-height'),
+        bodyHeight = heightSlide=='auto'?$(window).outerHeight():heightSlide
+    $('[data-slide-height]').css('height', bodyHeight)
 })

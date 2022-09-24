@@ -1,2 +1,3 @@
 import '../../Core/Headers/HEAD01/src/main';
 import '../../Components/themeMenu/MENU01/main';
+import '../../pages/Slides/SLID01/src/main';
