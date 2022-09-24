@@ -56,8 +56,8 @@
 
                         <div class="mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="checkbox-signin">
-                                <label class="form-check-label" name="remember" value="1" for="checkbox-signin">Lembre de mim</label>
+                                <input type="checkbox" name="remember" value="1" class="form-check-input" id="checkbox-signin">
+                                <label class="form-check-label" for="checkbox-signin">Lembre de mim</label>
                             </div>
                         </div>
                         <div class="text-center d-grid">
