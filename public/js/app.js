@@ -11824,37 +11824,29 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function resizeHeightSlide() {
+  var heightSlide = $('[data-slide-height]').data('slide-height'),
+      bodyHeight = heightSlide == 'auto' ? $(window).outerHeight() : heightSlide;
+  $('[data-slide-height]').find('.container-slide').css('height', bodyHeight);
+}
+
 $(function () {
   // SET HEADER FLOATING
   var ff = $('.fixed-floating'),
       hf = ff.find('.header-floating'),
       minScrolling = ff.data('min-scrolling');
   $(window).on('scroll', function () {
-    var height = ff.outerHeight();
-
     if ($(this).scrollTop() >= minScrolling && !hf.hasClass('floating')) {
       hf.stop().addClass('floating');
-      hf.stop().css('margin-top', -height);
-      ff.stop().css('padding-top', height);
-      setTimeout(function () {
-        hf.stop().animate({
-          'margin-top': 0
-        }, 300);
-      }, 500);
     } else if ($(this).scrollTop() < minScrolling - 10 && hf.hasClass('floating')) {
-      hf.stop().animate({
-        'margin-top': -height
-      }, 300);
-      setTimeout(function () {
-        hf.stop().removeClass('floating');
-        hf.stop().css('margin-top', 0);
-        ff.stop().css('padding-top', 0);
-      }, 800);
+      hf.stop().removeClass('floating');
     }
+  }); // RESIZE SLIDE HEIGHT
+
+  resizeHeightSlide();
+  $(window).on('resize', function () {
+    resizeHeightSlide();
   });
-  var heightSlide = $('[data-slide-height]').data('slide-height'),
-      bodyHeight = heightSlide == 'auto' ? $(window).outerHeight() : heightSlide;
-  $('[data-slide-height]').css('height', bodyHeight);
 });
 
 /***/ }),
@@ -11863,9 +11855,24 @@ $(function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/pages/Slides/SLID01/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.SLID01').owlCarousel({
+    animateOut: 'fadeOut',
+    items: 1,
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    loop: true,
+    dots: true,
+    nav: false,
+    dotsContainer: "#dotsSlideCustom"
+  });
+});
 
 /***/ }),
 

@@ -19,8 +19,8 @@
         "sass-loader": "^12.1.0"
     },
     "dependencies": {
-        "@fancyapps/ui": "^4.0.0-beta.1",
         "@ckeditor/ckeditor5-build-classic": "^29.1.0",
+        "@fancyapps/ui": "^4.0.0-beta.1",
         "@popperjs/core": "^2.9.1",
         "admin-resources": "git+https://github.com/coderthemes/admin-resources.git#master",
         "animate.css": "^4.1.1",

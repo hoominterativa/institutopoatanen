@@ -24,10 +24,33 @@ return [
                     'iconMenu' => '',
                     'titlePanel' => 'Banners',
                     'iconPanel' => 'mdi-monitor-screenshot'
-                ],
-                'IncludeSections' => (object) []
+                ]
             ],
         ],
+        // 'Services' => (object) [
+        //     'SERV01' => (object)[
+        //         'ViewHome' => true,
+        //         'ViewListMenu' => true,
+        //         'ViewListPanel' => true,
+        //         'IncludeCore' => (object) [
+        //             'include' => true,
+        //             'limit' => 3,
+        //             'condition' => 'active',
+        //             'relation' => 'category,subcategory',
+        //         ],
+        //         'config' => (object) [
+        //             'titleMenu' => 'Serviços',
+        //             'anchor' =>  false,
+        //             'linkMenu' => 'serv01.page',
+        //             'iconMenu' => '',
+        //             'titlePanel' => 'Serviços',
+        //             'iconPanel' => 'mdi-room-service-outline'
+        //         ],
+        //         'IncludeSections' => (object) [
+        //             'Topics' => 'TOPI01'
+        //         ],
+        //     ],
+        // ],
     ],
 
     'ModelsForm' => (object)[

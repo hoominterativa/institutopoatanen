@@ -49,7 +49,7 @@ class SLID01Controller extends Controller
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 80);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
         $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
@@ -101,7 +101,7 @@ class SLID01Controller extends Controller
         $helper = new HelperArchive();
 
         // IMAGE DESKTOP
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 200, 80);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 100);
         if($path_image_desktop){
             Storage::delete($SLID01Slides->path_image_desktop);
             $data['path_image_desktop'] = $path_image_desktop;
@@ -112,7 +112,7 @@ class SLID01Controller extends Controller
         }
 
         // IMAGE MOBILE
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 200, 80);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
         if($path_image_mobile){
             Storage::delete($SLID01Slides->path_image_mobile);
             $data['path_image_mobile'] = $path_image_mobile;
@@ -123,7 +123,7 @@ class SLID01Controller extends Controller
         }
 
         // IMAGE PNG
-        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 200, 80);
+        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 1000, 80);
         if($path_image_png){
             Storage::delete($SLID01Slides->path_image_png);
             $data['path_image_png'] = $path_image_png;

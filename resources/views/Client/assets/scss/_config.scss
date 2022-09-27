@@ -277,12 +277,13 @@ a{
 }
 
 // FIXED FLOATING TOP
-.fixed-floating.top{
-    .floating{
-        position: fixed;
+.fixed-floating{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    &.top{
         top:0;
-        left: 0;
-        right: 0;
     }
 }
 

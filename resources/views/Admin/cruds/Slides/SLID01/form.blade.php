@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3 col-12 col-sm-4">
                     {!! Form::label('target_link_button', 'Redirecionar', ['class'=>'form-label']) !!}
-                    {!! Form::select('target_link_button', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], '_self', [
+                    {!! Form::select('target_link_button', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], isset($slide)?$slide->target_link_button:'_self', [
                         'class'=>'form-select', 'id'=>'target_link_button']) !!}
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Informa em qual posição o conteúdo do banner ficará"></i>
                 </div>
-                {!! Form::select('position_content', ['start' => 'A esquerda', 'center' => 'No Centro', 'end' => 'A direita'], 'start', [
+                {!! Form::select('position_content', ['start' => 'A esquerda', 'center' => 'No Centro', 'end' => 'A direita'], isset($slide)?$slide->position_content:'start', [
                     'class'=>'form-select', 'id'=>'position_content']) !!}
             </div>
             <div class="mb-3 form-check">
@@ -58,7 +58,7 @@
                             'id'=>'inputImage',
                             'class'=>'inputImage',
                             'data-mincropwidth'=>'80',
-                            'data-scale'=>'11/7',
+                            'data-scale'=>'11/5',
                             'data-height'=>'150',
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($slide)?$slide->path_image_desktop<>''?url('storage/'.$slide->path_image_desktop):'':'',

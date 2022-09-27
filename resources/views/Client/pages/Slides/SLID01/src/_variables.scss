@@ -1,0 +1,47 @@
+$slid01-font-family-default: $font-primary;
+$slid01-bg-default: $bg-secondary;
+
+// TITLE
+$slid01-title-font-size: $font-40;
+$slid01-title-font-family: $slid01-font-family-default;
+$slid01-title-font-weight: $weight-100;
+$slid01-title-color: $color-white;
+
+// SUBTITLE
+$slid01-subtitle-font-size: 5.938rem;
+$slid01-subtitle-font-family: $slid01-font-family-default;
+$slid01-subtitle-font-weight: $weight-600;
+$slid01-subtitle-color: $color-white;
+$slid01-subtitle-text-shadow: -5px 0 0 $color-main;
+
+// DESCRIPTION
+$slid01-description-font-size: $font-22;
+$slid01-description-font-family: $slid01-font-family-default;
+$slid01-description-font-weight: $weight-100;
+$slid01-description-color: $color-soft;
+$slid01-description-margin: 0 0 60px 0;
+
+// BTN CTA
+$slid01-cta-font-size: $font-14;
+$slid01-cta-font-family: $slid01-font-family-default;
+$slid01-cta-color: $color-black;
+$slid01-cta-font-weight: $weight-700;
+$slid01-cta-border-radius: $edge-rounded;
+$slid01-cta-background-color: $slid01-bg-default;
+$slid01-cta-bg-hover: $bg-main;
+$slid01-cta-color-hover: $color-white;
+
+// DOTS CONTAINER
+$slid01-dots-container-top: 50%;
+$slid01-dots-container-right: 3%;
+$slid01-dots-container-transform: translate(0, -50%);
+
+//  DOTS
+$slid01-dots-width: 13px;
+$slid01-dots-height: 13px;
+$slid01-dots-display: block;
+$slid01-dots-border-radius: $edge-rounded-full;
+$slid01-dots-background-color: adjust-color($bg-white, $alpha: -0.8);
+$slid01-dots-margin: 0 0 5px 0;
+$slid01-dots-border: none;
+$slid01-dots-background-color-hover: $slid01-bg-default;
