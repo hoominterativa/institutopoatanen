@@ -51,20 +51,16 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body">
             <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem Desktop', ['class'=>'form-label']) !!}
-                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
-                        {!! Form::file('path_image_desktop', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-mincropwidth'=>'80',
-                            'data-scale'=>'11/5',
-                            'data-height'=>'150',
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($slide)?$slide->path_image_desktop<>''?url('storage/'.$slide->path_image_desktop):'':'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
+                <div class="mb-3">
+                    {!! Form::label('file', 'Imagem Desktop', ['class'=>'form-label']) !!}
+                    {!! Form::file('path_archive', [
+                        'data-plugins'=>'dropify',
+                        'data-height'=>'150',
+                        'data-max-file-size-preview'=>'2M',
+                        'accept'=>'image/*',
+                        'data-default-file'=> isset($slide)?$slide->path_image_desktop<>''?url('storage/'.$slide->path_image_desktop):'':'',
+                    ]) !!}
+                </div>
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">

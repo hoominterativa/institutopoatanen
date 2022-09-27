@@ -27,30 +27,43 @@ return [
                 ]
             ],
         ],
-        // 'Services' => (object) [
-        //     'SERV01' => (object)[
-        //         'ViewHome' => true,
-        //         'ViewListMenu' => true,
-        //         'ViewListPanel' => true,
-        //         'IncludeCore' => (object) [
-        //             'include' => true,
-        //             'limit' => 3,
-        //             'condition' => 'active',
-        //             'relation' => 'category,subcategory',
-        //         ],
-        //         'config' => (object) [
-        //             'titleMenu' => 'Serviços',
-        //             'anchor' =>  false,
-        //             'linkMenu' => 'serv01.page',
-        //             'iconMenu' => '',
-        //             'titlePanel' => 'Serviços',
-        //             'iconPanel' => 'mdi-room-service-outline'
-        //         ],
-        //         'IncludeSections' => (object) [
-        //             'Topics' => 'TOPI01'
-        //         ],
-        //     ],
-        // ],
+        'Contents' => (object) [
+            'CONT01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Seção de Conteúdo',
+                    'iconPanel' => 'mdi-play-protected-content'
+                ]
+            ],
+        ],
+        'Portfolios' => (object) [
+            'PORT01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'limit' => 4,
+                    'condition' => 'active',
+                    'relation' => 'category',
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'O que fazemos',
+                    'anchor' =>  false,
+                    'linkMenu' => 'port01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'O que fazemos',
+                    'iconPanel' => 'mdi-book-open-outline'
+                ],
+                'IncludeSections' => (object) [],
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[

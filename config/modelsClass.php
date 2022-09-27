@@ -8,21 +8,27 @@ return [
                 'model' => App\Models\Slides\SLID01Slides::class,
             ],
         ],
-        // 'Services' => (object)[
-        //     'SERV01' => (object)[
-        //         'controller' => App\Http\Controllers\Services\SERV01Controller::class,
-        //         'model' => App\Models\Services\SERV01Services::class,
-        //         'relationship' => [
-        //             'category' => [
-        //                 'class' => App\Models\Services\SERV01ServicesCategories::class,
-        //                 'column' => 'category_id'
-        //             ],
-        //             'subcategory' => [
-        //                 'class' => App\Models\Services\SERV01ServicesSubcategories::class,
-        //                 'column' => 'subcategory_id'
-        //             ]
-        //         ]
-        //     ],
-        // ],
+        'Contents' => (object)[
+            'CONT01' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT01Controller::class,
+                'model' => App\Models\Contents\CONT01Contents::class,
+            ],
+        ],
+        'Portfolios' => (object)[
+            'PORT01' => (object)[
+                'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,
+                'model' => App\Models\Portfolios\PORT01Portfolios::class,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Portfolios\PORT01PortfoliosCategory::class,
+                        'column' => 'category_id'
+                    ],
+                    'subcategory' => [
+                        'class' => App\Models\Portfolios\PORT01PortfoliosSubategory::class,
+                        'column' => 'subcategory_id'
+                    ]
+                ]
+            ],
+        ],
     ],
 ];

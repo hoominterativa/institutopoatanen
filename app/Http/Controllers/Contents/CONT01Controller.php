@@ -20,17 +20,10 @@ class CONT01Controller extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $content = CONT01Contents::first();
+        return view('Admin.cruds.Contents.CONT01.edit',[
+            'content' => $content
+        ]);
     }
 
     /**
@@ -43,47 +36,19 @@ class CONT01Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
+        $path = 'uploads/Contents/CONT01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, 600, 90);
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(CONT01Contents::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('success', 'Erro ao cadastradar informações');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contents\CONT01Contents  $CONT01Contents
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CONT01Contents $CONT01Contents)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,14 +61,10 @@ class CONT01Controller extends Controller
     public function update(Request $request, CONT01Contents $CONT01Contents)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
+        $path = 'uploads/Contents/CONT01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, 600, 90);
         if($path_image){
             Storage::delete($CONT01Contents->path_image);
             $data['path_image'] = $path_image;
@@ -112,121 +73,17 @@ class CONT01Controller extends Controller
             Storage::delete($CONT01Contents->path_image);
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            Storage::delete($CONT01Contents->path_archive);
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            Storage::delete($CONT01Contents->path_archive);
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($CONT01Contents->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('success', 'Erro ao atualizar informações');
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contents\CONT01Contents  $CONT01Contents
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CONT01Contents $CONT01Contents)
-    {
-        //Storage::delete($CONT01Contents->path_image);
-        //Storage::delete($CONT01Contents->path_archive);
-
-        if($CONT01Contents->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $CONT01Contentss = CONT01Contents::whereIn('id', $request->deleteAll)->get();
-        foreach($CONT01Contentss as $CONT01Contents){
-            Storage::delete($CONT01Contents->path_image);
-            Storage::delete($CONT01Contents->path_archive);
-        }
-        */
-
-        if($deleted = CONT01Contents::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            CONT01Contents::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
+        return redirect()->back();
     }
 
     // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Contents\CONT01Contents  $CONT01Contents
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CONT01Contents $CONT01Contents)
-    {
-        //
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
 
     /**
      * Section index resource.
@@ -235,6 +92,9 @@ class CONT01Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        $content = CONT01Contents::first();
+        return view('Client.pages.Contents.CONT01.section',[
+            'content' => $content
+        ]);
     }
 }

@@ -1,3 +1,22 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+#CONT01{
+    background-color: $cont01-bg-color;
+    .description {
+        .title{
+            color: $cont01-title-color;
+            font-size: $cont01-title-font-size;
+            font-family: $cont01-title-font-family;
+            font-weight: $cont01-title-font-weight;
+        }
+        .subtitle{
+            color: $cont01-subtitle-color;
+            font-size: $cont01-subtitle-font-size;
+            font-family: $cont01-subtitle-font-family;
+            font-weight: $cont01-subtitle-font-weight;
+            text-shadow: $slid01-subtitle-text-shadow;
+            letter-spacing: $slid01-subtitle-letter-spacing;
+        }
+    }
+}

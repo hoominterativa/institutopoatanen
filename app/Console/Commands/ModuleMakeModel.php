@@ -66,24 +66,29 @@ class ModuleMakeModel extends Command
                 return;
             }
 
-            Artisan::call('make:model '.$arguments['module'].'/'.$arguments['model'].$arguments['module']);
+            Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model']);
 
             if($options['migration']){
 
-                $lowerModel = Str::lower($arguments['model']);
+                $lowerCode = Str::lower($arguments['code']);
+                $lowerModel = Str::plural(Str::lower($arguments['model']));
                 $lowerModule = Str::lower($arguments['module']);
-                $nameMigration = 'create_'. $lowerModel.'_'.$lowerModule.'_table';
+                $nameMigration = 'create_'.$lowerCode.'_'.$lowerModule.'_'.$lowerModel.'_table';
 
                 Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
-                Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['model'].'Seeder');
-                Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['model'].'Factory');
+                Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['code'].$arguments['model'].'Seeder');
+                Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].$arguments['model'].'Factory');
+
+                $this->info('Migration criada com sucesso!');
 
             }
 
             if($options['controller'] && !$options['resource']){
-                Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['model'].'Controller');
+                Artisan::call('make:controller '.$arguments['module'].'/'.$arguments['code'].$arguments['model'].'Controller');
+                $this->info('Controller criado com sucesso!');
             }else if($options['controller'] && $options['resource']){
-                Artisan::call('make:controller --model='.$arguments['module'].'/'.$arguments['model'].$arguments['module'].' '.$arguments['module'].'/'.$arguments['model'].'Controller');
+                Artisan::call('make:controller --model='.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model'].' '.$arguments['module'].'/'.$arguments['code'].$arguments['model'].'Controller');
+                $this->info('Controller criado com sucesso!');
             }
 
             $this->info('Modelo criado com sucesso!');

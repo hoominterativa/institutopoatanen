@@ -15,15 +15,6 @@ class CONT01Contents extends Model
         return CONT01ContentsFactory::new();
     }
 
-    protected $table = "";
-
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    protected $table = "cont01_contents";
+    protected $fillable = ["title","subtitle","link","target_link","path_image"];
 }

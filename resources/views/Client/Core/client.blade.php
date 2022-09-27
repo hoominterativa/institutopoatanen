@@ -23,6 +23,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
     <link rel="canonical" href="{{url(Route::current()->uri)}}">
+    <link rel="stylesheet" href="{{asset(mix('css/libraries.css'))}}">
 
 </head>
 <body>
@@ -34,8 +35,10 @@
     <footer id="mainFooter">
         {!!$renderFooter!!}
     </footer>
+
     <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
     <script src="{{asset(mix('js/app.js'))}}"></script>
+
     @if ($themeMenu)
         @include('Client.Components.themeMenu.'.$themeMenu.'.structure',[
             "listMenu" => $listMenu

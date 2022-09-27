@@ -75,6 +75,7 @@ mix
     .styles('node_modules/cropper/dist/cropper.min.css', 'public/admin/assets/libs/cropper.min.css')
 
 //SASS
+.sass('resources/sass/libraries.scss', 'public/css')
 .sass('resources/sass/app.scss', 'public/css')
 
 //CONFIG
