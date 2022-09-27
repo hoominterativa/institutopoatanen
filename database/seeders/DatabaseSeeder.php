@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use App\Models\Topics\TOPI01Topics;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +20,8 @@ class DatabaseSeeder extends Seeder
             SettingThemeSeeder::class,
             OptimizationSeeder::class,
             GeneralSettingSeeder::class,
+            SLID01SlidesSeeder::class,
+            CONT01ContentsSeeder::class,
             // ContactFormSeeder::class,
         ]);
     }
