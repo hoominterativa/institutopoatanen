@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class PORT01CategorySeeder extends Seeder
+class Portfolios/PORT01GallerySeeder extends Seeder
 {
     /**
      * Run the database seeds.

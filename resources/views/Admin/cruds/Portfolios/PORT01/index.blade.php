@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">TESTE</li>
+                                    <li class="breadcrumb-item active">{{config('modelsConfig.Portfolios.PORT01.config.titlePanel')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">TESTE</h4>
+                            <h4 class="page-title">{{config('modelsConfig.Portfolios.PORT01.config.titlePanel')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -26,10 +26,10 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.code.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.port01.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        <a href="{{route('admin.port01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
                                 <table class="table table-bordered table-sortable">
@@ -49,7 +49,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody data-route="{{route('admin.code.sorting')}}">
+                                    <tbody data-route="{{route('admin.port01.sorting')}}">
                                         @foreach ($teste as $test)
                                             <tr data-code="{{$test->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -71,9 +71,9 @@
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.code.edit',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.port01.edit',['PORT01Portfolios' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.code.destroy',['code' => $test->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.port01.destroy',['PORT01Portfolios' => $test->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">TESTE</li>
+                                    <li class="breadcrumb-item active">{{config('modelsConfig.Module.code.config.titlePanel')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">TESTE</h4>
+                            <h4 class="page-title">{{config('modelsConfig.Module.code.config.titlePanel')}}</h4>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,27 @@ class CreatePort01PortfoliosTable extends Migration
     {
         Schema::create('port01_portfolios', function (Blueprint $table) {
             $table->id();
+
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('colors')->nullable();
+            $table->text('description')->nullable();
+            $table->text('text')->nullable();
+            $table->string('path_image_box')->nullable();
+            $table->string('path_image_left')->nullable();
+            $table->string('path_image_right')->nullable();
+
+            $table->string('title_testimonial')->nullable();
+            $table->string('subtitle_testimonial')->nullable();
+            $table->text('text_testimonial')->nullable();
+            $table->string('path_image_testimonial')->nullable();
+
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
+
+            $table->foreignId('category_id')->constrained('port01_portfolios_categories');
+            $table->foreignId('subcategory_id')->nullable()->constrained('port01_portfolios_subategories');
+
             $table->timestamps();
         });
     }
