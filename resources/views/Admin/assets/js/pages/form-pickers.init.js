@@ -22,7 +22,7 @@
             t("#24hours-timepicker").flatpickr({ enableTime: !0, noCalendar: !0, dateFormat: "H:i", time_24hr: !0 }),
             t("#minmax-timepicker").flatpickr({ enableTime: !0, noCalendar: !0, dateFormat: "H:i", minDate: "16:00", maxDate: "22:30" }),
             t("#preloading-timepicker").flatpickr({ enableTime: !0, noCalendar: !0, dateFormat: "H:i", defaultDate: "01:45" }),
-            t("#colorpicker-default").spectrum(),
+            t(".colorpicker-default").spectrum(),
             t("#colorpicker-showalpha").spectrum({ showAlpha: !0 }),
             t("#colorpicker-showpaletteonly").spectrum({
                 showPaletteOnly: !0,

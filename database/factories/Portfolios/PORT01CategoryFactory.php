@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Model;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PORT01CategoryFactory extends Factory
 {
@@ -22,7 +23,9 @@ class PORT01CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => Str::random(10),
+            'path_image' => 'uploads/temp/port01-icon-category.svg',
+            'active' => 1,
         ];
     }
 }

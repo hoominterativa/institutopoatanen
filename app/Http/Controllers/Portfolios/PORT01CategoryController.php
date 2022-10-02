@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Portfolios\PORT01PortfoliosCategory;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
@@ -13,26 +14,6 @@ use Illuminate\Support\Facades\Storage;
 
 class PORT01CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -43,47 +24,32 @@ class PORT01CategoryController extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
+        $path = 'uploads/Portfolios/PORT01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        try {
+            $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, 200, 100);
+            if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        if($path_image) $data['path_image'] = $path_image;
+            $data['slug'] = $request->title;
+            $data['view_menu'] = $request->view_menu?1:0;
+            $data['featured'] = $request->featured?1:0;
+            $data['active'] = $request->active?1:0;
 
-        Use the code below to upload archive, if not, delete code
+            if(PORT01PortfoliosCategory::create($data)){
+                Session::flash('success', 'Categoria cadastrada com sucesso');
+            }else{
+                Storage::delete($path_image_icon);
+                Session::flash('error', 'Erro ao cadastradar categoria');
+            }
 
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(PORT01PortfoliosCategory::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
-        }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o item');
+            Session::flash('reopenModal', 'modal-category-create');
+            return redirect()->back();
+        } catch (Exception $e) {
+            Session::flash('reopenModal', 'modal-category-create');
+            Session::flash('error', 'Erro: '.$e->getMessage());
             return redirect()->back();
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolios\PORT01PortfoliosCategory  $PORT01PortfoliosCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PORT01PortfoliosCategory $PORT01PortfoliosCategory)
-    {
-        //
     }
 
     /**
@@ -96,53 +62,33 @@ class PORT01CategoryController extends Controller
     public function update(Request $request, PORT01PortfoliosCategory $PORT01PortfoliosCategory)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
+        $path = 'uploads/Portfolios/PORT01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            Storage::delete($PORT01PortfoliosCategory->path_image);
-            $data['path_image'] = $path_image;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, 200, 100);
+        if($path_image_icon){
+            Storage::delete($PORT01PortfoliosCategory->path_image_icon);
+            $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image && !$path_image){
-            Storage::delete($PORT01PortfoliosCategory->path_image);
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            Storage::delete($PORT01PortfoliosCategory->path_archive);
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            Storage::delete($PORT01PortfoliosCategory->path_image_icon);
+            $data['path_image_icon'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            Storage::delete($PORT01PortfoliosCategory->path_archive);
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['slug'] = $request->title;
+        $data['view_menu'] = $request->view_menu?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['active'] = $request->active?1:0;
 
         if($PORT01PortfoliosCategory->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('success', 'Erro ao atualizar categoria');
         }
+
+        Session::flash('reopenModal', 'modal-category-create');
+        return redirect()->back();
     }
 
     /**
@@ -153,11 +99,10 @@ class PORT01CategoryController extends Controller
      */
     public function destroy(PORT01PortfoliosCategory $PORT01PortfoliosCategory)
     {
-        //Storage::delete($PORT01PortfoliosCategory->path_image);
-        //Storage::delete($PORT01PortfoliosCategory->path_archive);
-
+        Storage::delete($PORT01PortfoliosCategory->path_image_icon);
         if($PORT01PortfoliosCategory->delete()){
             Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('reopenModal', 'modal-category-create');
             return redirect()->back();
         }
     }
@@ -170,16 +115,13 @@ class PORT01CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $PORT01PortfoliosCategorys = PORT01PortfoliosCategory::whereIn('id', $request->deleteAll)->get();
         foreach($PORT01PortfoliosCategorys as $PORT01PortfoliosCategory){
-            Storage::delete($PORT01PortfoliosCategory->path_image);
-            Storage::delete($PORT01PortfoliosCategory->path_archive);
+            Storage::delete($PORT01PortfoliosCategory->path_image_icon);
         }
-        */
 
         if($deleted = PORT01PortfoliosCategory::whereIn('id', $request->deleteAll)->delete()){
+            Session::flash('reopenModal', 'modal-category-create');
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }

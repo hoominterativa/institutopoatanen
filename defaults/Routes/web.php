@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
 
 /**
  * Uncomment the code below
@@ -22,7 +23,9 @@ use Illuminate\Support\Str;
 
 // // ADMIN
 // Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::post($route.'/teste', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.sorting');
+//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
+//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 // });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

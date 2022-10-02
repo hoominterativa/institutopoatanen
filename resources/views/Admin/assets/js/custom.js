@@ -8,8 +8,24 @@ function slugify(text) {
         .replace(/[^\w\-]+/g, '') // Remove all non-word chars
         .replace(/\-\-+/g, ''); // Replace multiple - with single -
 }
-$(function() {
+function cloneInputsColorPicker(elem, taregt, receiver, action='clone'){
+    switch (action) {
+        case 'clone':
+            $(taregt).find('>*').clone(true).appendTo(receiver)
+            setTimeout(() => {
+                $(receiver).find('.inputCloned:last input').addClass('colorpicker-default')
+            }, 100);
+            setTimeout(() => {
+                $(".colorpicker-default").spectrum()
+            }, 200);
+        break;
+        case 'delete':
+            $(elem).parent().remove();
+        break;
+    }
+}
 
+$(function() {
     Fancybox.bind('[data-fancybox]');
 
     $.ajaxSetup({

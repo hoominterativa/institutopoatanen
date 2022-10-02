@@ -30,6 +30,7 @@ class CreatePort01PortfoliosTable extends Migration
             $table->text('text_testimonial')->nullable();
             $table->string('path_image_testimonial')->nullable();
 
+            $table->integer('featured')->default(0);
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
 

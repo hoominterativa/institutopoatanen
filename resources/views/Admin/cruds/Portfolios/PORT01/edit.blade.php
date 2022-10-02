@@ -11,19 +11,25 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">{{config('modelsConfig.Module.code.config.titlePanel')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{config('modelsConfig.Module.code.config.titlePanel')}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.port01.index')}}">{{$configModelsMain->Portfolios->PORT01->config->titlePanel}}</a></li>
+                                    <li class="breadcrumb-item active">Editar {{$configModelsMain->Portfolios->PORT01->config->titlePanel}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{config('modelsConfig.Module.code.config.titlePanel')}}</h4>
+                            <h4 class="page-title">Editar {{$configModelsMain->Portfolios->PORT01->config->titlePanel}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Module.CODE.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                {!! Form::model($portfolio, ['route' => ['admin.port01.update', $portfolio->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                    <div class="w-100 d-table mb-3">
+                        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                        <a href="{{route('admin.port01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    </div>
+                    @include('Admin.Cruds.Portfolios.PORT01.form')
+                    <div class="w-100 d-table">
+                        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                        <a href="{{route('admin.port01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    </div>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

@@ -18,6 +18,7 @@ class CreatePort01PortfoliosSubategoriesTable extends Migration
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
+            $table->integer('featured')->default(0);
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

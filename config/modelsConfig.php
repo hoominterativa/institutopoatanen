@@ -58,7 +58,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => 'port01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'O que fazemos',
+                    'titlePanel' => 'Portifólios',
                     'iconPanel' => 'mdi-book-open-outline'
                 ],
                 'IncludeSections' => (object) [],

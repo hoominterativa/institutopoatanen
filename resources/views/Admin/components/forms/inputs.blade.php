@@ -6,8 +6,8 @@
 
 {{-- Input Default --}}
 <div class="mb-3">
-    {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'First name', 'required'=>'required']) !!}
+    {!! Form::label('title', 'First name', ['class'=>'form-label']) !!}
+    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required'=>'required']) !!}
 </div>
 
 {{-- Date Picker --}}
@@ -259,14 +259,21 @@
 <div class="mb-3">
     {!! Form::label('basic-editor', 'Basic Editor', ['class'=>'form-label']) !!}
     {!! Form::textarea('description', null, [
-        'class'=>'form-control',
+        'class'=>'form-control basic-editor',
         'id'=>'basic-editor',
+    ]) !!}
+</div>
+<div class="mb-3">
+    {!! Form::label('normal-editor', 'Normal Editor', ['class'=>'form-label']) !!}
+    {!! Form::textarea('description', null, [
+        'class'=>'form-control normal-editor',
+        'id'=>'normal-editor',
     ]) !!}
 </div>
 <div class="mb-3">
     {!! Form::label('complete-editor', 'Complete Editor', ['class'=>'form-label']) !!}
     {!! Form::textarea('description', null, [
-        'class'=>'form-control',
+        'class'=>'form-control complete-editor',
         'id'=>'complete-editor',
     ]) !!}
 </div>

@@ -141,8 +141,8 @@ class ModuleModel extends Command
             if($options['admin']){
                 Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module']);
                 Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
-                Artisan::call('make:seeder '.$arguments['code'].$arguments['module'].'Seeder');
-                Artisan::call('make:factory '.$arguments['code'].$arguments['module'].'Factory --model='.$arguments['code'].$arguments['module']);
+                Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Seeder');
+                Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory --model='.$arguments['code'].$arguments['module']);
             }
 
             if(!$options['admin'] && $options['client']){

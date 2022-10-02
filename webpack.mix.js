@@ -2,7 +2,6 @@ const mix = require('laravel-mix');
 
 mix
 //JS
-    .js('resources/js/app.js', 'public/js')
     .scripts('resources/views/Admin/assets/js/app.min.js', 'public/admin/assets/js/app.min.js')
     .scripts('resources/views/Admin/assets/js/vendor.min.js', 'public/admin/assets/js/vendor.min.js')
     .scripts('resources/views/Admin/assets/js/custom.js', 'public/admin/assets/js/custom.js')
@@ -74,7 +73,15 @@ mix
     .styles('node_modules/jquery-toast-plugin/dist/jquery.toast.min.css', 'public/admin/assets/libs/jquery.toast.min.css')
     .styles('node_modules/cropper/dist/cropper.min.css', 'public/admin/assets/libs/cropper.min.css')
 
-//SASS
+// COPY DIRECTORIES
+.copyDirectory('resources/views/Admin/assets/fonts', 'public/admin/assets/fonts')
+    .copyDirectory('resources/views/Admin/assets/images', 'public/admin/assets/images')
+    .copyDirectory('resources/views/Client/assets/images', 'public/images')
+    .copyDirectory('node_modules/@ckeditor/ckeditor5-build-classic/build/translations', 'public/admin/assets/libs/translations')
+    .copyDirectory('node_modules/parsleyjs/dist/i18n', 'public/admin/assets/libs/i18n')
+
+//COMPILED
+.js('resources/js/app.js', 'public/js')
 .sass('resources/sass/libraries.scss', 'public/css')
 .sass('resources/sass/app.scss', 'public/css')
 
@@ -82,9 +89,4 @@ mix
 .autoload({
         'jquery': ['$', 'window.jQuery', 'jQuery']
     })
-    .copyDirectory('resources/views/Admin/assets/fonts', 'public/admin/assets/fonts')
-    .copyDirectory('resources/views/Admin/assets/images', 'public/admin/assets/images')
-    .copyDirectory('resources/views/Client/assets/images', 'public/images')
-    .copyDirectory('node_modules/@ckeditor/ckeditor5-build-classic/build/translations', 'public/admin/assets/libs/translations')
-    .copyDirectory('node_modules/parsleyjs/dist/i18n', 'public/admin/assets/libs/i18n')
     .version()

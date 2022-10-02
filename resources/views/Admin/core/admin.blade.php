@@ -426,5 +426,21 @@
             </ul>
         @endif
 
+        @if (Session::has('reopenModal'))
+            <script>
+                var modal = document.getElementById('{{Session::get("reopenModal")}}')
+                var myModal = new bootstrap.Modal(modal, {
+                    keyboard: false
+                })
+                myModal.show(modal)
+            </script>
+        @endif
+            <script>
+                $.each($('.modal'), function(i, value){
+                    if($(this).find('.modal').length){
+                        $(this).find('.modal').appendTo("body");
+                    }
+                })
+            </script>
     </body>
 </html>

@@ -69,6 +69,23 @@ class HelperArchive extends Controller
     }
 
     /**
+     * Upload images at not resize
+     *
+     * @param Illuminate\Http\Request $request
+     * @param string $column
+     *
+     * @return object
+     */
+    public function uploadImage($request, $column, $path)
+    {
+        $nameCurrent =  pathinfo($request->$column->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension =  $request->$column->getClientOriginalExtension();
+        $name = Str::of($nameCurrent)->slug().'-'.time().'.'.$extension;
+        $request->$column->storeAs($path, $name);
+        return $path.$name;
+    }
+
+    /**
      * Optimize and save image
      *
      * @param \Illuminate\Http\Request $request
@@ -83,6 +100,12 @@ class HelperArchive extends Controller
     public function optimizeImage($request, $column, $path, $width=null, $quality=null)
     {
         if ($request->hasFile($column)) {
+
+            $mimeTypeAcept = ['image/svg','image/svg+xml'];
+            if(array_search($request->$column->getMimeType(), $mimeTypeAcept) !== false){
+                $uploadImage = self::uploadImage($request, $column, $path);
+                return $uploadImage;
+            }
 
             // Max width of image
             $sizeBase = 2000;
@@ -123,7 +146,10 @@ class HelperArchive extends Controller
             }
 
             $image = new ImageResize($fileImage);
+
             $widthImage = $image->getDestWidth();
+
+
 
             if($width){
                 // Resize image as of width

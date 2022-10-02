@@ -31,6 +31,11 @@ use App\Models\Social;
 |--------------------------------------------------------------------------
 */
 
+View::composer('Admin.cruds.*', function ($view) {
+    $configModelsMain = config('modelsConfig.InsertModelsMain');
+    return $view->with('configModelsMain', $configModelsMain);
+});
+
 View::composer('Client.Core.client', function ($view) {
     $renderCore = new CoreController();
     $optimization = Optimization::first();

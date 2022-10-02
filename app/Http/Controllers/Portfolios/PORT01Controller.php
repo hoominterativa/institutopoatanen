@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Portfolios\PORT01Portfolios;
+use App\Models\Portfolios\PORT01PortfoliosCategory;
+use App\Models\Portfolios\PORT01PortfoliosSection;
+use App\Models\Portfolios\PORT01PortfoliosSubategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +23,17 @@ class PORT01Controller extends Controller
      */
     public function index()
     {
-        //
+        $portfolios = PORT01Portfolios::sorting()->paginate(32);
+        $categories = PORT01PortfoliosCategory::active()->sorting()->get();
+        $subcategories = PORT01PortfoliosSubategory::active()->sorting()->get();
+        $section = PORT01PortfoliosSection::first();
+
+        return view('Admin.cruds.Portfolios.PORT01.index',[
+            'portfolios' => $portfolios,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'section' => $section,
+        ]);
     }
 
     /**
@@ -30,7 +43,12 @@ class PORT01Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = PORT01PortfoliosCategory::active()->sorting()->pluck('title','id');
+        $subcategories = PORT01PortfoliosSubategory::active()->sorting()->pluck('title','id');
+        return view('Admin.cruds.Portfolios.PORT01.create',[
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 
     /**
@@ -83,7 +101,13 @@ class PORT01Controller extends Controller
      */
     public function edit(PORT01Portfolios $PORT01Portfolios)
     {
-        //
+        $categories = PORT01PortfoliosCategory::active()->sorting()->pluck('title','id');
+        $subcategories = PORT01PortfoliosSubategory::active()->sorting()->pluck('title','id');
+        return view('Admin.cruds.Portfolios.PORT01.edit',[
+            'portifolio' => $PORT01Portfolios,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 
     /**
