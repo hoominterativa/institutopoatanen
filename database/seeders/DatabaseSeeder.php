@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contents\CONT01Contents;
+use App\Models\Slides\SLID01Slides;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,13 +17,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(1)->create();
+        SLID01Slides::factory(1)->create();
+        CONT01Contents::factory(1)->create();
 
         $this->call([
             SettingThemeSeeder::class,
             OptimizationSeeder::class,
             GeneralSettingSeeder::class,
-            SLID01SlidesSeeder::class,
-            CONT01ContentsSeeder::class,
             // ContactFormSeeder::class,
         ]);
     }

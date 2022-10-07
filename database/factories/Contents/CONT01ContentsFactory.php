@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Contents;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\CONT01Contents;
+use App\Models\Contents\CONT01Contents;
 
 class CONT01ContentsFactory extends Factory
 {
@@ -22,7 +22,8 @@ class CONT01ContentsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => 'Título aqui',
+            'subtitle' => 'Subtítulo Aqui',
         ];
     }
 }

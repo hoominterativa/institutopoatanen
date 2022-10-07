@@ -2,7 +2,7 @@
 
 namespace App\Models\Slides;
 
-use Database\Factories\SLID01SlidesFactory;
+use Database\Factories\Slides\SLID01SlidesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

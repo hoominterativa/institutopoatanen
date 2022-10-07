@@ -2,7 +2,7 @@
 
 namespace App\Models\Contents;
 
-use Database\Factories\CONT01ContentsFactory;
+use Database\Factories\Contents\CONT01ContentsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

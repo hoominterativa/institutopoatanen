@@ -18,7 +18,6 @@ class ModulePublish extends Command
     ];
     protected $pathsFiles = [
         'factories' => 'database/factories/',
-        'seeders' => 'database/seeders/',
     ];
     protected $pathsCore = [
         'resources/views/Client/Core/Footers',
@@ -178,26 +177,30 @@ class ModulePublish extends Command
 
             // Exclude files from unused modules
             foreach ($this->pathsFiles as $pathFile) {
-                $files = array_diff(scandir($pathFile), array('..', '.'));
-                foreach ($files as $file) {
-                    if(!is_dir($pathFile.$file) && !array_keys($this->exception, $file)){
-                        foreach ($InsertModelsMain as $module => $models) {
-                            if(strstr($file, $module)){
-                                $index = array_search($file ,$files);
-                                unset($files[$index]);
-                                break;
+                $folders = array_diff(scandir($pathFile), array('..', '.'));
+                foreach ($folders as $folder) {
+                    $files = array_diff(scandir($pathFile.$folder), array('..', '.'));
+                    foreach ($files as $file) {
+                        if(!is_dir($pathFile.$folder.'/'.$file) && !array_keys($this->exception, $file)){
+                            foreach ($InsertModelsMain as $module => $models) {
+                                if(strstr($file, $module)){
+                                    $index = array_search($file ,$files);
+                                    unset($files[$index]);
+                                    break;
+                                }
                             }
                         }
                     }
-                }
-                foreach ($files as $file) {
-                    if(!is_dir($pathFile.$file) && !array_keys($this->exception, $file)){
-                        unlink($pathFile.$file);
-                        $this->info($pathFile.$file);
-                    }
-                }
-                $bar->advance();
 
+                    foreach ($files as $file) {
+                        if(!is_dir($pathFile.$folder.'/'.$file) && !array_keys($this->exception, $file)){
+                            unlink($pathFile.$folder.'/'.$file);
+                            $this->info($pathFile.$folder.'/'.$file);
+                        }
+                    }
+
+                    $bar->advance();
+                }
             }
 
             foreach ($this->rootDirectory as $dir) {
@@ -217,19 +220,19 @@ class ModulePublish extends Command
              * End Clear
             */
 
-            $this->comment('Adicionando as alterações para realização do commit');
-            shell_exec('git add .');
+            // $this->comment('Adicionando as alterações para realização do commit');
+            // shell_exec('git add .');
 
-            $this->comment('Subindo as alterações');
-            shell_exec('git commit -m "Site Publishing Branch"');
+            // $this->comment('Subindo as alterações');
+            // shell_exec('git commit -m "Site Publishing Branch"');
 
-            $this->comment('Publicando as alterações na branch Publishing');
-            shell_exec('git push --set-upstream origin Publishing');
+            // $this->comment('Publicando as alterações na branch Publishing');
+            // shell_exec('git push --set-upstream origin Publishing');
 
-            $this->newLine();
+            // $this->newLine();
 
-            $this->comment('Branch Publishing criada com sucesso, publique o site a partir da mesma');
-            $this->comment('Antes de publicar o site solicite a alteração da branch padrão do seu projeto para a branch Publishing.');
+            // $this->comment('Branch Publishing criada com sucesso, publique o site a partir da mesma');
+            // $this->comment('Antes de publicar o site solicite a alteração da branch padrão do seu projeto para a branch Publishing.');
             return;
         } catch (Exception $e) {
             dd($e->getMessage());

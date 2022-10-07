@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Slides;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\SLID01Slides;
+use App\Models\Slides\SLID01Slides;
 
 class SLID01SlidesFactory extends Factory
 {
@@ -22,7 +22,12 @@ class SLID01SlidesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => 'Título Banner',
+            'subtitle' => 'Subtítulo Banner',
+            'description' => 'Donec diam enim, rhoncus sed gravida et',
+            'title_button' => 'Call to Action',
+            'link_button' => 'https://www.lipsum.com/',
+            'active' => 1,
         ];
     }
 }
