@@ -18,6 +18,7 @@
             'required'=>'required',
             'data-provide'=>'datepicker',
             'data-date-autoclose'=>'true',
+            'data-date-format'=>'dd/mm/YY',
         ])!!}
 </div>
 <div class="mb-3">

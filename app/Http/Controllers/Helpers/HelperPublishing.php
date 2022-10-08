@@ -22,8 +22,10 @@ class HelperPublishing extends Controller
                     $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/variables';\n";
                     $contentJs .= "import '../../Core/{$module}/{$code->Code}/src/main';\n";
                     //THEME MENU
-                    $contentScss .= "@import '../../Components/themeMenu/{$code->themeMenu}/main';\n";
-                    $contentJs .= "import '../../Components/themeMenu/{$code->themeMenu}/main';\n";
+                    if ($code->themeMenu??false) {
+                        $contentScss .= "@import '../../Components/themeMenu/{$code->themeMenu}/main';\n";
+                        $contentJs .= "import '../../Components/themeMenu/{$code->themeMenu}/main';\n";
+                    }
                 }
             }
 
