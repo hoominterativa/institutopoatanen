@@ -35,7 +35,39 @@
 
                                         <button class="btn btn-secondary float-end me-2" data-bs-target="#modal-subcategory-create" data-bs-toggle="modal">Cadastrar Subcategorias <i class="mdi mdi-plus"></i></button>
                                         <button class="btn btn-primary float-end me-2" data-bs-target="#modal-category-create" data-bs-toggle="modal">Cadastrar Categorias <i class="mdi mdi-plus"></i></button>
+                                        <button class="btn btn-warning float-end me-2" type="button" data-bs-toggle="collapse" data-bs-target="#portifolioSection" aria-expanded="false" aria-controls="collapseExample">
+                                            Informações da Seção
+                                        </button>
                                     </div>
+                                    <div class="col-12 mt-3">
+                                        <div class="collapse bg-light p-3 mb-3" id="portifolioSection">
+                                            @if ($section)
+                                                {!! Form::model($section, ['route' => ['admin.port01.section.update', $section->id], 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                @method('PUT')
+                                            @else
+                                                {!! Form::model(null, ['route' => 'admin.port01.section.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                                            @endif
+                                                <div class="mb-3">
+                                                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                                                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required' => true]) !!}
+                                                </div>
+                                                <div class="mb-3 form-check me-3">
+                                                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSection']) !!}
+                                                    {!! Form::label('activeSection', 'Ativar exibição na home?', ['class'=>'form-check-label']) !!}
+                                                </div>
+                                                <div class="mb-3">
+                                                    {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+                                                    {!! Form::textarea('description', null, [
+                                                        'class'=>'form-control basic-editor',
+                                                        'id'=>'description',
+                                                    ]) !!}
+                                                </div>
+                                                <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+                                                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0', 'type' => 'submit']) !!}
+                                                </div>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div> <!-- end col-->
                                 </div>
                                 <table class="table table-bordered table-sortable">
                                     <thead class="table-light">
@@ -46,8 +78,7 @@
                                             </th>
                                             <th width="40px"></th>
                                             <th>Título</th>
-                                            <th width="100px">Destaque</th>
-                                            <th width="100px">Status</th>
+                                            <th>Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
                                     </thead>
@@ -64,17 +95,13 @@
                                                 </td>
                                                 <td class="align-middle">{{$portfolio->title}}</td>
                                                 <td class="align-middle">
-                                                    @if ($portfolio->featured)
-                                                        <span class="badge bg-primary text-white">Ativado</span>
-                                                    @else
-                                                        <span class="badge bg-warning">Desativado</span>
-                                                    @endif
-                                                </td>
-                                                <td class="align-middle">
                                                     @if ($portfolio->active)
-                                                        <span class="badge bg-success">Ativo</span>
+                                                        <span class="badge bg-success text-dark">Ativo</span>
                                                     @else
                                                         <span class="badge bg-danger">Inativo</span>
+                                                    @endif
+                                                    @if ($portfolio->featured)
+                                                        <span class="badge bg-info text-dark">Em destaque</span>
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">
@@ -116,46 +143,50 @@
                 </div>
 
                 <div class="modal-body p-3 pt-0 pb-3">
-
-                    {!! Form::model(null, ['route' => 'admin.port01.category.store', 'class'=>'parsley-examples', 'files' => true]) !!}
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                <div class="mb-3">
-                                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                    <button class="btn btn-secondary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#form-create-category" aria-expanded="false" aria-controls="collapseExample">
+                        Exibir Formulário
+                    </button>
+                    <div class="bg-light p-3 mb-3 collapse" id="form-create-category">
+                        {!! Form::model(null, ['route' => 'admin.port01.category.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3">
+                                        {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                                    </div>
+                                    <div class="mb-3 form-check mb-2">
+                                        {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeCategory']) !!}
+                                        {!! Form::label('activeCategory', 'Ativar Categoria?', ['class'=>'form-check-label']) !!}
+                                    </div>
+                                    <div class="mb-3 form-check mb-2">
+                                        {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
+                                        {!! Form::label('featured', 'Ativar Exibição na Home?', ['class'=>'form-check-label']) !!}
+                                    </div>
+                                    <div class="mb-3 form-check mb-2">
+                                        {!! Form::checkbox('view_menu', '1', null, ['class'=>'form-check-input', 'id'=>'view_menu']) !!}
+                                        {!! Form::label('view_menu', 'Ativar Exibição no Menu?', ['class'=>'form-check-label']) !!}
+                                    </div>
                                 </div>
-                                <div class="mb-3 form-check mb-2">
-                                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeCategory']) !!}
-                                    {!! Form::label('activeCategory', 'Ativar Categoria?', ['class'=>'form-check-label']) !!}
-                                </div>
-                                <div class="mb-3 form-check mb-2">
-                                    {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
-                                    {!! Form::label('featured', 'Ativar Exibição na Home?', ['class'=>'form-check-label']) !!}
-                                </div>
-                                <div class="mb-3 form-check mb-2">
-                                    {!! Form::checkbox('view_menu', '1', null, ['class'=>'form-check-input', 'id'=>'view_menu']) !!}
-                                    {!! Form::label('view_menu', 'Ativar Exibição no Menu?', ['class'=>'form-check-label']) !!}
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3">
+                                        {!! Form::label('file', 'Ícone', ['class'=>'form-label']) !!}
+                                        {!! Form::file('path_image_icon', [
+                                            'data-plugins'=>'dropify',
+                                            'data-height'=>'200',
+                                            'data-max-file-size-preview'=>'2M',
+                                            'accept'=>'*',
+                                            'data-default-file'=> '',
+                                        ]) !!}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-6">
-                                <div class="mb-3">
-                                    {!! Form::label('file', 'Ícone', ['class'=>'form-label']) !!}
-                                    {!! Form::file('path_image_icon', [
-                                        'data-plugins'=>'dropify',
-                                        'data-height'=>'200',
-                                        'data-max-file-size-preview'=>'2M',
-                                        'accept'=>'*',
-                                        'data-default-file'=> '',
-                                    ]) !!}
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-                            {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
-                            {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
-                        </div>
-                    {!! Form::close() !!}
+                            <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
+                                {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
                     <div class="col-6">
                         <button id="btSubmitDelete" data-route="{{route('admin.port01.category.destroySelected')}}" type="button" class="btn btn-danger btnDeleteArchives" style="display: none;">Deletar selecionados</button>
                     </div>
@@ -278,44 +309,48 @@
                 </div>
 
                 <div class="modal-body p-3 pt-0 pb-3">
-
-                    {!! Form::model(null, ['route' => 'admin.port01.subcategory.store', 'class'=>'parsley-examples', 'files' => true]) !!}
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                <div class="mb-3">
-                                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
-                                </div>
-                                <div class="mb-3 form-check mb-2">
-                                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSubcategory']) !!}
-                                    {!! Form::label('activeSubcategory', 'Ativar Subcategoria?', ['class'=>'form-check-label']) !!}
-                                </div>
-                                <div class="mb-3 form-check mb-2">
-                                    {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featuredSubcategory']) !!}
-                                    {!! Form::label('featuredSubcategory', 'Ativar Exibição na Home?', ['class'=>'form-check-label']) !!}
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <div class="mb-3">
-                                    <div class="d-flex align-items-center mb-1">
-                                        {!! Form::label('normal-editor', 'Informações', ['class'=>'form-label mb-0']) !!}
-                                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-                                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            data-bs-original-title="Será exibida na interna de subcategoria."></i>
+                    <button class="btn btn-secondary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#form-create-subcategory" aria-expanded="false" aria-controls="collapseExample">
+                        Exibir Formulário
+                    </button>
+                    <div class="bg-light p-3 mb-3 collapse" id="form-create-subcategory">
+                        {!! Form::model(null, ['route' => 'admin.port01.subcategory.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3">
+                                        {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
                                     </div>
-                                    {!! Form::textarea('description', null, [
-                                        'class'=>'form-control normal-editor',
-                                        'id'=>'normal-editor',
-                                    ]) !!}
+                                    <div class="mb-3 form-check mb-2">
+                                        {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSubcategory']) !!}
+                                        {!! Form::label('activeSubcategory', 'Ativar Subcategoria?', ['class'=>'form-check-label']) !!}
+                                    </div>
+                                    <div class="mb-3 form-check mb-2">
+                                        {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featuredSubcategory']) !!}
+                                        {!! Form::label('featuredSubcategory', 'Ativar Exibição na Home?', ['class'=>'form-check-label']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3">
+                                        <div class="d-flex align-items-center mb-1">
+                                            {!! Form::label('normal-editor', 'Informações', ['class'=>'form-label mb-0']) !!}
+                                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-original-title="Será exibida na interna de subcategoria."></i>
+                                        </div>
+                                        {!! Form::textarea('description', null, [
+                                            'class'=>'form-control normal-editor',
+                                            'id'=>'normal-editor',
+                                        ]) !!}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-                            {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
-                            {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
-                        </div>
-                    {!! Form::close() !!}
+                            <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
+                                {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
                     <div class="col-6">
                         <button id="btSubmitDelete" data-route="{{route('admin.port01.subcategory.destroySelected')}}" type="button" class="btn btn-danger btnDeleteArchives" style="display: none;">Deletar selecionados</button>
                     </div>

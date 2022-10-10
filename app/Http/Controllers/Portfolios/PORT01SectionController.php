@@ -14,26 +14,6 @@ use Illuminate\Support\Facades\Storage;
 class PORT01SectionController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,48 +22,13 @@ class PORT01SectionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
+        $data['active'] = $request->active?1:0;
         if(PORT01PortfoliosSection::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Session::flash('success', 'Erro ao cadastradar informações');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolios\PORT01PortfoliosSection  $PORT01PortfoliosSection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PORT01PortfoliosSection $PORT01PortfoliosSection)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,145 +41,12 @@ class PORT01SectionController extends Controller
     public function update(Request $request, PORT01PortfoliosSection $PORT01PortfoliosSection)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            Storage::delete($PORT01PortfoliosSection->path_image);
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            Storage::delete($PORT01PortfoliosSection->path_image);
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            Storage::delete($PORT01PortfoliosSection->path_archive);
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            Storage::delete($PORT01PortfoliosSection->path_archive);
-            $data['path_archive'] = null;
-        }
-
-        */
-
+        $data['active'] = $request->active?1:0;
         if($PORT01PortfoliosSection->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('success', 'Erro ao atualizar informações');
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Portfolios\PORT01PortfoliosSection  $PORT01PortfoliosSection
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PORT01PortfoliosSection $PORT01PortfoliosSection)
-    {
-        //Storage::delete($PORT01PortfoliosSection->path_image);
-        //Storage::delete($PORT01PortfoliosSection->path_archive);
-
-        if($PORT01PortfoliosSection->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $PORT01PortfoliosSections = PORT01PortfoliosSection::whereIn('id', $request->deleteAll)->get();
-        foreach($PORT01PortfoliosSections as $PORT01PortfoliosSection){
-            Storage::delete($PORT01PortfoliosSection->path_image);
-            Storage::delete($PORT01PortfoliosSection->path_archive);
-        }
-        */
-
-        if($deleted = PORT01PortfoliosSection::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            PORT01PortfoliosSection::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portfolios\PORT01PortfoliosSection  $PORT01PortfoliosSection
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PORT01PortfoliosSection $PORT01PortfoliosSection)
-    {
-        //
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
+        return redirect()->back();
     }
 }

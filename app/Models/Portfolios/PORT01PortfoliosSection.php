@@ -16,7 +16,7 @@ class PORT01PortfoliosSection extends Model
     }
 
     protected $table = "port01_portfolios_sections";
-    protected $fillable = ["title","description","title_internal","subtitle_internal","description_internal"];
+    protected $fillable = ["title","description","active"];
 
     public function scopeSorting($query)
     {

@@ -17,10 +17,7 @@ class CreatePort01PortfoliosSectionsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
-
-            $table->string('title_internal')->nullable();
-            $table->string('subtitle_internal')->nullable();
-            $table->string('description_internal')->nullable();
+            $table->integer('active')->default(0);
             $table->timestamps();
         });
     }

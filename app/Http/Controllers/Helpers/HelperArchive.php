@@ -93,13 +93,15 @@ class HelperArchive extends Controller
      * @param string $path Image path to save
      * @param integer $width Max width resize image
      * @param integer $quality Quality the image
+     * @param integer $key Index multiple image
      *
      * @return string|bool False if no image form loaded and image path after optimization
      */
 
-    public function optimizeImage($request, $column, $path, $width=null, $quality=null)
+    public function optimizeImage($request, $column, $path, $width=null, $quality=null, $key=false)
     {
         if ($request->hasFile($column)) {
+            if($key!==false) $request->$column = $request->$column[$key];
 
             $mimeTypeAcept = ['image/svg','image/svg+xml'];
             if(array_search($request->$column->getMimeType(), $mimeTypeAcept) !== false){
@@ -117,12 +119,12 @@ class HelperArchive extends Controller
             // Verify image crop
             $columnCrop = $column.'_cropped';
 
-            if(!$request->has($columnCrop)){
+            if(!$request->has($columnCrop) && $key===false){
                 $this->validate($request, [
-                    $column => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
+                    $column => 'image|mimes:jpeg,png,jpg,gif,webp',
                 ],[
-                    $column.'.image' => 'Formato de imagem inválido, formatos aceitos jpeg,png,jpg,gif,svg,webp',
-                    $column.'.mime' => 'Formato de imagem inválido, formatos aceitos jpeg,png,jpg,gif,svg,webp',
+                    $column.'.image' => 'Formato de imagem inválido, formatos aceitos jpeg,png,jpg,gif,webp',
+                    $column.'.mime' => 'Formato de imagem inválido, formatos aceitos jpeg,png,jpg,gif,webp',
                     $column.'.max' => 'Imagem grande demais, a imagem deve ser menor que 2mb'
                 ],['path_image' => 'Imagem']);
             }

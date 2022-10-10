@@ -82,6 +82,7 @@
                             'class'=>'inputImage',
                             'data-scale'=>'3/4',
                             'data-height'=>'212',
+                            'required'=>isset($portfolio)?false:true,
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($portfolio)?$portfolio->path_image_box<>''?url('storage/'.$portfolio->path_image_box):'':'',
                         ]) !!}
@@ -100,7 +101,7 @@
                         {!! Form::file('path_image_left', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'3/8',
+                            'data-scale'=>'3/7',
                             'data-height'=>'212',
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($portfolio)?$portfolio->path_image_left<>''?url('storage/'.$portfolio->path_image_left):'':'',
@@ -137,11 +138,17 @@
         <div class="card card-body position-relative" id="tooltip-container">
             <h4 class="mb-3 mt-0">Cores utilizadas no projeto <small>(Opcional)</small></h4>
             <div class="row receiverCloneInput">
+                @foreach (explode(',', $portfolio->colors) as $color)
+                    <div class="inputCloned col-12 col-lg-2 d-flex align-items-center mb-2">
+                        {!! Form::text('colors[]', $color, ['class'=>'form-control colorpicker-default',])!!}
+                        <a href="javascript:void(0)" class="mdi mdi-trash-can mdi-24px text-danger ms-2" onclick="cloneInputsColorPicker(this, '', '', 'delete')" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Excluir cor"></a>
+                    </div>
+                @endforeach
             </div>
             <button type="button" onclick="cloneInputsColorPicker(this, '.targetCloneInput', '.receiverCloneInput')" class="btn btn-primary font-18 mt-3 d-flex align-items-center justify-content-center">Adicionar cor <i class="mdi mdi-plus-circle mdi-24px ms-2"></i></button>
             <div class="targetCloneInput invisible position-absolute">
                 <div class="inputCloned col-12 col-lg-2 d-flex align-items-center mb-2">
-                    {!! Form::text('color[]', '#4a81d4', ['class'=>'form-control'])!!}
+                    {!! Form::text('colors[]', '#4a81d4', ['class'=>'form-control'])!!}
                     <a href="javascript:void(0)" class="mdi mdi-trash-can mdi-24px text-danger ms-2" onclick="cloneInputsColorPicker(this, '', '', 'delete')" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Excluir cor"></a>
                 </div>
             </div>
@@ -191,10 +198,10 @@
                             data-bs-original-title="Será exibida no depoimento do protifólio."></i>
                     </div>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_left', [
+                        {!! Form::file('path_image_testimonial', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'3/8',
+                            'data-scale'=>'1/1',
                             'data-height'=>'240',
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($portfolio)?$portfolio->path_image_testimonial<>''?url('storage/'.$portfolio->path_image_testimonial):'':'',

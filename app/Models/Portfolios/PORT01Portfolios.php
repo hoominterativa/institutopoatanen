@@ -32,4 +32,9 @@ class PORT01Portfolios extends Model
     {
         return null;
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(PORT01PortfoliosGallery::class, 'portfolio_id');
+    }
 }
