@@ -17,9 +17,6 @@
                             <h4 class="page-title">Configurações Gerais</h4>
                         </div>
                     </div>
-                    <div class="col-12 mb-3">
-                        <a href="{{route('admin.contactForm.index')}}" class="btn btn-primary">Cadastro de Formulários</i></a>
-                    </div>
                 </div>
                 <!-- end page title -->
                 {!! Form::model($generalSetting, ['autocomplete' => 'off', 'method' => 'PUT', 'enctype' => 'multipart/form-data', 'route' => ['admin.generalSetting.update', $generalSetting->id], 'class'=>'parsley-validate']) !!}

@@ -20,12 +20,19 @@ class PORT01PortfoliosCategory extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('active', 1)->where('featured', 1);
     }
 
     public function scopeSorting($query)
     {
         return $query->orderBy('sorting', 'ASC');
+    }
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('port01_portfolios')->whereRaw('port01_portfolios.category_id = port01_portfolios_categories.id');
+        });
     }
 
     // public function getRelationCore()

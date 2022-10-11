@@ -330,6 +330,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a nofollow href="{{route('admin.contactForm.index')}}">
+                                    <i class="mdi mdi-content-paste"></i>
+                                    <span> Formulários </span>
+                                </a>
+                            </li>
+                            <li>
                                 <a nofollow href="{{route('admin.user.index')}}">
                                     <i class="mdi-account mdi"></i>
                                     <span> Usuários </span>

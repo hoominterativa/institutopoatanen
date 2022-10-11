@@ -22,7 +22,14 @@ class PORT01SectionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $path = 'uploads/Portfolios/PORT01/images/';
+        $helper = new HelperArchive();
+
         $data['active'] = $request->active?1:0;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, 800, 90);
+        if($path_image) $data['path_image'] = $path_image;
+
         if(PORT01PortfoliosSection::create($data)){
             Session::flash('success', 'Informações cadastrada com sucesso');
         }else{
@@ -41,7 +48,21 @@ class PORT01SectionController extends Controller
     public function update(Request $request, PORT01PortfoliosSection $PORT01PortfoliosSection)
     {
         $data = $request->all();
+        $path = 'uploads/Portfolios/PORT01/images/';
+        $helper = new HelperArchive();
+
         $data['active'] = $request->active?1:0;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, 800, 90);
+        if($path_image){
+            Storage::delete($PORT01PortfoliosSection->path_image);
+            $data['path_image'] = $path_image;
+        }
+        if($request->delete_path_image && !$path_image){
+            Storage::delete($PORT01PortfoliosSection->path_image);
+            $data['path_image'] = null;
+        }
+
         if($PORT01PortfoliosSection->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{

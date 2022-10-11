@@ -249,7 +249,7 @@ class PORT01Controller extends Controller
      */
     public function show(PORT01Portfolios $PORT01Portfolios)
     {
-        //
+        return view('Client.pages.Portfolios.PORT01.show');
     }
 
     /**
@@ -261,9 +261,9 @@ class PORT01Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT01');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Portfolios.PORT01.page',[
             'sections' => $sections
         ]);
     }
@@ -275,6 +275,12 @@ class PORT01Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        $portfolios = PORT01Portfolios::active()->sorting()->get();
+        $categories = PORT01PortfoliosCategory::exists()->active()->sorting()->get();
+        $subcategories = PORT01PortfoliosSubategory::exists()->active()->sorting()->get();
+        dd($portfolios);
+        return view('Client.pages.Portfolios.PORT01.section',[
+            ''
+        ]);
     }
 }

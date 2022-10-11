@@ -57,6 +57,7 @@
                                 </div> <!-- end row -->
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
+                        @if ($contactLeads->count())
                         @foreach ($contactLeads as $contactLead)
                             <div class="card mb-2">
                                 <div class="card-body">
@@ -116,7 +117,16 @@
                                 </div>
                             </div> <!-- end card-->
                         @endforeach
-
+                        @else
+                            <div class="w-100 bg-light d-flex align-items-center justify-content-center p-4 flex-column text-center rounded">
+                                <i class="mb-1 mdi mdi-handshake-outline mdi-48px"></i>
+                                <h3>Leads</h3>
+                                <p>
+                                    Veja quais são os clientes que tem interesses no seu site ou que querem receber alguma notificação.<br>
+                                    Não perca essas oportunidades.
+                                </p>
+                            </div>
+                        @endif
                     </div> <!-- end col -->
                 </div>
                 <!-- end row -->

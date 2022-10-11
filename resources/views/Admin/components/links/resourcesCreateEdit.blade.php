@@ -14,6 +14,7 @@
     <link href="{{url(mix('admin/assets/libs/quill.snow.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/dropify.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/bootstrap-table.min.css'))}}" rel="stylesheet" type="text/css" />
+    <link href="{{url(mix('admin/assets/libs/sweetalert2.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/cropper.min.css'))}}" rel="stylesheet" type="text/css" />
 @endpush
 
@@ -37,6 +38,7 @@
     <script src="{{url(mix('admin/assets/libs/dropify.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/ckeditor.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/bootstrap-table.min.js'))}}"></script>
+    <script src="{{url(mix('admin/assets/libs/sweetalert2.all.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/cropper.min.js'))}}"></script>
 
     <!-- Pages init js-->

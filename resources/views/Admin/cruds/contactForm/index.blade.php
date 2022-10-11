@@ -27,58 +27,69 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-3">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.contactForm.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.contactForm.destroySelected')}}" type="button" class="btn btn-danger btnDeleteForm" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-9">
                                         <a href="{{route('admin.contactForm.create')}}" class="btn btn-success float-end">Cadastrar Formulário <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th width="30px" class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
-                                            </th>
-                                            <th width="150px">E-mail Destinatário</th>
-                                            <th width="150px">Título</th>
-                                            <th width="150px">Página</th>
-                                            <th width="150px">Posição</th>
-                                            <th width="150px">Modelo</th>
-                                            <th width="70px">Ações</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @foreach ($contactForms as $contactForm)
+                                @if ($contactForms->count())
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
                                             <tr>
-                                                <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$contactForm->id}}"></label>
-                                                </td>
-                                                <td>{{$contactForm->email}}</td>
-                                                <td>{{$contactForm->section_title}}</td>
-                                                <td>{{$contactForm->page}}</td>
-                                                <td>
-                                                    @switch($contactForm->position)
-                                                        @case('after') Depois da Sessão @break
-                                                        @case('before') Antes da Sessão @break
-                                                    @endswitch
-                                                </td>
-                                                <td>{{$contactForm->model}}</td>
-                                                <td class="align-middle">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <a href="{{route('admin.contactForm.edit',['ContactForm' => $contactForm->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                        </div>
-                                                        <form action="{{route('admin.contactForm.destroy',['ContactForm' => $contactForm->id])}}" class="col-4" method="POST">
-                                                            @method('DELETE') @csrf
-                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
-                                                    </div>
-                                                </td>
+                                                <th width="30px" class="bs-checkbox">
+                                                    <label><input name="btnSelectAll" value="btnDeleteForm" type="checkbox"></label>
+                                                </th>
+                                                <th width="150px">E-mail Destinatário</th>
+                                                <th width="150px">Título</th>
+                                                <th width="150px">Página</th>
+                                                <th width="150px">Posição</th>
+                                                <th width="150px">Modelo</th>
+                                                <th width="70px">Ações</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach ($contactForms as $contactForm)
+                                                <tr>
+                                                    <td class="bs-checkbox align-middle">
+                                                        <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$contactForm->id}}"></label>
+                                                    </td>
+                                                    <td>{{$contactForm->email}}</td>
+                                                    <td>{{$contactForm->section_title}}</td>
+                                                    <td>{{$contactForm->page}}</td>
+                                                    <td>
+                                                        @switch($contactForm->position)
+                                                            @case('after') Depois da Sessão @break
+                                                            @case('before') Antes da Sessão @break
+                                                        @endswitch
+                                                    </td>
+                                                    <td>{{$contactForm->model}}</td>
+                                                    <td class="align-middle">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <a href="{{route('admin.contactForm.edit',['ContactForm' => $contactForm->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            </div>
+                                                            <form action="{{route('admin.contactForm.destroy',['ContactForm' => $contactForm->id])}}" class="col-4" method="POST">
+                                                                @method('DELETE') @csrf
+                                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <div class="w-100 bg-light d-flex align-items-center justify-content-center p-4 flex-column text-center rounded">
+                                        <i class="mb-1 mdi mdi-content-paste mdi-48px"></i>
+                                        <h3>Formulário Customizáveis</h3>
+                                        <p>
+                                            Crie formulários ao seu gosto, com quantos campos precisar e onde quer que ele apareça.<br>
+                                            Captando mais Leads e melhorando a sua carta de clientes.
+                                        </p>
+                                    </div>
+                                @endif
                             </div>
                         </div> <!-- end card-->
                     </div> <!-- end col-->

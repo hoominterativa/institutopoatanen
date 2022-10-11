@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.user.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.user.destroySelected')}}" type="button" class="btn btn-danger btnDeleteUser" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
                                         <a href="{{route('admin.user.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
@@ -37,7 +37,7 @@
                                         <tr>
                                             <th></th>
                                             <th class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeleteUser" type="checkbox"></label>
                                             </th>
                                             <th>Nome</th>
                                             <th>E-mail</th>
@@ -52,7 +52,7 @@
                                             <tr>
                                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
-                                                    <label><input data-index="{{$key}}" name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$user->id}}"></label>
+                                                    <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$user->id}}"></label>
                                                 </td>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>

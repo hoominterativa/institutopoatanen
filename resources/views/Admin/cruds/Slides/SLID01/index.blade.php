@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.slid01.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.slid01.destroySelected')}}" type="button" class="btn btn-danger btnDeleteSlide" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
                                         <a href="{{route('admin.slid01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
@@ -37,7 +37,7 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeleteSlide" type="checkbox"></label>
                                             </th>
                                             <th width="40px"></th>
                                             <th>Título</th>
@@ -53,7 +53,7 @@
                                             <tr data-code="{{$slide->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$slide->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$slide->id}}"></label>
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$slide->path_image_desktop)}})"></div>

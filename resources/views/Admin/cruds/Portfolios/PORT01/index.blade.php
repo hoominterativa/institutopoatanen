@@ -26,7 +26,7 @@
                             <div class="card-body" id="tooltip-container">
                                 <div class="row mb-3">
                                     <div class="col-4">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.port01.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.port01.destroySelected')}}" type="button" class="btn btn-danger btnDeletePortfolio" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-8">
                                         <a href="{{$categories->count()?route('admin.port01.create'):'javascript:void(0)'}}"
@@ -47,21 +47,37 @@
                                             @else
                                                 {!! Form::model(null, ['route' => 'admin.port01.section.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                                             @endif
-                                                <div class="mb-3">
-                                                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                                                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required' => true]) !!}
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="mb-2">
+                                                        {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                                                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required' => true]) !!}
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+                                                        {!! Form::textarea('description', null, [
+                                                            'class'=>'form-control basic-editor',
+                                                            'id'=>'description',
+                                                        ]) !!}
+                                                    </div>
+                                                    <div class="mb-3 form-check me-3">
+                                                        {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSection']) !!}
+                                                        {!! Form::label('activeSection', 'Ativar exibição na home?', ['class'=>'form-check-label']) !!}
+                                                    </div>
                                                 </div>
-                                                <div class="mb-3 form-check me-3">
-                                                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSection']) !!}
-                                                    {!! Form::label('activeSection', 'Ativar exibição na home?', ['class'=>'form-check-label']) !!}
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="mb-3">
+                                                        {!! Form::label('file', 'Imagem', ['class'=>'form-label']) !!}
+                                                        {!! Form::file('path_image', [
+                                                            'data-plugins'=>'dropify',
+                                                            'data-height'=>'300',
+                                                            'data-max-file-size-preview'=>'2M',
+                                                            'accept'=>'image/*',
+                                                            'data-default-file'=> isset($section)?$section->path_image<>''?url('storage/'.$section->path_image):'':'',
+                                                        ]) !!}
+                                                    </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                                                    {!! Form::textarea('description', null, [
-                                                        'class'=>'form-control basic-editor',
-                                                        'id'=>'description',
-                                                    ]) !!}
-                                                </div>
+                                            </div>
                                                 <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
                                                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0', 'type' => 'submit']) !!}
                                                 </div>
@@ -74,7 +90,7 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeletePortfolio" type="checkbox"></label>
                                             </th>
                                             <th width="40px"></th>
                                             <th>Título</th>
@@ -88,7 +104,7 @@
                                             <tr data-code="{{$portfolio->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$portfolio->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$portfolio->id}}"></label>
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$portfolio->path_image_box)}})"></div>

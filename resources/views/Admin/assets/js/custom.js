@@ -41,7 +41,7 @@ $(function() {
         var $this = $(this),
             val = []
 
-        $('.btSelectItem:checked').each(function() {
+        $('.btnSelectItem:checked').each(function() {
             val.push($(this).val())
         })
 
@@ -199,18 +199,27 @@ $(function() {
         }
     })
 
-    $('input[name=btSelectAll]').on('click', function() {
-        console.log($('.btSelectItem:checked').length)
-        if ($('.btSelectItem:checked').length == $('.btSelectItem').length) {
-            $('#btSubmitDelete').fadeOut('fast');
+    $('input[name=btnSelectItem]').on('click', function() {
+        var btnDelete = $(this).parents('table').find('input[name=btnSelectAll]').val()
+        if (!$(this).parents('table').find('.btnSelectItem:checked').length) {
+            $(`.${btnDelete}`).fadeOut('fast');
+        } else {
+            $(`.${btnDelete}`).fadeIn('fast');
+        }
+    })
+
+    $('input[name=btnSelectAll]').on('click', function() {
+        var btnDelete = $(this).val()
+        if ($(this).parents('table').find('.btnSelectItem:checked').length == $(this).parents('table').find('.btnSelectItem').length) {
+            $(`.${btnDelete}`).fadeOut('fast');
             var checked = false
         } else {
-            $('input[name=btSelectAll]').prop('checked', true)
-            $('#btSubmitDelete').fadeIn('fast');
+            $(this).parents('table').find('input[name=btnSelectAll]').prop('checked', true)
+            $(`.${btnDelete}`).fadeIn('fast');
             var checked = true
         }
-        $('.btSelectItem').each(function() {
-            $('.btSelectItem').prop("checked", checked)
+        $(this).parents('table').find('.btnSelectItem').each(function() {
+            $(this).prop("checked", checked)
         })
     })
 

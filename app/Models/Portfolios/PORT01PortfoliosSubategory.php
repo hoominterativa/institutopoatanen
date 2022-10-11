@@ -25,7 +25,14 @@ class PORT01PortfoliosSubategory extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('active', 1)->where('featured', 1);
+    }
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('port01_portfolios')->whereRaw('port01_portfolios.category_id = port01_portfolios_subategories.id');
+        });
     }
 
     // public function getRelationCore()

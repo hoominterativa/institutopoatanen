@@ -25,13 +25,18 @@ class PORT01GalleryController extends Controller
         $path = 'uploads/Portfolios/PORT01/images/';
         $helper = new HelperArchive();
 
-        foreach ($data['path_image'] as $key => $value) {
-            $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80, $key);
-            $data['path_image'] = $path_image;
+        $path_image = $helper->uploadMultipleImage($request, 'path_image', $path, 200, 80);
+
+        foreach ($path_image as $pathfile) {
+            $data['path_image'] = $pathfile;
             PORT01PortfoliosGallery::create($data);
         }
 
-        return Response::json(['status' => 'success']);
+        Session::flash('reopenModal', 'modal-gallery-create');
+        return Response::json([
+            'status' => 'success',
+            'countUploads' => count($path_image),
+        ]);
     }
 
     /**
@@ -45,6 +50,7 @@ class PORT01GalleryController extends Controller
         Storage::delete($PORT01PortfoliosGallery->path_image);
         if($PORT01PortfoliosGallery->delete()){
             Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('reopenModal', 'modal-gallery-create');
             return redirect()->back();
         }
     }
@@ -63,6 +69,7 @@ class PORT01GalleryController extends Controller
         }
 
         if($deleted = PORT01PortfoliosGallery::whereIn('id', $request->deleteAll)->delete()){
+            Session::flash('reopenModal', 'modal-gallery-create');
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
