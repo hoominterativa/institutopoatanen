@@ -93,6 +93,7 @@
                                                 <label><input name="btnSelectAll" value="btnDeletePortfolio" type="checkbox"></label>
                                             </th>
                                             <th width="40px"></th>
+                                            <th>Categoria / Subcategoria</th>
                                             <th>Título</th>
                                             <th>Status</th>
                                             <th width="90px">Ações</th>
@@ -109,6 +110,7 @@
                                                 <td class="align-middle">
                                                     <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$portfolio->path_image_box)}})"></div>
                                                 </td>
+                                                <td class="align-middle">{{$portfolio->category->title}} / {{$portfolio->subcategory->title}}</td>
                                                 <td class="align-middle">{{$portfolio->title}}</td>
                                                 <td class="align-middle">
                                                     @if ($portfolio->active)

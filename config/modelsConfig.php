@@ -48,7 +48,7 @@ return [
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'IncludeCore' => (object) [
-                    'include' => true,
+                    'include' => false,
                     'limit' => 4,
                     'condition' => 'active',
                     'relation' => 'category',

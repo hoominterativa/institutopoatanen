@@ -35,6 +35,11 @@ class PORT01PortfoliosCategory extends Model
         });
     }
 
+    public function subcategories()
+    {
+        return $this->belongsToMany(PORT01PortfoliosSubategory::class, 'port01_portfolios','category_id','subcategory_id')->groupBy('category_id');
+    }
+
     // public function getRelationCore()
     // {
     //     return null;

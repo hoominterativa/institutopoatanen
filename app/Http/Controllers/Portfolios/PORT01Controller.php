@@ -24,7 +24,7 @@ class PORT01Controller extends Controller
      */
     public function index()
     {
-        $portfolios = PORT01Portfolios::sorting()->paginate(32);
+        $portfolios = PORT01Portfolios::with(['category','subcategory'])->sorting()->paginate(32);
         $categories = PORT01PortfoliosCategory::active()->sorting()->get();
         $subcategories = PORT01PortfoliosSubategory::active()->sorting()->get();
         $section = PORT01PortfoliosSection::first();
@@ -276,11 +276,12 @@ class PORT01Controller extends Controller
     public static function section()
     {
         $portfolios = PORT01Portfolios::active()->sorting()->get();
-        $categories = PORT01PortfoliosCategory::exists()->active()->sorting()->get();
+        $categories = PORT01PortfoliosCategory::with('subcategories')->exists()->active()->sorting()->get();
         $subcategories = PORT01PortfoliosSubategory::exists()->active()->sorting()->get();
-        dd($portfolios);
         return view('Client.pages.Portfolios.PORT01.section',[
-            ''
+            'portfolios' => $portfolios,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
         ]);
     }
 }

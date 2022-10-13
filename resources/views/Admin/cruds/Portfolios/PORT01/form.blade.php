@@ -138,12 +138,14 @@
         <div class="card card-body position-relative" id="tooltip-container">
             <h4 class="mb-3 mt-0">Cores utilizadas no projeto <small>(Opcional)</small></h4>
             <div class="row receiverCloneInput">
-                @foreach (explode(',', $portfolio->colors) as $color)
-                    <div class="inputCloned col-12 col-lg-2 d-flex align-items-center mb-2">
-                        {!! Form::text('colors[]', $color, ['class'=>'form-control colorpicker-default',])!!}
-                        <a href="javascript:void(0)" class="mdi mdi-trash-can mdi-24px text-danger ms-2" onclick="cloneInputsColorPicker(this, '', '', 'delete')" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Excluir cor"></a>
-                    </div>
-                @endforeach
+                @if (isset($portfolio))
+                    @foreach (explode(',', $portfolio->colors) as $color)
+                        <div class="inputCloned col-12 col-lg-2 d-flex align-items-center mb-2">
+                            {!! Form::text('colors[]', $color, ['class'=>'form-control colorpicker-default',])!!}
+                            <a href="javascript:void(0)" class="mdi mdi-trash-can mdi-24px text-danger ms-2" onclick="cloneInputsColorPicker(this, '', '', 'delete')" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Excluir cor"></a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
             <button type="button" onclick="cloneInputsColorPicker(this, '.targetCloneInput', '.receiverCloneInput')" class="btn btn-primary font-18 mt-3 d-flex align-items-center justify-content-center">Adicionar cor <i class="mdi mdi-plus-circle mdi-24px ms-2"></i></button>
             <div class="targetCloneInput invisible position-absolute">

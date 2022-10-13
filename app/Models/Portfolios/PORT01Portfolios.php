@@ -37,4 +37,14 @@ class PORT01Portfolios extends Model
     {
         return $this->hasMany(PORT01PortfoliosGallery::class, 'portfolio_id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(PORT01PortfoliosCategory::class, 'category_id');
+    }
+
+    public function subcategory()
+    {
+        return $this->belongsTo(PORT01PortfoliosSubategory::class, 'subcategory_id');
+    }
 }
