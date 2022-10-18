@@ -48,10 +48,10 @@ return [
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'IncludeCore' => (object) [
-                    'include' => false,
+                    'include' => true,
                     'limit' => 4,
-                    'condition' => 'active',
-                    'relation' => 'category',
+                    'condition' => 'active=1',
+                    'relation' => 'category,subcategory',
                 ],
                 'config' => (object) [
                     'titleMenu' => 'O que fazemos',

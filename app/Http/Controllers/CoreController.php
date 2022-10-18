@@ -34,21 +34,15 @@ class CoreController extends Controller
         $modelDBSubrelation = '';
         $route = Str::lower($code).'.show';
 
+        // Check for dropdown
         $include = isset($config->IncludeCore->include)?$config->IncludeCore->include:false;
 
         if($include){
             $modelElloquent = $this->Class->$module->$code->model;
             $modelDB = self::getModelParameters($modelElloquent);
 
+            // BEGIN QUERY
             $relations = $modelElloquent::limit(9999);
-
-            if($config->IncludeCore->limit <> 'all' && $config->IncludeCore->limit >= 1){
-                $relations = $relations->limit($config->IncludeCore->limit);
-            }
-
-            if($config->IncludeCore->condition <> '' && $config->IncludeCore->condition <> null){
-                $relations = $relations->where($config->IncludeCore->condition, 1);
-            }
 
             $existsRelation = false;
             if($config->IncludeCore->relation <> null && $config->IncludeCore->relation <> ''){
@@ -59,11 +53,11 @@ class CoreController extends Controller
 
                 $route = Str::lower($code).'.'.$relationship[0].'.page';
 
-                $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::existsService()->limit(9999);
+                $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::existsRegister()->limit(9999);
 
                 if(count($relationship) > 1){
                     $modelDBSubrelation = self::getModelParameters($this->Class->$module->$code->relationship[$relationship[1]]['class']);
-                    $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::with('getRelationCore')->existsService()->limit(9999);
+                    $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::with('getRelationCore')->existsRegister()->limit(9999);
                 }
             }
 
@@ -72,13 +66,15 @@ class CoreController extends Controller
             }
 
             if($config->IncludeCore->condition <> '' && $config->IncludeCore->condition <> null){
-                $relations = $relations->where($config->IncludeCore->condition, 1);
+                $relations = $relations->whereRaw($config->IncludeCore->condition);
             }
+
+            // dd($relations->sorting()->get());
 
             foreach ($relations->sorting()->get() as $relation) {
                 $sublistDropdown = [];
                 $buildRouteParameters = [$modelDB => $relation->slug];
-                if(isset($relation->getRelationCore)){
+                if(count($relationship) > 1){
                     foreach ($relation->getRelationCore as $relationCore) {
                         $subRoute = Str::lower($code).'.'.$relationship[1].'.page';
 
@@ -139,16 +135,6 @@ class CoreController extends Controller
                     ];
 
                     array_push($listMenu, $menu);
-                }
-            }
-        }
-
-        foreach ($listMenu as $module => $menus){
-            foreach ($menus as $model => $menu){
-                if ($menu->ViewListMenu){
-                    $limit = isset($menu->IncludeCore[1])?$menu->IncludeCore[1]:999;
-                    $subItems = isset($this->Class->$module->$model->model)?$this->Class->$module->$model->model::limit($limit)->get():[];
-                    $menu->subItems = $subItems;
                 }
             }
         }

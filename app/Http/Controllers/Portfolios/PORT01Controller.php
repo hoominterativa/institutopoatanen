@@ -258,7 +258,7 @@ class PORT01Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, PORT01PortfoliosCategory $PORT01PortfoliosCategory, PORT01PortfoliosSubategory $PORT01PortfoliosSubategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT01');
@@ -276,12 +276,15 @@ class PORT01Controller extends Controller
     public static function section()
     {
         $portfolios = PORT01Portfolios::active()->sorting()->get();
+        $section = PORT01PortfoliosSection::active()->first();
         $categories = PORT01PortfoliosCategory::with('subcategories')->exists()->active()->sorting()->get();
         $subcategories = PORT01PortfoliosSubategory::exists()->active()->sorting()->get();
+
         return view('Client.pages.Portfolios.PORT01.section',[
             'portfolios' => $portfolios,
             'categories' => $categories,
             'subcategories' => $subcategories,
+            'section' => $section,
         ]);
     }
 }

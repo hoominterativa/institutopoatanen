@@ -40,8 +40,17 @@ class PORT01PortfoliosCategory extends Model
         return $this->belongsToMany(PORT01PortfoliosSubategory::class, 'port01_portfolios','category_id','subcategory_id')->groupBy('category_id');
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    // DROPDOW MENU
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('port01_portfolios')->whereRaw('port01_portfolios.category_id = port01_portfolios_categories.id');
+        });
+    }
+
+    public function getRelationCore()
+    {
+        return $this->belongsToMany(PORT01PortfoliosSubategory::class, 'port01_portfolios','category_id','subcategory_id')->groupBy('category_id');
+    }
 }

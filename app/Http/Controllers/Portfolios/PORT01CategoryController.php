@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Portfolios;
 
+use Exception;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Portfolios\PORT01PortfoliosCategory;
-use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 
 class PORT01CategoryController extends Controller
 {
@@ -31,7 +32,7 @@ class PORT01CategoryController extends Controller
             $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, 200, 100);
             if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-            $data['slug'] = $request->title;
+            $data['slug'] = Str::slug($request->title);
             $data['view_menu'] = $request->view_menu?1:0;
             $data['featured'] = $request->featured?1:0;
             $data['active'] = $request->active?1:0;
@@ -75,7 +76,7 @@ class PORT01CategoryController extends Controller
             $data['path_image_icon'] = null;
         }
 
-        $data['slug'] = $request->title;
+        $data['slug'] = Str::slug($request->title);
         $data['view_menu'] = $request->view_menu?1:0;
         $data['featured'] = $request->featured?1:0;
         $data['active'] = $request->active?1:0;

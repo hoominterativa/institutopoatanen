@@ -1,3 +1,29 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+#PORT01{
+    .information-section{
+        min-height: 700px;
+        background-position: left center;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+
+        .content{
+            max-width: 300px
+        }
+    }
+    .navigation-categories{
+        .category-item{
+            padding: 35px 0 35px 80px;
+            width: 100%;
+            background-color: transparent;
+            margin-bottom: 2px;
+            border-radius: 20px 0 0 20px;
+            &:hover{
+                background-color: #6F3BED;
+
+
+            }
+        }
+    }
+}

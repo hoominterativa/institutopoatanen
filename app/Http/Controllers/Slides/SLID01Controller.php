@@ -46,6 +46,8 @@ class SLID01Controller extends Controller
     {
         $data = $request->all();
 
+        dd($data);
+
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 

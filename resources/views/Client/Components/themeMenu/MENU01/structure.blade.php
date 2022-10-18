@@ -16,38 +16,24 @@
                     <div class="mb-2">
                         <a href="{{route('home')}}" class="link-item transition">Início</a>
                     </div>
-                    @foreach ($listMenu as $module => $menus)
-                        @foreach ($menus as $model => $menu)
-                            @if ($menu->ViewListMenu)
-                                <div class="mb-2 {{$menu->IncludeCore[0]?'dropdown':''}}">
-                                    <a href="{{$menu->config->anchor?$menu->config->linkMenu:route($menu->config->linkMenu)}}"
-                                        class="link-item transition {{!$menu->config->anchor?isActive($menu->config->linkMenu):''}}"
-                                        {{$menu->IncludeCore[0]?'data-bs-toggle=dropdown':''}}
-                                        {{$menu->config->anchor?'data-bs-toggle=jqueryanchor':''}}
-                                        id="sublink--sidebar-right">{{$menu->config->titleMenu}}</a>
+                    @foreach ($listMenu as $menu)
+                        <div class="mb-2 {{$menu->dropdown?'dropdown':''}}">
+                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}"
+                                class="link-item transition {{!$menu->anchor?isActive($menu->link):''}}"
+                                {{$menu->dropdown?'data-bs-toggle=dropdown':''}}
+                                {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}}
+                                id="sublink--sidebar-right">{{$menu->title}}</a>
 
-                                    @if ($menu->IncludeCore[0])
-                                        <div class="sublink--sidebar-right text-end dropdown-menu" aria-labelledby="sublink--sidebar-right" >
-                                            @foreach ($menu->subItems as $item)
-                                                <div class="mb-2">
-                                                    <a href="{{route(Str::lower($model).'.show', [$model.$module => $item->id])}}" class="sublink-item transition">{{$item->title}}</a>
-                                                </div>
-                                            @endforeach
-                                            <div class="mb-2">
-                                                <a href="#" class="sublink-item transition">Criação</a>
-                                            </div>
-                                            <div class="mb-2">
-                                                <a href="#" class="sublink-item transition">Marketing</a>
-                                            </div>
-                                            <div class="mb-2">
-                                                <a href="#" class="sublink-item transition">Sistemas</a>
-                                            </div>
+                            @if ($menu->dropdown)
+                                <div class="sublink--sidebar-right text-end dropdown-menu" aria-labelledby="sublink--sidebar-right" >
+                                    @foreach ($menu->dropdown as $item)
+                                        <div class="mb-2">
+                                            <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
                                         </div>
-                                    @endif
-
+                                    @endforeach
                                 </div>
                             @endif
-                        @endforeach
+                        </div>
                     @endforeach
                 </nav>
                 <div class="social-network d-flex">

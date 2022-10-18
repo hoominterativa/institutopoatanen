@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Portfolios;
 
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Portfolios\PORT01PortfoliosSubategory;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 
 class PORT01SubategoryController extends Controller
 {
@@ -23,7 +24,7 @@ class PORT01SubategoryController extends Controller
     {
         $data = $request->all();
 
-        $data['slug'] = $request->title;
+        $data['slug'] = Str::slug($request->title);
         $data['featured'] = $request->featured?1:0;
         $data['active'] = $request->active?1:0;
 
@@ -47,7 +48,7 @@ class PORT01SubategoryController extends Controller
     {
         $data = $request->all();
 
-        $data['slug'] = $request->title;
+        $data['slug'] = Str::slug($request->title);
         $data['featured'] = $request->featured?1:0;
         $data['active'] = $request->active?1:0;
 

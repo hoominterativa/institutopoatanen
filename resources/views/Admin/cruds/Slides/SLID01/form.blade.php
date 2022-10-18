@@ -53,7 +53,7 @@
             <div class="mb-3">
                 <div class="mb-3">
                     {!! Form::label('file', 'Imagem Desktop', ['class'=>'form-label']) !!}
-                    {!! Form::file('path_archive', [
+                    {!! Form::file('path_image_desktop', [
                         'data-plugins'=>'dropify',
                         'data-height'=>'150',
                         'data-max-file-size-preview'=>'2M',

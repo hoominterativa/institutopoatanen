@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portfolios\PORT01GalleryController;
 use App\Http\Controllers\Portfolios\PORT01SectionController;
 use App\Http\Controllers\Portfolios\PORT01CategoryController;
+use App\Http\Controllers\Portfolios\PORT01Controller;
 use App\Http\Controllers\Portfolios\PORT01SubategoryController;
 
 /**
@@ -45,5 +46,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     // SECTION
     Route::resource($route.'/informacoes-secao', PORT01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['informacoes-secao' => 'PORT01PortfoliosSection']);
 });
+
 // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{PORT01PortfoliosCategory:slug}', [PORT01Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get($route.'/categoria/{PORT01PortfoliosCategory:slug}/subcategoria/{PORT01PortfoliosSubategory:slug}', [PORT01Controller::class, 'page'])->name($routeName.'.subcategory.page');
