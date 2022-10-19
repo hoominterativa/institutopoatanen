@@ -22,8 +22,10 @@ class CONT01ContentsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => 'Título aqui',
-            'subtitle' => 'Subtítulo Aqui',
+            'title' => 'Título',
+            'subtitle' => 'Subtítulo',
+            'link' => 'https://www.lipsum.com/',
+            'path_image' => 'uploads/tmp/cont01_path_image.png',
         ];
     }
 }

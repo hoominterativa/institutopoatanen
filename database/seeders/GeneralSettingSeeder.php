@@ -28,7 +28,7 @@ class GeneralSettingSeeder extends Seeder
             'path_logo_header_dark' => 'uploads/tmp/logo-dark.svg',
             'path_logo_footer_light' => 'uploads/tmp/logo-light.svg',
             'path_logo_footer_dark' => 'uploads/tmp/logo-dark.svg',
-            'path_favicon' => 'uploads/tmp/favicon.svg',
+            'path_favicon' => 'uploads/tmp/favicon.png',
             'path_logo_share' => 'uploads/tmp/logo.svg',
         ]);
     }

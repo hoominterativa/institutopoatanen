@@ -27,6 +27,8 @@ class SLID01SlidesFactory extends Factory
             'description' => 'Donec diam enim, rhoncus sed gravida et',
             'title_button' => 'Call to Action',
             'link_button' => 'https://www.lipsum.com/',
+            'path_image_desktop' => 'uploads/tmp/slid01_path_image_desktop.png',
+            'path_image_png' => 'uploads/tmp/slid01_path_image_png.png',
             'active' => 1,
         ];
     }

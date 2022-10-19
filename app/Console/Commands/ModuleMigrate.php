@@ -14,8 +14,8 @@ class ModuleMigrate extends Command
      * @var string
      */
     protected $signature = 'module:migrate
-        {module? : Insert model name}
-        {code? : Insert model code}
+        {module? : Insert model name (Optional)}
+        {code? : Insert model code (Optional)}
         {--f|fresh : run the command with :fresh}
         {--s|seed : run the command with --seed}
     ';

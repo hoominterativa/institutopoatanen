@@ -1,9 +1,10 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Portfolios;
 
+use App\Models\Portfolios\PORT01PortfoliosSubategory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Model;
 
 class PORT01SubategoryFactory extends Factory
 {
@@ -12,7 +13,7 @@ class PORT01SubategoryFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = PORT01PortfoliosSubategory::class;
 
     /**
      * Define the model's default state.
@@ -21,8 +22,13 @@ class PORT01SubategoryFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(10);
         return [
-            //
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'description' => $this->faker->text(190),
+            'featured' => 1,
+            'active' => 1,
         ];
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Portfolios;
 
-use App\Models\Model;
+use App\Models\Portfolios\PORT01PortfoliosCategory;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,7 +13,7 @@ class PORT01CategoryFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = PORT01PortfoliosCategory::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,13 @@ class PORT01CategoryFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(10);
         return [
-            'title' => Str::random(10),
-            'path_image' => 'uploads/temp/port01-icon-category.svg',
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'path_image_icon' => 'uploads/tmp/port01_path_image_icon_category.png',
+            'view_menu' => 1,
+            'featured' => 1,
             'active' => 1,
         ];
     }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Portfolios;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Model;
+use App\Models\Portfolios\PORT01PortfoliosGallery;
 
 class PORT01GalleryFactory extends Factory
 {
@@ -12,7 +12,7 @@ class PORT01GalleryFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = PORT01PortfoliosGallery::class;
 
     /**
      * Define the model's default state.

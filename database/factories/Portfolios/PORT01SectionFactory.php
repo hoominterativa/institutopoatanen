@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Portfolios;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Model;
+use App\Models\Portfolios\PORT01PortfoliosSection;
 
 class PORT01SectionFactory extends Factory
 {
@@ -12,7 +12,7 @@ class PORT01SectionFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = PORT01PortfoliosSection::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,10 @@ class PORT01SectionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->text(17),
+            'description' => $this->faker->text(100),
+            'path_image' => 'uploads/tmp/port01_path_image_section.jpg',
+            'active' => 1,
         ];
     }
 }

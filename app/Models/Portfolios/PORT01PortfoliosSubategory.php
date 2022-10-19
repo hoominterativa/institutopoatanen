@@ -2,7 +2,7 @@
 
 namespace App\Models\Portfolios;
 
-use Database\Factories\PORT01SubategoryFactory;
+use Database\Factories\Portfolios\PORT01SubategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

@@ -26,15 +26,15 @@ body.no-scroll {
 body::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  background: rgba(111, 59, 237, 0.5);
+  background: rgba(41, 41, 41, 0.5);
 }
 
 body::-webkit-scrollbar-thumb {
-  background: rgba(111, 59, 237, 0.8);
+  background: rgba(41, 41, 41, 0.8);
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: #6F3BED;
+  background: #292929;
 }
 
 a {
@@ -53,11 +53,11 @@ a {
 }
 
 .text-primary {
-  color: #6F3BED !important;
+  color: #292929 !important;
 }
 
 .text-secondary {
-  color: #5CFFC4 !important;
+  color: #cecece !important;
 }
 
 .font-11 {
@@ -190,15 +190,15 @@ a {
 .btn-primary:active:focus,
 .btn-primary.active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(111, 59, 237, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(41, 41, 41, 0.5);
 }
 
 .btn-primary,
 .btn-primary:disabled,
 .btn-primary.disabled {
   color: #fff;
-  background-color: #6F3BED;
-  border-color: #6F3BED;
+  background-color: #292929;
+  border-color: #292929;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 .btn-primary:disabled:hover,
@@ -210,27 +210,27 @@ a {
 .btn-primary.disabled:active,
 .btn-primary.disabled.active {
   color: #fff;
-  background-color: rgba(111, 59, 237, 0.9);
-  border-color: rgba(111, 59, 237, 0.9);
+  background-color: rgba(41, 41, 41, 0.9);
+  border-color: rgba(41, 41, 41, 0.9);
 }
 .btn-primary:focus,
 .btn-primary:disabled:focus,
 .btn-primary.disabled:focus {
-  box-shadow: 0 0 0 0.25rem rgba(111, 59, 237, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(41, 41, 41, 0.5);
 }
 
 .btn-check:checked + .btn-primary,
 .btn-check:active + .btn-primary,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: rgba(111, 59, 237, 0.9);
-  border-color: rgba(111, 59, 237, 0.9);
+  background-color: rgba(41, 41, 41, 0.9);
+  border-color: rgba(41, 41, 41, 0.9);
 }
 
 .btn-check:checked + .btn-primary:focus,
 .btn-check:active + .btn-primary:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(111, 59, 237, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(41, 41, 41, 0.5);
 }
 
 .form-control:focus {
@@ -24399,13 +24399,13 @@ a {
 #HEAD01 .navigation-header .content-btn-cta .btn-cta {
   font-size: 0.875rem;
   font-family: "Poppins", sans-serif, arial;
-  color: #5CFFC4;
+  color: #cecece;
   font-weight: 700;
   border-radius: 50px;
-  background-color: #5CFFC4;
+  background-color: #cecece;
 }
 #HEAD01 .navigation-header .content-btn-cta .btn-cta:hover {
-  background-color: #6F3BED;
+  background-color: #292929;
   color: #fff;
 }
 #HEAD01 .navigation-header .link-translate .btn-translate {
@@ -24417,7 +24417,7 @@ a {
   line-height: 15px;
 }
 #HEAD01 .navigation-header .menu-sidebar-header .btn-menu-sidebar-header .title {
-  color: #5CFFC4;
+  color: #cecece;
   font-size: 0.9375rem;
   font-family: "Poppins", sans-serif, arial;
 }
@@ -24450,7 +24450,7 @@ a {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #6F3BED;
+  background-color: #292929;
   z-index: 1000;
   height: 100%;
   display: block;
@@ -24471,10 +24471,10 @@ a {
   line-height: 15px;
 }
 #menu01--sidebar-right .content--sidebar-right .header--sidebar-right .traslate .btn-translate:hover {
-  color: #5CFFC4;
+  color: #cecece;
 }
 #menu01--sidebar-right .content--sidebar-right .header--sidebar-right .button---close--sidebar-right {
-  color: #5CFFC4;
+  color: #cecece;
   font-weight: 100;
   background-color: transparent;
   border: none;
@@ -24495,11 +24495,11 @@ a {
   color: #fff;
 }
 #menu01--sidebar-right .content--sidebar-right .list-link--sidebar-right .link-item:hover {
-  color: #5CFFC4;
+  color: #cecece;
 }
 #menu01--sidebar-right .content--sidebar-right .list-link--sidebar-right .sublink--sidebar-right {
   width: 100%;
-  background-color: #6F3BED;
+  background-color: #292929;
   border: none;
   padding: 25px 0;
 }
@@ -24518,10 +24518,10 @@ a {
   border-radius: 100%;
 }
 #menu01--sidebar-right .content--sidebar-right .list-link--sidebar-right .sublink--sidebar-right .sublink-item:hover {
-  color: #5CFFC4;
+  color: #cecece;
 }
 #menu01--sidebar-right .content--sidebar-right .list-link--sidebar-right .sublink--sidebar-right .sublink-item:hover::after {
-  background-color: #5CFFC4;
+  background-color: #cecece;
 }
 #menu01--sidebar-right .content--sidebar-right .social-network {
   flex-direction: column;
@@ -24546,7 +24546,7 @@ a {
 }
 #menu01--sidebar-right .content--sidebar-right .social-network .social-link {
   font-size: 1.8rem;
-  color: #5CFFC4;
+  color: #cecece;
   margin: 0.5rem 0 0.5rem 0;
   line-height: 23px;
 }
@@ -24559,11 +24559,11 @@ a {
   color: #000;
   font-weight: 700;
   border-radius: 50px;
-  background-color: #5CFFC4;
+  background-color: #cecece;
 }
 #menu01--sidebar-right .content--sidebar-right .cta--sidebar-right .btn-cta:hover {
   background-color: #fff;
-  color: #6F3BED;
+  color: #292929;
 }
 
 /* BEGIN STYLE */
@@ -24635,7 +24635,7 @@ a {
   font-family: "Poppins", sans-serif, arial;
   font-weight: 600;
   color: #fff;
-  text-shadow: -5px 0 0 #6F3BED;
+  text-shadow: -5px 0 0 #292929;
 }
 #SLID01 .content-slide .content-description .description {
   font-size: 1.315rem;
@@ -24650,10 +24650,10 @@ a {
   color: #000;
   font-weight: 700;
   border-radius: 50px;
-  background-color: #5CFFC4;
+  background-color: #cecece;
 }
 #SLID01 .content-slide .content-description .btn-cta-slide:hover {
-  background-color: #6F3BED;
+  background-color: #292929;
   color: #fff;
 }
 #SLID01 #dotsSlideCustom {
@@ -24674,21 +24674,21 @@ a {
   border: none;
 }
 #SLID01 #dotsSlideCustom .owl-dot:hover, #SLID01 #dotsSlideCustom .owl-dot.active {
-  background-color: #5CFFC4;
+  background-color: #cecece;
 }
 
 /* BEGIN STYLE */
 #CONT01 {
-  background-color: #5CFFC4;
+  background-color: #cecece;
 }
 #CONT01 .description .title {
-  color: #6F3BED;
+  color: #292929;
   font-size: 1.75rem;
   font-family: "Poppins", sans-serif, arial;
   font-weight: 300;
 }
 #CONT01 .description .subtitle {
-  color: #6F3BED;
+  color: #292929;
   font-size: 5rem;
   font-family: "Poppins", sans-serif, arial;
   font-weight: 700;
