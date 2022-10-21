@@ -11175,57 +11175,19 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Components/themeMenu/MENU01/main.js":
-/*!********************************************************************!*\
-  !*** ./resources/views/Client/Components/themeMenu/MENU01/main.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./resources/views/Client/Components/themeMenu/MENU02/src/main.js":
+/*!************************************************************************!*\
+  !*** ./resources/views/Client/Components/themeMenu/MENU02/src/main.js ***!
+  \************************************************************************/
+/***/ (() => {
 
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-function adJustPosition() {
-  $('[data-plugin=sidebar]').each(function () {
-    var sdTarget = $(this).attr('href'),
-        sdWidth = $(sdTarget).outerWidth();
-    $(sdTarget).css('right', -sdWidth).removeClass('hidden').removeClass('open');
-  });
-}
 
-$(function () {
-  adJustPosition();
-  $(window).on('resize', function () {
-    adJustPosition();
-  });
-  $('html').on('click', '[data-plugin=sidebar]', function (e) {
-    e.preventDefault();
-    var sdTarget = $(this).attr('href'),
-        sdWidth = $(sdTarget).outerWidth();
-
-    if ($(sdTarget).hasClass('open')) {
-      $(sdTarget).animate({
-        'right': -sdWidth
-      }, 400).removeClass('open');
-      $('body').removeClass('no-scroll');
-    } else {
-      $('body').addClass('no-scroll');
-      $(sdTarget).animate({
-        'right': 0
-      }, 400).addClass('open');
-    }
-  });
-  $('html').on('click', '.button---close--sidebar-right', function (e) {
-    var sdWidth = $(this).parents('.main--sidebar-right').outerWidth();
-    $(this).parents('.main--sidebar-right').animate({
-      'right': -sdWidth
-    }, 400).removeClass('open');
-    $('body').removeClass('no-scroll');
-  });
-});
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Headers/HEAD01/src/main.js":
+/***/ "./resources/views/Client/Core/Headers/HEAD02/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD01/src/main.js ***!
+  !*** ./resources/views/Client/Core/Headers/HEAD02/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -11241,19 +11203,10 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD01/src/main */ "./resources/views/Client/Core/Headers/HEAD01/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD01_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/MENU01/main */ "./resources/views/Client/Components/themeMenu/MENU01/main.js");
-/* harmony import */ var _Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_MENU01_main__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
-/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contents_CONT01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT01/src/main */ "./resources/views/Client/pages/Contents/CONT01/src/main.js");
-/* harmony import */ var _pages_Contents_CONT01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT01_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Portfolios_PORT01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Portfolios/PORT01/src/main */ "./resources/views/Client/pages/Portfolios/PORT01/src/main.js");
-/* harmony import */ var _pages_Portfolios_PORT01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Portfolios_PORT01_src_main__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD02/src/main */ "./resources/views/Client/Core/Headers/HEAD02/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_themeMenu_MENU02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/MENU02/src/main */ "./resources/views/Client/Components/themeMenu/MENU02/src/main.js");
+/* harmony import */ var _Components_themeMenu_MENU02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_MENU02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -11288,51 +11241,6 @@ $(function () {
   resizeHeightSlide();
   $(window).on('resize', function () {
     resizeHeightSlide();
-  });
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Contents/CONT01/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT01/src/main.js ***!
-  \******************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Portfolios/PORT01/src/main.js":
-/*!********************************************************************!*\
-  !*** ./resources/views/Client/pages/Portfolios/PORT01/src/main.js ***!
-  \********************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Slides/SLID01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Slides/SLID01/src/main.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  $('.SLID01').owlCarousel({
-    animateOut: 'fadeOut',
-    items: 1,
-    margin: 0,
-    stagePadding: 0,
-    smartSpeed: 450,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    loop: true,
-    dots: true,
-    nav: false,
-    dotsContainer: "#dotsSlideCustom"
   });
 });
 

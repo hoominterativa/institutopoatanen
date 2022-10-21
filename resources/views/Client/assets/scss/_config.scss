@@ -17,15 +17,15 @@ body {
 body::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-    background: rgba($color-main, 0.50);
+    background: rgba($color-one, 0.50);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: rgba($color-main, 0.80);
+    background: rgba($color-one, 0.80);
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: $color-main;
+    background: $color-one;
 }
 
 a{
@@ -44,11 +44,11 @@ a{
 }
 
 .text-primary {
-    color: $color-main !important;
+    color: $color-one !important;
 }
 
 .text-secondary {
-    color: $color-secondary !important;
+    color: $color-two !important;
 }
 
 // Font sizes (Custom)
@@ -171,25 +171,25 @@ a{
 .btn-primary:active:focus,
 .btn-primary.active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.25rem rgba($color-main, 50%);
+    box-shadow: 0 0 0 0.25rem rgba($color-one, 50%);
 }
 
 .btn-primary,
 .btn-primary:disabled,
 .btn-primary.disabled {
     color: #fff;
-    background-color: $color-main;
-    border-color: $color-main;
+    background-color: $color-one;
+    border-color: $color-one;
     &:hover,
     &:focus,
     &:active,
     &.active {
         color: #fff;
-        background-color: rgba($color-main, 0.9);
-        border-color: rgba($color-main, 0.9);
+        background-color: rgba($color-one, 0.9);
+        border-color: rgba($color-one, 0.9);
     }
     &:focus {
-        box-shadow: 0 0 0 0.25rem rgba($color-main, 0.5);
+        box-shadow: 0 0 0 0.25rem rgba($color-one, 0.5);
     }
 }
 
@@ -197,14 +197,14 @@ a{
 .btn-check:active+.btn-primary,
 .show>.btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: rgba($color-main, 0.9);
-    border-color: rgba($color-main, 0.9);
+    background-color: rgba($color-one, 0.9);
+    border-color: rgba($color-one, 0.9);
 }
 
 .btn-check:checked+.btn-primary:focus,
 .btn-check:active+.btn-primary:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.25rem rgba($color-main, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba($color-one, 0.5);
 }
 
 .form-control:focus {

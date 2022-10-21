@@ -23,8 +23,8 @@ class HelperPublishing extends Controller
                     $contentJs .= "import '../../Core/{$module}/{$code->Code}/src/main';\n";
                     //THEME MENU
                     if ($code->themeMenu??false) {
-                        $contentScss .= "@import '../../Components/themeMenu/{$code->themeMenu}/main';\n";
-                        $contentJs .= "import '../../Components/themeMenu/{$code->themeMenu}/main';\n";
+                        $contentScss .= "@import '../../Components/themeMenu/{$code->themeMenu}/src/main';\n";
+                        $contentJs .= "import '../../Components/themeMenu/{$code->themeMenu}/src/main';\n";
                     }
                 }
             }
