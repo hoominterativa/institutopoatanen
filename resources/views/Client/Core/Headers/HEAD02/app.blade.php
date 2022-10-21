@@ -37,8 +37,8 @@
     </div>
 </div>
 
+@foreach ($listMenu as $module => $menu)
 
-@foreach ($listMenu as $module => $menus)
     <div class="mb-2 {{$menu->dropdown?'dropdown':''}}">
         <a href="{{$menu->anchor?$menu->link:route($menu->link)}}"
             class="link-item transition {{!$menu->anchor?isActive($menu->link):''}}"
@@ -48,7 +48,7 @@
 
         @if ($menu->dropdown)
             <div class="sublink--sidebar-right text-end dropdown-menu" aria-labelledby="sublink--sidebar-right" >
-                @foreach ($menu->subList as $item)
+                @foreach ($menu->dropdown as $item)
                     <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
                     <!-- if exist sublist -->
                     @foreach ($item->subList as $subItem)
