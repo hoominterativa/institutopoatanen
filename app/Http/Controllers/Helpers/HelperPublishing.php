@@ -13,7 +13,7 @@ class HelperPublishing extends Controller
         try{
             $createArchive = new HelperArchive();
             $coreConfig = config('modelsConfig.InsertModelsCore');
-            $contentScss = "@import 'variables';\n@import 'config';\n@import 'fonts';\n";
+            $contentScss = "@import 'mixins';\n@import 'variables';\n@import 'config';\n@import 'fonts';\n";
             $contentJs="";
             foreach ($coreConfig as $module => $code) {
                 $codeIf = (array) $code;

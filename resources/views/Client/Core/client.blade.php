@@ -37,6 +37,7 @@
     </footer>
 
     <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
+    <link rel="stylesheet" href="{{asset(mix('css/icons.css'))}}">
     <script src="{{asset(mix('js/app.js'))}}"></script>
 
     @if ($themeMenu)

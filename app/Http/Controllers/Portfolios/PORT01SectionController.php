@@ -55,11 +55,11 @@ class PORT01SectionController extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $path, 800, 90);
         if($path_image){
-            Storage::delete($PORT01PortfoliosSection->path_image);
+            storageDelete($PORT01PortfoliosSection, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            Storage::delete($PORT01PortfoliosSection->path_image);
+            storageDelete($PORT01PortfoliosSection, 'path_image');
             $data['path_image'] = null;
         }
 

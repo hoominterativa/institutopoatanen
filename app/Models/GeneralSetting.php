@@ -23,6 +23,8 @@ class GeneralSetting extends Model
         "smtp_host",
         "smtp_port",
         "smtp_user",
-        "smtp_password"
+        "smtp_password",
+        "btn_cta_header",
+        "btn_cta_footer",
     ];
 }

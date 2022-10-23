@@ -41,6 +41,8 @@ View::composer('Client.Core.client', function ($view) {
     $optimization = Optimization::first();
     $optimizePage = OptimizePage::where('page', Request::path())->first();
     $generalSetting = GeneralSetting::first();
+    $linksCtaHeader = json_decode($generalSetting->btn_cta_header);
+    $linksCtaFooter = json_decode($generalSetting->btn_cta_footer);
     $socials = Social::orderBy('sorting', 'ASC')->get();
     $themeMenu = config('modelsConfig.InsertModelsCore');
     $coreRender = new CoreController();
@@ -53,6 +55,8 @@ View::composer('Client.Core.client', function ($view) {
         ->with('socials', $socials)
         ->with('themeMenu', $themeMenu->Headers->themeMenu??null)
         ->with('listMenu', $listMenu)
+        ->with('linksCtaHeader', $linksCtaHeader)
+        ->with('linksCtaFooter', $linksCtaFooter)
         ->with('generalSetting', $generalSetting);
 });
 
@@ -62,11 +66,12 @@ View::composer('Admin.core.auth', function ($view) {
 });
 
 View::composer('Admin.core.admin', function ($view) {
-
     $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     $settingTheme = SettingTheme::where('user_id', Auth::user()->id)->first();
     $generalSetting = GeneralSetting::first();
-    return $view->with('modelsMain', $modelsMain)->with('settingTheme', $settingTheme)->with('generalSetting', $generalSetting);
+    return $view->with('modelsMain', $modelsMain)
+        ->with('settingTheme', $settingTheme)
+        ->with('generalSetting', $generalSetting);
 });
 
 Route::prefix('painel')->group(function () {
@@ -116,6 +121,9 @@ Route::prefix('painel')->group(function () {
         // SETTING FORM CONTACT
         Route::resource('configuracao-formulario', ContactFormController::class)->names('admin.contactForm')->parameters(['configuracao-formulario' => 'ContactForm']);
         Route::post('configuracao-formulario/delete', [ContactFormController::class, 'destroySelected'])->name('admin.contactForm.destroySelected');
+
+        Route::post('links-cta-header/{GeneralSetting}', [GeneralSettingController::class, 'linksHeader'])->name('admin.cta.header');
+        Route::post('links-cta-footer/{GeneralSetting}', [GeneralSettingController::class, 'linksFooter'])->name('admin.cta.footer');
     });
 });
 
@@ -131,16 +139,24 @@ Route::get('/', function(){return redirect()->route('home');});
 $modelsCore = config('modelsConfig.InsertModelsCore');
 if(isset($modelsCore->Headers->Code)){
     View::composer('Client.Core.Headers.'.$modelsCore->Headers->Code.'.app', function ($view) {
-        $generalSetting = GeneralSetting::first();
         $socials = Social::get();
-        return $view->with('generalSetting', $generalSetting)->with('socials', $socials);
+        $generalSetting = GeneralSetting::first();
+        $linksCtaHeader = collect(json_decode($generalSetting->btn_cta_header));
+
+    return $view->with('generalSetting', $generalSetting)
+        ->with('linksCtaHeader', $linksCtaHeader)
+        ->with('socials', $socials);
     });
 }
 if(isset($modelsCore->Footers->Code)){
     View::composer('Client.Core.Footers.'.$modelsCore->Footers->Code.'.app', function ($view) {
-        $generalSetting = GeneralSetting::first();
         $socials = Social::get();
-        return $view->with('generalSetting', $generalSetting)->with('socials', $socials);
+        $generalSetting = GeneralSetting::first();
+        $linksCtaFooter = collect(json_decode($generalSetting->btn_cta_footer));
+
+        return $view->with('generalSetting', $generalSetting)
+        ->with('linksCtaFooter', $linksCtaFooter)
+        ->with('socials', $socials);
     });
 }
 

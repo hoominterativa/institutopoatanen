@@ -105,11 +105,11 @@ class {{ class }} extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
         if($path_image){
-            Storage::delete(${{ model }}->path_image);
+            storageDelete(${{ model }}, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            Storage::delete(${{ model }}->path_image);
+            storageDelete(${{ model }}, 'path_image');
             $data['path_image'] = null;
         }
         */
@@ -123,12 +123,12 @@ class {{ class }} extends Controller
         $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
 
         if($path_archive){
-            Storage::delete(${{ model }}->path_archive);
+            storageDelete(${{ model }}, 'path_archive');
             $data['path_archive'] = $path_archive;
         }
 
         if($request->delete_path_archive && !$path_archive){
-            Storage::delete(${{ model }}->path_archive);
+            storageDelete(${{ model }}, 'path_archive');
             $data['path_archive'] = null;
         }
 
@@ -153,8 +153,8 @@ class {{ class }} extends Controller
      */
     public function destroy({{ model }} ${{ model }})
     {
-        //Storage::delete(${{ model }}->path_image);
-        //Storage::delete(${{ model }}->path_archive);
+        //storageDelete(${{ model }}, 'path_image');
+        //storageDelete(${{ model }}, 'path_archive');
 
         if(${{ model }}->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -174,8 +174,8 @@ class {{ class }} extends Controller
 
         ${{ model }}s = {{ model }}::whereIn('id', $request->deleteAll)->get();
         foreach(${{ model }}s as ${{ model }}){
-            Storage::delete(${{ model }}->path_image);
-            Storage::delete(${{ model }}->path_archive);
+            storageDelete(${{ model }}, 'path_image');
+            storageDelete(${{ model }}, 'path_archive');
         }
         */
 

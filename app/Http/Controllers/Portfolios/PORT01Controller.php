@@ -134,41 +134,41 @@ class PORT01Controller extends Controller
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $path, 200, 80);
         if($path_image_box){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_box'] = $path_image_box;
         }
         if($request->delete_path_image_box && !$path_image_box){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_box'] = null;
         }
 
         $path_image_left = $helper->optimizeImage($request, 'path_image_left', $path, 200, 80);
         if($path_image_left){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_left'] = $path_image_left;
         }
         if($request->delete_path_image_left && !$path_image_left){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_left'] = null;
         }
 
         $path_image_right = $helper->optimizeImage($request, 'path_image_right', $path, 200, 80);
         if($path_image_right){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_right'] = $path_image_right;
         }
         if($request->delete_path_image_right && !$path_image_right){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_right'] = null;
         }
 
         $path_image_testimonial = $helper->optimizeImage($request, 'path_image_testimonial', $path, 200, 80);
         if($path_image_testimonial){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_testimonial'] = $path_image_testimonial;
         }
         if($request->delete_path_image_testimonial && !$path_image_testimonial){
-            Storage::delete($PORT01Portfolios->path_image);
+            storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_testimonial'] = null;
         }
 
@@ -192,10 +192,10 @@ class PORT01Controller extends Controller
      */
     public function destroy(PORT01Portfolios $PORT01Portfolios)
     {
-        Storage::delete($PORT01Portfolios->path_image_box);
-        Storage::delete($PORT01Portfolios->path_image_left);
-        Storage::delete($PORT01Portfolios->path_image_right);
-        Storage::delete($PORT01Portfolios->path_image_testimonial);
+        storageDelete($PORT01Portfolios, 'path_image_box');
+        storageDelete($PORT01Portfolios, 'path_image_left');
+        storageDelete($PORT01Portfolios, 'path_image_right');
+        storageDelete($PORT01Portfolios, 'path_image_testimonial');
 
         if($PORT01Portfolios->delete()){
             Session::flash('success', 'Portifólio deletado com sucessso');
@@ -213,10 +213,10 @@ class PORT01Controller extends Controller
     {
         $PORT01Portfolioss = PORT01Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT01Portfolioss as $PORT01Portfolios){
-            Storage::delete($PORT01Portfolios->path_image_box);
-            Storage::delete($PORT01Portfolios->path_image_left);
-            Storage::delete($PORT01Portfolios->path_image_right);
-            Storage::delete($PORT01Portfolios->path_image_testimonial);
+            storageDelete($PORT01Portfolios, 'path_image_box');
+            storageDelete($PORT01Portfolios, 'path_image_left');
+            storageDelete($PORT01Portfolios, 'path_image_right');
+            storageDelete($PORT01Portfolios, 'path_image_testimonial');
         }
 
         if($deleted = PORT01Portfolios::whereIn('id', $request->deleteAll)->delete()){

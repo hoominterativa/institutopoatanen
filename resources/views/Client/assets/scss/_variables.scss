@@ -1,5 +1,56 @@
-/* grayscale */
+// BEGIN CONFIG THEME
 
+// MAIN WRAP
+$max-width-container-fluid: 1420px;
+
+// TITLE SIZES
+$T1: 3.125rem;
+$T2: 2.5rem;
+$T3: 1.875rem;
+$T4: 1.25rem;
+$T5: 1.125rem;
+
+@include small-down {
+    $T1: 2.5rem;
+    $T2: 1.875rem;
+    $T3: 1.563rem;
+    $T4: 1.125rem;
+    $T5: 1.063rem;
+}
+
+// PARAGRAPHS SIZES
+$P1: 1rem;
+$P2: 0.875rem;
+
+@include small-down {
+    $P1: 0.938rem;
+    $P2: 0.813rem;
+}
+
+// COLORS THEME
+$color-one: #404040;
+$color-two: #7C7C7C;
+$color-three: #B3B3B3;
+$color-four: #CACACA;
+$color-five: #EFEFEF;
+$color-white: #fff;
+$color-black: #000;
+
+$color-info: #0D84F5;
+$color-warning: #f5980d;
+$color-danger: #c90000;
+
+// FONTS FAMILY
+$font-primary: 'Ubuntu', sans-serif, arial;
+$font-secondary: 'Ubuntu', sans-serif, arial;
+
+// FONT PARAGRAPH
+$paragraph-regular: $P1 'Montserrat', sans-serif, arial;
+$paragraph-min-regular: $P2 'Montserrat', sans-serif, arial;
+
+// END CONFIG THEME
+
+// GRAYSCALE
 $gray-100: #f7f8f9;
 $gray-200: #eceff1;
 $gray-300: #dee2e6;
@@ -10,41 +61,7 @@ $gray-700: #6c757d;
 $gray-800: #343a40;
 $gray-900: #323a46;
 
-
-/* colors theme */
-
-$color-one: green;
-$color-two: #cecece;
-$color-three: #8d97a0;
-$color-four: #CCCEE5;
-$color-five: #EFF0F7;
-$color-white: #fff;
-$color-black: #000;
-
-$color-info: #0D84F5;
-$color-warning: #f5980d;
-$color-danger: #c90000;
-
-/* Weight */
-
-$weight-100: 100;
-$weight-200: 200;
-$weight-300: 300;
-$weight-400: 400;
-$weight-500: 500;
-$weight-600: 600;
-$weight-700: 700;
-$weight-900: 900;
-
-
-/* Fonts Family */
-
-$font-primary: 'Poppins', sans-serif, arial;
-$font-secondary: 'Poppins', sans-serif, arial;
-$font-paragraph: 'Montserrat', sans-serif, arial;
-
-/* backgrounds */
-
+// BACKGROUNDS
 $bg-main: $color-one;
 $bg-secondary: $color-two;
 $bg-extra: $color-three;
@@ -58,8 +75,7 @@ $bg-info: $color-info;
 $bg-warning: $color-warning;
 $bg-danger: $color-danger;
 
-/* Width percent section body */
-
+// WIDTH PERCENT SECTION BODY
 $wp-100: 100%;
 $wp-90: 90%;
 $wp-80: 80%;
@@ -103,3 +119,13 @@ $font-44: 2.75rem;
 $font-46: 2.875rem;
 $font-48: 3rem;
 $font-50: 3.125rem;
+
+// WEIGHT
+$weight-100: 100;
+$weight-200: 200;
+$weight-300: 300;
+$weight-400: 400;
+$weight-500: 500;
+$weight-600: 600;
+$weight-700: 700;
+$weight-900: 900;

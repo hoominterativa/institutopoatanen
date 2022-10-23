@@ -28,6 +28,8 @@ class CreateGeneralSettingsTable extends Migration
             $table->string('smtp_port')->nullable();
             $table->string('smtp_user')->nullable();
             $table->string('smtp_password')->nullable();
+            $table->longText('btn_cta_header')->nullable();
+            $table->longText('btn_cta_footer')->nullable();
             $table->timestamps();
         });
     }

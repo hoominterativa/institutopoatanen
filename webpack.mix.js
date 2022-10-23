@@ -82,6 +82,7 @@ mix
 
 //COMPILED
 .js('resources/js/app.js', 'public/js')
+.sass('resources/sass/icons.scss', 'public/css')
 .sass('resources/sass/libraries.scss', 'public/css')
 .sass('resources/sass/app.scss', 'public/css')
 

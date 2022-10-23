@@ -20,19 +20,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create();
-        SLID01Slides::factory(1)->create();
-        CONT01Contents::factory(1)->create();
-        PORT01PortfoliosSection::factory(1)->create();
-        PORT01PortfoliosCategory::factory(4)->create();
-        PORT01PortfoliosSubategory::factory(4)->create();
-        PORT01Portfolios::factory(10)->create();
+        $InsertModelsMain = config('modelsConfig.InsertModelsMain');
+        $modelsClass = config('modelsClass.Class');
 
+        foreach ($InsertModelsMain as $module => $model) {
+            foreach ($model as $code => $config) {
+
+                $relationship = $modelsClass->$module->$code->relationship??false;
+                if($relationship){
+                    foreach ($relationship as $relation) {
+                        $seedRelationQty = $relation['seedQty'];
+                        $relation['class']::factory($seedRelationQty)->create();
+                    }
+                }
+
+                $seedQty = $modelsClass->$module->$code->seedQty;
+                $modelsClass->$module->$code->model::factory($seedQty)->create();
+
+            }
+        }
+
+        User::factory(1)->create();
         $this->call([
             SettingThemeSeeder::class,
             OptimizationSeeder::class,
             GeneralSettingSeeder::class,
-            // ContactFormSeeder::class,
         ]);
     }
 }
