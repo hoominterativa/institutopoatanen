@@ -20,9 +20,16 @@ class GeneralSettingController extends Controller
      */
     public function index()
     {
+        $GeneralSetting =  GeneralSetting::first();
+
+        $linksCtaHeader = json_decode($GeneralSetting->btn_cta_header);
+        $linksCtaFooter = json_decode($GeneralSetting->btn_cta_footer);
+
         return view('Admin.cruds.generalSetting.edit', [
-            'generalSetting' => GeneralSetting::first(),
-            'socials' => Social::all()
+            'generalSetting' => $GeneralSetting,
+            'linksCtaHeader' => $linksCtaHeader,
+            'linksCtaFooter' => $linksCtaFooter,
+            'socials' => Social::all(),
         ]);
     }
 
@@ -47,30 +54,30 @@ class GeneralSettingController extends Controller
         $path_favicon = $helper->optimizeImage($request, 'path_favicon', $path, null, 100);
 
         if($path_logo_header_light){
-            Storage::delete($GeneralSetting->path_logo_header_light);
+            storageDelete($GeneralSetting, 'path_logo_header_light');
             $data["path_logo_header_light"] = $path_logo_header_light;
         }
         if($path_logo_header_dark){
-            Storage::delete($GeneralSetting->path_logo_header_dark);
+            storageDelete($GeneralSetting, 'path_logo_header_dark');
             $data["path_logo_header_dark"] = $path_logo_header_dark;
         }
 
         if($path_logo_footer_light){
-            Storage::delete($GeneralSetting->path_logo_footer_light);
+            storageDelete($GeneralSetting, 'path_logo_footer_light');
             $data["path_logo_footer_light"] = $path_logo_footer_light;
         }
         if($path_logo_footer_dark){
-            Storage::delete($GeneralSetting->path_logo_footer_dark);
+            storageDelete($GeneralSetting, 'path_logo_footer_dark');
             $data["path_logo_footer_dark"] = $path_logo_footer_dark;
         }
 
         if($path_logo_share){
-            Storage::delete($GeneralSetting->path_logo_share);
+            storageDelete($GeneralSetting, 'path_logo_share');
 		    $data["path_logo_share"] = $path_logo_share;
         }
 
         if($path_favicon){
-            Storage::delete($GeneralSetting->path_favicon);
+            storageDelete($GeneralSetting, 'path_favicon');
 		    $data["path_favicon"] = $path_favicon;
         }
 
@@ -101,6 +108,44 @@ class GeneralSettingController extends Controller
     {
         if($GeneralSetting->delete()){
             Session::flash('success', 'Item deletado com sucessso');
+            return redirect()->back();
+        }
+    }
+
+    public function linksHeader(Request $request, GeneralSetting $GeneralSetting)
+    {
+        $data = [];
+        foreach ($request->title_btn_cta as $key => $title) {
+            $merge = [
+                'title' => $request->title_cta_btn,
+                $title => [$request->link_btn_cta[$key], $request->link_target[$key]]
+            ];
+
+            $data = array_merge($data, $merge);
+        }
+
+        if($GeneralSetting->fill(['btn_cta_header' => json_encode($data)])->save()){
+            Session::flash('success', 'Links cadastrados com sucessso');
+            Session::flash('reopenModal', 'modal-links-cta-header-create');
+            return redirect()->back();
+        }
+    }
+
+    public function linksFooter(Request $request, GeneralSetting $GeneralSetting)
+    {
+        $data = [];
+        foreach ($request->title_btn_cta as $key => $title) {
+            $merge = [
+                'title' => $request->title_cta_btn,
+                $title => [$request->link_btn_cta[$key], $request->link_target[$key]]
+            ];
+
+            $data = array_merge($data, $merge);
+        }
+
+        if($GeneralSetting->fill(['btn_cta_footer' => json_encode($data)])->save()){
+            Session::flash('success', 'Links cadastrados com sucessso');
+            Session::flash('reopenModal', 'modal-links-cta-footer-create');
             return redirect()->back();
         }
     }

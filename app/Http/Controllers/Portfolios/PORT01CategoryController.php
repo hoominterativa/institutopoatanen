@@ -68,11 +68,11 @@ class PORT01CategoryController extends Controller
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, 200, 100);
         if($path_image_icon){
-            Storage::delete($PORT01PortfoliosCategory->path_image_icon);
+            storageDelete($PORT01PortfoliosCategory, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;
         }
         if($request->delete_path_image_icon && !$path_image_icon){
-            Storage::delete($PORT01PortfoliosCategory->path_image_icon);
+            storageDelete($PORT01PortfoliosCategory, 'path_image_icon');
             $data['path_image_icon'] = null;
         }
 
@@ -100,7 +100,7 @@ class PORT01CategoryController extends Controller
      */
     public function destroy(PORT01PortfoliosCategory $PORT01PortfoliosCategory)
     {
-        Storage::delete($PORT01PortfoliosCategory->path_image_icon);
+        storageDelete($PORT01PortfoliosCategory, 'path_image_icon');
         if($PORT01PortfoliosCategory->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             Session::flash('reopenModal', 'modal-category-create');
@@ -118,7 +118,7 @@ class PORT01CategoryController extends Controller
     {
         $PORT01PortfoliosCategorys = PORT01PortfoliosCategory::whereIn('id', $request->deleteAll)->get();
         foreach($PORT01PortfoliosCategorys as $PORT01PortfoliosCategory){
-            Storage::delete($PORT01PortfoliosCategory->path_image_icon);
+            storageDelete($PORT01PortfoliosCategory, 'path_image_icon');
         }
 
         if($deleted = PORT01PortfoliosCategory::whereIn('id', $request->deleteAll)->delete()){

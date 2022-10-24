@@ -112,12 +112,12 @@ class UserController extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', 200, 80);
 
         if($path_image){
-            Storage::delete($user->path_image);
+            storageDelete($user, 'path_image');
             $data['path_image'] = $path_image;
         }
 
         if($request->delete_path_image && !$path_image){
-            Storage::delete($user->path_image);
+            storageDelete($user, 'path_image');
             $data['path_image'] = null;
         }
 
@@ -144,6 +144,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        storageDelete($user, 'path_image');
         if($user->delete()){
             Session::flash('success', 'Usuário deletado com sucesso');
             return redirect()->route('admin.user.index');
@@ -158,6 +159,11 @@ class UserController extends Controller
      */
     public function deleteSelected(Request $request)
     {
+        $users = User::whereIn('id', $request->deleteAll)->get();
+        foreach($users as $user){
+            storageDelete($user, 'path_image');
+        }
+
         if($deleted = User::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' usuários deletados com sucessso']);
         }

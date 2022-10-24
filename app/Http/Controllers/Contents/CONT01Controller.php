@@ -66,11 +66,11 @@ class CONT01Controller extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $path, 600, 90);
         if($path_image){
-            Storage::delete($CONT01Contents->path_image);
+            storageDelete($CONT01Contents, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            Storage::delete($CONT01Contents->path_image);
+            storageDelete($CONT01Contents, 'path_image');
             $data['path_image'] = null;
         }
 

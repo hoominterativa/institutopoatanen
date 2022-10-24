@@ -47,7 +47,7 @@ class PORT01GalleryController extends Controller
      */
     public function destroy(PORT01PortfoliosGallery $PORT01PortfoliosGallery)
     {
-        Storage::delete($PORT01PortfoliosGallery->path_image);
+        storageDelete($PORT01PortfoliosGallery, 'path_image');
         if($PORT01PortfoliosGallery->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             Session::flash('reopenModal', 'modal-gallery-create');
@@ -65,7 +65,7 @@ class PORT01GalleryController extends Controller
     {
         $PORT01PortfoliosGallerys = PORT01PortfoliosGallery::whereIn('id', $request->deleteAll)->get();
         foreach($PORT01PortfoliosGallerys as $PORT01PortfoliosGallery){
-            Storage::delete($PORT01PortfoliosGallery->path_image);
+            storageDelete($PORT01PortfoliosGallery, 'path_image');
         }
 
         if($deleted = PORT01PortfoliosGallery::whereIn('id', $request->deleteAll)->delete()){

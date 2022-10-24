@@ -303,4 +303,17 @@ $(function() {
             $(this).remove()
         })
     })
+
+    $('body').on('click', '[data-delete-clone]', function(){
+        $(this).parent().parent().fadeOut('slow', function(){
+            $(this).remove()
+        })
+    })
+
+    $('body').on('click', '[data-plugin=clone]', function(){
+        let target = $(this).data('target'),
+            cloneElem = $(this).data('clone-element')
+
+        $(cloneElem).find('>*').clone(true).appendTo(target)
+    })
 })

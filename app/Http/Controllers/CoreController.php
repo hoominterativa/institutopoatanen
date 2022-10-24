@@ -158,10 +158,12 @@ class CoreController extends Controller
 
     public function renderFooter()
     {
+        $listMenu = self::relationsHeaderMenu();
+
         if(isset($this->InsertModelsCore->Footers->Code)){
             return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
                 'class' => $this->Class,
-                'listMenu' => $this->InsertModelsMain
+                'listMenu' => $listMenu
             ]);
         }
         return;

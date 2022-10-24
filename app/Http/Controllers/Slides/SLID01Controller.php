@@ -46,8 +46,6 @@ class SLID01Controller extends Controller
     {
         $data = $request->all();
 
-        dd($data);
-
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
@@ -98,40 +96,39 @@ class SLID01Controller extends Controller
     {
         $data = $request->all();
 
-
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
         // IMAGE DESKTOP
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 100);
         if($path_image_desktop){
-            Storage::delete($SLID01Slides->path_image_desktop);
+            storageDelete($SLID01Slides, 'path_image_desktop');
             $data['path_image_desktop'] = $path_image_desktop;
         }
         if($request->delete_path_image_desktop && !$path_image_desktop){
-            Storage::delete($SLID01Slides->path_image_desktop);
+            storageDelete($SLID01Slides, 'path_image_desktop');
             $data['path_image_desktop'] = null;
         }
 
         // IMAGE MOBILE
         $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
         if($path_image_mobile){
-            Storage::delete($SLID01Slides->path_image_mobile);
+            storageDelete($SLID01Slides, 'path_image_mobile');
             $data['path_image_mobile'] = $path_image_mobile;
         }
         if($request->delete_path_image_mobile && !$path_image_mobile){
-            Storage::delete($SLID01Slides->path_image_mobile);
+            storageDelete($SLID01Slides, 'path_image_mobile');
             $data['path_image_mobile'] = null;
         }
 
         // IMAGE PNG
         $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 1000, 80);
         if($path_image_png){
-            Storage::delete($SLID01Slides->path_image_png);
+            storageDelete($SLID01Slides, 'path_image_png');
             $data['path_image_png'] = $path_image_png;
         }
         if($request->delete_path_image_png && !$path_image_png){
-            Storage::delete($SLID01Slides->path_image_png);
+            storageDelete($SLID01Slides, 'path_image_png');
             $data['path_image_png'] = null;
         }
 
@@ -157,9 +154,9 @@ class SLID01Controller extends Controller
      */
     public function destroy(SLID01Slides $SLID01Slides)
     {
-        Storage::delete($SLID01Slides->path_image_desktop);
-        Storage::delete($SLID01Slides->path_image_mobile);
-        Storage::delete($SLID01Slides->path_image_png);
+        storageDelete($SLID01Slides, 'path_image_desktop');
+        storageDelete($SLID01Slides, 'path_image_mobile');
+        storageDelete($SLID01Slides, 'path_image_png');
 
         if($SLID01Slides->delete()){
             Session::flash('success', 'Banner deletado com sucessso');
