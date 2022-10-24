@@ -9,7 +9,7 @@
                     <img src="{{asset('storage/'.$slide->path_image_desktop)}}" data-image-mobile="{{asset('storage/'.$slide->path_image_mobile)}}" class="img-background-slide" alt="image Background {{$slide->title}} {{$slide->subtitle}}">
                 @endif
                 <div class="content-slide container ms-auto me-auto row align-items-center {{$slide->position_content}}">
-                    <div class="content-description col-12 col-sm-9">
+                    <div class="content-description col-12 col-lg-7">
                         @if ($slide->title || $slide->subtitle)
                             <h2>
                                 <span class="title">{{$slide->title}}</span>
@@ -20,10 +20,15 @@
                             <p class="description">{{$slide->description}}</p>
                         @endif
                         @if ($slide->title_button && $slide->link_button)
-                            <a href="{{$slide->link_button}}" target="{{$slide->target_link_button}}" class="btn-cta-slide py-1 px-3 transition">{{$slide->title_button}}</a>
+                            <a href="{{$slide->link_button}}" target="{{$slide->target_link_button}}" class="btn-cta-slide py-2 px-4 transition">
+                                <div class="w-auto d-flex justify-content-center align-items-center">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px">
+                                    {{$slide->title_button}}
+                                </div>
+                            </a>
                         @endif
                     </div>
-                    <div class="img-floating-png col-sm-6">
+                    <div class="img-floating-png col-lg-5">
                         @if ($slide->path_image_png)
                             <img src="{{asset('storage/'.$slide->path_image_png)}}" alt="image Destaque {{$slide->title}} {{$slide->subtitle}}">
                         @endif

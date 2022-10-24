@@ -10,22 +10,20 @@ $T3: 1.875rem;
 $T4: 1.25rem;
 $T5: 1.125rem;
 
-@include small-down {
-    $T1: 2.5rem;
-    $T2: 1.875rem;
-    $T3: 1.563rem;
-    $T4: 1.125rem;
-    $T5: 1.063rem;
-}
+$T1-mobile: 2.5rem;
+$T2-mobile: 1.875rem;
+$T3-mobile: 1.563rem;
+$T4-mobile: 1.125rem;
+$T5-mobile: 1.063rem;
+
 
 // PARAGRAPHS SIZES
 $P1: 1rem;
 $P2: 0.875rem;
 
-@include small-down {
-    $P1: 0.938rem;
-    $P2: 0.813rem;
-}
+$P1-mobile: 0.938rem;
+$P2-mobile: 0.813rem;
+
 
 // COLORS THEME
 $color-one: #404040;
@@ -43,10 +41,14 @@ $color-danger: #c90000;
 // FONTS FAMILY
 $font-primary: 'Ubuntu', sans-serif, arial;
 $font-secondary: 'Ubuntu', sans-serif, arial;
+$font-paragraph: 'Montserrat', sans-serif, arial;
 
 // FONT PARAGRAPH
-$paragraph-regular: $P1 'Montserrat', sans-serif, arial;
-$paragraph-min-regular: $P2 'Montserrat', sans-serif, arial;
+$paragraph: $P1 $font-paragraph;
+$paragraph-min: $P2 $font-paragraph;
+
+$paragraph-mobile: $P1-mobile $font-paragraph;
+$paragraph-min-mobile: $P2-mobile $font-paragraph;
 
 // END CONFIG THEME
 

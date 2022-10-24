@@ -44,8 +44,7 @@
                     </ul>
                 </nav>
                 {{-- END .menu-list --}}
-
-                @if ($linksCtaHeader)
+                @if ($linksCtaHeader->count())
                     <div class="container-cta">
                         @if ($linksCtaHeader->count() > 1)
                             <div class="dropdown">

@@ -1,11 +1,10 @@
 {
-    "/js/app.js": "/js/app.js?id=76f01ac788a14caa031d",
+    "/js/app.js": "/js/app.js?id=0d6f96ee21b60d55c856",
     "/css/libraries.css": "/css/libraries.css?id=070dbec14e4be58def87",
-    "/css/app.css": "/css/app.css?id=f57b178665e9756dc069",
     "/css/icons.css": "/css/icons.css?id=4ddd375dece1cac4a35f",
     "/admin/assets/js/app.min.js": "/admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc",
     "/admin/assets/js/vendor.min.js": "/admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026",
-    "/admin/assets/js/custom.js": "/admin/assets/js/custom.js?id=8ff53005599a1adf8da3",
+    "/admin/assets/js/custom.js": "/admin/assets/js/custom.js?id=b790e06fa4fb036cf99c",
     "/admin/assets/libs/parsley.min.js": "/admin/assets/libs/parsley.min.js?id=fcfe6ae30a25b06f0c24",
     "/admin/assets/libs/fancybox.js": "/admin/assets/libs/fancybox.js?id=7ea0cdea74762cdc2884",
     "/admin/assets/libs/selectize.min.js": "/admin/assets/libs/selectize.min.js?id=567d7ca1bb35dea2958a",
@@ -297,5 +296,6 @@
     "/admin/assets/libs/i18n/ur.js": "/admin/assets/libs/i18n/ur.js?id=3cc894ecacb70594c1df",
     "/admin/assets/libs/i18n/zh_cn.extra.js": "/admin/assets/libs/i18n/zh_cn.extra.js?id=e5d635d10d14819a7ffc",
     "/admin/assets/libs/i18n/zh_cn.js": "/admin/assets/libs/i18n/zh_cn.js?id=3b26d4d158a3f6e8a770",
-    "/admin/assets/libs/i18n/zh_tw.js": "/admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41"
+    "/admin/assets/libs/i18n/zh_tw.js": "/admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41",
+    "/css/app.css": "/css/app.css?id=0aba0ad6f09e3c5c038e"
 }

@@ -22,13 +22,13 @@ class SLID01SlidesFactory extends Factory
     public function definition()
     {
         return [
-            'title' => 'Título Banner',
-            'subtitle' => 'Subtítulo Banner',
-            'description' => 'Donec diam enim, rhoncus sed gravida et',
-            'title_button' => 'Call to Action',
+            'title' => 'TITULO BANNER',
+            'subtitle' => 'SUBTITULO',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur adipiscing elit. Cras vel tortor',
+            'title_button' => 'CTA',
             'link_button' => 'https://www.lipsum.com/',
-            'path_image_desktop' => 'uploads/tmp/slid01_path_image_desktop.png',
-            'path_image_png' => 'uploads/tmp/slid01_path_image_png.png',
+            'path_image_desktop' => 'uploads/tmp/bg-slide.jpg',
+            'path_image_png' => 'uploads/tmp/png-slide.png',
             'active' => 1,
         ];
     }

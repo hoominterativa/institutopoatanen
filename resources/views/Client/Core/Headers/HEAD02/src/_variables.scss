@@ -19,7 +19,7 @@ $head02-menu-item-after-background-color: transparent;
 $head02-menu-item-after-background-color-hover: $bg-black;
 
 // MENU LIST LINK
-$head02-link-font: $paragraph-regular;
+$head02-link-font: $paragraph;
 $head02-link-color: $color-two;
 $head02-link-color-hover: $color-black;
 
@@ -30,7 +30,7 @@ $head02-menu-dropdown-min-width: 165px;
 $head02-menu-dropdown-padding: 10px;
 
 // MENU DROPDOWN LINK
-$head02-menu-dropdown-link-font: $paragraph-min-regular;
+$head02-menu-dropdown-link-font: $paragraph-min;
 $head02-menu-dropdown-link-color: $color-white;
 $head02-menu-dropdown-link-margin-bottom: 11px;
 $head02-menu-dropdown-link-color-hover: $color-two;
@@ -83,7 +83,7 @@ $head02-btn-cta-dropdown-after-left: 50%;
 $head02-btn-cta-dropdown-after-transform: translate(-50%);
 
 // BTN CTA DROPDOWN LINK
-$head02-btn-cta-dropdown-link-font: $paragraph-min-regular;
+$head02-btn-cta-dropdown-link-font: $paragraph-min;
 $head02-btn-cta-dropdown-link-color: $color-white;
 $head02-btn-cta-dropdown-link-border-right: 1px solid adjust-color($color-white, $alpha: -0.8);
 $head02-btn-cta-dropdown-link-padding-right: 11px;

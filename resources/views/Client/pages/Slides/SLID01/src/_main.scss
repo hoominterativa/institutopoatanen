@@ -31,6 +31,15 @@
                 display: block;
                 object-fit: contain;
             }
+
+            @include small-down{
+                position: relative;
+                height: 300px;
+                left: 50%;
+                transform: translate(-50%);
+                max-width: 476px;
+                margin-top: 30px;
+            }
         }
 
         &.start{
@@ -68,6 +77,10 @@
                 font-weight: $slid01-title-font-weight;
                 color: $slid01-title-color;
                 display: block;
+
+                @include small-down{
+                    font-size: $slid01-title-font-size-responsive;
+                }
             }
 
             .subtitle{
@@ -75,30 +88,52 @@
                 font-family: $slid01-subtitle-font-family;
                 font-weight: $slid01-subtitle-font-weight;
                 color: $slid01-subtitle-color;
-                text-shadow: $slid01-subtitle-text-shadow;
+
+                @include small-down{
+                    font-size: $slid01-subtitle-font-size-responsive;
+                }
             }
 
             .description{
-                font-size: $slid01-description-font-size;
-                font-family: $slid01-description-font-family;
+                font: $slid01-description-font;
                 font-weight: $slid01-description-font-weight;
                 color: $slid01-description-color;
                 margin: $slid01-description-margin;
+                width: $slid01-description-width;
+                line-height: $slid01-description-line-height;
+
+                @include small-down{
+                    font: $slid01-description-font-responsive;
+                }
             }
 
             .btn-cta-slide{
-                font-size: $slid01-cta-font-size;
-                font-family: $slid01-cta-font-family;
+                font: $slid01-cta-font;
                 color: $slid01-cta-color;
                 font-weight: $slid01-cta-font-weight;
                 border-radius: $slid01-cta-border-radius;
                 background-color: $slid01-cta-background-color;
+                min-width: $slid01-cta-color-min-width;
+                display: table;
+                img{
+                    width: $slid01-cta-img-width;
+                    margin-right: $slid01-cta-img-margin-right;
+                }
 
                 &:hover{
-                    background-color: $head01-cta-bg-hover;
-                    color: $head01-cta-color-hover;
+                    background-color: $slid01-cta-bg-hover;
+                    color: $slid01-cta-color-hover;
+                    img{
+                        filter: $slid01-cta-img-filter-hover;
+                    }
                 }
             }
+        }
+
+        @include small-down{
+            justify-content: center;
+            align-items: end !important;
+            align-content: flex-end;
         }
     }
     #dotsSlideCustom{
