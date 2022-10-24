@@ -5,6 +5,22 @@
     border-bottom: $head02-border-bottom;
     .container-header{
         min-height: $head02-container-header-height;
+
+        @include small-down {
+            min-height: auto;
+        }
+
+        #logoHeader{
+            img{
+                @include small-down {
+                    width: 185px;
+                }
+
+                @include extra-small {
+                    width: 155px;
+                }
+            }
+        }
     }
     .container-navigation{
         .menu-list{
@@ -80,14 +96,14 @@
                     }
                 }
             }
-        }
 
-        @include extra-small {
-            padding: 2em;
-        }
+            @include small-down {
+                display: none;
+            }
 
-        @include small-down {
-            padding: 2em;
+            @include medium-only {
+                display: none;
+            }
         }
 
         .container-cta{
@@ -156,6 +172,13 @@
                     }
                 }
             }
+            @include small-down {
+                display: none;
+            }
+
+            @include medium-only {
+                display: none;
+            }
         }
         .link-translate{
             .btn-translate{
@@ -178,7 +201,35 @@
                     color: $head02-social-network-link-color-hover;
                 }
             }
+            @include medium-down{
+                display: none !important;
+            }
+        }
+
+        .menu-sidebar-header{
+            display: none;
+            margin-left: $head02-btn-menu-sidebar-margin-left;
+            .lines{
+                width: $head02-btn-menu-sidebar-lines-width;
+                >i{
+                    height: $head02-btn-menu-sidebar-lines-height;
+                    display: block;
+                    background-color: $head02-btn-menu-sidebar-lines-background-color;
+                }
+            }
+            &:active{
+                .lines{
+                    >i{
+                        background-color: $head02-btn-menu-sidebar-lines-active-background-color;
+                    }
+                }
+            }
+            @include small-down {
+                display: block;
+            }
+            @include medium-only {
+                display: block;
+            }
         }
     }
-
 }

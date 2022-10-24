@@ -143,16 +143,41 @@ a{
     width: 90% !important;
 }
 
-@media (min-width: 1400px){
+@include small-only {
     .container,
     .container-lg,
     .container-md,
     .container-sm,
     .container-xl,
     .container-xxl {
-        max-width: $max-width-container-fluid;
+        max-width: 100% !important;
+        padding: 0 !important;
     }
 }
+
+@include medium-only {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 90% !important;
+        padding: 0 !important;
+    }
+}
+
+@include large {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: $max-width-container-fluid !important;
+    }
+}
+
 .btn-icon {
     transform: scale(1);
     transition: ease all 0.4s;
