@@ -4,8 +4,7 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD01',
-            'themeMenu' => 'MENU01'
+
         ],
         'Footers' => (object)[]
     ],
@@ -25,43 +24,6 @@ return [
                     'titlePanel' => 'Banners',
                     'iconPanel' => 'mdi-monitor-screenshot'
                 ]
-            ],
-        ],
-        'Contents' => (object) [
-            'CONT01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Seção de Conteúdo',
-                    'iconPanel' => 'mdi-play-protected-content'
-                ]
-            ],
-        ],
-        'Portfolios' => (object) [
-            'PORT01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'limit' => 4,
-                    'condition' => 'active=1',
-                    'relation' => 'category,subcategory',
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'O que fazemos',
-                    'anchor' =>  false,
-                    'linkMenu' => 'port01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Portifólios',
-                    'iconPanel' => 'mdi-book-open-outline'
-                ],
-                'IncludeSections' => (object) [],
             ],
         ],
     ],
