@@ -11,5 +11,5 @@ import { Dropdown } from "bootstrap/js/dist/dropdown.js";
 
 import { FormValidate } from "../views/Admin/assets/js/pages/form-validation.init.js";
 import { FormMask } from "../views/Admin/assets/js/pages/form-masks.init.js";
-import { config } from "../views/Client/assets/js/config";
 import { base } from "../views/Client/assets/js/base";
+import { config } from "../views/Client/assets/js/config";

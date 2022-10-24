@@ -11121,9 +11121,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-masks.init.js */ "./resources/views/Admin/assets/js/pages/form-masks.init.js");
 /* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_10__);
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
@@ -11248,6 +11248,27 @@ function resizeHeightSlide() {
   }
 }
 
+function insertImageMobile() {
+  // INCLUDE IMAGE MOBILE
+  console.log($(window).outerWidth());
+
+  if ($(window).outerWidth() <= 800) {
+    $.each($('[data-image-mobile]'), function (index, value) {
+      var imageMobile = $(this).data('image-mobile');
+
+      switch (value.localName) {
+        case 'img':
+          $(this).attr('src', imageMobile);
+          break;
+
+        default:
+          $(this).css('backgound', "url(".concat(imageMobile, ")"));
+          break;
+      }
+    });
+  }
+}
+
 $(function () {
   // SET HEADER FLOATING
   var ff = $('.fixed-floating'),
@@ -11259,11 +11280,13 @@ $(function () {
     } else if ($(this).scrollTop() < minScrolling - 10 && hf.hasClass('floating')) {
       hf.stop().removeClass('floating');
     }
-  }); // RESIZE SLIDE HEIGHT
+  }); // SETTINGS SLIDE
 
+  insertImageMobile();
   resizeHeightSlide();
   $(window).on('resize', function () {
     resizeHeightSlide();
+    insertImageMobile();
   });
 });
 

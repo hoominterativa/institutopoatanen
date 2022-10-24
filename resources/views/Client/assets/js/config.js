@@ -25,6 +25,25 @@ function resizeHeightSlide(){
     }
 
 }
+
+function insertImageMobile(){
+    // INCLUDE IMAGE MOBILE
+    console.log($(window).outerWidth())
+    if($(window).outerWidth() <= 800){
+        $.each($('[data-image-mobile]'), function(index, value){
+            var imageMobile = $(this).data('image-mobile')
+            switch (value.localName) {
+                case 'img':
+                    $(this).attr('src', imageMobile)
+                break;
+                default:
+                    $(this).css('backgound', `url(${imageMobile})`)
+                break;
+            }
+        })
+    }
+}
+
 $(function(){
     // SET HEADER FLOATING
     const ff = $('.fixed-floating'),
@@ -39,9 +58,12 @@ $(function(){
         }
     })
 
-    // RESIZE SLIDE HEIGHT
+    // SETTINGS SLIDE
+    insertImageMobile()
     resizeHeightSlide()
     $(window).on('resize', function(){
         resizeHeightSlide()
+        insertImageMobile()
     })
+
 })
