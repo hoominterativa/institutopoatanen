@@ -44,40 +44,38 @@
                 }
 
                 .sublink--menu{
-                    background-color:$head02-btn-cta-dropdown-background-color;
-                    border-radius:$head02-btn-cta-dropdown-border-radius;
-                    min-width:$head02-btn-cta-dropdown-min-width;
-                    flex-wrap: wrap;
-                    padding:$head02-btn-cta-dropdown-padding;
+                    background-color:$head02-menu-dropdown-background-color;
+                    border-radius:$head02-menu-dropdown-border-radius;
+                    min-width:$head02-menu-dropdown-min-width;
+                    padding:$head02-menu-dropdown-padding;
 
-                    &.show{
-                        display: $head02-btn-cta-dropdown-show-display;
-                    }
-                    &:after{
-                        content: '';
-                        width: $head02-btn-cta-dropdown-after-width;
-                        height: $head02-btn-cta-dropdown-after-height;
-                        background-color: $head02-btn-cta-dropdown-after-background-color;
-                        position: absolute;
-                        bottom: $head02-btn-cta-dropdown-after-bottom;
-                        left: $head02-btn-cta-dropdown-after-left;
-                        transform: $head02-btn-cta-dropdown-after-transform;
-                    }
                     .sublink-item{
-                        font: $head02-btn-cta-dropdown-link-font;
-                        color: $head02-btn-cta-dropdown-link-color;
-                        border-right: $head02-btn-cta-dropdown-link-border-right;
-                        padding-right: $head02-btn-cta-dropdown-link-padding-right;
-                        margin-right: $head02-btn-cta-dropdown-link-margin-right;
+                        font: $head02-menu-dropdown-link-font;
+                        color: $head02-menu-dropdown-link-color;
+                        margin-bottom: $head02-menu-dropdown-link-margin-bottom;
                         display: table;
+
                         &:nth-of-type(2n+0),
                         &:last-of-type{
                             padding-right: 0;
                             margin-right: 0;
                             border: none
                         }
+                        &:after{
+                            content: "";
+                            width: $head02-menu-dropdown-link-width;
+                            height: $head02-menu-dropdown-link-heught;
+                            background-color: $head02-menu-dropdown-link-background-color;
+                            display: block;
+                            margin-top: $head02-menu-dropdown-link-margin-top;
+                            transition: ease all 0.2s;
+                        }
                         &:hover{
-                            color: $head02-btn-cta-dropdown-link-color-hover;
+                            color: $head02-menu-dropdown-link-color-hover;
+
+                            &:after{
+                                width: 90%;
+                            }
                         }
                     }
                 }

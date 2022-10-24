@@ -23,6 +23,24 @@ $head02-link-font: $paragraph-regular;
 $head02-link-color: $color-two;
 $head02-link-color-hover: $color-black;
 
+// MENU DROPDOWN
+$head02-menu-dropdown-background-color: $bg-main;
+$head02-menu-dropdown-border-radius: 0 10px 10px;
+$head02-menu-dropdown-min-width: 165px;
+$head02-menu-dropdown-padding: 10px;
+
+// MENU DROPDOWN LINK
+$head02-menu-dropdown-link-font: $paragraph-min-regular;
+$head02-menu-dropdown-link-color: $color-white;
+$head02-menu-dropdown-link-margin-bottom: 11px;
+$head02-menu-dropdown-link-color-hover: $color-two;
+
+// MENU DROPDOWN LINK AFTER
+$head02-menu-dropdown-link-width: 30px;
+$head02-menu-dropdown-link-heught: 1px;
+$head02-menu-dropdown-link-background-color: $color-white;
+$head02-menu-dropdown-link-margin-top: 2px;
+
 // CONTAINER CTA
 $head02-container-cta-margin-right: 35px;
 $head02-container-cta-padding-right: 35px;

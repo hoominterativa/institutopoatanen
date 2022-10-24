@@ -377,29 +377,13 @@ a {
 #HEAD02 .container-navigation .menu-list .menu-item .sublink--menu {
   background-color: #404040;
   border-radius: 0 10px 10px;
-  min-width: 260px;
-  flex-wrap: wrap;
+  min-width: 165px;
   padding: 10px;
-}
-#HEAD02 .container-navigation .menu-list .menu-item .sublink--menu.show {
-  display: flex;
-}
-#HEAD02 .container-navigation .menu-list .menu-item .sublink--menu:after {
-  content: "";
-  width: 90%;
-  height: 1px;
-  background-color: #fff;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
 }
 #HEAD02 .container-navigation .menu-list .menu-item .sublink--menu .sublink-item {
   font: 0.875rem "Montserrat", sans-serif, arial;
   color: #fff;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  padding-right: 11px;
-  margin-right: 11px;
+  margin-bottom: 11px;
   display: table;
 }
 #HEAD02 .container-navigation .menu-list .menu-item .sublink--menu .sublink-item:nth-of-type(2n+0), #HEAD02 .container-navigation .menu-list .menu-item .sublink--menu .sublink-item:last-of-type {
@@ -407,8 +391,20 @@ a {
   margin-right: 0;
   border: none;
 }
+#HEAD02 .container-navigation .menu-list .menu-item .sublink--menu .sublink-item:after {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background-color: #fff;
+  display: block;
+  margin-top: 2px;
+  transition: ease all 0.2s;
+}
 #HEAD02 .container-navigation .menu-list .menu-item .sublink--menu .sublink-item:hover {
   color: #7C7C7C;
+}
+#HEAD02 .container-navigation .menu-list .menu-item .sublink--menu .sublink-item:hover:after {
+  width: 90%;
 }
 @media (max-width: 479px) {
   #HEAD02 .container-navigation {

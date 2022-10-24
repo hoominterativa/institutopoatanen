@@ -9,29 +9,36 @@
             <nav class="container-navigation d-flex align-items-center">
                 <ul class="menu-list list-inline mb-0">
                     <li class="list-inline-item menu-item dropdown">
-                        <a href="#" data-bs-toggle="dropdown" class="link transition">Home <i class="menu-arrow"></i></a>
-                        <div class="sublink--menu text-end dropdown-menu" aria-labelledby="sublink--menu" >
-                            <a href="#" class="sublink-item transition">Sublink 1</a>
-                            <a href="#" class="sublink-item transition">Sublink 2</a>
-                            <a href="#" class="sublink-item transition">Sublink 3</a>
-                            <a href="#" class="sublink-item transition">Sublink 4</a>
-                        </div>
+                        <a href="#" class="link transition">Home</a>
                     </li>
-                    <li class="list-inline-item menu-item dropdown">
-                        <a href="#" class="link transition">Sobre</a>
-                    </li>
-                    <li class="list-inline-item menu-item dropdown">
-                        <a href="#" class="link transition">Produtos</a>
-                    </li>
-                    <li class="list-inline-item menu-item dropdown">
-                        <a href="#" class="link transition">Serviços</a>
-                    </li>
-                    <li class="list-inline-item menu-item dropdown">
-                        <a href="#" class="link transition">Blogs</a>
-                    </li>
-                    <li class="list-inline-item menu-item dropdown">
-                        <a href="#" class="link transition">Contatos</a>
-                    </li>
+                    @foreach ($listMenu as $module => $menu)
+                        <li class="list-inline-item menu-item {{$menu->dropdown?'dropdown':''}}">
+                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                {{$menu->title}}
+                                @if ($menu->dropdown)
+                                    <i class="menu-arrow"></i>
+                                @endif
+                            </a>
+                            @if ($menu->dropdown)
+                                <div class="sublink--menu text-end dropdown-menu" aria-labelledby="sublink--menu" >
+                                    @foreach ($menu->dropdown as $item)
+                                        @if ($item->subList)
+                                            <div class="mb-2 {{$menu->dropdown?'dropdown':''}}">
+                                                <a href="{{$item->route}}" data-bs-toggle="dropdown" class="sublink-item transition">{{$item->name}} <i class="menu-arrow"></i></a>
+                                                <div class="dropdown-menu">
+                                                    @foreach ($item->subList as $subItem)
+                                                        <a href="{{$subItem->route}}" class="sublink-item transition">{{$subItem->name}}</a>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        @else
+                                            <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
                 {{-- END .menu-list --}}
 
@@ -84,26 +91,3 @@
 
     </div>
 </div>
-
-@foreach ($listMenu as $module => $menu)
-
-    <div class="mb-2 {{$menu->dropdown?'dropdown':''}}">
-        <a href="{{$menu->anchor?$menu->link:route($menu->link)}}"
-            class="link-item transition {{!$menu->anchor?isActive($menu->link):''}}"
-            {{$menu->dropdown?'data-bs-toggle=dropdown':''}}
-            {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}}
-            id="sublink--sidebar-right">{{$menu->title}}</a>
-
-        @if ($menu->dropdown)
-            <div class="sublink--sidebar-right text-end dropdown-menu" aria-labelledby="sublink--sidebar-right" >
-                @foreach ($menu->dropdown as $item)
-                    <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
-                    <!-- if exist sublist -->
-                    @foreach ($item->subList as $subItem)
-                        <a href="{{$subItem->route}}" class="sublink-item transition">{{$subItem->name}}</a>
-                    @endforeach
-                @endforeach
-            </div>
-        @endif
-    </div>
-@endforeach
