@@ -30,13 +30,12 @@
                 height: 100%;
                 display: block;
                 object-fit: contain;
+                object-position: bottom;
             }
 
             @include small-down{
                 position: relative;
                 height: 300px;
-                left: 50%;
-                transform: translate(-50%);
                 max-width: 476px;
                 margin-top: 30px;
             }
@@ -133,7 +132,6 @@
         @include small-down{
             justify-content: center;
             align-items: end !important;
-            align-content: flex-end;
         }
     }
     #dotsSlideCustom{

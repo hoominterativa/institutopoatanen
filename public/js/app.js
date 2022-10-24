@@ -11223,9 +11223,29 @@ __webpack_require__.r(__webpack_exports__);
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 function resizeHeightSlide() {
+  // mw500=700
   var heightSlide = $('[data-slide-height]').data('slide-height'),
-      bodyHeight = heightSlide == 'auto' ? $(window).outerHeight() : heightSlide;
-  $('[data-slide-height]').find('.container-slide').css('height', bodyHeight);
+      heightWindow = $(window).outerHeight();
+
+  if (heightSlide.split(',')) {
+    if (heightSlide.split(',')[0] == 'auto') {
+      slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
+      $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+    } else {
+      $.each(heightSlide.split(','), function (index, value) {
+        var maxWidth = value.split('=')[0].replace('mw', ''),
+            widthWindow = $(window).outerWidth();
+        height = value.split('=')[1], slideHeight = height == 'auto' ? heightWindow : height + 'px';
+
+        if (widthWindow <= maxWidth) {
+          $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+        }
+      });
+    }
+  } else {
+    slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
+    $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+  }
 }
 
 $(function () {

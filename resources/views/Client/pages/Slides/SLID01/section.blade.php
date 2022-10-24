@@ -1,7 +1,7 @@
 <section id="SLID01" class="container-fluid p-0" data-slide-height="auto">
     <div class="SLID01 owl-carousel">
         @foreach ($slides as $slide)
-            <div class="container-slide">
+            <div class="container-slide container-fluid">
                 @if ($slide->title_button=='' && $slide->link_button)
                     <a href="{{$slide->link_button}}" target="{{$slide->target_link_button}}" class="link-full"></a>
                 @endif
