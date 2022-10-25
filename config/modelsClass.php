@@ -2,13 +2,6 @@
 return [
     // Change only in case of new modules or models
     'Class' => (object) [
-        'Slides' => (object)[
-            'SLID01' => (object)[
-                'controller' => App\Http\Controllers\Slides\SLID01Controller::class,
-                'model' => App\Models\Slides\SLID01Slides::class,
-                'seedQty' => 1,
-            ],
-        ],
         'Contents' => (object)[
             'CONT01' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT01Controller::class,
@@ -16,6 +9,7 @@ return [
                 'seedQty' => 1,
             ],
         ],
+
         'Portfolios' => (object)[
             'PORT01' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,
@@ -33,6 +27,22 @@ return [
                         'seedQty' => 4,
                     ]
                 ]
+            ],
+        ],
+
+        'Slides' => (object)[
+            'SLID01' => (object)[
+                'controller' => App\Http\Controllers\Slides\SLID01Controller::class,
+                'model' => App\Models\Slides\SLID01Slides::class,
+                'seedQty' => 1,
+            ],
+        ],
+
+        'Topics' => (object)[
+            'TOPI01' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI01Controller::class,
+                'model' => App\Models\Topics\TOPI01Topics::class,
+                'seedQty' => 5,
             ],
         ],
     ],

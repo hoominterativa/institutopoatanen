@@ -56,8 +56,8 @@
                                                 <td class="bs-checkbox align-middle">
                                                     <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$test->id}}"></label>
                                                 </td>
-                                                <td class="align-middle">
-                                                    <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('admin/assets/images/users/user-10.jpg')}})"></div>
+                                                <td class="align-middle avatar-group">
+                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('admin/assets/images/users/user-10.jpg')}})"></div>
                                                 </td>
                                                 <td class="align-middle">Boudreaux</td>
                                                 <td class="align-middle">Traffic Court Referee</td>

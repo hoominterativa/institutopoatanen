@@ -1,0 +1,86 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+#TOPI01{
+    padding: $topi01-TOPI01-padding;
+    @include small-down{
+        padding: 35px 0;
+    }
+    .header-topic{
+        text-align: $topi01-header-topic-text-align;
+        .container-title{
+            margin-bottom: $topi01-header-container-title-margin-bottom;
+            .title{
+                font-size: $topi01-header-title-font-size;
+                font-family: $topi01-header-title-font-family;
+                color: $topi01-header-title-color;
+                display: block;
+            }
+            .subtitle{
+                font-size: $topi01-header-subtitle-font-size;
+                font-family: $topi01-header-subtitle-font-family;
+                color: $topi01-header-subtitle-color;
+                display: block;
+            }
+        }
+        .paragraph{
+            width: $topi01-header-paragraph-width;
+            margin: $topi01-header-paragraph-margin;
+            margin-bottom: $topi01-header-paragraph-margin-bottom;
+            margin-top: $topi01-header-paragraph-margin-top;
+
+            @include small-down{
+                width: $topi01-header-paragraph-width-responsive;
+            }
+        }
+        .line{
+            background-color: $topi01-header-line-background-color;
+        }
+    }
+    .container-box {
+        @include small-down{
+            width: 70%;
+        }
+        .owl-stage-outer{
+            @include small-down{
+                overflow: visible;
+            }
+        }
+        .box-topic{
+            padding-right: $topi01-box-topic-padding-right;
+            padding-left: $topi01-box-topic-padding-left;
+
+            .content{
+                padding: $topi01-box-topic-content-padding;
+                .container-info{
+                    position: relative;
+                    z-index: 1;
+                    min-height: $topi01-box-topic-container-info-min-height;
+                    .image{
+                        img{
+                            width: $topi01-box-topic-image-width;
+                        }
+                    }
+                    .description{
+                        text-align: $topi01-box-topic-description-text-align;
+                        .title{
+                            font-size: $topi01-box-topic-title-font-size;
+                            font-family: $topi01-box-topic-title-font-family;
+                            color: $topi01-box-topic-title-color;
+                        }
+                        .paragraph{
+                            font: $topi01-box-topic-paragraph-font;
+                            color: $topi01-box-topic-paragraph-color;
+                            font-weight: $topi01-box-topic-paragraph-font-weight;
+                        }
+                    }
+                }
+
+                &:hover{
+                    transform: $topi01-box-topic-paragraph-transform-hover;
+                    box-shadow: $topi01-box-topic-paragraph-box-shadow-hover;
+                }
+            }
+        }
+    }
+}

@@ -3,12 +3,15 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Optimization;
+use App\Models\SettingTheme;
+use App\Models\GeneralSetting;
 use Illuminate\Database\Seeder;
 use App\Models\Slides\SLID01Slides;
 use App\Models\Contents\CONT01Contents;
 use App\Models\Portfolios\PORT01Portfolios;
-use App\Models\Portfolios\PORT01PortfoliosCategory;
 use App\Models\Portfolios\PORT01PortfoliosSection;
+use App\Models\Portfolios\PORT01PortfoliosCategory;
 use App\Models\Portfolios\PORT01PortfoliosSubategory;
 
 class DatabaseSeeder extends Seeder
@@ -40,11 +43,24 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        User::factory(1)->create();
-        $this->call([
-            SettingThemeSeeder::class,
-            OptimizationSeeder::class,
-            GeneralSettingSeeder::class,
-        ]);
+        if(!User::get()->count()) User::factory(1)->create();
+
+        if(!SettingTheme::first()->count()){
+            $this->call([
+                SettingThemeSeeder::class,
+            ]);
+        }
+
+        if(!Optimization::first()->count()){
+            $this->call([
+                OptimizationSeeder::class,
+            ]);
+        }
+
+        if(!GeneralSetting::first()->count()){
+            $this->call([
+                GeneralSettingSeeder::class,
+            ]);
+        }
     }
 }
