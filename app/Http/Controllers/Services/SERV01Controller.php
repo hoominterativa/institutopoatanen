@@ -1,9 +1,9 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Http\Controllers\Services;
 
-use {{ namespacedModel }};
-use {{ rootNamespace }}Http\Controllers\Controller;
+use App\Models\Services\SERV01Services;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
-class {{ class }} extends Controller
+class SERV01Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -64,7 +64,7 @@ class {{ class }} extends Controller
 
         */
 
-        if({{ model }}::create($data)){
+        if(SERV01Services::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -78,10 +78,10 @@ class {{ class }} extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \{{ namespacedModel }}  ${{ model }}
+     * @param  \App\Models\Services\SERV01Services  $SERV01Services
      * @return \Illuminate\Http\Response
      */
-    public function edit({{ model }} ${{ model }})
+    public function edit(SERV01Services $SERV01Services)
     {
         //
     }
@@ -90,10 +90,10 @@ class {{ class }} extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedModel }}  ${{ model }}
+     * @param  \App\Models\Services\SERV01Services  $SERV01Services
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, {{ model }} ${{ model }})
+    public function update(Request $request, SERV01Services $SERV01Services)
     {
         $data = $request->all();
 
@@ -105,11 +105,11 @@ class {{ class }} extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
         if($path_image){
-            storageDelete(${{ model }}, 'path_image');
+            storageDelete($SERV01Services, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete(${{ model }}, 'path_image');
+            storageDelete($SERV01Services, 'path_image');
             $data['path_image'] = null;
         }
         */
@@ -123,18 +123,18 @@ class {{ class }} extends Controller
         $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
 
         if($path_archive){
-            storageDelete(${{ model }}, 'path_archive');
+            storageDelete($SERV01Services, 'path_archive');
             $data['path_archive'] = $path_archive;
         }
 
         if($request->delete_path_archive && !$path_archive){
-            storageDelete(${{ model }}, 'path_archive');
+            storageDelete($SERV01Services, 'path_archive');
             $data['path_archive'] = null;
         }
 
         */
 
-        if(${{ model }}->fill($data)->save()){
+        if($SERV01Services->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -148,15 +148,15 @@ class {{ class }} extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \{{ namespacedModel }}  ${{ model }}
+     * @param  \App\Models\Services\SERV01Services  $SERV01Services
      * @return \Illuminate\Http\Response
      */
-    public function destroy({{ model }} ${{ model }})
+    public function destroy(SERV01Services $SERV01Services)
     {
-        //storageDelete(${{ model }}, 'path_image');
-        //storageDelete(${{ model }}, 'path_archive');
+        //storageDelete($SERV01Services, 'path_image');
+        //storageDelete($SERV01Services, 'path_archive');
 
-        if(${{ model }}->delete()){
+        if($SERV01Services->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -172,14 +172,14 @@ class {{ class }} extends Controller
     {
         /* Use the code below to upload image or archive, if not, delete code
 
-        ${{ model }}s = {{ model }}::whereIn('id', $request->deleteAll)->get();
-        foreach(${{ model }}s as ${{ model }}){
-            storageDelete(${{ model }}, 'path_image');
-            storageDelete(${{ model }}, 'path_archive');
+        $SERV01Servicess = SERV01Services::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV01Servicess as $SERV01Services){
+            storageDelete($SERV01Services, 'path_image');
+            storageDelete($SERV01Services, 'path_archive');
         }
         */
 
-        if($deleted = {{ model }}::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = SERV01Services::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
@@ -193,7 +193,7 @@ class {{ class }} extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            {{ model }}::where('id', $id)->update(['sorting' => $sorting]);
+            SERV01Services::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
@@ -204,13 +204,13 @@ class {{ class }} extends Controller
      * Display the specified resource.
      * Content method
      *
-     * @param  \{{ namespacedModel }}  ${{ model }}
+     * @param  \App\Models\Services\SERV01Services  $SERV01Services
      * @return \Illuminate\Http\Response
      */
-    //public function show({{ model }} ${{ model }})
+    // public function show(SERV01Services $SERV01Services)
     public function show()
     {
-        //
+        return view('Client.pages.Services.SERV01.show');
     }
 
     /**
@@ -222,9 +222,9 @@ class {{ class }} extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV01');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Services.SERV01.page',[
             'sections' => $sections
         ]);
     }
@@ -236,6 +236,6 @@ class {{ class }} extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Services.SERV01.section');
     }
 }

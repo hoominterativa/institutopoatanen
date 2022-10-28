@@ -1,34 +1,34 @@
 function resizeHeightSlide(){
     // mw500=700
-    var heightSlide = $('[data-slide-height]').data('slide-height'),
-        heightWindow = $(window).outerHeight()
+    if($('[data-slide-height]').length){
+        var heightSlide = $('[data-slide-height]').data('slide-height'),
+            heightWindow = $(window).outerHeight()
 
-    if(heightSlide.split(',')){
-        if(heightSlide.split(',')[0]=='auto'){
+        if(heightSlide.split(',')){
+            if(heightSlide.split(',')[0]=='auto'){
+                slideHeight = heightSlide=='auto'?heightWindow:heightSlide+'px'
+                $('[data-slide-height]').find('.container-slide').css('height', slideHeight)
+            }else{
+                $.each(heightSlide.split(','), function(index, value){
+                    var maxWidth = (value.split('=')[0]).replace('mw', ''),
+                        widthWindow = $(window).outerWidth()
+                        height = value.split('=')[1],
+                        slideHeight = height=='auto'?heightWindow:height+'px'
+
+                    if(widthWindow <= maxWidth){
+                        $('[data-slide-height]').find('.container-slide').css('height', slideHeight)
+                    }
+                })
+            }
+        }else{
             slideHeight = heightSlide=='auto'?heightWindow:heightSlide+'px'
             $('[data-slide-height]').find('.container-slide').css('height', slideHeight)
-        }else{
-            $.each(heightSlide.split(','), function(index, value){
-                var maxWidth = (value.split('=')[0]).replace('mw', ''),
-                    widthWindow = $(window).outerWidth()
-                    height = value.split('=')[1],
-                    slideHeight = height=='auto'?heightWindow:height+'px'
-
-                if(widthWindow <= maxWidth){
-                    $('[data-slide-height]').find('.container-slide').css('height', slideHeight)
-                }
-            })
         }
-    }else{
-        slideHeight = heightSlide=='auto'?heightWindow:heightSlide+'px'
-        $('[data-slide-height]').find('.container-slide').css('height', slideHeight)
     }
-
 }
 
 function insertImageMobile(){
     // INCLUDE IMAGE MOBILE
-    console.log($(window).outerWidth())
     if($(window).outerWidth() <= 800){
         $.each($('[data-image-mobile]'), function(index, value){
             var imageMobile = $(this).data('image-mobile')

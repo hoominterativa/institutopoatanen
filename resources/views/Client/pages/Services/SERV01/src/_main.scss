@@ -1,0 +1,534 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+#SERV01{
+
+    /*
+    ==================================
+    ========= BEGIN SECTION ==========
+    ==================================
+    */
+    &.serv01{
+        padding: $serv01-padding;
+        @include small-down{
+            padding: 35px 0;
+        }
+    }
+    .serv01{
+        &__header{
+            text-align: $serv01-header-service-text-align;
+            &__container{
+                margin-bottom: $serv01-header-container-title-margin-bottom;
+            }
+            &__title{
+                font-size: $serv01-header-title-font-size;
+                font-family: $serv01-header-title-font-family;
+                color: $serv01-header-title-color;
+                display: block;
+            }
+            &__subtitle{
+                font-size: $serv01-header-subtitle-font-size;
+                font-family: $serv01-header-subtitle-font-family;
+                color: $serv01-header-subtitle-color;
+                display: block;
+            }
+            &__line{
+                background-color: $serv01-header-line-background-color;
+            }
+            &__paragraph{
+                font: $serv01-header-paragraph-font;
+                width: $serv01-header-paragraph-width;
+                margin: $serv01-header-paragraph-margin;
+                margin-bottom: $serv01-header-paragraph-margin-bottom;
+                margin-top: $serv01-header-paragraph-margin-top;
+
+                @include small-down{
+                    width: $serv01-header-paragraph-width-responsive;
+                }
+            }
+        }
+        // END __header
+
+        &__container-box{
+            @include small-down{
+                width: 70%;
+            }
+            .owl-stage-outer{
+                @include small-down{
+                    overflow: visible;
+                }
+            }
+            &__item{
+                padding-right: $serv01-box-service-padding-right;
+                padding-left: $serv01-box-service-padding-left;
+                .content{
+                    padding: $serv01-box-service-content-padding;
+
+                    &:hover{
+                        transform: $serv01-box-service-paragraph-transform-hover;
+                        box-shadow: $serv01-box-service-paragraph-box-shadow-hover;
+                        .serv01__container-box__link{
+                            background-color: $serv01-box-service-link-background-color-hover;
+                            color: $serv01-box-service-link-color-hover;
+                            &__icon{
+                                filter: $serv01-box-service-link-icon-hover;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__info{
+                position: relative;
+                z-index: 1;
+                min-height: $serv01-box-service-container-info-min-height;
+            }
+            &__image{
+                margin-bottom: $serv01-box-service-image-margin-bottom;
+                img{
+                    width: $serv01-box-service-image-width;
+                }
+            }
+            &__description{
+                text-align: $serv01-box-service-description-text-align;
+            }
+            &__title{
+                font-size: $serv01-box-service-title-font-size;
+                font-family: $serv01-box-service-title-font-family;
+                color: $serv01-box-service-title-color;
+            }
+            &__paragraph{
+                font: $serv01-box-service-paragraph-font;
+                color: $serv01-box-service-paragraph-color;
+                font-weight: $serv01-box-service-paragraph-font-weight;
+                width: $serv01-box-service-paragraph-width;
+                @include small-down{
+                    width: $serv01-box-service-paragraph-width-responsive;
+                }
+            }
+            &__link{
+                font: $serv01-box-service-link-font;
+                color: $serv01-box-service-link-color;
+                position: $serv01-box-service-link-position;
+                bottom: $serv01-box-service-link-bottom;
+                left: $serv01-box-service-link-left;
+                transform: $serv01-box-service-link-transform;
+                z-index: 2;
+                min-width: $serv01-box-service-link-min-width;
+                padding: $serv01-box-service-link-padding;
+                font-weight: $serv01-box-service-link-font-weight;
+                background-color: $serv01-box-service-link-background-color;
+                text-align: $serv01-box-service-link-text-align;
+
+                &__icon{
+                    width: 25px;
+                }
+            }
+        }
+        // END __container-box
+    }
+    // END .serv01
+
+    /*
+    ==================================
+    =========== BEGIN PAGE ===========
+    ==================================
+    */
+    .serv01-page{
+        &__header{
+            text-align: $serv01-page-header-service-text-align;
+            background-color: $serv01-page-header-service-background-color;
+            padding: $serv01-page-header-service-padding;
+            margin: $serv01-page-header-service-margin;
+            &__container{
+                margin-bottom: $serv01-page-header-container-title-margin-bottom;
+            }
+            &__title{
+                font-size: $serv01-page-header-title-font-size;
+                font-family: $serv01-page-header-title-font-family;
+                color: $serv01-page-header-title-color;
+                display: block;
+            }
+            &__subtitle{
+                font-size: $serv01-page-header-subtitle-font-size;
+                font-family: $serv01-page-header-subtitle-font-family;
+                color: $serv01-page-header-subtitle-color;
+                display: block;
+            }
+            &__line{
+                background-color: $serv01-page-header-line-background-color;
+            }
+            &__paragraph{
+                font: $serv01-page-header-paragraph-font;
+                width: $serv01-page-header-paragraph-width;
+                margin: $serv01-page-header-paragraph-margin;
+                margin-bottom: $serv01-page-header-paragraph-margin-bottom;
+                margin-top: $serv01-page-header-paragraph-margin-top;
+
+                @include small-down{
+                    width: $serv01-page-header-paragraph-width-responsive;
+                }
+            }
+        }
+        // END __header
+
+        &__container-box{
+            @include small-down{
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .owl-stage-outer{
+                @include small-down{
+                    overflow: visible;
+                }
+            }
+            &__item{
+                padding-right: $serv01-page-box-service-padding-right;
+                padding-left: $serv01-page-box-service-padding-left;
+                margin-bottom: $serv01-page-box-service-margin-bottom;
+                .content{
+                    padding: $serv01-page-box-service-content-padding;
+
+                    &:hover{
+                        transform: $serv01-page-box-service-paragraph-transform-hover;
+                        box-shadow: $serv01-page-box-service-paragraph-box-shadow-hover;
+                        .serv01__container-box__link{
+                            background-color: $serv01-page-box-service-link-background-color-hover;
+                            color: $serv01-page-box-service-link-color-hover;
+                            &__icon{
+                                filter: $serv01-page-box-service-link-icon-hover;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__info{
+                position: relative;
+                z-index: 1;
+                min-height: $serv01-page-box-service-container-info-min-height;
+            }
+            &__image{
+                margin-bottom: $serv01-page-box-service-image-margin-bottom;
+                img{
+                    width: $serv01-page-box-service-image-width;
+                }
+            }
+            &__description{
+                text-align: $serv01-page-box-service-description-text-align;
+            }
+            &__title{
+                font-size: $serv01-page-box-service-title-font-size;
+                font-family: $serv01-page-box-service-title-font-family;
+                color: $serv01-page-box-service-title-color;
+            }
+            &__paragraph{
+                font: $serv01-page-box-service-paragraph-font;
+                color: $serv01-page-box-service-paragraph-color;
+                font-weight: $serv01-page-box-service-paragraph-font-weight;
+                width: $serv01-page-box-service-paragraph-width;
+                @include small-down{
+                    width: $serv01-page-box-service-paragraph-width-responsive;
+                }
+            }
+            &__link{
+                font: $serv01-page-box-service-link-font;
+                color: $serv01-page-box-service-link-color;
+                position: $serv01-page-box-service-link-position;
+                bottom: $serv01-page-box-service-link-bottom;
+                left: $serv01-page-box-service-link-left;
+                transform: $serv01-page-box-service-link-transform;
+                z-index: 2;
+                min-width: $serv01-page-box-service-link-min-width;
+                padding: $serv01-page-box-service-link-padding;
+                font-weight: $serv01-page-box-service-link-font-weight;
+                background-color: $serv01-page-box-service-link-background-color;
+                text-align: $serv01-page-box-service-link-text-align;
+
+                &__icon{
+                    width: 25px;
+                }
+            }
+        }
+        // END __container-box
+    }
+    // END .serv01
+
+    /*
+    ==================================
+    ========== BEGIN SHOW ============
+    ==================================
+    */
+    &.serv01-show{
+        padding: 0;
+    }
+    .serv01-show{
+        &__header{
+            padding: $serv01-show-header-padding;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            @include small-down{
+                padding: 80px 30px 100px 30px;
+            }
+            &__title{
+                font-size: $serv01-show-header-title-font-size;
+                font-weight: $serv01-show-header-title-font-weight;
+                font-family: $serv01-show-header-title-font-family;
+                color: $serv01-show-header-title-color;
+                text-align: $serv01-show-header-title-text-align;
+            }
+            &__links{
+                margin-top: $serv01-show-header-links-margin-top;
+                @include small-down{
+                    width: 85%;
+                }
+                .owl-stage-outer{
+                    @include small-down{
+                        overflow: visible;
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
+            &__link-item{
+                font-size: $serv01-show-header-link-item-font-size;
+                font-weight: $serv01-show-header-link-item-font-weight;
+                font-family: $serv01-show-header-link-item-font-family;
+                color: $serv01-show-header-link-item-color;
+                margin: $serv01-show-header-link-item-margin;
+                padding: $serv01-show-header-link-item-padding;
+
+                @include small-down{
+                    background-color: #B3B3B3;
+                    margin: 0 auto;
+                    display: table;
+                    padding: 10px 30px;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                &::after{
+                    content: '';
+                    border-top: $serv01-show-header-after-border-top;
+                    border-left: $serv01-show-header-after-border-left;
+                    border-right: $serv01-show-header-after-border-right;
+                    display: $serv01-show-header-after-display;
+                    margin: $serv01-show-header-after-margin;
+                    margin-top: $serv01-show-header-after-margin-top;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: 0.2s all ease;
+
+                    @include small-down{
+                        display: none;
+                    }
+                }
+                &:hover{
+                    color: $serv01-show-header-link-item-color-hover;
+                    @include small-down{
+                        color: #fff;
+                        background-color: #000;
+                    }
+                    &::after{
+                        opacity: 1;
+                        visibility: visible;
+                        transition: 0.2s all ease;
+                    }
+                }
+            }
+            // END __link-item
+
+            &__link-item--active{
+                color: $serv01-show-header-link-item-color-hover;
+                @include small-down{
+                    color: #fff;
+                    background-color: #000;
+                }
+                &::after{
+                    opacity: 1;
+                    visibility: visible;
+                    transition: 0.2s all ease;
+                }
+            }
+        }
+        // END __header
+
+        &__content{
+            padding: $serv01-show-content-padding;
+
+            @include small-down{
+                padding: 50px 0 !important;
+            }
+            &__info{
+                display: $serv01-show-content-info-display;
+                width: $serv01-show-content-info-width;
+                margin: $serv01-show-content-info-margin;
+                text-align: $serv01-show-content-info-text-align;
+                position: relative;
+                &__link{
+                    position: $serv01-show-content-link-position;
+                    right: $serv01-show-content-link-right;
+                    left: $serv01-show-content-link-left;
+                    top: $serv01-show-content-link-top;
+                    bottom: $serv01-show-content-link-bottom;
+                    display: $serv01-show-content-link-display;
+                }
+            }
+            &__icon{
+                width: $serv01-show-content-icon-width;
+                margin: $serv01-show-content-icon-margin;
+            }
+            &__subtitle{
+                font-size: $serv01-show-content-subtitle-font-size;
+                font-weight: $serv01-show-content-subtitle-font-weight;
+                display: $serv01-show-content-subtitle-display;
+            }
+            &__title{
+                font-size: $serv01-show-content-title-font-size;
+                font-weight: $serv01-show-content-title-font-weight;
+                display: $serv01-show-content-title-display;
+            }
+            &__line{
+                background-color: $serv01-show-content-line-background-color;
+                margin: $serv01-show-content-line-margin;
+            }
+            &__description{
+                font: $serv01-show-content-description-font;
+                font-weight: $serv01-show-content-description-font-weight;
+                color: $serv01-show-content-description-color;
+                text-align: $serv01-show-content-description-text-align;
+                padding: $serv01-show-content-description-padding;
+                @include small-down{
+                    padding: 0 20px !important;
+                }
+            }
+        }
+        // END __content
+
+
+        &__topics{
+            padding: $serv01-show-topics-padding;
+            background-color: $serv01-show-topics-background-color;
+            @include small-down{
+                padding: 35px 0;
+            }
+            &__header{
+                text-align: $serv01-show-topics-header-service-text-align;
+                &__container{
+                    margin-bottom: $serv01-show-topics-header-container-title-margin-bottom;
+                }
+                &__title{
+                    font-size: $serv01-show-topics-header-title-font-size;
+                    font-family: $serv01-show-topics-header-title-font-family;
+                    color: $serv01-show-topics-header-title-color;
+                    display: block;
+                }
+                &__subtitle{
+                    font-size: $serv01-show-topics-header-subtitle-font-size;
+                    font-family: $serv01-show-topics-header-subtitle-font-family;
+                    color: $serv01-show-topics-header-subtitle-color;
+                    display: block;
+                }
+                &__line{
+                    background-color: $serv01-show-topics-header-line-background-color;
+                }
+                &__paragraph{
+                    font: $serv01-show-topics-header-paragraph-font;
+                    width: $serv01-show-topics-header-paragraph-width;
+                    margin: $serv01-show-topics-header-paragraph-margin;
+                    margin-bottom: $serv01-show-topics-header-paragraph-margin-bottom;
+                    margin-top: $serv01-show-topics-header-paragraph-margin-top;
+
+                    @include small-down{
+                        width: $serv01-show-topics-header-paragraph-width-responsive;
+                    }
+                }
+            }
+            // END __header
+
+            &__container-box{
+                @include small-down{
+                    width: 70%;
+                    margin-left: 20px;
+                }
+                .owl-stage-outer{
+                    @include small-down{
+                        overflow: visible;
+                    }
+                }
+                &__item{
+                    padding-right: $serv01-show-topics-box-service-padding-right;
+                    padding-left: $serv01-show-topics-box-service-padding-left;
+                    .content{
+                        padding: $serv01-show-topics-box-service-content-padding;
+
+                        &:hover{
+                            transform: $serv01-show-topics-box-service-paragraph-transform-hover;
+                            box-shadow: $serv01-show-topics-box-service-paragraph-box-shadow-hover;
+                            .serv01-topics__container-box__link{
+                                background-color: $serv01-show-topics-box-service-link-background-color-hover;
+                                color: $serv01-show-topics-box-service-link-color-hover;
+                                &__icon{
+                                    filter: $serv01-show-topics-box-service-link-icon-hover;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__info{
+                    position: relative;
+                    z-index: 1;
+                    min-height: $serv01-show-topics-box-service-container-info-min-height;
+                }
+                &__image{
+                    margin-bottom: $serv01-show-topics-box-service-image-margin-bottom;
+                    img{
+                        width: $serv01-show-topics-box-service-image-width;
+                    }
+                }
+                &__description{
+                    text-align: $serv01-show-topics-box-service-description-text-align;
+                }
+                &__title{
+                    font-size: $serv01-show-topics-box-service-title-font-size;
+                    font-family: $serv01-show-topics-box-service-title-font-family;
+                    color: $serv01-show-topics-box-service-title-color;
+                }
+                &__paragraph{
+                    font: $serv01-show-topics-box-service-paragraph-font;
+                    color: $serv01-show-topics-box-service-paragraph-color;
+                    font-weight: $serv01-show-topics-box-service-paragraph-font-weight;
+                    width: $serv01-show-topics-box-service-paragraph-width;
+                    @include small-down{
+                        width: $serv01-show-topics-box-service-paragraph-width-responsive;
+                    }
+                }
+                &__link{
+                    font: $serv01-show-topics-box-service-link-font;
+                    color: $serv01-show-topics-box-service-link-color;
+                    position: $serv01-show-topics-box-service-link-position;
+                    bottom: $serv01-show-topics-box-service-link-bottom;
+                    left: $serv01-show-topics-box-service-link-left;
+                    transform: $serv01-show-topics-box-service-link-transform;
+                    z-index: 2;
+                    min-width: $serv01-show-topics-box-service-link-min-width;
+                    padding: $serv01-show-topics-box-service-link-padding;
+                    font-weight: $serv01-show-topics-box-service-link-font-weight;
+                    background-color: $serv01-show-topics-box-service-link-background-color;
+                    text-align: $serv01-show-topics-box-service-link-text-align;
+
+                    &__icon{
+                        width: 25px;
+                    }
+                }
+            }
+            // END __container-box
+        }
+        // END __topics
+    }
+    // END .serv01-show
+}

@@ -77,7 +77,7 @@ class ModuleMakeModel extends Command
 
                 Artisan::call('make:migration '.$nameMigration.' --path=database/migrations/'.$arguments['module'].'/'.$arguments['code']);
                 Artisan::call('make:seeder '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model'].'Seeder');
-                Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model'].'Factory');
+                Artisan::call('make:factory '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model'].'Factory --model='.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model']);
 
                 $this->info('Migration criada com sucesso!');
 

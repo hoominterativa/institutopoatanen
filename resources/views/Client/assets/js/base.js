@@ -1,1 +1,1 @@
-import '../../pages/Topics/TOPI01/src/main';
+import '../../pages/Services/SERV01/src/main';

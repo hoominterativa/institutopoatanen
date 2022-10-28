@@ -1,6 +1,7 @@
 <?php
+// Change only in case of new modules or models
+
 return [
-    // Change only in case of new modules or models
     'Class' => (object) [
         'Contents' => (object)[
             'CONT01' => (object)[
@@ -9,6 +10,7 @@ return [
                 'seedQty' => 1,
             ],
         ],
+        // END CONTENTS
 
         'Portfolios' => (object)[
             'PORT01' => (object)[
@@ -29,6 +31,16 @@ return [
                 ]
             ],
         ],
+        // END PORTFOLIOS
+
+        'Services' => (object)[
+            'SERV01' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV01Controller::class,
+                'model' => App\Models\Services\SERV01Services::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END SERVICES
 
         'Slides' => (object)[
             'SLID01' => (object)[
@@ -37,6 +49,7 @@ return [
                 'seedQty' => 1,
             ],
         ],
+        // END SLIDES
 
         'Topics' => (object)[
             'TOPI01' => (object)[
@@ -45,5 +58,6 @@ return [
                 'seedQty' => 5,
             ],
         ],
+        // END TOPICS
     ],
 ];

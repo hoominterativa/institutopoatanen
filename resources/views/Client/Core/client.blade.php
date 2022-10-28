@@ -28,7 +28,7 @@
 </head>
 <body>
     {!!$optimization->other_scripts!!}
-    <header id="mainHeader" class="fixed-floating top" data-min-scrolling="50">
+    <header id="mainHeader">
         {!!$renderHeader!!}
     </header>
     @yield('content')

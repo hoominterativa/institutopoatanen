@@ -10,7 +10,8 @@ class IncludeSectionsController extends Controller
     public function IncludeSectionsPage($GetModule, $getModel)
     {
         $InsertSectionsPage = config('modelsConfig.InsertModelsMain');
-        $IncludeSections = $InsertSectionsPage->$GetModule->$getModel->IncludeSections;
+        $IncludeSections = $InsertSectionsPage->$GetModule->$getModel->IncludeSections??null;
+
         $return = [];
 
         if($IncludeSections){

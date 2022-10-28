@@ -18,7 +18,7 @@
                 </header>
             @endif
             @if ($topics->count())
-                <div class="container-box row carousel-topi01 owl-carousel">
+                <div class="container-box row carousel-topi01">
                     @foreach ($topics as $topic)
                         <article class="box-topic col">
                             <div class="content transition">

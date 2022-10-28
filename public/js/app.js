@@ -11183,8 +11183,8 @@ $(document).ready(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Topics/TOPI01/src/main */ "./resources/views/Client/pages/Topics/TOPI01/src/main.js");
-/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Services/SERV01/src/main */ "./resources/views/Client/pages/Services/SERV01/src/main.js");
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -11198,34 +11198,34 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 function resizeHeightSlide() {
   // mw500=700
-  var heightSlide = $('[data-slide-height]').data('slide-height'),
-      heightWindow = $(window).outerHeight();
+  if ($('[data-slide-height]').length) {
+    var heightSlide = $('[data-slide-height]').data('slide-height'),
+        heightWindow = $(window).outerHeight();
 
-  if (heightSlide.split(',')) {
-    if (heightSlide.split(',')[0] == 'auto') {
+    if (heightSlide.split(',')) {
+      if (heightSlide.split(',')[0] == 'auto') {
+        slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
+        $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+      } else {
+        $.each(heightSlide.split(','), function (index, value) {
+          var maxWidth = value.split('=')[0].replace('mw', ''),
+              widthWindow = $(window).outerWidth();
+          height = value.split('=')[1], slideHeight = height == 'auto' ? heightWindow : height + 'px';
+
+          if (widthWindow <= maxWidth) {
+            $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+          }
+        });
+      }
+    } else {
       slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
       $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
-    } else {
-      $.each(heightSlide.split(','), function (index, value) {
-        var maxWidth = value.split('=')[0].replace('mw', ''),
-            widthWindow = $(window).outerWidth();
-        height = value.split('=')[1], slideHeight = height == 'auto' ? heightWindow : height + 'px';
-
-        if (widthWindow <= maxWidth) {
-          $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
-        }
-      });
     }
-  } else {
-    slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
-    $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
   }
 }
 
 function insertImageMobile() {
   // INCLUDE IMAGE MOBILE
-  console.log($(window).outerWidth());
-
   if ($(window).outerWidth() <= 800) {
     $.each($('[data-image-mobile]'), function (index, value) {
       var imageMobile = $(this).data('image-mobile');
@@ -11266,38 +11266,91 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Topics/TOPI01/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI01/src/main.js ***!
-  \****************************************************************/
+/***/ "./resources/views/Client/pages/Services/SERV01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Services/SERV01/src/main.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(function () {
-  $('.carousel-topi01').owlCarousel({
-    margin: 0,
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: false,
-    nav: false,
-    rewind: true,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 1
-      },
-      // breakpoint from 360 up
-      361: {
-        items: 1
-      },
-      // breakpoint from 768 up
-      800: {
-        items: 5,
-        touchDrag: false,
-        mouseDrag: false
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-serv01').addClass('owl-carousel');
+    $('.carousel-serv01').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
       }
-    }
-  });
+    });
+    $('.carousel-serv01-show__links').addClass('owl-carousel');
+    $('.carousel-serv01-show__links').owlCarousel({
+      margin: 11,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 2
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 2
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+    $('.carousel-serv01-show__topics').addClass('owl-carousel');
+    $('.carousel-serv01-show__topics').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+  }
 });
 
 /***/ }),
