@@ -22,9 +22,14 @@ class SERV01ServicesFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+            "title" => $this->faker->text(6),
+            "subtitle" => $this->faker->text(9),
+            "description" => $this->faker->text(60),
+            "text" => $this->faker->text(900),
+            "active" => 1,
+            "featured" => 1,
+            "path_image" => "uploads/tmp/image-box.jpg",
+            "path_image_icon" => "uploads/tmp/icon-general.svg",
         ];
     }
 }

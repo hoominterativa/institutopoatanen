@@ -25,14 +25,21 @@
     border: none;
     padding: 0;
     font-size: 22px;
-    color: #98a6ad;
+    color: #9f9f9f;
 }
 
 .btn-icon:hover {
-    color: #fff;
+    color: #494949;
     text-decoration: none;
 }
 
+[data-sidebar-color=dark] .btn-icon{
+    color: #d1d1d1;
+}
+
+[data-sidebar-color=dark] .btn-icon:hover {
+    color: #818181;
+}
 .jq-icon-success {
     background-color: #5ba035;
     border-color: #5ba035;

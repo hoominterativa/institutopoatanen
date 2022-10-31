@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV01Services;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
-use App\Models\Services\SERV01ServicesSection;
+use App\Models\Services\SERV01ServicesAdvantage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
-class SERV01Controller extends Controller
+class SERV01AdvantageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,13 +20,7 @@ class SERV01Controller extends Controller
      */
     public function index()
     {
-        $services = SERV01Services::active()->sorting()->paginate();
-        $section = SERV01ServicesSection::active()->first();
-
-        return view('Admin.cruds.Services.SERV01.index',[
-            'services' => $services,
-            'section' => $section
-        ]);
+        //
     }
 
     /**
@@ -71,7 +64,7 @@ class SERV01Controller extends Controller
 
         */
 
-        if(SERV01Services::create($data)){
+        if(SERV01ServicesAdvantage::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -85,10 +78,10 @@ class SERV01Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Services\SERV01Services  $SERV01Services
+     * @param  \App\Models\Services\SERV01ServicesAdvantage  $SERV01ServicesAdvantage
      * @return \Illuminate\Http\Response
      */
-    public function edit(SERV01Services $SERV01Services)
+    public function edit(SERV01ServicesAdvantage $SERV01ServicesAdvantage)
     {
         //
     }
@@ -97,10 +90,10 @@ class SERV01Controller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Services\SERV01Services  $SERV01Services
+     * @param  \App\Models\Services\SERV01ServicesAdvantage  $SERV01ServicesAdvantage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SERV01Services $SERV01Services)
+    public function update(Request $request, SERV01ServicesAdvantage $SERV01ServicesAdvantage)
     {
         $data = $request->all();
 
@@ -112,11 +105,11 @@ class SERV01Controller extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
         if($path_image){
-            storageDelete($SERV01Services, 'path_image');
+            storageDelete($SERV01ServicesAdvantage, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($SERV01Services, 'path_image');
+            storageDelete($SERV01ServicesAdvantage, 'path_image');
             $data['path_image'] = null;
         }
         */
@@ -130,18 +123,18 @@ class SERV01Controller extends Controller
         $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
 
         if($path_archive){
-            storageDelete($SERV01Services, 'path_archive');
+            storageDelete($SERV01ServicesAdvantage, 'path_archive');
             $data['path_archive'] = $path_archive;
         }
 
         if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV01Services, 'path_archive');
+            storageDelete($SERV01ServicesAdvantage, 'path_archive');
             $data['path_archive'] = null;
         }
 
         */
 
-        if($SERV01Services->fill($data)->save()){
+        if($SERV01ServicesAdvantage->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -155,15 +148,15 @@ class SERV01Controller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Services\SERV01Services  $SERV01Services
+     * @param  \App\Models\Services\SERV01ServicesAdvantage  $SERV01ServicesAdvantage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SERV01Services $SERV01Services)
+    public function destroy(SERV01ServicesAdvantage $SERV01ServicesAdvantage)
     {
-        //storageDelete($SERV01Services, 'path_image');
-        //storageDelete($SERV01Services, 'path_archive');
+        //storageDelete($SERV01ServicesAdvantage, 'path_image');
+        //storageDelete($SERV01ServicesAdvantage, 'path_archive');
 
-        if($SERV01Services->delete()){
+        if($SERV01ServicesAdvantage->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -179,14 +172,14 @@ class SERV01Controller extends Controller
     {
         /* Use the code below to upload image or archive, if not, delete code
 
-        $SERV01Servicess = SERV01Services::whereIn('id', $request->deleteAll)->get();
-        foreach($SERV01Servicess as $SERV01Services){
-            storageDelete($SERV01Services, 'path_image');
-            storageDelete($SERV01Services, 'path_archive');
+        $SERV01ServicesAdvantages = SERV01ServicesAdvantage::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV01ServicesAdvantages as $SERV01ServicesAdvantage){
+            storageDelete($SERV01ServicesAdvantage, 'path_image');
+            storageDelete($SERV01ServicesAdvantage, 'path_archive');
         }
         */
 
-        if($deleted = SERV01Services::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = SERV01ServicesAdvantage::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
@@ -200,7 +193,7 @@ class SERV01Controller extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            SERV01Services::where('id', $id)->update(['sorting' => $sorting]);
+            SERV01ServicesAdvantage::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
@@ -211,13 +204,13 @@ class SERV01Controller extends Controller
      * Display the specified resource.
      * Content method
      *
-     * @param  \App\Models\Services\SERV01Services  $SERV01Services
+     * @param  \App\Models\Services\SERV01ServicesAdvantage  $SERV01ServicesAdvantage
      * @return \Illuminate\Http\Response
      */
-    // public function show(SERV01Services $SERV01Services)
+    //public function show(SERV01ServicesAdvantage $SERV01ServicesAdvantage)
     public function show()
     {
-        return view('Client.pages.Services.SERV01.show');
+        //
     }
 
     /**
@@ -229,9 +222,9 @@ class SERV01Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV01');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
 
-        return view('Client.pages.Services.SERV01.page',[
+        return view('Client.pages.Module.Model.page',[
             'sections' => $sections
         ]);
     }
@@ -243,6 +236,6 @@ class SERV01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV01.section');
+        return view('');
     }
 }

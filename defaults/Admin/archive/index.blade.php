@@ -37,7 +37,8 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
+                                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
+                                                <label><input name="btnSelectAll" value="" type="checkbox"></label>
                                             </th>
                                             <th>Imagem</th>
                                             <th>First Name</th>
@@ -54,7 +55,7 @@
                                             <tr data-code="{{$test->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$test->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$test->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
                                                     <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('admin/assets/images/users/user-10.jpg')}})"></div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServ01ServicesTable extends Migration
+class CreateServ01ServicesAdvantagesectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class CreateServ01ServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('serv01_services', function (Blueprint $table) {
+        Schema::create('serv01_services_advantagesections', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
-            $table->text('text')->nullable();
             $table->integer('active')->default(0);
-            $table->integer('featured')->default(0);
-            $table->integer('sorting')->default(0);
-            $table->string('path_image')->nullable();
-            $table->string('path_image_icon')->nullable();
+            $table->foreignId('service_id')->constrained('serv01_services');
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ class CreateServ01ServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('serv01_services');
+        Schema::dropIfExists('serv01_services_advantagesections');
     }
 }

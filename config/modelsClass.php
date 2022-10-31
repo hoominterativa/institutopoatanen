@@ -37,7 +37,7 @@ return [
             'SERV01' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV01Controller::class,
                 'model' => App\Models\Services\SERV01Services::class,
-                'seedQty' => 1,
+                'seedQty' => 4,
             ],
         ],
         // END SERVICES

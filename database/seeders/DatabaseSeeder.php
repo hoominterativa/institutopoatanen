@@ -45,19 +45,19 @@ class DatabaseSeeder extends Seeder
 
         if(!User::get()->count()) User::factory(1)->create();
 
-        if(!SettingTheme::first()->count()){
+        if(!SettingTheme::first()){
             $this->call([
                 SettingThemeSeeder::class,
             ]);
         }
 
-        if(!Optimization::first()->count()){
+        if(!Optimization::first()){
             $this->call([
                 OptimizationSeeder::class,
             ]);
         }
 
-        if(!GeneralSetting::first()->count()){
+        if(!GeneralSetting::first()){
             $this->call([
                 GeneralSettingSeeder::class,
             ]);
