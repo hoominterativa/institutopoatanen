@@ -257,21 +257,21 @@
 </div>
 
 {{-- CK Editor --}}
-<div class="mb-3">
+<div class="basic-editor__content mb-3">
     {!! Form::label('basic-editor', 'Basic Editor', ['class'=>'form-label']) !!}
     {!! Form::textarea('description', null, [
         'class'=>'form-control basic-editor',
         'id'=>'basic-editor',
     ]) !!}
 </div>
-<div class="mb-3">
+<div class="normal-editor__content mb-3">
     {!! Form::label('normal-editor', 'Normal Editor', ['class'=>'form-label']) !!}
     {!! Form::textarea('description', null, [
         'class'=>'form-control normal-editor',
         'id'=>'normal-editor',
     ]) !!}
 </div>
-<div class="mb-3">
+<div class="complete-editor__content mb-3">
     {!! Form::label('complete-editor', 'Complete Editor', ['class'=>'form-label']) !!}
     {!! Form::textarea('description', null, [
         'class'=>'form-control complete-editor',

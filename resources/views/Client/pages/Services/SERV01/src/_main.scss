@@ -529,6 +529,148 @@
             // END __container-box
         }
         // END __topics
+
+        &__portfolios{
+            padding: $serv01-show-portfolios-padding;
+            background-color: $serv01-show-portfolios-background-color;
+            @include small-down{
+                padding: 35px 0;
+            }
+            &__header{
+                text-align: $serv01-show-portfolios-header-service-text-align;
+                &__container{
+                    margin-bottom: $serv01-show-portfolios-header-container-title-margin-bottom;
+                }
+                &__title{
+                    font-size: $serv01-show-portfolios-header-title-font-size;
+                    font-family: $serv01-show-portfolios-header-title-font-family;
+                    color: $serv01-show-portfolios-header-title-color;
+                    display: block;
+                }
+                &__subtitle{
+                    font-size: $serv01-show-portfolios-header-subtitle-font-size;
+                    font-family: $serv01-show-portfolios-header-subtitle-font-family;
+                    color: $serv01-show-portfolios-header-subtitle-color;
+                    display: block;
+                }
+                &__line{
+                    background-color: $serv01-show-portfolios-header-line-background-color;
+                }
+                &__paragraph{
+                    font: $serv01-show-portfolios-header-paragraph-font;
+                    width: $serv01-show-portfolios-header-paragraph-width;
+                    margin: $serv01-show-portfolios-header-paragraph-margin;
+                    margin-bottom: $serv01-show-portfolios-header-paragraph-margin-bottom;
+                    margin-top: $serv01-show-portfolios-header-paragraph-margin-top;
+
+                    @include small-down{
+                        width: $serv01-show-portfolios-header-paragraph-width-responsive;
+                    }
+                }
+            }
+            // END __header
+
+            &__container-box{
+                @include small-down{
+                    width: 70%;
+                    margin-left: 20px;
+                }
+                .owl-stage-outer{
+                    @include small-down{
+                        overflow: visible;
+                    }
+                }
+                &__item{
+                    padding-right: $serv01-show-portfolios-box-service-padding-right;
+                    padding-left: $serv01-show-portfolios-box-service-padding-left;
+                    .content{
+                        padding: $serv01-show-portfolios-box-service-content-padding;
+
+                        &:hover{
+                            transform: $serv01-show-portfolios-box-service-paragraph-transform-hover;
+                            box-shadow: $serv01-show-portfolios-box-service-paragraph-box-shadow-hover;
+                            .serv01-portfolios__container-box__link{
+                                background-color: $serv01-show-portfolios-box-service-link-background-color-hover;
+                                color: $serv01-show-portfolios-box-service-link-color-hover;
+                                &__icon{
+                                    filter: $serv01-show-portfolios-box-service-link-icon-hover;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__info{
+                    position: relative;
+                    z-index: 1;
+                    min-height: $serv01-show-portfolios-box-service-container-info-min-height;
+                }
+                &__description{
+                    text-align: $serv01-show-portfolios-box-service-description-text-align;
+                    .icon{
+                        width: $serv01-show-portfolios-box-service-description-icon-width;
+                    }
+                }
+                &__title{
+                    font-size: $serv01-show-portfolios-box-service-title-font-size;
+                    font-weight: $serv01-show-portfolios-box-service-title-font-weight;
+                    font-family: $serv01-show-portfolios-box-service-title-font-family;
+                    color: $serv01-show-portfolios-box-service-title-color;
+                }
+                &__paragraph{
+                    font: $serv01-show-portfolios-box-service-paragraph-font;
+                    color: $serv01-show-portfolios-box-service-paragraph-color;
+                    font-weight: $serv01-show-portfolios-box-service-paragraph-font-weight;
+                    width: $serv01-show-portfolios-box-service-paragraph-width;
+                    @include small-down{
+                        width: $serv01-show-portfolios-box-service-paragraph-width-responsive;
+                    }
+                }
+                &__link{
+                    font: $serv01-show-portfolios-box-service-link-font;
+                    color: $serv01-show-portfolios-box-service-link-color;
+                    position: $serv01-show-portfolios-box-service-link-position;
+                    bottom: $serv01-show-portfolios-box-service-link-bottom;
+                    left: $serv01-show-portfolios-box-service-link-left;
+                    transform: $serv01-show-portfolios-box-service-link-transform;
+                    z-index: 2;
+                    min-width: $serv01-show-portfolios-box-service-link-min-width;
+                    padding: $serv01-show-portfolios-box-service-link-padding;
+                    font-weight: $serv01-show-portfolios-box-service-link-font-weight;
+                    background-color: $serv01-show-portfolios-box-service-link-background-color;
+                    text-align: $serv01-show-portfolios-box-service-link-text-align;
+
+                    &__icon{
+                        width: 25px;
+                    }
+                }
+            }
+            // END __container-box
+        }
+        // END __portfolios
     }
     // END .serv01-show
+
+    .carousel-serv01-show__portfolios{
+        .owl-stage-outer{
+            overflow: visible;
+        }
+        .owl-dots{
+            text-align: $serv01-show-portfolios-carousel-dots-text-align;
+            margin-top: $serv01-show-portfolios-carousel-dots-margin-top;
+            .owl-dot{
+                width: $serv01-show-portfolios-carousel-dot-width;
+                height: $serv01-show-portfolios-carousel-dot-height;
+                display: $serv01-show-portfolios-carousel-dot-display;
+                background-color: $serv01-show-portfolios-carousel-dot-background-color;
+                margin: $serv01-show-portfolios-carousel-dot-margin;
+                &.active{
+                    background-color: $serv01-show-portfolios-carousel-dot-active-background-color;
+                }
+                &:hover{
+                    background-color: $serv01-show-portfolios-carousel-dot-hover-background-color;
+                }
+            }
+        }
+    }
 }

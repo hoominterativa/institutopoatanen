@@ -2,9 +2,9 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV01ServicesAdvantageSectionFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Database\Factories\Services\SERV01ServicesAdvantageSectionFactory;
 
 class SERV01ServicesAdvantageSection extends Model
 {
@@ -15,21 +15,17 @@ class SERV01ServicesAdvantageSection extends Model
         return SERV01ServicesAdvantageSectionFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
-
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
+    protected $table = "serv01_services_advantagesections";
+    protected $fillable = [
+        "title",
+        "subtitle",
+        "description",
+        "active",
+        "service_id",
+    ];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

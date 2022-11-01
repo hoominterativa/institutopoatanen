@@ -16,7 +16,17 @@ class SERV01Services extends Model
     }
 
     protected $table = "serv01_services";
-    protected $fillable = [];
+    protected $fillable = [
+        "title",
+        "subtitle",
+        "description",
+        "text",
+        "active",
+        "featured",
+        "sorting",
+        "path_image",
+        "path_image_icon",
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +38,28 @@ class SERV01Services extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
+    public function advantages()
+    {
+        return $this->hasMany(SERV01ServicesAdvantage::class, 'service_id')->active()->sorting();
+    }
+
+    public function advantagesSection()
+    {
+        return $this->hasOne(SERV01ServicesAdvantageSection::class, 'service_id');
+    }
+
+    public function portfolios()
+    {
+        return $this->hasMany(SERV01ServicesPortfolio::class, 'service_id')->with('gallery')->active()->sorting();
+    }
+
+    public function portfoliosSection()
+    {
+        return $this->hasOne(SERV01ServicesPortfolioSection::class, 'service_id');
+    }
 }

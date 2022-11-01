@@ -22,9 +22,13 @@ class SERV01ServicesAdvantageFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+            "title" => $this->faker->text(13),
+            "description" => $this->faker->text(60),
+            "text" => $this->faker->text(300),
+            "active" => 1,
+            "path_image" => 'uploads/temp/image-box.jpg',
+            "path_image_icon" => 'uploads/temp/icon-general.svg',
+            "service_id" => rand(1,4),
         ];
     }
 }

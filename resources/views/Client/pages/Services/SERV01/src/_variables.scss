@@ -209,6 +209,12 @@ $serv01-show-header-after-display: table;
 $serv01-show-header-after-margin: 0 auto;
 $serv01-show-header-after-margin-top: 5px;
 
+/*
+==================================
+====== BEGIN SHOW CONTENT ========
+==================================
+*/
+
 // CONTENT
 $serv01-show-content-padding: 66px 0;
 
@@ -250,6 +256,12 @@ $serv01-show-content-description-font-weight: $weight-400;
 $serv01-show-content-description-color: $color-two;
 $serv01-show-content-description-text-align: center;
 $serv01-show-content-description-padding: 0 80px;
+
+/*
+==================================
+====== BEGIN SHOW TOPICS =========
+==================================
+*/
 
 // SERV01 TOPICS
 $serv01-show-topics-padding: 70px 0;
@@ -330,3 +342,104 @@ $serv01-show-topics-box-service-link-text-align: center;
 $serv01-show-topics-box-service-link-background-color-hover: #c0c0c0;
 $serv01-show-topics-box-service-link-color-hover: $color-two;
 $serv01-show-topics-box-service-link-icon-hover: grayscale(1) invert(1);
+
+
+/*
+==================================
+===== BEGIN SHOW PORTFOLIOS ======
+==================================
+*/
+
+// SERV01 PORTFOLIOS
+$serv01-show-portfolios-padding: 70px 0;
+$serv01-show-portfolios-background-color: $bg-white;
+
+// SERV01 PORTFOLIOS HEADER SERVICE
+$serv01-show-portfolios-header-service-text-align: center;
+
+// SERV01 PORTFOLIOS HEADER CONTAINER
+$serv01-show-portfolios-header-container-title-margin-bottom: 25px;
+
+// SERV01 PORTFOLIOS HEADER TITLE
+$serv01-show-portfolios-header-title-font-size: $T2;
+$serv01-show-portfolios-header-title-font-family: $font-primary;
+$serv01-show-portfolios-header-title-color: $color-one;
+
+// SERV01 PORTFOLIOS HEADER SUBTITLE
+$serv01-show-portfolios-header-subtitle-font-size: $T4;
+$serv01-show-portfolios-header-subtitle-font-family: $font-primary;
+$serv01-show-portfolios-header-subtitle-color: $color-two;
+
+// SERV01 PORTFOLIOS HEADER PARAGRAPH
+$serv01-show-portfolios-header-paragraph-font: $paragraph;
+$serv01-show-portfolios-header-paragraph-width: 80%;
+$serv01-show-portfolios-header-paragraph-margin: 0 auto;
+$serv01-show-portfolios-header-paragraph-margin-bottom: 50px;
+$serv01-show-portfolios-header-paragraph-margin-top: 25px;
+// SERV01 PORTFOLIOS HEADER PARAGRAPH RESPONSIVE
+$serv01-show-portfolios-header-paragraph-width-responsive: 90%;
+
+// SERV01 PORTFOLIOS HEADER LINE
+$serv01-show-portfolios-header-line-background-color: $color-one;
+
+// SERV01 PORTFOLIOS BOX SERVICE
+$serv01-show-portfolios-box-service-padding-right: 0.25rem;
+$serv01-show-portfolios-box-service-padding-left: 0.25rem;
+
+// SERV01 PORTFOLIOS BOX SERVICE CONTENT
+$serv01-show-portfolios-box-service-content-padding: 0 20px;
+
+// SERV01 PORTFOLIOS BOX SERVICE CONTAINER INFO
+$serv01-show-portfolios-box-service-container-info-min-height: 370px;
+
+// SERV01 PORTFOLIOS BOX SERVICE DESCRIPTION
+$serv01-show-portfolios-box-service-description-text-align: left;
+$serv01-show-portfolios-box-service-description-icon-width: 36px;
+
+// SERV01 PORTFOLIOS BOX SERVICE TITLE
+$serv01-show-portfolios-box-service-title-font-size: $T5;
+$serv01-show-portfolios-box-service-title-font-weight: $weight-700;
+$serv01-show-portfolios-box-service-title-font-family: $font-primary;
+$serv01-show-portfolios-box-service-title-color: $color-black;
+
+// SERV01 PORTFOLIOS BOX SERVICE PARAGRAPH
+$serv01-show-portfolios-box-service-paragraph-font: $paragraph-min;
+$serv01-show-portfolios-box-service-paragraph-color: $color-two;
+$serv01-show-portfolios-box-service-paragraph-font-weight: $weight-500;
+$serv01-show-portfolios-box-service-paragraph-transform-hover: scale(1.01);
+$serv01-show-portfolios-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+$serv01-show-portfolios-box-service-paragraph-width: auto;
+// SERV01 PORTFOLIOS BOX SERVICE PARAGRAPH RESPONSIVE
+$serv01-show-portfolios-box-service-paragraph-width-responsive: 100%;
+
+// SERV01 PORTFOLIOS BOX SERVICE LINK
+$serv01-show-portfolios-box-service-link-font: 1rem "Montserrat";
+$serv01-show-portfolios-box-service-link-color: $color-one;
+$serv01-show-portfolios-box-service-link-position: absolute;
+$serv01-show-portfolios-box-service-link-bottom: -20px;
+$serv01-show-portfolios-box-service-link-left: 50%;
+$serv01-show-portfolios-box-service-link-transform: translate(-50%);
+$serv01-show-portfolios-box-service-link-min-width: 177px;
+$serv01-show-portfolios-box-service-link-padding: 10px 15px;
+$serv01-show-portfolios-box-service-link-font-weight: 700;
+$serv01-show-portfolios-box-service-link-background-color: #EFEFEF;
+$serv01-show-portfolios-box-service-link-text-align: center;
+$serv01-show-portfolios-box-service-link-background-color-hover: #c0c0c0;
+$serv01-show-portfolios-box-service-link-color-hover: $color-two;
+$serv01-show-portfolios-box-service-link-icon-hover: grayscale(1) invert(1);
+
+/*
+============================================
+===== BEGIN SHOW PORTFOLIOS CAROUSEL ======
+============================================
+*/
+
+$serv01-show-portfolios-carousel-dots-text-align: center;
+$serv01-show-portfolios-carousel-dots-margin-top: 50px;
+$serv01-show-portfolios-carousel-dot-width: 26px;
+$serv01-show-portfolios-carousel-dot-height: 19px;
+$serv01-show-portfolios-carousel-dot-display: inline-block;
+$serv01-show-portfolios-carousel-dot-background-color: #ccc;
+$serv01-show-portfolios-carousel-dot-margin: 0 6px;
+$serv01-show-portfolios-carousel-dot-active-background-color: #3f3f3f;
+$serv01-show-portfolios-carousel-dot-hover-background-color: #3f3f3f;

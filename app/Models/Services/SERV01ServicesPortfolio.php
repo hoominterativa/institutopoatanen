@@ -4,26 +4,24 @@ namespace App\Models\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Database\Factories\Services\SERV01ServicesAdvantageFactory;
+use Database\Factories\Services\SERV01ServicesPortfolioFactory;
 
-class SERV01ServicesAdvantage extends Model
+class SERV01ServicesPortfolio extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return SERV01ServicesAdvantageFactory::new();
+        return SERV01ServicesPortfolioFactory::new();
     }
 
-    protected $table = "serv01_services_advantages";
+    protected $table = "serv01_services_portfolios";
     protected $fillable = [
         "title",
         "description",
-        "text",
         "active",
         "sorting",
         "path_image",
-        "path_image_icon",
         "service_id",
     ];
 
@@ -35,5 +33,10 @@ class SERV01ServicesAdvantage extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany(SERV01ServicesPortfolioGallery::class, 'portfolio_id')->sorting();
     }
 }

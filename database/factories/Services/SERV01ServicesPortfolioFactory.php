@@ -3,16 +3,16 @@
 namespace Database\Factories\Services;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Services\SERV01ServicesAdvantageSection;
+use App\Models\Services\SERV01ServicesPortfolio;
 
-class SERV01ServicesAdvantageSectionFactory extends Factory
+class SERV01ServicesPortfolioFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = SERV01ServicesAdvantageSection::class;
+    protected $model = SERV01ServicesPortfolio::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +22,11 @@ class SERV01ServicesAdvantageSectionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(15),
-            'subtitle' => $this->faker->text(10),
-            'description' => $this->faker->text(280),
+            'title' => $this->faker->text(10),
+            'description' => $this->faker->text(110),
             'active' => 1,
-            "service_id" => rand(1,4),
+            'path_image' => 'uploads/temp/image-box.jpg',
+            'service_id' => rand(1,4),
         ];
     }
 }
