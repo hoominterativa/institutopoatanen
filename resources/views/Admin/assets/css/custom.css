@@ -265,4 +265,7 @@
 @keyframes moveProgress {
     from {left: -50%;}
     to {left: 100%;}
-  }
+}
+.fancybox__container{
+    z-index: 1100 !important;
+}

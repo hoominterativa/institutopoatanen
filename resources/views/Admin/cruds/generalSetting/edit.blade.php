@@ -169,7 +169,7 @@
 
                     <button class="btn btn-primary mb-4" data-target="#containerLinksCtaheader" data-clone-element="#taregtCloneLinksHeader" data-plugin="clone">Adicionar Link <i class="mdi mdi-plus"></i></button>
 
-                    {!! Form::model(null, ['route' => ['admin.cta.header', $generalSetting->id], 'class'=>'parsley-examples', 'files' => true]) !!}
+                    {!! Form::model(null, ['route' => ['admin.cta.header', $generalSetting->id], 'class'=>'parsley-validate', 'files' => true]) !!}
                         <div class="mb-4 col-12 col-lg-4">
                             <div class="d-flex align-items-center mb-1">
                                 {!! Form::label('title_cta_btn', 'Título Principal', ['class'=>'form-label mb-0']) !!}
@@ -259,7 +259,7 @@
 
                     <button class="btn btn-info mb-4" data-target="#containerLinksCtaFooter" data-clone-element="#taregtCloneLinksFooter" data-plugin="clone">Adicionar Link <i class="mdi mdi-plus"></i></button>
 
-                    {!! Form::model(null, ['route' => ['admin.cta.footer', $generalSetting->id], 'class'=>'parsley-examples', 'files' => true]) !!}
+                    {!! Form::model(null, ['route' => ['admin.cta.footer', $generalSetting->id], 'class'=>'parsley-validate', 'files' => true]) !!}
                         <div class="mb-4 col-12 col-lg-4">
                             <div class="d-flex align-items-center mb-1">
                                 {!! Form::label('title_cta_btn', 'Título Principal', ['class'=>'form-label mb-0']) !!}

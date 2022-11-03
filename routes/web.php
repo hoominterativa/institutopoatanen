@@ -188,7 +188,7 @@ foreach ($modelsMain as $module => $models) {
 
         // CLIENT
         Route::get($route, [$controller, 'page'])->name($routeName.'.page');
-        Route::get($route.'/{'.$parameters.'}', [$controller, 'show'])->name($routeName.'.show');
+        Route::get($route.'/{'.$parameters.':slug}', [$controller, 'show'])->name($routeName.'.show');
 
         include_once "{$module}/{$code}.php";
     }

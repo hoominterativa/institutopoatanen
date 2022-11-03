@@ -441,12 +441,12 @@
                 myModal.show(modal)
             </script>
         @endif
-            <script>
-                $.each($('.modal'), function(i, value){
-                    if($(this).find('.modal').length){
-                        $(this).find('.modal').appendTo("body");
-                    }
-                })
-            </script>
+        <script>
+            $.each($('.modal'), function(i, value){
+                if($(this).find('.modal').length){
+                    $(this).find('.modal').appendTo("body");
+                }
+            })
+        </script>
     </body>
 </html>

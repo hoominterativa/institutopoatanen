@@ -20,8 +20,10 @@
                     </div>
                     <div class="col-12">
                         <button class="btn btn-info float-end me-3 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#formService" aria-expanded="false" aria-controls="collapseExample">
-                            Esconder formulário de serviço
+                            Esconder/Exibir formulário
                         </button>
+                        <a href="#containerPortfolios" class="btn btn-warning float-end me-3 mb-3"> Portifólio </a>
+                        <a href="#containerAdvantages" class="btn btn-primary float-end me-3 mb-3"> Vantagens </a>
                     </div>
                 </div>
                 <!-- end page title -->
@@ -33,10 +35,14 @@
                     {!! Form::close() !!}
                 </div>
                 @include('Admin.cruds.Services.SERV01.Advantages.index',[
-                    'configModelsMain' => $configModelsMain,
                     'service' => $service,
                     'advantages' => $advantages,
                     'advantageSection' => $advantageSection,
+                ])
+                @include('Admin.cruds.Services.SERV01.Portfolios.index',[
+                    'service' => $service,
+                    'portfolios' => $portfolios,
+                    'portfolioSection' => $portfolioSection,
                 ])
             </div> <!-- container -->
         </div> <!-- content -->

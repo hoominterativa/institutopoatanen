@@ -2,8 +2,9 @@
 
 namespace Database\Factories\Services;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use App\Models\Services\SERV01Services;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SERV01ServicesFactory extends Factory
 {
@@ -21,9 +22,12 @@ class SERV01ServicesFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(6);
+        $subtitle = $this->faker->text(9);
         return [
-            "title" => $this->faker->text(6),
-            "subtitle" => $this->faker->text(9),
+            "title" => $title,
+            "subtitle" => $subtitle,
+            "slug" => Str::slug($title.' '.$subtitle),
             "description" => $this->faker->text(60),
             "text" => $this->faker->text(900),
             "active" => 1,

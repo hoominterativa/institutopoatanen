@@ -17,12 +17,14 @@ class CreateServ01ServicesTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
+            $table->string('slug')->nullable();
             $table->text('description')->nullable();
             $table->text('text')->nullable();
             $table->integer('active')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('sorting')->default(0);
             $table->string('path_image')->nullable();
+            $table->string('path_image_banner')->nullable();
             $table->string('path_image_icon')->nullable();
             $table->timestamps();
         });

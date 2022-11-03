@@ -38,6 +38,12 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV01Controller::class,
                 'model' => App\Models\Services\SERV01Services::class,
                 'seedQty' => 4,
+                'relationshipSon' => [
+                    ['class' => App\Models\Services\SERV01ServicesAdvantage::class, 'seedQty' => 4],
+                    ['class' => App\Models\Services\SERV01ServicesAdvantageSection::class, 'seedQty' => 1],
+                    ['class' => App\Models\Services\SERV01ServicesPortfolio::class, 'seedQty' => 4],
+                    ['class' => App\Models\Services\SERV01ServicesPortfolioSection::class, 'seedQty' => 1],
+                ]
             ],
         ],
         // END SERVICES

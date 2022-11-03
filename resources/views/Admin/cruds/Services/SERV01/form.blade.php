@@ -20,7 +20,7 @@
                 {!! Form::textarea('description', null, [
                     'class'=>'form-control',
                     'id'=>'description',
-                    'rows'=>10,
+                    'rows'=>5,
                     'data-parsley-trigger'=>'keyup',
                     'data-parsley-minlength'=>'20',
                     'data-parsley-maxlength'=>'70',
@@ -38,26 +38,7 @@
                     {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
                 </div>
             </div>
-        </div>
-        {{-- end card-body --}}
-    </div>
-    <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-scale'=>'3/4',
-                            'data-height'=>'150',
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($service)?$service->path_image<>''?url('storage/'.$service->path_image):'':'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
+
             <div class="mb-3">
                 {!! Form::label('file', 'Ícone', ['class'=>'form-label']) !!}
                 {!! Form::file('path_image_icon', [
@@ -66,6 +47,36 @@
                     'data-max-file-size-preview'=>'2M',
                     'accept'=>'image/*',
                     'data-default-file'=> isset($service)?$service->path_image_icon<>''?url('storage/'.$service->path_image_icon):'':'',
+                ]) !!}
+            </div>
+        </div>
+        {{-- end card-body --}}
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem Box', ['class'=>'form-label']) !!}
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-scale'=>'4/4',
+                            'data-height'=>'205',
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($service)?$service->path_image<>''?url('storage/'.$service->path_image):'':'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+            <div class="mb-3">
+                {!! Form::label('file', 'Imagem banner', ['class'=>'form-label']) !!}
+                {!! Form::file('path_image_banner', [
+                    'data-plugins'=>'dropify',
+                    'data-height'=>'205',
+                    'data-max-file-size-preview'=>'2M',
+                    'accept'=>'image/*',
+                    'data-default-file'=> isset($service)?$service->path_image_banner<>''?url('storage/'.$service->path_image_banner):'':'',
                 ]) !!}
             </div>
         </div>

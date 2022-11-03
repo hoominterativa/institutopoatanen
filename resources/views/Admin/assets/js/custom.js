@@ -102,34 +102,35 @@ $(function() {
             }
         });
     })
+    $('.table-sortable').each(function(){
+        $(this).find('> tbody').sortable({
+            handle: '.btnDrag'
+        }).on('sortupdate', function(e, ui) {
 
-    $('.table-sortable tbody').sortable({
-        handle: '.btnDrag'
-    }).on('sortupdate', function(e, ui) {
+            var arrId = []
+            $(this).find('> tr').each(function() {
+                var id = $(this).data('code')
+                arrId.push(id)
+            })
 
-        var arrId = []
-        $(this).find('tr').each(function() {
-            var id = $(this).data('code')
-            arrId.push(id)
-        })
-
-        console.log(arrId)
-        $.ajax({
-            type: 'POST',
-            url: $(this).data('route'),
-            data: { arrId: arrId },
-            success: function(data) {
-                if (data.status) {
-                    $.NotificationApp.send("Sucesso!", "Registros ordenado com sucesso", "bottom-left", "#00000080", "success", '3000');
-                } else {
+            $.ajax({
+                type: 'POST',
+                url: $(this).data('route'),
+                data: { arrId: arrId },
+                success: function(data) {
+                    if (data.status) {
+                        $.NotificationApp.send("Sucesso!", "Registros ordenado com sucesso", "bottom-left", "#00000080", "success", '3000');
+                    } else {
+                        $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar os registros", "bottom-left", "#00000080", "error", '10000');
+                    }
+                },
+                error: function() {
                     $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar os registros", "bottom-left", "#00000080", "error", '10000');
                 }
-            },
-            error: function() {
-                $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar os registros", "bottom-left", "#00000080", "error", '10000');
-            }
-        })
-    });
+            })
+        });
+    })
+
     $('#settingTheme input[type=checkbox]').on('click', function() {
         setTimeout(() => {
             var formData = new FormData(),
@@ -315,5 +316,9 @@ $(function() {
             cloneElem = $(this).data('clone-element')
 
         $(cloneElem).find('>*').clone(true).appendTo(target)
+    })
+
+    $('.modal').each(function(){
+        $('body').append($(this))
     })
 })

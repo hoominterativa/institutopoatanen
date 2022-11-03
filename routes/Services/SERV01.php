@@ -6,6 +6,7 @@ use App\Http\Controllers\Services\SERV01SectionController;
 use App\Http\Controllers\Services\SERV01AdvantageController;
 use App\Http\Controllers\Services\SERV01PortfolioController;
 use App\Http\Controllers\Services\SERV01AdvantageSectionController;
+use App\Http\Controllers\Services\SERV01PortfolioGalleryController;
 use App\Http\Controllers\Services\SERV01PortfolioSectionController;
 
 /**
@@ -35,10 +36,14 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/vantagens/sorting', [SERV01AdvantageController::class, 'sorting'])->name('admin.'.$routeName.'.advantage.sorting');
     Route::resource($route.'/vantagens/informacoes-secao', SERV01AdvantageSectionController::class)->names('admin.'.$routeName.'.advantage.section')->parameters(['informacoes-secao' => 'SERV01ServicesAdvantageSection']);
 
-    Route::resource($route.'/portifolios', SERV01PortfolioController::class)->names('admin.'.$routeName.'.portfolio')->parameters(['vantagens' => 'SERV01ServicesPortfolio']);
+    Route::resource($route.'/portifolios', SERV01PortfolioController::class)->names('admin.'.$routeName.'.portfolio')->parameters(['portifolios' => 'SERV01ServicesPortfolio']);
     Route::post($route.'/portifolios/delete', [SERV01PortfolioController::class, 'destroySelected'])->name('admin.'.$routeName.'.portfolio.destroySelected');
     Route::post($route.'/portifolios/sorting', [SERV01PortfolioController::class, 'sorting'])->name('admin.'.$routeName.'.portfolio.sorting');
     Route::resource($route.'/portifolios/informacoes-secao', SERV01PortfolioSectionController::class)->names('admin.'.$routeName.'.portfolio.section')->parameters(['informacoes-secao' => 'SERV01ServicesPortfolioSection']);
+
+    Route::resource($route.'/portifolios/galeria', SERV01PortfolioGalleryController::class)->names('admin.'.$routeName.'.portfolio.gallery')->parameters(['galeria' => 'SERV01ServicesPortfolioGallery']);
+    Route::post($route.'/portifolios/galeria/delete', [SERV01PortfolioGalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.portfolio.gallery.destroySelected');
+    Route::post($route.'/portifolios/galeria/sorting', [SERV01PortfolioGalleryController::class, 'sorting'])->name('admin.'.$routeName.'.portfolio.gallery.sorting');
 });
 // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

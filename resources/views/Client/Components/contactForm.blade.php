@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-lg-6">
-                            {!! Form::open(['route' => 'home', 'method' => 'post', 'class'=>'form-contact parsley-examples d-table w-100']) !!}
+                            {!! Form::open(['route' => 'home', 'method' => 'post', 'class'=>'form-contact parsley-validate d-table w-100']) !!}
                                 @foreach ($inputs as $name => $input)
                                     @include('Client.Components.inputs', [
                                         'name' => $name,

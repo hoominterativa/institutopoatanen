@@ -39,10 +39,10 @@
                                     </div>
                                     <div class="col-12 mt-3">
                                         @if ($section)
-                                            {!! Form::model($section, ['route' => ['admin.serv01.section.update', $section->id], 'class'=>'parsley-examples', 'files' => true]) !!}
+                                            {!! Form::model($section, ['route' => ['admin.serv01.section.update', $section->id], 'class'=>'parsley-validate', 'files' => true]) !!}
                                             @method('PUT')
                                         @else
-                                            {!! Form::model(null, ['route' => 'admin.serv01.section.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                                            {!! Form::model(null, ['route' => 'admin.serv01.section.store', 'class'=>'parsley-validate', 'files' => true]) !!}
                                         @endif
                                             <div class="collapse bg-light p-3 mb-3" id="serviceBanner">
                                                 <div class="row">

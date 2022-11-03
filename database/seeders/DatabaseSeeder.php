@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
             foreach ($model as $code => $config) {
 
                 $relationship = $modelsClass->$module->$code->relationship??false;
+                $relationshipSon = $modelsClass->$module->$code->relationshipSon??false;
+
                 if($relationship){
                     foreach ($relationship as $relation) {
                         $seedRelationQty = $relation['seedQty'];
@@ -39,7 +41,6 @@ class DatabaseSeeder extends Seeder
 
                 $seedQty = $modelsClass->$module->$code->seedQty;
                 $modelsClass->$module->$code->model::factory($seedQty)->create();
-
             }
         }
 

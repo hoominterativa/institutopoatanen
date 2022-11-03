@@ -31,7 +31,7 @@ $(function() {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="cropped" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Salvar recorte</button>
+                            <button type="button" id="cropped" class="btn btn-secondary waves-effect">Salvar recorte</button>
                         </div>
                     </div>
                 </div>

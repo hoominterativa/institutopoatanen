@@ -42,10 +42,10 @@
                                     <div class="col-12 mt-3">
                                         <div class="collapse bg-light p-3 mb-3" id="portifolioSection">
                                             @if ($section)
-                                                {!! Form::model($section, ['route' => ['admin.port01.section.update', $section->id], 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                {!! Form::model($section, ['route' => ['admin.port01.section.update', $section->id], 'class'=>'parsley-validate', 'files' => true]) !!}
                                                 @method('PUT')
                                             @else
-                                                {!! Form::model(null, ['route' => 'admin.port01.section.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                {!! Form::model(null, ['route' => 'admin.port01.section.store', 'class'=>'parsley-validate', 'files' => true]) !!}
                                             @endif
                                             <div class="row">
                                                 <div class="col-12 col-lg-6">
@@ -165,7 +165,7 @@
                         Exibir Formulário
                     </button>
                     <div class="bg-light p-3 mb-3 collapse" id="form-create-category">
-                        {!! Form::model(null, ['route' => 'admin.port01.category.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                        {!! Form::model(null, ['route' => 'admin.port01.category.store', 'class'=>'parsley-validate', 'files' => true]) !!}
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <div class="mb-3">
@@ -266,7 +266,7 @@
 
                                                     <div class="modal-body p-3 pt-0 pb-3 text-start">
 
-                                                        {!! Form::model($category, ['route' => ['admin.port01.category.update', $category->id], 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                        {!! Form::model($category, ['route' => ['admin.port01.category.update', $category->id], 'class'=>'parsley-validate', 'files' => true]) !!}
                                                             @method('PUT')
                                                             <div class="mb-3">
                                                                 {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
@@ -331,7 +331,7 @@
                         Exibir Formulário
                     </button>
                     <div class="bg-light p-3 mb-3 collapse" id="form-create-subcategory">
-                        {!! Form::model(null, ['route' => 'admin.port01.subcategory.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                        {!! Form::model(null, ['route' => 'admin.port01.subcategory.store', 'class'=>'parsley-validate', 'files' => true]) !!}
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <div class="mb-3">
@@ -421,7 +421,7 @@
 
                                                     <div class="modal-body p-3 pt-0 pb-3 text-start">
 
-                                                        {!! Form::model($subcategory, ['route' => ['admin.port01.subcategory.update', $subcategory->id], 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                        {!! Form::model($subcategory, ['route' => ['admin.port01.subcategory.update', $subcategory->id], 'class'=>'parsley-validate', 'files' => true]) !!}
                                                             @method('PUT')
                                                             <div class="mb-3">
                                                                 {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}

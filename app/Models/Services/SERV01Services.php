@@ -26,6 +26,7 @@ class SERV01Services extends Model
         "sorting",
         "path_image",
         "path_image_icon",
+        "path_image_banner",
     ];
 
     public function scopeSorting($query)

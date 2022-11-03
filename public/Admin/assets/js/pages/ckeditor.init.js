@@ -20,7 +20,7 @@ $(function(){
             licenseKey: '',
         })
         .then(editor => {
-            console.log(editor);
+            // console.log(editor);
         })
         .catch(error => {
             console.error(error);
@@ -48,7 +48,7 @@ $(function(){
             licenseKey: '',
         })
         .then(editor => {
-            console.log(editor);
+            // console.log(editor);
         })
         .catch(error => {
             console.error(error);
@@ -78,7 +78,7 @@ $(function(){
             licenseKey: '',
         })
         .then(editor => {
-            console.log(editor);
+            // console.log(editor);
         })
         .catch(error => {
             console.error(error);

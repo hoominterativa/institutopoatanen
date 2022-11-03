@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV01Services;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Services\SERV01Services;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
-use App\Models\Services\SERV01ServicesAdvantage;
-use App\Models\Services\SERV01ServicesAdvantageSection;
+use Illuminate\Support\Facades\Response;
 use App\Models\Services\SERV01ServicesSection;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV01ServicesAdvantage;
+use App\Models\Services\SERV01ServicesPortfolio;
+use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV01ServicesAdvantageSection;
+use App\Models\Services\SERV01ServicesPortfolioSection;
 
 class SERV01Controller extends Controller
 {
@@ -61,12 +63,15 @@ class SERV01Controller extends Controller
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 200, 100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, 1600, 100);
+        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
+
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
 
-        if(SERV01Services::create($data)){
+        if($service = SERV01Services::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
-            return redirect()->route('admin.serv01.index');
+            return redirect()->route('admin.serv01.edit', ['SERV01Services' => $service->id]);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
@@ -83,13 +88,18 @@ class SERV01Controller extends Controller
      */
     public function edit(SERV01Services $SERV01Services)
     {
-        $advantages = SERV01ServicesAdvantage::where('service_id', $SERV01Services->id)->get();
+        $advantages = SERV01ServicesAdvantage::sorting()->where('service_id', $SERV01Services->id)->get();
         $advantageSection = SERV01ServicesAdvantageSection::where('service_id', $SERV01Services->id)->first();
+
+        $portfolios = SERV01ServicesPortfolio::sorting()->where('service_id', $SERV01Services->id)->get();
+        $portfolioSection = SERV01ServicesPortfolioSection::where('service_id', $SERV01Services->id)->first();
 
         return view('Admin.cruds.Services.SERV01.edit',[
             'service' => $SERV01Services,
             'advantages' => $advantages,
             'advantageSection' => $advantageSection,
+            'portfolios' => $portfolios,
+            'portfolioSection' => $portfolioSection,
         ]);
     }
 
@@ -125,15 +135,25 @@ class SERV01Controller extends Controller
             $data['path_image_icon'] = null;
         }
 
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, 1600, 100);
+        if($path_image_banner){
+            storageDelete($SERV01Services, 'path_image_banner');
+            $data['path_image_banner'] = $path_image_banner;
+        }
+        if($request->delete_path_image_banner && !$path_image_banner){
+            storageDelete($SERV01Services, 'path_image_banner');
+            $data['path_image_banner'] = null;
+        }
+
         if($SERV01Services->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
-            return redirect()->route('admin.serv01.index');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
             Session::flash('success', 'Erro ao atualizar informações');
-            return redirect()->back();
         }
+
+        return redirect()->back();
     }
 
     /**
@@ -197,9 +217,12 @@ class SERV01Controller extends Controller
      */
     public function show(SERV01Services $SERV01Services)
     {
+        $services = SERV01Services::active()->featured()->sorting()->get();
         $service = SERV01Services::with(['advantages','advantagesSection','portfolios','portfoliosSection'])->find($SERV01Services->id);
+
         return view('Client.pages.Services.SERV01.show',[
-            'service' => $service
+            'services' => $services,
+            'service' => $service,
         ]);
     }
 
@@ -214,10 +237,12 @@ class SERV01Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV01');
         $services = SERV01Services::active()->sorting()->get();
+        $section = SERV01ServicesSection::first();
 
         return view('Client.pages.Services.SERV01.page',[
             'sections' => $sections,
             'services' => $services,
+            'section' => $section,
         ]);
     }
 
@@ -229,8 +254,10 @@ class SERV01Controller extends Controller
     public static function section()
     {
         $services = SERV01Services::active()->featured()->sorting()->get();
+        $section = SERV01ServicesSection::active()->first();
         return view('Client.pages.Services.SERV01.section',[
             'services' => $services,
+            'section' => $section,
         ]);
     }
 }

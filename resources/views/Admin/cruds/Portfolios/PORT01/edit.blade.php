@@ -49,7 +49,7 @@
                         Exibir Formulário
                     </button>
                     <div class="bg-light p-3 mb-3 collapse" id="form-create-category">
-                        {!! Form::model(null, ['route' => 'admin.port01.gallery.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                        {!! Form::model(null, ['route' => 'admin.port01.gallery.store', 'class'=>'parsley-validate', 'files' => true]) !!}
                             <input type="hidden" name="portfolio_id" value="{{$portfolio->id}}">
                             <div class="mb-3">
                                 <div class="uploadMultipleImage">
