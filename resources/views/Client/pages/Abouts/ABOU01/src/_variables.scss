@@ -19,6 +19,8 @@ $abou01-page-header-title-font-size-responsive: $T2-mobile;
 $abou01-page-header-subtitle-font-size: $T4;
 $abou01-page-header-subtitle-font-family: $font-primary;
 $abou01-page-header-subtitle-color: $color-two;
+//RESPONSIVE
+$abou01-page-header-subtitle-font-size-responsive: $T4-mobile;
 
 // LINE
 $abou01-page-header-line-max-width: 610px;
@@ -36,11 +38,15 @@ $abou01-page-content-container-title-margin-bottom: 25px;
 $abou01-page-content-title-font-size: $T2;
 $abou01-page-content-title-font-family: $font-primary;
 $abou01-page-content-title-color: $color-one;
+//RESPONSIVE
+$abou01-page-content-title-font-size-responsive: $T2-mobile;
 
 // SUBTITLE
 $abou01-page-content-subtitle-font-size: $T4;
 $abou01-page-content-subtitle-font-family: $font-primary;
 $abou01-page-content-subtitle-color: $color-one;
+//RESPONSIVE
+$abou01-page-content-subtitle-font-size-responsive: $T4-mobile;
 
 // LINE
 $abou01-page-content-line-width: 100%;
@@ -52,10 +58,12 @@ $abou01-page-content-paragraph-font-weight: $weight-500;
 $abou01-page-content-paragraph-padding: 0 30px;
 $abou01-page-content-paragraph-color: $color-one;
 $abou01-page-content-paragraph-line-height: 25px;
+//RESPONSIVE
+$abou01-page-content-paragraph-font-responsive: $paragraph-mobile;
 
 /*======= TOPIC ======= */
 
-$abou01-page-topic-padding: 125px 0;
+$abou01-page-topic-padding: 125px 10px;
 $abou01-page-topic-background-color: #fff;
 
 // CONTENT
@@ -74,29 +82,41 @@ $abou01-page-topic-header-margin-bottom: 35px;
 // TITLE
 $abou01-page-topic-title-font-size: $T3;
 $abou01-page-topic-title-color: $color-black;
+//RESPONSIVE
+$abou01-page-topic-title-font-size-responsive: $T3-mobile;
 
 // PARAGRAPH
 $abou01-page-topic-paragraph-font: $paragraph;
 $abou01-page-topic-paragraph-font-weight: $weight-500;
 $abou01-page-topic-paragraph-color: $color-two;
+//RESPONSIVE
+$abou01-page-topic-paragraph-font-responsive: $paragraph-mobile;
+
+// OWL DOTS
+$abou01-page-topic-owl-dot-background-color: #fff;
+$abou01-page-topic-owl-dot-background-color-hover: #969696;
 
 /*======= SECTION ======= */
 
-$abou01-page-section-padding: 68px 0 0;
+$abou01-page-section-padding: 68px 15px 0 15px;
 
 // IMAGE
-$abou01-page-section-image-width: 430px;
+$abou01-page-section-image-max-width: 430px;
 $abou01-page-section-image-object-fit: contain;
 
 // TITLE
 $abou01-page-section-title-font-size: $T2;
 $abou01-page-section-title-font-weight: $weight-700;
 $abou01-page-section-title-color: $color-black;
+//RESPONSIVE
+$abou01-page-section-title-font-size-responsive: $T2-mobile;
 
 // SUBTITLE
 $abou01-page-section-subtitle-font-size: $T4;
 $abou01-page-section-subtitle-font-weight: $weight-700;
 $abou01-page-section-subtitle-color: $color-one;
+//RESPONSIVE
+$abou01-page-section-subtitle-font-size-responsive: $T4-mobile;
 
 // LINE
 $abou01-page-section-line-width: 100%;
@@ -107,3 +127,6 @@ $abou01-page-section-paragraph-font: $paragraph;
 $abou01-page-section-paragraph-font-weight: $weight-500;
 $abou01-page-section-paragraph-color: $color-one;
 $abou01-page-section-paragraph-line-height: 25px;
+//RESPONSIVE
+$abou01-page-section-paragraph-font-responsive: $paragraph-mobile;
+$abou01-page-section-paragraph-margin-bottom-responsive: 30px;

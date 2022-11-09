@@ -1,6 +1,6 @@
 @extends('Client.Core.client')
 @section('content')
-    <main class="root">
+    <main id="root">
         <section id="SERV01" class="serv01-page">
             @if ($section)
                 <header class="serv01-page__header" {{$section->path_image_banner<>'' ? 'style=background-image:url('.asset('storage/'.$section->path_image_banner).');background-size:cover;background-position:center':''}}>

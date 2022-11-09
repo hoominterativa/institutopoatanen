@@ -611,6 +611,11 @@ a {
   color: #7C7C7C;
   display: block;
 }
+@media (max-width: 800px) {
+  .abou01-page__header__subtitle {
+    font-size: 1.125rem;
+  }
+}
 .abou01-page__header__line {
   width: 100%;
   max-width: 610px;
@@ -629,11 +634,21 @@ a {
   color: #404040;
   display: block;
 }
+@media (max-width: 800px) {
+  .abou01-page__content__title {
+    font-size: 1.875rem;
+  }
+}
 .abou01-page__content__subtitle {
   font-size: 1.25rem;
   font-family: "Ubuntu", sans-serif, arial;
   color: #404040;
   display: block;
+}
+@media (max-width: 800px) {
+  .abou01-page__content__subtitle {
+    font-size: 1.125rem;
+  }
 }
 .abou01-page__content__line {
   width: 100%;
@@ -646,8 +661,13 @@ a {
   color: #404040;
   line-height: 25px;
 }
+@media (max-width: 800px) {
+  .abou01-page__content__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
 .abou01-page__topic {
-  padding: 125px 0;
+  padding: 125px 10px;
   background-color: #fff;
   background-position: center;
   background-size: cover;
@@ -672,16 +692,54 @@ a {
   font-size: 1.875rem;
   color: #000;
 }
+@media (max-width: 800px) {
+  .abou01-page__topic__item__title {
+    font-size: 1.563rem;
+  }
+}
 .abou01-page__topic__item__paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 500;
   color: #7C7C7C;
 }
+@media (max-width: 800px) {
+  .abou01-page__topic__item__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+@media (max-width: 800px) {
+  .abou01-page__topic .carousel-abou01-topic {
+    margin: 0 auto;
+  }
+}
+.abou01-page__topic .carousel-abou01-topic .owl-stage-outer {
+  padding: 0;
+}
+.abou01-page__topic .carousel-abou01-topic .owl-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+.abou01-page__topic .carousel-abou01-topic .owl-dots .owl-dot {
+  width: 20px;
+  height: 10px;
+  display: inline-block;
+  background-color: #fff;
+  margin: 0 5px;
+}
+.abou01-page__topic .carousel-abou01-topic .owl-dots .owl-dot.active, .abou01-page__topic .carousel-abou01-topic .owl-dots .owl-dot:hover {
+  background-color: #969696;
+}
 .abou01-page__section {
-  padding: 68px 0 0;
+  padding: 68px 15px 0 15px;
+}
+@media (max-width: 800px) {
+  .abou01-page__section__row {
+    flex-direction: column-reverse;
+  }
 }
 .abou01-page__section__image__item {
-  width: 430px;
+  width: 100%;
+  max-width: 430px;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -691,10 +749,20 @@ a {
   color: #000;
   display: block;
 }
+@media (max-width: 800px) {
+  .abou01-page__section__title {
+    font-size: 1.875rem;
+  }
+}
 .abou01-page__section__subtitle {
   font-size: 1.25rem;
   font-weight: 700;
   color: #404040;
+}
+@media (max-width: 800px) {
+  .abou01-page__section__subtitle {
+    font-size: 1.125rem;
+  }
 }
 .abou01-page__section__line {
   width: 100%;
@@ -705,4 +773,10 @@ a {
   font-weight: 500;
   color: #404040;
   line-height: 25px;
+}
+@media (max-width: 800px) {
+  .abou01-page__section__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-bottom: 30px;
+  }
 }

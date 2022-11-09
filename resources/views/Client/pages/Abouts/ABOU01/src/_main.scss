@@ -25,6 +25,10 @@
             font-family: $abou01-page-header-subtitle-font-family;
             color: $abou01-page-header-subtitle-color;
             display: block;
+
+            @include small-down{
+                font-size: $abou01-page-header-subtitle-font-size-responsive;
+            }
         }
         &__line{
             width: 100%;
@@ -45,12 +49,20 @@
             font-family: $abou01-page-content-title-font-family;
             color: $abou01-page-content-title-color;
             display: block;
+
+            @include small-down{
+                font-size: $abou01-page-content-title-font-size-responsive;
+            }
         }
         &__subtitle{
             font-size: $abou01-page-content-subtitle-font-size;
             font-family: $abou01-page-content-subtitle-font-family;
             color: $abou01-page-content-subtitle-color;
             display: block;
+
+            @include small-down{
+                font-size: $abou01-page-content-subtitle-font-size-responsive;
+            }
         }
         &__line{
             width: $abou01-page-content-line-width;
@@ -62,6 +74,10 @@
             padding: $abou01-page-content-paragraph-padding;
             color: $abou01-page-content-paragraph-color;
             line-height: $abou01-page-content-paragraph-line-height;
+
+            @include small-down{
+                font: $abou01-page-content-paragraph-font-responsive;
+            }
         }
     }
     // END __content
@@ -93,11 +109,42 @@
             &__title{
                 font-size: $abou01-page-topic-title-font-size;
                 color: $abou01-page-topic-title-color;
+
+                @include small-down{
+                    font-size: $abou01-page-topic-title-font-size-responsive;
+                }
             }
             &__paragraph{
                 font: $abou01-page-topic-paragraph-font;
                 font-weight: $abou01-page-topic-paragraph-font-weight;
                 color: $abou01-page-topic-paragraph-color;
+
+                @include small-down{
+                    font: $abou01-page-topic-paragraph-font-responsive;
+                }
+            }
+        }
+        .carousel-abou01-topic{
+            @include small-down{
+                margin: 0 auto;
+            }
+            .owl-stage-outer{
+                padding: 0;
+            }
+            .owl-dots{
+                text-align: center;
+                margin-top: 20px;
+                .owl-dot{
+                    width: 20px;
+                    height: 10px;
+                    display: inline-block;
+                    background-color: $abou01-page-topic-owl-dot-background-color;
+                    margin: 0 5px;
+                    &.active,
+                    &:hover{
+                        background-color: $abou01-page-topic-owl-dot-background-color-hover;
+                    }
+                }
             }
         }
     }
@@ -105,9 +152,15 @@
 
     &__section{
         padding: $abou01-page-section-padding;
+        &__row{
+            @include small-down{
+                flex-direction: column-reverse;
+            }
+        }
         &__image{
             &__item{
-                width: $abou01-page-section-image-width;
+                width: 100%;
+                max-width: $abou01-page-section-image-max-width;
                 object-fit: $abou01-page-section-image-object-fit;
             }
         }
@@ -116,11 +169,19 @@
             font-weight: $abou01-page-section-title-font-weight;
             color: $abou01-page-section-title-color;
             display: block;
+
+            @include small-down{
+                font-size: $abou01-page-section-title-font-size-responsive;
+            }
         }
         &__subtitle{
             font-size: $abou01-page-section-subtitle-font-size;
             font-weight: $abou01-page-section-subtitle-font-weight;
             color: $abou01-page-section-subtitle-color;
+
+            @include small-down{
+                font-size: $abou01-page-section-subtitle-font-size-responsive;
+            }
         }
         &__line{
             width: $abou01-page-section-line-width;
@@ -131,6 +192,11 @@
             font-weight: $abou01-page-section-paragraph-font-weight;
             color: $abou01-page-section-paragraph-color;
             line-height: $abou01-page-section-paragraph-line-height;
+
+            @include small-down{
+                font: $abou01-page-section-paragraph-font-responsive;
+                margin-bottom: $abou01-page-section-paragraph-margin-bottom-responsive;
+            }
         }
     }
     // END __section

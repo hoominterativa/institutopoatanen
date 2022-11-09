@@ -1,7 +1,7 @@
 @extends('Client.Core.client')
 @section('content')
     {{-- BEGIN Page content --}}
-    <main class="root">
+    <main id="root">
         <div id="ABOU01" class="abou01-page">
             <section class="container-fluid px-0">
                 <header class="abou01-page__header" style="background-image: url({{asset('storage/'.$about->path_image_banner)}})">
@@ -52,7 +52,7 @@
 
             <section class="abou01-page__section container-fluid">
                 <div class="container">
-                    <div class="row align-items-center">
+                    <div class="row abou01-page__section__row align-items-center">
                         <div class="abou01-page__section__image col-12 col-lg-5">
                             @if ($about->path_image_inner_section)
                                 <img src="{{asset('storage/'.$about->path_image_inner_section)}}" class="abou01-page__section__image__item" width="430" alt="{{$about->title_inner_section}}">
