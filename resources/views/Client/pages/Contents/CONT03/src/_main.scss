@@ -1,0 +1,104 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+#CONT03{
+    padding: $cont03-padding;
+    background-position: $cont03-background-position;
+    background-size: $cont03-background-size;
+    background-repeat: no-repeat;
+
+    @include small-down{
+        padding: $cont03-padding-responsive;
+    }
+}
+.cont03{
+    &__content{
+        padding-right: $cont03-content-padding-right;
+
+        @include small-down{
+            padding-right: $cont03-content-padding-right-responsive;
+            margin-bottom: $cont03-content-margin-bottom-responsive;
+        }
+
+        &__hypertext{
+            margin-bottom: $cont03-content-hypertext-margin-bottom;
+        }
+        &__title{
+            display: $cont03-content-title-display;
+            font-size: $cont03-content-title-font-size;
+            font-weight: $cont03-content-title-font-weight;
+            color: $cont03-content-title-color;
+
+            @include small-down{
+                font-size: $cont03-content-title-font-size-responsive;
+            }
+        }
+        &__subtitle{
+            font-size: $cont03-content-subtitle-font-size;
+            font-weight: $cont03-content-subtitle-font-weight;
+            color: $cont03-content-subtitle-color;
+
+            @include small-down{
+                font-size: $cont03-content-title-font-size-responsive;
+            }
+        }
+        &__line{
+            width: $cont03-content-line-width;
+            background-color: $cont03-content-line-background-color;
+            margin-bottom: $cont03-content-line-margin-bottom;
+        }
+        &__paragraph{
+            font: $cont03-content-paragraph-font;
+            font-weight: $cont03-content-paragraph-font-weight;
+            color: $cont03-content-paragraph-color;
+            margin-bottom: $cont03-content-paragraph-margin-bottom;
+
+            @include small-down{
+                font: $cont03-content-paragraph-font-responsive;
+            }
+        }
+        &__cta{
+            font: $cont03-content-cta-font;
+            font-weight: $cont03-content-cta-font-weight;
+            color: $cont03-content-cta-color;
+            display: $cont03-content-cta-display;
+            max-width: $cont03-content-cta-max-width;
+            padding: $cont03-content-cta-padding;
+            background-color: $cont03-content-cta-background-color;
+
+            @include small-down{
+                font: $cont03-content-cta-font-responsive;
+            }
+
+            &:hover{
+                color: $cont03-content-cta-color-hover;
+                background-color: $cont03-content-cta-background-color-hover;
+
+                .cont03__content__cta__icon{
+                    filter: $cont03-content-cta-icon-filter-hover;
+                }
+            }
+        }
+    }
+    // END __content
+
+    &__figure{
+        &__center{
+            margin-bottom: $cont03-figure-center-margin-bottom;
+            padding: $cont03-figure-center-padding;
+
+            @include small-down{
+                padding: $cont03-figure-center-padding-responsive;
+                margin-bottom: $cont03-figure-center-margin-bottom-responsive;
+            }
+        }
+        &__right{
+            margin-bottom: $cont03-figure-right-margin-bottom;
+            padding: $cont03-figure-right-padding;
+
+            @include small-down{
+                padding: $cont03-figure-right-padding-responsive;
+            }
+        }
+    }
+}

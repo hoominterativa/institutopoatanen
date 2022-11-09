@@ -1,0 +1,77 @@
+/* ======= CONT03 ======= */
+
+$cont03-padding: 80px 0 0;
+$cont03-background-position: center;
+$cont03-background-size: cover;
+// RESPONSIVE
+$cont03-padding-responsive: 60px 50px 0;
+
+/* ======= CONTENT ======= */
+
+$cont03-content-padding-right: 75px;
+//RESPONSIVE
+$cont03-content-padding-right-responsive: 0;
+$cont03-content-margin-bottom-responsive: 60px;
+
+// HYPERTEXT
+$cont03-content-hypertext-margin-bottom: 30px;
+
+// TITLE
+$cont03-content-title-display: block;
+$cont03-content-title-font-size: $T3;
+$cont03-content-title-font-weight: $weight-700;
+$cont03-content-title-color: $color-black;
+//RESPONSIVE
+$cont03-content-title-font-size-responsive: $T3-mobile;
+
+// SUBTITLE
+$cont03-content-subtitle-font-size: $T4;
+$cont03-content-subtitle-font-weight: $weight-700;
+$cont03-content-subtitle-color: $color-two;
+//RESPONSIVE
+$cont03-content-title-font-size-responsive: $T4-mobile;
+
+// LINE
+$cont03-content-line-width: 100%;
+$cont03-content-line-background-color: $bg-black;
+$cont03-content-line-margin-bottom: 40px;
+
+// PARAGRAPH
+$cont03-content-paragraph-font: $paragraph;
+$cont03-content-paragraph-font-weight: $weight-500;
+$cont03-content-paragraph-color: $color-one;
+$cont03-content-paragraph-margin-bottom: 50px;
+// RESPONSIVE
+$cont03-content-paragraph-font-responsive: $paragraph-mobile;
+
+// CTA
+$cont03-content-cta-font: $paragraph;
+$cont03-content-cta-font-weight: $weight-700;
+$cont03-content-cta-color: $color-one;
+$cont03-content-cta-display: block;
+$cont03-content-cta-max-width: 177px;
+$cont03-content-cta-padding: 10px 15px;
+$cont03-content-cta-background-color: $bg-white;
+// HOVER
+$cont03-content-cta-color-hover: $color-white;
+$cont03-content-cta-background-color-hover: $bg-black;
+$cont03-content-cta-icon-filter-hover: invert(1) grayscale(1);
+
+// RESPONSIVE
+$cont03-content-cta-font-responsive: $paragraph-mobile;
+
+
+/* ======= FIGURE ======= */
+
+// CENTER
+$cont03-figure-center-margin-bottom: 0;
+$cont03-figure-center-padding: 0 10px;
+//RESPONSIVE
+$cont03-figure-center-padding-responsive: 0 30px;
+$cont03-figure-center-margin-bottom-responsive: 50px;
+
+// RIGHT
+$cont03-figure-right-margin-bottom: 0;
+$cont03-figure-right-padding: 0 10px;
+// RESPONSIVE
+$cont03-figure-right-padding-responsive: 0 30px;
