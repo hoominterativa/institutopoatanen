@@ -3,6 +3,15 @@
 
 return [
     'Class' => (object) [
+        'Abouts' => (object)[
+            'ABOU01' => (object)[
+                'controller' => App\Http\Controllers\Abouts\ABOU01Controller::class,
+                'model' => App\Models\Abouts\ABOU01Abouts::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END ABOUTS
+
         'Contents' => (object)[
             'CONT01' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT01Controller::class,

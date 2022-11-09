@@ -1,0 +1,137 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+.abou01-page{
+    &__header{
+        text-align: $abou01-page-header-text-align;
+        background-color: $abou01-page-header-background-color;
+        padding: $abou01-page-header-padding;
+        margin: $abou01-page-header-margin;
+        &__container{
+            margin-bottom: $abou01-page-header-container-title-margin-bottom;
+        }
+        &__title{
+            font-size: $abou01-page-header-title-font-size;
+            font-family: $abou01-page-header-title-font-family;
+            color: $abou01-page-header-title-color;
+            display: block;
+
+            @include small-down{
+                font-size: $abou01-page-header-title-font-size-responsive;
+            }
+        }
+        &__subtitle{
+            font-size: $abou01-page-header-subtitle-font-size;
+            font-family: $abou01-page-header-subtitle-font-family;
+            color: $abou01-page-header-subtitle-color;
+            display: block;
+        }
+        &__line{
+            width: 100%;
+            max-width: $abou01-page-header-line-max-width;
+            background-color: $abou01-page-header-line-background-color;
+        }
+    }
+    // END __header
+
+    &__content{
+        text-align: $abou01-page-content-text-align;
+        padding: $abou01-page-content-padding;
+        &__container{
+            margin-bottom: $abou01-page-content-container-title-margin-bottom;
+        }
+        &__title{
+            font-size: $abou01-page-content-title-font-size;
+            font-family: $abou01-page-content-title-font-family;
+            color: $abou01-page-content-title-color;
+            display: block;
+        }
+        &__subtitle{
+            font-size: $abou01-page-content-subtitle-font-size;
+            font-family: $abou01-page-content-subtitle-font-family;
+            color: $abou01-page-content-subtitle-color;
+            display: block;
+        }
+        &__line{
+            width: $abou01-page-content-line-width;
+            background-color: $abou01-page-content-line-background-color;
+        }
+        &__paragraph{
+            font: $abou01-page-content-paragraph-font;
+            font-weight: $abou01-page-content-paragraph-font-weight;
+            padding: $abou01-page-content-paragraph-padding;
+            color: $abou01-page-content-paragraph-color;
+            line-height: $abou01-page-content-paragraph-line-height;
+        }
+    }
+    // END __content
+
+    &__topic{
+        padding: $abou01-page-topic-padding;
+        background-color: $abou01-page-topic-background-color;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &__content{
+            background-color: $abou01-page-topic-content-background-color;
+            padding: $abou01-page-topic-content-padding;
+            min-height: $abou01-page-topic-content-min-height;
+
+            &:hover{
+                transform: $abou01-page-topic-content-transform-hover;
+            }
+        }
+        &__item{
+            &__header{
+                margin-bottom: $abou01-page-topic-header-margin-bottom;
+            }
+            &__icon{
+                width: $abou01-page-topic-icon-width;
+                margin-right: $abou01-page-topic-icon-margin-right;
+            }
+            &__title{
+                font-size: $abou01-page-topic-title-font-size;
+                color: $abou01-page-topic-title-color;
+            }
+            &__paragraph{
+                font: $abou01-page-topic-paragraph-font;
+                font-weight: $abou01-page-topic-paragraph-font-weight;
+                color: $abou01-page-topic-paragraph-color;
+            }
+        }
+    }
+    // END __topic
+
+    &__section{
+        padding: $abou01-page-section-padding;
+        &__image{
+            &__item{
+                width: $abou01-page-section-image-width;
+                object-fit: $abou01-page-section-image-object-fit;
+            }
+        }
+        &__title{
+            font-size: $abou01-page-section-title-font-size;
+            font-weight: $abou01-page-section-title-font-weight;
+            color: $abou01-page-section-title-color;
+            display: block;
+        }
+        &__subtitle{
+            font-size: $abou01-page-section-subtitle-font-size;
+            font-weight: $abou01-page-section-subtitle-font-weight;
+            color: $abou01-page-section-subtitle-color;
+        }
+        &__line{
+            width: $abou01-page-section-line-width;
+            background-color: $abou01-page-section-line-background-color;
+        }
+        &__paragraph{
+            font: $abou01-page-section-paragraph-font;
+            font-weight: $abou01-page-section-paragraph-font-weight;
+            color: $abou01-page-section-paragraph-color;
+            line-height: $abou01-page-section-paragraph-line-height;
+        }
+    }
+    // END __section
+}

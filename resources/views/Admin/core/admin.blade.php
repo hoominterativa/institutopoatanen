@@ -317,30 +317,44 @@
                                     <span> Lead Contato </span>
                                 </a>
                             </li>
-                            <li>
-                                <a nofollow href="{{route('admin.optimization.index')}}">
-                                    <i class="mdi-google-analytics mdi"></i>
-                                    <span> SEO </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a nofollow href="{{route('admin.generalSetting.index')}}">
-                                    <i class="mdi mdi-hammer-wrench"></i>
-                                    <span> Configurações Gerais </span>
-                                </a>
-                            </li>
+
                             <li>
                                 <a nofollow href="{{route('admin.contactForm.index')}}">
                                     <i class="mdi mdi-content-paste"></i>
                                     <span> Formulários </span>
                                 </a>
                             </li>
+
+                            <li class="menu-title mt-2">Configurações</li>
+
+                            <li>
+                                <a nofollow href="{{route('admin.optimization.index')}}">
+                                    <i class="mdi-google-analytics mdi"></i>
+                                    <span> SEO </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a nofollow href="{{route('admin.generalSetting.index')}}">
+                                    <i class="mdi mdi-hammer-wrench"></i>
+                                    <span> Gerais </span>
+                                </a>
+                            </li>
+
                             <li>
                                 <a nofollow href="{{route('admin.user.index')}}">
                                     <i class="mdi-account mdi"></i>
                                     <span> Usuários </span>
                                 </a>
                             </li>
+
+                            <li>
+                                <a nofollow href="{{route('admin.icons')}}">
+                                    <i class="mdi mdi-bullseye"></i>
+                                    <span> Icones </span>
+                                </a>
+                            </li>
+
                             <li class="menu-title mt-2">Suporte</li>
 
                             <li>
@@ -349,16 +363,11 @@
                                     <span> Chamados </span>
                                 </a>
                             </li>
+
                             <li>
                                 <a nofollow href="#">
                                     <i class="mdi mdi-help-box"></i>
                                     <span> Tutoriais </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a nofollow href="{{route('admin.icons')}}">
-                                    <i class="mdi mdi-bullseye"></i>
-                                    <span> Icones </span>
                                 </a>
                             </li>
                         </ul>

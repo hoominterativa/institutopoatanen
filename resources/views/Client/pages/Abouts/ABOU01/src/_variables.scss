@@ -1,0 +1,109 @@
+/* ======= HEADER ======= */
+
+$abou01-page-header-text-align: center;
+$abou01-page-header-background-color: #EFEFEF;
+$abou01-page-header-padding: 87px 0;
+$abou01-page-header-margin: 0;
+
+// CONTAINER
+$abou01-page-header-container-title-margin-bottom: 25px;
+
+// TITLE
+$abou01-page-header-title-font-size: $T1;
+$abou01-page-header-title-font-family: $font-primary;
+$abou01-page-header-title-color: $color-black;
+//RESPONSIVE
+$abou01-page-header-title-font-size-responsive: $T2-mobile;
+
+// SUBTITLE
+$abou01-page-header-subtitle-font-size: $T4;
+$abou01-page-header-subtitle-font-family: $font-primary;
+$abou01-page-header-subtitle-color: $color-two;
+
+// LINE
+$abou01-page-header-line-max-width: 610px;
+$abou01-page-header-line-background-color: $color-one;
+
+/*======= CONTENT ======= */
+
+$abou01-page-content-text-align: center;
+$abou01-page-content-padding: 45px 0 120px;
+
+// CONTAINER
+$abou01-page-content-container-title-margin-bottom: 25px;
+
+// TITLE
+$abou01-page-content-title-font-size: $T2;
+$abou01-page-content-title-font-family: $font-primary;
+$abou01-page-content-title-color: $color-one;
+
+// SUBTITLE
+$abou01-page-content-subtitle-font-size: $T4;
+$abou01-page-content-subtitle-font-family: $font-primary;
+$abou01-page-content-subtitle-color: $color-one;
+
+// LINE
+$abou01-page-content-line-width: 100%;
+$abou01-page-content-line-background-color: $color-one;
+
+// PARAGRAPH
+$abou01-page-content-paragraph-font: $paragraph;
+$abou01-page-content-paragraph-font-weight: $weight-500;
+$abou01-page-content-paragraph-padding: 0 30px;
+$abou01-page-content-paragraph-color: $color-one;
+$abou01-page-content-paragraph-line-height: 25px;
+
+/*======= TOPIC ======= */
+
+$abou01-page-topic-padding: 125px 0;
+$abou01-page-topic-background-color: #fff;
+
+// CONTENT
+$abou01-page-topic-content-background-color: #CACACA;
+$abou01-page-topic-content-padding: 51px;
+$abou01-page-topic-content-min-height: 100%;
+$abou01-page-topic-content-transform-hover: scale(1.01);
+
+// ICON
+$abou01-page-topic-icon-width: 32px !important;
+$abou01-page-topic-icon-margin-right: 21px;
+
+// HEADER
+$abou01-page-topic-header-margin-bottom: 35px;
+
+// TITLE
+$abou01-page-topic-title-font-size: $T3;
+$abou01-page-topic-title-color: $color-black;
+
+// PARAGRAPH
+$abou01-page-topic-paragraph-font: $paragraph;
+$abou01-page-topic-paragraph-font-weight: $weight-500;
+$abou01-page-topic-paragraph-color: $color-two;
+
+/*======= SECTION ======= */
+
+$abou01-page-section-padding: 68px 0 0;
+
+// IMAGE
+$abou01-page-section-image-width: 430px;
+$abou01-page-section-image-object-fit: contain;
+
+// TITLE
+$abou01-page-section-title-font-size: $T2;
+$abou01-page-section-title-font-weight: $weight-700;
+$abou01-page-section-title-color: $color-black;
+
+// SUBTITLE
+$abou01-page-section-subtitle-font-size: $T4;
+$abou01-page-section-subtitle-font-weight: $weight-700;
+$abou01-page-section-subtitle-color: $color-one;
+
+// LINE
+$abou01-page-section-line-width: 100%;
+$abou01-page-section-line-background-color: $bg-secondary;
+
+// PARAGRAPH
+$abou01-page-section-paragraph-font: $paragraph;
+$abou01-page-section-paragraph-font-weight: $weight-500;
+$abou01-page-section-paragraph-color: $color-one;
+$abou01-page-section-paragraph-line-height: 25px;

@@ -1,0 +1,32 @@
+<?php
+
+use App\Http\Controllers\Abouts\ABOU01TopicsController;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
+
+/**
+ * Uncomment the code below
+ *
+ * Create new routes to admin or client according to the model below
+ * Define the variables ​​$module, $model and import the controller class
+ *
+ */
+
+$module = 'Abouts';
+$model = 'ABOU01';
+
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
+
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
+
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/topicos', ABOU01TopicsController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'ABOU01AboutsTopics']);
+    Route::post($route.'/topicos/delete', [ABOU01TopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topicos/sorting', [ABOU01TopicsController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+});
+// CLIENT
+// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
