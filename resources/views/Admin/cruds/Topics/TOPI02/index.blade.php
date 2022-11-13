@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{$configModelsMain->Topics->TOPI01->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item active">{{$configModelsMain->Topics->TOPI02->config->titlePanel}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{$configModelsMain->Topics->TOPI01->config->titlePanel}}</h4>
+                            <h4 class="page-title">{{$configModelsMain->Topics->TOPI02->config->titlePanel}}</h4>
                         </div>
                     </div>
                 </div>
@@ -26,10 +26,10 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.topi01.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.topi02.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('admin.topi01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        <a href="{{route('admin.topi02.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                         <button class="btn btn-warning float-end me-2" type="button" data-bs-toggle="collapse" data-bs-target="#topicSection" aria-expanded="false" aria-controls="collapseExample">
                                             Informações da Seção
                                         </button>
@@ -37,10 +37,10 @@
                                     <div class="col-12 mt-3">
                                         <div class="collapse bg-light p-3 mb-3" id="topicSection">
                                             @if ($section)
-                                                {!! Form::model($section, ['route' => ['admin.topi01.section.update', $section->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+                                                {!! Form::model($section, ['route' => ['admin.topi02.section.update', $section->id], 'class'=>'parsley-validate', 'files' => true]) !!}
                                                 @method('PUT')
                                             @else
-                                                {!! Form::model(null, ['route' => 'admin.topi01.section.store', 'class'=>'parsley-validate', 'files' => true]) !!}
+                                                {!! Form::model(null, ['route' => 'admin.topi02.section.store', 'class'=>'parsley-validate', 'files' => true]) !!}
                                             @endif
                                             <div class="row">
                                                 <div class="col-12">
@@ -91,7 +91,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody data-route="{{route('admin.topi01.sorting')}}">
+                                    <tbody data-route="{{route('admin.topi02.sorting')}}">
                                         @foreach ($topics as $topic)
                                             <tr data-code="{{$topic->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -113,9 +113,9 @@
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.topi01.edit',['TOPI01Topics' => $topic->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.topi02.edit',['TOPI02Topics' => $topic->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.topi01.destroy',['TOPI01Topics' => $topic->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.topi02.destroy',['TOPI02Topics' => $topic->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

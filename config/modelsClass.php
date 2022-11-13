@@ -77,6 +77,11 @@ return [
                 'model' => App\Models\Topics\TOPI01Topics::class,
                 'seedQty' => 5,
             ],
+            'TOPI02' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI02Controller::class,
+                'model' => App\Models\Topics\TOPI02Topics::class,
+                'seedQty' => 4,
+            ],
         ],
         // END TOPICS
     ],

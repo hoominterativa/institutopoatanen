@@ -15,7 +15,8 @@
         "PORT01"
     ],
     "Topics": [
-        "TOPI01"
+        "TOPI01",
+        "TOPI02"
     ],
     "Services": [
         "SERV01"

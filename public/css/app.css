@@ -580,278 +580,112 @@ a {
   }
 }
 
-/* ======= SECTION HOME ======= */
-/* ======= HEADER PAGE ======= */
-/*======= CONTENT PAGE ======= */
-/*======= TOPIC PAGE ======= */
-/*======= SECTION PAGE ======= */
 /* BEGIN STYLE */
-.abou01 {
+#TOPI02 {
+  padding: 70px 0;
+}
+@media (max-width: 800px) {
+  #TOPI02 {
+    padding: 35px 20px;
+  }
+}
+#TOPI02 .header-topic {
   text-align: center;
-  padding: 80px 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-@media (max-width: 800px) {
-  .abou01 {
-    padding: 40px 0;
-  }
-}
-.abou01__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #404040;
-  display: block;
-}
-@media (max-width: 800px) {
-  .abou01__title {
-    font-size: 1.875rem;
-  }
-}
-.abou01__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #404040;
-  display: block;
-}
-@media (max-width: 800px) {
-  .abou01__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou01__line {
-  width: 100%;
-  background-color: #404040;
-  margin: 30px 0;
-}
-.abou01__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  padding: 0 30px;
-  color: #404040;
-  line-height: 25px;
-}
-@media (max-width: 800px) {
-  .abou01__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.abou01__cta {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-  display: block;
-  margin: 30px auto 0;
-  max-width: 177px;
-  padding: 10px 15px;
-  background-color: #CACACA;
-}
-@media (max-width: 800px) {
-  .abou01__cta {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.abou01__cta:hover {
-  color: #fff;
-  background-color: #000;
-}
-.abou01__cta:hover .abou01__cta__icon {
-  filter: invert(1) grayscale(1);
-}
-
-.abou01-page__header {
-  text-align: center;
-  background-color: #EFEFEF;
-  padding: 87px 0;
-  margin: 0;
-}
-.abou01-page__header__container {
+#TOPI02 .header-topic .container-title {
   margin-bottom: 25px;
 }
-.abou01-page__header__title {
-  font-size: 3.125rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-  display: block;
-}
-@media (max-width: 800px) {
-  .abou01-page__header__title {
-    font-size: 1.875rem;
-  }
-}
-.abou01-page__header__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #7C7C7C;
-  display: block;
-}
-@media (max-width: 800px) {
-  .abou01-page__header__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou01-page__header__line {
-  width: 100%;
-  max-width: 610px;
-  background-color: #404040;
-}
-.abou01-page__content {
-  text-align: center;
-  padding: 45px 0 120px;
-}
-.abou01-page__content__container {
-  margin-bottom: 25px;
-}
-.abou01-page__content__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #404040;
-  display: block;
-}
-@media (max-width: 800px) {
-  .abou01-page__content__title {
-    font-size: 1.875rem;
-  }
-}
-.abou01-page__content__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #404040;
-  display: block;
-}
-@media (max-width: 800px) {
-  .abou01-page__content__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou01-page__content__line {
-  width: 100%;
-  background-color: #404040;
-}
-.abou01-page__content__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  padding: 0 30px;
-  color: #404040;
-  line-height: 25px;
-}
-@media (max-width: 800px) {
-  .abou01-page__content__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.abou01-page__topic {
-  padding: 125px 10px;
-  background-color: #fff;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.abou01-page__topic__content {
-  background-color: #CACACA;
-  padding: 51px;
-  min-height: 100%;
-}
-.abou01-page__topic__content:hover {
-  transform: scale(1.01);
-}
-.abou01-page__topic__item__header {
-  margin-bottom: 35px;
-}
-.abou01-page__topic__item__icon {
-  width: 32px !important;
-  margin-right: 21px;
-}
-.abou01-page__topic__item__title {
-  font-size: 1.875rem;
-  color: #000;
-}
-@media (max-width: 800px) {
-  .abou01-page__topic__item__title {
-    font-size: 1.563rem;
-  }
-}
-.abou01-page__topic__item__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  color: #7C7C7C;
-}
-@media (max-width: 800px) {
-  .abou01-page__topic__item__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-@media (max-width: 800px) {
-  .abou01-page__topic .carousel-abou01-topic {
-    margin: 0 auto;
-  }
-}
-.abou01-page__topic .carousel-abou01-topic .owl-stage-outer {
-  padding: 0;
-}
-.abou01-page__topic .carousel-abou01-topic .owl-dots {
-  text-align: center;
-  margin-top: 20px;
-}
-.abou01-page__topic .carousel-abou01-topic .owl-dots .owl-dot {
-  width: 20px;
-  height: 10px;
-  display: inline-block;
-  background-color: #fff;
-  margin: 0 5px;
-}
-.abou01-page__topic .carousel-abou01-topic .owl-dots .owl-dot.active, .abou01-page__topic .carousel-abou01-topic .owl-dots .owl-dot:hover {
-  background-color: #969696;
-}
-.abou01-page__section {
-  padding: 68px 15px 0 15px;
-}
-@media (max-width: 800px) {
-  .abou01-page__section__row {
-    flex-direction: column-reverse;
-  }
-}
-.abou01-page__section__image__item {
-  width: 100%;
-  max-width: 430px;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.abou01-page__section__title {
+#TOPI02 .header-topic .container-title .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
   display: block;
 }
 @media (max-width: 800px) {
-  .abou01-page__section__title {
+  #TOPI02 .header-topic .container-title .title {
     font-size: 1.875rem;
   }
 }
-.abou01-page__section__subtitle {
+#TOPI02 .header-topic .container-title .subtitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #B3B3B3;
+  display: block;
 }
 @media (max-width: 800px) {
-  .abou01-page__section__subtitle {
+  #TOPI02 .header-topic .container-title .subtitle {
     font-size: 1.125rem;
   }
 }
-.abou01-page__section__line {
-  width: 100%;
-  background-color: #7C7C7C;
-}
-.abou01-page__section__paragraph {
+#TOPI02 .header-topic .paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 500;
-  color: #404040;
-  line-height: 25px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 25px;
 }
 @media (max-width: 800px) {
-  .abou01-page__section__paragraph {
+  #TOPI02 .header-topic .paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
-    margin-bottom: 30px;
+    width: 90%;
   }
+}
+#TOPI02 .header-topic .line {
+  background-color: #404040;
+}
+@media (max-width: 800px) {
+  #TOPI02 .container-box {
+    width: 70%;
+  }
+}
+@media (max-width: 800px) {
+  #TOPI02 .container-box .owl-stage-outer {
+    overflow: visible;
+  }
+}
+#TOPI02 .container-box .box-topic {
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+#TOPI02 .container-box .box-topic .content {
+  padding: 0 20px;
+}
+#TOPI02 .container-box .box-topic .content .container-info {
+  position: relative;
+  z-index: 1;
+  min-height: 320px;
+}
+#TOPI02 .container-box .box-topic .content .container-info .image img {
+  width: 61px;
+}
+#TOPI02 .container-box .box-topic .content .container-info .description {
+  text-align: center;
+}
+#TOPI02 .container-box .box-topic .content .container-info .description .title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+}
+@media (max-width: 800px) {
+  #TOPI02 .container-box .box-topic .content .container-info .description .title {
+    font-size: 1.875rem;
+  }
+}
+#TOPI02 .container-box .box-topic .content .container-info .description .paragraph {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7C7C7C;
+  font-weight: 500;
+}
+@media (max-width: 800px) {
+  #TOPI02 .container-box .box-topic .content .container-info .description .paragraph {
+    font: 0.813rem "Montserrat", sans-serif, arial;
+  }
+}
+#TOPI02 .container-box .box-topic .content:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 }

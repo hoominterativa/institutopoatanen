@@ -1,6 +1,6 @@
 @if ($section)
     @if ($section->active)
-        <section id="TOPI01" class="container-fluid" style="background-color: #ebebeb;">
+        <section id="TOPI02" class="container-fluid" style="background-color: #ebebeb;">
             <div class="container">
                 @if ($section->title || $section->subtitle || $section->description)
                     <header class="header-topic">
@@ -19,7 +19,7 @@
                     </header>
                 @endif
                 @if ($topics->count())
-                    <div class="container-box row carousel-topi01">
+                    <div class="container-box row carousel-topi02">
                         @foreach ($topics as $topic)
                             <article class="box-topic col">
                                 <div class="content transition">
@@ -27,7 +27,7 @@
                                         <img src="{{asset('storage/'.$topic->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                                         <div class="container-info d-flex flex-column justify-content-center align-items-center">
                                             <figure class="image">
-                                                <img src="{{asset('storage/'.$topic->path_image_icon)}}" class="icon" width="50px" alt="">
+                                                <img src="{{asset('storage/'.$topic->path_image_icon)}}" class="icon" width="61" alt="">
                                             </figure>
                                             <div class="description">
                                                 <h3 class="title">{{$topic->title}}</h3>
