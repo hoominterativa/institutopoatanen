@@ -3,16 +3,58 @@
         <a href="#formAbout" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Informações da Página</a>
     </li>
     <li class="nav-item">
+        <a href="#formAboutSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
+    </li>
+    <li class="nav-item">
         <a href="#formBannerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Banner</a>
     </li>
     <li class="nav-item">
-        <a href="#formSectionInnerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção</a>
+        <a href="#formSectionInnerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção Página</a>
     </li>
     <li class="nav-item">
         <a href="#aboutTopicsList" class="nav-link">Tópicos</a>
     </li>
 </ul>
 <div class="tab-content">
+    <div class="tab-pane" id="formAboutSection">
+        <div class="row col-12">
+            <div class="col-12 col-lg-6">
+                <div class="card card-body" id="tooltip-container">
+                    <div class="mb-3">
+                        {!! Form::label('title_section', 'Título', ['class'=>'form-label']) !!}
+                        {!! Form::text('title_section', null, ['class'=>'form-control', 'id'=>'title_section']) !!}
+                    </div>
+                    <div class="mb-3">
+                        {!! Form::label('subtitle_section', 'Subtítulo', ['class'=>'form-label']) !!}
+                        {!! Form::text('subtitle_section', null, ['class'=>'form-control', 'id'=>'subtitle_section']) !!}
+                    </div>
+                </div>
+                {{-- end card-body --}}
+            </div>
+            {{-- end card --}}
+            <div class="col-12 col-lg-6">
+                <div class="card card-body" id="tooltip-container">
+                    <div class="mb-3">
+                        {!! Form::label('message', 'Descrição', ['class'=>'form-label']) !!}
+                        {!! Form::textarea('description_section', null, [
+                            'class'=>'form-control',
+                            'id'=>'message',
+                            'required'=>'required',
+                            'data-parsley-trigger'=>'keyup',
+                            'data-parsley-minlength'=>'20',
+                            'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
+                            'data-parsley-validation-threshold'=>'10',
+                        ]) !!}
+                    </div>
+                </div>
+                {{-- end card-body --}}
+            </div>
+            {{-- end card --}}
+        </div>
+        {{-- end row --}}
+    </div>
+    {{-- END #formAboutSection --}}
+
     <div class="tab-pane" id="formBannerAbout">
         <div class="row col-12">
             <div class="col-12 col-lg-6">
@@ -53,6 +95,7 @@
         </div>
         {{-- end row --}}
     </div>
+    {{-- END #formBannerAbout --}}
 
     <div class="tab-pane show active" id="formAbout">
         <div class="row col-12">
@@ -82,6 +125,7 @@
         </div>
         {{-- end row --}}
     </div>
+    {{-- END #formAbout --}}
 
     <div class="tab-pane" id="formSectionInnerAbout">
         <div class="row col-12">
@@ -135,4 +179,5 @@
         </div>
         {{-- end row --}}
     </div>
+    {{-- END #formSectionInnerAbout --}}
 </div>

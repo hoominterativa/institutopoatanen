@@ -1,4 +1,58 @@
-/* ======= HEADER ======= */
+/* ======= SECTION HOME ======= */
+
+$abou01-text-align: center;
+$abou01-padding: 80px 0;
+// RESPONSIVE
+$abou01-padding-responsive: 40px 0;
+
+// TITLE
+$abou01-title-font-size: $T2;
+$abou01-title-font-family: $font-primary;
+$abou01-title-color: $color-one;
+//RESPONSIVE
+$abou01-title-font-size-responsive: $T2-mobile;
+
+// SUBTITLE
+$abou01-subtitle-font-size: $T4;
+$abou01-subtitle-font-family: $font-primary;
+$abou01-subtitle-color: $color-one;
+//RESPONSIVE
+$abou01-subtitle-font-size-responsive: $T4-mobile;
+
+// LINE
+$abou01-line-width: 100%;
+$abou01-line-background-color: $color-one;
+$abou01-line-margin: 30px 0;
+
+// PARAGRAPH
+$abou01-paragraph-font: $paragraph;
+$abou01-paragraph-font-weight: $weight-500;
+$abou01-paragraph-padding: 0 30px;
+$abou01-paragraph-color: $color-one;
+$abou01-paragraph-line-height: 25px;
+//RESPONSIVE
+$abou01-paragraph-font-responsive: $paragraph-mobile;
+
+// CTA
+$abou01-cta-font: $paragraph;
+$abou01-cta-font-weight: $weight-700;
+$abou01-cta-color: $color-black;
+$abou01-cta-display: block;
+$abou01-cta-margin: 30px auto 0;
+$abou01-cta-max-width: 177px;
+$abou01-cta-padding: 10px 15px;
+$abou01-cta-background-color: $bg-soft;
+// HOVER
+$abou01-cta-color-hover: $color-white;
+$abou01-cta-background-color-hover: $bg-black;
+$abou01-cta-icon-filter-hover: invert(1) grayscale(1);
+
+// RESPONSIVE
+$abou01-cta-font-responsive: $paragraph-mobile;
+
+
+
+/* ======= HEADER PAGE ======= */
 
 $abou01-page-header-text-align: center;
 $abou01-page-header-background-color: #EFEFEF;
@@ -26,7 +80,7 @@ $abou01-page-header-subtitle-font-size-responsive: $T4-mobile;
 $abou01-page-header-line-max-width: 610px;
 $abou01-page-header-line-background-color: $color-one;
 
-/*======= CONTENT ======= */
+/*======= CONTENT PAGE ======= */
 
 $abou01-page-content-text-align: center;
 $abou01-page-content-padding: 45px 0 120px;
@@ -61,7 +115,7 @@ $abou01-page-content-paragraph-line-height: 25px;
 //RESPONSIVE
 $abou01-page-content-paragraph-font-responsive: $paragraph-mobile;
 
-/*======= TOPIC ======= */
+/*======= TOPIC PAGE ======= */
 
 $abou01-page-topic-padding: 125px 10px;
 $abou01-page-topic-background-color: #fff;
@@ -96,7 +150,7 @@ $abou01-page-topic-paragraph-font-responsive: $paragraph-mobile;
 $abou01-page-topic-owl-dot-background-color: #fff;
 $abou01-page-topic-owl-dot-background-color-hover: #969696;
 
-/*======= SECTION ======= */
+/*======= SECTION PAGE ======= */
 
 $abou01-page-section-padding: 68px 15px 0 15px;
 

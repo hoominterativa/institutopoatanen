@@ -18,6 +18,9 @@ class ABOU01Abouts extends Model
 
     protected $table = "abou01_abouts";
     protected $fillable = [
+        "title_section",
+        "subtitle_section",
+        "description_section",
         "title_banner",
         "subtitle_banner",
         "path_image_banner",

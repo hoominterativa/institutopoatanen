@@ -1,6 +1,80 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+
+.abou01{
+    text-align: $abou01-text-align;
+    padding: $abou01-padding;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include small-down{
+        padding: $abou01-padding-responsive;
+    }
+
+    &__title{
+        font-size: $abou01-title-font-size;
+        font-family: $abou01-title-font-family;
+        color: $abou01-title-color;
+        display: block;
+
+        @include small-down{
+            font-size: $abou01-title-font-size-responsive;
+        }
+    }
+    &__subtitle{
+        font-size: $abou01-subtitle-font-size;
+        font-family: $abou01-subtitle-font-family;
+        color: $abou01-subtitle-color;
+        display: block;
+
+        @include small-down{
+            font-size: $abou01-subtitle-font-size-responsive;
+        }
+    }
+    &__line{
+        width: $abou01-line-width;
+        background-color: $abou01-line-background-color;
+        margin: $abou01-line-margin;
+    }
+    &__paragraph{
+        font: $abou01-paragraph-font;
+        font-weight: $abou01-paragraph-font-weight;
+        padding: $abou01-paragraph-padding;
+        color: $abou01-paragraph-color;
+        line-height: $abou01-paragraph-line-height;
+
+        @include small-down{
+            font: $abou01-paragraph-font-responsive;
+        }
+    }
+    &__cta{
+        font: $abou01-cta-font;
+        font-weight: $abou01-cta-font-weight;
+        color: $abou01-cta-color;
+        display: $abou01-cta-display;
+        margin: $abou01-cta-margin;
+        max-width: $abou01-cta-max-width;
+        padding: $abou01-cta-padding;
+        background-color: $abou01-cta-background-color;
+
+        @include small-down{
+            font: $abou01-cta-font-responsive;
+        }
+
+        &:hover{
+            color: $abou01-cta-color-hover;
+            background-color: $abou01-cta-background-color-hover;
+
+            .abou01__cta__icon{
+                filter: $abou01-cta-icon-filter-hover;
+            }
+        }
+    }
+}
+// END .abou01
+
 .abou01-page{
     &__header{
         text-align: $abou01-page-header-text-align;
@@ -201,3 +275,4 @@
     }
     // END __section
 }
+// END .abou01-page

@@ -22,6 +22,9 @@ class ABOU01AboutsFactory extends Factory
     public function definition()
     {
         return [
+            "title_section" => "Titulo",
+            "subtitle_section" => "Subtítulo",
+            "description_section" => $this->faker->text(550),
             "title_banner" => "Titulo do banner",
             "subtitle_banner" => "SUBTITULO",
             "path_image_banner" => "uploads/tmp/bg-banner-inner.jpg",

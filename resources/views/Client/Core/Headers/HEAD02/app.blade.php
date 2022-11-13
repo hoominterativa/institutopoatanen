@@ -11,7 +11,7 @@
                 <nav>
                     <ul class="menu-list list-inline mb-0">
                         <li class="list-inline-item menu-item dropdown">
-                            <a href="#" class="link transition">Home</a>
+                            <a href="{{route('home')}}" class="link transition">Home</a>
                         </li>
                         @foreach ($listMenu as $module => $menu)
                             <li class="list-inline-item menu-item {{$menu->dropdown?'dropdown':''}}">
