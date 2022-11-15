@@ -12,6 +12,15 @@ return [
         ],
         // END ABOUTS
 
+        'Blogs' => (object)[
+            'BLOG01' => (object)[
+                'controller' => App\Http\Controllers\Blogs\BLOG01Controller::class,
+                'model' => App\Models\Blogs\BLOG01Blogs::class,
+                'seedQty' => 4,
+            ],
+        ],
+        // END BLOGS
+
         'Contents' => (object)[
             'CONT01' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT01Controller::class,

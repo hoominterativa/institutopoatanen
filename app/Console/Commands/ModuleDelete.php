@@ -110,7 +110,7 @@ class ModuleDelete extends Command
                 // Delete archives
                 if(file_exists($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].'.php')) unlink($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].'.php');
                 if(file_exists($this->path['controller'].$arguments['module'].'/'.$arguments['code'].$options['relation'].'Controller.php')) unlink($this->path['controller'].$arguments['module'].'/'.$arguments['code'].$options['relation'].'Controller.php');
-                if(file_exists($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].'Factory.php')) unlink($this->path['factories'].$arguments['code'].$arguments['module'].$options['relation'].'Factory.php');
+                if(file_exists($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].'Factory.php')) unlink($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].$options['relation'].'Factory.php');
                 if(file_exists($this->path['seeders'].$arguments['module'].'/'.$arguments['code'].$options['relation'].'Seeder.php')) unlink($this->path['seeders'].$arguments['code'].$options['relation'].'Seeder.php');
 
 
@@ -138,7 +138,7 @@ class ModuleDelete extends Command
                 if(file_exists($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'.php')) unlink($this->path['models'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'.php');
                 if(file_exists($this->path['controller'].$arguments['module'].'/'.$arguments['code'].'Controller.php')) unlink($this->path['controller'].$arguments['module'].'/'.$arguments['code'].'Controller.php');
                 if(file_exists($this->path['routes'].$arguments['module'].'/'.$arguments['code'].'.php')) unlink($this->path['routes'].$arguments['module'].'/'.$arguments['code'].'.php');
-                if(file_exists($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory.php')) unlink($this->path['factories'].$arguments['code'].$arguments['module'].'Factory.php');
+                if(file_exists($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory.php')) unlink($this->path['factories'].$arguments['module'].'/'.$arguments['code'].$arguments['module'].'Factory.php');
                 if(file_exists($this->path['seeders'].$arguments['module'].'/'.$arguments['code'].'Seeder.php')) unlink($this->path['seeders'].$arguments['code'].'Seeder.php');
 
 
