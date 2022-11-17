@@ -16,7 +16,14 @@ return [
             'BLOG01' => (object)[
                 'controller' => App\Http\Controllers\Blogs\BLOG01Controller::class,
                 'model' => App\Models\Blogs\BLOG01Blogs::class,
-                'seedQty' => 4,
+                'seedQty' => 8,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Blogs\BLOG01BlogsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
         ],
         // END BLOGS
