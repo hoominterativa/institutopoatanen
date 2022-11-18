@@ -32,6 +32,7 @@
     <script src="{{url(mix('admin/assets/libs/spectrum.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/bootstrap-clockpicker.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/bootstrap-datepicker.min.js'))}}"></script>
+    <script src="{{url(mix('admin/assets/libs/bootstrap-datepicker.pt-BR.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/jquery.mask.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/autoNumeric.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/dropzone.min.js'))}}"></script>

@@ -2,7 +2,7 @@
 
 namespace App\Models\Blogs;
 
-use Database\Factories\BLOG01BlogsFactory;
+use Database\Factories\Blogs\BLOG01BlogsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class BLOG01Blogs extends Model
         return BLOG01BlogsFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "blog01_blogs";
     protected $fillable = [];
 
     public function scopeSorting($query)
@@ -28,8 +28,8 @@ class BLOG01Blogs extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function category()
+    {
+        return $this->belongsTo(BLOG01BlogsCategory::class, 'category_id');
+    }
 }

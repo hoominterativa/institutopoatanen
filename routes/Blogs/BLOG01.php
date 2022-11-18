@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Blogs\BLOG01CategoryController;
+use App\Http\Controllers\Blogs\BLOG01Controller;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
@@ -11,21 +13,22 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Blogs';
+$model = 'BLOG01';
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $modelConfig = $modelConfig->$module->$model->config;
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/categorias', BLOG01CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'BLOG01BlogsCategory']);
+    Route::post($route.'/categoria/delete', [BLOG01CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [BLOG01CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
-// // CLIENT
+    Route::post($route.'/busca', [BLOG01Controller::class, 'index'])->name('admin.'.$routeName.'.index.filter');
+});
+// CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

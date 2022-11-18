@@ -18,7 +18,8 @@
             'required'=>'required',
             'data-provide'=>'datepicker',
             'data-date-autoclose'=>'true',
-            'data-date-format'=>'dd/mm/YY',
+            'data-date-format'=>'dd/mm/yyyy',
+            'data-date-language'=>'pt-BR',
         ])!!}
 </div>
 <div class="mb-3">
@@ -28,7 +29,8 @@
             'required'=>'required',
             'data-provide'=>'datepicker',
             'data-date-format'=>'MM yyyy',
-            'data-date-min-view-mode'=>'1'
+            'data-date-min-view-mode'=>'1',
+            'data-date-language'=>'pt-BR',
         ])!!}
 </div>
 <div class="mb-3">
@@ -37,7 +39,8 @@
             'class'=>'form-control',
             'required'=>'required',
             'data-provide'=>'datepicker',
-            'data-date-min-view-mode'=>'2'
+            'data-date-min-view-mode'=>'2',
+            'data-date-language'=>'pt-BR',
         ])!!}
 </div>
 

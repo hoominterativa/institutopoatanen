@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Blogs;
 
-use App\Models\BLOG01Blogs;
+use App\Models\Blogs\BLOG01Blogs;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,8 +27,8 @@ class BLOG01BlogsFactory extends Factory
             'category_id' => rand(1,4),
             'title' => $title,
             'slug' => Str::slug($title),
-            'path_image_thumbnail' => 'uploads/tmp/image_temporary.png',
-            'path_image' => 'uploads/tmp/image_box.jpg',
+            'path_image_thumbnail' => 'uploads/tmp/inner-image.jpg',
+            'path_image' => 'uploads/tmp/image-box.jpg',
             'publishing' => date('Y-m-d'),
             'description' => $this->faker->text(60),
             'text' => $this->faker->paragraph(3),

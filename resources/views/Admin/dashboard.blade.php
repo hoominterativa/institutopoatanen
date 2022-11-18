@@ -35,8 +35,8 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi font-24 avatar-title text-dark"></i>
+                                                        <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi mdi-36px avatar-title text-dark"></i>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -59,8 +59,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-handshake-outline font-24 avatar-title text-dark"></i>
+                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                <i class="mdi mdi-handshake-outline mdi-36px avatar-title text-dark"></i>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -80,8 +80,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-google-analytics font-24 avatar-title text-dark"></i>
+                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                <i class="mdi mdi-google-analytics mdi-36px avatar-title text-dark"></i>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -101,8 +101,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-hammer-wrench font-24 avatar-title text-dark"></i>
+                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                <i class="mdi mdi-hammer-wrench mdi-36px avatar-title text-dark"></i>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -122,8 +122,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-content-paste font-24 avatar-title text-dark"></i>
+                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                <i class="mdi mdi-content-paste mdi-36px avatar-title text-dark"></i>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -143,8 +143,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-account font-24 avatar-title text-dark"></i>
+                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                <i class="mdi mdi-account mdi-36px avatar-title text-dark"></i>
                                             </div>
                                         </div>
                                         <div class="col-12">

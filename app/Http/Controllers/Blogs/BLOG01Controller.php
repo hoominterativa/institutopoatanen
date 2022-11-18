@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Blogs\BLOG01BlogsCategory;
+use Carbon\Carbon;
 
 class BLOG01Controller extends Controller
 {
@@ -18,9 +20,37 @@ class BLOG01Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $blogs = BLOG01Blogs::with('category');
+
+        if($request->category_id){
+            $blogs = $blogs->where('category_id', $request->category_id);
+        }
+        if($request->title){
+            $blogs = $blogs->where('title','LIKE', '%'.$request->title.'%');
+        }
+        if($request->date_start && $request->date_end){
+            $request->date_start = Carbon::createFromFormat('d/m/Y', $request->date_start)->format('Y-m-d');
+            $request->date_end = Carbon::createFromFormat('d/m/Y', $request->date_end)->format('Y-m-d');
+            $blogs = $blogs->whereBetween('publishing', [$request->date_start, $request->date_end]);
+        }
+        if($request->date_start && !$request->date_end){
+            $request->date_start = Carbon::createFromFormat('d/m/Y', $request->date_start)->format('Y-m-d');
+            $blogs = $blogs->where('publishing','>=', $request->date_start);
+        }
+        if(!$request->date_start && $request->date_end){
+            $request->date_end = Carbon::createFromFormat('d/m/Y', $request->date_end)->format('Y-m-d');
+            $blogs = $blogs->where('publishing','<=', $request->date_end);
+        }
+
+        $blogs = $blogs->paginate('32');
+
+        $categories = BLOG01BlogsCategory::exists()->pluck('title', 'id');
+        return view('Admin.cruds.Blogs.BLOG01.index',[
+            'blogs' => $blogs,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -30,7 +60,10 @@ class BLOG01Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = BLOG01BlogsCategory::pluck('title', 'id');
+        return view('Admin.cruds.Blogs.BLOG01.create',[
+            'categories' => $categories
+        ]);
     }
 
     /**

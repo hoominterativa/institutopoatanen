@@ -17,6 +17,7 @@ mix
     .scripts('node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js', 'public/admin/assets/libs/jquery.bootstrap-touchspin.min.js')
     .scripts('node_modules/bootstrap-maxlength/dist/bootstrap-maxlength.min.js', 'public/admin/assets/libs/bootstrap-maxlength.min.js')
     .scripts('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js', 'public/admin/assets/libs/bootstrap-datepicker.min.js')
+    .scripts('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js', 'public/admin/assets/libs/bootstrap-datepicker.pt-BR.min.js')
     .scripts('node_modules/clockpicker/dist/bootstrap-clockpicker.min.js', 'public/admin/assets/libs/bootstrap-clockpicker.min.js')
     .scripts('node_modules/spectrum-colorpicker2/dist/spectrum.min.js', 'public/admin/assets/libs/spectrum.min.js')
     .scripts('node_modules/flatpickr/dist/flatpickr.min.js', 'public/admin/assets/libs/flatpickr.min.js')

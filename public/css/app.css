@@ -567,7 +567,7 @@ a {
   background-color: #000;
 }
 #HEAD02 .container-navigation .menu-sidebar-header:active .lines > i {
-  background-color: #8a8a8a;
+  background-color: rgb(138, 138, 138);
 }
 @media (max-width: 800px) {
   #HEAD02 .container-navigation .menu-sidebar-header {
