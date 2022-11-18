@@ -11715,7 +11715,7 @@ window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODU
 $(document).ready(function () {
   $('[data-toggle="input-mask"]').each(function (a, e) {
     var t = $(e).data("maskFormat"),
-        n = $(e).data("reverse");
+      n = $(e).data("reverse");
     null != n ? $(e).mask(t, {
       reverse: n
     }) : $(e).mask(t);
@@ -11777,8 +11777,7 @@ function resizeHeightSlide() {
   // mw500=700
   if ($('[data-slide-height]').length) {
     var heightSlide = $('[data-slide-height]').data('slide-height'),
-        heightWindow = $(window).outerHeight();
-
+      heightWindow = $(window).outerHeight();
     if (heightSlide.split(',')) {
       if (heightSlide.split(',')[0] == 'auto') {
         slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
@@ -11786,9 +11785,8 @@ function resizeHeightSlide() {
       } else {
         $.each(heightSlide.split(','), function (index, value) {
           var maxWidth = value.split('=')[0].replace('mw', ''),
-              widthWindow = $(window).outerWidth();
+            widthWindow = $(window).outerWidth();
           height = value.split('=')[1], slideHeight = height == 'auto' ? heightWindow : height + 'px';
-
           if (widthWindow <= maxWidth) {
             $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
           }
@@ -11800,18 +11798,15 @@ function resizeHeightSlide() {
     }
   }
 }
-
 function insertImageMobile() {
   // INCLUDE IMAGE MOBILE
   if ($(window).outerWidth() <= 800) {
     $.each($('[data-image-mobile]'), function (index, value) {
       var imageMobile = $(this).data('image-mobile');
-
       switch (value.localName) {
         case 'img':
           $(this).attr('src', imageMobile);
           break;
-
         default:
           $(this).css('backgound', "url(".concat(imageMobile, ")"));
           break;
@@ -11819,20 +11814,20 @@ function insertImageMobile() {
     });
   }
 }
-
 $(function () {
   // SET HEADER FLOATING
   var ff = $('.fixed-floating'),
-      hf = ff.find('.header-floating'),
-      minScrolling = ff.data('min-scrolling');
+    hf = ff.find('.header-floating'),
+    minScrolling = ff.data('min-scrolling');
   $(window).on('scroll', function () {
     if ($(this).scrollTop() >= minScrolling && !hf.hasClass('floating')) {
       hf.stop().addClass('floating');
     } else if ($(this).scrollTop() < minScrolling - 10 && hf.hasClass('floating')) {
       hf.stop().removeClass('floating');
     }
-  }); // SETTINGS SLIDE
+  });
 
+  // SETTINGS SLIDE
   insertImageMobile();
   resizeHeightSlide();
   $(window).on('resize', function () {
@@ -11847,9 +11842,47 @@ $(function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/pages/Abouts/ABOU02/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel-abou02-topic').owlCarousel({
+    margin: 5,
+    stagePadding: 0,
+    smartSpeed: 450,
+    loop: true,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 361 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 800 up
+      800: {
+        items: 4
+      }
+    }
+  });
+  $('.carousel-abou02-topic').css('width', $('.abou02-page__topic .container').outerWidth() + 280);
+  $(window).on('resize', function () {
+    $('.carousel-abou02-topic').css('width', $('.abou02-page__topic .container').outerWidth() + 280);
+  });
+  $(window).on('resize', function () {
+    if ($(window).outerWidth() <= 600) {
+      $('.carousel-abou02-topic').css('width', $('.abou02-page__topic .container').outerWidth());
+    }
+  });
+  if ($(window).outerWidth() <= 600) {
+    $('.carousel-abou02-topic').css('width', $('.abou02-page__topic .container').outerWidth());
+  }
+});
 
 /***/ }),
 
@@ -11860,7 +11893,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap base-component.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap base-component.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -11877,7 +11910,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): base-component.js
+   * Bootstrap (v5.2.2): base-component.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -11885,7 +11918,7 @@ $(function () {
    * Constants
    */
 
-  const VERSION = '5.2.1';
+  const VERSION = '5.2.2';
   /**
    * Class definition
    */
@@ -11969,7 +12002,7 @@ $(function () {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap data.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap data.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -11980,7 +12013,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/data.js
+   * Bootstrap (v5.2.2): dom/data.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12045,7 +12078,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap event-handler.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap event-handler.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12056,7 +12089,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/event-handler.js
+   * Bootstrap (v5.2.2): dom/event-handler.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12338,7 +12371,7 @@ $(function () {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap manipulator.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap manipulator.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12349,7 +12382,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/manipulator.js
+   * Bootstrap (v5.2.2): dom/manipulator.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12432,7 +12465,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap selector-engine.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap selector-engine.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12443,7 +12476,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/selector-engine.js
+   * Bootstrap (v5.2.2): dom/selector-engine.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12527,7 +12560,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap dropdown.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap dropdown.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12564,7 +12597,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dropdown.js
+   * Bootstrap (v5.2.2): dropdown.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12636,7 +12669,7 @@ $(function () {
       this._parent = this._element.parentNode; // dropdown wrapper
       // todo: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.2/forms/input-group/
 
-      this._menu = SelectorEngine__default.default.next(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.prev(this._element, SELECTOR_MENU)[0];
+      this._menu = SelectorEngine__default.default.next(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.prev(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.findOne(SELECTOR_MENU, this._parent);
       this._inNavbar = this._detectNavbar();
     } // Getters
 
@@ -12954,7 +12987,7 @@ $(function () {
 
       event.preventDefault(); // todo: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.2/forms/input-group/
 
-      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default.default.prev(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.next(this, SELECTOR_DATA_TOGGLE)[0];
+      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default.default.prev(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.next(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.findOne(SELECTOR_DATA_TOGGLE, event.delegateTarget.parentNode);
       const instance = Dropdown.getOrCreateInstance(getToggleButton);
 
       if (isUpOrDownEvent) {
@@ -13009,7 +13042,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap config.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap config.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13024,7 +13057,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): util/config.js
+   * Bootstrap (v5.2.2): util/config.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -13099,7 +13132,7 @@ $(function () {
 
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /*!
-  * Bootstrap index.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap index.js v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13110,7 +13143,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): util/index.js
+   * Bootstrap (v5.2.2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */

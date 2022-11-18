@@ -21,9 +21,9 @@
                         <h4 class="abou02__box__subtitle">subtitulo</h4>
                         <h5 class="abou02__box__title">Titulo</h5>
                     </div>
-                    {{-- @include('Client.pages.Abouts.ABOU02.show'); --}}
                 </article>
             </div>
         </div>
     </div>
 </section>
+{{-- END .abou02 --}}

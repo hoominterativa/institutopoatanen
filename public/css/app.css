@@ -155,34 +155,34 @@ a {
 
 @media (min-width: 360px) and (max-width: 800px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 100% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 801px) and (max-width: 1023px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 90% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 1024px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
-    max-width: 1420px !important;
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1112px !important;
   }
 }
 .btn-icon {
@@ -296,12 +296,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -320,17 +317,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -580,11 +567,106 @@ a {
   }
 }
 
+/*======= CONTENT PAGE ======= */
 /* BEGIN STYLE */
-.abou02 {
-  display: none;
+.abou02-page__header {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.abou02-page__header .container--abou02-header {
+  padding: 112px 0 92px 0;
+}
+.abou02-page__header__title {
+  font-size: 3.125rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #000;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+.abou02-page__header__subtitle {
+  font-size: 1.25rem;
+  color: #7C7C7C;
+  font-family: "Montserrat", sans-serif, arial;
+}
+.abou02-page__header__line {
+  width: 100%;
+  margin-top: 28.81px;
+}
+.abou02-page .container--abou02-page {
+  padding: 51px 0 118px;
+}
+.abou02-page__content__subtitle {
+  font-size: 1.25rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  margin-bottom: 1px;
+}
+.abou02-page__content__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+}
+.abou02-page__content__line {
+  width: 100%;
+  margin-top: 38.99px;
+  margin-bottom: 30.01px;
+}
+.abou02-page__content__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #404040;
+}
+
+.abou02-page__topic .carousel-abou02-topic {
+  margin-top: 59px;
+}
+.abou02-page__topic .container--abou02-page__topic {
+  padding: 52px 0 39px 0;
+}
+.abou02-page__topic__item {
+  position: relative;
+  min-height: 487px;
+}
+.abou02-page__topic__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+}
+.abou02-page__topic__subtitle {
+  font-size: 1.25rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+}
+.abou02-page__topic__item__description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 48.66px 53px;
+}
+.abou02-page__topic__item__title {
+  font-size: 1.125rem;
+  color: #000;
+  font-family: "Montserrat", sans-serif, arial;
+}
+.abou02-page__topic__item__paragraph {
+  color: #7C7C7C;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.abou02-page__topic__item a {
+  color: #000;
 }
 
 .lightbox-abou02 {
+  width: 1352px;
   display: none;
+  padding: 0;
+}
+.lightbox-abou02 .carousel__button.is-close {
+  right: 17px;
+  top: 17px;
+  left: inherit;
+  width: 31px;
+  height: 31px;
+  background: #000000;
+  border-radius: 5px;
 }

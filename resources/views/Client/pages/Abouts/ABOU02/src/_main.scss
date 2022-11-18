@@ -1,8 +1,132 @@
 @import 'variables';
 /* BEGIN STYLE */
-.abou02{
-    display: none;
+.abou02-page{
+    &__header{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        .container--abou02-header{
+            padding: 112px 0 92px 0;
+        }
+
+        &__title{
+            font-size: $T1;
+            font-family: $font-paragraph;
+            color: $color-black;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        &__subtitle{
+            font-size: $T4;
+            color: $color-two;
+            font-family: $font-paragraph;
+
+        }
+        &__line{
+            width: $abou02-page-line-width;
+            margin-top: 28.81px;
+        }
+    }
+    .container--abou02-page{
+        padding: $abou02-page-content-padding;
+    }
+    &__content__subtitle{
+        font-size: $T4;
+        color:$color-one;
+        font-family: $font-paragraph;
+        margin-bottom: 1px;
+    }
+    &__content__title{
+        font-size: $T2;
+        color:$color-one;
+        font-family: $font-paragraph;
+    }
+    &__content__line{
+        width: $abou02-page-line-width;
+        margin-top: 38.99px;
+        margin-bottom: 30.01px;
+    }
+    &__content__paragraph{
+        font:$paragraph;
+        color:$color-one;
+    }
+   
 }
+.abou02-page__topic{
+    .carousel-abou02-topic{
+        margin-top: 59px;
+    }
+    .container--abou02-page__topic{
+        padding:52px 0  39px 0;
+    }
+    &__item{
+        position: relative;
+        min-height: 487px;
+    }
+    &__title{
+        font-size: $T2;
+        color: $color-one;
+        font-family: $font-paragraph;
+    }
+    &__subtitle{
+        font-size: $T4;
+        color: $color-one;
+        font-family: $font-paragraph;
+    }
+    &__content{
+
+    }
+    &__item__header{
+
+    }
+    &__item__image{
+
+    }
+    &__item__description{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 48.66px 53px;
+    }
+    &__item__title{
+        font-size: $T5;
+        color: $color-black;
+        font-family: $font-paragraph;
+    }
+    &__item__paragraph{
+        color: $color-two;
+        font: $paragraph-min;
+    }
+    &__item a{
+        color:#000;      
+    }
+}
+
+//lightbox
 .lightbox-abou02{
+    width: 1352px;
     display: none;
+    padding: 0;
+
+    &__image{
+
+    }
+    &__description{
+
+    }
+
+    .carousel__button.is-close{
+        right: 17px;
+        top: 17px;
+        left: inherit;
+        width: 31px;
+        height: 31px;
+        background: #000000;
+        border-radius: 5px;
+    }
 }
+
+
+
+
