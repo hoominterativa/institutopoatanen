@@ -4,8 +4,7 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02',
-            'themeMenu' => 'MENU02'
+            'Code' => 'HEAD02'
         ],
         'Footers' => (object)[
 
@@ -20,9 +19,9 @@ return [
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Sobre',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'abou02.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Sobre',
                     'iconPanel' => 'mdi-information'

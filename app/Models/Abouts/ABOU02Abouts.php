@@ -2,7 +2,7 @@
 
 namespace App\Models\Abouts;
 
-use Database\Factories\ABOU02AboutsFactory;
+use Database\Factories\Abouts\ABOU02AboutsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class ABOU02Abouts extends Model
         return ABOU02AboutsFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "abou02_abouts";
     protected $fillable = [];
 
     public function scopeSorting($query)

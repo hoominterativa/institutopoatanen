@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Abouts;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\ABOU02Abouts;
+use App\Models\Abouts\ABOU02Abouts;
 
 class ABOU02AboutsFactory extends Factory
 {
@@ -22,9 +22,9 @@ class ABOU02AboutsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+            // 'title' => $this->faker->text(10),
+            // 'path_image' => 'uploads/temp/image_temporary.png',
+            // 'active' => 1,
         ];
     }
 }
