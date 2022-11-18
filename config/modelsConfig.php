@@ -4,24 +4,27 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02'
+            'Code' => 'HEAD02',
+            'themeMenu' => 'MENU02'
         ],
-        'Footers' => (object)[]
+        'Footers' => (object)[
+
+        ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI02' => (object)[
+        'Abouts' => (object) [
+            'ABOU02' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'config' => (object) [
                     'titleMenu' => '',
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Sobre',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
