@@ -54,9 +54,7 @@
    
 }
 .abou02-page__topic{
-    .carousel-abou02-topic{
-        margin-top: 59px;
-    }
+   
     .container--abou02-page__topic{
         padding:52px 0  39px 0;
     }
@@ -100,6 +98,19 @@
     }
     &__item a{
         color:#000;      
+    }
+
+    .carousel-abou02-topic{
+        margin-top: 59px;
+    }
+    .carousel-abou02-topic .owl-nav{
+        display: flex;
+    }
+    .carousel-abou02-topic .owl-nav .owl-prev{
+
+    }
+    .carousel-abou02-topic .owl-nav .owl-next{
+
     }
 }
 
