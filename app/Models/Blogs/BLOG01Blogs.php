@@ -16,7 +16,20 @@ class BLOG01Blogs extends Model
     }
 
     protected $table = "blog01_blogs";
-    protected $fillable = [];
+    protected $fillable = [
+        "category_id",
+        "title",
+        "slug",
+        "publishing",
+        "description",
+        "text",
+        "path_image_thumbnail",
+        "path_image",
+        "active",
+        "featured_home",
+        "featured_page",
+        "sorting",
+    ];
 
     public function scopeSorting($query)
     {
@@ -26,6 +39,16 @@ class BLOG01Blogs extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeFeaturedPage($query)
+    {
+        return $query->where('featured_page', 1);
+    }
+
+    public function scopeFeaturedHome($query)
+    {
+        return $query->where('featured_home', 1);
     }
 
     public function category()

@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Social;
 use Illuminate\Support\Str;
 use App\Models\Optimization;
 use App\Models\OptimizePage;
 use App\Models\SettingTheme;
+use App\Models\GeneralSetting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +13,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\CoreController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EditorController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
@@ -22,8 +25,6 @@ use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
-use App\Models\GeneralSetting;
-use App\Models\Social;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,6 +125,8 @@ Route::prefix('painel')->group(function () {
 
         Route::post('links-cta-header/{GeneralSetting}', [GeneralSettingController::class, 'linksHeader'])->name('admin.cta.header');
         Route::post('links-cta-footer/{GeneralSetting}', [GeneralSettingController::class, 'linksFooter'])->name('admin.cta.footer');
+
+        Route::post('editor/image_upload', [EditorController::class, 'upload'])->name('editor.upload.archive');
     });
 });
 

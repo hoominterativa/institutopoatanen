@@ -88,6 +88,7 @@
     <div class="col-12">
         <div class="complete-editor__content mb-3">
             {!! Form::label('complete-editor', 'Texto Artigo', ['class'=>'form-label']) !!}
+            <small class="ms-1"><b>Recomendamos salvar de tempo em tempo caso a matéria seja extensa</b></small>
             {!! Form::textarea('text', null, [
                 'class'=>'form-control complete-editor',
                 'id'=>'complete-editor',
@@ -96,11 +97,3 @@
     </div>
 </div>
 {{-- end row --}}
-
-{{-- Essa estrutura pode ser usada junto ao label do input para aparecer o ícone de duvida do lado do mesmo. pode usar a estutura abaixo substituindo o "Form::label" --}}
-{{-- <div class="d-flex align-items-center mb-1">
-    {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-original-title="Coloque a mensagem desejado aqui"></i>
-</div> --}}

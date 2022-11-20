@@ -6,15 +6,17 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "cohensive/oembed": "^0.3.0",
         "doctrine/dbal": "^3.1",
         "fruitcake/laravel-cors": "^2.0",
+        "gumlet/php-image-resize": "2.0.*",
         "guzzlehttp/guzzle": "^7.0.1",
         "kodeine/laravel-acl": "^2.0",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
-        "gumlet/php-image-resize": "2.0.*"
+        "cohensive/embed": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

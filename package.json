@@ -19,7 +19,13 @@
         "sass-loader": "^12.1.0"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-basic-styles": "^35.3.1",
         "@ckeditor/ckeditor5-build-classic": "^29.1.0",
+        "@ckeditor/ckeditor5-dev-utils": "^31.1.9",
+        "@ckeditor/ckeditor5-editor-classic": "^35.3.1",
+        "@ckeditor/ckeditor5-essentials": "^35.3.1",
+        "@ckeditor/ckeditor5-paragraph": "^35.3.1",
+        "@ckeditor/ckeditor5-theme-lark": "^35.3.1",
         "@fancyapps/ui": "^4.0.0-beta.1",
         "@popperjs/core": "^2.9.1",
         "admin-resources": "git+https://github.com/coderthemes/admin-resources.git#master",

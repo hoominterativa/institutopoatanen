@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Blogs\BLOG01CategoryController;
 use App\Http\Controllers\Blogs\BLOG01Controller;
+use App\Http\Controllers\Blogs\BLOG01SectionController;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
@@ -23,12 +24,17 @@ $route = Str::slug($modelConfig->titlePanel);
 $routeName = Str::lower($model);
 
 // ADMIN
-Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+Route::prefix('painel/')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/categorias', BLOG01CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'BLOG01BlogsCategory']);
     Route::post($route.'/categoria/delete', [BLOG01CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [BLOG01CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
-    Route::post($route.'/busca', [BLOG01Controller::class, 'index'])->name('admin.'.$routeName.'.index.filter');
+    Route::post('busca/'.$route, [BLOG01Controller::class, 'filter'])->name('admin.'.$routeName.'.index.filter');
+    Route::get('clearFilter/'.$route, [BLOG01Controller::class, 'clearFilter'])->name('admin.'.$routeName.'.clearFilter');
+
+    Route::resource($route.'/secao', BLOG01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'BLOG01BlogsSection']);
 });
-// CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+
+//CLIENT
+Route::get($route.'/categoria/{BLOG01BlogsCategory:slug}', [BLOG01Controller::class, 'page'])->name($routeName.'.page.category');
+Route::get('categoria/{BLOG01BlogsCategory:slug}/'.$route.'/{BLOG01Blogs:slug}', [BLOG01Controller::class, 'show'])->name($routeName.'.show.content');
