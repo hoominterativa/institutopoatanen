@@ -1,5 +1,181 @@
 @import 'variables';
 /* BEGIN STYLE */
+
+.abou02{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__container{
+        padding: 99px 0 40px 0 !important;
+    }
+
+    &__boxLeft{
+        padding: 0 68px;
+        min-height: 447px;
+        &__subtitle{
+            padding: 6px 15px;
+            max-width: 200px;
+            background-color: $color-two;
+            font-size: $T4;
+            font-family: $font-paragraph;
+            color: $color-five;
+            font-weight: $weight-700;
+            margin-bottom: 22.03px;
+        }
+        &__title{
+            font-size: $T2;
+            color: $color-black;
+            font-family: $font-paragraph;
+            font-weight: $weight-700;
+        }
+        &__line{
+            margin-top: 42.97px;
+            margin-bottom: 39px;
+        }
+        &__paragraph{
+            color: $color-one;
+            font-weight: $weight-400;
+            font: $paragraph;
+        }
+        &__paragraph p{
+            color: $color-one;
+            font-weight: $weight-400;
+            font: $paragraph;
+            margin-bottom: 0;
+        }
+        &__cta{
+            font: $abou02-cta-font;
+            font-weight: $abou02-cta-font-weight;
+            color: $abou02-cta-color;
+            display: $abou02-cta-display;
+            margin-top: $abou02-cta-margin-top;
+            max-width: $abou02-cta-max-width;
+            padding: $abou02-cta-padding;
+            background-color: $abou02-cta-background-color;
+    
+    
+            &:hover{
+                color: $abou02-cta-color-hover;
+                background-color: $abou02-cta-background-color-hover;
+    
+                .abou02__boxLeft__cta__icon{
+                    filter: $abou02-cta-icon-filter-hover;
+                }
+            }
+        }
+        @include small-down{
+                padding: 0 45px; 
+                min-height: auto;
+
+                &__subtitle{
+                    font-size:$T4-mobile;
+                    margin-bottom: 18px;
+                    max-width: 174px;
+                }
+                &__title{
+                    font-size:$T2-mobile;
+                }
+                &__line{
+                    margin-top: 27px;
+                    margin-bottom: 49px;
+                }
+                &__paragraph{
+                    font: $paragraph-mobile;
+                }
+                &__paragraph p{
+                    font: $paragraph-mobile;
+                }
+        }
+        
+
+    }
+
+    &__boxRight{
+        
+        &__item{
+            position: relative;
+            min-height: 447px;
+            height: 447px;
+        }
+        &__item__image{
+
+        }
+        &__description{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 48.66px 53px;
+        }
+        &__title{
+            font-size: $T5;
+            color: $color-black;
+            font-family: $font-paragraph;
+            font-weight: $weight-700;
+        }
+        &__paragraph{
+            color: $color-two;
+            font: $paragraph-min;
+            font-weight: $weight-400;
+        }
+        &__paragraph p{
+            color: $color-two;
+            font: $paragraph-min;
+            font-weight: $weight-400;
+            margin-bottom: 0;
+        }
+        &__item a{
+            color:$color-black;     
+        }
+
+
+        .carousel_abou02 .owl-nav{
+            display: flex;
+            margin-top: 30px;
+            gap: 0 20.5px;
+        }
+        .carousel_abou02 .owl-nav .owl-prev,
+        .carousel_abou02 .owl-nav .owl-next{
+            height: 29px;
+            width: 29px;
+            border-radius: 100%;
+            background-color: $color-one;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel_abou02 .owl-nav .owl-prev span,
+        .carousel_abou02 .owl-nav .owl-next span{
+            color:#fff;
+            font-size: 32px;
+            height: 58px;
+        }
+
+        @include small-down{
+            padding: 0 44px;  
+            margin-top: 43px;
+
+            &__title{
+                font-size: $T5-mobile;
+            }
+            &__paragraph{
+                font: $paragraph-min-mobile;
+            }
+            &__paragraph p{
+                font: $paragraph-min-mobile;
+            }
+        }
+
+    }
+
+    @include small-down{
+        &__container{
+            padding: 61px 0 36px 0 !important;
+        }
+    }
+}
+
+
 .abou02-page{
     &__header{
         background-position: center;
@@ -7,7 +183,7 @@
         background-repeat: no-repeat;
 
         .container--abou02-header{
-            padding: 112px 0 92px 0;
+            padding: 112px 0 92px 0 !important;
         }
 
         &__title{
@@ -15,104 +191,224 @@
             font-family: $font-paragraph;
             color: $color-black;
             margin-bottom: 25px;
-            font-weight: bold;
+            font-weight: $weight-700;
         }
         &__subtitle{
             font-size: $T4;
             color: $color-two;
             font-family: $font-paragraph;
-
+            font-weight: $weight-700;
         }
         &__line{
             width: $abou02-page-line-width;
             margin-top: 28.81px;
         }
+        @include small-down{
+            &__title{
+                font-size: $T2-mobile;
+                margin-bottom: 0;
+            }
+            &__subtitle{
+                font-size: $T4-mobile;
+            }
+            &__line{
+                margin-top: 29px;
+            }
+        }
     }
     .container--abou02-page{
-        padding: $abou02-page-content-padding;
+        padding: 51px 0 118px !important;
     }
     &__content__subtitle{
         font-size: $T4;
         color:$color-one;
         font-family: $font-paragraph;
+        font-weight: $weight-700;
         margin-bottom: 1px;
     }
     &__content__title{
         font-size: $T2;
         color:$color-one;
         font-family: $font-paragraph;
+        font-weight: $weight-700;
     }
     &__content__line{
         width: $abou02-page-line-width;
         margin-top: 38.99px;
-        margin-bottom: 30.01px;
+        margin-bottom: 30.02px;
     }
     &__content__paragraph{
         font:$paragraph;
         color:$color-one;
+        font-weight: $weight-400;
+    }
+    &__content__paragraph p{
+        font:$paragraph;
+        color:$color-one;
+        font-weight: $weight-400;
+        margin-bottom: 0;
+    }
+    @include small-down{
+        &__content__subtitle{
+            font-size: $T4-mobile;
+        }
+        &__content__title{
+            font-size: $T2-mobile;
+        }
+        &__content__line{
+            margin-top: 25px;
+            margin-bottom: 21px;
+        }
+        &__content__paragraph{
+            font:$paragraph-min;
+        }
+        &__content__paragraph p{
+            font:$paragraph-min;
+        }
     }
    
 }
+
+
 .abou02-page__topic{
-   
     .container--abou02-page__topic{
-        padding:52px 0  39px 0;
+        padding:52px 0  32px 0 !important;
     }
-    &__item{
-        position: relative;
-        min-height: 487px;
-    }
-    &__title{
+    &__encompass__title{
         font-size: $T2;
         color: $color-one;
         font-family: $font-paragraph;
+        font-weight: $weight-700;
+        margin-bottom: 23.97px;
     }
-    &__subtitle{
+    &__encompass__subtitle{
         font-size: $T4;
         color: $color-one;
         font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__encompass__line{
+        margin-top: 26.02px;
+        margin-bottom: 0;
     }
     &__content{
 
     }
-    &__item__header{
+    &__item{
+        position: relative;
+        min-height: 487px;
+        height: 487px;
+    }
+    &__header{
 
     }
     &__item__image{
 
     }
-    &__item__description{
+    &__description{
         position: absolute;
         top: 0;
         left: 0;
         padding: 48.66px 53px;
     }
-    &__item__title{
+    &__title{
         font-size: $T5;
         color: $color-black;
         font-family: $font-paragraph;
+        font-weight: $weight-700;
     }
-    &__item__paragraph{
+    &__paragraph{
         color: $color-two;
         font: $paragraph-min;
+        font-weight: $weight-400;
+    }
+    &__paragraph p{
+        color: $color-two;
+        font: $paragraph-min;
+        font-weight: $weight-400;
+        margin-bottom: 0;
     }
     &__item a{
         color:#000;      
     }
 
     .carousel-abou02-topic{
-        margin-top: 59px;
+        margin-top: 59.02px;
     }
     .carousel-abou02-topic .owl-nav{
         display: flex;
+        margin-left: 39%;
+        margin-top: 35px;
+        gap: 0 20.5px;
     }
-    .carousel-abou02-topic .owl-nav .owl-prev{
-
-    }
+    .carousel-abou02-topic .owl-nav .owl-prev,
     .carousel-abou02-topic .owl-nav .owl-next{
-
+        height: 29px;
+        width: 29px;
+        border-radius: 100%;
+        background-color: $color-one;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .carousel-abou02-topic .owl-nav .owl-prev span,
+    .carousel-abou02-topic .owl-nav .owl-next span{
+        color:#fff;
+        font-size: 32px;
+        height: 58px;
     }
 }
+
+
+.abou02-page__section{
+    .container--abou02-page__section{
+        padding-top: 68.54px !important;
+    }
+    &__image{
+        height: 592px;
+        width: 429px;
+        border-radius: 0px;   
+    }
+    &__image img{
+
+    }
+    &__description{
+        padding-left: 170.46px;
+        padding-right:0;
+    }
+    &__encompass_title{
+
+    }
+    &__title{
+        font-size: $T2;
+        color: $color-black;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__subtitle{
+        font-size: $T4;
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__line{
+        margin-top: 28.91px;
+        margin-bottom: 39px;
+    }
+    &__paragraph{
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-400;
+    }
+    &__paragraph p{
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-400;
+        margin-bottom: 0;
+    }
+}
+
+
 
 //lightbox
 .lightbox-abou02{
@@ -126,7 +422,21 @@
     &__description{
 
     }
-
+    &__subtitle{
+        font-size: $T4;
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__title{
+        font-size: $T2;
+        color: $color-black;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__paragraph{
+        font: $paragraph;
+    }
     .carousel__button.is-close{
         right: 17px;
         top: 17px;
@@ -135,6 +445,11 @@
         height: 31px;
         background: #000000;
         border-radius: 5px;
+    }
+
+
+    @include small-down{
+        text-align: center;
     }
 }
 

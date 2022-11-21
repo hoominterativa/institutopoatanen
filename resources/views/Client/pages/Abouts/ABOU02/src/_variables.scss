@@ -1,7 +1,25 @@
 /*======= CONTENT PAGE ======= */
 
 $abou02-page-content-text-align: center;
-$abou02-page-content-padding: 51px 0 118px;
 
 
 $abou02-page-line-width:100%; 
+
+
+
+
+
+// CTA
+$abou02-cta-font: $paragraph-min;
+$abou02-cta-font-weight: $weight-700;
+$abou02-cta-color: $color-one;
+$abou02-cta-display: flex;
+$abou02-cta-margin-top: 30px;
+$abou02-cta-max-width: 177px;
+$abou02-cta-padding: 10px 15px;
+$abou02-cta-background-color: $bg-soft;
+// HOVER
+$abou02-cta-color-hover: $color-white;
+$abou02-cta-background-color-hover: $bg-black;
+$abou02-cta-icon-filter-hover: invert(1) grayscale(1);
+
