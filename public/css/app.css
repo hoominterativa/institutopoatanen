@@ -796,6 +796,9 @@ a {
   margin-bottom: 0;
 }
 @media (max-width: 800px) {
+  .abou02-page__content {
+    padding: 0 36px;
+  }
   .abou02-page__content__subtitle {
     font-size: 1.125rem;
   }
@@ -890,6 +893,24 @@ a {
   font-size: 32px;
   height: 58px;
 }
+@media (max-width: 800px) {
+  .abou02-page__topic {
+    overflow: hidden;
+  }
+  .abou02-page__topic__description {
+    padding: 48.66px 53px;
+  }
+  .abou02-page__topic__title {
+    font-size: 1.063rem;
+  }
+  .abou02-page__topic__paragraph {
+    color: #7C7C7C;
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+  .abou02-page__topic__paragraph p {
+    font: 0.813rem "Montserrat", sans-serif, arial;
+  }
+}
 
 .abou02-page__section .container--abou02-page__section {
   padding-top: 68.54px !important;
@@ -929,6 +950,51 @@ a {
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 400;
   margin-bottom: 0;
+}
+.abou02-page__section__cta {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+  display: flex;
+  margin-top: 30px;
+  max-width: 177px;
+  padding: 10px 15px;
+  background-color: #CACACA;
+}
+.abou02-page__section__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.abou02-page__section__cta:hover .abou02-page__section__cta__icon {
+  filter: invert(1) grayscale(1);
+}
+@media (max-width: 800px) {
+  .abou02-page__section__image {
+    order: 1;
+    width: 100%;
+    padding: 0 41.33px;
+  }
+  .abou02-page__section__description {
+    order: 0;
+    padding: 0 41.33px;
+    margin-bottom: 49.43px;
+  }
+  .abou02-page__section__title {
+    font-size: 1.875rem;
+    margin-bottom: 0;
+  }
+  .abou02-page__section__subtitle {
+    font-size: 1.125rem;
+  }
+  .abou02-page__section__line {
+    margin-top: 29px;
+  }
+  .abou02-page__section__paragraph {
+    font-family: "Montserrat", sans-serif, arial;
+  }
+  .abou02-page__section__paragraph p {
+    font-family: "Montserrat", sans-serif, arial;
+  }
 }
 
 .lightbox-abou02 {

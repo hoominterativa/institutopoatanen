@@ -38,7 +38,7 @@ $(function(){
     }
 
     $('.carousel-abou02-topic').owlCarousel({
-        margin:5,
+        margin:14,
         stagePadding:0,
         smartSpeed:450,
         loop: true,
@@ -49,22 +49,29 @@ $(function(){
         responsive: {
             // breakpoint from 0 up
             0 : {
-                items:2
+                items:1,
+                margin:12
             },
             // breakpoint from 361 up
             361 : {
-                items:2
+                items:2,
+                margin:12
+                
             },
             500 : {
-                items:2
+                items:2,
+                margin:12
+                
             },
             // breakpoint from 50 up
             815 : {
                 items:3,
+                margin:14
             },
             // breakpoint from 800 up
             820 : {
                 items:4,
+                margin:14
             }
             // breakpoint from 801 up
         }

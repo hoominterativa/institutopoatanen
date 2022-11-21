@@ -249,6 +249,9 @@
         margin-bottom: 0;
     }
     @include small-down{
+        &__content{
+            padding: 0 36px;
+        }
         &__content__subtitle{
             font-size: $T4-mobile;
         }
@@ -357,6 +360,28 @@
         font-size: 32px;
         height: 58px;
     }
+
+    @include small-down{
+        overflow: hidden;
+
+
+        &__description{
+            padding: 48.66px 53px;
+        }
+        &__title{
+            font-size: $T5-mobile;
+        }
+        &__paragraph{
+            color: $color-two;
+            font: $paragraph-min;
+        }
+        &__paragraph p{
+            font: $paragraph-min-mobile;
+        }
+    }
+    
+
+
 }
 
 
@@ -405,6 +430,54 @@
         font-family: $font-paragraph;
         font-weight: $weight-400;
         margin-bottom: 0;
+    }
+    &__cta{
+        font: $abou02-cta-font;
+        font-weight: $abou02-cta-font-weight;
+        color: $abou02-cta-color;
+        display: $abou02-cta-display;
+        margin-top: $abou02-cta-margin-top;
+        max-width: $abou02-cta-max-width;
+        padding: $abou02-cta-padding;
+        background-color: $abou02-cta-background-color;
+
+
+        &:hover{
+            color: $abou02-cta-color-hover;
+            background-color: $abou02-cta-background-color-hover;
+
+            .abou02-page__section__cta__icon{
+                filter: $abou02-cta-icon-filter-hover;
+            }
+        }
+    }
+    @include small-down{
+        &__image{
+            order: 1;
+            width: 100%;
+            padding: 0 41.33px;
+        }
+        &__description{
+            order: 0;
+            padding: 0 41.33px;
+            margin-bottom: 49.43px;
+        }
+        &__title{
+            font-size: $T2-mobile;
+            margin-bottom: 0;
+        }
+        &__subtitle{
+            font-size: $T4-mobile;
+        }
+        &__line{
+            margin-top: 29px;
+        }
+        &__paragraph{
+            font-family: $font-paragraph;
+        }
+        &__paragraph p{
+            font-family: $font-paragraph;
+        }
     }
 }
 

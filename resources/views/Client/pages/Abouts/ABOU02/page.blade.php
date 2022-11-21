@@ -60,7 +60,7 @@
     <section class="abou02-page__section container-fluid px-0">
         <div class="container container--abou02-page__section">
             <div class="row abou02-page__section__row align-items-center">
-                <div class="abou02-page__section__image col-12 col-md-5">
+                <div class="abou02-page__section__image col-12 col-md-5 m-0">
                     <img class="w-100 h-100" src="{{asset('storage/uploads/tmp/png-slide.png')}}"  width="430" alt="Titulo">
                 </div>
                 <div class="col-12 col-md-7 abou02-page__section__description">
@@ -74,6 +74,10 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. 
                         </p>
                     </div>
+                    <a href="#" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
+                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="abou02-page__section__cta__icon me-3 transition">
+                        CTA
+                    </a>
                 </div>
             </div>
         </div>
