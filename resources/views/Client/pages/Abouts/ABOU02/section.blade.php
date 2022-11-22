@@ -2,8 +2,8 @@
     <div class="row abou02__container ">
         <div class="abou02__boxLeft col-md-4 d-flex row align-items-start m-0">
             <div class="abou02__boxLeft__description p-0">
-                <h4 class="abou02__boxLeft__subtitle text-center">subtitulo</h4>
-                <h5 class="abou02__boxLeft__title mb-0">Titulo</h5>
+                <h3 class="abou02__boxLeft__subtitle text-center">subtitulo</h3>
+                <h2 class="abou02__boxLeft__title mb-0">Titulo</h2>
                 <hr class="abou02__boxLeft__line">
                 <div class="abou02__boxLeft__paragraph">
                     <p>
@@ -12,7 +12,7 @@
                         velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. 
                     </p>
                 </div>
-                <a href="sobre" class="abou02__boxLeft__cta transition justify-content-center align-items-center">
+                <a rel="first" href="sobre" class="abou02__boxLeft__cta transition justify-content-center align-items-center">
                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="abou02__boxLeft__cta__icon me-3 transition">
                     CTA
                 </a>

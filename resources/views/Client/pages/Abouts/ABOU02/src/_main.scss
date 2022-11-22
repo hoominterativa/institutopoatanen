@@ -5,21 +5,22 @@
     @include bgpadrao;
 
     &__container{
-        padding: 99px 0 40px 0 !important;
+        padding:$abou02-container-padding;
     }
 
     &__boxLeft{
-        padding: 0 68px;
-        min-height: 447px;
+        padding: $abou02-boxleft-padding;
+        min-height: $abou02-boxleft-min-height;
+
         &__subtitle{
-            padding: 6px 15px;
-            max-width: 200px;
+            padding: $abou02-boxleft-subtitle-padding;
+            max-width: $abou02-boxleft-subtitle-max-width;
             background-color: $color-four;
             font-size: $T4;
             font-family: $font-paragraph;
             color: $color-one;
             font-weight: $weight-700;
-            margin-bottom: 22.03px;
+            margin-bottom: $abou02-boxleft-subtitle-margin-bottom;
         }
         &__title{
             font-size: $T2;
@@ -28,8 +29,7 @@
             font-weight: $weight-700;
         }
         &__line{
-            margin-top: 27px;
-            margin-bottom: 39px;
+            margin: $abou02-boxleft-line-margin;
         }
         &__paragraph{
             color: $color-one;
@@ -40,7 +40,7 @@
             color: $color-one;
             font-weight: $weight-400;
             font: $paragraph;
-            margin-bottom: 0;
+            margin-bottom: $abou02-boxleft-paragraph-p-margin-bottom;
         }
         &__cta{
             font: $abou02-cta-font;
@@ -51,8 +51,7 @@
             max-width: $abou02-cta-max-width;
             padding: $abou02-cta-padding;
             background-color: $abou02-cta-background-color;
-    
-    
+
             &:hover{
                 color: $abou02-cta-color-hover;
                 background-color: $abou02-cta-background-color-hover;
@@ -63,20 +62,20 @@
             }
         }
         @include small-down{
-            padding: 0 45px; 
-            min-height: auto;
+            padding: $abou02-boxleft-mobile-padding; 
+            min-height: $abou02-boxleft-mobile-min-height;
 
             &__subtitle{
                 font-size:$T4-mobile;
-                margin-bottom: 18px;
-                max-width: 174px;
+                margin-bottom: $abou02-boxleft-subtitle-margin-bottom;
+                max-width: $abou02-boxleft-subtitle-max-width;
             }
             &__title{
                 font-size:$T2-mobile;
             }
             &__line{
-                margin-top: 27px;
-                margin-bottom: 49px;
+                margin-top: $abou02-boxleft-line-margin-top;
+                margin-bottom: $abou02-boxleft-line-margin-bottom;
             }
             &__paragraph{
                 font: $paragraph-mobile;
@@ -93,17 +92,14 @@
         
         &__item{
             position: relative;
-            min-height: 447px;
-            height: 447px;
-        }
-        &__item__image{
-
+            min-height: 447px;;
+            height: 447px;;
         }
         &__description{
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 48.66px 53px;
+            position: $abou02-boxright-description-position;
+            top: $abou02-boxright-description-top;
+            left: $abou02-boxright-description-left;
+            padding: $abou02-boxright-description-padding;
         }
         &__title{
             font-size: $T5;
@@ -120,7 +116,7 @@
             color: $color-two;
             font: $paragraph-min;
             font-weight: $weight-400;
-            margin-bottom: 0;
+            margin-bottom: $abou02-boxright-paragraph-p-margin-bottom;
         }
         &__item a{
             color:$color-black;     
@@ -128,34 +124,32 @@
 
 
         .carousel_abou02 .owl-nav{
-            display: flex;
-            margin-top: 30px;
-            gap: 0 20.5px;
+            display: $carousel-abou02-owl-nav-display;
+            margin-top: $carousel-abou02-owl-nav-margin-top;
+            gap: $carousel-abou02-owl-nav-gap;
         }
         .carousel_abou02 .owl-nav .owl-prev,
         .carousel_abou02 .owl-nav .owl-next{
-            height: 29px;
-            width: 29px;
-            border-radius: 100%;
+            height: $carousel-abou02-owl-nav-prev-next-height;
+            width: $carousel-abou02-owl-nav-prev-next-width;
+            border-radius: $carousel-abou02-owl-nav-prev-next-border-radius;
             background-color: $color-one;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include dflex;
         }
         .carousel_abou02 .owl-nav .owl-prev span,
         .carousel_abou02 .owl-nav .owl-next span{
-            color:#fff;
-            font-size: 32px;
-            height: 58px;
+            color:$carousel-abou02-owl-nav-prev-next-span-color;
+            font-size: $carousel-abou02-owl-nav-prev-next-span-font-size;
+            height: $carousel-abou02-owl-nav-prev-next-span-height;
         }
 
         @include small-down{
-            padding: 0 44px !important;  
-            margin-top: 43px;
+            padding: $abou02-boxright-mobile-padding;  
+            margin-top: $abou02-boxright-mobile-margin-top;
 
             &__item{
-                min-height: 414px;
-                height: 414px;
+                min-height: $abou02-boxright-item-min-height;
+                height: $abou02-boxright-item-height;
             }
             &__title{
                 font-size: $T5-mobile;
@@ -172,7 +166,7 @@
 
     @include small-down{
         &__container{
-            padding: 61px 0 36px 0 !important;
+            padding:$abou02-container-mobile-padding;
         }
     }
 }
@@ -181,16 +175,16 @@
 .abou02-page{
     &__header{
         @include bgpadrao;
+        height: $abou02-page-header-height;
 
         .container--abou02-header{
-            padding: 112px 0 92px 0 !important;
+            padding: $abou02-page-header-container-padding;
         }
-
         &__title{
             font-size: $T1;
             font-family: $font-paragraph;
             color: $color-black;
-            margin-bottom: 25px;
+            margin-bottom: $abou02-page-header-title-margin-bottom;
             font-weight: $weight-700;
         }
         &__subtitle{
@@ -201,30 +195,34 @@
         }
         &__line{
             width: $abou02-page-line-width;
-            margin-top: 28.81px;
+            margin-top: $abou02-page-header-line-margin-top;
         }
         @include small-down{
             &__title{
                 font-size: $T2-mobile;
-                margin-bottom: 0;
+                margin-bottom: $abou02-page-header-title-mobile-margin-bottom;
             }
             &__subtitle{
                 font-size: $T4-mobile;
             }
             &__line{
-                margin-top: 29px;
+                margin-top: $abou02-page-header-line-mobile-margin-top;
+                margin-bottom: $abou02-page-header-line-mobile-margin-bottom;
+            }
+            &__content{
+                padding: $abou02-page-header-content-mobile-padding;
             }
         }
     }
     &__content{
-        padding: 51px 0 118px !important;
+        padding:$abou02-page-content-padding;
     }
     &__content__subtitle{
         font-size: $T4;
         color:$color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
-        margin-bottom: 1px;
+        margin-bottom: $abou02-page-content-subtitle-margin-bottom;
     }
     &__content__title{
         font-size: $T2;
@@ -233,9 +231,9 @@
         font-weight: $weight-700;
     }
     &__content__line{
-        width: $abou02-page-line-width;
-        margin-top: 38.99px;
-        margin-bottom: 30.02px;
+        width: $abou02-page-content-line-width;
+        margin-top: $abou02-page-content-line-margin-top;
+        margin-bottom: $abou02-page-content-line-margin-bottom;
     }
     &__content__paragraph{
         font:$paragraph;
@@ -246,43 +244,46 @@
         font:$paragraph;
         color:$color-one;
         font-weight: $weight-400;
-        margin-bottom: 0;
+        margin-bottom: $abou02-page-content-paragraph-p-margin-bottom;
     }
     &__content__paragraph ul{
-        display:flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        margin: 0;
-        padding: 0;
-        margin-top: 20px;
-        gap: 20px 0;
+        display:$abou02-page-content-paragraph-ul-display;
+        justify-content: $abou02-page-content-paragraph-ul-justify-content;
+        flex-wrap: $abou02-page-content-paragraph-ul-flex-wrap;
+        margin: $abou02-page-content-paragraph-ul-margin;
+        padding: $abou02-page-content-paragraph-ul-padding;
+        margin-top: $abou02-page-content-paragraph-ul-margin-top;
+        gap: $abou02-page-content-paragraph-ul-gap;
 
         li{
-            display:flex;
-            width: 50%;
-            min-width: 300px;
-            text-align: left;
-            align-items: flex-start;
+            display:$abou02-page-content-paragraph-ul-li-display;
+            width: $abou02-page-content-paragraph-ul-li-width;
+            min-width: $abou02-page-content-paragraph-ul-li-min-width;
+            text-align: $abou02-page-content-paragraph-ul-li-text-align;
+            align-items: $abou02-page-content-paragraph-ul-li-align-items;
 
             &:before{
-                content: "";
-                width: 7px;
-                height: 7px;
-                display: flex;
-                background: #ccc;
-                border-radius: 100%;
-                margin-right: 8px;
-                flex: none;
-                margin-top: 5px;
+                content:$abou02-page-content-paragraph-ul-li-before-content;
+                width: $abou02-page-content-paragraph-ul-li-before-width;
+                height: $abou02-page-content-paragraph-ul-li-before-height;
+                display: $abou02-page-content-paragraph-ul-li-before-display;
+                background: $color-one;
+                border-radius: $abou02-page-content-paragraph-ul-li-before-border-radius;
+                margin-right: $abou02-page-content-paragraph-ul-li-before-margin-right;
+                flex: $abou02-page-content-paragraph-ul-li-before-flex;
+                margin-top: $abou02-page-content-paragraph-ul-li-before-margin-top;
             }
         }
     }
     @include small-down{
+        &__content{
+            padding:$abou02-page-content-mobile-padding;
+        }
         .container--abou02-page{
-            padding: 46px 0 81px 0!important;
+            padding: $abou02-page-container-mobile-padding;
         }
         &__content_container{
-           margin-bottom: 0;
+           margin-bottom: $abou02-page-content-container-mobile-margin-bottom;
         }
         &__content__subtitle{
             font-size: $T4-mobile;
@@ -291,12 +292,12 @@
             font-size: $T2-mobile;
         }
         &__content__line{
-            margin-top: 25px;
-            margin-bottom: 21px;
+            margin-top: $abou02-page-content-line-margin-top;
+            margin-bottom: $abou02-page-content-line-margin-bottom;
         }
         &__content__paragraph{
             font:$paragraph-min;
-            padding: 0 30px;
+            padding: $abou02-page-content-paragraph-padding;
         }
         &__content__paragraph p{
             font:$paragraph-min;
@@ -308,17 +309,14 @@
 
 .abou02-page__topic{
     .container--abou02-page__topic{
-        padding:0 !important;
-    }
-    &__content{
-        padding: 0 32px!important;
+        padding:$abou02-page-topic-container-padding;
     }
     &__encompass__title{
         font-size: $T2;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
-        margin-bottom: 23.97px;
+        margin-bottom: $abou02-page-topic-title-margin-bottom;
     }
     &__encompass__subtitle{
         font-size: $T4;
@@ -327,28 +325,19 @@
         font-weight: $weight-700;
     }
     &__encompass__line{
-        margin-top: 26.02px;
-        margin-bottom: 0;
-    }
-    &__content{
-
+        margin-top: $abou02-page-topic-encompass-line-margin-top;
+        margin-bottom: $abou02-page-topic-encompass-line-margin-bottom;
     }
     &__item{
         position: relative;
         min-height: 487px;
         height: 487px;
     }
-    &__header{
-
-    }
-    &__item__image{
-
-    }
     &__description{
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 48.66px 53px;
+        position: $abou02-page-topic-item-description-position;
+        top: $abou02-page-topic-item-description-top;
+        left: $abou02-page-topic-item-description-left;
+        padding: $abou02-page-topic-item-description-padding;
     }
     &__title{
         font-size: $T5;
@@ -365,44 +354,59 @@
         color: $color-two;
         font: $paragraph-min;
         font-weight: $weight-400;
-        margin-bottom: 0;
+        margin-bottom: $abou02-page-topic-item-paragraph-p-margin-bottom;
     }
     &__item a{
-        color:#000;      
+        color:$color-black;    
     }
 
     .carousel-abou02-topic{
-        margin-top: 59.02px;
+        margin-top: $carousel-abou02-topic-margin-top;
     }
     .carousel-abou02-topic .owl-nav{
-        display: flex;
-        margin-left: 39%;
-        margin-top: 35px;
-        gap: 0 20.5px;
+        display: $carousel-abou02-topic-owl-nav-display;
+        margin-left: $carousel-abou02-topic-owl-nav-margin-left;
+        margin-top: $carousel-abou02-topic-owl-nav-margin-top;
+        gap: $carousel-abou02-topic-owl-nav-gap;
     }
     .carousel-abou02-topic .owl-nav .owl-prev,
     .carousel-abou02-topic .owl-nav .owl-next{
-        height: 29px;
-        width: 29px;
-        border-radius: 100%;
+        height: $carousel-abou02-topic-owl-nav-prev-next-height;
+        width: $carousel-abou02-topic-owl-nav-prev-next-width;
+        border-radius: $carousel-abou02-topic-owl-nav-prev-next-border-radius;
         background-color: $color-one;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include dflex;
     }
     .carousel-abou02-topic .owl-nav .owl-prev span,
     .carousel-abou02-topic .owl-nav .owl-next span{
-        color:#fff;
-        font-size: 32px;
-        height: 58px;
+        color:$carousel-abou02-topic-owl-nav-prev-next-span-color;
+        font-size: $carousel-abou02-topic-owl-nav-prev-next-span-font-size;
+        height: $carousel-abou02-topic-owl-nav-prev-next-span-height;
     }
 
     @include small-down{
         overflow: hidden;
-
-
+        &__encompass__title{
+            font-size: $T2-mobile;
+        }
+        &__encompass__subtitle{
+            font-size: $T4-mobile;
+        }
+        &__encompass__line{
+            margin-top: $abou02-page-topic-encompass-line-mobile-margin-top;
+            margin-bottom: $abou02-page-topic-encompass-line-mobile-margin-bottom;
+        }
+        .container--abou02-page__section{
+            padding-top: $abou02-page-topic-container-mobile-padding-top;
+        }
+        &__content{
+            padding-left:$abou02-page-topic-content-mobile-padding-left;
+        }
+        &__item_content{
+            padding-left:$abou02-page-topic-item-content-mobile-padding-left;
+        }
         &__description{
-            padding: 48.66px 53px;
+            padding: $abou02-page-topic-description-mobile-padding;
         }
         &__title{
             font-size: $T5-mobile;
@@ -418,6 +422,12 @@
             margin-left: 38%;
         }
     }
+
+    @include medium-down{
+        .carousel-abou02-topic .owl-nav {
+            margin-left: $carousel-abou02-topic-owl-nav-mobile-margin-left;
+        }
+    }
    
 
 }
@@ -425,22 +435,16 @@
 
 .abou02-page__section{
     .container--abou02-page__section{
-        padding-top: 68.54px !important;
+        padding-top: $abou02-page-section-container-padding-top;
     }
     &__image{
-        height: 592px;
-        width: 429px;
-        border-radius: 0px;   
-    }
-    &__image img{
-
+        height: $abou02-page-section-image-height;
+        width: $abou02-page-section-image-width;
+        border-radius: $abou02-page-section-image-border-radius;   
     }
     &__description{
-        padding-left: 170.46px;
-        padding-right:0;
-    }
-    &__encompass_title{
-
+        padding-left: $abou02-page-section-description-padding-left;
+        padding-right:$abou02-page-section-description-padding-right;
     }
     &__title{
         font-size: $T2;
@@ -455,8 +459,8 @@
         font-weight: $weight-700;
     }
     &__line{
-        margin-top: 28.91px;
-        margin-bottom: 39px;
+        margin-top: $abou02-page-section-line-margin-top;
+        margin-bottom: $abou02-page-section-line-margin-bottom;
     }
     &__paragraph{
         color: $color-one;
@@ -467,7 +471,7 @@
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-400;
-        margin-bottom: 0;
+        margin-bottom: $abou02-page-section-paragraph-p-margin-bottom;
     }
     &__cta{
         font: $abou02-cta-font;
@@ -491,24 +495,25 @@
     }
     @include small-down{
         &__image{
-            order: 1;
-            width: 100%;
-            padding: 0 41.33px;
+            order: $abou02-page-section-mobile-image-order;
+            width: $abou02-page-section-mobile-image-width;
+            padding: $abou02-page-section-mobile-image-padding;
+            height: $abou02-page-section-mobile-image-height;
         }
         &__description{
-            order: 0;
-            padding: 0 41.33px;
-            margin-bottom: 49.43px;
+            order: $abou02-page-section-mobile-description-order;
+            padding: $abou02-page-section-mobile-description-padding;
+            margin-bottom: $abou02-page-section-mobile-description-margin-bottom;
         }
         &__title{
             font-size: $T2-mobile;
-            margin-bottom: 0;
+            margin-bottom: $abou02-page-section-mobile-title-margin-bottom;
         }
         &__subtitle{
             font-size: $T4-mobile;
         }
         &__line{
-            margin-top: 29px;
+            margin-top: abou02-page-section-mobile-line-margin-top;
         }
         &__paragraph{
             font-family: $font-paragraph;
@@ -523,16 +528,10 @@
 
 //lightbox
 .lightbox-abou02{
-    width: 100%;
-    display: none;
-    padding: 0;
+    width: $lightbox-abou02-width;
+    display: $lightbox-abou02-display;
+    padding: $lightbox-abou02-padding;
 
-    &__image{
-
-    }
-    &__description{
-
-    }
     &__subtitle{
         font-size: $T4;
         color: $color-one;
@@ -541,12 +540,18 @@
     }
     &__title{
         font-size: $T2;
-        color: $color-black;
+        color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
     }
+    &__line{
+        margin-top: $lightbox-abou02-line-margin-top;
+        margin-bottom: $lightbox-abou02-line-margin-bottom;
+    }
     &__paragraph{
         font: $paragraph;
+        color: $color-one;
+        font-weight: $weight-400;
     }
     .carousel__button.is-close{
         right: 17px;
@@ -556,8 +561,12 @@
         height: 31px;
         background: #000000;
         border-radius: 5px;
+        color: $color-white;
+        font-size:11px;
     }
-
+    .fancybox__backdrop{
+        background: $color-one !important;
+    }
 
     @include small-down{
         text-align: center;

@@ -11898,7 +11898,7 @@ $(function () {
       },
       // breakpoint from 200 up
       361: {
-        items: 1,
+        items: 2,
         margin: 12
       },
       // breakpoint from 361 up
@@ -11922,7 +11922,7 @@ $(function () {
 
   $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
   if ($(window).outerWidth() <= 801) {
-    $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 50);
+    $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 480);
   }
   // END carousel-abou02-topic
 });

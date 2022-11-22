@@ -6,8 +6,8 @@
         </div>
         {{-- END .lightbox-abou02__image --}}
         <div class="lightbox-abou02__description p-5 col-md-6 d-block">
-            <h4 class="lightbox-abou02__subtitle">Subtitulo</h4>
-            <h2 class="lightbox-abou02__title">Titulo</h2>
+            <h3 class="lightbox-abou02__subtitle">Subtitulo</h3>
+            <h2 class="lightbox-abou02__title mb-0">Titulo</h2>
             <hr class="lightbox-abou02__line">
             <div class="lightbox-abou02__paragraph">
                 <p>

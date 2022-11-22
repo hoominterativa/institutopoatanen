@@ -6,7 +6,7 @@
         <header class="abou02-page__header" style="background-image: url({{asset('storage/uploads/tmp/bg-banner-inner.jpg')}})">
             <h2 class="container container--abou02-header d-block text-center">
                 <span class="abou02-page__header__title d-block">Titulo do banner</span>
-                <span class="abou02-page__header__subtitle d-block">SUBTITULO</span>
+                <span class="abou02-page__header__subtitle d-block text-uppercase">SUBTITULO</span>
                 <hr class="abou02-page__header__line mb-0">
             </h2>
         </header>
@@ -22,12 +22,6 @@
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt d
                     </p>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                    </ul>
                 </div>
                 {{-- END .abou02-page__content__paragraph --}}
             </div>
@@ -45,8 +39,8 @@
             <div class="abou02-page__topic__content">
                 <div class="carousel-abou02-topic owl-carousel">
                     <article class="abou02-page__topic__item">
-                        <a href="javascript-void(0);" data-fancybox="" data-src="#lightbox-abou02-1">
-                            <div class="abou02-page__topic__content transition w-100 h-100">
+                        <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-abou02-1">
+                            <div class="abou02-page__topic__item_content transition w-100 h-100">
                                 <div class="abou02-page__topic__header position-relative w-100 h-100">
                                     <div class="abou02-page__topic__image w-100 h-100">
                                         <img src="{{asset('storage/uploads/tmp//image-box.jpg')}}" class="w-100 h-100" alt="">
@@ -87,7 +81,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
                         </p>
                     </div>
-                    <a href="#" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
+                    <a rel="next" href="#" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="abou02-page__section__cta__icon me-3 transition">
                         CTA
                     </a>

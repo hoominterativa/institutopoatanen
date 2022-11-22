@@ -568,7 +568,12 @@ a {
 }
 
 /* ======= SECTION HOME ======= */
-/* ======= SECTION HOME ======= */
+/* ======= PAGE ======= */
+/* ======= SECTION PAGE ======= */
+/* ======= SECTION TOPIC ======= */
+/* ======= SECTION ======= */
+/* ======= SHOW ======= */
+/* ======= LIGHTBOX ======= */
 /* BEGIN STYLE */
 .abou02 {
   background-position: center;
@@ -584,13 +589,13 @@ a {
 }
 .abou02__boxLeft__subtitle {
   padding: 6px 15px;
-  max-width: 200px;
+  max-width: 174px;
   background-color: #CACACA;
   font-size: 1.25rem;
   font-family: "Montserrat", sans-serif, arial;
   color: #404040;
   font-weight: 700;
-  margin-bottom: 22.03px;
+  margin-bottom: 18px;
 }
 .abou02__boxLeft__title {
   font-size: 2.5rem;
@@ -599,8 +604,7 @@ a {
   font-weight: 700;
 }
 .abou02__boxLeft__line {
-  margin-top: 27px;
-  margin-bottom: 39px;
+  margin: 27px 0 39px 0;
 }
 .abou02__boxLeft__paragraph {
   color: #404040;
@@ -735,6 +739,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 352px;
 }
 .abou02-page__header .container--abou02-header {
   padding: 112px 0 92px 0 !important;
@@ -765,7 +770,11 @@ a {
     font-size: 1.125rem;
   }
   .abou02-page__header__line {
-    margin-top: 29px;
+    margin-top: 25px;
+    margin-bottom: 21px;
+  }
+  .abou02-page__header__content {
+    padding: 46px 0 81px !important;
   }
 }
 .abou02-page__content {
@@ -786,8 +795,8 @@ a {
 }
 .abou02-page__content__line {
   width: 100%;
-  margin-top: 38.99px;
-  margin-bottom: 30.02px;
+  margin-top: 25px;
+  margin-bottom: 21px;
 }
 .abou02-page__content__paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
@@ -821,13 +830,16 @@ a {
   width: 7px;
   height: 7px;
   display: flex;
-  background: #ccc;
+  background: #404040;
   border-radius: 100%;
   margin-right: 8px;
   flex: none;
   margin-top: 5px;
 }
 @media (max-width: 800px) {
+  .abou02-page__content {
+    padding: 0 !important;
+  }
   .abou02-page .container--abou02-page {
     padding: 46px 0 81px 0 !important;
   }
@@ -854,10 +866,7 @@ a {
 }
 
 .abou02-page__topic .container--abou02-page__topic {
-  padding: 0 !important;
-}
-.abou02-page__topic__content {
-  padding: 0 32px !important;
+  padding: 52px 0 32px 0 !important;
 }
 .abou02-page__topic__encompass__title {
   font-size: 2.5rem;
@@ -912,7 +921,7 @@ a {
 }
 .abou02-page__topic .carousel-abou02-topic .owl-nav {
   display: flex;
-  margin-left: 39%;
+  margin-left: 32%;
   margin-top: 35px;
   gap: 0 20.5px;
 }
@@ -936,6 +945,25 @@ a {
   .abou02-page__topic {
     overflow: hidden;
   }
+  .abou02-page__topic__encompass__title {
+    font-size: 1.875rem;
+  }
+  .abou02-page__topic__encompass__subtitle {
+    font-size: 1.125rem;
+  }
+  .abou02-page__topic__encompass__line {
+    margin-top: 15px;
+    margin-bottom: 28px;
+  }
+  .abou02-page__topic .container--abou02-page__section {
+    padding-top: 78px;
+  }
+  .abou02-page__topic__content {
+    padding-left: 38px !important;
+  }
+  .abou02-page__topic__item_content {
+    padding-left: 0px !important;
+  }
   .abou02-page__topic__description {
     padding: 48.66px 53px;
   }
@@ -951,6 +979,11 @@ a {
   }
   .abou02-page__topic .abou02-page__topic .carousel-abou02-topic .owl-nav {
     margin-left: 38%;
+  }
+}
+@media (max-width: 601px) {
+  .abou02-page__topic .carousel-abou02-topic .owl-nav {
+    margin-left: 13%;
   }
 }
 
@@ -1015,6 +1048,7 @@ a {
     order: 1;
     width: 100%;
     padding: 0 41.33px;
+    height: 468.14px;
   }
   .abou02-page__section__description {
     order: 0;
@@ -1029,7 +1063,7 @@ a {
     font-size: 1.125rem;
   }
   .abou02-page__section__line {
-    margin-top: 29px;
+    margin-top: abou02-page-section-mobile-line-margin-top;
   }
   .abou02-page__section__paragraph {
     font-family: "Montserrat", sans-serif, arial;
@@ -1052,12 +1086,18 @@ a {
 }
 .lightbox-abou02__title {
   font-size: 2.5rem;
-  color: #000;
+  color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
+.lightbox-abou02__line {
+  margin-top: 22px;
+  margin-bottom: 61px;
+}
 .lightbox-abou02__paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
+  color: #404040;
+  font-weight: 400;
 }
 .lightbox-abou02 .carousel__button.is-close {
   right: 17px;
@@ -1067,6 +1107,11 @@ a {
   height: 31px;
   background: #000000;
   border-radius: 5px;
+  color: #fff;
+  font-size: 11px;
+}
+.lightbox-abou02 .fancybox__backdrop {
+  background: #404040 !important;
 }
 @media (max-width: 800px) {
   .lightbox-abou02 {
