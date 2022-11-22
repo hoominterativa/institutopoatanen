@@ -17,11 +17,13 @@
                     CTA
                 </a>
             </div>
+            {{-- END .abou02__boxLeft__description --}}
         </div>
-        <div class="abou02__boxRight col-md-8">
+        {{-- END .abou02__boxLeft --}}
+        <div class="abou02__boxRight col-md-8 p-0">
             <div class="carousel_abou02 owl-carousel">
-                    <article class="abou02__boxRight__item">
-                        <a href="sobre">
+                <article class="abou02__boxRight__item w-100">
+                    <a href="sobre">
                         <div class="abou02__boxRight__content transition w-100 h-100">
                             <div class="abou02__boxRight__header position-relative w-100 h-100">
                                 <div class="abou02__boxRight__image w-100 h-100">
@@ -39,8 +41,12 @@
                         </div>
                     </a>
                 </article>
+                {{-- END .abou02__boxRight__item --}}
             </div>
+            {{-- END .carousel_abou02 --}}
         </div>
+        {{-- END .abou02__boxRight --}}
     </div>
+    {{-- END .abou02__container --}}
 </section>
 {{-- END .abou02 --}}

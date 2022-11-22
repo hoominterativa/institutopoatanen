@@ -4,9 +4,10 @@
         <div class="lightbox-abou02__image px-0 col-md-6">
             <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="h-100 w-100" alt="Subtitulo">
         </div>
-        <div class="lightbox-abou02__description p-5 col-md-6">
-            <h4 class="lightbox-abou02__subtitle text-sm-center">Subtitulo</h4>
-            <h2 class="lightbox-abou02__title text-sm-center">Titulo</h2>
+        {{-- END .lightbox-abou02__image --}}
+        <div class="lightbox-abou02__description p-5 col-md-6 d-block">
+            <h4 class="lightbox-abou02__subtitle">Subtitulo</h4>
+            <h2 class="lightbox-abou02__title">Titulo</h2>
             <hr class="lightbox-abou02__line">
             <div class="lightbox-abou02__paragraph">
                 <p>
@@ -14,6 +15,7 @@
                 </p>
             </div>
         </div>
+        {{-- END .lightbox-abou02__description --}}
     </div>
 </div>
 {{-- END .lightbox-abou02 --}}

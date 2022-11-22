@@ -1,20 +1,17 @@
-/*======= CONTENT PAGE ======= */
-
-$abou02-page-content-text-align: center;
-
-
-$abou02-page-line-width:100%; 
-
-
-
-
+// Mixins
+@mixin bgpadrao {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* ======= SECTION HOME ======= */
 
 // CTA
 $abou02-cta-font: $paragraph-min;
 $abou02-cta-font-weight: $weight-700;
 $abou02-cta-color: $color-one;
 $abou02-cta-display: flex;
-$abou02-cta-margin-top: 30px;
+$abou02-cta-margin-top: 37px;
 $abou02-cta-max-width: 177px;
 $abou02-cta-padding: 10px 15px;
 $abou02-cta-background-color: $bg-soft;
@@ -22,6 +19,14 @@ $abou02-cta-background-color: $bg-soft;
 $abou02-cta-color-hover: $color-white;
 $abou02-cta-background-color-hover: $bg-black;
 $abou02-cta-icon-filter-hover: invert(1) grayscale(1);
+
+/* ======= SECTION HOME ======= */
+
+$abou02-page-content-text-align: center;
+$abou02-page-line-width:100%; 
+
+
+
 
 
 

@@ -2,9 +2,7 @@
 /* BEGIN STYLE */
 
 .abou02{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include bgpadrao;
 
     &__container{
         padding: 99px 0 40px 0 !important;
@@ -16,10 +14,10 @@
         &__subtitle{
             padding: 6px 15px;
             max-width: 200px;
-            background-color: $color-two;
+            background-color: $color-four;
             font-size: $T4;
             font-family: $font-paragraph;
-            color: $color-five;
+            color: $color-one;
             font-weight: $weight-700;
             margin-bottom: 22.03px;
         }
@@ -30,7 +28,7 @@
             font-weight: $weight-700;
         }
         &__line{
-            margin-top: 42.97px;
+            margin-top: 27px;
             margin-bottom: 39px;
         }
         &__paragraph{
@@ -65,27 +63,27 @@
             }
         }
         @include small-down{
-                padding: 0 45px; 
-                min-height: auto;
+            padding: 0 45px; 
+            min-height: auto;
 
-                &__subtitle{
-                    font-size:$T4-mobile;
-                    margin-bottom: 18px;
-                    max-width: 174px;
-                }
-                &__title{
-                    font-size:$T2-mobile;
-                }
-                &__line{
-                    margin-top: 27px;
-                    margin-bottom: 49px;
-                }
-                &__paragraph{
-                    font: $paragraph-mobile;
-                }
-                &__paragraph p{
-                    font: $paragraph-mobile;
-                }
+            &__subtitle{
+                font-size:$T4-mobile;
+                margin-bottom: 18px;
+                max-width: 174px;
+            }
+            &__title{
+                font-size:$T2-mobile;
+            }
+            &__line{
+                margin-top: 27px;
+                margin-bottom: 49px;
+            }
+            &__paragraph{
+                font: $paragraph-mobile;
+            }
+            &__paragraph p{
+                font: $paragraph-mobile;
+            }
         }
         
 
@@ -152,9 +150,13 @@
         }
 
         @include small-down{
-            padding: 0 44px;  
+            padding: 0 44px !important;  
             margin-top: 43px;
 
+            &__item{
+                min-height: 414px;
+                height: 414px;
+            }
             &__title{
                 font-size: $T5-mobile;
             }
@@ -178,9 +180,7 @@
 
 .abou02-page{
     &__header{
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        @include bgpadrao;
 
         .container--abou02-header{
             padding: 112px 0 92px 0 !important;
@@ -216,7 +216,7 @@
             }
         }
     }
-    .container--abou02-page{
+    &__content{
         padding: 51px 0 118px !important;
     }
     &__content__subtitle{
@@ -248,9 +248,41 @@
         font-weight: $weight-400;
         margin-bottom: 0;
     }
+    &__content__paragraph ul{
+        display:flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+        gap: 20px 0;
+
+        li{
+            display:flex;
+            width: 50%;
+            min-width: 300px;
+            text-align: left;
+            align-items: flex-start;
+
+            &:before{
+                content: "";
+                width: 7px;
+                height: 7px;
+                display: flex;
+                background: #ccc;
+                border-radius: 100%;
+                margin-right: 8px;
+                flex: none;
+                margin-top: 5px;
+            }
+        }
+    }
     @include small-down{
-        &__content{
-            padding: 0 36px;
+        .container--abou02-page{
+            padding: 46px 0 81px 0!important;
+        }
+        &__content_container{
+           margin-bottom: 0;
         }
         &__content__subtitle{
             font-size: $T4-mobile;
@@ -264,6 +296,7 @@
         }
         &__content__paragraph{
             font:$paragraph-min;
+            padding: 0 30px;
         }
         &__content__paragraph p{
             font:$paragraph-min;
@@ -275,7 +308,10 @@
 
 .abou02-page__topic{
     .container--abou02-page__topic{
-        padding:52px 0  32px 0 !important;
+        padding:0 !important;
+    }
+    &__content{
+        padding: 0 32px!important;
     }
     &__encompass__title{
         font-size: $T2;
@@ -378,9 +414,11 @@
         &__paragraph p{
             font: $paragraph-min-mobile;
         }
+        .abou02-page__topic .carousel-abou02-topic .owl-nav{
+            margin-left: 38%;
+        }
     }
-    
-
+   
 
 }
 
