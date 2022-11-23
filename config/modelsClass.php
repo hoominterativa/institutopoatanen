@@ -62,6 +62,16 @@ return [
         ],
         // END SERVICES
 
+        'Products' => (object)[
+            'PROD01' => (object)[
+                'controller' => App\Http\Controllers\Products\PROD01Controller::class,
+                'model' => App\Models\Products\PROD01Products::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END PRODUCTS
+
+
         'Slides' => (object)[
             'SLID01' => (object)[
                 'controller' => App\Http\Controllers\Slides\SLID01Controller::class,
