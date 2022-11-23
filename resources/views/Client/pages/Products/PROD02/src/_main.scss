@@ -1,3 +1,27 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.prod02{
+    &__cta{
+        font: $prod02-cta-font;
+        font-weight: $prod02-cta-font-weight;
+        color: $prod02-cta-color;
+        margin: $prod02-cta-margin;
+        max-width: $prod02-cta-max-width;
+        padding: $prod02-cta-padding;
+        background-color: $prod02-cta-background-color;
+
+        @include small-down{
+            font: $prod02-cta-font-responsive;
+        }
+
+        &:hover{
+            color: $prod02-cta-color-hover;
+            background-color: $prod02-cta-background-color-hover;
+
+            .prod02__cta__icon{
+                filter: $prod02-cta-icon-filter-hover;
+            }
+        }
+    }
+}

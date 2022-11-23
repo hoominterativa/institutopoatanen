@@ -11,8 +11,8 @@
                         <li><a href="#">#</a></li>
                     </ul>
                 </nav>
-                <a href="{{route('abou01.page')}}" class="abou01__cta transition">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="abou01__cta__icon me-3 transition">
+                <a href="{{route('prod02.page')}}" class="prod02__cta transition d-flex justify-content-center align-items-center">
+                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__cta__icon me-3 transition">
                     CTA
                 </a>
             </div>
