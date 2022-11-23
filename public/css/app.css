@@ -646,3 +646,55 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
+.prod02__content_product__item {
+  position: relative;
+  min-height: 447px;
+  height: 447px;
+}
+.prod02__content_product__item__description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 48.66px 53px;
+}
+.prod02__content_product__item__title {
+  font-size: 1.125rem;
+  color: #000;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+.prod02__content_product__item__paragraph {
+  color: #7C7C7C;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+}
+.prod02__content_product__item__paragraph p {
+  color: #7C7C7C;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.prod02__content_product__item__item a {
+  color: #000;
+}
+.prod02__content_product .carousel_prod02 .owl-nav {
+  display: flex;
+  margin-top: 30px;
+  gap: 0 20.5px;
+}
+.prod02__content_product .carousel_prod02 .owl-nav .owl-prev,
+.prod02__content_product .carousel_prod02 .owl-nav .owl-next {
+  height: 29px;
+  width: 29px;
+  border-radius: 100%;
+  background-color: #404040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prod02__content_product .carousel_prod02 .owl-nav .owl-prev span,
+.prod02__content_product .carousel_prod02 .owl-nav .owl-next span {
+  color: #fff;
+  font-size: 32px;
+  height: 58px;
+}

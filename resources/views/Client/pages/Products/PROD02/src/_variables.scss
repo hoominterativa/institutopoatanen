@@ -1,6 +1,39 @@
 @mixin listapadrao {
     list-style: none;
 }
+@mixin dflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$prod02-item-description-position: absolute;
+$prod02-item-description-top: 0;
+$prod02-item-description-left: 0;
+$prod02-item-description-padding: 48.66px 53px;
+$prod02-item-paragraph-p-margin-bottom:0;
+
+// CARROSSEL
+$carousel-prod02-owl-nav-display: flex;
+$carousel-prod02-owl-nav-margin-top: 30px;
+$carousel-prod02-owl-nav-gap: 0 20.5px;
+$carousel-prod02-owl-nav-prev-next-height: 29px;
+$carousel-prod02-owl-nav-prev-next-width: 29px;
+$carousel-prod02-owl-nav-prev-next-border-radius: 100%;
+
+$carousel-prod02-owl-nav-prev-next-span-color:#fff;
+$carousel-prod02-owl-nav-prev-next-span-font-size: 32px;
+$carousel-prod02-owl-nav-prev-next-span-height: 58px;
+
+//Responsive
+$prod02-container-mobile-padding:61px 0 36px 0 !important;
+
+$prod02-item-mobile-padding: 0 44px !important;  
+$prod02-item-mobile-margin-top: 43px;
+
+$prod02-item-item-min-height: 414px;
+$prod02-item-item-height: 414px;
+
 
 // CTA
 $prod02-cta-font: $paragraph;

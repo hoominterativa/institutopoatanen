@@ -33,15 +33,15 @@
                 </p>
             </div>
         </header>
-        <div class="prod02__content_product">
-            <div class="caroussel-prod02">
-                <article class="prod02__content_item">
-                    <div class="prod02__content_item_image">
-                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" alt="Titulo Topico">
+        <div class="prod02__content__product">
+            <div class="caroussel-prod02 owl-carousel">
+                <article class="prod02__content__product__item w-100">
+                    <div class="prod02__content__product__item__image w-100 h-100">
+                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
                     </div>
-                    <div class="prod02__content_item_description">
-                        <h2 class="prod02__content_item_description__title">Titulo Topico</h2>
-                        <div class="prod02__content_item_description_paragraph">
+                    <div class="prod02__content__product__item__description">
+                        <h2 class="prod02__content__product__item__description__title">Titulo Topico</h2>
+                        <div class="prod02__content__product__item__description_paragraph">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             </p>

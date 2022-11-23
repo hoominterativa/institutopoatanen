@@ -101,6 +101,57 @@
     // END __navigation
 
     &__content_product{
+        &__item{
+            position: relative;
+            min-height: 447px;;
+            height: 447px;
+
+            &__description{
+                position: $prod02-item-description-position;
+                top: $prod02-item-description-top;
+                left: $prod02-item-description-left;
+                padding: $prod02-item-description-padding;
+            }
+            &__title{
+                font-size: $T5;
+                color: $color-black;
+                font-family: $font-paragraph;
+                font-weight: $weight-700;
+            }
+            &__paragraph{
+                color: $color-two;
+                font: $paragraph-min;
+                font-weight: $weight-400;
+            }
+            &__paragraph p{
+                color: $color-two;
+                font: $paragraph-min;
+                font-weight: $weight-400;
+                margin-bottom: $prod02-item-paragraph-p-margin-bottom;
+            }
+            &__item a{
+                color:$color-black;     
+            }
+        }
+        .carousel_prod02 .owl-nav{
+            display: $carousel-prod02-owl-nav-display;
+            margin-top: $carousel-prod02-owl-nav-margin-top;
+            gap: $carousel-prod02-owl-nav-gap;
+        }
+        .carousel_prod02 .owl-nav .owl-prev,
+        .carousel_prod02 .owl-nav .owl-next{
+            height: $carousel-prod02-owl-nav-prev-next-height;
+            width: $carousel-prod02-owl-nav-prev-next-width;
+            border-radius: $carousel-prod02-owl-nav-prev-next-border-radius;
+            background-color: $color-one;
+            @include dflex;
+        }
+        .carousel_prod02 .owl-nav .owl-prev span,
+        .carousel_prod02 .owl-nav .owl-next span{
+            color:$carousel-prod02-owl-nav-prev-next-span-color;
+            font-size: $carousel-prod02-owl-nav-prev-next-span-font-size;
+            height: $carousel-prod02-owl-nav-prev-next-span-height;
+        }
 
     }
 
