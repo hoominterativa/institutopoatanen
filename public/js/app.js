@@ -11922,7 +11922,7 @@ $(function () {
 
   $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
   if ($(window).outerWidth() <= 801) {
-    $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 480);
+    $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 650);
   }
   // END carousel-abou02-topic
 });

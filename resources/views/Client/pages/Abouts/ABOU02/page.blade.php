@@ -38,7 +38,7 @@
             {{-- END .abou02-page__topic__encompass --}}
             <div class="abou02-page__topic__content">
                 <div class="carousel-abou02-topic owl-carousel">
-                    <article class="abou02-page__topic__item">
+                    <article class="abou02-page__topic__item w-100">
                         <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-abou02-1">
                             <div class="abou02-page__topic__item_content transition w-100 h-100">
                                 <div class="abou02-page__topic__header position-relative w-100 h-100">
