@@ -182,7 +182,7 @@ a {
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 1420px !important;
+    max-width: 1112px !important;
   }
 }
 .btn-icon {
@@ -568,36 +568,81 @@ a {
 }
 
 /* BEGIN STYLE */
+.prod02 {
+  background-color: #EFEFEF;
+}
 .prod02 .container--edit {
   padding: 76px 0 43px 0;
+  max-width: 1175px !important;
 }
-.prod02__navigation_content {
+.prod02__navigation__content {
+  padding-bottom: 32.48px;
   border-bottom: 1px solid #404040;
+  margin-bottom: 29.89px;
 }
-.prod02__navigation_content__nav__desktop {
+.prod02__navigation__content__encompass__title {
+  color: #404040;
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.prod02__navigation__content__encompass__subtitle {
+  color: #B3B3B3;
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+}
+.prod02__navigation__content__nav__desktop {
   display: flex;
+  width: 79.5%;
 }
-.prod02__navigation_content__nav__desktop ul {
+.prod02__navigation__content__nav__desktop ul {
   gap: 0 46px;
 }
-.prod02__navigation_content__cta {
+.prod02__navigation__content__nav__desktop ul li {
+  list-style: none;
+}
+.prod02__navigation__content__nav__desktop ul li a {
+  font-size: 1.125rem;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+}
+.prod02__navigation__content__nav__desktop__cta {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   color: #000;
-  margin: 30px auto 0;
   max-width: 177px;
-  padding: 10px 15px;
+  height: auto;
+  padding: 10px 50px;
   background-color: #CACACA;
 }
 @media (max-width: 800px) {
-  .prod02__navigation_content__cta {
+  .prod02__navigation__content__nav__desktop__cta {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.prod02__navigation_content__cta:hover {
+.prod02__navigation__content__nav__desktop__cta:hover {
   color: #fff;
   background-color: #000;
 }
-.prod02__navigation_content__cta:hover .prod02__cta__icon {
+.prod02__navigation__content__nav__desktop__cta:hover .prod02__navigation__content__nav__desktop__cta__icon {
   filter: invert(1) grayscale(1);
+}
+.prod02__navigation__nav__mobile {
+  display: flex;
+}
+.prod02__navigation__nav__mobile ul {
+  gap: 0 46px;
+}
+.prod02__navigation__nav__mobile ul li {
+  list-style: none;
+  display: flex;
+}
+.prod02__navigation__nav__mobile ul li a {
+  font-size: 1.125rem;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
 }

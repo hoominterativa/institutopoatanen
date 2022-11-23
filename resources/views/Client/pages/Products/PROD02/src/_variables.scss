@@ -1,10 +1,13 @@
+@mixin listapadrao {
+    list-style: none;
+}
+
 // CTA
 $prod02-cta-font: $paragraph;
 $prod02-cta-font-weight: $weight-700;
 $prod02-cta-color: $color-black;
-$prod02-cta-margin: 30px auto 0;
 $prod02-cta-max-width: 177px;
-$prod02-cta-padding: 10px 15px;
+$prod02-cta-padding: 10px 50px;
 $prod02-cta-background-color: $bg-soft;
 // HOVER
 $prod02-cta-color-hover: $color-white;
