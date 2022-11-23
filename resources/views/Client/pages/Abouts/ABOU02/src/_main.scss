@@ -171,6 +171,7 @@
     }
 }
 
+// END .abou02
 
 .abou02-page{
     &__header{
@@ -400,7 +401,9 @@
             padding-top: $abou02-page-topic-container-mobile-padding-top;
         }
         &__content{
-            padding-left:$abou02-page-topic-content-mobile-padding-left;
+            width: $abou02-page-topic-content-mobile-width;
+            display: $abou02-page-topic-content-mobile-display;
+            margin: $abou02-page-topic-content-mobile-margin;
         }
         &__item_content{
             padding-left:$abou02-page-topic-item-content-mobile-padding-left;
@@ -431,7 +434,7 @@
    
 
 }
-
+// END .abou02-page
 
 .abou02-page__section{
     .container--abou02-page__section{
@@ -524,9 +527,10 @@
     }
 }
 
+// END .abou02-page__section
 
 
-//lightbox
+
 .lightbox-abou02{
     width: $lightbox-abou02-width;
     display: $lightbox-abou02-display;
@@ -573,6 +577,6 @@
     }
 }
 
-
+// END .lightbox
 
 

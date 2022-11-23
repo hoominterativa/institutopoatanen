@@ -43,7 +43,7 @@
                             <div class="abou02-page__topic__item_content transition w-100 h-100">
                                 <div class="abou02-page__topic__header position-relative w-100 h-100">
                                     <div class="abou02-page__topic__image w-100 h-100">
-                                        <img src="{{asset('storage/uploads/tmp//image-box.jpg')}}" class="w-100 h-100" alt="">
+                                        <img src="{{asset('storage/uploads/tmp//image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
                                     </div>
                                     <div class="abou02-page__topic__description text-center flex-column w-100 h-100 position-absolute d-flex justify-content-end align-items-center">
                                         <h3 class="abou02-page__topic__title">Titulo Topico</h3>
@@ -82,7 +82,7 @@
                         </p>
                     </div>
                     <a rel="next" href="#" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
-                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="abou02-page__section__cta__icon me-3 transition">
+                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02-page__section__cta__icon me-3 transition">
                         CTA
                     </a>
                 </div>

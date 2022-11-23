@@ -42,23 +42,23 @@ $(function(){
         responsive: {
             // breakpoint from 0 up
             0 : {
-                items:1,
+                items:2,
                 margin:12
             },
             // breakpoint from 0
             200 : {
-                items:1,
+                items:2,
                 margin:12
             },
             // breakpoint from 200 up
             361 : {
-                items:2,
+                items:1,
                 margin:12
                 
             },
             // breakpoint from 361 up
             500 : {
-                items:2,
+                items:1,
                 margin:12
                 
             },
@@ -75,9 +75,14 @@ $(function(){
             // breakpoint from 820 up
         }
     });
+
+    
+
     $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
+
     if($(window).outerWidth() <= 801){
-        $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 650);
+        $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 550);
     }
+    
     // END carousel-abou02-topic
 })

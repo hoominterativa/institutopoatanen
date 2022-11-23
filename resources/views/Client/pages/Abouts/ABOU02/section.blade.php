@@ -13,7 +13,7 @@
                     </p>
                 </div>
                 <a rel="first" href="sobre" class="abou02__boxLeft__cta transition justify-content-center align-items-center">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="abou02__boxLeft__cta__icon me-3 transition">
+                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02__boxLeft__cta__icon me-3 transition">
                     CTA
                 </a>
             </div>
@@ -27,7 +27,7 @@
                         <div class="abou02__boxRight__content transition w-100 h-100">
                             <div class="abou02__boxRight__header position-relative w-100 h-100">
                                 <div class="abou02__boxRight__image w-100 h-100">
-                                    <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="">
+                                    <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
                                 </div>
                                 <div class="abou02__boxRight__description text-center flex-column w-100 h-100 position-absolute d-flex justify-content-end align-items-center">
                                     <h3 class="abou02__topic__title">Titulo Topico</h3>

@@ -959,7 +959,9 @@ a {
     padding-top: 78px;
   }
   .abou02-page__topic__content {
-    padding-left: 38px !important;
+    width: 413px;
+    display: block;
+    margin: 0 auto;
   }
   .abou02-page__topic__item_content {
     padding-left: 0px !important;
@@ -983,7 +985,7 @@ a {
 }
 @media (max-width: 601px) {
   .abou02-page__topic .carousel-abou02-topic .owl-nav {
-    margin-left: 13%;
+    margin-left: 17%;
   }
 }
 
