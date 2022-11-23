@@ -64,8 +64,8 @@ return [
 
         'Products' => (object)[
             'PROD01' => (object)[
-                'controller' => App\Http\Controllers\Products\PROD01Controller::class,
-                'model' => App\Models\Products\PROD01Products::class,
+                'controller' => App\Http\Controllers\Products\PROD02Controller::class,
+                'model' => App\Models\Products\PROD02Products::class,
                 'seedQty' => 1,
             ],
         ],
