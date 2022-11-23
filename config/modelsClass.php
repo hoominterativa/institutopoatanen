@@ -63,7 +63,7 @@ return [
         // END SERVICES
 
         'Products' => (object)[
-            'PROD01' => (object)[
+            'PROD02' => (object)[
                 'controller' => App\Http\Controllers\Products\PROD02Controller::class,
                 'model' => App\Models\Products\PROD02Products::class,
                 'seedQty' => 1,
