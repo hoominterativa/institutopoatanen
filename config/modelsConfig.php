@@ -11,17 +11,17 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Blogs' => (object) [
-            'BLOG01' => (object)[
-                'ViewHome' => true,
+        'Contacts' => (object) [
+            'COTA01' => (object)[
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'config' => (object) [
-                    'titleMenu' => 'Blog',
+                    'titleMenu' => 'Contato',
                     'anchor' =>  false,
-                    'linkMenu' => 'blog01.page',
+                    'linkMenu' => 'cota01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Blog',
+                    'titlePanel' => 'Contato',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []

@@ -42,6 +42,15 @@ return [
         ],
         // END CONTENTS
 
+        'Contacts' => (object)[
+            'COTA01' => (object)[
+                'controller' => App\Http\Controllers\Contacts\COTA01Controller::class,
+                'model' => App\Models\Contacts\COTA01Contacts::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END CONTENTS
+
         'Portfolios' => (object)[
             'PORT01' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,
