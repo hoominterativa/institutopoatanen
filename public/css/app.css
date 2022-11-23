@@ -568,7 +568,19 @@ a {
 }
 
 /* BEGIN STYLE */
-.prod02__cta {
+.prod02 .container--edit {
+  padding: 76px 0 43px 0;
+}
+.prod02__navigation_content {
+  border-bottom: 1px solid #404040;
+}
+.prod02__navigation_content__nav__desktop {
+  display: flex;
+}
+.prod02__navigation_content__nav__desktop ul {
+  gap: 0 46px;
+}
+.prod02__navigation_content__cta {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   color: #000;
@@ -578,14 +590,14 @@ a {
   background-color: #CACACA;
 }
 @media (max-width: 800px) {
-  .prod02__cta {
+  .prod02__navigation_content__cta {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.prod02__cta:hover {
+.prod02__navigation_content__cta:hover {
   color: #fff;
   background-color: #000;
 }
-.prod02__cta:hover .prod02__cta__icon {
+.prod02__navigation_content__cta:hover .prod02__cta__icon {
   filter: invert(1) grayscale(1);
 }
