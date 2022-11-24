@@ -14,16 +14,7 @@ $prod02-item-description-padding: 48.66px 53px;
 $prod02-item-paragraph-p-margin-bottom:0;
 
 // CARROSSEL
-$carousel-prod02-owl-nav-display: flex;
-$carousel-prod02-owl-nav-margin-top: 30px;
-$carousel-prod02-owl-nav-gap: 0 20.5px;
-$carousel-prod02-owl-nav-prev-next-height: 29px;
-$carousel-prod02-owl-nav-prev-next-width: 29px;
-$carousel-prod02-owl-nav-prev-next-border-radius: 100%;
 
-$carousel-prod02-owl-nav-prev-next-span-color:#fff;
-$carousel-prod02-owl-nav-prev-next-span-font-size: 32px;
-$carousel-prod02-owl-nav-prev-next-span-height: 58px;
 
 //Responsive
 $prod02-container-mobile-padding:61px 0 36px 0 !important;
@@ -38,10 +29,10 @@ $prod02-item-item-height: 414px;
 // CTA
 $prod02-cta-font: $paragraph;
 $prod02-cta-font-weight: $weight-700;
-$prod02-cta-color: $color-black;
+$prod02-cta-color: $color-three;
 $prod02-cta-max-width: 177px;
 $prod02-cta-padding: 10px 50px;
-$prod02-cta-background-color: $bg-soft;
+$prod02-cta-background-color: $color-five;
 // HOVER
 $prod02-cta-color-hover: $color-white;
 $prod02-cta-background-color-hover: $bg-black;

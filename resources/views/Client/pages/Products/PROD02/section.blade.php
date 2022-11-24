@@ -20,7 +20,7 @@
                     </a>
                 </nav>
             </div>
-            <ul class="prod02__navigation__nav__mobile d-flex align-content-center mb-0 px-0">
+            <ul class="prod02__navigation__nav__mobile align-content-center mb-0 px-0">
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Categorias</a></li>
@@ -34,7 +34,7 @@
             </div>
         </header>
         <div class="prod02__content__product">
-            <div class="caroussel-prod02 owl-carousel">
+            <div class="carousel-prod02 owl-carousel">
                 <article class="prod02__content__product__item w-100">
                     <div class="prod02__content__product__item__image w-100 h-100">
                         <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
@@ -46,6 +46,61 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             </p>
                         </div>
+                        <a href="{{route('prod02.page')}}" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__content__product__item__cta__icon me-3 transition">
+                            CTA
+                        </a>
+                    </div>
+                </article>
+                <article class="prod02__content__product__item w-100">
+                    <div class="prod02__content__product__item__image w-100 h-100">
+                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
+                    </div>
+                    <div class="prod02__content__product__item__description">
+                        <h2 class="prod02__content__product__item__description__title">Titulo Topico</h2>
+                        <div class="prod02__content__product__item__description_paragraph">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            </p>
+                        </div>
+                        <a href="{{route('prod02.page')}}" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__content__product__item__cta__icon me-3 transition">
+                            CTA
+                        </a>
+                    </div>
+                </article>
+                <article class="prod02__content__product__item w-100">
+                    <div class="prod02__content__product__item__image w-100 h-100">
+                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
+                    </div>
+                    <div class="prod02__content__product__item__description">
+                        <h2 class="prod02__content__product__item__description__title">Titulo Topico</h2>
+                        <div class="prod02__content__product__item__description_paragraph">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            </p>
+                        </div>
+                        <a href="{{route('prod02.page')}}" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__content__product__item__cta__icon me-3 transition">
+                            CTA
+                        </a>
+                    </div>
+                </article>
+                <article class="prod02__content__product__item w-100">
+                    <div class="prod02__content__product__item__image w-100 h-100">
+                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
+                    </div>
+                    <div class="prod02__content__product__item__description">
+                        <h2 class="prod02__content__product__item__description__title">Titulo Topico</h2>
+                        <div class="prod02__content__product__item__description_paragraph">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            </p>
+                        </div>
+                        <a href="{{route('prod02.page')}}" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__content__product__item__cta__icon me-3 transition">
+                            CTA
+                        </a>
                     </div>
                 </article>
             </div>

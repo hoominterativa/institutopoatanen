@@ -573,12 +573,14 @@ a {
 }
 .prod02 .container--edit {
   padding: 76px 0 43px 0;
-  max-width: 1175px !important;
 }
 .prod02__navigation__content {
   padding-bottom: 32.48px;
   border-bottom: 1px solid #404040;
   margin-bottom: 29.89px;
+}
+.prod02__navigation__content__encompass {
+  max-width: 265px;
 }
 .prod02__navigation__content__encompass__title {
   color: #404040;
@@ -609,92 +611,95 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
-.prod02__navigation__content__nav__desktop__cta {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-  max-width: 177px;
-  height: auto;
-  padding: 10px 50px;
-  background-color: #CACACA;
-}
-@media (max-width: 800px) {
-  .prod02__navigation__content__nav__desktop__cta {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.prod02__navigation__content__nav__desktop__cta:hover {
-  color: #fff;
-  background-color: #000;
-}
-.prod02__navigation__content__nav__desktop__cta:hover .prod02__navigation__content__nav__desktop__cta__icon {
-  filter: invert(1) grayscale(1);
-}
 .prod02__navigation__nav__mobile {
-  display: flex;
-}
-.prod02__navigation__nav__mobile ul {
+  display: none !important;
   gap: 0 46px;
 }
-.prod02__navigation__nav__mobile ul li {
+.prod02__navigation__nav__mobile li {
   list-style: none;
   display: flex;
 }
-.prod02__navigation__nav__mobile ul li a {
+.prod02__navigation__nav__mobile li a {
   font-size: 1.125rem;
   color: #000;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
-.prod02__content_product__item {
+.prod02__navigation__paragraph p {
+  color: #7C7C7C;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.prod02__content__product {
+  margin-top: 54px;
+}
+.prod02__content__product__item {
   position: relative;
   min-height: 447px;
   height: 447px;
 }
-.prod02__content_product__item__description {
+.prod02__content__product__item__description {
   position: absolute;
   top: 0;
   left: 0;
   padding: 48.66px 53px;
 }
-.prod02__content_product__item__title {
+.prod02__content__product__item__title {
   font-size: 1.125rem;
   color: #000;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
-.prod02__content_product__item__paragraph {
+.prod02__content__product__item__paragraph {
   color: #7C7C7C;
   font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 400;
 }
-.prod02__content_product__item__paragraph p {
+.prod02__content__product__item__paragraph p {
   color: #7C7C7C;
   font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 400;
   margin-bottom: 0;
 }
-.prod02__content_product__item__item a {
+.prod02__content__product__item__cta {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #B3B3B3;
+  max-width: 177px;
+  height: auto;
+  padding: 10px 50px;
+  background-color: #EFEFEF;
+}
+@media (max-width: 800px) {
+  .prod02__content__product__item__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.prod02__content__product__item__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.prod02__content__product__item__cta:hover .prod02__content__product__item__cta__icon {
+  filter: invert(1) grayscale(1);
+}
+.prod02__content__product__item__item a {
   color: #000;
 }
-.prod02__content_product .carousel_prod02 .owl-nav {
+.prod02__content__product .carousel-prod02 .owl-dots {
   display: flex;
-  margin-top: 30px;
-  gap: 0 20.5px;
+  margin-top: 20px;
+  gap: 0 20px;
 }
-.prod02__content_product .carousel_prod02 .owl-nav .owl-prev,
-.prod02__content_product .carousel_prod02 .owl-nav .owl-next {
-  height: 29px;
-  width: 29px;
+.prod02__content__product .carousel-prod02 .owl-dots .owl-dot {
+  height: 15px;
+  width: 15px;
   border-radius: 100%;
-  background-color: #404040;
+  background-color: #B3B3B3;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.prod02__content_product .carousel_prod02 .owl-nav .owl-prev span,
-.prod02__content_product .carousel_prod02 .owl-nav .owl-next span {
-  color: #fff;
-  font-size: 32px;
-  height: 58px;
+.prod02__content__product .carousel-prod02 .owl-dots .owl-dot.active {
+  background-color: #404040;
 }

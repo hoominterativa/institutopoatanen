@@ -18,12 +18,13 @@ $('.carousel-prod02').owlCarousel({
         },
         // breakpoint from 361 up
         801 : {
-            items:3,
-            margin:14,
+            items:4,
+            margin:20,
         }
         // breakpoint from 801 up
     }
 });
+
 $('.carousel-prod02').css('width', $('.prod02 .container--edit').outerWidth());
 
 if($(window).outerWidth() <= 801){
