@@ -90,7 +90,7 @@
                     <div class="prod02__content__product__item__image w-100 h-100">
                         <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
                     </div>
-                    <div class="prod02__content__product__item__description">
+                    <div class="prod02__content__product__item__description d-flex ">
                         <h2 class="prod02__content__product__item__description__title">Titulo Topico</h2>
                         <div class="prod02__content__product__item__description_paragraph">
                             <p>
