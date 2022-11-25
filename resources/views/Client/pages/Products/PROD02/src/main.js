@@ -81,3 +81,8 @@ $('.caroussel_prod02-show').owlCarousel({
     rewind: true,
     autoHeight: true
 });
+
+$('.caroussel_prod02-show').css('width', $(window).outerWidth() / 2 - 108);
+
+var altLightbox = $('.lightbox-prod02__content__carrossel').outerHeight() + 2);
+$('.caroussel_prod02-show').css('height', $(altLightbox);
