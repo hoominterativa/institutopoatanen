@@ -611,6 +611,27 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
+.prod02__navigation__content__nav__desktop__cta {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+  max-width: 177px;
+  height: auto;
+  padding: 10px 50px;
+  background-color: #CACACA;
+}
+@media (max-width: 800px) {
+  .prod02__navigation__content__nav__desktop__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.prod02__navigation__content__nav__desktop__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.prod02__navigation__content__nav__desktop__cta:hover .prod02__navigation__content__nav__desktop__cta__icon {
+  filter: invert(1) grayscale(1);
+}
 .prod02__navigation__nav__mobile {
   display: none !important;
   gap: 0 46px;
@@ -688,13 +709,14 @@ a {
 }
 .prod02__content__product .carousel-prod02 .owl-dots {
   display: flex;
-  margin-top: 20px;
-  gap: 0 20px;
+  margin: 0 auto;
+  justify-content: center;
+  margin-top: 28px;
+  gap: 0 5px;
 }
 .prod02__content__product .carousel-prod02 .owl-dots .owl-dot {
-  height: 15px;
-  width: 15px;
-  border-radius: 100%;
+  width: 22px;
+  height: 16px;
   background-color: #B3B3B3;
   display: flex;
   justify-content: center;
