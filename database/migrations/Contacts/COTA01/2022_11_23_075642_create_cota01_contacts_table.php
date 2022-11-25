@@ -16,22 +16,24 @@ class CreateCota01ContactsTable extends Migration
         Schema::create('cota01_contacts', function (Blueprint $table) {
             $table->id();
 
-            $table->string('title_banner');
-            $table->text('description_banner');
-            $table->string('path_image_banner');
+            $table->string('title_banner')->nullable();
+            $table->text('description_banner')->nullable();
+            $table->string('path_image_banner')->nullable();
 
-            $table->string('title_section');
-            $table->text('description_section');
+            $table->string('title_section')->nullable();
+            $table->text('description_section')->nullable();
 
-            $table->string('title_form');
-            $table->text('description_form');
+            $table->string('title_form')->nullable();
+            $table->text('description_form')->nullable();
 
-            $table->string('title_form');
-            $table->text('description_form');
+            $table->string('title_form')->nullable();
+            $table->text('description_form')->nullable();
 
-            $table->string('path_image_section_topic');
+            $table->string('path_image_section_topic')->nullable();
 
-            $table->json('inputs_form');
+            $table->json('inputs_form')->nullable();
+
+            $table->integer('active')->default(0);
 
             $table->integer('sorting')->default(0);
             $table->timestamps();

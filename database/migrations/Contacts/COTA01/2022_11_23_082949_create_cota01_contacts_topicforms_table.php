@@ -15,6 +15,10 @@ class CreateCota01ContactsTopicformsTable extends Migration
     {
         Schema::create('cota01_contacts_topicforms', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('contact_id')->constrained('cota01_contacts');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('path_image_icon')->nullable();
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
