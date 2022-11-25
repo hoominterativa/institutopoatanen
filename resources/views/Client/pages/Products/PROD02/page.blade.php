@@ -31,7 +31,7 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             </p>
                         </div>
-                        <a href="#lightbox-product" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
+                        <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-prod02-1" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__page__content__product__item__cta__icon me-3 transition">
                             CTA
                         </a>
@@ -48,7 +48,7 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             </p>
                         </div>
-                        <a href="#lightbox-product" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
+                        <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-prod02-1" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__page__content__product__item__cta__icon me-3 transition">
                             CTA
                         </a>
@@ -65,7 +65,7 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             </p>
                         </div>
-                        <a href="#lightbox-product" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
+                        <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-prod02-1" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__page__content__product__item__cta__icon me-3 transition">
                             CTA
                         </a>
@@ -82,7 +82,24 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             </p>
                         </div>
-                        <a href="#lightbox-product" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
+                        <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-prod02-1" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__page__content__product__item__cta__icon me-3 transition">
+                            CTA
+                        </a>
+                    </div>
+                </article>
+                <article class="prod02__page__content__product__item col-md-3 ">
+                    <div class="prod02__page__content__product__item__image w-100 h-100">
+                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
+                    </div>
+                    <div class="prod02__page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 h-100 text-center">
+                        <h2 class="prod02__page__content__product__item__description__title mx-0 px-0">Titulo Topico</h2>
+                        <div class="prod02__page__content__product__item__description_paragraph mx-0 px-0 ">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            </p>
+                        </div>
+                        <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-prod02-1" class="prod02__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__page__content__product__item__cta__icon me-3 transition">
                             CTA
                         </a>

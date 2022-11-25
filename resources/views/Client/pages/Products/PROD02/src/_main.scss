@@ -354,3 +354,52 @@
         }
     }
 }    
+
+
+.lightbox-prod02{
+    width: $lightbox-prod02-width;
+    display: $lightbox-prod02-display;
+    padding: $lightbox-prod02-padding;
+
+    &__subtitle{
+        font-size: $T4;
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__title{
+        font-size: $T2;
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__line{
+        margin-top: $lightbox-prod02-line-margin-top;
+        margin-bottom: $lightbox-prod02-line-margin-bottom;
+    }
+    &__paragraph{
+        font: $paragraph;
+        color: $color-one;
+        font-weight: $weight-400;
+    }
+    .carousel__button.is-close{
+        right: 17px;
+        top: 17px;
+        left: inherit;
+        width: 31px;
+        height: 31px;
+        background: #000000;
+        border-radius: 5px;
+        color: $color-white;
+        font-size:11px;
+    }
+    .fancybox__backdrop{
+        background: $color-one !important;
+    }
+
+    @include small-down{
+        text-align: center;
+    }
+}
+
+// END .lightbox
