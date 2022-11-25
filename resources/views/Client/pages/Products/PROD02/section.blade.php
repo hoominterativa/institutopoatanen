@@ -39,7 +39,7 @@
                     <div class="prod02__content__product__item__image w-100 h-100">
                         <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
                     </div>
-                    <div class="prod02__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 h-100 ">
+                    <div class="prod02__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 h-100 text-center">
                         <h2 class="prod02__content__product__item__description__title mx-0 px-0">Titulo Topico</h2>
                         <div class="prod02__content__product__item__description_paragraph mx-0 px-0 ">
                             <p>

@@ -80,3 +80,51 @@ $prod02-cta-icon-filter-hover: invert(1) grayscale(1);
 
 // RESPONSIVE
 $prod02-cta-font-responsive: $paragraph-mobile;
+
+
+
+
+
+//PAGE
+
+
+// CTA
+$prod02-nav-desktop-cta-font: $paragraph;
+$prod02-nav-desktop-cta-font-weight: $weight-700;
+$prod02-nav-desktop-cta-color: $color-one;
+$prod02-nav-desktop-cta-max-width: 177px;
+$prod02-nav-desktop-cta-padding: 10px 50px;
+$prod02-nav-desktop-cta-background-color: $color-four;
+// HOVER
+$prod02-nav-desktop-cta-color-hover: $color-white;
+$prod02-nav-desktop-cta-background-color-hover: $bg-black;
+$prod02-nav-desktop-cta-icon-filter-hover: invert(1) grayscale(1);
+
+// RESPONSIVE
+$prod02-nav-desktop-cta-font-responsive: $paragraph-mobile;
+///////
+
+$prod02-item-description-position: absolute;
+$prod02-item-description-top: 0;
+$prod02-item-description-left: 0;
+$prod02-item-description-padding: 48.66px 53px;
+$prod02-item-paragraph-p-margin-bottom:0;
+
+
+
+
+
+// CTA
+$prod02-item-cta-font: $paragraph;
+$prod02-item-cta-font-weight: $weight-700;
+$prod02-item-cta-color: $color-three;
+$prod02-item-cta-max-width: 177px;
+$prod02-item-cta-padding: 10px 50px;
+$prod02-item-cta-background-color: $color-five;
+// HOVER
+$prod02-item-cta-color-hover: $color-white;
+$prod02-item-cta-background-color-hover: $bg-black;
+$prod02-item-cta-icon-filter-hover: invert(1) grayscale(1);
+
+// RESPONSIVE
+$prod02-item-cta-font-responsive: $paragraph-mobile;
