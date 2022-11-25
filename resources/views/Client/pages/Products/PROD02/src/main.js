@@ -69,3 +69,15 @@ if($(window).outerWidth() <= 801){
     });
  
 }
+
+
+$('.caroussel_prod02-show').owlCarousel({
+    margin:5,
+    items:1,
+    stagePadding:0,
+    smartSpeed:450,
+    dots:true,
+    nav:false,
+    rewind: true,
+    autoHeight: true
+});

@@ -219,7 +219,6 @@
         margin-top: -23px;
 
         @include small-down{
-            padding: 0 48px;
             overflow: hidden;
         }
 
@@ -360,6 +359,19 @@
     width: $lightbox-prod02-width;
     display: $lightbox-prod02-display;
     padding: $lightbox-prod02-padding;
+    padding-top: 170x;
+
+
+    &__navigation{
+        position: absolute;
+        top:37px;
+        left: 0;
+    }
+
+    .caroussel_prod02-show .owl-dot{
+        display:none;
+    }
+
 
     &__subtitle{
         font-size: $T4;

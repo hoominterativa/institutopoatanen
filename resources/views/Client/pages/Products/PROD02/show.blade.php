@@ -1,15 +1,17 @@
-@extends('Client.Core.client')
-@section('content')
+
 <div id="lightbox-prod02-1" class="lightbox-prod02 row">
     <div class="row px-0 px-0 mx-0">
-        <ul class="lightbox-prod02_navigation">
-            <li><a href="#">Categorias  </a></li>
+        <ul class="lightbox-prod02__navigation">
+            <li><a href="#" rel="prev"><img src="" alt="ìcone voltar">Categorias</a></li>
         </ul>
-        <div class="caroussel-galeria">
-            <div class="lightbox-prod02__image px-0 col-md-6">
-                <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="h-100 w-100" alt="Subtitulo">
+        <div class="lightbox-prod02__content-carrossel px-0 col-md-6">
+            <div class="caroussel_prod02-show">
+                <div class="lightbox-prod02__image">
+                    <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="h-100 w-100" alt="Subtitulo">
+                </div>
             </div>
         </div>
+        
 
         {{-- END .lightbox-prod02__image --}}
         <div class="lightbox-prod02__description p-5 col-md-6 d-block">
@@ -30,4 +32,3 @@
     </;div>
 </div>
 {{-- END .lightbox-prod02 --}}
-@endsection

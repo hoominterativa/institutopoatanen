@@ -567,6 +567,8 @@ a {
   }
 }
 
+/* ======= SHOW ======= */
+/* ======= LIGHTBOX ======= */
 /* BEGIN STYLE */
 .prod02 {
   background-color: #EFEFEF;
@@ -749,7 +751,6 @@ a {
 }
 @media (max-width: 800px) {
   .prod02__page__content {
-    padding: 0 48px;
     overflow: hidden;
   }
 }
@@ -871,4 +872,59 @@ a {
 }
 .prod02__page__content__product__item__item a {
   color: #000;
+}
+
+.lightbox-prod02 {
+  width: 100%;
+  display: none;
+  padding: 0;
+  padding-top: 170x;
+}
+.lightbox-prod02__navigation {
+  position: absolute;
+  top: 37px;
+  left: 0;
+}
+.lightbox-prod02 .caroussel_prod02-show .owl-dot {
+  display: none;
+}
+.lightbox-prod02__subtitle {
+  font-size: 1.25rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+.lightbox-prod02__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+.lightbox-prod02__line {
+  margin-top: 22px;
+  margin-bottom: 61px;
+}
+.lightbox-prod02__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #404040;
+  font-weight: 400;
+}
+.lightbox-prod02 .carousel__button.is-close {
+  right: 17px;
+  top: 17px;
+  left: inherit;
+  width: 31px;
+  height: 31px;
+  background: #000000;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 11px;
+}
+.lightbox-prod02 .fancybox__backdrop {
+  background: #404040 !important;
+}
+@media (max-width: 800px) {
+  .lightbox-prod02 {
+    text-align: center;
+  }
 }

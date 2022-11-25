@@ -36,6 +36,7 @@
                             CTA
                         </a>
                     </div>
+                    @include('Client.pages.Products.PROD02.show')
                 </article>
                 <article class="prod02__page__content__product__item col-md-3 ">
                     <div class="prod02__page__content__product__item__image w-100 h-100">
