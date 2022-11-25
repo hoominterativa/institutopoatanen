@@ -1,4 +1,6 @@
 @extends('Client.Core.client')
 @section('content')
-<h4>Olá mundo</h4>
+<div id="lightbox-show-1" class="lightbox__show">
+    
+</div>
 @endsection
