@@ -61,12 +61,14 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensão proporcional mínima 450x399px</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_thumbnail', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'1/1',
-                            'data-height'=>'225',
+                            'data-min-width'=>400,
+                            'data-min-height'=>354.04,
+                            'data-box-height'=>'225', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($blog)?$blog->path_image_thumbnail<>''?url('storage/'.$blog->path_image_thumbnail):'':'',
                         ]) !!}

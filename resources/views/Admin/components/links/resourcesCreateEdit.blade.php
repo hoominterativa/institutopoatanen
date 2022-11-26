@@ -16,6 +16,7 @@
     <link href="{{url(mix('admin/assets/libs/bootstrap-table.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/sweetalert2.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/cropper.min.css'))}}" rel="stylesheet" type="text/css" />
+    <link href="{{url(mix('admin/assets/libs/rcrop.css'))}}" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('createEditJs')
@@ -41,6 +42,7 @@
     <script src="{{url(mix('admin/assets/libs/bootstrap-table.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/sweetalert2.all.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/cropper.min.js'))}}"></script>
+    <script src="{{url(mix('admin/assets/libs/rcrop.js'))}}"></script>
 
     <!-- Pages init js-->
     <script src="{{url(mix('admin/assets/js/pages/form-fileuploads.init.js'))}}"></script>

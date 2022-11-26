@@ -23,6 +23,7 @@ use App\Http\Controllers\OptimizationController;
 use App\Http\Controllers\OptimizePageController;
 use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\GeneralSettingController;
+use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 
@@ -127,6 +128,34 @@ Route::prefix('painel')->group(function () {
         Route::post('links-cta-footer/{GeneralSetting}', [GeneralSettingController::class, 'linksFooter'])->name('admin.cta.footer');
 
         Route::post('editor/image_upload', [EditorController::class, 'upload'])->name('editor.upload.archive');
+
+
+        Route::any('/calProporcion', function(){
+            $request = request();
+            $result = null;
+
+            if($request->has('new_width') && $request->has('current_width') && $request->has('current_height')){
+                if($request->new_width<>'' && $request->current_width<>'' && $request->current_height<>''){
+                    $result = $request->current_height * ($request->new_width / $request->current_width);
+
+                    $result = '
+                        <h2>
+                            <span class="newWidth">'.$request->new_width.'</span>
+                            <span class="per">x</span>
+                            <span class="newHeight">'.number_format($result,2).'</span>
+                        </h2>
+                    ';
+                }
+            }
+
+            $generalSetting = GeneralSetting::first();
+            return view('Admin.calcProporcion',[
+                'generalSetting' => $generalSetting,
+                'request' => $request,
+                'result' => $result,
+            ]);
+        })->name('admin.calProporcion');
+
     });
 });
 
