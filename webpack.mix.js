@@ -33,6 +33,7 @@ mix
     .scripts('resources/views/Admin/assets/js/libs/jquery.sortable.min.js', 'public/admin/assets/libs/jquery.sortable.min.js')
     .scripts('node_modules/tippy.js/dist/tippy.all.min.js', 'public/admin/assets/libs/tippy.all.min.js')
     .scripts('node_modules/cropper/dist/cropper.min.js', 'public/admin/assets/libs/cropper.min.js')
+    .scripts('resources/views/Admin/assets/js/libs/cropimage/rcrop.js', 'public/admin/assets/libs/rcrop.js')
     // Pages
     .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/admin/assets/js/pages/form-advanced.init.js')
@@ -73,6 +74,7 @@ mix
     .styles('node_modules/sweetalert2/dist/sweetalert2.min.css', 'public/admin/assets/libs/sweetalert2.min.css')
     .styles('node_modules/jquery-toast-plugin/dist/jquery.toast.min.css', 'public/admin/assets/libs/jquery.toast.min.css')
     .styles('node_modules/cropper/dist/cropper.min.css', 'public/admin/assets/libs/cropper.min.css')
+    .styles('resources/views/Admin/assets/js/libs/cropimage/rcrop.css', 'public/admin/assets/libs/rcrop.css')
 
 // COPY DIRECTORIES
 .copyDirectory('resources/views/Admin/assets/fonts', 'public/admin/assets/fonts')

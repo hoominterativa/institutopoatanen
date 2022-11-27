@@ -135,6 +135,7 @@
 
 .modal-crop-image .img-container img {
     width: 100%;
+    max-height: 500px;
 }
 
 .modal-crop-image .modal-dialog {
@@ -149,8 +150,8 @@
 
 .container-image-crop .crop-img-preview {
     overflow: hidden;
-    width: 250px;
-    height: 250px;
+    /* width: auto; */
+    /* height: 250px; */
 }
 
 .modal-crop-image {
@@ -178,7 +179,7 @@
 }
 
 .modal-crop-image .modal-content {
-    max-width: 650px;
+    max-width: 900px;
 }
 
 #ModelsFormSelect input:checked+label {

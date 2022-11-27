@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Helpers;
 use Gumlet\ImageResize;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 

@@ -70,7 +70,7 @@
         "gulp-rtlcss": "^1.4.1",
         "hopscotch": "^0.3.1",
         "ion-rangeslider": "^2.3.1",
-        "jquery": "^3.6.0",
+        "jquery": "^3.6.1",
         "jquery-countdown": "^2.2.0",
         "jquery-datatables-checkboxes": "^1.2.12",
         "jquery-knob": "^1.2.11",
