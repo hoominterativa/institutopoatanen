@@ -17,7 +17,13 @@ class COTA01ContactsTopicForm extends Model
     }
 
     protected $table = "cota01_contacts_topicforms";
-    protected $fillable = [];
+    protected $fillable = [
+        "contact_id",
+        "title",
+        "description",
+        "path_image_icon",
+        "sorting",
+    ];
 
     public function scopeSorting($query)
     {

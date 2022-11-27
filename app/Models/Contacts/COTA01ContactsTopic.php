@@ -16,7 +16,13 @@ class COTA01ContactsTopic extends Model
     }
 
     protected $table = "cota01_contacts_topics";
-    protected $fillable = [];
+    protected $fillable = [
+        "contact_id",
+        "title",
+        "description",
+        "path_image_icon",
+        "sorting",
+    ];
 
     public function scopeSorting($query)
     {

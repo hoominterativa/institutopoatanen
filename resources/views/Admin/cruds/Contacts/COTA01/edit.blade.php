@@ -25,7 +25,7 @@
                     <li class="nav-item">
                         <a href="#infoFormContact" data-bs-toggle="tab" aria-expanded="true" class="nav-link active  d-flex align-items-center">
                             Informações da Página
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon cloneTypeButton"
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro das informações da página e dos campos do formulário"></i>
                         </a>
@@ -33,7 +33,7 @@
                     <li class="nav-item">
                         <a href="#infoBanner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Banner da página
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon cloneTypeButton"
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do banner principal da página"></i>
                         </a>
@@ -41,9 +41,17 @@
                     <li class="nav-item">
                         <a href="#topicsForm" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
                             Tópicos do Formulário
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon cloneTypeButton"
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro dos tópicos que aparecem ao lado do formulário"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#topicsSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Tópicos da seção
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos tópicos que aparecem na seção abaixo do formulário"></i>
                         </a>
                     </li>
                 </ul>
@@ -67,10 +75,19 @@
 
                     <div class="tab-pane" id="topicsForm">
                         @include('Admin.cruds.Contacts.COTA01.TopicsForm.index',[
-                            'topicsForm' => $topicsForm
+                            'topicsForm' => $topicsForm,
+                            'contact' => $contact
                         ])
                     </div>
                     {{-- END #topicsForm --}}
+
+                    <div class="tab-pane" id="topicsSection">
+                        @include('Admin.cruds.Contacts.COTA01.TopicsSection.index',[
+                            'topicsSection' => $topicsSection,
+                            'contact' => $contact
+                        ])
+                    </div>
+                    {{-- END #topicsSection --}}
 
                 </div>
                 {{-- END .tab-content --}}

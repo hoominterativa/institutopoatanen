@@ -17,7 +17,7 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteBlogCategory" type="checkbox"></label>
                             </th>
-                            <th></th>
+                            <th width="60px"></th>
                             <th>Title</th>
                             <th>description</th>
                             <th width="90px">Ações</th>
@@ -30,6 +30,11 @@
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox align-middle">
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topicForm->id}}"></label>
+                                </td>
+                                <td class="align-middl">
+                                    @if ($topicForm->path_image_icon)
+                                        <div class="avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$topicForm->path_image_icon)}})"></div>
+                                    @endif
                                 </td>
                                 <td class="align-middle">{{$topicForm->title}}</td>
                                 <td class="align-middle">{{$topicForm->description}}</td>

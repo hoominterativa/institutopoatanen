@@ -108,7 +108,7 @@ class COTA01Controller extends Controller
         return view('Admin.cruds.Contacts.COTA01.edit',[
             'contact' => $COTA01Contacts,
             'topicsForm' => $topicsForm,
-            'sectionTopics' => $sectionTopics,
+            'topicsSection' => $sectionTopics,
             'configForm' => !is_array($configForm)?$configForm:null
         ]);
     }

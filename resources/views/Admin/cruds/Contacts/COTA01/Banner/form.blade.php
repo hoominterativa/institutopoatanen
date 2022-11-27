@@ -24,6 +24,7 @@
             <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label('path_image_banner', 'Imagem', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensão proporcional mínima 1500x360px</small>
                     {!! Form::file('path_image_banner', [
                         'data-plugins'=>'dropify',
                         'data-height'=>'300',

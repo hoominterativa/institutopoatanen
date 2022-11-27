@@ -6,7 +6,7 @@
                     <div class="mb-3">
                         <div class="d-flex align-items-center mb-1">
                             {!! Form::label('title_page', 'Título da Página', ['class'=>'form-label mb-0']) !!}
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Título que é exibido no menu do site"></i>
                         </div>
@@ -17,7 +17,7 @@
                     <div class="mb-3">
                         <div class="d-flex align-items-center mb-1">
                             {!! Form::label('title_button_form', 'Nome do botão no formulário', ['class'=>'form-label mb-0']) !!}
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Nome que aparecerá no botão do formulário"></i>
                         </div>
@@ -34,7 +34,7 @@
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
                     {!! Form::label('title_form', 'Título', ['class'=>'form-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Título que é exibido logo acima do formulário"></i>
                 </div>
@@ -43,7 +43,7 @@
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
                     {!! Form::label('description_form', 'Descrição', ['class'=>'form-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Informação que é exibido logo acima do formulário"></i>
                 </div>
@@ -69,7 +69,7 @@
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
                     {!! Form::label('title_form', 'Título', ['class'=>'form-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Título que é exibido logo abaixo do banner da página"></i>
                 </div>
@@ -78,7 +78,7 @@
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
                     {!! Form::label('description_form', 'Descrição', ['class'=>'form-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Informação que é exibida logo abaixo do banner da página"></i>
                 </div>
