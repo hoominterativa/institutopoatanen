@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contacts\COTA01ContactsTopic;
+use App\Models\Contacts\COTA01ContactsTopicForm;
 
 class COTA01Controller extends Controller
 {
+    protected $path = 'uploads/Contacts/COTA01/images/';
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +23,10 @@ class COTA01Controller extends Controller
      */
     public function index()
     {
-        //
+        $contacts = COTA01Contacts::sorting()->get();
+        return view('Admin.cruds.Contacts.COTA01.index',[
+            'contacts' => $contacts
+        ]);
     }
 
     /**
@@ -30,7 +36,7 @@ class COTA01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Contacts.COTA01.create');
     }
 
     /**
@@ -41,36 +47,47 @@ class COTA01Controller extends Controller
      */
     public function store(Request $request)
     {
+        $helper = new HelperArchive();
         $data = $request->all();
+        $arrayInputs = [];
 
-        /*
-        Use the code below to upload image, if not, delete code
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
+        $jsonInputs = json_encode($arrayInputs);
 
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
+        $data['inputs_form'] = $jsonInputs;
+        $data['active'] = $request->active?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
+        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_section_topic = $helper->optimizeImage($request, 'path_image_section_topic', $this->path, null, 100);
+        if($path_image_section_topic) $data['path_image_section_topic'] = $path_image_section_topic;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(COTA01Contacts::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if($contact = COTA01Contacts::create($data)){
+            Session::flash('success', 'Informações cadastradas com sucesso');
+            return redirect()->route('admin.cota01.edit', ['COTA01Contacts' => $contact->id]);
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_banner);
+            Storage::delete($path_image_section_topic);
+            Session::flash('error', 'Erro ao cadastradar informações');
             return redirect()->back();
         }
     }
@@ -83,7 +100,17 @@ class COTA01Controller extends Controller
      */
     public function edit(COTA01Contacts $COTA01Contacts)
     {
-        //
+        $topicsForm = COTA01ContactsTopicForm::sorting()->get();
+        $sectionTopics = COTA01ContactsTopic::sorting()->get();
+
+        $configForm = json_decode($COTA01Contacts->inputs_form);
+
+        return view('Admin.cruds.Contacts.COTA01.edit',[
+            'contact' => $COTA01Contacts,
+            'topicsForm' => $topicsForm,
+            'sectionTopics' => $sectionTopics,
+            'configForm' => !is_array($configForm)?$configForm:null
+        ]);
     }
 
     /**
@@ -95,54 +122,64 @@ class COTA01Controller extends Controller
      */
     public function update(Request $request, COTA01Contacts $COTA01Contacts)
     {
+        $helper = new HelperArchive();
         $data = $request->all();
+        $arrayInputs = [];
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            storageDelete($COTA01Contacts, 'path_image');
-            $data['path_image'] = $path_image;
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($COTA01Contacts, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($COTA01Contacts, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if(count($arrayInputs)){
+            $jsonInputs = json_encode($arrayInputs);
+            $data['inputs_form'] = $jsonInputs;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($COTA01Contacts, 'path_archive');
-            $data['path_archive'] = null;
+        $data['active'] = $request->active?1:0;
+
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
+        if($path_image_banner){
+            storageDelete($COTA01Contacts, 'path_image_banner');
+            $data['path_image_banner'] = $path_image_banner;
+        }
+        if($request->delete_path_image_banner && !$path_image_banner){
+            storageDelete($COTA01Contacts, 'path_image_banner');
+            $data['path_image_banner'] = null;
         }
 
-        */
+        $path_image_section_topic = $helper->optimizeImage($request, 'path_image_section_topic', $this->path, null, 100);
+        if($path_image_section_topic){
+            storageDelete($COTA01Contacts, 'path_image_section_topic');
+            $data['path_image_section_topic'] = $path_image_section_topic;
+        }
+        if($request->delete_path_image_section_topic && !$path_image_section_topic){
+            storageDelete($COTA01Contacts, 'path_image_section_topic');
+            $data['path_image_section_topic'] = null;
+        }
 
         if($COTA01Contacts->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_banner);
+            Storage::delete($path_image_section_topic);
+            Session::flash('success', 'Erro ao atualizar informações');
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,8 +190,18 @@ class COTA01Controller extends Controller
      */
     public function destroy(COTA01Contacts $COTA01Contacts)
     {
-        //storageDelete($COTA01Contacts, 'path_image');
-        //storageDelete($COTA01Contacts, 'path_archive');
+        storageDelete($COTA01Contacts, 'path_image_banner');
+        storageDelete($COTA01Contacts, 'path_image_section_topic');
+
+        $topicsForm = COTA01ContactsTopicForm::where('contact_id', $COTA01Contacts->id)->get();
+        if($topicsForm->count()){
+            $topicsForm->delete();
+        }
+
+        $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id)->get();
+        if($topics->count()){
+            $topics->delete();
+        }
 
         if($COTA01Contacts->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -170,14 +217,26 @@ class COTA01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $COTA01Contactss = COTA01Contacts::whereIn('id', $request->deleteAll)->get();
         foreach($COTA01Contactss as $COTA01Contacts){
-            storageDelete($COTA01Contacts, 'path_image');
-            storageDelete($COTA01Contacts, 'path_archive');
+            storageDelete($COTA01Contacts, 'path_image_banner');
+            storageDelete($COTA01Contacts, 'path_image_section_topic');
+
+            $topicsForm = COTA01ContactsTopicForm::where('contact_id', $COTA01Contacts->id)->get();
+            if($topicsForm->count()){
+                $topicsForm->delete();
+            }
+
+            $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id)->get();
+            if($topics->count()){
+                $topics->delete();
+            }
+
+            if($COTA01Contacts->delete()){
+                Session::flash('success', 'Item deletado com sucessso');
+                return redirect()->back();
+            }
         }
-        */
 
         if($deleted = COTA01Contacts::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);

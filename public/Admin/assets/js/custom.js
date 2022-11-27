@@ -157,7 +157,7 @@ $(function() {
             <div class="infoInputs">
                 <div class="mb-3">
                     <label class="form-label">Titulo</label>
-                    <input type="text" name="title_" required class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente">
+                    <input type="text" name="column_" required class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente">
                 </div>
             `
         switch (type) {
@@ -183,7 +183,7 @@ $(function() {
         var val = $(this).val()
         var type = $(this).parents('.container-type-input').find('select').val()
 
-        $(this).attr('name', 'title_' + slugify(val) + '_' + type)
+        $(this).attr('name', 'column_' + slugify(val) + '_' + type)
         $(this).parents('.container-type-input').find('.inputSetOption').attr('name', 'option_' + slugify(val) + '_' + type)
     })
 

@@ -2,9 +2,9 @@
 
 namespace App\Models\Contacts;
 
-use Database\Factories\COTA01ContactsTopicFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Database\Factories\Contacts\COTA01ContactsTopicFactory;
 
 class COTA01ContactsTopic extends Model
 {
@@ -15,7 +15,7 @@ class COTA01ContactsTopic extends Model
         return COTA01ContactsTopicFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "cota01_contacts_topics";
     protected $fillable = [];
 
     public function scopeSorting($query)

@@ -75,9 +75,9 @@ class ContactFormController extends Controller
 
         foreach ($data as $name => $value) {
             $arrayName = explode('_', $name);
-            if($arrayName[0] == 'title'){
+            if($arrayName[0] == 'column'){
                 $type = end($arrayName);
-                $inputOption = str_replace('title', 'option', $name);
+                $inputOption = str_replace('column', 'option', $name);
                 $option = '';
                 if(isset($data[$inputOption])){
                     $option = $data[$inputOption];

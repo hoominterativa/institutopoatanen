@@ -126,7 +126,7 @@
                                         @if ($value->option)
                                             <div class="mb-3">
                                                 <label class="form-label">Opções</label>
-                                                <input type="text" name="{{str_replace('title', 'option', $key)}}" class="form-control inputSetOption" placeholder="Separar as opções com vírgula" value="{{$value->option}}">
+                                                <input type="text" name="{{str_replace('column', 'option', $key)}}" class="form-control inputSetOption" placeholder="Separar as opções com vírgula" value="{{$value->option}}">
                                             </div>
                                         @endif
                                     </div>
