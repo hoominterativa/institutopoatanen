@@ -1,0 +1,106 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+.comp01-page{
+    &__header{
+        text-align: $comp01-page-header-text-align;
+        background-color: $comp01-page-header-background-color;
+        padding: $comp01-page-header-padding;
+        margin: $comp01-page-header-margin;
+        &__container{
+            margin-bottom: $comp01-page-header-container-title-margin-bottom;
+        }
+        &__title{
+            font-size: $comp01-page-header-title-font-size;
+            font-family: $comp01-page-header-title-font-family;
+            color: $comp01-page-header-title-color;
+            display: block;
+
+            @include small-down{
+                font-size: $comp01-page-header-title-font-size-responsive;
+            }
+        }
+    }
+    // END __header
+
+    &__content{
+        padding: $comp01-page-content-padding;
+        &__icon{
+            width: $comp01-page-content-icon-width;
+            margin: $comp01-page-content-icon-margin;
+            display: $comp01-page-content-icon-display;
+        }
+        &__container{
+            text-align: $comp01-page-content-container-text-align;
+            margin-bottom: $comp01-page-content-container-title-margin-bottom;
+        }
+        &__title{
+            font-size: $comp01-page-content-title-font-size;
+            font-family: $comp01-page-content-title-font-family;
+            font-weight: $comp01-page-content-title-font-weight;
+            color: $comp01-page-content-title-color;
+            display: block;
+
+            @include small-down{
+                font-size: $comp01-page-content-title-font-size-responsive;
+            }
+        }
+        &__subtitle{
+            font-size: $comp01-page-content-subtitle-font-size;
+            font-family: $comp01-page-content-subtitle-font-family;
+            font-weight: $comp01-page-content-subtitle-font-weight;
+            color: $comp01-page-content-subtitle-color;
+            display: block;
+
+            @include small-down{
+                font-size: $comp01-page-content-subtitle-font-size-responsive;
+            }
+        }
+        &__line{
+            width: $comp01-page-content-line-width;
+            background-color: $comp01-page-content-line-background-color;
+            margin-bottom: $comp01-page-content-line-margin-bottom;
+        }
+        &__paragraph{
+            font: $comp01-page-content-paragraph-font;
+            font-weight: $comp01-page-content-paragraph-font-weight;
+            padding: $comp01-page-content-paragraph-padding;
+            color: $comp01-page-content-paragraph-color;
+            line-height: $comp01-page-content-paragraph-line-height;
+
+            @include small-down{
+                font: $comp01-page-content-paragraph-font-responsive;
+            }
+        }
+
+    }
+    // END __content
+
+    &__archives{
+        margin-top: $comp01-archives-margin-top;
+        &__item{
+            font: $comp01-archives-item-font;
+            font-weight: $comp01-archives-item-font-weight;
+            color: $comp01-archives-item-color;
+            display: $comp01-archives-item-display;
+            margin: $comp01-archives-item-margin;
+            max-width: $comp01-archives-item-max-width;
+            padding: $comp01-archives-item-padding;
+            background-color: $comp01-archives-item-background-color;
+
+            @include small-down{
+                font: $comp01-archives-item-font-responsive;
+            }
+
+            &:hover{
+                color: $comp01-archives-item-color-hover;
+                background-color: $comp01-archives-item-background-color-hover;
+
+                .comp01__archives__item__icon{
+                    filter: $comp01-archives-item-icon-filter-hover;
+                }
+            }
+        }
+    }
+    // END __arvhives
+}

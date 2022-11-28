@@ -44,6 +44,21 @@ class DatabaseSeeder extends Seeder
             }
         }
 
+        $ModelsCompliances = config('modelsConfig.ModelsCompliances');
+        $class = config('modelsClass.Class');
+
+        if(isset($ModelsCompliances->Code)){
+            if($ModelsCompliances->Code <> ''){
+                $code = $ModelsCompliances->Code;
+
+                $seedQty = $class->Compliances->$code->seedQty;
+                $class->Compliances->$code->model::factory($seedQty)->create();
+
+            }
+        }
+
+
+
         if(!User::get()->count()) User::factory(1)->create();
 
         if(!SettingTheme::first()){

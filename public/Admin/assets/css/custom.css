@@ -270,3 +270,11 @@
 .fancybox__container{
     z-index: 1100 !important;
 }
+.alert-compliance{
+    max-width: 240px;
+}
+
+[data-sidebar-size=condensed] .alert-compliance{
+    width: 200px;
+    padding-left: 0 !important
+}

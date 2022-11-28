@@ -35,4 +35,8 @@ return [
         'FORM03' => 'Newsletter_FORM01.jpg',
         'FORM04' => 'Newsletter_FORM02.jpg',
     ],
+
+    'ModelsCompliances' => (object)[
+        'Code' => 'COMP01'
+    ],
 ];

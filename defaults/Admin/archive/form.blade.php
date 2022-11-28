@@ -19,14 +19,13 @@
         </div>
         {{-- end card-body --}}
     </div>
-    {{-- end card --}}
 </div>
 {{-- end row --}}
 
 {{-- Essa estrutura pode ser usada junto ao label do input para aparecer o ícone de duvida do lado do mesmo. pode usar a estutura abaixo substituindo o "Form::label" --}}
 {{-- <div class="d-flex align-items-center mb-1">
     {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
         data-bs-original-title="Coloque a mensagem desejado aqui"></i>
 </div> --}}

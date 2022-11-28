@@ -43,7 +43,7 @@ class HelperArchive extends Controller
             $nameFile = $request->$column->getClientOriginalName();
             $name = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time().'.'.$request->$column->getClientOriginalExtension();
             $request->$column->storeAs($path, $name);
-            return $name;
+            return $path.$name;
         }else{
             return false;
         }

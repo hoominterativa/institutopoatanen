@@ -37,6 +37,15 @@ class HelperPublishing extends Controller
                 }
             }
 
+            $modelsCompliances = config('modelsConfig.ModelsCompliances');
+            if(isset($modelsCompliances->Code)){
+                if($modelsCompliances->Code <> ''){
+                    $code = $modelsCompliances->Code;
+                    $contentScss .= "@import '../../pages/Compliances/{$code}/src/main';\n";
+                    $contentJs .= "import '../../pages/Compliances/{$code}/src/main';\n";
+                }
+            }
+
             $createArchive->createArchive('resources/views/Client/assets/scss/base.scss', $contentScss);
             $createArchive->createArchive('resources/views/Client/assets/js/base.js', $contentJs);
 
