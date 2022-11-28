@@ -70,7 +70,7 @@ class {{ class }} extends Controller
         }else{
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
     }
@@ -140,7 +140,7 @@ class {{ class }} extends Controller
         }else{
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
+            Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
     }

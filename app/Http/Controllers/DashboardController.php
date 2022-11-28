@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Teste;
 use App\Models\User;
 use App\Mail\ContactUs;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
@@ -23,9 +24,18 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $ModelsCompliances = config('modelsConfig.ModelsCompliances');
+        $complianceModel = null;
+        if(isset($ModelsCompliances->Code)){
+            if($ModelsCompliances->Code <> ''){
+                $complianceModel = Str::slug($ModelsCompliances->Code);
+            }
+        }
+
         $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
         return view('Admin.dashboard',[
-            'modelsMain' => $modelsMain
+            'modelsMain' => $modelsMain,
+            'complianceModel' => $complianceModel,
         ]);
     }
 

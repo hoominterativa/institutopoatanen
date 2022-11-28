@@ -71,9 +71,25 @@ View::composer('Admin.core.admin', function ($view) {
     $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     $settingTheme = SettingTheme::where('user_id', Auth::user()->id)->first();
     $generalSetting = GeneralSetting::first();
+
+    $ModelsCompliances = config('modelsConfig.ModelsCompliances');
+    $class = config('modelsClass.Class');
+    $complianceModel = null;
+    $compliancesValidate = 0;
+
+    if(isset($ModelsCompliances->Code)){
+        if($ModelsCompliances->Code <> ''){
+            $code = $ModelsCompliances->Code;
+            $complianceModel = Str::slug($code);
+            $compliancesValidate = $class->Compliances->$code->model::count();
+        }
+    }
+
     return $view->with('modelsMain', $modelsMain)
         ->with('settingTheme', $settingTheme)
-        ->with('generalSetting', $generalSetting);
+        ->with('generalSetting', $generalSetting)
+        ->with('complianceModel', $complianceModel)
+        ->with('compliancesValidate', $compliancesValidate);
 });
 
 Route::prefix('painel')->group(function () {
@@ -223,5 +239,27 @@ foreach ($modelsMain as $module => $models) {
         Route::get($route.'/{'.$parameters.':slug}', [$controller, 'show'])->name($routeName.'.show');
 
         include_once "{$module}/{$code}.php";
+    }
+}
+
+$ModelsCompliances = config('modelsConfig.ModelsCompliances');
+$class = config('modelsClass.Class');
+
+if(isset($ModelsCompliances->Code)){
+    if($ModelsCompliances->Code <> ''){
+        $code = $ModelsCompliances->Code;
+        $routeName = Str::lower($code);
+        $controller = $class->Compliances->$code->controller;
+        $parameters = $code.'Compliances';
+
+        Route::prefix('painel')->middleware('auth')->group(function () use ($controller, $routeName, $parameters){
+            Route::resource('/compliances', $controller)->names('admin.'.$routeName)->parameters(['compliances' => $parameters]);
+            Route::post('/compliances/delete', [$controller, 'destroySelected'])->name('admin.'.$routeName.'.destroySelected');
+            Route::post('/compliances/sorting', [$controller, 'sorting'])->name('admin.'.$routeName.'.sorting');
+        });
+
+        // CLIENT
+        Route::get('/compliances/{'.$parameters.':slug}', [$controller, 'show'])->name($routeName.'.show');
+        include_once "Compliances/{$code}.php";
     }
 }

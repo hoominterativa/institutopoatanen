@@ -68,7 +68,7 @@ class ModuleMigrate extends Command
                 Artisan::call('migrate');
             }
 
-            $bar = $this->output->createProgressBar(count(get_object_vars($InsertModelsMain)));
+            $bar = $this->output->createProgressBar((count(get_object_vars($InsertModelsMain))+5));
             $bar->start();
 
             foreach ($InsertModelsMain as $module => $model) {
@@ -91,11 +91,21 @@ class ModuleMigrate extends Command
                 }
             }
 
+            $ModelsCompliances = config('modelsConfig.ModelsCompliances');
+
+            if(isset($ModelsCompliances->Code)){
+                if($ModelsCompliances->Code <> ''){
+                    $code = $ModelsCompliances->Code;
+                    Artisan::call('migrate --path=database/migrations/Compliances/'.$code);
+                }
+            }
+
             $bar->finish();
 
             if($options['seed']){
                 Artisan::call('migrate --seed');
             }
+
             $this->newLine();
             $this->info('Todas as migrations necessárias foram migradas com sucesso');
 

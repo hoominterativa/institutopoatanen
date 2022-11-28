@@ -284,6 +284,17 @@
             <div class="left-side-menu">
 
                 <div class="h-100" data-simplebar>
+                    @if (!$compliancesValidate)
+                        <div class="px-2 alert-compliance">
+                            <div class="alert alert-danger mb-3 p-1 text-center">
+                                <i class="mdi mdi-alert mdi-48px"></i>
+                                <p class="mb-0">
+                                    A sua área de <a href="{{$complianceModel?route('admin.'.$complianceModel.'.index'):''}}"><b>Compliance</b></a> está vazia, caso matenha nesse estado não será possível receber leads dos formulários no site.<br>
+                                    Confira a <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank">LEI Nº 13.709, DE 14 DE AGOSTO DE 2018</a>
+                                </p>
+                            </div>
+                        </div>
+                    @endif
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
 
@@ -340,6 +351,15 @@
                                     <span> Gerais </span>
                                 </a>
                             </li>
+
+                            @if ($complianceModel)
+                                <li>
+                                    <a nofollow href="{{route('admin.'.$complianceModel.'.index')}}">
+                                        <i class="mdi mdi-notebook-check"></i>
+                                        <span> Compliances <span class="text-danger">*</span></span>
+                                    </a>
+                                </li>
+                            @endif
 
                             <li>
                                 <a nofollow href="{{route('admin.user.index')}}">
