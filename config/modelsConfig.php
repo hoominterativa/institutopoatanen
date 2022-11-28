@@ -11,22 +11,7 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Blogs' => (object) [
-            'BLOG01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'config' => (object) [
-                    'titleMenu' => 'Blog',
-                    'anchor' =>  false,
-                    'linkMenu' => 'blog01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Blog',
-                    'iconPanel' => 'mdi-information'
-                ],
-                'IncludeSections' => (object) []
-            ],
-        ],
+
     ],
 
     'ModelsForm' => (object)[
@@ -37,6 +22,6 @@ return [
     ],
 
     'ModelsCompliances' => (object)[
-        'Code' => 'COMP01'
+        // 'Code' => 'COMP01'
     ],
 ];
