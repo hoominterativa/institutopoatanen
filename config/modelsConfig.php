@@ -37,6 +37,6 @@ return [
     ],
 
     'ModelsCompliances' => (object)[
-        // 'Code' => 'COMP01'
+        'Code' => 'COMP01'
     ],
 ];

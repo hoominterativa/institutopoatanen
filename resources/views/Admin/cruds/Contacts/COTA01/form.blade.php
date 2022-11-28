@@ -25,7 +25,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="col-12 col-lg-6">
@@ -68,21 +67,21 @@
             <h4 class="mb-3">Informações da Página</h4>
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
-                    {!! Form::label('title_form', 'Título', ['class'=>'form-label mb-0']) !!}
+                    {!! Form::label('title_section', 'Título', ['class'=>'form-label mb-0']) !!}
                     <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Título que é exibido logo abaixo do banner da página"></i>
                 </div>
-                {!! Form::text('title_form', null, ['class'=>'form-control', 'id'=>'title_form']) !!}
+                {!! Form::text('title_section', null, ['class'=>'form-control', 'id'=>'title_section']) !!}
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
-                    {!! Form::label('description_form', 'Descrição', ['class'=>'form-label mb-0']) !!}
+                    {!! Form::label('description_section', 'Descrição', ['class'=>'form-label mb-0']) !!}
                     <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Informação que é exibida logo abaixo do banner da página"></i>
                 </div>
-                {!! Form::textarea('description_form', null, [
+                {!! Form::textarea('description_section', null, [
                     'class'=>'form-control',
                     'id'=>'message',
                     'data-parsley-trigger'=>'keyup',
