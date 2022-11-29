@@ -1,16 +1,45 @@
-// CTA
-$cont06-cta-font: $paragraph;
-$cont06-cta-font-weight: $weight-700;
-$cont06-cta-color: $color-black;
-$cont06-cta-display: block;
-$cont06-cta-margin: 30px auto 0;
-$cont06-cta-max-width: 177px;
-$cont06-cta-padding: 10px 15px;
-$cont06-cta-background-color: $bg-soft;
-// HOVER
-$cont06-cta-color-hover: $color-white;
-$cont06-cta-background-color-hover: $bg-black;
-$cont06-cta-icon-filter-hover: invert(1) grayscale(1);
 
-// RESPONSIVE
-$cont06-cta-font-responsive: $paragraph-mobile;
+// CONT06
+    $cont06-padding: 63px 0 59px 0;
+    $cont06-boxvideo-mobile-width:100%;
+
+    $cont06-boxvideo-content-width:884px;
+    $cont06-boxvideo-content-height: 439px;
+    $cont06-boxvideo-content-mobile-width:85%;
+    $cont06-boxvideo-content-mobile-height: 166px;
+
+    $cont06-boxvideo-content-margin: 0 auto;
+    $cont06-boxvideo-content-position: relative;    
+    $cont06-boxvideo-content-background-repeat: no-repeat;
+    $cont06-boxvideo-content-background-position: center;
+    $cont06-boxvideo-content-background-size: cover;
+
+    $cont06-boxvideo-content-play-width: 87px;
+    $cont06-boxvideo-content-play-height: 87px;
+    $cont06-boxvideo-content-play-mobile-width: 59px;
+    $cont06-boxvideo-content-play-mobile-height: 59px;
+
+
+    $cont06-boxvideo-content-iframe-width:884px;
+    $cont06-boxvideo-content-iframe-height: 439px; 
+    $cont06-boxvideo-content-iframe-mobile-width:80%;
+    $cont06-boxvideo-content-iframe-mobile-height: 166px; 
+
+    $cont06-boxvideo-content-video-height: 100%;
+
+    // CTA
+    $cont06-cta-font: $paragraph;
+    $cont06-cta-font-weight: $weight-700;
+    $cont06-cta-color: $color-black;
+    $cont06-cta-display: block;
+    $cont06-cta-margin: 28px auto 0;
+    $cont06-cta-max-width: 177px;
+    $cont06-cta-padding: 10px 15px;
+    $cont06-cta-background-color: $bg-soft;
+    // HOVER
+    $cont06-cta-color-hover: $color-white;
+    $cont06-cta-background-color-hover: $bg-black;
+    $cont06-cta-icon-filter-hover: invert(1) grayscale(1);
+
+    // RESPONSIVE
+    $cont06-cta-font-responsive: $paragraph-mobile;

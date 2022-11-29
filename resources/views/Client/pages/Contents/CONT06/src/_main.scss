@@ -2,21 +2,51 @@
 
 /* BEGIN STYLE */
 .cont06{
-    height: 634px;
+    padding: $cont06-padding;
 
-    &__video{
-        width:884px;
-        height: 439px;
-        margin: 0 auto;
-        position: relative;
+    &__boxVideo{
+
+        @include small-down {
+            width:$cont06-boxvideo-mobile-width;
+        }
 
         &__content{
-            height: 100%;
-            z-index: 1;
-            width: 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
+            width:$cont06-boxvideo-content-width;
+            height: $cont06-boxvideo-content-height;
+            margin: $cont06-boxvideo-content-margin;
+            position: $cont06-boxvideo-content-position;    
+            background-repeat: $cont06-boxvideo-content-background-repeat;
+            background-position: $cont06-boxvideo-content-background-position;
+            background-size: $cont06-boxvideo-content-background-size;
+
+            .play{
+                width: $cont06-boxvideo-content-play-width;
+                height: $cont06-boxvideo-content-play-height;
+            }
+
+            iframe{
+                width:$cont06-boxvideo-content-iframe-width;
+                height: $cont06-boxvideo-content-iframe-height; 
+            }
+            &__video{
+                height: $cont06-boxvideo-content-video-height;
+            }
+
+            @include small-down {
+                width:$cont06-boxvideo-content-mobile-width;
+                height: $cont06-boxvideo-content-mobile-height;
+                
+                .play{
+                    width: $cont06-boxvideo-content-play-mobile-width;
+                    height: $cont06-boxvideo-content-play-mobile-height;
+                }
+
+                iframe{
+                    width:$cont06-boxvideo-content-iframe-mobile-width;
+                    height: $cont06-boxvideo-content-iframe-mobile-height;
+                }
+
+            }
         }
 
         &__cta{
@@ -31,6 +61,8 @@
     
             @include small-down{
                 font: $cont06-cta-font-responsive;
+                margin: 36px auto 0;
+                width: 147px;
             }
     
             &:hover{

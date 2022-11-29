@@ -2,8 +2,6 @@ var valorAntigo = $("#videoApre").attr('data-src');
 var caminhoCapaVideo = $("#videoApre").attr('data-capa-video');
 var arrValorAntigo = new Array();
 if(valorAntigo.indexOf("/embed/") > 0){
-        //Se o endereço é copiado diretamente da barra de endereço
-        //http://www.youtube.com/watch?v=5T9fs3oWn9A&feature=fvhl
         if(valorAntigo != ""){
             arrValorAntigo = valorAntigo.split("/embed/");
             if(arrValorAntigo.length > 1){
@@ -18,6 +16,6 @@ if(valorAntigo.indexOf("/embed/") > 0){
 }
 $('body').on('click', '#videoApre .play', function(){
     $urlVideo = $(this).parents('#videoApre').attr('data-src');
-    $(this).parents('.content').append('<iframe id="urlYoutube" width="99.5%" height=500" src="'+$urlVideo+'?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+    $(this).parents('.cont06__boxVideo__content').append('<iframe id="urlYoutube" width="99.5%" height=500" src="'+$urlVideo+'?autoplay=1" frameborder="0" allowfullscreen></iframe>');
     $(this).parents('#videoApre').remove();
 }); 
