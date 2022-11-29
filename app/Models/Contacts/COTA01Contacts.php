@@ -17,6 +17,7 @@ class COTA01Contacts extends Model
 
     protected $table = "cota01_contacts";
     protected $fillable = [
+        "compliance_id",
         "title_page",
         "slug",
         "title_banner",
@@ -29,6 +30,7 @@ class COTA01Contacts extends Model
         "title_button_form",
         "path_image_section_topic",
         "inputs_form",
+        "email_form",
         "active",
         "sorting",
     ];

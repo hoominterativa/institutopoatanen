@@ -10,7 +10,7 @@
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Título que é exibido no menu do site"></i>
                         </div>
-                        {!! Form::text('title_page', null, ['class'=>'form-control', 'id'=>'title_page']) !!}
+                        {!! Form::text('title_page', null, ['class'=>'form-control', 'id'=>'title_page', 'required'=>true]) !!}
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
@@ -21,7 +21,7 @@
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Nome que aparecerá no botão do formulário"></i>
                         </div>
-                        {!! Form::text('title_button_form', null, ['class'=>'form-control', 'id'=>'title_button_form']) !!}
+                        {!! Form::text('title_button_form', null, ['class'=>'form-control', 'id'=>'title_button_form', 'required'=>true]) !!}
                     </div>
                 </div>
             </div>
@@ -98,12 +98,42 @@
     {{-- end col-lg-6 --}}
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
+            <div class="row">
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="d-flex align-items-center mb-1">
+                        {!! Form::label('compliance_id', 'Termos do formulário', ['class'=>'form-label mb-0']) !!}
+                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Escolha qual compliance será exigido de aceite no formulário. Caso não aparecça nenhuma opção abaixo você deverá cadastrar na área de Conpliance."></i>
+                    </div>
+                    {!! Form::select('compliance_id', $compliances, null, [
+                        'class'=>'form-select',
+                        'id'=>'compliance_id',
+                        'required'=>'required',
+                        'placeholder' => '--'
+                    ]) !!}
+                </div>
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="d-flex align-items-center mb-1">
+                        {!! Form::label('email_form', 'E-mail para recebimento dos Leads', ['class'=>'form-label mb-0']) !!}
+                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Insira um email destinatário para o recebimentos dos leads deste formulário"></i>
+                    </div>
+                    {!! Form::email('email_form', null, [
+                        'class'=>'form-control',
+                        'required'=>'required',
+                        'parsley-type'=>'email',
+                    ]) !!}
+                </div>
+            </div>
             <div class="mb-3 d-flex align-items-center">
                 <div>
                     <h4>Campos do Formulário</h4>
                     <p>Adicione os campos ao formulário, iforme os títulos e Opções para o cliente e veja seu formulário ser contruído do seu jeito. <b>Obs.:</b> A ordenação de exbição no formulário é a mesma que está abaixo.</p>
                 </div>
             </div>
+
             <div class="row container-inputs-contact">
                 @if (isset($configForm))
                     @foreach ($configForm as $key => $value)

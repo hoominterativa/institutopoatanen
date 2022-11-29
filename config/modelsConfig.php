@@ -16,6 +16,12 @@ return [
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1',
+                    'relation' => '',
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Contato',
                     'anchor' =>  false,

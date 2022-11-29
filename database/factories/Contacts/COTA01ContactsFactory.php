@@ -35,7 +35,8 @@ class COTA01ContactsFactory extends Factory
             'description_form' => $this->faker->text(200),
             'title_button_form' => 'Enviar',
             'path_image_section_topic' => 'uploads/tmp/image-pmg.png',
-            'inputs_form' => '{}',
+            "inputs_form" => '{"column_nome_text":{"placeholder":"Nome","option":"","type":"text"},"column_e-mail_email":{"placeholder":"E-mail","option":"","type":"email"},"column_celular_cellphone":{"placeholder":"Celular","option":"","type":"cellphone"},"column_assunto_select":{"placeholder":"Assunto","option":"Duvidas, Reclama\u00e7\u00f5es, Or\u00e7amentos","type":"select"},"column_mensagem_textarea":{"placeholder":"Mensagem","option":"","type":"textarea"}}',
+            "email_form" => $this->faker->email(),
             'active' => 1,
         ];
     }

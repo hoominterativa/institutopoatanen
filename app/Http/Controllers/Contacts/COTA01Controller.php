@@ -36,7 +36,10 @@ class COTA01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Contacts.COTA01.create');
+        $compliances = getCompliance();
+        return view('Admin.cruds.Contacts.COTA01.create',[
+            'compliances' => $compliances
+        ]);
     }
 
     /**
@@ -104,11 +107,13 @@ class COTA01Controller extends Controller
         $sectionTopics = COTA01ContactsTopic::sorting()->get();
 
         $configForm = json_decode($COTA01Contacts->inputs_form);
+        $compliances = getCompliance(null, 'id', 'title');
 
         return view('Admin.cruds.Contacts.COTA01.edit',[
             'contact' => $COTA01Contacts,
             'topicsForm' => $topicsForm,
             'topicsSection' => $sectionTopics,
+            'compliances' => $compliances,
             'configForm' => !is_array($configForm)?$configForm:null
         ]);
     }
@@ -270,12 +275,13 @@ class COTA01Controller extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA01');
-
         $contact = COTA01Contacts::with(['topicsForm', 'topicsSection'])->find($COTA01Contacts->id);
+        $compliance = getCompliance($contact->compliance_id??'0');
 
         return view('Client.pages.Contacts.COTA01.show',[
             'contact' => $contact,
             'sections' => $sections,
+            'compliance' => $compliance,
             'inputs' => json_decode($contact->inputs_form),
         ]);
     }

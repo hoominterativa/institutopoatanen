@@ -35,6 +35,7 @@ class CreateCota01ContactsTable extends Migration
             $table->string('path_image_section_topic')->nullable();
 
             $table->text('inputs_form')->nullable();
+            $table->string('email_form')->nullable();
 
             $table->integer('active')->default(0);
 

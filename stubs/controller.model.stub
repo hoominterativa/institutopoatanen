@@ -210,7 +210,12 @@ class {{ class }} extends Controller
     //public function show({{ model }} ${{ model }})
     public function show()
     {
-        //
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+
+        return view('Client.pages.Module.Model.show',[
+            'sections' => $sections
+        ]);
     }
 
     /**

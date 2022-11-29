@@ -23,7 +23,12 @@
         &__paragraph{
             font: $paragraph;
             font-weight: $weight-400;
+            color: $color-one;
             margin: 30px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
         }
     }
     // END __banner
@@ -50,7 +55,12 @@
         &__paragraph{
             font: $paragraph;
             font-weight: $weight-400;
+            color: $color-one;
             margin: 30px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
         }
     }
     // END __form-section
@@ -72,7 +82,12 @@
             &__paragraph{
                 font: $paragraph;
                 font-weight: $weight-400;
+                color: $color-one;
                 margin: 30px 0 0 0;
+
+                @include small-down{
+                    font: $paragraph-mobile;
+                }
             }
         }
         &__item{
@@ -90,7 +105,112 @@
                     }
                 }
             }
+            &__submit{
+                border: none;
+                border-radius: 0;
+                padding: 10px 30px;
+                background-color: $color-white;
+                color: $color-black;
+                font: $paragraph;
+                font-weight: $weight-700;
+
+                &:hover{
+                    background-color: $color-black;
+                    color: $color-white;
+                    .icon__button{
+                        filter: invert(1) grayscale(1);
+                    }
+                }
+            }
+        }
+        &__compliance{
+            font: $paragraph-min;
+            font-weight: $weight-400;
+            color: $color-two;
+            &__link{
+                font: $paragraph-min;
+                font-weight: $weight-700;
+                color: $color-two;
+                text-decoration: underline;
+            }
         }
     }
     // END __form
+
+    &__topics-form{
+        padding-left: 130px;
+        &__item{
+            margin-bottom: 50px;
+        }
+        &__icon{
+            width: 25px;
+            margin-right: 15px;
+        }
+        &__description{
+
+        }
+        &__title{
+            font-size: $T3;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+
+            @include small-down{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-two;
+            margin: 10px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
+        }
+    }
+    // END __topics-form
+
+    &__topics-section{
+        padding: 80px 0 0 0;
+    }
+
+    &__topics{
+        &__item{
+            margin-bottom: 50px;
+        }
+        &__image{
+            object-fit: contain;
+            height: 433px;
+            object-position: bottom;
+        }
+        &__icon{
+            width: 25px;
+            margin-right: 15px;
+        }
+        &__description{
+
+        }
+        &__title{
+            font-size: $T3;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+
+            @include small-down{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-two;
+            margin: 10px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
+        }
+    }
 }

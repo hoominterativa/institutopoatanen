@@ -1,16 +1,19 @@
 <?php
 
+use Illuminate\Support\Str;
 use Cohensive\Embed\Facades\Embed;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
-if(!function_exists('isActive')){
+if(!function_exists('isActive'))
+{
     function isActive($href, $class = 'active'){
         return $class = (strpos(Route::currentRouteName(),$href) === 0 ? $class : '');
     }
 }
 
-if(!function_exists('storageDelete')){
+if(!function_exists('storageDelete'))
+{
     /**
      * Delete files the storage
      *
@@ -27,7 +30,8 @@ if(!function_exists('storageDelete')){
     }
 }
 
-if(!function_exists('conveterOembedCKeditor')){
+if(!function_exists('conveterOembedCKeditor'))
+{
    function conveterOembedCKeditor($text){
         $oembeds = explode('<oembed url="', $text);
         unset($oembeds[0]);
@@ -49,4 +53,48 @@ if(!function_exists('conveterOembedCKeditor')){
         }
         return $text;
    }
+}
+if(!function_exists('getCompliance')){
+
+    /**
+     * Delete files the storage
+     *
+     * @param int $id
+     * @param int $idR Id Reference for pluck
+     * @param int $title Title Reference for pluck
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function getCompliance($id=null, $idR=null, $title=null)
+    {
+        $ModelsCompliances = config('modelsConfig.ModelsCompliances');
+        $class = config('modelsClass.Class');
+        $complianceModel = null;
+
+        if(isset($ModelsCompliances->Code)){
+            if($ModelsCompliances->Code <> ''){
+                $code = $ModelsCompliances->Code;
+                $name = Str::slug($code);
+                $param = $code.'Compliances';
+
+                if($id<>null){
+                    $complianceModel = $class->Compliances->$code->model::find($id);
+                    if($complianceModel){
+                        $complianceModel->link = route($name.'.show', [$param => $complianceModel->slug]);
+                    }
+                }else{
+                    if($idR || $title){
+                        $complianceModel = $class->Compliances->$code->model::sorting()->pluck($title, $idR);
+                    }else{
+                        $complianceModel = $class->Compliances->$code->model::sorting()->get();
+                        foreach ($complianceModel as $compliance) {
+                            $compliance->link = route($name.'.show', [$param => $compliance->slug]);
+                        }
+                    }
+                }
+            }
+        }
+
+        return $complianceModel;
+    }
 }
