@@ -24,8 +24,8 @@ return [
                 'seedQty' => 1,
             ],
             'CONT06' => (object)[
-                'controller' => App\Http\Controllers\Contents\CONT03Controller::class,
-                'model' => App\Models\Contents\CONT03Contents::class,
+                'controller' => App\Http\Controllers\Contents\CONT06Controller::class,
+                'model' => App\Models\Contents\CONT06Contents::class,
                 'seedQty' => 1,
             ],
         ],
