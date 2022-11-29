@@ -1,0 +1,16 @@
+// CTA
+$cont06-cta-font: $paragraph;
+$cont06-cta-font-weight: $weight-700;
+$cont06-cta-color: $color-black;
+$cont06-cta-display: block;
+$cont06-cta-margin: 30px auto 0;
+$cont06-cta-max-width: 177px;
+$cont06-cta-padding: 10px 15px;
+$cont06-cta-background-color: $bg-soft;
+// HOVER
+$cont06-cta-color-hover: $color-white;
+$cont06-cta-background-color-hover: $bg-black;
+$cont06-cta-icon-filter-hover: invert(1) grayscale(1);
+
+// RESPONSIVE
+$cont06-cta-font-responsive: $paragraph-mobile;

@@ -1,3 +1,46 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.cont06{
+    height: 634px;
+
+    &__video{
+        width:884px;
+        height: 439px;
+        margin: 0 auto;
+        position: relative;
+
+        &__content{
+            height: 100%;
+            z-index: 1;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        &__cta{
+            font: $cont06-cta-font;
+            font-weight: $cont06-cta-font-weight;
+            color: $cont06-cta-color;
+            display: $cont06-cta-display;
+            margin: $cont06-cta-margin;
+            max-width: $cont06-cta-max-width;
+            padding: $cont06-cta-padding;
+            background-color: $cont06-cta-background-color;
+    
+            @include small-down{
+                font: $cont06-cta-font-responsive;
+            }
+    
+            &:hover{
+                color: $cont06-cta-color-hover;
+                background-color: $cont06-cta-background-color-hover;
+    
+                .cont06__cta__icon{
+                    filter: $cont06-cta-icon-filter-hover;
+                }
+            }
+        }
+    }
+}
