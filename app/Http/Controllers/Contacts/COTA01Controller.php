@@ -260,18 +260,23 @@ class COTA01Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display a listing of the resourcee.
+     * Display the specified resource.
+     * Content method
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Services\COTA01Contacts  $COTA01Contacts
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function show(COTA01Contacts $COTA01Contacts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA01');
 
-        return view('Client.pages.Contacts.COTA01.page',[
-            'sections' => $sections
+        $contact = COTA01Contacts::with(['topicsForm', 'topicsSection'])->find($COTA01Contacts->id);
+
+        return view('Client.pages.Contacts.COTA01.show',[
+            'contact' => $contact,
+            'sections' => $sections,
+            'inputs' => json_decode($contact->inputs_form),
         ]);
     }
 }

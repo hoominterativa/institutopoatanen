@@ -1,3 +1,96 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.cota01-show{
+    &__banner{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #ccc;
+        padding: 87px 17%;
+        text-align: center;
+
+        &__title{
+            font-size: $T1;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-black;
+
+            @include small-down{
+                font-size: $T1-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            margin: 30px 0 0 0;
+        }
+    }
+    // END __banner
+
+    &__form-section{
+        padding: 87px 0;
+        background-color: $color-five;
+
+        &__header{
+            text-align: center;
+            margin-bottom: 90px;
+            padding: 0 17%;
+        }
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-black;
+
+            @include small-down{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            margin: 30px 0 0 0;
+        }
+    }
+    // END __form-section
+
+    &__form{
+        &__header{
+            max-width: 85%;
+
+            &__title{
+                font-size: $T2;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-black;
+
+                @include small-down{
+                    font-size: $T2-mobile;
+                }
+            }
+            &__paragraph{
+                font: $paragraph;
+                font-weight: $weight-400;
+                margin: 30px 0 0 0;
+            }
+        }
+        &__item{
+            margin-top: 55px;
+
+            &__input{
+                input, select, textarea{
+                    border-color: transparent;
+                    border-radius: 0;
+                    padding: 10px 10px;
+                    &:focus{
+                        border-color: $color-black;
+                        background-color: $color-white;
+                        box-shadow: 0 0 0 0.25rem #d0d0d0;
+                    }
+                }
+            }
+        }
+    }
+    // END __form
+}

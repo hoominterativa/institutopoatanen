@@ -43,8 +43,13 @@ class COTA01Contacts extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function topicsForm()
+    {
+        return $this->hasMany(COTA01ContactsTopicForm::class, 'contact_id')->sorting();
+    }
+
+    public function topicsSection()
+    {
+        return $this->hasMany(COTA01ContactsTopic::class, 'contact_id')->sorting();
+    }
 }
