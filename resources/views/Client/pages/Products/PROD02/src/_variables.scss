@@ -7,211 +7,208 @@
     align-items: center;
 }
 
+/* ======= SHOW ======= */
+    //nav-desktop
+    $prod02-container-edit-padding: 76px 0 43px 0;
+    $prod02-container-edit-padding-mobile-padding: 73px 0 49px 0 !important;
+
+    $prod02-navigation-container-padding-bottom: 32.48px;
+    $prod02-navigation-container-border-bottom: 1px solid $color-one;
+    $prod02-navigation-container-margin-bottom: 29.89px;
+    $prod02-navigation-container-mobile-width: 86% !important;
+    $prod02-navigation-container-mobile-margin: 0 auto;
+    $prod02-navigation-container-mobile-padding-bottom: 17px;
+    $prod02-navigation-container-mobile-margin-bottom: 30px;
+
+    $prod02-navigation-container-encompass-max-width: 265px;
+    $prod02-navigation-container-encompass-mobile-max-width:146px;
+
+    $prod02-navigation-container-encompass-title-margin-bottom: 18px;
+    $prod02-navigation-container-encompass-title-mobile-margin-bottom: 9px;
+
+    $prod02-navigation-nav-desktop-display: flex;
+    $prod02-navigation-nav-desktop-width: 79.5%;
+    $prod02-navigation-nav-desktop-mobile-width: auto;
+
+    $prod02-navigation-nav-desktop-ul-gap:0 46px;
+    $prod02-navigation-nav-desktop-ul-mobile-display: none !important;
+
+    $prod02-navigation-nav-mobile-display: none !important;
+    $prod02-navigation-nav-mobile-gap:0 46px;
 
 
-//nav-desktop
-$prod02-container-edit-padding: 76px 0 43px 0;
-$prod02-container-edit-padding-mobile-padding: 73px 0 49px 0 !important;
+    //Obs mudei aqui o nome para responsivo, pois a tag HTML estava com o nome mobile, mais é apenas aqui
 
-$prod02-navigation-container-padding-bottom: 32.48px;
-$prod02-navigation-container-border-bottom: 1px solid $color-one;
-$prod02-navigation-container-margin-bottom: 29.89px;
-$prod02-navigation-container-mobile-width: 86% !important;
-$prod02-navigation-container-mobile-margin: 0 auto;
-$prod02-navigation-container-mobile-padding-bottom: 17px;
-$prod02-navigation-container-mobile-margin-bottom: 30px;
+    $prod02-navigation-nav-mobile-responsivo-display: flex !important;
+    $prod02-navigation-nav-mobile-responsivo-margin-bottom: 30px !important;
+    $prod02-navigation-nav-mobile-responsivo-margin-left: 23px;
+    $prod02-navigation-nav-mobile-responsivo-margin-top: 30px;
+    $prod02-navigation-nav-mobile-responsivo-gap:inherit !important;
 
-$prod02-navigation-container-encompass-max-width: 265px;
-$prod02-navigation-container-encompass-mobile-max-width:146px;
+    $prod02-navigation-nav-mobile-li-display: flex;
 
-$prod02-navigation-container-encompass-title-margin-bottom: 18px;
-$prod02-navigation-container-encompass-title-mobile-margin-bottom: 9px;
-
-$prod02-navigation-nav-desktop-display: flex;
-$prod02-navigation-nav-desktop-width: 79.5%;
-$prod02-navigation-nav-desktop-mobile-width: auto;
-
-$prod02-navigation-nav-desktop-ul-gap:0 46px;
-$prod02-navigation-nav-desktop-ul-mobile-display: none !important;
-
-$prod02-navigation-nav-mobile-display: none !important;
-$prod02-navigation-nav-mobile-gap:0 46px;
+    $prod02-navigation-nav-mobile-li-display-responsivo-width: auto;
+    $prod02-navigation-nav-mobile-li-display-responsivo-margin: 0 auto;
 
 
-//Obs mudei aqui o nome para responsivo, pois a tag HTML estava com o nome mobile, mais é apenas aqui
-
-$prod02-navigation-nav-mobile-responsivo-display: flex !important;
-$prod02-navigation-nav-mobile-responsivo-margin-bottom: 30px !important;
-$prod02-navigation-nav-mobile-responsivo-margin-left: 23px;
-$prod02-navigation-nav-mobile-responsivo-margin-top: 30px;
-$prod02-navigation-nav-mobile-responsivo-gap:inherit !important;
-
-$prod02-navigation-nav-mobile-li-display: flex;
-
-$prod02-navigation-nav-mobile-li-display-responsivo-width: auto;
-$prod02-navigation-nav-mobile-li-display-responsivo-margin: 0 auto;
+    $prod02-navigation-paragraph-margin-responsivo-width: 86% !important;
+    $prod02-navigation-paragraph-p-margin-bottom: 0;
 
 
-$prod02-navigation-paragraph-margin-responsivo-width: 86% !important;
-$prod02-navigation-paragraph-p-margin-bottom: 0;
+    // CTA
+    $prod02-nav-desktop-cta-font: $paragraph;
+    $prod02-nav-desktop-cta-font-weight: $weight-700;
+    $prod02-nav-desktop-cta-color: $color-one;
+    $prod02-nav-desktop-cta-max-width: 177px;
+    $prod02-nav-desktop-cta-mobile-max-width: 146px;
+    $prod02-nav-desktop-cta-height: auto;
+    $prod02-nav-desktop-cta-padding: 10px 50px;
+
+    $prod02-nav-desktop-cta-background-color: $color-four;
+    // HOVER
+    $prod02-nav-desktop-cta-color-hover: $color-white;
+    $prod02-nav-desktop-cta-background-color-hover: $bg-black;
+    $prod02-nav-desktop-cta-icon-filter-hover: invert(1) grayscale(1);
+
+    // RESPONSIVE
+    $prod02-nav-desktop-cta-font-responsive: $paragraph-mobile;
+    ///////
+
+    $prod02-content-product-margin-top: 54px;
+    $prod02-content-product-mobile-width: 85%;
+    $prod02-content-product-mobile-margin: 0 auto;
+    $prod02-content-product-mobile-margin-top: 54px;
+
+    //BOX
+    $prod02-item-description-position: absolute;
+    $prod02-item-description-top: 0;
+    $prod02-item-description-left: 0;
+    $prod02-item-description-padding: 48.66px 53px;
+    $prod02-item-paragraph-p-margin-bottom:0;
+
+    // CTA
+    $prod02-item-cta-font: $paragraph;
+    $prod02-item-cta-font-weight: $weight-700;
+    $prod02-item-cta-color: $color-three;
+    $prod02-item-cta-max-width: 177px;
+    $prod02-item-cta-mobile-height: auto;
+    $prod02-item-cta-padding: 10px 50px;
+    $prod02-item-cta-background-color: $color-five;
+    // HOVER
+    $prod02-item-cta-color-hover: $color-white;
+    $prod02-item-cta-background-color-hover: $bg-black;
+    $prod02-item-cta-icon-filter-hover: invert(1) grayscale(1);
+
+    // RESPONSIVE
+    $prod02-item-cta-font-responsive: $paragraph-mobile;
+    $prod02-item-cta-font-responsive-max-width: 146px;
 
 
-// CTA
-$prod02-nav-desktop-cta-font: $paragraph;
-$prod02-nav-desktop-cta-font-weight: $weight-700;
-$prod02-nav-desktop-cta-color: $color-one;
-$prod02-nav-desktop-cta-max-width: 177px;
-$prod02-nav-desktop-cta-mobile-max-width: 146px;
-$prod02-nav-desktop-cta-height: auto;
-$prod02-nav-desktop-cta-padding: 10px 50px;
+    $carousel-prod02-owl-dots-display: flex;
+    $carousel-prod02-owl-dots-margin: 0 auto;
+    $carousel-prod02-owl-dots-justify-content: center;
+    $carousel-prod02-owl-dots-margin-top: 28px;
+    $carousel-prod02-owl-dots-gap: 0 5px;
 
-$prod02-nav-desktop-cta-background-color: $color-four;
-// HOVER
-$prod02-nav-desktop-cta-color-hover: $color-white;
-$prod02-nav-desktop-cta-background-color-hover: $bg-black;
-$prod02-nav-desktop-cta-icon-filter-hover: invert(1) grayscale(1);
+    $carousel-prod02-owl-dots-mobile-margin: inherit !important;
+    $carousel-prod02-owl-dots-mobile-margin-top: 28px !important;
+    $carousel-prod02-owl-dots-mobile-justify-content: flex-start;
 
-// RESPONSIVE
-$prod02-nav-desktop-cta-font-responsive: $paragraph-mobile;
-///////
-
-$prod02-content-product-margin-top: 54px;
-$prod02-content-product-mobile-width: 85%;
-$prod02-content-product-mobile-margin: 0 auto;
-$prod02-content-product-mobile-margin-top: 54px;
-
-//BOX
-$prod02-item-description-position: absolute;
-$prod02-item-description-top: 0;
-$prod02-item-description-left: 0;
-$prod02-item-description-padding: 48.66px 53px;
-$prod02-item-paragraph-p-margin-bottom:0;
-
-// CTA
-$prod02-item-cta-font: $paragraph;
-$prod02-item-cta-font-weight: $weight-700;
-$prod02-item-cta-color: $color-three;
-$prod02-item-cta-max-width: 177px;
-$prod02-item-cta-mobile-height: auto;
-$prod02-item-cta-padding: 10px 50px;
-$prod02-item-cta-background-color: $color-five;
-// HOVER
-$prod02-item-cta-color-hover: $color-white;
-$prod02-item-cta-background-color-hover: $bg-black;
-$prod02-item-cta-icon-filter-hover: invert(1) grayscale(1);
-
-// RESPONSIVE
-$prod02-item-cta-font-responsive: $paragraph-mobile;
-$prod02-item-cta-font-responsive-max-width: 146px;
-
-
-$carousel-prod02-owl-dots-display: flex;
-$carousel-prod02-owl-dots-margin: 0 auto;
-$carousel-prod02-owl-dots-justify-content: center;
-$carousel-prod02-owl-dots-margin-top: 28px;
-$carousel-prod02-owl-dots-gap: 0 5px;
-
-$carousel-prod02-owl-dots-mobile-margin: inherit !important;
-$carousel-prod02-owl-dots-mobile-margin-top: 28px !important;
-$carousel-prod02-owl-dots-mobile-justify-content: flex-start;
-
-$carousel-prod02-owl-dot-width: 22px;
-$carousel-prod02-owl-dot-height: 16px;
-
-
-
-// RESPONSIVE
-$prod02-container-mobile-padding:61px 0 36px 0 !important;
-
-$prod02-item-mobile-padding: 0 44px !important;  
-$prod02-item-mobile-margin-top: 43px;
-
-$prod02-item-item-min-height: 414px;
-$prod02-item-item-height: 414px;
+    $carousel-prod02-owl-dot-width: 22px;
+    $carousel-prod02-owl-dot-height: 16px;
 
 
 
+    // RESPONSIVE
+    $prod02-container-mobile-padding:61px 0 36px 0 !important;
 
-// CTA
-$prod02-cta-font: $paragraph;
-$prod02-cta-font-weight: $weight-700;
-$prod02-cta-color: $color-three;
-$prod02-cta-max-width: 177px;
-$prod02-cta-padding: 10px 50px;
-$prod02-cta-background-color: $color-five;
-// HOVER
-$prod02-cta-color-hover: $color-white;
-$prod02-cta-background-color-hover: $bg-black;
-$prod02-cta-icon-filter-hover: invert(1) grayscale(1);
+    $prod02-item-mobile-padding: 0 44px !important;  
+    $prod02-item-mobile-margin-top: 43px;
 
-// RESPONSIVE
-$prod02-cta-font-responsive: $paragraph-mobile;
+    $prod02-item-item-min-height: 414px;
+    $prod02-item-item-height: 414px;
 
 
 
-//PAGE
-$prod02-page-header-height: 304px;
-$prod02-page-header-padding: 0 16px;
-$prod02-page-header-padding-bottom: 61px;
 
-$prod02-page-header-mobile-title-text-align: center;
-$prod02-page-header-mobile-title-max-width: 309px;
+    // CTA
+    $prod02-cta-font: $paragraph;
+    $prod02-cta-font-weight: $weight-700;
+    $prod02-cta-color: $color-three;
+    $prod02-cta-max-width: 177px;
+    $prod02-cta-padding: 10px 50px;
+    $prod02-cta-background-color: $color-five;
+    // HOVER
+    $prod02-cta-color-hover: $color-white;
+    $prod02-cta-background-color-hover: $bg-black;
+    $prod02-cta-icon-filter-hover: invert(1) grayscale(1);
 
-$prod02-page-content-margin-top: -23px;
-$prod02-page-content-padding-bottom: 79px;
-
-$prod02-page-content-mobile-overflow: hidden;
-$prod02-page-content-category-gap: 14px;
-$prod02-page-content-category-margin-left: 42px;
-$prod02-page-content-category-margin-bottom: 0;
-
-
-$prod02-page-content-category-li-padding: 9px 39px;
-$prod02-page-content-category-li-mobile-width: 100% !important;
-
-$prod02-page-content-category-li-img-width: 36px;
-$prod02-page-content-category-li-img-height: auto;
-$prod02-page-content-category-li-img-object-fit: contain;
-$prod02-page-content-category-li-img-margin-right: 20px;
-
-$prod02-page-content-category-li-mobile-img-width: 36px !important;
-$prod02-page-content-category-li-mobile-img-height: 37px !important;
-$prod02-page-content-category-li-mobile-img-margin-right: 3px;
-$prod02-page-content-category-li-hover-filter:invert(1) grayscale(1);
-
-$caroussel-prod02-page-display: none !important;
-
-$prod02-page-content-product-margin-top: 89px;
-$prod02-page-content-product-padding: 0 28px !important;
-$prod02-page-content-product-mobile-margin-top: 51.28px;
-$prod02-page-content-row-gap: 26px 0;
-$prod02-page-content-row-mobile-margin: 0 auto;
-
-$prod02-page-item-mobile-padding: 0 !important;
-
-$prod02-page-item-description-position: absolute;
-$prod02-page-item-description-top: 0;
-$prod02-page-item-description-left: 0;
-$prod02-page-item-description-padding: 48.66px 53px;
-$prod02-page-item-paragraph-p-margin-bottom:0;
-
-// CTA
-$prod02-page-item-cta-font: $paragraph;
-$prod02-page-item-cta-font-weight: $weight-700;
-$prod02-page-item-cta-color: $color-three;
-$prod02-page-item-cta-max-width: 177px;
-$prod02-page-item-cta-padding: 10px 50px;
-$prod02-page-item-cta-background-color: $color-five;
-// HOVER
-$prod02-page-item-cta-color-hover: $color-white;
-$prod02-page-item-cta-background-color-hover: $bg-black;
-$prod02-page-item-cta-icon-filter-hover: invert(1) grayscale(1);
-
-// RESPONSIVE
-$prod02-page-item-cta-font-responsive: $paragraph-mobile;
+    // RESPONSIVE
+    $prod02-cta-font-responsive: $paragraph-mobile;
 
 
 
+/* ======= PAGE ======= */
+
+    $prod02-page-header-height: 304px;
+    $prod02-page-header-padding: 0 16px;
+    $prod02-page-header-padding-bottom: 61px;
+
+    $prod02-page-header-mobile-title-text-align: center;
+    $prod02-page-header-mobile-title-max-width: 309px;
+
+    $prod02-page-content-margin-top: -23px;
+    $prod02-page-content-padding-bottom: 79px;
+
+    $prod02-page-content-mobile-overflow: hidden;
+    $prod02-page-content-category-gap: 14px;
+    $prod02-page-content-category-margin-left: 42px;
+    $prod02-page-content-category-margin-bottom: 0;
+
+
+    $prod02-page-content-category-li-padding: 9px 39px;
+    $prod02-page-content-category-li-mobile-width: 100% !important;
+
+    $prod02-page-content-category-li-img-width: 36px;
+    $prod02-page-content-category-li-img-height: auto;
+    $prod02-page-content-category-li-img-object-fit: contain;
+    $prod02-page-content-category-li-img-margin-right: 20px;
+
+    $prod02-page-content-category-li-mobile-img-width: 36px !important;
+    $prod02-page-content-category-li-mobile-img-height: 37px !important;
+    $prod02-page-content-category-li-mobile-img-margin-right: 3px;
+    $prod02-page-content-category-li-hover-filter:invert(1) grayscale(1);
+
+    $caroussel-prod02-page-display: none !important;
+
+    $prod02-page-content-product-margin-top: 89px;
+    $prod02-page-content-product-padding: 0 28px !important;
+    $prod02-page-content-product-mobile-margin-top: 51.28px;
+    $prod02-page-content-row-gap: 26px 0;
+    $prod02-page-content-row-mobile-margin: 0 auto;
+
+    $prod02-page-item-mobile-padding: 0 !important;
+
+    $prod02-page-item-description-position: absolute;
+    $prod02-page-item-description-top: 0;
+    $prod02-page-item-description-left: 0;
+    $prod02-page-item-description-padding: 48.66px 53px;
+    $prod02-page-item-paragraph-p-margin-bottom:0;
+
+    // CTA
+    $prod02-page-item-cta-font: $paragraph;
+    $prod02-page-item-cta-font-weight: $weight-700;
+    $prod02-page-item-cta-color: $color-three;
+    $prod02-page-item-cta-max-width: 177px;
+    $prod02-page-item-cta-padding: 10px 50px;
+    $prod02-page-item-cta-background-color: $color-five;
+    // HOVER
+    $prod02-page-item-cta-color-hover: $color-white;
+    $prod02-page-item-cta-background-color-hover: $bg-black;
+    $prod02-page-item-cta-icon-filter-hover: invert(1) grayscale(1);
+
+    // RESPONSIVE
+    $prod02-page-item-cta-font-responsive: $paragraph-mobile;
 
 /* ======= SHOW ======= */
     /* ======= LIGHTBOX ======= */
@@ -266,6 +263,9 @@ $prod02-page-item-cta-font-responsive: $paragraph-mobile;
 
     $lightbox-prod02-navigation-title-text-align: left;
     $lightbox-prod02-navigation-subtitle-text-align: left;
+    $lightbox-prod02-navigation-li-img-margin-right:14px;
+    $lightbox-prod02-navigation-li-img-width:10.61px;
+    $lightbox-prod02-navigation-li-img-height:10.61px;
 
     $lightbox-prod02-paragraph-text-align: left;
 

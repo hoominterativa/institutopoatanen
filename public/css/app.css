@@ -1070,16 +1070,23 @@ a {
   display: flex;
 }
 .lightbox-prod02__navigation li a {
-  font-size: 1.25rem;
   color: #404040;
   font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 400;
+}
+.lightbox-prod02__navigation li img {
+  margin-right: 14px;
+  width: 10.61px;
+  height: 10.61px;
 }
 .lightbox-prod02__title {
   font-size: 2.5rem;
   color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 800px) {
   .lightbox-prod02__title {

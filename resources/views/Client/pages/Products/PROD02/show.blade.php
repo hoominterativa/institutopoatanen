@@ -7,14 +7,14 @@
                 <div class="lightbox-prod02__image h-100">
                     <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="h-100 w-100" alt="Subtitulo">
                 </div>
+                {{-- END .caroussel_prod02-show --}}
             </div>
+            {{-- END .caroussel_prod02-show --}}
         </div>
-        
-
-        {{-- END .lightbox-prod02__image --}}
+        {{-- END .lightbox-prod02__content__carrossel --}}
         <div class="lightbox-prod02__description col-md-6 d-block">
             <ul class="lightbox-prod02__navigation px-0">
-                <li><a href="#" rel="prev"><span><</span> Categorias</a></li>
+                <li><a href="#" rel="prev"><img src="{{asset('storage/uploads/tmp/icone-voltar.svg')}}" alt="Ícone Voltar"> Categorias</a></li>
             </ul>
             <h2 class="lightbox-prod02__title mb-0">Titulo</h2>
             <h3 class="lightbox-prod02__subtitle mb-0">Subtitulo</h3>

@@ -7,14 +7,21 @@
             <h4 class="prod02__page__header__title">Titulo do banner</h4>
         </div>
     </header>
+    {{-- Finish prod02__page__header --}}
     <div class="prod02__page__content container">
         <ul class="prod02__page__content__category  container-fluid d-flex flex-row justify-content-center align-items-center px-0 flex-wrap">
             <li class="col-md-2 prod02__page__content__category_li"><a class="w-100 d-flex justify-content-center align-items-center" href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__page__content__category__li__img">Serviços</a></li>
+            {{-- Finish prod02__page__content__category_li --}}
             <li class="col-md-2"><a class="w-100 d-flex justify-content-center align-items-center" href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">Serviços</a></li>
+            {{-- Finish prod02__page__content__category_li --}}
             <li class="col-md-2"><a class="w-100 d-flex justify-content-center align-items-center" href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">Serviços</a></li>
+            {{-- Finish prod02__page__content__category_li --}}
             <li class="col-md-2"><a class="w-100 d-flex justify-content-center align-items-center" href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">Serviços</a></li>
+            {{-- Finish prod02__page__content__category_li --}}
             <li class="col-md-2"><a class="w-100 d-flex justify-content-center align-items-center" href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">Serviços</a></li>
+            {{-- Finish prod02__page__content__category_li --}}
         </ul>
+        {{-- Finish prod02__page__content__category --}}
         <div class="prod02__page__content__product container">
             <div class="row prod02__page__content--row">
                 <article class="prod02__page__content__product__item col-md-3 ">
@@ -35,6 +42,7 @@
                     </div>
                     @include('Client.pages.Products.PROD02.show')
                 </article>
+                {{-- Finish prod02__page__content__product__item --}}
                 <article class="prod02__page__content__product__item col-md-3 ">
                     <div class="prod02__page__content__product__item__image w-100 h-100">
                         <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
@@ -53,6 +61,7 @@
                     </div>
                     @include('Client.pages.Products.PROD02.show')
                 </article>
+                {{-- Finish prod02__page__content__product__item --}}
                 <article class="prod02__page__content__product__item col-md-3 ">
                     <div class="prod02__page__content__product__item__image w-100 h-100">
                         <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
@@ -71,6 +80,7 @@
                     </div>
                     @include('Client.pages.Products.PROD02.show')
                 </article>
+                {{-- Finish prod02__page__content__product__item --}}
                 <article class="prod02__page__content__product__item col-md-3 ">
                     <div class="prod02__page__content__product__item__image w-100 h-100">
                         <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
@@ -89,8 +99,11 @@
                     </div>
                     @include('Client.pages.Products.PROD02.show')
                 </article>
+                {{-- Finish prod02__page__content__product__item --}}
             </div>
+            {{-- Finish row prod02__page__content--row --}}
         </div>
+        {{-- Finish prod02__page__content__product --}}
     </div>
 </section>
 {{-- Finish Content page Here --}}

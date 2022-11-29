@@ -260,7 +260,7 @@
 
 
 
-///page
+///.prod02
 
 .prod02__page{
 
@@ -434,7 +434,7 @@
         }
     }
 }    
-
+// END .prod02__page
 
 .lightbox-prod02{
     width: $lightbox-prod02-width;
@@ -513,10 +513,14 @@
             display: $lightbox-prod02-navigation-li-display;
 
             a{
-                font-size: $T4;
                 color: $color-one;
                 font: $paragraph-min;
                 font-weight: $weight-400; 
+            }
+            img{
+                margin-right:$lightbox-prod02-navigation-li-img-margin-right;
+                width:$lightbox-prod02-navigation-li-img-width;
+                height:$lightbox-prod02-navigation-li-img-height;
             }
         }
     }
@@ -525,11 +529,14 @@
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
+        @include dflex;
 
         @include small-down{
             font-size: $T2-mobile;
             text-align: $lightbox-prod02-navigation-title-text-align;
         }
+
+        
     }
     &__subtitle{
         font-size: $T4;

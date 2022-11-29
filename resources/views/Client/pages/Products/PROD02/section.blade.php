@@ -6,20 +6,30 @@
                     <h1 class="prod02__navigation__content__encompass__title">Titulo</h1>
                     <h2 class="prod02__navigation__content__encompass__subtitle mb-0">Subtitulo</h2>
                 </div>
+                {{-- Finish prod02__navigation__content__encompass --}}
                 <nav class="prod02__navigation__content__nav__desktop justify-content-between align-items-center">
                     <ul class="d-flex align-content-center mb-0 px-0">
                         <li><a href="#">Categorias</a></li>
+                        {{-- Finish prod02__navigation__content__ul__li --}}
                         <li><a href="#">Categorias</a></li>
+                        {{-- Finish prod02__navigation__content__ul__li --}}
                         <li><a href="#">Categorias</a></li>
+                        {{-- Finish prod02__navigation__content__ul__li --}}
                         <li><a href="#">Categorias</a></li>
+                        {{-- Finish prod02__navigation__content__ul__li --}}
                         <li><a href="#">Categorias</a></li>
+                        {{-- Finish prod02__navigation__content__ul__li --}}
                     </ul>
+                    {{-- Finish prod02__navigation__content__ul --}}
                     <a href="{{route('prod02.page')}}" class="prod02__navigation__content__nav__desktop__cta transition d-flex justify-content-center align-items-center">
                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__navigation__content__nav__desktop__cta__icon me-3 transition">
                         CTA
                     </a>
+                    {{-- Finish prod02__navigation__content__nav__desktop__cta --}}
                 </nav>
+                {{-- Finish prod02__navigation__content__nav__desktop --}}
             </div>
+            {{-- Finish prod02__navigation__content --}}
             <ul class="prod02__navigation__nav__mobile align-content-center mb-0 px-0">
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Categorias</a></li>
@@ -27,12 +37,15 @@
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Categorias</a></li>
             </ul>
+            {{-- Finish prod02__navigation__nav__mobile --}}
             <div class="prod02__navigation__paragraph">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. 
                 </p>
             </div>
+            {{-- Finish prod02__navigation__paragraph --}}
         </header>
+        {{-- Finish prod02__navigation --}}
         <div class="prod02__content__product">
             <div class="carousel-prod02 owl-carousel">
                 <article class="prod02__content__product__item w-100">
@@ -53,7 +66,12 @@
                     </div>
                     @include('Client.pages.Products.PROD02.show')
                 </article>
+                {{-- Finish prod02__content__product__item --}}
             </div>
+            {{-- Finish carousel-prod02 --}}
         </div>
+        {{-- Finish prod02__content__product --}}
     </div>
+    {{-- Finish container --}}
 </section>
+{{-- Finish prod02 --}}
