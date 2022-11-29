@@ -8,7 +8,7 @@
         padding: $prod02-container-edit-padding;
 
         @include small-down{
-            padding: 73px 0 49px 0 !important;
+            padding: $prod02-container-edit-padding-mobile-padding;
         }
     }
     &__navigation{
@@ -18,25 +18,25 @@
             margin-bottom: $prod02-navigation-container-margin-bottom;
             
             @include small-down{
-                width: 86% !important;
-                margin: 0 auto;
-                padding-bottom: 17px;
-                margin-bottom: 30px;
+                width: $prod02-navigation-container-mobile-width;
+                margin: $prod02-navigation-container-mobile-margin;
+                padding-bottom: $prod02-navigation-container-mobile-padding-bottom;
+                margin-bottom: $prod02-navigation-container-mobile-margin-bottom;
             }
             &__encompass{
                 max-width: $prod02-navigation-container-encompass-max-width;
                 @include small-down{
-                    max-width:146px;
+                    max-width:$prod02-navigation-container-encompass-mobile-max-width;
                 }
                 &__title{
                     color:$color-one;
                     font-size: $T2;
                     font-family: $font-primary;
                     font-weight: $weight-700;
-                    margin-bottom: 18px;
+                    margin-bottom: $prod02-navigation-container-encompass-title-margin-bottom;
                     @include small-down{
                         font-size: $T2-mobile;
-                        margin-bottom: 9px;
+                        margin-bottom: $prod02-navigation-container-encompass-title-mobile-margin-bottom;
                     }
                 }
                 &__subtitle{
@@ -53,16 +53,16 @@
             
             &__nav__desktop{
                 display: $prod02-navigation-nav-desktop-display;
-                width: 79.5%;
+                width: $prod02-navigation-nav-desktop-width;
 
                 @include small-down{
-                    width: auto;
+                    width: $prod02-navigation-nav-desktop-mobile-width;
                 }
                 ul{
                     gap:$prod02-navigation-nav-desktop-ul-gap;
                     
                     @include small-down{
-                        display: none !important;
+                        display: $prod02-navigation-nav-desktop-ul-mobile-display;
                     }
 
                     li{
@@ -87,13 +87,13 @@
                     font-weight: $prod02-nav-desktop-cta-font-weight;
                     color: $prod02-nav-desktop-cta-color;
                     max-width: $prod02-nav-desktop-cta-max-width;
-                    height: auto;
+                    height: $prod02-nav-desktop-cta-height;
                     padding: $prod02-nav-desktop-cta-padding;
                     background-color: $prod02-nav-desktop-cta-background-color;
             
                     @include small-down{
                         font: $prod02-nav-desktop-cta-font-responsive;
-                        max-width: 146px;
+                        max-width: $prod02-nav-desktop-cta-mobile-max-width;
                     }
             
                     &:hover{
@@ -114,18 +114,18 @@
             gap:$prod02-navigation-nav-mobile-gap;
 
             @include small-down{
-                display: flex !important;
-                margin-bottom: 30px !important;
-                margin-left: 23px;
-                margin-top: 30px;
-                gap:inherit !important;
+                display: $prod02-navigation-nav-mobile-responsivo-display;
+                margin-bottom: $prod02-navigation-nav-mobile-responsivo-margin-bottom;
+                margin-left: $prod02-navigation-nav-mobile-responsivo-margin-left;
+                margin-top:$prod02-navigation-nav-mobile-responsivo-margin-top;
+                gap:$prod02-navigation-nav-mobile-responsivo-gap;
             }
             li{
                 @include listapadrao;
                 display: $prod02-navigation-nav-mobile-li-display;
 
                 @include small-down{
-                    width: auto;
+                    width: $prod02-navigation-nav-mobile-li-display-responsivo-width;
                 }
                 a{
                     font-size: $T5;
@@ -141,8 +141,8 @@
         }
         &__paragraph{
             @include small-down{
-                width: 86% !important;
-                margin: 0 auto;
+                width:$prod02-navigation-paragraph-margin-responsivo-width;
+                margin: $prod02-navigation-nav-mobile-li-display-responsivo-margin;
 
             }
 
@@ -164,9 +164,9 @@
         margin-top: $prod02-content-product-margin-top;
 
         @include small-down{
-            width: 85%;
-            margin: 0 auto;
-            margin-top: 54px;
+            width: $prod02-content-product-mobile-width;
+            margin: $prod02-content-product-mobile-margin;
+            margin-top:$prod02-content-product-mobile-margin-top;
         }
 
         &__item{
@@ -205,13 +205,13 @@
                 font-weight: $prod02-item-cta-font-weight;
                 color: $prod02-item-cta-color;
                 max-width: $prod02-item-cta-max-width;
-                height: auto;
+                height: $prod02-item-cta-mobile-height;
                 padding: $prod02-item-cta-padding;
                 background-color: $prod02-item-cta-background-color;
         
                 @include small-down{
                     font: $prod02-item-cta-font-responsive;
-                    max-width: 146px;
+                    max-width: $prod02-item-cta-font-responsive-max-width;
                 }
         
                 &:hover{
@@ -228,23 +228,23 @@
             }
         }
         .carousel-prod02 .owl-dots{
-            display: flex;
-            margin: 0 auto;
-            justify-content: center;
-            margin-top: 28px;
-            gap: 0 5px;
+            display: $carousel-prod02-owl-dots-display;
+            margin: $carousel-prod02-owl-dots-margin;
+            justify-content: $carousel-prod02-owl-dots-justify-content;
+            margin-top: $carousel-prod02-owl-dots-margin-top;
+            gap: $carousel-prod02-owl-dots-gap;
 
 
             @include small-down{
-                margin: inherit !important;
-                margin-top: 28px !important;
-                justify-content: flex-start;
+                margin: $carousel-prod02-owl-dots-mobile-margin;
+                margin-top: $carousel-prod02-owl-dots-mobile-margin-top;
+                justify-content: $carousel-prod02-owl-dots-mobile-justify-content;
             }
             
         }
         .carousel-prod02 .owl-dots .owl-dot{
-            width: 22px;
-            height: 16px;
+            width: $carousel-prod02-owl-dot-width;
+            height: $carousel-prod02-owl-dot-height;
             background-color: $color-three;
             @include dflex;
         }
@@ -327,7 +327,7 @@
                         @include small-down{
                             width: $prod02-page-content-category-li-mobile-img-width;
                             height: $prod02-page-content-category-li-mobile-img-height;
-                            margin-right: 3px;
+                            margin-right: $prod02-page-content-category-li-mobile-img-margin-right;
                         }
                     }
                    
@@ -365,6 +365,9 @@
 
             .prod02__page__content--row{
                 gap: $prod02-page-content-row-gap;
+                @include small-down{
+                    margin: $prod02-page-content-row-mobile-margin;
+                }
             }
 
             &__item{
@@ -373,7 +376,7 @@
                 height: 447px;
 
                 @include small-down{
-                   padding: 0 !important;
+                   padding:$prod02-page-item-mobile-padding;
                 }
 
                 &__description{
@@ -437,15 +440,15 @@
     width: $lightbox-prod02-width;
     display: $lightbox-prod02-display;
     padding: $lightbox-prod02-padding;
-    padding-top: 170x;
+    padding-top: $lightbox-prod02-mobile-padding-top;
 
     &__content__carrossel{
-        position: relative;
+        position: $lightbox-prod02-content-position;
     }
     .caroussel_prod02-show{
-        height: 100% !important;
+        height:100% !important;
         @include small-down{
-            height: 321px;
+            height:321px;
         }
     }
     .caroussel_prod02-show .owl-item{
@@ -457,25 +460,25 @@
     .caroussel_prod02-show .owl-stage{
         height: 100% !important;
         @include small-down{
-            height: 321px;
+            height:321px;
         }
     }
     .caroussel_prod02-show .owl-stage-outer{
         height: 100% !important;
         @include small-down{
-            height: 321px;
+            height:321px;
         }
     }
     .caroussel_prod02-show .owl-dot{
-        display:none;
+        display:$carousel-prod02-owl-dots-display;
     }
     .caroussel_prod02-show .owl-nav{
         display: $carousel-prod02-owl-nav-display;
-        padding: 0 31px;
-        justify-content: space-between;
-        position: absolute;
-        top:50%;
-        width: 100%;
+        padding: $carousel-prod02-owl-nav-padding;
+        justify-content: $carousel-prod02-owl-nav-justify-content;
+        position: $carousel-prod02-owl-nav-position;
+        top:$carousel-prod02-owl-nav-top;
+        width: $carousel-prod02-owl-nav-width;
     }
     .caroussel_prod02-show .owl-nav .owl-prev,
     .caroussel_prod02-show .owl-nav .owl-next{
@@ -484,7 +487,7 @@
         border-radius: $carousel-prod02-owl-nav-prev-next-border-radius;
         background-color: $color-one;
         @include dflex;
-        border: none;
+        border: $carousel-prod02-owl-nav-prev-next-border;
     }
     .caroussel_prod02-show .owl-nav .owl-prev span,
     .caroussel_prod02-show .owl-nav .owl-next span{
@@ -493,21 +496,21 @@
         height: $carousel-prod02-owl-nav-prev-next-span-height;
     }
     &__description{
-        position: relative;
-        padding: 37px 71px 84px 54px;
+        position: $lightbox-prod02-description-position;
+        padding:  $lightbox-prod02-description-padding;
 
         @include small-down{
-            padding: 30px 35px;
+            padding: $lightbox-prod02-description-mobile-padding;
         }
     }
     &__navigation{
-        margin-bottom: 108px;
+        margin-bottom: $lightbox-prod02-navigation-margin-bottom;
         @include small-down{
-            margin-bottom: 50px;
+            margin-bottom:$lightbox-prod02-navigation-mobile-margin-bottom;
         }
 
         li{
-            display: flex;
+            display: $lightbox-prod02-navigation-li-display;
 
             a{
                 font-size: $T4;
@@ -525,7 +528,7 @@
 
         @include small-down{
             font-size: $T2-mobile;
-            text-align: left;
+            text-align: $lightbox-prod02-navigation-title-text-align;
         }
     }
     &__subtitle{
@@ -536,7 +539,7 @@
 
         @include small-down{
             font-size: $T4-mobile;
-            text-align: left;
+            text-align: $lightbox-prod02-navigation-subtitle-text-align;
         }
     }
     
@@ -550,7 +553,7 @@
         font-weight: $weight-400;
 
         @include small-down{
-            text-align: left;
+            text-align: $lightbox-prod02-paragraph-text-align;
             font: $paragraph-min;
         }
         ul{
@@ -586,18 +589,18 @@
     
 
     &__cta{
-        margin-top: 148px;
+        margin-top: $prod02-lightbox-cta-margin-top;
         font: $prod02-lightbox-cta-font;
         font-weight: $prod02-lightbox-cta-font-weight;
         color: $prod02-lightbox-cta-color;
         max-width: $prod02-lightbox-cta-max-width;
-        height: auto;
+        height: $prod02-lightbox-cta-height;
         padding: $prod02-lightbox-cta-padding;
         background-color: $prod02-lightbox-cta-background-color;
 
         @include small-down{
             font: $prod02-lightbox-cta-font-responsive;
-            margin-top: 64px;
+            margin-top: $prod02-lightbox-cta-mobile-margin-top;
         }
 
         &:hover{
