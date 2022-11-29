@@ -614,6 +614,9 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
+.prod02__navigation__content__nav__desktop ul li:hover a {
+  color: #7C7C7C;
+}
 .prod02__navigation__content__nav__desktop__cta {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
@@ -884,6 +887,18 @@ a {
 }
 .lightbox-prod02__content__carrossel {
   position: relative;
+}
+.lightbox-prod02 .caroussel_prod02-show {
+  height: 100% !important;
+}
+.lightbox-prod02 .caroussel_prod02-show .owl-item {
+  height: 100% !important;
+}
+.lightbox-prod02 .caroussel_prod02-show .owl-stage {
+  height: 100% !important;
+}
+.lightbox-prod02 .caroussel_prod02-show .owl-stage-outer {
+  height: 100% !important;
 }
 .lightbox-prod02 .caroussel_prod02-show .owl-dot {
   display: none;

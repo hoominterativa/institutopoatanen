@@ -11842,9 +11842,87 @@ $(function () {
 /*!******************************************************************!*\
   !*** ./resources/views/Client/pages/Products/PROD02/src/main.js ***!
   \******************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\resources\\views\\Client\\pages\\Products\\PROD02\\src\\main.js: Missing semicolon. (87:77)\n\n\u001b[0m \u001b[90m 85 |\u001b[39m $(\u001b[32m'.caroussel_prod02-show'\u001b[39m)\u001b[33m.\u001b[39mcss(\u001b[32m'width'\u001b[39m\u001b[33m,\u001b[39m $(window)\u001b[33m.\u001b[39mouterWidth() \u001b[33m/\u001b[39m \u001b[35m2\u001b[39m \u001b[33m-\u001b[39m \u001b[35m108\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 86 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 87 |\u001b[39m \u001b[36mvar\u001b[39m altLightbox \u001b[33m=\u001b[39m $(\u001b[32m'.lightbox-prod02__content__carrossel'\u001b[39m)\u001b[33m.\u001b[39mouterHeight() \u001b[33m+\u001b[39m \u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 88 |\u001b[39m $(\u001b[32m'.caroussel_prod02-show'\u001b[39m)\u001b[33m.\u001b[39mcss(\u001b[32m'height'\u001b[39m\u001b[33m,\u001b[39m $(altLightbox)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 89 |\u001b[39m\u001b[0m\n    at instantiate (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:67:32)\n    at constructor (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:364:12)\n    at Parser.raise (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:3364:19)\n    at Parser.semicolon (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:3754:10)\n    at Parser.parseVarStatement (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:13400:10)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:12986:23)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:12917:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:13497:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:13489:10)\n    at Parser.parseProgram (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:12832:10)\n    at Parser.parseTopLevel (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:12822:25)\n    at Parser.parse (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:14674:10)\n    at parse (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\parser\\lib\\index.js:14716:38)\n    at parser (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\core\\lib\\parser\\index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:66:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\core\\lib\\transformation\\index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\core\\lib\\transform.js:22:41)\n    at transform.next (<anonymous>)\n    at step (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:261:32)\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:273:13\n    at async.call.result.err.err (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:223:11)\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:189:28\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:72:7\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:113:33\n    at step (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:287:14)\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:273:13\n    at async.call.result.err.err (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\gensync\\index.js:223:11)");
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.carousel-prod02').owlCarousel({
+  smartSpeed: 450,
+  loop: true,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  responsive: {
+    0: {
+      items: 1,
+      margin: 12
+    },
+    // breakpoint from 0 up
+    361: {
+      items: 1,
+      margin: 12
+    },
+    // breakpoint from 361 up
+    801: {
+      items: 4,
+      margin: 20
+    }
+    // breakpoint from 801 up
+  }
+});
+
+$('.carousel-prod02').css('width', $('.prod02 .container--edit').outerWidth());
+if ($(window).outerWidth() <= 801) {
+  $('.carousel-prod02').css('width', $('.prod02 .container--edit').outerWidth() + 150);
+}
+// END carousel_prod02
+
+if ($(window).outerWidth() <= 801) {
+  $('.prod02__page__content__category').addClass('owl-carousel');
+  $('.prod02__page__content__category').addClass('caroussel_prod02-page');
+  $('.caroussel_prod02-page').owlCarousel({
+    margin: 5,
+    items: 2,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 0 up
+      400: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 400 up
+      801: {
+        items: 2,
+        margin: 20
+      }
+      // breakpoint from 801 up
+    }
+  });
+}
+
+$('.caroussel_prod02-show').owlCarousel({
+  margin: 5,
+  items: 1,
+  stagePadding: 0,
+  smartSpeed: 450,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true
+});
+$('.caroussel_prod02-show').css('width', $(window).outerWidth() / 2 - 108);
+var altLightbox = $('.lightbox-prod02__content__carrossel').outerHeight();
+console.log(altLightbox);
+$('.caroussel_prod02-show').css('height', $(altLightbox));
 
 /***/ }),
 
@@ -24430,12 +24508,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n    ╷\n290 │             margin-top: $prod02-page-content-product-margin-top;\r\n    │                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ╵\n  resources\\views\\Client\\pages\\Products\\PROD02\\src\\_main.scss 290:25  @import\n  resources\\views\\Client\\assets\\scss\\base.scss 7:9                    @import\n  resources\\sass\\app.scss 2:9                                         root stylesheet\n    at processResult (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:758:19)\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:860:5\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\sass-loader\\dist\\index.js:69:5)");
 
 /***/ }),
 
@@ -24594,7 +24669,6 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/libraries": 0,
-/******/ 			"css/app": 0,
 /******/ 			"css/icons": 0
 /******/ 		};
 /******/ 		
@@ -24645,10 +24719,10 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

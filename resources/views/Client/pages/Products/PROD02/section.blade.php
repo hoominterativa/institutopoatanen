@@ -46,11 +46,12 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             </p>
                         </div>
-                        <a href="{{route('prod02.page')}}" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center">
+                        <a rel="next" href="javascript-void(0);" data-fancybox="" data-src="#lightbox-prod02-1" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__content__product__item__cta__icon me-3 transition">
                             CTA
                         </a>
                     </div>
+                    @include('Client.pages.Products.PROD02.show')
                 </article>
             </div>
         </div>

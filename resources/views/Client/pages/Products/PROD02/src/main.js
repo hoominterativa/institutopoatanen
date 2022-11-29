@@ -84,5 +84,6 @@ $('.caroussel_prod02-show').owlCarousel({
 
 $('.caroussel_prod02-show').css('width', $(window).outerWidth() / 2 - 108);
 
-var altLightbox = $('.lightbox-prod02__content__carrossel').outerHeight() + 2);
-$('.caroussel_prod02-show').css('height', $(altLightbox);
+var altLightbox = $('.lightbox-prod02__content__carrossel').outerHeight();
+console.log(altLightbox);
+$('.caroussel_prod02-show').css('height', $(altLightbox));

@@ -4,7 +4,7 @@
         
         <div class="lightbox-prod02__content__carrossel px-0 col-md-6">
             <div class="caroussel_prod02-show">
-                <div class="lightbox-prod02__image">
+                <div class="lightbox-prod02__image h-100">
                     <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="h-100 w-100" alt="Subtitulo">
                 </div>
             </div>
