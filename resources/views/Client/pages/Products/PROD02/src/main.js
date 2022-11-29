@@ -9,12 +9,12 @@ $('.carousel-prod02').owlCarousel({
         
         0 : {
             items:1,
-            margin:12
+            margin:10
         },
         // breakpoint from 0 up
         361 : {
             items:1,
-            margin:12
+            margin:10
         },
         // breakpoint from 361 up
         801 : {
@@ -32,6 +32,25 @@ if($(window).outerWidth() <= 801){
 }
 // END carousel_prod02
 
+if($(window).outerWidth() <= 801){
+
+    $('.prod02__navigation__nav__mobile').addClass('owl-carousel');
+    $('.prod02__navigation__nav__mobile').addClass('caroussel-prod02-mobile');
+    $('.caroussel-prod02-mobile').css('width', $(window).outerWidth());
+
+    $('.caroussel-prod02-mobile').owlCarousel({
+        margin:10,
+        items:3,
+        stagePadding:0,
+        smartSpeed:450,
+        dots:true,
+        nav:false,
+        rewind: true,
+        autoHeight: true
+    });
+ 
+}
+
 
 
 
@@ -40,8 +59,6 @@ if($(window).outerWidth() <= 801){
     $('.prod02__page__content__category').addClass('caroussel_prod02-page');
 
     $('.caroussel_prod02-page').owlCarousel({
-        margin:5,
-        items:2,
         stagePadding:0,
         smartSpeed:450,
         dots:true,
@@ -51,12 +68,12 @@ if($(window).outerWidth() <= 801){
         responsive: {
         
             0 : {
-                items:1,
+                items:2,
                 margin:12
             },
             // breakpoint from 0 up
             400 : {
-                items:1,
+                items:2,
                 margin:12
             },
             // breakpoint from 400 up
@@ -85,5 +102,10 @@ $('.caroussel_prod02-show').owlCarousel({
 $('.caroussel_prod02-show').css('width', $(window).outerWidth() / 2 - 108);
 
 var altLightbox = $('.lightbox-prod02__content__carrossel').outerHeight();
-console.log(altLightbox);
 $('.caroussel_prod02-show').css('height', $(altLightbox));
+
+if($(window).outerWidth() <= 801){
+    $('.caroussel_prod02-show').css('width', $(window).outerWidth() - 16);
+    // $('.caroussel_prod02-show .owl-stage').css('width', $(window).outerWidth() - 150);
+    // $('.caroussel_prod02-show .owl-item').css('width', $(window).outerWidth() - 150);
+}

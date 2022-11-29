@@ -108,7 +108,7 @@ $prod02-page-content-padding-bottom: 79px;
 
 $prod02-page-content-mobile-overflow: hidden;
 $prod02-page-content-category-gap: 14px;
-$prod02-page-content-category-margin-left: 63px;
+$prod02-page-content-category-margin-left: 38px;
 $prod02-page-content-category-margin-bottom: 0;
 
 
@@ -128,7 +128,7 @@ $prod02-page-content-category-li-hover-filter:invert(1) grayscale(1);
 $caroussel-prod02-page-display: none !important;
 
 $prod02-page-content-product-margin-top: 89px;
-$prod02-page-content-product-padding: 0 48px !important;
+$prod02-page-content-product-padding: 0 35px !important;
 $prod02-page-content-product-mobile-margin-top: 51.28px;
 $prod02-page-content-row-gap: 26px 0;
 
@@ -169,6 +169,7 @@ $prod02-page-item-cta-font-responsive: $paragraph-mobile;
     $lightbox-prod02-line-margin-bottom: 37px;
 
     /* ======= CARROSSEL ======= */
+
     $carousel-prod02-owl-nav-display: flex;
     $carousel-prod02-owl-nav-prev-next-height: 29px;
     $carousel-prod02-owl-nav-prev-next-width: 29px;
@@ -177,6 +178,29 @@ $prod02-page-item-cta-font-responsive: $paragraph-mobile;
     $carousel-prod02-owl-nav-prev-next-span-color:#fff;
     $carousel-prod02-owl-nav-prev-next-span-font-size: 32px;
     $carousel-prod02-owl-nav-prev-next-span-height: 58px;
+
+    $lightbox-prod02-paragraph-ul-display:flex;
+    $lightbox-prod02-paragraph-ul-justify-content: space-between;
+    $lightbox-prod02-paragraph-ul-flex-wrap: wrap;
+    $lightbox-prod02-paragraph-ul-margin: 0;
+    $lightbox-prod02-paragraph-ul-padding: 0;
+    $lightbox-prod02-paragraph-ul-margin-top: 20px;
+    $lightbox-prod02-paragraph-ul-gap: 20px 0;
+
+    $lightbox-prod02-paragraph-ul-li-display:flex;
+    $lightbox-prod02-paragraph-ul-li-width: 50%;
+    $lightbox-prod02-paragraph-ul-li-min-width: 300px;
+    $lightbox-prod02-paragraph-ul-li-text-align: left;
+    $lightbox-prod02-paragraph-ul-li-align-items: flex-start;
+
+    $lightbox-prod02-paragraph-ul-li-before-content: "";
+    $lightbox-prod02-paragraph-ul-li-before-width: 7px;
+    $lightbox-prod02-paragraph-ul-li-before-height: 7px;
+    $lightbox-prod02-paragraph-ul-li-before-display: flex;
+    $lightbox-prod02-paragraph-ul-li-before-border-radius: 100%;
+    $lightbox-prod02-paragraph-ul-li-before-margin-right: 8px;
+    $lightbox-prod02-paragraph-ul-li-before-flex: none;
+    $lightbox-prod02-paragraph-ul-li-before-margin-top: 5px;
 
 
     // CTA

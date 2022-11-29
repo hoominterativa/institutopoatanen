@@ -6,6 +6,10 @@
 
     .container--edit{
         padding: $prod02-container-edit-padding;
+
+        @include small-down{
+            padding: 73px 0 49px 0 !important;
+        }
     }
     &__navigation{
         &__content{
@@ -13,22 +17,37 @@
             border-bottom: $prod02-navigation-container-border-bottom;
             margin-bottom: $prod02-navigation-container-margin-bottom;
             
-
+            @include small-down{
+                width: 86% !important;
+                margin: 0 auto;
+                padding-bottom: 17px;
+                margin-bottom: 30px;
+            }
             &__encompass{
                 max-width: $prod02-navigation-container-encompass-max-width;
-
+                @include small-down{
+                    max-width:146px;
+                }
                 &__title{
                     color:$color-one;
                     font-size: $T2;
                     font-family: $font-primary;
                     font-weight: $weight-700;
                     margin-bottom: 18px;
+                    @include small-down{
+                        font-size: $T2-mobile;
+                        margin-bottom: 9px;
+                    }
                 }
                 &__subtitle{
                     color: $color-three;
                     font-size: $T4;
                     font-family: $font-primary;
                     font-weight: $weight-700;
+
+                    @include small-down{
+                        font-size: $T4-mobile;
+                    }
                 }
             }
             
@@ -36,9 +55,15 @@
                 display: $prod02-navigation-nav-desktop-display;
                 width: 79.5%;
 
+                @include small-down{
+                    width: auto;
+                }
                 ul{
                     gap:$prod02-navigation-nav-desktop-ul-gap;
                     
+                    @include small-down{
+                        display: none !important;
+                    }
 
                     li{
                         @include listapadrao;
@@ -68,6 +93,7 @@
             
                     @include small-down{
                         font: $prod02-nav-desktop-cta-font-responsive;
+                        max-width: 146px;
                     }
             
                     &:hover{
@@ -87,24 +113,48 @@
             display: $prod02-navigation-nav-mobile-display;
             gap:$prod02-navigation-nav-mobile-gap;
 
+            @include small-down{
+                display: flex !important;
+                margin-bottom: 30px !important;
+                margin-left: 23px;
+                margin-top: 30px;
+                gap:inherit !important;
+            }
             li{
                 @include listapadrao;
                 display: $prod02-navigation-nav-mobile-li-display;
 
+                @include small-down{
+                    width: auto;
+                }
                 a{
                     font-size: $T5;
                     color: $color-black;
                     font-family: $font-primary;
                     font-weight: $weight-700;
+
+                    @include small-down{
+                        font-size: $T5-mobile;
+                    }
                 }
             }
         }
         &__paragraph{
+            @include small-down{
+                width: 86% !important;
+                margin: 0 auto;
+
+            }
+
             p{
                 color:$color-two;
                 font:$paragraph;
                 font-weight: $weight-400;
                 margin-bottom: $prod02-navigation-paragraph-p-margin-bottom;
+
+                @include small-down{
+                    font:$paragraph-mobile;
+                } 
             }
         }
     }
@@ -112,6 +162,12 @@
 
     &__content__product{
         margin-top: $prod02-content-product-margin-top;
+
+        @include small-down{
+            width: 85%;
+            margin: 0 auto;
+            margin-top: 54px;
+        }
 
         &__item{
             position: relative;
@@ -155,6 +211,7 @@
         
                 @include small-down{
                     font: $prod02-item-cta-font-responsive;
+                    max-width: 146px;
                 }
         
                 &:hover{
@@ -176,6 +233,14 @@
             justify-content: center;
             margin-top: 28px;
             gap: 0 5px;
+
+
+            @include small-down{
+                margin: inherit !important;
+                margin-top: 28px !important;
+                justify-content: flex-start;
+            }
+            
         }
         .carousel-prod02 .owl-dots .owl-dot{
             width: 22px;
@@ -249,6 +314,9 @@
                     color: $color-two;
                     font-family: $font-paragraph;
                     font-weight: $weight-700;
+                    @include small-down{
+                        font-size: $T5-mobile;
+                    }
 
                     img{
                         width: $prod02-page-content-category-li-img-width;
@@ -259,6 +327,7 @@
                         @include small-down{
                             width: $prod02-page-content-category-li-mobile-img-width;
                             height: $prod02-page-content-category-li-mobile-img-height;
+                            margin-right: 3px;
                         }
                     }
                    
@@ -302,7 +371,11 @@
                 position: relative;
                 min-height: 447px;
                 height: 447px;
-    
+
+                @include small-down{
+                   padding: 0 !important;
+                }
+
                 &__description{
                     position: $prod02-page-item-description-position;
                     top: $prod02-page-item-description-top;
@@ -371,15 +444,27 @@
     }
     .caroussel_prod02-show{
         height: 100% !important;
+        @include small-down{
+            height: 321px;
+        }
     }
     .caroussel_prod02-show .owl-item{
         height: 100% !important;
+        @include small-down{
+            height: 321px;
+        }
     }
     .caroussel_prod02-show .owl-stage{
         height: 100% !important;
+        @include small-down{
+            height: 321px;
+        }
     }
     .caroussel_prod02-show .owl-stage-outer{
         height: 100% !important;
+        @include small-down{
+            height: 321px;
+        }
     }
     .caroussel_prod02-show .owl-dot{
         display:none;
@@ -410,9 +495,16 @@
     &__description{
         position: relative;
         padding: 37px 71px 84px 54px;
+
+        @include small-down{
+            padding: 30px 35px;
+        }
     }
     &__navigation{
         margin-bottom: 108px;
+        @include small-down{
+            margin-bottom: 50px;
+        }
 
         li{
             display: flex;
@@ -430,12 +522,22 @@
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
+
+        @include small-down{
+            font-size: $T2-mobile;
+            text-align: left;
+        }
     }
     &__subtitle{
         font-size: $T4;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
+
+        @include small-down{
+            font-size: $T4-mobile;
+            text-align: left;
+        }
     }
     
     &__line{
@@ -447,7 +549,39 @@
         color: $color-one;
         font-weight: $weight-400;
 
+        @include small-down{
+            text-align: left;
+            font: $paragraph-min;
+        }
+        ul{
+            display:$lightbox-prod02-paragraph-ul-display;
+            justify-content: $lightbox-prod02-paragraph-ul-justify-content;
+            flex-wrap: $lightbox-prod02-paragraph-ul-flex-wrap;
+            margin: $lightbox-prod02-paragraph-ul-margin;
+            padding: $lightbox-prod02-paragraph-ul-padding;
+            margin-top: $lightbox-prod02-paragraph-ul-margin-top;
+            gap: $lightbox-prod02-paragraph-ul-gap;
         
+            li{
+                display:$lightbox-prod02-paragraph-ul-li-display;
+                width: $lightbox-prod02-paragraph-ul-li-width;
+                min-width: $lightbox-prod02-paragraph-ul-li-min-width;
+                text-align: $lightbox-prod02-paragraph-ul-li-text-align;
+                align-items: $lightbox-prod02-paragraph-ul-li-align-items;
+        
+                &:before{
+                    content:$lightbox-prod02-paragraph-ul-li-before-content;
+                    width: $lightbox-prod02-paragraph-ul-li-before-width;
+                    height: $lightbox-prod02-paragraph-ul-li-before-height;
+                    display: $lightbox-prod02-paragraph-ul-li-before-display;
+                    background: $color-one;
+                    border-radius: $lightbox-prod02-paragraph-ul-li-before-border-radius;
+                    margin-right: $lightbox-prod02-paragraph-ul-li-before-margin-right;
+                    flex: $lightbox-prod02-paragraph-ul-li-before-flex;
+                    margin-top: $lightbox-prod02-paragraph-ul-li-before-margin-top;
+                }
+            }
+        }
     }
     
 
@@ -463,6 +597,7 @@
 
         @include small-down{
             font: $prod02-lightbox-cta-font-responsive;
+            margin-top: 64px;
         }
 
         &:hover{

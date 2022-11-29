@@ -24,9 +24,6 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. 
                 </p>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                </ul>
             </div>
             <a href="#lightbox-product" class="lightbox-prod02__cta transition d-flex justify-content-center align-items-center mx-auto">
                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="lightbox-prod02__cta__icon me-3 transition">

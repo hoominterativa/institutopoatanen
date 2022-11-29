@@ -577,13 +577,31 @@ a {
 .prod02 .container--edit {
   padding: 76px 0 43px 0;
 }
+@media (max-width: 800px) {
+  .prod02 .container--edit {
+    padding: 73px 0 49px 0 !important;
+  }
+}
 .prod02__navigation__content {
   padding-bottom: 32.48px;
   border-bottom: 1px solid #404040;
   margin-bottom: 29.89px;
 }
+@media (max-width: 800px) {
+  .prod02__navigation__content {
+    width: 86% !important;
+    margin: 0 auto;
+    padding-bottom: 17px;
+    margin-bottom: 30px;
+  }
+}
 .prod02__navigation__content__encompass {
   max-width: 265px;
+}
+@media (max-width: 800px) {
+  .prod02__navigation__content__encompass {
+    max-width: 146px;
+  }
 }
 .prod02__navigation__content__encompass__title {
   color: #404040;
@@ -592,18 +610,39 @@ a {
   font-weight: 700;
   margin-bottom: 18px;
 }
+@media (max-width: 800px) {
+  .prod02__navigation__content__encompass__title {
+    font-size: 1.875rem;
+    margin-bottom: 9px;
+  }
+}
 .prod02__navigation__content__encompass__subtitle {
   color: #B3B3B3;
   font-size: 1.25rem;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
+@media (max-width: 800px) {
+  .prod02__navigation__content__encompass__subtitle {
+    font-size: 1.125rem;
+  }
+}
 .prod02__navigation__content__nav__desktop {
   display: flex;
   width: 79.5%;
 }
+@media (max-width: 800px) {
+  .prod02__navigation__content__nav__desktop {
+    width: auto;
+  }
+}
 .prod02__navigation__content__nav__desktop ul {
   gap: 0 46px;
+}
+@media (max-width: 800px) {
+  .prod02__navigation__content__nav__desktop ul {
+    display: none !important;
+  }
 }
 .prod02__navigation__content__nav__desktop ul li {
   list-style: none;
@@ -629,6 +668,7 @@ a {
 @media (max-width: 800px) {
   .prod02__navigation__content__nav__desktop__cta {
     font: 0.938rem "Montserrat", sans-serif, arial;
+    max-width: 146px;
   }
 }
 .prod02__navigation__content__nav__desktop__cta:hover {
@@ -642,9 +682,23 @@ a {
   display: none !important;
   gap: 0 46px;
 }
+@media (max-width: 800px) {
+  .prod02__navigation__nav__mobile {
+    display: flex !important;
+    margin-bottom: 30px !important;
+    margin-left: 23px;
+    margin-top: 30px;
+    gap: inherit !important;
+  }
+}
 .prod02__navigation__nav__mobile li {
   list-style: none;
   display: flex;
+}
+@media (max-width: 800px) {
+  .prod02__navigation__nav__mobile li {
+    width: auto;
+  }
 }
 .prod02__navigation__nav__mobile li a {
   font-size: 1.125rem;
@@ -652,14 +706,37 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
+@media (max-width: 800px) {
+  .prod02__navigation__nav__mobile li a {
+    font-size: 1.063rem;
+  }
+}
+@media (max-width: 800px) {
+  .prod02__navigation__paragraph {
+    width: 86% !important;
+    margin: 0 auto;
+  }
+}
 .prod02__navigation__paragraph p {
   color: #7C7C7C;
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 400;
   margin-bottom: 0;
 }
+@media (max-width: 800px) {
+  .prod02__navigation__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
 .prod02__content__product {
   margin-top: 54px;
+}
+@media (max-width: 800px) {
+  .prod02__content__product {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 54px;
+  }
 }
 .prod02__content__product__item {
   position: relative;
@@ -701,6 +778,7 @@ a {
 @media (max-width: 800px) {
   .prod02__content__product__item__cta {
     font: 0.938rem "Montserrat", sans-serif, arial;
+    max-width: 146px;
   }
 }
 .prod02__content__product__item__cta:hover {
@@ -719,6 +797,13 @@ a {
   justify-content: center;
   margin-top: 28px;
   gap: 0 5px;
+}
+@media (max-width: 800px) {
+  .prod02__content__product .carousel-prod02 .owl-dots {
+    margin: inherit !important;
+    margin-top: 28px !important;
+    justify-content: flex-start;
+  }
 }
 .prod02__content__product .carousel-prod02 .owl-dots .owl-dot {
   width: 22px;
@@ -764,7 +849,7 @@ a {
 }
 @media (max-width: 800px) {
   .prod02__page__content__category {
-    margin-left: 63px;
+    margin-left: 38px;
     margin-bottom: 0;
   }
 }
@@ -784,6 +869,11 @@ a {
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
+@media (max-width: 800px) {
+  .prod02__page__content__category li a {
+    font-size: 1.063rem;
+  }
+}
 .prod02__page__content__category li a img {
   width: 36px;
   height: auto;
@@ -795,6 +885,7 @@ a {
   .prod02__page__content__category li a img {
     width: 36px !important;
     height: 37px !important;
+    margin-right: 3px;
   }
 }
 .prod02__page__content__category li:hover {
@@ -819,7 +910,7 @@ a {
 }
 @media (max-width: 800px) {
   .prod02__page__content__product {
-    padding: 0 48px !important;
+    padding: 0 35px !important;
     margin-top: 51.28px;
   }
 }
@@ -830,6 +921,11 @@ a {
   position: relative;
   min-height: 447px;
   height: 447px;
+}
+@media (max-width: 800px) {
+  .prod02__page__content__product__item {
+    padding: 0 !important;
+  }
 }
 .prod02__page__content__product__item__description {
   position: absolute;
@@ -891,14 +987,34 @@ a {
 .lightbox-prod02 .caroussel_prod02-show {
   height: 100% !important;
 }
+@media (max-width: 800px) {
+  .lightbox-prod02 .caroussel_prod02-show {
+    height: 321px;
+  }
+}
 .lightbox-prod02 .caroussel_prod02-show .owl-item {
   height: 100% !important;
+}
+@media (max-width: 800px) {
+  .lightbox-prod02 .caroussel_prod02-show .owl-item {
+    height: 321px;
+  }
 }
 .lightbox-prod02 .caroussel_prod02-show .owl-stage {
   height: 100% !important;
 }
+@media (max-width: 800px) {
+  .lightbox-prod02 .caroussel_prod02-show .owl-stage {
+    height: 321px;
+  }
+}
 .lightbox-prod02 .caroussel_prod02-show .owl-stage-outer {
   height: 100% !important;
+}
+@media (max-width: 800px) {
+  .lightbox-prod02 .caroussel_prod02-show .owl-stage-outer {
+    height: 321px;
+  }
 }
 .lightbox-prod02 .caroussel_prod02-show .owl-dot {
   display: none;
@@ -932,8 +1048,18 @@ a {
   position: relative;
   padding: 37px 71px 84px 54px;
 }
+@media (max-width: 800px) {
+  .lightbox-prod02__description {
+    padding: 30px 35px;
+  }
+}
 .lightbox-prod02__navigation {
   margin-bottom: 108px;
+}
+@media (max-width: 800px) {
+  .lightbox-prod02__navigation {
+    margin-bottom: 50px;
+  }
 }
 .lightbox-prod02__navigation li {
   display: flex;
@@ -950,11 +1076,23 @@ a {
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
+@media (max-width: 800px) {
+  .lightbox-prod02__title {
+    font-size: 1.875rem;
+    text-align: left;
+  }
+}
 .lightbox-prod02__subtitle {
   font-size: 1.25rem;
   color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
+}
+@media (max-width: 800px) {
+  .lightbox-prod02__subtitle {
+    font-size: 1.125rem;
+    text-align: left;
+  }
 }
 .lightbox-prod02__line {
   margin-top: 14px;
@@ -964,6 +1102,39 @@ a {
   font: 1rem "Montserrat", sans-serif, arial;
   color: #404040;
   font-weight: 400;
+}
+@media (max-width: 800px) {
+  .lightbox-prod02__paragraph {
+    text-align: left;
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
+.lightbox-prod02__paragraph ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  gap: 20px 0;
+}
+.lightbox-prod02__paragraph ul li {
+  display: flex;
+  width: 50%;
+  min-width: 300px;
+  text-align: left;
+  align-items: flex-start;
+}
+.lightbox-prod02__paragraph ul li:before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: flex;
+  background: #404040;
+  border-radius: 100%;
+  margin-right: 8px;
+  flex: none;
+  margin-top: 5px;
 }
 .lightbox-prod02__cta {
   margin-top: 148px;
@@ -978,6 +1149,7 @@ a {
 @media (max-width: 800px) {
   .lightbox-prod02__cta {
     font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 64px;
   }
 }
 .lightbox-prod02__cta:hover {

@@ -11855,12 +11855,12 @@ $('.carousel-prod02').owlCarousel({
   responsive: {
     0: {
       items: 1,
-      margin: 12
+      margin: 10
     },
     // breakpoint from 0 up
     361: {
       items: 1,
-      margin: 12
+      margin: 10
     },
     // breakpoint from 361 up
     801: {
@@ -11878,11 +11878,24 @@ if ($(window).outerWidth() <= 801) {
 // END carousel_prod02
 
 if ($(window).outerWidth() <= 801) {
+  $('.prod02__navigation__nav__mobile').addClass('owl-carousel');
+  $('.prod02__navigation__nav__mobile').addClass('caroussel-prod02-mobile');
+  $('.caroussel-prod02-mobile').css('width', $(window).outerWidth());
+  $('.caroussel-prod02-mobile').owlCarousel({
+    margin: 10,
+    items: 3,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true
+  });
+}
+if ($(window).outerWidth() <= 801) {
   $('.prod02__page__content__category').addClass('owl-carousel');
   $('.prod02__page__content__category').addClass('caroussel_prod02-page');
   $('.caroussel_prod02-page').owlCarousel({
-    margin: 5,
-    items: 2,
     stagePadding: 0,
     smartSpeed: 450,
     dots: true,
@@ -11891,12 +11904,12 @@ if ($(window).outerWidth() <= 801) {
     autoHeight: true,
     responsive: {
       0: {
-        items: 1,
+        items: 2,
         margin: 12
       },
       // breakpoint from 0 up
       400: {
-        items: 1,
+        items: 2,
         margin: 12
       },
       // breakpoint from 400 up
@@ -11921,8 +11934,12 @@ $('.caroussel_prod02-show').owlCarousel({
 });
 $('.caroussel_prod02-show').css('width', $(window).outerWidth() / 2 - 108);
 var altLightbox = $('.lightbox-prod02__content__carrossel').outerHeight();
-console.log(altLightbox);
 $('.caroussel_prod02-show').css('height', $(altLightbox));
+if ($(window).outerWidth() <= 801) {
+  $('.caroussel_prod02-show').css('width', $(window).outerWidth() - 16);
+  // $('.caroussel_prod02-show .owl-stage').css('width', $(window).outerWidth() - 150);
+  // $('.caroussel_prod02-show .owl-item').css('width', $(window).outerWidth() - 150);
+}
 
 /***/ }),
 
@@ -24508,9 +24525,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n    ╷\n290 │             margin-top: $prod02-page-content-product-margin-top;\r\n    │                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ╵\n  resources\\views\\Client\\pages\\Products\\PROD02\\src\\_main.scss 290:25  @import\n  resources\\views\\Client\\assets\\scss\\base.scss 7:9                    @import\n  resources\\sass\\app.scss 2:9                                         root stylesheet\n    at processResult (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:758:19)\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:860:5\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\sass-loader\\dist\\index.js:69:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -24669,6 +24689,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/libraries": 0,
+/******/ 			"css/app": 0,
 /******/ 			"css/icons": 0
 /******/ 		};
 /******/ 		
@@ -24719,10 +24740,10 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
