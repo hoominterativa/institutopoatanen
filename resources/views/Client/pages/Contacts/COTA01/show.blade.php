@@ -20,8 +20,8 @@
                             <p class="cota01-show__form-section__paragraph">{{$contact->description_section}}</p>
                         </div>
                     @endif
-                    <div class="row">
-                        <div class="cota01-show__form-section__form col-12 {{$contact->topicsForm->count()?'col-lg-7':''}}">
+                    <div class="cota01-show__form-section__container row">
+                        <div class="cota01-show__form-section__form col-12 {{$contact->topicsForm->count()?'col-xl-7':''}}">
                             @if ($contact->title_form || $contact->description_form)
                                 <div class="cota01-show__form__header">
                                     <h2 class="cota01-show__form__header__title">{{$contact->title_form}}</h2>
@@ -37,12 +37,13 @@
                                                 'name' => $name,
                                                 'options' => $input->option,
                                                 'placeholder' => $input->placeholder,
-                                                'type' => $input->type
+                                                'type' => $input->type,
+                                                'required' => $input->required
                                             ])
                                         </div>
                                     @endforeach
                                 </div>
-                                <div class="d-flex align-items-center">
+                                <div class="cota01-show__form__footer d-flex align-items-center">
                                     <div class="cota01-show__form__compliance form-check d-flex align-items-center">
                                         {!! Form::checkbox('term_accept', 1, null, ['class'=>'form-check-input me-1', 'id'=> 'term_accept', 'required'=>true]) !!}
                                         {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class'=>'form-check-label']) !!}
@@ -57,9 +58,9 @@
                         </div>
                         {{-- END .cota01-show__form --}}
                         @if ($contact->topicsForm->count())
-                            <div class="cota01-show__topics-form col-12 col-lg-5">
+                            <div class="cota01-show__topics-form col-12 col-xl-5 row">
                                 @foreach ($contact->topicsForm as $topicForm)
-                                    <div class="cota01-show__topics-form__item d-flex align-items-center">
+                                    <div class="cota01-show__topics-form__item d-flex align-items-center col-6 col-lg-12">
                                         <img src="{{asset('storage/'.$topicForm->path_image_icon)}}" class="cota01-show__topics-form__icon" width="26" alt="{{$topicForm->title}}">
                                         <div class="cota01-show__topics-form__description">
                                             <h4 class="cota01-show__topics-form__title">{{$topicForm->title}}</h4>
@@ -80,7 +81,7 @@
                 <div class="cota01-show__topics-section">
                     <div class="container">
                         <div class="row">
-                            <div class="cota01-show__topics col-12 col-sm-8">
+                            <div class="cota01-show__topics col-12 col-xl-8">
                                 <div class="row">
                                     @foreach ($contact->topicsSection as $topicSection)
                                         <div class="col-12 col-lg-6">
@@ -95,7 +96,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <img src="{{asset('storage/'.$contact->path_image_section_topic)}}" class="cota01-show__topics__image col-12 col-sm-4" alt="">
+                            <img src="{{asset('storage/'.$contact->path_image_section_topic)}}" class="cota01-show__topics__image col-12 col-xl-4" alt="">
                         </div>
                         {{-- END .row --}}
                     </div>

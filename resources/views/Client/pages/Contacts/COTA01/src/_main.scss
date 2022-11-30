@@ -10,6 +10,10 @@
         padding: 87px 17%;
         text-align: center;
 
+        @include small-down{
+            padding: 60px 30px;
+        }
+
         &__title{
             font-size: $T1;
             font-family: $font-primary;
@@ -37,10 +41,18 @@
         padding: 87px 0;
         background-color: $color-five;
 
+        @include small-down{
+            padding: 60px 30px;
+        }
+
         &__header{
             text-align: center;
             margin-bottom: 90px;
             padding: 0 17%;
+
+            @include small-down{
+                padding: 0 30px;
+            }
         }
         &__title{
             font-size: $T2;
@@ -62,12 +74,26 @@
                 font: $paragraph-mobile;
             }
         }
+        @include small-down{
+            &__container{
+                flex-direction: column-reverse;
+            }
+        }
+        @include medium-only{
+            &__container{
+                flex-direction: column-reverse;
+            }
+        }
     }
     // END __form-section
 
     &__form{
         &__header{
             max-width: 85%;
+
+            @include small-down{
+                max-width: 100%;
+            }
 
             &__title{
                 font-size: $T2;
@@ -123,10 +149,21 @@
                 }
             }
         }
+        &__footer{
+            @include small-down{
+                flex-direction: column;
+            }
+        }
         &__compliance{
             font: $paragraph-min;
             font-weight: $weight-400;
             color: $color-two;
+
+            @include small-down{
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
             &__link{
                 font: $paragraph-min;
                 font-weight: $weight-700;
@@ -139,12 +176,44 @@
 
     &__topics-form{
         padding-left: 130px;
+
+        @include small-down{
+            padding-left: 0;
+            justify-content: center;
+            margin-top: 0;
+            margin-bottom: 60px;
+        }
+
+        @include medium-only{
+            padding-left: 0;
+            justify-content: center;
+            margin-top: 0;
+            margin-bottom: 60px;
+        }
+
         &__item{
             margin-bottom: 50px;
+
+            @include small-down{
+                text-align: center;
+                flex-direction: column;
+                margin-bottom: 60px;
+            }
+
+            @include medium-only{
+                text-align: center;
+                flex-direction: column;
+                margin-bottom: 60px;
+            }
         }
         &__icon{
             width: 25px;
             margin-right: 15px;
+
+            @include small-down{
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
         }
         &__description{
 
@@ -174,9 +243,26 @@
 
     &__topics-section{
         padding: 80px 0 0 0;
+
+        @include small-down{
+            padding: 50px 30px;
+        }
+
+        @include medium-only{
+            padding: 50px 30px;
+        }
     }
 
     &__topics{
+
+        @include small-down{
+            margin-bottom: 50px;
+        }
+
+        @include medium-only{
+            margin-bottom: 50px;
+        }
+
         &__item{
             margin-bottom: 50px;
         }

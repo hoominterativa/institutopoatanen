@@ -8,6 +8,7 @@
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)"  data-bs-target="#modal-topicSection-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Tópicos <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-imageTopic-create" data-bs-toggle="modal" class="btn btn-warning float-end me-3">Adicionar Imagem na seção <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -95,3 +96,47 @@
     </div>
 </div>
 {{-- END MODAL CATEGORY CREATE --}}
+
+{{-- BEGIN MODAL BANNER CREATE --}}
+<div id="modal-imageTopic-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="max-width: 1100px;">
+        <div class="modal-content">
+            <div class="modal-header p-3 pt-2 pb-2">
+                <h4 class="page-title">Cadastrar Tópicos</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body p-3 pt-0 pb-3">
+                {!! Form::model($contact, ['route' => ['admin.cota01.update', $contact->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <div class="container-image-crop">
+                                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                                    <small class="ms-2">Dimensão proporcional mínima 400x300px</small>
+                                    <label class="area-input-image-crop" for="inputImage">
+                                        {!! Form::file('path_image_section_topic', [
+                                            'id'=>'inputImage',
+                                            'class'=>'inputImage',
+                                            'data-min-width'=>'200', // px
+                                            'data-min-height'=>'275', // px
+                                            'data-box-height'=>'180', // Input height in the form
+                                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                            'data-default-file'=> isset($contact)?($contact->path_image_section_topic<>''?url('storage/'.$contact->path_image_section_topic):''):'',
+                                        ]) !!}
+                                    </label>
+                                </div><!-- END container image crop -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+                        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
+                        {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
+                    </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</div>
+{{-- END MODAL BANNER CREATE --}}

@@ -3,7 +3,7 @@
         <div>
             {!! Form::text($name, null, [
                 'class' => 'form-control mb-3 ps-3',
-                'required'=>'required',
+                'required'=> $required,
                 'placeholder' => $placeholder
             ]) !!}
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
@@ -14,7 +14,7 @@
             {!! Form::textarea($name, null, [
                 'class'=>'form-control mb-3 ps-3',
                 'id'=>'message',
-                'required'=>'required',
+                'required'=> $required,
                 'placeholder' => $placeholder,
                 'data-parsley-trigger'=>'keyup',
                 'data-parsley-minlength'=>'20',
@@ -29,7 +29,7 @@
         <div>
             {!! Form::email($name, null, [
                 'class'=>'form-control mb-3 ps-3',
-                'required'=>'required',
+                'required'=> $required,
                 'parsley-type'=>'email',
                 'placeholder' => $placeholder
             ]) !!}
@@ -41,6 +41,7 @@
             {!! Form::text($name, null, [
                 'class'=>'form-control mb-3 ps-3',
                 'data-toggle'=>'input-mask',
+                'required'=> $required,
                 'data-mask-format'=>'(00) 0000-0000',
                 'placeholder' => $placeholder
             ]) !!}
@@ -52,6 +53,7 @@
             {!! Form::text($name, null, [
                 'class'=>'form-control mb-3 ps-3',
                 'data-toggle'=>'input-mask',
+                'required'=> $required,
                 'data-mask-format'=>'(00) 00000-0000',
                 'placeholder' => $placeholder
             ]) !!}
@@ -69,7 +71,7 @@
             {!! Form::select($name, $selectOptions, null, [
                 'class'=>'form-select mb-3 ps-3',
                 'id'=>'heard',
-                'required'=>'required',
+                'required'=> $required,
                 'placeholder' => $placeholder
             ]) !!}
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
@@ -103,7 +105,7 @@
         <div>
             {!! Form::text($name, null, [
                 'class'=>'form-control',
-                'required'=>'required',
+                'required'=> $required,
                 'data-provide'=>'datepicker',
                 'data-date-autoclose'=>'true',
                 'placeholder' => $placeholder

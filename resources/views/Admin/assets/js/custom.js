@@ -157,7 +157,17 @@ $(function() {
             <div class="infoInputs">
                 <div class="mb-3">
                     <label class="form-label">Titulo</label>
-                    <input type="text" name="column_" required class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente">
+                    <div class="row">
+                        <div class="col-9">
+                            <input type="text" name="column_" required class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente">
+                        </div>
+                        <div class="col-3">
+                            <div class="form-check mt-1">
+                                <input type="checkbox" name="_required" class="form-check-input inputSetRequired" id="_required" value="1">
+                                <label for="_required" class="form-label">Obrigatório?</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `
         switch (type) {
@@ -176,7 +186,7 @@ $(function() {
 
 
         $(this).parents('.container-type-input').find('.infoInputs').remove()
-        $(this).parents('.container-type-input').append(html);
+        $(this).parents('.container-type-input > *').append(html);
     })
 
     $('body').on('change', '.inputSetTitle', function() {
@@ -184,6 +194,7 @@ $(function() {
         var type = $(this).parents('.container-type-input').find('select').val()
 
         $(this).attr('name', 'column_' + slugify(val) + '_' + type)
+        $(this).parents('.container-type-input').find('.inputSetRequired').attr('name', 'required_' + slugify(val) + '_' + type)
         $(this).parents('.container-type-input').find('.inputSetOption').attr('name', 'option_' + slugify(val) + '_' + type)
     })
 
@@ -321,4 +332,29 @@ $(function() {
     $('.modal').each(function(){
         $('body').append($(this))
     })
+
+    function changePushState(elem){
+        const tab = elem.attr('href'),
+            url = `?tab=${tab}`;
+        window.history.pushState({}, tab, url);
+    }
+
+    $('[data-bs-toggle=tab]').on('click', function(){
+        changePushState($(this))
+    });
+
+    $(window).on('load', function(){
+        if($('[data-bs-toggle=tab].active').length){
+            changePushState($('[data-bs-toggle=tab].active'))
+        }
+    })
+
+    $(window).on('hashchange',function(event){
+        var hash = location.hash.replace('#','');
+        $(`[data-bs-toggle=tab]`).removeClass('active')
+        $(`[data-bs-toggle=tab][href=\\#${hash}]`).addClass('active')
+
+        $('.tab-pane').removeClass('active').removeClass('show')
+        $(`#${hash}`).addClass('active').addClass('show')
+    });
 })

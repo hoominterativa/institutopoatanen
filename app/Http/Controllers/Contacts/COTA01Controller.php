@@ -136,15 +136,23 @@ class COTA01Controller extends Controller
             if($arrayName[0] == 'column'){
                 $type = end($arrayName);
                 $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
                 $option = '';
+                $required = false;
+
                 if(isset($data[$inputOption])){
                     $option = $data[$inputOption];
                 }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+
                 $pushArray = [
                     $name => [
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
+                        'required' => $required,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -154,8 +162,9 @@ class COTA01Controller extends Controller
             $jsonInputs = json_encode($arrayInputs);
             $data['inputs_form'] = $jsonInputs;
         }
-
-        $data['active'] = $request->active?1:0;
+        if($request->active){
+            $data['active'] = $request->active?1:0;
+        }
 
         $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
         if($path_image_banner){
