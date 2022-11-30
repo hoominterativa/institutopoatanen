@@ -2,7 +2,7 @@
 @section('content')
     {{-- BEGIN Page content --}}
     <main id="root">
-        <section id="COTA01" class="cota01-show container-fluid px-xl-0">
+        <section id="COTA01" class="cota01-show container-fluid px-0">
             @if ($contact->title_banner || $contact->description_banner)
                 <header class="cota01-show__banner" style="background-image: ur({{asset('storage/'.$contact->path_image_banner)}})">
                     <div class="container">
@@ -21,7 +21,7 @@
                         </div>
                     @endif
                     <div class="row">
-                        <div class="cota01-show__form-section__form col-12 {{$contact->topicsForm->count()?'col-sm-7':''}}">
+                        <div class="cota01-show__form-section__form col-12 {{$contact->topicsForm->count()?'col-lg-7':''}}">
                             @if ($contact->title_form || $contact->description_form)
                                 <div class="cota01-show__form__header">
                                     <h2 class="cota01-show__form__header__title">{{$contact->title_form}}</h2>
@@ -57,7 +57,7 @@
                         </div>
                         {{-- END .cota01-show__form --}}
                         @if ($contact->topicsForm->count())
-                            <div class="cota01-show__topics-form col-12 col-sm-5">
+                            <div class="cota01-show__topics-form col-12 col-lg-5">
                                 @foreach ($contact->topicsForm as $topicForm)
                                     <div class="cota01-show__topics-form__item d-flex align-items-center">
                                         <img src="{{asset('storage/'.$topicForm->path_image_icon)}}" class="cota01-show__topics-form__icon" width="26" alt="{{$topicForm->title}}">
