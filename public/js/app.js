@@ -11842,9 +11842,34 @@ $(function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/pages/Topics/TOPI04/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.carrosel-topi04-topics').owlCarousel({
+  smartSpeed: 450,
+  loop: true,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  margin: 2,
+  responsive: {
+    0: {
+      items: 3
+    },
+    // breakpoint from 0 up
+    361: {
+      items: 3
+    },
+    // breakpoint from 361 up
+    801: {
+      items: 3
+    }
+    // breakpoint from 801 up
+  }
+});
 
+$('.carrosel-topi04-topics').css('width', $('.topi04__boxRight').outerWidth());
 
 /***/ }),
 

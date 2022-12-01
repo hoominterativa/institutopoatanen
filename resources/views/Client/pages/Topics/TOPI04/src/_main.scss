@@ -2,8 +2,64 @@
 
 /* BEGIN STYLE */
 .topi04{
+    &__destaque{
+        padding: 6px 16px 5px 21px;
+        background: $color-four;
+        font-size: $T4;
+        color: $color-one;
+        max-width: 200px;
+        margin-bottom: 8px;
+
+        @include small-down{
+            font-size: $T4-mobile;
+            margin-bottom: 18px;
+        }
+    }
+    &__title{
+        font-size: $T2;
+        color: $color-one;
+        margin-bottom: 15.97px;
+        font-weight: $weight-700;
+        font-family: $font-primary;
+
+        @include small-down{
+            font-size: $T2-mobile;
+        }
+    }
+    &__subtitle{
+        font-size: $T4;
+        color:$color-three;
+        font-weight: $weight-700;
+        font-family: $font-primary;
+
+        @include small-down{
+            font-size: $T4-mobile;
+        }
+    }
+    &__line{
+        margin: 17.83px auto 30px;
+        background-color: $color-one;
+
+        @include small-down{
+            margin: 14.03px auto 25px;
+        }
+    }
+    &__paragraph{
+        font-size:$paragraph-min;
+        color:$color-two;
+        font-weight: $weight-400;
+        font-family: $font-primary;
+
+        @include small-down{
+            font-size:$paragraph-min-mobile;
+        }
+    }
     &__boxLeft{
-        height: 659px;
+        height: 759px;
+
+        @include small-down{
+            height:395.21px;
+        }
 
         &__image{
 
@@ -12,17 +68,78 @@
             }
         }
     }
+
+    &__cta{
+        font: $topi04-cta-font;
+        font-weight: $topi04-cta-font-weight;
+        color: $topi04-cta-color;
+        display: $topi04-cta-display;
+        margin-top: $topi04-cta-margin-top;
+        max-width: $topi04-cta-max-width;
+        padding: $topi04-cta-padding;
+        background-color: $topi04-cta-background-color;
+
+        @include small-down{
+            font: $topi04-cta-font-responsive;
+            margin-top: 39px;
+            width: 147px;
+        }
+
+        &:hover{
+            color: $topi04-cta-color-hover;
+            background-color: $topi04-cta-background-color-hover;
+
+            .topi04__cta__icon{
+                filter: $topi04-cta-icon-filter-hover;
+            }
+        }
+    }
+
     &__description{
-        padding: 102px 102px 114.99px 101px;
+        padding: 72px 91px;
+
+        @include small-down{
+            padding: 54px 45px 91.28px 39px;
+        }
     }
     &__boxRight{
-        min-height: 659px;
-
+        min-height: 759px;
+        @include small-down{
+            min-height: inherit;
+        }
     }
+
     &__topics{
         &__item{
             height: 224px;
-            background: #ccc;
+
+            @include small-down{
+                height:129px;
+            }
+
+            &__icone{
+                height: 47px !important;
+                width: 48px !important;
+
+                @include small-down{
+                    height: 24.96px !important;
+                    width: 24.96px !important;
+                }
+            }
+            &__title{
+                margin-top: 16px;
+                font: $paragraph;
+                font-family: $font-primary;
+                font-weight: $weight-400;
+
+                @include small-down{
+                    font: $paragraph-mobile;
+                }
+
+            }
+            &__description{
+                position: absolute;
+            }
         }
     }
 }
