@@ -4,7 +4,7 @@
 .topi04{
     &__boxLeft{
         height: 659px;
-       
+
         &__image{
 
             img{
@@ -18,17 +18,11 @@
     &__boxRight{
         min-height: 659px;
 
-        
-
-        &__topico{
-            
-        }
-        
     }
-    &__topi04__topics{
+    &__topics{
         &__item{
             height: 224px;
-            background: #000;
+            background: #ccc;
         }
     }
 }

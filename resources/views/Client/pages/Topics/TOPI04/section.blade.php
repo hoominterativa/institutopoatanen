@@ -13,42 +13,40 @@
                         <h3 class="topi04__subtitle">Subtitulo</h3>
                         <div class="topi04__paragraph">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.  
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
                             </p>
                         </div>
                         <a href="#" class="topi04__cta">CTA</a>
-                    </div>   
+                    </div>
                 </div>
-                <div class="topi04__topics row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="topi04__topics__item col">
-                        <div class="topi04__topics__image">
+                <div class="topi04__topics carrosel-topi04-topics">
+                    <div class="topi04__topics__item w-100">
+                        <div class="topi04__topics__item__image">
                             <img src="" alt="">
                         </div>
-                        <div class="topi04__topics__description">
-                            <img src="" class="topi04__topics__icone" alt="">
-                            <h4 class="topi04__topics__title">Titulo do Destaque</h4>
+                        <div class="topi04__topics__item__description d-flex justify-content-center align-items-center">
+                            <img src="" class="topi04__item__topics__icone" alt="">
+                            <h4 class="topi04__topics__item__title">Titulo do Destaque</h4>
                         </div>
                     </div>
-                    <div class="topi04__topics__item col">
-                        <div class="topi04__topics__image">
+                    <div class="topi04__topics__item w-100">
+                        <div class="topi04__topics__item__image">
                             <img src="" alt="">
                         </div>
-                        <div class="topi04__topics__description">
-                            <img src="" class="topi04__topics__icone" alt="">
-                            <h4 class="topi04__topics__title">Titulo do Destaque</h4>
+                        <div class="topi04__topics__item__description d-flex justify-content-center align-items-center">
+                            <img src="" class="topi04__item__topics__icone" alt="">
+                            <h4 class="topi04__topics__item__title">Titulo do Destaque</h4>
                         </div>
                     </div>
-                    <div class="topi04__topics__item col">
-                        <div class="topi04__topics__image">
+                    <div class="topi04__topics__item w-100">
+                        <div class="topi04__topics__item__image">
                             <img src="" alt="">
                         </div>
-                        <div class="topi04__topics__description">
-                            <img src="" class="topi04__topics__icone" alt="">
-                            <h4 class="topi04__topics__title">Titulo do Destaque</h4>
+                        <div class="topi04__topics__item__description d-flex justify-content-center align-items-center">
+                            <img src="" class="topi04__item__topics__icone" alt="">
+                            <h4 class="topi04__topics__item__title">Titulo do Destaque</h4>
                         </div>
                     </div>
-
-
                 </div>
         </div>
     </div>
