@@ -11,28 +11,7 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contacts' => (object) [
-            'COTA01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1',
-                    'relation' => '',
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Contato',
-                    'anchor' =>  false,
-                    'linkMenu' => 'cota01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Contato',
-                    'iconPanel' => 'mdi-information'
-                ],
-                'IncludeSections' => (object) []
-            ],
-        ],
+
     ],
 
     'ModelsForm' => (object)[
