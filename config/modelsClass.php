@@ -84,5 +84,13 @@ return [
             ],
         ],
         // END TOPICS
+        'Feedbacks' => (object)[
+            'FEED03' => (object)[
+                'controller' => App\Http\Controllers\Feedbacks\FEED03Controller::class,
+                'model' => App\Models\Feedbacks\FEED03Abouts::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END FEEDBACKS
     ],
 ];

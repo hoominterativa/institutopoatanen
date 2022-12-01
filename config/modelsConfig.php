@@ -11,8 +11,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI02' => (object)[
+        'Feedbacks' => (object) [
+            'FEED03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -21,7 +21,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Depoimentos',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
