@@ -126,7 +126,7 @@
                                                     </div>
                                                     <div class="col-3">
                                                         <div class="form-check mt-1">
-                                                            <input type="checkbox" name="{{str_replace('column', 'required', $key)}}" class="form-check-input inputSetRequired" id="invalidCheck" value="1" {{$value->required?'checked':''}}>
+                                                            <input type="checkbox" name="{{str_replace('column', 'required', $key)}}" class="form-check-input inputSetRequired" id="invalidCheck" value="1" {{isset($value->required)?($value->required?'checked':''):''}}>
                                                             <label for="invalidCheck" class="form-label">Obrigatório?</label>
                                                         </div>
                                                     </div>

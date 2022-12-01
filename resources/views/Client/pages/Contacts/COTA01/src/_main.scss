@@ -176,10 +176,12 @@
 
     &__topics-form{
         padding-left: 130px;
+        flex-direction: column;
 
         @include small-down{
             padding-left: 0;
             justify-content: center;
+            flex-direction: row;
             margin-top: 0;
             margin-bottom: 60px;
         }
@@ -187,6 +189,7 @@
         @include medium-only{
             padding-left: 0;
             justify-content: center;
+            flex-direction: row;
             margin-top: 0;
             margin-bottom: 60px;
         }

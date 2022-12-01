@@ -59,15 +59,20 @@ class COTA01Controller extends Controller
             if($arrayName[0] == 'column'){
                 $type = end($arrayName);
                 $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
                 $option = '';
                 if(isset($data[$inputOption])){
                     $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
                 }
                 $pushArray = [
                     $name => [
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
+                        'required' => $required,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -158,6 +163,7 @@ class COTA01Controller extends Controller
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
             }
         }
+
         if(count($arrayInputs)){
             $jsonInputs = json_encode($arrayInputs);
             $data['inputs_form'] = $jsonInputs;

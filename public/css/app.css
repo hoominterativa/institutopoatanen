@@ -756,11 +756,13 @@ a {
 }
 .cota01-show__topics-form {
   padding-left: 130px;
+  flex-direction: column;
 }
 @media (max-width: 800px) {
   .cota01-show__topics-form {
     padding-left: 0;
     justify-content: center;
+    flex-direction: row;
     margin-top: 0;
     margin-bottom: 60px;
   }
@@ -769,6 +771,7 @@ a {
   .cota01-show__topics-form {
     padding-left: 0;
     justify-content: center;
+    flex-direction: row;
     margin-top: 0;
     margin-bottom: 60px;
   }

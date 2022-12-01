@@ -336,6 +336,8 @@ $(function() {
     function changePushState(elem){
         const tab = elem.attr('href'),
             url = `?tab=${tab}`;
+
+        localStorage.setItem('tab', tab)
         window.history.pushState({}, tab, url);
     }
 
@@ -344,6 +346,19 @@ $(function() {
     });
 
     $(window).on('load', function(){
+        if(localStorage.getItem('tab')){
+            var hash = localStorage.getItem('tab')
+            if($(`[data-bs-toggle=tab][href=\\${hash}]`).length){
+                $(`[data-bs-toggle=tab]`).removeClass('active')
+                $(`[data-bs-toggle=tab][href=\\${hash}]`).addClass('active')
+
+                $('.tab-pane').removeClass('active').removeClass('show')
+                $(`${hash}`).addClass('active').addClass('show')
+            }
+
+            localStorage.removeItem('tab')
+        }
+
         if($('[data-bs-toggle=tab].active').length){
             changePushState($('[data-bs-toggle=tab].active'))
         }
@@ -356,5 +371,7 @@ $(function() {
 
         $('.tab-pane').removeClass('active').removeClass('show')
         $(`#${hash}`).addClass('active').addClass('show')
+
+        localStorage.setItem('tab', `#${hash}`)
     });
 })

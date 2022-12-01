@@ -38,7 +38,7 @@
                                                 'options' => $input->option,
                                                 'placeholder' => $input->placeholder,
                                                 'type' => $input->type,
-                                                'required' => $input->required
+                                                'required' => isset($input->required)?$input->required:false
                                             ])
                                         </div>
                                     @endforeach
