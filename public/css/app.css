@@ -571,8 +571,51 @@ a {
 .feed03 .container--feed03 {
   padding: 159px 0 69px 0;
 }
-.feed03__line {
+.feed03__header {
   width: 100%;
-  background-color: #404040;
-  margin: 30px 0;
+  border-bottom: 1px solid #CACACA;
+  padding-bottom: 45.99px;
+  margin-bottom: 80px;
+}
+.feed03__header__image {
+  width: 74px;
+  height: 74px;
+  margin-right: 28px;
+}
+.feed03__header__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.feed03__header__texto__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #7C7C7C;
+}
+.feed03__header__texto__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+.feed03__content__item__top__image {
+  width: 55px;
+  height: 55px;
+}
+.feed03__content__item__top__titulo {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  margin-left: 5px;
+}
+.feed03__content__item__description {
+  margin-top: 29px;
+}
+.feed03__content__item__description p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
 }
