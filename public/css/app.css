@@ -568,3 +568,11 @@ a {
 }
 
 /* BEGIN STYLE */
+.feed03 .container--feed03 {
+  padding: 159px 0 69px 0;
+}
+.feed03__line {
+  width: 100%;
+  background-color: #404040;
+  margin: 30px 0;
+}
