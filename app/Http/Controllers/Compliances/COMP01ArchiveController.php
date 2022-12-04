@@ -35,6 +35,7 @@ class COMP01ArchiveController extends Controller
             Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar arquivo');
         }
+        Session::flash('reopenModal', ['modal-archive-create-'.$request->section_id, 'modal-section-update-'.$request->section_id]);
         return redirect()->back();
     }
 
@@ -67,6 +68,7 @@ class COMP01ArchiveController extends Controller
             Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar arquivo');
         }
+        Session::flash('reopenModal', ['modal-archive-create', 'modal-section-update-'.$request->section_id]);
         return redirect()->back();
     }
 
@@ -79,6 +81,7 @@ class COMP01ArchiveController extends Controller
     public function destroy(COMP01CompliancesArchive $COMP01CompliancesArchive)
     {
         storageDelete($COMP01CompliancesArchive, 'path_archive');
+        Session::flash('reopenModal', ['modal-archive-create-'.$COMP01CompliancesArchive->section_id, 'modal-section-update-'.$COMP01CompliancesArchive->section_id]);
         if($COMP01CompliancesArchive->delete()){
             Session::flash('success', 'Arquivo deletado com sucessso');
             return redirect()->back();
@@ -98,7 +101,9 @@ class COMP01ArchiveController extends Controller
             storageDelete($COMP01CompliancesArchive, 'path_archive');
         }
 
-        if($deleted = COMP01CompliancesArchive::whereIn('id', $request->deleteAll)->delete()){
+        Session::flash('reopenModal', ['modal-archive-create-'.$COMP01CompliancesArchives[0]->section_id, 'modal-section-update-'.$COMP01CompliancesArchives[0]->section_id]);
+
+       if($deleted = COMP01CompliancesArchive::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }

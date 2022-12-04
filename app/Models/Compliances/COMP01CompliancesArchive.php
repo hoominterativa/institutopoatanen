@@ -11,8 +11,10 @@ class COMP01CompliancesArchive extends Model
 
     protected $table = "comp01_compliances_archives";
     protected $fillable = [
-        "compliance_id",
+        "section_id",
         "title",
+        "link",
+        "link_target",
         "path_archive",
         "sorting",
     ];

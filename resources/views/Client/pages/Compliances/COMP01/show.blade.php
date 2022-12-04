@@ -13,29 +13,37 @@
                 </header>
 
                 <div class="container">
-                    <div class="comp01-page__content">
-                        <div class="">
-                            <img src="{{asset('storage/'.$compliance->path_image_icon)}}" width="36" alt="{{$compliance->title}} {{$compliance->subtitle}}" class="comp01-page__content__icon">
-                            <h2 class="comp01-page__content__container">
-                                <span class="comp01-page__content__subtitle">{{$compliance->subtitle}}</span>
-                                <span class="comp01-page__content__title">{{$compliance->title}}</span>
-                            </h2>
+                    @foreach ($sections as $section)
+                        <div class="comp01-page__content">
+                            <div class="">
+                                @if ($section->path_image_icon)
+                                    <img src="{{asset('storage/'.$section->path_image_icon)}}" width="36" alt="{{$section->title}} {{$section->subtitle}}" class="comp01-page__content__icon">
+                                @endif
+                                <h2 class="comp01-page__content__container">
+                                    <span class="comp01-page__content__subtitle">{{$section->subtitle}}</span>
+                                    <span class="comp01-page__content__title">{{$section->title}}</span>
+                                </h2>
+                            </div>
+                            <hr class="comp01-page__content__line">
+                            <div class="comp01-page__content__paragraph ck-content">
+                                {!!$section->text!!}
+                            </div>
+                            @if ($section->archives->count())
+                                <nav class="comp01-page__archives d-flex align-items-center">
+                                    @foreach ($section->archives as $archive)
+                                        @if ($archive->path_archive)
+                                            <a href="{{asset('storage/'.$archive->path_archive)}}" download="" class="comp01-page__archives__item d-flex align-items-center">
+                                        @else
+                                            <a href="{{$archive->link}}" target="{{$archive->link_target}}" class="comp01-page__archives__item d-flex align-items-center">
+                                        @endif
+                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="36" alt="{{$archive->title}}" class="comp01__archives__item__icon">
+                                            <span class="ms-3">{{$archive->title}}</span>
+                                        </a>
+                                    @endforeach
+                                </nav>
+                            @endif
                         </div>
-                        <hr class="comp01-page__content__line">
-                        <div class="comp01-page__content__paragraph ck-content">
-                            {!!$compliance->text!!}
-                        </div>
-                        @if ($archives->count())
-                            <nav class="comp01-page__archives d-flex align-items-center">
-                                @foreach ($archives as $archive)
-                                    <a href="{{asset('storage/'.$archive->path_archive)}}" class="comp01-page__archives__item d-flex align-items-center">
-                                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="36" alt="{{$archive->title}}" class="comp01__archives__item__icon">
-                                        <span class="ms-3">{{$archive->title}}</span>
-                                    </a>
-                                @endforeach
-                            </nav>
-                        @endif
-                    </div>
+                    @endforeach
                 </div>
             </section>
             {{-- END .comp01-page__content --}}

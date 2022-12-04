@@ -534,13 +534,25 @@
         @endif
 
         @if (Session::has('reopenModal'))
-            <script>
-                var modal = document.getElementById('{{Session::get("reopenModal")}}')
-                var myModal = new bootstrap.Modal(modal, {
-                    keyboard: false
-                })
-                myModal.show(modal)
-            </script>
+            @if (is_array(Session::get('reopenModal')))
+                @foreach (Session::get('reopenModal') as $modal)
+                    <script>
+                        var modal = document.getElementById('{{$modal}}')
+                        var myModal = new bootstrap.Modal(modal, {
+                            keyboard: false
+                        })
+                        myModal.show(modal)
+                    </script>
+                @endforeach
+            @else
+                <script>
+                    var modal = document.getElementById('{{Session::get("reopenModal")}}')
+                    var myModal = new bootstrap.Modal(modal, {
+                        keyboard: false
+                    })
+                    myModal.show(modal)
+                </script>
+            @endif
         @endif
         <script>
             $.each($('.modal'), function(i, value){

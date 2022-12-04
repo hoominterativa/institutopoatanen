@@ -28,12 +28,9 @@ class COMP01CompliancesFactory extends Factory
             "slug" => Str::slug($titlePage),
             "title_banner" => $this->faker->text(25),
             "path_image_banner" => 'uploads/tmp/bg-banner-inner.jpg',
-            "title" => $this->faker->text(15),
-            "subtitle" => $this->faker->text(15),
-            "path_image_icon" => 'uploads/tmp/icon-general.svg',
-            "text" => $this->faker->text(2000),
             "active" => 1,
             "show_footer" => 1,
+            "show_header" => 1,
         ];
     }
 }

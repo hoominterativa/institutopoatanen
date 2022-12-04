@@ -37,7 +37,7 @@ class COTA01Controller extends Controller
      */
     public function create()
     {
-        $compliances = getCompliance(null, 'id', 'title');
+        $compliances = getCompliance(null, 'id', 'title_page');
         return view('Admin.cruds.Contacts.COTA01.create',[
             'compliances' => $compliances,
         ]);
@@ -115,7 +115,7 @@ class COTA01Controller extends Controller
         $sectionTopics = COTA01ContactsTopic::sorting()->get();
 
         $configForm = json_decode($COTA01Contacts->inputs_form);
-        $compliances = getCompliance(null, 'id', 'title');
+        $compliances = getCompliance(null, 'id', 'title_page');
 
         return view('Admin.cruds.Contacts.COTA01.edit',[
             'contact' => $COTA01Contacts,

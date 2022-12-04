@@ -1,33 +1,46 @@
 
 <div class="row col-12">
-    <div class="col-12">
+    <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="col-12 col-lg-6">
-                    <div class="mb-3">
-                        <div class="d-flex align-items-center mb-1">
-                            {!! Form::label('title_page', 'Título da página', ['class'=>'form-label mb-0']) !!}
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Título que será exibido nos links de compliances do site"></i>
-                        </div>
-                        {!! Form::text('title_page', null, ['class'=>'form-control', 'id'=>'title_page', 'required'=>'required']) !!}
-                    </div>
+            <div class="d-flex align-items-center mb-3">
+                <h4>Infomações da página</h4>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex align-items-center mb-1">
+                    {!! Form::label('title_page', 'Título da página', ['class'=>'form-label mb-0']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Título que será exibido nos links de compliances do site"></i>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <div class="d-flex align-items-center h-100 pt-4">
-                        <div class="mb-3 form-check me-3">
-                            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                            {!! Form::label('active', 'Ativar exibição da página', ['class'=>'form-check-label']) !!}
-                        </div>
-                        <div class="mb-3 form-check me-3">
-                            {!! Form::checkbox('show_footer', '1', null, ['class'=>'form-check-input', 'id'=>'show_footer']) !!}
-                            {!! Form::label('show_footer', 'Ativar exibição no Rodapé do site', ['class'=>'form-check-label']) !!}
-                        </div>
-                    </div>
+                {!! Form::text('title_page', null, ['class'=>'form-control', 'id'=>'title_page', 'required'=>'required']) !!}
+            </div>
+            <div class="mb-2 form-check d-flex align-items-center">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input me-1', 'id'=>'active']) !!}
+                <div class="d-flex align-items-center">
+                    {!! Form::label('active', 'Ativar exibição da página', ['class'=>'form-check-label mb-0']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Não selecionar esta opção desativará a exibição da página no site"></i>
                 </div>
             </div>
-
+            <div class="mb-2 form-check d-flex align-items-center">
+                {!! Form::checkbox('show_header', '1', null, ['class'=>'form-check-input me-1', 'id'=>'show_header']) !!}
+                <div class="d-flex align-items-center">
+                    {!! Form::label('show_header', 'Ativar exibição no Topo do site', ['class'=>'form-check-label mb-0']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Selecionar esta opção ativará a exibição de um link no menu do topo e sidebar no site."></i>
+                </div>
+            </div>
+            <div class="form-check d-flex align-items-center">
+                {!! Form::checkbox('show_footer', '1', null, ['class'=>'form-check-input me-1', 'id'=>'show_footer']) !!}
+                <div class="d-flex align-items-center">
+                    {!! Form::label('show_footer', 'Ativar exibição no Rodapé do site', ['class'=>'form-check-label mb-0']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Selecionar esta opção ativará a exibição de um link no menu do rdapé no site."></i>
+                </div>
+            </div>
         </div>
         {{-- end card-body --}}
     </div>
@@ -53,44 +66,6 @@
                     'accept'=>'image/*',
                     'data-default-file'=> isset($compliance)?($compliance->path_image_banner<>''?url('storage/'.$compliance->path_image_banner):''):'',
                 ]) !!}
-            </div>
-        </div>
-        {{-- end card-body --}}
-    </div>
-    <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
-            <div class="d-flex align-items-center mb-3">
-                <h4>Infomações da seção</h4>
-                <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-original-title="Título, Subtítulo e ícone que aparece abaixo do banner."></i>
-            </div>
-            <div class="row">
-                <div class="mb-3 col-lg-6">
-                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
-                </div>
-                <div class="mb-3 col-lg-6">
-                    {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
-                </div>
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 400x400px</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_icon', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-min-width'=>'300',
-                            'data-min-height'=>'300',
-                            'data-box-height'=>'200',
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($compliance)?($compliance->path_image_icon<>''?url('storage/'.$compliance->path_image_icon):''):'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
             </div>
         </div>
         {{-- end card-body --}}

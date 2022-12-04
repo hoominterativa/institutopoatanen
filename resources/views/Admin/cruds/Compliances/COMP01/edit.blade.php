@@ -26,15 +26,15 @@
                             Informações da Página
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações gerais da página"></i>
+                                data-bs-original-title="Informações como título e banner da página"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#listArchives" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                            Arquivos <small>(opcional)</small>
+                        <a href="#sectionsPage" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                            Seções da Página
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de arquivos para a página"></i>
+                                data-bs-original-title="Conteúdo que será exibido como seções na págima"></i>
                         </a>
                     </li>
                 </ul>
@@ -47,10 +47,10 @@
                         {!! Form::close() !!}
                     </div>
                     {{-- END #infoPage --}}
-                    <div class="tab-pane" id="listArchives">
-                        @include('Admin.cruds.Compliances.COMP01.Archives.index',[
+                    <div class="tab-pane" id="sectionsPage">
+                        @include('Admin.cruds.Compliances.COMP01.Sections.index',[
                             'compliance' => $compliance,
-                            'archives' => $archives
+                            'sections' => $sections
                         ])
                     </div>
                     {{-- END #listArchives --}}

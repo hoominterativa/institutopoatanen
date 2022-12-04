@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComp01CompliancesTable extends Migration
+class CreateComp01CompliancesSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateComp01CompliancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('comp01_compliances', function (Blueprint $table) {
+        Schema::create('comp01_compliances_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title_page')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('title_banner')->nullable();
-            $table->string('path_image_banner')->nullable();
+            $table->foreignId('compliance_id')->constrained('comp01_compliances')->onDelete('cascade');
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('path_image_icon')->nullable();
+            $table->longText('text')->nullable();
             $table->integer('active')->default(0);
-            $table->integer('show_header')->default(0);
-            $table->integer('show_footer')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
@@ -34,6 +33,6 @@ class CreateComp01CompliancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comp01_compliances');
+        Schema::dropIfExists('comp01_compliances_sections');
     }
 }

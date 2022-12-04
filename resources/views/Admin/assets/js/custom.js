@@ -37,7 +37,7 @@ $(function() {
         }
     });
 
-    $('#btSubmitDelete').on('click', function() {
+    $('body').on('click', '#btSubmitDelete', function() {
         var $this = $(this),
             val = []
 
@@ -68,7 +68,7 @@ $(function() {
                             case 'success':
                                 Swal.fire({ title: "Deletado!", text: response.message, icon: "success", showConfirmButton: false })
                                 setTimeout(() => {
-                                    window.location.href = window.location.href
+                                    window.location.reload()
                                 }, 1000);
                                 break;
                             default:
