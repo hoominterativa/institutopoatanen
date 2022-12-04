@@ -21,6 +21,11 @@ class CreateCota01ContactsTable extends Migration
 
             $table->integer('compliance_id')->nullable();
 
+            $table->string('title_newsletter')->nullable();
+            $table->string('subtitle_newsletter')->nullable();
+            $table->text('text_newsletter')->nullable();
+            $table->string('path_image_newsletter')->nullable();
+
             $table->string('title_banner')->nullable();
             $table->text('description_banner')->nullable();
             $table->string('path_image_banner')->nullable();

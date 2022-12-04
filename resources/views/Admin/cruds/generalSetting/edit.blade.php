@@ -122,6 +122,7 @@
                                                                                         'mdi-youtube-gaming' => 'Youtube Gaming',
                                                                                         'mdi-instagram' => 'Instagram',
                                                                                         'mdi-linkedin' => 'Linkedin',
+                                                                                        'mdi-twitter' => 'Twitter',
                                                                                     ], null, [
                                                                                         'class'=>'form-select',
                                                                                         'id'=>'heard',

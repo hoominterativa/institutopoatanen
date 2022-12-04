@@ -11683,16 +11683,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var autonumeric_dist_autoNumeric_min_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(autonumeric_dist_autoNumeric_min_js__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var bootstrap_js_dist_dropdown_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap/js/dist/dropdown.js */ "./node_modules/bootstrap/js/dist/dropdown.js");
 /* harmony import */ var bootstrap_js_dist_dropdown_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_dropdown_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-validation.init.js */ "./resources/views/Admin/assets/js/pages/form-validation.init.js");
-/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-masks.init.js */ "./resources/views/Admin/assets/js/pages/form-masks.init.js");
-/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var jquery_toast_plugin_dist_jquery_toast_min_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! jquery-toast-plugin/dist/jquery.toast.min.js */ "./node_modules/jquery-toast-plugin/dist/jquery.toast.min.js");
+/* harmony import */ var jquery_toast_plugin_dist_jquery_toast_min_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(jquery_toast_plugin_dist_jquery_toast_min_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-validation.init.js */ "./resources/views/Admin/assets/js/pages/form-validation.init.js");
+/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-masks.init.js */ "./resources/views/Admin/assets/js/pages/form-masks.init.js");
+/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../views/Client/assets/js/ajax */ "./resources/views/Client/assets/js/ajax.js");
+/* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_13__);
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
+
+
 
 
 
@@ -11752,6 +11758,72 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/assets/js/ajax.js":
+/*!**************************************************!*\
+  !*** ./resources/views/Client/assets/js/ajax.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.send_form_ajax').on('submit', function (event) {
+    event.preventDefault();
+    var formData = new FormData($(this)[0]),
+        action = $(this).attr('action');
+    $.ajax({
+      type: 'POST',
+      url: action,
+      data: formData,
+      processData: false,
+      contentType: false,
+      beforeSend: function beforeSend(data) {
+        $.toast().reset('all');
+        $.toast({
+          heading: 'Enviando',
+          text: 'Estamos enviando as informações do formulário, por favor aguarde!',
+          hideAfter: false,
+          icon: 'info',
+          loaderBg: '#9EC600'
+        });
+      },
+      success: function success(data) {
+        if (data.status == 'success') {
+          $.toast().reset('all');
+          $toastInstance = $.toast({
+            heading: 'Enviado com Sucesso',
+            text: 'As informações foram enviadas com sucesso!',
+            icon: 'success',
+            loaderBg: '#9EC600',
+            beforeHide: function beforeHide() {
+              console.log('Toast is about to hide.');
+              window.location.href = data.redirect;
+            }
+          });
+        } else {
+          $.toast().reset('all');
+          $.toast({
+            heading: 'Enviando',
+            text: 'Erro ao enviar informações, tente novamente em alguns instantes.',
+            hideAfter: false,
+            icon: 'error'
+          });
+        }
+      },
+      error: function error() {
+        $.toast().reset('all');
+        $.toast({
+          heading: 'Enviando',
+          text: 'Erro ao enviar informações, tente novamente em alguns instantes.',
+          hideAfter: false,
+          icon: 'error'
+        });
+      }
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/views/Client/assets/js/base.js":
 /*!**************************************************!*\
   !*** ./resources/views/Client/assets/js/base.js ***!
@@ -11762,8 +11834,11 @@ $(document).ready(function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD02/src/main */ "./resources/views/Client/Core/Headers/HEAD02/src/main.js");
 /* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/Contacts/COTA01/src/main */ "./resources/views/Client/pages/Contacts/COTA01/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -11848,81 +11923,76 @@ $(function () {
         name = that.attr('name'),
         typeElem = that[0].localName;
 
-    if (typeElem == 'select') {
-      placeholder = that.find('option').first().text();
-      that.find('option').first().text('');
-    }
-
-    that.parent().append("\n            <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
-    that.parent().find('.form-placeholder').append(that);
-    that.removeAttr('placeholder');
-    that.attr('id', name);
-    var formPlaceholder = that.parent(),
-        placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-        thisPadding = that.css('padding'),
-        thisHeight = that.css('height'),
-        thisWidth = that.css('width'),
-        thisFont = that.css('font'),
-        thisFontSize = that.css('font-size'),
-        thisLineHeight = that.css('line-height');
-    that.css('height', thisHeight);
-    formPlaceholder.css({
-      'position': 'relative'
-    });
-    placeholderCustom.css({
-      'position': 'absolute',
-      'left': '0',
-      'top': '0',
-      'line-height': thisLineHeight,
-      'padding': thisPadding,
-      'width': thisWidth,
-      'height': thisHeight,
-      'font': thisFont
-    });
-
-    function focusInput(elem) {
-      elem.css('height', 'auto');
-      elem.stop().animate({
-        'padding': '1px 7px;',
-        'font-size': '11px',
-        'line-height': '18px'
-      }, 'fast', function () {
-        var newHeightPlaceholder = elem.css('height');
-        that.css({
-          'padding-top': newHeightPlaceholder,
-          'padding-bottom': '3px'
+    if (placeholder) {
+      var focusInput = function focusInput(elem) {
+        elem.css('height', 'auto');
+        elem.stop().animate({
+          'padding': '1px 7px;',
+          'font-size': '11px',
+          'line-height': '18px'
+        }, 'fast', function () {
+          var newHeightPlaceholder = elem.css('height');
+          that.css({
+            'padding-top': newHeightPlaceholder,
+            'padding-bottom': '3px'
+          });
         });
+      };
+
+      if (typeElem == 'select') {
+        placeholder = that.find('option').first().text();
+        that.find('option').first().text('');
+      }
+
+      that.parent().append("\n                <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n            "));
+      that.parent().find('.form-placeholder').append(that);
+      that.removeAttr('placeholder');
+      that.attr('id', name);
+      var formPlaceholder = that.parent(),
+          placeholderCustom = formPlaceholder.find('.placeholder--custom'),
+          thisPadding = that.css('padding'),
+          thisHeight = that.css('height'),
+          thisWidth = that.css('width'),
+          thisFont = that.css('font'),
+          thisFontSize = that.css('font-size'),
+          thisLineHeight = that.css('line-height');
+      that.css('height', thisHeight);
+      formPlaceholder.css({
+        'position': 'relative'
+      });
+      placeholderCustom.css({
+        'position': 'absolute',
+        'left': '0',
+        'top': '0',
+        'line-height': thisLineHeight,
+        'padding': thisPadding,
+        'width': thisWidth,
+        'height': thisHeight,
+        'font': thisFont
+      });
+      placeholderCustom.on('click', function () {
+        that.trigger('focus');
+      });
+      that.on('focus', function () {
+        focusInput(placeholderCustom);
+      });
+      that.on('focusout', function () {
+        if ($(this).val() == '') {
+          placeholderCustom.css({
+            'padding': thisPadding,
+            'width': thisWidth,
+            'height': thisHeight,
+            'font-size': thisFontSize,
+            'line-height': 'inherit'
+          }, 'fast');
+        }
       });
     }
-
-    placeholderCustom.on('click', function () {
-      that.trigger('focus');
-    });
-    that.on('focus', function () {
-      focusInput(placeholderCustom);
-    });
-    that.on('focusout', function () {
-      if ($(this).val() == '') {
-        placeholderCustom.css({
-          'padding': thisPadding,
-          'width': thisWidth,
-          'height': thisHeight,
-          'font-size': thisFontSize,
-          'line-height': 'inherit'
-        }, 'fast');
-      }
-    });
   });
   $('form select').each(function (elem) {
     var that = $(this),
-        placeholder = that.attr('placeholder'),
-        name = that.attr('name'),
-        typeElem = that[0].localName;
-
-    if (typeElem == 'select') {
-      placeholder = that.find('option').first().text();
-    }
-
+        placeholder = that.find('option').first().text(),
+        name = that.attr('name');
     that.parent().append("\n            <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
     that.parent().find('.form-placeholder').append(that);
     that.removeAttr('placeholder');
@@ -11995,6 +12065,16 @@ $(function () {
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
   \*********************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contacts/COTA01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contacts/COTA01/src/main.js ***!
+  \******************************************************************/
 /***/ (() => {
 
 
@@ -13630,6 +13710,17 @@ b.attr("data-mask-reverse")&&(d.reverse=!0);b.attr("data-mask-clearifnotmatch")&
 delete a.maskWatchers[this.selector];return this.each(function(){var b=a(this).data("mask");b&&b.remove().removeData("mask")})};a.fn.cleanVal=function(){return this.data("mask").getCleanVal()};a.applyDataMask=function(b){b=b||a.jMaskGlobals.maskElements;(b instanceof a?b:a(b)).filter(a.jMaskGlobals.dataMaskAttr).each(f)};k={maskElements:"input,td,span,div",dataMaskAttr:"*[data-mask]",dataMask:!0,watchInterval:300,watchInputs:!0,keyStrokeCompensation:10,useInput:!/Chrome\/[2-4][0-9]|SamsungBrowser/.test(window.navigator.userAgent)&&
 k("input"),watchDataMask:!1,byPassKeys:[9,16,17,18,36,37,38,39,40,91],translation:{0:{pattern:/\d/},9:{pattern:/\d/,optional:!0},"#":{pattern:/\d/,recursive:!0},A:{pattern:/[a-zA-Z0-9]/},S:{pattern:/[a-zA-Z]/}}};a.jMaskGlobals=a.jMaskGlobals||{};k=a.jMaskGlobals=a.extend(!0,{},k,a.jMaskGlobals);k.dataMask&&a.applyDataMask();setInterval(function(){a.jMaskGlobals.watchDataMask&&a.applyDataMask()},k.watchInterval)},__webpack_provided_window_dot_jQuery,window.Zepto);
 
+
+/***/ }),
+
+/***/ "./node_modules/jquery-toast-plugin/dist/jquery.toast.min.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/jquery-toast-plugin/dist/jquery.toast.min.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+"function"!=typeof Object.create&&(Object.create=function(t){function o(){}return o.prototype=t,new o}),function(t,o,i,s){"use strict";var n={_positionClasses:["bottom-left","bottom-right","top-right","top-left","bottom-center","top-center","mid-center"],_defaultIcons:["success","error","info","warning"],init:function(o,i){this.prepareOptions(o,t.toast.options),this.process()},prepareOptions:function(o,i){var s={};"string"==typeof o||o instanceof Array?s.text=o:s=o,this.options=t.extend({},i,s)},process:function(){this.setup(),this.addToDom(),this.position(),this.bindToast(),this.animate()},setup:function(){var o="";if(this._toastEl=this._toastEl||t("<div></div>",{"class":"jq-toast-single"}),o+='<span class="jq-toast-loader"></span>',this.options.allowToastClose&&(o+='<span class="close-jq-toast-single">&times;</span>'),this.options.text instanceof Array){this.options.heading&&(o+='<h2 class="jq-toast-heading">'+this.options.heading+"</h2>"),o+='<ul class="jq-toast-ul">';for(var i=0;i<this.options.text.length;i++)o+='<li class="jq-toast-li" id="jq-toast-item-'+i+'">'+this.options.text[i]+"</li>";o+="</ul>"}else this.options.heading&&(o+='<h2 class="jq-toast-heading">'+this.options.heading+"</h2>"),o+=this.options.text;this._toastEl.html(o),this.options.bgColor!==!1&&this._toastEl.css("background-color",this.options.bgColor),this.options.textColor!==!1&&this._toastEl.css("color",this.options.textColor),this.options.textAlign&&this._toastEl.css("text-align",this.options.textAlign),this.options.icon!==!1&&(this._toastEl.addClass("jq-has-icon"),-1!==t.inArray(this.options.icon,this._defaultIcons)&&this._toastEl.addClass("jq-icon-"+this.options.icon)),this.options["class"]!==!1&&this._toastEl.addClass(this.options["class"])},position:function(){"string"==typeof this.options.position&&-1!==t.inArray(this.options.position,this._positionClasses)?"bottom-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,bottom:20}):"top-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,top:20}):"mid-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,top:t(o).outerHeight()/2-this._container.outerHeight()/2}):this._container.addClass(this.options.position):"object"==typeof this.options.position?this._container.css({top:this.options.position.top?this.options.position.top:"auto",bottom:this.options.position.bottom?this.options.position.bottom:"auto",left:this.options.position.left?this.options.position.left:"auto",right:this.options.position.right?this.options.position.right:"auto"}):this._container.addClass("bottom-left")},bindToast:function(){var t=this;this._toastEl.on("afterShown",function(){t.processLoader()}),this._toastEl.find(".close-jq-toast-single").on("click",function(o){o.preventDefault(),"fade"===t.options.showHideTransition?(t._toastEl.trigger("beforeHide"),t._toastEl.fadeOut(function(){t._toastEl.trigger("afterHidden")})):"slide"===t.options.showHideTransition?(t._toastEl.trigger("beforeHide"),t._toastEl.slideUp(function(){t._toastEl.trigger("afterHidden")})):(t._toastEl.trigger("beforeHide"),t._toastEl.hide(function(){t._toastEl.trigger("afterHidden")}))}),"function"==typeof this.options.beforeShow&&this._toastEl.on("beforeShow",function(){t.options.beforeShow()}),"function"==typeof this.options.afterShown&&this._toastEl.on("afterShown",function(){t.options.afterShown()}),"function"==typeof this.options.beforeHide&&this._toastEl.on("beforeHide",function(){t.options.beforeHide()}),"function"==typeof this.options.afterHidden&&this._toastEl.on("afterHidden",function(){t.options.afterHidden()})},addToDom:function(){var o=t(".jq-toast-wrap");if(0===o.length?(o=t("<div></div>",{"class":"jq-toast-wrap"}),t("body").append(o)):(!this.options.stack||isNaN(parseInt(this.options.stack,10)))&&o.empty(),o.find(".jq-toast-single:hidden").remove(),o.append(this._toastEl),this.options.stack&&!isNaN(parseInt(this.options.stack),10)){var i=o.find(".jq-toast-single").length,s=i-this.options.stack;s>0&&t(".jq-toast-wrap").find(".jq-toast-single").slice(0,s).remove()}this._container=o},canAutoHide:function(){return this.options.hideAfter!==!1&&!isNaN(parseInt(this.options.hideAfter,10))},processLoader:function(){if(!this.canAutoHide()||this.options.loader===!1)return!1;var t=this._toastEl.find(".jq-toast-loader"),o=(this.options.hideAfter-400)/1e3+"s",i=this.options.loaderBg,s=t.attr("style")||"";s=s.substring(0,s.indexOf("-webkit-transition")),s+="-webkit-transition: width "+o+" ease-in;                       -o-transition: width "+o+" ease-in;                       transition: width "+o+" ease-in;                       background-color: "+i+";",t.attr("style",s).addClass("jq-toast-loaded")},animate:function(){var t=this;if(this._toastEl.hide(),this._toastEl.trigger("beforeShow"),"fade"===this.options.showHideTransition.toLowerCase()?this._toastEl.fadeIn(function(){t._toastEl.trigger("afterShown")}):"slide"===this.options.showHideTransition.toLowerCase()?this._toastEl.slideDown(function(){t._toastEl.trigger("afterShown")}):this._toastEl.show(function(){t._toastEl.trigger("afterShown")}),this.canAutoHide()){var t=this;o.setTimeout(function(){"fade"===t.options.showHideTransition.toLowerCase()?(t._toastEl.trigger("beforeHide"),t._toastEl.fadeOut(function(){t._toastEl.trigger("afterHidden")})):"slide"===t.options.showHideTransition.toLowerCase()?(t._toastEl.trigger("beforeHide"),t._toastEl.slideUp(function(){t._toastEl.trigger("afterHidden")})):(t._toastEl.trigger("beforeHide"),t._toastEl.hide(function(){t._toastEl.trigger("afterHidden")}))},this.options.hideAfter)}},reset:function(o){"all"===o?t(".jq-toast-wrap").remove():this._toastEl.remove()},update:function(t){this.prepareOptions(t,this.options),this.setup(),this.bindToast()}};t.toast=function(t){var o=Object.create(n);return o.init(t,this),{reset:function(t){o.reset(t)},update:function(t){o.update(t)}}},t.toast.options={text:"",heading:"",showHideTransition:"fade",allowToastClose:!0,hideAfter:3e3,loader:!0,loaderBg:"#9EC600",stack:5,position:"bottom-left",bgColor:!1,textColor:!1,textAlign:"left",icon:!1,beforeShow:function(){},afterShown:function(){},beforeHide:function(){},afterHidden:function(){}}}(jQuery,window,document);
 
 /***/ }),
 

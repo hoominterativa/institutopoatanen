@@ -120,11 +120,24 @@
             margin-top: 55px;
 
             &__input{
-                input, select, textarea{
+                input:not(input[type=checkbox], input[type=radio]), select, textarea{
                     border-color: transparent;
                     border-radius: 0;
                     padding: 10px 10px;
+
                     &:focus{
+                        border-color: $color-black;
+                        background-color: $color-white;
+                        box-shadow: 0 0 0 0.25rem #d0d0d0;
+                    }
+                }
+
+                .form__file__item{
+                    border-color: transparent;
+                    border-radius: 0;
+                    padding: 10px 10px;
+
+                    &:hover{
                         border-color: $color-black;
                         background-color: $color-white;
                         box-shadow: 0 0 0 0.25rem #d0d0d0;

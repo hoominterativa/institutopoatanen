@@ -156,6 +156,7 @@
                                             'checkbox' => 'Multiplas escolhas',
                                             'radio' => 'Escolha única (Um ou outro)',
                                             'date' => 'Calendário',
+                                            'file' => 'Arquivos (Anexo)',
                                         ], $value->type, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
                                     </div>
                                     <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>
@@ -205,6 +206,7 @@
                                         'checkbox' => 'Multiplas escolhas',
                                         'radio' => 'Escolha única (Um ou outro)',
                                         'date' => 'Calendário',
+                                        'file' => 'Arquivos (Anexo)',
                                     ], null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
                                 </div>
                                 <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>

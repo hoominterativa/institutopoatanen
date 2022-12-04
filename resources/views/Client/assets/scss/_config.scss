@@ -340,3 +340,27 @@ a{
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
 }
+
+.form__file input{
+    display: none;
+}
+.jq-toast-wrap {
+    width: 330px;
+}
+.jq-toast-single{
+    font-family: $font-paragraph;
+    font-size: 13px;
+    font-weight: $weight-400;
+    letter-spacing: 1px;
+}
+.jq-toast-single h2{
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: $weight-700;
+    letter-spacing: 1px;
+}
+.close-jq-toast-single {
+    top: 7px;
+    right: 7px;
+    font-size: 29px;
+}

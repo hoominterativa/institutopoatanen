@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Contacts;
 
-use App\Models\Contacts\COTA01Contacts;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Contacts\COTA01Contacts;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
+use Illuminate\Support\Facades\Response;
 use App\Models\Contacts\COTA01ContactsTopic;
+use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Contacts\COTA01ContactsTopicForm;
+use App\Http\Controllers\IncludeSectionsController;
 
 class COTA01Controller extends Controller
 {
@@ -36,9 +37,9 @@ class COTA01Controller extends Controller
      */
     public function create()
     {
-        $compliances = getCompliance();
+        $compliances = getCompliance(null, 'id', 'title');
         return view('Admin.cruds.Contacts.COTA01.create',[
-            'compliances' => $compliances
+            'compliances' => $compliances,
         ]);
     }
 
@@ -82,6 +83,8 @@ class COTA01Controller extends Controller
 
         $data['inputs_form'] = $jsonInputs;
         $data['active'] = $request->active?1:0;
+
+        $data['slug'] = Str::slug($request->title_page);
 
         $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
         if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
@@ -171,6 +174,8 @@ class COTA01Controller extends Controller
         if($request->active){
             $data['active'] = $request->active?1:0;
         }
+
+        $data['slug'] = Str::slug($request->title_page);
 
         $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
         if($path_image_banner){

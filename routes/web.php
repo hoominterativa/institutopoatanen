@@ -131,7 +131,9 @@ Route::prefix('painel')->group(function () {
         Route::post('social/sorting', [SocialController::class, 'sorting'])->name('admin.social.sorting');
 
         // LEAD CONTACT
-        Route::resource('contatos', ContactLeadController::class)->names('admin.contact')->parameters(['contato' => 'ContactLead']);
+        Route::resource('leads', ContactLeadController::class)->names('admin.contact')->parameters(['contato' => 'ContactLead']);
+        Route::post('leads/filtro', [ContactLeadController::class, 'filter'])->name('admin.contact.filter');
+        Route::post('leads/exportar-excel', [ContactLeadController::class, 'export'])->name('admin.contact.export');
 
         // LEAD NEWSLETTER
         Route::get('newsletter', [NewsletterLeadController::class, 'index'])->name('admin.newsletter.index');
@@ -177,6 +179,8 @@ Route::prefix('painel')->group(function () {
 
 Route::get('/home', [HomePageController::class ,'index'])->name('home');
 Route::get('/', function(){return redirect()->route('home');});
+Route::post('/leads/website', [ContactLeadController::class ,'store'])->name('lead.store');
+Route::get('/leads/confirmation', [ContactLeadController::class ,'confirmation'])->name('lead.confirmation');
 
 /**
  *
