@@ -3,8 +3,16 @@
 /* BEGIN STYLE */
 
 .feed03{
+    background-position: center;
+    background-size: cover;
+    background-repeat:no-repeat;
+
     .container--feed03{
         padding: 159px 0 69px 0;
+
+        @include small-down{
+            padding: 132px 0 42px 0;
+        }
     }
 
     &__header{
@@ -13,11 +21,21 @@
         padding-bottom:45.99px;
         margin-bottom: 80px;
 
+        @include small-down{
+            padding-bottom:35px;
+            margin-bottom: 59px;
+        }
+
         &__image{
             width:74px;
             height: 74px;
             margin-right: 28px;
 
+            @include small-down{
+                width:64px;
+                height: 64px;
+                margin-right: 24px;
+            }
             img{
               object-fit: cover;
             }
@@ -29,12 +47,20 @@
                 font-weight: $weight-700;
                 margin-bottom: 10px;
                 color:$color-two;
+
+                @include small-down{
+                    font-size: $T4-mobile;
+                }
             }
             &__title{
                 font-size: $T2;
                 font-family: $font-primary;
                 font-weight: $weight-700;
                 color:$color-one;
+
+                @include small-down{
+                    font-size: $T2-mobile;
+                }
             }
         }
     }
@@ -44,6 +70,11 @@
                 &__image{
                     width: 55px;
                     height: 55px;
+
+                    @include small-down{
+                        width: 50px;
+                        height: 50px;
+                    }
                 }
                 &__titulo{
                     font-size: $T4;
@@ -51,16 +82,28 @@
                     font-weight: $weight-700;
                     color:$color-black;
                     margin-left: 5px;
+
+                    @include small-down{
+                        font-size: $T4-mobile;
+                    }
                 }
             }
             &__description{
                 margin-top: 29px;
+
+                @include small-down{
+                    margin-top: 24px;
+                }
 
                 p{
                     font: $paragraph;
                     font-family: $font-primary;
                     font-weight: $weight-400;
                     color:$color-black;
+
+                    @include small-down{
+                        font: $paragraph-mobile;
+                    }
                 }
             }
         }
@@ -70,6 +113,10 @@
         justify-content: center;
         margin-top: 52px;
         gap: 0 27px;
+
+        @include small-down {
+            margin-top: 59px;
+        }
     }
 
     .carousel-feed03 .owl-nav .owl-prev{

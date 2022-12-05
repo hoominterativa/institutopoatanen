@@ -15,7 +15,7 @@
                     <div class="feed03__content__item__top__image">
                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="w-100 h-100" alt="Imagem Perfil">
                     </div>
-                    <h4 class="feed03__content__item__top__titulo">Nome do Usuário</h4>
+                    <h4 class="feed03__content__item__top__titulo mb-0">Nome do Usuário</h4>
                 </div>
                 <div class="feed03__content__item__description text-center">
                     <p>
@@ -29,7 +29,7 @@
                     <div class="feed03__content__item__top__image">
                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="w-100 h-100" alt="Imagem Perfil">
                     </div>
-                    <h4 class="feed03__content__item__top__titulo">Nome do Usuário</h4>
+                    <h4 class="feed03__content__item__top__titulo mb-0">Nome do Usuário</h4>
                 </div>
                 <div class="feed03__content__item__description text-center">
                     <p>
@@ -43,7 +43,7 @@
                     <div class="feed03__content__item__top__image">
                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="w-100 h-100" alt="Imagem Perfil">
                     </div>
-                    <h4 class="feed03__content__item__top__titulo">Nome do Usuário</h4>
+                    <h4 class="feed03__content__item__top__titulo mb-0">Nome do Usuário</h4>
                 </div>
                 <div class="feed03__content__item__description text-center">
                     <p>
