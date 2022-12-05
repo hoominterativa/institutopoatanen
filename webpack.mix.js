@@ -91,3 +91,4 @@ mix
         'jquery': ['$', 'window.jQuery', 'jQuery']
     })
     .version()
+    .browserSync('http://127.0.0.1:8000/');
