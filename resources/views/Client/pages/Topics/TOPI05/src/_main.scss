@@ -1,25 +1,54 @@
 @import 'variables';
 
 /* BEGIN STYLE */
-.container--pd{
-    padding: 82px 0 72px 0;
-}
-@include small-down {
-    padding: 82px 42px 72px 42px;
-}
+
 .topi05{
+    .container--pd{
+        padding: 82px 0 72px 0 !important;
+
+        @include small-down {
+            padding: 68px 42px 68px 42px !important;
+        }
+
+    }
 
     &__box{
+        gap:0 20px;
+
         &__image{
             height: 319px;
+            @include small-down{
+                height: 267px;
+            }
         }
         &__description{
+            padding: 31px 40px;
+
+            @include small-down{
+                padding: 24px 40px 29px 40px;
+            }
+
             &__title{
+                font-size: $T4;
+                color: $color-black;
                 font-family: $font-primary;
+                font-weight: $weight-700;
+                margin-bottom: 10px;
+
+                @include small-down {
+                    font-size: $T4-mobile;
+                }
             }
             &__paragraph{
                 p{
                     font-family: $font-primary;
+                    font-weight: $weight-400;
+                    font:$paragraph;
+                    color:$color-two;
+
+                    @include small-down {
+                        font:$paragraph-min;
+                    }
                 }
             }
         }

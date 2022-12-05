@@ -24430,9 +24430,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Declarations may only be used within style rules.\n  ╷\n8 │     padding: 82px 42px 72px 42px;\n  │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  resources\\views\\Client\\pages\\Topics\\TOPI05\\src\\_main.scss 8:5  @content\n  resources\\views\\Client\\assets\\scss\\_mixins.scss 15:9           small-down()\n  resources\\views\\Client\\pages\\Topics\\TOPI05\\src\\_main.scss 7:1  @import\n  resources\\views\\Client\\assets\\scss\\base.scss 7:9               @import\n  resources\\sass\\app.scss 2:9                                    root stylesheet\n    at processResult (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:758:19)\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:860:5\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\xampp\\htdocs\\site\\WebsiteConstructorSystem\\node_modules\\sass-loader\\dist\\index.js:69:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -24591,6 +24594,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/libraries": 0,
+/******/ 			"css/app": 0,
 /******/ 			"css/icons": 0
 /******/ 		};
 /******/ 		
@@ -24641,10 +24645,10 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
