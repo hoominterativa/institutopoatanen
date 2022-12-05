@@ -236,6 +236,6 @@ class TOPI05Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Topics.TOPI05.show');
+        return view('Client.pages.Topics.TOPI05.section');
     }
 }

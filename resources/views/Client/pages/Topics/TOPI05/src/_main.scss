@@ -1,3 +1,27 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.container--pd{
+    padding: 82px 0 72px 0;
+}
+@include small-down {
+    padding: 82px 42px 72px 42px;
+}
+.topi05{
+
+    &__box{
+        &__image{
+            height: 319px;
+        }
+        &__description{
+            &__title{
+                font-family: $font-primary;
+            }
+            &__paragraph{
+                p{
+                    font-family: $font-primary;
+                }
+            }
+        }
+    }
+}
