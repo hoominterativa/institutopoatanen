@@ -578,7 +578,7 @@ a {
 }
 @media (max-width: 800px) {
   .feed03 .container--feed03 {
-    padding: 132px 0 42px 0;
+    padding: 132px 44px 42px 44px;
   }
 }
 .feed03__header {
@@ -619,6 +619,7 @@ a {
 @media (max-width: 800px) {
   .feed03__header__texto__subtitle {
     font-size: 1.125rem;
+    margin-bottom: 0px;
   }
 }
 .feed03__header__texto__title {

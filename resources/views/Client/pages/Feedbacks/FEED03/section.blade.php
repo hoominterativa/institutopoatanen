@@ -1,4 +1,4 @@
-<section id="FEED03" class="feed03 container-fluid" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
+<section id="FEED03" class="feed03 container-fluid px-0" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
     <div class="container container--feed03">
         <header class="feed03__header d-flex justify-content-center align-items-center">
             <div class="feed03__header__image">
@@ -6,7 +6,7 @@
             </div>
             <div class="feed03__header__texto d-flex flex-column align-align-items-end">
                 <h3 class="feed03__header__texto__subtitle">Subtitulo</h3>
-                <h2 class="feed03__header__texto__title">Titulo</h2>
+                <h2 class="feed03__header__texto__title mb-0">Titulo</h2>
             </div>
         </header>
        <div class="feed03__content carousel-feed03 owl-carousel">

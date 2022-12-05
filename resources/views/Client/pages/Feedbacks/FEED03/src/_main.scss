@@ -11,7 +11,7 @@
         padding: 159px 0 69px 0;
 
         @include small-down{
-            padding: 132px 0 42px 0;
+            padding: 132px 44px 42px 44px;
         }
     }
 
@@ -50,6 +50,7 @@
 
                 @include small-down{
                     font-size: $T4-mobile;
+                    margin-bottom: 0px;
                 }
             }
             &__title{
