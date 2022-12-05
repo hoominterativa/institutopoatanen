@@ -619,3 +619,51 @@ a {
   font-weight: 400;
   color: #000;
 }
+.feed03 .carousel-feed03 .owl-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+  gap: 0 27px;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #fff;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #fff;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next span {
+  color: #9DAFBD;
+  font-size: 35px;
+  line-height: 22px;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev span {
+  color: #9DAFBD;
+  font-size: 35px;
+  line-height: 22px;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev:hover {
+  background: #000;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next:hover {
+  background: #000;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev:hover span {
+  color: #fff;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next:hover span {
+  color: #fff;
+  transition: 0.5s all ease;
+}

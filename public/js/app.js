@@ -11845,7 +11845,7 @@ $(function () {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('.carrossel-feed03').owlCarousel({
+$('.carousel-feed03').owlCarousel({
   smartSpeed: 450,
   loop: true,
   dots: false,

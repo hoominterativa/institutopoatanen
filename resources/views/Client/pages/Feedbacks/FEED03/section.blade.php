@@ -1,4 +1,4 @@
-<section id="FEED03" class="feed03 container-fluid">
+<section id="FEED03" class="feed03 container-fluid" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
     <div class="container container--feed03">
         <header class="feed03__header d-flex justify-content-center align-items-center">
             <div class="feed03__header__image">
