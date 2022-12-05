@@ -8,7 +8,7 @@
 
         @if ($menu->dropdown)
             <div class="sublink--sidebar-right text-end dropdown-menu" aria-labelledby="sublink--sidebar-right" >
-                @foreach ($menu->subList as $item)
+                @foreach ($menu->dropdown as $item)
                     <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
                     <!-- if exist sublist -->
                     @foreach ($item->subList as $subItem)
@@ -20,7 +20,7 @@
     </div>
 @endforeach
 
-@if ($linksCtaHeader)
+@if (isset($linksCtaHeader))
     @if ($linksCtaHeader->count() > 1)
         <div class="dropdown">
             <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta">{{$linksCtaHeader['title']??''}} <i class="menu-arrow"></i></a>

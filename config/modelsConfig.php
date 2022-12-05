@@ -6,7 +6,9 @@ return [
         'Headers' => (object)[
             'Code' => 'HEAD02'
         ],
-        'Footers' => (object)[]
+        'Footers' => (object)[
+            'Code' => 'FOOT02'
+        ]
     ],
 
     // Configure existing modules and templates site-wide/system
@@ -16,6 +18,8 @@ return [
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown',
                 'IncludeCore' => (object) [
                     'include' => true,
                     'limit' => 'all',

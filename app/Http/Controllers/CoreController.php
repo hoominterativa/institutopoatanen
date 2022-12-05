@@ -133,6 +133,8 @@ class CoreController extends Controller
                         "slug" => Str::slug($config->config->titleMenu),
                         "anchor" => $config->config->anchor,
                         "link" => $config->config->linkMenu,
+                        "listFooter" => $config->ViewListFooter,
+                        "viewer" => $config->Viewer,
                         "dropdown" => $dropdown,
                     ];
 
@@ -148,7 +150,6 @@ class CoreController extends Controller
     public function renderHeader()
     {
         $listMenu = self::relationsHeaderMenu();
-
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
                 'class' => $this->Class,
@@ -161,7 +162,6 @@ class CoreController extends Controller
     public function renderFooter()
     {
         $listMenu = self::relationsHeaderMenu();
-
         if(isset($this->InsertModelsCore->Footers->Code)){
             return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
                 'class' => $this->Class,
