@@ -11848,8 +11848,8 @@ $(function () {
 $('.carrossel-feed03').owlCarousel({
   smartSpeed: 450,
   loop: true,
-  dots: true,
-  nav: false,
+  dots: false,
+  nav: true,
   rewind: true,
   autoHeight: true,
   margin: 50,

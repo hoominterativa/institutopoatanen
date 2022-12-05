@@ -9,7 +9,7 @@
                 <h2 class="feed03__header__texto__title">Titulo</h2>
             </div>
         </header>
-       <div class="feed03__content carrossel-feed03 owl-carousel">
+       <div class="feed03__content carousel-feed03 owl-carousel">
             <div class="feed03__content__item w-100">
                 <div class="feed03__content__item__top d-flex justify-content-center align-items-center">
                     <div class="feed03__content__item__top__image">
