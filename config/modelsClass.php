@@ -112,5 +112,14 @@ return [
             ],
         ],
         // END TOPICS
+
+        'WorkWith' => (object)[
+            'WOWI01' => (object)[
+                'controller' => App\Http\Controllers\WorkWith\WOWI01Controller::class,
+                'model' => App\Models\WorkWith\WOWI01WorkWith::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END TOPICS
     ],
 ];

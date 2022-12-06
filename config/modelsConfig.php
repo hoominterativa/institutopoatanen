@@ -13,25 +13,19 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contacts' => (object) [
-            'COTA01' => (object)[
-                'ViewHome' => false,
+        'WorkWith' => (object) [
+            'WOWI01' => (object)[
+                'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
-                'Viewer' => 'dropdown',
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1',
-                    'relation' => '',
-                ],
+                'Viewer' => 'list',
                 'config' => (object) [
-                    'titleMenu' => 'Contato',
+                    'titleMenu' => 'Trabalhe Conosco',
                     'anchor' =>  false,
-                    'linkMenu' => 'cota01.page',
+                    'linkMenu' => 'wowi01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Contato',
+                    'titlePanel' => 'Trabalhe Conosco',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
@@ -41,9 +35,6 @@ return [
 
     'ModelsForm' => (object)[
         'FORM01' => 'Contacts_FORM01.jpg',
-        'FORM02' => 'Contacts_FORM02.jpg',
-        'FORM03' => 'Newsletter_FORM01.jpg',
-        'FORM04' => 'Newsletter_FORM02.jpg',
     ],
 
     'ModelsCompliances' => (object)[
