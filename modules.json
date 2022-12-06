@@ -3,7 +3,9 @@
         "HEAD01",
         "HEAD02"
     ],
-    "Footers": [],
+    "Footers": [
+        "FOOT03"
+    ],
     "Slides": [
         "SLID01"
     ],
