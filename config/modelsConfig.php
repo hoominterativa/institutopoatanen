@@ -33,9 +33,6 @@ return [
     ],
 
     'ModelsForm' => (object)[
-        'FORM01' => 'Contacts_FORM01.jpg',
-        'FORM02' => 'Contacts_FORM02.jpg',
-        'FORM03' => 'Newsletter_FORM01.jpg',
-        'FORM04' => 'Newsletter_FORM02.jpg',
+        'FORM101' => 'Contacts_FORM101.jpg',
     ],
 ];
