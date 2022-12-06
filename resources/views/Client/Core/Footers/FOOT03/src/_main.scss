@@ -4,13 +4,135 @@
 
 .foot03{
     background: #000;
-}
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+    .container--pd{
+        padding: 21px 0 90px 0;
+    }
 
-li {
-    list-style: none;
+    .btn-comeBack{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100px;
+        width: 58px;
+        background: #B3B3B3;
+    }
+    &__top{
+        margin-bottom: 17.3px;
+
+        &__telefone{
+            a{
+                display: flex;
+                align-items: center;
+                color:$color-black;
+                font-size: $T4;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+
+                img{
+                   width: 43px; 
+                   margin-right: 9px;
+                   object-fit: contain;
+                }
+            }
+        }
+        &__logo{
+            height: 125px;
+            width: 268px;
+
+            img{
+
+            }
+        }
+        &__redeSocial{
+            a{
+                img{
+                    width: 32px;
+                    height: auto;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+    &__bottom{
+        &__boxLeft{
+            &__nav{
+                &__title{
+                    color:$color-black;
+                    font-size: $T4;
+                    font-weight: $weight-700;
+                    font-family: $font-primary;
+                    margin-bottom: 21px;
+                }
+                ul{
+                    li{
+                        a{
+                            color:$color-black;
+                            font-weight: $weight-700;
+                            font: $paragraph;  
+                        }
+                    }
+                }
+            }
+        }
+        &__boxRight{
+            &__nav{
+                &__title{
+                    color:$color-black;
+                    font-size: $T4;
+                    font-weight: $weight-700;
+                    font-family: $font-primary;
+                    margin-bottom: 21px;
+                }
+                ul{
+                    li{
+                        a{
+                            color:$color-black;
+                            font-weight: $weight-700;
+                            font: $paragraph;  
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__credits{
+        background: #7C7C7C;
+        height: 106px;
+
+        &__nav{
+            ul{
+                gap: 0 42px;
+
+                li{
+                    display: flex;
+
+                    a{
+                        color:$color-one;
+                        font-weight: $weight-700;
+                        font: $paragraph;
+                        display: flex;
+                    }
+                }
+            }
+        }
+        &__logo{
+            width: 147px;
+            height: 72px;
+        }
+    }
+
+    ul{
+        padding: 0;
+
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
 }

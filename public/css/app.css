@@ -702,6 +702,103 @@ a {
 }
 
 /* BEGIN STYLE */
+.foot03 {
+  background: #000;
+}
+.foot03 .container--pd {
+  padding: 21px 0 90px 0;
+}
+.foot03 .btn-comeBack {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  width: 58px;
+  background: #B3B3B3;
+}
+.foot03__top {
+  margin-bottom: 17.3px;
+}
+.foot03__top__telefone a {
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+.foot03__top__telefone a img {
+  width: 43px;
+  margin-right: 9px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.foot03__top__logo {
+  height: 125px;
+  width: 268px;
+}
+.foot03__top__redeSocial a img {
+  width: 32px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.foot03__bottom__boxLeft__nav__title {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 21px;
+}
+.foot03__bottom__boxLeft__nav ul li a {
+  color: #000;
+  font-weight: 700;
+  font: 1rem "Montserrat", sans-serif, arial;
+}
+.foot03__bottom__boxRight__nav__title {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 21px;
+}
+.foot03__bottom__boxRight__nav ul li a {
+  color: #000;
+  font-weight: 700;
+  font: 1rem "Montserrat", sans-serif, arial;
+}
+.foot03__credits {
+  background: #7C7C7C;
+  height: 106px;
+}
+.foot03__credits__nav ul {
+  gap: 0 42px;
+}
+.foot03__credits__nav ul li {
+  display: flex;
+}
+.foot03__credits__nav ul li a {
+  color: #404040;
+  font-weight: 700;
+  font: 1rem "Montserrat", sans-serif, arial;
+  display: flex;
+}
+.foot03__credits__logo {
+  width: 147px;
+  height: 72px;
+}
+.foot03 ul {
+  padding: 0;
+}
+.foot03 a {
+  color: inherit;
+  text-decoration: none;
+}
+.foot03 li {
+  list-style: none;
+}
+
+/* BEGIN STYLE */
 .topi05 .container--pd {
   padding: 82px 0 72px 0 !important;
 }
