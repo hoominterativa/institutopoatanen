@@ -32,7 +32,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/section/sorting', [WOWI01SectionController::class, 'sorting'])->name('admin.'.$routeName.'.section.sorting');
 
     // SECTION TOPICS
-    Route::resource($route.'/section-topic', WOWI01TopicSectionController::class)->names('admin.'.$routeName.'.sectionTopic')->parameters(['section-topic' => 'WOWI01WorkWithTopic']);
+    Route::resource($route.'/section-topic', WOWI01TopicSectionController::class)->names('admin.'.$routeName.'.sectionTopic')->parameters(['section-topic' => 'WOWI01WorkWithTopicSection']);
     Route::post($route.'/section-topic/delete', [WOWI01TopicSectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionTopic.destroySelected');
     Route::post($route.'/section-topic/sorting', [WOWI01TopicSectionController::class, 'sorting'])->name('admin.'.$routeName.'.sectionTopic.sorting');
 

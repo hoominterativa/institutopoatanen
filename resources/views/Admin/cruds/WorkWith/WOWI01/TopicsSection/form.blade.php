@@ -4,7 +4,7 @@
 @else
     {!! Form::model(null, ['route' => ['admin.wowi01.sectionTopic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
 @endif
-    @method('PUT')
+    <input type="hidden" name="workwith_id" value="{{$workWith->id}}">
     <div class="row">
         <div class="col-lg-12">
             <div class="card card-body" id="tooltip-container">
@@ -26,6 +26,10 @@
                         'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                         'data-parsley-validation-threshold'=>'10',
                     ]) !!}
+                </div>
+                <div class="mb-3 form-check">
+                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                    {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
                 </div>
             </div>
         </div>

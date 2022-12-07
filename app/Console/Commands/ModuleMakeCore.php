@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use App\Http\Controllers\Helpers\HelperModule;
 
@@ -62,10 +63,12 @@ class ModuleMakeCore extends Command
                 return;
             }
 
+            $moduleBlade = Str::slug($arguments['module']);
+
             if(!is_dir($pathCore.$arguments['module'].'/'.$arguments['code'])) mkdir($pathCore.$arguments['module'].'/'.$arguments['code'], 0777, true);
             if(!is_dir($pathCore.$arguments['module'].'/'.$arguments['code'].'/src')) mkdir($pathCore.$arguments['module'].'/'.$arguments['code'].'/src', 0777, true);
 
-            if(copy('defaults/Client/archive/app.blade.php', $pathCore.$arguments['module'].'/'.$arguments['code'].'/app.blade.php')){
+            if(copy('defaults/Client/archive/app.'.$moduleBlade.'.blade.php', $pathCore.$arguments['module'].'/'.$arguments['code'].'/app.blade.php')){
                 $this->info('Recurso criado '.$pathCore.$arguments['module'].'/'.$arguments['code'].'/app.blade.php');
             }
             if(copy('defaults/Client/src/_main.scss', $pathCore.$arguments['module'].'/'.$arguments['code'].'/src/_main.scss')){

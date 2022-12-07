@@ -25,6 +25,7 @@ class WOWI01WorkWithTopic extends Model
         "sorting",
         "link",
         "link_target",
+        "workwith_id"
     ];
 
     public function scopeSorting($query)

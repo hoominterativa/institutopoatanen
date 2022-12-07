@@ -773,14 +773,26 @@ a {
 #WOWI01 .wowi01__header__title {
   font-size: 2.5rem;
   font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
   color: #404040;
   display: block;
 }
+@media (max-width: 800px) {
+  #WOWI01 .wowi01__header__title {
+    font-size: 1.875rem;
+  }
+}
 #WOWI01 .wowi01__header__subtitle {
-  font-size: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   font-family: "Ubuntu", sans-serif, arial;
-  color: #404040;
+  color: #7C7C7C;
   display: block;
+}
+@media (max-width: 800px) {
+  #WOWI01 .wowi01__header__subtitle {
+    font-size: 1.125rem;
+  }
 }
 #WOWI01 .wowi01__header__line {
   background-color: #404040;

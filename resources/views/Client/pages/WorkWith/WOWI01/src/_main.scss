@@ -24,14 +24,23 @@
             &__title{
                 font-size: $T2;
                 font-family: $font-primary;
+                font-weight: $weight-700;
                 color: $color-one;
                 display: block;
+                @include small-down{
+                    font-size: $T2-mobile;
+                }
             }
             &__subtitle{
-                font-size: $T2;
+                font-size: $T4;
+                font-weight: $weight-700;
                 font-family: $font-primary;
-                color: $color-one;
+                color: $color-two;
                 display: block;
+
+                @include small-down{
+                    font-size: $T4-mobile;
+                }
             }
             &__line{
                 background-color: $color-one;

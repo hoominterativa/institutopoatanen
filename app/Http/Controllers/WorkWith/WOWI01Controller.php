@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers\WorkWith;
 
-use App\Models\WorkWith\WOWI01WorkWith;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\WorkWith\WOWI01WorkWith;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\WorkWith\WOWI01WorkWithTopic;
+use App\Models\WorkWith\WOWI01WorkWithSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
-use App\Models\WorkWith\WOWI01WorkWithSection;
-use App\Models\WorkWith\WOWI01WorkWithTopic;
 use App\Models\WorkWith\WOWI01WorkWithTopicSection;
 
 class WOWI01Controller extends Controller
 {
+    protected $path = 'uploads/WorkWith/WOWI01/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +41,7 @@ class WOWI01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.WorkWith.WOWI01.create');
     }
 
     /**
@@ -50,37 +53,37 @@ class WOWI01Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
+        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null, 100);
+        if($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
 
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null, 100);
+        if($path_image_content) $data['path_image_content'] = $path_image_content;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
+        $data['slug'] = Str::slug($request->title.'-'.$request->subtitle);
 
-        if($path_archive) $data['path_archive'] = $path_archive;
+        $data['featured_menu'] = $request->featured_menu?1:0;
+        $data['active'] = $request->active?1:0;
 
-        */
-
-        if(WOWI01WorkWith::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if($workwiths = WOWI01WorkWith::create($data)){
+            Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_banner);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_thumbnail);
+            Storage::delete($path_image_content);
+
+            Session::flash('error', 'Erro ao cadastradar informações');
         }
+
+        return redirect()->route('admin.wowi01.edit', ['WOWI01WorkWith' => $workwiths->id]);
     }
 
     /**
@@ -110,53 +113,62 @@ class WOWI01Controller extends Controller
     public function update(Request $request, WOWI01WorkWith $WOWI01WorkWith)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            storageDelete($WOWI01WorkWith, 'path_image');
-            $data['path_image'] = $path_image;
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
+        if($path_image_banner){
+            storageDelete($WOWI01WorkWith, 'path_image_banner');
+            $data['path_image_banner'] = $path_image_banner;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($WOWI01WorkWith, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($WOWI01WorkWith, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_banner && !$path_image_banner){
+            storageDelete($WOWI01WorkWith, 'path_image_banner');
+            $data['path_image_banner'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($WOWI01WorkWith, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if($path_image_icon){
+            storageDelete($WOWI01WorkWith, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($WOWI01WorkWith, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
 
-        */
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null, 100);
+        if($path_image_thumbnail){
+            storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
+            $data['path_image_thumbnail'] = $path_image_thumbnail;
+        }
+        if($request->delete_path_image_thumbnail && !$path_image_thumbnail){
+            storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
+            $data['path_image_thumbnail'] = null;
+        }
+
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null, 100);
+        if($path_image_content){
+            storageDelete($WOWI01WorkWith, 'path_image_content');
+            $data['path_image_content'] = $path_image_content;
+        }
+        if($request->delete_path_image_content && !$path_image_content){
+            storageDelete($WOWI01WorkWith, 'path_image_content');
+            $data['path_image_content'] = null;
+        }
+
+        $data['featured_menu'] = $request->featured_menu?1:0;
+        $data['active'] = $request->active?1:0;
 
         if($WOWI01WorkWith->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_banner);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_thumbnail);
+            Storage::delete($path_image_content);
+            Session::flash('error', 'Erro ao atualizar informações');
         }
+
+        return redirect()->back();
     }
 
     /**
@@ -167,11 +179,13 @@ class WOWI01Controller extends Controller
      */
     public function destroy(WOWI01WorkWith $WOWI01WorkWith)
     {
-        //storageDelete($WOWI01WorkWith, 'path_image');
-        //storageDelete($WOWI01WorkWith, 'path_archive');
+        storageDelete($WOWI01WorkWith, 'path_image_banner');
+        storageDelete($WOWI01WorkWith, 'path_image_icon');
+        storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
+        storageDelete($WOWI01WorkWith, 'path_image_content');
 
         if($WOWI01WorkWith->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Informações deletadas com sucessso');
             return redirect()->back();
         }
     }
@@ -184,14 +198,13 @@ class WOWI01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $WOWI01WorkWiths = WOWI01WorkWith::whereIn('id', $request->deleteAll)->get();
         foreach($WOWI01WorkWiths as $WOWI01WorkWith){
-            storageDelete($WOWI01WorkWith, 'path_image');
-            storageDelete($WOWI01WorkWith, 'path_archive');
+            storageDelete($WOWI01WorkWith, 'path_image_banner');
+            storageDelete($WOWI01WorkWith, 'path_image_icon');
+            storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
+            storageDelete($WOWI01WorkWith, 'path_image_content');
         }
-        */
 
         if($deleted = WOWI01WorkWith::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -221,30 +234,22 @@ class WOWI01Controller extends Controller
      * @param  \App\Models\WorkWith\WOWI01WorkWith  $WOWI01WorkWith
      * @return \Illuminate\Http\Response
      */
-    //public function show(WOWI01WorkWith $WOWI01WorkWith)
-    public function show()
+    public function show(WOWI01WorkWith $WOWI01WorkWith)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('WorkWith', 'WOWI01');
+
+        $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->active()->sorting()->get();
+        $topicSection = WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->active()->first();
+
+        $workWiths = WOWI01WorkWith::whereNotIn('id', [$WOWI01WorkWith->id])->active()->sorting()->get();
 
         return view('Client.pages.WorkWith.WOWI01.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('WorkWith', 'WOWI01');
-
-        return view('Client.pages.WorkWith.WOWI01.page',[
-            'sections' => $sections
+            'workWith' => $WOWI01WorkWith,
+            'workWiths' => $workWiths,
+            'topicSection' => $topicSection,
+            'topics' => $topics,
+            'sections' => $sections,
         ]);
     }
 
@@ -255,6 +260,12 @@ class WOWI01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.WorkWith.WOWI01.section');
+        $workWiths = WOWI01WorkWith::active()->sorting()->get();
+        $section = WOWI01WorkWithSection::active()->first();
+
+        return view('Client.pages.WorkWith.WOWI01.section',[
+            'workWiths' => $workWiths,
+            'section' => $section,
+        ]);
     }
 }

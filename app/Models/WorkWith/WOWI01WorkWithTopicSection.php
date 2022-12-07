@@ -21,6 +21,7 @@ class WOWI01WorkWithTopicSection extends Model
         "subtitle",
         "description",
         "active",
+        "workwith_id"
     ];
 
     public function scopeActive($query)

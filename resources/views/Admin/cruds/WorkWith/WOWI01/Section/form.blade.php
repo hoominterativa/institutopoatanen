@@ -28,6 +28,10 @@
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
             </div>
+            <div class="mb-3 form-check">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
+            </div>
         </div>
     </div>
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">

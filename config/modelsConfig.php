@@ -19,7 +19,13 @@ return [
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
-                'Viewer' => 'list',
+                'Viewer' => 'dropdown',
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'limit' => 'all',
+                    'condition' => 'featured_menu=1',
+                    'relation' => '',
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Trabalhe Conosco',
                     'anchor' =>  false,

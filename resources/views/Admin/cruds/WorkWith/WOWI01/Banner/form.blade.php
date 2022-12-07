@@ -1,5 +1,7 @@
 {!! Form::model($workWith, ['route' => ['admin.wowi01.update', $workWith->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
+    <input type="hidden" name="active" value="{{$workWith->active}}">
+    <input type="hidden" name="featured_menu" value="{{$workWith->featured_menu}}">
     <div class="row">
         <div class="col-lg-12">
             <div class="card card-body" id="tooltip-container">
