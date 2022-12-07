@@ -17,6 +17,7 @@ $model = 'ABOU01';
 
 $class = config('modelsConfig.Class');
 $modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
 $modelConfig = $modelConfig->$module->$model->config;
 
 $route = Str::slug($modelConfig->titlePanel);

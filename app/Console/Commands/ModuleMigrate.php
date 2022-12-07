@@ -47,7 +47,6 @@ class ModuleMigrate extends Command
         $arguments = $this->arguments();
         $options = $this->options();
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
-        $relations = config('modelsConfig.Relations');
 
         try {
 
@@ -73,21 +72,8 @@ class ModuleMigrate extends Command
 
             foreach ($InsertModelsMain as $module => $model) {
                 foreach ($model as $code => $config) {
-
-                    if(isset($relations->$module[$code])){
-                        $relation = $relations->$module[$code];
-                        foreach ($relation->before as $moduleRelationBefore => $modelRelationBefore) {
-                            Artisan::call('migrate --path=database/migrations/'.$moduleRelationBefore.'/'.$modelRelationBefore);
-                        }
-                    }
-
-                    Artisan::call('migrate --path=database/migrations/'.$module.'/'.$code);
-
-                    if(isset($relations->$module[$code])){
-                        foreach ($relation->after as $moduleRelationAfter => $modelRelationAfter) {
-                            Artisan::call('migrate --path=database/migrations/'.$moduleRelationAfter.'/'.$modelRelationAfter);
-                        }
-                    }
+                    $moduleName = explode('.', $module)[0];
+                    Artisan::call('migrate --path=database/migrations/'.$moduleName.'/'.$code);
                 }
             }
 

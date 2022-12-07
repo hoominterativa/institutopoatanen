@@ -98,3 +98,29 @@ if(!function_exists('getCompliance')){
         return $complianceModel;
     }
 }
+
+if(!function_exists('getNameModule')){
+
+    /**
+     * Get module name when this is a versioned array
+     *
+     * @param object $modelConfig
+     * @param string $module
+     * @param string $model
+     *
+     * @return string
+     */
+    function getNameModule($modelConfig, $module, $model){
+        foreach ($modelConfig as $name => $value) {
+            $arrayName = explode('.', $name);
+            if(count($arrayName)>1){
+                if($arrayName[0]==$module){
+                    if(isset($modelConfig->$name->$model)){
+                        return $name;
+                    }
+                }
+            }
+        }
+        return $module;
+    }
+}
