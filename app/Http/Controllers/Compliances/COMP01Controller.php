@@ -110,6 +110,7 @@ class COMP01Controller extends Controller
         $data['slug'] = Str::slug($request->title_page);
         $data['active'] = $request->active?1:0;
         $data['show_footer'] = $request->show_footer?1:0;
+        $data['show_header'] = $request->show_header?1:0;
 
         if($COMP01Compliances->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');

@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Compliances;
+namespace App\Http\Controllers\ContentPages;
 
-use App\Models\Compliances\COMP01CompliancesArchive;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA01ContentPagesSectionArchive;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
-class COMP01ArchiveController extends Controller
+class COPA01SectionArchiveController extends Controller
 {
-    protected $path = 'uploads/Compliances/COMP01/archives/';
+    protected $path = 'uploads/ContentPages/COPA01/archives/';
 
     /**
      * Store a newly created resource in storage.
@@ -29,7 +29,7 @@ class COMP01ArchiveController extends Controller
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
         if($path_archive) $data['path_archive'] = $path_archive;
 
-        if(COMP01CompliancesArchive::create($data)){
+        if(COPA01ContentPagesSectionArchive::create($data)){
             Session::flash('success', 'Arquivo cadastrado com sucesso');
         }else{
             Storage::delete($path_archive);
@@ -43,26 +43,26 @@ class COMP01ArchiveController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Compliances\COMP01CompliancesArchive  $COMP01CompliancesArchive
+     * @param  \App\Models\ContentPages\COPA01ContentPagesSectionArchive  $COPA01ContentPagesSectionArchive
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, COMP01CompliancesArchive $COMP01CompliancesArchive)
+    public function update(Request $request, COPA01ContentPagesSectionArchive $COPA01ContentPagesSectionArchive)
     {
         $data = $request->all();
         $helper = new HelperArchive();
 
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
         if($path_archive){
-            storageDelete($COMP01CompliancesArchive, 'path_archive');
+            storageDelete($COPA01ContentPagesSectionArchive, 'path_archive');
             $data['path_archive'] = $path_archive;
         }
 
         if($request->delete_path_archive && !$path_archive){
-            storageDelete($COMP01CompliancesArchive, 'path_archive');
+            storageDelete($COPA01ContentPagesSectionArchive, 'path_archive');
             $data['path_archive'] = null;
         }
 
-        if($COMP01CompliancesArchive->fill($data)->save()){
+        if($COPA01ContentPagesSectionArchive->fill($data)->save()){
             Session::flash('success', 'Arquivo atualizado com sucesso');
         }else{
             Storage::delete($path_archive);
@@ -75,15 +75,15 @@ class COMP01ArchiveController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Compliances\COMP01CompliancesArchive  $COMP01CompliancesArchive
+     * @param  \App\Models\ContentPages\COPA01ContentPagesSectionArchive  $COPA01ContentPagesSectionArchive
      * @return \Illuminate\Http\Response
      */
-    public function destroy(COMP01CompliancesArchive $COMP01CompliancesArchive)
+    public function destroy(COPA01ContentPagesSectionArchive $COPA01ContentPagesSectionArchive)
     {
-        storageDelete($COMP01CompliancesArchive, 'path_archive');
-        Session::flash('reopenModal', ['modal-archive-create-'.$COMP01CompliancesArchive->section_id, 'modal-section-update-'.$COMP01CompliancesArchive->section_id]);
-        if($COMP01CompliancesArchive->delete()){
-            Session::flash('success', 'Arquivo deletado com sucessso');
+        storageDelete($COPA01ContentPagesSectionArchive, 'path_archive');
+
+        if($COPA01ContentPagesSectionArchive->delete()){
+            Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -96,17 +96,16 @@ class COMP01ArchiveController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        $COMP01CompliancesArchives = COMP01CompliancesArchive::whereIn('id', $request->deleteAll)->get();
-        foreach($COMP01CompliancesArchives as $COMP01CompliancesArchive){
-            storageDelete($COMP01CompliancesArchive, 'path_archive');
+        $COPA01ContentPagesSectionArchives = COPA01ContentPagesSectionArchive::whereIn('id', $request->deleteAll)->get();
+        foreach($COPA01ContentPagesSectionArchives as $COPA01ContentPagesSectionArchive){
+            storageDelete($COPA01ContentPagesSectionArchive, 'path_archive');
         }
 
-        Session::flash('reopenModal', ['modal-archive-create-'.$COMP01CompliancesArchives[0]->section_id, 'modal-section-update-'.$COMP01CompliancesArchives[0]->section_id]);
-
-       if($deleted = COMP01CompliancesArchive::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = COPA01ContentPagesSectionArchive::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
+
     /**
     * Sort record by dragging and dropping
     *
@@ -117,7 +116,7 @@ class COMP01ArchiveController extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            COMP01CompliancesArchive::where('id', $id)->update(['sorting' => $sorting]);
+            COPA01ContentPagesSectionArchive::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }

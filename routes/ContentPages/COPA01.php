@@ -1,0 +1,38 @@
+<?php
+
+use App\Http\Controllers\ContentPages\COPA01SectionArchiveController;
+use App\Http\Controllers\ContentPages\COPA01SectionController;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
+
+/**
+ * Uncomment the code below
+ *
+ * Create new routes to admin or client according to the model below
+ * Define the variables ​​$module, $model and import the controller class
+ *
+ */
+
+$module = 'ContentPages';
+$model = 'COPA01';
+
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
+
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
+
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    // SECTIONS
+    Route::resource($route.'/sections', COPA01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['sections' => 'COPA01ContentPagesSection']);
+    Route::post($route.'/sections/delete', [COPA01SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
+    Route::post($route.'/sections/sorting', [COPA01SectionController::class, 'sorting'])->name('admin.'.$routeName.'.section.sorting');
+    // ARCHIVES
+    Route::resource($route.'/archives', COPA01SectionArchiveController::class)->names('admin.'.$routeName.'.archive')->parameters(['archives' => 'COPA01ContentPagesSectionArchive']);
+    Route::post($route.'/archives/delete', [COPA01SectionArchiveController::class, 'destroySelected'])->name('admin.'.$routeName.'.archive.destroySelected');
+    Route::post($route.'/archives/sorting', [COPA01SectionArchiveController::class, 'sorting'])->name('admin.'.$routeName.'.archive.sorting');
+});
+// CLIENT
+// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

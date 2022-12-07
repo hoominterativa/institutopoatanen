@@ -42,6 +42,15 @@ return [
         ],
         // END CONTENTS
 
+        'ContentPages' => (object)[
+            'COPA01' => (object)[
+                'controller' => App\Http\Controllers\ContentPages\COPA01Controller::class,
+                'model' => App\Models\ContentPages\COPA01ContentPages::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END CONTENT PAGES
+
         'Contacts' => (object)[
             'COTA01' => (object)[
                 'controller' => App\Http\Controllers\Contacts\COTA01Controller::class,

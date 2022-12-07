@@ -743,180 +743,43 @@ a {
   margin: 0;
 }
 
+/* ======= HEADER PAGE ======= */
+/*======= CONTENT PAGE ======= */
+/* ======= ARCHIVES ======= */
 /* BEGIN STYLE */
-#WOWI01 {
-  /*
-  ==================================
-  ========= BEGIN SECTION ==========
-  ==================================
-  */
-  /*
-  ==================================
-  =========== BEGIN SHOW ===========
-  ==================================
-  */
-}
-#WOWI01.wowi01 {
-  padding: 70px 0;
-}
-@media (max-width: 800px) {
-  #WOWI01.wowi01 {
-    padding: 35px 0;
-  }
-}
-#WOWI01 .wowi01__header {
-  text-align: center;
-}
-#WOWI01 .wowi01__header__container {
-  margin-bottom: 25px;
-}
-#WOWI01 .wowi01__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-  display: block;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01__header__title {
-    font-size: 1.875rem;
-  }
-}
-#WOWI01 .wowi01__header__subtitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #7C7C7C;
-  display: block;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01__header__subtitle {
-    font-size: 1.125rem;
-  }
-}
-#WOWI01 .wowi01__header__line {
-  background-color: #404040;
-}
-#WOWI01 .wowi01__header__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  margin-top: 25px;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01__header__paragraph {
-    width: 90%;
-  }
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01__container-box {
-    width: 70%;
-  }
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01__container-box .owl-stage-outer {
-    overflow: visible;
-  }
-}
-#WOWI01 .wowi01__container-box__item {
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
-}
-#WOWI01 .wowi01__container-box__item .content {
-  padding: 0 20px;
-}
-#WOWI01 .wowi01__container-box__item .content:hover {
-  transform: scale(1.01);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-}
-#WOWI01 .wowi01__container-box__item .content:hover .wowi01__container-box__link {
-  background-color: #c0c0c0;
-  color: #7C7C7C;
-}
-#WOWI01 .wowi01__container-box__item .content:hover .wowi01__container-box__link__icon {
-  filter: grayscale(1) invert(1);
-}
-#WOWI01 .wowi01__container-box__info {
-  position: relative;
-  z-index: 1;
-  min-height: 330px;
-}
-#WOWI01 .wowi01__container-box__image {
-  margin-bottom: 28px;
-}
-#WOWI01 .wowi01__container-box__image img {
-  width: 60px;
-}
-#WOWI01 .wowi01__container-box__description {
-  text-align: center;
-}
-#WOWI01 .wowi01__container-box__title {
-  font-size: 1.125rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-}
-#WOWI01 .wowi01__container-box__paragraph {
-  font: 0.875rem "Montserrat", sans-serif, arial;
-  color: #7C7C7C;
-  font-weight: 500;
-  width: 60%;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01__container-box__paragraph {
-    width: 100%;
-  }
-}
-#WOWI01 .wowi01__container-box__link {
-  font: 1rem "Montserrat";
-  color: #404040;
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 2;
-  min-width: 177px;
-  padding: 10px 15px;
-  font-weight: 700;
-  background-color: #EFEFEF;
-  text-align: center;
-}
-#WOWI01 .wowi01__container-box__link__icon {
-  width: 25px;
-}
-#WOWI01 .wowi01-show__header {
+.copa01-page__header {
   text-align: center;
   background-color: #EFEFEF;
   padding: 87px 0;
   margin: 0;
 }
-#WOWI01 .wowi01-show__header__container {
+.copa01-page__header__container {
   margin-bottom: 25px;
 }
-#WOWI01 .wowi01-show__header__title {
+.copa01-page__header__title {
   font-size: 3.125rem;
   font-family: "Ubuntu", sans-serif, arial;
   color: #000;
   display: block;
 }
 @media (max-width: 800px) {
-  #WOWI01 .wowi01-show__header__title {
-    font-size: 2.5rem;
+  .copa01-page__header__title {
+    font-size: 1.875rem;
   }
 }
-#WOWI01 .wowi01-show__content {
+.copa01-page__content {
   padding: 45px 0 120px;
 }
-#WOWI01 .wowi01-show__content__icon {
+.copa01-page__content__icon {
   width: 36px;
   margin: 10px auto;
   display: table;
 }
-#WOWI01 .wowi01-show__content__container {
+.copa01-page__content__container {
   text-align: center;
   margin-bottom: 35px;
 }
-#WOWI01 .wowi01-show__content__title {
+.copa01-page__content__title {
   font-size: 2.5rem;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
@@ -924,11 +787,11 @@ a {
   display: block;
 }
 @media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content__title {
+  .copa01-page__content__title {
     font-size: 1.875rem;
   }
 }
-#WOWI01 .wowi01-show__content__subtitle {
+.copa01-page__content__subtitle {
   font-size: 1.25rem;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
@@ -936,261 +799,50 @@ a {
   display: block;
 }
 @media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content__subtitle {
+  .copa01-page__content__subtitle {
     font-size: 1.125rem;
   }
 }
-#WOWI01 .wowi01-show__content__line {
+.copa01-page__content__line {
   width: 100%;
   background-color: #404040;
   margin-bottom: 35px;
 }
-#WOWI01 .wowi01-show__content__paragraph {
+.copa01-page__content__paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 500;
   padding: 0 30px;
   color: #404040;
   line-height: 25px;
-  text-align: center;
 }
 @media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content__paragraph {
+  .copa01-page__content__paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__container-box {
-    width: 70%;
-  }
+.copa01-page__archives {
+  margin-top: 50px;
 }
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__container-box .owl-stage-outer {
-    overflow: visible;
-  }
-}
-#WOWI01 .wowi01-show__container-box__wrapper {
-  background-color: #EFEFEF;
-  padding: 80px 0;
-}
-#WOWI01 .wowi01-show__container-box__header {
-  text-align: center;
-}
-#WOWI01 .wowi01-show__container-box__header__container {
-  margin-bottom: 25px;
-}
-#WOWI01 .wowi01-show__container-box__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #404040;
-  display: block;
-}
-#WOWI01 .wowi01-show__container-box__header__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #B3B3B3;
-  display: block;
-}
-#WOWI01 .wowi01-show__container-box__header__line {
-  background-color: #404040;
-}
-#WOWI01 .wowi01-show__container-box__header__paragraph {
+.copa01-page__archives__item {
   font: 1rem "Montserrat", sans-serif, arial;
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  margin-top: 25px;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__container-box__header__paragraph {
-    width: 90%;
-  }
-}
-#WOWI01 .wowi01-show__container-box__item {
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
-}
-#WOWI01 .wowi01-show__container-box__item .content {
-  padding: 0;
-}
-#WOWI01 .wowi01-show__container-box__item .content:hover {
-  transform: scale(1.01);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-}
-#WOWI01 .wowi01-show__container-box__item .content:hover .wowi01__container-box__link {
-  background-color: #c0c0c0;
-  color: #7C7C7C;
-}
-#WOWI01 .wowi01-show__container-box__item .content:hover .wowi01__container-box__link__icon {
-  filter: grayscale(1) invert(1);
-}
-#WOWI01 .wowi01-show__container-box__info {
-  position: relative;
-  z-index: 1;
-  min-height: auto;
-  padding: 30px 20px;
-  background-color: #fff;
-}
-#WOWI01 .wowi01-show__container-box__image {
-  max-height: 296px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-#WOWI01 .wowi01-show__container-box__icon {
-  margin-bottom: 28px;
-  margin-top: -60px;
-  justify-content: center;
-  display: flex;
-}
-#WOWI01 .wowi01-show__container-box__icon img {
-  width: 60px;
-}
-#WOWI01 .wowi01-show__container-box__description {
-  text-align: center;
-}
-#WOWI01 .wowi01-show__container-box__title {
-  font-size: 1.125rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-}
-#WOWI01 .wowi01-show__container-box__paragraph {
-  font: 0.875rem "Montserrat", sans-serif, arial;
-  color: #7C7C7C;
-  font-weight: 500;
-  width: 60%;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__container-box__paragraph {
-    width: 100%;
-  }
-}
-#WOWI01 .wowi01-show__container-box__link {
-  font: 1rem "Montserrat";
-  color: #404040;
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 2;
-  min-width: 177px;
-  padding: 10px 15px;
   font-weight: 700;
-  background-color: #EFEFEF;
-  text-align: center;
-}
-#WOWI01 .wowi01-show__container-box__link__icon {
-  width: 25px;
-}
-#WOWI01 .wowi01-show__content-section {
-  padding: 80px 0 0;
+  color: #000;
+  display: table;
+  margin: 0 25px 0 0;
+  max-width: 100%;
+  padding: 10px 15px;
   background-color: #CACACA;
 }
-#WOWI01 .wowi01-show__content-section__header {
-  text-align: center;
-  margin-bottom: 75px;
-}
-#WOWI01 .wowi01-show__content-section__header__container {
-  margin-bottom: 25px;
-}
-#WOWI01 .wowi01-show__content-section__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-  display: block;
-}
-#WOWI01 .wowi01-show__content-section__header__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #B3B3B3;
-  display: block;
-}
-#WOWI01 .wowi01-show__content-section__header__line {
-  background-color: #404040;
-}
-#WOWI01 .wowi01-show__content-section__header__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  margin-top: 25px;
-}
 @media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content-section__header__paragraph {
-    width: 90%;
-  }
-}
-#WOWI01 .wowi01-show__content-section__info__image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-}
-#WOWI01 .wowi01-show__content-section__info__image__item {
-  width: 430px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-}
-#WOWI01 .wowi01-show__content-section__info__container {
-  margin-bottom: 25px;
-}
-#WOWI01 .wowi01-show__content-section__info__title {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-  display: block;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content-section__info__title {
-    font-size: 1.125rem;
-  }
-}
-#WOWI01 .wowi01-show__content-section__info__subtitle {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-  display: block;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content-section__info__subtitle {
-    font-size: 1.875rem;
-  }
-}
-#WOWI01 .wowi01-show__content-section__info__line {
-  background-color: #404040;
-}
-#WOWI01 .wowi01-show__content-section__info__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 50px;
-  margin-top: 25px;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content-section__info__paragraph {
-    width: 90%;
-  }
-}
-#WOWI01 .wowi01-show__content-section__info__cta {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-  max-width: 177px;
-  padding: 10px 45px;
-  background-color: #fff;
-}
-@media (max-width: 800px) {
-  #WOWI01 .wowi01-show__content-section__info__cta {
+  .copa01-page__archives__item {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-#WOWI01 .wowi01-show__content-section__info__cta:hover {
+.copa01-page__archives__item:hover {
   color: #fff;
   background-color: #000;
 }
-#WOWI01 .wowi01-show__content-section__info__cta:hover .wowi01-show__content-section__info__cta__icon {
+.copa01-page__archives__item:hover .copa01__archives__item__icon {
   filter: invert(1) grayscale(1);
 }
 

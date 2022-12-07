@@ -13,25 +13,19 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'WorkWith' => (object) [
-            'WOWI01' => (object)[
-                'ViewHome' => true,
+        'ContentPages' => (object) [
+            'COPA01' => (object)[
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown',
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'limit' => 'all',
-                    'condition' => 'featured_menu=1',
-                    'relation' => '',
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Trabalhe Conosco',
+                    'titleMenu' => 'Sustentabilidade',
                     'anchor' =>  false,
-                    'linkMenu' => 'wowi01.page',
+                    'linkMenu' => 'copa01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Trabalhe Conosco',
+                    'titlePanel' => 'Sustentabilidade',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
