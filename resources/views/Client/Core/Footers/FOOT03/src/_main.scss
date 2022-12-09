@@ -57,10 +57,19 @@
                 font-weight: $weight-700;
                 font-family: $font-primary;
 
+                @include small-down{
+                    font-size: $T4-mobile;
+                }
+
                 img{
                    width: 43px;
                    margin-right: 9px;
                    object-fit: contain;
+
+                   @include small-down{
+                        width: 37px;
+                        height: 37px;
+                    }
                 }
             }
         }
@@ -70,6 +79,9 @@
 
             @include small-down {
                 margin-bottom: 40px;
+                height: 113px;
+                width: 243px;
+
             }
         }
         &__redeSocial{
@@ -80,6 +92,10 @@
                     width: 32px;
                     height: auto;
                     object-fit: contain;
+
+                    @include small-down{
+                        width: 30px;
+                    }
                 }
             }
         }
@@ -105,6 +121,10 @@
                     font-weight: $weight-700;
                     font-family: $font-primary;
                     margin-bottom: 21px;
+                    @include small-down{
+                        font-size: $T4-mobile;
+                    }
+                    font: $paragraph;
                 }
                 ul{
                     gap:8px 0;
@@ -120,6 +140,9 @@
                             font: $paragraph;
                             max-width: 163px;
                             display: block;
+                            @include small-down{
+                                font: $paragraph-min;
+                            }
                         }
                     }
                 }
@@ -142,6 +165,10 @@
                     font-weight: $weight-700;
                     font-family: $font-primary;
                     margin-bottom: 21px;
+
+                    @include small-down{
+                        font-size: $T4-mobile;
+                    }
                 }
                 ul{
                     li{
@@ -149,7 +176,10 @@
                             .icone{
                                 width: 43px;
                                 height: 43px;
-
+                                @include small-down{
+                                    width: 37px;
+                                    height: 37px;
+                                }
                                 img{
                                     width: 100%;
                                     height: 100%;
@@ -164,11 +194,18 @@
                                     font-weight: $weight-400;
                                     font: $paragraph;
                                     margin-bottom: 0;
+                                    @include small-down{
+                                        font-size: $paragraph-mobile;
+                                    }
                                 }
                                 span{
                                     color:$color-one;
                                     font-weight: $weight-400;
                                     font: $paragraph-min;
+
+                                    @include small-down{
+                                        font-size: $paragraph-min-mobile;
+                                    }
                                 }
                             }
 
@@ -203,19 +240,43 @@
                 justify-content: center !important;
             }
             ul{
-                gap: 0 42px;
+                gap: 0 32px;
+
                 @include small-down {
                     flex-wrap: wrap;
                     justify-content: center !important;
+                    gap: 17px 15px;
                 }
                 li{
                     display: flex;
 
                     a{
                         color:$color-one;
-                        font-weight: $weight-700;
+                        font-weight: $weight-700 !important;
                         font: $paragraph;
                         display: flex;
+                        align-items: center;
+
+                        @include small-down{
+                            font: $paragraph-mobile;
+                        }
+
+                        &:after{
+                            content:'';
+                            width: 3px;
+                            height: 24px;
+                            background: $color-one;
+                            background: #404040;
+                            margin-left: 29px;
+
+                            @include small-down{
+                                margin-left: 15px;
+                            }
+                        }
+
+                    }
+                    &:last-of-type a:after{
+                        display: none;
                     }
                 }
             }
@@ -226,6 +287,8 @@
 
             @include small-down{
                 margin-top: 31px;
+                width: 127px;
+                height: 62px;
             }
         }
     }
