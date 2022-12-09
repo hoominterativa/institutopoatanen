@@ -6,19 +6,47 @@
     background: #000;
 
     .container--pd{
-        padding: 21px 0 90px 0;
+        padding: 21px 0 90px 0 !important;
+
+        @include small-down {
+            padding: 22px 50px 143px 50px !important;
+        }
     }
 
     .btn-comeBack{
         position: absolute;
-        right: 0;
-        bottom: 0;
+        right: 13px;
+        bottom: 106px;
         height: 100px;
         width: 58px;
         background: #B3B3B3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include small-down {
+            width: 50px;
+            height: 87px;
+            bottom: 167px;
+        }
+        img{
+            width: 23px;
+            height: 43px;
+            object-fit: contain;
+
+            // @include small-down{
+
+            // }
+        }
     }
     &__top{
         margin-bottom: 17.3px;
+
+        @include small-down {
+            & > div{
+                flex-direction: column;
+            }
+
+        }
 
         &__telefone{
             a{
@@ -30,7 +58,7 @@
                 font-family: $font-primary;
 
                 img{
-                   width: 43px; 
+                   width: 43px;
                    margin-right: 9px;
                    object-fit: contain;
                 }
@@ -40,11 +68,13 @@
             height: 125px;
             width: 268px;
 
-            img{
-
+            @include small-down {
+                margin-bottom: 40px;
             }
         }
         &__redeSocial{
+            gap:0 17.5px;
+
             a{
                 img{
                     width: 32px;
@@ -55,8 +85,20 @@
         }
     }
     &__bottom{
+        @include small-down{
+            margin-top: 43.67px;
+        }
+
         &__boxLeft{
+            gap:0 108px;
+            @include small-down {
+                gap:0 16px;
+                margin: 0 auto !important;
+            }
             &__nav{
+                @include small-down {
+                  width: 47%;
+                }
                 &__title{
                     color:$color-black;
                     font-size: $T4;
@@ -65,17 +107,34 @@
                     margin-bottom: 21px;
                 }
                 ul{
+                    gap:8px 0;
+                    display: flex;
+                    flex-direction: column;
+
                     li{
+                        padding-bottom: 8px;
+                        border-bottom: 1px solid $color-three;
                         a{
                             color:$color-black;
                             font-weight: $weight-700;
-                            font: $paragraph;  
+                            font: $paragraph;
+                            max-width: 163px;
+                            display: block;
                         }
                     }
                 }
             }
         }
         &__boxRight{
+            gap:0 88px;
+            padding-right: 27px !important;
+
+            @include small-down{
+                margin-top: 54px;
+                padding-right: 0px !important;
+                gap:0;
+            }
+
             &__nav{
                 &__title{
                     color:$color-black;
@@ -87,9 +146,32 @@
                 ul{
                     li{
                         a{
-                            color:$color-black;
-                            font-weight: $weight-700;
-                            font: $paragraph;  
+                            .icone{
+                                width: 43px;
+                                height: 43px;
+
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                }
+                            }
+                            .description {
+                                margin-left: 10px;
+
+                                .title{
+                                    color:$color-black;
+                                    font-weight: $weight-400;
+                                    font: $paragraph;
+                                    margin-bottom: 0;
+                                }
+                                span{
+                                    color:$color-one;
+                                    font-weight: $weight-400;
+                                    font: $paragraph-min;
+                                }
+                            }
+
                         }
                     }
                 }
@@ -100,10 +182,32 @@
         background: #7C7C7C;
         height: 106px;
 
+        @include small-down{
+            height: auto;
+        }
+        .row--mobile{
+            @include small-down{
+                padding: 13px 53px;
+            }
+        }
+        &__content{
+            @include small-down{
+                flex-direction:column !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+        }
         &__nav{
+            @include small-down {
+                flex-wrap: wrap;
+                justify-content: center !important;
+            }
             ul{
                 gap: 0 42px;
-
+                @include small-down {
+                    flex-wrap: wrap;
+                    justify-content: center !important;
+                }
                 li{
                     display: flex;
 
@@ -119,6 +223,10 @@
         &__logo{
             width: 147px;
             height: 72px;
+
+            @include small-down{
+                margin-top: 31px;
+            }
         }
     }
 
@@ -130,9 +238,9 @@
         color: inherit;
         text-decoration: none;
     }
-    
+
     li {
         list-style: none;
     }
-    
+
 }

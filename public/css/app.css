@@ -706,18 +706,44 @@ a {
   background: #000;
 }
 .foot03 .container--pd {
-  padding: 21px 0 90px 0;
+  padding: 21px 0 90px 0 !important;
+}
+@media (max-width: 800px) {
+  .foot03 .container--pd {
+    padding: 22px 50px 143px 50px !important;
+  }
 }
 .foot03 .btn-comeBack {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 13px;
+  bottom: 106px;
   height: 100px;
   width: 58px;
   background: #B3B3B3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .foot03 .btn-comeBack {
+    width: 50px;
+    height: 87px;
+    bottom: 167px;
+  }
+}
+.foot03 .btn-comeBack img {
+  width: 23px;
+  height: 43px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .foot03__top {
   margin-bottom: 17.3px;
+}
+@media (max-width: 800px) {
+  .foot03__top > div {
+    flex-direction: column;
+  }
 }
 .foot03__top__telefone a {
   display: flex;
@@ -737,11 +763,38 @@ a {
   height: 125px;
   width: 268px;
 }
+@media (max-width: 800px) {
+  .foot03__top__logo {
+    margin-bottom: 40px;
+  }
+}
+.foot03__top__redeSocial {
+  gap: 0 17.5px;
+}
 .foot03__top__redeSocial a img {
   width: 32px;
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
+}
+@media (max-width: 800px) {
+  .foot03__bottom {
+    margin-top: 43.67px;
+  }
+}
+.foot03__bottom__boxLeft {
+  gap: 0 108px;
+}
+@media (max-width: 800px) {
+  .foot03__bottom__boxLeft {
+    gap: 0 16px;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 800px) {
+  .foot03__bottom__boxLeft__nav {
+    width: 47%;
+  }
 }
 .foot03__bottom__boxLeft__nav__title {
   color: #000;
@@ -750,10 +803,32 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   margin-bottom: 21px;
 }
+.foot03__bottom__boxLeft__nav ul {
+  gap: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+.foot03__bottom__boxLeft__nav ul li {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #B3B3B3;
+}
 .foot03__bottom__boxLeft__nav ul li a {
   color: #000;
   font-weight: 700;
   font: 1rem "Montserrat", sans-serif, arial;
+  max-width: 163px;
+  display: block;
+}
+.foot03__bottom__boxRight {
+  gap: 0 88px;
+  padding-right: 27px !important;
+}
+@media (max-width: 800px) {
+  .foot03__bottom__boxRight {
+    margin-top: 54px;
+    padding-right: 0px !important;
+    gap: 0;
+  }
 }
 .foot03__bottom__boxRight__nav__title {
   color: #000;
@@ -762,17 +837,65 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   margin-bottom: 21px;
 }
-.foot03__bottom__boxRight__nav ul li a {
+.foot03__bottom__boxRight__nav ul li a .icone {
+  width: 43px;
+  height: 43px;
+}
+.foot03__bottom__boxRight__nav ul li a .icone img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.foot03__bottom__boxRight__nav ul li a .description {
+  margin-left: 10px;
+}
+.foot03__bottom__boxRight__nav ul li a .description .title {
   color: #000;
-  font-weight: 700;
+  font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
+  margin-bottom: 0;
+}
+.foot03__bottom__boxRight__nav ul li a .description span {
+  color: #404040;
+  font-weight: 400;
+  font: 0.875rem "Montserrat", sans-serif, arial;
 }
 .foot03__credits {
   background: #7C7C7C;
   height: 106px;
 }
+@media (max-width: 800px) {
+  .foot03__credits {
+    height: auto;
+  }
+}
+@media (max-width: 800px) {
+  .foot03__credits .row--mobile {
+    padding: 13px 53px;
+  }
+}
+@media (max-width: 800px) {
+  .foot03__credits__content {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+@media (max-width: 800px) {
+  .foot03__credits__nav {
+    flex-wrap: wrap;
+    justify-content: center !important;
+  }
+}
 .foot03__credits__nav ul {
   gap: 0 42px;
+}
+@media (max-width: 800px) {
+  .foot03__credits__nav ul {
+    flex-wrap: wrap;
+    justify-content: center !important;
+  }
 }
 .foot03__credits__nav ul li {
   display: flex;
@@ -786,6 +909,11 @@ a {
 .foot03__credits__logo {
   width: 147px;
   height: 72px;
+}
+@media (max-width: 800px) {
+  .foot03__credits__logo {
+    margin-top: 31px;
+  }
 }
 .foot03 ul {
   padding: 0;
