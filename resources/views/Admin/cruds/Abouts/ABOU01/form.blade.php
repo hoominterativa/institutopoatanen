@@ -1,22 +1,9 @@
-<ul class="mb-3 nav nav-tabs">
-    <li class="nav-item">
-        <a href="#formAbout" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Informações da Página</a>
-    </li>
-    <li class="nav-item">
-        <a href="#formAboutSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
-    </li>
-    <li class="nav-item">
-        <a href="#formBannerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Banner</a>
-    </li>
-    <li class="nav-item">
-        <a href="#formSectionInnerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção Página</a>
-    </li>
-    <li class="nav-item">
-        <a href="#aboutTopicsList" class="nav-link">Tópicos</a>
-    </li>
-</ul>
-<div class="tab-content">
-    <div class="tab-pane" id="formAboutSection">
+<div class="tab-pane" id="formAboutSection">
+    @if ($about)
+        {!! Form::model($about, ['route' => ['admin.abou01.update', $about->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+    @else
+        {!! Form::model(null, ['route' => 'admin.abou01.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+    @endif
         <div class="row col-12">
             <div class="col-12 col-lg-6">
                 <div class="card card-body" id="tooltip-container">
@@ -52,10 +39,18 @@
             {{-- end card --}}
         </div>
         {{-- end row --}}
-    </div>
-    {{-- END #formAboutSection --}}
+        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+        <a href="{{route('admin.dashboard')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+    {!! Form::close() !!}
+</div>
+{{-- END #formAboutSection --}}
 
-    <div class="tab-pane" id="formBannerAbout">
+<div class="tab-pane" id="formBannerAbout">
+    @if ($about)
+        {!! Form::model($about, ['route' => ['admin.abou01.update', $about->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+    @else
+        {!! Form::model(null, ['route' => 'admin.abou01.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+    @endif
         <div class="row col-12">
             <div class="col-12 col-lg-6">
                 <div class="card card-body" id="tooltip-container">
@@ -94,10 +89,18 @@
             {{-- end card --}}
         </div>
         {{-- end row --}}
-    </div>
-    {{-- END #formBannerAbout --}}
+    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+    <a href="{{route('admin.dashboard')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+{!! Form::close() !!}
+</div>
+{{-- END #formBannerAbout --}}
 
-    <div class="tab-pane show active" id="formAbout">
+<div class="tab-pane show active" id="formAbout">
+    @if ($about)
+        {!! Form::model($about, ['route' => ['admin.abou01.update', $about->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+    @else
+        {!! Form::model(null, ['route' => 'admin.abou01.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+    @endif
         <div class="row col-12">
             <div class="col-12">
                 <div class="card card-body" id="tooltip-container">
@@ -124,10 +127,18 @@
             {{-- end card --}}
         </div>
         {{-- end row --}}
-    </div>
-    {{-- END #formAbout --}}
+        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+        <a href="{{route('admin.dashboard')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+    {!! Form::close() !!}
+</div>
+{{-- END #formAbout --}}
 
-    <div class="tab-pane" id="formSectionInnerAbout">
+<div class="tab-pane" id="formSectionInnerAbout">
+    @if ($about)
+        {!! Form::model($about, ['route' => ['admin.abou01.update', $about->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+    @else
+        {!! Form::model(null, ['route' => 'admin.abou01.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+    @endif
         <div class="row col-12">
             <div class="col-12 col-lg-6">
                 <div class="card card-body" id="tooltip-container">
@@ -178,6 +189,9 @@
             {{-- end card --}}
         </div>
         {{-- end row --}}
-    </div>
-    {{-- END #formSectionInnerAbout --}}
+        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+        <a href="{{route('admin.dashboard')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+    {!! Form::close() !!}
 </div>
+{{-- END #formSectionInnerAbout --}}
+

@@ -14,16 +14,18 @@ class ContactLead extends Mailable
 
     protected $infomation;
     protected $emailRecipient;
+    protected $contactLead;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($infomation, $emailRecipient)
+    public function __construct($infomation, $emailRecipient, $contactLead)
     {
         $this->infomation = $infomation;
         $this->emailRecipient = $emailRecipient;
+        $this->contactLead = $contactLead;
     }
 
     /**
@@ -51,6 +53,7 @@ class ContactLead extends Mailable
         return $this->view('Mail.contactUs',[
             'infomrations' => $this->infomation,
             'setting' => $setting,
+            'contactLead' => $this->contactLead,
         ]);
     }
 }

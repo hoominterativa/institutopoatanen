@@ -28,7 +28,7 @@
                                     <p class="cota01-show__form__header__paragraph">{{$contact->description_form}}</p>
                                 </div>
                             @endif
-                            {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>' cota01-show__form__item parsley-validate d-table w-100']) !!}
+                            {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax cota01-show__form__item parsley-validate d-table w-100']) !!}
                                 <input type="hidden" name="target_lead" value="{{$contact->title_page}}">
                                 <input type="hidden" name="target_send" value="{{base64_encode($contact->email_form)}}">
                                 <div class="row">

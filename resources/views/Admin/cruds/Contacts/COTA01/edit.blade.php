@@ -11,11 +11,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.cota01.index')}}">{{$configModelsMain->Contacts->COTA01->config->titlePanel}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{$configModelsMain->Contacts->COTA01->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.cota01.index')}}">{{getTitleModel($configModelsMain, 'Contacts', 'COTA01')}}</a></li>
+                                    <li class="breadcrumb-item active">Editar {{getTitleModel($configModelsMain, 'Contacts', 'COTA01')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{$configModelsMain->Contacts->COTA01->config->titlePanel}}</h4>
+                            <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Contacts', 'COTA01')}}</h4>
                         </div>
                     </div>
                 </div>

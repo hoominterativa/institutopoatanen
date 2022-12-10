@@ -124,3 +124,29 @@ if(!function_exists('getNameModule')){
         return $module;
     }
 }
+
+if(!function_exists('getTitleModel')){
+
+    /**
+     * Get model name
+     *
+     * @param object $modelConfig
+     * @param string $module
+     * @param string $model
+     *
+     * @return string
+     */
+    function getTitleModel($modelConfig, $module, $model){
+        foreach ($modelConfig as $name => $value) {
+            $arrayName = explode('.', $name);
+            if(count($arrayName)>1){
+                if($arrayName[0]==$module){
+                    if(isset($modelConfig->$name->$model)){
+                        return $modelConfig->$name->$model->config->titlePanel;
+                    }
+                }
+            }
+        }
+        return $modelConfig->$module->$model->config->titlePanel;
+    }
+}

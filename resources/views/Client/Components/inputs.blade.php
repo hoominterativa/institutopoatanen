@@ -81,11 +81,13 @@
         <div class="input__item input__item--checkbox">
             {!! Form::label(null, $placeholder, ['class'=>'form-label']) !!}
             <div class="d-flex align-items-center">
-                @foreach (explode(',', $options) as $option)
-                    <div class="col-12 col-lg-6 mb-3 form-check d-flex align-items-center">
-                        {!! Form::checkbox($name.'[]', trim($option), null, ['class'=>'form-check-input me-2', 'id'=> $name.$key]) !!}
-                        {!! Form::label($name.$key, trim($option), ['class'=>'form-check-label']) !!}
-                    </div>
+                @foreach (explode(',', $options) as $key => $option)
+                    @if ($option)
+                        <div class="col-12 col-lg-6 mb-3 form-check d-flex align-items-center">
+                            {!! Form::checkbox($name.'[]', trim($option), null, ['class'=>'form-check-input me-2', 'id'=> $name.$key]) !!}
+                            {!! Form::label($name.$key, trim($option), ['class'=>'form-check-label']) !!}
+                        </div>
+                    @endif
                 @endforeach
             </div>
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">

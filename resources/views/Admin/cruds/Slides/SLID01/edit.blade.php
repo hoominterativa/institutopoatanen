@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.slid01.index')}}">Banners</a></li>
-                                    <li class="breadcrumb-item active">Editar Banner</li>
+                                    <li class="breadcrumb-item active">Editar {{getTitleModel($configModelsMain, 'Slides', 'SLID01')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Banner</h4>
+                            <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Slides', 'SLID01')}}</h4>
                         </div>
                     </div>
                 </div>

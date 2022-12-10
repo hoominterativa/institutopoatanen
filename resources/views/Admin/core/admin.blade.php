@@ -80,90 +80,30 @@
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fe-bell noti-icon"></i>
-                                <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
+                                <span class="badge bg-danger rounded-circle noti-icon-badge">{{$contactLeadsUpcoming->count()}}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-lg">
 
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
-                                    <h5 class="m-0">
-                                        <span class="float-end">
-                                            <a href="" class="text-dark">
-                                                <small>Limpar todos</small>
-                                            </a>
-                                        </span>Notificações
-                                    </h5>
+                                    <h5 class="m-0">Notificações</h5>
                                 </div>
 
                                 <div class="noti-scroll" data-simplebar>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                        <div class="notify-icon">
-                                            <img src="{{asset('admin/assets/images/users/user-1.jpg')}}" class="img-fluid rounded-circle" alt="" /> </div>
-                                        <p class="notify-details">Cristina Pride</p>
-                                        <p class="text-muted mb-0 user-msg">
-                                            <small>Hi, How are you? What about our next meeting</small>
-                                        </p>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-primary">
-                                            <i class="mdi mdi-comment-account-outline"></i>
-                                        </div>
-                                        <p class="notify-details">Caleb Flakelar commented on Admin
-                                            <small class="text-muted">1 min ago</small>
-                                        </p>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon">
-                                            <img src="{{asset('admin/assets/images/users/user-4.jpg')}}" class="img-fluid rounded-circle" alt="" /> </div>
-                                        <p class="notify-details">Karen Robinson</p>
-                                        <p class="text-muted mb-0 user-msg">
-                                            <small>Wow ! this admin looks good and awesome design</small>
-                                        </p>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-warning">
-                                            <i class="mdi mdi-account-plus"></i>
-                                        </div>
-                                        <p class="notify-details">New user registered.
-                                            <small class="text-muted">5 hours ago</small>
-                                        </p>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-info">
-                                            <i class="mdi mdi-comment-account-outline"></i>
-                                        </div>
-                                        <p class="notify-details">Caleb Flakelar commented on Admin
-                                            <small class="text-muted">4 days ago</small>
-                                        </p>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-secondary">
-                                            <i class="mdi mdi-heart"></i>
-                                        </div>
-                                        <p class="notify-details">Carlos Crouch liked
-                                            <b>Admin</b>
-                                            <small class="text-muted">13 days ago</small>
-                                        </p>
-                                    </a>
+                                    @foreach ($contactLeadsUpcoming as $contactLeadUpcoming)
+                                        <a href="{{route('admin.contact.index', ['code' => $contactLeadUpcoming->id])}}" class="d-flex notify-item">
+                                            <div class="notify-icon bg-secondary">
+                                                <i class="mdi mdi-handshake-outline"></i>
+                                            </div>
+                                            <p class="text-dark">
+                                                Você recebeu um novo lead de <b>{{$contactLeadUpcoming->target_lead}}</b><br>
+                                                <small class="text-muted">{{Carbon\Carbon::parse($contactLeadUpcoming->created_at)->format('d/m/Y H:i')}}</small>
+                                            </p>
+                                        </a>
+                                    @endforeach
                                 </div>
-
-                                <!-- All-->
-                                <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                                    View all
-                                    <i class="fe-arrow-right"></i>
-                                </a>
 
                             </div>
                         </li>
@@ -242,38 +182,7 @@
                             <!-- End mobile menu toggle-->
                         </li>
 
-                        <li class="dropdown d-none d-xl-block">
-                            <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                Cadastre novo
-                            </a>
-                            <div class="dropdown-menu">
-                                @foreach ($modelsMain as $module => $models)
-                                    @foreach ($models as $code => $model)
-                                        @if ($model->ViewListPanel)
-                                            <!-- item-->
-                                            <a href="{{route('admin.'.Str::lower($code).'.create')}}" class="dropdown-item">
-                                                <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi me-1"></i>
-                                                <span>{{$model->config->titlePanel}}</span>
-                                            </a>
-                                        @endif
-                                    @endforeach
-                                @endforeach
-
-                                <a href="{{route('admin.user.create')}}" class="dropdown-item">
-                                    <i class="mdi-account mdi me-1"></i>
-                                    <span>Usuário</span>
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="mdi mdi-help-box"></i>
-                                    <span>Tutoriais</span>
-                                </a>
-
-                            </div>
-                        </li>
+                        <li class="dropdown d-none d-xl-block"></li>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -300,7 +209,7 @@
 
                         <ul id="side-menu">
 
-                            <li class="menu-title">Navegação</li>
+                            <li class="menu-title text-primary"><b>Navegação</b></li>
 
                             <li>
                                 <a nofollow href="{{route('admin.dashboard')}}">
@@ -322,10 +231,12 @@
                                 @endforeach
                             @endforeach
 
+                            <li class="menu-title text-primary mt-2"><b>Funil</b></li>
+
                             <li>
                                 <a nofollow href="{{route('admin.contact.index')}}">
                                     <i class="mdi-handshake-outline mdi"></i>
-                                    <span> Lead Contato </span>
+                                    <span> Oprtunidades </span>
                                 </a>
                             </li>
 
@@ -336,7 +247,7 @@
                                 </a>
                             </li>
 
-                            <li class="menu-title mt-2">Configurações</li>
+                            <li class="menu-title text-primary mt-2"><b>Configurações</b></li>
 
                             <li>
                                 <a nofollow href="{{route('admin.optimization.index')}}">
@@ -499,6 +410,9 @@
 
         </script>
 
+        <link href="{{url(mix('admin/assets/libs/owl.carousel.min.css'))}}" rel="stylesheet" type="text/css" />
+        <script src="{{url(mix('admin/assets/libs/owl.carousel.min.js'))}}"></script>
+
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')
@@ -506,6 +420,7 @@
         <!-- App js -->
         <script src="{{url(mix('admin/assets/js/app.min.js'))}}"></script>
         <script src="{{url(mix('admin/assets/js/custom.js'))}}"></script>
+
 
         @if(Session::has('success'))
             <script>

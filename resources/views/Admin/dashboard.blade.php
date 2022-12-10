@@ -17,86 +17,108 @@
 
                 <!-- start page title -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 col-lg-6">
                         <div class="page-title-box">
                             <h4 class="page-title d-flex align-items-center"><i class="mdi mdi-view-dashboard-outline mdi-36px me-2 mt-1 text-muted"></i> Dashboard</h4>
                         </div>
                     </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="navOwlDashboard"></div>
+                    </div>
                 </div>
                 <!-- end page title -->
 
-                <div class="row mt-2 mb-3">
-                    @foreach ($modelsMain as $module => $models)
-                        @foreach ($models as $code => $model)
-                            @if ($model->ViewListPanel)
-                                <div class="col-md-6 col-xl-3">
-                                    <a nofollow href="{{route('admin.'.Str::lower($code).'.index')}}">
-                                        <div class="widget-rounded-circle card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
-                                                            <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi mdi-36px avatar-title text-dark"></i>
+                <div class="mt-2 mb-3 position-relative">
+                    <div class="owl-carousel-dashboard">
+                        @foreach ($modelsMain as $module => $models)
+                            @foreach ($models as $code => $model)
+                                @if ($model->ViewListPanel)
+                                    <div class="col-auto">
+                                        <a nofollow href="{{route('admin.'.Str::lower($code).'.index')}}">
+                                            <div class="widget-rounded-circle card mb-0">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                                <i class="{{$model->config->iconPanel<>''?$model->config->iconPanel:'mdi-cancel'}} mdi mdi-36px avatar-title text-dark"></i>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="text-center">
-                                                            <h4 class="text-dark mt-1">{{$model->config->titlePanel}}</h4>
-                                                            <p class="text-muted mb-1">Ver Listagem</p>
+                                                        <div class="col-12">
+                                                            <div class="text-center">
+                                                                <h4 class="text-dark mt-1">{{$model->config->titlePanel}}</h4>
+                                                                <p class="text-muted mb-1">Ver Listagem</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div> <!-- end row-->
-                                            </div>
-                                        </div> <!-- end widget-rounded-circle-->
-                                    </a>
-                                </div> <!-- end col-->
-                            @endif
+                                                    </div> <!-- end row-->
+                                                </div>
+                                            </div> <!-- end widget-rounded-circle-->
+                                        </a>
+                                    </div> <!-- end col-->
+                                @endif
+                            @endforeach
                         @endforeach
-                    @endforeach
-                    <div class="col-md-6 col-xl-3">
-                        <a nofollow href="{{route('admin.contact.index')}}">
-                            <div class="widget-rounded-circle card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-handshake-outline mdi-36px avatar-title text-dark"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="text-center">
-                                                <h4 class="text-dark mt-1">Leads Contato</h4>
-                                                <p class="text-muted mb-1">Leads do formulário de contato</p>
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row-->
-                                </div>
-                            </div> <!-- end widget-rounded-circle-->
-                        </a>
-                    </div> <!-- end col-->
-                    <div class="col-md-6 col-xl-3">
-                        <a nofollow href="{{route('admin.contactForm.index')}}">
-                            <div class="widget-rounded-circle card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
-                                                <i class="mdi mdi-content-paste mdi-36px avatar-title text-dark"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="text-center">
-                                                <h4 class="text-dark mt-1">Formulários</h4>
-                                                <p class="text-muted mb-1">Crie formulários personalizados</p>
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row-->
-                                </div>
-                            </div> <!-- end widget-rounded-circle-->
-                        </a>
-                    </div> <!-- end col-->
+                    </div>
                 </div>
-                {{-- END .row --}}
+                <div class="card card-body card--custom" >
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title d-flex align-items-center mb-2" style="line-height: 47px;">
+                                    <i class="mdi mdi-filter-plus mdi-36px me-2 mt-1 text-muted"></i>
+                                    Funil
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3">
+                            <a nofollow href="{{route('admin.contact.index')}}">
+                                <div class="widget-rounded-circle card">
+                                    <div class="card-body bg-light">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                    <i class="mdi mdi-handshake-outline mdi-36px avatar-title text-dark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <h4 class="text-dark mt-1">Oportunidades</h4>
+                                                    <p class="text-muted mb-1">Leads do formulário de contato</p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end row-->
+                                    </div>
+                                </div> <!-- end widget-rounded-circle-->
+                            </a>
+                        </div> <!-- end col-->
+                        <div class="col-md-6 col-xl-3">
+                            <a nofollow href="{{route('admin.contactForm.index')}}">
+                                <div class="widget-rounded-circle card">
+                                    <div class="card-body bg-light">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                    <i class="mdi mdi-content-paste mdi-36px avatar-title text-dark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <h4 class="text-dark mt-1">Formulários</h4>
+                                                    <p class="text-muted mb-1">Crie formulários personalizados</p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end row-->
+                                    </div>
+                                </div> <!-- end widget-rounded-circle-->
+                            </a>
+                        </div> <!-- end col-->
+                    </div>
+                    {{-- END .row --}}
+                </div>
 
                 <style>
                     .card.card-body.card--custom:hover{
@@ -109,7 +131,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
-                                <h4 class="page-title d-flex align-items-center mb-2" style="line-height: 47px;"><i class="mdi mdi-application-cog mdi-36px me-2 mt-1 text-muted"></i> Configurações</h4>
+                                <h4 class="page-title d-flex align-items-center mb-2" style="line-height: 47px;">
+                                    <i class="mdi mdi-application-cog mdi-36px me-2 mt-1 text-muted"></i>
+                                    Configurações
+                                </h4>
                             </div>
                         </div>
                     </div>

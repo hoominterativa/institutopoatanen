@@ -15,6 +15,8 @@ class CreateContactLeadTable extends Migration
     {
         Schema::create('contact_lead', function (Blueprint $table) {
             $table->id();
+            $table->string('target_lead')->nullable();
+            $table->enum('status_process', ['upcoming','in_process','completed','lost'])->nullable();
             $table->longText('json')->nullable();
             $table->timestamps();
         });

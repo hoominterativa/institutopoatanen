@@ -11,11 +11,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.cont03.index')}}">{{$configModelsMain->Contents->CONT03->config->titlePanel}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{$configModelsMain->Contents->CONT03->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.cont03.index')}}">{{getTitleModel($configModelsMain, 'Contents', 'CONT03')}}</a></li>
+                                    <li class="breadcrumb-item active">Editar {{getTitleModel($configModelsMain, 'Contents', 'CONT03')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{$configModelsMain->Contents->CONT03->config->titlePanel}}</h4>
+                            <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Contents', 'CONT03')}}</h4>
                         </div>
                     </div>
                 </div>

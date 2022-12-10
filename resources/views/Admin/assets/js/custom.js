@@ -374,4 +374,27 @@ $(function() {
 
         localStorage.setItem('tab', `#${hash}`)
     });
+
+    var owlDashboard = $('.owl-carousel-dashboard')
+    owlDashboard.addClass('owl-carousel');
+    owlDashboard.owlCarousel({
+        margin:20,
+        dots:false,
+        nav:true,
+        navContainer: '.navOwlDashboard',
+        responsive: {
+            // breakpoint from 0 up
+            0 : {
+                items:1
+            },
+            // breakpoint from 360 up
+            361 : {
+                items:2
+            },
+            // breakpoint from 768 up
+            800 : {
+                items:4
+            }
+        }
+    });
 })

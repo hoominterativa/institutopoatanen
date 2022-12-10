@@ -25,18 +25,31 @@ class ContactLeadController extends Controller
      */
     public function index()
     {
-        $contactLeads = ContactLead::orderBy('created_at', 'DESC')->get();
-        $contactLeadsFilter = [];
+        $contactLeadsUpcoming = ContactLead::where('status_process', 'upcoming')->orderBy('created_at', 'DESC')->get();
+        $contactLeadsInProcess = ContactLead::where('status_process', 'in_process')->orderBy('created_at', 'DESC')->get();
+        $contactLeadsCompleted = ContactLead::where('status_process', 'completed')->orderBy('created_at', 'DESC')->get();
+        $contactLeadsLost = ContactLead::where('status_process', 'lost')->orderBy('created_at', 'DESC')->get();
 
-        foreach ($contactLeads as $contactLead) {
-            if(array_search(json_decode($contactLead->json)->target_lead, $contactLeadsFilter)===false){
-                $contactLeadsFilter = array_merge($contactLeadsFilter, [json_decode($contactLead->json)->target_lead]);
-            }
-            $contactLead->json = json_decode($contactLead->json);
+        $contactLeadsFilter = ContactLead::orderBy('target_lead', 'ASC')->groupBy('target_lead')->get();
+
+        foreach ($contactLeadsUpcoming as $contactLeadUpcoming) {
+            $contactLeadUpcoming->json = json_decode($contactLeadUpcoming->json);
+        }
+        foreach ($contactLeadsInProcess as $contactLeadInProcess) {
+            $contactLeadInProcess->json = json_decode($contactLeadInProcess->json);
+        }
+        foreach ($contactLeadsCompleted as $contactLeadCompleted) {
+            $contactLeadCompleted->json = json_decode($contactLeadCompleted->json);
+        }
+        foreach ($contactLeadsLost as $contactLeadLost) {
+            $contactLeadLost->json = json_decode($contactLeadLost->json);
         }
 
         return view('Admin.cruds.contactLead.index', [
-            'contactLeads' => $contactLeads,
+            'contactLeadsUpcoming' => $contactLeadsUpcoming,
+            'contactLeadsInProcess' => $contactLeadsInProcess,
+            'contactLeadsCompleted' => $contactLeadsCompleted,
+            'contactLeadsLost' => $contactLeadsLost,
             'contactLeadsFilter' => $contactLeadsFilter
         ]);
     }
@@ -64,7 +77,7 @@ class ContactLeadController extends Controller
         }
 
         if($request->target_lead <> ''){
-            $contactLeads = $contactLeads->where('json', 'LIKE', '%'.$request->target_lead.'%');
+            $contactLeads = $contactLeads->where('target_lead', 'LIKE', '%'.$request->target_lead.'%');
         }
 
         $contactLeads = $contactLeads->orderBy('created_at', 'DESC')->get();
@@ -75,12 +88,9 @@ class ContactLeadController extends Controller
     public function filter(Request $request)
     {
         $contactLeads = self::filterLeads($request);
+        $contactLeadsFilter = ContactLead::orderBy('target_lead', 'ASC')->groupBy('target_lead')->get();
 
-        $contactLeadsFilter = [];
         foreach ($contactLeads as $contactLead) {
-            if(array_search(json_decode($contactLead->json)->target_lead, $contactLeadsFilter)===false){
-                $contactLeadsFilter = array_merge($contactLeadsFilter, [json_decode($contactLead->json)->target_lead]);
-            }
             $contactLead->json = json_decode($contactLead->json);
         }
 
@@ -165,20 +175,18 @@ class ContactLeadController extends Controller
             }
         }
 
-        if($request->has('target_lead')){
-            $arrayInsert = array_merge($arrayInsert, ['target_lead' => $request->target_lead]);
-        }
-
         if($request->has('target_send')){
             $emailRecipient = base64_decode($request->target_send);
         }
 
-        $contactLead = ContactLead::create(['json' => json_encode($arrayInsert)]);
+        $contactLead = ContactLead::create(['json' => json_encode($arrayInsert), 'target_lead' => $data['target_lead'], 'status_process' => 'upcoming']);
 
         try {
-            Mail::send(new ContactLeadMail($arrayInsert, $emailRecipient));
+            Mail::send(new ContactLeadMail($arrayInsert, $emailRecipient, $contactLead));
             Mail::send(new ContactLeadConfirmation($contactLead));
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+            // dd($e->getMessage());
+        }
 
         return Response::json([
             'status' => 'success',
@@ -186,6 +194,12 @@ class ContactLeadController extends Controller
         ]);
     }
 
+
+    public function status(Request $request)
+    {
+        $contactLead = ContactLead::find($request->code);
+        $contactLead->fill(['status_process' => $request->status])->save();
+    }
 
     public function confirmation()
     {

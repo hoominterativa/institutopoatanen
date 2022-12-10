@@ -24,11 +24,11 @@
                                 padding: 15px 10px;
                                 color: #fff;
                             ">
-                                Lead da área <b>{{$infomrations['target_lead']}}</b>
+                                Lead da área <b>{{$contactLead->target_lead}}</b>
                             </h3>
 
                             @foreach ($infomrations as $key => $infomration)
-                                @if (isset($infomration['value']) && $key <> 'target_lead')
+                                @if (isset($infomration['value']))
                                     @if ($infomration['type']<>'file')
                                         <p style="
                                             font-size: 16px;

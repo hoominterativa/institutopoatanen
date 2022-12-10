@@ -26,6 +26,7 @@ use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
+use App\Models\ContactLead;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,7 @@ View::composer('Admin.core.admin', function ($view) {
     $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     $settingTheme = SettingTheme::where('user_id', Auth::user()->id)->first();
     $generalSetting = GeneralSetting::first();
+    $contactLeadsUpcoming = ContactLead::where('status_process', 'upcoming')->orderBy('created_at', 'DESC')->get();
 
     $ModelsCompliances = config('modelsConfig.ModelsCompliances');
     $class = config('modelsClass.Class');
@@ -89,6 +91,7 @@ View::composer('Admin.core.admin', function ($view) {
         ->with('settingTheme', $settingTheme)
         ->with('generalSetting', $generalSetting)
         ->with('complianceModel', $complianceModel)
+        ->with('contactLeadsUpcoming', $contactLeadsUpcoming)
         ->with('compliancesValidate', $compliancesValidate);
 });
 
@@ -134,6 +137,7 @@ Route::prefix('painel')->group(function () {
         Route::resource('leads', ContactLeadController::class)->names('admin.contact')->parameters(['contato' => 'ContactLead']);
         Route::post('leads/filtro', [ContactLeadController::class, 'filter'])->name('admin.contact.filter');
         Route::post('leads/exportar-excel', [ContactLeadController::class, 'export'])->name('admin.contact.export');
+        Route::post('leads/status', [ContactLeadController::class, 'status'])->name('admin.contact.status');
 
         // LEAD NEWSLETTER
         Route::get('newsletter', [NewsletterLeadController::class, 'index'])->name('admin.newsletter.index');
@@ -146,6 +150,7 @@ Route::prefix('painel')->group(function () {
         Route::post('links-cta-footer/{GeneralSetting}', [GeneralSettingController::class, 'linksFooter'])->name('admin.cta.footer');
 
         Route::post('editor/image_upload', [EditorController::class, 'upload'])->name('editor.upload.archive');
+
 
 
         Route::any('/calProporcion', function(){

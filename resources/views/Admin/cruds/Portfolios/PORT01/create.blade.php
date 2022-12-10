@@ -11,11 +11,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.port01.index')}}">{{$configModelsMain->Portfolios->PORT01->config->titlePanel}}</a></li>
-                                    <li class="breadcrumb-item active">Cadastro {{$configModelsMain->Portfolios->PORT01->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.port01.index')}}">{{getTitleModel($configModelsMain, 'Portfolios', 'PORT01')}}</a></li>
+                                    <li class="breadcrumb-item active">Cadastro {{getTitleModel($configModelsMain, 'Portfolios', 'PORT01')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro {{$configModelsMain->Portfolios->PORT01->config->titlePanel}}</h4>
+                            <h4 class="page-title">Cadastro {{getTitleModel($configModelsMain, 'Portfolios', 'PORT01')}}</h4>
                         </div>
                     </div>
                 </div>
