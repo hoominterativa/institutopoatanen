@@ -32,5 +32,8 @@
     ],
     "Products": [
         "PROD02"
+    ],
+    "Units": [
+        "UNIT01"
     ]
 }

@@ -105,7 +105,7 @@ return [
             'TOPI04' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI04Controller::class,
                 'model' => App\Models\Topics\TOPI04Topics::class,
-            ],   
+            ],
             'TOPI05' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI05Controller::class,
                 'model' => App\Models\Topics\TOPI05Topics::class,
@@ -121,5 +121,13 @@ return [
             ],
         ],
         // END FEEDBACKS
+        'Units' => (object)[
+            'UNIT01' => (object)[
+                'controller' => App\Http\Controllers\Units\UNIT01Controller::class,
+                'model' => App\Models\Units\UNIT01Units::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END UNITS
     ],
 ];
