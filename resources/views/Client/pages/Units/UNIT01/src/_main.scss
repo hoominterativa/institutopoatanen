@@ -8,8 +8,16 @@
         @include bgpadrao;
         height: $unit01-page-header-height;
 
+        @include small-down{
+            height: 270px;
+            padding: 0 60px;
+        }
+
         .container--unit01-header{
             padding: $unit01-page-header-container-padding;
+            @include small-down{
+                padding: 0 72px;
+            }
         }
         &__title{
             font-size: $T1;
@@ -17,12 +25,21 @@
             color: $color-black;
             margin-bottom: $unit01-page-header-title-margin-bottom;
             font-weight: $weight-700;
+
+            @include small-down{
+                font-size: $T1-mobile;
+                margin-bottom: 39px;
+            }
         }
         &__subtitle{
             font-size: $T4;
             color: $color-two;
             font-family: $font-paragraph;
             font-weight: $weight-700;
+
+            @include small-down{
+                font-size: $T4-mobile
+            }
         }
         &__line{
             width: $unit01-page-line-width;
@@ -48,7 +65,9 @@
     &__divisor{
         &__section{
             padding: 91px 110px;
-
+            @include small-down{
+                padding: 55px 22px;
+            }
             &__boxLeft{
                 
              &__title{
@@ -57,10 +76,18 @@
                 font-weight: $weight-700;
                 color: $color-one;
                 margin-bottom: 30px;
+
+                @include small-down{
+                    font-size: $T2-mobile; 
+                }
              }
              &__line{
                 margin: 30px auto;
                 color:$color-one;
+
+                @include small-down{
+                    margin: 20px auto 27px auto;
+                }
              }
              &__subtitle{
                 font-size: $T4;
@@ -68,18 +95,49 @@
                 font-weight: $weight-700;
                 color: $color-one;
                 margin-bottom: 18px;
+
+                @include small-down{
+                    font-size: $T4-mobile; 
+                    margin-bottom: 13px;
+                }
              }
              &__paragraph{
+                font:$paragraph;
+                font-weight: $weight-400;
+                color: $color-one;
+                
+                @include small-down{
+                    font:$paragraph-min;
+                }
+
                 p{
                     font:$paragraph;
                     font-weight: $weight-400;
                     color: $color-one;
+                    margin-bottom: 0;
+
+                    @include small-down{
+                        font:$paragraph-min;
+                    }
                 }
              }
              &__topics{
                 margin-top: 50px;
+                gap:15px;
+
+                @include small-down{
+                    gap: 5px;
+                }
 
                 &__topic{
+                    height: 120px;
+                    width: 22.99%;
+
+                    @include small-down{
+                        height: 85px;
+                        width: 23.81%;
+                    }
+
                     &__image{
                         position: absolute;
                         top:0;
@@ -90,10 +148,19 @@
                     &__description{
                         left: 0;
                         top:0; 
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
 
-                        &__icone{
+                        &__icon{
                           width: 32px;
                           height: 32px;  
+
+                          @include small-down{
+                            width: 22.67px;
+                            height: 22.67px;
+                          }
                         }
                       &__title{
                         font-size: $T5;
@@ -101,18 +168,71 @@
                         font-weight: $weight-700;
                         color: $color-one;
                         margin-top: 10px;
+
+                        @include small-down{
+                            font-size: $T5-mobile; 
+                        }
                       }
+
+                     
                     }
                 }
               }
             }
             &__boxRight{
                 width: 509px;
-
+                    @include small-down{
+                        width: 100%;
+                        margin-top: 22px;
+                    }
+                .carousel_unit01 .owl-item{
+                    height: 100% !important;
+                    @include small-down{
+                        height: 321px;
+                    }
+                }
+                .carousel_unit01 .owl-stage{
+                    height: 100% !important;
+                    @include small-down{
+                        height:321px;
+                    }
+                }
+                .carousel_unit01 .owl-stage-outer{
+                    height: 100% !important;
+                    @include small-down{
+                        height:321px;
+                    }
+                }
+                .carousel_unit01 .owl-nav{
+                    display: $carousel-unit01-owl-nav-display;
+                    padding: $carousel-unit01-owl-nav-padding;
+                    justify-content: $carousel-unit01-owl-nav-justify-content;
+                    position: $carousel-unit01-owl-nav-position;
+                    top:$carousel-unit01-owl-nav-top;
+                    width: $carousel-unit01-owl-nav-width;
+                }
+                .carousel_unit01 .owl-nav .owl-prev,
+                .carousel_unit01 .owl-nav .owl-next{
+                    height: $carousel-unit01-owl-nav-prev-next-height;
+                    width: $carousel-unit01-owl-nav-prev-next-width;
+                    border-radius: $carousel-unit01-owl-nav-prev-next-border-radius;
+                    background-color: $color-one;
+                    @include dflex;
+                    border: $carousel-unit01-owl-nav-prev-next-border;
+                }
+                .carousel_unit01 .owl-nav .owl-prev span,
+                .carousel_unit01 .owl-nav .owl-next span{
+                    color:$carousel-unit01-owl-nav-prev-next-span-color;
+                    font-size: $carousel-unit01-owl-nav-prev-next-span-font-size;
+                    height: $carousel-unit01-owl-nav-prev-next-span-height;
+                }
                 &__imageBox{
                     width: 509px;
                     height: 509px;
-                    
+                    @include small-down {
+                        width: 100%;
+                        height: 355px;
+                    }
                     img{
                         width: 100%;
                         height: 100%;
@@ -139,12 +259,20 @@
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
+
+        @include small-down{
+            font-size: $T4-mobile;
+        }
     }
     &__title{
         font-size: $T2;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
+
+        @include small-down{
+            font-size: $T2-mobile;
+        }
 
         img{
             margin-right: 13px;

@@ -11861,10 +11861,10 @@ $(function () {
 $('.carousel_unit01').owlCarousel({
   smartSpeed: 450,
   items: 1,
-  loop: true,
+  // loop: true,
   dots: true,
   nav: false,
-  rewind: true,
+  // rewind: true,
   autoHeight: true
 });
 $('.carousel_unit01').css('width', $('.unit01-page__divisor__section__boxRight').outerWidth());

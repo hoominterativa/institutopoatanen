@@ -1018,8 +1018,19 @@ a {
   background-size: cover;
   height: 352px;
 }
+@media (max-width: 800px) {
+  .unit01-page__header {
+    height: 270px;
+    padding: 0 60px;
+  }
+}
 .unit01-page__header .container--unit01-header {
   padding: 112px 0 92px 0 !important;
+}
+@media (max-width: 800px) {
+  .unit01-page__header .container--unit01-header {
+    padding: 0 72px;
+  }
 }
 .unit01-page__header__title {
   font-size: 3.125rem;
@@ -1028,11 +1039,22 @@ a {
   margin-bottom: 25px;
   font-weight: 700;
 }
+@media (max-width: 800px) {
+  .unit01-page__header__title {
+    font-size: 2.5rem;
+    margin-bottom: 39px;
+  }
+}
 .unit01-page__header__subtitle {
   font-size: 1.25rem;
   color: #7C7C7C;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
+}
+@media (max-width: 800px) {
+  .unit01-page__header__subtitle {
+    font-size: 1.125rem;
+  }
 }
 .unit01-page__header__line {
   width: 100%;
@@ -1057,6 +1079,11 @@ a {
 .unit01-page__divisor__section {
   padding: 91px 110px;
 }
+@media (max-width: 800px) {
+  .unit01-page__divisor__section {
+    padding: 55px 22px;
+  }
+}
 .unit01-page__divisor__section__boxLeft__title {
   font-size: 2.5rem;
   font-family: "Ubuntu", sans-serif, arial;
@@ -1064,9 +1091,19 @@ a {
   color: #404040;
   margin-bottom: 30px;
 }
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__title {
+    font-size: 1.875rem;
+  }
+}
 .unit01-page__divisor__section__boxLeft__line {
   margin: 30px auto;
   color: #404040;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__line {
+    margin: 20px auto 27px auto;
+  }
 }
 .unit01-page__divisor__section__boxLeft__subtitle {
   font-size: 1.25rem;
@@ -1075,13 +1112,51 @@ a {
   color: #404040;
   margin-bottom: 18px;
 }
-.unit01-page__divisor__section__boxLeft__paragraph p {
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 13px;
+  }
+}
+.unit01-page__divisor__section__boxLeft__paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 400;
   color: #404040;
 }
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__paragraph {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
+.unit01-page__divisor__section__boxLeft__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+  margin-bottom: 0;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__paragraph p {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
 .unit01-page__divisor__section__boxLeft__topics {
   margin-top: 50px;
+  gap: 15px;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__topics {
+    gap: 5px;
+  }
+}
+.unit01-page__divisor__section__boxLeft__topics__topic {
+  height: 120px;
+  width: 22.99%;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__topics__topic {
+    height: 85px;
+    width: 23.81%;
+  }
 }
 .unit01-page__divisor__section__boxLeft__topics__topic__image {
   position: absolute;
@@ -1093,10 +1168,20 @@ a {
 .unit01-page__divisor__section__boxLeft__topics__topic__description {
   left: 0;
   top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.unit01-page__divisor__section__boxLeft__topics__topic__description__icone {
+.unit01-page__divisor__section__boxLeft__topics__topic__description__icon {
   width: 32px;
   height: 32px;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__topics__topic__description__icon {
+    width: 22.67px;
+    height: 22.67px;
+  }
 }
 .unit01-page__divisor__section__boxLeft__topics__topic__description__title {
   font-size: 1.125rem;
@@ -1105,12 +1190,78 @@ a {
   color: #404040;
   margin-top: 10px;
 }
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxLeft__topics__topic__description__title {
+    font-size: 1.063rem;
+  }
+}
 .unit01-page__divisor__section__boxRight {
   width: 509px;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxRight {
+    width: 100%;
+    margin-top: 22px;
+  }
+}
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-item {
+  height: 100% !important;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxRight .carousel_unit01 .owl-item {
+    height: 321px;
+  }
+}
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-stage {
+  height: 100% !important;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxRight .carousel_unit01 .owl-stage {
+    height: 321px;
+  }
+}
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-stage-outer {
+  height: 100% !important;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxRight .carousel_unit01 .owl-stage-outer {
+    height: 321px;
+  }
+}
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-nav {
+  display: flex;
+  padding: 0 12px;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-nav .owl-prev,
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-nav .owl-next {
+  height: 29px;
+  width: 29px;
+  border-radius: 100%;
+  background-color: #404040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-nav .owl-prev span,
+.unit01-page__divisor__section__boxRight .carousel_unit01 .owl-nav .owl-next span {
+  color: #fff;
+  font-size: 32px;
+  height: 58px;
 }
 .unit01-page__divisor__section__boxRight__imageBox {
   width: 509px;
   height: 509px;
+}
+@media (max-width: 800px) {
+  .unit01-page__divisor__section__boxRight__imageBox {
+    width: 100%;
+    height: 355px;
+  }
 }
 .unit01-page__divisor__section__boxRight__imageBox img {
   width: 100%;
@@ -1130,11 +1281,21 @@ a {
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
+@media (max-width: 800px) {
+  .lightbox-unit01__subtitle {
+    font-size: 1.125rem;
+  }
+}
 .lightbox-unit01__title {
   font-size: 2.5rem;
   color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
+}
+@media (max-width: 800px) {
+  .lightbox-unit01__title {
+    font-size: 1.875rem;
+  }
 }
 .lightbox-unit01__title img {
   margin-right: 13px;
