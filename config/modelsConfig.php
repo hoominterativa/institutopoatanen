@@ -20,9 +20,9 @@ return [
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Unidades',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'unit01.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Unidades',
                     'iconPanel' => 'mdi-information'
