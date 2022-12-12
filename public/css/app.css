@@ -1302,6 +1302,12 @@ a {
   width: 32px;
   height: 32px;
 }
+@media (max-width: 800px) {
+  .lightbox-unit01__title img {
+    width: 22.67px;
+    height: 22.67px;
+  }
+}
 .lightbox-unit01__line {
   margin-top: 22px;
   margin-bottom: 61px;

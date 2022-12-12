@@ -278,6 +278,11 @@
             margin-right: 13px;
             width: 32px;
             height: 32px;
+
+            @include small-down{
+                width: 22.67px;
+                height: 22.67px;
+            }
         }
     }
     &__line{
