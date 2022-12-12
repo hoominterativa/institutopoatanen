@@ -16,8 +16,8 @@ return [
 
         'Units' => (object) [
             'UNIT01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewHome' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'config' => (object) [
                     'titleMenu' => '',

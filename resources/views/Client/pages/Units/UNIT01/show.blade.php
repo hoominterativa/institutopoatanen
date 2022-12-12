@@ -1,4 +1,1 @@
-@extends('Client.Core.client')
-@section('content')
-
-@endsection
+<h4>asdasdasdasd</h4>
