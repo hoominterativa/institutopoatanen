@@ -723,6 +723,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 @media (max-width: 800px) {
   .foot03 .btn-comeBack {
@@ -808,6 +809,7 @@ a {
 }
 .foot03__bottom__boxLeft {
   gap: 0 108px;
+  margin: auto !important;
 }
 @media (max-width: 800px) {
   .foot03__bottom__boxLeft {
