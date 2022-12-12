@@ -23,19 +23,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         @include small-down {
             width: 50px;
             height: 87px;
-            bottom: 167px;
+            bottom: 219px;
         }
+        // @include small-width {
+        //     bottom: 219px;
+        // }
         img{
             width: 23px;
-            height: 43px;
+            height: 29px;
             object-fit: contain;
 
-            // @include small-down{
-
-            // }
+            @include small-down{
+                width: 19px;
+                height: 20px;
+            }
         }
     }
     &__top{
@@ -121,10 +126,10 @@
                     font-weight: $weight-700;
                     font-family: $font-primary;
                     margin-bottom: 21px;
+
                     @include small-down{
                         font-size: $T4-mobile;
                     }
-                    font: $paragraph;
                 }
                 ul{
                     gap:8px 0;
