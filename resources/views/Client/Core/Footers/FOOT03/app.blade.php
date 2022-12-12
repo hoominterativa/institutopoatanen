@@ -1,6 +1,6 @@
 <div class="foot03 container-fluid px-0 position-relative" style="background-color:#EFEFEF;" >
     <a class="btn-comeBack">
-        <img src="" alt="">
+        <img src="{{asset('storage/uploads/tmp/seta.png')}}" alt="Seta">
     </a>
     <div class="container container--pd px-0">
         <div class="row align-items-center">
