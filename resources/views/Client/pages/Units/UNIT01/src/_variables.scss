@@ -1,0 +1,28 @@
+@mixin bgpadrao {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ======= Page ======= */
+// HEADER
+$unit01-page-header-height: 352px;
+$unit01-page-header-container-padding: 112px 0 92px 0 !important;
+$unit01-page-header-title-margin-bottom: 25px;
+$unit01-page-line-width: 100%;
+$unit01-page-header-line-margin-top: 28.81px;
+
+//Responsive
+$unit01-page-header-title-mobile-margin-bottom: 0;
+$unit01-page-header-line-mobile-margin-top: 25px;
+$unit01-page-header-line-mobile-margin-bottom: 21px;
+$unit01-page-header-content-mobile-padding: 46px 0 81px !important;
+
+/* ======= SHOW ======= */
+    /* ======= LIGHTBOX ======= */
+    $lightbox-unit01-width: 100%;
+    $lightbox-unit01-display: none;
+    $lightbox-unit01-padding: 0;
+
+    $lightbox-unit01-line-margin-top: 22px;
+    $lightbox-unit01-line-margin-bottom: 61px;

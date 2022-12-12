@@ -1,3 +1,184 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+
+
+.unit01-page{
+    &__header{
+        @include bgpadrao;
+        height: $unit01-page-header-height;
+
+        .container--unit01-header{
+            padding: $unit01-page-header-container-padding;
+        }
+        &__title{
+            font-size: $T1;
+            font-family: $font-paragraph;
+            color: $color-black;
+            margin-bottom: $unit01-page-header-title-margin-bottom;
+            font-weight: $weight-700;
+        }
+        &__subtitle{
+            font-size: $T4;
+            color: $color-two;
+            font-family: $font-paragraph;
+            font-weight: $weight-700;
+        }
+        &__line{
+            width: $unit01-page-line-width;
+            margin-top: $unit01-page-header-line-margin-top;
+        }
+        @include small-down{
+            &__title{
+                font-size: $T2-mobile;
+                margin-bottom: $unit01-page-header-title-mobile-margin-bottom;
+            }
+            &__subtitle{
+                font-size: $T4-mobile;
+            }
+            &__line{
+                margin-top: $unit01-page-header-line-mobile-margin-top;
+                margin-bottom: $unit01-page-header-line-mobile-margin-bottom;
+            }
+            &__content{
+                padding: $unit01-page-header-content-mobile-padding;
+            }
+        }
+    }
+    &__divisor{
+        &__section{
+            padding: 91px 110px;
+
+            &__boxLeft{
+                
+             &__title{
+                font-size: $T2;
+                font-family:$font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
+                margin-bottom: 30px;
+             }
+             &__line{
+                margin: 30px auto;
+                color:$color-one;
+             }
+             &__subtitle{
+                font-size: $T4;
+                font-family:$font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
+                margin-bottom: 18px;
+             }
+             &__paragraph{
+                p{
+                    font:$paragraph;
+                    font-weight: $weight-400;
+                    color: $color-one;
+                }
+             }
+             &__topics{
+                margin-top: 50px;
+
+                &__topic{
+                    &__image{
+                        position: absolute;
+                        top:0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                    }
+                    &__description{
+                        left: 0;
+                        top:0; 
+
+                        &__icone{
+                          width: 32px;
+                          height: 32px;  
+                        }
+                      &__title{
+                        font-size: $T5;
+                        font-family:$font-primary;
+                        font-weight: $weight-700;
+                        color: $color-one;
+                        margin-top: 10px;
+                      }
+                    }
+                }
+              }
+            }
+            &__boxRight{
+                width: 509px;
+
+                &__imageBox{
+                    width: 509px;
+                    height: 509px;
+                    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// END .unit01-page
+
+
+
+
+.lightbox-unit01{
+    width: $lightbox-unit01-width;
+    display: $lightbox-unit01-display;
+    padding: $lightbox-unit01-padding;
+
+    &__subtitle{
+        font-size: $T4;
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__title{
+        font-size: $T2;
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+
+        img{
+            margin-right: 13px;
+            width: 32px;
+            height: 32px;
+        }
+    }
+    &__line{
+        margin-top: $lightbox-unit01-line-margin-top;
+        margin-bottom: $lightbox-unit01-line-margin-bottom;
+    }
+    &__paragraph{
+        font: $paragraph;
+        color: $color-one;
+        font-weight: $weight-400;
+    }
+    .carousel__button.is-close{
+        right: 17px;
+        top: 17px;
+        left: inherit;
+        width: 31px;
+        height: 31px;
+        background: #000000;
+        border-radius: 5px;
+        color: $color-white;
+        font-size:11px;
+    }
+    .fancybox__backdrop{
+        background: $color-one !important;
+    }
+
+    @include small-down{
+        text-align: center;
+    }
+}
+
+// END .lightbox
