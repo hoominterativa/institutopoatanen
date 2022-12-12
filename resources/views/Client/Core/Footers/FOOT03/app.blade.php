@@ -8,27 +8,27 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="foot03__top__telefone px-0">
                         <a href="#" rel="next">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="#">
+                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="#">
                             Telefone
                         </a>
                     </div>
                     <div class="foot03__top__logo mx-auto">
                         <a href="" rel="next">
-                            <img src="{{asset('storage/uploads/tmp/logo.png')}}" class="w-100 h-100" alt="Logo">
+                            <img src="{{asset('storage/uploads/tmp/logo-for.png')}}" class="w-100 h-100" alt="Logo">
                         </a>
                     </div>
                     <div class="foot03__top__redeSocial d-flex justify-content-between align-items-center">
                         <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
                         </a>
                         <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
                         </a>
                         <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
                         </a>
                         <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
                         </a>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                                 <li>
                                     <a href="#" rel="next" class="d-flex align-items-center">
                                         <div class="icone">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
                                         </div>
                                         <div class="description">
                                             <h4 class="title">Unidade</h4>
@@ -80,7 +80,7 @@
                                 <li>
                                     <a href="#" rel="next" class="d-flex align-items-center">
                                         <div class="icone">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
                                         </div>
                                         <div class="description">
                                             <h4 class="title">Unidade</h4>
