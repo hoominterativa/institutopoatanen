@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{$configModelsMain->Topics->TOPI02->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Topics', 'TOPI02')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{$configModelsMain->Topics->TOPI02->config->titlePanel}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Topics', 'TOPI02')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -46,11 +46,11 @@
                                                 <div class="col-12">
                                                     <div class="mb-2">
                                                         {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                                                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required' => true]) !!}
+                                                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
                                                     </div>
                                                     <div class="mb-2">
                                                         {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                                                        {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle', 'required' => true]) !!}
+                                                        {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
                                                     </div>
                                                     <div class="mb-3">
                                                         {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}

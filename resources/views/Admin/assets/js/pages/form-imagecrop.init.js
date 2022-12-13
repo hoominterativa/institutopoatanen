@@ -3,80 +3,70 @@ $(function() {
     var $container = $('.container-image-crop')
     if ($container.length) {
         $container.each(function() {
-            var $this = $(this);
-            var console = window.console || { log: function() {} };
-            var URL = window.URL || window.webkitURL;
-
-            /* append html required */
-            var htmlInput = `
-                <div class="preview-image"></div>
-                <div class="content-area-image-crop">
-                    <i class="mdi mdi-upload"></i>
-                    <p>Arraste e solte um arquivo aqui ou clique</p>
-                </div>
-                <button type="button" class="dropify-clear mb-2">Remover</button>
-            `;
-            var htmlModal = `
-                <div id="modal-crop-image" class="modal-crop-image">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Recortar imagem</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row align-content-stretch">
-                                <div class="img-container me-3 col-6">
-                                    <img id="CropImage" src="" alt="Picture" class="img-fluid">
-                                </div>
-                                <div class="crop-img-preview"></div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="cropped" class="btn btn-secondary waves-effect">Salvar recorte</button>
-                        </div>
+            var $this = $(this),
+                URL = window.URL || window.webkitURL,
+                $inputImage = $this.find('#inputImage'),
+                nameInputFIle = $inputImage.attr('name'),
+                $data = $inputImage.data(),
+                htmlInput = `
+                    <div class="preview-image"></div>
+                    <div class="content-area-image-crop">
+                        <i class="mdi mdi-upload"></i>
+                        <p>Arraste e solte um arquivo aqui ou clique</p>
                     </div>
-                </div>
-            `;
-
-            $this.find('.area-input-image-crop').append(htmlInput);
-            $this.append(htmlModal);
-
-            /* end append */
-
-            var $image = $this.find('#CropImage');
-            var $inputImage = $this.find('#inputImage');
-            var $data = $inputImage.data();
-            var $aspectRatio = $data.scale.split('/')
-            var $scale = $data.scale ? parseInt($aspectRatio[0]) / parseInt($aspectRatio[1]) : 1 / 1;
-            var $cropped = $this.find('#cropped');
-            var $dataHeight = 0;
-            var $dataWidth = 0;
-            var options = {
-                aspectRatio: $scale,
-                viewMode: 0,
-                preview: $this.find('.crop-img-preview'),
-                minCropBoxWidth: $data.mincropwidth ? parseInt($data.mincropwidth) : 0,
-                crop: function(e) {
-                    $dataHeight = Math.round(e.detail.height);
-                    $dataWidth = Math.round(e.detail.width);
-                }
-            };
-            var uploadedImageName = 'cropped.jpg';
-            var uploadedImageType = 'image/jpeg';
-            var uploadedImageURL;
+                    <button type="button" class="dropify-clear mb-2">Remover</button>
+                    <input type="hidden" name="${nameInputFIle}_cropped" value="" />
+                `;
 
             $this.find('.area-input-image-crop').css('height', $data.height)
-
-            $image.cropper(options);
+            $this.find('.area-input-image-crop').append(htmlInput);
 
             // Import image
             if (URL) {
                 $inputImage.on('change', function() {
-                    var files = this.files;
-                    var file;
+                    /* append html required */
+                    var htmlModal = `
+                        <div id="modal-crop-image" class="modal-crop-image">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Recortar imagem</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row align-content-stretch">
+                                        <div id="imageTargetCrop-wrapper" class="img-container pe-0 col-12 col-lg-6 d-flex justify-content-center align-items-center flex-column">
+                                            <img id="CropImage" src="" alt="Picture" class="img-fluid">
+                                        </div>
+                                        <div class="crop-img-preview col-12 col-lg-6"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="cropped" class="btn btn-secondary waves-effect">Salvar recorte</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $this.append(htmlModal);
+                    /* end append */
 
-                    if (!$image.data('cropper')) {
-                        return;
-                    }
+                    var files = this.files,
+                        file,
+                        $image = $this.find('#CropImage'),
+                        $cropped = $this.find('#cropped'),
+                        $minHeight = $data.minHeight * (80 / $data.minWidth),
+                        $minPreviewHeight = $data.minHeight * (300 / $data.minWidth),
+                        options = {
+                            minSize : [80,$minHeight],
+                            preserveAspectRatio : true,
+                            input: true,
+                            preview : {
+                                display: true,
+                                wrapper: $this.find('.crop-img-preview'),
+                                size : [300, $minPreviewHeight]
+                            }
+                        },
+                        uploadedImageName = 'cropped.jpg',
+                        uploadedImageType = 'image/jpeg',
+                        uploadedImageURL
 
                     if (files && files.length) {
 
@@ -92,35 +82,46 @@ $(function() {
                             }
 
                             uploadedImageURL = URL.createObjectURL(file);
-                            console.log(uploadedImageURL)
-                            $image.cropper('destroy').attr('src', uploadedImageURL).cropper(options);
+
+                            $image.attr('src', uploadedImageURL)
+                            $image.rcrop(options);
+
+                            $image.on('rcrop-ready', function(){
+                                var srcOriginal = $(this).rcrop('getDataURL')
+                                $this.find(`input[name=${nameInputFIle}_cropped]`).val(srcOriginal)
+                            })
+
+                            $image.on('rcrop-changed', function(){
+                                var srcOriginal = $(this).rcrop('getDataURL')
+                                $this.find(`input[name=${nameInputFIle}_cropped]`).val(srcOriginal)
+                            })
+
                             $this.find('.content-area-image-crop').hide()
                             $this.find('> .modal-crop-image').addClass('show')
-
 
                         } else {
                             window.alert('Please choose an image file.');
                         }
                     }
+
+                    $cropped.on('click', function() {
+                        var result = $this.find(`input[name=${nameInputFIle}_cropped]`).val()
+                        $this.find('.preview-image').css('background-image', `url(${result})`)
+                        $this.find('.dropify-clear').show()
+                        $this.find('> .modal-crop-image').remove()
+                    })
+
+                    $this.find('.dropify-clear').on('click', function() {
+                        $(this).hide()
+                        $this.find('.preview-image').css('background-image', `url()`)
+                        $this.find(`input[name=${nameInputFIle}_cropped]`).val('')
+                        $this.find('.content-area-image-crop').show()
+                    });
                 });
             } else {
                 $inputImage.prop('disabled', true).parent().addClass('disabled');
             }
 
-            $cropped.on('click', function() {
-                var result = $image.cropper("getCroppedCanvas", { maxWidth: $dataWidth, maxHeight: $dataHeight }).toDataURL(uploadedImageType);
-                var nameInputFIle = $inputImage.attr('name');
-                $inputImage.parent().append(`<input type="hidden" name="${nameInputFIle}_cropped" value="${result}" />`)
-                $this.find('.preview-image').css('background-image', `url(${result})`)
-                $this.find('.dropify-clear').show()
-                $this.find('> .modal-crop-image').removeClass('show')
-            })
-
-            $this.find('.dropify-clear').on('click', function() {
-                $(this).hide()
-                $this.find('.preview-image').css('background-image', `url()`)
-                $this.find('.content-area-image-crop').show()
-            });
             // Get image default input upload file
             var $defaultFile = $this.find('[data-default-file]')
             if ($defaultFile.length) {
@@ -130,17 +131,9 @@ $(function() {
                         $(this).parent().find('.preview-image').css('background-image', `url(${file})`)
                         $(this).parent().find('.dropify-clear').show()
                         $(this).parent().find('.content-area-image-crop').hide()
-                        $image.cropper('destroy').attr('src', file).cropper(options);
                     }
                 })
             }
-
-            setTimeout(() => {
-                $this.find('> .crop-img-preview').appendTo($this.find('.modal-crop-image .modal-body'))
-            }, 2000);
-
         })
     }
-
-
 });

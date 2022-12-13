@@ -15,9 +15,8 @@ class IncludeSectionsController extends Controller
         $return = [];
 
         if($IncludeSections){
-            $ModelsController = config('modelsClass.Class');
-
             foreach($IncludeSections as $model => $code){
+                $ModelsController = config('modelsClass.Class');
                 $Controller = $ModelsController->$model->$code->controller;
                 array_push($return, $Controller::section());
             }
@@ -29,14 +28,14 @@ class IncludeSectionsController extends Controller
     public function IncludeSectionsHome()
     {
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
-        $ModelsController = config('modelsClass.Class');
         $return = [];
 
         foreach($InsertModelsMain as $module => $model){
-            $module = explode('.', $module)[0];
+            $ModelsController = config('modelsClass.Class');
+            $moduleName = explode('.', $module)[0];
             foreach ($model as $code => $config) {
                 if($config->ViewHome){
-                    $Controller = $ModelsController->$module->$code->controller;
+                    $Controller = $ModelsController->$moduleName->$code->controller;
                     $return = array_merge($return, [$code => $Controller::section()->render()]);
                 }
             }

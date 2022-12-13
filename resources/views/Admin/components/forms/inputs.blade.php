@@ -18,7 +18,8 @@
             'required'=>'required',
             'data-provide'=>'datepicker',
             'data-date-autoclose'=>'true',
-            'data-date-format'=>'dd/mm/YY',
+            'data-date-format'=>'dd/mm/yyyy',
+            'data-date-language'=>'pt-BR',
         ])!!}
 </div>
 <div class="mb-3">
@@ -28,7 +29,8 @@
             'required'=>'required',
             'data-provide'=>'datepicker',
             'data-date-format'=>'MM yyyy',
-            'data-date-min-view-mode'=>'1'
+            'data-date-min-view-mode'=>'1',
+            'data-date-language'=>'pt-BR',
         ])!!}
 </div>
 <div class="mb-3">
@@ -37,7 +39,8 @@
             'class'=>'form-control',
             'required'=>'required',
             'data-provide'=>'datepicker',
-            'data-date-min-view-mode'=>'2'
+            'data-date-min-view-mode'=>'2',
+            'data-date-language'=>'pt-BR',
         ])!!}
 </div>
 
@@ -282,12 +285,13 @@
 {{-- Upload File --}}
 <div class="mb-3">
     {!! Form::label('file', 'Imagem', ['class'=>'form-label']) !!}
+    <small class="ms-2">Dimensão proporcional mínima 450x399px</small> {{-- if upload image --}}
     {!! Form::file('path_archive', [
         'data-plugins'=>'dropify',
         'data-height'=>'300',
         'data-max-file-size-preview'=>'2M',
         'accept'=>'image/*',
-        'data-default-file'=> isset($test)?$test->path_image<>''?url('storage/'.$test->path_image):'':'',
+        'data-default-file'=> isset($test)?($test->path_image<>''?url('storage/'.$test->path_image):''):'',
     ]) !!}
 </div>
 
@@ -295,14 +299,16 @@
 <div class="mb-3">
     <div class="container-image-crop">
         {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+        <small class="ms-2">Dimensão proporcional mínima 450x399px</small>
         <label class="area-input-image-crop" for="inputImage">
             {!! Form::file('path_image', [
                 'id'=>'inputImage',
                 'class'=>'inputImage',
-                'data-scale'=>'1/1',
-                'data-height'=>'200',
+                'data-min-width'=>'1400', // px
+                'data-min-height'=>'600', // px
+                'data-box-height'=>'225', // Input height in the form
                 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                'data-default-file'=> isset($test)?$test->path_image<>''?url('storage/'.$test->path_image):'':'',
+                'data-default-file'=> isset($test)?($test->path_image<>''?url('storage/'.$test->path_image):''):'',
             ]) !!}
         </label>
     </div><!-- END container image crop -->

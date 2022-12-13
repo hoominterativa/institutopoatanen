@@ -28,9 +28,10 @@ class DatabaseSeeder extends Seeder
 
         foreach ($InsertModelsMain as $module => $model) {
             foreach ($model as $code => $config) {
+                $moduleName = explode('.', $module)[0];
 
-                $relationship = $modelsClass->$module->$code->relationship??false;
-                $relationshipSon = $modelsClass->$module->$code->relationshipSon??false;
+                $relationship = $modelsClass->$moduleName->$code->relationship??false;
+                $relationshipSon = $modelsClass->$moduleName->$code->relationshipSon??false;
 
                 if($relationship){
                     foreach ($relationship as $relation) {
@@ -39,10 +40,25 @@ class DatabaseSeeder extends Seeder
                     }
                 }
 
-                $seedQty = $modelsClass->$module->$code->seedQty;
-                $modelsClass->$module->$code->model::factory($seedQty)->create();
+                $seedQty = $modelsClass->$moduleName->$code->seedQty;
+                $modelsClass->$moduleName->$code->model::factory($seedQty)->create();
             }
         }
+
+        $ModelsCompliances = config('modelsConfig.ModelsCompliances');
+        $class = config('modelsClass.Class');
+
+        if(isset($ModelsCompliances->Code)){
+            if($ModelsCompliances->Code <> ''){
+                $code = $ModelsCompliances->Code;
+
+                $seedQty = $class->Compliances->$code->seedQty;
+                $class->Compliances->$code->model::factory($seedQty)->create();
+
+            }
+        }
+
+
 
         if(!User::get()->count()) User::factory(1)->create();
 

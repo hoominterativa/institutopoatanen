@@ -5,6 +5,7 @@
     <link href="{{url(mix('admin/assets/libs/dropify.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/bootstrap-table.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('admin/assets/libs/sweetalert2.min.css'))}}" rel="stylesheet" type="text/css" />
+    <link href="{{url(mix('admin/assets/libs/bootstrap-datepicker.min.css'))}}" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('indexJs')
@@ -16,6 +17,8 @@
     <script src="{{url(mix('admin/assets/libs/spectrum.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/dropzone.min.js'))}}"></script>
     <script src="{{url(mix('admin/assets/libs/dropify.min.js'))}}"></script>
+    <script src="{{url(mix('admin/assets/libs/bootstrap-datepicker.min.js'))}}"></script>
+    <script src="{{url(mix('admin/assets/libs/bootstrap-datepicker.pt-BR.min.js'))}}"></script>
 
     <!-- Pages init js-->
     <script src="{{url(mix('admin/assets/js/pages/form-fileuploads.init.js'))}}"></script>

@@ -17,6 +17,7 @@ mix
     .scripts('node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js', 'public/admin/assets/libs/jquery.bootstrap-touchspin.min.js')
     .scripts('node_modules/bootstrap-maxlength/dist/bootstrap-maxlength.min.js', 'public/admin/assets/libs/bootstrap-maxlength.min.js')
     .scripts('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js', 'public/admin/assets/libs/bootstrap-datepicker.min.js')
+    .scripts('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js', 'public/admin/assets/libs/bootstrap-datepicker.pt-BR.min.js')
     .scripts('node_modules/clockpicker/dist/bootstrap-clockpicker.min.js', 'public/admin/assets/libs/bootstrap-clockpicker.min.js')
     .scripts('node_modules/spectrum-colorpicker2/dist/spectrum.min.js', 'public/admin/assets/libs/spectrum.min.js')
     .scripts('node_modules/flatpickr/dist/flatpickr.min.js', 'public/admin/assets/libs/flatpickr.min.js')
@@ -32,6 +33,9 @@ mix
     .scripts('resources/views/Admin/assets/js/libs/jquery.sortable.min.js', 'public/admin/assets/libs/jquery.sortable.min.js')
     .scripts('node_modules/tippy.js/dist/tippy.all.min.js', 'public/admin/assets/libs/tippy.all.min.js')
     .scripts('node_modules/cropper/dist/cropper.min.js', 'public/admin/assets/libs/cropper.min.js')
+    .scripts('resources/views/Admin/assets/js/libs/cropimage/rcrop.js', 'public/admin/assets/libs/rcrop.js')
+    .scripts('node_modules/owl.carousel/dist/owl.carousel.min.js', 'public/admin/assets/libs/owl.carousel.min.js')
+    .scripts('resources/views/Admin/assets/js/libs/Sortable.min.js', 'public/admin/assets/libs/Sortable.min.js')
     // Pages
     .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/admin/assets/js/pages/form-validation.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/admin/assets/js/pages/form-advanced.init.js')
@@ -45,6 +49,7 @@ mix
     .scripts('resources/views/Admin/assets/js/pages/toastr.init.js', 'public/admin/assets/js/pages/toastr.init.js')
     .scripts('resources/views/Admin/assets/js/pages/materialdesign.init.js', 'public/admin/assets/js/pages/materialdesign.init.js')
     .scripts('resources/views/Admin/assets/js/pages/form-imagecrop.init.js', 'public/admin/assets/js/pages/form-imagecrop.init.js')
+    .scripts('resources/views/Admin/assets/js/pages/kanban.init.js', 'public/admin/assets/js/pages/kanban.init.js')
 
 //CSS
 .styles('resources/views/Admin/assets/css/config/bootstrap.min.css', 'public/admin/assets/css/config/bootstrap.min.css')
@@ -72,6 +77,8 @@ mix
     .styles('node_modules/sweetalert2/dist/sweetalert2.min.css', 'public/admin/assets/libs/sweetalert2.min.css')
     .styles('node_modules/jquery-toast-plugin/dist/jquery.toast.min.css', 'public/admin/assets/libs/jquery.toast.min.css')
     .styles('node_modules/cropper/dist/cropper.min.css', 'public/admin/assets/libs/cropper.min.css')
+    .styles('resources/views/Admin/assets/js/libs/cropimage/rcrop.css', 'public/admin/assets/libs/rcrop.css')
+    .styles('node_modules/owl.carousel/dist/assets/owl.carousel.min.css', 'public/admin/assets/libs/owl.carousel.min.css')
 
 // COPY DIRECTORIES
 .copyDirectory('resources/views/Admin/assets/fonts', 'public/admin/assets/fonts')

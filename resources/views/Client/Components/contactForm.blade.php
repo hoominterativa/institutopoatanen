@@ -22,7 +22,8 @@
                                         'name' => $name,
                                         'options' => $input->option,
                                         'placeholder' => $input->placeholder,
-                                        'type' => $input->type
+                                        'type' => $input->type,
+                                        'required' => isset($input->required)?$input->required:false
                                     ])
                                 @endforeach
                                 {!! Form::button('Enviar', ['class'=>'btn btn-primary float-end', 'type' => 'submit']) !!}

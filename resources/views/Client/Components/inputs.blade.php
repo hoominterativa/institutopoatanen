@@ -1,20 +1,20 @@
 @switch($type)
     @case('text')
-        <div>
+        <div class="input__item input__item--text">
             {!! Form::text($name, null, [
                 'class' => 'form-control mb-3 ps-3',
-                'required'=>'required',
+                'required'=> $required,
                 'placeholder' => $placeholder
             ]) !!}
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
         </div>
     @break
     @case('textarea')
-        <div>
+        <div class="input__item input__item--textarea">
             {!! Form::textarea($name, null, [
                 'class'=>'form-control mb-3 ps-3',
                 'id'=>'message',
-                'required'=>'required',
+                'required'=> $required,
                 'placeholder' => $placeholder,
                 'data-parsley-trigger'=>'keyup',
                 'data-parsley-minlength'=>'20',
@@ -26,10 +26,10 @@
         </div>
     @break
     @case('email')
-        <div>
+        <div class="input__item input__item--email">
             {!! Form::email($name, null, [
                 'class'=>'form-control mb-3 ps-3',
-                'required'=>'required',
+                'required'=> $required,
                 'parsley-type'=>'email',
                 'placeholder' => $placeholder
             ]) !!}
@@ -37,10 +37,11 @@
         </div>
     @break
     @case('phone')
-        <div>
+        <div class="input__item input__item--phone">
             {!! Form::text($name, null, [
                 'class'=>'form-control mb-3 ps-3',
                 'data-toggle'=>'input-mask',
+                'required'=> $required,
                 'data-mask-format'=>'(00) 0000-0000',
                 'placeholder' => $placeholder
             ]) !!}
@@ -48,10 +49,11 @@
         </div>
     @break
     @case('cellphone')
-        <div>
+        <div class="input__item input__item--cellphone">
             {!! Form::text($name, null, [
                 'class'=>'form-control mb-3 ps-3',
                 'data-toggle'=>'input-mask',
+                'required'=> $required,
                 'data-mask-format'=>'(00) 00000-0000',
                 'placeholder' => $placeholder
             ]) !!}
@@ -59,7 +61,7 @@
         </div>
     @break
     @case('select')
-        <div>
+        <div class="input__item input__item--select">
             @php
                 $selectOptions = [];
                 foreach (explode(',', $options) as $option) {
@@ -69,45 +71,65 @@
             {!! Form::select($name, $selectOptions, null, [
                 'class'=>'form-select mb-3 ps-3',
                 'id'=>'heard',
-                'required'=>'required',
+                'required'=> $required,
                 'placeholder' => $placeholder
             ]) !!}
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
         </div>
     @break
     @case('checkbox')
-        <div class="row">
-            {!! Form::label($name, $placeholder, ['class'=>'form-label']) !!}
-            @foreach (explode(',', $options) as $option)
-                <div class="col-12 col-lg-6 mb-3 form-check">
-                    {!! Form::checkbox($name.'[]', $option, null, ['class'=>'form-check-input', 'id'=> Str::slug($option)]) !!}
-                    {!! Form::label(Str::slug($option), $option, ['class'=>'form-check-label']) !!}
-                </div>
-            @endforeach
+        <div class="input__item input__item--checkbox">
+            {!! Form::label(null, $placeholder, ['class'=>'form-label']) !!}
+            <div class="d-flex align-items-center">
+                @foreach (explode(',', $options) as $key => $option)
+                    @if ($option)
+                        <div class="col-12 col-lg-6 mb-3 form-check d-flex align-items-center">
+                            {!! Form::checkbox($name.'[]', trim($option), null, ['class'=>'form-check-input me-2', 'id'=> $name.$key]) !!}
+                            {!! Form::label($name.$key, trim($option), ['class'=>'form-check-label']) !!}
+                        </div>
+                    @endif
+                @endforeach
+            </div>
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
         </div>
     @break
     @case('radio')
-        <div class="row">
+        <div class="input__item input__item--radio">
             {!! Form::label($name, $placeholder, ['class'=>'form-label']) !!}
-            @foreach (explode(',', $options) as $option)
-                <div class="col-12 col-lg-6 mb-3 form-check">
-                    {!! Form::radio($name, $option, null, ['class'=>'form-check-input', 'id'=> Str::slug($option)]) !!}
-                    {!! Form::label(Str::slug($option), $option, ['class'=>'form-check-label']) !!}
-                </div>
-            @endforeach
+            <div class="d-flex align-items-center">
+                @foreach (explode(',', $options) as $key => $option)
+                    <div class="me-3 mb-3 form-check d-flex align-items-center">
+                        {!! Form::radio($name, trim($option), null, ['class'=>'form-check-input me-2', 'id'=> $name.$key]) !!}
+                        {!! Form::label($name.$key, trim($option), ['class'=>'form-check-label']) !!}
+                    </div>
+                @endforeach
+            </div>
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
         </div>
     @break
     @case('date')
-        <div>
+        <div class="input__item input__item--date">
             {!! Form::text($name, null, [
                 'class'=>'form-control',
-                'required'=>'required',
+                'required'=> $required,
                 'data-provide'=>'datepicker',
                 'data-date-autoclose'=>'true',
                 'placeholder' => $placeholder
             ])!!}
+            <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
+        </div>
+    @break
+    @case('file')
+        <div class="form__file mb-3 input__item input__item--file">
+            {!! Form::label($name, $placeholder, ['class'=>'form-label']) !!}
+            <label for="{{$name}}" class="form__file__item form-control">
+                Clique para abexar o arquivo
+            </label>
+            {!! Form::file($name, [
+                'required'=> $required,
+                'accept'=>'.pdf',
+                'id' => $name
+            ]) !!}
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
         </div>
     @break

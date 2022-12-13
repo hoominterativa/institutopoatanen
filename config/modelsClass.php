@@ -17,6 +17,22 @@ return [
         ],
         // END ABOUTS
 
+        'Blogs' => (object)[
+            'BLOG01' => (object)[
+                'controller' => App\Http\Controllers\Blogs\BLOG01Controller::class,
+                'model' => App\Models\Blogs\BLOG01Blogs::class,
+                'seedQty' => 8,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Blogs\BLOG01BlogsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
+            ],
+        ],
+        // END BLOGS
+
         'Contents' => (object)[
             'CONT01' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT01Controller::class,
@@ -35,6 +51,33 @@ return [
             ],
         ],
         // END CONTENTS
+
+        'ContentPages' => (object)[
+            'COPA01' => (object)[
+                'controller' => App\Http\Controllers\ContentPages\COPA01Controller::class,
+                'model' => App\Models\ContentPages\COPA01ContentPages::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END CONTENT PAGES
+
+        'Contacts' => (object)[
+            'COTA01' => (object)[
+                'controller' => App\Http\Controllers\Contacts\COTA01Controller::class,
+                'model' => App\Models\Contacts\COTA01Contacts::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END CONTACTS
+
+        'Compliances' => (object)[
+            'COMP01' => (object)[
+                'controller' => App\Http\Controllers\Compliances\COMP01Controller::class,
+                'model' => App\Models\Compliances\COMP01Compliances::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END COMPLIANCES
 
         'Portfolios' => (object)[
             'PORT01' => (object)[
@@ -62,12 +105,6 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV01Controller::class,
                 'model' => App\Models\Services\SERV01Services::class,
                 'seedQty' => 4,
-                'relationshipSon' => [
-                    ['class' => App\Models\Services\SERV01ServicesAdvantage::class, 'seedQty' => 4],
-                    ['class' => App\Models\Services\SERV01ServicesAdvantageSection::class, 'seedQty' => 1],
-                    ['class' => App\Models\Services\SERV01ServicesPortfolio::class, 'seedQty' => 4],
-                    ['class' => App\Models\Services\SERV01ServicesPortfolioSection::class, 'seedQty' => 1],
-                ]
             ],
         ],
         // END SERVICES
@@ -113,6 +150,7 @@ return [
             ],
         ],
         // END TOPICS
+
         'Feedbacks' => (object)[
             'FEED03' => (object)[
                 'controller' => App\Http\Controllers\Feedbacks\FEED03Controller::class,
@@ -121,6 +159,7 @@ return [
             ],
         ],
         // END FEEDBACKS
+
         'Units' => (object)[
             'UNIT01' => (object)[
                 'controller' => App\Http\Controllers\Units\UNIT01Controller::class,
@@ -129,5 +168,14 @@ return [
             ],
         ],
         // END UNITS
+
+        'WorkWith' => (object)[
+            'WOWI01' => (object)[
+                'controller' => App\Http\Controllers\WorkWith\WOWI01Controller::class,
+                'model' => App\Models\WorkWith\WOWI01WorkWith::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END TOPICS
     ],
 ];

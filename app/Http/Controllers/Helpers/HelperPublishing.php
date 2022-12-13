@@ -17,6 +17,7 @@ class HelperPublishing extends Controller
             $contentJs="";
             foreach ($coreConfig as $module => $code) {
                 $codeIf = (array) $code;
+
                 if(count($codeIf)){
                     $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/main';\n";
                     $contentScss .= "@import '../../Core/{$module}/{$code->Code}/src/variables';\n";
@@ -32,8 +33,19 @@ class HelperPublishing extends Controller
             $mainConfig = config('modelsConfig.InsertModelsMain');
             foreach ($mainConfig as $module => $models) {
                 foreach ($models as $code => $config) {
-                    $contentScss .= "@import '../../pages/{$module}/{$code}/src/main';\n";
-                    $contentJs .= "import '../../pages/{$module}/{$code}/src/main';\n";
+                    $moduleName = explode('.', $module)[0];
+
+                    $contentScss .= "@import '../../pages/{$moduleName}/{$code}/src/main';\n";
+                    $contentJs .= "import '../../pages/{$moduleName}/{$code}/src/main';\n";
+                }
+            }
+
+            $modelsCompliances = config('modelsConfig.ModelsCompliances');
+            if(isset($modelsCompliances->Code)){
+                if($modelsCompliances->Code <> ''){
+                    $code = $modelsCompliances->Code;
+                    $contentScss .= "@import '../../pages/Compliances/{$code}/src/main';\n";
+                    $contentJs .= "import '../../pages/Compliances/{$code}/src/main';\n";
                 }
             }
 

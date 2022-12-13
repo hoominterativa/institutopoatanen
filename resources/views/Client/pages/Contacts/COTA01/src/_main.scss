@@ -1,0 +1,318 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+.cota01-show{
+    &__banner{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #ccc;
+        padding: 87px 17%;
+        text-align: center;
+
+        @include small-down{
+            padding: 60px 30px;
+        }
+
+        &__title{
+            font-size: $T1;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-black;
+
+            @include small-down{
+                font-size: $T1-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-one;
+            margin: 30px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
+        }
+    }
+    // END __banner
+
+    &__form-section{
+        padding: 87px 0;
+        background-color: $color-five;
+
+        @include small-down{
+            padding: 60px 30px;
+        }
+
+        &__header{
+            text-align: center;
+            margin-bottom: 90px;
+            padding: 0 17%;
+
+            @include small-down{
+                padding: 0 30px;
+            }
+        }
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-black;
+
+            @include small-down{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-one;
+            margin: 30px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
+        }
+        @include small-down{
+            &__container{
+                flex-direction: column-reverse;
+            }
+        }
+        @include medium-only{
+            &__container{
+                flex-direction: column-reverse;
+            }
+        }
+    }
+    // END __form-section
+
+    &__form{
+        &__header{
+            max-width: 85%;
+
+            @include small-down{
+                max-width: 100%;
+            }
+
+            &__title{
+                font-size: $T2;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-black;
+
+                @include small-down{
+                    font-size: $T2-mobile;
+                }
+            }
+            &__paragraph{
+                font: $paragraph;
+                font-weight: $weight-400;
+                color: $color-one;
+                margin: 30px 0 0 0;
+
+                @include small-down{
+                    font: $paragraph-mobile;
+                }
+            }
+        }
+        &__item{
+            margin-top: 55px;
+
+            &__input{
+                input:not(input[type=checkbox], input[type=radio]), select, textarea{
+                    border-color: transparent;
+                    border-radius: 0;
+                    padding: 10px 10px;
+
+                    &:focus{
+                        border-color: $color-black;
+                        background-color: $color-white;
+                        box-shadow: 0 0 0 0.25rem #d0d0d0;
+                    }
+                }
+
+                .form__file__item{
+                    border-color: transparent;
+                    border-radius: 0;
+                    padding: 10px 10px;
+
+                    &:hover{
+                        border-color: $color-black;
+                        background-color: $color-white;
+                        box-shadow: 0 0 0 0.25rem #d0d0d0;
+                    }
+                }
+            }
+            &__submit{
+                border: none;
+                border-radius: 0;
+                padding: 10px 30px;
+                background-color: $color-white;
+                color: $color-black;
+                font: $paragraph;
+                font-weight: $weight-700;
+
+                &:hover{
+                    background-color: $color-black;
+                    color: $color-white;
+                    .icon__button{
+                        filter: invert(1) grayscale(1);
+                    }
+                }
+            }
+        }
+        &__footer{
+            @include small-down{
+                flex-direction: column;
+            }
+        }
+        &__compliance{
+            font: $paragraph-min;
+            font-weight: $weight-400;
+            color: $color-two;
+
+            @include small-down{
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            &__link{
+                font: $paragraph-min;
+                font-weight: $weight-700;
+                color: $color-two;
+                text-decoration: underline;
+            }
+        }
+    }
+    // END __form
+
+    &__topics-form{
+        padding-left: 130px;
+        flex-direction: column;
+
+        @include small-down{
+            padding-left: 0;
+            justify-content: center;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 60px;
+        }
+
+        @include medium-only{
+            padding-left: 0;
+            justify-content: center;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 60px;
+        }
+
+        &__item{
+            margin-bottom: 50px;
+
+            @include small-down{
+                text-align: center;
+                flex-direction: column;
+                margin-bottom: 60px;
+            }
+
+            @include medium-only{
+                text-align: center;
+                flex-direction: column;
+                margin-bottom: 60px;
+            }
+        }
+        &__icon{
+            width: 25px;
+            margin-right: 15px;
+
+            @include small-down{
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        &__description{
+
+        }
+        &__title{
+            font-size: $T3;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+
+            @include small-down{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-two;
+            margin: 10px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
+        }
+    }
+    // END __topics-form
+
+    &__topics-section{
+        padding: 80px 0 0 0;
+
+        @include small-down{
+            padding: 50px 30px;
+        }
+
+        @include medium-only{
+            padding: 50px 30px;
+        }
+    }
+
+    &__topics{
+
+        @include small-down{
+            margin-bottom: 50px;
+        }
+
+        @include medium-only{
+            margin-bottom: 50px;
+        }
+
+        &__item{
+            margin-bottom: 50px;
+        }
+        &__image{
+            object-fit: contain;
+            height: 433px;
+            object-position: bottom;
+        }
+        &__icon{
+            width: 25px;
+            margin-right: 15px;
+        }
+        &__description{
+
+        }
+        &__title{
+            font-size: $T3;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+
+            @include small-down{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-two;
+            margin: 10px 0 0 0;
+
+            @include small-down{
+                font: $paragraph-mobile;
+            }
+        }
+    }
+}

@@ -9,7 +9,13 @@ body {
 }
 
 p{
-    line-height: 24px !important;
+    line-height: 27px !important;
+}
+
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0;
 }
 
 #root {
@@ -405,11 +411,11 @@ a{
 
             &__form{
                 display: flex;
-                
+
                 div{
                     padding: 0;
                 }
-            }    
+            }
             input{
                 height: 42px;
                 background: $color-white !important;
@@ -445,7 +451,7 @@ a{
                 }
 
                 &:hover{
-                    background-color: $color-black;  
+                    background-color: $color-black;
                     color:$color-white;
                     transition: 0.5s all ease;
                 }
@@ -465,9 +471,32 @@ a{
                 &:hover img{
                     filter:invert(1) grayscale(1);
                     transition: 0.5s all ease;
-                }  
+                }
             }
         }
     }
 
 //FIM FORM101
+.form__file input{
+    display: none;
+}
+.jq-toast-wrap {
+    width: 330px;
+}
+.jq-toast-single{
+    font-family: $font-paragraph;
+    font-size: 13px;
+    font-weight: $weight-400;
+    letter-spacing: 1px;
+}
+.jq-toast-single h2{
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: $weight-700;
+    letter-spacing: 1px;
+}
+.close-jq-toast-single {
+    top: 7px;
+    right: 7px;
+    font-size: 29px;
+}

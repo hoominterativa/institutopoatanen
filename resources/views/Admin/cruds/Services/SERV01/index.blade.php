@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{$configModelsMain->Services->SERV01->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Services', 'SERV01')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{$configModelsMain->Services->SERV01->config->titlePanel}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Services', 'SERV01')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                                                     <div class="col-12 col-lg-6">
                                                         <div class="mb-2">
                                                             {!! Form::label('title_banner', 'Título', ['class'=>'form-label']) !!}
-                                                            {!! Form::text('title_banner', null, ['class'=>'form-control', 'id'=>'title_banner', 'required' => true]) !!}
+                                                            {!! Form::text('title_banner', null, ['class'=>'form-control', 'id'=>'title_banner']) !!}
                                                         </div>
                                                         <div class="mb-2">
                                                             {!! Form::label('description_banner', 'Descrição', ['class'=>'form-label']) !!}
@@ -88,7 +88,7 @@
                                                     <div class="col-12 col-lg-6">
                                                         <div class="mb-2">
                                                             {!! Form::label('title_section', 'Título', ['class'=>'form-label']) !!}
-                                                            {!! Form::text('title_section', null, ['class'=>'form-control', 'id'=>'title_section', 'required' => true]) !!}
+                                                            {!! Form::text('title_section', null, ['class'=>'form-control', 'id'=>'title_section',]) !!}
                                                         </div>
                                                         <div class="mb-2">
                                                             {!! Form::label('subtitle_section', 'Subtítulo', ['class'=>'form-label']) !!}

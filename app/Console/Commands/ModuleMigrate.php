@@ -47,7 +47,6 @@ class ModuleMigrate extends Command
         $arguments = $this->arguments();
         $options = $this->options();
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
-        $relations = config('modelsConfig.Relations');
 
         try {
 
@@ -68,26 +67,22 @@ class ModuleMigrate extends Command
                 Artisan::call('migrate');
             }
 
-            $bar = $this->output->createProgressBar(count(get_object_vars($InsertModelsMain)));
+            $bar = $this->output->createProgressBar((count(get_object_vars($InsertModelsMain))+5));
             $bar->start();
 
             foreach ($InsertModelsMain as $module => $model) {
                 foreach ($model as $code => $config) {
+                    $moduleName = explode('.', $module)[0];
+                    Artisan::call('migrate --path=database/migrations/'.$moduleName.'/'.$code);
+                }
+            }
 
-                    if(isset($relations->$module[$code])){
-                        $relation = $relations->$module[$code];
-                        foreach ($relation->before as $moduleRelationBefore => $modelRelationBefore) {
-                            Artisan::call('migrate --path=database/migrations/'.$moduleRelationBefore.'/'.$modelRelationBefore);
-                        }
-                    }
+            $ModelsCompliances = config('modelsConfig.ModelsCompliances');
 
-                    Artisan::call('migrate --path=database/migrations/'.$module.'/'.$code);
-
-                    if(isset($relations->$module[$code])){
-                        foreach ($relation->after as $moduleRelationAfter => $modelRelationAfter) {
-                            Artisan::call('migrate --path=database/migrations/'.$moduleRelationAfter.'/'.$modelRelationAfter);
-                        }
-                    }
+            if(isset($ModelsCompliances->Code)){
+                if($ModelsCompliances->Code <> ''){
+                    $code = $ModelsCompliances->Code;
+                    Artisan::call('migrate --path=database/migrations/Compliances/'.$code);
                 }
             }
 
@@ -96,6 +91,7 @@ class ModuleMigrate extends Command
             if($options['seed']){
                 Artisan::call('migrate --seed');
             }
+
             $this->newLine();
             $this->info('Todas as migrations necessárias foram migradas com sucesso');
 

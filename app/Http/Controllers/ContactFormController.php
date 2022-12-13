@@ -75,9 +75,9 @@ class ContactFormController extends Controller
 
         foreach ($data as $name => $value) {
             $arrayName = explode('_', $name);
-            if($arrayName[0] == 'title'){
+            if($arrayName[0] == 'column'){
                 $type = end($arrayName);
-                $inputOption = str_replace('title', 'option', $name);
+                $inputOption = str_replace('column', 'option', $name);
                 $option = '';
                 if(isset($data[$inputOption])){
                     $option = $data[$inputOption];
@@ -168,20 +168,29 @@ class ContactFormController extends Controller
         $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,400,90);
         $arrayInputs = [];
         $data = $request->all();
+
         foreach ($data as $name => $value) {
             $arrayName = explode('_', $name);
-            if($arrayName[0] == 'title'){
+            if($arrayName[0] == 'column'){
                 $type = end($arrayName);
-                $inputOption = str_replace('title', 'option', $name);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
                 $option = '';
+                $required = false;
+
                 if(isset($data[$inputOption])){
                     $option = $data[$inputOption];
                 }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+
                 $pushArray = [
                     $name => [
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
+                        'required' => $required,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);

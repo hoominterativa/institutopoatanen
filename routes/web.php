@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Social;
 use Illuminate\Support\Str;
 use App\Models\Optimization;
 use App\Models\OptimizePage;
 use App\Models\SettingTheme;
+use App\Models\GeneralSetting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +13,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\CoreController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EditorController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
@@ -20,10 +23,10 @@ use App\Http\Controllers\OptimizationController;
 use App\Http\Controllers\OptimizePageController;
 use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\GeneralSettingController;
+use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
-use App\Models\GeneralSetting;
-use App\Models\Social;
+use App\Models\ContactLead;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,8 +44,8 @@ View::composer('Client.Core.client', function ($view) {
     $optimization = Optimization::first();
     $optimizePage = OptimizePage::where('page', Request::path())->first();
     $generalSetting = GeneralSetting::first();
-    $linksCtaHeader = json_decode($generalSetting->btn_cta_header);
-    $linksCtaFooter = json_decode($generalSetting->btn_cta_footer);
+    $linksCtaHeader = collect(json_decode($generalSetting->btn_cta_header));
+    $linksCtaFooter = collect(json_decode($generalSetting->btn_cta_footer));
     $socials = Social::orderBy('sorting', 'ASC')->get();
     $themeMenu = config('modelsConfig.InsertModelsCore');
     $coreRender = new CoreController();
@@ -69,9 +72,27 @@ View::composer('Admin.core.admin', function ($view) {
     $modelsMain = collect(config('modelsConfig.InsertModelsMain'));
     $settingTheme = SettingTheme::where('user_id', Auth::user()->id)->first();
     $generalSetting = GeneralSetting::first();
+    $contactLeadsUpcoming = ContactLead::where('status_process', 'upcoming')->orderBy('created_at', 'DESC')->get();
+
+    $ModelsCompliances = config('modelsConfig.ModelsCompliances');
+    $class = config('modelsClass.Class');
+    $complianceModel = null;
+    $compliancesValidate = 0;
+
+    if(isset($ModelsCompliances->Code)){
+        if($ModelsCompliances->Code <> ''){
+            $code = $ModelsCompliances->Code;
+            $complianceModel = Str::slug($code);
+            $compliancesValidate = $class->Compliances->$code->model::count();
+        }
+    }
+
     return $view->with('modelsMain', $modelsMain)
         ->with('settingTheme', $settingTheme)
-        ->with('generalSetting', $generalSetting);
+        ->with('generalSetting', $generalSetting)
+        ->with('complianceModel', $complianceModel)
+        ->with('contactLeadsUpcoming', $contactLeadsUpcoming)
+        ->with('compliancesValidate', $compliancesValidate);
 });
 
 Route::prefix('painel')->group(function () {
@@ -113,7 +134,10 @@ Route::prefix('painel')->group(function () {
         Route::post('social/sorting', [SocialController::class, 'sorting'])->name('admin.social.sorting');
 
         // LEAD CONTACT
-        Route::resource('contatos', ContactLeadController::class)->names('admin.contact')->parameters(['contato' => 'ContactLead']);
+        Route::resource('leads', ContactLeadController::class)->names('admin.contact')->parameters(['contato' => 'ContactLead']);
+        Route::post('leads/filtro', [ContactLeadController::class, 'filter'])->name('admin.contact.filter');
+        Route::post('leads/exportar-excel', [ContactLeadController::class, 'export'])->name('admin.contact.export');
+        Route::post('leads/status', [ContactLeadController::class, 'status'])->name('admin.contact.status');
 
         // LEAD NEWSLETTER
         Route::get('newsletter', [NewsletterLeadController::class, 'index'])->name('admin.newsletter.index');
@@ -124,11 +148,44 @@ Route::prefix('painel')->group(function () {
 
         Route::post('links-cta-header/{GeneralSetting}', [GeneralSettingController::class, 'linksHeader'])->name('admin.cta.header');
         Route::post('links-cta-footer/{GeneralSetting}', [GeneralSettingController::class, 'linksFooter'])->name('admin.cta.footer');
+
+        Route::post('editor/image_upload', [EditorController::class, 'upload'])->name('editor.upload.archive');
+
+
+
+        Route::any('/calProporcion', function(){
+            $request = request();
+            $result = null;
+
+            if($request->has('new_width') && $request->has('current_width') && $request->has('current_height')){
+                if($request->new_width<>'' && $request->current_width<>'' && $request->current_height<>''){
+                    $result = $request->current_height * ($request->new_width / $request->current_width);
+
+                    $result = '
+                        <h2>
+                            <span class="newWidth">'.$request->new_width.'</span>
+                            <span class="per">x</span>
+                            <span class="newHeight">'.number_format($result,2).'</span>
+                        </h2>
+                    ';
+                }
+            }
+
+            $generalSetting = GeneralSetting::first();
+            return view('Admin.calcProporcion',[
+                'generalSetting' => $generalSetting,
+                'request' => $request,
+                'result' => $result,
+            ]);
+        })->name('admin.calProporcion');
+
     });
 });
 
 Route::get('/home', [HomePageController::class ,'index'])->name('home');
 Route::get('/', function(){return redirect()->route('home');});
+Route::post('/leads/website', [ContactLeadController::class ,'store'])->name('lead.store');
+Route::get('/leads/confirmation', [ContactLeadController::class ,'confirmation'])->name('lead.confirmation');
 
 /**
  *
@@ -167,9 +224,9 @@ if(isset($modelsCore->Footers->Code)){
  *
  */
 
-$class = config('modelsClass.Class');
 $modelsMain = config('modelsConfig.InsertModelsMain');
 foreach ($modelsMain as $module => $models) {
+    $class = config('modelsClass.Class');
     $module = explode('.', $module)[0];
     foreach ($models as $code => $model) {
         $modelConfig = $model->config;
@@ -191,5 +248,27 @@ foreach ($modelsMain as $module => $models) {
         Route::get($route.'/{'.$parameters.':slug}', [$controller, 'show'])->name($routeName.'.show');
 
         include_once "{$module}/{$code}.php";
+    }
+}
+
+$ModelsCompliances = config('modelsConfig.ModelsCompliances');
+$class = config('modelsClass.Class');
+
+if(isset($ModelsCompliances->Code)){
+    if($ModelsCompliances->Code <> ''){
+        $code = $ModelsCompliances->Code;
+        $routeName = Str::lower($code);
+        $controller = $class->Compliances->$code->controller;
+        $parameters = $code.'Compliances';
+
+        Route::prefix('painel')->middleware('auth')->group(function () use ($controller, $routeName, $parameters){
+            Route::resource('/compliances', $controller)->names('admin.'.$routeName)->parameters(['compliances' => $parameters]);
+            Route::post('/compliances/delete', [$controller, 'destroySelected'])->name('admin.'.$routeName.'.destroySelected');
+            Route::post('/compliances/sorting', [$controller, 'sorting'])->name('admin.'.$routeName.'.sorting');
+        });
+
+        // CLIENT
+        Route::get('/compliances/{'.$parameters.':slug}', [$controller, 'show'])->name($routeName.'.show');
+        include_once "Compliances/{$code}.php";
     }
 }

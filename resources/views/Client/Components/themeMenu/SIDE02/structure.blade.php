@@ -1,0 +1,121 @@
+<div id="SIDE02" class="side02 transition">
+    <div class="side02__scroll">
+        <div class="side02__header row">
+            <div class="side02__header__button-close col-6 text-start">
+                <a href="#">
+                    <svg class="side02__header__button-close__icon" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M-3.71547e-07 7.5L12.75 0.138784L12.75 14.8612L-3.71547e-07 7.5Z" fill="#D9D9D9"/>
+                    </svg>
+                </a>
+            </div>
+            {{-- END .side02__header__button-close --}}
+            <nav class="side02__header__languages d-flex align-items-center justify-content-end col-6">
+                <a href="#" class="side02__header__languages__item">PT</a>
+                <a href="#" class="side02__header__languages__item">EN</a>
+            </nav>
+        </div>
+        {{-- END .side02__header --}}
+
+        <img src="{{asset('storage/'.$generalSetting->path_logo_header_dark)}}" class="side02__logo" width="202" alt="{{env('APP_NAME')}}">
+
+        <nav class="side02__navigation">
+            <ul class="side02__navigation__wrapper">
+                <li class="side02__navigation__item">
+                    <a href="{{route('home')}}" class="side02__navigation__item__link transition">
+                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt=""> Home
+                    </a>
+                </li>
+                @foreach ($listMenu as $module => $menu)
+                    @if ($menu->viewer == 'list')
+                        <li class="side02__navigation__item">
+                            @if ($menu->dropdown)
+                                @foreach ($menu->dropdown as $item)
+                                    <a href="{{$item->route}}" class="side02__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="">{{$item->name}}
+                                    </a>
+                                @endforeach
+                            @endif
+                        </li>
+                    @else
+                        <li class="side02__navigation__item {{$menu->dropdown?'dropdown':''}}">
+                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side02__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt=""> {{$menu->title}}
+                                @if ($menu->dropdown)
+                                    <i class="menu-arrow"></i>
+                                @endif
+                            </a>
+                            @if ($menu->dropdown)
+                                <div class="side02__navigation__dropdown dropdown-menu">
+                                    @foreach ($menu->dropdown as $item)
+                                        <a href="{{$item->route}}" class="side02__navigation__sublink transition">
+                                            {{$item->name}}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </li>
+                    @endif
+                @endforeach
+            </ul>
+            {{-- END .side02__navigation__wrapper --}}
+        </nav>
+        {{-- END .side02__navigation --}}
+
+        @if ($linksCtaHeader->count())
+            <div class="side02__container-cta">
+                @if ($linksCtaHeader->count() > 1)
+                    <div class="side02__container-cta__dropdown dropdown">
+                        <a href="javascript:void(0)" data-bs-toggle="dropdown" class="side02__container-cta__btn-cta transition">{{$linksCtaHeader['title']??''}} <i class="menu-arrow"></i></a>
+                        <div class="side02__container-cta__sublink dropdown-menu" aria-labelledby="side02__container-cta__sublink" >
+                            @foreach ($linksCtaHeader as $title => $linkCtaHeader)
+                                @if ($title <> 'title')
+                                    @if ($linkCtaHeader[1] == '_lightbox')
+                                        <a href="{{$linkCtaHeader[0]}}" data-fancybox="" class="side02__container-cta__sublink__item transition">{{$title}}</a>
+                                    @else
+                                        <a href="{{$linkCtaHeader[0]}}" target="{{$linkCtaHeader[1]}}" class="side02__container-cta__sublink__item transition">{{$title}}</a>
+                                    @endif
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                @else
+                    @foreach ($linksCtaHeader as $title => $linkCtaHeader)
+                        @if ($title <> 'title')
+                            @if ($linkCtaHeader[1] == '_lightbox')
+                                <a href="{{$linkCtaHeader[0]}}" data-fancybox="" class="side02__container-cta__btn-cta transition">{{$title}}</a>
+                            @else
+                                <a href="{{$linkCtaHeader[0]}}" target="{{$linkCtaHeader[1]}}" class="side02__container-cta__btn-cta transition">{{$title}}</a>
+                            @endif
+                        @endif
+                    @endforeach
+                @endif
+            </div>
+        @endif
+        {{-- END .btn-cta --}}
+
+        @if ($socials->count())
+            <nav class="side02__social d-flex align-items-center justify-content-center">
+                @foreach ($socials as $social)
+                    <a href="{{$social->link}}" class="side02__social__item transition" title="{{$social->title}}"><i class="mdi {{$social->icon}}"></i></a>
+                @endforeach
+            </nav>
+        @endif
+        {{-- END .side02__social --}}
+
+        <div class="side02__footer d-flex align-items-center justify-content-center">
+            @if (isset($linksCtaFooter))
+                @foreach ($linksCtaFooter as $title => $linkCtaHeader)
+                    @if ($title <> 'title')
+                        @if ($linkCtaHeader[1] == '_lightbox')
+                            <a href="{{$linkCtaHeader[0]}}" data-fancybox="" class="side02__footer__item">{{$title}}</a>
+                        @else
+                            <a href="{{$linkCtaHeader[0]}}" target="{{$linkCtaHeader[1]}}" class="side02__footer__item">{{$title}}</a>
+                        @endif
+                    @endif
+                @endforeach
+            @endif
+        </div>
+    </div>
+    {{-- END .side02__scroll --}}
+</div>
+{{-- END #SIDE02 --}}

@@ -42,7 +42,11 @@
 
     @if ($themeMenu)
         @include('Client.Components.themeMenu.'.$themeMenu.'.structure',[
-            "listMenu" => $listMenu
+            "listMenu" => $listMenu,
+            "generalSetting" => $generalSetting,
+            "linksCtaHeader" => $linksCtaHeader,
+            "linksCtaFooter" => $linksCtaFooter,
+            "socials" => $socials,
         ])
     @endif
 </body>

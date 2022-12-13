@@ -74,22 +74,24 @@ class CoreController extends Controller
             foreach ($relations->sorting()->get() as $relation) {
                 $sublistDropdown = [];
                 $buildRouteParameters = [$modelDB => $relation->slug];
-                if(count($relationship) > 1){
-                    foreach ($relation->getRelationCore as $relationCore) {
-                        $subRoute = Str::lower($code).'.'.$relationship[1].'.page';
+                if($existsRelation){
+                    if(count($relationship) > 1){
+                        foreach ($relation->getRelationCore as $relationCore) {
+                            $subRoute = Str::lower($code).'.'.$relationship[1].'.page';
 
-                        $subMenu = (object) [
-                            "id" => $relationCore->id,
-                            "name" => $relationCore->name??$relationCore->title,
-                            "slug" => $relationCore->slug,
-                            "route" => route($subRoute, [$modelDB => $relation->slug, $modelDBSubrelation => $relationCore->slug]),
-                        ];
+                            $subMenu = (object) [
+                                "id" => $relationCore->id,
+                                "name" => $relationCore->name??$relationCore->title,
+                                "slug" => $relationCore->slug,
+                                "route" => route($subRoute, [$modelDB => $relation->slug, $modelDBSubrelation => $relationCore->slug]),
+                            ];
 
-                        array_push($sublistDropdown, $subMenu);
+                            array_push($sublistDropdown, $subMenu);
+                        }
                     }
                 }
 
-                if(!$existsRelation){
+                if($existsRelation){
                     $buildRouteParameters = [];
                     $queryRelationship = $this->Class->$module->$code->relationship;
 
@@ -104,7 +106,7 @@ class CoreController extends Controller
 
                 $menu = (object) [
                     "id" => $relation->id,
-                    "name" => $relation->name??$relation->title,
+                    "name" => ($relation->name??$relation->title)??$relation->title_page,
                     "slug" => $relation->slug,
                     "route" => route($route, $buildRouteParameters),
                     'subList' => $sublistDropdown
@@ -131,6 +133,8 @@ class CoreController extends Controller
                         "slug" => Str::slug($config->config->titleMenu),
                         "anchor" => $config->config->anchor,
                         "link" => $config->config->linkMenu,
+                        "listFooter" => $config->ViewListFooter,
+                        "viewer" => $config->Viewer,
                         "dropdown" => $dropdown,
                     ];
 
@@ -146,7 +150,6 @@ class CoreController extends Controller
     public function renderHeader()
     {
         $listMenu = self::relationsHeaderMenu();
-
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
                 'class' => $this->Class,
@@ -159,7 +162,6 @@ class CoreController extends Controller
     public function renderFooter()
     {
         $listMenu = self::relationsHeaderMenu();
-
         if(isset($this->InsertModelsCore->Footers->Code)){
             return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
                 'class' => $this->Class,

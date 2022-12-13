@@ -58,23 +58,15 @@ $(function(){
     $('.complete-editor').each(function(){
         var heightEditor = $(this).data('height')??500,
         $this = $(this)
+
+        function MyCustomUploadAdapterPlugin( editor ) {
+            editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+                return new MyUploadAdapter( loader );
+            };
+        }
+
         ClassicEditor.create(this, {
-            toolbar: {
-                items: [
-                    'bold', 'italic', 'underline', 'alignment', 'fontBackgroundColor', 'fontColor', 'link', '|',
-                    'bulletedList', 'numberedList', 'outdent', 'indent', '|',
-                    'code', 'codeBlock', '|',
-                    'blockQuote', 'insertTable', 'mediaEmbed', 'undo', 'redo'
-                ]
-            },
-            language: 'pt-br',
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
+            extraPlugins: [ MyCustomUploadAdapterPlugin ],
             licenseKey: '',
         })
         .then(editor => {
@@ -90,7 +82,10 @@ if($('.basic-editor').length){
     $('body').append(`
         <style>
             .basic-editor__content .ck-editor__editable{
-                min-height: 300px
+                min-height: 300px;
+            }
+            .basic-editor__content .image__caption_highlighted{
+                min-height: auto !important;
             }
         </style>
     `);
@@ -100,7 +95,10 @@ if($('.normal-editor').length){
     $('body').append(`
         <style>
             .normal-editor__content .ck-editor__editable{
-                min-height: 400px
+                min-height: 400px;
+            }
+            .normal-editor__content .image__caption_highlighted{
+                min-height: auto !important;
             }
         </style>
     `);
@@ -110,7 +108,10 @@ if($('.complete-editor').length){
     $('body').append(`
         <style>
             .complete-editor__content .ck-editor__editable{
-                min-height: 500px
+                min-height: 500px;
+            }
+            .complete-editor__content .image__caption_highlighted{
+                min-height: auto !important;
             }
         </style>
     `);

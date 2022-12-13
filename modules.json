@@ -4,7 +4,8 @@
         "HEAD02"
     ],
     "Footers": [
-        "FOOT03"
+        "FOOT03",
+        "FOOT02"
     ],
     "Slides": [
         "SLID01"
@@ -35,5 +36,21 @@
     ],
     "Units": [
         "UNIT01"
+    ],
+    "Blogs": [
+        "BLOG01"
+    ],
+    "Contacts": [
+        "COTA01"
+    ],
+    "Compliances": [
+        "COMP01"
+    ],
+    "WorkWith": [
+        "WOWI01"
+    ],
+    "ContentPages": [
+        "COPA01"
     ]
 }
+

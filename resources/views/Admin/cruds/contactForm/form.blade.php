@@ -112,6 +112,7 @@
                                                 'checkbox' => 'Multiplas escolhas',
                                                 'radio' => 'Escolha única (Um ou outro)',
                                                 'date' => 'Calendário',
+                                                'file' => 'Arquivos (Anexo)',
                                             ], $value->type, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
                                         </div>
                                         <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>
@@ -120,39 +121,55 @@
                                         @if ($value->placeholder)
                                             <div class="mb-3">
                                                 <label class="form-label">Titulo</label>
-                                                <input type="text" name="{{$key}}" class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente" value="{{$value->placeholder}}">
+                                                <div class="row">
+                                                    <div class="col-9">
+                                                        <input type="text" name="{{$key}}" class="form-control inputSetTitle" placeholder="Nome que será exibido para o cliente" value="{{$value->placeholder}}">
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div class="form-check mt-1">
+                                                            <input type="checkbox" name="{{str_replace('column', 'required', $key)}}" class="form-check-input inputSetRequired" id="invalidCheck" value="1" {{isset($value->required)?($value->required?'checked':''):''}}>
+                                                            <label for="invalidCheck" class="form-label">Obrigatório?</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endif
                                         @if ($value->option)
                                             <div class="mb-3">
                                                 <label class="form-label">Opções</label>
-                                                <input type="text" name="{{str_replace('title', 'option', $key)}}" class="form-control inputSetOption" placeholder="Separar as opções com vírgula" value="{{$value->option}}">
+                                                <input type="text" name="{{str_replace('column', 'option', $key)}}" class="form-control inputSetOption" placeholder="Separar as opções com vírgula" value="{{$value->option}}">
                                             </div>
                                         @endif
                                     </div>
+                                    {{-- END .infoInputs --}}
                                 </div>
                             </div>
+                            {{-- END .container-type-input --}}
                         @endforeach
                     @else
-                        <div class="container-type-input col-12 col-lg-6 mb-2 pb-2 border-bottom">
-                            <div class="d-flex align-items-center">
-                                <div class="mb-3 w-100">
-                                    {!! Form::label(null, 'Tipo do Campo', ['class'=>'form-label']) !!}
-                                    {!! Form::select('', [
-                                        'text' => 'Texto comum',
-                                        'textarea' => 'Texto Longo',
-                                        'email' => 'E-mail',
-                                        'phone' => 'Telefone',
-                                        'cellphone' => 'Celular',
-                                        'select' => 'Opções',
-                                        'checkbox' => 'Multiplas escolhas',
-                                        'radio' => 'Escolha única (Um ou outro)',
-                                        'date' => 'Calendário',
-                                    ], null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
+                        <div class="container-type-input col-12 col-lg-6 p-1">
+                            <div class="border p-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="mb-3 w-100">
+                                        {!! Form::label(null, 'Tipo do Campo', ['class'=>'form-label']) !!}
+                                        {!! Form::select('', [
+                                            'text' => 'Texto comum',
+                                            'textarea' => 'Texto Longo',
+                                            'email' => 'E-mail',
+                                            'phone' => 'Telefone',
+                                            'cellphone' => 'Celular',
+                                            'select' => 'Opções',
+                                            'checkbox' => 'Multiplas escolhas',
+                                            'radio' => 'Escolha única (Um ou outro)',
+                                            'date' => 'Calendário',
+                                            'file' => 'Arquivos (Anexo)',
+                                        ], null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
+                                    </div>
+                                    <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>
                                 </div>
-                                <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>
                             </div>
                         </div>
+                        {{-- END .container-type-input --}}
                     @endif
                 </div>
                 <h4 class="mb-3">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Helpers;
 use Gumlet\ImageResize;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -42,7 +43,7 @@ class HelperArchive extends Controller
             $nameFile = $request->$column->getClientOriginalName();
             $name = Str::of(pathinfo($nameFile, PATHINFO_FILENAME))->slug().'-'.time().'.'.$request->$column->getClientOriginalExtension();
             $request->$column->storeAs($path, $name);
-            return $name;
+            return $path.$name;
         }else{
             return false;
         }
