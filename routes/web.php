@@ -44,8 +44,8 @@ View::composer('Client.Core.client', function ($view) {
     $optimization = Optimization::first();
     $optimizePage = OptimizePage::where('page', Request::path())->first();
     $generalSetting = GeneralSetting::first();
-    $linksCtaHeader = json_decode($generalSetting->btn_cta_header);
-    $linksCtaFooter = json_decode($generalSetting->btn_cta_footer);
+    $linksCtaHeader = collect(json_decode($generalSetting->btn_cta_header));
+    $linksCtaFooter = collect(json_decode($generalSetting->btn_cta_footer));
     $socials = Social::orderBy('sorting', 'ASC')->get();
     $themeMenu = config('modelsConfig.InsertModelsCore');
     $coreRender = new CoreController();
