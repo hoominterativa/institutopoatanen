@@ -6,17 +6,17 @@
     .container-header{
         min-height: $head02-container-header-height;
 
-        @include small-down {
+        @include small-device {
             min-height: auto;
         }
 
         #logoHeader{
             img{
-                @include small-down {
+                @include small-device {
                     width: 185px;
                 }
 
-                @include extra-small {
+                @include x-small-device {
                     width: 155px;
                 }
             }
@@ -97,11 +97,11 @@
                 }
             }
 
-            @include small-down {
+            @include small-device {
                 display: none;
             }
 
-            @include medium-only {
+            @include large-device {
                 display: none;
             }
         }
@@ -172,11 +172,11 @@
                     }
                 }
             }
-            @include small-down {
+            @include small-device {
                 display: none;
             }
 
-            @include medium-only {
+            @include large-device {
                 display: none;
             }
         }
@@ -201,7 +201,7 @@
                     color: $head02-social-network-link-color-hover;
                 }
             }
-            @include medium-down{
+            @include small-device{
                 display: none !important;
             }
         }
@@ -224,10 +224,10 @@
                     }
                 }
             }
-            @include small-down {
+            @include small-device {
                 display: block;
             }
-            @include medium-only {
+            @include large-device {
                 display: block;
             }
         }

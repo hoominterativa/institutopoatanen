@@ -9,7 +9,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include small-down{
+    @include small-device{
         padding: $abou01-padding-responsive;
     }
 
@@ -19,7 +19,7 @@
         color: $abou01-title-color;
         display: block;
 
-        @include small-down{
+        @include small-device{
             font-size: $abou01-title-font-size-responsive;
         }
     }
@@ -29,7 +29,7 @@
         color: $abou01-subtitle-color;
         display: block;
 
-        @include small-down{
+        @include small-device{
             font-size: $abou01-subtitle-font-size-responsive;
         }
     }
@@ -45,7 +45,7 @@
         color: $abou01-paragraph-color;
         line-height: $abou01-paragraph-line-height;
 
-        @include small-down{
+        @include small-device{
             font: $abou01-paragraph-font-responsive;
         }
     }
@@ -59,7 +59,7 @@
         padding: $abou01-cta-padding;
         background-color: $abou01-cta-background-color;
 
-        @include small-down{
+        @include small-device{
             font: $abou01-cta-font-responsive;
         }
 
@@ -90,7 +90,7 @@
             color: $abou01-page-header-title-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $abou01-page-header-title-font-size-responsive;
             }
         }
@@ -100,7 +100,7 @@
             color: $abou01-page-header-subtitle-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $abou01-page-header-subtitle-font-size-responsive;
             }
         }
@@ -124,7 +124,7 @@
             color: $abou01-page-content-title-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $abou01-page-content-title-font-size-responsive;
             }
         }
@@ -134,7 +134,7 @@
             color: $abou01-page-content-subtitle-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $abou01-page-content-subtitle-font-size-responsive;
             }
         }
@@ -149,7 +149,7 @@
             color: $abou01-page-content-paragraph-color;
             line-height: $abou01-page-content-paragraph-line-height;
 
-            @include small-down{
+            @include small-device{
                 font: $abou01-page-content-paragraph-font-responsive;
             }
         }
@@ -184,7 +184,7 @@
                 font-size: $abou01-page-topic-title-font-size;
                 color: $abou01-page-topic-title-color;
 
-                @include small-down{
+                @include small-device{
                     font-size: $abou01-page-topic-title-font-size-responsive;
                 }
             }
@@ -193,13 +193,13 @@
                 font-weight: $abou01-page-topic-paragraph-font-weight;
                 color: $abou01-page-topic-paragraph-color;
 
-                @include small-down{
+                @include small-device{
                     font: $abou01-page-topic-paragraph-font-responsive;
                 }
             }
         }
         .carousel-abou01-topic{
-            @include small-down{
+            @include small-device{
                 margin: 0 auto;
             }
             .owl-stage-outer{
@@ -227,7 +227,7 @@
     &__section{
         padding: $abou01-page-section-padding;
         &__row{
-            @include small-down{
+            @include small-device{
                 flex-direction: column-reverse;
             }
         }
@@ -244,7 +244,7 @@
             color: $abou01-page-section-title-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $abou01-page-section-title-font-size-responsive;
             }
         }
@@ -253,7 +253,7 @@
             font-weight: $abou01-page-section-subtitle-font-weight;
             color: $abou01-page-section-subtitle-color;
 
-            @include small-down{
+            @include small-device{
                 font-size: $abou01-page-section-subtitle-font-size-responsive;
             }
         }
@@ -267,7 +267,7 @@
             color: $abou01-page-section-paragraph-color;
             line-height: $abou01-page-section-paragraph-line-height;
 
-            @include small-down{
+            @include small-device{
                 font: $abou01-page-section-paragraph-font-responsive;
                 margin-bottom: $abou01-page-section-paragraph-margin-bottom-responsive;
             }

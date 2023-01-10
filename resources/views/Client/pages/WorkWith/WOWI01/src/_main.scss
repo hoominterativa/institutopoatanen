@@ -11,7 +11,7 @@
 
     &.wowi01{
         padding: 70px 0;
-        @include small-down{
+        @include small-device{
             padding: 35px 0;
         }
     }
@@ -27,7 +27,7 @@
                 font-weight: $weight-700;
                 color: $color-one;
                 display: block;
-                @include small-down{
+                @include small-device{
                     font-size: $T2-mobile;
                 }
             }
@@ -38,7 +38,7 @@
                 color: $color-two;
                 display: block;
 
-                @include small-down{
+                @include small-device{
                     font-size: $T4-mobile;
                 }
             }
@@ -51,7 +51,7 @@
                 margin: 0 auto;
                 margin-bottom: 50px;
                 margin-top: 25px;
-                @include small-down{
+                @include small-device{
                     width: 90%;
                 }
             }
@@ -59,11 +59,11 @@
         // END __header
 
         &__container-box{
-            @include small-down{
+            @include small-device{
                 width: 70%;
             }
             .owl-stage-outer{
-                @include small-down{
+                @include small-device{
                     overflow: visible;
                 }
             }
@@ -111,7 +111,7 @@
                 color: $color-two;
                 font-weight: $weight-500;
                 width: 60%;
-                @include small-down{
+                @include small-device{
                     width: 100%;
                 }
             }
@@ -159,7 +159,7 @@
                 color: $color-black;
                 display: block;
 
-                @include small-down{
+                @include small-device{
                     font-size: $T1-mobile;
                 }
             }
@@ -184,7 +184,7 @@
                 color: $color-one;
                 display: block;
 
-                @include small-down{
+                @include small-device{
                     font-size: $T2-mobile;
                 }
             }
@@ -195,7 +195,7 @@
                 color: $color-one;
                 display: block;
 
-                @include small-down{
+                @include small-device{
                     font-size: $T4-mobile;
                 }
             }
@@ -212,7 +212,7 @@
                 line-height: 25px;
                 text-align: center;
 
-                @include small-down{
+                @include small-device{
                     font: $paragraph-mobile;
                 }
             }
@@ -221,11 +221,11 @@
         // END __content
 
         &__container-box{
-            @include small-down{
+            @include small-device{
                 width: 70%;
             }
             .owl-stage-outer{
-                @include small-down{
+                @include small-device{
                     overflow: visible;
                 }
             }
@@ -260,7 +260,7 @@
                     margin-bottom: 50px;
                     margin-top: 25px;
 
-                    @include small-down{
+                    @include small-device{
                         width: 90%;
                     }
                 }
@@ -321,7 +321,7 @@
                 color: $color-two;
                 font-weight: $weight-500;
                 width: 60%;;
-                @include small-down{
+                @include small-device{
                     width: 100%;
                 }
             }
@@ -379,7 +379,7 @@
                     margin-bottom: 50px;
                     margin-top: 25px;
 
-                    @include small-down{
+                    @include small-device{
                         width: 90%;
                     }
                 }
@@ -412,7 +412,7 @@
                     color: $color-one;
                     display: block;
 
-                    @include small-down{
+                    @include small-device{
                         font-size: $T4-mobile;
                     }
 
@@ -423,7 +423,7 @@
                     color: $color-black;
                     display: block;
 
-                    @include small-down{
+                    @include small-device{
                         font-size: $T2-mobile;
                     }
                 }
@@ -435,7 +435,7 @@
                     margin-bottom: 50px;
                     margin-top: 25px;
 
-                    @include small-down{
+                    @include small-device{
                         width: 90%;
                     }
                 }
@@ -447,7 +447,7 @@
                     padding: 10px 45px;
                     background-color: $bg-white;
 
-                    @include small-down{
+                    @include small-device{
                         font: $paragraph-mobile;
                     }
 

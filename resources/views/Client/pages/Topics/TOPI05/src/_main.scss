@@ -6,7 +6,7 @@
     .container--pd{
         padding: 82px 0 72px 0 !important;
 
-        @include small-down {
+        @include small-device {
             padding: 68px 42px 68px 42px !important;
         }
 
@@ -17,14 +17,14 @@
 
         &__image{
             height: 319px;
-            @include small-down{
+            @include small-device{
                 height: 267px;
             }
         }
         &__description{
             padding: 31px 40px;
 
-            @include small-down{
+            @include small-device{
                 padding: 24px 40px 29px 40px;
             }
 
@@ -35,7 +35,7 @@
                 font-weight: $weight-700;
                 margin-bottom: 10px;
 
-                @include small-down {
+                @include small-device {
                     font-size: $T4-mobile;
                 }
             }
@@ -46,7 +46,7 @@
                     font:$paragraph;
                     color:$color-two;
 
-                    @include small-down {
+                    @include small-device {
                         font:$paragraph-min;
                     }
                 }

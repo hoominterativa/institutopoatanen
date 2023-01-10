@@ -3,7 +3,7 @@
 /* BEGIN STYLE */
 #TOPI02{
     padding: $topi02-TOPI02-padding;
-    @include small-down{
+    @include small-device{
         padding: 35px 20px;
     }
     .header-topic{
@@ -16,7 +16,7 @@
                 font-family: $topi02-header-title-font-family;
                 color: $topi02-header-title-color;
                 display: block;
-                @include small-down{
+                @include small-device{
                     font-size: $topi02-header-title-font-size-responsive;
                 }
             }
@@ -26,7 +26,7 @@
                 font-family: $topi02-header-subtitle-font-family;
                 color: $topi02-header-subtitle-color;
                 display: block;
-                @include small-down{
+                @include small-device{
                     font-size: $topi02-header-subtitle-font-size-responsive;
                 }
             }
@@ -39,7 +39,7 @@
             margin-bottom: $topi02-header-paragraph-margin-bottom;
             margin-top: $topi02-header-paragraph-margin-top;
 
-            @include small-down{
+            @include small-device{
                 font: $topi02-header-paragraph-font-responsive;
                 width: $topi02-header-paragraph-width-responsive;
             }
@@ -49,11 +49,11 @@
         }
     }
     .container-box {
-        @include small-down{
+        @include small-device{
             width: 70%;
         }
         .owl-stage-outer{
-            @include small-down{
+            @include small-device{
                 overflow: visible;
             }
         }
@@ -79,7 +79,7 @@
                             font-family: $topi02-box-topic-title-font-family;
                             color: $topi02-box-topic-title-color;
                             font-weight: $topi02-box-topic-title-font-weight;
-                            @include small-down{
+                            @include small-device{
                                 font-size: $topi02-box-topic-title-font-size-responsive;
                             }
                         }
@@ -87,7 +87,7 @@
                             font: $topi02-box-topic-paragraph-font;
                             color: $topi02-box-topic-paragraph-color;
                             font-weight: $topi02-box-topic-paragraph-font-weight;
-                            @include small-down{
+                            @include small-device{
                                 font: $topi02-box-topic-paragraph-font-responsive;
                             }
                         }

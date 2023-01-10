@@ -16,7 +16,7 @@
             color: $copa01-page-header-title-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $copa01-page-header-title-font-size-responsive;
             }
         }
@@ -41,7 +41,7 @@
             color: $copa01-page-content-title-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $copa01-page-content-title-font-size-responsive;
             }
         }
@@ -52,7 +52,7 @@
             color: $copa01-page-content-subtitle-color;
             display: block;
 
-            @include small-down{
+            @include small-device{
                 font-size: $copa01-page-content-subtitle-font-size-responsive;
             }
         }
@@ -68,7 +68,7 @@
             color: $copa01-page-content-paragraph-color;
             line-height: $copa01-page-content-paragraph-line-height;
 
-            @include small-down{
+            @include small-device{
                 font: $copa01-page-content-paragraph-font-responsive;
             }
         }
@@ -88,7 +88,7 @@
             padding: $copa01-archives-item-padding;
             background-color: $copa01-archives-item-background-color;
 
-            @include small-down{
+            @include small-device{
                 font: $copa01-archives-item-font-responsive;
             }
 

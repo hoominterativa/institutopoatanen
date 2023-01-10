@@ -7,7 +7,7 @@
     .container--edit{
         padding: $prod02-container-edit-padding;
 
-        @include small-down{
+        @include small-device{
             padding: $prod02-container-edit-padding-mobile-padding;
         }
     }
@@ -16,8 +16,8 @@
             padding-bottom: $prod02-navigation-container-padding-bottom;
             border-bottom: $prod02-navigation-container-border-bottom;
             margin-bottom: $prod02-navigation-container-margin-bottom;
-            
-            @include small-down{
+
+            @include small-device{
                 width: $prod02-navigation-container-mobile-width;
                 margin: $prod02-navigation-container-mobile-margin;
                 padding-bottom: $prod02-navigation-container-mobile-padding-bottom;
@@ -25,7 +25,7 @@
             }
             &__encompass{
                 max-width: $prod02-navigation-container-encompass-max-width;
-                @include small-down{
+                @include small-device{
                     max-width:$prod02-navigation-container-encompass-mobile-max-width;
                 }
                 &__title{
@@ -34,7 +34,7 @@
                     font-family: $font-primary;
                     font-weight: $weight-700;
                     margin-bottom: $prod02-navigation-container-encompass-title-margin-bottom;
-                    @include small-down{
+                    @include small-device{
                         font-size: $T2-mobile;
                         margin-bottom: $prod02-navigation-container-encompass-title-mobile-margin-bottom;
                     }
@@ -45,23 +45,23 @@
                     font-family: $font-primary;
                     font-weight: $weight-700;
 
-                    @include small-down{
+                    @include small-device{
                         font-size: $T4-mobile;
                     }
                 }
             }
-            
+
             &__nav__desktop{
                 display: $prod02-navigation-nav-desktop-display;
                 width: $prod02-navigation-nav-desktop-width;
 
-                @include small-down{
+                @include small-device{
                     width: $prod02-navigation-nav-desktop-mobile-width;
                 }
                 ul{
                     gap:$prod02-navigation-nav-desktop-ul-gap;
-                    
-                    @include small-down{
+
+                    @include small-device{
                         display: $prod02-navigation-nav-desktop-ul-mobile-display;
                     }
 
@@ -79,7 +79,7 @@
                             color: $color-two;
                         }
                     }
-                    
+
                 }
 
                 &__cta{
@@ -90,22 +90,22 @@
                     height: $prod02-nav-desktop-cta-height;
                     padding: $prod02-nav-desktop-cta-padding;
                     background-color: $prod02-nav-desktop-cta-background-color;
-            
-                    @include small-down{
+
+                    @include small-device{
                         font: $prod02-nav-desktop-cta-font-responsive;
                         max-width: $prod02-nav-desktop-cta-mobile-max-width;
                     }
-            
+
                     &:hover{
                         color: $prod02-item-cta-color-hover;
                         background-color: $prod02-nav-desktop-cta-background-color-hover;
-            
+
                         .prod02__navigation__content__nav__desktop__cta__icon{
                             filter: $prod02-nav-desktop-cta-icon-filter-hover;
                         }
                     }
-                } 
-               
+                }
+
             }
         }
         &__nav__mobile{
@@ -113,7 +113,7 @@
             display: $prod02-navigation-nav-mobile-display;
             gap:$prod02-navigation-nav-mobile-gap;
 
-            @include small-down{
+            @include small-device{
                 display: $prod02-navigation-nav-mobile-responsivo-display;
                 margin-bottom: $prod02-navigation-nav-mobile-responsivo-margin-bottom;
                 margin-left: $prod02-navigation-nav-mobile-responsivo-margin-left;
@@ -124,7 +124,7 @@
                 @include listapadrao;
                 display: $prod02-navigation-nav-mobile-li-display;
 
-                @include small-down{
+                @include small-device{
                     width: $prod02-navigation-nav-mobile-li-display-responsivo-width;
                 }
                 a{
@@ -133,14 +133,14 @@
                     font-family: $font-primary;
                     font-weight: $weight-700;
 
-                    @include small-down{
+                    @include small-device{
                         font-size: $T5-mobile;
                     }
                 }
             }
         }
         &__paragraph{
-            @include small-down{
+            @include small-device{
                 width:$prod02-navigation-paragraph-margin-responsivo-width;
                 margin: $prod02-navigation-nav-mobile-li-display-responsivo-margin;
 
@@ -152,9 +152,9 @@
                 font-weight: $weight-400;
                 margin-bottom: $prod02-navigation-paragraph-p-margin-bottom;
 
-                @include small-down{
+                @include small-device{
                     font:$paragraph-mobile;
-                } 
+                }
             }
         }
     }
@@ -163,7 +163,7 @@
     &__content__product{
         margin-top: $prod02-content-product-margin-top;
 
-        @include small-down{
+        @include small-device{
             width: $prod02-content-product-mobile-width;
             margin: $prod02-content-product-mobile-margin;
             margin-top:$prod02-content-product-mobile-margin-top;
@@ -199,7 +199,7 @@
                     margin-bottom: $prod02-item-paragraph-p-margin-bottom;
                 }
             }
-            
+
             &__cta{
                 font: $prod02-item-cta-font;
                 font-weight: $prod02-item-cta-font-weight;
@@ -208,23 +208,23 @@
                 height: $prod02-item-cta-mobile-height;
                 padding: $prod02-item-cta-padding;
                 background-color: $prod02-item-cta-background-color;
-        
-                @include small-down{
+
+                @include small-device{
                     font: $prod02-item-cta-font-responsive;
                     max-width: $prod02-item-cta-font-responsive-max-width;
                 }
-        
+
                 &:hover{
                     color: $prod02-item-cta-color-hover;
                     background-color: $prod02-item-cta-background-color-hover;
-        
+
                     .prod02__content__product__item__cta__icon{
                         filter: $prod02-item-cta-icon-filter-hover;
                     }
                 }
-            } 
+            }
             &__item a{
-                color:$color-black;     
+                color:$color-black;
             }
         }
         .carousel-prod02 .owl-dots{
@@ -235,12 +235,12 @@
             gap: $carousel-prod02-owl-dots-gap;
 
 
-            @include small-down{
+            @include small-device{
                 margin: $carousel-prod02-owl-dots-mobile-margin;
                 margin-top: $carousel-prod02-owl-dots-mobile-margin-top;
                 justify-content: $carousel-prod02-owl-dots-mobile-justify-content;
             }
-            
+
         }
         .carousel-prod02 .owl-dots .owl-dot{
             width: $carousel-prod02-owl-dot-width;
@@ -254,8 +254,8 @@
     }
 
     // END content_product
-    
-    
+
+
 }
 
 
@@ -275,27 +275,27 @@
             font-family: $font-paragraph;
             font-weight: $weight-700;
 
-            @include small-down{
+            @include small-device{
                 font-size: $T1-mobile;
                 text-align: $prod02-page-header-mobile-title-text-align;
                 max-width: $prod02-page-header-mobile-title-max-width;
             }
         }
-       
+
     }
 
     &__content{
         margin-top: $prod02-page-content-margin-top;
         padding-bottom: $prod02-page-content-padding-bottom;
 
-        @include small-down{
+        @include small-device{
             overflow: $prod02-page-content-mobile-overflow;
         }
 
         &__category{
             gap: $prod02-page-content-category-gap;
 
-            @include small-down{
+            @include small-device{
                 margin-left: $prod02-page-content-category-margin-left;
                 margin-bottom: $prod02-page-content-category-margin-bottom;
             }
@@ -305,7 +305,7 @@
                 @include listapadrao;
                 background-color: $color-five;
 
-                @include small-down{
+                @include small-device{
                    width: $prod02-page-content-category-li-mobile-width;
                 }
 
@@ -314,7 +314,7 @@
                     color: $color-two;
                     font-family: $font-paragraph;
                     font-weight: $weight-700;
-                    @include small-down{
+                    @include small-device{
                         font-size: $T5-mobile;
                     }
 
@@ -324,21 +324,21 @@
                         object-fit: $prod02-page-content-category-li-img-object-fit;
                         margin-right: $prod02-page-content-category-li-img-margin-right;
 
-                        @include small-down{
+                        @include small-device{
                             width: $prod02-page-content-category-li-mobile-img-width;
                             height: $prod02-page-content-category-li-mobile-img-height;
                             margin-right: $prod02-page-content-category-li-mobile-img-margin-right;
                         }
                     }
-                   
-                   
+
+
                 }
 
                 &:hover{
                     background: $color-black;
 
                     a{
-                        color: $color-white; 
+                        color: $color-white;
                     }
                     img{
                         filter:$prod02-page-content-category-li-hover-filter;
@@ -346,7 +346,7 @@
                 }
             }
         }
-        @include small-down{
+        @include small-device{
             .caroussel_prod02-page .owl-dots{
                 display: $caroussel-prod02-page-display;
             }
@@ -355,17 +355,17 @@
             }
         }
         &__product{
-            
+
             margin-top: $prod02-page-content-product-margin-top;
 
-            @include small-down{
+            @include small-device{
                 padding:$prod02-page-content-product-padding;
                 margin-top: $prod02-page-content-product-mobile-margin-top;
             }
 
             .prod02__page__content--row{
                 gap: $prod02-page-content-row-gap;
-                @include small-down{
+                @include small-device{
                     margin: $prod02-page-content-row-mobile-margin;
                 }
             }
@@ -375,7 +375,7 @@
                 min-height: 447px;
                 height: 447px;
 
-                @include small-down{
+                @include small-device{
                    padding:$prod02-page-item-mobile-padding;
                 }
 
@@ -384,8 +384,8 @@
                     top: $prod02-page-item-description-top;
                     left: $prod02-page-item-description-left;
                     padding: $prod02-page-item-description-padding;
-    
-    
+
+
                     &__title{
                         font-size: $T5;
                         color: $color-black;
@@ -404,7 +404,7 @@
                         margin-bottom: $prod02-page-item-paragraph-p-margin-bottom;
                     }
                 }
-                
+
                 &__cta{
                     font: $prod02-page-item-cta-font;
                     font-weight: $prod02-page-item-cta-font-weight;
@@ -413,27 +413,27 @@
                     height: auto;
                     padding: $prod02-page-item-cta-padding;
                     background-color: $prod02-item-cta-background-color;
-            
-                    @include small-down{
+
+                    @include small-device{
                         font: $prod02-page-item-cta-font-responsive;
                     }
-            
+
                     &:hover{
                         color: $prod02-page-item-cta-color-hover;
                         background-color: $prod02-page-item-cta-background-color-hover;
-            
+
                         .prod02__page__content__product__item__cta__icon{
                             filter: $prod02-page-item-cta-icon-filter-hover;
                         }
                     }
-                } 
+                }
                 &__item a{
-                    color:$color-black;     
+                    color:$color-black;
                 }
             }
         }
     }
-}    
+}
 // END .prod02__page
 
 .lightbox-prod02{
@@ -447,25 +447,25 @@
     }
     .caroussel_prod02-show{
         height:100% !important;
-        @include small-down{
+        @include small-device{
             height:321px;
         }
     }
     .caroussel_prod02-show .owl-item{
         height: 100% !important;
-        @include small-down{
+        @include small-device{
             height: 321px;
         }
     }
     .caroussel_prod02-show .owl-stage{
         height: 100% !important;
-        @include small-down{
+        @include small-device{
             height:321px;
         }
     }
     .caroussel_prod02-show .owl-stage-outer{
         height: 100% !important;
-        @include small-down{
+        @include small-device{
             height:321px;
         }
     }
@@ -499,13 +499,13 @@
         position: $lightbox-prod02-description-position;
         padding:  $lightbox-prod02-description-padding;
 
-        @include small-down{
+        @include small-device{
             padding: $lightbox-prod02-description-mobile-padding;
         }
     }
     &__navigation{
         margin-bottom: $lightbox-prod02-navigation-margin-bottom;
-        @include small-down{
+        @include small-device{
             margin-bottom:$lightbox-prod02-navigation-mobile-margin-bottom;
         }
 
@@ -515,7 +515,7 @@
             a{
                 color: $color-one;
                 font: $paragraph-min;
-                font-weight: $weight-400; 
+                font-weight: $weight-400;
             }
             img{
                 margin-right:$lightbox-prod02-navigation-li-img-margin-right;
@@ -531,12 +531,12 @@
         font-weight: $weight-700;
         @include dflex;
 
-        @include small-down{
+        @include small-device{
             font-size: $T2-mobile;
             text-align: $lightbox-prod02-navigation-title-text-align;
         }
 
-        
+
     }
     &__subtitle{
         font-size: $T4;
@@ -544,12 +544,12 @@
         font-family: $font-paragraph;
         font-weight: $weight-700;
 
-        @include small-down{
+        @include small-device{
             font-size: $T4-mobile;
             text-align: $lightbox-prod02-navigation-subtitle-text-align;
         }
     }
-    
+
     &__line{
         margin-top: $lightbox-prod02-line-margin-top;
         margin-bottom: $lightbox-prod02-line-margin-bottom;
@@ -559,7 +559,7 @@
         color: $color-one;
         font-weight: $weight-400;
 
-        @include small-down{
+        @include small-device{
             text-align: $lightbox-prod02-paragraph-text-align;
             font: $paragraph-min;
         }
@@ -571,14 +571,14 @@
             padding: $lightbox-prod02-paragraph-ul-padding;
             margin-top: $lightbox-prod02-paragraph-ul-margin-top;
             gap: $lightbox-prod02-paragraph-ul-gap;
-        
+
             li{
                 display:$lightbox-prod02-paragraph-ul-li-display;
                 width: $lightbox-prod02-paragraph-ul-li-width;
                 min-width: $lightbox-prod02-paragraph-ul-li-min-width;
                 text-align: $lightbox-prod02-paragraph-ul-li-text-align;
                 align-items: $lightbox-prod02-paragraph-ul-li-align-items;
-        
+
                 &:before{
                     content:$lightbox-prod02-paragraph-ul-li-before-content;
                     width: $lightbox-prod02-paragraph-ul-li-before-width;
@@ -593,7 +593,7 @@
             }
         }
     }
-    
+
 
     &__cta{
         margin-top: $prod02-lightbox-cta-margin-top;
@@ -605,7 +605,7 @@
         padding: $prod02-lightbox-cta-padding;
         background-color: $prod02-lightbox-cta-background-color;
 
-        @include small-down{
+        @include small-device{
             font: $prod02-lightbox-cta-font-responsive;
             margin-top: $prod02-lightbox-cta-mobile-margin-top;
         }
@@ -618,7 +618,7 @@
                 filter: $prod02-lightbox-cta-icon-filter-hover;
             }
         }
-    } 
+    }
 
     .carousel__button.is-close{
         right: 17px;
@@ -635,7 +635,7 @@
         background: $color-one !important;
     }
 
-    @include small-down{
+    @include small-device{
         text-align: center;
     }
 }

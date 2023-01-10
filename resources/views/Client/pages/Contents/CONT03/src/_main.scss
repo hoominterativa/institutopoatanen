@@ -7,7 +7,7 @@
     background-size: $cont03-background-size;
     background-repeat: no-repeat;
 
-    @include small-down{
+    @include small-device{
         padding: $cont03-padding-responsive;
     }
 }
@@ -15,7 +15,7 @@
     &__content{
         padding-right: $cont03-content-padding-right;
 
-        @include small-down{
+        @include small-device{
             padding-right: $cont03-content-padding-right-responsive;
             margin-bottom: $cont03-content-margin-bottom-responsive;
         }
@@ -29,7 +29,7 @@
             font-weight: $cont03-content-title-font-weight;
             color: $cont03-content-title-color;
 
-            @include small-down{
+            @include small-device{
                 font-size: $cont03-content-title-font-size-responsive;
             }
         }
@@ -38,7 +38,7 @@
             font-weight: $cont03-content-subtitle-font-weight;
             color: $cont03-content-subtitle-color;
 
-            @include small-down{
+            @include small-device{
                 font-size: $cont03-content-title-font-size-responsive;
             }
         }
@@ -53,7 +53,7 @@
             color: $cont03-content-paragraph-color;
             margin-bottom: $cont03-content-paragraph-margin-bottom;
 
-            @include small-down{
+            @include small-device{
                 font: $cont03-content-paragraph-font-responsive;
             }
         }
@@ -66,7 +66,7 @@
             padding: $cont03-content-cta-padding;
             background-color: $cont03-content-cta-background-color;
 
-            @include small-down{
+            @include small-device{
                 font: $cont03-content-cta-font-responsive;
             }
 
@@ -87,7 +87,7 @@
             margin-bottom: $cont03-figure-center-margin-bottom;
             padding: $cont03-figure-center-padding;
 
-            @include small-down{
+            @include small-device{
                 padding: $cont03-figure-center-padding-responsive;
                 margin-bottom: $cont03-figure-center-margin-bottom-responsive;
             }
@@ -96,7 +96,7 @@
             margin-bottom: $cont03-figure-right-margin-bottom;
             padding: $cont03-figure-right-padding;
 
-            @include small-down{
+            @include small-device{
                 padding: $cont03-figure-right-padding-responsive;
             }
         }

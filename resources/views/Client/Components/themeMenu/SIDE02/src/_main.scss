@@ -12,10 +12,10 @@
     z-index: 1000;
     border-bottom: 9px solid $color-two;
     transition-duration: 0.6s;
-    @include small-down{
+    @include small-device{
         display: block;
     }
-    @include medium-only{
+    @include large-device{
         display: block;
     }
 

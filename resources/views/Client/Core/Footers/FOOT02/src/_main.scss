@@ -9,7 +9,7 @@
     &__container{
         padding: 80px 0;
 
-        @include small-down{
+        @include small-device{
             padding: 50px 30px !important;
         }
     }
@@ -21,12 +21,12 @@
         }
 
         &__wraper{
-            @include small-down{
+            @include small-device{
                 margin: 0 auto 67px auto;
                 display: table;
             }
 
-            @include medium-only{
+            @include large-device{
                 margin: 0 auto 67px auto;
                 display: table;
             }
@@ -46,11 +46,11 @@
     // END __socials
 
     &__nav{
-        @include small-down{
+        @include small-device{
             margin: 0 0 47px 0;
         }
 
-        @include medium-only{
+        @include large-device{
             margin: 0 0 47px 0;
         }
 
@@ -93,30 +93,30 @@
         background-color: $color-two;
         padding: 17px 0;
 
-        @include small-down{
+        @include small-device{
             text-align: center;
             padding: 25px 0;
         }
 
-        @include medium-only{
+        @include large-device{
             text-align: center;
             padding: 25px 0;
         }
 
         &__container{
-            @include small-down{
+            @include small-device{
                 padding: 0 30px !important;
             }
         }
 
         &__compliances{
 
-            @include small-down{
+            @include small-device{
                 margin: 0 0 30px 0;
                 justify-content: center;
             }
 
-            @include medium-only{
+            @include large-device{
                 margin: 0 0 30px 0;
                 justify-content: center;
             }

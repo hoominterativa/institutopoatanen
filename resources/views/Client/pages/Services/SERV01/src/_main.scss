@@ -10,7 +10,7 @@
     */
     &.serv01{
         padding: $serv01-padding;
-        @include small-down{
+        @include small-device{
             padding: 35px 0;
         }
     }
@@ -42,7 +42,7 @@
                 margin-bottom: $serv01-header-paragraph-margin-bottom;
                 margin-top: $serv01-header-paragraph-margin-top;
 
-                @include small-down{
+                @include small-device{
                     width: $serv01-header-paragraph-width-responsive;
                 }
             }
@@ -50,11 +50,11 @@
         // END __header
 
         &__container-box{
-            @include small-down{
+            @include small-device{
                 width: 70%;
             }
             .owl-stage-outer{
-                @include small-down{
+                @include small-device{
                     overflow: visible;
                 }
             }
@@ -102,7 +102,7 @@
                 color: $serv01-box-service-paragraph-color;
                 font-weight: $serv01-box-service-paragraph-font-weight;
                 width: $serv01-box-service-paragraph-width;
-                @include small-down{
+                @include small-device{
                     width: $serv01-box-service-paragraph-width-responsive;
                 }
             }
@@ -165,7 +165,7 @@
                 margin-bottom: $serv01-page-header-paragraph-margin-bottom;
                 margin-top: $serv01-page-header-paragraph-margin-top;
 
-                @include small-down{
+                @include small-device{
                     width: $serv01-page-header-paragraph-width-responsive;
                 }
             }
@@ -173,13 +173,13 @@
         // END __header
 
         &__container-box{
-            @include small-down{
+            @include small-device{
                 width: 90%;
                 margin-left: auto;
                 margin-right: auto;
             }
             .owl-stage-outer{
-                @include small-down{
+                @include small-device{
                     overflow: visible;
                 }
             }
@@ -228,7 +228,7 @@
                 color: $serv01-page-box-service-paragraph-color;
                 font-weight: $serv01-page-box-service-paragraph-font-weight;
                 width: $serv01-page-box-service-paragraph-width;
-                @include small-down{
+                @include small-device{
                     width: $serv01-page-box-service-paragraph-width-responsive;
                 }
             }
@@ -270,7 +270,7 @@
             background-size: cover;
             background-repeat: no-repeat;
 
-            @include small-down{
+            @include small-device{
                 padding: 80px 30px 100px 30px;
             }
             &__title{
@@ -282,11 +282,11 @@
             }
             &__links{
                 margin-top: $serv01-show-header-links-margin-top;
-                @include small-down{
+                @include small-device{
                     width: 85%;
                 }
                 .owl-stage-outer{
-                    @include small-down{
+                    @include small-device{
                         overflow: visible;
                         display: block;
                         width: 100%;
@@ -301,7 +301,7 @@
                 margin: $serv01-show-header-link-item-margin;
                 padding: $serv01-show-header-link-item-padding;
 
-                @include small-down{
+                @include small-device{
                     background-color: #B3B3B3;
                     margin: 0 auto;
                     display: table;
@@ -322,13 +322,13 @@
                     visibility: hidden;
                     transition: 0.2s all ease;
 
-                    @include small-down{
+                    @include small-device{
                         display: none;
                     }
                 }
                 &:hover{
                     color: $serv01-show-header-link-item-color-hover;
-                    @include small-down{
+                    @include small-device{
                         color: #fff;
                         background-color: #000;
                     }
@@ -343,7 +343,7 @@
 
             &__link-item--active{
                 color: $serv01-show-header-link-item-color-hover;
-                @include small-down{
+                @include small-device{
                     color: #fff;
                     background-color: #000;
                 }
@@ -359,7 +359,7 @@
         &__content{
             padding: $serv01-show-content-padding;
 
-            @include small-down{
+            @include small-device{
                 padding: 50px 0 !important;
             }
             &__info{
@@ -401,7 +401,7 @@
                 color: $serv01-show-content-description-color;
                 text-align: $serv01-show-content-description-text-align;
                 padding: $serv01-show-content-description-padding;
-                @include small-down{
+                @include small-device{
                     padding: 0 20px !important;
                 }
             }
@@ -412,7 +412,7 @@
         &__topics{
             padding: $serv01-show-topics-padding;
             background-color: $serv01-show-topics-background-color;
-            @include small-down{
+            @include small-device{
                 padding: 35px 0;
             }
             &__header{
@@ -442,7 +442,7 @@
                     margin-bottom: $serv01-show-topics-header-paragraph-margin-bottom;
                     margin-top: $serv01-show-topics-header-paragraph-margin-top;
 
-                    @include small-down{
+                    @include small-device{
                         width: $serv01-show-topics-header-paragraph-width-responsive;
                     }
                 }
@@ -450,12 +450,12 @@
             // END __header
 
             &__container-box{
-                @include small-down{
+                @include small-device{
                     width: 70%;
                     margin-left: 20px;
                 }
                 .owl-stage-outer{
-                    @include small-down{
+                    @include small-device{
                         overflow: visible;
                     }
                 }
@@ -503,7 +503,7 @@
                     color: $serv01-show-topics-box-service-paragraph-color;
                     font-weight: $serv01-show-topics-box-service-paragraph-font-weight;
                     width: $serv01-show-topics-box-service-paragraph-width;
-                    @include small-down{
+                    @include small-device{
                         width: $serv01-show-topics-box-service-paragraph-width-responsive;
                     }
                 }
@@ -533,7 +533,7 @@
         &__portfolios{
             padding: $serv01-show-portfolios-padding;
             background-color: $serv01-show-portfolios-background-color;
-            @include small-down{
+            @include small-device{
                 padding: 35px 0;
             }
             &__header{
@@ -563,7 +563,7 @@
                     margin-bottom: $serv01-show-portfolios-header-paragraph-margin-bottom;
                     margin-top: $serv01-show-portfolios-header-paragraph-margin-top;
 
-                    @include small-down{
+                    @include small-device{
                         width: $serv01-show-portfolios-header-paragraph-width-responsive;
                     }
                 }
@@ -571,12 +571,12 @@
             // END __header
 
             &__container-box{
-                @include small-down{
+                @include small-device{
                     width: 70%;
                     margin-left: 20px;
                 }
                 .owl-stage-outer{
-                    @include small-down{
+                    @include small-device{
                         overflow: visible;
                     }
                 }
@@ -622,7 +622,7 @@
                     color: $serv01-show-portfolios-box-service-paragraph-color;
                     font-weight: $serv01-show-portfolios-box-service-paragraph-font-weight;
                     width: $serv01-show-portfolios-box-service-paragraph-width;
-                    @include small-down{
+                    @include small-device{
                         width: $serv01-show-portfolios-box-service-paragraph-width-responsive;
                     }
                 }

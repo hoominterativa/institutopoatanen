@@ -33,7 +33,7 @@
                 object-position: bottom;
             }
 
-            @include small-down{
+            @include small-device{
                 position: relative;
                 height: 300px;
                 max-width: 476px;
@@ -77,7 +77,7 @@
                 color: $slid01-title-color;
                 display: block;
 
-                @include small-down{
+                @include small-device{
                     font-size: $slid01-title-font-size-responsive;
                 }
             }
@@ -88,7 +88,7 @@
                 font-weight: $slid01-subtitle-font-weight;
                 color: $slid01-subtitle-color;
 
-                @include small-down{
+                @include small-device{
                     font-size: $slid01-subtitle-font-size-responsive;
                 }
             }
@@ -101,7 +101,7 @@
                 width: $slid01-description-width;
                 line-height: $slid01-description-line-height;
 
-                @include small-down{
+                @include small-device{
                     font: $slid01-description-font-responsive;
                 }
             }
@@ -129,7 +129,7 @@
             }
         }
 
-        @include small-down{
+        @include small-device{
             justify-content: center;
             align-items: end !important;
         }

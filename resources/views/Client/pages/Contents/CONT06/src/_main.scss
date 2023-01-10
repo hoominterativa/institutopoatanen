@@ -6,7 +6,7 @@
 
     &__boxVideo{
 
-        @include small-down {
+        @include small-device {
             width:$cont06-boxvideo-mobile-width;
         }
 
@@ -14,7 +14,7 @@
             width:$cont06-boxvideo-content-width;
             height: $cont06-boxvideo-content-height;
             margin: $cont06-boxvideo-content-margin;
-            position: $cont06-boxvideo-content-position;    
+            position: $cont06-boxvideo-content-position;
             background-repeat: $cont06-boxvideo-content-background-repeat;
             background-position: $cont06-boxvideo-content-background-position;
             background-size: $cont06-boxvideo-content-background-size;
@@ -26,16 +26,16 @@
 
             iframe{
                 width:$cont06-boxvideo-content-iframe-width;
-                height: $cont06-boxvideo-content-iframe-height; 
+                height: $cont06-boxvideo-content-iframe-height;
             }
             &__video{
                 height: $cont06-boxvideo-content-video-height;
             }
 
-            @include small-down {
+            @include small-device {
                 width:$cont06-boxvideo-content-mobile-width;
                 height: $cont06-boxvideo-content-mobile-height;
-                
+
                 .play{
                     width: $cont06-boxvideo-content-play-mobile-width;
                     height: $cont06-boxvideo-content-play-mobile-height;
@@ -58,17 +58,17 @@
             max-width: $cont06-cta-max-width;
             padding: $cont06-cta-padding;
             background-color: $cont06-cta-background-color;
-    
-            @include small-down{
+
+            @include small-device{
                 font: $cont06-cta-font-responsive;
                 margin: 36px auto 0;
                 width: 147px;
             }
-    
+
             &:hover{
                 color: $cont06-cta-color-hover;
                 background-color: $cont06-cta-background-color-hover;
-    
+
                 .cont06__cta__icon{
                     filter: $cont06-cta-icon-filter-hover;
                 }

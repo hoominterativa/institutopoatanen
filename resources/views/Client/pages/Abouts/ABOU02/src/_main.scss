@@ -55,14 +55,14 @@
             &:hover{
                 color: $abou02-cta-color-hover;
                 background-color: $abou02-cta-background-color-hover;
-    
+
                 .abou02__boxLeft__cta__icon{
                     filter: $abou02-cta-icon-filter-hover;
                 }
             }
         }
-        @include small-down{
-            padding: $abou02-boxleft-mobile-padding; 
+        @include small-device{
+            padding: $abou02-boxleft-mobile-padding;
             min-height: $abou02-boxleft-mobile-min-height;
 
             &__subtitle{
@@ -84,12 +84,12 @@
                 font: $paragraph-mobile;
             }
         }
-        
+
 
     }
 
     &__boxRight{
-        
+
         &__item{
             position: relative;
             min-height: 447px;;
@@ -119,7 +119,7 @@
             margin-bottom: $abou02-boxright-paragraph-p-margin-bottom;
         }
         &__item a{
-            color:$color-black;     
+            color:$color-black;
         }
 
 
@@ -143,8 +143,8 @@
             height: $carousel-abou02-owl-nav-prev-next-span-height;
         }
 
-        @include small-down{
-            padding: $abou02-boxright-mobile-padding;  
+        @include small-device{
+            padding: $abou02-boxright-mobile-padding;
             margin-top: $abou02-boxright-mobile-margin-top;
 
             &__item{
@@ -164,7 +164,7 @@
 
     }
 
-    @include small-down{
+    @include small-device{
         &__container{
             padding:$abou02-container-mobile-padding;
         }
@@ -198,7 +198,7 @@
             width: $abou02-page-line-width;
             margin-top: $abou02-page-header-line-margin-top;
         }
-        @include small-down{
+        @include small-device{
             &__title{
                 font-size: $T2-mobile;
                 margin-bottom: $abou02-page-header-title-mobile-margin-bottom;
@@ -276,7 +276,7 @@
             }
         }
     }
-    @include small-down{
+    @include small-device{
         &__content{
             padding:$abou02-page-content-mobile-padding;
         }
@@ -304,7 +304,7 @@
             font:$paragraph-min;
         }
     }
-   
+
 }
 
 
@@ -358,7 +358,7 @@
         margin-bottom: $abou02-page-topic-item-paragraph-p-margin-bottom;
     }
     &__item a{
-        color:$color-black;    
+        color:$color-black;
     }
 
     .carousel-abou02-topic{
@@ -385,7 +385,7 @@
         height: $carousel-abou02-topic-owl-nav-prev-next-span-height;
     }
 
-    @include small-down{
+    @include small-device{
         overflow: hidden;
         &__encompass__title{
             font-size: $T2-mobile;
@@ -426,12 +426,12 @@
         }
     }
 
-    @include medium-down{
+    @include small-device{
         .carousel-abou02-topic .owl-nav {
             margin-left: $carousel-abou02-topic-owl-nav-mobile-margin-left;
         }
     }
-   
+
 
 }
 // END .abou02-page
@@ -443,7 +443,7 @@
     &__image{
         height: $abou02-page-section-image-height;
         width: $abou02-page-section-image-width;
-        border-radius: $abou02-page-section-image-border-radius;   
+        border-radius: $abou02-page-section-image-border-radius;
     }
     &__description{
         padding-left: $abou02-page-section-description-padding-left;
@@ -496,7 +496,7 @@
             }
         }
     }
-    @include small-down{
+    @include small-device{
         &__image{
             order: $abou02-page-section-mobile-image-order;
             width: $abou02-page-section-mobile-image-width;
@@ -572,7 +572,7 @@
         background: $color-one !important;
     }
 
-    @include small-down{
+    @include small-device{
         text-align: center;
     }
 }

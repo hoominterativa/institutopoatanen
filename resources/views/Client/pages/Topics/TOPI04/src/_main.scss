@@ -10,7 +10,7 @@
         max-width: 200px;
         margin-bottom: 8px;
 
-        @include small-down{
+        @include small-device{
             font-size: $T4-mobile;
             margin-bottom: 18px;
         }
@@ -22,7 +22,7 @@
         font-weight: $weight-700;
         font-family: $font-primary;
 
-        @include small-down{
+        @include small-device{
             font-size: $T2-mobile;
         }
     }
@@ -32,7 +32,7 @@
         font-weight: $weight-700;
         font-family: $font-primary;
 
-        @include small-down{
+        @include small-device{
             font-size: $T4-mobile;
         }
     }
@@ -40,7 +40,7 @@
         margin: 17.83px auto 30px;
         background-color: $color-one;
 
-        @include small-down{
+        @include small-device{
             margin: 14.03px auto 25px;
         }
     }
@@ -50,14 +50,14 @@
         font-weight: $weight-400;
         font-family: $font-primary;
 
-        @include small-down{
+        @include small-device{
             font-size:$paragraph-min-mobile;
         }
     }
     &__boxLeft{
         height: 759px;
 
-        @include small-down{
+        @include small-device{
             height:395.21px;
         }
 
@@ -79,7 +79,7 @@
         padding: $topi04-cta-padding;
         background-color: $topi04-cta-background-color;
 
-        @include small-down{
+        @include small-device{
             font: $topi04-cta-font-responsive;
             margin-top: 39px;
             width: 147px;
@@ -98,13 +98,13 @@
     &__description{
         padding: 72px 91px;
 
-        @include small-down{
+        @include small-device{
             padding: 54px 45px 91.28px 39px;
         }
     }
     &__boxRight{
         min-height: 759px;
-        @include small-down{
+        @include small-device{
             min-height: inherit;
         }
     }
@@ -113,7 +113,7 @@
         &__item{
             height: 224px;
 
-            @include small-down{
+            @include small-device{
                 height:129px;
             }
 
@@ -121,7 +121,7 @@
                 height: 47px !important;
                 width: 48px !important;
 
-                @include small-down{
+                @include small-device{
                     height: 24.96px !important;
                     width: 24.96px !important;
                 }
@@ -132,7 +132,7 @@
                 font-family: $font-primary;
                 font-weight: $weight-400;
 
-                @include small-down{
+                @include small-device{
                     font: $paragraph-mobile;
                 }
 

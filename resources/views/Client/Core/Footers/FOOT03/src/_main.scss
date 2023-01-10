@@ -8,7 +8,7 @@
     .container--pd{
         padding: 21px 0 90px 0 !important;
 
-        @include small-down {
+        @include small-device {
             padding: 22px 50px 143px 50px !important;
         }
     }
@@ -25,7 +25,7 @@
         align-items: center;
         cursor: pointer;
 
-        @include small-down {
+        @include small-device {
             width: 50px;
             height: 87px;
             bottom: 219px;
@@ -38,7 +38,7 @@
             height: 29px;
             object-fit: contain;
 
-            @include small-down{
+            @include small-device{
                 width: 19px;
                 height: 20px;
             }
@@ -47,7 +47,7 @@
     &__top{
         margin-bottom: 17.3px;
 
-        @include small-down {
+        @include small-device {
             & > div{
                 flex-direction: column;
             }
@@ -63,7 +63,7 @@
                 font-weight: $weight-700;
                 font-family: $font-primary;
 
-                @include small-down{
+                @include small-device{
                     font-size: $T4-mobile;
                 }
 
@@ -72,7 +72,7 @@
                    margin-right: 9px;
                    object-fit: contain;
 
-                   @include small-down{
+                   @include small-device{
                         width: 37px;
                         height: 37px;
                     }
@@ -83,7 +83,7 @@
             height: 125px;
             width: 268px;
 
-            @include small-down {
+            @include small-device {
                 margin-bottom: 40px;
                 height: 113px;
                 width: 243px;
@@ -98,7 +98,7 @@
                     height: auto;
                     object-fit: contain;
 
-                    @include small-down{
+                    @include small-device{
                         width: 30px;
                     }
                 }
@@ -106,7 +106,7 @@
         }
     }
     &__bottom{
-        @include small-down{
+        @include small-device{
             margin-top: 43.67px;
         }
 
@@ -114,12 +114,12 @@
             gap:0 108px;
             margin: auto !important;
 
-            @include small-down {
+            @include small-device {
                 gap:0 16px;
                 margin: 0 auto !important;
             }
             &__nav{
-                @include small-down {
+                @include small-device {
                   width: 47%;
                 }
                 &__title{
@@ -129,7 +129,7 @@
                     font-family: $font-primary;
                     margin-bottom: 21px;
 
-                    @include small-down{
+                    @include small-device{
                         font-size: $T4-mobile;
                     }
                 }
@@ -147,7 +147,7 @@
                             font: $paragraph;
                             max-width: 163px;
                             display: block;
-                            @include small-down{
+                            @include small-device{
                                 font: $paragraph-min;
                             }
                         }
@@ -159,7 +159,7 @@
             gap:0 88px;
             padding-right: 27px !important;
 
-            @include small-down{
+            @include small-device{
                 margin-top: 54px;
                 padding-right: 0px !important;
                 gap:0;
@@ -173,7 +173,7 @@
                     font-family: $font-primary;
                     margin-bottom: 21px;
 
-                    @include small-down{
+                    @include small-device{
                         font-size: $T4-mobile;
                     }
                 }
@@ -183,7 +183,7 @@
                             .icone{
                                 width: 43px;
                                 height: 43px;
-                                @include small-down{
+                                @include small-device{
                                     width: 37px;
                                     height: 37px;
                                 }
@@ -201,7 +201,7 @@
                                     font-weight: $weight-400;
                                     font: $paragraph;
                                     margin-bottom: 0;
-                                    @include small-down{
+                                    @include small-device{
                                         font-size: $paragraph-mobile;
                                     }
                                 }
@@ -210,7 +210,7 @@
                                     font-weight: $weight-400;
                                     font: $paragraph-min;
 
-                                    @include small-down{
+                                    @include small-device{
                                         font-size: $paragraph-min-mobile;
                                     }
                                 }
@@ -226,30 +226,30 @@
         background: #7C7C7C;
         height: 106px;
 
-        @include small-down{
+        @include small-device{
             height: auto;
         }
         .row--mobile{
-            @include small-down{
+            @include small-device{
                 padding: 13px 53px;
             }
         }
         &__content{
-            @include small-down{
+            @include small-device{
                 flex-direction:column !important;
                 justify-content: center !important;
                 align-items: center !important;
             }
         }
         &__nav{
-            @include small-down {
+            @include small-device {
                 flex-wrap: wrap;
                 justify-content: center !important;
             }
             ul{
                 gap: 0 32px;
 
-                @include small-down {
+                @include small-device {
                     flex-wrap: wrap;
                     justify-content: center !important;
                     gap: 17px 15px;
@@ -264,7 +264,7 @@
                         display: flex;
                         align-items: center;
 
-                        @include small-down{
+                        @include small-device{
                             font: $paragraph-mobile;
                         }
 
@@ -276,7 +276,7 @@
                             background: #404040;
                             margin-left: 29px;
 
-                            @include small-down{
+                            @include small-device{
                                 margin-left: 15px;
                             }
                         }
@@ -292,7 +292,7 @@
             width: 147px;
             height: 72px;
 
-            @include small-down{
+            @include small-device{
                 margin-top: 31px;
                 width: 127px;
                 height: 62px;

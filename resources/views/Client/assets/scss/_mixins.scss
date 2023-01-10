@@ -1,42 +1,99 @@
-$extra-small-width: 360px;
-$small-width: 480px;
-$medium-down-width: 601px;
-$medium-width: 801px;
-$large-width: 1024px;
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
 
-@mixin extra-small {
-    @media (max-width: #{$small-width - 1px}) {
+// Between breakpoints
+@mixin x-small-device {
+    @media (min-width: #{map-get($grid-breakpoints, 'xs')}) and (max-width: #{map-get($grid-breakpoints, 'sm') - .02px}) {
         @content;
     }
 }
 
-@mixin small-down {
-    @media (max-width: #{$medium-width - 1px}) {
+@mixin small-device {
+    @media (min-width: #{map-get($grid-breakpoints, 'sm')}) and (max-width: #{map-get($grid-breakpoints, 'md') - .02px}) {
         @content;
     }
 }
 
-@mixin small-only {
-    @media (min-width: #{$extra-small-width}) and (max-width: #{$medium-width - 1px}) {
+@mixin medium-device {
+    @media (min-width: #{map-get($grid-breakpoints, 'md')}) and (max-width: #{map-get($grid-breakpoints, 'lg') - .02px}) {
         @content;
     }
 }
 
-@mixin medium-only {
-    @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
-        @content;
-        
-    }
-}
-
-@mixin medium-down {
-    @media (max-width: #{$medium-down-width}) {
+@mixin large-device {
+    @media (min-width: #{map-get($grid-breakpoints, 'lg')}) and (max-width: #{map-get($grid-breakpoints, 'xl') - .02px}) {
         @content;
     }
 }
 
-@mixin large {
-    @media (min-width: #{$large-width}) {
+@mixin x-large-device {
+    @media (min-width: #{map-get($grid-breakpoints, 'xl')}) and (max-width: #{map-get($grid-breakpoints, 'xxl') - .02px}) {
+        @content;
+    }
+}
+
+// Breakpoints down
+@mixin small-device-down {
+    @media (max-width: #{map-get($grid-breakpoints, 'sm') - .02px}) {
+        @content;
+    }
+}
+
+@mixin medium-device-down {
+    @media (max-width: #{map-get($grid-breakpoints, 'md') - .02px}) {
+        @content;
+    }
+}
+
+@mixin large-device-down {
+    @media (max-width: #{map-get($grid-breakpoints, 'lg') - .02px}) {
+        @content;
+    }
+}
+
+@mixin x-large-device-down {
+    @media (max-width: #{map-get($grid-breakpoints, 'xl') - .02px}) {
+        @content;
+    }
+}
+@mixin xx-large-device-down {
+    @media (max-width: #{map-get($grid-breakpoints, 'xxl') - .02px}) {
+        @content;
+    }
+}
+
+// Breakpoints up
+@mixin small-device-up {
+    @media (min-width: #{map-get($grid-breakpoints, 'sm')}) {
+        @content;
+    }
+}
+
+@mixin medium-device-up {
+    @media (min-width: #{map-get($grid-breakpoints, 'md')}) {
+        @content;
+    }
+}
+
+@mixin large-device-up {
+    @media (min-width: #{map-get($grid-breakpoints, 'lg')}) {
+        @content;
+    }
+}
+
+@mixin x-large-device-up {
+    @media (min-width: #{map-get($grid-breakpoints, 'xl')}) {
+        @content;
+    }
+}
+@mixin xx-large-device-up {
+    @media (min-width: #{map-get($grid-breakpoints, 'xxl')}) {
         @content;
     }
 }

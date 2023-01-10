@@ -10,7 +10,7 @@
     .container--feed03{
         padding: 159px 0 69px 0;
 
-        @include small-down{
+        @include small-device{
             padding: 132px 44px 42px 44px;
         }
     }
@@ -21,7 +21,7 @@
         padding-bottom:45.99px;
         margin-bottom: 80px;
 
-        @include small-down{
+        @include small-device{
             padding-bottom:35px;
             margin-bottom: 59px;
         }
@@ -31,7 +31,7 @@
             height: 74px;
             margin-right: 28px;
 
-            @include small-down{
+            @include small-device{
                 width:64px;
                 height: 64px;
                 margin-right: 24px;
@@ -48,7 +48,7 @@
                 margin-bottom: 10px;
                 color:$color-two;
 
-                @include small-down{
+                @include small-device{
                     font-size: $T4-mobile;
                     margin-bottom: 0px;
                 }
@@ -59,7 +59,7 @@
                 font-weight: $weight-700;
                 color:$color-one;
 
-                @include small-down{
+                @include small-device{
                     font-size: $T2-mobile;
                 }
             }
@@ -72,7 +72,7 @@
                     width: 55px;
                     height: 55px;
 
-                    @include small-down{
+                    @include small-device{
                         width: 50px;
                         height: 50px;
                     }
@@ -84,7 +84,7 @@
                     color:$color-black;
                     margin-left: 5px;
 
-                    @include small-down{
+                    @include small-device{
                         font-size: $T4-mobile;
                     }
                 }
@@ -92,7 +92,7 @@
             &__description{
                 margin-top: 29px;
 
-                @include small-down{
+                @include small-device{
                     margin-top: 24px;
                 }
 
@@ -102,7 +102,7 @@
                     font-weight: $weight-400;
                     color:$color-black;
 
-                    @include small-down{
+                    @include small-device{
                         font: $paragraph-mobile;
                     }
                 }
@@ -115,7 +115,7 @@
         margin-top: 52px;
         gap: 0 27px;
 
-        @include small-down {
+        @include small-device {
             margin-top: 59px;
         }
     }
