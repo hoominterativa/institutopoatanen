@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Contents;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\CONT06Contents;
+use App\Models\Contents\CONT06Contents;
 
 class CONT06ContentsFactory extends Factory
 {
@@ -22,9 +22,6 @@ class CONT06ContentsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
         ];
     }
 }

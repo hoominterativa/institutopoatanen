@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Products;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\PROD02Products;
+use App\Models\Products\PROD02Products;
 
 class PROD02ProductsFactory extends Factory
 {
@@ -22,9 +22,7 @@ class PROD02ProductsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+
         ];
     }
 }

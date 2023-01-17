@@ -15,7 +15,7 @@ class CONT06Contents extends Model
         return CONT06ContentsFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "cont06_contents";
     protected $fillable = [];
 
     public function scopeSorting($query)

@@ -13,6 +13,7 @@ use App\Models\Portfolios\PORT01Portfolios;
 use App\Models\Portfolios\PORT01PortfoliosSection;
 use App\Models\Portfolios\PORT01PortfoliosCategory;
 use App\Models\Portfolios\PORT01PortfoliosSubategory;
+use Exception;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,10 +25,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
-        $modelsClass = config('modelsClass.Class');
 
         foreach ($InsertModelsMain as $module => $model) {
             foreach ($model as $code => $config) {
+                $modelsClass = config('modelsClass.Class');
                 $moduleName = explode('.', $module)[0];
 
                 $relationship = $modelsClass->$moduleName->$code->relationship??false;

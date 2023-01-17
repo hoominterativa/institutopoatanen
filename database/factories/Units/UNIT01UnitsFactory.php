@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Units;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\UNIT01Units;
+use App\Models\Units\UNIT01Units;
 
 class UNIT01UnitsFactory extends Factory
 {
@@ -22,9 +22,7 @@ class UNIT01UnitsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+
         ];
     }
 }

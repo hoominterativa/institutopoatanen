@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Topics;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\TOPI05Topics;
+use App\Models\Topics\TOPI05Topics;
 
 class TOPI05TopicsFactory extends Factory
 {
@@ -22,9 +22,7 @@ class TOPI05TopicsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+
         ];
     }
 }

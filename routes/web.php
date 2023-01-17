@@ -225,12 +225,12 @@ if(isset($modelsCore->Footers->Code)){
  */
 
 $modelsMain = config('modelsConfig.InsertModelsMain');
+
 foreach ($modelsMain as $module => $models) {
-    $class = config('modelsClass.Class');
     $module = explode('.', $module)[0];
     foreach ($models as $code => $model) {
+        $class = config('modelsClass.Class');
         $modelConfig = $model->config;
-
         $route = Str::slug($modelConfig->titlePanel);
         $routeName = Str::lower($code);
         $controller = $class->$module->$code->controller;

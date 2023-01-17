@@ -2,9 +2,9 @@
 
 namespace App\Models\Units;
 
-use Database\Factories\UNIT01UnitsFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\Units\UNIT01UnitsFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UNIT01Units extends Model
 {
@@ -15,7 +15,7 @@ class UNIT01Units extends Model
         return UNIT01UnitsFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "unit01_units";
     protected $fillable = [];
 
     public function scopeSorting($query)

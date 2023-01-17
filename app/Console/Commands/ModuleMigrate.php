@@ -97,6 +97,8 @@ class ModuleMigrate extends Command
 
         } catch (Exception $e) {
             $this->error($e->getMessage());
+            $this->error($e->getFile());
+            $this->error($e->getLine());
         }
     }
 }

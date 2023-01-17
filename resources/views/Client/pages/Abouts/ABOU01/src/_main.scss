@@ -3,73 +3,73 @@
 /* BEGIN STYLE */
 
 .abou01{
-    text-align: $abou01-text-align;
-    padding: $abou01-padding;
+    text-align: center;
+    padding: 80px 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     @include small-device{
-        padding: $abou01-padding-responsive;
+        padding: 40px 0;
     }
 
     &__title{
-        font-size: $abou01-title-font-size;
-        font-family: $abou01-title-font-family;
-        color: $abou01-title-color;
+        font-size: $T2;
+        font-family: $font-primary;
+        color: $color-one;
         display: block;
 
         @include small-device{
-            font-size: $abou01-title-font-size-responsive;
+            font-size: $T2-mobile;
         }
     }
     &__subtitle{
-        font-size: $abou01-subtitle-font-size;
-        font-family: $abou01-subtitle-font-family;
-        color: $abou01-subtitle-color;
+        font-size: $T4;
+        font-family: $font-primary;
+        color: $color-one;
         display: block;
 
         @include small-device{
-            font-size: $abou01-subtitle-font-size-responsive;
+            font-size: $T4-mobile;
         }
     }
     &__line{
-        width: $abou01-line-width;
-        background-color: $abou01-line-background-color;
-        margin: $abou01-line-margin;
+        width: 100%;
+        background-color: $color-one;
+        margin: 30px 0;
     }
     &__paragraph{
-        font: $abou01-paragraph-font;
-        font-weight: $abou01-paragraph-font-weight;
-        padding: $abou01-paragraph-padding;
-        color: $abou01-paragraph-color;
-        line-height: $abou01-paragraph-line-height;
+        font: $paragraph;
+        font-weight: $weight-500;
+        padding: 0 30px;
+        color: $color-one;
+        line-height: 25px;
 
         @include small-device{
-            font: $abou01-paragraph-font-responsive;
+            font: $paragraph-mobile;
         }
     }
     &__cta{
-        font: $abou01-cta-font;
-        font-weight: $abou01-cta-font-weight;
-        color: $abou01-cta-color;
-        display: $abou01-cta-display;
-        margin: $abou01-cta-margin;
-        max-width: $abou01-cta-max-width;
-        padding: $abou01-cta-padding;
-        background-color: $abou01-cta-background-color;
-
-        @include small-device{
-            font: $abou01-cta-font-responsive;
-        }
+        font: $paragraph;
+        font-weight: $weight-700;
+        color: $color-black;
+        display: block;
+        margin: 30px auto 0;
+        max-width: 177px;
+        padding: 10px 15px;
+        background-color: $bg-soft;
 
         &:hover{
-            color: $abou01-cta-color-hover;
-            background-color: $abou01-cta-background-color-hover;
+            color: $color-white;
+            background-color: $bg-black;
+        }
 
-            .abou01__cta__icon{
-                filter: $abou01-cta-icon-filter-hover;
-            }
+        &:hover &__icon{
+            filter: invert(1) grayscale(1);
+        }
+
+        @include small-device{
+            font: $paragraph-mobile;
         }
     }
 }
@@ -77,124 +77,124 @@
 
 .abou01-page{
     &__header{
-        text-align: $abou01-page-header-text-align;
-        background-color: $abou01-page-header-background-color;
-        padding: $abou01-page-header-padding;
-        margin: $abou01-page-header-margin;
+        text-align: center;
+        background-color: #EFEFEF;
+        padding: 87px 0;
+        margin: 0;
         &__container{
-            margin-bottom: $abou01-page-header-container-title-margin-bottom;
+            margin-bottom: 25px;
         }
         &__title{
-            font-size: $abou01-page-header-title-font-size;
-            font-family: $abou01-page-header-title-font-family;
-            color: $abou01-page-header-title-color;
+            font-size: $T1;
+            font-family: $font-primary;
+            color: $color-black;
             display: block;
 
             @include small-device{
-                font-size: $abou01-page-header-title-font-size-responsive;
+                font-size: $T2-mobile;
             }
         }
         &__subtitle{
-            font-size: $abou01-page-header-subtitle-font-size;
-            font-family: $abou01-page-header-subtitle-font-family;
-            color: $abou01-page-header-subtitle-color;
+            font-size: $T4;
+            font-family: $font-primary;
+            color: $color-two;
             display: block;
 
             @include small-device{
-                font-size: $abou01-page-header-subtitle-font-size-responsive;
+                font-size: $T4-mobile;
             }
         }
         &__line{
             width: 100%;
-            max-width: $abou01-page-header-line-max-width;
-            background-color: $abou01-page-header-line-background-color;
+            max-width: 610px;
+            background-color: $color-one;
         }
     }
     // END __header
 
     &__content{
-        text-align: $abou01-page-content-text-align;
-        padding: $abou01-page-content-padding;
+        text-align: center;
+        padding: 45px 0 120px;
         &__container{
-            margin-bottom: $abou01-page-content-container-title-margin-bottom;
+            margin-bottom: 25px;
         }
         &__title{
-            font-size: $abou01-page-content-title-font-size;
-            font-family: $abou01-page-content-title-font-family;
-            color: $abou01-page-content-title-color;
+            font-size: $T2;
+            font-family: $font-primary;
+            color: $color-one;
             display: block;
 
             @include small-device{
-                font-size: $abou01-page-content-title-font-size-responsive;
+                font-size: $T2-mobile;
             }
         }
         &__subtitle{
-            font-size: $abou01-page-content-subtitle-font-size;
-            font-family: $abou01-page-content-subtitle-font-family;
-            color: $abou01-page-content-subtitle-color;
+            font-size: $T4;
+            font-family: $font-primary;
+            color: $color-one;
             display: block;
 
             @include small-device{
-                font-size: $abou01-page-content-subtitle-font-size-responsive;
+                font-size: $T4-mobile;
             }
         }
         &__line{
-            width: $abou01-page-content-line-width;
-            background-color: $abou01-page-content-line-background-color;
+            width: 100%;
+            background-color: $color-one;
         }
         &__paragraph{
-            font: $abou01-page-content-paragraph-font;
-            font-weight: $abou01-page-content-paragraph-font-weight;
-            padding: $abou01-page-content-paragraph-padding;
-            color: $abou01-page-content-paragraph-color;
-            line-height: $abou01-page-content-paragraph-line-height;
+            font: $paragraph;
+            font-weight: $weight-500;
+            padding: 0 30px;
+            color: $color-one;
+            line-height: 25px;
 
             @include small-device{
-                font: $abou01-page-content-paragraph-font-responsive;
+                font: $paragraph-mobile;
             }
         }
     }
     // END __content
 
     &__topic{
-        padding: $abou01-page-topic-padding;
-        background-color: $abou01-page-topic-background-color;
+        padding: 125px 10px;
+        background-color: #fff;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
 
         &__content{
-            background-color: $abou01-page-topic-content-background-color;
-            padding: $abou01-page-topic-content-padding;
-            min-height: $abou01-page-topic-content-min-height;
+            background-color: #CACACA;
+            padding: 51px;
+            min-height: 100%;
 
             &:hover{
-                transform: $abou01-page-topic-content-transform-hover;
+                transform: scale(1.01);
             }
         }
         &__item{
             &__header{
-                margin-bottom: $abou01-page-topic-header-margin-bottom;
+                margin-bottom: 35px;
             }
             &__icon{
-                width: $abou01-page-topic-icon-width;
-                margin-right: $abou01-page-topic-icon-margin-right;
+                width: 32px !important;
+                margin-right: 21px;
             }
             &__title{
-                font-size: $abou01-page-topic-title-font-size;
-                color: $abou01-page-topic-title-color;
+                font-size: $T3;
+                color: $color-black;
 
                 @include small-device{
-                    font-size: $abou01-page-topic-title-font-size-responsive;
+                    font-size: $T3-mobile;
                 }
             }
             &__paragraph{
-                font: $abou01-page-topic-paragraph-font;
-                font-weight: $abou01-page-topic-paragraph-font-weight;
-                color: $abou01-page-topic-paragraph-color;
+                font: $paragraph;
+                font-weight: $weight-500;
+                color: $color-two;
 
                 @include small-device{
-                    font: $abou01-page-topic-paragraph-font-responsive;
+                    font: $paragraph-mobile;
                 }
             }
         }
@@ -212,11 +212,11 @@
                     width: 20px;
                     height: 10px;
                     display: inline-block;
-                    background-color: $abou01-page-topic-owl-dot-background-color;
+                    background-color: #fff;
                     margin: 0 5px;
                     &.active,
                     &:hover{
-                        background-color: $abou01-page-topic-owl-dot-background-color-hover;
+                        background-color: #969696;
                     }
                 }
             }
@@ -225,7 +225,7 @@
     // END __topic
 
     &__section{
-        padding: $abou01-page-section-padding;
+        padding: 68px 15px 0 15px;
         &__row{
             @include small-device{
                 flex-direction: column-reverse;
@@ -234,42 +234,42 @@
         &__image{
             &__item{
                 width: 100%;
-                max-width: $abou01-page-section-image-max-width;
-                object-fit: $abou01-page-section-image-object-fit;
+                max-width: 430px;
+                object-fit: contain;
             }
         }
         &__title{
-            font-size: $abou01-page-section-title-font-size;
-            font-weight: $abou01-page-section-title-font-weight;
-            color: $abou01-page-section-title-color;
+            font-size: $T2;
+            font-weight: $weight-700;
+            color: $color-black;
             display: block;
 
             @include small-device{
-                font-size: $abou01-page-section-title-font-size-responsive;
+                font-size: $T2-mobile;
             }
         }
         &__subtitle{
-            font-size: $abou01-page-section-subtitle-font-size;
-            font-weight: $abou01-page-section-subtitle-font-weight;
-            color: $abou01-page-section-subtitle-color;
+            font-size: $T4;
+            font-weight: $weight-700;
+            color: $color-one;
 
             @include small-device{
-                font-size: $abou01-page-section-subtitle-font-size-responsive;
+                font-size: $T4-mobile;
             }
         }
         &__line{
-            width: $abou01-page-section-line-width;
-            background-color: $abou01-page-section-line-background-color;
+            width: 100%;
+            background-color: $bg-secondary;
         }
         &__paragraph{
-            font: $abou01-page-section-paragraph-font;
-            font-weight: $abou01-page-section-paragraph-font-weight;
-            color: $abou01-page-section-paragraph-color;
-            line-height: $abou01-page-section-paragraph-line-height;
+            font: $paragraph;
+            font-weight: $weight-500;
+            color: $color-one;
+            line-height: 25px;
 
             @include small-device{
-                font: $abou01-page-section-paragraph-font-responsive;
-                margin-bottom: $abou01-page-section-paragraph-margin-bottom-responsive;
+                font: $paragraph-mobile;
+                margin-bottom: 30px;
             }
         }
     }
