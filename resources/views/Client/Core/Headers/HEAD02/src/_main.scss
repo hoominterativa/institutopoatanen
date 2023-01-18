@@ -2,9 +2,9 @@
 
 /* BEGIN STYLE */
 #HEAD02{
-    border-bottom: $head02-border-bottom;
+    border-bottom: 9px solid $color-two;
     .container-header{
-        min-height: $head02-container-header-height;
+        min-height: 100px;
 
         @include small-device {
             min-height: auto;
@@ -24,21 +24,21 @@
     }
     .container-navigation{
         .menu-list{
-            margin-right: $head02-menu-list-margin-right;
-            padding-right: $head02-menu-list-padding-right;
-            border-right: $head02-menu-list-border-right;
+            margin-right: 35px;
+            padding-right: 35px;
+            border-right: 1px solid adjust-color($color-black, $alpha: -0.9);
             .menu-item{
-                margin-right: $head02-menu-item-margin-right;
+                margin-right: 44px;
                 position: relative;
 
                 &:after{
                     content: '';
                     width: 100%;
-                    height: $head02-menu-item-after-height;
+                    height: 9px;
                     display: block;
                     background-color: transparent;
                     position: absolute;
-                    bottom: $head02-menu-item-after-bottom;
+                    bottom: -42px;
                     left: 0;
                     transition: ease all 0.2s;
                 }
@@ -49,10 +49,10 @@
                     }
                 }
                 .link{
-                    font: $head02-link-font;
-                    color: $head02-link-color;
+                    font: $paragraph;
+                    color: $color-two;
                     &:hover{
-                        color: $head02-link-color-hover;
+                        color: $color-black;
                     }
                 }
                 &:last-child{
@@ -60,15 +60,15 @@
                 }
 
                 .sublink--menu{
-                    background-color:$head02-menu-dropdown-background-color;
-                    border-radius:$head02-menu-dropdown-border-radius;
-                    min-width:$head02-menu-dropdown-min-width;
-                    padding:$head02-menu-dropdown-padding;
+                    background-color:$bg-main;
+                    border-radius:0 10px 10px;
+                    min-width:165px;
+                    padding:10px;
 
                     .sublink-item{
-                        font: $head02-menu-dropdown-link-font;
-                        color: $head02-menu-dropdown-link-color;
-                        margin-bottom: $head02-menu-dropdown-link-margin-bottom;
+                        font: $paragraph-min;
+                        color: $color-white;
+                        margin-bottom: 11px;
                         display: table;
 
                         &:nth-of-type(2n+0),
@@ -79,15 +79,15 @@
                         }
                         &:after{
                             content: "";
-                            width: $head02-menu-dropdown-link-width;
-                            height: $head02-menu-dropdown-link-heught;
-                            background-color: $head02-menu-dropdown-link-background-color;
+                            width: 30px;
+                            height: 1px;
+                            background-color: $color-white;
                             display: block;
-                            margin-top: $head02-menu-dropdown-link-margin-top;
+                            margin-top: 2px;
                             transition: ease all 0.2s;
                         }
                         &:hover{
-                            color: $head02-menu-dropdown-link-color-hover;
+                            color: $color-two;
 
                             &:after{
                                 width: 90%;
@@ -107,59 +107,59 @@
         }
 
         .container-cta{
-            margin-right: $head02-container-cta-margin-right;
-            padding-right: $head02-container-cta-padding-right;
-            border-right: $head02-container-cta-border-right;
+            margin-right: 35px;
+            padding-right: 35px;
+            border-right: 1px solid adjust-color($color-black, $alpha: -0.9);
             .btn-cta{
-                background-color: $head02-btn-cta-background-color;
-                border-radius: $head02-btn-cta-border-radius;
-                min-width: $head02-btn-cta-min-width;
+                background-color: $bg-black;
+                border-radius: $edge-rounded;
+                min-width: 125px;
                 display: table;
-                text-align: $head02-btn-cta-text-align;
-                color: $head02-btn-cta-color;
-                padding: $head02-btn-cta-padding;
+                text-align: center;
+                color: $color-white;
+                padding: 1px 15px;
 
                 &.show{
-                    border-radius: $head02-btn-cta-show-border-radius;
-                    background-color: $head02-btn-cta-show-background-color;
+                    border-radius: 17px 17px 0 0;
+                    background-color: $bg-secondary;
                 }
                 &:hover{
-                    background-color: $head02-btn-cta-background-color-hover;
+                    background-color: $bg-secondary;
                 }
 
                 .menu-arrow{
-                    border-top-color: $head02-btn-cta-menu-arrow-border-top-color;
-                    margin-left: $head02-btn-cta-menu-arrow-margin-left;
-                    margin-right: $head02-btn-cta-menu-arrow-margin-right;
-                    margin-bottom: $head02-btn-cta-menu-arrow-margin-bottom;
+                    border-top-color: $color-white;
+                    margin-left: 10px;
+                    margin-right: -25px;
+                    margin-bottom: 3px;
                 }
             }
             .sublink--cta-right{
-                background-color:$head02-btn-cta-dropdown-background-color;
-                border-radius:$head02-btn-cta-dropdown-border-radius;
-                min-width:$head02-btn-cta-dropdown-min-width;
+                background-color:$bg-main;
+                border-radius:0 10px 10px;
+                min-width:260px;
                 flex-wrap: wrap;
-                padding:$head02-btn-cta-dropdown-padding;
+                padding:10px;
 
                 &.show{
-                    display: $head02-btn-cta-dropdown-show-display;
+                    display: flex;
                 }
                 &:after{
                     content: '';
-                    width: $head02-btn-cta-dropdown-after-width;
-                    height: $head02-btn-cta-dropdown-after-height;
-                    background-color: $head02-btn-cta-dropdown-after-background-color;
+                    width: 90%;
+                    height: 1px;
+                    background-color: $bg-white;
                     position: absolute;
-                    bottom: $head02-btn-cta-dropdown-after-bottom;
-                    left: $head02-btn-cta-dropdown-after-left;
-                    transform: $head02-btn-cta-dropdown-after-transform;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%);
                 }
                 .sublink-item{
-                    font: $head02-btn-cta-dropdown-link-font;
-                    color: $head02-btn-cta-dropdown-link-color;
-                    border-right: $head02-btn-cta-dropdown-link-border-right;
-                    padding-right: $head02-btn-cta-dropdown-link-padding-right;
-                    margin-right: $head02-btn-cta-dropdown-link-margin-right;
+                    font: $paragraph-min;
+                    color: $color-white;
+                    border-right: 1px solid adjust-color($color-white, $alpha: -0.8);
+                    padding-right: 11px;
+                    margin-right: 11px;
                     display: table;
                     &:nth-of-type(2n+0),
                     &:last-of-type{
@@ -168,7 +168,7 @@
                         border: none
                     }
                     &:hover{
-                        color: $head02-btn-cta-dropdown-link-color-hover;
+                        color: $color-two;
                     }
                 }
             }
@@ -182,23 +182,23 @@
         }
         .link-translate{
             .btn-translate{
-                font-size: $head02-btn-translate-font;
-                font-family: $head02-btn-translate-family;
-                font-weight: $head02-btn-translate-weight;
-                color: $head02-btn-translate-color;
-                border-right: 1px solid adjust-color($head02-btn-translate-color, $alpha: -0.7);
+                font-size: $font-15;
+                font-family: $font-primary;
+                font-weight: $weight-600;
+                color: $color-one;
+                border-right: 1px solid adjust-color($color-one, $alpha: -0.7);
                 line-height: 15px;
             }
         }
         .social-network{
-            margin-right: $head02-social-network-margin-right;
+            margin-right: 20px;
             .social-link{
-                color: $head02-social-network-link-color;
-                font-size: $head02-social-network-link-font-size;
-                margin: $head02-social-network-link-margin;
+                color: #404040;
+                font-size: 22px;
+                margin: 0 5px;
 
                 &:hover{
-                    color: $head02-social-network-link-color-hover;
+                    color: #7C7C7C;
                 }
             }
             @include small-device{
@@ -208,19 +208,19 @@
 
         .menu-sidebar-header{
             display: none;
-            margin-left: $head02-btn-menu-sidebar-margin-left;
+            margin-left: 35px;
             .lines{
-                width: $head02-btn-menu-sidebar-lines-width;
+                width: 38px;
                 >i{
-                    height: $head02-btn-menu-sidebar-lines-height;
+                    height: 2px;
                     display: block;
-                    background-color: $head02-btn-menu-sidebar-lines-background-color;
+                    background-color: #000;
                 }
             }
             &:active{
                 .lines{
                     >i{
-                        background-color: $head02-btn-menu-sidebar-lines-active-background-color;
+                        background-color: rgb(138, 138, 138);
                     }
                 }
             }

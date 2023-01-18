@@ -5,22 +5,23 @@
     @include bgpadrao;
 
     &__container{
-        padding:$abou02-container-padding;
+        padding: 99px 0 40px 0 !important;
+
     }
 
     &__boxLeft{
-        padding: $abou02-boxleft-padding;
-        min-height: $abou02-boxleft-min-height;
+        padding: 0 68px;
+        min-height: 447px;
 
         &__subtitle{
-            padding: $abou02-boxleft-subtitle-padding;
-            max-width: $abou02-boxleft-subtitle-max-width;
+            padding: 6px 15px;
+            max-width: 200px;
             background-color: $color-four;
             font-size: $T4;
             font-family: $font-paragraph;
             color: $color-one;
             font-weight: $weight-700;
-            margin-bottom: $abou02-boxleft-subtitle-margin-bottom;
+            margin-bottom: 22.03px;
         }
         &__title{
             font-size: $T2;
@@ -29,7 +30,7 @@
             font-weight: $weight-700;
         }
         &__line{
-            margin: $abou02-boxleft-line-margin;
+            margin: 27px 0 39px 0;
         }
         &__paragraph{
             color: $color-one;
@@ -40,42 +41,42 @@
             color: $color-one;
             font-weight: $weight-400;
             font: $paragraph;
-            margin-bottom: $abou02-boxleft-paragraph-p-margin-bottom;
+            margin-bottom: 0;
         }
         &__cta{
-            font: $abou02-cta-font;
-            font-weight: $abou02-cta-font-weight;
-            color: $abou02-cta-color;
-            display: $abou02-cta-display;
-            margin-top: $abou02-cta-margin-top;
-            max-width: $abou02-cta-max-width;
-            padding: $abou02-cta-padding;
-            background-color: $abou02-cta-background-color;
+            font: $paragraph-min;
+            font-weight: $weight-700;
+            color: $color-one;
+            display: flex;
+            margin-top: 37px;
+            max-width: 177px;
+            padding: 10px 15px;
+            background-color: $bg-soft;
 
             &:hover{
-                color: $abou02-cta-color-hover;
-                background-color: $abou02-cta-background-color-hover;
+                color: $color-white;
+                background-color: $bg-black;
 
                 .abou02__boxLeft__cta__icon{
-                    filter: $abou02-cta-icon-filter-hover;
+                    filter: invert(1) grayscale(1);
                 }
             }
         }
         @include small-device{
-            padding: $abou02-boxleft-mobile-padding;
-            min-height: $abou02-boxleft-mobile-min-height;
+            padding: 0 45px;
+            min-height: auto;
 
             &__subtitle{
                 font-size:$T4-mobile;
-                margin-bottom: $abou02-boxleft-subtitle-margin-bottom;
-                max-width: $abou02-boxleft-subtitle-max-width;
+                margin-bottom: 18px;
+                max-width: 174px;
             }
             &__title{
                 font-size:$T2-mobile;
             }
             &__line{
-                margin-top: $abou02-boxleft-line-margin-top;
-                margin-bottom: $abou02-boxleft-line-margin-bottom;
+                margin-top: 27px;
+                margin-bottom: 49px;
             }
             &__paragraph{
                 font: $paragraph-mobile;
@@ -96,10 +97,10 @@
             height: 447px;;
         }
         &__description{
-            position: $abou02-boxright-description-position;
-            top: $abou02-boxright-description-top;
-            left: $abou02-boxright-description-left;
-            padding: $abou02-boxright-description-padding;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 48.66px 53px;
         }
         &__title{
             font-size: $T5;
@@ -116,7 +117,7 @@
             color: $color-two;
             font: $paragraph-min;
             font-weight: $weight-400;
-            margin-bottom: $abou02-boxright-paragraph-p-margin-bottom;
+            margin-bottom: 0;
         }
         &__item a{
             color:$color-black;
@@ -124,32 +125,32 @@
 
 
         .carousel_abou02 .owl-nav{
-            display: $carousel-abou02-owl-nav-display;
-            margin-top: $carousel-abou02-owl-nav-margin-top;
-            gap: $carousel-abou02-owl-nav-gap;
+            display: flex;
+            margin-top: 30px;
+            gap: 0 20.5px;
         }
         .carousel_abou02 .owl-nav .owl-prev,
         .carousel_abou02 .owl-nav .owl-next{
-            height: $carousel-abou02-owl-nav-prev-next-height;
-            width: $carousel-abou02-owl-nav-prev-next-width;
-            border-radius: $carousel-abou02-owl-nav-prev-next-border-radius;
+            height: 29px;
+            width: 29px;
+            border-radius: 100%;
             background-color: $color-one;
             @include dflex;
         }
         .carousel_abou02 .owl-nav .owl-prev span,
         .carousel_abou02 .owl-nav .owl-next span{
-            color:$carousel-abou02-owl-nav-prev-next-span-color;
-            font-size: $carousel-abou02-owl-nav-prev-next-span-font-size;
-            height: $carousel-abou02-owl-nav-prev-next-span-height;
+            color:#fff;
+            font-size: 32px;
+            height: 58px;
         }
 
         @include small-device{
-            padding: $abou02-boxright-mobile-padding;
-            margin-top: $abou02-boxright-mobile-margin-top;
+            padding: 0 44px !important;
+            margin-top: 43px;
 
             &__item{
-                min-height: $abou02-boxright-item-min-height;
-                height: $abou02-boxright-item-height;
+                min-height: 414px;
+                height: 414px;
             }
             &__title{
                 font-size: $T5-mobile;
@@ -166,7 +167,7 @@
 
     @include small-device{
         &__container{
-            padding:$abou02-container-mobile-padding;
+            padding:61px 0 36px 0 !important;
         }
     }
 }
@@ -176,16 +177,16 @@
 .abou02-page{
     &__header{
         @include bgpadrao;
-        height: $abou02-page-header-height;
+        height: 352px;
 
         .container--abou02-header{
-            padding: $abou02-page-header-container-padding;
+            padding: 112px 0 92px 0 !important;
         }
         &__title{
             font-size: $T1;
             font-family: $font-paragraph;
             color: $color-black;
-            margin-bottom: $abou02-page-header-title-margin-bottom;
+            margin-bottom: 25px;
             font-weight: $weight-700;
         }
         &__subtitle{
@@ -195,35 +196,35 @@
             font-weight: $weight-700;
         }
         &__line{
-            width: $abou02-page-line-width;
-            margin-top: $abou02-page-header-line-margin-top;
+            width: 100%;
+            margin-top: 28.81px;
         }
         @include small-device{
             &__title{
                 font-size: $T2-mobile;
-                margin-bottom: $abou02-page-header-title-mobile-margin-bottom;
+                margin-bottom: 0;
             }
             &__subtitle{
                 font-size: $T4-mobile;
             }
             &__line{
-                margin-top: $abou02-page-header-line-mobile-margin-top;
-                margin-bottom: $abou02-page-header-line-mobile-margin-bottom;
+                margin-top: 25px;
+                margin-bottom: 21px;
             }
             &__content{
-                padding: $abou02-page-header-content-mobile-padding;
+                padding: 46px 0 81px !important;
             }
         }
     }
     &__content{
-        padding:$abou02-page-content-padding;
+        padding:51px 0 118px !important;
     }
     &__content__subtitle{
         font-size: $T4;
         color:$color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
-        margin-bottom: $abou02-page-content-subtitle-margin-bottom;
+        margin-bottom: 1px;
     }
     &__content__title{
         font-size: $T2;
@@ -232,9 +233,9 @@
         font-weight: $weight-700;
     }
     &__content__line{
-        width: $abou02-page-content-line-width;
-        margin-top: $abou02-page-content-line-margin-top;
-        margin-bottom: $abou02-page-content-line-margin-bottom;
+        width: 100%;
+        margin-top: 20.99px;
+        margin-bottom: 30.01px;
     }
     &__content__paragraph{
         font:$paragraph;
@@ -245,46 +246,46 @@
         font:$paragraph;
         color:$color-one;
         font-weight: $weight-400;
-        margin-bottom: $abou02-page-content-paragraph-p-margin-bottom;
+        margin-bottom: 0;
     }
     &__content__paragraph ul{
-        display:$abou02-page-content-paragraph-ul-display;
-        justify-content: $abou02-page-content-paragraph-ul-justify-content;
-        flex-wrap: $abou02-page-content-paragraph-ul-flex-wrap;
-        margin: $abou02-page-content-paragraph-ul-margin;
-        padding: $abou02-page-content-paragraph-ul-padding;
-        margin-top: $abou02-page-content-paragraph-ul-margin-top;
-        gap: $abou02-page-content-paragraph-ul-gap;
+        display:flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+        gap: 20px 0;
 
         li{
-            display:$abou02-page-content-paragraph-ul-li-display;
-            width: $abou02-page-content-paragraph-ul-li-width;
-            min-width: $abou02-page-content-paragraph-ul-li-min-width;
-            text-align: $abou02-page-content-paragraph-ul-li-text-align;
-            align-items: $abou02-page-content-paragraph-ul-li-align-items;
+            display:flex;
+            width: 50%;
+            min-width: 300px;
+            text-align: left;
+            align-items: flex-start;
 
             &:before{
-                content:$abou02-page-content-paragraph-ul-li-before-content;
-                width: $abou02-page-content-paragraph-ul-li-before-width;
-                height: $abou02-page-content-paragraph-ul-li-before-height;
-                display: $abou02-page-content-paragraph-ul-li-before-display;
+                content: "";
+                width: 7px;
+                height: 7px;
+                display: flex;
                 background: $color-one;
-                border-radius: $abou02-page-content-paragraph-ul-li-before-border-radius;
-                margin-right: $abou02-page-content-paragraph-ul-li-before-margin-right;
-                flex: $abou02-page-content-paragraph-ul-li-before-flex;
-                margin-top: $abou02-page-content-paragraph-ul-li-before-margin-top;
+                border-radius: 100%;
+                margin-right: 8px;
+                flex: none;
+                margin-top: 5px;
             }
         }
     }
     @include small-device{
         &__content{
-            padding:$abou02-page-content-mobile-padding;
+            padding:0 !important;
         }
         .container--abou02-page{
-            padding: $abou02-page-container-mobile-padding;
+            padding: 46px 0 81px 0!important;
         }
         &__content_container{
-           margin-bottom: $abou02-page-content-container-mobile-margin-bottom;
+           margin-bottom: 0;
         }
         &__content__subtitle{
             font-size: $T4-mobile;
@@ -293,12 +294,12 @@
             font-size: $T2-mobile;
         }
         &__content__line{
-            margin-top: $abou02-page-content-line-margin-top;
-            margin-bottom: $abou02-page-content-line-margin-bottom;
+            margin-top: 25px;
+            margin-bottom: 21px;
         }
         &__content__paragraph{
             font:$paragraph-min;
-            padding: $abou02-page-content-paragraph-padding;
+            padding: 0 30px;
         }
         &__content__paragraph p{
             font:$paragraph-min;
@@ -310,14 +311,14 @@
 
 .abou02-page__topic{
     .container--abou02-page__topic{
-        padding:$abou02-page-topic-container-padding;
+        padding:52px 0  32px 0 !important;
     }
     &__encompass__title{
         font-size: $T2;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
-        margin-bottom: $abou02-page-topic-title-margin-bottom;
+        margin-bottom: 23.97px;
     }
     &__encompass__subtitle{
         font-size: $T4;
@@ -326,8 +327,8 @@
         font-weight: $weight-700;
     }
     &__encompass__line{
-        margin-top: $abou02-page-topic-encompass-line-margin-top;
-        margin-bottom: $abou02-page-topic-encompass-line-margin-bottom;
+        margin-top: 26.02px;
+        margin-bottom: 0;
     }
     &__item{
         position: relative;
@@ -335,10 +336,10 @@
         height: 487px;
     }
     &__description{
-        position: $abou02-page-topic-item-description-position;
-        top: $abou02-page-topic-item-description-top;
-        left: $abou02-page-topic-item-description-left;
-        padding: $abou02-page-topic-item-description-padding;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 48.66px 53px;
     }
     &__title{
         font-size: $T5;
@@ -355,34 +356,34 @@
         color: $color-two;
         font: $paragraph-min;
         font-weight: $weight-400;
-        margin-bottom: $abou02-page-topic-item-paragraph-p-margin-bottom;
+        margin-bottom: 0;
     }
     &__item a{
         color:$color-black;
     }
 
     .carousel-abou02-topic{
-        margin-top: $carousel-abou02-topic-margin-top;
+        margin-top: 59.02px;
     }
     .carousel-abou02-topic .owl-nav{
-        display: $carousel-abou02-topic-owl-nav-display;
-        margin-left: $carousel-abou02-topic-owl-nav-margin-left;
-        margin-top: $carousel-abou02-topic-owl-nav-margin-top;
-        gap: $carousel-abou02-topic-owl-nav-gap;
+        display: flex;
+        margin-left: 32%;
+        margin-top: 35px;
+        gap: 0 20.5px;
     }
     .carousel-abou02-topic .owl-nav .owl-prev,
     .carousel-abou02-topic .owl-nav .owl-next{
-        height: $carousel-abou02-topic-owl-nav-prev-next-height;
-        width: $carousel-abou02-topic-owl-nav-prev-next-width;
-        border-radius: $carousel-abou02-topic-owl-nav-prev-next-border-radius;
+        height: 29px;
+        width: 29px;
+        border-radius: 100%;
         background-color: $color-one;
         @include dflex;
     }
     .carousel-abou02-topic .owl-nav .owl-prev span,
     .carousel-abou02-topic .owl-nav .owl-next span{
-        color:$carousel-abou02-topic-owl-nav-prev-next-span-color;
-        font-size: $carousel-abou02-topic-owl-nav-prev-next-span-font-size;
-        height: $carousel-abou02-topic-owl-nav-prev-next-span-height;
+        color:#fff;
+        font-size: 32px;
+        height: 58px;
     }
 
     @include small-device{
@@ -394,22 +395,22 @@
             font-size: $T4-mobile;
         }
         &__encompass__line{
-            margin-top: $abou02-page-topic-encompass-line-mobile-margin-top;
-            margin-bottom: $abou02-page-topic-encompass-line-mobile-margin-bottom;
+            margin-top: 15px;
+            margin-bottom: 28px;
         }
         .container--abou02-page__section{
-            padding-top: $abou02-page-topic-container-mobile-padding-top;
+            padding-top: 78px;
         }
         &__content{
-            width: $abou02-page-topic-content-mobile-width;
-            display: $abou02-page-topic-content-mobile-display;
-            margin: $abou02-page-topic-content-mobile-margin;
+            width: 413px;
+            display: block;
+            margin: 0 auto;
         }
         &__item_content{
-            padding-left:$abou02-page-topic-item-content-mobile-padding-left;
+            padding-left:0px !important;
         }
         &__description{
-            padding: $abou02-page-topic-description-mobile-padding;
+            padding: 48.66px 53px;
         }
         &__title{
             font-size: $T5-mobile;
@@ -428,7 +429,7 @@
 
     @include small-device{
         .carousel-abou02-topic .owl-nav {
-            margin-left: $carousel-abou02-topic-owl-nav-mobile-margin-left;
+            margin-left: 17%;
         }
     }
 
@@ -438,16 +439,16 @@
 
 .abou02-page__section{
     .container--abou02-page__section{
-        padding-top: $abou02-page-section-container-padding-top;
+        padding-top: 68.54px !important;
     }
     &__image{
-        height: $abou02-page-section-image-height;
-        width: $abou02-page-section-image-width;
-        border-radius: $abou02-page-section-image-border-radius;
+        height: 592px;
+        width: 429px;
+        border-radius: 0px; 
     }
     &__description{
-        padding-left: $abou02-page-section-description-padding-left;
-        padding-right:$abou02-page-section-description-padding-right;
+        padding-left: 170.46px;
+        padding-right:0;
     }
     &__title{
         font-size: $T2;
@@ -462,8 +463,8 @@
         font-weight: $weight-700;
     }
     &__line{
-        margin-top: $abou02-page-section-line-margin-top;
-        margin-bottom: $abou02-page-section-line-margin-bottom;
+        margin-top: 28.91px;
+        margin-bottom: 39px;
     }
     &__paragraph{
         color: $color-one;
@@ -474,49 +475,49 @@
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-400;
-        margin-bottom: $abou02-page-section-paragraph-p-margin-bottom;
+        margin-bottom: 0;
     }
     &__cta{
-        font: $abou02-cta-font;
-        font-weight: $abou02-cta-font-weight;
-        color: $abou02-cta-color;
-        display: $abou02-cta-display;
-        margin-top: $abou02-cta-margin-top;
-        max-width: $abou02-cta-max-width;
-        padding: $abou02-cta-padding;
-        background-color: $abou02-cta-background-color;
+        font: $paragraph-min;
+        font-weight: $weight-700;
+        color: $color-one;
+        display: flex;
+        margin-top: 37px;
+        max-width: 177px;
+        padding: 10px 15px;
+        background-color: $bg-soft;
 
 
         &:hover{
-            color: $abou02-cta-color-hover;
-            background-color: $abou02-cta-background-color-hover;
+            color: $color-white;
+            background-color: $bg-black;
 
             .abou02-page__section__cta__icon{
-                filter: $abou02-cta-icon-filter-hover;
+                filter: invert(1) grayscale(1);
             }
         }
     }
     @include small-device{
         &__image{
-            order: $abou02-page-section-mobile-image-order;
-            width: $abou02-page-section-mobile-image-width;
-            padding: $abou02-page-section-mobile-image-padding;
-            height: $abou02-page-section-mobile-image-height;
+            order: 1;
+            width: 100%;
+            padding: 0 41.33px;
+            height: 468.14px;
         }
         &__description{
-            order: $abou02-page-section-mobile-description-order;
-            padding: $abou02-page-section-mobile-description-padding;
-            margin-bottom: $abou02-page-section-mobile-description-margin-bottom;
+            order: 0;
+            padding: 0 41.33px;
+            margin-bottom: 49.43px;
         }
         &__title{
             font-size: $T2-mobile;
-            margin-bottom: $abou02-page-section-mobile-title-margin-bottom;
+            margin-bottom: 0;
         }
         &__subtitle{
             font-size: $T4-mobile;
         }
         &__line{
-            margin-top: abou02-page-section-mobile-line-margin-top;
+            margin-top: 29px;
         }
         &__paragraph{
             font-family: $font-paragraph;
@@ -532,9 +533,9 @@
 
 
 .lightbox-abou02{
-    width: $lightbox-abou02-width;
-    display: $lightbox-abou02-display;
-    padding: $lightbox-abou02-padding;
+    width: 100%;
+    display: none;
+    padding: 0;
 
     &__subtitle{
         font-size: $T4;
@@ -549,8 +550,8 @@
         font-weight: $weight-700;
     }
     &__line{
-        margin-top: $lightbox-abou02-line-margin-top;
-        margin-bottom: $lightbox-abou02-line-margin-bottom;
+        margin-top: 22px;
+        margin-bottom: 61px;
     }
     &__paragraph{
         font: $paragraph;

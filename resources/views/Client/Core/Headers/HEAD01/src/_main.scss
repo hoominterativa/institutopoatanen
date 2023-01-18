@@ -1,55 +1,55 @@
 @import 'variables';
 /* BEGIN STYLE */
 #HEAD01{
-    background-color: $head01-main-background-color;
+    background-color: transparent;
 
     .navigation-header{
         .content-btn-cta{
             .btn-cta{
-                font-size: $head01-cta-size;
-                font-family: $head01-cta-family;
-                color: $head01-cta-color;
-                font-weight: $head01-cta-weight;
-                border-radius: $head01-cta-border-radius;
-                background-color: $head01-cta-bg-color;
+                font-size: $font-14;
+                font-family: $font-primary;
+                color: $color-two;
+                font-weight: $weight-700;
+                border-radius: $edge-rounded;
+                background-color: $bg-secondary;
                 &:hover{
-                    background-color: $head01-cta-bg-hover;
-                    color: $head01-cta-color-hover;
+                    background-color: $bg-main;
+                    color: $color-white;
                 }
             }
         }
         .link-translate{
             .btn-translate{
-                font-size: $head01-btn-translate-font;
-                font-family: $head01-btn-translate-family;
-                font-weight: $head01-btn-translate-weight;
-                color: $head01-btn-translate-color;
-                border-right: 1px solid adjust-color($head01-btn-translate-color, $alpha: -0.7);
+                font-size: $font-15;
+                font-family: $font-primary;
+                font-weight: $weight-600;
+                color: $color-white;
+                border-right: 1px solid adjust-color($color-white, $alpha: -0.7);
                 line-height: 15px;
             }
         }
         .menu-sidebar-header{
             .btn-menu-sidebar-header{
                 .title{
-                    color: $head01-title-menu-color;
-                    font-size: $head01-title-menu-size;
-                    font-family: $head01-title-menu-family;
+                    color: $color-two;
+                    font-size: $font-15;
+                    font-family: $font-primary;
                 }
                 .lines{
                     width: 43px;
                     >i{
                         height: 1.3px;
                         display: block;
-                        background-color: adjust-color($head01-btn-menu-lines-bg-color, $alpha: -0.7);
+                        background-color: adjust-color($color-white, $alpha: -0.7);
                     }
                 }
 
                 &:hover{
                     .title{
-                        color: $head01-title-menu-color-hover;
+                        color: $color-white;
                     }
                     .lines > i{
-                        background-color: adjust-color($head01-btn-menu-lines-bg-color, $alpha: -0.4);
+                        background-color: adjust-color($color-white, $alpha: -0.4);
                     }
                 }
             }
@@ -59,7 +59,7 @@
     &.header-floating.floating{
         padding-top: 0.7rem !important;
         padding-bottom: 0.7rem !important;
-        background-color: $head01-bg-color-floating;
+        background-color: $bg-black;
         #logotipo{
             img{
                 width: 120px;
