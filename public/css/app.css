@@ -1444,9 +1444,6 @@ a {
   letter-spacing: 2px;
 }
 
-/* ======= CONT03 ======= */
-/* ======= CONTENT ======= */
-/* ======= FIGURE ======= */
 /* BEGIN STYLE */
 #CONT03 {
   padding: 80px 0 0;
@@ -1480,7 +1477,7 @@ a {
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .cont03__content__title {
-    font-size: 1.125rem;
+    font-size: 1.563rem;
   }
 }
 .cont03__content__subtitle {
@@ -3763,7 +3760,7 @@ a {
   color: #000;
 }
 .prod02__content__product .carousel-prod02 .owl-dots {
-  display: none;
+  display: flex;
   margin: 0 auto;
   justify-content: center;
   margin-top: 28px;
@@ -5251,9 +5248,6 @@ a {
   filter: invert(1) grayscale(1);
 }
 
-/* ======= HEADER PAGE ======= */
-/*======= CONTENT PAGE ======= */
-/* ======= ARCHIVES ======= */
 /* BEGIN STYLE */
 .copa01-page__header {
   text-align: center;

@@ -2,21 +2,21 @@
 
 /* BEGIN STYLE */
 #CONT01{
-    background-color: $cont01-bg-color;
+    background-color: $bg-secondary;
     .description {
         .title{
-            color: $cont01-title-color;
-            font-size: $cont01-title-font-size;
-            font-family: $cont01-title-font-family;
-            font-weight: $cont01-title-font-weight;
+            color: $color-one;
+            font-size: $font-28;
+            font-family: $font-primary;
+            font-weight: $weight-300;
         }
         .subtitle{
-            color: $cont01-subtitle-color;
-            font-size: $cont01-subtitle-font-size;
-            font-family: $cont01-subtitle-font-family;
-            font-weight: $cont01-subtitle-font-weight;
-            text-shadow: $slid01-subtitle-text-shadow;
-            letter-spacing: $slid01-subtitle-letter-spacing;
+            color: $color-one;
+            font-size: 5rem;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            text-shadow: -5px 0 0 $color-white;
+            letter-spacing: 2px;
         }
     }
 }

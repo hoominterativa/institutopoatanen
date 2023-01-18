@@ -2,80 +2,80 @@
 
 /* BEGIN STYLE */
 #CONT03{
-    padding: $cont03-padding;
-    background-position: $cont03-background-position;
-    background-size: $cont03-background-size;
+    padding: 80px 0 0;
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 
     @include small-device{
-        padding: $cont03-padding-responsive;
+        padding: 60px 50px 0;
     }
 }
 .cont03{
     &__content{
-        padding-right: $cont03-content-padding-right;
+        padding-right: 75px;
 
         @include small-device{
-            padding-right: $cont03-content-padding-right-responsive;
-            margin-bottom: $cont03-content-margin-bottom-responsive;
+            padding-right: 0;
+            margin-bottom: 60px;
         }
 
         &__hypertext{
-            margin-bottom: $cont03-content-hypertext-margin-bottom;
+            margin-bottom: 30px;
         }
         &__title{
-            display: $cont03-content-title-display;
-            font-size: $cont03-content-title-font-size;
-            font-weight: $cont03-content-title-font-weight;
-            color: $cont03-content-title-color;
+            display: block;
+            font-size: $T3;
+            font-weight: $weight-700;
+            color: $color-black;
 
             @include small-device{
-                font-size: $cont03-content-title-font-size-responsive;
+                font-size: $T3-mobile;
             }
         }
         &__subtitle{
-            font-size: $cont03-content-subtitle-font-size;
-            font-weight: $cont03-content-subtitle-font-weight;
-            color: $cont03-content-subtitle-color;
+            font-size: $T4;
+            font-weight: $weight-700;
+            color: $color-two;
 
             @include small-device{
-                font-size: $cont03-content-title-font-size-responsive;
+                font-size: $T4-mobile;
             }
         }
         &__line{
-            width: $cont03-content-line-width;
-            background-color: $cont03-content-line-background-color;
-            margin-bottom: $cont03-content-line-margin-bottom;
+            width: 100%;
+            background-color: $bg-black;
+            margin-bottom: 40px;
         }
         &__paragraph{
-            font: $cont03-content-paragraph-font;
-            font-weight: $cont03-content-paragraph-font-weight;
-            color: $cont03-content-paragraph-color;
-            margin-bottom: $cont03-content-paragraph-margin-bottom;
+            font: $paragraph;
+            font-weight: $weight-500;
+            color: $color-one;
+            margin-bottom: 50px;
 
             @include small-device{
-                font: $cont03-content-paragraph-font-responsive;
+                font: $paragraph-mobile;
             }
         }
         &__cta{
-            font: $cont03-content-cta-font;
-            font-weight: $cont03-content-cta-font-weight;
-            color: $cont03-content-cta-color;
-            display: $cont03-content-cta-display;
-            max-width: $cont03-content-cta-max-width;
-            padding: $cont03-content-cta-padding;
-            background-color: $cont03-content-cta-background-color;
+            font: $paragraph;
+            font-weight: $weight-700;
+            color: $color-one;
+            display: block;
+            max-width: 177px;
+            padding: 10px 15px;
+            background-color: $bg-white;
 
             @include small-device{
-                font: $cont03-content-cta-font-responsive;
+                font: $paragraph-mobile;
             }
 
             &:hover{
-                color: $cont03-content-cta-color-hover;
-                background-color: $cont03-content-cta-background-color-hover;
+                color: $color-white;
+                background-color: $bg-black;
 
                 .cont03__content__cta__icon{
-                    filter: $cont03-content-cta-icon-filter-hover;
+                    filter: invert(1) grayscale(1);
                 }
             }
         }
@@ -84,20 +84,20 @@
 
     &__figure{
         &__center{
-            margin-bottom: $cont03-figure-center-margin-bottom;
-            padding: $cont03-figure-center-padding;
+            margin-bottom: 0;
+            padding: 0 10px;
 
             @include small-device{
-                padding: $cont03-figure-center-padding-responsive;
-                margin-bottom: $cont03-figure-center-margin-bottom-responsive;
+                padding: 0 30px;
+                margin-bottom: 50px;
             }
         }
         &__right{
-            margin-bottom: $cont03-figure-right-margin-bottom;
-            padding: $cont03-figure-right-padding;
+            margin-bottom: 0;
+            padding: 0 10px;
 
             @include small-device{
-                padding: $cont03-figure-right-padding-responsive;
+                padding: 0 30px;
             }
         }
     }

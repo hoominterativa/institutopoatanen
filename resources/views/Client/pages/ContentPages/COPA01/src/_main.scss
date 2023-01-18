@@ -3,73 +3,73 @@
 /* BEGIN STYLE */
 .copa01-page{
     &__header{
-        text-align: $copa01-page-header-text-align;
-        background-color: $copa01-page-header-background-color;
-        padding: $copa01-page-header-padding;
-        margin: $copa01-page-header-margin;
+        text-align: center;
+        background-color: #EFEFEF;
+        padding: 87px 0;
+        margin: 0;
         &__container{
-            margin-bottom: $copa01-page-header-container-title-margin-bottom;
+            margin-bottom: 25px;
         }
         &__title{
-            font-size: $copa01-page-header-title-font-size;
-            font-family: $copa01-page-header-title-font-family;
-            color: $copa01-page-header-title-color;
+            font-size: $T1;
+            font-family: $font-primary;
+            color: $color-black;
             display: block;
 
             @include small-device{
-                font-size: $copa01-page-header-title-font-size-responsive;
+                font-size: $T2-mobile;
             }
         }
     }
     // END __header
 
     &__content{
-        padding: $copa01-page-content-padding;
+        padding: 45px 0 120px;
         &__icon{
-            width: $copa01-page-content-icon-width;
-            margin: $copa01-page-content-icon-margin;
-            display: $copa01-page-content-icon-display;
+            width: 36px;
+            margin: 10px auto;
+            display: table;
         }
         &__container{
-            text-align: $copa01-page-content-container-text-align;
-            margin-bottom: $copa01-page-content-container-title-margin-bottom;
+            text-align: center;
+            margin-bottom: 35px;
         }
         &__title{
-            font-size: $copa01-page-content-title-font-size;
-            font-family: $copa01-page-content-title-font-family;
-            font-weight: $copa01-page-content-title-font-weight;
-            color: $copa01-page-content-title-color;
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
             display: block;
 
             @include small-device{
-                font-size: $copa01-page-content-title-font-size-responsive;
+                font-size: $T2-mobile;
             }
         }
         &__subtitle{
-            font-size: $copa01-page-content-subtitle-font-size;
-            font-family: $copa01-page-content-subtitle-font-family;
-            font-weight: $copa01-page-content-subtitle-font-weight;
-            color: $copa01-page-content-subtitle-color;
+            font-size: $T4;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
             display: block;
 
             @include small-device{
-                font-size: $copa01-page-content-subtitle-font-size-responsive;
+                font-size: $T4-mobile;
             }
         }
         &__line{
-            width: $copa01-page-content-line-width;
-            background-color: $copa01-page-content-line-background-color;
-            margin-bottom: $copa01-page-content-line-margin-bottom;
+            width: 100%;
+            background-color: $color-one;
+            margin-bottom: 35px;
         }
         &__paragraph{
-            font: $copa01-page-content-paragraph-font;
-            font-weight: $copa01-page-content-paragraph-font-weight;
-            padding: $copa01-page-content-paragraph-padding;
-            color: $copa01-page-content-paragraph-color;
-            line-height: $copa01-page-content-paragraph-line-height;
+            font: $paragraph;
+            font-weight: $weight-500;
+            padding: 0 30px;
+            color: $color-one;
+            line-height: 25px;
 
             @include small-device{
-                font: $copa01-page-content-paragraph-font-responsive;
+                font: $paragraph-mobile;
             }
         }
 
@@ -77,27 +77,27 @@
     // END __content
 
     &__archives{
-        margin-top: $copa01-archives-margin-top;
+        margin-top: 50px;
         &__item{
-            font: $copa01-archives-item-font;
-            font-weight: $copa01-archives-item-font-weight;
-            color: $copa01-archives-item-color;
-            display: $copa01-archives-item-display;
-            margin: $copa01-archives-item-margin;
-            max-width: $copa01-archives-item-max-width;
-            padding: $copa01-archives-item-padding;
-            background-color: $copa01-archives-item-background-color;
+            font: $paragraph;
+            font-weight: $weight-700;
+            color: $color-black;
+            display: table;
+            margin: 0 25px 0 0;
+            max-width: 100%;
+            padding: 10px 15px;
+            background-color: $bg-soft;
 
             @include small-device{
-                font: $copa01-archives-item-font-responsive;
+                font: $paragraph-mobile;
             }
 
             &:hover{
-                color: $copa01-archives-item-color-hover;
-                background-color: $copa01-archives-item-background-color-hover;
+                color: $color-white;
+                background-color: $bg-black;
 
                 .copa01__archives__item__icon{
-                    filter: $copa01-archives-item-icon-filter-hover;
+                    filter: invert(1) grayscale(1);
                 }
             }
         }
