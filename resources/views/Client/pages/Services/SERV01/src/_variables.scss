@@ -1,445 +1,445 @@
-/*
-==================================
-========= BEGIN SECTION ==========
-==================================
-*/
-
-// SERV01
-$serv01-padding: 70px 0;
-
-// HEADER SERVICE
-$serv01-header-service-text-align: center;
-
-// HEADER CONTAINER
-$serv01-header-container-title-margin-bottom: 25px;
-
-// HEADER TITLE
-$serv01-header-title-font-size: $T2;
-$serv01-header-title-font-family: $font-primary;
-$serv01-header-title-color: $color-one;
-
-// HEADER SUBTITLE
-$serv01-header-subtitle-font-size: $T4;
-$serv01-header-subtitle-font-family: $font-primary;
-$serv01-header-subtitle-color: $color-three;
-
-// HEADER PARAGRAPH
-$serv01-header-paragraph-font: $paragraph;
-$serv01-header-paragraph-width: 80%;
-$serv01-header-paragraph-margin: 0 auto;
-$serv01-header-paragraph-margin-bottom: 50px;
-$serv01-header-paragraph-margin-top: 25px;
-// HEADER PARAGRAPH RESPONSIVE
-$serv01-header-paragraph-width-responsive: 90%;
-
-// HEADER LINE
-$serv01-header-line-background-color: $color-one;
-
-// BOX SERVICE
-$serv01-box-service-padding-right: 0.25rem;
-$serv01-box-service-padding-left: 0.25rem;
-
-// BOX SERVICE CONTENT
-$serv01-box-service-content-padding: 0 20px;
-
-// BOX SERVICE CONTAINER INFO
-$serv01-box-service-container-info-min-height: 330px;
-
-// BOX SERVICE IMAGE
-$serv01-box-service-image-width: 60px;
-$serv01-box-service-image-margin-bottom: 28px;
-
-// BOX SERVICE DESCRIPTION
-$serv01-box-service-description-text-align: center;
-
-// BOX SERVICE TITLE
-$serv01-box-service-title-font-size: $T5;
-$serv01-box-service-title-font-family: $font-primary;
-$serv01-box-service-title-color: $color-black;
-
-// BOX SERVICE PARAGRAPH
-$serv01-box-service-paragraph-font: $paragraph-min;
-$serv01-box-service-paragraph-color: $color-two;
-$serv01-box-service-paragraph-font-weight: $weight-500;
-$serv01-box-service-paragraph-transform-hover: scale(1.01);
-$serv01-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
-$serv01-box-service-paragraph-width: 60%;
-// BOX SERVICE PARAGRAPH RESPONSIVE
-$serv01-box-service-paragraph-width-responsive: 100%;
-
-// BOX SERVICE LINK
-$serv01-box-service-link-font: 1rem "Montserrat";
-$serv01-box-service-link-color: $color-one;
-$serv01-box-service-link-position: absolute;
-$serv01-box-service-link-bottom: -20px;
-$serv01-box-service-link-left: 50%;
-$serv01-box-service-link-transform: translate(-50%);
-$serv01-box-service-link-min-width: 177px;
-$serv01-box-service-link-padding: 10px 15px;
-$serv01-box-service-link-font-weight: 700;
-$serv01-box-service-link-background-color: #EFEFEF;
-$serv01-box-service-link-text-align: center;
-$serv01-box-service-link-background-color-hover: #c0c0c0;
-$serv01-box-service-link-color-hover: $color-two;
-$serv01-box-service-link-icon-hover: grayscale(1) invert(1);
-
-/*
-==================================
-========= BEGIN PAGE =============
-==================================
-*/
-
-// HEAD01
-$serv01-page-padding: 70px 0;
-
-// HEADER SERVICE
-$serv01-page-header-service-text-align: center;
-$serv01-page-header-service-background-color: #EFEFEF;
-$serv01-page-header-service-padding: 87px 0;
-$serv01-page-header-service-margin: 0 0 72px 0;
-
-// HEADER CONTAINER
-$serv01-page-header-container-title-margin-bottom: 25px;
-
-// HEADER TITLE
-$serv01-page-header-title-font-size: $T2;
-$serv01-page-header-title-font-family: $font-primary;
-$serv01-page-header-title-color: $color-one;
-
-// HEADER SUBTITLE
-$serv01-page-header-subtitle-font-size: $T4;
-$serv01-page-header-subtitle-font-family: $font-primary;
-$serv01-page-header-subtitle-color: $color-three;
-
-// HEADER PARAGRAPH
-$serv01-page-header-paragraph-font: $paragraph;
-$serv01-page-header-paragraph-width: 60%;
-$serv01-page-header-paragraph-margin: 0 auto;
-$serv01-page-header-paragraph-margin-bottom: 50px;
-$serv01-page-header-paragraph-margin-top: 25px;
-// HEADER PARAGRAPH RESPONSIVE
-$serv01-page-header-paragraph-width-responsive: 90%;
-
-// HEADER LINE
-$serv01-page-header-line-background-color: $color-one;
-
-// BOX SERVICE
-$serv01-page-box-service-padding-right: 0.25rem;
-$serv01-page-box-service-padding-left: 0.25rem;
-$serv01-page-box-service-margin-bottom: 59px;
-
-// BOX SERVICE CONTENT
-$serv01-page-box-service-content-padding: 0 20px;
-
-// BOX SERVICE CONTAINER INFO
-$serv01-page-box-service-container-info-min-height: 330px;
-
-// BOX SERVICE IMAGE
-$serv01-page-box-service-image-width: 60px;
-$serv01-page-box-service-image-margin-bottom: 28px;
-
-// BOX SERVICE DESCRIPTION
-$serv01-page-box-service-description-text-align: center;
-
-// BOX SERVICE TITLE
-$serv01-page-box-service-title-font-size: $T5;
-$serv01-page-box-service-title-font-family: $font-primary;
-$serv01-page-box-service-title-color: $color-black;
-
-// BOX SERVICE PARAGRAPH
-$serv01-page-box-service-paragraph-font: $paragraph-min;
-$serv01-page-box-service-paragraph-color: $color-two;
-$serv01-page-box-service-paragraph-font-weight: $weight-500;
-$serv01-page-box-service-paragraph-transform-hover: scale(1.01);
-$serv01-page-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
-$serv01-page-box-service-paragraph-width: 60%;
-// BOX SERVICE PARAGRAPH RESPONSIVE
-$serv01-page-box-service-paragraph-width-responsive: 100%;
-
-// BOX SERVICE LINK
-$serv01-page-box-service-link-font: 1rem "Montserrat";
-$serv01-page-box-service-link-color: $color-one;
-$serv01-page-box-service-link-position: absolute;
-$serv01-page-box-service-link-bottom: -20px;
-$serv01-page-box-service-link-left: 50%;
-$serv01-page-box-service-link-transform: translate(-50%);
-$serv01-page-box-service-link-min-width: 177px;
-$serv01-page-box-service-link-padding: 10px 15px;
-$serv01-page-box-service-link-font-weight: 700;
-$serv01-page-box-service-link-background-color: #EFEFEF;
-$serv01-page-box-service-link-text-align: center;
-$serv01-page-box-service-link-background-color-hover: #c0c0c0;
-$serv01-page-box-service-link-color-hover: $color-two;
-$serv01-page-box-service-link-icon-hover: grayscale(1) invert(1);
-
-
-/*
-==================================
-========== BEGIN SHOW ============
-==================================
-*/
-
-// HEADER
-$serv01-show-header-padding: 80px 0 100px 0;
-
-// HEADER TITLE
-$serv01-show-header-title-font-size: $T1;
-$serv01-show-header-title-font-weight: $weight-700;
-$serv01-show-header-title-font-family: $font-primary;
-$serv01-show-header-title-color: $color-black;
-$serv01-show-header-title-text-align: center;
-
-// HEADER LINKS
-$serv01-show-header-links-margin-top: 40px;
-
-// HEADER LINK ITEM
-$serv01-show-header-link-item-font-size: $T5;
-$serv01-show-header-link-item-font-weight: $weight-700;
-$serv01-show-header-link-item-font-family: $font-primary;
-$serv01-show-header-link-item-color: $color-two;
-$serv01-show-header-link-item-margin: 0 24px;
-$serv01-show-header-link-item-padding: 0 10px;
-$serv01-show-header-link-item-color-hover: $color-black;
-
-// HEADER LINK ITEM AFTER
-$serv01-show-header-after-border-top: 13px solid $color-black;
-$serv01-show-header-after-border-left: 9px solid transparent;
-$serv01-show-header-after-border-right: 9px solid transparent;
-$serv01-show-header-after-display: table;
-$serv01-show-header-after-margin: 0 auto;
-$serv01-show-header-after-margin-top: 5px;
-
-/*
-==================================
-====== BEGIN SHOW CONTENT ========
-==================================
-*/
-
-// CONTENT
-$serv01-show-content-padding: 66px 0;
-
-// CONTENT INFO
-$serv01-show-content-info-display: table;
-$serv01-show-content-info-width: 100%;
-$serv01-show-content-info-margin: 0 auto;
-$serv01-show-content-info-text-align: center;
-
-// CONTENT LINK
-$serv01-show-content-link-position: absolute;
-$serv01-show-content-link-right: 0;
-$serv01-show-content-link-left: initial;
-$serv01-show-content-link-top: 20px;
-$serv01-show-content-link-bottom: initial;
-$serv01-show-content-link-display: table;
-
-// CONTENT ICON
-$serv01-show-content-icon-width: 36px;
-$serv01-show-content-icon-margin: 0 0 15px 0;
-
-// CONTENT SUBTITLE
-$serv01-show-content-subtitle-font-size: $T5;
-$serv01-show-content-subtitle-font-weight: $weight-700;
-$serv01-show-content-subtitle-display: block;
-
-// CONTENT TITLE
-$serv01-show-content-title-font-size: $T2;
-$serv01-show-content-title-font-weight: $weight-700;
-$serv01-show-content-title-display: block;
-
-// CONTENT LINE
-$serv01-show-content-line-background-color: $color-one;
-$serv01-show-content-line-margin: 2rem 0;
-
-// CONTENT DESCRIPTION
-$serv01-show-content-description-font: $paragraph;
-$serv01-show-content-description-font-weight: $weight-400;
-$serv01-show-content-description-color: $color-two;
-$serv01-show-content-description-text-align: center;
-$serv01-show-content-description-padding: 0 80px;
-
-/*
-==================================
-====== BEGIN SHOW TOPICS =========
-==================================
-*/
-
-// SERV01 TOPICS
-$serv01-show-topics-padding: 70px 0;
-$serv01-show-topics-background-color: $bg-soft;
-
-// SERV01 TOPICS HEADER SERVICE
-$serv01-show-topics-header-service-text-align: center;
-
-// SERV01 TOPICS HEADER CONTAINER
-$serv01-show-topics-header-container-title-margin-bottom: 25px;
-
-// SERV01 TOPICS HEADER TITLE
-$serv01-show-topics-header-title-font-size: $T2;
-$serv01-show-topics-header-title-font-family: $font-primary;
-$serv01-show-topics-header-title-color: $color-one;
-
-// SERV01 TOPICS HEADER SUBTITLE
-$serv01-show-topics-header-subtitle-font-size: $T4;
-$serv01-show-topics-header-subtitle-font-family: $font-primary;
-$serv01-show-topics-header-subtitle-color: $color-two;
-
-// SERV01 TOPICS HEADER PARAGRAPH
-$serv01-show-topics-header-paragraph-font: $paragraph;
-$serv01-show-topics-header-paragraph-width: 80%;
-$serv01-show-topics-header-paragraph-margin: 0 auto;
-$serv01-show-topics-header-paragraph-margin-bottom: 50px;
-$serv01-show-topics-header-paragraph-margin-top: 25px;
-// SERV01 TOPICS HEADER PARAGRAPH RESPONSIVE
-$serv01-show-topics-header-paragraph-width-responsive: 90%;
-
-// SERV01 TOPICS HEADER LINE
-$serv01-show-topics-header-line-background-color: $color-one;
-
-// SERV01 TOPICS BOX SERVICE
-$serv01-show-topics-box-service-padding-right: 0.25rem;
-$serv01-show-topics-box-service-padding-left: 0.25rem;
-
-// SERV01 TOPICS BOX SERVICE CONTENT
-$serv01-show-topics-box-service-content-padding: 0 20px;
-
-// SERV01 TOPICS BOX SERVICE CONTAINER INFO
-$serv01-show-topics-box-service-container-info-min-height: 330px;
-
-// SERV01 TOPICS BOX SERVICE IMAGE
-$serv01-show-topics-box-service-image-width: 60px;
-$serv01-show-topics-box-service-image-margin-bottom: 28px;
-
-// SERV01 TOPICS BOX SERVICE DESCRIPTION
-$serv01-show-topics-box-service-description-text-align: center;
-
-// SERV01 TOPICS BOX SERVICE TITLE
-$serv01-show-topics-box-service-title-font-size: $T5;
-$serv01-show-topics-box-service-title-font-family: $font-primary;
-$serv01-show-topics-box-service-title-color: $color-black;
-
-// SERV01 TOPICS BOX SERVICE PARAGRAPH
-$serv01-show-topics-box-service-paragraph-font: $paragraph-min;
-$serv01-show-topics-box-service-paragraph-color: $color-two;
-$serv01-show-topics-box-service-paragraph-font-weight: $weight-500;
-$serv01-show-topics-box-service-paragraph-transform-hover: scale(1.01);
-$serv01-show-topics-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
-$serv01-show-topics-box-service-paragraph-width: 60%;
-// SERV01 TOPICS BOX SERVICE PARAGRAPH RESPONSIVE
-$serv01-show-topics-box-service-paragraph-width-responsive: 100%;
-
-// SERV01 TOPICS BOX SERVICE LINK
-$serv01-show-topics-box-service-link-font: 1rem "Montserrat";
-$serv01-show-topics-box-service-link-color: $color-one;
-$serv01-show-topics-box-service-link-position: absolute;
-$serv01-show-topics-box-service-link-bottom: -20px;
-$serv01-show-topics-box-service-link-left: 50%;
-$serv01-show-topics-box-service-link-transform: translate(-50%);
-$serv01-show-topics-box-service-link-min-width: 177px;
-$serv01-show-topics-box-service-link-padding: 10px 15px;
-$serv01-show-topics-box-service-link-font-weight: 700;
-$serv01-show-topics-box-service-link-background-color: #EFEFEF;
-$serv01-show-topics-box-service-link-text-align: center;
-$serv01-show-topics-box-service-link-background-color-hover: #c0c0c0;
-$serv01-show-topics-box-service-link-color-hover: $color-two;
-$serv01-show-topics-box-service-link-icon-hover: grayscale(1) invert(1);
-
-
-/*
-==================================
-===== BEGIN SHOW PORTFOLIOS ======
-==================================
-*/
-
-// SERV01 PORTFOLIOS
-$serv01-show-portfolios-padding: 70px 0;
-$serv01-show-portfolios-background-color: $bg-white;
-
-// SERV01 PORTFOLIOS HEADER SERVICE
-$serv01-show-portfolios-header-service-text-align: center;
-
-// SERV01 PORTFOLIOS HEADER CONTAINER
-$serv01-show-portfolios-header-container-title-margin-bottom: 25px;
-
-// SERV01 PORTFOLIOS HEADER TITLE
-$serv01-show-portfolios-header-title-font-size: $T2;
-$serv01-show-portfolios-header-title-font-family: $font-primary;
-$serv01-show-portfolios-header-title-color: $color-one;
-
-// SERV01 PORTFOLIOS HEADER SUBTITLE
-$serv01-show-portfolios-header-subtitle-font-size: $T4;
-$serv01-show-portfolios-header-subtitle-font-family: $font-primary;
-$serv01-show-portfolios-header-subtitle-color: $color-two;
-
-// SERV01 PORTFOLIOS HEADER PARAGRAPH
-$serv01-show-portfolios-header-paragraph-font: $paragraph;
-$serv01-show-portfolios-header-paragraph-width: 80%;
-$serv01-show-portfolios-header-paragraph-margin: 0 auto;
-$serv01-show-portfolios-header-paragraph-margin-bottom: 50px;
-$serv01-show-portfolios-header-paragraph-margin-top: 25px;
-// SERV01 PORTFOLIOS HEADER PARAGRAPH RESPONSIVE
-$serv01-show-portfolios-header-paragraph-width-responsive: 90%;
-
-// SERV01 PORTFOLIOS HEADER LINE
-$serv01-show-portfolios-header-line-background-color: $color-one;
-
-// SERV01 PORTFOLIOS BOX SERVICE
-$serv01-show-portfolios-box-service-padding-right: 0.25rem;
-$serv01-show-portfolios-box-service-padding-left: 0.25rem;
-
-// SERV01 PORTFOLIOS BOX SERVICE CONTENT
-$serv01-show-portfolios-box-service-content-padding: 0 20px;
-
-// SERV01 PORTFOLIOS BOX SERVICE CONTAINER INFO
-$serv01-show-portfolios-box-service-container-info-min-height: 370px;
-
-// SERV01 PORTFOLIOS BOX SERVICE DESCRIPTION
-$serv01-show-portfolios-box-service-description-text-align: left;
-$serv01-show-portfolios-box-service-description-icon-width: 36px;
-
-// SERV01 PORTFOLIOS BOX SERVICE TITLE
-$serv01-show-portfolios-box-service-title-font-size: $T5;
-$serv01-show-portfolios-box-service-title-font-weight: $weight-700;
-$serv01-show-portfolios-box-service-title-font-family: $font-primary;
-$serv01-show-portfolios-box-service-title-color: $color-black;
-
-// SERV01 PORTFOLIOS BOX SERVICE PARAGRAPH
-$serv01-show-portfolios-box-service-paragraph-font: $paragraph-min;
-$serv01-show-portfolios-box-service-paragraph-color: $color-two;
-$serv01-show-portfolios-box-service-paragraph-font-weight: $weight-500;
-$serv01-show-portfolios-box-service-paragraph-transform-hover: scale(1.01);
-$serv01-show-portfolios-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
-$serv01-show-portfolios-box-service-paragraph-width: auto;
-// SERV01 PORTFOLIOS BOX SERVICE PARAGRAPH RESPONSIVE
-$serv01-show-portfolios-box-service-paragraph-width-responsive: 100%;
-
-// SERV01 PORTFOLIOS BOX SERVICE LINK
-$serv01-show-portfolios-box-service-link-font: 1rem "Montserrat";
-$serv01-show-portfolios-box-service-link-color: $color-one;
-$serv01-show-portfolios-box-service-link-position: absolute;
-$serv01-show-portfolios-box-service-link-bottom: -20px;
-$serv01-show-portfolios-box-service-link-left: 50%;
-$serv01-show-portfolios-box-service-link-transform: translate(-50%);
-$serv01-show-portfolios-box-service-link-min-width: 177px;
-$serv01-show-portfolios-box-service-link-padding: 10px 15px;
-$serv01-show-portfolios-box-service-link-font-weight: 700;
-$serv01-show-portfolios-box-service-link-background-color: #EFEFEF;
-$serv01-show-portfolios-box-service-link-text-align: center;
-$serv01-show-portfolios-box-service-link-background-color-hover: #c0c0c0;
-$serv01-show-portfolios-box-service-link-color-hover: $color-two;
-$serv01-show-portfolios-box-service-link-icon-hover: grayscale(1) invert(1);
-
-/*
-============================================
-===== BEGIN SHOW PORTFOLIOS CAROUSEL ======
-============================================
-*/
-
-$serv01-show-portfolios-carousel-dots-text-align: center;
-$serv01-show-portfolios-carousel-dots-margin-top: 50px;
-$serv01-show-portfolios-carousel-dot-width: 26px;
-$serv01-show-portfolios-carousel-dot-height: 19px;
-$serv01-show-portfolios-carousel-dot-display: inline-block;
-$serv01-show-portfolios-carousel-dot-background-color: #ccc;
-$serv01-show-portfolios-carousel-dot-margin: 0 6px;
-$serv01-show-portfolios-carousel-dot-active-background-color: #3f3f3f;
-$serv01-show-portfolios-carousel-dot-hover-background-color: #3f3f3f;
+// /*
+// ==================================
+// ========= BEGIN SECTION ==========
+// ==================================
+// */
+
+// // SERV01
+// $serv01-padding: 70px 0;
+
+// // HEADER SERVICE
+// $serv01-header-service-text-align: center;
+
+// // HEADER CONTAINER
+// $serv01-header-container-title-margin-bottom: 25px;
+
+// // HEADER TITLE
+// $serv01-header-title-font-size: $T2;
+// $serv01-header-title-font-family: $font-primary;
+// $serv01-header-title-color: $color-one;
+
+// // HEADER SUBTITLE
+// $serv01-header-subtitle-font-size: $T4;
+// $serv01-header-subtitle-font-family: $font-primary;
+// $serv01-header-subtitle-color: $color-three;
+
+// // HEADER PARAGRAPH
+// $serv01-header-paragraph-font: $paragraph;
+// $serv01-header-paragraph-width: 80%;
+// $serv01-header-paragraph-margin: 0 auto;
+// $serv01-header-paragraph-margin-bottom: 50px;
+// $serv01-header-paragraph-margin-top: 25px;
+// // HEADER PARAGRAPH RESPONSIVE
+// $serv01-header-paragraph-width-responsive: 90%;
+
+// // HEADER LINE
+// $serv01-header-line-background-color: $color-one;
+
+// // BOX SERVICE
+// $serv01-box-service-padding-right: 0.25rem;
+// $serv01-box-service-padding-left: 0.25rem;
+
+// // BOX SERVICE CONTENT
+// $serv01-box-service-content-padding: 0 20px;
+
+// // BOX SERVICE CONTAINER INFO
+// $serv01-box-service-container-info-min-height: 330px;
+
+// // BOX SERVICE IMAGE
+// $serv01-box-service-image-width: 60px;
+// $serv01-box-service-image-margin-bottom: 28px;
+
+// // BOX SERVICE DESCRIPTION
+// $serv01-box-service-description-text-align: center;
+
+// // BOX SERVICE TITLE
+// $serv01-box-service-title-font-size: $T5;
+// $serv01-box-service-title-font-family: $font-primary;
+// $serv01-box-service-title-color: $color-black;
+
+// // BOX SERVICE PARAGRAPH
+// $serv01-box-service-paragraph-font: $paragraph-min;
+// $serv01-box-service-paragraph-color: $color-two;
+// $serv01-box-service-paragraph-font-weight: $weight-500;
+// $serv01-box-service-paragraph-transform-hover: scale(1.01);
+// $serv01-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+// $serv01-box-service-paragraph-width: 60%;
+// // BOX SERVICE PARAGRAPH RESPONSIVE
+// $serv01-box-service-paragraph-width-responsive: 100%;
+
+// // BOX SERVICE LINK
+// $serv01-box-service-link-font: 1rem "Montserrat";
+// $serv01-box-service-link-color: $color-one;
+// $serv01-box-service-link-position: absolute;
+// $serv01-box-service-link-bottom: -20px;
+// $serv01-box-service-link-left: 50%;
+// $serv01-box-service-link-transform: translate(-50%);
+// $serv01-box-service-link-min-width: 177px;
+// $serv01-box-service-link-padding: 10px 15px;
+// $serv01-box-service-link-font-weight: 700;
+// $serv01-box-service-link-background-color: #EFEFEF;
+// $serv01-box-service-link-text-align: center;
+// $serv01-box-service-link-background-color-hover: #c0c0c0;
+// $serv01-box-service-link-color-hover: $color-two;
+// $serv01-box-service-link-icon-hover: grayscale(1) invert(1);
+
+// /*
+// ==================================
+// ========= BEGIN PAGE =============
+// ==================================
+// */
+
+// // HEAD01
+// $serv01-page-padding: 70px 0;
+
+// // HEADER SERVICE
+// $serv01-page-header-service-text-align: center;
+// $serv01-page-header-service-background-color: #EFEFEF;
+// $serv01-page-header-service-padding: 87px 0;
+// $serv01-page-header-service-margin: 0 0 72px 0;
+
+// // HEADER CONTAINER
+// $serv01-page-header-container-title-margin-bottom: 25px;
+
+// // HEADER TITLE
+// $serv01-page-header-title-font-size: $T2;
+// $serv01-page-header-title-font-family: $font-primary;
+// $serv01-page-header-title-color: $color-one;
+
+// // HEADER SUBTITLE
+// $serv01-page-header-subtitle-font-size: $T4;
+// $serv01-page-header-subtitle-font-family: $font-primary;
+// $serv01-page-header-subtitle-color: $color-three;
+
+// // HEADER PARAGRAPH
+// $serv01-page-header-paragraph-font: $paragraph;
+// $serv01-page-header-paragraph-width: 60%;
+// $serv01-page-header-paragraph-margin: 0 auto;
+// $serv01-page-header-paragraph-margin-bottom: 50px;
+// $serv01-page-header-paragraph-margin-top: 25px;
+// // HEADER PARAGRAPH RESPONSIVE
+// $serv01-page-header-paragraph-width-responsive: 90%;
+
+// // HEADER LINE
+// $serv01-page-header-line-background-color: $color-one;
+
+// // BOX SERVICE
+// $serv01-page-box-service-padding-right: 0.25rem;
+// $serv01-page-box-service-padding-left: 0.25rem;
+// $serv01-page-box-service-margin-bottom: 59px;
+
+// // BOX SERVICE CONTENT
+// $serv01-page-box-service-content-padding: 0 20px;
+
+// // BOX SERVICE CONTAINER INFO
+// $serv01-page-box-service-container-info-min-height: 330px;
+
+// // BOX SERVICE IMAGE
+// $serv01-page-box-service-image-width: 60px;
+// $serv01-page-box-service-image-margin-bottom: 28px;
+
+// // BOX SERVICE DESCRIPTION
+// $serv01-page-box-service-description-text-align: center;
+
+// // BOX SERVICE TITLE
+// $serv01-page-box-service-title-font-size: $T5;
+// $serv01-page-box-service-title-font-family: $font-primary;
+// $serv01-page-box-service-title-color: $color-black;
+
+// // BOX SERVICE PARAGRAPH
+// $serv01-page-box-service-paragraph-font: $paragraph-min;
+// $serv01-page-box-service-paragraph-color: $color-two;
+// $serv01-page-box-service-paragraph-font-weight: $weight-500;
+// $serv01-page-box-service-paragraph-transform-hover: scale(1.01);
+// $serv01-page-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+// $serv01-page-box-service-paragraph-width: 60%;
+// // BOX SERVICE PARAGRAPH RESPONSIVE
+// $serv01-page-box-service-paragraph-width-responsive: 100%;
+
+// // BOX SERVICE LINK
+// $serv01-page-box-service-link-font: 1rem "Montserrat";
+// $serv01-page-box-service-link-color: $color-one;
+// $serv01-page-box-service-link-position: absolute;
+// $serv01-page-box-service-link-bottom: -20px;
+// $serv01-page-box-service-link-left: 50%;
+// $serv01-page-box-service-link-transform: translate(-50%);
+// $serv01-page-box-service-link-min-width: 177px;
+// $serv01-page-box-service-link-padding: 10px 15px;
+// $serv01-page-box-service-link-font-weight: 700;
+// $serv01-page-box-service-link-background-color: #EFEFEF;
+// $serv01-page-box-service-link-text-align: center;
+// $serv01-page-box-service-link-background-color-hover: #c0c0c0;
+// $serv01-page-box-service-link-color-hover: $color-two;
+// $serv01-page-box-service-link-icon-hover: grayscale(1) invert(1);
+
+
+// /*
+// ==================================
+// ========== BEGIN SHOW ============
+// ==================================
+// */
+
+// // HEADER
+// $serv01-show-header-padding: 80px 0 100px 0;
+
+// // HEADER TITLE
+// $serv01-show-header-title-font-size: $T1;
+// $serv01-show-header-title-font-weight: $weight-700;
+// $serv01-show-header-title-font-family: $font-primary;
+// $serv01-show-header-title-color: $color-black;
+// $serv01-show-header-title-text-align: center;
+
+// // HEADER LINKS
+// $serv01-show-header-links-margin-top: 40px;
+
+// // HEADER LINK ITEM
+// $serv01-show-header-link-item-font-size: $T5;
+// $serv01-show-header-link-item-font-weight: $weight-700;
+// $serv01-show-header-link-item-font-family: $font-primary;
+// $serv01-show-header-link-item-color: $color-two;
+// $serv01-show-header-link-item-margin: 0 24px;
+// $serv01-show-header-link-item-padding: 0 10px;
+// $serv01-show-header-link-item-color-hover: $color-black;
+
+// // HEADER LINK ITEM AFTER
+// $serv01-show-header-after-border-top: 13px solid $color-black;
+// $serv01-show-header-after-border-left: 9px solid transparent;
+// $serv01-show-header-after-border-right: 9px solid transparent;
+// $serv01-show-header-after-display: table;
+// $serv01-show-header-after-margin: 0 auto;
+// $serv01-show-header-after-margin-top: 5px;
+
+// /*
+// ==================================
+// ====== BEGIN SHOW CONTENT ========
+// ==================================
+// */
+
+// // CONTENT
+// $serv01-show-content-padding: 66px 0;
+
+// // CONTENT INFO
+// $serv01-show-content-info-display: table;
+// $serv01-show-content-info-width: 100%;
+// $serv01-show-content-info-margin: 0 auto;
+// $serv01-show-content-info-text-align: center;
+
+// // CONTENT LINK
+// $serv01-show-content-link-position: absolute;
+// $serv01-show-content-link-right: 0;
+// $serv01-show-content-link-left: initial;
+// $serv01-show-content-link-top: 20px;
+// $serv01-show-content-link-bottom: initial;
+// $serv01-show-content-link-display: table;
+
+// // CONTENT ICON
+// $serv01-show-content-icon-width: 36px;
+// $serv01-show-content-icon-margin: 0 0 15px 0;
+
+// // CONTENT SUBTITLE
+// $serv01-show-content-subtitle-font-size: $T5;
+// $serv01-show-content-subtitle-font-weight: $weight-700;
+// $serv01-show-content-subtitle-display: block;
+
+// // CONTENT TITLE
+// $serv01-show-content-title-font-size: $T2;
+// $serv01-show-content-title-font-weight: $weight-700;
+// $serv01-show-content-title-display: block;
+
+// // CONTENT LINE
+// $serv01-show-content-line-background-color: $color-one;
+// $serv01-show-content-line-margin: 2rem 0;
+
+// // CONTENT DESCRIPTION
+// $serv01-show-content-description-font: $paragraph;
+// $serv01-show-content-description-font-weight: $weight-400;
+// $serv01-show-content-description-color: $color-two;
+// $serv01-show-content-description-text-align: center;
+// $serv01-show-content-description-padding: 0 80px;
+
+// /*
+// ==================================
+// ====== BEGIN SHOW TOPICS =========
+// ==================================
+// */
+
+// // SERV01 TOPICS
+// $serv01-show-topics-padding: 70px 0;
+// $serv01-show-topics-background-color: $bg-soft;
+
+// // SERV01 TOPICS HEADER SERVICE
+// $serv01-show-topics-header-service-text-align: center;
+
+// // SERV01 TOPICS HEADER CONTAINER
+// $serv01-show-topics-header-container-title-margin-bottom: 25px;
+
+// // SERV01 TOPICS HEADER TITLE
+// $serv01-show-topics-header-title-font-size: $T2;
+// $serv01-show-topics-header-title-font-family: $font-primary;
+// $serv01-show-topics-header-title-color: $color-one;
+
+// // SERV01 TOPICS HEADER SUBTITLE
+// $serv01-show-topics-header-subtitle-font-size: $T4;
+// $serv01-show-topics-header-subtitle-font-family: $font-primary;
+// $serv01-show-topics-header-subtitle-color: $color-two;
+
+// // SERV01 TOPICS HEADER PARAGRAPH
+// $serv01-show-topics-header-paragraph-font: $paragraph;
+// $serv01-show-topics-header-paragraph-width: 80%;
+// $serv01-show-topics-header-paragraph-margin: 0 auto;
+// $serv01-show-topics-header-paragraph-margin-bottom: 50px;
+// $serv01-show-topics-header-paragraph-margin-top: 25px;
+// // SERV01 TOPICS HEADER PARAGRAPH RESPONSIVE
+// $serv01-show-topics-header-paragraph-width-responsive: 90%;
+
+// // SERV01 TOPICS HEADER LINE
+// $serv01-show-topics-header-line-background-color: $color-one;
+
+// // SERV01 TOPICS BOX SERVICE
+// $serv01-show-topics-box-service-padding-right: 0.25rem;
+// $serv01-show-topics-box-service-padding-left: 0.25rem;
+
+// // SERV01 TOPICS BOX SERVICE CONTENT
+// $serv01-show-topics-box-service-content-padding: 0 20px;
+
+// // SERV01 TOPICS BOX SERVICE CONTAINER INFO
+// $serv01-show-topics-box-service-container-info-min-height: 330px;
+
+// // SERV01 TOPICS BOX SERVICE IMAGE
+// $serv01-show-topics-box-service-image-width: 60px;
+// $serv01-show-topics-box-service-image-margin-bottom: 28px;
+
+// // SERV01 TOPICS BOX SERVICE DESCRIPTION
+// $serv01-show-topics-box-service-description-text-align: center;
+
+// // SERV01 TOPICS BOX SERVICE TITLE
+// $serv01-show-topics-box-service-title-font-size: $T5;
+// $serv01-show-topics-box-service-title-font-family: $font-primary;
+// $serv01-show-topics-box-service-title-color: $color-black;
+
+// // SERV01 TOPICS BOX SERVICE PARAGRAPH
+// $serv01-show-topics-box-service-paragraph-font: $paragraph-min;
+// $serv01-show-topics-box-service-paragraph-color: $color-two;
+// $serv01-show-topics-box-service-paragraph-font-weight: $weight-500;
+// $serv01-show-topics-box-service-paragraph-transform-hover: scale(1.01);
+// $serv01-show-topics-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+// $serv01-show-topics-box-service-paragraph-width: 60%;
+// // SERV01 TOPICS BOX SERVICE PARAGRAPH RESPONSIVE
+// $serv01-show-topics-box-service-paragraph-width-responsive: 100%;
+
+// // SERV01 TOPICS BOX SERVICE LINK
+// $serv01-show-topics-box-service-link-font: 1rem "Montserrat";
+// $serv01-show-topics-box-service-link-color: $color-one;
+// $serv01-show-topics-box-service-link-position: absolute;
+// $serv01-show-topics-box-service-link-bottom: -20px;
+// $serv01-show-topics-box-service-link-left: 50%;
+// $serv01-show-topics-box-service-link-transform: translate(-50%);
+// $serv01-show-topics-box-service-link-min-width: 177px;
+// $serv01-show-topics-box-service-link-padding: 10px 15px;
+// $serv01-show-topics-box-service-link-font-weight: 700;
+// $serv01-show-topics-box-service-link-background-color: #EFEFEF;
+// $serv01-show-topics-box-service-link-text-align: center;
+// $serv01-show-topics-box-service-link-background-color-hover: #c0c0c0;
+// $serv01-show-topics-box-service-link-color-hover: $color-two;
+// $serv01-show-topics-box-service-link-icon-hover: grayscale(1) invert(1);
+
+
+// /*
+// ==================================
+// ===== BEGIN SHOW PORTFOLIOS ======
+// ==================================
+// */
+
+// // SERV01 PORTFOLIOS
+// $serv01-show-portfolios-padding: 70px 0;
+// $serv01-show-portfolios-background-color: $bg-white;
+
+// // SERV01 PORTFOLIOS HEADER SERVICE
+// $serv01-show-portfolios-header-service-text-align: center;
+
+// // SERV01 PORTFOLIOS HEADER CONTAINER
+// $serv01-show-portfolios-header-container-title-margin-bottom: 25px;
+
+// // SERV01 PORTFOLIOS HEADER TITLE
+// $serv01-show-portfolios-header-title-font-size: $T2;
+// $serv01-show-portfolios-header-title-font-family: $font-primary;
+// $serv01-show-portfolios-header-title-color: $color-one;
+
+// // SERV01 PORTFOLIOS HEADER SUBTITLE
+// $serv01-show-portfolios-header-subtitle-font-size: $T4;
+// $serv01-show-portfolios-header-subtitle-font-family: $font-primary;
+// $serv01-show-portfolios-header-subtitle-color: $color-two;
+
+// // SERV01 PORTFOLIOS HEADER PARAGRAPH
+// $serv01-show-portfolios-header-paragraph-font: $paragraph;
+// $serv01-show-portfolios-header-paragraph-width: 80%;
+// $serv01-show-portfolios-header-paragraph-margin: 0 auto;
+// $serv01-show-portfolios-header-paragraph-margin-bottom: 50px;
+// $serv01-show-portfolios-header-paragraph-margin-top: 25px;
+// // SERV01 PORTFOLIOS HEADER PARAGRAPH RESPONSIVE
+// $serv01-show-portfolios-header-paragraph-width-responsive: 90%;
+
+// // SERV01 PORTFOLIOS HEADER LINE
+// $serv01-show-portfolios-header-line-background-color: $color-one;
+
+// // SERV01 PORTFOLIOS BOX SERVICE
+// $serv01-show-portfolios-box-service-padding-right: 0.25rem;
+// $serv01-show-portfolios-box-service-padding-left: 0.25rem;
+
+// // SERV01 PORTFOLIOS BOX SERVICE CONTENT
+// $serv01-show-portfolios-box-service-content-padding: 0 20px;
+
+// // SERV01 PORTFOLIOS BOX SERVICE CONTAINER INFO
+// $serv01-show-portfolios-box-service-container-info-min-height: 370px;
+
+// // SERV01 PORTFOLIOS BOX SERVICE DESCRIPTION
+// $serv01-show-portfolios-box-service-description-text-align: left;
+// $serv01-show-portfolios-box-service-description-icon-width: 36px;
+
+// // SERV01 PORTFOLIOS BOX SERVICE TITLE
+// $serv01-show-portfolios-box-service-title-font-size: $T5;
+// $serv01-show-portfolios-box-service-title-font-weight: $weight-700;
+// $serv01-show-portfolios-box-service-title-font-family: $font-primary;
+// $serv01-show-portfolios-box-service-title-color: $color-black;
+
+// // SERV01 PORTFOLIOS BOX SERVICE PARAGRAPH
+// $serv01-show-portfolios-box-service-paragraph-font: $paragraph-min;
+// $serv01-show-portfolios-box-service-paragraph-color: $color-two;
+// $serv01-show-portfolios-box-service-paragraph-font-weight: $weight-500;
+// $serv01-show-portfolios-box-service-paragraph-transform-hover: scale(1.01);
+// $serv01-show-portfolios-box-service-paragraph-box-shadow-hover: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+// $serv01-show-portfolios-box-service-paragraph-width: auto;
+// // SERV01 PORTFOLIOS BOX SERVICE PARAGRAPH RESPONSIVE
+// $serv01-show-portfolios-box-service-paragraph-width-responsive: 100%;
+
+// // SERV01 PORTFOLIOS BOX SERVICE LINK
+// $serv01-show-portfolios-box-service-link-font: 1rem "Montserrat";
+// $serv01-show-portfolios-box-service-link-color: $color-one;
+// $serv01-show-portfolios-box-service-link-position: absolute;
+// $serv01-show-portfolios-box-service-link-bottom: -20px;
+// $serv01-show-portfolios-box-service-link-left: 50%;
+// $serv01-show-portfolios-box-service-link-transform: translate(-50%);
+// $serv01-show-portfolios-box-service-link-min-width: 177px;
+// $serv01-show-portfolios-box-service-link-padding: 10px 15px;
+// $serv01-show-portfolios-box-service-link-font-weight: 700;
+// $serv01-show-portfolios-box-service-link-background-color: #EFEFEF;
+// $serv01-show-portfolios-box-service-link-text-align: center;
+// $serv01-show-portfolios-box-service-link-background-color-hover: #c0c0c0;
+// $serv01-show-portfolios-box-service-link-color-hover: $color-two;
+// $serv01-show-portfolios-box-service-link-icon-hover: grayscale(1) invert(1);
+
+// /*
+// ============================================
+// ===== BEGIN SHOW PORTFOLIOS CAROUSEL ======
+// ============================================
+// */
+
+// $serv01-show-portfolios-carousel-dots-text-align: center;
+// $serv01-show-portfolios-carousel-dots-margin-top: 50px;
+// $serv01-show-portfolios-carousel-dot-width: 26px;
+// $serv01-show-portfolios-carousel-dot-height: 19px;
+// $serv01-show-portfolios-carousel-dot-display: inline-block;
+// $serv01-show-portfolios-carousel-dot-background-color: #ccc;
+// $serv01-show-portfolios-carousel-dot-margin: 0 6px;
+// $serv01-show-portfolios-carousel-dot-active-background-color: #3f3f3f;
+// $serv01-show-portfolios-carousel-dot-hover-background-color: #3f3f3f;

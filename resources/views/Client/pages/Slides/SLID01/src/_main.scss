@@ -71,59 +71,59 @@
             z-index: 20;
 
             .title{
-                font-size: $slid01-title-font-size;
-                font-family: $slid01-title-font-family;
-                font-weight: $slid01-title-font-weight;
-                color: $slid01-title-color;
+                font-size: $T1;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
                 display: block;
 
                 @include small-device{
-                    font-size: $slid01-title-font-size-responsive;
+                    font-size: $T1-mobile;
                 }
             }
 
             .subtitle{
-                font-size: $slid01-subtitle-font-size;
-                font-family: $slid01-subtitle-font-family;
-                font-weight: $slid01-subtitle-font-weight;
-                color: $slid01-subtitle-color;
+                font-size: $T3;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-two;
 
                 @include small-device{
-                    font-size: $slid01-subtitle-font-size-responsive;
+                    font-size: $T3-mobile;
                 }
             }
 
             .description{
-                font: $slid01-description-font;
-                font-weight: $slid01-description-font-weight;
-                color: $slid01-description-color;
-                margin: $slid01-description-margin;
-                width: $slid01-description-width;
-                line-height: $slid01-description-line-height;
+                font: $paragraph;
+                font-weight: $weight-500;
+                color: $color-two;
+                margin: 28px 0 51px 0;
+                width: 70%;
+                line-height: 25px;
 
                 @include small-device{
-                    font: $slid01-description-font-responsive;
+                    font: $paragraph-mobile;
                 }
             }
 
             .btn-cta-slide{
-                font: $slid01-cta-font;
-                color: $slid01-cta-color;
-                font-weight: $slid01-cta-font-weight;
-                border-radius: $slid01-cta-border-radius;
-                background-color: $slid01-cta-background-color;
-                min-width: $slid01-cta-color-min-width;
+                font: $paragraph;
+                color: $color-black;
+                font-weight: $weight-500;
+                border-radius: $edge-rounded-none;
+                background-color: $color-white;
+                min-width: 177px;
                 display: table;
                 img{
-                    width: $slid01-cta-img-width;
-                    margin-right: $slid01-cta-img-margin-right;
+                    width: 25px;
+                    margin-right: 16px;
                 }
 
                 &:hover{
-                    background-color: $slid01-cta-bg-hover;
-                    color: $slid01-cta-color-hover;
+                    background-color: $bg-main;
+                    color: $color-white;
                     img{
-                        filter: $slid01-cta-img-filter-hover;
+                        filter: grayscale(1) invert(1);
                     }
                 }
             }
@@ -136,23 +136,23 @@
     }
     #dotsSlideCustom{
         position: absolute;
-        top: $slid01-dots-container-top;
-        right: $slid01-dots-container-right;
+        top: 50%;
+        right: 3%;
         z-index: 100;
-        transform: $slid01-dots-container-transform;
+        transform: translate(0, -50%);
 
         .owl-dot{
-            width: $slid01-dots-width;
-            height: $slid01-dots-height;
-            display: $slid01-dots-display;
-            border-radius: $slid01-dots-border-radius;
-            background-color: $slid01-dots-background-color;
+            width: 13px;
+            height: 13px;
+            display: block;
+            border-radius: $edge-rounded-full;
+            background-color: adjust-color($bg-white, $alpha: -0.8);
             padding: 0;
-            margin: $slid01-dots-margin;
-            border: $slid01-dots-border;
+            margin: 0 0 5px 0;
+            border: none;
             &:hover,
             &.active{
-                background-color: $slid01-dots-background-color-hover;
+                background-color: $bg-secondary;
             }
         }
     }

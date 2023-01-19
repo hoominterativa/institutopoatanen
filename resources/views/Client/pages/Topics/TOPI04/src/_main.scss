@@ -70,27 +70,27 @@
     }
 
     &__cta{
-        font: $topi04-cta-font;
-        font-weight: $topi04-cta-font-weight;
-        color: $topi04-cta-color;
-        display: $topi04-cta-display;
-        margin-top: $topi04-cta-margin-top;
-        max-width: $topi04-cta-max-width;
-        padding: $topi04-cta-padding;
-        background-color: $topi04-cta-background-color;
+        font: $paragraph;
+        font-weight: $weight-700;
+        color: $color-black;
+        display: block;
+        margin-top: 18px;
+        max-width: 177px;
+        padding: 10px 15px;
+        background-color: $bg-soft;
 
         @include small-device{
-            font: $topi04-cta-font-responsive;
+            font: $paragraph-mobile;
             margin-top: 39px;
             width: 147px;
         }
 
         &:hover{
-            color: $topi04-cta-color-hover;
-            background-color: $topi04-cta-background-color-hover;
+            color: $color-white;
+            background-color: $bg-black;
 
             .topi04__cta__icon{
-                filter: $topi04-cta-icon-filter-hover;
+                filter: invert(1) grayscale(1);
             }
         }
     }

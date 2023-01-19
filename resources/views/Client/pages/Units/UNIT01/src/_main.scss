@@ -6,7 +6,7 @@
 .unit01-page{
     &__header{
         @include bgpadrao;
-        height: $unit01-page-header-height;
+        height: 352px;
 
         @include small-device{
             height: 270px;
@@ -14,7 +14,7 @@
         }
 
         .container--unit01-header{
-            padding: $unit01-page-header-container-padding;
+            padding: 112px 0 92px 0 !important;
             @include small-device{
                 padding: 0 72px;
             }
@@ -23,7 +23,7 @@
             font-size: $T1;
             font-family: $font-paragraph;
             color: $color-black;
-            margin-bottom: $unit01-page-header-title-margin-bottom;
+            margin-bottom: 25px;
             font-weight: $weight-700;
 
             @include small-device{
@@ -42,23 +42,23 @@
             }
         }
         &__line{
-            width: $unit01-page-line-width;
-            margin-top: $unit01-page-header-line-margin-top;
+            width: 100%;
+            margin-top: 28.81px;
         }
         @include small-device{
             &__title{
                 font-size: $T2-mobile;
-                margin-bottom: $unit01-page-header-title-mobile-margin-bottom;
+                margin-bottom: 0;
             }
             &__subtitle{
                 font-size: $T4-mobile;
             }
             &__line{
-                margin-top: $unit01-page-header-line-mobile-margin-top;
-                margin-bottom: $unit01-page-header-line-mobile-margin-bottom;
+                margin-top: 25px;
+                margin-bottom: 21px;
             }
             &__content{
-                padding: $unit01-page-header-content-mobile-padding;
+                padding: 46px 0 81px !important;
             }
         }
     }
@@ -204,27 +204,27 @@
                     }
                 }
                 .carousel_unit01 .owl-nav{
-                    display: $carousel-unit01-owl-nav-display;
-                    padding: $carousel-unit01-owl-nav-padding;
-                    justify-content: $carousel-unit01-owl-nav-justify-content;
-                    position: $carousel-unit01-owl-nav-position;
-                    top:$carousel-unit01-owl-nav-top;
-                    width: $carousel-unit01-owl-nav-width;
+                    display: flex;
+                    padding: 0 12px;
+                    justify-content: space-between;
+                    position: absolute;
+                    top:50%;
+                    width: 100%;
                 }
                 .carousel_unit01 .owl-nav .owl-prev,
                 .carousel_unit01 .owl-nav .owl-next{
-                    height: $carousel-unit01-owl-nav-prev-next-height;
-                    width: $carousel-unit01-owl-nav-prev-next-width;
-                    border-radius: $carousel-unit01-owl-nav-prev-next-border-radius;
+                    height: 29px;
+                    width: 29px;
+                    border-radius: 100%;
                     background-color: $color-one;
                     @include dflex;
-                    border: $carousel-unit01-owl-nav-prev-next-border;
+                    border: none;
                 }
                 .carousel_unit01 .owl-nav .owl-prev span,
                 .carousel_unit01 .owl-nav .owl-next span{
-                    color:$carousel-unit01-owl-nav-prev-next-span-color;
-                    font-size: $carousel-unit01-owl-nav-prev-next-span-font-size;
-                    height: $carousel-unit01-owl-nav-prev-next-span-height;
+                    color:#fff;
+                    font-size: 32px;
+                    height: 58px;
                 }
                 &__imageBox{
                     width: 509px;
@@ -250,9 +250,9 @@
 
 
 .lightbox-unit01{
-    width: $lightbox-unit01-width;
-    display: $lightbox-unit01-display;
-    padding: $lightbox-unit01-padding;
+    width: 100%;
+    display: none;
+    padding: 0;
 
     &__subtitle{
         font-size: $T4;
@@ -286,8 +286,8 @@
         }
     }
     &__line{
-        margin-top: $lightbox-unit01-line-margin-top;
-        margin-bottom: $lightbox-unit01-line-margin-bottom;
+        margin-top: 22px;
+        margin-bottom: 61px;
     }
     &__paragraph{
         font: $paragraph;
