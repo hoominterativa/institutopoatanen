@@ -8,7 +8,8 @@
         "FOOT02"
     ],
     "Slides": [
-        "SLID01"
+        "SLID01",
+        "SLID02"
     ],
     "Contents": [
         "CONT01",
@@ -53,4 +54,3 @@
         "COPA01"
     ]
 }
-
