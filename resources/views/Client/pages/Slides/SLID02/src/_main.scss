@@ -1,3 +1,83 @@
 @import 'variables';
-
 /* BEGIN STYLE */
+#SLID02{
+    position:relative;
+
+    .img-background-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    .content-slide{
+        height: 100%;
+        position: relative;
+
+        &.center{
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+
+            .img-floating-png{
+                display: none;
+            }
+        }
+        &.end{
+            flex-direction: row-reverse;
+            text-align: right;
+
+            .img-floating-png{
+                left: 0;
+            }
+        }
+
+        .content-description{
+            z-index: 20;
+
+            .title{
+                font-size: $T5;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
+                display: block;
+
+                @include small-device{
+                    font-size: $T5-mobile;
+                }
+            }
+
+        }
+
+        @include small-device{
+            justify-content: center;
+            align-items: end !important;
+        }
+    }
+    #dotsSlideCustom{
+        position: absolute;
+        top: 50%;
+        right: 3%;
+        z-index: 100;
+        transform: translate(0, -50%);
+
+        .owl-dot{
+            width: 13px;
+            height: 13px;
+            display: block;
+            border-radius: $edge-rounded-full;
+            background-color: adjust-color($bg-white, $alpha: -0.8);
+            padding: 0;
+            margin: 0 0 5px 0;
+            border: none;
+            &:hover,
+            &.active{
+                background-color: $bg-secondary;
+            }
+        }
+    }
+}
