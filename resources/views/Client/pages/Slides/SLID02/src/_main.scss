@@ -17,6 +17,7 @@
     .content-slide{
         height: 100%;
         position: relative;
+        padding-bottom: 103px;
 
         &.center{
             flex-direction: column;
@@ -38,6 +39,15 @@
 
         .content-description{
             z-index: 20;
+            background: #CACACA;
+            max-width: 322px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 7px 28px !important;
+            padding-bottom: 18.84px !important;
+            justify-content: center;
+            align-items: center;
 
             .title{
                 font-size: $T5;
@@ -45,6 +55,7 @@
                 font-weight: $weight-700;
                 color: $color-one;
                 display: block;
+                margin-bottom: 12px;
 
                 @include small-device{
                     font-size: $T5-mobile;
@@ -57,6 +68,16 @@
             justify-content: center;
             align-items: end !important;
         }
+    }
+    .content-network{
+        display: flex;
+        justify-content: center;
+        gap: 0 23.87px;
+    }
+    .btn-cta-network img{
+        height: 25px;
+        width: 25px;
+        object-fit:contain;
     }
     #dotsSlideCustom{
         position: absolute;

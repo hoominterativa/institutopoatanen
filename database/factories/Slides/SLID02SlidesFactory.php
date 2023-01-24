@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Slides;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\SLID02Slides;
+use App\Models\Slides\SLID02Slides;
 
 class SLID02SlidesFactory extends Factory
 {

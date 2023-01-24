@@ -201,40 +201,6 @@ class SLID02Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Slides\SLID02Slides  $SLID02Slides
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SLID02Slides $SLID02Slides)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Section index resource.
      *
      * @return \Illuminate\Http\Response

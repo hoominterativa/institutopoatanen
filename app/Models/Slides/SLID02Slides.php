@@ -2,7 +2,7 @@
 
 namespace App\Models\Slides;
 
-use Database\Factories\SLID02SlidesFactory;
+use Database\Factories\Slides\SLID02SlidesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class SLID02Slides extends Model
         return SLID02SlidesFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "slid02_slides";
     protected $fillable = [];
 
     public function scopeSorting($query)
