@@ -125,6 +125,11 @@ return [
                 'model' => App\Models\Slides\SLID01Slides::class,
                 'seedQty' => 1,
             ],
+            'SLID02' => (object)[
+                'controller' => App\Http\Controllers\Slides\SLID02Controller::class,
+                'model' => App\Models\Slides\SLID02Slides::class,
+                'seedQty' => 1,
+            ],
         ],
         // END SLIDES
 
