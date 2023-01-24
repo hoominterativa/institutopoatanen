@@ -224,15 +224,15 @@ class SLID02Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function page(Request $request)
-    // {
-    //     $IncludeSectionsController = new IncludeSectionsController();
-    //     $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+    public function page(Request $request)
+    {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
 
-    //     return view('Client.pages.Module.Model.page',[
-    //         'sections' => $sections
-    //     ]);
-    // }
+        return view('Client.pages.Module.Model.page',[
+            'sections' => $sections
+        ]);
+    }
 
     /**
      * Section index resource.
