@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Slides' => (object) [
-            'SLID02' => (object)[
+        'Topics' => (object) [
+            'TOPI102' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -32,7 +32,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => 'string',
-                    'titlePanel' => 'SLID02',
+                    'titlePanel' => 'TOPIC102',
                     'iconPanel' => 'string'
                 ],
                 'IncludeSections' => (object) []
