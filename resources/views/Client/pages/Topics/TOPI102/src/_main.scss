@@ -5,9 +5,7 @@
     .container--pd{
         padding: 38px 0 99px 0!important;
     }
-    .owl-stage{
-        width: 100% !important;
-    }
+  
     &__text{
         border-bottom: 1px solid #404040;
         padding-bottom: 26px;
@@ -81,12 +79,19 @@
             height:484px;
 
             &__image{
+                width:100% !important;
+                height:100% !important;
+
                 img{
-                    @include Img;
+                    @include Img($ObjectFit:cover);
+                    width:100% !important;
+                    height:100% !important;
                 }
             }
             &__description{
                 @include Pos;
+                @include Flex($direction:column);
+                padding: 0 53px;
 
                 &__title{
                     font-size: $T4;
@@ -105,6 +110,7 @@
                         font-weight: $weight-400;
                         font:$paragraph;
                         color:$color-two;
+                        margin-bottom:0;
 
                         @include small-device {
                             font:$paragraph-min;

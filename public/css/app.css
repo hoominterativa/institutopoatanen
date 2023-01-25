@@ -1279,8 +1279,10 @@ a {
 .topi102 .container--pd {
   padding: 38px 0 99px 0 !important;
 }
-.topi102 .owl-stage {
-  width: 100% !important;
+.topi102__text {
+  border-bottom: 1px solid #404040;
+  padding-bottom: 26px;
+  margin-bottom: 56px;
 }
 .topi102__encompass__title {
   font-size: 2.5rem;
@@ -1353,11 +1355,17 @@ a {
 .topi102__content__box {
   height: 484px;
 }
+.topi102__content__box__image {
+  width: 100% !important;
+  height: 100% !important;
+}
 .topi102__content__box__image img {
   width: 100% !important;
   height: 100% !important;
-  -o-object-fit: contain !important;
-     object-fit: contain !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 .topi102__content__box__description {
   position: absolute;
@@ -1365,6 +1373,11 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 53px;
 }
 .topi102__content__box__description__title {
   font-size: 1.25rem;
@@ -1383,6 +1396,7 @@ a {
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
   color: #7C7C7C;
+  margin-bottom: 0;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .topi102__content__box__description__paragraph p {

@@ -32,7 +32,7 @@
             {{-- END topi102__category__area --}}
             <div class="topi102__content px-0 w-100 flex-column carousel-topi102 owl-carousel">
                 <article class="topi102__content__box w-100">
-                    <figure class="topi102__content__box__image w-100  mb-0">
+                    <figure class="topi102__content__box__image w-100 h-100  mb-0">
                         <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" class="w-100 h-100" alt="Image Título Tópico">
                     </figure>
                     <div class="topi102__content__box__description text-center w-100">
