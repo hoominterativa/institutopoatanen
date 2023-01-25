@@ -1,3 +1,117 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.topi102{
+    .container--pd{
+        padding: 38px 0 99px 0!important;
+    }
+    .owl-stage{
+        width: 100% !important;
+    }
+    &__text{
+        border-bottom: 1px solid #404040;
+        padding-bottom: 26px;
+        margin-bottom: 56px;
+    }
+    &__encompass{
+        &__title{
+            font-size: $T2;
+            color: $color-one;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            margin-bottom: 10px;
+
+            @include small-device {
+                font-size: $T2-mobile;
+            }
+        }
+        &__subtitle{
+            font-size: $T4;
+            color: $color-three;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            margin-bottom: 10px;
+
+            @include small-device {
+                font-size: $T4-mobile;
+            }
+        }
+    }
+
+    &__navigation{
+        margin-bottom:26px;
+        ul{
+            @include Flex;
+            gap:0 64px;
+
+            li{
+                list-style: none;
+                a{
+                    @include Flex($direction:column);
+                    background: #CACACA;
+                    padding: 13px 38px;
+
+                    .title{
+                        font-size: $T3;
+                        color: $color-black;
+                        font-family: $font-primary;
+                        font-weight: $weight-700;
+                        margin-bottom: 10px;
+
+                        @include small-device {
+                            font-size: $T3-mobile;
+                        }
+                    }
+                    span{
+                        font-size: $T5;
+                        color: $color-black-opacity;
+                        font-family: $font-primary;
+                        font-weight: $weight-700;
+
+                        @include small-device {
+                            font-size: $T5-mobile;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__content{
+        &__box{
+            height:484px;
+
+            &__image{
+                img{
+                    @include Img;
+                }
+            }
+            &__description{
+                @include Pos;
+
+                &__title{
+                    font-size: $T4;
+                    color: $color-black;
+                    font-family: $font-primary;
+                    font-weight: $weight-700;
+                    margin-bottom: 10px;
+
+                    @include small-device {
+                        font-size: $T4-mobile;
+                    }
+                }
+                &__paragraph{
+                    p{
+                        font-family: $font-primary;
+                        font-weight: $weight-400;
+                        font:$paragraph;
+                        color:$color-two;
+
+                        @include small-device {
+                            font:$paragraph-min;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
