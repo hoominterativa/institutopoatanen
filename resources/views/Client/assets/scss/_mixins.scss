@@ -1,7 +1,7 @@
 
 
-@mixin Flex($dFlex:flex, $direction:row, $justify:center, $align:center) {
-    display:$dFlex;
+@mixin Flex($displayFlex:flex, $direction:row, $justify:center, $align:center) {
+    display:$displayFlex;
     flex-direction: $direction;
     justify-content:$justify;
     align-items: $align;
@@ -40,7 +40,6 @@
     bottom: $Bottom;
     left: $Left;
     right: $Right;
-
 }
 
 // responsive

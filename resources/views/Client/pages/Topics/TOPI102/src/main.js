@@ -3,7 +3,7 @@ $(function(){
         $('.topi102__navigation ul').addClass('owl-carousel');
         $('.topi102__navigation ul').addClass('carousel-topi02-navigation');
         $('.carousel-topi02-navigation').owlCarousel({
-            margin:0,
+            margin:7,
             stagePadding:0,
             smartSpeed:450,
             dots:false,
@@ -11,18 +11,22 @@ $(function(){
             responsive: {
                 // breakpoint from 0 up
                 0 : {
-                    items:1
+                    items:1,
+                    margin:-69
                 },
                 // breakpoint from 360 up
                 361 : {
-                    items:1
+                    items:1,
+                    margin:-69
                 },
                 // breakpoint from 768 up
                 500 : {
-                    items:2
+                    items:1,
+                    margin:-69
                 },
                 800 : {
-                    items:3
+                    items:2,
+                    margin:-69
                 }
             }
         });
@@ -33,9 +37,9 @@ $(function(){
         countItem = 4;
     }
     console.log(countItem);
-    
+
     $('.carousel-topi102').owlCarousel({
-        margin:7,
+        margin:0,
         stagePadding:0,
         smartSpeed:450,
         dots:false,
@@ -43,17 +47,21 @@ $(function(){
         responsive: {
             // breakpoint from 0 up
             0 : {
-                items:1
+                items:1,
+                margin:-51
             },
             // breakpoint from 360 up
             361 : {
-                items:1
+                items:1,
+                margin:-51
             },
             500 : {
-                items:2,
+                items:1,
+                margin:-51
             },
             800 : {
-                items:3,
+                items:1,
+                margin:-51
             },
             // breakpoint from 800 up
             850 : {

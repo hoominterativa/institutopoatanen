@@ -2,16 +2,55 @@
 
 /* BEGIN STYLE */
 .topi102{
+    .carousel-topi102 .owl-nav{
+        display: flex !important;
+        gap: 0 18px;
+        justify-content: center;
+        margin-top: 27px;
+    }
+    .carousel-topi102 .owl-nav .owl-prev,
+    .carousel-topi102 .owl-nav .owl-next{
+        height: 29px;
+        width: 29px;
+        border-radius: 100%;
+        background-color: $color-one;
+        @include Flex;
+        border: none;
+    }
+    .carousel-topi102 .owl-nav .owl-prev span,
+    .carousel-topi102 .owl-nav .owl-next span{
+        color:#fff;
+        font-size: 32px;
+        height: 58px;
+    }
     .container--pd{
         padding: 38px 0 99px 0!important;
+
+        @include medium-device-down {
+            max-width:100% !important;
+            padding: 38px 0 99px 26px !important;
+        }
     }
-  
+
     &__text{
         border-bottom: 1px solid #404040;
         padding-bottom: 26px;
         margin-bottom: 56px;
+
+        @include medium-device-down  {
+            flex-direction: column;
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 53px;
+        }
     }
     &__encompass{
+        @include medium-device-down {
+            text-align: center;
+            border-bottom: 1px solid #404040;
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+        }
         &__title{
             font-size: $T2;
             color: $color-one;
@@ -19,8 +58,9 @@
             font-weight: $weight-700;
             margin-bottom: 10px;
 
-            @include small-device {
+            @include medium-device-down  {
                 font-size: $T2-mobile;
+                margin-bottom: 5px;
             }
         }
         &__subtitle{
@@ -30,19 +70,28 @@
             font-weight: $weight-700;
             margin-bottom: 10px;
 
-            @include small-device {
+            @include medium-device-down  {
                 font-size: $T4-mobile;
+                margin-bottom: 0px;
             }
+        }
+    }
+    @include medium-device-down  {
+        .carousel-topi02-navigation{
+            padding-left: 0 !important;
         }
     }
 
     &__navigation{
         margin-bottom:26px;
         ul{
-            @include Flex;
+            @include Flex($direction:row);
             gap:0 64px;
 
             li{
+                @include medium-device-down  {
+                    width: 76%;
+                }
                 list-style: none;
                 a{
                     @include Flex($direction:column);
@@ -54,9 +103,9 @@
                         color: $color-black;
                         font-family: $font-primary;
                         font-weight: $weight-700;
-                        margin-bottom: 10px;
+                        margin-bottom: 3px;
 
-                        @include small-device {
+                        @include medium-device-down  {
                             font-size: $T3-mobile;
                         }
                     }
@@ -66,7 +115,7 @@
                         font-family: $font-primary;
                         font-weight: $weight-700;
 
-                        @include small-device {
+                        @include medium-device-down  {
                             font-size: $T5-mobile;
                         }
                     }
@@ -74,8 +123,13 @@
             }
         }
     }
+
     &__content{
         &__box{
+            position: relative;
+            @include medium-device-down  {
+                width: 85% !important;
+            }
             height:484px;
 
             &__image{
@@ -100,11 +154,16 @@
                     font-weight: $weight-700;
                     margin-bottom: 10px;
 
-                    @include small-device {
+                    @include medium-device-down  {
                         font-size: $T4-mobile;
                     }
                 }
                 &__paragraph{
+                    // @include medium-device-down  {
+                    //     width: 49%;
+                    // }
+
+
                     p{
                         font-family: $font-primary;
                         font-weight: $weight-400;
@@ -112,7 +171,7 @@
                         color:$color-two;
                         margin-bottom:0;
 
-                        @include small-device {
+                        @include medium-device-down  {
                             font:$paragraph-min;
                         }
                     }
