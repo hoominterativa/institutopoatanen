@@ -1276,6 +1276,30 @@ a {
 }
 
 /* BEGIN STYLE */
+.port101 .carousel-port101 .owl-nav {
+  display: flex !important;
+  gap: 0 18px;
+  justify-content: center;
+  margin-top: 109px;
+}
+.port101 .carousel-port101 .owl-nav .owl-prev,
+.port101 .carousel-port101 .owl-nav .owl-next {
+  height: 29px;
+  width: 29px;
+  border-radius: 100%;
+  background-color: #404040;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.port101 .carousel-port101 .owl-nav .owl-prev span,
+.port101 .carousel-port101 .owl-nav .owl-next span {
+  color: #fff;
+  font-size: 32px;
+  height: 58px;
+}
 .port101 .container--pd {
   padding: 84px 0 92px 0 !important;
 }

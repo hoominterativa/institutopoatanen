@@ -3,6 +3,27 @@
 /* BEGIN STYLE */
 // Início-port101
 .port101{
+    .carousel-port101 .owl-nav{
+        display: flex !important;
+        gap: 0 18px;
+        justify-content: center;
+        margin-top: 109px;
+    }
+    .carousel-port101 .owl-nav .owl-prev,
+    .carousel-port101 .owl-nav .owl-next{
+        height: 29px;
+        width: 29px;
+        border-radius: 100%;
+        background-color: $color-one;
+        @include Flex;
+        border: none;
+    }
+    .carousel-port101 .owl-nav .owl-prev span,
+    .carousel-port101 .owl-nav .owl-next span{
+        color:#fff;
+        font-size: 32px;
+        height: 58px;
+    }
     .container--pd{
         padding: 84px 0 92px 0 !important;
     }
@@ -42,7 +63,7 @@
                 @include Flex($dFlex:flex, $direction:column, $justify:flex-end, $align:flex-start);
                 @include Pos;
                 padding:54px 50px;
-                
+
                 &__title{
                     font-size: $T3-mobile;
                     font-family: $font-primary;
