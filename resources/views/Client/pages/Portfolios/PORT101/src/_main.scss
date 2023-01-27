@@ -1,3 +1,47 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.port101{
+    .container--pd{
+        padding: 0 84px 0 92px !important;
+    }
+    &__emcompass{
+        &__title{
+            font-size: $T1;
+            font-family: $font-paragraph;
+            color: $color-black;
+            margin-bottom: 25px;
+            font-weight: $weight-700;
+        }
+        &__subtitle{
+            font-size: $T4;
+            color: $color-two;
+            font-family: $font-paragraph;
+            font-weight: $weight-700;
+        }
+        &__line{
+            width: 100%;
+            margin-top: 28.81px;
+        }
+    }
+    &__content{
+        &__box{
+            &__image{
+                
+            }
+            &__description{
+                &__paragraph{
+                    font:$paragraph;
+                    color:$color-one;
+                    font-weight: $weight-400;
+                }
+                &__paragraph p{
+                    font:$paragraph;
+                    color:$color-one;
+                    font-weight: $weight-400;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
