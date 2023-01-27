@@ -7,7 +7,10 @@
         display: flex !important;
         gap: 0 18px;
         justify-content: center;
-        margin-top: 109px;
+        margin-top:109px;
+        @include medium-device-down {
+            margin-top: 73px;
+        }
     }
     .carousel-port101 .owl-nav .owl-prev,
     .carousel-port101 .owl-nav .owl-next{
@@ -25,7 +28,11 @@
         height: 58px;
     }
     .container--pd{
-        padding: 84px 0 92px 0 !important;
+        padding: 84px 0  92px 0 !important;
+        @include medium-device-down {
+            max-width:none !important;
+            padding: 57px 0  77px 0 !important;
+        }
     }
     &__emcompass{
         margin-bottom:97px;
@@ -35,6 +42,9 @@
             font-family: $font-primary;
             color: $color-black;
             font-weight: $weight-700;
+            @include medium-device-down {
+                font:$T2-mobile;
+            }
         }
         &__subtitle{
             font-size: $T4;
@@ -42,6 +52,10 @@
             font-family: $font-primary;
             font-weight: $weight-700;
             margin-bottom:0;
+
+            @include medium-device-down {
+                font:$T4-mobile;
+            }
         }
         &__line{
             width: 100%;
@@ -50,9 +64,27 @@
         }
     }
     &__content{
+        @include medium-device-down {
+            padding-left: 22px !important;
+        }
         &__box{
             @include Flex($dFlex:flex, $direction:column, $justify:center, $align:center);
             height: 399px;
+            position:relative;
+
+            @include medium-device-down {
+                width: 88% !important;
+            }
+            @include small-device-down{
+                width: 83% !important;
+            }
+
+            a{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+            }
             &__image{
                 @include Img ($ObjectFit: cover);
                 img{
@@ -62,7 +94,12 @@
             &__description{
                 @include Flex($dFlex:flex, $direction:column, $justify:flex-end, $align:flex-start);
                 @include Pos;
+                width:100%;
+                height:100%;
                 padding:54px 50px;
+                @include small-device-down{
+                    padding:29px 34px;
+                }
 
                 &__title{
                     font-size: $T3-mobile;
@@ -70,20 +107,80 @@
                     color: $color-black;
                     font-weight: $weight-700; 
                     margin-bottom:6px;
+
+
                 }
                 &__paragraph{
                     font:$paragraph-min;
                     color:$color-black;
                     font-weight: $weight-400;
+                    @include medium-device-down {
+                        font:$paragraph-min-mobile;
+                    }
                 }
                 &__paragraph p{
                     font:$paragraph-min;
                     color:$color-black;
                     font-weight: $weight-400;
                     margin-bottom: 0;
+
+                    @include medium-device-down {
+                        font:$paragraph-min-mobile;
+                    }
                 }
             }
         }
     }
 }
 // Fim-port101
+
+//Inicio-lightbox-port101
+.fancybox__slide{
+    padding:0 !important;
+}
+.lightbox-port101{
+    display:none;
+    width:100%;
+    height:100%;
+    padding:0;
+
+    &__description{
+        padding-top: 73px !important;
+        padding-left: 76px !important;
+        padding-bottom: 84px !important;
+        padding-right: 124px !important;
+
+        &__title{
+
+        }
+        &__subtitle{
+            
+        }
+    }
+    &__content{
+        display:flex;
+        flex-direction:row;
+        width:100%;
+        height: auto;
+        background: #fff;
+        padding: 0;
+    }
+    &__galery{
+        padding-top: 73px !important;
+        padding-right: 83px !important;
+
+        .item{
+          width:100%;
+          height:407px;  
+        }
+        .carousel-show-port101-nav{
+            @include Flex;
+            a{
+                width:100%;
+                height:100%;
+                display:flex;
+            }
+        }
+    }
+    
+}

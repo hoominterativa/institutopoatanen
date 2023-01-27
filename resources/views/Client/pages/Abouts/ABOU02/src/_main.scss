@@ -62,7 +62,7 @@
                 }
             }
         }
-        @include small-device{
+        @include medium-device-down{
             padding: 0 45px;
             min-height: auto;
 
@@ -144,7 +144,7 @@
             height: 58px;
         }
 
-        @include small-device{
+        @include medium-device-down{
             padding: 0 44px !important;
             margin-top: 43px;
 
@@ -165,7 +165,7 @@
 
     }
 
-    @include small-device{
+    @include medium-device-down{
         &__container{
             padding:61px 0 36px 0 !important;
         }
@@ -199,7 +199,7 @@
             width: 100%;
             margin-top: 28.81px;
         }
-        @include small-device{
+        @include medium-device-down{
             &__title{
                 font-size: $T2-mobile;
                 margin-bottom: 0;
@@ -277,7 +277,7 @@
             }
         }
     }
-    @include small-device{
+    @include medium-device-down{
         &__content{
             padding:0 !important;
         }
@@ -386,7 +386,7 @@
         height: 58px;
     }
 
-    @include small-device{
+    @include medium-device-down{
         overflow: hidden;
         &__encompass__title{
             font-size: $T2-mobile;
@@ -427,7 +427,7 @@
         }
     }
 
-    @include small-device{
+    @include medium-device-down{
         .carousel-abou02-topic .owl-nav {
             margin-left: 17%;
         }
@@ -497,7 +497,7 @@
             }
         }
     }
-    @include small-device{
+    @include medium-device-down{
         &__image{
             order: 1;
             width: 100%;
@@ -573,7 +573,7 @@
         background: $color-one !important;
     }
 
-    @include small-device{
+    @include medium-device-down{
         text-align: center;
     }
 }

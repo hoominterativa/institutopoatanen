@@ -3,7 +3,7 @@
 /* BEGIN STYLE */
 #TOPI01{
     padding: 70px 0;
-    @include small-device{
+    @include medium-device-down{
         padding: 35px 0;
     }
     .header-topic{
@@ -29,7 +29,7 @@
             margin-bottom: 50px;
             margin-top: 25px;
 
-            @include small-device{
+            @include medium-device-down{
                 width: 90%;
             }
         }
@@ -38,11 +38,11 @@
         }
     }
     .container-box {
-        @include small-device{
+        @include medium-device-down{
             width: 70%;
         }
         .owl-stage-outer{
-            @include small-device{
+            @include medium-device-down{
                 overflow: visible;
             }
         }
