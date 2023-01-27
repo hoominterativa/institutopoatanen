@@ -35,6 +35,7 @@
                 } 
             }
             &__description{
+                @include Flex($dFlex:flex, $direction:column, $justify:center, $align:center);
                 &__paragraph{
                     font:$paragraph;
                     color:$color-one;

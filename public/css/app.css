@@ -1315,6 +1315,12 @@ a {
   -o-object-fit: cover !important;
      object-fit: cover !important;
 }
+.port101__content__box__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .port101__content__box__description__paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
   color: #404040;

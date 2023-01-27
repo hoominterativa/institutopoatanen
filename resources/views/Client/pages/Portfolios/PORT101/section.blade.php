@@ -19,6 +19,45 @@
                     </div>
                 </div>
             </div>
+            <div class="port101__content__box">
+                <div class="port101__content__box__image">
+                    <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico<">
+                </div>
+                <div class="port101__content__box__description">
+                    <h4 class="port101__content__box__description__title">Título Tópico</h4>
+                    <div class="port101__content__box__description__paragraph">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="port101__content__box">
+                <div class="port101__content__box__image">
+                    <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico<">
+                </div>
+                <div class="port101__content__box__description">
+                    <h4 class="port101__content__box__description__title">Título Tópico</h4>
+                    <div class="port101__content__box__description__paragraph">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="port101__content__box">
+                <div class="port101__content__box__image">
+                    <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico<">
+                </div>
+                <div class="port101__content__box__description">
+                    <h4 class="port101__content__box__description__title">Título Tópico</h4>
+                    <div class="port101__content__box__description__paragraph">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
