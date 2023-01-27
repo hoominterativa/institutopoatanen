@@ -1,4 +1,4 @@
-<section id="PORT101" class="port101 container-fluid px-0">
+<section id="PORT101" class="port101 container-fluid px-0" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
     <div class="container container--pd">
         <header class="port101__emcompass text-center">
             <h4 class="port101__emcompass__title">Título Tópico</h4>
