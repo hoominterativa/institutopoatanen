@@ -5,11 +5,10 @@
             <h5 class="port101__emcompass__subtitle">Subtitulo</h5>
             <hr class="port101__emcompass__line"/>
         </header>
-        <div class="port101__content">
-        {{-- <div class="port101__content carousel-port101 owl-carousel"> --}}
+        <div class="port101__content carousel-port101 owl-carousel">
             <div class="port101__content__box">
                 <div class="port101__content__box__image">
-                    <img src="" alt="">
+                    <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico<">
                 </div>
                 <div class="port101__content__box__description">
                     <h4 class="port101__content__box__description__title">Título Tópico</h4>

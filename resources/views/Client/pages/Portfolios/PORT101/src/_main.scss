@@ -3,7 +3,7 @@
 /* BEGIN STYLE */
 .port101{
     .container--pd{
-        padding: 0 84px 0 92px !important;
+        padding: 84px 0 92px 0 !important;
     }
     &__emcompass{
         &__title{
@@ -26,8 +26,13 @@
     }
     &__content{
         &__box{
+            @include Flex($dFlex:flex, $direction:column, $justify:center, $align:center);
+            height: 399px;
             &__image{
-                
+                @include Img ($ObjectFit: cover);
+                img{
+                    @include Img ($ObjectFit: cover);
+                } 
             }
             &__description{
                 &__paragraph{
