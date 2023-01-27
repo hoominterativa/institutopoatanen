@@ -12139,7 +12139,7 @@ $(function () {
     stagePadding: 0,
     smartSpeed: 450,
     dots: false,
-    nav: false,
+    nav: true,
     responsive: {
       // breakpoint from 0 up
       0: {
