@@ -1,27 +1,31 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+// Início-port101
 .port101{
     .container--pd{
         padding: 84px 0 92px 0 !important;
     }
     &__emcompass{
+        margin-bottom:97px;
+
         &__title{
-            font-size: $T1;
-            font-family: $font-paragraph;
+            font-size: $T2;
+            font-family: $font-primary;
             color: $color-black;
-            margin-bottom: 25px;
             font-weight: $weight-700;
         }
         &__subtitle{
             font-size: $T4;
             color: $color-two;
-            font-family: $font-paragraph;
+            font-family: $font-primary;
             font-weight: $weight-700;
+            margin-bottom:0;
         }
         &__line{
             width: 100%;
-            margin-top: 28.81px;
+            margin-top: 18px;
+            margin-bottom:0;
         }
     }
     &__content{
@@ -35,15 +39,25 @@
                 } 
             }
             &__description{
-                @include Flex($dFlex:flex, $direction:column, $justify:center, $align:center);
+                @include Flex($dFlex:flex, $direction:column, $justify:flex-end, $align:flex-start);
+                @include Pos;
+                padding:54px 50px;
+                
+                &__title{
+                    font-size: $T3-mobile;
+                    font-family: $font-primary;
+                    color: $color-black;
+                    font-weight: $weight-700; 
+                    margin-bottom:6px;
+                }
                 &__paragraph{
-                    font:$paragraph;
-                    color:$color-one;
+                    font:$paragraph-min;
+                    color:$color-black;
                     font-weight: $weight-400;
                 }
                 &__paragraph p{
-                    font:$paragraph;
-                    color:$color-one;
+                    font:$paragraph-min;
+                    color:$color-black;
                     font-weight: $weight-400;
                     margin-bottom: 0;
                 }
@@ -51,3 +65,4 @@
         }
     }
 }
+// Fim-port101

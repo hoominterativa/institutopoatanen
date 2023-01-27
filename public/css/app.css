@@ -1279,22 +1279,26 @@ a {
 .port101 .container--pd {
   padding: 84px 0 92px 0 !important;
 }
+.port101__emcompass {
+  margin-bottom: 97px;
+}
 .port101__emcompass__title {
-  font-size: 3.125rem;
-  font-family: "Montserrat", sans-serif, arial;
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
   color: #000;
-  margin-bottom: 25px;
   font-weight: 700;
 }
 .port101__emcompass__subtitle {
   font-size: 1.25rem;
   color: #7C7C7C;
-  font-family: "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
+  margin-bottom: 0;
 }
 .port101__emcompass__line {
   width: 100%;
-  margin-top: 28.81px;
+  margin-top: 18px;
+  margin-bottom: 0;
 }
 .port101__content__box {
   display: flex;
@@ -1318,17 +1322,30 @@ a {
 .port101__content__box__description {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 54px 50px;
+}
+.port101__content__box__description__title {
+  font-size: 1.563rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 .port101__content__box__description__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #404040;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #000;
   font-weight: 400;
 }
 .port101__content__box__description__paragraph p {
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #404040;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #000;
   font-weight: 400;
   margin-bottom: 0;
 }
