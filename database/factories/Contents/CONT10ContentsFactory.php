@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\CONT10Contents;
+use App\Models\Contents\CONT10Contents;
 
 class CONT10ContentsFactory extends Factory
 {
