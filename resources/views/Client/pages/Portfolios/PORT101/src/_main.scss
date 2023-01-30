@@ -138,49 +138,178 @@
 .fancybox__slide{
     padding:0 !important;
 }
+
 .lightbox-port101{
     display:none;
     width:100%;
-    height:100%;
+    height:100vw;
     padding:0;
-
-    &__description{
-        padding-top: 73px !important;
-        padding-left: 76px !important;
-        padding-bottom: 84px !important;
-        padding-right: 124px !important;
-
-        &__title{
-
-        }
-        &__subtitle{
-            
-        }
+    @include small-device-down{
+        height:100%;
     }
+   .lightbox-port101  .fancybox__content>.carousel__button.is-close{
+        right: 18px !important;
+        top: 20px !important;
+        width: auto !important;
+    }
+    &__description{
+            padding-top: 73px !important;
+            padding-left: 76px !important;
+            padding-bottom: 84px !important;
+            padding-right: 124px !important;
+
+            @include small-device-down{
+                padding-left: 37px !important;
+                padding-right: 37px !important;
+            }
+
+            &__title{
+                font-family:$font-primary;
+                font-weight: $weight-700;
+                font-size:$T2;
+                @include small-device-down{
+                    font-size:$T2-mobile;
+                    text-align:center;
+                }
+            }
+            &__subtitle{
+                font-family:$font-primary;
+                font-weight: $weight-400;
+                font-size:$T4;
+                color:#7C7C7C;
+                @include small-device-down{
+                    font-size:$T4-mobile;
+                    text-align:center;
+                }
+
+            }
+            &__paragraph{
+
+                p{
+                    margin-bottom:0;
+                }
+            }
+        }
+        &__cta{
+            @include Flex;
+            color: #7C7C7C;
+            background: #FFFFFF;
+            width: 100%;
+            max-width: 177px;
+            height: 45px;
+            font-family:$font-primary;
+            font-weight: $weight-700;
+            margin-top:28px;
+
+            &__icon{
+                height: 25px;
+                width: 25px;
+                object-fit:contain;
+            }
+
+            @include small-device{
+                font: $paragraph-mobile;
+                margin-top: 39px;
+                width: 147px;
+            }
+    
+            &:hover{
+                color: $color-white;
+                background-color: $bg-black;
+    
+                .lightbox-port101__description__cta__icon{
+                    filter: invert(1) grayscale(1);
+                }
+            }
+        }
     &__content{
         display:flex;
         flex-direction:row;
         width:100%;
-        height: auto;
-        background: #fff;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         padding: 0;
+
+        @include small-device-down{
+            height:auto;
+        }
     }
     &__galery{
         padding-top: 73px !important;
         padding-right: 83px !important;
-
+        @include small-device-down{
+            margin: 0 auto;
+            padding-top: 73px !important;
+            padding-right: 0 !important;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
         .item{
           width:100%;
           height:407px;  
+
+          @include small-device-down{
+            height:189px;
+          }
         }
         .carousel-show-port101-nav{
             @include Flex;
             a{
                 width:100%;
-                height:100%;
+                height:144px;
                 display:flex;
             }
+
+            @include small-device-down{
+                height:67px;
+            }
         }
+        .carousel-show-port101-nav .owl-nav {
+            display: flex !important;
+            gap: 0 18px;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+          }
+          
+          .carousel-show-port101-nav .owl-nav .owl-prev{
+            left: -52px;
+          }
+          .carousel-show-port101-nav .owl-nav .owl-next{
+            right: -52px;
+          }
+          .carousel-show-port101-nav .owl-nav .owl-prev,
+          .carousel-show-port101-nav .owl-nav .owl-next {
+            height: 29px;
+            width: 29px;
+            border-radius: 100%;
+            background-color: #404040;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            position: absolute;
+
+            @include small-device-down{
+                height:13.49px;
+            }
+          }
+          .carousel-show-port101-nav .owl-nav .owl-prev span,
+          .carousel-show-port101-nav .owl-nav .owl-next span {
+            color: #fff;
+            font-size: 32px;
+            height: 58px;
+
+            @include small-device-down{
+                font-size: 22px;
+            }
+          }
     }
     
 }

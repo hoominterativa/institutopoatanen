@@ -12181,7 +12181,16 @@ $(function () {
     startPosition: 'URLHash' // E ESSE
 
   });
-  $('.carousel-show-port101').css('width', $('#lightbox-port101-1').outerWidth() / 2 + 16);
+  $('.carousel-show-port101').css('width', $(window).outerWidth() / 2 - 91);
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101').css('width', $(window).outerWidth() - 74);
+  }
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101').css('width', $(window).outerWidth() - 74);
+  }
+
   $('.carousel-show-port101-nav').owlCarousel({
     margin: 12,
     stagePadding: 0,
@@ -12192,16 +12201,16 @@ $(function () {
     // touchDrag:false,
     items: 4
   });
-  $('.carousel-show-port101-nav').css('width', $('#lightbox-port101-1').outerWidth() / 2 + 16); // Change defaults
+  $('.carousel-show-port101-nav').css('width', $(window).outerWidth() / 2 - 91);
 
-  $('[data-fancybox]').fancybox({
-    touch: false
-  });
-  var fotoNav = document.getElementById("foto-nav");
-  fotoNav.addEventListener('click', function (event) {
-    event.preventDefault();
-    fotoNav.removeAttribute("tabindex", "1");
-  });
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 74);
+  }
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 74);
+  } // Change defaults
+
 });
 
 /***/ }),

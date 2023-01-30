@@ -1441,8 +1441,18 @@ a {
 .lightbox-port101 {
   display: none;
   width: 100%;
-  height: 100%;
+  height: 100vw;
   padding: 0;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101 {
+    height: 100%;
+  }
+}
+.lightbox-port101 .lightbox-port101 .fancybox__content > .carousel__button.is-close {
+  right: 18px !important;
+  top: 20px !important;
+  width: auto !important;
 }
 .lightbox-port101__description {
   padding-top: 73px !important;
@@ -1450,17 +1460,101 @@ a {
   padding-bottom: 84px !important;
   padding-right: 124px !important;
 }
+@media (max-width: 575.98px) {
+  .lightbox-port101__description {
+    padding-left: 37px !important;
+    padding-right: 37px !important;
+  }
+}
+.lightbox-port101__description__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101__description__title {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+}
+.lightbox-port101__description__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #7C7C7C;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101__description__subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+}
+.lightbox-port101__description__paragraph p {
+  margin-bottom: 0;
+}
+.lightbox-port101__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #7C7C7C;
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 177px;
+  height: 45px;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-top: 28px;
+}
+.lightbox-port101__cta__icon {
+  height: 25px;
+  width: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lightbox-port101__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 39px;
+    width: 147px;
+  }
+}
+.lightbox-port101__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.lightbox-port101__cta:hover .lightbox-port101__description__cta__icon {
+  filter: invert(1) grayscale(1);
+}
 .lightbox-port101__content {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: auto;
-  background: #fff;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 0;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101__content {
+    height: auto;
+  }
 }
 .lightbox-port101__galery {
   padding-top: 73px !important;
   padding-right: 83px !important;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101__galery {
+    margin: 0 auto;
+    padding-top: 73px !important;
+    padding-right: 0 !important;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
 .lightbox-port101__galery .item {
   width: 100%;
@@ -1476,6 +1570,39 @@ a {
   width: 100%;
   height: 100%;
   display: flex;
+}
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav {
+  display: flex !important;
+  gap: 0 18px;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev {
+  left: -52px;
+}
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next {
+  right: -52px;
+}
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev,
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next {
+  height: 29px;
+  width: 29px;
+  border-radius: 100%;
+  background-color: #404040;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  position: absolute;
+}
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev span,
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next span {
+  color: #fff;
+  font-size: 32px;
+  height: 58px;
 }
 
 /* BEGIN STYLE */
