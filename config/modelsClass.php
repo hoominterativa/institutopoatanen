@@ -49,6 +49,11 @@ return [
                 'model' => App\Models\Contents\CONT06Contents::class,
                 'seedQty' => 1,
             ],
+            'CONT10' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT10Controller::class,
+                'model' => App\Models\Contents\CONT10Contents::class,
+                'seedQty' => 1,
+            ],
         ],
         // END CONTENTS
 
