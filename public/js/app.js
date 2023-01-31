@@ -11724,7 +11724,7 @@ window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODU
 $(document).ready(function () {
   $('[data-toggle="input-mask"]').each(function (a, e) {
     var t = $(e).data("maskFormat"),
-        n = $(e).data("reverse");
+      n = $(e).data("reverse");
     null != n ? $(e).mask(t, {
       reverse: n
     }) : $(e).mask(t);
@@ -11811,7 +11811,7 @@ $(function () {
   $('.send_form_ajax').on('submit', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]),
-        action = $(this).attr('action');
+      action = $(this).attr('action');
     $.ajax({
       type: 'POST',
       url: action,
@@ -11903,8 +11903,7 @@ function resizeHeightSlide() {
   // mw500=700
   if ($('[data-slide-height]').length) {
     var heightSlide = $('[data-slide-height]').data('slide-height'),
-        heightWindow = $(window).outerHeight();
-
+      heightWindow = $(window).outerHeight();
     if (heightSlide.split(',')) {
       if (heightSlide.split(',')[0] == 'auto') {
         slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
@@ -11912,9 +11911,8 @@ function resizeHeightSlide() {
       } else {
         $.each(heightSlide.split(','), function (index, value) {
           var maxWidth = value.split('=')[0].replace('mw', ''),
-              widthWindow = $(window).outerWidth();
+            widthWindow = $(window).outerWidth();
           height = value.split('=')[1], slideHeight = height == 'auto' ? heightWindow : height + 'px';
-
           if (widthWindow <= maxWidth) {
             $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
           }
@@ -11926,18 +11924,15 @@ function resizeHeightSlide() {
     }
   }
 }
-
 function insertImageMobile() {
   // INCLUDE IMAGE MOBILE
   if ($(window).outerWidth() <= 800) {
     $.each($('[data-image-mobile]'), function (index, value) {
       var imageMobile = $(this).data('image-mobile');
-
       switch (value.localName) {
         case 'img':
           $(this).attr('src', imageMobile);
           break;
-
         default:
           $(this).css('backgound', "url(".concat(imageMobile, ")"));
           break;
@@ -11945,20 +11940,20 @@ function insertImageMobile() {
     });
   }
 }
-
 $(function () {
   // SET HEADER FLOATING
   var ff = $('.fixed-floating'),
-      hf = ff.find('.header-floating'),
-      minScrolling = ff.data('min-scrolling');
+    hf = ff.find('.header-floating'),
+    minScrolling = ff.data('min-scrolling');
   $(window).on('scroll', function () {
     if ($(this).scrollTop() >= minScrolling && !hf.hasClass('floating')) {
       hf.stop().addClass('floating');
     } else if ($(this).scrollTop() < minScrolling - 10 && hf.hasClass('floating')) {
       hf.stop().removeClass('floating');
     }
-  }); // SETTINGS SLIDE
+  });
 
+  // SETTINGS SLIDE
   insertImageMobile();
   resizeHeightSlide();
   $(window).on('resize', function () {
@@ -11967,10 +11962,9 @@ $(function () {
   });
   $('form input:not(input[type=hidden], input[type=checkbox], input[type=radio]), form textarea').each(function (elem) {
     var that = $(this),
-        placeholder = that.attr('placeholder'),
-        name = that.attr('name'),
-        typeElem = that[0].localName;
-
+      placeholder = that.attr('placeholder'),
+      name = that.attr('name'),
+      typeElem = that[0].localName;
     if (placeholder) {
       var focusInput = function focusInput(elem) {
         elem.css('height', 'auto');
@@ -11986,24 +11980,22 @@ $(function () {
           });
         });
       };
-
       if (typeElem == 'select') {
         placeholder = that.find('option').first().text();
         that.find('option').first().text('');
       }
-
       that.parent().append("\n                <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n            "));
       that.parent().find('.form-placeholder').append(that);
       that.removeAttr('placeholder');
       that.attr('id', name);
       var formPlaceholder = that.parent(),
-          placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-          thisPadding = that.css('padding'),
-          thisHeight = that.css('height'),
-          thisWidth = that.css('width'),
-          thisFont = that.css('font'),
-          thisFontSize = that.css('font-size'),
-          thisLineHeight = that.css('line-height');
+        placeholderCustom = formPlaceholder.find('.placeholder--custom'),
+        thisPadding = that.css('padding'),
+        thisHeight = that.css('height'),
+        thisWidth = that.css('width'),
+        thisFont = that.css('font'),
+        thisFontSize = that.css('font-size'),
+        thisLineHeight = that.css('line-height');
       that.css('height', thisHeight);
       formPlaceholder.css({
         'position': 'relative'
@@ -12039,20 +12031,20 @@ $(function () {
   });
   $('form select').each(function (elem) {
     var that = $(this),
-        placeholder = that.find('option').first().text(),
-        name = that.attr('name');
+      placeholder = that.find('option').first().text(),
+      name = that.attr('name');
     that.parent().append("\n            <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
     that.parent().find('.form-placeholder').append(that);
     that.removeAttr('placeholder');
     that.attr('id', name);
     var formPlaceholder = that.parent(),
-        placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-        thisPadding = that.css('padding'),
-        thisHeight = that.css('height'),
-        thisWidth = that.css('width'),
-        thisFont = that.css('font'),
-        thisFontSize = that.css('font-size'),
-        thisLineHeight = that.css('line-height');
+      placeholderCustom = formPlaceholder.find('.placeholder--custom'),
+      thisPadding = that.css('padding'),
+      thisHeight = that.css('height'),
+      thisWidth = that.css('width'),
+      thisFont = that.css('font'),
+      thisFontSize = that.css('font-size'),
+      thisLineHeight = that.css('line-height');
     that.css('height', thisHeight);
     formPlaceholder.css({
       'position': 'relative'
@@ -12071,7 +12063,6 @@ $(function () {
     });
     that.on('change', function () {
       var thisValue = $(this).val();
-
       if (thisValue != '') {
         placeholderCustom.css({
           'height': 'auto',
@@ -12151,7 +12142,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap base-component.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap base-component.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12168,7 +12159,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): base-component.js
+   * Bootstrap (v5.2.3): base-component.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12176,7 +12167,7 @@ $(function () {
    * Constants
    */
 
-  const VERSION = '5.2.1';
+  const VERSION = '5.2.3';
   /**
    * Class definition
    */
@@ -12260,7 +12251,7 @@ $(function () {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap data.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap data.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12271,7 +12262,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/data.js
+   * Bootstrap (v5.2.3): dom/data.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12336,7 +12327,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap event-handler.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap event-handler.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12347,7 +12338,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/event-handler.js
+   * Bootstrap (v5.2.3): dom/event-handler.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12629,7 +12620,7 @@ $(function () {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap manipulator.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap manipulator.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12640,7 +12631,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/manipulator.js
+   * Bootstrap (v5.2.3): dom/manipulator.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12723,7 +12714,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap selector-engine.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap selector-engine.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12734,7 +12725,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dom/selector-engine.js
+   * Bootstrap (v5.2.3): dom/selector-engine.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12818,7 +12809,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap dropdown.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap dropdown.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12855,7 +12846,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): dropdown.js
+   * Bootstrap (v5.2.3): dropdown.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12927,7 +12918,7 @@ $(function () {
       this._parent = this._element.parentNode; // dropdown wrapper
       // todo: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.2/forms/input-group/
 
-      this._menu = SelectorEngine__default.default.next(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.prev(this._element, SELECTOR_MENU)[0];
+      this._menu = SelectorEngine__default.default.next(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.prev(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.findOne(SELECTOR_MENU, this._parent);
       this._inNavbar = this._detectNavbar();
     } // Getters
 
@@ -13245,7 +13236,7 @@ $(function () {
 
       event.preventDefault(); // todo: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.2/forms/input-group/
 
-      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default.default.prev(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.next(this, SELECTOR_DATA_TOGGLE)[0];
+      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default.default.prev(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.next(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.findOne(SELECTOR_DATA_TOGGLE, event.delegateTarget.parentNode);
       const instance = Dropdown.getOrCreateInstance(getToggleButton);
 
       if (isUpOrDownEvent) {
@@ -13300,7 +13291,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap config.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap config.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13315,7 +13306,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): util/config.js
+   * Bootstrap (v5.2.3): util/config.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -13390,7 +13381,7 @@ $(function () {
 
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /*!
-  * Bootstrap index.js v5.2.1 (https://getbootstrap.com/)
+  * Bootstrap index.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13401,7 +13392,7 @@ $(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.1): util/index.js
+   * Bootstrap (v5.2.3): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -13794,7 +13785,7 @@ k("input"),watchDataMask:!1,byPassKeys:[9,16,17,18,36,37,38,39,40,91],translatio
 /***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.6.1
+ * jQuery JavaScript Library v3.6.2
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -13804,7 +13795,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2022-08-26T17:52Z
+ * Date: 2022-12-13T14:56Z
  */
 ( function( global, factory ) {
 
@@ -13946,7 +13937,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.6.1",
+	version = "3.6.2",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -14317,14 +14308,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.6
+ * Sizzle CSS Selector Engine v2.3.8
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2021-02-16
+ * Date: 2022-11-16
  */
 ( function( window ) {
 var i,
@@ -14674,6 +14665,27 @@ function Sizzle( selector, context, results, seed ) {
 				}
 
 				try {
+
+					// `qSA` may not throw for unrecognized parts using forgiving parsing:
+					// https://drafts.csswg.org/selectors/#forgiving-selector
+					// like the `:has()` pseudo-class:
+					// https://drafts.csswg.org/selectors/#relational
+					// `CSS.supports` is still expected to return `false` then:
+					// https://drafts.csswg.org/css-conditional-4/#typedef-supports-selector-fn
+					// https://drafts.csswg.org/css-conditional-4/#dfn-support-selector
+					if ( support.cssSupportsSelector &&
+
+						// eslint-disable-next-line no-undef
+						!CSS.supports( "selector(" + newSelector + ")" ) ) {
+
+						// Support: IE 11+
+						// Throw to get to the same code path as an error directly in qSA.
+						// Note: once we only support browser supporting
+						// `CSS.supports('selector(...)')`, we can most likely drop
+						// the `try-catch`. IE doesn't implement the API.
+						throw new Error();
+					}
+
 					push.apply( results,
 						newContext.querySelectorAll( newSelector )
 					);
@@ -14969,6 +14981,31 @@ setDocument = Sizzle.setDocument = function( node ) {
 			!el.querySelectorAll( ":scope fieldset div" ).length;
 	} );
 
+	// Support: Chrome 105+, Firefox 104+, Safari 15.4+
+	// Make sure forgiving mode is not used in `CSS.supports( "selector(...)" )`.
+	//
+	// `:is()` uses a forgiving selector list as an argument and is widely
+	// implemented, so it's a good one to test against.
+	support.cssSupportsSelector = assert( function() {
+		/* eslint-disable no-undef */
+
+		return CSS.supports( "selector(*)" ) &&
+
+			// Support: Firefox 78-81 only
+			// In old Firefox, `:is()` didn't use forgiving parsing. In that case,
+			// fail this test as there's no selector to test against that.
+			// `CSS.supports` uses unforgiving parsing
+			document.querySelectorAll( ":is(:jqfake)" ) &&
+
+			// `*` is needed as Safari & newer Chrome implemented something in between
+			// for `:has()` - it throws in `qSA` if it only contains an unsupported
+			// argument but multiple ones, one of which is supported, are fine.
+			// We want to play safe in case `:is()` gets the same treatment.
+			!CSS.supports( "selector(:is(*,:jqfake))" );
+
+		/* eslint-enable */
+	} );
+
 	/* Attributes
 	---------------------------------------------------------------------- */
 
@@ -15235,6 +15272,18 @@ setDocument = Sizzle.setDocument = function( node ) {
 		} );
 	}
 
+	if ( !support.cssSupportsSelector ) {
+
+		// Support: Chrome 105+, Safari 15.4+
+		// `:has()` uses a forgiving selector list as an argument so our regular
+		// `try-catch` mechanism fails to catch `:has()` with arguments not supported
+		// natively like `:has(:contains("Foo"))`. Where supported & spec-compliant,
+		// we now use `CSS.supports("selector(SELECTOR_TO_BE_TESTED)")` but outside
+		// that, let's mark `:has` as buggy to always use jQuery traversal for
+		// `:has()`.
+		rbuggyQSA.push( ":has" );
+	}
+
 	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join( "|" ) );
 	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join( "|" ) );
 
@@ -15247,7 +15296,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// As in, an element does not contain itself
 	contains = hasCompare || rnative.test( docElem.contains ) ?
 		function( a, b ) {
-			var adown = a.nodeType === 9 ? a.documentElement : a,
+
+			// Support: IE <9 only
+			// IE doesn't have `contains` on `document` so we need to check for
+			// `documentElement` presence.
+			// We need to fall back to `a` when `documentElement` is missing
+			// as `ownerDocument` of elements within `<template/>` may have
+			// a null one - a default behavior of all modern browsers.
+			var adown = a.nodeType === 9 && a.documentElement || a,
 				bup = b && b.parentNode;
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
@@ -16037,7 +16093,7 @@ Expr = Sizzle.selectors = {
 			return elem.nodeName.toLowerCase() === "input" &&
 				elem.type === "text" &&
 
-				// Support: IE<8
+				// Support: IE <10 only
 				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
 				( ( attr = elem.getAttribute( "type" ) ) == null ||
 					attr.toLowerCase() === "text" );
@@ -20403,17 +20459,37 @@ function curCSS( elem, name, computed ) {
 	//   .css('filter') (IE 9 only, trac-12537)
 	//   .css('--customProperty) (gh-3144)
 	if ( computed ) {
+
+		// Support: IE <=9 - 11+
+		// IE only supports `"float"` in `getPropertyValue`; in computed styles
+		// it's only available as `"cssFloat"`. We no longer modify properties
+		// sent to `.css()` apart from camelCasing, so we need to check both.
+		// Normally, this would create difference in behavior: if
+		// `getPropertyValue` returns an empty string, the value returned
+		// by `.css()` would be `undefined`. This is usually the case for
+		// disconnected elements. However, in IE even disconnected elements
+		// with no styles return `"none"` for `getPropertyValue( "float" )`
 		ret = computed.getPropertyValue( name ) || computed[ name ];
 
-		// trim whitespace for custom property (issue gh-4926)
-		if ( isCustomProp ) {
+		if ( isCustomProp && ret ) {
 
-			// rtrim treats U+000D CARRIAGE RETURN and U+000C FORM FEED
+			// Support: Firefox 105+, Chrome <=105+
+			// Spec requires trimming whitespace for custom properties (gh-4926).
+			// Firefox only trims leading whitespace. Chrome just collapses
+			// both leading & trailing whitespace to a single space.
+			//
+			// Fall back to `undefined` if empty string returned.
+			// This collapses a missing definition with property defined
+			// and set to an empty string but there's no standard API
+			// allowing us to differentiate them without a performance penalty
+			// and returning `undefined` aligns with older jQuery.
+			//
+			// rtrimCSS treats U+000D CARRIAGE RETURN and U+000C FORM FEED
 			// as whitespace while CSS does not, but this is not a problem
 			// because CSS preprocessing replaces them with U+000A LINE FEED
 			// (which *is* CSS whitespace)
 			// https://www.w3.org/TR/css-syntax-3/#input-preprocessing
-			ret = ret.replace( rtrimCSS, "$1" );
+			ret = ret.replace( rtrimCSS, "$1" ) || undefined;
 		}
 
 		if ( ret === "" && !isAttached( elem ) ) {

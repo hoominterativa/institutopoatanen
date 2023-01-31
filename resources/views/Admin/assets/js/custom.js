@@ -237,7 +237,9 @@ $(function() {
 
     $('body').on('click', '.dropify-clear', function() {
         var nameInput = $(this).parent().find('input:first').attr('name')
-        $(this).parent().find('input[name=delete]').remove()
+        $(this).parent().find(`input[name=delete_${nameInput}]`).remove()
+        $(this).parent().find(`.preview-image`).css('background-image','url()')
+        $(this).parent().find(`.content-area-image-crop`).show()
         $(this).parent().append(`<input type="hidden" name="delete_${nameInput}" value="${nameInput}" />`);
     })
 
