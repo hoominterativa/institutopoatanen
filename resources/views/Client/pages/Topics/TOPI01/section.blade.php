@@ -24,11 +24,15 @@
                             <article class="box-topic col">
                                 <div class="content transition">
                                     <a href="{{$topic->link??'javascript:void(0)'}}" {{$topic->target_link=='_lightbox'?'data-fancybox':'target='.$topic->target_link}}>
-                                        <img src="{{asset('storage/'.$topic->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                                        @if ($topic->path_image)
+                                            <img src="{{asset('storage/'.$topic->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                                        @endif
                                         <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                                            <figure class="image">
-                                                <img src="{{asset('storage/'.$topic->path_image_icon)}}" class="icon" width="50px" alt="">
-                                            </figure>
+                                            @if ($topic->path_image_icon)
+                                                <figure class="image">
+                                                    <img src="{{asset('storage/'.$topic->path_image_icon)}}" class="icon" width="50px" alt="">
+                                                </figure>
+                                            @endif
                                             <div class="description">
                                                 <h3 class="title">{{$topic->title}}</h3>
                                                 <p class="paragraph">{{$topic->description}}</p>
