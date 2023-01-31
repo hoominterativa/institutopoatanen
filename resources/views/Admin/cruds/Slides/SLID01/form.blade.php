@@ -77,6 +77,7 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
+            {{-- Image Crop --}}
             <div class="mb-3">
                 <div class="container-image-crop">
                     <div class="d-flex align-items-center mb-1">
@@ -84,15 +85,17 @@
                         <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
                             data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                             data-bs-original-title="Imagem que ficará visível sobre a imagem do desktop e ao lado do conteúdo de texto no banner."></i>
+                            <small class="ms-2">Dimensão proporcional mínima 450x399px</small>
                     </div>
-                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
+                    <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_png', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'1/1',
-                            'data-height'=>'150',
+                            'data-min-width'=>'1400', // px
+                            'data-min-height'=>'600', // px
+                            'data-box-height'=>'225', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($slide)?$slide->path_image_png<>''?url('storage/'.$slide->path_image_png):'':'',
+                            'data-default-file'=> isset($slide)?($slide->path_image_png<>''?url('storage/'.$slide->path_image_png):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
