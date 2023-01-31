@@ -11880,10 +11880,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT03/src/main */ "./resources/views/Client/Core/Footers/FOOT03/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID02/src/main */ "./resources/views/Client/pages/Slides/SLID02/src/main.js");
-/* harmony import */ var _pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
+/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Topics/TOPI01/src/main */ "./resources/views/Client/pages/Topics/TOPI01/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Services/SERV01/src/main */ "./resources/views/Client/pages/Services/SERV01/src/main.js");
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _pages_Contents_CONT03_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Contents/CONT03/src/main */ "./resources/views/Client/pages/Contents/CONT03/src/main.js");
+/* harmony import */ var _pages_Contents_CONT03_src_main__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT03_src_main__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Topics/TOPI02/src/main */ "./resources/views/Client/pages/Topics/TOPI02/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/ContentPages/COPA01/src/main */ "./resources/views/Client/pages/ContentPages/COPA01/src/main.js");
+/* harmony import */ var _pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _pages_WorkWith_WOWI01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/WorkWith/WOWI01/src/main */ "./resources/views/Client/pages/WorkWith/WOWI01/src/main.js");
+/* harmony import */ var _pages_WorkWith_WOWI01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_WorkWith_WOWI01_src_main__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Contacts/COTA01/src/main */ "./resources/views/Client/pages/Contacts/COTA01/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11904,7 +11931,7 @@ function resizeHeightSlide() {
   if ($('[data-slide-height]').length) {
     var heightSlide = $('[data-slide-height]').data('slide-height'),
       heightWindow = $(window).outerHeight();
-    if (heightSlide.split(',')) {
+    if (!Number.isInteger(heightSlide)) {
       if (heightSlide.split(',')[0] == 'auto') {
         slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
         $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
@@ -12100,6 +12127,123 @@ $(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Abouts/ABOU01/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-abou01-topic').addClass('owl-carousel');
+    $('.carousel-abou01-topic').owlCarousel({
+      margin: 5,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: true,
+      nav: false,
+      rewind: true,
+      autoHeight: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 361 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 800 up
+        800: {
+          items: 3,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Blogs/BLOG01/src/main.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.blog01__boxs__carousel').addClass('owl-carousel');
+    $('.blog01__boxs__carousel').owlCarousel({
+      margin: 10,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 4,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+    $('.blog01-page__header__category__carousel').addClass('owl-carousel');
+    $('.blog01-page__header__category__carousel').owlCarousel({
+      margin: 10,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 2
+        }
+      }
+    });
+  }
+  $('.blog01-page__boxs__featured__carousel').addClass('owl-carousel');
+  $('.blog01-page__boxs__featured__carousel').owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 1
+      }
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/views/Client/pages/Compliances/COMP01/src/main.js":
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
@@ -12110,15 +12254,159 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Slides/SLID02/src/main.js":
+/***/ "./resources/views/Client/pages/Contacts/COTA01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contacts/COTA01/src/main.js ***!
+  \******************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/ContentPages/COPA01/src/main.js":
+/*!**********************************************************************!*\
+  !*** ./resources/views/Client/pages/ContentPages/COPA01/src/main.js ***!
+  \**********************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contents/CONT03/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT03/src/main.js ***!
+  \******************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Services/SERV01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Services/SERV01/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-serv01').addClass('owl-carousel');
+    $('.carousel-serv01').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+    $('.carousel-serv01-show__links').addClass('owl-carousel');
+    $('.carousel-serv01-show__links').owlCarousel({
+      margin: 11,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 2
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 2
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+    $('.carousel-serv01-show__topics').addClass('owl-carousel');
+    $('.carousel-serv01-show__topics').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 4,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+  }
+  // END if($(window).outerWidth() <= 800){
+
+  $('.carousel-serv01-show__portfolios').addClass('owl-carousel');
+  $('.carousel-serv01-show__portfolios').owlCarousel({
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 4
+      }
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Slides/SLID01/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Slides/SLID02/src/main.js ***!
+  !*** ./resources/views/Client/pages/Slides/SLID01/src/main.js ***!
   \****************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(function () {
-  $('.SLID02').owlCarousel({
+  $('.SLID01').owlCarousel({
     animateOut: 'fadeOut',
     items: 1,
     margin: 0,
@@ -12131,6 +12419,149 @@ $(function () {
     nav: false,
     dotsContainer: "#dotsSlideCustom"
   });
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Topics/TOPI01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI01/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-topi01').addClass('owl-carousel');
+    $('.carousel-topi01').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Topics/TOPI02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI02/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-topi02').addClass('owl-carousel');
+    $('.carousel-topi02').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/WorkWith/WOWI01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/WorkWith/WOWI01/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-wowi01').addClass('owl-carousel');
+    $('.carousel-wowi01').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+    $('.wowi01-show__container-box__carousel').addClass('owl-carousel');
+    $('.wowi01-show__container-box__carousel').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+  }
+  // END if($(window).outerWidth() <= 800){
 });
 
 /***/ }),

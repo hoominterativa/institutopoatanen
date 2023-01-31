@@ -61,7 +61,7 @@
                                         <tr>
                                             <th width="50"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
                                             <th>Title</th>
                                             <th>Link</th>
@@ -75,7 +75,7 @@
                                             <tr data-code="{{$social->id}}">
                                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
-                                                    <label><input data-index="{{$key}}" name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$social->id}}"></label>
+                                                    <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$social->id}}"></label>
                                                 </td>
                                                 <td>{{$social->title}}</td>
                                                 <td><a class="breakText text-muted" href="{{$social->link}}">{{$social->link}}</a></td>

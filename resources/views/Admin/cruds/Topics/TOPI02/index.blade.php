@@ -82,7 +82,7 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
                                             <th width="90px"></th>
                                             <th>Título</th>
@@ -96,7 +96,7 @@
                                             <tr data-code="{{$topic->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$topic->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group text-center">
                                                     <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$topic->path_image)}})"></div>

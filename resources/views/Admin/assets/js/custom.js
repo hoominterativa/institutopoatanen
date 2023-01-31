@@ -212,25 +212,35 @@ $(function() {
     })
 
     $('input[name=btnSelectItem]').on('click', function() {
-        var btnDelete = $(this).parents('table').find('input[name=btnSelectAll]').val()
-        if (!$(this).parents('table').find('.btnSelectItem:checked').length) {
+        const table = $(this).parents('table')
+        var btnDelete = table.find('input[name=btnSelectAll]').val(),
+            lengthTotal = table.find('.btnSelectItem').length,
+            lengthChecked = table.find('.btnSelectItem:checked').length
+
+        if (!lengthChecked) {
             $(`.${btnDelete}`).fadeOut('fast');
         } else {
             $(`.${btnDelete}`).fadeIn('fast');
         }
+
+        table.find('input[name=btnSelectAll]').prop('checked', false)
+        if(lengthTotal == lengthChecked) table.find('input[name=btnSelectAll]').prop('checked', true)
     })
 
     $('input[name=btnSelectAll]').on('click', function() {
+        const table = $(this).parents('table')
         var btnDelete = $(this).val()
-        if ($(this).parents('table').find('.btnSelectItem:checked').length == $(this).parents('table').find('.btnSelectItem').length) {
+
+        if (table.find('.btnSelectItem:checked').length == table.find('.btnSelectItem').length) {
             $(`.${btnDelete}`).fadeOut('fast');
             var checked = false
         } else {
-            $(this).parents('table').find('input[name=btnSelectAll]').prop('checked', true)
+            table.find('input[name=btnSelectAll]').prop('checked', true)
             $(`.${btnDelete}`).fadeIn('fast');
             var checked = true
         }
-        $(this).parents('table').find('.btnSelectItem').each(function() {
+
+        table.find('.btnSelectItem').each(function() {
             $(this).prop("checked", checked)
         })
     })

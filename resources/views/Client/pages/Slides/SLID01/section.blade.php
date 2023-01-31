@@ -1,4 +1,4 @@
-<section id="SLID01" class="container-fluid p-0" data-slide-height="auto">
+<section id="SLID01" class="container-fluid p-0" data-slide-height="780">
     <div class="SLID01 owl-carousel">
         @foreach ($slides as $slide)
             <div class="container-slide container-fluid">
