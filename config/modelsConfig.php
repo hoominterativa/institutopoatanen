@@ -8,7 +8,7 @@ return [
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT03'
+            'Code' => 'FOOT04'
         ]
     ],
 
