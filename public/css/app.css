@@ -1276,101 +1276,109 @@ a {
 }
 
 /* BEGIN STYLE */
-#SLID02 {
-  position: relative;
+.cont10 .container--pd {
+  padding: 84px 0 89px 0;
 }
-#SLID02 .img-background-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+.cont10__encompass {
+  padding-bottom: 20px;
+  margin-bottom: 68px;
+  border-bottom: 1px solid #404040;
 }
-#SLID02 .content-slide {
-  height: 100%;
-  position: relative;
-  padding-bottom: 103px;
-}
-#SLID02 .content-slide.center {
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-#SLID02 .content-slide.center .img-floating-png {
-  display: none;
-}
-#SLID02 .content-slide.end {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-#SLID02 .content-slide.end .img-floating-png {
-  left: 0;
-}
-#SLID02 .content-slide .content-description {
-  z-index: 20;
-  background: #CACACA;
-  max-width: 322px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 7px 28px !important;
-  padding-bottom: 18.84px !important;
-  justify-content: center;
-  align-items: center;
-}
-#SLID02 .content-slide .content-description .title {
-  font-size: 1.125rem;
-  font-family: "Ubuntu", sans-serif, arial;
+.cont10__encompass__title {
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #404040;
-  display: block;
-  margin-bottom: 12px;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #SLID02 .content-slide .content-description .title {
-    font-size: 1.063rem;
+@media (max-width: 991.98px) {
+  .cont10__encompass__title {
+    font-size: 1.875rem;
   }
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #SLID02 .content-slide {
-    justify-content: center;
-    align-items: end !important;
+.cont10__encompass__subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #7C7C7C;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+@media (max-width: 991.98px) {
+  .cont10__encompass__subtitle {
+    font-size: 1.125rem;
   }
 }
-#SLID02 .content-network {
+.cont10__content {
+  background: #CACACA;
+  height: 555px;
+  max-width: 449px;
+  width: 100%;
+  margin-left: auto;
+  padding: 28px 35px;
+}
+@media (max-width: 991.98px) {
+  .cont10__content {
+    margin: 0 auto;
+    width: 93%;
+    padding: 28px 7px;
+  }
+}
+.cont10__content__navigation {
+  border-bottom: 1px solid rgba(64, 64, 64, 0.15);
+  padding: 10px 17px 10px 12px;
   display: flex;
-  justify-content: center;
-  gap: 0 23.87px;
+  margin-bottom: 0;
 }
-#SLID02 .btn-cta-network img {
-  height: 25px;
-  width: 25px;
-  -o-object-fit: contain;
-     object-fit: contain;
+.cont10__content__navigation__title {
+  list-style: none;
+  flex: 0 0 auto;
+  width: 33.33333333%;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 14px;
 }
-#SLID02 #dotsSlideCustom {
-  position: absolute;
-  top: 50%;
-  right: 3%;
-  z-index: 100;
-  transform: translate(0, -50%);
+.cont10__content__list__item {
+  list-style: none;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.15);
+  padding: 10px 17px 10px 12px;
+  display: flex;
+  margin-bottom: 0;
 }
-#SLID02 #dotsSlideCustom .owl-dot {
-  width: 13px;
-  height: 13px;
+.cont10__content__list__item__title {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #707070;
+  font-weight: 700;
+}
+.cont10__content__list:last-of-type {
+  border-bottom: 1px solid transparent;
+}
+.cont10__content__cta {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  font-size: 15px;
   display: block;
-  border-radius: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 0;
-  margin: 0 0 5px 0;
-  border: none;
+  height: 30px;
+  max-width: 128px;
+  width: 100%;
+  background-color: #EFEFEF;
 }
-#SLID02 #dotsSlideCustom .owl-dot:hover, #SLID02 #dotsSlideCustom .owl-dot.active {
-  background-color: #7C7C7C;
+@media (max-width: 991.98px) {
+  .cont10__content__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cont10__content__cta__icon {
+  width: 16.65px !important;
+}
+.cont10__content__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.cont10__content__cta:hover .cont10__content__cta__icon {
+  filter: invert(1) grayscale(1);
 }
 
 /* BEGIN STYLE */

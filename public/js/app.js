@@ -11880,8 +11880,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT03/src/main */ "./resources/views/Client/Core/Footers/FOOT03/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID02/src/main */ "./resources/views/Client/pages/Slides/SLID02/src/main.js");
-/* harmony import */ var _pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT10/src/main */ "./resources/views/Client/pages/Contents/CONT10/src/main.js");
+/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12119,27 +12119,49 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Slides/SLID02/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Slides/SLID02/src/main.js ***!
-  \****************************************************************/
+/***/ "./resources/views/Client/pages/Contents/CONT10/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT10/src/main.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  $('.SLID02').owlCarousel({
-    animateOut: 'fadeOut',
-    items: 1,
+function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
+  var quantItemAppend = $(element).find('>*').length;
+  var refFor = quantItemAppend / quantItem;
+
+  for (var i = 1; i <= refFor; i++) {
+    $(element).append('<div class="contItemAppend' + i + ' pd-carrossel"></div>');
+    $(element).find('> *:lt(' + quantItem + ')').addClass('appendItem' + i);
+    $(element).find('.appendItem' + i).appendTo('.contItemAppend' + i + '');
+  }
+
+  $(element).owlCarousel({
+    loop: false,
     margin: 0,
-    stagePadding: 0,
-    smartSpeed: 450,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    loop: true,
-    dots: true,
-    nav: false,
-    dotsContainer: "#dotsSlideCustom"
-  });
+    nav: nav,
+    dots: dots,
+    autoplay: auto,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      650: {
+        items: 1
+      },
+      840: {
+        items: quantLamina
+      }
+    }
+  }); // FIM $('.owl-carousel').owlCarousel({
+}
+
+$(function () {
+  carrosselMultItem('.caroulsel-cont10', 6, 1, false, false, true);
 });
 
 /***/ }),
