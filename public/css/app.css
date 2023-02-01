@@ -1275,7 +1275,91 @@ a {
   list-style: none;
 }
 
-/* BEGIN STYLE */ /* BEGIN STYLE */
+/* BEGIN STYLE */
+.cont07 {
+  padding: 63px 0 59px 0;
+}
+.cont07__emcompass {
+  padding-bottom: 17.02px;
+  border-bottom: 1px solid #404040;
+}
+.cont07__emcompass__title {
+  color: #404040;
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 300;
+}
+.cont07__emcompass__subtitle {
+  color: #404040;
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 300;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont07__boxVideo {
+    width: 100%;
+  }
+}
+.cont07__boxVideo__content {
+  width: 884px;
+  height: 439px;
+  margin: 0 auto;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.cont07__boxVideo__content .play {
+  width: 87px;
+  height: 87px;
+}
+.cont07__boxVideo__content iframe {
+  width: 884px;
+  height: 439px;
+}
+.cont07__boxVideo__content__video {
+  height: 100%;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont07__boxVideo__content {
+    width: 85%;
+    height: 166px;
+  }
+  .cont07__boxVideo__content .play {
+    width: 59px;
+    height: 59px;
+  }
+  .cont07__boxVideo__content iframe {
+    width: 80%;
+    height: 166px;
+  }
+}
+.cont07__cta {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  display: block;
+  margin: 28px auto 0;
+  max-width: 177px;
+  padding: 10px 15px;
+  background-color: #CACACA;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont07__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin: 36px auto 0;
+    width: 147px;
+  }
+}
+.cont07__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.cont07__cta:hover .cont07__cta__icon {
+  filter: invert(1) grayscale(1);
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;

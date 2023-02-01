@@ -1,3 +1,96 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.cont07{
+    padding: 63px 0 59px 0;
+    &__emcompass{
+        padding-bottom:17.02px;
+        border-bottom: 1px solid #404040;
+        
+        &__title{
+            color: $color-one;
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-300;
+        }
+        &__subtitle{
+            color: $color-one;
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-300;
+        }
+    }
+    &__boxVideo{
+
+        @include small-device {
+            width:100%;
+        }
+
+        &__content{
+            width:884px;
+            height: 439px;
+            margin:  0 auto;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            .play{
+                width: 87px;
+                height: 87px;
+            }
+
+            iframe{
+                width:884px;
+                height: 439px;
+            }
+            &__video{
+                height: 100%;
+            }
+
+            @include small-device {
+                width:85%;
+                height: 166px;
+
+                .play{
+                    width: 59px;
+                    height: 59px;
+                }
+
+                iframe{
+                    width:80%;
+                    height: 166px;
+                }
+
+            }
+        }
+
+        
+    }
+
+    &__cta{
+        font: $paragraph;
+        font-weight: $weight-700;
+        color: $color-black;
+        display: block;
+        margin: 28px auto 0;
+        max-width: 177px;
+        padding: 10px 15px;
+        background-color: $bg-soft;
+
+        @include small-device{
+            font: $paragraph-mobile;
+            margin: 36px auto 0;
+            width: 147px;
+        }
+
+        &:hover{
+            color: $color-white;
+            background-color: $bg-black;
+
+            .cont07__cta__icon{
+                filter: invert(1) grayscale(1);
+            }
+        }
+    }
+}
