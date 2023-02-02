@@ -1,3 +1,37 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+#CONT06{
+    .container--pd{
+        padding:84px 0 89px 0 ;
+    }
+    &__encompass{
+        padding-bottom:20px;
+        margin-bottom:68px;
+        border-bottom:1px solid $color-one;
+
+        &__title{
+            font-size: $T2;
+            font-weight: $weight-700;
+            color: $color-black;
+            font-family:$font-primary;
+
+            @include large-device-down{
+                font-size: $T2-mobile;
+            }
+        }
+        &__subtitle{
+            font-size: $T4;
+            font-weight: $weight-700;
+            color: $color-two;
+            font-family:$font-primary;
+
+            @include large-device-down{
+                font-size: $T4-mobile;
+            }
+        }
+    }
+    &__content{
+
+    }
+}
