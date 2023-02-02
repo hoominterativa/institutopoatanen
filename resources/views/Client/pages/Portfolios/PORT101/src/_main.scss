@@ -89,7 +89,7 @@
                 @include Img ($ObjectFit: cover);
                 img{
                     @include Img ($ObjectFit: cover);
-                } 
+                }
             }
             &__description{
                 @include Flex($dFlex:flex, $direction:column, $justify:flex-end, $align:flex-start);
@@ -105,7 +105,7 @@
                     font-size: $T3-mobile;
                     font-family: $font-primary;
                     color: $color-black;
-                    font-weight: $weight-700; 
+                    font-weight: $weight-700;
                     margin-bottom:6px;
 
 
@@ -147,6 +147,7 @@
     @include small-device-down{
         height:100%;
     }
+
    .lightbox-port101  .fancybox__content>.carousel__button.is-close{
         right: 18px !important;
         top: 20px !important;
@@ -189,39 +190,40 @@
                     margin-bottom:0;
                 }
             }
-        }
-        &__cta{
-            @include Flex;
-            color: #7C7C7C;
-            background: #FFFFFF;
-            width: 100%;
-            max-width: 177px;
-            height: 45px;
-            font-family:$font-primary;
-            font-weight: $weight-700;
-            margin-top:28px;
+            &__cta{
+                @include Flex;
+                color: #7C7C7C;
+                background: #FFFFFF;
+                width: 100%;
+                max-width: 177px;
+                height: 45px;
+                font-family:$font-primary;
+                font-weight: $weight-700;
+                margin-top:28px;
 
-            &__icon{
-                height: 25px;
-                width: 25px;
-                object-fit:contain;
-            }
+                &__icon{
+                    height: 25px;
+                    width: 25px;
+                    object-fit:contain;
+                }
 
-            @include small-device{
-                font: $paragraph-mobile;
-                margin-top: 39px;
-                width: 147px;
-            }
-    
-            &:hover{
-                color: $color-white;
-                background-color: $bg-black;
-    
-                .lightbox-port101__description__cta__icon{
-                    filter: invert(1) grayscale(1);
+                @include small-device{
+                    font: $paragraph-mobile;
+                    margin-top: 39px;
+                    width: 147px;
+                }
+
+                &:hover{
+                    color: $color-white;
+                    background-color: $bg-black;
+
+                    .lightbox-port101__description__cta__icon{
+                        filter: invert(1) grayscale(1);
+                    }
                 }
             }
         }
+
     &__content{
         display:flex;
         flex-direction:row;
@@ -250,7 +252,7 @@
         }
         .item{
           width:100%;
-          height:407px;  
+          height:407px;
 
           @include small-device-down{
             height:189px;
@@ -276,7 +278,7 @@
             top: 50%;
             width: 100%;
           }
-          
+
           .carousel-show-port101-nav .owl-nav .owl-prev{
             left: -52px;
           }
@@ -311,5 +313,5 @@
             }
           }
     }
-    
+
 }

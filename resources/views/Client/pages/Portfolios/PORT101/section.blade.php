@@ -8,7 +8,7 @@
         {{-- END .port101__emcompass --}}
         <div class="port101__content carousel-port101 owl-carousel">
             <div class="port101__content__box">
-                <a rel="next" data-fancybox data-src="#lightbox-port101-1" href="javascript:;" data-options='{"touch" : false, "dragToClose": false}'>
+                <a rel="next" data-modal="#lightbox-port101-1">
                     <div class="port101__content__box__image">
                         <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
                     </div>
@@ -25,7 +25,7 @@
             </div>
            {{-- END .port101__content__box --}}
             <div class="port101__content__box">
-                <a rel="next" data-fancybox data-src="#lightbox-port101-1" href="javascript:;" data-options='{"touch" : false, "dragToClose": false}'>
+                <a rel="next" data-modal="#lightbox-port101-1">
                     <div class="port101__content__box__image">
                         <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
                     </div>
@@ -42,7 +42,7 @@
             </div>
            {{-- END .port101__content__box --}}
             <div class="port101__content__box">
-                <a rel="next" data-fancybox data-src="#lightbox-port101-1" href="javascript:;" data-options='{"touch" : false, "dragToClose": false}'>
+                <a rel="next" data-modal="#lightbox-port101-1">
                     <div class="port101__content__box__image">
                         <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
                     </div>
@@ -59,7 +59,7 @@
             </div>
            {{-- END .port101__content__box --}}
             <div class="port101__content__box">
-                <a rel="next" data-fancybox data-src="#lightbox-port101-1" href="javascript:;" data-options='{"touch" : false, "dragToClose": false}'>
+                <a rel="next" data-modal="#lightbox-port101-1" href="javascript:void(0);">
                     <div class="port101__content__box__image">
                         <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
                     </div>

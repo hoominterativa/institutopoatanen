@@ -1,6 +1,6 @@
 
-<div id="lightbox-port101-1" class="lightbox-port101 row px-0 mx-auto" >
-    <div class="lightbox-port101__content" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
+<div id="lightbox-port101-1" class="lightbox-port101 row px-0 mx-auto modal">
+    <div class="lightbox-port101__content modal__content" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
         <div class="row px-0 px-0 mx-0 w-100 h-100">
             <div class="lightbox-port101__description p-5 col-md-6 d-block">
                 <h3 class="lightbox-port101__description__title">Título Tópico</h3>
@@ -8,7 +8,7 @@
                 <hr class="lightbox-port101__description__line">
                 <div class="lightbox-port101__description__paragraph">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi  
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi
                     </p>
                 </div>
                  <a href="#" class="lightbox-port101__description__cta transition d-flex justify-content-center align-items-center">
@@ -21,22 +21,22 @@
                 <div class="carousel-show-port101 owl-carousel">
                     <div class="item" data-hash="foto-1">
                         <a href="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-fancybox>
-                            <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" class="h-100 w-100" alt="Subtitulo"> 
+                            <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" class="h-100 w-100" alt="Subtitulo">
                         </a>
                     </div>
-                    <div class="item" data-hash="foto-2"> 
+                    <div class="item" data-hash="foto-2">
                          <a href="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-fancybox>
-                            <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" class="h-100 w-100" alt="Subtitulo"> 
+                            <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" class="h-100 w-100" alt="Subtitulo">
                         </a>
                     </div>
                     <div class="item" data-hash="foto-3">
                          <a href="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-fancybox>
-                            <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" class="h-100 w-100" alt="Subtitulo"> 
+                            <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" class="h-100 w-100" alt="Subtitulo">
                         </a>
                     </div>
                     <div class="item" data-hash="foto-4">
                          <a href="{{asset('storage/uploads/tmp/gall01_image12.png')}}" data-fancybox>
-                            <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" class="h-100 w-100" alt="Subtitulo"> 
+                            <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" class="h-100 w-100" alt="Subtitulo">
                         </a>
                     </div>
                 </div>

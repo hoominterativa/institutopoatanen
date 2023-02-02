@@ -54,7 +54,7 @@ $(function(){
         margin:0,
         // mouseDrag:false,
         // touchDrag:false,
-        URLhashListener:true, // ESSE 
+        URLhashListener:true, // ESSE
         autoplayHoverPause:true,
         startPosition: 'URLHash' // E ESSE
     });
@@ -86,6 +86,6 @@ $(function(){
         $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 74);
     }
     // Change defaults
- 
+
 })
 

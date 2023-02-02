@@ -1492,7 +1492,7 @@ a {
 .lightbox-port101__description__paragraph p {
   margin-bottom: 0;
 }
-.lightbox-port101__cta {
+.lightbox-port101__description__cta {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1506,24 +1506,24 @@ a {
   font-weight: 700;
   margin-top: 28px;
 }
-.lightbox-port101__cta__icon {
+.lightbox-port101__description__cta__icon {
   height: 25px;
   width: 25px;
   -o-object-fit: contain;
      object-fit: contain;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .lightbox-port101__cta {
+  .lightbox-port101__description__cta {
     font: 0.938rem "Montserrat", sans-serif, arial;
     margin-top: 39px;
     width: 147px;
   }
 }
-.lightbox-port101__cta:hover {
+.lightbox-port101__description__cta:hover {
   color: #fff;
   background-color: #000;
 }
-.lightbox-port101__cta:hover .lightbox-port101__description__cta__icon {
+.lightbox-port101__description__cta:hover .lightbox-port101__description__cta__icon {
   filter: invert(1) grayscale(1);
 }
 .lightbox-port101__content {
@@ -1560,6 +1560,11 @@ a {
   width: 100%;
   height: 407px;
 }
+@media (max-width: 575.98px) {
+  .lightbox-port101__galery .item {
+    height: 189px;
+  }
+}
 .lightbox-port101__galery .carousel-show-port101-nav {
   display: flex;
   flex-direction: row;
@@ -1568,8 +1573,13 @@ a {
 }
 .lightbox-port101__galery .carousel-show-port101-nav a {
   width: 100%;
-  height: 100%;
+  height: 144px;
   display: flex;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101__galery .carousel-show-port101-nav {
+    height: 67px;
+  }
 }
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav {
   display: flex !important;
@@ -1598,11 +1608,23 @@ a {
   border: none;
   position: absolute;
 }
+@media (max-width: 575.98px) {
+  .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev,
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next {
+    height: 13.49px;
+  }
+}
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev span,
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next span {
   color: #fff;
   font-size: 32px;
   height: 58px;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev span,
+.lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next span {
+    font-size: 22px;
+  }
 }
 
 /* BEGIN STYLE */
