@@ -1306,22 +1306,37 @@ a {
     font-size: 1.125rem;
   }
 }
+.cont09__content__boxLeft__description {
+  width: 100%;
+  max-width: 487px;
+  background: #CACACA;
+}
 .cont09__content__boxLeft__description__title {
-  font-size: 2.5rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #000;
   font-family: "Ubuntu", sans-serif, arial;
 }
 @media (max-width: 991.98px) {
   .cont09__content__boxLeft__description__title {
-    font-size: 1.875rem;
+    font-size: 1.063rem;
   }
 }
+.cont09__content__boxLeft__description__link {
+  display: flex;
+  align-items: center;
+  gap: 0 36px;
+  margin: 0 auto;
+}
+.cont09__content__boxLeft__description__link a {
+  width: 38px;
+  height: 38px;
+}
 .cont09__content__boxLeft__description__link a img {
-  width: 100% !important;
-  height: 100% !important;
-  -o-object-fit: contain !important;
-     object-fit: contain !important;
+  width: 38px;
+  height: 38px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .cont09__content__boxLeft__description__paragraph p {
   font: 1rem "Montserrat", sans-serif, arial;
@@ -1333,8 +1348,13 @@ a {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.cont09__content__boxRight {
-  display: flex;
+.cont09__content__boxRight__iframe {
+  width: 100%;
+  height: 579px;
+}
+.cont09__content__boxRight__iframe iframe {
+  width: 100%;
+  height: 100%;
 }
 
 /* BEGIN STYLE */

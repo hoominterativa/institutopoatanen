@@ -5,21 +5,21 @@
             <h5 class="cont09__encompass__subtitle">Subtitulo</h5>
         </header>
         <div class="cont09__content row justify-content-between d-flex">
-            <div class="cont09__content__boxLeft col-sm-5">
+            <div class="cont09__content__boxLeft col-sm-5 px-0 text-center align-items-center justify-content-center">
                 <div class="cont09__content__boxLeft__description">
                     <h4 class="cont09__content__boxLeft__description__title">TITULO</h4>
                     <div class="cont09__content__boxLeft__description__link">
                         <a href="#" target="_blank" class="transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px"/>
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}"/>
                         </a>
                         <a href="#" target="_blank" class="transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px"/>
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}"/>
                         </a>
                         <a href="#" target="_blank" class="transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px"/>
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}"/>
                         </a>
                         <a href="#" target="_blank" class="transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px"/>
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" />
                         </a>
                     </div>
                 </div>
@@ -27,9 +27,9 @@
                     <p>Descrição</p>
                 </div>
             </div>
-            <div class="cont09__content__boxRight col-sm-5">
+            <div class="cont09__content__boxRight col-sm-5 px-0">
                 <div class="cont09__content__boxRight__iframe">
-                    <iframe />
+                    <iframe src="https://www.w3schools.com" height="500" title="Iframe Example"></iframe>
                 </div>
             </div>
         </div>
