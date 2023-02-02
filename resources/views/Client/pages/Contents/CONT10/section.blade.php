@@ -11,7 +11,18 @@
                     <li class="cont10__content__navigation__title">Local</li>
                     <li class="cont10__content__navigation__title">CTA</li>
                 </ul>
-                <div class="caroulsel-cont10 cont10__content__list owl-carousel">
+                <div class="carousel-cont10 cont10__content__list owl-carousel">
+                    <ul class="cont10__content__list__item ">
+                        <li class="cont10__content__list__item__title">03/10/2022</li>
+                        <li class="cont10__content__list__item__title">Local</li>
+                        <li class="cont10__content__list__item__title">
+                            <a href="#" class="cont10__content__cta transition d-flex justify-content-center align-items-center">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="cont10__content__cta__icon me-3 transition">
+                                CTA
+                            </a>
+                        </li>
+                    </ul>
+                    {{-- END #cont10__content__list__item --}}
                     <ul class="cont10__content__list__item ">
                         <li class="cont10__content__list__item__title">03/10/2022</li>
                         <li class="cont10__content__list__item__title">Local</li>

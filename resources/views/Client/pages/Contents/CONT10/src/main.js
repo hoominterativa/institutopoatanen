@@ -4,14 +4,9 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots){
 
     var refFor = quantItemAppend / quantItem;
 
-
-
     for(var i=1; i <= refFor; i++){
 
-            
-
         $(element).append('<div class="contItemAppend'+i+' pd-carrossel"></div>');
-
 
         $(element).find('> *:lt('+quantItem+')').addClass('appendItem'+i);
 
@@ -19,19 +14,17 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots){
 
     }
 
-    
-
     $(element).owlCarousel({
 
-        loop: false,
+        loop: true,
 
-        margin:0,
+
 
         nav: nav,
 
         dots: dots,
 
-        autoplay: auto,
+        autoplay: true,
 
         responsiveClass:true,
 
@@ -49,7 +42,7 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots){
 
             },
 
-            650:{
+            620:{
 
                 items:1
 
@@ -57,7 +50,9 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots){
 
             840:{
 
-                items: quantLamina
+                items: quantLamina,
+
+                margin:0,
 
             }
 
@@ -66,7 +61,6 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots){
     });// FIM $('.owl-carousel').owlCarousel({
 
 }
-
 $(function(){
-    carrosselMultItem('.caroulsel-cont10', 6, 1, false, false, true);
+    carrosselMultItem('.carousel-cont10', 6, 1, true, true, true);
 })

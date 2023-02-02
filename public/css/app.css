@@ -1308,7 +1308,7 @@ a {
 }
 .cont10__content {
   background: #CACACA;
-  height: 555px;
+  height: 404px;
   max-width: 449px;
   width: 100%;
   margin-left: auto;
@@ -1338,7 +1338,7 @@ a {
   line-height: 14px;
 }
 .cont10__content__list {
-  height: 500px;
+  height: 341px;
 }
 .cont10__content__list__item {
   list-style: none;
@@ -1353,9 +1353,6 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   color: #707070;
   font-weight: 700;
-}
-.cont10__content__list:last-of-type {
-  border-bottom: 1px solid transparent;
 }
 .cont10__content__cta {
   font: 1rem "Montserrat", sans-serif, arial;
@@ -1383,23 +1380,23 @@ a {
 .cont10__content__cta:hover .cont10__content__cta__icon {
   filter: invert(1) grayscale(1);
 }
-.cont10 .caroulsel-cont10 .owl-nav {
+.cont10 .carousel-cont10 .owl-nav {
   display: flex !important;
   gap: 0 18px;
   justify-content: space-between;
   position: absolute;
   transform: translate(0, 50%);
   left: 50%;
-  bottom: 0;
+  bottom: 14px;
 }
-.cont10 .caroulsel-cont10 .owl-nav .owl-prev {
+.cont10 .carousel-cont10 .owl-nav .owl-prev {
   left: -52px;
 }
-.cont10 .caroulsel-cont10 .owl-nav .owl-next {
+.cont10 .carousel-cont10 .owl-nav .owl-next {
   right: -52px;
 }
-.cont10 .caroulsel-cont10 .owl-nav .owl-prev,
-.cont10 .caroulsel-cont10 .owl-nav .owl-next {
+.cont10 .carousel-cont10 .owl-nav .owl-prev,
+.cont10 .carousel-cont10 .owl-nav .owl-next {
   height: 29px;
   width: 29px;
   border-radius: 100%;
@@ -1411,23 +1408,11 @@ a {
   border: none;
   position: absolute;
 }
-@media (max-width: 575.98px) {
-  .cont10 .caroulsel-cont10 .owl-nav .owl-prev,
-.cont10 .caroulsel-cont10 .owl-nav .owl-next {
-    height: 13.49px;
-  }
-}
-.cont10 .caroulsel-cont10 .owl-nav .owl-prev span,
-.cont10 .caroulsel-cont10 .owl-nav .owl-next span {
+.cont10 .carousel-cont10 .owl-nav .owl-prev span,
+.cont10 .carousel-cont10 .owl-nav .owl-next span {
   color: #fff;
   font-size: 32px;
   height: 58px;
-}
-@media (max-width: 575.98px) {
-  .cont10 .caroulsel-cont10 .owl-nav .owl-prev span,
-.cont10 .caroulsel-cont10 .owl-nav .owl-next span {
-    font-size: 22px;
-  }
 }
 
 /* BEGIN STYLE */

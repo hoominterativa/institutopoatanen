@@ -33,7 +33,7 @@
     }
     &__content{
         background: #CACACA;
-        height: 555px;
+        height: 404px;
         max-width: 449px;
         width:100%;
         margin-left: auto;
@@ -59,11 +59,11 @@
                 font-weight: $weight-700;
                 font-size: 15px;
                 line-height: 14px;
-            } 
-        } 
+            }
+        }
 
         &__list{
-            height: 500px;
+            height: 341px;
 
             &__item{
                 list-style:none;
@@ -79,12 +79,13 @@
                     color: #707070;
                     font-weight: $weight-700;
                 }
-            } 
 
-            &:last-of-type{
-                border-bottom:1px solid transparent;
-            }  
-        } 
+            }
+            // .pd-carrossel &__item:last-of-type{
+            //     border-bottom:1px solid transparent;
+            // }
+
+        }
 
 
         &__cta{
@@ -114,24 +115,24 @@
             }
         }
     }
-    .caroulsel-cont10 .owl-nav {
+    .carousel-cont10 .owl-nav {
         display: flex !important;
         gap: 0 18px;
         justify-content: space-between;
         position: absolute;
         transform: translate(0, 50%);
         left: 50%;
-        bottom: 0;
+        bottom: 14px;
       }
-      
-      .caroulsel-cont10 .owl-nav .owl-prev{
+
+      .carousel-cont10 .owl-nav .owl-prev{
         left: -52px;
       }
-      .caroulsel-cont10 .owl-nav .owl-next{
+      .carousel-cont10 .owl-nav .owl-next{
         right: -52px;
       }
-      .caroulsel-cont10 .owl-nav .owl-prev,
-      .caroulsel-cont10 .owl-nav .owl-next {
+      .carousel-cont10 .owl-nav .owl-prev,
+      .carousel-cont10 .owl-nav .owl-next {
         height: 29px;
         width: 29px;
         border-radius: 100%;
@@ -143,19 +144,16 @@
         border: none;
         position: absolute;
 
-        @include small-device-down{
-            height:13.49px;
-        }
+
+
       }
-      .caroulsel-cont10 .owl-nav .owl-prev span,
-      .caroulsel-cont10 .owl-nav .owl-next span {
+      .carousel-cont10 .owl-nav .owl-prev span,
+      .carousel-cont10 .owl-nav .owl-next span {
         color: #fff;
         font-size: 32px;
         height: 58px;
 
-        @include small-device-down{
-            font-size: 22px;
-        }
+
       }
 
 }

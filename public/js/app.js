@@ -12137,11 +12137,10 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
   }
 
   $(element).owlCarousel({
-    loop: false,
-    margin: 0,
+    loop: true,
     nav: nav,
     dots: dots,
-    autoplay: auto,
+    autoplay: true,
     responsiveClass: true,
     responsive: {
       0: {
@@ -12150,18 +12149,19 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
       400: {
         items: 1
       },
-      650: {
+      620: {
         items: 1
       },
       840: {
-        items: quantLamina
+        items: quantLamina,
+        margin: 0
       }
     }
   }); // FIM $('.owl-carousel').owlCarousel({
 }
 
 $(function () {
-  carrosselMultItem('.caroulsel-cont10', 6, 1, false, false, true);
+  carrosselMultItem('.carousel-cont10', 6, 1, true, true, true);
 });
 
 /***/ }),
