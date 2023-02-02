@@ -23,7 +23,8 @@ class ABOU01Controller extends Controller
     {
         $about = ABOU01Abouts::with('topics')->first();
         return view('Admin.cruds.Abouts.ABOU01.edit',[
-            'about' => $about
+            'about' => $about,
+            'cropSetting' => getCropImage('Abouts', 'ABOU01')
         ]);
     }
 

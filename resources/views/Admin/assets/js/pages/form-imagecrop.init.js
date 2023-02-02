@@ -11,14 +11,14 @@ $(function() {
                 htmlInput = `
                     <div class="preview-image"></div>
                     <div class="content-area-image-crop">
-                        <i class="mdi mdi-upload"></i>
+                        <i class="icon-cloud-upload"></i>
                         <p>Arraste e solte um arquivo aqui ou clique</p>
                     </div>
                     <button type="button" class="dropify-clear mb-2">Remover</button>
                     <input type="hidden" name="${nameInputFIle}_cropped" value="" />
                 `;
 
-            $this.find('.area-input-image-crop').css('height', $data.height)
+            $this.find('.area-input-image-crop').css('height', $data.boxHeight)
             $this.find('.area-input-image-crop').append(htmlInput);
 
             // Import image

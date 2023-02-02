@@ -295,17 +295,22 @@
     ]) !!}
 </div>
 
-{{-- Image Crop --}}
+{{--
+    Image Crop
+    Enviar para a view as dimensões do CROP com a aestrutura abaixo, vc poderá debugar essa funcao para saber qual o seu retorno
+    'cropSetting' => getCropImage('Module', 'MODEL')
+--}}
 <div class="mb-3">
     <div class="container-image-crop">
         {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-        <small class="ms-2">Dimensão proporcional mínima 450x399px</small>
+        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->column->width}}x{{$cropSetting->column->height}}px!</small>
+        {{-- <small class="ms-2">Dimensões proporcionais mínimas 1300x750px!</small> --}}
         <label class="area-input-image-crop" for="inputImage">
             {!! Form::file('path_image', [
                 'id'=>'inputImage',
                 'class'=>'inputImage',
-                'data-min-width'=>'1400', // px
-                'data-min-height'=>'600', // px
+                'data-min-width'=>$cropSetting->column->width, // px
+                'data-min-height'=>$cropSetting->column->height, // px
                 'data-box-height'=>'225', // Input height in the form
                 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                 'data-default-file'=> isset($test)?($test->path_image<>''?url('storage/'.$test->path_image):''):'',

@@ -150,3 +150,33 @@ if(!function_exists('getTitleModel')){
         return $modelConfig->$module->$model->config->titlePanel;
     }
 }
+
+if(!function_exists('getCropImage')){
+
+    /**
+     * Get image cropping dimensions
+     *
+     * @param string $module
+     * @param string $model
+     * @param string $column
+     * @param string $submodel
+     *
+     * @return array
+     */
+    function getCropImage($module, $model, $column=null, $submodel=null){
+        $settingCropImages = json_decode(file_get_contents("../cropImages.json"), true);
+        $getModule = $settingCropImages[$module];
+        $getModel = $getModule[$model];
+
+        if(!$column) {
+            $response = json_encode($getModel);
+            return json_decode($response);
+        }
+
+        $getColumn = $getModel[$column];
+        if($submodel) $getColumn = $getModel[$submodel][$column];
+
+        $response = json_encode($getColumn);
+        return json_decode($response);
+    }
+}

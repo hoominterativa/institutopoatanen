@@ -43,7 +43,9 @@ class SERV01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Services.SERV01.create');
+        return view('Admin.cruds.Services.SERV01.create',[
+            'cropSetting' => getCropImage('Services', 'SERV01')
+        ]);
     }
 
     /**
@@ -100,6 +102,7 @@ class SERV01Controller extends Controller
             'advantageSection' => $advantageSection,
             'portfolios' => $portfolios,
             'portfolioSection' => $portfolioSection,
+            'cropSetting' => getCropImage('Services', 'SERV01')
         ]);
     }
 

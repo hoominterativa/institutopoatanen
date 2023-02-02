@@ -33,7 +33,9 @@ class SLID01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Slides.SLID01.create');
+        return view('Admin.cruds.Slides.SLID01.create',[
+            'cropSetting' => getCropImage('Slides', 'SLID01')
+        ]);
     }
 
     /**
@@ -81,7 +83,8 @@ class SLID01Controller extends Controller
     public function edit(SLID01Slides $SLID01Slides)
     {
         return view('Admin.cruds.Slides.SLID01.edit',[
-            'slide' => $SLID01Slides
+            'slide' => $SLID01Slides,
+            'cropSetting' => getCropImage('Slides', 'SLID01')
         ]);
     }
 

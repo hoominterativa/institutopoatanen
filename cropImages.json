@@ -1,0 +1,57 @@
+{
+    "Slides": {
+        "SLID01":{
+            "path_image_mobile": {
+                "width":"420",
+                "height":"700"
+            },
+            "path_image_png": {
+                "width":"489",
+                "height":"674"
+            }
+        }
+    },
+
+    "Abouts": {
+        "ABOU01":{
+            "path_image_banner": {
+                "width":"1450",
+                "height":"400"
+            },
+            "path_image_inner_section": {
+                "width":"550",
+                "height":"550"
+            }
+        }
+    },
+
+    "Topics": {
+        "TOPI01":{
+            "path_image": {
+                "width":"260",
+                "height":"240"
+            }
+        }
+    },
+
+    "Services": {
+        "SERV01":{
+            "path_image": {
+                "width":"450",
+                "height":"670"
+            },
+            "Advantage":{
+                "path_image": {
+                    "width":"500",
+                    "height":"500"
+                }
+            },
+            "Portfolio":{
+                "path_image": {
+                    "width":"500",
+                    "height":"610"
+                }
+            }
+        }
+    }
+}

@@ -38,7 +38,9 @@ class TOPI01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Topics.TOPI01.create');
+        return view('Admin.cruds.Topics.TOPI01.create',[
+            'cropSetting' => getCropImage('Topics', 'TOPI01')
+        ]);
     }
 
     /**
@@ -80,7 +82,8 @@ class TOPI01Controller extends Controller
     public function edit(TOPI01Topics $TOPI01Topics)
     {
         return view('Admin.cruds.Topics.TOPI01.edit',[
-            'topic' => $TOPI01Topics
+            'topic' => $TOPI01Topics,
+            'cropSetting' => getCropImage('Topics', 'TOPI01')
         ]);
     }
 

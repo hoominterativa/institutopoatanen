@@ -51,49 +51,49 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body">
             <div class="mb-3">
-                <div class="mb-3">
-                    {!! Form::label('file', 'Imagem Desktop', ['class'=>'form-label']) !!}
-                    {!! Form::file('path_image_desktop', [
-                        'data-plugins'=>'dropify',
-                        'data-height'=>'150',
-                        'data-max-file-size-preview'=>'2M',
-                        'accept'=>'image/*',
-                        'data-default-file'=> isset($slide)?$slide->path_image_desktop<>''?url('storage/'.$slide->path_image_desktop):'':'',
-                    ]) !!}
-                </div>
+                {!! Form::label('file', 'Imagem Desktop', ['class'=>'form-label']) !!}
+                <small class="ms-2">Dimensões proporcionais mínimas 1300x750px!</small>
+                {!! Form::file('path_image_desktop', [
+                    'data-plugins'=>'dropify',
+                    'data-height'=>'150',
+                    'data-max-file-size-preview'=>'2M',
+                    'accept'=>'image/*',
+                    'data-default-file'=> isset($slide)?$slide->path_image_desktop<>''?url('storage/'.$slide->path_image_desktop):'':'',
+                ]) !!}
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem Mobile', ['class'=>'form-label']) !!}
-                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_mobile->width}}x{{$cropSetting->path_image_mobile->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_mobile', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'4/7',
-                            'data-height'=>'150',
+                            'data-min-width'=>$cropSetting->path_image_mobile->width, // px
+                            'data-min-height'=>$cropSetting->path_image_mobile->height, // px
+                            'data-box-height'=>'150', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($slide)?$slide->path_image_mobile<>''?url('storage/'.$slide->path_image_mobile):'':'',
+                            'data-default-file'=> isset($slide)?($slide->path_image_mobile<>''?url('storage/'.$slide->path_image_mobile):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
             </div>
-            {{-- Image Crop --}}
             <div class="mb-3">
                 <div class="container-image-crop">
                     <div class="d-flex align-items-center mb-1">
-                        {!! Form::label('inputImage', 'Imagem Flutuante png', ['class'=>'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Flutuante png', ['class'=>'form-label mb-0']) !!}
                         <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
                             data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                             data-bs-original-title="Imagem que ficará visível sobre a imagem do desktop e ao lado do conteúdo de texto no banner."></i>
-                            <small class="ms-2">Dimensão proporcional mínima 450x399px</small>
+                            <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_png->width}}x{{$cropSetting->path_image_png->height}}px!</small>
                     </div>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_png', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-min-width'=>'1400', // px
-                            'data-min-height'=>'600', // px
-                            'data-box-height'=>'225', // Input height in the form
+                            'data-min-width'=>$cropSetting->path_image_png->width, // px
+                            'data-min-height'=>$cropSetting->path_image_png->height, // px
+                            'data-box-height'=>'150', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($slide)?($slide->path_image_png<>''?url('storage/'.$slide->path_image_png):''):'',
                         ]) !!}

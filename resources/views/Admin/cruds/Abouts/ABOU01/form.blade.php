@@ -71,14 +71,16 @@
                     <div class="mb-3">
                         <div class="container-image-crop">
                             {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                            <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_banner->width}}x{{$cropSetting->path_image_banner->height}}px!</small>
                             <label class="area-input-image-crop" for="inputImage">
                                 {!! Form::file('path_image_banner', [
                                     'id'=>'inputImage',
                                     'class'=>'inputImage',
-                                    'data-scale'=>'4/3',
-                                    'data-height'=>'125',
+                                    'data-min-width'=>$cropSetting->path_image_banner->width, // px
+                                    'data-min-height'=>$cropSetting->path_image_banner->height, // px
+                                    'data-box-height'=>'225', // Input height in the form
                                     'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                    'data-default-file'=> isset($about)?$about->path_image_banner<>''?url('storage/'.$about->path_image_banner):'':'',
+                                    'data-default-file'=> isset($about)?($about->path_image_banner<>''?url('storage/'.$about->path_image_banner):''):'',
                                 ]) !!}
                             </label>
                         </div><!-- END container image crop -->
@@ -171,14 +173,16 @@
                     <div class="mb-3">
                         <div class="container-image-crop">
                             {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                            <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_inner_section->width}}x{{$cropSetting->path_image_inner_section->height}}px!</small>
                             <label class="area-input-image-crop" for="inputImage">
                                 {!! Form::file('path_image_inner_section', [
                                     'id'=>'inputImage',
                                     'class'=>'inputImage',
-                                    'data-scale'=>'4/3',
-                                    'data-height'=>'255',
+                                    'data-min-width'=>$cropSetting->path_image_inner_section->width, // px
+                                    'data-min-height'=>$cropSetting->path_image_inner_section->height, // px
+                                    'data-box-height'=>'225', // Input height in the form
                                     'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                    'data-default-file'=> isset($about)?$about->path_image_inner_section<>''?url('storage/'.$about->path_image_inner_section):'':'',
+                                    'data-default-file'=> isset($about)?($about->path_image_inner_section<>''?url('storage/'.$about->path_image_inner_section):''):'',
                                 ]) !!}
                             </label>
                         </div><!-- END container image crop -->
