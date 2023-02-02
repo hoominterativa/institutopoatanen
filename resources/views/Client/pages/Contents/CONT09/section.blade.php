@@ -5,7 +5,7 @@
             <h5 class="cont09__encompass__subtitle">Subtitulo</h5>
         </header>
         <div class="cont09__content row justify-content-between d-flex">
-            <div class="cont09__content__boxLeft col-sm-5 px-0 text-center align-items-center justify-content-center">
+            <div class="cont09__content__boxLeft col-sm-5 px-0 text-center d-flex flex-column align-items-center justify-content-center">
                 <div class="cont09__content__boxLeft__description">
                     <h4 class="cont09__content__boxLeft__description__title">TITULO</h4>
                     <div class="cont09__content__boxLeft__description__link">
