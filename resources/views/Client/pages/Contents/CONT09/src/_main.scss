@@ -32,6 +32,40 @@
         }
     }
     &__content{
+        &__boxLeft{
+            &__description{
+                &__title{
+                    font-size: $T2;
+                    font-weight: $weight-700;
+                    color: $color-black;
+                    font-family:$font-primary;
 
+                    @include large-device-down{
+                        font-size: $T2-mobile;
+                    }
+                }
+                &__link{
+                    a{
+                        img{
+                            @include Img;
+                        }
+                    }
+                }
+                &__paragraph{
+                    p{
+                        font: $paragraph;
+                        font-weight: $weight-700;
+                        color: $color-two;
+
+                        @include large-device-down{
+                            font: $paragraph-mobile;
+                        }
+                    }
+                }
+            }
+        }
+        &__boxRight{
+
+        }
     }
 }
