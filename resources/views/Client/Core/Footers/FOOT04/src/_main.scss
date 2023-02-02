@@ -3,6 +3,7 @@
 /* BEGIN STYLE */
 .foot04{
     .row--pd{
+        padding:256px 0 157px 0;
 
         @include small-device-down{
             padding:106px 0 80px 0;
@@ -14,15 +15,29 @@
 
         @include small-device-down{
             gap:20px 0;
+            flex-direction: column;
         }
         &__boxUnit{
             justify-content: center;
             align-items: flex-start;
+            margin-bottom:140px;
+            max-width: 169px;
+            @include small-device-down{
+                width:100%;
+                max-width: inherit;
+                margin-bottom:38.36px;
+
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
             &__icone{
                 margin-right:20.42px;
-                width:26px;
+                width:58.48px;
                 height:auto;
-
+                @include small-device-down{
+                    width:30.48px;
+                }
                 img{
                     @include Img;
                 }
@@ -51,10 +66,11 @@
         }
         &__logo{
             margin: 0 auto;
-            width: 267.98px;
+            width: 410.45px;
 
             @include small-device-down{
-                margin-top:100.52px;
+                margin-top:60.52px;
+                margin-bottom:60.52px;
             }
             img{
                 @include Img;

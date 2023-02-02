@@ -1,7 +1,7 @@
 <div class="foot04 container-fluid px-0 position-relative" style="background-color:#EFEFEF;" >
     <div class="row row--pd d-flex justify-content-center">
         <div class="foot04__content d-flex justify-content-center align-items-center row mx-auto pd-0">
-            <div class="foot04__content__boxUnit col-sm-2 px-0 d-flex">
+            <div class="foot04__content__boxUnit col px-0 d-flex">
                 <div class="foot04__content__boxUnit__icone">
                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Logo">
                 </div>
@@ -10,7 +10,7 @@
                     <p>Horários</p>
                 </div>
             </div>
-            <div class="foot04__content__boxUnit col-sm-2 px-0 d-flex">
+            <div class="foot04__content__boxUnit col px-0 d-flex">
                 <div class="foot04__content__boxUnit__icone">
                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Logo">
                 </div>
