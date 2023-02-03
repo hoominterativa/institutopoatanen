@@ -86,6 +86,11 @@ $(function(){
         $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 74);
     }
     // Change defaults
-
 })
 
+Fancybox.bind(".port101__content__box a", {
+    dragToClose: false,
+    hideScrollbar:false
+});
+
+Fancybox.defaults.ScrollLock = false;

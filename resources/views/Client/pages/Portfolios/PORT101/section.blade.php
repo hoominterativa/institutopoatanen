@@ -8,7 +8,7 @@
         {{-- END .port101__emcompass --}}
         <div class="port101__content carousel-port101 owl-carousel">
             <div class="port101__content__box">
-                <a rel="next" data-modal="#lightbox-port101-1">
+                <a rel="next" href="javascript:void(0);"  data-fancybox="dialog" data-src="#lightbox-port101-1">
                     <div class="port101__content__box__image">
                         <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
                     </div>

@@ -1,6 +1,6 @@
 
-<div id="lightbox-port101-1" class="lightbox-port101 row px-0 mx-auto modal">
-    <div class="lightbox-port101__content modal__content" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
+<div id="lightbox-port101-1" class="lightbox-port101 row px-0 mx-auto">
+    <div class="lightbox-port101__content" style="background-image:url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}});">
         <div class="row px-0 px-0 mx-0 w-100 h-100">
             <div class="lightbox-port101__description p-5 col-md-6 d-block">
                 <h3 class="lightbox-port101__description__title">Título Tópico</h3>

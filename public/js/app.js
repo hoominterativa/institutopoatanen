@@ -12126,12 +12126,6 @@ $(function () {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 $(function () {
   var countItem = document.querySelectorAll('.port101__content .port101__content__box').length;
 
@@ -12217,80 +12211,12 @@ $(function () {
     $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 74);
   } // Change defaults
 
-  /* controle dos modals */
-
-
-  if (document.querySelector("[data-modal]")) {
-    /* fecha o modal e backdrop */
-    var closeModal = function closeModal() {
-      document.body.style.overflowY = "visible";
-
-      if (document.querySelector(".modal.open")) {
-        document.querySelector(".modal.open").classList.remove("open");
-      }
-    };
-
-    document.querySelectorAll(".modal").forEach(function (el) {
-      var backdrop = document.createElement("div");
-      backdrop.classList.add("modal__backdrop");
-      backdrop.addEventListener("click", closeModal);
-      el.append(backdrop);
-    });
-    document.querySelectorAll(".modal__content").forEach(function (el) {
-      /* cria botões de fechar em cada modal */
-      var btnClose = document.createElement("button");
-      btnClose.classList.add("modal__btn--close");
-      btnClose.innerHTML = "X";
-      el.append(btnClose);
-    });
-    /* pega todos os itens como data-modal e add os efeitos de click */
-
-    var linksModal = document.querySelectorAll("[data-modal]");
-
-    var _iterator = _createForOfIteratorHelper(linksModal),
-        _step;
-
-    try {
-      var _loop = function _loop() {
-        var linkModal = _step.value;
-        linkModal.addEventListener("click", function (event) {
-          event.preventDefault();
-          document.body.style.overflowY = "hidden";
-          var target = document.querySelector(linkModal.dataset.modal);
-          target.classList.add("open");
-        });
-      };
-
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        _loop();
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-
-    var _iterator2 = _createForOfIteratorHelper(document.querySelectorAll(".modal__btn--close")),
-        _step2;
-
-    try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var btnCloseModal = _step2.value;
-        btnCloseModal.addEventListener("click", closeModal);
-      }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
-    }
-
-    document.querySelectorAll(".vhem-modal__help-link").forEach(function (el) {
-      el.addEventListener("click", closeModal);
-    });
-  }
-  /* controle dos modals */
-
 });
+Fancybox.bind(".port101__content__box a", {
+  dragToClose: false,
+  hideScrollbar: false
+});
+Fancybox.defaults.ScrollLock = false;
 
 /***/ }),
 
