@@ -3,6 +3,12 @@
 /* BEGIN STYLE */
 .cont07{
     padding: 63px 0 59px 0;
+
+    .container--pd{
+        @include large-device-down {
+            padding:0 53px !important;
+        }
+    }
     &__emcompass{
         padding-bottom:17.02px;
         border-bottom: 1px solid #404040;
@@ -11,63 +17,64 @@
             color: $color-one;
             font-size: $T2;
             font-family: $font-primary;
-            font-weight: $weight-300;
+            font-weight: $weight-700;
+            @include small-device {
+                font-size: $T2-mobile;
+            }
         }
         &__subtitle{
-            color: $color-one;
-            font-size: $T2;
+            color: #7C7C7C;
+            font-size: $T4;
             font-family: $font-primary;
-            font-weight: $weight-300;
+            font-weight: $weight-700;
+            @include small-device {
+                font-size: $T4-mobile;
+            }
         }
     }
     &__boxVideo{
-
-        @include small-device {
-            width:100%;
-        }
-
         &__content{
-            width:884px;
+            width:100%;
             height: 439px;
-            margin:  0 auto;
-            position: relative;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-
+            @include Flex; 
             .play{
                 width: 87px;
                 height: 87px;
-            }
 
-            iframe{
-                width:884px;
-                height: 439px;
-            }
-            &__video{
-                height: 100%;
-            }
-
-            @include small-device {
-                width:85%;
-                height: 166px;
-
-                .play{
-                    width: 59px;
-                    height: 59px;
+                @include large-device-down {
+                    width:59px;
+                    height:59px;
                 }
-
-                iframe{
-                    width:80%;
-                    height: 166px;
-                }
-
             }
         }
-
-        
     }
+    &__gallery{
+        @include large-device-down{
+            margin-left: 58px !important;
+        }
+        &__item{
+            width:100%;
+            height:179px;
 
+            @include large-device-down {
+                width: 87%;
+            }
+            @include small-device-down{
+                width: 80%;
+                height:168px;
+            }
+            a{
+                width:100%; 
+                height:100%;
+
+                img{
+                    width:100%; 
+                    height:100%;
+                    object-fit:cover;
+                }
+            }
+        }  
+    }
     &__cta{
         font: $paragraph;
         font-weight: $weight-700;
