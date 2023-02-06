@@ -76,6 +76,7 @@
                                 {!! Form::file('path_image_banner', [
                                     'id'=>'inputImage',
                                     'class'=>'inputImage',
+                                    'data-status'=>$cropSetting->path_image_banner->activeCrop, // px
                                     'data-min-width'=>$cropSetting->path_image_banner->width, // px
                                     'data-min-height'=>$cropSetting->path_image_banner->height, // px
                                     'data-box-height'=>'225', // Input height in the form
@@ -178,6 +179,7 @@
                                 {!! Form::file('path_image_inner_section', [
                                     'id'=>'inputImage',
                                     'class'=>'inputImage',
+                                    'data-status'=>$cropSetting->path_image_inner_section->activeCrop, // px
                                     'data-min-width'=>$cropSetting->path_image_inner_section->width, // px
                                     'data-min-height'=>$cropSetting->path_image_inner_section->height, // px
                                     'data-box-height'=>'225', // Input height in the form

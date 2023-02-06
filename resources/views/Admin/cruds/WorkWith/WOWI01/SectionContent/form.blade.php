@@ -65,13 +65,14 @@
                 <div class="mb-3">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                        <small class="ms-2">Dimensão proporcional mínima 500x500px</small>
+                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_content->width}}x{{$cropSetting->path_image_content->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_content', [
                                 'id'=>'inputImage',
                                 'class'=>'inputImage',
-                                'data-min-width'=>'200', // px
-                                'data-min-height'=>'200', // px
+                                'data-status'=>$cropSetting->path_image_content->activeCrop, // px
+                                'data-min-width'=>$cropSetting->path_image_content->width, // px
+                                'data-min-height'=>$cropSetting->path_image_content->height, // px
                                 'data-box-height'=>'200', // Input height in the form
                                 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                                 'data-default-file'=> isset($workWith)?($workWith->path_image_content<>''?url('storage/'.$workWith->path_image_content):''):'',

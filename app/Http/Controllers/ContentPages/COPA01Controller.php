@@ -29,6 +29,7 @@ class COPA01Controller extends Controller
         return view('Admin.cruds.ContentPages.COPA01.edit',[
             'contentPage' => $contentPage,
             'sections' => $sections,
+            'cropSetting' => getCropImage('ContentPages', 'COPA01')
         ]);
     }
 

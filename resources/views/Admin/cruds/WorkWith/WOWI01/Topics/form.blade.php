@@ -48,14 +48,15 @@
         <div class="col-12 col-lg-6">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 450x400px</small>
+                    {!! Form::label('inputImage', 'Imagem Thumbnail', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Topic->path_image_thumbnail->width}}x{{$cropSetting->Topic->path_image_thumbnail->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_thumbnail', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-min-width'=>'200', // px
-                            'data-min-height'=>'180', // px
+                            'data-status'=>$cropSetting->Topic->path_image_thumbnail->activeCrop, // px
+                            'data-min-width'=>$cropSetting->Topic->path_image_thumbnail->width, // px
+                            'data-min-height'=>$cropSetting->Topic->path_image_thumbnail->height, // px
                             'data-box-height'=>'180', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($topic)?($topic->path_image_thumbnail<>''?url('storage/'.$topic->path_image_thumbnail):''):'',
@@ -66,13 +67,14 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 300x300px</small>
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Topic->path_image_icon->width}}x{{$cropSetting->Topic->path_image_icon->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_icon', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-min-width'=>'300', // px
-                            'data-min-height'=>'300', // px
+                            'data-status'=>$cropSetting->Topic->path_image_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->Topic->path_image_icon->width, // px
+                            'data-min-height'=>$cropSetting->Topic->path_image_icon->height, // px
                             'data-box-height'=>'180', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($topic)?($topic->path_image_icon<>''?url('storage/'.$topic->path_image_icon):''):'',

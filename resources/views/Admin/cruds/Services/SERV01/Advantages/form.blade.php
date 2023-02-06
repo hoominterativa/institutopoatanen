@@ -30,28 +30,40 @@
             </div>
         </div>
         <div class="col-12 col-lg-6">
+
             <div class="mb-3">
-                {!! Form::label('path_image_icon', 'Ícone', ['class'=>'form-label']) !!}
-                {!! Form::file('path_image_icon', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'150',
-                    'data-max-file-size-preview'=>'2M',
-                    'accept'=>'image/*',
-                    'data-default-file'=> isset($advantage)?$advantage->path_image_icon<>''?url('storage/'.$advantage->path_image_icon):'':'',
-                ]) !!}
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_icon->width}}x{{$cropSetting->path_image_icon->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_icon', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_icon->width, // px
+                            'data-min-height'=>$cropSetting->path_image_icon->height, // px
+                            'data-box-height'=>'180', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($advantage)?($advantage->path_image_icon<>''?url('storage/'.$advantage->path_image_icon):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
 
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('path_image', 'Imagem Box', ['class'=>'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Advantage->path_image->width}}x{{$cropSetting->Advantage->path_image->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'4/4',
-                            'data-height'=>'150',
+                            'data-status'=>$cropSetting->Advantage->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->Advantage->path_image->width, // px
+                            'data-min-height'=>$cropSetting->Advantage->path_image->height, // px
+                            'data-box-height'=>'225', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($advantage)?$advantage->path_image<>''?url('storage/'.$advantage->path_image):'':'',
+                            'data-default-file'=> isset($advantage)?($advantage->path_image<>''?url('storage/'.$advantage->path_image):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->

@@ -84,6 +84,12 @@
     border-radius: 6px;
 }
 
+.area-input-image-crop .badge{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
 .area-input-image-crop .inputImage {
     position: absolute;
     height: 100%;
@@ -101,7 +107,11 @@
 }
 .area-input-image-crop .content-area-image-crop p{
     font-size: 16px;
-    color: #ccc;
+    color: #727171;
+}
+.area-input-image-crop .content-area-image-crop p small{
+    display: block;
+    color: #aeaeae;
 }
 
 .area-input-image-crop .content-area-image-crop i {

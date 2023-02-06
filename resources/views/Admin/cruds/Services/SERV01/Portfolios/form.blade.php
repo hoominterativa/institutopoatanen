@@ -32,15 +32,18 @@
         <div class="col-12 col-lg-6">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('path_image', 'Imagem Box', ['class'=>'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem Box', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'4/4',
-                            'data-height'=>'250',
+                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image->width, // px
+                            'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-box-height'=>'250', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($portfolio)?$portfolio->path_image<>''?url('storage/'.$portfolio->path_image):'':'',
+                            'data-default-file'=> isset($portfolio)?($portfolio->path_image<>''?url('storage/'.$portfolio->path_image):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->

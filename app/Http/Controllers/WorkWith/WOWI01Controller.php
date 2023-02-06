@@ -41,7 +41,9 @@ class WOWI01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.WorkWith.WOWI01.create');
+        return view('Admin.cruds.WorkWith.WOWI01.create',[
+            'cropSetting' => getCropImage('WorkWith', 'WOWI01')
+        ]);
     }
 
     /**
@@ -100,6 +102,7 @@ class WOWI01Controller extends Controller
             'workWith' => $WOWI01WorkWith,
             'topicSection' => $topicSection,
             'topics' => $topics,
+            'cropSetting' => getCropImage('WorkWith', 'WOWI01')
         ]);
     }
 

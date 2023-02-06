@@ -164,7 +164,7 @@ if(!function_exists('getCropImage')){
      * @return array
      */
     function getCropImage($module, $model, $column=null, $submodel=null){
-        $settingCropImages = json_decode(file_get_contents("../cropImages.json"), true);
+        $settingCropImages = json_decode(file_get_contents("../imagesSize.json"), true);
         $getModule = $settingCropImages[$module];
         $getModel = $getModule[$model];
 

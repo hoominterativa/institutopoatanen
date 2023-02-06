@@ -35,7 +35,9 @@ class CONT03Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Contents.CONT03.create');
+        return view('Admin.cruds.Contents.CONT03.create',[
+            'cropSetting' => getCropImage('Contents', 'CONT03')
+        ]);
     }
 
     /**
@@ -81,7 +83,8 @@ class CONT03Controller extends Controller
     public function edit(CONT03Contents $CONT03Contents)
     {
         return view('Admin.cruds.Contents.CONT03.edit',[
-            'content' => $CONT03Contents
+            'content' => $CONT03Contents,
+            'cropSetting' => getCropImage('Contents', 'CONT03')
         ]);
     }
 

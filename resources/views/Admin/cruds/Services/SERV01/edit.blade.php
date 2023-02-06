@@ -18,32 +18,56 @@
                             <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Services', 'SERV01')}}</h4>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <button class="btn btn-info float-end me-3 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#formService" aria-expanded="false" aria-controls="collapseExample">
-                            Esconder/Exibir formulário
-                        </button>
-                        <a href="#containerPortfolios" class="btn btn-warning float-end me-3 mb-3"> Portifólio </a>
-                        <a href="#containerAdvantages" class="btn btn-primary float-end me-3 mb-3"> Vantagens </a>
-                    </div>
                 </div>
                 <!-- end page title -->
-                <div class="collapse show" id="formService">
-                    {!! Form::model($service, ['route' => ['admin.serv01.update', $service->id], 'class'=>'parsley-validate mb-5', 'method'=>'PUT', 'files'=>true]) !!}
-                        @include('Admin.Cruds.Services.SERV01.form')
-                        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                        <a href="{{route('admin.serv01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                    {!! Form::close() !!}
+
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#editService" data-bs-toggle="tab" aria-expanded="true" class="nav-link active  d-flex align-items-center">
+                            Editar Solução
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advantages" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Vantagens
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Tópicos que aparecem abaixo do texto de soluções"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#protfolios" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Portifólios
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Galerias que aparecem abaixo dos tópicos"></i>
+                        </a>
+                    </li>
+                </ul>
+
+               <div class="tab-content">
+                    <div class="tab-pane show active" id="editService">
+                        {!! Form::model($service, ['route' => ['admin.serv01.update', $service->id], 'class'=>'parsley-validate mb-5', 'method'=>'PUT', 'files'=>true]) !!}
+                            @include('Admin.Cruds.Services.SERV01.form')
+                            {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                            <a href="{{route('admin.serv01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::close() !!}
+                    </div>
+                    <div class="tab-pane" id="advantages">
+                        @include('Admin.cruds.Services.SERV01.Advantages.index',[
+                            'service' => $service,
+                            'advantages' => $advantages,
+                            'advantageSection' => $advantageSection,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="protfolios">
+                        @include('Admin.cruds.Services.SERV01.Portfolios.index',[
+                            'service' => $service,
+                            'portfolios' => $portfolios,
+                            'portfolioSection' => $portfolioSection,
+                        ])
+                    </div>
                 </div>
-                @include('Admin.cruds.Services.SERV01.Advantages.index',[
-                    'service' => $service,
-                    'advantages' => $advantages,
-                    'advantageSection' => $advantageSection,
-                ])
-                @include('Admin.cruds.Services.SERV01.Portfolios.index',[
-                    'service' => $service,
-                    'portfolios' => $portfolios,
-                    'portfolioSection' => $portfolioSection,
-                ])
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

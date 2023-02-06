@@ -61,29 +61,38 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 450x399px</small>
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_thumbnail->width}}x{{$cropSetting->path_image_thumbnail->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_thumbnail', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-min-width'=>400,
-                            'data-min-height'=>354.04,
+                            'data-status'=>$cropSetting->path_image_thumbnail->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_thumbnail->width, // px
+                            'data-min-height'=>$cropSetting->path_image_thumbnail->height, // px
                             'data-box-height'=>'225', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($blog)?$blog->path_image_thumbnail<>''?url('storage/'.$blog->path_image_thumbnail):'':'',
+                            'data-default-file'=> isset($blog)?($blog->path_image_thumbnail<>''?url('storage/'.$blog->path_image_thumbnail):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
             </div>
             <div class="mb-3">
-                {!! Form::label('file', 'Imagem Interna', ['class'=>'form-label']) !!}
-                {!! Form::file('path_image', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'225',
-                    'data-max-file-size-preview'=>'2M',
-                    'accept'=>'image/*',
-                    'data-default-file'=> isset($blog)?$blog->path_image<>''?url('storage/'.$blog->path_image):'':'',
-                ]) !!}
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem Interna', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image->width, // px
+                            'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-box-height'=>'225', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($blog)?($blog->path_image<>''?url('storage/'.$blog->path_image):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
         </div>
     </div>

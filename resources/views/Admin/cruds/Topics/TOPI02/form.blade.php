@@ -42,28 +42,37 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body">
             <div class="mb-3">
-                <div class="mb-3">
-                    {!! Form::label('file', 'Ícone', ['class'=>'form-label']) !!}
-                    {!! Form::file('path_image_icon', [
-                        'data-plugins'=>'dropify',
-                        'data-height'=>'180',
-                        'data-max-file-size-preview'=>'2M',
-                        'accept'=>'image/*',
-                        'data-default-file'=> isset($topic)?$topic->path_image_icon<>''?url('storage/'.$topic->path_image_icon):'':'',
-                    ]) !!}
-                </div>
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_icon->width}}x{{$cropSetting->path_image_icon->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_icon', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_icon->width, // px
+                            'data-min-height'=>$cropSetting->path_image_icon->height, // px
+                            'data-box-height'=>'180', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($topic)?($topic->path_image_icon<>''?url('storage/'.$topic->path_image_icon):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'4/3',
-                            'data-height'=>'180',
+                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image->width, // px
+                            'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-box-height'=>'180', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($topic)?$topic->path_image<>''?url('storage/'.$topic->path_image):'':'',
+                            'data-default-file'=> isset($topic)?($topic->path_image<>''?url('storage/'.$topic->path_image):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->

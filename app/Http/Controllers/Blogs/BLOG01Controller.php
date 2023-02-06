@@ -118,7 +118,8 @@ class BLOG01Controller extends Controller
     {
         $categories = BLOG01BlogsCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Blogs.BLOG01.create',[
-            'categories' => $categories
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Blogs', 'BLOG01')
         ]);
     }
 
@@ -168,6 +169,7 @@ class BLOG01Controller extends Controller
         return view('Admin.cruds.Blogs.BLOG01.edit',[
             'blog' => $BLOG01Blogs,
             'categories' => $categories,
+            'cropSetting' => getCropImage('Blogs', 'BLOG01')
         ]);
     }
 

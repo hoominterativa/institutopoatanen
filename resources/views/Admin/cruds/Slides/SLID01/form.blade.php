@@ -51,15 +51,22 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body">
             <div class="mb-3">
-                {!! Form::label('file', 'Imagem Desktop', ['class'=>'form-label']) !!}
-                <small class="ms-2">Dimensões proporcionais mínimas 1300x750px!</small>
-                {!! Form::file('path_image_desktop', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'150',
-                    'data-max-file-size-preview'=>'2M',
-                    'accept'=>'image/*',
-                    'data-default-file'=> isset($slide)?$slide->path_image_desktop<>''?url('storage/'.$slide->path_image_desktop):'':'',
-                ]) !!}
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem Desktop', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_desktop->width}}x{{$cropSetting->path_image_desktop->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_desktop', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_desktop->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_desktop->width, // px
+                            'data-min-height'=>$cropSetting->path_image_desktop->height, // px
+                            'data-box-height'=>'180', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($slide)?($slide->path_image_desktop<>''?url('storage/'.$slide->path_image_desktop):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">
@@ -69,6 +76,7 @@
                         {!! Form::file('path_image_mobile', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_mobile->activeCrop, // px
                             'data-min-width'=>$cropSetting->path_image_mobile->width, // px
                             'data-min-height'=>$cropSetting->path_image_mobile->height, // px
                             'data-box-height'=>'150', // Input height in the form
@@ -91,6 +99,7 @@
                         {!! Form::file('path_image_png', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_png->activeCrop, // px
                             'data-min-width'=>$cropSetting->path_image_png->width, // px
                             'data-min-height'=>$cropSetting->path_image_png->height, // px
                             'data-box-height'=>'150', // Input height in the form

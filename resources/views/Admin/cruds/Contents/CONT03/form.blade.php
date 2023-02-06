@@ -46,14 +46,17 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem do Centro', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_center->width}}x{{$cropSetting->path_image_center->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_center', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'3/4',
-                            'data-height'=>'170',
+                            'data-status'=>$cropSetting->path_image_center->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_center->width, // px
+                            'data-min-height'=>$cropSetting->path_image_center->height, // px
+                            'data-box-height'=>'170', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($content)?$content->path_image_center<>''?url('storage/'.$content->path_image_center):'':'',
+                            'data-default-file'=> isset($content)?($content->path_image_center<>''?url('storage/'.$content->path_image_center):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
@@ -62,28 +65,39 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem da Esquerda', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_right->width}}x{{$cropSetting->path_image_right->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_right', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'3/4',
-                            'data-height'=>'170',
+                            'data-status'=>$cropSetting->path_image_right->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_right->width, // px
+                            'data-min-height'=>$cropSetting->path_image_right->height, // px
+                            'data-box-height'=>'170', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($content)?$content->path_image_right<>''?url('storage/'.$content->path_image_right):'':'',
+                            'data-default-file'=> isset($content)?($content->path_image_right<>''?url('storage/'.$content->path_image_right):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
             </div>
 
             <div class="mb-3">
-                {!! Form::label('file', 'Imagem Background', ['class'=>'form-label']) !!}
-                {!! Form::file('path_image_background', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'170',
-                    'data-max-file-size-preview'=>'2M',
-                    'accept'=>'image/*',
-                    'data-default-file'=> isset($content)?$content->path_image_background<>''?url('storage/'.$content->path_image_background):'':'',
-                ]) !!}
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem Background', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_background->width}}x{{$cropSetting->path_image_background->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_background', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_background->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_background->width, // px
+                            'data-min-height'=>$cropSetting->path_image_background->height, // px
+                            'data-box-height'=>'170', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($content)?($content->path_image_background<>''?url('storage/'.$content->path_image_background):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
         </div>
         {{-- end card-body --}}
