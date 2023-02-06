@@ -6,6 +6,7 @@ $(function(){
     if(countItem >= 4){
         countItem = 4;
     }
+    
     console.log(countItem);
 
     $('.carousel-port101').owlCarousel({
@@ -18,16 +19,16 @@ $(function(){
             // breakpoint from 0 up
             0 : {
                 items:1,
-                margin:-50
+                margin:0
             },
             // breakpoint from 360 up
             361 : {
                 items:1,
-                margin:-50
+                margin:0
             },
             500 : {
                 items:1,
-                margin:-50
+                margin:0
             },
             800 : {
                 items:1,
@@ -60,10 +61,10 @@ $(function(){
     });
     $('.carousel-show-port101').css('width', $(window).outerWidth() / 2 - 91);
     if($(window).outerWidth() <= 800){
-        $('.carousel-show-port101').css('width', $(window).outerWidth() - 74);
+        $('.carousel-show-port101').css('width', $(window).outerWidth() - 84);
     }
     if($(window).outerWidth() <= 800){
-        $('.carousel-show-port101').css('width', $(window).outerWidth() - 74);
+        $('.carousel-show-port101').css('width', $(window).outerWidth() - 84);
     }
 
     $('.carousel-show-port101-nav').owlCarousel({
@@ -80,17 +81,62 @@ $(function(){
     $('.carousel-show-port101-nav').css('width', $(window).outerWidth() / 2 - 91);
 
     if($(window).outerWidth() <= 800){
-        $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 74);
+        $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 84);
     }
     if($(window).outerWidth() <= 800){
-        $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 74);
+        $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 84);
     }
     // Change defaults
 })
 
-Fancybox.bind(".port101__content__box a", {
-    dragToClose: false,
-    hideScrollbar:false
-});
+/* controle dos modals */
+if (document.querySelector("[data-modal]")) {
+    /* fecha o modal e backdrop */
+    const closeModal = () => {
+      document.body.style.overflowY = "visible";
+      if (document.querySelector(".modal.open")) {
+        document.querySelector(".modal.open").classList.remove("open");
+      }
+    };
+  
+    document.querySelectorAll(".modal").forEach((el) => {
+      const backdrop = document.createElement("div");
+      backdrop.classList.add("modal__backdrop");
+      backdrop.addEventListener("click", closeModal);
+      el.append(backdrop);
+    });
+  
+    document.querySelectorAll(".modal__content").forEach((el) => {
+      /* cria botões de fechar em cada modal */
+      const btnClose = document.createElement("button");
+      btnClose.classList.add("modal__btn--close");
+      btnClose.innerHTML = "X";
+      el.append(btnClose);
+    });
+  
+    /* pega todos os itens como data-modal e add os efeitos de click */
+    const linksModal = document.querySelectorAll("[data-modal]");
+  
+    for (const linkModal of linksModal) {
+      linkModal.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.body.style.overflowY = "hidden";
+        const target = document.querySelector(linkModal.dataset.modal);
+  
+        target.classList.add("open");
+      });
+    }
+  
+    for (const btnCloseModal of document.querySelectorAll(".modal__btn--close")) {
+      btnCloseModal.addEventListener("click", closeModal);
+    }
+  
+    document.querySelectorAll(".vhem-modal__help-link").forEach((el) => {
+      el.addEventListener("click", closeModal);
+    });
+  }
+  /* controle dos modals */
+  
 
-Fancybox.defaults.ScrollLock = false;
+
+

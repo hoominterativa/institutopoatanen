@@ -1434,10 +1434,6 @@ a {
   }
 }
 
-.fancybox__slide {
-  padding: 0 !important;
-}
-
 .lightbox-port101 {
   display: none;
   width: 100%;
@@ -1449,11 +1445,6 @@ a {
     height: 100%;
   }
 }
-.lightbox-port101 .lightbox-port101 .fancybox__content > .carousel__button.is-close {
-  right: 18px !important;
-  top: 20px !important;
-  width: auto !important;
-}
 .lightbox-port101__description {
   padding-top: 73px !important;
   padding-left: 76px !important;
@@ -1464,6 +1455,7 @@ a {
   .lightbox-port101__description {
     padding-left: 37px !important;
     padding-right: 37px !important;
+    padding-bottom: 0 !important;
   }
 }
 .lightbox-port101__description__title {
@@ -1530,6 +1522,7 @@ a {
   display: flex;
   flex-direction: row;
   width: 100%;
+  min-height: 100vh;
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -1549,6 +1542,7 @@ a {
   .lightbox-port101__galery {
     margin: 0 auto;
     padding-top: 73px !important;
+    padding-bottom: 73px !important;
     padding-right: 0 !important;
     justify-content: center;
     align-items: center;
@@ -1577,7 +1571,7 @@ a {
   display: flex;
 }
 @media (max-width: 575.98px) {
-  .lightbox-port101__galery .carousel-show-port101-nav {
+  .lightbox-port101__galery .carousel-show-port101-nav a {
     height: 67px;
   }
 }
@@ -1592,8 +1586,18 @@ a {
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev {
   left: -52px;
 }
+@media (max-width: 575.98px) {
+  .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev {
+    left: -27px;
+  }
+}
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next {
   right: -52px;
+}
+@media (max-width: 575.98px) {
+  .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next {
+    right: -27px;
+  }
 }
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev,
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next {
@@ -1611,7 +1615,8 @@ a {
 @media (max-width: 575.98px) {
   .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev,
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next {
-    height: 13.49px;
+    width: 20.49px;
+    height: 20.49px;
   }
 }
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev span,
@@ -1623,8 +1628,34 @@ a {
 @media (max-width: 575.98px) {
   .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev span,
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next span {
-    font-size: 22px;
+    font-size: 15px;
+    height: 26px;
   }
+}
+
+.modal {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.modal.open {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__btn--close {
+  position: absolute;
+  right: 1rem;
+  top: 0.75rem;
+  border: none;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
 }
 
 /* BEGIN STYLE */

@@ -7,77 +7,25 @@
         </header>
         {{-- END .port101__emcompass --}}
         <div class="port101__content carousel-port101 owl-carousel">
-            <div class="port101__content__box">
-                <a rel="next" href="javascript:void(0);"  data-fancybox="dialog" data-src="#lightbox-port101-1">
-                    <div class="port101__content__box__image">
-                        <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
+            <div class="port101__content__box" data-modal="#lightbox-port101-1">
+                <div class="port101__content__box__image">
+                    <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
+                </div>
+                <div class="port101__content__box__description">
+                    <h4 class="port101__content__box__description__title">Título Tópico</h4>
+                    <div class="port101__content__box__description__paragraph">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
+                        </p>
                     </div>
-                    <div class="port101__content__box__description">
-                        <h4 class="port101__content__box__description__title">Título Tópico</h4>
-                        <div class="port101__content__box__description__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                @include('Client.pages.Portfolios.PORT101.show')
-            </div>
-           {{-- END .port101__content__box --}}
-            <div class="port101__content__box">
-                <a rel="next" data-modal="#lightbox-port101-1">
-                    <div class="port101__content__box__image">
-                        <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
-                    </div>
-                    <div class="port101__content__box__description">
-                        <h4 class="port101__content__box__description__title">Título Tópico</h4>
-                        <div class="port101__content__box__description__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                @include('Client.pages.Portfolios.PORT101.show')
-            </div>
-           {{-- END .port101__content__box --}}
-            <div class="port101__content__box">
-                <a rel="next" data-modal="#lightbox-port101-1">
-                    <div class="port101__content__box__image">
-                        <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
-                    </div>
-                    <div class="port101__content__box__description">
-                        <h4 class="port101__content__box__description__title">Título Tópico</h4>
-                        <div class="port101__content__box__description__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                @include('Client.pages.Portfolios.PORT101.show')
-            </div>
-           {{-- END .port101__content__box --}}
-            <div class="port101__content__box">
-                <a rel="next" data-modal="#lightbox-port101-1" href="javascript:void(0);">
-                    <div class="port101__content__box__image">
-                        <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" alt="Título Tópico">
-                    </div>
-                    <div class="port101__content__box__description">
-                        <h4 class="port101__content__box__description__title">Título Tópico</h4>
-                        <div class="port101__content__box__description__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectur adipiscing elitLorem ipsum dolor sit ame
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                @include('Client.pages.Portfolios.PORT101.show')
+                </div>
             </div>
            {{-- END .port101__content__box --}}
         </div>
         {{-- END .carousel-port101 --}}
+        @include('Client.pages.Portfolios.PORT101.show')
     </div>
+
     {{-- END .container --}}
 </section>
 {{-- END .port101 --}}
