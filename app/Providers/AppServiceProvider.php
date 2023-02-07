@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Exception;
 use App\Models\GeneralSetting;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
@@ -43,5 +44,9 @@ class AppServiceProvider extends ServiceProvider
                 Config::set('mail.mailers.smtp.encryption', 'ssl');
             }
         } catch (Exception $e) {}
+
+        if($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }

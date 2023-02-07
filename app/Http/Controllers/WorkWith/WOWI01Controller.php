@@ -242,8 +242,11 @@ class WOWI01Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('WorkWith', 'WOWI01');
 
+        $section = WOWI01WorkWithSection::first();
         $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->active()->sorting()->get();
         $topicSection = WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->active()->first();
+
+        dd($topicSection);
 
         $workWiths = WOWI01WorkWith::whereNotIn('id', [$WOWI01WorkWith->id])->active()->sorting()->get();
 
@@ -252,6 +255,7 @@ class WOWI01Controller extends Controller
             'workWiths' => $workWiths,
             'topicSection' => $topicSection,
             'topics' => $topics,
+            'section' => $section,
             'sections' => $sections,
         ]);
     }

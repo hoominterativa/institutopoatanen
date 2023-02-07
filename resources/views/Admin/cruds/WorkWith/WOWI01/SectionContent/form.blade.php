@@ -5,41 +5,6 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="card card-body" id="tooltip-container">
-                <h4 class="mb-4">
-                    Infomações da seção
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Na seção de Conteúdo essas informações aparecem logo no topo."></i>
-                </h4>
-                <div class="mb-3">
-                    {!! Form::label('title_section_content', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title_section_content', null, ['class'=>'form-control', 'id'=>'title_section_content']) !!}
-                </div>
-                <div class="mb-3">
-                    {!! Form::label('subtitle_section_content', 'Subtítulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle_section_content', null, ['class'=>'form-control', 'id'=>'subtitle_section_content']) !!}
-                </div>
-                <div class="mb-3">
-                    {!! Form::label('description_section_content', 'Descrição', ['class'=>'form-label']) !!}
-                    {!! Form::textarea('description_section_content', null, [
-                        'class'=>'form-control',
-                        'id'=>'description_section_content',
-                        'data-parsley-trigger'=>'keyup',
-                        'data-parsley-minlength'=>'20',
-                        'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                        'data-parsley-validation-threshold'=>'10',
-                    ]) !!}
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card card-body" id="tooltip-container">
-                <h4 class="mb-4">
-                    Infomações
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Na seção de Conteúdo essas informações aparecem ao lado da imagem."></i>
-                </h4>
                 <div class="row">
                     <div class="mb-3 col-lg-6">
                         {!! Form::label('title_content', 'Título', ['class'=>'form-label']) !!}
@@ -48,6 +13,23 @@
                     <div class="mb-3 col-lg-6">
                         {!! Form::label('subtitle_content', 'Subtítulo', ['class'=>'form-label']) !!}
                         {!! Form::text('subtitle_content', null, ['class'=>'form-control', 'id'=>'subtitle_content']) !!}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-lg-6">
+                        {!! Form::label(null, 'Link Botão', ['class'=>'form-label']) !!}
+                        {!! Form::url('link_content', null, [
+                            'class'=>'form-control',
+                            'parsley-type'=>'url',
+                        ]) !!}
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        {!! Form::label('link_target_content', 'Abrir link em', ['class'=>'form-label']) !!}
+                        {!! Form::select('link_target_content', ['_self' => 'Mesma Aba', '_blank' => 'Nova aba'], null, [
+                            'class'=>'form-select',
+                            'id'=>'link_target_content',
+                            'placeholder' => '--'
+                        ]) !!}
                     </div>
                 </div>
                 <div class="mb-3">
@@ -62,6 +44,10 @@
                         'data-parsley-validation-threshold'=>'10',
                     ]) !!}
                 </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}

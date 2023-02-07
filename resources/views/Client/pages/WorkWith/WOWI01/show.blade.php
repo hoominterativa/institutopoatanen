@@ -80,17 +80,6 @@
 
             <section class="wowi01-show__content-section container-fluid">
                 <div class="container wowi01-show__content-section__container">
-                    @if ($workWith->title_section_content || $workWith->subtitle_section_content || $workWith->description_section_content)
-                        <header class="wowi01-show__content-section__header">
-                            <h3 class="wowi01-show__content-section__header__container">
-                                <span class="wowi01-show__content-section__header__title">{{$workWith->title_section_content}}</span>
-                                <span class="wowi01-show__content-section__header__subtitle">{{$workWith->subtitle_section_content}}</span>
-                            </h3>
-                            <hr class="wowi01-show__content-section__header__line">
-                            <p class="wowi01-show__content-section__header__paragraph">{{$workWith->description_section_content}}</p>
-                        </header>
-                    @endif
-                    {{-- END .wowi01-show__content-section__header --}}
                     @if ($workWith->path_image_content || $workWith->title_content || $workWith->subtitle_content || $workWith->description_content)
                         <div class="wowi01-show__content-section__info row">
                             @if ($workWith->path_image_content)
@@ -122,15 +111,17 @@
         @if ($workWiths->count())
             <section id="WOWI01" class="wowi01 container-fluid">
                 <div class="container">
-                    @if ($section->title || $section->subtitle || $section->description)
-                        <header class="wowi01__header">
-                            <h3 class="wowi01__header__container">
-                                <span class="wowi01__header__title">{{$section->title}}</span>
-                                <span class="wowi01__header__subtitle">{{$section->subtitle}}</span>
-                            </h3>
-                            <hr class="wowi01__header__line">
-                            <p class="wowi01__header__paragraph">{{$section->description}}</p>
-                        </header>
+                    @if ($section)
+                        @if ($section->title || $section->subtitle || $section->description)
+                            <header class="wowi01__header">
+                                <h3 class="wowi01__header__container">
+                                    <span class="wowi01__header__title">{{$section->title}}</span>
+                                    <span class="wowi01__header__subtitle">{{$section->subtitle}}</span>
+                                </h3>
+                                <hr class="wowi01__header__line">
+                                <p class="wowi01__header__paragraph">{{$section->description}}</p>
+                            </header>
+                        @endif
                     @endif
                     <div class="wowi01__container-box carousel-wowi01 row">
                         @foreach ($workWiths as $workWith)
