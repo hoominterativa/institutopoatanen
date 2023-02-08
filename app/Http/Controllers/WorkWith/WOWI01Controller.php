@@ -246,7 +246,7 @@ class WOWI01Controller extends Controller
         $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->active()->sorting()->get();
         $topicSection = WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->active()->first();
 
-        dd($topicSection);
+        // dd($topicSection);
 
         $workWiths = WOWI01WorkWith::whereNotIn('id', [$WOWI01WorkWith->id])->active()->sorting()->get();
 

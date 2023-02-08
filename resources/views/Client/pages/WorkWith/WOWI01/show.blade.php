@@ -39,14 +39,18 @@
             @if ($topicSection)
                 <section class="wowi01-show__container-box__wrapper">
                     <div class="container">
-                        <header class="wowi01-show__container-box__header">
-                            <h3 class="wowi01-show__container-box__header__container">
-                                <span class="wowi01-show__container-box__header__title">{{$topicSection->title}}</span>
-                                <span class="wowi01-show__container-box__header__subtitle">{{$workWith->subtitle}}</span>
-                            </h3>
-                            <hr class="wowi01-show__container-box__header__line">
-                            <p class="wowi01-show__container-box__header__paragraph">{{$topicSection->description}}</p>
-                        </header>
+                        @if ($topicSection->title || $topicSection->subtitle || $topicSection->description)
+                            <header class="wowi01-show__container-box__header">
+                                <h3 class="wowi01-show__container-box__header__container">
+                                    <span class="wowi01-show__container-box__header__title">{{$topicSection->title}}</span>
+                                    <span class="wowi01-show__container-box__header__subtitle">{{$topicSection->subtitle}}</span>
+                                </h3>
+                                @if ($topicSection->title || $topicSection->subtitle)
+                                    <hr class="wowi01-show__container-box__header__line">
+                                @endif
+                                <p class="wowi01-show__container-box__header__paragraph">{{$topicSection->description}}</p>
+                            </header>
+                        @endif
                         <div class="wowi01-show__container-box wowi01-show__container-box__carousel row">
                             @foreach ($topics as $topic)
                                 <article class="wowi01-show__container-box__item col-12 col-sm-4 col-lg-3 mb-5">
