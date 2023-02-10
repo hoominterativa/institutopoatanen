@@ -33,7 +33,6 @@ return [
                     'linkMenu' => '',
                     'iconMenu' => 'string',
                     'titlePanel' => 'PORT101',
-                    'iconPanel' => 'string'
                 ],
                 'IncludeSections' => (object) []
             ],
