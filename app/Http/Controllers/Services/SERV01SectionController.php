@@ -26,7 +26,7 @@ class SERV01SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, 1600, 100);
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null,100);
         if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
 
         $data['active_section'] = $request->active_section?1:0;
@@ -52,7 +52,7 @@ class SERV01SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, 1600, 100);
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null,100);
 
         if($path_image_banner){
             storageDelete($SERV01ServicesSection, 'path_image_banner');

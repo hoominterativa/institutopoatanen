@@ -5,20 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @if ($optimizePage)
-        <title>{{$optimizePage->title}}</title>
-        <meta name="description" content="{{$optimizePage->description}}">
-        <meta name="keywords" content="{{$optimizePage->keywords}}" />
-        <meta name="author" content="{{$optimizePage->author}}">
-    @else
-        <title>{{$optimization->title}}</title>
-        <meta name="description" content="{{$optimization->description}}">
-        <meta name="keywords" content="{{$optimization->keywords}}" />
-        <meta name="author" content="{{$optimization->author}}">
+
+    @if (!yield('title'))
+        <script>alert('sadasdas')</script>
     @endif
-    <meta name="robots" content="follow">
-    <meta name="copyright" content="© 2022 {{env('APP_NAME')}}." />
-    <meta name="generator" content="Laravel 8" />
+
+    @include('Client.Core.meta',[
+        'optimization' => $optimization,
+        'optimizePage' => $optimizePage
+    ])
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">

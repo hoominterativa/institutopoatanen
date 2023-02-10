@@ -1,4 +1,5 @@
 {!! Form::model($contact, ['route' => ['admin.cota01.update', $contact->id], 'class'=>'parsley-validate', 'files' => true, 'method' => 'PUT']) !!}
+    <input type="hidden" name="title_page" value="{{$contact->title_page}}">
     <div class="row">
         <div class="col-12 col-lg-6">
             <div class="card card-body" id="tooltip-container">

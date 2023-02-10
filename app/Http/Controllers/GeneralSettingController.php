@@ -46,12 +46,12 @@ class GeneralSettingController extends Controller
         $helper = new HelperArchive();
         $data = $request->all();
 
-        $path_logo_header_light = $helper->optimizeImage($request, 'path_logo_header_light', $path, null, 100);
-        $path_logo_header_dark = $helper->optimizeImage($request, 'path_logo_header_dark', $path, null, 100);
-        $path_logo_footer_light = $helper->optimizeImage($request, 'path_logo_footer_light', $path, null, 100);
+        $path_logo_header_light = $helper->optimizeImage($request, 'path_logo_header_light', $path, null,100);
+        $path_logo_header_dark = $helper->optimizeImage($request, 'path_logo_header_dark', $path, null,100);
+        $path_logo_footer_light = $helper->optimizeImage($request, 'path_logo_footer_light', $path, null,100);
         $path_logo_footer_dark = $helper->optimizeImage($request, 'path_logo_footer_dark', $path, null, 100);
-        $path_logo_share = $helper->optimizeImage($request, 'path_logo_share', $path, null, 100);
-        $path_favicon = $helper->optimizeImage($request, 'path_favicon', $path, null, 100);
+        $path_logo_share = $helper->optimizeImage($request, 'path_logo_share', $path, null,100);
+        $path_favicon = $helper->optimizeImage($request, 'path_favicon', $path, null,100);
 
         if($path_logo_header_light){
             storageDelete($GeneralSetting, 'path_logo_header_light');

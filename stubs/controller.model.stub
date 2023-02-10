@@ -49,7 +49,7 @@ class {{ class }} extends Controller
         $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
 
         if($path_image) $data['path_image'] = $path_image;
 
@@ -103,7 +103,7 @@ class {{ class }} extends Controller
         $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
         if($path_image){
             storageDelete(${{ model }}, 'path_image');
             $data['path_image'] = $path_image;

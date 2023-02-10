@@ -39,16 +39,16 @@ class ABOU01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_center_section = $helper->optimizeImage($request, 'path_image_center_section', $this->path, 200, 80);
+        $path_image_center_section = $helper->optimizeImage($request, 'path_image_center_section', $this->path, null, 100);
         if($path_image_center_section) $data['path_image_center_section'] = $path_image_center_section;
 
-        $path_image_right_section = $helper->optimizeImage($request, 'path_image_right_section', $this->path, 200, 80);
+        $path_image_right_section = $helper->optimizeImage($request, 'path_image_right_section', $this->path, null, 100);
         if($path_image_right_section) $data['path_image_right_section'] = $path_image_right_section;
 
-        $path_image_background_section = $helper->optimizeImage($request, 'path_image_background_section', $this->path, 200, 80);
+        $path_image_background_section = $helper->optimizeImage($request, 'path_image_background_section', $this->path, null, 100);
         if($path_image_background_section) $data['path_image_background_section'] = $path_image_background_section;
 
-        $path_image_inner_section = $helper->optimizeImage($request, 'path_image_inner_section', $this->path, 200, 80);
+        $path_image_inner_section = $helper->optimizeImage($request, 'path_image_inner_section', $this->path, null, 100);
         if($path_image_inner_section) $data['path_image_inner_section'] = $path_image_inner_section;
 
         if(ABOU01Abouts::create($data)){
@@ -76,7 +76,7 @@ class ABOU01Controller extends Controller
         $helper = new HelperArchive();
 
         // path_image_center_section
-        $path_image_center_section = $helper->optimizeImage($request, 'path_image_center_section', $this->path, 550, 100);
+        $path_image_center_section = $helper->optimizeImage($request, 'path_image_center_section', $this->path, null, 100);
         if($path_image_center_section){
             storageDelete($ABOU01Abouts, 'path_image_center_section');
             $data['path_image_center_section'] = $path_image_center_section;
@@ -87,7 +87,7 @@ class ABOU01Controller extends Controller
         }
 
         // path_image_right_section
-        $path_image_right_section = $helper->optimizeImage($request, 'path_image_right_section', $this->path, 550, 100);
+        $path_image_right_section = $helper->optimizeImage($request, 'path_image_right_section', $this->path, null, 100);
         if($path_image_right_section){
             storageDelete($ABOU01Abouts, 'path_image_right_section');
             $data['path_image_right_section'] = $path_image_right_section;
@@ -98,7 +98,7 @@ class ABOU01Controller extends Controller
         }
 
         // path_image_background_section
-        $path_image_background_section = $helper->optimizeImage($request, 'path_image_background_section', $this->path, 550, 100);
+        $path_image_background_section = $helper->optimizeImage($request, 'path_image_background_section', $this->path, null, 100);
         if($path_image_background_section){
             storageDelete($ABOU01Abouts, 'path_image_background_section');
             $data['path_image_background_section'] = $path_image_background_section;
@@ -109,7 +109,7 @@ class ABOU01Controller extends Controller
         }
 
         // path_image_inner_section
-        $path_image_inner_section = $helper->optimizeImage($request, 'path_image_inner_section', $this->path, 550, 100);
+        $path_image_inner_section = $helper->optimizeImage($request, 'path_image_inner_section', $this->path, null, 100);
         if($path_image_inner_section){
             storageDelete($ABOU01Abouts, 'path_image_inner_section');
             $data['path_image_inner_section'] = $path_image_inner_section;

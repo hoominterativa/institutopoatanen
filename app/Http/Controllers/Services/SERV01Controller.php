@@ -59,13 +59,13 @@ class SERV01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 400, 100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 200, 100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, 1600, 100);
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null,100);
         if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
 
         $data['active'] = $request->active?1:0;
@@ -118,7 +118,7 @@ class SERV01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 400, 100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($SERV01Services, 'path_image');
             $data['path_image'] = $path_image;
@@ -128,7 +128,7 @@ class SERV01Controller extends Controller
             $data['path_image'] = null;
         }
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 200, 100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){
             storageDelete($SERV01Services, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;
@@ -138,7 +138,7 @@ class SERV01Controller extends Controller
             $data['path_image_icon'] = null;
         }
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, 1600, 100);
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null,100);
         if($path_image_banner){
             storageDelete($SERV01Services, 'path_image_banner');
             $data['path_image_banner'] = $path_image_banner;

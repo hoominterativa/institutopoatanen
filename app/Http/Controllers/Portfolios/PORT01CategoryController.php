@@ -29,7 +29,7 @@ class PORT01CategoryController extends Controller
         $helper = new HelperArchive();
 
         try {
-            $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, 200, 100);
+            $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, null,100);
             if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
             $data['slug'] = Str::slug($request->title);
@@ -66,7 +66,7 @@ class PORT01CategoryController extends Controller
         $path = 'uploads/Portfolios/PORT01/images/';
         $helper = new HelperArchive();
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, 200, 100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, null,100);
         if($path_image_icon){
             storageDelete($PORT01PortfoliosCategory, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;

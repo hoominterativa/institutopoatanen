@@ -28,10 +28,10 @@ class SERV01AdvantageController extends Controller
 
         $data['active'] = $request->active?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 450, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 200, 100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(SERV01ServicesAdvantage::create($data)){
@@ -58,7 +58,7 @@ class SERV01AdvantageController extends Controller
 
         $data['active'] = $request->active?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 450, 100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($SERV01ServicesAdvantage, 'path_image');
             $data['path_image'] = $path_image;
@@ -68,7 +68,7 @@ class SERV01AdvantageController extends Controller
             $data['path_image'] = null;
         }
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 200, 100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){
             storageDelete($SERV01ServicesAdvantage, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;

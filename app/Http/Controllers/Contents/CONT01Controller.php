@@ -39,7 +39,7 @@ class CONT01Controller extends Controller
         $path = 'uploads/Contents/CONT01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 600, 90);
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
         if(CONT01Contents::create($data)){
@@ -64,7 +64,7 @@ class CONT01Controller extends Controller
         $path = 'uploads/Contents/CONT01/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 600, 90);
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
         if($path_image){
             storageDelete($CONT01Contents, 'path_image');
             $data['path_image'] = $path_image;

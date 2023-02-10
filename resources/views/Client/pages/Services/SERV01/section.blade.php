@@ -2,12 +2,18 @@
     <section id="SERV01" class="serv01 container-fluid">
         <div class="container">
             <header class="serv01__header">
-                <h3 class="serv01__header__container">
-                    <span class="serv01__header__title">{{$section->title}}</span>
-                    <span class="serv01__header__subtitle">{{$section->subtitle}}</span>
-                </h3>
-                <hr class="serv01__header__line">
-                <p class="serv01__header__paragraph">{{$section->description}}</p>
+                @if ($section->title_section || $section->subtitle_section)
+                    <h3 class="serv01__header__container">
+                        @if ($section->title_section)
+                            <span class="serv01__header__title">{{$section->title_section}}</span>
+                        @endif
+                        @if ($section->subtitle_section)
+                            <span class="serv01__header__subtitle">{{$section->subtitle_section}}</span>
+                        @endif
+                    </h3>
+                    <hr class="serv01__header__line">
+                @endif
+                <p class="serv01__header__paragraph">{{$section->description_section}}</p>
             </header>
             <div class="serv01__container-box carousel-serv01 row">
                 @foreach ($services as $service)

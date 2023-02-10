@@ -27,7 +27,7 @@ class PORT01SectionController extends Controller
 
         $data['active'] = $request->active?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 800, 90);
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
         if(PORT01PortfoliosSection::create($data)){
@@ -53,7 +53,7 @@ class PORT01SectionController extends Controller
 
         $data['active'] = $request->active?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 800, 90);
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
         if($path_image){
             storageDelete($PORT01PortfoliosSection, 'path_image');
             $data['path_image'] = $path_image;

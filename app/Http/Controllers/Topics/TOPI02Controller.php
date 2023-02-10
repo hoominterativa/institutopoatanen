@@ -55,10 +55,10 @@ class TOPI02Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 400, 95);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 400, 95);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image'] = $path_image_icon;
 
         $data['active'] = $request->active?1:0;
@@ -100,7 +100,7 @@ class TOPI02Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 400, 95);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($TOPI02Topics, 'path_image');
             $data['path_image'] = $path_image;
@@ -110,7 +110,7 @@ class TOPI02Controller extends Controller
             $data['path_image'] = null;
         }
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 400, 95);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){
             storageDelete($TOPI02Topics, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;

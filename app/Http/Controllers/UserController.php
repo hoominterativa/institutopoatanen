@@ -56,7 +56,7 @@ class UserController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', 200, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', null,100);
 
         if($path_image) $data['path_image'] = $path_image;
 
@@ -109,7 +109,7 @@ class UserController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', 200, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', null,100);
 
         if($path_image){
             storageDelete($user, 'path_image');

@@ -51,13 +51,13 @@ class SLID01Controller extends Controller
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 100);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 1000, 80);
+        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, null,100);
         if($path_image_png) $data['path_image_png'] = $path_image_png;
 
         $data['active'] = $request->active?1:0;
@@ -103,7 +103,7 @@ class SLID01Controller extends Controller
         $helper = new HelperArchive();
 
         // IMAGE DESKTOP
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 100);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
         if($path_image_desktop){
             storageDelete($SLID01Slides, 'path_image_desktop');
             $data['path_image_desktop'] = $path_image_desktop;
@@ -114,7 +114,7 @@ class SLID01Controller extends Controller
         }
 
         // IMAGE MOBILE
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
         if($path_image_mobile){
             storageDelete($SLID01Slides, 'path_image_mobile');
             $data['path_image_mobile'] = $path_image_mobile;
@@ -125,7 +125,7 @@ class SLID01Controller extends Controller
         }
 
         // IMAGE PNG
-        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 1000, 80);
+        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, null,100);
         if($path_image_png){
             storageDelete($SLID01Slides, 'path_image_png');
             $data['path_image_png'] = $path_image_png;
