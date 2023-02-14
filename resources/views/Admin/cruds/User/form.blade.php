@@ -35,19 +35,24 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body">
             <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label(null, 'Imagem', ['class'=>'form-label']) !!}
-                    <label class="area-input-image-crop" for="inputImage" title="Upload image file">
-                        {!! Form::file('path_image', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-mincropwidth'=>'80',
-                            'data-scale'=>'1/1',
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($user)?$user->path_image<>''?url('storage/'.$user->path_image):'':'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
+                <div class="mb-3">
+                    <div class="container-image-crop">
+                        {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                        <small class="ms-2">Dimensões proporcionais mínimas 200x200px!</small>
+                        <label class="area-input-image-crop" for="inputImage">
+                            {!! Form::file('path_image', [
+                                'id'=>'inputImage',
+                                'class'=>'inputImage',
+                                'data-status'=>'false', // px
+                                'data-min-width'=>'200', // px
+                                'data-min-height'=>'200', // px
+                                'data-box-height'=>'225', // Input height in the form
+                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                'data-default-file'=> isset($user)?($user->path_image<>''?url('storage/'.$user->path_image):''):'',
+                            ]) !!}
+                        </label>
+                    </div><!-- END container image crop -->
+                </div>
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->

@@ -724,7 +724,7 @@
     </style>
 
     @push('createEditJs')
-        <script src="{{url(mix('admin/assets/libs/Sortable.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/js/pages/kanban.init.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/libs/Sortable.min.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/js/pages/kanban.init.js'))}}"></script>
     @endpush
 @endsection

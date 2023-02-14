@@ -11,14 +11,14 @@
         <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
 
 		<!-- App css -->
-		<link href="{{asset('admin/assets/css/config/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
-		<link href="{{asset('admin/assets/css/config/app.min.css')}}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+		<link href="{{asset('Admin/assets/css/config/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+		<link href="{{asset('Admin/assets/css/config/app.min.css')}}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
 
-		<link href="{{asset('admin/assets/libs/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-		<link href="{{asset('admin/assets/css/config/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+		<link href="{{asset('Admin/assets/libs/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+		<link href="{{asset('Admin/assets/css/config/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 
 		<!-- icons -->
-		<link href="{{asset('admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{asset('Admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -33,10 +33,10 @@
         <!-- ============================================================== -->
 
     <!-- Vendor js -->
-    <script src="{{asset('admin/assets/js/vendor.min.js')}}"></script>
+    <script src="{{asset('Admin/assets/js/vendor.min.js')}}"></script>
 
     <!-- App js -->
-    <script src="{{asset('admin/assets/js/app.min.js')}}"></script>
+    <script src="{{asset('Admin/assets/js/app.min.js')}}"></script>
 
     </body>
 </html>

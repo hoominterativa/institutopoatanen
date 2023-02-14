@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\SettingTheme;
 
 class UserController extends Controller
 {
@@ -63,7 +64,16 @@ class UserController extends Controller
         $data['password'] = Hash::make($request->password);
         $data['active'] = $request->active?:0;
 
-        if(User::create($data)){
+        if($user = User::create($data)){
+
+            SettingTheme::create([
+                'user_id' => $user->id,
+                'color_scheme_mode' => 'dark',
+                'leftsidebar_color' => 'dark',
+                'leftsidebar_size' => 'default',
+                'topbar_color' => 'dark',
+            ]);
+
             Session::flash('success', 'Usuário cadastrado com sucesso');
             return redirect()->route('admin.user.index');
         }else{

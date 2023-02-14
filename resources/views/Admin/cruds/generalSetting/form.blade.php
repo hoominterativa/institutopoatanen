@@ -52,17 +52,20 @@
             </div>
             <div class="mb-3">
                 {!! Form::label(null, 'Senha', ['class'=>'form-label']) !!}
+                <small class="text-danger ms-2">Sua senha não ficará visível por questões de segurança</small>
                 {!! Form::password('smtp_password', [
-                        'autocomplete'=>'false',
-                        'class'=>'form-control',
-                        'required'=>'required',
-                    ])!!}
+                    'autocomplete'=>'off',
+                    'class' =>'form-control',
+                    'disabled' => true,
+                ])!!}
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
     <div class="col-12 col-lg-6" id="tooltip-container">
         <div class="card card-body">
-            <p class="mt-2 mb-3 alert-warning p-2">As logos são usadas par o site e gerenciador recomendamos cadastrar todas as versões para que as mesmas não aparceçam quebradas em alguma parte do site ou gerenciador</p>
+            <p class="mt-2 mb-3 alert-warning p-2">
+                As logos são usadas par o site recomendamos cadastrar todas as versões para que as mesmas não aparceçam quebradas em alguma parte do site.
+            </p>
             <div class="mb-3">
                 <div class="row">
                     <div class="col-12 col-lg-6">
@@ -131,12 +134,19 @@
                     </div>
                 </div>
             </div>
+
+            <p class="mt-2 mb-3 alert-info p-2">
+                Veja uma prévia de como o link do seu site irá aparecer quando for compartilhado, clicando <a href="https://developers.facebook.com/tools/debug/?q={{url('/home')}}" target="_blank"><b>AQUI</b></a>.
+            </p>
+
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
-                    {!! Form::label('file', 'Logo compartilhar', ['class'=>'form-label mb-0']) !!}
+                    {!! Form::label('file', 'Imagem de compartilhamento', ['class'=>'form-label mb-0 me-1']) !!}
+                    <small>Tamanho mínimo para a imagem: 250x250 pixel</small>
                     <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Logo que aparece quando o link do site é compartilhado"></i>
+                        data-bs-original-title="Imagem que aparece quando o link do site é compartilhado"></i>
+
                 </div>
                 {!! Form::file('path_logo_share', [
                     'data-plugins'=>'dropify',
@@ -148,7 +158,8 @@
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
-                    {!! Form::label('file', 'Icone de Favoritos (Favicon)', ['class'=>'form-label mb-0']) !!}
+                    {!! Form::label('file', 'Icone de Favoritos (Favicon)', ['class'=>'form-label mb-0 me-1']) !!}
+                    <small>Tamanho mínimo para a imagem: 100x100 pixel</small>
                     <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
                         data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-original-title="Icone que aparece na aba do navegador e/ou nos favoritos"></i>

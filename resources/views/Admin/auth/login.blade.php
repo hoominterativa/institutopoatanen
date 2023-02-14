@@ -1,6 +1,6 @@
 @extends('Admin.core.auth')
 @section('content')
-    <div class="auth-fluid" style="background-image: url({{asset('admin/assets/images/bg-material.png')}})">
+    <div class="auth-fluid" style="background-image: url({{asset('Admin/assets/images/bg-material.png')}})">
         <!--Auth fluid left content -->
         <div class="auth-fluid-form-box">
             <div class="align-items-center d-flex h-100">

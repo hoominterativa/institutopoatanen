@@ -19,25 +19,28 @@
         @stack('createEditCss')
         @stack('indexCss')
         @stack('dashboardCss')
-        <link href="{{url(mix('admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
-        <link href="{{url(mix('admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
+
+        <link href="{{url(mix('Admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
+        <link href="{{url(mix('Admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
 
 		<!-- App css -->
-		<link href="{{url(mix('admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
-		<link href="{{url(mix('admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"  disabled/>
+		<link href="{{url(mix('Admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
+		<link href="{{url(mix('Admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"  disabled/>
 
-		<link href="{{url(mix('admin/assets/css/config/bootstrap-dark.min.css'))}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-		<link href="{{url(mix('admin/assets/css/config/app-dark.min.css'))}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+		<link href="{{url(mix('Admin/assets/css/config/bootstrap-dark.min.css'))}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+		<link href="{{url(mix('Admin/assets/css/config/app-dark.min.css'))}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 		<!-- icons -->
-		<link href="{{url(mix('admin/assets/css/icons.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(mix('Admin/assets/css/icons.min.css'))}}" rel="stylesheet" type="text/css" />
 
         <!-- Custom -->
-        <link href="{{url(mix('admin/assets/css/custom.css'))}}" rel="stylesheet" type="text/css" />
+        <link href="{{url(mix('Admin/assets/css/custom.css'))}}" rel="stylesheet" type="text/css" />
 
         <script>
             $url = "{{url('')}}";
         </script>
 
+        <!-- Vendor js -->
+        <script src="{{url(mix('Admin/assets/js/vendor.min.js'))}}"></script>
     </head>
 
     <!-- body start -->
@@ -67,7 +70,7 @@
                                     <div class="row g-0">
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#">
-                                                <img src="{{asset('admin/assets/images/brands/dropbox.png')}}" alt="dropbox">
+                                                <img src="{{asset('Admin/assets/images/brands/dropbox.png')}}" alt="dropbox">
                                                 <span>Dropbox</span>
                                             </a>
                                         </div>
@@ -80,7 +83,9 @@
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fe-bell noti-icon"></i>
-                                <span class="badge bg-danger rounded-circle noti-icon-badge">{{$contactLeadsUpcoming->count()}}</span>
+                                @if ($contactLeadsUpcoming->count())
+                                    <span class="badge bg-danger rounded-circle noti-icon-badge">{{$contactLeadsUpcoming->count()}}</span>
+                                @endif
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-lg">
 
@@ -110,7 +115,12 @@
 
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="{{asset('admin/assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">
+                                @if (Auth::user()->path_image)
+                                    <img src="{{asset('storage/'.Auth::user()->path_image)}}" alt="user-image" class="rounded-circle">
+                                @else
+                                    <img src="{{asset('Admin/assets/images/profile-image-null.jpg')}}" alt="user-image" class="rounded-circle">
+                                @endif
+
                                 <span class="pro-user-name ms-1">
                                     {{explode(' ', Auth::user()->name)[0]}}
                                 </span>
@@ -144,21 +154,21 @@
                     <div class="logo-box">
                         <a href="{{route('admin.dashboard')}}" class="logo logo-dark text-center">
                             <span class="logo-sm">
-                                <img src="{{url('storage/'.$generalSetting->path_favicon)}}" alt="" height="22">
+                                <img src="{{url('Admin/assets/images/hoom-interativa-slogan-dark.png')}}" alt="" height="42">
                                 <!-- <span class="logo-lg-text-light">UBold</span> -->
                             </span>
                             <span class="logo-lg">
-                                <img src="{{url('storage/'.$generalSetting->path_logo_header_dark)}}" alt="" height="30">
+                                <img src="{{url('Admin/assets/images/hoom-interativa-samall-dark.png')}}" alt="" height="45">
                                 <!-- <span class="logo-lg-text-light">U</span> -->
                             </span>
                         </a>
 
                         <a href="{{route('admin.dashboard')}}" class="logo logo-light text-center">
                             <span class="logo-sm">
-                                <img src="{{url('storage/'.$generalSetting->path_favicon)}}" alt="" height="22">
+                                <img src="{{url('Admin/assets/images/hoom-interativa-salogan-light.png')}}" alt="" height="42">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{url('storage/'.$generalSetting->path_logo_header_light)}}" alt="" height="40">
+                                <img src="{{url('Admin/assets/images/hoom-interativa-small-light.png')}}" alt="" height="45">
                             </span>
                         </a>
                     </div>
@@ -329,14 +339,11 @@
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
-        <!-- Vendor js -->
-        <script src="{{url(mix('admin/assets/js/vendor.min.js'))}}"></script>
-
-        <script src="{{url(mix('admin/assets/libs/fancybox.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/tippy.all.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/jquery.sortable.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/libs/jquery.toast.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/js/pages/toastr.init.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/libs/fancybox.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/libs/tippy.all.min.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/libs/jquery.sortable.min.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/libs/jquery.toast.min.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/js/pages/toastr.init.js'))}}"></script>
 
         <script>
             class MyUploadAdapter {
@@ -410,16 +417,16 @@
 
         </script>
 
-        <link href="{{url(mix('admin/assets/libs/owl.carousel.min.css'))}}" rel="stylesheet" type="text/css" />
-        <script src="{{url(mix('admin/assets/libs/owl.carousel.min.js'))}}"></script>
+        <link href="{{url(mix('Admin/assets/libs/owl.carousel.min.css'))}}" rel="stylesheet" type="text/css" />
+        <script src="{{url(mix('Admin/assets/libs/owl.carousel.min.js'))}}"></script>
 
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')
 
         <!-- App js -->
-        <script src="{{url(mix('admin/assets/js/app.min.js'))}}"></script>
-        <script src="{{url(mix('admin/assets/js/custom.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/js/app.min.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/js/custom.js'))}}"></script>
 
 
         @if(Session::has('success'))
