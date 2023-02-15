@@ -24,6 +24,7 @@ use App\Http\Controllers\OptimizePageController;
 use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\Helpers\HelperModule;
 use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Models\ContactLead;
@@ -182,6 +183,10 @@ Route::prefix('painel')->group(function () {
     });
 });
 
+Route::get('/teste/asdas/asdads/saddasd', function(){
+    dd(listPage());
+});
+
 Route::get('/home', [HomePageController::class ,'index'])->name('home');
 Route::get('/', function(){return redirect()->route('home');});
 Route::post('/leads/website', [ContactLeadController::class ,'store'])->name('lead.store');
@@ -245,7 +250,7 @@ foreach ($modelsMain as $module => $models) {
 
         // CLIENT
         Route::get($route, [$controller, 'page'])->name($routeName.'.page');
-        Route::get($route.'/{'.$parameters.':slug}', [$controller, 'show'])->name($routeName.'.show');
+        Route::get($route.'/{'.$parameters.':slug?}', [$controller, 'show'])->name($routeName.'.show');
 
         include_once "{$module}/{$code}.php";
     }

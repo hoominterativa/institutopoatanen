@@ -55,7 +55,7 @@
                             @foreach ($topics as $topic)
                                 <article class="wowi01-show__container-box__item col-12 col-sm-4 col-lg-3 mb-5">
                                     <div class="content transition">
-                                        <a href="{{$topic->link??'javascript:void(0)'}}" {{$topic->link?'target='.$topic->link_target:''}}>
+                                        <a href="{{$topic->link?:'javascript:void(0)'}}" target="{{$topic->link_target}}">
                                             @if ($topic->path_image_thumbnail)
                                                 <img src="{{asset('storage/'.$topic->path_image_thumbnail)}}" width="100%" height="100%" class="wowi01-show__container-box__image d-block" alt="{{$topic->title}}">
                                             @endif

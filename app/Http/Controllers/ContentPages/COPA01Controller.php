@@ -100,6 +100,17 @@ class COPA01Controller extends Controller
      */
     public function destroy(COPA01ContentPages $COPA01ContentPages)
     {
+        $sections = COPA01ContentPagesSection::where('contentPage_id', $COPA01ContentPages->id)->get();
+        foreach($sections as $section){
+            foreach($section->archives as $archive){
+                storageDelete($section, 'path_archive');
+                $archive->delete();
+            }
+
+            storageDelete($section, 'path_image_icon');
+            $section->delete();
+        }
+
         storageDelete($COPA01ContentPages, 'path_image_banner');
 
         if($COPA01ContentPages->delete()){
@@ -118,6 +129,17 @@ class COPA01Controller extends Controller
     {
         $COPA01ContentPagess = COPA01ContentPages::whereIn('id', $request->deleteAll)->get();
         foreach($COPA01ContentPagess as $COPA01ContentPages){
+            $sections = COPA01ContentPagesSection::where('contentPage_id', $COPA01ContentPages->id)->get();
+            foreach($sections as $section){
+                foreach($section->archives as $archive){
+                    storageDelete($archive, 'path_archive');
+                    $archive->delete();
+                }
+
+                storageDelete($section, 'path_image_icon');
+                $section->delete();
+            }
+
             storageDelete($COPA01ContentPages, 'path_image_banner');
         }
 

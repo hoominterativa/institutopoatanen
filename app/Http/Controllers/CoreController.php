@@ -69,9 +69,13 @@ class CoreController extends Controller
                 $relations = $relations->whereRaw($config->IncludeCore->condition);
             }
 
-            // dd($relations->sorting()->get());
+            if($config->IncludeCore->sorting){
+                $query = $relations->sorting()->get();
+            }else{
+                $query = $relations->get();
+            }
 
-            foreach ($relations->sorting()->get() as $relation) {
+            foreach ($query as $relation) {
                 $sublistDropdown = [];
                 $buildRouteParameters = [$modelDB => $relation->slug];
                 if($existsRelation){
@@ -91,24 +95,11 @@ class CoreController extends Controller
                     }
                 }
 
-                if($existsRelation){
-                    $buildRouteParameters = [];
-                    $queryRelationship = $this->Class->$module->$code->relationship;
-
-                    foreach ($queryRelationship as $relationship) {
-                        $column = $relationship['column'];
-                        $slugRelationShip = $relationship['class']::where('id', $relation->$column)->first();
-                        $routeParameters = self::getModelParameters($relationship['class']);
-                        $buildRouteParameters = array_merge($buildRouteParameters, [$routeParameters => $slugRelationShip->slug]);
-                    }
-                    $buildRouteParameters = array_merge($buildRouteParameters, [$modelDB => $relation->slug]);
-                }
-
                 $menu = (object) [
                     "id" => $relation->id,
                     "name" => ($relation->name??$relation->title)??$relation->title_page,
                     "slug" => $relation->slug,
-                    "route" => route($route, $buildRouteParameters),
+                    "route" => $buildRouteParameters[$modelDB]?route($route, $buildRouteParameters):route($route),
                     'subList' => $sublistDropdown
                 ];
 

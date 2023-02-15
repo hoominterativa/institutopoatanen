@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CoreController;
 use Illuminate\Support\Str;
 use Cohensive\Embed\Facades\Embed;
 use Illuminate\Support\Facades\Route;
@@ -178,5 +179,68 @@ if(!function_exists('getCropImage')){
 
         $response = json_encode($getColumn);
         return json_decode($response);
+    }
+}
+
+if(!function_exists('getUri')){
+
+    /**
+     * Get uri
+     *
+     * @param string $url
+     * @return array
+     */
+    function getUri($url)
+    {
+        if(filter_var($url, FILTER_VALIDATE_URL)){
+            $parseUrl = parse_url($url);
+            $parseUrlCurrent = parse_url(url()->current());
+
+            if($parseUrl['host'] === $parseUrlCurrent['host']){
+                $url = $parseUrl['path']??'';
+            }
+
+            return $url;
+        }else{
+            return url($url);
+        }
+    }
+}
+
+if(!function_exists('listPage')){
+
+    /**
+     * List pages website inner
+     *
+     * @return object
+     */
+    function listPage()
+    {
+        $core = new CoreController();
+        $pages=[];
+        $modelsMain = config('modelsConfig.InsertModelsMain');
+        foreach($modelsMain as $module => $models){
+            foreach($models as $code => $config){
+                if($config->ViewListMenu){
+                    $registers = $core->getRelations($module, $code, $config);
+
+                    if(count($registers) <= 1){
+                        if(route($config->config->linkMenu) == $registers[0]->route){
+                            $registers = null;
+                        }
+                    }
+
+                    $merge = [
+                        'title' => $config->config->titleMenu,
+                        'route' => route($config->config->linkMenu),
+                        'dropdown' => $registers
+                    ];
+                    array_push($pages, $merge);
+                }
+            }
+        }
+
+        $pages = json_encode($pages);
+        return json_decode($pages);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Services\SERV01ServicesPortfolio;
+use App\Models\Services\SERV01ServicesPortfolioGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
@@ -81,6 +82,12 @@ class SERV01PortfolioController extends Controller
      */
     public function destroy(SERV01ServicesPortfolio $SERV01ServicesPortfolio)
     {
+        $galleries = SERV01ServicesPortfolioGallery::where('portfolio_id', $SERV01ServicesPortfolio->id)->get();
+        foreach ($galleries as $gallery) {
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
         storageDelete($SERV01ServicesPortfolio, 'path_image');
 
         if($SERV01ServicesPortfolio->delete()){

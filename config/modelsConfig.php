@@ -21,10 +21,19 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown',
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => false,
+                    'limit' => 'all',
+                    'condition' => '',
+                    'relation' => '',
+                    'titleList' => 'title',
+                    'titleSubList' => '',
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Sobre',
                     'anchor' =>  false,
-                    'linkMenu' => 'abou01.page',
+                    'linkMenu' => 'abou01.show',
                     'iconMenu' => '',
                     'titlePanel' => 'Sobre',
                     'iconPanel' => 'mdi-information-variant'
@@ -79,6 +88,7 @@ return [
                 'Viewer' => 'dropdown',
                 'IncludeCore' => (object) [
                     'include' => true,
+                    'sorting' => true,
                     'limit' => 'all',
                     'condition' => 'active=1',
                     'relation' => '',
@@ -121,6 +131,15 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown',
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => false,
+                    'limit' => 'all',
+                    'condition' => 'active=1',
+                    'relation' => '',
+                    'titleList' => 'title',
+                    'titleSubList' => '',
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Artigos',
                     'anchor' =>  false,
@@ -157,6 +176,15 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown',
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => false,
+                    'limit' => 'all',
+                    'condition' => '',
+                    'relation' => '',
+                    'titleList' => 'title',
+                    'titleSubList' => '',
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Sustentabilidade',
                     'anchor' =>  false,
@@ -203,6 +231,7 @@ return [
                 'Viewer' => 'dropdown',
                 'IncludeCore' => (object) [
                     'include' => true,
+                    'sorting' => true,
                     'limit' => 'all',
                     'condition' => 'active=1',
                     'relation' => '',

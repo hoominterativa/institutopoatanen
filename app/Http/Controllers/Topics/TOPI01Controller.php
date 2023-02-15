@@ -61,6 +61,7 @@ class TOPI01Controller extends Controller
         if($path_image_icon) $data['path_image'] = $path_image_icon;
 
         $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if(TOPI01Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
@@ -81,6 +82,7 @@ class TOPI01Controller extends Controller
      */
     public function edit(TOPI01Topics $TOPI01Topics)
     {
+        $TOPI01Topics->link = getUri($TOPI01Topics->link);
         return view('Admin.cruds.Topics.TOPI01.edit',[
             'topic' => $TOPI01Topics,
             'cropSetting' => getCropImage('Topics', 'TOPI01')
@@ -118,6 +120,9 @@ class TOPI01Controller extends Controller
             storageDelete($TOPI01Topics, 'path_image_icon');
             $data['path_image_icon'] = null;
         }
+
+        $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if($TOPI01Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');

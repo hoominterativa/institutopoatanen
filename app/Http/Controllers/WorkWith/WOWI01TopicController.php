@@ -33,6 +33,7 @@ class WOWI01TopicController extends Controller
         if($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
 
         $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if(WOWI01WorkWithTopic::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
@@ -75,6 +76,9 @@ class WOWI01TopicController extends Controller
             storageDelete($WOWI01WorkWithTopic, 'path_image_thumbnail');
             $data['path_image_thumbnail'] = null;
         }
+
+        $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if($WOWI01WorkWithTopic->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');

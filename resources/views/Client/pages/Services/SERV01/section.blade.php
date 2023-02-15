@@ -17,7 +17,7 @@
             </header>
             <div class="serv01__container-box carousel-serv01 row">
                 @foreach ($services as $service)
-                    <article class="serv01__container-box__item col-12 col-sm-4 col-lg-3 mb-5">
+                    <article class="serv01__container-box__item col-12 mb-5">
                         <div class="content transition">
                             @if ($service->path_image)
                                 <img src="{{asset('storage/'.$service->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="{{$service->title}}">

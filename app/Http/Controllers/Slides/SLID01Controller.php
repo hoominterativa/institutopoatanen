@@ -62,6 +62,11 @@ class SLID01Controller extends Controller
 
         $data['active'] = $request->active?1:0;
 
+        if($request->external_link_button){
+            $data['link_button'] = $request->link_button;
+            $data['target_link_button'] = '_self';
+        }
+
         if(SLID01Slides::create($data)){
             Session::flash('success', 'Banner cadastrado com sucesso');
             return redirect()->route('admin.slid01.index');
@@ -82,6 +87,7 @@ class SLID01Controller extends Controller
      */
     public function edit(SLID01Slides $SLID01Slides)
     {
+        $SLID01Slides->link_button = getUri($SLID01Slides->link_button);
         return view('Admin.cruds.Slides.SLID01.edit',[
             'slide' => $SLID01Slides,
             'cropSetting' => getCropImage('Slides', 'SLID01')
@@ -136,6 +142,7 @@ class SLID01Controller extends Controller
         }
 
         $data['active'] = $request->active?1:0;
+        $data['link_button'] = getUri($request->link_button);
 
         if($SLID01Slides->fill($data)->save()){
             Session::flash('success', 'Banner atualizado com sucesso');

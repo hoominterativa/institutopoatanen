@@ -61,6 +61,7 @@ class CONT03Controller extends Controller
         if($path_image_background) $data['path_image_background'] = $path_image_background;
 
         $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if(CONT03Contents::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
@@ -82,6 +83,7 @@ class CONT03Controller extends Controller
      */
     public function edit(CONT03Contents $CONT03Contents)
     {
+        $CONT03Contents->link = getUri($CONT03Contents->link);
         return view('Admin.cruds.Contents.CONT03.edit',[
             'content' => $CONT03Contents,
             'cropSetting' => getCropImage('Contents', 'CONT03')
@@ -134,6 +136,7 @@ class CONT03Controller extends Controller
         }
 
         $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if($CONT03Contents->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');

@@ -409,4 +409,11 @@ $(function() {
             }
         }
     });
+
+    $('body').on('click', '[data-bs-toggle=setUrl]', function(event){
+        event.preventDefault()
+        let targetUrl = $(this).data('target-url'),
+            url = $(this).attr('href')
+        $(targetUrl).val(url)
+    })
 })

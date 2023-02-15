@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Services;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Services\SERV01Services;
@@ -70,6 +71,7 @@ class SERV01Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
+        $data['slug'] = $request->subtitle?Str::slug($request->title.'-'.$request->subtitle):Str::slug($request->title);
 
         if($service = SERV01Services::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
@@ -148,6 +150,8 @@ class SERV01Controller extends Controller
             $data['path_image_banner'] = null;
         }
 
+        $data['slug'] = $request->subtitle?Str::slug($request->title.'-'.$request->subtitle):Str::slug($request->title);
+
         if($SERV01Services->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
@@ -167,6 +171,27 @@ class SERV01Controller extends Controller
      */
     public function destroy(SERV01Services $SERV01Services)
     {
+        $portfolios = SERV01ServicesPortfolio::where('service_id', $SERV01Services->id)->get();
+        foreach ($portfolios as $portfolio) {
+            foreach ($portfolio->gallery as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+
+            storageDelete($portfolio, 'path_image');
+            $portfolio->delete();
+        }
+
+        $advantages = SERV01ServicesAdvantage::where('service_id', $SERV01Services->id)->get();
+        foreach ($advantages as $advantage) {
+            storageDelete($advantage, 'path_image');
+            storageDelete($advantage, 'path_image_icon');
+            $advantage->delete();
+        }
+
+        SERV01ServicesAdvantageSection::where('service_id', $SERV01Services->id)->delete();
+        SERV01ServicesPortfolioSection::where('service_id', $SERV01Services->id)->delete();
+
         storageDelete($SERV01Services, 'path_image');
         storageDelete($SERV01Services, 'path_image_icon');
 
@@ -186,6 +211,28 @@ class SERV01Controller extends Controller
     {
         $SERV01Servicess = SERV01Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV01Servicess as $SERV01Services){
+
+            $portfolios = SERV01ServicesPortfolio::where('service_id', $SERV01Services->id)->get();
+            foreach ($portfolios as $portfolio) {
+                foreach ($portfolio->gallery as $gallery) {
+                    storageDelete($gallery, 'path_image');
+                    $gallery->delete();
+                }
+
+                storageDelete($portfolio, 'path_image');
+                $portfolio->delete();
+            }
+
+            $advantages = SERV01ServicesAdvantage::where('service_id', $SERV01Services->id)->get();
+            foreach ($advantages as $advantage) {
+                storageDelete($advantage, 'path_image');
+                storageDelete($advantage, 'path_image_icon');
+                $advantage->delete();
+            }
+
+            SERV01ServicesAdvantageSection::where('service_id', $SERV01Services->id)->delete();
+            SERV01ServicesPortfolioSection::where('service_id', $SERV01Services->id)->delete();
+
             storageDelete($SERV01Services, 'path_image');
             storageDelete($SERV01Services, 'path_image_icon');
         }
