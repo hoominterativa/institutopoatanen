@@ -1686,6 +1686,9 @@ a {
 /* BEGIN STYLE */
 #TOPI01 {
   padding: 70px 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   #TOPI01 {
@@ -3011,6 +3014,9 @@ a {
 /* BEGIN STYLE */
 #TOPI02 {
   padding: 70px 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   #TOPI02 {

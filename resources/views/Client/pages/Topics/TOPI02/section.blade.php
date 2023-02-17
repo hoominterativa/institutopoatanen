@@ -1,6 +1,6 @@
 @if ($topics->count())
     @if ($section)
-        <section id="TOPI02" class="container-fluid" style="background-color: #ebebeb;">
+        <section id="TOPI02" class="container-fluid" style="background-image: url({{asset('storage/'.$section->path_image_background)}}); background-color: {{$section->background_color}};">
             <div class="container">
                 @if ($section->title || $section->subtitle || $section->description)
                     <header class="header-topic">

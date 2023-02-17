@@ -21,6 +21,7 @@
     <script src="{{url(mix('Admin/assets/libs/bootstrap-datepicker.pt-BR.min.js'))}}"></script>
 
     <!-- Pages init js-->
+    <script src="{{url(mix('Admin/assets/js/pages/form-pickers.init.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/js/pages/form-fileuploads.init.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/js/pages/form-imagecrop.init.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/js/pages/ckeditor.init.js'))}}"></script>

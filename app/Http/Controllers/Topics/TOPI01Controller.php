@@ -28,6 +28,7 @@ class TOPI01Controller extends Controller
         return view('Admin.cruds.Topics.TOPI01.index',[
             'topics' => $topics,
             'section' => $section,
+            'cropSetting' => getCropImage('Topics', 'TOPI01')
         ]);
     }
 

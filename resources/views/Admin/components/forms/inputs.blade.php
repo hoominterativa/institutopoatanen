@@ -48,7 +48,7 @@
 <div class="mb-3">
     {!! Form::label('colorpicker-default', 'Simple input field', ['class'=>'form-label']) !!}
     {!! Form::text('date', '#4a81d4', [
-            'class'=>'form-control',
+            'class'=>'form-control colorpicker-default',
             'id'=>'colorpicker-default',
             'required'=>'required',
         ])!!}

@@ -3,6 +3,7 @@
 /* BEGIN STYLE */
 #TOPI01{
     padding: 70px 0;
+    @include backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat);
     @include small-device{
         padding: 35px 0;
     }
