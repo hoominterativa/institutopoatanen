@@ -27,6 +27,53 @@
             </div>
 
             <h4 class="mb-3 mt-3">SMTP</h4>
+            <div class="accordion custom-accordion mb-4" id="custom-accordion-one">
+                <div class="card mb-1">
+                    <div class="card-header" id="headingNine">
+                        <h5 class="m-0 position-relative">
+                            <a class="custom-accordion-title text-reset d-block collapsed" data-bs-toggle="collapse" href="#collapseGamail" aria-expanded="false" aria-controls="collapseNine">
+                                <i class="mdi mdi-help-circle me-1 text-dark"></i>
+                                Configurar conta Gmail
+                                <i class="mdi mdi-chevron-down accordion-arrow"></i>
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseGamail" class="collapse" aria-labelledby="headingFour" data-bs-parent="#custom-accordion-one">
+                        <div class="card-body">
+                            <ul>
+                                <li><b>Host:</b> smtp.gmail.com</li>
+                                <li><b>Usuário:</b> Seu endereço completo do Gmail (ex.: you@gmail.com)</li>
+                                <li><b>Senha:</b> Sua senha de app. Não sabe como configurar? clique <a href="https://support.google.com/mail/answer/185833?hl=pt-BR" target="_blank" rel="noopener noreferrer">aqui</a></li>
+                                <li><b>Porta</b> 465</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-1">
+                    <div class="card-header" id="headingNine">
+                        <h5 class="m-0 position-relative">
+                            <a class="custom-accordion-title text-reset d-block collapsed" data-bs-toggle="collapse" href="#collapseOutlook" aria-expanded="false" aria-controls="collapseNine">
+                                <i class="mdi mdi-help-circle me-1 text-dark"></i>
+                                Configurar conta Outlook
+                                <i class="mdi mdi-chevron-down accordion-arrow"></i>
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOutlook" class="collapse" aria-labelledby="headingFour" data-bs-parent="#custom-accordion-one">
+                        <div class="card-body">
+                            <ul>
+                                <li><b>Host:</b> smtp.office365.com</li>
+                                <li><b>Usuário:</b> Seu endereço completo do outlook (ex.: you@outlook.com)</li>
+                                <li><b>Senha:</b> Senha do email</li>
+                                <li><b>Porta</b> 587</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
             <div class="mb-3">
                 {!! Form::label(null, 'Host', ['class'=>'form-label']) !!}
@@ -56,7 +103,6 @@
                 {!! Form::password('smtp_password', [
                     'autocomplete'=>'off',
                     'class' =>'form-control',
-                    'disabled' => true,
                 ])!!}
             </div>
         </div> <!-- end card-body-->
@@ -64,7 +110,7 @@
     <div class="col-12 col-lg-6" id="tooltip-container">
         <div class="card card-body">
             <p class="mt-2 mb-3 alert-warning p-2">
-                As logos são usadas par o site recomendamos cadastrar todas as versões para que as mesmas não aparceçam quebradas em alguma parte do site.
+                As logos são usadas para o site recomendamos cadastrar todas as versões para que as mesmas não aparceçam quebradas em alguma parte do site.
             </p>
             <div class="mb-3">
                 <div class="row">

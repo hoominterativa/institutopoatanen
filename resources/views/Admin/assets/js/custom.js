@@ -180,7 +180,15 @@ $(function() {
                         <input type="text" name="option_" required class="form-control inputSetOption" placeholder="Separar as opções com vírgula">
                     </div>
                 `
-                break;
+            break;
+            case 'selectEmail':
+                html += `
+                    <div class="mb-3">
+                        <label class="form-label">Opções</label>
+                        <input type="text" name="option_" required class="form-control inputSetOption" placeholder="Separar as opções com vírgula Ex.: Suporte{suporte@exemplo.com.br},Reclamações{reclamacoes@exemplo.com.br}">
+                    </div>
+                `
+            break;
         }
         html += '</div>'
 
