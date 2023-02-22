@@ -2239,6 +2239,7 @@ a {
 #SERV01 .serv01-show__topics__container-box__item {
   padding-right: 0.25rem;
   padding-left: 0.25rem;
+  overflow: hidden;
 }
 #SERV01 .serv01-show__topics__container-box__item .content {
   padding: 0 20px;
@@ -2253,6 +2254,49 @@ a {
 }
 #SERV01 .serv01-show__topics__container-box__item .content:hover .serv01-topics__container-box__link__icon {
   filter: grayscale(1) invert(1);
+}
+#SERV01 .serv01-show__topics__container-box__item .content:hover .serv01-show__topics__container-box__hover {
+  opacity: 1;
+  visibility: visible;
+  left: 0;
+  transition-duration: 0.5s;
+}
+#SERV01 .serv01-show__topics__container-box__hover {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #7C7C7C;
+  z-index: 100;
+  padding: 40px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.5s;
+  overflow-y: auto;
+}
+#SERV01 .serv01-show__topics__container-box__hover::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background: rgba(64, 64, 64, 0.5);
+}
+#SERV01 .serv01-show__topics__container-box__hover::-webkit-scrollbar-thumb {
+  background: rgba(64, 64, 64, 0.8);
+}
+#SERV01 .serv01-show__topics__container-box__hover::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+#SERV01 .serv01-show__topics__container-box__hover__title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #B3B3B3;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+#SERV01 .serv01-show__topics__container-box__hover__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #B3B3B3;
 }
 #SERV01 .serv01-show__topics__container-box__info {
   position: relative;

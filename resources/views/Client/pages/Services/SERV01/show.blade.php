@@ -34,31 +34,37 @@
             @if ($service->advantages->count())
                 <div class="serv01-show__topics">
                     <div class="container">
-                        @if ($service->advantageSection??false)
-                            @if ($service->advantageSection->active)
-                                <header class="serv01-show__topics__header">
-                                    <h3 class="serv01-show__topics__header__container">
-                                        <span class="serv01-show__topics__header__title">{{$service->advantageSection->title}}</span>
-                                        <span class="serv01-show__topics__header__subtitle">{{$service->advantageSection->subtitle}}</span>
-                                    </h3>
-                                    <hr class="serv01-show__topics__header__line">
-                                    <p class="serv01-show__topics__header__paragraph">{{$service->advantageSection->description}}</p>
-                                </header>
-                            @endif
+                        @if ($service->advantagesSection)
+                            <header class="serv01-show__topics__header">
+                                <h3 class="serv01-show__topics__header__container">
+                                    <span class="serv01-show__topics__header__title">{{$service->advantagesSection->title}}</span>
+                                    <span class="serv01-show__topics__header__subtitle">{{$service->advantagesSection->subtitle}}</span>
+                                </h3>
+                                <hr class="serv01-show__topics__header__line">
+                                <p class="serv01-show__topics__header__paragraph">{{$service->advantagesSection->description}}</p>
+                            </header>
                         @endif
                         <div class="serv01-show__topics__container-box carousel-serv01-show__topics row">
                             @foreach ($service->advantages as $advantage)
                                 <article class="serv01-show__topics__container-box__item col-12 col-sm-4 col-lg-3">
                                     <div class="content transition">
-                                        <img src="{{asset('storage/'.$advantage->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                                        @if ($advantage->path_image)
+                                            <img src="{{asset('storage/'.$advantage->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                                        @endif
                                         <div class="serv01-show__topics__container-box__info d-flex flex-column justify-content-center align-items-center">
-                                            <figure class="serv01-show__topics__container-box__image">
-                                                <img src="{{asset('storage/'.$advantage->path_image_icon)}}" class="icon" width="50px" alt="">
-                                            </figure>
+                                            @if ($advantage->path_image_icon)
+                                                <figure class="serv01-show__topics__container-box__image">
+                                                    <img src="{{asset('storage/'.$advantage->path_image_icon)}}" class="icon" width="50px" alt="">
+                                                </figure>
+                                            @endif
                                             <div class="serv01-show__topics__container-box__description">
                                                 <h3 class="serv01-show__topics__container-box__title">{{$advantage->title}}</h3>
                                                 <p class="serv01-show__topics__container-box__paragraph mx-auto">{{$advantage->description}}</p>
                                             </div>
+                                        </div>
+                                        <div class="serv01-show__topics__container-box__hover d-flex flex-column justify-content-center align-items-center">
+                                            <h4 class="serv01-show__topics__container-box__hover__title">{{$advantage->title}}</h4>
+                                            <div class="serv01-show__topics__container-box__hover__paragraph mx-auto">{!!$advantage->text!!}</div>
                                         </div>
                                     </div>
                                 </article>
