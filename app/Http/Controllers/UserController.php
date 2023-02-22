@@ -154,6 +154,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        SettingTheme::where('user_id', $user->id)->delete();
+
         storageDelete($user, 'path_image');
         if($user->delete()){
             Session::flash('success', 'Usuário deletado com sucesso');
@@ -171,6 +173,7 @@ class UserController extends Controller
     {
         $users = User::whereIn('id', $request->deleteAll)->get();
         foreach($users as $user){
+            SettingTheme::where('user_id', $user->id)->delete();
             storageDelete($user, 'path_image');
         }
 

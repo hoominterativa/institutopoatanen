@@ -12,17 +12,11 @@
                     {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
                     {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
                 </div>
-                <div class="mb-3">
-                    {!! Form::label('message', 'Descrição', ['class'=>'form-label']) !!}
+                <div class="basic-editor__content mb-3">
+                    {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
                     {!! Form::textarea('description', null, [
-                        'class'=>'form-control',
-                        'id'=>'message',
-                        'required'=>'required',
-                        'data-parsley-trigger'=>'keyup',
-                        'data-parsley-minlength'=>'20',
-                        'data-parsley-maxlength'=>'300',
-                        'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                        'data-parsley-validation-threshold'=>'10',
+                        'class'=>'form-control basic-editor',
+                        'id'=>'basic-editor',
                     ]) !!}
                 </div>
             </div>
