@@ -49,6 +49,16 @@
                 </div><!-- END container image crop -->
             </div>
         </div>
+        <div class="col-12">
+            <div class="basic-editor__content mb-3">
+                {!! Form::label('text', 'Texto', ['class'=>'form-label']) !!}
+                {!! Form::textarea('text', null, [
+                    'class'=>'form-control basic-editor',
+                    'data-height'=>500,
+                    'id'=>'text',
+                ]) !!}
+            </div>
+        </div>
     </div>
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
         {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
@@ -87,6 +97,7 @@
                     <label><input name="btnSelectAll" value="btDeletePortfolioGallery" type="checkbox"></label>
                 </th>
                 <th></th>
+                <th>Legenda</th>
                 <th width="90px">Ações</th>
             </tr>
         </thead>
@@ -104,6 +115,12 @@
                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$gallery->path_image)}})"></div>
                             </a>
                         @endif
+                    </td>
+                    <td class="align-middle">
+                        <form action="{{route('admin.serv01.portfolio.gallery.legend', ['SERV01ServicesPortfolioGallery' => $gallery->id])}}" method="post">
+                            @csrf
+                            <input type="text" class="form-control" data-bs-toggle="inputAjax" name="legend" value="{{$gallery->legend}}" placeholder="Clique e insira a legenda da imagem aqui">
+                        </form>
                     </td>
                     <td class="align-middle">
                         <div class="row">

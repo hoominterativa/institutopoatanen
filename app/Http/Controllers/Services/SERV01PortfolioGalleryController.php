@@ -83,4 +83,17 @@ class SERV01PortfolioGalleryController extends Controller
         }
         return Response::json(['status' => 'success']);
     }
+
+    /**
+    * Sort record by dragging and dropping
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Models\Services\SERV01ServicesPortfolioGallery  $SERV01ServicesPortfolioGallery
+    * @return \Illuminate\Http\Response
+    */
+    public function legend(Request $request, SERV01ServicesPortfolioGallery $SERV01ServicesPortfolioGallery)
+    {
+        $data = $request->all();
+        $SERV01ServicesPortfolioGallery->fill($data)->save();
+    }
 }

@@ -424,4 +424,17 @@ $(function() {
             url = $(this).attr('href')
         $(targetUrl).val(url)
     })
+
+    $('[data-bs-toggle=inputAjax]').on('change', function(){
+        var formData = new FormData($(this).parents('form')[0]),
+            action = $(this).parents('form').attr('action')
+
+        $.ajax({
+            type: 'POST',
+            url: action,
+            data: formData,
+            processData: false,
+            contentType: false,
+        })
+    })
 })

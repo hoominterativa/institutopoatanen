@@ -101,4 +101,22 @@ $(function(){
             }
         }
     });
+
+    $('.serv01-show__portfolios__lightbox__carousel-image').addClass('owl-carousel');
+    $('.serv01-show__portfolios__lightbox__carousel-image').owlCarousel({
+        margin:0,
+        stagePadding:0,
+        smartSpeed:450,
+        dots:false,
+        nav:true,
+        rewind: true,
+        responsive: {
+            // breakpoint from 0 up
+            0 : {
+                items:1,
+                touchDrag: false,
+                mouseDrag: false
+            }
+        }
+    });
 })

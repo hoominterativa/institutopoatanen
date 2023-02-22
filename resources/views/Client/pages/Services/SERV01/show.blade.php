@@ -91,8 +91,16 @@
                             @foreach ($service->portfolios as $portfolio)
                                 <article class="serv01-show__portfolios__container-box__item col">
                                     <div class="content transition">
-                                        <img src="{{asset('storage/'.$portfolio->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
-                                        <a href="{{asset('storage/'.$portfolio->gallery[0]->path_image)}}" data-fancybox="{{Str::slug($service->title.' '.$portfolio->title)}}">
+                                        @if ($portfolio->path_image)
+                                            <img src="{{asset('storage/'.$portfolio->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="{{$portfolio->title}}">
+                                        @endif
+                                        @if (!$portfolio->text)
+                                            @if (isset($portfolio->gallery[0]))
+                                                <a href="{{asset('storage/'.$portfolio->gallery[0]->path_image)}}" {{$portfolio->gallery[0]->legend?'data-caption='.$portfolio->gallery[0]->legend:''}} data-fancybox="{{Str::slug($service->title.' '.$portfolio->title)}}">
+                                            @endif
+                                        @else
+                                            <a href="#serv01-show__portfolios__lightbox-{{$portfolio->id}}" data-fancybox="{{Str::slug($service->title.' '.$portfolio->title)}}">
+                                        @endif
                                             <div class="serv01-show__portfolios__container-box__info d-flex flex-column justify-content-end">
                                                 <div class="serv01-show__portfolios__container-box__description">
                                                     <div class="row align-items-center">
@@ -107,11 +115,38 @@
                                                 </div>
                                             </div>
                                         </a>
-                                        @foreach ($portfolio->gallery as $key => $gallery)
-                                            @if ($key!==0)
-                                                <a href="{{asset('storage/'.$gallery->path_image)}}" data-fancybox="{{Str::slug($service->title.' '.$portfolio->title)}}"></a>
-                                            @endif
-                                        @endforeach
+                                        @if ($portfolio->text)
+                                            <div id="serv01-show__portfolios__lightbox-{{$portfolio->id}}" class="serv01-show__portfolios__lightbox" style="display: none;">
+                                                <div class="row h-100">
+                                                    @if ($portfolio->gallery->count())
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="serv01-show__portfolios__lightbox__carousel-image h-100">
+                                                                @foreach ($portfolio->gallery as $key => $gallery)
+                                                                    <figure class="mb-0">
+                                                                        <img src="{{asset('storage/'.$gallery->path_image)}}" class="serv01-show__portfolios__lightbox__image" width="100%" height="100%" alt="{{$portfolio->title}}">
+                                                                        @if ($gallery->legend)
+                                                                            <figcaption class="serv01-show__portfolios__lightbox__image__legend">{{$gallery->legend}}</figcaption>
+                                                                        @endif
+                                                                    </figure>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    <div class="col-12 col-sm-8 h-100">
+                                                        <div class="serv01-show__portfolios__lightbox__description">
+                                                            <h3 class="serv01-show__portfolios__lightbox__title">{{$portfolio->title}}</h3>
+                                                            <div class="serv01-show__portfolios__lightbox__paragraph">{!!$portfolio->text!!}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                            @foreach ($portfolio->gallery as $key => $gallery)
+                                                @if ($key!==0)
+                                                    <a href="{{asset('storage/'.$gallery->path_image)}}" {{$gallery->legend?'data-caption='.$gallery->legend:''}} data-fancybox="{{Str::slug($service->title.' '.$portfolio->title)}}"></a>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </article>
                             @endforeach

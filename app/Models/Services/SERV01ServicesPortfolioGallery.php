@@ -18,6 +18,7 @@ class SERV01ServicesPortfolioGallery extends Model
     protected $table = "serv01_services_portfoliogalleries";
     protected $fillable = [
         "path_image",
+        "legend",
         "sorting",
         "portfolio_id",
     ];

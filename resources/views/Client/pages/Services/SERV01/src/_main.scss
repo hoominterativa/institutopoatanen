@@ -674,3 +674,111 @@
         }
     }
 }
+.serv01-show{
+    &__portfolios{
+        &__lightbox{
+            width: 100%;
+            max-width: 1300px;
+            padding: 0;
+            height: 472px;
+
+            @include small-device{
+                height: auto;
+                padding: 20px;
+            }
+            @include medium-device{
+                height: auto;
+                padding: 20px;
+            }
+
+            &__image{
+                height: 472px;
+                object-fit: cover;
+                object-position: center;
+                &__legend{
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    text-align: center;
+                    color: #fff;
+                    font: $paragraph;
+                    font-family: $font-paragraph;
+                    font-weight: $weight-400;
+                    padding: 40px 10px 20px 10px;
+                    background: linear-gradient(0deg, rgba(0,0,0,0.8883928571428571) 0%, rgba(0,0,0,0.39539565826330536) 65%, rgba(0,0,0,0) 100%);
+                }
+            }
+            &__description{
+                padding: 80px 40px 0 70px;
+                overflow-y: auto;
+                height: 100%;
+
+                @include small-device{
+                    padding: 40px;
+                    height: auto;
+                }
+                @include medium-device{
+                    height: auto;
+                    padding: 40px;
+                }
+            }
+            &__title{
+                font-size: $T2;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+                color: $color-one;
+                margin-bottom: 41px;
+            }
+            &__paragraph{
+                font: $paragraph;
+                font-weight: $weight-400;
+                font-family: $font-paragraph;
+                line-height: 30px;
+            }
+            &__carousel-image{
+                .owl-nav{
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    z-index: 10;
+                    width: 100%;
+                    transform: translate(0, -50%);
+                    .owl-prev{
+                        float: left;
+                        margin-left: 15px;
+                    }
+                    .owl-next{
+                        float: right;
+                        margin-right: 15px;
+                    }
+                    .owl-prev,
+                    .owl-next{
+                        display: table;
+                        border-radius: 100%;
+                        width: 30px;
+                        height: 30px;
+                        text-align: center;
+                        background-color: #fff !important;
+                        font-size: 30px !important;
+                        line-height: 0 !important;
+                        padding-bottom: 7px;
+                        transition: all .2s ease;
+
+                        &:hover{
+                            background-color: $color-two !important;
+                            transition: all .2s ease;
+                        }
+
+                        span{
+                            margin-top: -3px;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        // END __lightbox
+    }
+    // END __portfolios
+}
+// END .serv01-show

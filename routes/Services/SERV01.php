@@ -45,6 +45,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/portifolios/galeria', SERV01PortfolioGalleryController::class)->names('admin.'.$routeName.'.portfolio.gallery')->parameters(['galeria' => 'SERV01ServicesPortfolioGallery']);
     Route::post($route.'/portifolios/galeria/delete', [SERV01PortfolioGalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.portfolio.gallery.destroySelected');
     Route::post($route.'/portifolios/galeria/sorting', [SERV01PortfolioGalleryController::class, 'sorting'])->name('admin.'.$routeName.'.portfolio.gallery.sorting');
+    Route::post($route.'/portifolios/galeria/legend/{SERV01ServicesPortfolioGallery}', [SERV01PortfolioGalleryController::class, 'legend'])->name('admin.'.$routeName.'.portfolio.gallery.legend');
 });
 // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
