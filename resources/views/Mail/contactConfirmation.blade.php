@@ -164,7 +164,7 @@
                                                                 <td class="pad"
                                                                     style="width:100%;padding-right:0px;padding-left:0px;">
                                                                     <div align="center" class="alignment" style="line-height:10px">
-                                                                        <img alt="{{env('APP_NAME')}}" src="{{asset('storage/'.$setting->path_logo_share)}}" style="display: block;height: auto;border: 0;width: 100%;max-width: 100%;max-height: 80px;object-fit: contain;object-position: center;" width="268" />
+                                                                        <img alt="{{env('APP_NAME')}}" src="{{asset('storage/'.$generalSetting->path_logo_share)}}" style="display: block;height: auto;border: 0;width: 100%;max-width: 100%;max-height: 80px;object-fit: contain;object-position: center;" width="268" />
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -404,7 +404,7 @@
                                                             <tr>
                                                                 <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
                                                                     <div align="center" class="alignment" style="line-height:10px;margin-bottom: 30px;">
-                                                                        <img src="{{asset('storage/'.$setting->path_logo_share)}}" style="display: block;height: auto;border: 0;width: 100%;max-width: 100%;max-height: 50px;object-fit: contain;object-position: center;" width="80" />
+                                                                        <img src="{{asset('storage/'.$generalSetting->path_logo_share)}}" style="display: block;height: auto;border: 0;width: 100%;max-width: 100%;max-height: 50px;object-fit: contain;object-position: center;" width="80" />
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -418,9 +418,9 @@
                                                                             style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block;"
                                                                             width="108px">
                                                                             <tr>
-                                                                                @if ($setting->whatsapp)
+                                                                                @if ($generalSetting->whatsapp)
                                                                                     <td style="padding:0 2px 0 2px;">
-                                                                                        <a href="https://api.whatsapp.com/send?phone=55{{$setting->whatsapp}}" target="_blank">
+                                                                                        <a href="https://api.whatsapp.com/send?phone=55{{$generalSetting->whatsapp}}" target="_blank">
                                                                                         <img alt="Whatsapp" height="32" src="{{asset('images/whatsapp.png')}}" style="display: block; height: auto; border: 0;" title="Whatsapp" width="32" />
                                                                                         </a>
                                                                                     </td>
@@ -464,13 +464,13 @@
                                                                         <div class=""
                                                                             style="font-size: 14px; mso-line-height-alt: 21px; color: #f9f9f9; line-height: 1.5; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
                                                                             <p style="margin: 0; font-size: 12px; text-align: center; mso-line-height-alt: 18px;">
-                                                                                <span style="font-size:12px;">{{$setting->address}}</span>
+                                                                                <span style="font-size:12px;">{{$generalSetting->address}}</span>
                                                                             </p>
                                                                             <p style="margin: 0; font-size: 12px; text-align: center; mso-line-height-alt: 18px;">
-                                                                                <span style="font-size:12px;">{{$setting->phone}}</span>
+                                                                                <span style="font-size:12px;">{{$generalSetting->phone}}</span>
                                                                             </p>
                                                                             <p style="margin: 0; font-size: 12px; text-align: center; mso-line-height-alt: 18px;">
-                                                                                <span style="font-size:12px;">{{$setting->whatsapp}}</span>
+                                                                                <span style="font-size:12px;">{{$generalSetting->whatsapp}}</span>
                                                                             </p>
                                                                         </div>
                                                                     </div>

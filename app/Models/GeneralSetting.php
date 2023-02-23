@@ -20,10 +20,6 @@ class GeneralSetting extends Model
         "phone",
         "whatsapp",
         "address",
-        "smtp_host",
-        "smtp_port",
-        "smtp_user",
-        "smtp_password",
         "btn_cta_header",
         "btn_cta_footer",
     ];

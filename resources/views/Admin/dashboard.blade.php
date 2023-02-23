@@ -175,8 +175,50 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="text-center">
-                                                    <h4 class="text-dark mt-1">Configurações Gerais</h4>
+                                                    <h4 class="text-dark mt-1">Gerais</h4>
                                                     <p class="text-muted mb-1">Configure seu site aqui</p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end row-->
+                                    </div>
+                                </div> <!-- end widget-rounded-circle-->
+                            </a>
+                        </div> <!-- end col-->
+                        <div class="col-md-6 col-xl-3">
+                            <a nofollow href="{{route('admin.settingSmtp.index')}}">
+                                <div class="widget-rounded-circle card">
+                                    <div class="card-body bg-light">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                    <i class="mdi mdi-email-edit mdi-36px avatar-title text-dark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <h4 class="text-dark mt-1">SMTP</h4>
+                                                    <p class="text-muted mb-1">Configure o envio de e-mails</p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end row-->
+                                    </div>
+                                </div> <!-- end widget-rounded-circle-->
+                            </a>
+                        </div> <!-- end col-->
+                        <div class="col-md-6 col-xl-3">
+                            <a nofollow href="{{route('admin.social.index')}}">
+                                <div class="widget-rounded-circle card">
+                                    <div class="card-body bg-light">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                    <i class="mdi mdi-graph-outline mdi-36px avatar-title text-dark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="text-center">
+                                                    <h4 class="text-dark mt-1">Redes Sociais</h4>
+                                                    <p class="text-muted mb-1">Cadastre suas redes sociais</p>
                                                 </div>
                                             </div>
                                         </div> <!-- end row-->
@@ -238,5 +280,5 @@
         </div> <!-- content -->
 
     </div>
-    @include('Admin.components.links.resourcesIndex')
+    @include('Admin.components.links.resourcesDashboard')
 @endsection

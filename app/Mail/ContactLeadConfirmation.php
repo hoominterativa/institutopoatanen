@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use App\Models\GeneralSetting;
+use App\Models\SettingSmtp;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -33,7 +34,8 @@ class ContactLeadConfirmation extends Mailable
      */
     public function build()
     {
-        $setting = GeneralSetting::first();
+        $generalSetting = GeneralSetting::first();
+        $setting = SettingSmtp::first();
         $socials = Social::get();
         $appName = env('APP_NAME');
         $informations = json_decode($this->contactLead->json);
@@ -55,12 +57,12 @@ class ContactLeadConfirmation extends Mailable
 
         $this->subject($appName.' - Confirmação');
         $this->to($emailRecipient, $appName.' - Confirmação');
-        $this->from($setting->smtp_user, $appName.' - Confirmação');
+        $this->from($setting->user, $appName.' - Confirmação');
 
         return $this->view('Mail.contactConfirmation',[
             'contactLead' => $this->contactLead,
             'name' => $name,
-            'setting' => $setting,
+            'generalSetting' => $generalSetting,
             'socials' => $socials,
         ]);
     }

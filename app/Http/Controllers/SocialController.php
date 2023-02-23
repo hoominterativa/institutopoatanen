@@ -17,17 +17,10 @@ class SocialController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $socials = Social::sorting()->get();
+        return view('Admin.cruds.social.edit',[
+            'socials' => $socials
+        ]);
     }
 
     /**
@@ -46,17 +39,6 @@ class SocialController extends Controller
 
         Session::flash('success', 'Item cadastrado com sucessso');
         return redirect(Session::previousUrl().'#rowSocial');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Social  $Social
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Social $Social)
-    {
-        //
     }
 
     /**
@@ -117,40 +99,5 @@ class SocialController extends Controller
             Social::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Social  $Social
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Social $Social)
-    {
-        //
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

@@ -361,7 +361,7 @@ $(function() {
         window.history.pushState({}, tab, url);
     }
 
-    $('[data-bs-toggle=tab]').on('click', function(){
+    $('[data-bs-toggle=tab]:not(.tab-static)').on('click', function(){
         changePushState($(this))
     });
 
@@ -369,17 +369,17 @@ $(function() {
         if(localStorage.getItem('tab')){
             var hash = localStorage.getItem('tab')
             if($(`[data-bs-toggle=tab][href=\\${hash}]`).length){
-                $(`[data-bs-toggle=tab]`).removeClass('active')
+                $(`[data-bs-toggle=tab]:not(.tab-static)`).removeClass('active')
                 $(`[data-bs-toggle=tab][href=\\${hash}]`).addClass('active')
 
-                $('.tab-pane').removeClass('active').removeClass('show')
+                $('.tab-pane:not(.tab-static)').removeClass('active').removeClass('show')
                 $(`${hash}`).addClass('active').addClass('show')
             }
 
             localStorage.removeItem('tab')
         }
 
-        if($('[data-bs-toggle=tab].active').length){
+        if($('[data-bs-toggle=tab].active:not(.tab-static)').length){
             changePushState($('[data-bs-toggle=tab].active'))
         }
     })
@@ -435,6 +435,34 @@ $(function() {
             data: formData,
             processData: false,
             contentType: false,
+        })
+    })
+
+    $('#testSmtp').on('click', function(event){
+        event.preventDefault()
+        var action = $(this).attr('href')
+        $.ajax({
+            type: 'POST',
+            url: action,
+            processData: false,
+            contentType: false,
+            success: function(response){
+                switch (response.status) {
+                    case 'success':
+                        $('.detailsTestSmtp').append(`<span class="badge bg-success mt-2">${response.message}</span>`)
+                    break;
+                    case 'error':
+                        $('.detailsTestSmtp').append(`
+                            <span class="badge bg-danger my-2">${response.message}</span>
+                            <p><b>Confira detalhes do erro abaixo.</b></p>
+                            <p>${response.details}</p>
+                        `)
+                    break;
+                }
+            },
+            error:function(error){
+
+            }
         })
     })
 })

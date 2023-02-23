@@ -26,6 +26,7 @@ use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\Helpers\HelperModule;
 use App\Http\Controllers\NewsletterLeadController;
+use App\Http\Controllers\SettingSmtpController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Models\ContactLead;
 
@@ -127,7 +128,11 @@ Route::prefix('painel')->group(function () {
         })->name('admin.icons');
 
         // GENERAL SETTING
-        Route::resource('configuracoes-gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['configuracoes-gerais' => 'GeneralSetting']);
+        Route::resource('configuracoes/gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['configuracoes-gerais' => 'GeneralSetting']);
+
+        // SETTING SMTP
+        Route::resource('configuracoes/smtp', SettingSmtpController::class)->names('admin.settingSmtp')->parameters(['configuracao-smtp' => 'SettingSmtp']);
+        Route::post('configuracoes/smtp/verify', [SettingSmtpController::class, 'smtpVerify'])->name('admin.settingSmtp.smtpVerify');
 
         // SOCIAL
         Route::resource('social', SocialController::class)->names('admin.social')->parameters(['social' => 'Social']);

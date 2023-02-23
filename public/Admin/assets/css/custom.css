@@ -413,3 +413,13 @@
 .sp-original-input-container .sp-add-on {
     width: 40px !important;
 }
+.right-bar{
+    width: 360px;
+    right: -360px;
+}
+#settingProfile .area-input-image-crop .content-area-image-crop p{
+    font-size: 17px;
+}
+#settingProfile .area-input-image-crop .content-area-image-crop p small{
+    display: none;
+}

@@ -12,7 +12,7 @@
                 <tr>
                     <td colspan="2" style="text-align: center;border-bottom: 1px solid rgb(231, 231, 231);">
                         <div style="display:table;width: 100%;">
-                            <img width="100%" height="100%" style="object-fit: contain;object-position: center;max-height: 70px;display: block;" src="{{asset('storage/'.$setting->path_logo_share)}}" alt="">
+                            <img width="100%" height="100%" style="object-fit: contain;object-position: center;max-height: 70px;display: block;" src="{{asset('storage/'.$generalSetting->path_logo_share)}}" alt="">
                         </div>
                         <div style="margin-top: 10px;padding-bottom: 15px;">
                             <h3 style="

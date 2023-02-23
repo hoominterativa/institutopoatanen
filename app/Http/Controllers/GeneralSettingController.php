@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GeneralSetting;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Social;
 use Illuminate\Http\Request;
+use App\Models\GeneralSetting;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Helpers\HelperArchive;
+use Exception;
 
 class GeneralSettingController extends Controller
 {

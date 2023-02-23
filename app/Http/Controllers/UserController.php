@@ -138,12 +138,12 @@ class UserController extends Controller
 
         if($user->fill($data)->save()){
             Session::flash('success', 'Usuário atualizado com sucesso');
-            return redirect()->route('admin.user.index');
         }else{
             Storage::delete($path_image);
             Session::flash('success', 'Erro ao atualizar os dados do usuário');
-            return redirect()->back();
         }
+
+        return redirect()->back();
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Exception;
 use App\Models\GeneralSetting;
+use App\Models\SettingSmtp;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Config;
@@ -34,13 +35,13 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         try {
-            $setting = GeneralSetting::first();
+            $setting = SettingSmtp::first();
 
             if($setting){
-                Config::set('mail.mailers.smtp.host', $setting->smtp_host);
-                Config::set('mail.mailers.smtp.port', $setting->smtp_port);
-                Config::set('mail.mailers.smtp.username', $setting->smtp_user);
-                Config::set('mail.mailers.smtp.password', $setting->smtp_password);
+                Config::set('mail.mailers.smtp.host', $setting->host);
+                Config::set('mail.mailers.smtp.port', $setting->port);
+                Config::set('mail.mailers.smtp.username', $setting->user);
+                Config::set('mail.mailers.smtp.password', $setting->password);
                 Config::set('mail.mailers.smtp.encryption', 'ssl');
             }
         } catch (Exception $e) {}

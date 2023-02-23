@@ -284,14 +284,13 @@
 
 {{-- Upload File --}}
 <div class="mb-3">
-    {!! Form::label('file', 'Imagem', ['class'=>'form-label']) !!}
-    <small class="ms-2">Dimensão proporcional mínima 450x399px</small> {{-- if upload image --}}
+    {!! Form::label('file', 'Arquivo', ['class'=>'form-label']) !!}
     {!! Form::file('path_archive', [
         'data-plugins'=>'dropify',
         'data-height'=>'300',
         'data-max-file-size-preview'=>'2M',
-        'accept'=>'image/*',
-        'data-default-file'=> isset($test)?($test->path_image<>''?url('storage/'.$test->path_image):''):'',
+        'accept'=>'*',
+        'data-default-file'=> isset($test)?($test->path_archive<>''?url('storage/'.$test->path_archive):''):'',
     ]) !!}
 </div>
 

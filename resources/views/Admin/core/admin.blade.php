@@ -272,6 +272,18 @@
                                     <span> Gerais </span>
                                 </a>
                             </li>
+                            <li>
+                                <a nofollow href="{{route('admin.settingSmtp.index')}}">
+                                    <i class="mdi mdi-email-edit"></i>
+                                    <span> SMTP </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a nofollow href="{{route('admin.social.index')}}">
+                                    <i class="mdi mdi-graph-outline"></i>
+                                    <span> Redes Sociais </span>
+                                </a>
+                            </li>
 
                             @if ($complianceModel)
                                 <li>
