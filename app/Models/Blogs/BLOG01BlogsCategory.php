@@ -39,4 +39,11 @@ class BLOG01BlogsCategory extends Model
             $query->select('id')->from('blog01_blogs')->whereColumn('blog01_blogs.category_id', 'blog01_blogs_categories.id');
         });
     }
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('blog01_blogs')->whereColumn('blog01_blogs.category_id', 'blog01_blogs_categories.id');
+        });
+    }
 }

@@ -21,15 +21,6 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown',
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => false,
-                    'limit' => 'all',
-                    'condition' => '',
-                    'relation' => '',
-                    'titleList' => 'title',
-                    'titleSubList' => '',
-                ],
                 'config' => (object) [
                     'titleMenu' => 'Sobre',
                     'anchor' =>  false,
@@ -90,7 +81,7 @@ return [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
-                    'condition' => 'active=1',
+                    'condition' => 'active=1,featured=1',
                     'relation' => '',
                     'titleList' => 'title',
                     'titleSubList' => '',
@@ -135,10 +126,15 @@ return [
                     'include' => true,
                     'sorting' => false,
                     'limit' => 'all',
-                    'condition' => 'active=1',
-                    'relation' => '',
+                    'condition' => 'active=1,featured_home=1',
                     'titleList' => 'title',
-                    'titleSubList' => '',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1',
+                        ]
+                    ],
                 ],
                 'config' => (object) [
                     'titleMenu' => 'Artigos',
@@ -176,15 +172,6 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown',
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => false,
-                    'limit' => 'all',
-                    'condition' => '',
-                    'relation' => '',
-                    'titleList' => 'title',
-                    'titleSubList' => '',
-                ],
                 'config' => (object) [
                     'titleMenu' => 'Sustentabilidade',
                     'anchor' =>  false,

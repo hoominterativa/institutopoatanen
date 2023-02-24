@@ -114,25 +114,25 @@ class CoreController extends Controller
     {
         $listMenu = [];
 
-        foreach ($this->InsertModelsMain as $module => $model) {
-            foreach ($model as $code => $config) {
-                if($config->ViewListMenu){
-                    $dropdown = self::getRelations($module, $code, $config);
+        // foreach ($this->InsertModelsMain as $module => $model) {
+        //     foreach ($model as $code => $config) {
+        //         if($config->ViewListMenu){
+        //             $dropdown = self::getRelations($module, $code, $config);
 
-                    $menu = (object) [
-                        "title" => $config->config->titleMenu,
-                        "slug" => Str::slug($config->config->titleMenu),
-                        "anchor" => $config->config->anchor,
-                        "link" => $config->config->linkMenu,
-                        "listFooter" => $config->ViewListFooter,
-                        "viewer" => $config->Viewer,
-                        "dropdown" => $dropdown,
-                    ];
+        //             $menu = (object) [
+        //                 "title" => $config->config->titleMenu,
+        //                 "slug" => Str::slug($config->config->titleMenu),
+        //                 "anchor" => $config->config->anchor,
+        //                 "link" => $config->config->linkMenu,
+        //                 "listFooter" => $config->ViewListFooter,
+        //                 "viewer" => $config->Viewer,
+        //                 "dropdown" => $dropdown,
+        //             ];
 
-                    array_push($listMenu, $menu);
-                }
-            }
-        }
+        //             array_push($listMenu, $menu);
+        //         }
+        //     }
+        // }
 
         return $listMenu;
     }
@@ -140,11 +140,150 @@ class CoreController extends Controller
 
     public function renderHeader()
     {
-        $listMenu = self::relationsHeaderMenu();
+
+        $arrayPages = [
+            [
+                "title" => "Sobre",
+                "module" => "Abouts",
+                "model" => "ABOU01",
+                "dropdown" => false,
+                "selectDropdown" => null,
+                "condition" => null,
+                "limit" => null,
+            ],
+            [
+                "title" => "Soluções",
+                "module" => "Services",
+                "model" => "SERV01",
+                "dropdown" => true,
+                "selectDropdown" => 'this',
+                "condition" => "0",
+                "limit" => null,
+            ],
+            [
+                "title" => "Artigos",
+                "module" => "Blogs",
+                "model" => "BLOG01",
+                "dropdown" => true,
+                "selectDropdown" => 'category',
+                "condition" => "0",
+                "limit" => null,
+            ],
+
+        ];
+        $arrayPages = json_encode($arrayPages);
+
+        $listMenu = [];
+        foreach(json_decode($arrayPages) as $page){
+            $listDropdown = [];
+            $module = $page->module;
+            $code = $page->model;
+            $dropdown = null;
+            $config = $this->InsertModelsMain->$module->$code;
+
+            if($page->dropdown){
+                $dropdown = $page->selectDropdown;
+                /*
+                Se for "this" será realizada uma consulta na tabela direta
+                Se não será feita uma consulta na tabela do relacionamento
+                O retorno da consulta estara na variaval $query
+                */
+                if($dropdown==='this'){
+                    $model = $this->Class->$module->$code->model;
+                    $query = $model::query();
+
+                    if($page->condition<>null){
+                        $condition = explode(',', $config->IncludeCore->condition);
+                        $query = $model::whereRaw($condition[$page->condition]);
+                    }
+                    if($page->limit<>null) $query = $query->limit($page->limit);
+                    $query = $query->get();
+
+                    foreach($query as $item){
+                        $param = self::getModelParameters($model);
+                        $route = Str::lower($code).'.show';
+                        $columTitleRef = $config->IncludeCore->titleList;
+
+                        $menu = [
+                            "id" => $item->id,
+                            "name" => $item->$columTitleRef,
+                            "slug" => Str::slug($item->$columTitleRef),
+                            "route" => route($route, [$param => Str::slug($item->$columTitleRef)]),
+                            'subList' => null
+                        ];
+                        array_push($listDropdown, $menu);
+                    }
+                }else{
+                    $relation = explode(',', $dropdown);
+                    $r0=$relation[0];
+                    $model = $this->Class->$module->$code->relationship->$r0->class;
+                    $param = self::getModelParameters($model);
+                    $subRoute = Str::lower($code).'.'.$r0.'.page';
+                    $query = $model::query();
+
+                    if(count($relation) > 1){
+                        $query = $model::with('getRelationCore');
+                    }
+
+                    if($page->condition<>null){
+                        $condition = explode(',', $config->IncludeCore->relation->$r0->condition);
+                        $query = $query->whereRaw($condition[$page->condition]);
+                    }
+                    if($page->limit<>null) $query = $query->limit($page->limit);
+                    $query = $query->get();
+
+
+                    foreach($query as $item){
+                        $columTitleRef = $config->IncludeCore->relation->$r0->titleList;
+                        if(count($relation) > 1){
+
+                            $dropdowSub = [];
+                            $r1=$relation[1];
+                            $columTitleRefSub = $config->IncludeCore->relation->$r1->titleList;
+                            $modelSub = $this->Class->$module->$code->relationship->$r1->class;
+                            $paramSub = self::getModelParameters($modelSub);
+
+                            foreach($item->getRelationCore as $subItem){
+                                $subMenu = (object) [
+                                    "id" => $subItem->id,
+                                    "name" => $subItem->$columTitleRefSub,
+                                    "slug" => Str::slug($subItem->$columTitleRefSub),
+                                    "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef), $paramSub => Str::slug($subItem->$columTitleRefSub)]),
+                                ];
+                                $dropdowSub = array_merge($dropdowSub, $subMenu);
+                            }
+
+                        }
+
+                        $menu = [
+                            "id" => $item->id,
+                            "name" => $item->$columTitleRef,
+                            "slug" => Str::slug($item->$columTitleRef),
+                            "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef)]),
+                            'subList' => null
+                        ];
+                        array_push($listDropdown, $menu);
+                    }
+                }
+            }
+
+            $menu = (object) [
+                "title" => $page->title,
+                "slug" => Str::slug($config->config->titleMenu),
+                "anchor" => $config->config->anchor,
+                "link" => $config->config->linkMenu,
+                "dropdown" => $listDropdown,
+            ];
+
+            array_push($listMenu, $menu);
+        }
+
+        $listMenu = json_encode($listMenu);
+
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
                 'class' => $this->Class,
-                'listMenu' => $listMenu
+                'listMenu' => json_decode($listMenu)
             ]);
         }
         return;
@@ -152,13 +291,13 @@ class CoreController extends Controller
 
     public function renderFooter()
     {
-        $listMenu = self::relationsHeaderMenu();
-        if(isset($this->InsertModelsCore->Footers->Code)){
-            return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
-                'class' => $this->Class,
-                'listMenu' => $listMenu
-            ]);
-        }
+        // $listMenu = self::relationsHeaderMenu();
+        // if(isset($this->InsertModelsCore->Footers->Code)){
+        //     return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
+        //         'class' => $this->Class,
+        //         'listMenu' => $listMenu
+        //     ]);
+        // }
         return;
     }
 }

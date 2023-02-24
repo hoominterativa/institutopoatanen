@@ -22,8 +22,8 @@ return [
                 'controller' => App\Http\Controllers\Blogs\BLOG01Controller::class,
                 'model' => App\Models\Blogs\BLOG01Blogs::class,
                 'seedQty' => 8,
-                'relationship' => [
-                    'category' => [
+                'relationship' => (object)[
+                    'category' => (object)[
                         'class' => App\Models\Blogs\BLOG01BlogsCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 4,
