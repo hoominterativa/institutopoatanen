@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
 
 class SLID01Controller extends Controller
 {
@@ -61,6 +60,8 @@ class SLID01Controller extends Controller
         if($path_image_png) $data['path_image_png'] = $path_image_png;
 
         $data['active'] = $request->active?1:0;
+
+        $data['active_mobile'] = $request->active_mobile?1:0;
 
         if($request->external_link_button){
             $data['link_button'] = $request->link_button;
@@ -142,18 +143,18 @@ class SLID01Controller extends Controller
         }
 
         $data['active'] = $request->active?1:0;
+        $data['active_mobile'] = $request->active_mobile?1:0;
         $data['link_button'] = getUri($request->link_button);
 
         if($SLID01Slides->fill($data)->save()){
             Session::flash('success', 'Banner atualizado com sucesso');
-            return redirect()->route('admin.slid01.index');
         }else{
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Storage::delete($path_image_png);
             Session::flash('success', 'Erro ao atualizar banner');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -215,7 +216,26 @@ class SLID01Controller extends Controller
      */
     public static function section()
     {
-        $slides = SLID01Slides::sorting()->active()->get();
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                $slides = SLID01Slides::where('path_image_mobile','!=','')->activeMobile()->sorting()->get();
+                foreach($slides as $slide){
+                    $slide->title = $slide->title_mobile;
+                    $slide->subtitle = $slide->subtitle_mobile;
+                    $slide->description = $slide->description_mobile;
+                    $slide->title_button = $slide->title_button_mobile;
+                    $slide->link_button = $slide->link_button_mobile;
+                    $slide->path_image_desktop = $slide->path_image_mobile;
+                    $slide->path_image_png = null;
+                    $slide->active = $slide->active_mobile;
+                }
+            break;
+            default:
+                $slides = SLID01Slides::where('path_image_desktop','!=','')->active()->sorting()->get();
+            break;
+        }
+
         return view('Client.pages.Slides.SLID01.section',[
             'slides' => $slides
         ]);

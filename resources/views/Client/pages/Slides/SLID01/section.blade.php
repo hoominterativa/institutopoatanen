@@ -7,7 +7,7 @@
                         <a href="{{$slide->link_button}}" target="{{$slide->target_link_button}}" class="link-full"></a>
                     @endif
                     @if ($slide->path_image_desktop)
-                        <img src="{{asset('storage/'.$slide->path_image_desktop)}}" data-image-mobile="{{asset('storage/'.$slide->path_image_mobile)}}" class="img-background-slide" alt="image Background {{$slide->title}} {{$slide->subtitle}}">
+                        <img src="{{asset('storage/'.$slide->path_image_desktop)}}" class="img-background-slide" alt="image Background {{$slide->title}} {{$slide->subtitle}}">
                     @endif
                     <div class="content-slide container ms-auto me-auto row align-items-center {{$slide->position_content}}">
                         <div class="content-description col-12 col-lg-7">

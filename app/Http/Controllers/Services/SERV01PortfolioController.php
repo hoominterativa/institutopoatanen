@@ -106,6 +106,13 @@ class SERV01PortfolioController extends Controller
     {
         $SERV01ServicesPortfolios = SERV01ServicesPortfolio::whereIn('id', $request->deleteAll)->get();
         foreach($SERV01ServicesPortfolios as $SERV01ServicesPortfolio){
+
+            $galleries = SERV01ServicesPortfolioGallery::where('portfolio_id', $SERV01ServicesPortfolio->id)->get();
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+
             storageDelete($SERV01ServicesPortfolio, 'path_image');
         }
 

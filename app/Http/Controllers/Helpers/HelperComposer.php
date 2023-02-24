@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\CoreController;
+use Detection\MobileDetect;
 use Illuminate\Support\Str;
 use Cohensive\Embed\Facades\Embed;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\CoreController;
 
 if(!function_exists('isActive'))
 {
@@ -242,5 +243,21 @@ if(!function_exists('listPage')){
 
         $pages = json_encode($pages);
         return json_decode($pages);
+    }
+}
+
+if(!function_exists('deviceDetect')){
+
+    /**
+     * Device detect
+     *
+     * @return object
+     */
+    function deviceDetect()
+    {
+        $detect = new MobileDetect();
+        if($detect->isMobile()) return 'mobile';
+        if($detect->isTablet()) return 'tablet';
+        return 'desktop';
     }
 }
