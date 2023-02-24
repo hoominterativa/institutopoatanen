@@ -150,6 +150,8 @@ class SERV01Controller extends Controller
             $data['path_image_banner'] = null;
         }
 
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
         $data['slug'] = $request->subtitle?Str::slug($request->title.'-'.$request->subtitle):Str::slug($request->title);
 
         if($SERV01Services->fill($data)->save()){
