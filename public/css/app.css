@@ -161,33 +161,33 @@ a {
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 100% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 90% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 1200px) and (max-width: 1399.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 1112px !important;
   }
 }
@@ -302,12 +302,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -326,17 +323,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -3173,6 +3160,27 @@ a {
 }
 .blog01-show__boxs__item__icon {
   width: 34px !important;
+}
+
+/* BEGIN STYLE */
+#PORT01 .information-section {
+  min-height: 700px;
+  background-position: left center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+#PORT01 .information-section .content {
+  max-width: 300px;
+}
+#PORT01 .navigation-categories .category-item {
+  padding: 35px 0 35px 80px;
+  width: 100%;
+  background-color: transparent;
+  margin-bottom: 2px;
+  border-radius: 20px 0 0 20px;
+}
+#PORT01 .navigation-categories .category-item:hover {
+  background-color: #6F3BED;
 }
 
 /* BEGIN STYLE */

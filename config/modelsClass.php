@@ -84,13 +84,13 @@ return [
                 'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,
                 'model' => App\Models\Portfolios\PORT01Portfolios::class,
                 'seedQty' => 10,
-                'relationship' => [
-                    'category' => [
+                'relationship' => (object)[
+                    'category' => (object)[
                         'class' => App\Models\Portfolios\PORT01PortfoliosCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 4,
                     ],
-                    'subcategory' => [
+                    'subcategory' => (object)[
                         'class' => App\Models\Portfolios\PORT01PortfoliosSubategory::class,
                         'column' => 'subcategory_id',
                         'seedQty' => 4,

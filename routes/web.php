@@ -26,6 +26,7 @@ use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\Helpers\HelperModule;
 use App\Http\Controllers\NewsletterLeadController;
+use App\Http\Controllers\SettingHeaderController;
 use App\Http\Controllers\SettingSmtpController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Models\ContactLead;
@@ -133,6 +134,11 @@ Route::prefix('painel')->group(function () {
         // SETTING SMTP
         Route::resource('configuracoes/smtp', SettingSmtpController::class)->names('admin.settingSmtp')->parameters(['configuracao-smtp' => 'SettingSmtp']);
         Route::post('configuracoes/smtp/verify', [SettingSmtpController::class, 'smtpVerify'])->name('admin.settingSmtp.smtpVerify');
+
+        // SETTING HEADER
+        Route::resource('configuracao/menu', SettingHeaderController::class)->names('admin.header')->parameters(['menu' => 'SettingHeader']);
+        Route::post('configuracao/menu/delete', [SettingHeaderController::class, 'destroySelected'])->name('admin.header.destroySelected');
+        Route::post('configuracao/menu/sorting', [SettingHeaderController::class, 'sorting'])->name('admin.header.sorting');
 
         // SOCIAL
         Route::resource('social', SocialController::class)->names('admin.social')->parameters(['social' => 'Social']);

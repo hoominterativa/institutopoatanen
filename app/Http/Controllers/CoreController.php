@@ -147,8 +147,9 @@ class CoreController extends Controller
                 "module" => "Abouts",
                 "model" => "ABOU01",
                 "dropdown" => false,
-                "selectDropdown" => null,
+                "select_dropdown" => null,
                 "condition" => null,
+                "exists" => false,
                 "limit" => null,
             ],
             [
@@ -156,8 +157,9 @@ class CoreController extends Controller
                 "module" => "Services",
                 "model" => "SERV01",
                 "dropdown" => true,
-                "selectDropdown" => 'this',
-                "condition" => "0",
+                "select_dropdown" => 'this',
+                "condition" => 0,
+                "exists" => false,
                 "limit" => null,
             ],
             [
@@ -165,8 +167,19 @@ class CoreController extends Controller
                 "module" => "Blogs",
                 "model" => "BLOG01",
                 "dropdown" => true,
-                "selectDropdown" => 'category',
-                "condition" => "0",
+                "select_dropdown" => 'this',
+                "condition" => 0,
+                "exists" => true,
+                "limit" => null,
+            ],
+            [
+                "title" => "Portifólio",
+                "module" => "Portfolios",
+                "model" => "PORT01",
+                "dropdown" => true,
+                "select_dropdown" => 'category,subcategory',
+                "condition" => 0,
+                "exists" => true,
                 "limit" => null,
             ],
 
@@ -179,30 +192,35 @@ class CoreController extends Controller
             $module = $page->module;
             $code = $page->model;
             $dropdown = null;
-            $config = $this->InsertModelsMain->$module->$code;
+            $config = $this->InsertModelsMain->$module->$code; // Get config current model
 
             if($page->dropdown){
-                $dropdown = $page->selectDropdown;
+                $dropdown = $page->select_dropdown;
                 /*
-                Se for "this" será realizada uma consulta na tabela direta
-                Se não será feita uma consulta na tabela do relacionamento
-                O retorno da consulta estara na variaval $query
+                If the $dropdown variable is "this", a direct query will be performed on the main table
+                If not, a query will be made on the relationship table
+                The query return will be in the $query variable
                 */
                 if($dropdown==='this'){
-                    $model = $this->Class->$module->$code->model;
-                    $query = $model::query();
+                    $model = $this->Class->$module->$code->model; // Get model class
+                    $query = $model::query(); // begin query
 
+                    // conditions
                     if($page->condition<>null){
                         $condition = explode(',', $config->IncludeCore->condition);
-                        $query = $model::whereRaw($condition[$page->condition]);
+                        $splitCondition = explode('{', $condition[$page->condition]);
+                        $query = $query->whereRaw($splitCondition[0]);
                     }
                     if($page->limit<>null) $query = $query->limit($page->limit);
+
+                    // get query
                     $query = $query->get();
 
+                    // Build array for dropdown
                     foreach($query as $item){
-                        $param = self::getModelParameters($model);
-                        $route = Str::lower($code).'.show';
-                        $columTitleRef = $config->IncludeCore->titleList;
+                        $param = self::getModelParameters($model); // Get parameter the model
+                        $route = Str::lower($code).'.show'; // Build route
+                        $columTitleRef = $config->IncludeCore->titleList; // Get reference title
 
                         $menu = [
                             "id" => $item->id,
@@ -214,43 +232,51 @@ class CoreController extends Controller
                         array_push($listDropdown, $menu);
                     }
                 }else{
-                    $relation = explode(',', $dropdown);
-                    $r0=$relation[0];
-                    $model = $this->Class->$module->$code->relationship->$r0->class;
-                    $param = self::getModelParameters($model);
-                    $subRoute = Str::lower($code).'.'.$r0.'.page';
-                    $query = $model::query();
+                    $relation = explode(',', $dropdown); // Get relations to query
+                    $r0=$relation[0]; // Get first telationship
+                    $model = $this->Class->$module->$code->relationship->$r0->class; // Get model class
+                    $param = self::getModelParameters($model); // Get parameter the model
+                    $subRoute = Str::lower($code).'.'.$r0.'.page'; // Build route
 
+                    $query = $model::query();// begin query
+
+                    // If the dropdown has more than one level
                     if(count($relation) > 1){
-                        $query = $model::with('getRelationCore');
+                        $query = $query->with('getRelationCore');
                     }
 
-                    if($page->condition<>null){
+                    // conditions
+                    if($page->exists) $query = $query->existsRegister();
+                    if($page->condition!==null){
                         $condition = explode(',', $config->IncludeCore->relation->$r0->condition);
-                        $query = $query->whereRaw($condition[$page->condition]);
+                        $splitCondition = explode('{', $condition[$page->condition]);
+                        $query = $query->whereRaw($splitCondition[0]);
                     }
                     if($page->limit<>null) $query = $query->limit($page->limit);
+
+                    // get query
                     $query = $query->get();
 
-
+                    // Build array for dropdown
                     foreach($query as $item){
-                        $columTitleRef = $config->IncludeCore->relation->$r0->titleList;
+                        $columTitleRef = $config->IncludeCore->relation->$r0->titleList; // Get reference title
+                        $dropdownSub = [];
+
                         if(count($relation) > 1){
-
-                            $dropdowSub = [];
                             $r1=$relation[1];
-                            $columTitleRefSub = $config->IncludeCore->relation->$r1->titleList;
-                            $modelSub = $this->Class->$module->$code->relationship->$r1->class;
-                            $paramSub = self::getModelParameters($modelSub);
+                            $columTitleRefSub = $config->IncludeCore->relation->$r1->titleList; // Get reference title
+                            $modelSub = $this->Class->$module->$code->relationship->$r1->class; // Get model class
+                            $paramSub = self::getModelParameters($modelSub); // Get parameter the model
 
+                            // Build array for subitems
                             foreach($item->getRelationCore as $subItem){
-                                $subMenu = (object) [
+                                $subMenu = [
                                     "id" => $subItem->id,
                                     "name" => $subItem->$columTitleRefSub,
                                     "slug" => Str::slug($subItem->$columTitleRefSub),
                                     "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef), $paramSub => Str::slug($subItem->$columTitleRefSub)]),
                                 ];
-                                $dropdowSub = array_merge($dropdowSub, $subMenu);
+                                array_push($dropdownSub, $subMenu);
                             }
 
                         }
@@ -260,7 +286,7 @@ class CoreController extends Controller
                             "name" => $item->$columTitleRef,
                             "slug" => Str::slug($item->$columTitleRef),
                             "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef)]),
-                            'subList' => null
+                            'subList' => count($dropdownSub)?$dropdownSub:null
                         ];
                         array_push($listDropdown, $menu);
                     }
@@ -279,6 +305,7 @@ class CoreController extends Controller
         }
 
         $listMenu = json_encode($listMenu);
+        dd(json_decode($listMenu));
 
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [

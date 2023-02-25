@@ -81,7 +81,7 @@ return [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
-                    'condition' => 'active=1,featured=1',
+                    'condition' => 'active=1{Os Ativos},featured=1{Os Detaques}',
                     'relation' => '',
                     'titleList' => 'title',
                     'titleSubList' => '',
@@ -115,6 +115,7 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
+
         'Blogs' => (object) [
             'BLOG01' => (object)[
                 'ViewHome' => true,
@@ -126,13 +127,13 @@ return [
                     'include' => true,
                     'sorting' => false,
                     'limit' => 'all',
-                    'condition' => 'active=1,featured_home=1',
+                    'condition' => 'active=1{Os Ativos},featured_home=1{Os Detaques da Home}',
                     'titleList' => 'title',
                     'relation' => (object)[
                         'category' =>(object)[
                             'name' => 'Categoria',
                             'titleList' => 'title',
-                            'condition' => 'active=1',
+                            'condition' => 'active=1{Os Ativos}',
                         ]
                     ],
                 ],
@@ -147,6 +148,45 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
+
+        'Portfolios' => (object) [
+            'PORT01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown',
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => false,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Os Ativos},featured=1{Os Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Os Ativos},featured=1{Os Detaques}',
+                        ],
+                        'subcategory' =>(object)[
+                            'name' => 'Subcategoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Os Ativos},featured=1{Os Detaques}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Portifólio',
+                    'anchor' =>  false,
+                    'linkMenu' => 'port01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Portifólio',
+                    'iconPanel' => 'mdi-post-outline'
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
+
         'Topics.1' => (object) [
             'TOPI02' => (object)[
                 'ViewHome' => true,

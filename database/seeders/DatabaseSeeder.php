@@ -37,8 +37,8 @@ class DatabaseSeeder extends Seeder
 
                 if($relationship){
                     foreach ($relationship as $relation) {
-                        $seedRelationQty = $relation['seedQty'];
-                        $relation['class']::factory($seedRelationQty)->create();
+                        $seedRelationQty = $relation->seedQty;
+                        $relation->class::factory($seedRelationQty)->create();
                     }
                 }
 

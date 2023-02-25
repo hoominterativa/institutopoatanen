@@ -40,6 +40,8 @@ class BLOG01BlogsCategory extends Model
         });
     }
 
+    // DROPDOW MENU
+
     public function scopeExistsRegister($query)
     {
         return $query->whereExists(function($query){
