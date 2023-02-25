@@ -39,10 +39,11 @@
                                             <th width="30px" class="bs-checkbox">
                                                 <label><input name="btnSelectAll" value="btnDeleteHeader" type="checkbox"></label>
                                             </th>
-                                            <th>Título</th>
-                                            <th>Lista Suspensa?</th>
+                                            <th width="200px">Título</th>
+                                            <th width="150px">Lista Suspensa?</th>
+                                            <th>O que está exibindo na lista</th>
                                             <th>Condições de Exibição</th>
-                                            <th>Limite de Exibição</th>
+                                            <th width="150px">Limite de Exibição</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
@@ -55,14 +56,39 @@
                                                 <td class="bs-checkbox align-middle">
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$header->id}}"></label>
                                                 </td>
-                                                <td class="align-middle">Boudreaux</td>
-                                                <td class="align-middle">Traffic Court Referee</td>
-                                                <td class="align-middle">22 Jun 1972</td>
-                                                <td class="align-middle">22 Jun 1972</td>
+                                                <td class="align-middle">{{$header->title}}</td>
                                                 <td class="align-middle">
-                                                    <span class="badge bg-success">Ativo</span>
-                                                    <span class="badge bg-primary text-white">Destaque</span>
-                                                    <span class="badge bg-danger">Inativo</span>
+                                                    @switch($header->dropdown)
+                                                        @case(1)
+                                                            <span class="badge bg-success">Sim</span>
+                                                        @break
+                                                        @case(0)
+                                                            <span class="badge bg-danger">Não</span>
+                                                        @break
+                                                    @endswitch
+                                                </td>
+                                                <td class="align-middle">
+                                                    @if ($header->dropdown==1)
+                                                        {{getNameRelation($header->module, $header->model, $header->select_dropdown, $header->title)}}
+                                                    @endif
+                                                </td>
+                                                <td class="align-middle">{{getCondition($header->module, $header->model, $header->condition)}}</td>
+                                                <td class="align-middle">
+                                                    @if ($header->limit)
+                                                        Exibindo {{$header->limit}}
+                                                    @else
+                                                        Exibindo todos
+                                                    @endif
+                                                </td>
+                                                <td class="align-middle">
+                                                    @switch($header->active)
+                                                        @case(1)
+                                                            <span class="badge bg-success">Ativo</span>
+                                                        @break
+                                                        @case(0)
+                                                            <span class="badge bg-danger">Inativo</span>
+                                                        @break
+                                                    @endswitch
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="row">

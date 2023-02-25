@@ -261,3 +261,59 @@ if(!function_exists('deviceDetect')){
         return 'desktop';
     }
 }
+
+
+if(!function_exists('getCondition')){
+
+    /**
+     * Get Conditions for build header
+     *
+     * @param string $module
+     * @param string $code
+     * @param integer $condition
+     * @return void|string
+     */
+    function getCondition($module, $code, $condition)
+    {
+        $modelsMain = config('modelsConfig.InsertModelsMain');
+        if(isset($modelsMain->$module->$code->IncludeCore->condition)){
+            $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->condition);
+            $splitCondition = str_replace('}','',explode('{', $arrCondition[$condition]));
+            return $splitCondition[1];
+        }
+        return;
+    }
+}
+
+if(!function_exists('getNameRelation')){
+
+    /**
+     * Get name relationship for cuild header
+     *
+     * @param string $module
+     * @param string $code
+     * @param string $relation
+     * @return void|string
+     */
+    function getNameRelation($module, $code, $relation, $page='')
+    {
+        $modelsMain = config('modelsConfig.InsertModelsMain');
+        if(isset($modelsMain->$module->$code->IncludeCore->relation)){
+            $name = $page;
+            $splitRelation = explode(',', $relation);
+            if($splitRelation[0]<>'this'){
+                $arrRelation = $modelsMain->$module->$code->IncludeCore->relation;
+                if($arrRelation <> ''){
+                    $refName = $splitRelation[0];
+                    $name = $arrRelation->$refName->name;
+                    if(count(get_object_vars($arrRelation))>1){
+                        $refName = $splitRelation[1];
+                        $name .= ' / '.$arrRelation->$refName->name;
+                    }
+                }
+            }
+            return $name;
+        }
+        return $page;
+    }
+}

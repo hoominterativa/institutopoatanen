@@ -260,6 +260,13 @@
                             <li class="menu-title text-primary mt-2"><b>Configurações</b></li>
 
                             <li>
+                                <a nofollow href="{{route('admin.header.index')}}">
+                                    <i class="mdi mdi-microsoft-xbox-controller-menu"></i>
+                                    <span> Menu </span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a nofollow href="{{route('admin.optimization.index')}}">
                                     <i class="mdi-google-analytics mdi"></i>
                                     <span> SEO </span>

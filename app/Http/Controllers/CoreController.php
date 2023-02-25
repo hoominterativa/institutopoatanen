@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SettingHeader;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -140,7 +141,6 @@ class CoreController extends Controller
 
     public function renderHeader()
     {
-
         $arrayPages = [
             [
                 "title" => "Sobre",
@@ -184,10 +184,12 @@ class CoreController extends Controller
             ],
 
         ];
+
         $arrayPages = json_encode($arrayPages);
 
+        $settingHeader = SettingHeader::sorting()->active()->get();
         $listMenu = [];
-        foreach(json_decode($arrayPages) as $page){
+        foreach($settingHeader as $page){
             $listDropdown = [];
             $module = $page->module;
             $code = $page->model;
@@ -305,7 +307,6 @@ class CoreController extends Controller
         }
 
         $listMenu = json_encode($listMenu);
-        dd(json_decode($listMenu));
 
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
