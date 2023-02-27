@@ -446,6 +446,7 @@
         <!-- App js -->
         <script src="{{url(mix('Admin/assets/js/app.min.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/js/custom.js'))}}"></script>
+        <script src="{{url(mix('Admin/assets/js/ajax.js'))}}"></script>
 
 
         @if(Session::has('success'))

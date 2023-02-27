@@ -423,3 +423,17 @@
 #settingProfile .area-input-image-crop .content-area-image-crop p small{
     display: none;
 }
+
+.listPages.dropdown-submenu>.dropdown-menu {
+    top: 100%;
+    bottom: inherit;
+    left: 0;
+    overflow-y: auto;
+    width: 100%;
+}
+.listPages.dropdown-submenu>a:after {
+    border-left-color: transparent;
+    border-top-color: #ccc;
+    border-width: 5px 5px 5px 5px;
+    margin-top: 9px;
+}

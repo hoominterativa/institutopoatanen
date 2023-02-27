@@ -5,6 +5,7 @@ mix
     .scripts('resources/views/Admin/assets/js/app.min.js', 'public/Admin/assets/js/app.min.js')
     .scripts('resources/views/Admin/assets/js/vendor.min.js', 'public/Admin/assets/js/vendor.min.js')
     .scripts('resources/views/Admin/assets/js/custom.js', 'public/Admin/assets/js/custom.js')
+    .scripts('resources/views/Admin/assets/js/ajax.js', 'public/Admin/assets/js/ajax.js')
     // plugins
     .scripts('node_modules/parsleyjs/dist/parsley.min.js', 'public/Admin/assets/libs/parsley.min.js')
     .scripts('node_modules/@fancyapps/ui/dist/fancybox.umd.js', 'public/Admin/assets/libs/fancybox.js')

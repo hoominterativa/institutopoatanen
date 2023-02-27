@@ -139,6 +139,7 @@ Route::prefix('painel')->group(function () {
         Route::resource('configuracao/menu', SettingHeaderController::class)->names('admin.header')->parameters(['menu' => 'SettingHeader']);
         Route::post('configuracao/menu/delete', [SettingHeaderController::class, 'destroySelected'])->name('admin.header.destroySelected');
         Route::post('configuracao/menu/sorting', [SettingHeaderController::class, 'sorting'])->name('admin.header.sorting');
+        Route::post('getRelationsModel', [SettingHeaderController::class, 'listRelations'])->name('admin.header.getRelationsModel');
 
         // SOCIAL
         Route::resource('social', SocialController::class)->names('admin.social')->parameters(['social' => 'Social']);
@@ -162,34 +163,6 @@ Route::prefix('painel')->group(function () {
         Route::post('links-cta-footer/{GeneralSetting}', [GeneralSettingController::class, 'linksFooter'])->name('admin.cta.footer');
 
         Route::post('editor/image_upload', [EditorController::class, 'upload'])->name('editor.upload.archive');
-
-
-
-        Route::any('/calProporcion', function(){
-            $request = request();
-            $result = null;
-
-            if($request->has('new_width') && $request->has('current_width') && $request->has('current_height')){
-                if($request->new_width<>'' && $request->current_width<>'' && $request->current_height<>''){
-                    $result = $request->current_height * ($request->new_width / $request->current_width);
-
-                    $result = '
-                        <h2>
-                            <span class="newWidth">'.$request->new_width.'</span>
-                            <span class="per">x</span>
-                            <span class="newHeight">'.number_format($result,2).'</span>
-                        </h2>
-                    ';
-                }
-            }
-
-            $generalSetting = GeneralSetting::first();
-            return view('Admin.calcProporcion',[
-                'generalSetting' => $generalSetting,
-                'request' => $request,
-                'result' => $result,
-            ]);
-        })->name('admin.calProporcion');
 
     });
 });

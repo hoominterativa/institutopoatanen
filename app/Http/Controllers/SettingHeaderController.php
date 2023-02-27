@@ -33,7 +33,7 @@ class SettingHeaderController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.settingHeader.create',);
     }
 
     /**
@@ -201,49 +201,16 @@ class SettingHeaderController extends Controller
         return Response::json(['status' => 'success']);
     }
 
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\SettingHeader  $SettingHeader
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SettingHeader $SettingHeader)
-    public function show()
+    public function listRelations(Request $request)
     {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+        $pages = getRelationsModel($request->module, $request->model);
+        if(!$pages) return Response::json(['dropdown' => 'false']);
 
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
+        return view('Admin.components.models.dropdownRelations',[
+            'pages' => $pages,
+            'module' => $request->module,
+            'code' => $request->model,
+        ])->render();
 
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

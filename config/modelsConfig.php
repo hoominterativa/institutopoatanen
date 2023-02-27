@@ -233,7 +233,7 @@ return [
                 'IncludeCore' => (object) [
                     'include' => true,
                     'limit' => 'all',
-                    'condition' => 'featured_menu=1',
+                    'condition' => 'featured_menu=1{Detaque menu}',
                     'relation' => '',
                     'titleList' => 'title_box',
                     'titleSubList' => 'title_box',
@@ -260,7 +260,7 @@ return [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
-                    'condition' => 'active=1',
+                    'condition' => 'active=1{Os Ativos}',
                     'relation' => '',
                     'titleList' => 'title_page',
                     'titleSubList' => '',

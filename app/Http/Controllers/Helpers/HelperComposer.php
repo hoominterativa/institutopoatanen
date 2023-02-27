@@ -213,32 +213,61 @@ if(!function_exists('listPage')){
     /**
      * List pages website inner
      *
+     * @param string $return [registers, relations, pages]
      * @return object
      */
-    function listPage()
+    function listPage($return='registers')
     {
         $core = new CoreController();
         $pages=[];
         $modelsMain = config('modelsConfig.InsertModelsMain');
-        foreach($modelsMain as $module => $models){
-            foreach($models as $code => $config){
-                if($config->ViewListMenu){
-                    $registers = $core->getRelations($module, $code, $config);
+        switch ($return) {
+            case 'registers':
+                foreach($modelsMain as $module => $models){
+                    foreach($models as $code => $config){
+                        if($config->ViewListMenu){
+                            $registers = $core->getRelations($module, $code, $config);
 
-                    if(count($registers) <= 1){
-                        if(route($config->config->linkMenu) == $registers[0]->route){
-                            $registers = null;
+                            $merge = [
+                                'title' => $config->config->titleMenu,
+                                'route' => route($config->config->linkMenu),
+                                'dropdown' => $registers
+                            ];
+                            array_push($pages, $merge);
                         }
                     }
-
-                    $merge = [
-                        'title' => $config->config->titleMenu,
-                        'route' => route($config->config->linkMenu),
-                        'dropdown' => $registers
-                    ];
-                    array_push($pages, $merge);
                 }
-            }
+            break;
+            case 'relations':
+                foreach($modelsMain as $module => $models){
+                    foreach($models as $code => $config){
+                        if($config->ViewListMenu){
+                            $registers = $core->getRelations($module, $code, $config, $return);
+
+                            $merge = [
+                                'title' => $config->config->titleMenu,
+                                'module' => $module,
+                                'model' => $code,
+                                'relations' => $registers
+                            ];
+                            array_push($pages, $merge);
+                        }
+                    }
+                }
+            break;
+            case 'pages':
+                foreach($modelsMain as $module => $models){
+                    foreach($models as $code => $config){
+                        if($config->ViewListMenu){
+                            $merge = [
+                                $module.'|'.$code => $config->config->titleMenu,
+                            ];
+                            $pages = array_merge($pages, $merge);
+                        }
+                    }
+                }
+                return $pages;
+            break;
         }
 
         $pages = json_encode($pages);
@@ -315,5 +344,33 @@ if(!function_exists('getNameRelation')){
             return $name;
         }
         return $page;
+    }
+}
+
+if(!function_exists('listRelations')){
+
+    /**
+     * Get relationship
+     *
+     * @param string $module
+     * @param string $code
+     * @return array
+     */
+    function getRelationsModel($module, $code)
+    {
+        $modelsMain = config('modelsConfig.InsertModelsMain');
+        if(isset($modelsMain->$module->$code->IncludeCore->relation)){
+            $arrRelations[$modelsMain->$module->$code->config->titleMenu]=[];
+            if($modelsMain->$module->$code->IncludeCore->relation){
+                foreach ($modelsMain->$module->$code->IncludeCore->relation as $relation => $configRelation) {
+                    $merge = [
+                        $relation => $configRelation->name
+                    ];
+                    $arrRelations[$modelsMain->$module->$code->config->titleMenu] = array_merge($arrRelations[$modelsMain->$module->$code->config->titleMenu], $merge);
+                }
+            }
+            return $arrRelations;
+        }
+        return;
     }
 }

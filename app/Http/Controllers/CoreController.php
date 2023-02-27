@@ -27,87 +27,95 @@ class CoreController extends Controller
         return end($arrayModelElloquent);
     }
 
-    public function getRelations($module, $code, $config)
+    public function getRelations($module, $code, $config, $return='registers')
     {
-        $relationship = '';
-        $listDropdown = [];
-        $sublistDropdown = [];
-        $modelDBSubrelation = '';
-        $route = Str::lower($code).'.show';
-
-        // Check for dropdown
-        $include = isset($config->IncludeCore->include)?$config->IncludeCore->include:false;
-
-        if($include){
-            $modelElloquent = $this->Class->$module->$code->model;
-            $modelDB = self::getModelParameters($modelElloquent);
-
-            // BEGIN QUERY
-            $relations = $modelElloquent::limit(9999);
-
-            $existsRelation = false;
-            if($config->IncludeCore->relation <> null && $config->IncludeCore->relation <> ''){
-                $existsRelation = true;
-                $relationship = explode(',', $config->IncludeCore->relation);
-
-                $modelDB = self::getModelParameters($this->Class->$module->$code->relationship[$relationship[0]]['class']);
-
-                $route = Str::lower($code).'.'.$relationship[0].'.page';
-
-                $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::existsRegister()->limit(9999);
-
-                if(count($relationship) > 1){
-                    $modelDBSubrelation = self::getModelParameters($this->Class->$module->$code->relationship[$relationship[1]]['class']);
-                    $relations = $this->Class->$module->$code->relationship[$relationship[0]]['class']::with('getRelationCore')->existsRegister()->limit(9999);
-                }
-            }
-
-            if($config->IncludeCore->limit <> 'all' && $config->IncludeCore->limit >= 1){
-                $relations = $relations->limit($config->IncludeCore->limit);
-            }
-
-            if($config->IncludeCore->condition <> '' && $config->IncludeCore->condition <> null){
-                $relations = $relations->whereRaw($config->IncludeCore->condition);
-            }
-
-            if($config->IncludeCore->sorting){
-                $query = $relations->sorting()->get();
-            }else{
-                $query = $relations->get();
-            }
-
-            foreach ($query as $relation) {
+        switch ($return) {
+            case 'registers':
+                $relationship = '';
+                $listDropdown = [];
                 $sublistDropdown = [];
-                $buildRouteParameters = [$modelDB => $relation->slug];
-                if($existsRelation){
-                    if(count($relationship) > 1){
-                        foreach ($relation->getRelationCore as $relationCore) {
-                            $subRoute = Str::lower($code).'.'.$relationship[1].'.page';
+                $modelDBSubrelation = '';
+                $route = Str::lower($code).'.show';
 
-                            $subMenu = (object) [
-                                "id" => $relationCore->id,
-                                "name" => $relationCore->name??$relationCore->title,
-                                "slug" => $relationCore->slug,
-                                "route" => route($subRoute, [$modelDB => $relation->slug, $modelDBSubrelation => $relationCore->slug]),
-                            ];
+                // Check for dropdown
+                $include = isset($config->IncludeCore->include)?$config->IncludeCore->include:false;
 
-                            array_push($sublistDropdown, $subMenu);
+                if(isset($config->IncludeCore)){
+                    $modelElloquent = $this->Class->$module->$code->model;
+                    $modelDB = self::getModelParameters($modelElloquent);
+
+                    // BEGIN QUERY
+                    $relations = $modelElloquent::query();
+                    $existsRelation = false;
+                    if($config->IncludeCore->relation){
+                        $existsRelation = true;
+                        $relationship = $config->IncludeCore->relation;
+                        $arrRelations = get_object_vars($relationship);
+                        foreach($config->IncludeCore->relation as $relationName => $configRealtion){
+                            $modelDB = self::getModelParameters($this->Class->$module->$code->relationship->$relationName->class);
+                            $route = Str::lower($code).'.'.$relationName.'.page';
+                            $relations = $this->Class->$module->$code->relationship->$relationName->class::query();
+                            break;
                         }
                     }
+
+                    if($config->IncludeCore->limit <> 'all' && $config->IncludeCore->limit >= 1){
+                        $relations = $relations->limit($config->IncludeCore->limit);
+                    }
+
+                    if($config->IncludeCore->sorting){
+                        $query = $relations->sorting()->get();
+                    }else{
+                        $query = $relations->get();
+                    }
+
+                    foreach ($query as $relation) {
+                        $sublistDropdown = [];
+                        $buildRouteParameters = [$modelDB => $relation->slug];
+                        if($existsRelation){
+                            if(count($arrRelations)>1){
+                                foreach ($relation->getRelationCore as $relationCore) {
+                                    $key=0;
+                                    foreach($config->IncludeCore->relation as $relationName => $configRealtion){
+                                        if($key==1) {
+                                            $modelDBSubrelation = self::getModelParameters($this->Class->$module->$code->relationship->$relationName->class);
+                                            $subRoute = Str::lower($code).'.'.$relationName.'.page';
+                                        }
+                                        $key++;
+                                    }
+
+                                    $subMenu = (object) [
+                                        "id" => $relationCore->id,
+                                        "name" => $relationCore->name??$relationCore->title,
+                                        "slug" => $relationCore->slug,
+                                        "route" => route($subRoute, [$modelDB => $relation->slug, $modelDBSubrelation => $relationCore->slug]),
+                                    ];
+
+                                    array_push($sublistDropdown, $subMenu);
+                                }
+                            }
+
+                        }
+
+                        $menu = (object) [
+                            "id" => $relation->id,
+                            "name" => ($relation->name??$relation->title)??$relation->title_page,
+                            "slug" => $relation->slug,
+                            "route" => $buildRouteParameters[$modelDB]?route($route, $buildRouteParameters):route($route),
+                            'subList' => $sublistDropdown
+                        ];
+
+                        array_push($listDropdown, $menu);
+                    }
+                    return $listDropdown;
                 }
-
-                $menu = (object) [
-                    "id" => $relation->id,
-                    "name" => ($relation->name??$relation->title)??$relation->title_page,
-                    "slug" => $relation->slug,
-                    "route" => $buildRouteParameters[$modelDB]?route($route, $buildRouteParameters):route($route),
-                    'subList' => $sublistDropdown
-                ];
-
-                array_push($listDropdown, $menu);
-            }
-
-            return $listDropdown;
+            break;
+            case 'relations':
+                if(isset($config->IncludeCore)){
+                    return $config->IncludeCore->relation;
+                }
+                return;
+            break;
         }
     }
 
@@ -141,51 +149,50 @@ class CoreController extends Controller
 
     public function renderHeader()
     {
-        $arrayPages = [
-            [
-                "title" => "Sobre",
-                "module" => "Abouts",
-                "model" => "ABOU01",
-                "dropdown" => false,
-                "select_dropdown" => null,
-                "condition" => null,
-                "exists" => false,
-                "limit" => null,
-            ],
-            [
-                "title" => "Soluções",
-                "module" => "Services",
-                "model" => "SERV01",
-                "dropdown" => true,
-                "select_dropdown" => 'this',
-                "condition" => 0,
-                "exists" => false,
-                "limit" => null,
-            ],
-            [
-                "title" => "Artigos",
-                "module" => "Blogs",
-                "model" => "BLOG01",
-                "dropdown" => true,
-                "select_dropdown" => 'this',
-                "condition" => 0,
-                "exists" => true,
-                "limit" => null,
-            ],
-            [
-                "title" => "Portifólio",
-                "module" => "Portfolios",
-                "model" => "PORT01",
-                "dropdown" => true,
-                "select_dropdown" => 'category,subcategory',
-                "condition" => 0,
-                "exists" => true,
-                "limit" => null,
-            ],
+        // $arrayPages = [
+        //     [
+        //         "title" => "Sobre",
+        //         "module" => "Abouts",
+        //         "model" => "ABOU01",
+        //         "dropdown" => false,
+        //         "select_dropdown" => null,
+        //         "condition" => null,
+        //         "exists" => false,
+        //         "limit" => null,
+        //     ],
+        //     [
+        //         "title" => "Soluções",
+        //         "module" => "Services",
+        //         "model" => "SERV01",
+        //         "dropdown" => true,
+        //         "select_dropdown" => 'this',
+        //         "condition" => 0,
+        //         "exists" => false,
+        //         "limit" => null,
+        //     ],
+        //     [
+        //         "title" => "Artigos",
+        //         "module" => "Blogs",
+        //         "model" => "BLOG01",
+        //         "dropdown" => true,
+        //         "select_dropdown" => 'this',
+        //         "condition" => 0,
+        //         "exists" => true,
+        //         "limit" => null,
+        //     ],
+        //     [
+        //         "title" => "Portifólio",
+        //         "module" => "Portfolios",
+        //         "model" => "PORT01",
+        //         "dropdown" => true,
+        //         "select_dropdown" => 'category,subcategory',
+        //         "condition" => 0,
+        //         "exists" => true,
+        //         "limit" => null,
+        //     ],
+        // ];
 
-        ];
-
-        $arrayPages = json_encode($arrayPages);
+        // $arrayPages = json_encode($arrayPages);
 
         $settingHeader = SettingHeader::sorting()->active()->get();
         $listMenu = [];
