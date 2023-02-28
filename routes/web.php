@@ -140,6 +140,7 @@ Route::prefix('painel')->group(function () {
         Route::post('configuracao/menu/delete', [SettingHeaderController::class, 'destroySelected'])->name('admin.header.destroySelected');
         Route::post('configuracao/menu/sorting', [SettingHeaderController::class, 'sorting'])->name('admin.header.sorting');
         Route::post('getRelationsModel', [SettingHeaderController::class, 'listRelations'])->name('admin.header.getRelationsModel');
+        Route::post('getConditionsModel', [SettingHeaderController::class, 'listConditions'])->name('admin.header.getConditionsModel');
 
         // SOCIAL
         Route::resource('social', SocialController::class)->names('admin.social')->parameters(['social' => 'Social']);

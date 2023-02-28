@@ -300,15 +300,28 @@ if(!function_exists('getCondition')){
      * @param string $module
      * @param string $code
      * @param integer $condition
+     * @param string $relation
      * @return void|string
      */
-    function getCondition($module, $code, $condition)
+    function getCondition($module, $code, $condition=null, $relation=null)
     {
         $modelsMain = config('modelsConfig.InsertModelsMain');
         if(isset($modelsMain->$module->$code->IncludeCore->condition)){
-            $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->condition);
-            $splitCondition = str_replace('}','',explode('{', $arrCondition[$condition]));
-            return $splitCondition[1];
+            if($condition!==null){
+                $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->condition);
+                $splitCondition = str_replace('}','',explode('{', $arrCondition[$condition]));
+                return $splitCondition[1];
+            }else{
+                $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->condition);
+                if($relation) $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->relation->$relation->condition);
+
+                $conditions = [];
+                foreach ($arrCondition as $value) {
+                    $splitCondition = str_replace('}','',explode('{', $value));
+                    $conditions = array_merge($conditions, [$splitCondition[1]]);
+                }
+                return $conditions;
+            }
         }
         return;
     }

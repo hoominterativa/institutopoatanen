@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.header.index')}}">Configurações do Menu</a></li>
-                                    <li class="breadcrumb-item active">Cadastrar Menu</li>
+                                    <li class="breadcrumb-item active">Cadastrar Link do Menu</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastrar Menu</h4>
+                            <h4 class="page-title">Cadastrar Link do Menu</h4>
                         </div>
                     </div>
                 </div>

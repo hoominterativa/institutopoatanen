@@ -475,30 +475,55 @@ $(function() {
     })
 
     $('body').on('click', '.btnSelectPage', function(){
-        // console.log($(this).data('relation'));
         $("input[name=select_dropdown]").val($(this).data('relation'))
         $('.btnViewPage .title').text($(this).text())
+        $('input[name=set_dropdown]').prop('checked', false)
+
+        let module = $("input[name=module]").val(),
+            model = $("input[name=model]").val()
+
+        getConditionsModel(module, model)
+    })
+
+    $('body').on('click', '.btnSelectPage input[type=checkbox]', function(){
+        $(this).prop('checked', true)
     })
 
     $('body').on('click', 'input[name=set_dropdown]', function(){
+        let module = $("input[name=module]").val(),
+            model = $("input[name=model]").val()
+
+        $('.btnSelectPage input[type=checkbox]').prop('checked', false)
+
         if($(this).is(':checked')){
             var valueCurrent = $('input[name=select_dropdown]').val(),
                 valueThis = $(this).val()
 
             if(valueCurrent!='this' && valueCurrent!=''){
                 $newVal = `${valueCurrent},${valueThis}`;
+                if($('input[name=set_dropdown]:checked').length > 1){
+                    $newVal = $('input[name=set_dropdown]:checked').first().val()+','+$('input[name=set_dropdown]:checked').last().val()
+                }
                 $("input[name=select_dropdown]").val($newVal)
             }else{
                 $("input[name=select_dropdown]").val(`${valueThis}`)
             }
             $('.btnViewPage .title').text($('.btnSelectPage').text())
+            $('.ifCategory').fadeIn();
         }else{
             if($('input[name=set_dropdown]:checked').length){
                 $("input[name=select_dropdown]").val($('input[name=set_dropdown]:checked').val())
             }else{
                 $("input[name=select_dropdown]").val('')
                 $('.btnViewPage .title').text('')
+                $('.ifCategory').fadeOut();
+                $('.ifCategory input[type=checkbox]').prop('checked', false);
             }
         }
+
+        let relations =  $("input[name=select_dropdown]").val(),
+            splitRelations = relations.split(',')
+            getConditionsModel(module, model, splitRelations[0])
+
     })
 })

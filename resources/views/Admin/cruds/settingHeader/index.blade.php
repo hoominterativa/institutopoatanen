@@ -72,7 +72,11 @@
                                                         {{getNameRelation($header->module, $header->model, $header->select_dropdown, $header->title)}}
                                                     @endif
                                                 </td>
-                                                <td class="align-middle">{{getCondition($header->module, $header->model, $header->condition)}}</td>
+                                                <td class="align-middle">
+                                                    @if ($header->condition<>null)
+                                                        {{getCondition($header->module, $header->model, $header->condition)}}
+                                                    @endif
+                                                </td>
                                                 <td class="align-middle">
                                                     @if ($header->limit)
                                                         Exibindo {{$header->limit}}

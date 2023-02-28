@@ -33,7 +33,7 @@ class SettingHeaderController extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.settingHeader.create',);
+        return view('Admin.cruds.settingHeader.create');
     }
 
     /**
@@ -46,34 +46,24 @@ class SettingHeaderController extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
+        $data['active'] = $request->active?1:0;
+        $data['exists'] = $request->exists?1:0;
+        if($request->limit=='all'){
+            $data['limit'] = null;
+        }
 
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        if($data['select_dropdown']==''){
+            $data['select_dropdown'] = NULL;
+            $data['condition'] = NULL;
+            $data['exists'] = NULL;
+            $data['limit'] = NULL;
+        }
 
         if(SettingHeader::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Link do menu cadastrado com sucesso');
+            return redirect()->route('admin.header.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar link');
             return redirect()->back();
         }
     }
@@ -86,7 +76,12 @@ class SettingHeaderController extends Controller
      */
     public function edit(SettingHeader $SettingHeader)
     {
-        //
+        if(!$SettingHeader->limit){
+            $SettingHeader->limit = 'all';
+        }
+        return view('Admin.cruds.settingHeader.edit',[
+            'header' => $SettingHeader
+        ]);
     }
 
     /**
@@ -100,52 +95,26 @@ class SettingHeaderController extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
+        $data['active'] = $request->active?1:0;
+        $data['exists'] = $request->exists?1:0;
 
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-        if($path_image){
-            storageDelete($SettingHeader, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SettingHeader, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($SettingHeader, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->limit=='all'){
+            $data['limit'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SettingHeader, 'path_archive');
-            $data['path_archive'] = null;
+        if($data['select_dropdown']==''){
+            $data['select_dropdown'] = NULL;
+            $data['condition'] = NULL;
+            $data['exists'] = NULL;
+            $data['limit'] = NULL;
         }
-
-        */
 
         if($SettingHeader->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Link do menu atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar link');
         }
+        return redirect()->back();
     }
 
     /**
@@ -156,11 +125,8 @@ class SettingHeaderController extends Controller
      */
     public function destroy(SettingHeader $SettingHeader)
     {
-        //storageDelete($SettingHeader, 'path_image');
-        //storageDelete($SettingHeader, 'path_archive');
-
         if($SettingHeader->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Link deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -173,15 +139,6 @@ class SettingHeaderController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $SettingHeaders = SettingHeader::whereIn('id', $request->deleteAll)->get();
-        foreach($SettingHeaders as $SettingHeader){
-            storageDelete($SettingHeader, 'path_image');
-            storageDelete($SettingHeader, 'path_archive');
-        }
-        */
-
         if($deleted = SettingHeader::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
@@ -210,7 +167,23 @@ class SettingHeaderController extends Controller
             'pages' => $pages,
             'module' => $request->module,
             'code' => $request->model,
+            'type' => 'relations'
         ])->render();
 
+    }
+
+    public function listConditions(Request $request)
+    {
+        if($request->has('relation')){
+            $relations = getCondition($request->module, $request->model, null, $request->relation);
+        }else{
+            $relations = getCondition($request->module, $request->model);
+        }
+        if(!$relations) return Response::json(['dropdown' => 'false']);
+
+        return view('Admin.components.models.dropdownRelations',[
+            'relations' => $relations,
+            'type' => 'conditions'
+        ])->render();
     }
 }
