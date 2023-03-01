@@ -12119,6 +12119,31 @@ $(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Slides/SLID02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Slides/SLID02/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.SLID02').owlCarousel({
+    animateOut: 'fadeOut',
+    items: 1,
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    loop: true,
+    dots: true,
+    nav: false,
+    dotsContainer: "#dotsSlideCustom"
+  });
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/js/dist/base-component.js":
 /*!**********************************************************!*\
   !*** ./node_modules/bootstrap/js/dist/base-component.js ***!

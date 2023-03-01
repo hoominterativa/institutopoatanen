@@ -7,7 +7,7 @@ return [
             'Code' => 'HEAD02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT04'
+            'Code' => 'FOOT03'
         ]
     ],
 
@@ -16,9 +16,9 @@ return [
         'Slides' => (object) [
             'SLID02' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'list',
                 'config' => (object) [
                     'titleMenu' => 'Redes Sociais',
@@ -28,10 +28,6 @@ return [
                     'titlePanel' => 'Redes Sociais',
                     'iconPanel' => 'mdi-information'
                 ],
-                'IncludeSections' => (object) [
-                    'Module' => '',
-                    'Module' => '',
-                ]
             ],
         ],
     ],
