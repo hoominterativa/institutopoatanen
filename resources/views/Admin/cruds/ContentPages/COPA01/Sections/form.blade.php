@@ -49,15 +49,16 @@
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 400x400px</small>
+                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Section->path_image_icon->width}}x{{$cropSetting->Section->path_image_icon->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_icon', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-min-width'=>'300',
-                            'data-min-height'=>'300',
-                            'data-box-height'=>'200',
+                            'data-status'=>$cropSetting->Section->path_image_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->Section->path_image_icon->width, // px
+                            'data-min-height'=>$cropSetting->Section->path_image_icon->height, // px
+                            'data-box-height'=>'225', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($section)?($section->path_image_icon<>''?url('storage/'.$section->path_image_icon):''):'',
                         ]) !!}

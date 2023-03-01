@@ -10,15 +10,22 @@
                     {!! Form::text('title_banner', null, ['class'=>'form-control', 'id'=>'title_banner']) !!}
                 </div>
                 <div class="mb-3">
-                    {!! Form::label('file', 'Imagem', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 1500x420px</small>
-                    {!! Form::file('path_image_banner', [
-                        'data-plugins'=>'dropify',
-                        'data-height'=>'200',
-                        'data-max-file-size-preview'=>'2M',
-                        'accept'=>'image/*',
-                        'data-default-file'=> isset($workWith)?($workWith->path_image_banner<>''?url('storage/'.$workWith->path_image_banner):''):'',
-                    ]) !!}
+                    <div class="container-image-crop">
+                        {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_banner->width}}x{{$cropSetting->path_image_banner->height}}px!</small>
+                        <label class="area-input-image-crop" for="inputImage">
+                            {!! Form::file('path_image_banner', [
+                                'id'=>'inputImage',
+                                'class'=>'inputImage',
+                                'data-status'=>$cropSetting->path_image_banner->activeCrop, // px
+                                'data-min-width'=>$cropSetting->path_image_banner->width, // px
+                                'data-min-height'=>$cropSetting->path_image_banner->height, // px
+                                'data-box-height'=>'200', // Input height in the form
+                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                'data-default-file'=> isset($workWith)?($workWith->path_image_banner<>''?url('storage/'.$workWith->path_image_banner):''):'',
+                            ]) !!}
+                        </label>
+                    </div><!-- END container image crop -->
                 </div>
             </div>
         </div>

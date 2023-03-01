@@ -154,29 +154,37 @@ class ContactLeadController extends Controller
         unset($data['_token']);
 
         $arrayInsert = [];
-        $emailSet = false;
+        $newEmailRecipient = null;
         foreach ($data as $key => $value) {
             $array = explode('_', $key);
             $requestFile = null;
             if(COUNT($array) >= 3 ){
                 $type = end($array);
                 $name = str_replace('_'.$type, '', $key);
-                if($type == 'file'){
-                    $helperArchive = new HelperArchive();
-                    $nameFile = $helperArchive->uploadArchive($request, $key, 'uploads/leads/archives/');
-                    $value = $nameFile;
-                    $requestFile = $request->file($key);
+                switch ($type) {
+                    case 'file':
+                        $helperArchive = new HelperArchive();
+                        $nameFile = $helperArchive->uploadArchive($request, $key, 'uploads/leads/archives/');
+                        $value = $nameFile;
+                        $requestFile = $request->file($key);
+                    break;
+                    case 'selectEmail':
+                        $infoValue = explode('|',$value);
+                        $value = $infoValue[0];
+                        $newEmailRecipient = $infoValue[1];
+                    break;
                 }
 
                 $arrayInsert = array_merge($arrayInsert, [$data[$name] => ['value' => $value, 'type' => $type, 'requestFile' => $requestFile]]);
-                if($type=='email'){
-                    $emailSet = true;
-                }
             }
         }
 
         if($request->has('target_send')){
             $emailRecipient = base64_decode($request->target_send);
+        }
+
+        if($newEmailRecipient){
+            $emailRecipient = $newEmailRecipient;
         }
 
         $contactLead = ContactLead::create(['json' => json_encode($arrayInsert), 'target_lead' => $data['target_lead'], 'status_process' => 'upcoming']);
@@ -203,6 +211,6 @@ class ContactLeadController extends Controller
 
     public function confirmation()
     {
-        dd('sdasdasd');
+        return view('Client.pages.confirmation');
     }
 }

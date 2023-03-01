@@ -17,6 +17,7 @@ class CreateServ01ServicesPortfoliosTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->text('text')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->string('path_image')->nullable();

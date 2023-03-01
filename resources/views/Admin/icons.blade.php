@@ -132,5 +132,5 @@
 
         </div> <!-- content -->
     </div>
-    <script src="{{asset('admin/assets/js/pages/materialdesign.init.js')}}"></script>
+    <script src="{{asset('Admin/assets/js/pages/materialdesign.init.js')}}"></script>
 @endsection

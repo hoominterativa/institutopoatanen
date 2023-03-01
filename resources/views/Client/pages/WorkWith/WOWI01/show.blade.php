@@ -39,19 +39,23 @@
             @if ($topicSection)
                 <section class="wowi01-show__container-box__wrapper">
                     <div class="container">
-                        <header class="wowi01-show__container-box__header">
-                            <h3 class="wowi01-show__container-box__header__container">
-                                <span class="wowi01-show__container-box__header__title">{{$topicSection->title}}</span>
-                                <span class="wowi01-show__container-box__header__subtitle">{{$workWith->subtitle}}</span>
-                            </h3>
-                            <hr class="wowi01-show__container-box__header__line">
-                            <p class="wowi01-show__container-box__header__paragraph">{{$topicSection->description}}</p>
-                        </header>
+                        @if ($topicSection->title || $topicSection->subtitle || $topicSection->description)
+                            <header class="wowi01-show__container-box__header">
+                                <h3 class="wowi01-show__container-box__header__container">
+                                    <span class="wowi01-show__container-box__header__title">{{$topicSection->title}}</span>
+                                    <span class="wowi01-show__container-box__header__subtitle">{{$topicSection->subtitle}}</span>
+                                </h3>
+                                @if ($topicSection->title || $topicSection->subtitle)
+                                    <hr class="wowi01-show__container-box__header__line">
+                                @endif
+                                <p class="wowi01-show__container-box__header__paragraph">{{$topicSection->description}}</p>
+                            </header>
+                        @endif
                         <div class="wowi01-show__container-box wowi01-show__container-box__carousel row">
                             @foreach ($topics as $topic)
                                 <article class="wowi01-show__container-box__item col-12 col-sm-4 col-lg-3 mb-5">
                                     <div class="content transition">
-                                        <a href="{{$topic->link??'javascript:void(0)'}}" {{$topic->link?'target='.$topic->link_target:''}}>
+                                        <a href="{{$topic->link?:'javascript:void(0)'}}" target="{{$topic->link_target}}">
                                             @if ($topic->path_image_thumbnail)
                                                 <img src="{{asset('storage/'.$topic->path_image_thumbnail)}}" width="100%" height="100%" class="wowi01-show__container-box__image d-block" alt="{{$topic->title}}">
                                             @endif
@@ -80,17 +84,6 @@
 
             <section class="wowi01-show__content-section container-fluid">
                 <div class="container wowi01-show__content-section__container">
-                    @if ($workWith->title_section_content || $workWith->subtitle_section_content || $workWith->description_section_content)
-                        <header class="wowi01-show__content-section__header">
-                            <h3 class="wowi01-show__content-section__header__container">
-                                <span class="wowi01-show__content-section__header__title">{{$workWith->title_section_content}}</span>
-                                <span class="wowi01-show__content-section__header__subtitle">{{$workWith->subtitle_section_content}}</span>
-                            </h3>
-                            <hr class="wowi01-show__content-section__header__line">
-                            <p class="wowi01-show__content-section__header__paragraph">{{$workWith->description_section_content}}</p>
-                        </header>
-                    @endif
-                    {{-- END .wowi01-show__content-section__header --}}
                     @if ($workWith->path_image_content || $workWith->title_content || $workWith->subtitle_content || $workWith->description_content)
                         <div class="wowi01-show__content-section__info row">
                             @if ($workWith->path_image_content)
@@ -122,15 +115,17 @@
         @if ($workWiths->count())
             <section id="WOWI01" class="wowi01 container-fluid">
                 <div class="container">
-                    @if ($section->title || $section->subtitle || $section->description)
-                        <header class="wowi01__header">
-                            <h3 class="wowi01__header__container">
-                                <span class="wowi01__header__title">{{$section->title}}</span>
-                                <span class="wowi01__header__subtitle">{{$section->subtitle}}</span>
-                            </h3>
-                            <hr class="wowi01__header__line">
-                            <p class="wowi01__header__paragraph">{{$section->description}}</p>
-                        </header>
+                    @if ($section)
+                        @if ($section->title || $section->subtitle || $section->description)
+                            <header class="wowi01__header">
+                                <h3 class="wowi01__header__container">
+                                    <span class="wowi01__header__title">{{$section->title}}</span>
+                                    <span class="wowi01__header__subtitle">{{$section->subtitle}}</span>
+                                </h3>
+                                <hr class="wowi01__header__line">
+                                <p class="wowi01__header__paragraph">{{$section->description}}</p>
+                            </header>
+                        @endif
                     @endif
                     <div class="wowi01__container-box carousel-wowi01 row">
                         @foreach ($workWiths as $workWith)

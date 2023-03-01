@@ -37,5 +37,5 @@ Route::prefix('painel/')->middleware('auth')->group(function () use (&$route, $r
 });
 
 //CLIENT
-Route::get($route.'/categoria/{BLOG01BlogsCategory:slug}', [BLOG01Controller::class, 'page'])->name($routeName.'.page.category');
+Route::get($route.'/categoria/{BLOG01BlogsCategory:slug}', [BLOG01Controller::class, 'page'])->name($routeName.'.category.page');
 Route::get('categoria/{BLOG01BlogsCategory:slug}/'.$route.'/{BLOG01Blogs:slug}', [BLOG01Controller::class, 'show'])->name($routeName.'.show.content');

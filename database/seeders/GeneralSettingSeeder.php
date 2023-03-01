@@ -20,10 +20,6 @@ class GeneralSettingSeeder extends Seeder
         DB::table('general_settings')->insert([
             'phone' => '(71) 0000-0000',
             'whatsapp' => '(71) 0 0000-0000',
-            'smtp_host' => 'smtp.gmail.com',
-            'smtp_port' => '465',
-            'smtp_user' => 'anderson@hoom.com.br',
-            'smtp_password' => 'Nandos1306#',
             'path_logo_header_light' => 'uploads/tmp/logo.png',
             'path_logo_header_dark' => 'uploads/tmp/logo.png',
             'path_logo_footer_light' => 'uploads/tmp/logo.png',

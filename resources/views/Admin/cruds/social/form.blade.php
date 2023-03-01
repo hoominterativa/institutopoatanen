@@ -1,0 +1,224 @@
+<div class="row col-12">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body">
+            <h4 class="mb-3">Infomações de Contato</h4>
+            <div class="mb-3">
+                {!! Form::label(null, 'Telefone', ['class'=>'form-label']) !!}
+                {!! Form::text('phone', null, [
+                    'class'=>'form-control',
+                    'data-toggle'=>'input-mask',
+                    'data-mask-format'=>'(00) 0000-0000',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'Celular (Whatsapp)', ['class'=>'form-label']) !!}
+                {!! Form::text('whatsapp', null, [
+                    'class'=>'form-control',
+                    'data-toggle'=>'input-mask',
+                    'data-mask-format'=>'(00) 00000-0000',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'Endereço', ['class'=>'form-label']) !!}
+                {!! Form::textarea('address', null, [
+                    'class'=>'form-control',
+                    'id'=>'message',
+                ]) !!}
+            </div>
+
+            <h4 class="mb-3 mt-3">SMTP</h4>
+            <div class="accordion custom-accordion mb-4" id="custom-accordion-one">
+                <div class="card mb-1">
+                    <div class="card-header" id="headingNine">
+                        <h5 class="m-0 position-relative">
+                            <a class="custom-accordion-title text-reset d-block collapsed" data-bs-toggle="collapse" href="#collapseGamail" aria-expanded="false" aria-controls="collapseNine">
+                                <i class="mdi mdi-help-circle me-1 text-dark"></i>
+                                Configurar conta Gmail
+                                <i class="mdi mdi-chevron-down accordion-arrow"></i>
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseGamail" class="collapse" aria-labelledby="headingFour" data-bs-parent="#custom-accordion-one">
+                        <div class="card-body">
+                            <ul>
+                                <li><b>Host:</b> smtp.gmail.com</li>
+                                <li><b>Usuário:</b> Seu endereço completo do Gmail (ex.: you@gmail.com)</li>
+                                <li><b>Senha:</b> Sua senha de app. Não sabe como configurar? clique <a href="https://support.google.com/mail/answer/185833?hl=pt-BR" target="_blank" rel="noopener noreferrer">aqui</a></li>
+                                <li><b>Porta</b> 465</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-1">
+                    <div class="card-header" id="headingNine">
+                        <h5 class="m-0 position-relative">
+                            <a class="custom-accordion-title text-reset d-block collapsed" data-bs-toggle="collapse" href="#collapseOutlook" aria-expanded="false" aria-controls="collapseNine">
+                                <i class="mdi mdi-help-circle me-1 text-dark"></i>
+                                Configurar conta Outlook
+                                <i class="mdi mdi-chevron-down accordion-arrow"></i>
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOutlook" class="collapse" aria-labelledby="headingFour" data-bs-parent="#custom-accordion-one">
+                        <div class="card-body">
+                            <ul>
+                                <li><b>Host:</b> smtp.office365.com</li>
+                                <li><b>Usuário:</b> Seu endereço completo do outlook (ex.: you@outlook.com)</li>
+                                <li><b>Senha:</b> Senha do email</li>
+                                <li><b>Porta</b> 587</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                {!! Form::label(null, 'Host', ['class'=>'form-label']) !!}
+                {!! Form::text('smtp_host', null, ['class'=>'form-control', 'required'=>'required']) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'Porta', ['class'=>'form-label']) !!}
+                {!! Form::text('smtp_port', null, [
+                    'class'=>'form-control',
+                    'required'=>'required',
+                    'data-toggle'=>'input-mask',
+                    'data-mask-format'=>'00000',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'E-mail', ['class'=>'form-label']) !!}
+                {!! Form::email('smtp_user', null, [
+                    'autocomplete'=>'off',
+                    'class'=>'form-control',
+                    'required'=>'required',
+                    'parsley-type'=>'email',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'Senha', ['class'=>'form-label']) !!}
+                <small class="text-danger ms-2">Sua senha não ficará visível por questões de segurança</small>
+                {!! Form::password('smtp_password', [
+                    'autocomplete'=>'off',
+                    'class' =>'form-control',
+                ])!!}
+            </div>
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+    <div class="col-12 col-lg-6" id="tooltip-container">
+        <div class="card card-body">
+            <p class="mt-2 mb-3 alert-warning p-2">
+                As logos são usadas para o site recomendamos cadastrar todas as versões para que as mesmas não aparceçam quebradas em alguma parte do site.
+            </p>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo normal Topo ', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos escuros, aparecerá no topo do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_header_light', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_header_light?asset('storage/'.$generalSetting->path_logo_header_light):'',
+                        ]) !!}
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo escura Topo ', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos claros, aparecerá no topo do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_header_dark', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_header_dark?asset('storage/'.$generalSetting->path_logo_header_dark):'',
+                        ]) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo normal Rodapé', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos escuros, aparecerá no final do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_footer_light', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_footer_light?asset('storage/'.$generalSetting->path_logo_footer_light):'',
+                        ]) !!}
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('file', 'Logo escura Rodapé', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Logo para ser aplicada em fundos claros, aparecerá no final do site"></i>
+                        </div>
+                        {!! Form::file('path_logo_footer_dark', [
+                            'data-plugins'=>'dropify',
+                            'data-height'=>'150',
+                            'data-max-file-size-preview'=>'2M',
+                            'accept'=>'image/*',
+                            'data-default-file'=> $generalSetting->path_logo_footer_dark?asset('storage/'.$generalSetting->path_logo_footer_dark):'',
+                        ]) !!}
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-2 mb-3 alert-info p-2">
+                Veja uma prévia de como o link do seu site irá aparecer quando for compartilhado, clicando <a href="https://developers.facebook.com/tools/debug/?q={{url('/home')}}" target="_blank"><b>AQUI</b></a>.
+            </p>
+
+            <div class="mb-3">
+                <div class="d-flex align-items-center mb-1">
+                    {!! Form::label('file', 'Imagem de compartilhamento', ['class'=>'form-label mb-0 me-1']) !!}
+                    <small>Tamanho mínimo para a imagem: 250x250 pixel</small>
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Imagem que aparece quando o link do site é compartilhado"></i>
+
+                </div>
+                {!! Form::file('path_logo_share', [
+                    'data-plugins'=>'dropify',
+                    'data-height'=>'150',
+                    'data-max-file-size-preview'=>'2M',
+                    'accept'=>'image/*',
+                    'data-default-file'=> $generalSetting->path_logo_share?asset('storage/'.$generalSetting->path_logo_share):'',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                <div class="d-flex align-items-center mb-1">
+                    {!! Form::label('file', 'Icone de Favoritos (Favicon)', ['class'=>'form-label mb-0 me-1']) !!}
+                    <small>Tamanho mínimo para a imagem: 100x100 pixel</small>
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Icone que aparece na aba do navegador e/ou nos favoritos"></i>
+                </div>
+                {!! Form::file('path_favicon', [
+                    'data-plugins'=>'dropify',
+                    'data-height'=>'150',
+                    'data-max-file-size-preview'=>'2M',
+                    'accept'=>'image/*',
+                    'data-default-file'=> $generalSetting->path_favicon?asset('storage/'.$generalSetting->path_favicon):'',
+                ]) !!}
+            </div>
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+</div>
+<!-- end row -->

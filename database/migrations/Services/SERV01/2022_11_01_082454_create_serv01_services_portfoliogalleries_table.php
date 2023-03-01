@@ -16,6 +16,7 @@ class CreateServ01ServicesPortfoliogalleriesTable extends Migration
         Schema::create('serv01_services_portfoliogalleries', function (Blueprint $table) {
             $table->id();
             $table->string('path_image')->nullable();
+            $table->string('legend')->nullable();
             $table->integer('sorting')->default(0);
             $table->foreignId('portfolio_id')->constrained('serv01_services_portfolios');
             $table->timestamps();

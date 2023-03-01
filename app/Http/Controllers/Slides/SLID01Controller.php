@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
 
 class SLID01Controller extends Controller
 {
@@ -33,7 +32,9 @@ class SLID01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Slides.SLID01.create');
+        return view('Admin.cruds.Slides.SLID01.create',[
+            'cropSetting' => getCropImage('Slides', 'SLID01')
+        ]);
     }
 
     /**
@@ -49,16 +50,23 @@ class SLID01Controller extends Controller
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 100);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 1000, 80);
+        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, null,100);
         if($path_image_png) $data['path_image_png'] = $path_image_png;
 
         $data['active'] = $request->active?1:0;
+
+        $data['active_mobile'] = $request->active_mobile?1:0;
+
+        if($request->external_link_button){
+            $data['link_button'] = $request->link_button;
+            $data['target_link_button'] = '_self';
+        }
 
         if(SLID01Slides::create($data)){
             Session::flash('success', 'Banner cadastrado com sucesso');
@@ -80,8 +88,10 @@ class SLID01Controller extends Controller
      */
     public function edit(SLID01Slides $SLID01Slides)
     {
+        $SLID01Slides->link_button = getUri($SLID01Slides->link_button);
         return view('Admin.cruds.Slides.SLID01.edit',[
-            'slide' => $SLID01Slides
+            'slide' => $SLID01Slides,
+            'cropSetting' => getCropImage('Slides', 'SLID01')
         ]);
     }
 
@@ -100,7 +110,7 @@ class SLID01Controller extends Controller
         $helper = new HelperArchive();
 
         // IMAGE DESKTOP
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, 1900, 100);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
         if($path_image_desktop){
             storageDelete($SLID01Slides, 'path_image_desktop');
             $data['path_image_desktop'] = $path_image_desktop;
@@ -111,7 +121,7 @@ class SLID01Controller extends Controller
         }
 
         // IMAGE MOBILE
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, 600, 100);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
         if($path_image_mobile){
             storageDelete($SLID01Slides, 'path_image_mobile');
             $data['path_image_mobile'] = $path_image_mobile;
@@ -122,7 +132,7 @@ class SLID01Controller extends Controller
         }
 
         // IMAGE PNG
-        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, 1000, 80);
+        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, null,100);
         if($path_image_png){
             storageDelete($SLID01Slides, 'path_image_png');
             $data['path_image_png'] = $path_image_png;
@@ -133,17 +143,18 @@ class SLID01Controller extends Controller
         }
 
         $data['active'] = $request->active?1:0;
+        $data['active_mobile'] = $request->active_mobile?1:0;
+        $data['link_button'] = getUri($request->link_button);
 
         if($SLID01Slides->fill($data)->save()){
             Session::flash('success', 'Banner atualizado com sucesso');
-            return redirect()->route('admin.slid01.index');
         }else{
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Storage::delete($path_image_png);
             Session::flash('success', 'Erro ao atualizar banner');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -205,7 +216,26 @@ class SLID01Controller extends Controller
      */
     public static function section()
     {
-        $slides = SLID01Slides::sorting()->active()->get();
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                $slides = SLID01Slides::where('path_image_mobile','!=','')->activeMobile()->sorting()->get();
+                foreach($slides as $slide){
+                    $slide->title = $slide->title_mobile;
+                    $slide->subtitle = $slide->subtitle_mobile;
+                    $slide->description = $slide->description_mobile;
+                    $slide->title_button = $slide->title_button_mobile;
+                    $slide->link_button = $slide->link_button_mobile;
+                    $slide->path_image_desktop = $slide->path_image_mobile;
+                    $slide->path_image_png = null;
+                    $slide->active = $slide->active_mobile;
+                }
+            break;
+            default:
+                $slides = SLID01Slides::where('path_image_desktop','!=','')->active()->sorting()->get();
+            break;
+        }
+
         return view('Client.pages.Slides.SLID01.section',[
             'slides' => $slides
         ]);

@@ -1,4 +1,5 @@
 {!! Form::model($contact, ['route' => ['admin.cota01.update', $contact->id], 'class'=>'parsley-validate', 'files' => true, 'method' => 'PUT']) !!}
+    <input type="hidden" name="title_page" value="{{$contact->title_page}}">
     <div class="row">
         <div class="col-12 col-lg-6">
             <div class="card card-body" id="tooltip-container">
@@ -23,15 +24,22 @@
         <div class="col-12 col-lg-6">
             <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
-                    {!! Form::label('path_image_banner', 'Imagem', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 1500x360px</small>
-                    {!! Form::file('path_image_banner', [
-                        'data-plugins'=>'dropify',
-                        'data-height'=>'300',
-                        'data-max-file-size-preview'=>'2M',
-                        'accept'=>'image/*',
-                        'data-default-file'=> isset($contact)?($contact->path_image_banner<>''?url('storage/'.$contact->path_image_banner):''):'',
-                    ]) !!}
+                    <div class="container-image-crop">
+                        {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_banner->width}}x{{$cropSetting->path_image_banner->height}}px!</small>
+                        <label class="area-input-image-crop" for="inputImage">
+                            {!! Form::file('path_image_banner', [
+                                'id'=>'inputImage',
+                                'class'=>'inputImage',
+                                'data-status'=>$cropSetting->path_image_banner->activeCrop, // px
+                                'data-min-width'=>$cropSetting->path_image_banner->width, // px
+                                'data-min-height'=>$cropSetting->path_image_banner->height, // px
+                                'data-box-height'=>'300', // Input height in the form
+                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                'data-default-file'=> isset($contact)?($contact->path_image_banner<>''?url('storage/'.$contact->path_image_banner):''):'',
+                            ]) !!}
+                        </label>
+                    </div><!-- END container image crop -->
                 </div>
             </div>
         </div>

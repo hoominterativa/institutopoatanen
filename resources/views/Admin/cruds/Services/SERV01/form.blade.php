@@ -40,14 +40,22 @@
             </div>
 
             <div class="mb-3">
-                {!! Form::label('file', 'Ícone', ['class'=>'form-label']) !!}
-                {!! Form::file('path_image_icon', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'150',
-                    'data-max-file-size-preview'=>'2M',
-                    'accept'=>'image/*',
-                    'data-default-file'=> isset($service)?$service->path_image_icon<>''?url('storage/'.$service->path_image_icon):'':'',
-                ]) !!}
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_icon->width}}x{{$cropSetting->path_image_icon->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_icon', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_icon->width, // px
+                            'data-min-height'=>$cropSetting->path_image_icon->height, // px
+                            'data-box-height'=>'180', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($service)?($service->path_image_icon<>''?url('storage/'.$service->path_image_icon):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
         </div>
         {{-- end card-body --}}
@@ -57,27 +65,38 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem Box', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'4/4',
-                            'data-height'=>'205',
+                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image->width, // px
+                            'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-box-height'=>'205', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($service)?$service->path_image<>''?url('storage/'.$service->path_image):'':'',
+                            'data-default-file'=> isset($service)?($service->path_image<>''?url('storage/'.$service->path_image):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
             </div>
             <div class="mb-3">
-                {!! Form::label('file', 'Imagem banner', ['class'=>'form-label']) !!}
-                {!! Form::file('path_image_banner', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'205',
-                    'data-max-file-size-preview'=>'2M',
-                    'accept'=>'image/*',
-                    'data-default-file'=> isset($service)?$service->path_image_banner<>''?url('storage/'.$service->path_image_banner):'':'',
-                ]) !!}
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem Banner', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_banner->width}}x{{$cropSetting->path_image_banner->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_banner', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_banner->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_banner->width, // px
+                            'data-min-height'=>$cropSetting->path_image_banner->height, // px
+                            'data-box-height'=>'205', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($service)?($service->path_image_banner<>''?url('storage/'.$service->path_image_banner):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
             </div>
         </div>
         {{-- end card-body --}}
@@ -95,11 +114,3 @@
     </div>
 </div>
 {{-- end row --}}
-
-{{-- Essa estrutura pode ser usada junto ao label do input para aparecer o ícone de duvida do lado do mesmo. pode usar a estutura abaixo substituindo o "Form::label" --}}
-{{-- <div class="d-flex align-items-center mb-1">
-    {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-original-title="Coloque a mensagem desejado aqui"></i>
-</div> --}}

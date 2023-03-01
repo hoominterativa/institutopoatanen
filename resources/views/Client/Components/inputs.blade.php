@@ -77,6 +77,27 @@
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
         </div>
     @break
+    @case('selectEmail')
+        <div class="input__item input__item--select">
+            @php
+                $selectOptions = [];
+                foreach (explode(',', $options) as $option) {
+                    $emails = explode('{', $option);
+                    if(count($emails) > 1){
+                        $email = str_replace('}','',$emails[1]);
+                        $selectOptions = array_merge($selectOptions, [trim($emails[0].'|'.$email) => trim($emails[0])]);
+                    }
+                }
+            @endphp
+            {!! Form::select($name, $selectOptions, null, [
+                'class'=>'form-select mb-3 ps-3',
+                'id'=>'heard',
+                'required'=> $required??false,
+                'placeholder' => $placeholder
+            ]) !!}
+            <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
+        </div>
+    @break
     @case('checkbox')
         <div class="input__item input__item--checkbox">
             {!! Form::label(null, $placeholder, ['class'=>'form-label']) !!}

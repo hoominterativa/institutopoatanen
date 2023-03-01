@@ -13,6 +13,7 @@ use App\Models\Portfolios\PORT01Portfolios;
 use App\Models\Portfolios\PORT01PortfoliosSection;
 use App\Models\Portfolios\PORT01PortfoliosCategory;
 use App\Models\Portfolios\PORT01PortfoliosSubategory;
+use App\Models\SettingSmtp;
 use Exception;
 
 class DatabaseSeeder extends Seeder
@@ -36,8 +37,8 @@ class DatabaseSeeder extends Seeder
 
                 if($relationship){
                     foreach ($relationship as $relation) {
-                        $seedRelationQty = $relation['seedQty'];
-                        $relation['class']::factory($seedRelationQty)->create();
+                        $seedRelationQty = $relation->seedQty;
+                        $relation->class::factory($seedRelationQty)->create();
                     }
                 }
 
@@ -66,6 +67,12 @@ class DatabaseSeeder extends Seeder
         if(!SettingTheme::first()){
             $this->call([
                 SettingThemeSeeder::class,
+            ]);
+        }
+
+        if(!SettingSmtp::first()){
+            $this->call([
+                SettingSmtpSeeder::class,
             ]);
         }
 

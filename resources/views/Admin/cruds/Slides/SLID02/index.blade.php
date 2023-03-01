@@ -58,7 +58,7 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$test->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('admin/assets/images/users/user-10.jpg')}})"></div>
+                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/images/users/user-10.jpg')}})"></div>
                                                 </td>
                                                 <td class="align-middle">Boudreaux</td>
                                                 <td class="align-middle">Traffic Court Referee</td>

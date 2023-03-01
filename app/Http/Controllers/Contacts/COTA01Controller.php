@@ -40,6 +40,7 @@ class COTA01Controller extends Controller
         $compliances = getCompliance(null, 'id', 'title_page');
         return view('Admin.cruds.Contacts.COTA01.create',[
             'compliances' => $compliances,
+            'cropSetting' => getCropImage('Contacts', 'COTA01')
         ]);
     }
 
@@ -122,7 +123,8 @@ class COTA01Controller extends Controller
             'topicsForm' => $topicsForm,
             'topicsSection' => $sectionTopics,
             'compliances' => $compliances,
-            'configForm' => !is_array($configForm)?$configForm:null
+            'configForm' => !is_array($configForm)?$configForm:null,
+            'cropSetting' => getCropImage('Contacts', 'COTA01')
         ]);
     }
 

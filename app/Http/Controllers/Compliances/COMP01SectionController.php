@@ -83,6 +83,11 @@ class COMP01SectionController extends Controller
      */
     public function destroy(COMP01CompliancesSection $COMP01CompliancesSection)
     {
+        foreach($COMP01CompliancesSection->archives as $archive){
+            storageDelete($archive, 'path_archive');
+            $archive->delete();
+        }
+
         storageDelete($COMP01CompliancesSection, 'path_image_icon');
 
         if($COMP01CompliancesSection->delete()){

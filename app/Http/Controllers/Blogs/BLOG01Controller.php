@@ -118,7 +118,8 @@ class BLOG01Controller extends Controller
     {
         $categories = BLOG01BlogsCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Blogs.BLOG01.create',[
-            'categories' => $categories
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Blogs', 'BLOG01')
         ]);
     }
 
@@ -133,10 +134,10 @@ class BLOG01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, 400, 100);
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null,100);
         if($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 1100, 100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
         $data['slug'] = Str::slug($request->title);
@@ -168,6 +169,7 @@ class BLOG01Controller extends Controller
         return view('Admin.cruds.Blogs.BLOG01.edit',[
             'blog' => $BLOG01Blogs,
             'categories' => $categories,
+            'cropSetting' => getCropImage('Blogs', 'BLOG01')
         ]);
     }
 
@@ -183,7 +185,7 @@ class BLOG01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 1100, 100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($BLOG01Blogs, 'path_image');
             $data['path_image'] = $path_image;
@@ -193,7 +195,7 @@ class BLOG01Controller extends Controller
             $data['path_image'] = null;
         }
 
-        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, 1100, 100);
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null,100);
         if($path_image_thumbnail){
             storageDelete($BLOG01Blogs, 'path_image_thumbnail');
             $data['path_image_thumbnail'] = $path_image_thumbnail;

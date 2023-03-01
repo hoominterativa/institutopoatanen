@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\GeneralSetting;
+use App\Models\SettingSmtp;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -35,12 +36,13 @@ class ContactLead extends Mailable
      */
     public function build()
     {
-        $setting = GeneralSetting::first();
+        $generalSetting = GeneralSetting::first();
+        $setting = SettingSmtp::first();
         $appName = env('APP_NAME');
 
         $this->subject($appName.' - Lead do site');
         $this->to($this->emailRecipient, $appName.' - Lead do site');
-        $this->from($setting->smtp_user, $appName.' - Lead do site');
+        $this->from($setting->user, $appName.' - Lead do site');
 
         foreach ($this->infomation as $value) {
             if(isset($value['type'])){
@@ -52,7 +54,7 @@ class ContactLead extends Mailable
 
         return $this->view('Mail.contactUs',[
             'infomrations' => $this->infomation,
-            'setting' => $setting,
+            'generalSetting' => $generalSetting,
             'contactLead' => $this->contactLead,
         ]);
     }

@@ -69,16 +69,16 @@ class PORT01Controller extends Controller
         $data['colors'] = implode(',', $data['colors']);
         $data['slug'] = Str::slug($data['title']);
 
-        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $path, 400, 90);
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        $path_image_left = $helper->optimizeImage($request, 'path_image_left', $path, 600, 90);
+        $path_image_left = $helper->optimizeImage($request, 'path_image_left', $path, null,100);
         if($path_image_left) $data['path_image_left'] = $path_image_left;
 
-        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $path, 600, 90);
+        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $path, null,100);
         if($path_image_right) $data['path_image_right'] = $path_image_right;
 
-        $path_image_testimonial = $helper->optimizeImage($request, 'path_image_testimonial', $path, 500, 90);
+        $path_image_testimonial = $helper->optimizeImage($request, 'path_image_testimonial', $path, null,100);
         if($path_image_testimonial) $data['path_image_testimonial'] = $path_image_testimonial;
 
         if(PORT01Portfolios::create($data)){
@@ -132,7 +132,7 @@ class PORT01Controller extends Controller
         $data['slug'] = Str::slug($data['title']);
 
 
-        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $path, 200, 80);
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $path, null,100);
         if($path_image_box){
             storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_box'] = $path_image_box;
@@ -142,7 +142,7 @@ class PORT01Controller extends Controller
             $data['path_image_box'] = null;
         }
 
-        $path_image_left = $helper->optimizeImage($request, 'path_image_left', $path, 200, 80);
+        $path_image_left = $helper->optimizeImage($request, 'path_image_left', $path, null,100);
         if($path_image_left){
             storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_left'] = $path_image_left;
@@ -152,7 +152,7 @@ class PORT01Controller extends Controller
             $data['path_image_left'] = null;
         }
 
-        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $path, 200, 80);
+        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $path, null,100);
         if($path_image_right){
             storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_right'] = $path_image_right;
@@ -162,7 +162,7 @@ class PORT01Controller extends Controller
             $data['path_image_right'] = null;
         }
 
-        $path_image_testimonial = $helper->optimizeImage($request, 'path_image_testimonial', $path, 200, 80);
+        $path_image_testimonial = $helper->optimizeImage($request, 'path_image_testimonial', $path, null,100);
         if($path_image_testimonial){
             storageDelete($PORT01Portfolios, 'path_image');
             $data['path_image_testimonial'] = $path_image_testimonial;

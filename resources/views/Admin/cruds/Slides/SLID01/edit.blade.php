@@ -19,6 +19,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="alert alert-warning">
+                    <p class="mb-0"><b>Atenção:</b> Não recomendamos colocar os textos na imagem do banner, isso pode influenciar negativamente o SEO do seu site. Utlize nossa ferramenta de cadastro para configurar o título, subtítulo e botão do seu banner.</p>
+                </div>
                 <!-- end page title -->
                 {!! Form::model($slide, ['route' => ['admin.slid01.update', $slide->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
                     @include('Admin.Cruds.Slides.SLID01.form')

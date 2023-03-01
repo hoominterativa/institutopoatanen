@@ -135,6 +135,38 @@
                 <div>
                     <h4>Campos do Formulário</h4>
                     <p>Adicione os campos ao formulário, iforme os títulos e Opções para o cliente e veja seu formulário ser contruído do seu jeito. <b>Obs.:</b> A ordenação de exbição no formulário é a mesma que está abaixo.</p>
+                    <a href="javascript:void(0)" data-bs-target="#modal-legend-inputs" data-bs-toggle="modal" class="text-info">
+                        <i class="mdi mdi-chat"></i>
+                        Legenda dos tipos de campo nos formulário
+                    </a>
+                    {{-- BEGIN MODAL LEGEND INPUTS --}}
+                    <div id="modal-legend-inputs" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog" style="max-width: 1100px;">
+                            <div class="modal-content">
+                                <div class="modal-header p-3 pt-2 pb-2">
+                                    <h4 class="page-title">Legenda dos tipos de campo nos formulário</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body p-3 pt-0 pb-3">
+                                    <ul>
+                                        <li><b>Texto comum:</b> Pode ser usado para informações simples como <i>Nome, Sobrenome, Assunto livre etc</i></li>
+                                        <li><b>Texto Longo:</b> Usado para informações mais extensas como <i>Mensagem, Observaçoes etc</i></li>
+                                        <li><b>E-mail:</b> Usar para E-mail pois existe um validador imbutido no mesmo.</li>
+                                        <li><b>Telefone:</b> Usar para telefones pois uma mascara é aplicada automaticamente</li>
+                                        <li><b>Celular:</b> Usar para celuar pois uma mascara é aplicada automaticamente</li>
+                                        <li><b>Opções:</b> Cria um campo com opções para escolhas e pode ser usado para informações como <i>Assuntos específicos, Setores etc </i>. Separar opções com virgula e sem espaços</li>
+                                        <li><b>Opções com email:</b> Funciona igual ao campo de <b>Opções</b>, porém neste poderá incluir um snippet <b>{}</b> com o e-mail destinatário para cada opção. <i>Ex.: Suporte{suporte@exemplo.com.br}, Reclamações{reclamacoes@exemplo.com.br}</i></li>
+                                        <li><b>Multiplas escolhas:</b> Cria opçoes para serem marcadas/desmarcadas estilo um checkbox, pode ser usado para informações como <i>Módulos disponíveis, Áreas pretendida etc</i></li>
+                                        <li><b>Escolha única (Um ou outro):</b> Cria opçoes para serem marcadas com escolha única e uma vez marcada não poderá ser desmarcada, pode ser usado par informações como <i>Sexo, opção de sim e não etc</i></li>
+                                        <li><b>Calendário:</b> Cria um campo para inserir datas com um calendário imbutido</li>
+                                        <li><b>Arquivos (Anexo):</b> Campo para anexar arquivos.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- END MODAL LEGEND INPUTS --}}
                 </div>
             </div>
 
@@ -153,6 +185,7 @@
                                             'phone' => 'Telefone',
                                             'cellphone' => 'Celular',
                                             'select' => 'Opções',
+                                            'selectEmail' => 'Opções com email',
                                             'checkbox' => 'Multiplas escolhas',
                                             'radio' => 'Escolha única (Um ou outro)',
                                             'date' => 'Calendário',
@@ -203,6 +236,7 @@
                                         'phone' => 'Telefone',
                                         'cellphone' => 'Celular',
                                         'select' => 'Opções',
+                                        'selectEmail' => 'Opções com email',
                                         'checkbox' => 'Multiplas escolhas',
                                         'radio' => 'Escolha única (Um ou outro)',
                                         'date' => 'Calendário',

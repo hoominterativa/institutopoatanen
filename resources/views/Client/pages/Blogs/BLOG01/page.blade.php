@@ -2,15 +2,17 @@
 @section('content')
 {{-- BEGIN Page content --}}
 <main id="root">
-    <section id="BLOG01" class="blog01-page container-fluid">
-        <header class="blog01-page__header row flex-column justify-content-center" style="background-image: url({{asset('storage/uploads/tmp/bg-banner-inner.jpg')}})">
-            <h1 class="blog01-page__header__title col-12">Título Página</h1>
-            <nav class="blog01-page__header__category blog01-page__header__category__carousel col-12 d-flex justify-content-center">
-                {{-- <a href="#" class="blog01-page__header__category__item">Categoria Artigo</a> --}}
-                @foreach ($categories as $category)
-                    <a href="{{route('blog01.page.category', ['BLOG01BlogsCategory' => $category->slug])}}" class="blog01-page__header__category__item {{isset($category->selected)?'blog01-page__header__category__item--active':''}}">{{$category->title}}</a>
-                @endforeach
-            </nav>
+    <section id="BLOG01" class="blog01-page container-fluid px-0">
+        <header class="blog01-page__header bg-light" style="background-image: url({{asset('images/image-blog.jpg')}})">
+            <div class="container d-flex flex-column justify-content-center h-100">
+                <h1 class="blog01-page__header__title">Título página</h1>
+                <nav class="blog01-page__header__category blog01-page__header__category__carousel d-flex justify-content-center">
+                    {{-- <a href="#" class="blog01-page__header__category__item">Categoria Artigo</a> --}}
+                    @foreach ($categories as $category)
+                        <a href="{{route('blog01.page.category', ['BLOG01BlogsCategory' => $category->slug])}}" class="blog01-page__header__category__item {{isset($category->selected)?'blog01-page__header__category__item--active':''}}">{{$category->title}}</a>
+                    @endforeach
+                </nav>
+            </div>
         </header>
         <div class="container">
             <div class="blog01-page__boxs row">

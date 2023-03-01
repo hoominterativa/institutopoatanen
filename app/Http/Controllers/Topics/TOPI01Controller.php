@@ -28,6 +28,7 @@ class TOPI01Controller extends Controller
         return view('Admin.cruds.Topics.TOPI01.index',[
             'topics' => $topics,
             'section' => $section,
+            'cropSetting' => getCropImage('Topics', 'TOPI01')
         ]);
     }
 
@@ -38,7 +39,9 @@ class TOPI01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Topics.TOPI01.create');
+        return view('Admin.cruds.Topics.TOPI01.create',[
+            'cropSetting' => getCropImage('Topics', 'TOPI01')
+        ]);
     }
 
     /**
@@ -52,13 +55,14 @@ class TOPI01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 400, 95);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 400, 95);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image'] = $path_image_icon;
 
         $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if(TOPI01Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
@@ -79,8 +83,10 @@ class TOPI01Controller extends Controller
      */
     public function edit(TOPI01Topics $TOPI01Topics)
     {
+        $TOPI01Topics->link = getUri($TOPI01Topics->link);
         return view('Admin.cruds.Topics.TOPI01.edit',[
-            'topic' => $TOPI01Topics
+            'topic' => $TOPI01Topics,
+            'cropSetting' => getCropImage('Topics', 'TOPI01')
         ]);
     }
 
@@ -96,7 +102,7 @@ class TOPI01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, 400, 95);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($TOPI01Topics, 'path_image');
             $data['path_image'] = $path_image;
@@ -106,7 +112,7 @@ class TOPI01Controller extends Controller
             $data['path_image'] = null;
         }
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 400, 95);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){
             storageDelete($TOPI01Topics, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;
@@ -115,6 +121,9 @@ class TOPI01Controller extends Controller
             storageDelete($TOPI01Topics, 'path_image_icon');
             $data['path_image_icon'] = null;
         }
+
+        $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($request->link);
 
         if($TOPI01Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');

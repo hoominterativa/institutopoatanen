@@ -71,14 +71,17 @@
                     <div class="mb-3">
                         <div class="container-image-crop">
                             {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                            <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_banner->width}}x{{$cropSetting->path_image_banner->height}}px!</small>
                             <label class="area-input-image-crop" for="inputImage">
                                 {!! Form::file('path_image_banner', [
                                     'id'=>'inputImage',
                                     'class'=>'inputImage',
-                                    'data-scale'=>'4/3',
-                                    'data-height'=>'125',
+                                    'data-status'=>$cropSetting->path_image_banner->activeCrop, // px
+                                    'data-min-width'=>$cropSetting->path_image_banner->width, // px
+                                    'data-min-height'=>$cropSetting->path_image_banner->height, // px
+                                    'data-box-height'=>'225', // Input height in the form
                                     'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                    'data-default-file'=> isset($about)?$about->path_image_banner<>''?url('storage/'.$about->path_image_banner):'':'',
+                                    'data-default-file'=> isset($about)?($about->path_image_banner<>''?url('storage/'.$about->path_image_banner):''):'',
                                 ]) !!}
                             </label>
                         </div><!-- END container image crop -->
@@ -150,16 +153,11 @@
                         {!! Form::label('subtitle_inner_section', 'Subtítulo', ['class'=>'form-label']) !!}
                         {!! Form::text('subtitle_inner_section', null, ['class'=>'form-control', 'id'=>'subtitle_inner_section']) !!}
                     </div>
-                    <div class="mb-3">
-                        {!! Form::label('message', 'Descrição', ['class'=>'form-label']) !!}
-                        {!! Form::textarea('text_inner_section', null, [
-                            'class'=>'form-control',
-                            'id'=>'message',
-                            'required'=>'required',
-                            'data-parsley-trigger'=>'keyup',
-                            'data-parsley-minlength'=>'20',
-                            'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                            'data-parsley-validation-threshold'=>'10',
+                    <div class="normal-editor__content mb-3">
+                        {!! Form::label('normal-editor', 'Descrição', ['class'=>'form-label']) !!}
+                        {!! Form::textarea('description_section', null, [
+                            'class'=>'form-control normal-editor',
+                            'id'=>'normal-editor',
                         ]) !!}
                     </div>
                 </div>
@@ -171,14 +169,17 @@
                     <div class="mb-3">
                         <div class="container-image-crop">
                             {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                            <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_inner_section->width}}x{{$cropSetting->path_image_inner_section->height}}px!</small>
                             <label class="area-input-image-crop" for="inputImage">
                                 {!! Form::file('path_image_inner_section', [
                                     'id'=>'inputImage',
                                     'class'=>'inputImage',
-                                    'data-scale'=>'4/3',
-                                    'data-height'=>'255',
+                                    'data-status'=>$cropSetting->path_image_inner_section->activeCrop, // px
+                                    'data-min-width'=>$cropSetting->path_image_inner_section->width, // px
+                                    'data-min-height'=>$cropSetting->path_image_inner_section->height, // px
+                                    'data-box-height'=>'225', // Input height in the form
                                     'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                    'data-default-file'=> isset($about)?$about->path_image_inner_section<>''?url('storage/'.$about->path_image_inner_section):'':'',
+                                    'data-default-file'=> isset($about)?($about->path_image_inner_section<>''?url('storage/'.$about->path_image_inner_section):''):'',
                                 ]) !!}
                             </label>
                         </div><!-- END container image crop -->

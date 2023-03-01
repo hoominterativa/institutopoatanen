@@ -27,9 +27,6 @@ class CreateWowi01WorkwithTable extends Migration
             $table->string('path_image_icon')->nullable();
             $table->string('path_image_thumbnail')->nullable();
 
-            $table->string('title_section_content')->nullable();
-            $table->string('subtitle_section_content')->nullable();
-            $table->text('description_section_content')->nullable();
             $table->string('title_content')->nullable();
             $table->string('subtitle_content')->nullable();
             $table->text('description_content')->nullable();

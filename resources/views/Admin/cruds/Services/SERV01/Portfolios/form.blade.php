@@ -32,18 +32,31 @@
         <div class="col-12 col-lg-6">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('path_image', 'Imagem Box', ['class'=>'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem Box', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-scale'=>'4/4',
-                            'data-height'=>'250',
+                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image->width, // px
+                            'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-box-height'=>'250', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($portfolio)?$portfolio->path_image<>''?url('storage/'.$portfolio->path_image):'':'',
+                            'data-default-file'=> isset($portfolio)?($portfolio->path_image<>''?url('storage/'.$portfolio->path_image):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="basic-editor__content mb-3">
+                {!! Form::label('text', 'Texto', ['class'=>'form-label']) !!}
+                {!! Form::textarea('text', null, [
+                    'class'=>'form-control basic-editor',
+                    'data-height'=>500,
+                    'id'=>'text',
+                ]) !!}
             </div>
         </div>
     </div>
@@ -84,6 +97,7 @@
                     <label><input name="btnSelectAll" value="btDeletePortfolioGallery" type="checkbox"></label>
                 </th>
                 <th></th>
+                <th>Legenda</th>
                 <th width="90px">Ações</th>
             </tr>
         </thead>
@@ -101,6 +115,12 @@
                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$gallery->path_image)}})"></div>
                             </a>
                         @endif
+                    </td>
+                    <td class="align-middle">
+                        <form action="{{route('admin.serv01.portfolio.gallery.legend', ['SERV01ServicesPortfolioGallery' => $gallery->id])}}" method="post">
+                            @csrf
+                            <input type="text" class="form-control" data-bs-toggle="inputAjax" name="legend" value="{{$gallery->legend}}" placeholder="Clique e insira a legenda da imagem aqui">
+                        </form>
                     </td>
                     <td class="align-middle">
                         <div class="row">

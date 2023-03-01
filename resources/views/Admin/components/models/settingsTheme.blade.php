@@ -5,7 +5,12 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs nav-bordered nav-justified" role="tablist">
             <li class="nav-item">
-                <a class="nav-link py-2 active">
+                <a href="#settingProfile" data-bs-toggle="tab" class="tab-static nav-link py-2 active">
+                    <i class="mdi mdi-account-edit d-block font-22 my-1"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#settingTheme" data-bs-toggle="tab" class="tab-static nav-link py-2">
                     <i class="mdi mdi-cog-outline d-block font-22 my-1"></i>
                 </a>
             </li>
@@ -13,12 +18,66 @@
 
         <!-- Tab panes -->
         <div class="tab-content pt-0">
-            <div class="tab-pane active" id="settings-tab" role="tabpanel">
+            <div class="tab-pane tab-static active" id="settingProfile" role="tabpanel">
+                <h6 class="fw-medium px-3 m-0 py-2 font-13 text-uppercase bg-light">
+                    <span class="d-block py-1">Editar Perfil</span>
+                </h6>
+
+                <div class="p-3">
+                    {!! Form::model(Auth::user(), ['route' => ['admin.user.update', Auth::user()->id], 'class'=>'parsley-validate mb-5', 'method'=>'PUT', 'files'=>true]) !!}
+                        <div class="mb-3">
+                            <div class="container-image-crop">
+                                {!! Form::label('inputImage', 'Imagem de Perfil', ['class'=>'form-label']) !!}
+                                <label class="area-input-image-crop" for="inputImage">
+                                    {!! Form::file('path_image', [
+                                        'id'=>'inputImage',
+                                        'class'=>'inputImage',
+                                        'data-status'=>'true', // px
+                                        'data-min-width'=>'200', // px
+                                        'data-min-height'=>'200', // px
+                                        'data-box-height'=>'180', // Input height in the form
+                                        'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                        'data-default-file'=> (Auth::user()->path_image<>''?url('storage/'.Auth::user()->path_image):''),
+                                    ]) !!}
+                                </label>
+                            </div><!-- END container image crop -->
+                        </div>
+                        <div class="mb-3">
+                            {!! Form::label('title', 'Nome', ['class'=>'form-label']) !!}
+                            {!! Form::text('name', null, ['class'=>'form-control', 'id'=>'title', 'required'=>'required']) !!}
+                        </div>
+                        <div class="mb-3">
+                            {!! Form::label(null, 'E-mail', ['class'=>'form-label']) !!}
+                            {!! Form::email('email', null, [
+                                'class'=>'form-control',
+                                'required'=>'required',
+                                'parsley-type'=>'email',
+                            ]) !!}
+                        </div>
+                        <div class="mb-3">
+                            {!! Form::label(null, 'Senha', ['class'=>'form-label']) !!}
+                            {!! Form::password('password', [
+                                    'class'=>'form-control',
+                                    'id'=>'pass2',
+                                    'placeholder'=>'Senha',
+                                ])!!}
+                            {!! Form::password('password_confirmation', [
+                                    'class'=>'form-control mt-3',
+                                    'data-parsley-equalto'=>"#pass2",
+                                    'placeholder'=>'Confirmar senha',
+                                ])!!}
+                        </div>
+                        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light mx-auto d-table width-lg', 'type' => 'submit']) !!}
+                    {!! Form::close() !!}
+                </div>
+
+            </div>
+            <div class="tab-pane tab-static" id="settingTheme" role="tabpanel">
                 <h6 class="fw-medium px-3 m-0 py-2 font-13 text-uppercase bg-light">
                     <span class="d-block py-1">Configurações de tema</span>
                 </h6>
 
-                <div id="settingTheme" class="p-3">
+                <div class="p-3">
                     <form action="{{route('admin.settingTheme')}}" method="post">
                         <h6 class="fw-medium font-14 mb-2 pb-1">Tema</h6>
                         <div class="form-check form-switch mb-1">

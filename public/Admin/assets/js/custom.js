@@ -180,7 +180,15 @@ $(function() {
                         <input type="text" name="option_" required class="form-control inputSetOption" placeholder="Separar as opções com vírgula">
                     </div>
                 `
-                break;
+            break;
+            case 'selectEmail':
+                html += `
+                    <div class="mb-3">
+                        <label class="form-label">Opções</label>
+                        <input type="text" name="option_" required class="form-control inputSetOption" placeholder="Separar as opções com vírgula Ex.: Suporte{suporte@exemplo.com.br},Reclamações{reclamacoes@exemplo.com.br}">
+                    </div>
+                `
+            break;
         }
         html += '</div>'
 
@@ -212,32 +220,44 @@ $(function() {
     })
 
     $('input[name=btnSelectItem]').on('click', function() {
-        var btnDelete = $(this).parents('table').find('input[name=btnSelectAll]').val()
-        if (!$(this).parents('table').find('.btnSelectItem:checked').length) {
+        const table = $(this).parents('table')
+        var btnDelete = table.find('input[name=btnSelectAll]').val(),
+            lengthTotal = table.find('.btnSelectItem').length,
+            lengthChecked = table.find('.btnSelectItem:checked').length
+
+        if (!lengthChecked) {
             $(`.${btnDelete}`).fadeOut('fast');
         } else {
             $(`.${btnDelete}`).fadeIn('fast');
         }
+
+        table.find('input[name=btnSelectAll]').prop('checked', false)
+        if(lengthTotal == lengthChecked) table.find('input[name=btnSelectAll]').prop('checked', true)
     })
 
     $('input[name=btnSelectAll]').on('click', function() {
+        const table = $(this).parents('table')
         var btnDelete = $(this).val()
-        if ($(this).parents('table').find('.btnSelectItem:checked').length == $(this).parents('table').find('.btnSelectItem').length) {
+
+        if (table.find('.btnSelectItem:checked').length == table.find('.btnSelectItem').length) {
             $(`.${btnDelete}`).fadeOut('fast');
             var checked = false
         } else {
-            $(this).parents('table').find('input[name=btnSelectAll]').prop('checked', true)
+            table.find('input[name=btnSelectAll]').prop('checked', true)
             $(`.${btnDelete}`).fadeIn('fast');
             var checked = true
         }
-        $(this).parents('table').find('.btnSelectItem').each(function() {
+
+        table.find('.btnSelectItem').each(function() {
             $(this).prop("checked", checked)
         })
     })
 
     $('body').on('click', '.dropify-clear', function() {
         var nameInput = $(this).parent().find('input:first').attr('name')
-        $(this).parent().find('input[name=delete]').remove()
+        $(this).parent().find(`input[name=delete_${nameInput}]`).remove()
+        $(this).parent().find(`.preview-image`).css('background-image','url()')
+        $(this).parent().find(`.content-area-image-crop`).show()
         $(this).parent().append(`<input type="hidden" name="delete_${nameInput}" value="${nameInput}" />`);
     })
 
@@ -341,7 +361,7 @@ $(function() {
         window.history.pushState({}, tab, url);
     }
 
-    $('[data-bs-toggle=tab]').on('click', function(){
+    $('[data-bs-toggle=tab]:not(.tab-static)').on('click', function(){
         changePushState($(this))
     });
 
@@ -349,17 +369,17 @@ $(function() {
         if(localStorage.getItem('tab')){
             var hash = localStorage.getItem('tab')
             if($(`[data-bs-toggle=tab][href=\\${hash}]`).length){
-                $(`[data-bs-toggle=tab]`).removeClass('active')
+                $(`[data-bs-toggle=tab]:not(.tab-static)`).removeClass('active')
                 $(`[data-bs-toggle=tab][href=\\${hash}]`).addClass('active')
 
-                $('.tab-pane').removeClass('active').removeClass('show')
+                $('.tab-pane:not(.tab-static)').removeClass('active').removeClass('show')
                 $(`${hash}`).addClass('active').addClass('show')
             }
 
             localStorage.removeItem('tab')
         }
 
-        if($('[data-bs-toggle=tab].active').length){
+        if($('[data-bs-toggle=tab].active:not(.tab-static)').length){
             changePushState($('[data-bs-toggle=tab].active'))
         }
     })
@@ -397,4 +417,113 @@ $(function() {
             }
         }
     });
+
+    $('body').on('click', '[data-bs-toggle=setUrl]', function(event){
+        event.preventDefault()
+        let targetUrl = $(this).data('target-url'),
+            url = $(this).attr('href')
+        $(targetUrl).val(url)
+    })
+
+    $('[data-bs-toggle=inputAjax]').on('change', function(){
+        var formData = new FormData($(this).parents('form')[0]),
+            action = $(this).parents('form').attr('action')
+
+        $.ajax({
+            type: 'POST',
+            url: action,
+            data: formData,
+            processData: false,
+            contentType: false,
+        })
+    })
+
+    $('#testSmtp').on('click', function(event){
+        event.preventDefault()
+        var action = $(this).attr('href')
+        $.ajax({
+            type: 'POST',
+            url: action,
+            processData: false,
+            contentType: false,
+            success: function(response){
+                switch (response.status) {
+                    case 'success':
+                        $('.detailsTestSmtp').append(`<span class="badge bg-success mt-2">${response.message}</span>`)
+                    break;
+                    case 'error':
+                        $('.detailsTestSmtp').append(`
+                            <span class="badge bg-danger my-2">${response.message}</span>
+                            <p><b>Confira detalhes do erro abaixo.</b></p>
+                            <p>${response.details}</p>
+                        `)
+                    break;
+                }
+            },
+            error:function(error){
+
+            }
+        })
+    })
+
+    $('.activeDropdown').on('change', function(){
+        if($(this).val()=='1'){
+            $('.ifRelations').fadeIn('fast');
+        }else{
+            $('.ifRelations').fadeOut('fast');
+        }
+    })
+
+    $('body').on('click', '.btnSelectPage', function(){
+        $("input[name=select_dropdown]").val($(this).data('relation'))
+        $('.btnViewPage .title').text($(this).text())
+        $('input[name=set_dropdown]').prop('checked', false)
+
+        let module = $("input[name=module]").val(),
+            model = $("input[name=model]").val()
+
+        getConditionsModel(module, model)
+    })
+
+    $('body').on('click', '.btnSelectPage input[type=checkbox]', function(){
+        $(this).prop('checked', true)
+    })
+
+    $('body').on('click', 'input[name=set_dropdown]', function(){
+        let module = $("input[name=module]").val(),
+            model = $("input[name=model]").val()
+
+        $('.btnSelectPage input[type=checkbox]').prop('checked', false)
+
+        if($(this).is(':checked')){
+            var valueCurrent = $('input[name=select_dropdown]').val(),
+                valueThis = $(this).val()
+
+            if(valueCurrent!='this' && valueCurrent!=''){
+                $newVal = `${valueCurrent},${valueThis}`;
+                if($('input[name=set_dropdown]:checked').length > 1){
+                    $newVal = $('input[name=set_dropdown]:checked').first().val()+','+$('input[name=set_dropdown]:checked').last().val()
+                }
+                $("input[name=select_dropdown]").val($newVal)
+            }else{
+                $("input[name=select_dropdown]").val(`${valueThis}`)
+            }
+            $('.btnViewPage .title').text($('.btnSelectPage').text())
+            $('.ifCategory').fadeIn();
+        }else{
+            if($('input[name=set_dropdown]:checked').length){
+                $("input[name=select_dropdown]").val($('input[name=set_dropdown]:checked').val())
+            }else{
+                $("input[name=select_dropdown]").val('')
+                $('.btnViewPage .title').text('')
+                $('.ifCategory').fadeOut();
+                $('.ifCategory input[type=checkbox]').prop('checked', false);
+            }
+        }
+
+        let relations =  $("input[name=select_dropdown]").val(),
+            splitRelations = relations.split(',')
+            getConditionsModel(module, model, splitRelations[0])
+
+    })
 })

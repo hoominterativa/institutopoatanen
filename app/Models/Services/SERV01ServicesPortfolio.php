@@ -19,6 +19,7 @@ class SERV01ServicesPortfolio extends Model
     protected $fillable = [
         "title",
         "description",
+        "text",
         "active",
         "sorting",
         "path_image",

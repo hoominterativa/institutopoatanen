@@ -41,7 +41,9 @@ class WOWI01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.WorkWith.WOWI01.create');
+        return view('Admin.cruds.WorkWith.WOWI01.create',[
+            'cropSetting' => getCropImage('WorkWith', 'WOWI01')
+        ]);
     }
 
     /**
@@ -95,11 +97,15 @@ class WOWI01Controller extends Controller
     public function edit(WOWI01WorkWith $WOWI01WorkWith)
     {
         $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->sorting()->get();
+        foreach($topics as $topic){
+            $topic->link = getUri($topic->link);
+        }
         $topicSection = WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->first();
         return view('Admin.cruds.WorkWith.WOWI01.edit',[
             'workWith' => $WOWI01WorkWith,
             'topicSection' => $topicSection,
             'topics' => $topics,
+            'cropSetting' => getCropImage('WorkWith', 'WOWI01')
         ]);
     }
 
@@ -179,6 +185,15 @@ class WOWI01Controller extends Controller
      */
     public function destroy(WOWI01WorkWith $WOWI01WorkWith)
     {
+        $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->get();
+        foreach($topics as $topic){
+            storageDelete($topic, 'path_image_icon');
+            storageDelete($topic, 'path_image_thumbnail');
+            $topic->delete();
+        }
+
+        WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->delete();
+
         storageDelete($WOWI01WorkWith, 'path_image_banner');
         storageDelete($WOWI01WorkWith, 'path_image_icon');
         storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
@@ -200,6 +215,16 @@ class WOWI01Controller extends Controller
     {
         $WOWI01WorkWiths = WOWI01WorkWith::whereIn('id', $request->deleteAll)->get();
         foreach($WOWI01WorkWiths as $WOWI01WorkWith){
+
+            $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->get();
+            foreach($topics as $topic){
+                storageDelete($topic, 'path_image_icon');
+                storageDelete($topic, 'path_image_thumbnail');
+                $topic->delete();
+            }
+
+            WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->delete();
+
             storageDelete($WOWI01WorkWith, 'path_image_banner');
             storageDelete($WOWI01WorkWith, 'path_image_icon');
             storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
@@ -239,8 +264,11 @@ class WOWI01Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('WorkWith', 'WOWI01');
 
+        $section = WOWI01WorkWithSection::first();
         $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->active()->sorting()->get();
         $topicSection = WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->active()->first();
+
+        // dd($topicSection);
 
         $workWiths = WOWI01WorkWith::whereNotIn('id', [$WOWI01WorkWith->id])->active()->sorting()->get();
 
@@ -249,6 +277,7 @@ class WOWI01Controller extends Controller
             'workWiths' => $workWiths,
             'topicSection' => $topicSection,
             'topics' => $topics,
+            'section' => $section,
             'sections' => $sections,
         ]);
     }

@@ -38,7 +38,9 @@ class COMP01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Compliances.COMP01.create');
+        return view('Admin.cruds.Compliances.COMP01.create',[
+            'cropSetting' => getCropImage('Compliances', 'COMP01')
+        ]);
     }
 
     /**
@@ -81,7 +83,8 @@ class COMP01Controller extends Controller
         $sections = COMP01CompliancesSection::with('archives')->where('compliance_id', $COMP01Compliances->id)->sorting()->get();
         return view('Admin.cruds.Compliances.COMP01.edit',[
             'compliance' => $COMP01Compliances,
-            'sections' => $sections
+            'sections' => $sections,
+            'cropSetting' => getCropImage('Compliances', 'COMP01')
         ]);
     }
 
@@ -129,6 +132,17 @@ class COMP01Controller extends Controller
      */
     public function destroy(COMP01Compliances $COMP01Compliances)
     {
+        $sections = COMP01CompliancesSection::where('compliance_id', $COMP01Compliances->id)->get();
+        foreach($sections as $section){
+            foreach($section->archives as $archive){
+                storageDelete($archive, 'path_archive');
+                $archive->delete();
+            }
+
+            storageDelete($section, 'path_image_icon');
+            $section->delete();
+        }
+
         storageDelete($COMP01Compliances, 'path_image_banner');
 
         if($COMP01Compliances->delete()){
@@ -147,6 +161,17 @@ class COMP01Controller extends Controller
     {
         $COMP01Compliancess = COMP01Compliances::whereIn('id', $request->deleteAll)->get();
         foreach($COMP01Compliancess as $COMP01Compliances){
+            $sections = COMP01CompliancesSection::where('compliance_id', $COMP01Compliances->id)->get();
+            foreach($sections as $section){
+                foreach($section->archives as $archive){
+                    storageDelete($archive, 'path_archive');
+                    $archive->delete();
+                }
+
+                storageDelete($section, 'path_image_icon');
+                $section->delete();
+            }
+
             storageDelete($COMP01Compliances, 'path_image_banner');
         }
 

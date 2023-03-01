@@ -69,7 +69,7 @@ class ContactFormController extends Controller
         // dd($request->all());
         $path = 'uploads/images/contactForm/';
         $helperArchive = new HelperArchive();
-        $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,400,90);
+        $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,null,100);
         $arrayInputs = [];
         $data = $request->all();
 
@@ -165,7 +165,7 @@ class ContactFormController extends Controller
         // dd($request->all());
         $path = 'uploads/images/contactForm/';
         $helperArchive = new HelperArchive();
-        $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,400,90);
+        $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,null,100);
         $arrayInputs = [];
         $data = $request->all();
 

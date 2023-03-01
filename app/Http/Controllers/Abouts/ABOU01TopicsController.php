@@ -25,7 +25,7 @@ class ABOU01TopicsController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 200, 100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(ABOU01AboutsTopics::create($data)){
@@ -49,7 +49,7 @@ class ABOU01TopicsController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, 200, 100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){
             storageDelete($ABOU01AboutsTopics, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;

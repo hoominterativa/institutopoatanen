@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\SettingTheme;
 
 class UserController extends Controller
 {
@@ -56,14 +57,23 @@ class UserController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', 200, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', null,100);
 
         if($path_image) $data['path_image'] = $path_image;
 
         $data['password'] = Hash::make($request->password);
         $data['active'] = $request->active?:0;
 
-        if(User::create($data)){
+        if($user = User::create($data)){
+
+            SettingTheme::create([
+                'user_id' => $user->id,
+                'color_scheme_mode' => 'dark',
+                'leftsidebar_color' => 'dark',
+                'leftsidebar_size' => 'default',
+                'topbar_color' => 'dark',
+            ]);
+
             Session::flash('success', 'Usuário cadastrado com sucesso');
             return redirect()->route('admin.user.index');
         }else{
@@ -109,7 +119,7 @@ class UserController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', 200, 80);
+        $path_image = $helper->optimizeImage($request, 'path_image', 'uploads/images/user/', null,100);
 
         if($path_image){
             storageDelete($user, 'path_image');
@@ -128,12 +138,12 @@ class UserController extends Controller
 
         if($user->fill($data)->save()){
             Session::flash('success', 'Usuário atualizado com sucesso');
-            return redirect()->route('admin.user.index');
         }else{
             Storage::delete($path_image);
             Session::flash('success', 'Erro ao atualizar os dados do usuário');
-            return redirect()->back();
         }
+
+        return redirect()->back();
     }
 
     /**
@@ -144,6 +154,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        SettingTheme::where('user_id', $user->id)->delete();
+
         storageDelete($user, 'path_image');
         if($user->delete()){
             Session::flash('success', 'Usuário deletado com sucesso');
@@ -161,6 +173,7 @@ class UserController extends Controller
     {
         $users = User::whereIn('id', $request->deleteAll)->get();
         foreach($users as $user){
+            SettingTheme::where('user_id', $user->id)->delete();
             storageDelete($user, 'path_image');
         }
 

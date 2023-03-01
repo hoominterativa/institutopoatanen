@@ -19,10 +19,10 @@ class SettingThemeSeeder extends Seeder
     {
         DB::table('setting_themes')->insert([
             'user_id' => User::first()->id,
-            'color_scheme_mode' => 'light',
-            'leftsidebar_color' => 'light',
+            'color_scheme_mode' => 'dark',
+            'leftsidebar_color' => 'dark',
             'leftsidebar_size' => 'default',
-            'topbar_color' => 'light',
+            'topbar_color' => 'dark',
             'created_at' => now()
         ]);
     }

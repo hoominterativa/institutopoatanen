@@ -19,7 +19,6 @@
                     'rows'=>'5',
                     'data-parsley-trigger'=>'keyup',
                     'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'80',
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
@@ -27,13 +26,14 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensão proporcional mínima 300x300px</small>
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->TopicForm->path_image_icon->width}}x{{$cropSetting->TopicForm->path_image_icon->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_icon', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-min-width'=>'300', // px
-                            'data-min-height'=>'300', // px
+                            'data-status'=>$cropSetting->TopicForm->path_image_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->TopicForm->path_image_icon->width, // px
+                            'data-min-height'=>$cropSetting->TopicForm->path_image_icon->height, // px
                             'data-box-height'=>'180', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file'=> isset($topic)?($topic->path_image_icon<>''?url('storage/'.$topic->path_image_icon):''):'',

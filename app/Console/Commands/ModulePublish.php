@@ -38,6 +38,7 @@ class ModulePublish extends Command
         'OptimizationSeeder.php',
         'SettingThemeSeeder.php',
         'DatabaseSeeder.php',
+        'imagesSize.json',
     ];
 
     /**

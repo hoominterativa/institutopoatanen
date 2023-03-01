@@ -1,0 +1,249 @@
+{
+    "Abouts": {
+        "ABOU01":{
+            "path_image_banner": {
+                "width":"1450",
+                "height":"400",
+                "activeCrop": "true"
+            },
+            "path_image_inner_section": {
+                "width":"550",
+                "height":"550",
+                "activeCrop": "true"
+            },
+            "Topic": {
+                "path_image_icon": {
+                    "width":"200",
+                    "height":"200",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
+    "Blogs": {
+        "BLOG01":{
+            "path_image_thumbnail": {
+                "width":"450",
+                "height":"420",
+                "activeCrop": "true"
+            },
+            "path_image": {
+                "width":"600",
+                "height":"600",
+                "activeCrop": "false"
+            }
+        }
+    },
+
+    "Compliances": {
+        "COMP01":{
+            "Section": {
+                "path_image_icon": {
+                    "width":"300",
+                    "height":"300",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
+    "Contents": {
+        "CONT03":{
+            "path_image_center": {
+                "width":"600",
+                "height":"740",
+                "activeCrop": "true"
+            },
+            "path_image_right": {
+                "width":"600",
+                "height":"600",
+                "activeCrop": "true"
+            },
+            "path_image_background": {
+                "width":"1300",
+                "height":"600",
+                "activeCrop": "false"
+            }
+        }
+    },
+
+    "ContentPages": {
+        "COPA01":{
+            "path_image_banner": {
+                "width":"1500",
+                "height":"400",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_icon": {
+                    "width":"400",
+                    "height":"400",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
+    "Contacts": {
+        "COTA01":{
+            "path_image_banner": {
+                "width":"1500",
+                "height":"360",
+                "activeCrop": "false"
+            },
+            "TopicForm": {
+                "path_image_icon": {
+                    "width":"300",
+                    "height":"300",
+                    "activeCrop": "true"
+                }
+            },
+            "TopicSection": {
+                "path_image_icon": {
+                    "width":"300",
+                    "height":"300",
+                    "activeCrop": "true"
+                }
+            }
+        }
+    },
+
+    "Services": {
+        "SERV01":{
+            "path_image_icon": {
+                "width":"200",
+                "height":"200",
+                "activeCrop": "false"
+            },
+            "path_image": {
+                "width":"450",
+                "height":"670",
+                "activeCrop": "true"
+            },
+            "path_image_banner": {
+                "width":"450",
+                "height":"670",
+                "activeCrop": "false"
+            },
+            "Advantage":{
+                "path_image_icon": {
+                    "width":"200",
+                    "height":"200",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width":"500",
+                    "height":"500",
+                    "activeCrop": "true"
+                }
+            },
+            "Portfolio":{
+                "path_image": {
+                    "width":"500",
+                    "height":"610",
+                    "activeCrop": "true"
+                }
+            }
+        }
+    },
+
+    "Slides": {
+        "SLID01":{
+            "path_image_desktop": {
+                "width":"1300",
+                "height":"750",
+                "activeCrop": "false"
+            },
+            "path_image_mobile": {
+                "width":"420",
+                "height":"700",
+                "activeCrop": "true"
+            },
+            "path_image_png": {
+                "width":"489",
+                "height":"674",
+                "activeCrop": "true"
+            }
+        }
+    },
+
+    "Topics": {
+        "TOPI01":{
+            "path_image_icon": {
+                "width":"200",
+                "height":"200",
+                "activeCrop": "false"
+            },
+            "path_image": {
+                "width":"260",
+                "height":"240",
+                "activeCrop": "true"
+            },
+            "Section": {
+                "path_image_background": {
+                    "width":"1400",
+                    "height":"700",
+                    "activeCrop": "false"
+                }
+            }
+        },
+        "TOPI02":{
+            "path_image_icon": {
+                "width":"200",
+                "height":"200",
+                "activeCrop": "false"
+            },
+            "path_image": {
+                "width":"300",
+                "height":"300",
+                "activeCrop": "true"
+            },
+            "Section": {
+                "path_image_background": {
+                    "width":"1400",
+                    "height":"700",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
+    "WorkWith": {
+        "WOWI01":{
+            "path_image_banner": {
+                "width":"1300",
+                "height":"400",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width":"200",
+                "height":"200",
+                "activeCrop": "true"
+            },
+            "path_image_thumbnail": {
+                "width":"200",
+                "height":"235",
+                "activeCrop": "true"
+            },
+            "path_image_content": {
+                "width":"500",
+                "height":"500",
+                "activeCrop": "true"
+            },
+            "Topic": {
+                "path_image_thumbnail": {
+                    "width":"450",
+                    "height":"400",
+                    "activeCrop": "true"
+                },
+                "path_image_icon": {
+                    "width":"300",
+                    "height":"300",
+                    "activeCrop": "true"
+                }
+            }
+        }
+    }
+
+}

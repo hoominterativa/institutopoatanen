@@ -130,11 +130,15 @@ class HelperArchive extends Controller
      */
     public function uploadImage($request, $column, $path)
     {
-        $nameCurrent =  pathinfo($request->$column->getClientOriginalName(), PATHINFO_FILENAME);
-        $extension =  $request->$column->getClientOriginalExtension();
-        $name = Str::of($nameCurrent)->slug().'-'.time().'.'.$extension;
-        $request->$column->storeAs($path, $name);
-        return $path.$name;
+        if ($request->hasFile($column)) {
+            $nameCurrent =  pathinfo($request->$column->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension =  $request->$column->getClientOriginalExtension();
+            $name = Str::of($nameCurrent)->slug().'-'.time().'.'.$extension;
+            $request->$column->storeAs($path, $name);
+            return $path.$name;
+        }else{
+            return false;
+        }
     }
 
     /**

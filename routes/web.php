@@ -24,7 +24,10 @@ use App\Http\Controllers\OptimizePageController;
 use App\Http\Controllers\SettingThemeController;
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\Helpers\HelperModule;
 use App\Http\Controllers\NewsletterLeadController;
+use App\Http\Controllers\SettingHeaderController;
+use App\Http\Controllers\SettingSmtpController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Models\ContactLead;
 
@@ -126,7 +129,18 @@ Route::prefix('painel')->group(function () {
         })->name('admin.icons');
 
         // GENERAL SETTING
-        Route::resource('configuracoes-gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['configuracoes-gerais' => 'GeneralSetting']);
+        Route::resource('configuracoes/gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['configuracoes-gerais' => 'GeneralSetting']);
+
+        // SETTING SMTP
+        Route::resource('configuracoes/smtp', SettingSmtpController::class)->names('admin.settingSmtp')->parameters(['configuracao-smtp' => 'SettingSmtp']);
+        Route::post('configuracoes/smtp/verify', [SettingSmtpController::class, 'smtpVerify'])->name('admin.settingSmtp.smtpVerify');
+
+        // SETTING HEADER
+        Route::resource('configuracao/menu', SettingHeaderController::class)->names('admin.header')->parameters(['menu' => 'SettingHeader']);
+        Route::post('configuracao/menu/delete', [SettingHeaderController::class, 'destroySelected'])->name('admin.header.destroySelected');
+        Route::post('configuracao/menu/sorting', [SettingHeaderController::class, 'sorting'])->name('admin.header.sorting');
+        Route::post('getRelationsModel', [SettingHeaderController::class, 'listRelations'])->name('admin.header.getRelationsModel');
+        Route::post('getConditionsModel', [SettingHeaderController::class, 'listConditions'])->name('admin.header.getConditionsModel');
 
         // SOCIAL
         Route::resource('social', SocialController::class)->names('admin.social')->parameters(['social' => 'Social']);
@@ -151,35 +165,11 @@ Route::prefix('painel')->group(function () {
 
         Route::post('editor/image_upload', [EditorController::class, 'upload'])->name('editor.upload.archive');
 
-
-
-        Route::any('/calProporcion', function(){
-            $request = request();
-            $result = null;
-
-            if($request->has('new_width') && $request->has('current_width') && $request->has('current_height')){
-                if($request->new_width<>'' && $request->current_width<>'' && $request->current_height<>''){
-                    $result = $request->current_height * ($request->new_width / $request->current_width);
-
-                    $result = '
-                        <h2>
-                            <span class="newWidth">'.$request->new_width.'</span>
-                            <span class="per">x</span>
-                            <span class="newHeight">'.number_format($result,2).'</span>
-                        </h2>
-                    ';
-                }
-            }
-
-            $generalSetting = GeneralSetting::first();
-            return view('Admin.calcProporcion',[
-                'generalSetting' => $generalSetting,
-                'request' => $request,
-                'result' => $result,
-            ]);
-        })->name('admin.calProporcion');
-
     });
+});
+
+Route::get('/teste/asdas/asdads/saddasd', function(){
+    dd(listPage());
 });
 
 Route::get('/home', [HomePageController::class ,'index'])->name('home');
@@ -245,7 +235,7 @@ foreach ($modelsMain as $module => $models) {
 
         // CLIENT
         Route::get($route, [$controller, 'page'])->name($routeName.'.page');
-        Route::get($route.'/{'.$parameters.':slug}', [$controller, 'show'])->name($routeName.'.show');
+        Route::get($route.'/{'.$parameters.':slug?}', [$controller, 'show'])->name($routeName.'.show');
 
         include_once "{$module}/{$code}.php";
     }

@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.topi01.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.topi01.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTOPI01" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
                                         <a href="{{route('admin.topi01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
@@ -42,34 +42,61 @@
                                             @else
                                                 {!! Form::model(null, ['route' => 'admin.topi01.section.store', 'class'=>'parsley-validate', 'files' => true]) !!}
                                             @endif
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="mb-2">
-                                                        {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                                                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="mb-2">
+                                                            {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                                                            {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
+                                                            {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+                                                            {!! Form::textarea('description', null, [
+                                                                'class'=>'form-control',
+                                                                'id'=>'description',
+                                                                'data-parsley-trigger'=>'keyup',
+                                                                'data-parsley-minlength'=>'20',
+                                                                'data-parsley-maxlength'=>'300',
+                                                                'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
+                                                                'data-parsley-validation-threshold'=>'10',
+                                                            ]) !!}
+                                                        </div>
                                                     </div>
-                                                    <div class="mb-2">
-                                                        {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                                                        {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                                                        {!! Form::textarea('description', null, [
-                                                            'class'=>'form-control',
-                                                            'id'=>'description',
-                                                            'data-parsley-trigger'=>'keyup',
-                                                            'data-parsley-minlength'=>'20',
-                                                            'data-parsley-maxlength'=>'300',
-                                                            'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                                                            'data-parsley-validation-threshold'=>'10',
-                                                        ]) !!}
-                                                    </div>
-                                                    <div class="mb-3 form-check me-3">
-                                                        {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSection']) !!}
-                                                        {!! Form::label('activeSection', 'Ativar exibição na home?', ['class'=>'form-check-label']) !!}
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="mb-3">
+                                                            {!! Form::label('colorpicker-default', 'Cor de fundo da seção', ['class'=>'form-label']) !!}
+                                                            {!! Form::text('background_color', null, [
+                                                                'class'=>'form-control colorpicker-default',
+                                                                'id'=>'colorpicker-default',
+                                                            ])!!}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="container-image-crop">
+                                                                {!! Form::label('inputImage', 'Imagem de fundo da seção', ['class'=>'form-label']) !!}
+                                                                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Section->path_image_background->width}}x{{$cropSetting->Section->path_image_background->height}}px!</small>
+                                                                <label class="area-input-image-crop" for="inputImage">
+                                                                    {!! Form::file('path_image_background', [
+                                                                        'id'=>'inputImage',
+                                                                        'class'=>'inputImage',
+                                                                        'data-status'=>$cropSetting->Section->path_image_background->activeCrop, // px
+                                                                        'data-min-width'=>$cropSetting->Section->path_image_background->width, // px
+                                                                        'data-min-height'=>$cropSetting->Section->path_image_background->height, // px
+                                                                        'data-box-height'=>'225', // Input height in the form
+                                                                        'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                                                        'data-default-file'=> isset($section)?($section->path_image_background<>''?url('storage/'.$section->path_image_background):''):'',
+                                                                    ]) !!}
+                                                                </label>
+                                                            </div><!-- END container image crop -->
+                                                        </div>
+                                                        <div class="mb-3 form-check me-3">
+                                                            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSection']) !!}
+                                                            {!! Form::label('activeSection', 'Ativar exibição na home?', ['class'=>'form-check-label']) !!}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                                 <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
                                                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0', 'type' => 'submit']) !!}
                                                 </div>
@@ -82,7 +109,7 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                <label><input name="btSelectAll" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeleteTOPI01" type="checkbox"></label>
                                             </th>
                                             <th width="90px"></th>
                                             <th>Título</th>
@@ -96,7 +123,7 @@
                                             <tr data-code="{{$topic->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btSelectItem" class="btSelectItem" type="checkbox" value="{{$topic->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group text-center">
                                                     <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$topic->path_image)}})"></div>

@@ -17,6 +17,7 @@ class SERV01Services extends Model
 
     protected $table = "serv01_services";
     protected $fillable = [
+        "slug",
         "title",
         "subtitle",
         "description",
