@@ -9,7 +9,7 @@
     &__container{
         padding: 80px 0;
 
-        @include medium-device-down{
+        @include small-device-down{
             padding: 50px 30px !important;
         }
     }
@@ -21,7 +21,7 @@
         }
 
         &__wraper{
-            @include medium-device-down{
+            @include small-device-down{
                 margin: 0 auto 67px auto;
                 display: table;
             }
@@ -46,7 +46,7 @@
     // END __socials
 
     &__nav{
-        @include medium-device-down{
+        @include small-device-down{
             margin: 0 0 47px 0;
         }
 
@@ -93,7 +93,7 @@
         background-color: $color-two;
         padding: 17px 0;
 
-        @include medium-device-down{
+        @include small-device-down{
             text-align: center;
             padding: 25px 0;
         }
@@ -104,14 +104,14 @@
         }
 
         &__container{
-            @include medium-device-down{
+            @include small-device-down{
                 padding: 0 30px !important;
             }
         }
 
         &__compliances{
 
-            @include medium-device-down{
+            @include small-device-down{
                 margin: 0 0 30px 0;
                 justify-content: center;
             }
