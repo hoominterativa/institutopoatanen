@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Slides\SLID02SlidesSection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
@@ -11,8 +12,8 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+// $module = 'Slides';
+// $model = 'SLID02';
 
 // $class = config('modelsConfig.Class');
 // $modelConfig = config('modelsConfig.InsertModelsMain');
@@ -21,11 +22,11 @@ use Illuminate\Support\Facades\Route;
 // $route = Str::slug($modelConfig->titlePanel);
 // $routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+// // // ADMIN
+// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName) {
+//     Route::resource($route . '/secao', SLID02SlidesSection::class)->names('admin.' . $routeName . '.section')->parameters(['secao' => 'SLID02SlidesSection']);
+//     Route::post($route . '/secao/delete', [SLID02SlidesSection::class, 'destroySelected'])->name('admin.' . $routeName . '.section.destroySelected');
+//     Route::post($route . '/categoria/sorting', [SLID02SlidesSection::class, 'sorting'])->name('admin.' . $routeName . '.category.sorting');
 // });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

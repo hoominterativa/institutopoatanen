@@ -11,8 +11,11 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
+
 class SLID02Controller extends Controller
 {
+    protected  $path = 'uploads/Slides/SLID02/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +23,11 @@ class SLID02Controller extends Controller
      */
     public function index()
     {
-        //
+        $slides = SLID02Slides::sorting()->get();
+        return view('Admin.cruds.Slides.SLID02.index',[
+            'slides' => $slides,
+
+        ]);
     }
 
     /**
@@ -30,7 +37,9 @@ class SLID02Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Slides.SLID02.create',[
+            'cropSetting' => getCropImage('Slides', 'SLID02')
+        ]);
     }
 
     /**
@@ -42,34 +51,39 @@ class SLID02Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        //Desktop
+        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
+        if($path_image_background) $data['path_image_background'] = $path_image_background;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+        //
+        //Mobile
+        $path_image_icon_mobile = $helper->optimizeImage($request, 'path_image_icon_mobile', $this->path, null, 100);
+        if($path_image_icon_mobile) $data['path_image_icon_mobile'] = $path_image_icon_mobile;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_background_mobile = $helper->optimizeImage($request, 'path_image_background_mobile', $this->path, null, 100);
+        if($path_image_background_mobile) $data['path_image_background_mobile'] = $path_image_background_mobile;
+        //
 
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
+        $data['active'] = $request->active?1:0;
+        $data['active_mobile'] = $request->active_mobile?1:0;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        if($request->external_link_button){
+            $data['link_button'] = $request->link_button;
+            $data['target_link_button'] = '_self';
+        }
 
         if(SLID02Slides::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.slid02.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_icon_mobile);
+            Storage::delete($path_image_background);
+            Storage::delete($path_image_background_mobile);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -83,7 +97,11 @@ class SLID02Controller extends Controller
      */
     public function edit(SLID02Slides $SLID02Slides)
     {
-        //
+        $SLID02Slides->link_button = getUri($SLID02Slides->link_button);
+        return view('Admin.cruds.Slides.SLID02.edit',[
+            'slide' => $SLID02Slides,
+            'cropSetting' => getCropImage('Slides', 'SLID02')
+        ]);
     }
 
     /**
@@ -96,50 +114,49 @@ class SLID02Controller extends Controller
     public function update(Request $request, SLID02Slides $SLID02Slides)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            storageDelete($SLID02Slides, 'path_image');
-            $data['path_image'] = $path_image;
+        //Desktop
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if($path_image_icon){
+            storageDelete($SLID02Slides, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SLID02Slides, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($SLID02Slides, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($SLID02Slides, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SLID02Slides, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
+        if($path_image_background){
+            storageDelete($SLID02Slides, 'path_image_background');
+            $data['path_image_background'] = $path_image_background;
+        }
+        if($request->delete_path_image_background && !$path_image_background){
+            storageDelete($SLID02Slides, 'path_image_background');
+            $data['path_image_background'] = null;
         }
 
-        */
+        // Mobile
+        $path_image_icon_mobile = $helper->optimizeImage($request, 'path_image_icon_mobile', $this->path, null, 100);
+        if($path_image_icon_mobile){
+            storageDelete($SLID02Slides, 'path_image_icon_mobile');
+            $data['path_image_icon_mobile'] = $path_image_icon_mobile;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($SLID02Slides, 'path_image_icon');
+            $data['path_image_icon'] = null;
+        }
+
+        $data['active'] = $request->active?1:0;
+        $data['active_mobile'] = $request->active_mobile?1:0;
+        $data['link_button'] = getUri($request->link_button);
 
         if($SLID02Slides->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.slid02.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
@@ -153,8 +170,10 @@ class SLID02Controller extends Controller
      */
     public function destroy(SLID02Slides $SLID02Slides)
     {
-        //storageDelete($SLID02Slides, 'path_image');
-        //storageDelete($SLID02Slides, 'path_archive');
+        storageDelete($SLID02Slides, 'path_image_icon');
+        storageDelete($SLID02Slides, 'path_image_icon_mobile');
+        storageDelete($SLID02Slides, 'path_image_icon_background_mobile');
+        storageDelete($SLID02Slides, 'path_image_icon_background');
 
         if($SLID02Slides->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -170,14 +189,15 @@ class SLID02Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $SLID02Slidess = SLID02Slides::whereIn('id', $request->deleteAll)->get();
         foreach($SLID02Slidess as $SLID02Slides){
-            storageDelete($SLID02Slides, 'path_image');
-            storageDelete($SLID02Slides, 'path_archive');
+            storageDelete($SLID02Slides, 'path_image_icon');
+            storageDelete($SLID02Slides, 'path_image_icon_mobile');
+            storageDelete($SLID02Slides, 'path_image_icon_background_mobile');
+            storageDelete($SLID02Slides, 'path_image_icon_background');
         }
-        */
+
 
         if($deleted = SLID02Slides::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -207,6 +227,21 @@ class SLID02Controller extends Controller
      */
     public static function section()
     {
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                $slides = SLID02Slides::where('path_image_background_mobile','!=','')->activeMobile()->sorting()->get();
+                foreach($slides as $slide){
+                    $slide->title = $slide->title_mobile;
+                    $slide->link_button = $slide->link_button_mobile;
+                    $slide->path_image_background = $slide->path_image_background_mobile;
+                    $slide->active = $slide->active_mobile;
+                }
+            break;
+            default:
+                $slides = SLID02Slides::where('path_image_background','!=','')->active()->sorting()->get();
+            break;
+        }
         return view('Client.pages.Slides.SLID02.section');
     }
 }

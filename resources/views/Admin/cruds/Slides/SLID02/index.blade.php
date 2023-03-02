@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.slide02.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.slid02.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
                                         <a href="{{route('admin.slid02.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
@@ -54,22 +54,21 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$slide->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/.' $slide->path_image_icon)}})"></div>
+                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/'. $slide->path_image_icon)}})"></div>
                                                 </td>
                                                 <td class="align-middle">{{$slide->title}}</td>
-                                                <td class="align-middle">Traffic Court Referee</td>
                                                 <td class="align-middle">
                                                     @switch($slide->active)
-                                                        @case(1) <span class="badge bg-success">Ativo</span> @break
-                                                        @case(0) <span class="badge bg-danger">Inativo</span> @break
+                                                        @case(1) <span class="badge bg-success">Ativo</span>  @break
+                                                        @case(0) <span class="badge bg-danger">Inativo</span>  @break
                                                     @endswitch
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.slide02.edit',['SLID02Slides' => $slide->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.slid02.edit',['SLID02Slides' => $slide->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.slide02.destroy',['SLID02Slides' => $slide->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.slid02.destroy',['SLID02Slides' => $slide->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

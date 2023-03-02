@@ -29,6 +29,23 @@ return [
                     'iconPanel' => 'mdi-information'
                 ],
             ],
+
+            'SLID01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'list',
+                'config' => (object) [
+                    'titleMenu' => 'Redes',
+                    'anchor' =>  true,
+                    'linkMenu' => '#SLID01',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Redes',
+                    'iconPanel' => 'mdi-information'
+                ],
+            ],
+
         ],
     ],
 
