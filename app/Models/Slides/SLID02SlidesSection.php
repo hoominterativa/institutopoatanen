@@ -2,26 +2,22 @@
 
 namespace App\Models\Slides;
 
-use Database\Factories\Slides\SLID02SlidesFactory;
+use Database\Factories\Slides\SLID02SlidesSectionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SLID02Slides extends Model
+class SLID02SlidesSection extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return SLID02SlidesFactory::new();
+        return SLID02SlidesSectionFactory::new();
     }
 
-    protected $table = "slid02_slides";
-    protected $fillable = ['title', 'path_icon_image', 'link_button', 'target_link_button', 'active', 'sorting',];
+    protected $table = "slid02_slides_sections";
+    protected $fillable = ['path_image_background', 'colors', 'active',];
 
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
 
     public function scopeActive($query)
     {

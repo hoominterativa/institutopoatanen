@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlid02SlidesTable extends Migration
+class CreateSlid02SlidesSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateSlid02SlidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('slid02_slides', function (Blueprint $table) {
+        Schema::create('slid02_slides_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('path_image_icon')->nullable();
-            $table->text('link_button')->nullable();
-            $table->enum('target_link_button',['_self', '_blank'])->default('_self');
+            $table->string('path_image_background')->nullable();
+            $table->string('colors')->nullable();
             $table->integer('active')->default(0);
-            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateSlid02SlidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slid02_slides');
+        Schema::dropIfExists('slid02_slides_sections');
     }
 }

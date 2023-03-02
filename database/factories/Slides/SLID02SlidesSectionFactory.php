@@ -3,16 +3,16 @@
 namespace Database\Factories\Slides;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Slides\SLID02Slides;
+use App\Models\Slides\SLID02SlidesSection;
 
-class SLID02SlidesFactory extends Factory
+class SLID02SlidesSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = SLID02Slides::class;
+    protected $model = SLID02SlidesSection::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,8 @@ class SLID02SlidesFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image_icon' => 'uploads/temp/favicon.png',
-            'link_button' => 'https://www.lipsum.com/',
-            'target_link_button' => '_blank',
+            'path_image_background' => 'uploads/temp/image_temporary.png',
+            'colors' => '#6f3bed,#5cffc4,#5a5d7e,#7d00bc',
             'active' => 1,
         ];
     }
