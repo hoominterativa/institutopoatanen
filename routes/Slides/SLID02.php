@@ -1,8 +1,9 @@
 <?php
 
-use App\Models\Slides\SLID02SlidesSection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Slides\SLID02TopicController;
+
 
 /**
  * Uncomment the code below
@@ -12,21 +13,22 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'Slides';
-// $model = 'SLID02';
+$module = 'Slides';
+$model = 'SLID02';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName) {
-//     Route::resource($route . '/secao', SLID02SlidesSection::class)->names('admin.' . $routeName . '.section')->parameters(['secao' => 'SLID02SlidesSection']);
-//     Route::post($route . '/secao/delete', [SLID02SlidesSection::class, 'destroySelected'])->name('admin.' . $routeName . '.section.destroySelected');
-//     Route::post($route . '/categoria/sorting', [SLID02SlidesSection::class, 'sorting'])->name('admin.' . $routeName . '.category.sorting');
-// });
+// // ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName) {
+    Route::resource($route . '/topico', SLID02TopicController::class)->names('admin.' . $routeName . '.topic')->parameters(['topico' => 'SLID02SlidesTopic']);
+    Route::post($route . '/topico/delete', [SLID02TopicController::class, 'destroySelected'])->name('admin.' . $routeName . '.topic.destroySelected');
+
+    Route::post($route . '/topico/sorting', [SLID02TopicController::class, 'sorting'])->name('admin.' . $routeName . '.topic.sorting');
+});
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

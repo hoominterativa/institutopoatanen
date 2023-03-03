@@ -11850,8 +11850,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Services/SERV01/src/main */ "./resources/views/Client/pages/Services/SERV01/src/main.js");
+/* harmony import */ var _pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -12084,6 +12087,136 @@ $(function () {
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Services/SERV01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Services/SERV01/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel-serv01').addClass('owl-carousel');
+  $('.carousel-serv01').owlCarousel({
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: false,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 4
+      }
+    }
+  });
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-serv01-show__links').addClass('owl-carousel');
+    $('.carousel-serv01-show__links').owlCarousel({
+      margin: 11,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 2
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 2
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+    $('.carousel-serv01-show__topics').addClass('owl-carousel');
+    $('.carousel-serv01-show__topics').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 4,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+  } // END if($(window).outerWidth() <= 800){
+
+
+  $('.carousel-serv01-show__portfolios').addClass('owl-carousel');
+  $('.carousel-serv01-show__portfolios').owlCarousel({
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 4
+      }
+    }
+  });
+  $('.serv01-show__portfolios__lightbox__carousel-image').addClass('owl-carousel');
+  $('.serv01-show__portfolios__lightbox__carousel-image').owlCarousel({
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: false,
+    nav: true,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1,
+        touchDrag: false,
+        mouseDrag: false
+      }
+    }
+  });
+});
 
 /***/ }),
 

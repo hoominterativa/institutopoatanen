@@ -21,11 +21,11 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'list',
                 'config' => (object) [
-                    'titleMenu' => 'Redes Sociais',
+                    'titleMenu' => 'Slides',
                     'anchor' =>  true,
                     'linkMenu' => '#SLID02',
                     'iconMenu' => '',
-                    'titlePanel' => 'Redes Sociais',
+                    'titlePanel' => 'Slides',
                     'iconPanel' => 'mdi-information'
                 ],
             ],
@@ -47,6 +47,25 @@ return [
             ],
 
         ],
+
+        'Services' => (object) [
+            'SERV01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'list',
+                'config' => (object) [
+                    'titleMenu' => 'Services',
+                    'anchor' =>  true,
+                    'linkMenu' => '#SERV01',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Services',
+                    'iconPanel' => 'mdi-information'
+                ],
+            ],
+        ],
+
     ],
 
     'ModelsForm' => (object)[

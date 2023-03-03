@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.slid02.index')}}"> {{getTitleModel($configModelsMain, 'Slides', 'SLID02')}} </a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.slid02.topic.index')}}"> {{getTitleModel($configModelsMain, 'Slides', 'SLID02')}} </a></li>
                                     <li class="breadcrumb-item active">Cadastro {{getTitleModel($configModelsMain, 'Slides', 'SLID02')}} </li>
                                 </ol>
                             </div>
@@ -23,10 +23,10 @@
                     <p class="mb-0"><b>Atenção:</b> Preencha os campos de informações do Desktop e Mobile.</p>
                 </div>
                 <!-- end page title -->
-                {!! Form::model(null, ['route' => 'admin.slid02.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Slides.SLID02.form')
+                {!! Form::model(null, ['route' => 'admin.slid02.topic.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+                    @include('Admin.Cruds.Slides.SLID02.Topics.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.slid02.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.slid02.topic.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

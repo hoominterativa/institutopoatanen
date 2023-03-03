@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Slides;
 
 use App\Models\Slides\SLID02Slides;
+use App\Models\Slides\SLID02SlidesTopic;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -24,9 +25,10 @@ class SLID02Controller extends Controller
     public function index()
     {
         $slides = SLID02Slides::sorting()->get();
+        $topics = SLID02SlidesTopic::sorting()->get();
         return view('Admin.cruds.Slides.SLID02.index',[
-            'slides' => $slides,
-
+            'slides' => $slides, 
+            'topics' => $topics
         ]);
     }
 
@@ -53,20 +55,12 @@ class SLID02Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        //Desktop
-        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
-        if($path_image_background) $data['path_image_background'] = $path_image_background;
+        
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
-        //
-        //Mobile
-        $path_image_icon_mobile = $helper->optimizeImage($request, 'path_image_icon_mobile', $this->path, null, 100);
-        if($path_image_icon_mobile) $data['path_image_icon_mobile'] = $path_image_icon_mobile;
-
-        $path_image_background_mobile = $helper->optimizeImage($request, 'path_image_background_mobile', $this->path, null, 100);
-        if($path_image_background_mobile) $data['path_image_background_mobile'] = $path_image_background_mobile;
-        //
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
         $data['active'] = $request->active?1:0;
         $data['active_mobile'] = $request->active_mobile?1:0;
@@ -80,10 +74,8 @@ class SLID02Controller extends Controller
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.slid02.index');
         }else{
-            Storage::delete($path_image_icon);
-            Storage::delete($path_image_icon_mobile);
-            Storage::delete($path_image_background);
-            Storage::delete($path_image_background_mobile);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -97,7 +89,7 @@ class SLID02Controller extends Controller
      */
     public function edit(SLID02Slides $SLID02Slides)
     {
-        $SLID02Slides->link_button = getUri($SLID02Slides->link_button);
+        $SLID02Slides->link = getUri($SLID02Slides->link);
         return view('Admin.cruds.Slides.SLID02.edit',[
             'slide' => $SLID02Slides,
             'cropSetting' => getCropImage('Slides', 'SLID02')
@@ -116,36 +108,24 @@ class SLID02Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        //Desktop
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if($path_image_icon){
-            storageDelete($SLID02Slides, 'path_image_icon');
-            $data['path_image_icon'] = $path_image_icon;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if($path_image_desktop){
+            storageDelete($SLID02Slides, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
         }
-        if($request->delete_path_image_icon && !$path_image_icon){
-            storageDelete($SLID02Slides, 'path_image_icon');
-            $data['path_image_icon'] = null;
-        }
-
-        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
-        if($path_image_background){
-            storageDelete($SLID02Slides, 'path_image_background');
-            $data['path_image_background'] = $path_image_background;
-        }
-        if($request->delete_path_image_background && !$path_image_background){
-            storageDelete($SLID02Slides, 'path_image_background');
-            $data['path_image_background'] = null;
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($SLID02Slides, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        // Mobile
-        $path_image_icon_mobile = $helper->optimizeImage($request, 'path_image_icon_mobile', $this->path, null, 100);
-        if($path_image_icon_mobile){
-            storageDelete($SLID02Slides, 'path_image_icon_mobile');
-            $data['path_image_icon_mobile'] = $path_image_icon_mobile;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if($path_image_mobile){
+            storageDelete($SLID02Slides, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
         }
-        if($request->delete_path_image_icon && !$path_image_icon){
-            storageDelete($SLID02Slides, 'path_image_icon');
-            $data['path_image_icon'] = null;
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($SLID02Slides, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
         }
 
         $data['active'] = $request->active?1:0;
@@ -170,10 +150,8 @@ class SLID02Controller extends Controller
      */
     public function destroy(SLID02Slides $SLID02Slides)
     {
-        storageDelete($SLID02Slides, 'path_image_icon');
-        storageDelete($SLID02Slides, 'path_image_icon_mobile');
-        storageDelete($SLID02Slides, 'path_image_icon_background_mobile');
-        storageDelete($SLID02Slides, 'path_image_icon_background');
+        storageDelete($SLID02Slides, 'path_image_desktop');
+        storageDelete($SLID02Slides, 'path_image_mobile');
 
         if($SLID02Slides->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -192,10 +170,8 @@ class SLID02Controller extends Controller
 
         $SLID02Slidess = SLID02Slides::whereIn('id', $request->deleteAll)->get();
         foreach($SLID02Slidess as $SLID02Slides){
-            storageDelete($SLID02Slides, 'path_image_icon');
-            storageDelete($SLID02Slides, 'path_image_icon_mobile');
-            storageDelete($SLID02Slides, 'path_image_icon_background_mobile');
-            storageDelete($SLID02Slides, 'path_image_icon_background');
+            storageDelete($SLID02Slides, 'path_image_desktop');
+            storageDelete($SLID02Slides, 'path_image_mobile');
         }
 
 
@@ -230,16 +206,16 @@ class SLID02Controller extends Controller
         switch(deviceDetect()){
             case 'mobile':
             case 'tablet':
-                $slides = SLID02Slides::where('path_image_background_mobile','!=','')->activeMobile()->sorting()->get();
+                $slides = SLID02Slides::where('path_image_mobile','!=','')->activeMobile()->sorting()->get();
                 foreach($slides as $slide){
                     $slide->title = $slide->title_mobile;
                     $slide->link_button = $slide->link_button_mobile;
-                    $slide->path_image_background = $slide->path_image_background_mobile;
+                    $slide->path_image_background = $slide->path_image_mobile;
                     $slide->active = $slide->active_mobile;
                 }
             break;
             default:
-                $slides = SLID02Slides::where('path_image_background','!=','')->active()->sorting()->get();
+                $slides = SLID02Slides::where('path_image_desktop','!=','')->active()->sorting()->get();
             break;
         }
         return view('Client.pages.Slides.SLID02.section');
