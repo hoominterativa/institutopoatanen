@@ -62,11 +62,10 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        <label><input name="btnSelectAll" value=""
-                                                                type="checkbox"></label>
+                                                        <label><input name="btnSelectAll" value="btnDeleteSlide" type="checkbox"></label>
                                                     </th>
-                                                    <th>Imagem</th>
-                                                    <th>Link</th>
+                                                    <th width="40px"></th>
+                                                    <th>Link</th>                                    
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -81,9 +80,9 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem"
                                                                     type="checkbox" value="{{ $slide->id }}"></label>
                                                         </td>
-                                                        <td class="align-middle avatar-group">
-                                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                                style="background-image: url({{ asset('Admin/assets/' . $slide->path_image_desktop) }})">
+                                                        <td class="align-middle">
+                                                            <div class="avatar-bg rounded-circle avatar-sm"
+                                                                style="background-image: url({{ asset('storage/' . $slide->path_image_desktop) }})">
                                                             </div>
                                                         </td>
                                                         <td class="align-middle">{{ $slide->link }}</td>
@@ -132,5 +131,4 @@
         </div> <!-- content -->
     </div>
     @include('Admin.components.links.resourcesIndex')
-    
 @endsection
