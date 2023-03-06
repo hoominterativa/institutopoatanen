@@ -4,65 +4,38 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD03'
+            'Code' => 'HEAD02',
+            'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT04'
+            'Code' => 'FOOT03'
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Slides' => (object) [
-            'SLID02' => (object)[
+        'Topics' => (object) [
+            'TOPI102' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
-                'Viewer' => 'list',
-                'config' => (object) [
-                    'titleMenu' => 'Slides',
-                    'anchor' =>  true,
-                    'linkMenu' => '#SLID02',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Slides',
-                    'iconPanel' => 'mdi-information'
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => false,
+                    'limit' => 'all',
+                    'condition' => '',
+                    'relation' => '',
                 ],
-            ],
-
-            'SLID01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'list',
                 'config' => (object) [
-                    'titleMenu' => 'Redes',
-                    'anchor' =>  true,
-                    'linkMenu' => '#SLID01',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Redes',
-                    'iconPanel' => 'mdi-information'
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => 'string',
+                    'titlePanel' => 'TOPIC102',
+                    'iconPanel' => 'string'
                 ],
-            ],
-
-        ],
-
-        'Services' => (object) [
-            'SERV01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'list',
-                'config' => (object) [
-                    'titleMenu' => 'Services',
-                    'anchor' =>  true,
-                    'linkMenu' => '#SERV01',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Services',
-                    'iconPanel' => 'mdi-information'
-                ],
+                'IncludeSections' => (object) []
             ],
         ],
 

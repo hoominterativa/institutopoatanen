@@ -2,4 +2,6 @@
 @import '../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css';
 @import '../../node_modules/@fancyapps/ui/dist/fancybox.css';
 @import '../../node_modules/@fancyapps/ui/dist/panzoom.css';
-@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';/*# sourceMappingURL=libraries.css.map */
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../../node_modules/jquery-toast-plugin/dist/jquery.toast.min.css';
+@import 'ckeditor.style.css';/*# sourceMappingURL=libraries.css.map */
