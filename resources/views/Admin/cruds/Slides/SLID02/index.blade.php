@@ -48,7 +48,7 @@
                                             <div class="col-6">
                                                 <button id="btSubmitDelete"
                                                     data-route="{{ route('admin.slid02.destroySelected') }}" type="button"
-                                                    class="btn btn-danger" style="display: none;">Deletar
+                                                    class="btn btn-danger btnDeleteSlide" style="display: none;">Deletar
                                                     selecionados</button>
                                             </div>
                                             <div class="col-6">

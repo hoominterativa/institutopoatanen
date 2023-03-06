@@ -5,7 +5,7 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <button id="btSubmitDelete" data-route="{{ route('admin.slid02.topic.destroySelected') }}"
-                            type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                            type="button" class="btn btn-danger btnDeleteTopic" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
                         <a href="{{ route('admin.slid02.topic.create') }}" class="btn btn-success float-end">Adicionar
@@ -17,7 +17,7 @@
                         <tr>
                             <th width="50px"></th>
                             <th width="30px" class="bs-checkbox">
-                                <label><input name="btnSelectAll" value="" type="checkbox"></label>
+                                <label><input name="btnSelectAll" value="btnDeleteTopic" type="checkbox"></label>
                             </th>
                             <th>Imagem</th>
                             <th>Link</th>

@@ -592,7 +592,7 @@ a {
   top: 0;
   background: #CACACA;
   width: 107px;
-  height: 627px;
+  height: 100vh;
   z-index: 10;
 }
 @media (max-width: 767.98px) {
