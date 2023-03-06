@@ -29,38 +29,21 @@ return [
                     'iconPanel' => 'mdi-information'
                 ],
             ],
-
-            'SLID01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'list',
-                'config' => (object) [
-                    'titleMenu' => 'Redes',
-                    'anchor' =>  true,
-                    'linkMenu' => '#SLID01',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Redes',
-                    'iconPanel' => 'mdi-information'
-                ],
-            ],
-
         ],
 
-        'Services' => (object) [
-            'SERV01' => (object)[
+        'Topics' => (object) [
+            'TOPI102' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'list',
                 'config' => (object) [
-                    'titleMenu' => 'Services',
-                    'anchor' =>  true,
-                    'linkMenu' => '#SERV01',
+                    'titleMenu' => 'Tópicos',
+                    'anchor' =>  false,
+                    'linkMenu' => '#TOPI102',
                     'iconMenu' => '',
-                    'titlePanel' => 'Services',
+                    'titlePanel' => 'Tópicos',
                     'iconPanel' => 'mdi-information'
                 ],
             ],
