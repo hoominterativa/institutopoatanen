@@ -27,14 +27,6 @@ return [
                     'condition' => '',
                     'relation' => '',
                 ],
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => 'string',
-                    'titlePanel' => 'TOPIC102',
-                    'iconPanel' => 'string'
-                ],
                 'IncludeSections' => (object) []
             ],
         ],
