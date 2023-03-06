@@ -94,7 +94,7 @@
 
                 <div class="menu-sidebar-header">
                     <div class="btn-menu-sidebar-header">
-                        <a href="#menu02--sidebar-right" alt="{{__('Abrir menu')}}" nofollow data-plugin="sidebar" data-sb-position="right" class="d-flex align-items-center">
+                        <a href="#SIDE03" alt="{{__('Abrir menu')}}" nofollow data-plugin="sidebar" data-sb-position="right" class="d-flex align-items-center">
                             <div class="lines">
                                 <i class="w-100 mb-2 mx-auto transition"></i>
                                 <i class="w-100 mb-2 mx-auto transition"></i>
