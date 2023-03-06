@@ -208,9 +208,9 @@ class SLID02Controller extends Controller
             case 'tablet':
                 $slides = SLID02Slides::where('path_image_mobile','!=','')->activeMobile()->sorting()->get();
                 foreach($slides as $slide){
-                    $slide->title = $slide->title_mobile;
-                    $slide->link_button = $slide->link_button_mobile;
-                    $slide->path_image_background = $slide->path_image_mobile;
+                    $slide->link = $slide->link_mobile;
+                    $slide->target_link = $slide->target_link;
+                    $slide->path_image_desktop = $slide->path_image_mobile;
                     $slide->active = $slide->active_mobile;
                 }
             break;
@@ -218,6 +218,12 @@ class SLID02Controller extends Controller
                 $slides = SLID02Slides::where('path_image_desktop','!=','')->active()->sorting()->get();
             break;
         }
-        return view('Client.pages.Slides.SLID02.section');
+
+        $topics = SLID02SlidesTopic::active()->sorting()->get();
+
+        return view('Client.pages.Slides.SLID02.section', [
+            'slides' => $slides,
+            'topics' => $topics
+        ]);
     }
 }

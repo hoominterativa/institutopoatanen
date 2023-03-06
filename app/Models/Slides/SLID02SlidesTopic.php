@@ -17,7 +17,7 @@ class SLID02SlidesTopic extends Model
 
     protected $table = "slid02_slides_topics";
     protected $fillable = [
-        'link', 'target_link', 'path_image_icon', 'active', 'link_mobile', 'target_link_mobile', 'path_image_icon_mobile', 'active_mobile', 'sorting',
+        'link', 'target_link', 'path_image_icon', 'active', 'sorting',
     ];
 
     public function scopeSorting($query)

@@ -20,11 +20,6 @@ class CreateSlid02SlidesTopicsTable extends Migration
             $table->string('path_image_icon')->nullable();
             $table->integer('active')->default(0);
 
-            $table->text('link_mobile')->nullable();
-            $table->enum('target_link_mobile',['_self', '_blank'])->default('_self');
-            $table->string('path_image_icon_mobile')->nullable();
-            $table->integer('active_mobile')->default(0);
-
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

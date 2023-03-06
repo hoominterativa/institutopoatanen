@@ -178,15 +178,10 @@
                 "height":"782",
                 "activeCrop": "true"
             },
-            "path_image_icon_mobile": {
-                "width":"200",
-                "height":"200",
-                "activeCrop": "true"
-            },
             "path_image_icon": {
                 "width":"200",
                 "height":"200",
-                "activeCrop": "true"
+                "activeCrop": "false"
             }
         }
     },

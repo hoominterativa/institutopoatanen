@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="alert alert-warning">
-                    <p class="mb-0"><b>Atenção:</b> Preencha os campos de informações do Desktop e Mobile.</p>
+                    <p class="mb-0"><b>Atenção:</b> Preencha os campos de informações do Desktop</p>
                 </div>
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.slid02.topic.store', 'class'=>'parsley-validate', 'files'=>true]) !!}

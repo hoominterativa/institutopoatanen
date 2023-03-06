@@ -26,11 +26,6 @@ class SLID02SlidesTopicFactory extends Factory
             'target_link' => '_blank',
             'path_image_icon' => 'uploads/temp/favicon.png',
             'active' => 1,
-
-            'link_mobile' => 'https://www.lipsum.com/',
-            'target_link_mobile' => '_blank',
-            'path_image_icon_mobile' => 'uploads/temp/favicon.png',
-            'active_mobile' => 1,
         ];
     }
 }
