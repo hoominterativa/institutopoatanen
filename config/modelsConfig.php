@@ -27,6 +27,14 @@ return [
                     'condition' => '',
                     'relation' => '',
                 ],
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos',
+                    'iconPanel' => 'mdi-topic-circle'
+                ],
                 'IncludeSections' => (object) []
             ],
         ],

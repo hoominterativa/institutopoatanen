@@ -11905,7 +11905,7 @@ function resizeHeightSlide() {
     var heightSlide = $('[data-slide-height]').data('slide-height'),
         heightWindow = $(window).outerHeight();
 
-    if (heightSlide.split(',')) {
+    if (!Number.isInteger(heightSlide)) {
       if (heightSlide.split(',')[0] == 'auto') {
         slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
         $('[data-slide-height]').find('.container-slide').css('height', slideHeight);

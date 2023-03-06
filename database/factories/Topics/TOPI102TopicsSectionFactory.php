@@ -3,16 +3,16 @@
 namespace Database\Factories\Topics;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Topics\TOPI102Topics;
+use App\Models\Topics\TOPI102TopicsSection;
 
-class TOPI102TopicsFactory extends Factory
+class TOPI102TopicsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = TOPI102Topics::class;
+    protected $model = TOPI102TopicsSection::class;
 
     /**
      * Define the model's default state.
@@ -23,13 +23,10 @@ class TOPI102TopicsFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'title_mobile' => $this->faker->text(10),
-            'text' => $this->faker->text(100),
-            'text_mobile' => $this->faker->text(100),
+            'subtitle' => $this->faker->text(12),
             'path_image_desktop' => 'uploads/temp/image_temporary.png',
             'path_image_mobile' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
-            'active_mobile' => 1,
+            'active' => 1
         ];
     }
 }

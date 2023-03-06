@@ -2,21 +2,21 @@
 
 namespace App\Models\Topics;
 
-use Database\Factories\Topics\TOPI102TopicsFactory;
+use Database\Factories\Topics\TOPI102TopicsFeaturedTopicsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TOPI102Topics extends Model
+class TOPI102TopicsFeaturedTopics extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return TOPI102TopicsFactory::new();
+        return TOPI102TopicsFeaturedTopicsFactory::new();
     }
 
-    protected $table = "topi102_topics";
-    protected $fillable = ['title', 'title_mobile', 'text', 'text_mobile', 'path_image_desktop', 'path_image_mobile', 'active', 'active_mobile', 'sorting'];
+    protected $table = "topi102_topics_featuredtopics";
+    protected $fillable = ['title', 'quantity', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
