@@ -5,32 +5,32 @@ return [
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
             'Code' => 'HEAD02',
-            'themeMenu' => 'SIDE02'
+            'themeMenu' => 'SIDE03'
+
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT03'
+            'Code' => 'FOOT04'
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI102' => (object)[
+        'Abouts' => (object) [
+            'ABOU02' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => false,
-                    'limit' => 'all',
-                    'condition' => '',
-                    'relation' => '',
+                'config' => (object) [
+                    'titleMenu' => 'Sobre',
+                    'anchor' =>  false,
+                    'linkMenu' => 'abou02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre',
+                    'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
             ],
         ],
-
     ],
 
     'ModelsForm' => (object)[
