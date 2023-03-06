@@ -11880,8 +11880,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT04/src/main */ "./resources/views/Client/Core/Footers/FOOT04/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Abouts/ABOU02/src/main */ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js");
-/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Topics_TOPI102_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Topics/TOPI102/src/main */ "./resources/views/Client/pages/Topics/TOPI102/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI102_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI102_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12109,97 +12109,6 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Abouts/ABOU02/src/main.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  $('.carousel_abou02').owlCarousel({
-    smartSpeed: 450,
-    loop: true,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true,
-    responsive: {
-      0: {
-        items: 1,
-        margin: 12
-      },
-      // breakpoint from 0 up
-      361: {
-        items: 1,
-        margin: 12
-      },
-      // breakpoint from 361 up
-      801: {
-        items: 3,
-        margin: 14
-      } // breakpoint from 801 up
-
-    }
-  });
-  $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 496);
-
-  if ($(window).outerWidth() <= 801) {
-    $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 150);
-  } // END carousel_abou02
-
-
-  $('.carousel-abou02-topic').owlCarousel({
-    smartSpeed: 450,
-    loop: true,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 2,
-        margin: 12
-      },
-      // breakpoint from 0
-      200: {
-        items: 2,
-        margin: 12
-      },
-      // breakpoint from 200 up
-      361: {
-        items: 1,
-        margin: 12
-      },
-      // breakpoint from 361 up
-      500: {
-        items: 1,
-        margin: 12
-      },
-      // breakpoint from 500 up
-      815: {
-        items: 3,
-        margin: 14
-      },
-      // breakpoint from 815 up
-      820: {
-        items: 4,
-        margin: 14
-      } // breakpoint from 820 up
-
-    }
-  });
-  $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
-
-  if ($(window).outerWidth() <= 801) {
-    $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 550);
-  } // END carousel-abou02-topic
-
-});
-
-/***/ }),
-
 /***/ "./resources/views/Client/pages/Compliances/COMP01/src/main.js":
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
@@ -12207,6 +12116,91 @@ $(function () {
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Topics/TOPI102/src/main.js":
+/*!*****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI102/src/main.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.topi102__navigation ul').addClass('owl-carousel');
+    $('.topi102__navigation ul').addClass('carousel-topi02-navigation');
+    $('.carousel-topi02-navigation').owlCarousel({
+      margin: 7,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1,
+          margin: -69
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1,
+          margin: -69
+        },
+        // breakpoint from 768 up
+        500: {
+          items: 1,
+          margin: -69
+        },
+        800: {
+          items: 2,
+          margin: -69
+        }
+      }
+    });
+  }
+
+  var countItem = document.querySelectorAll('.topi102__content .topi102__content__box').length;
+
+  if (countItem >= 4) {
+    countItem = 4;
+  }
+
+  console.log(countItem);
+  $('.carousel-topi102').owlCarousel({
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: false,
+    nav: false,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1,
+        margin: -51
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1,
+        margin: -51
+      },
+      500: {
+        items: 1,
+        margin: -51
+      },
+      800: {
+        items: 1,
+        margin: -51
+      },
+      // breakpoint from 800 up
+      850: {
+        items: countItem
+      } // breakpoint from 850 up
+
+    }
+  });
+  $('.carousel-topi102').css('width', $('.topi102 .container--pd').outerWidth());
+});
 
 /***/ }),
 

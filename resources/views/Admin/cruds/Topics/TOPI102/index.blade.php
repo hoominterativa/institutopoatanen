@@ -14,7 +14,7 @@
                                     <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Topics', 'TOP1I02')}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                                                     <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('admin/assets/' . $topic->path_image_desktop)}})"></div>
                                                 </td>
                                                 <td class="align-middle">{{$topic->title}}</td>
-                                                <td class="align-middle">{{$topic->text}}</td>
+                                                <td class="align-middle">{{Str::limit($topic->text, 30)}}</td>
                                                 <td class="align-middle">
                                                     @switch($topic->active)
                                                         @case(1) <span class="badge bg-success">Ativo</span> @break
@@ -83,7 +83,7 @@
 
                                 {{-- PAGINATION --}}
                                 <div class="mt-3 float-end">
-                                    {{$topic->links()}}
+                                    {{$topics->links()}}
                                 </div>
                             </div>
                         </div> <!-- end card-->

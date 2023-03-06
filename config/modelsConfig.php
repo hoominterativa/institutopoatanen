@@ -15,18 +15,18 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Abouts' => (object) [
-            'ABOU02' => (object)[
+        'Topics' => (object) [
+            'TOPI102' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'config' => (object) [
-                    'titleMenu' => 'Sobre',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'abou02.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Sobre',
-                    'iconPanel' => 'mdi-information'
+                    'titlePanel' => 'Tópicos',
+                    'iconPanel' => 'mdi-topic-circle'
                 ],
                 'config' => (object) [
                     'titleMenu' => '',
