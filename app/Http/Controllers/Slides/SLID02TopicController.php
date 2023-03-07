@@ -21,7 +21,7 @@ class SLID02TopicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
+    {
         return view('Admin.cruds.Slides.SLID02.Topics.create', [
             'cropSetting' => getCropImage('Slides', 'SLID02')
         ]);
@@ -38,6 +38,8 @@ class SLID02TopicController extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
@@ -78,6 +80,8 @@ class SLID02TopicController extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){

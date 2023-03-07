@@ -14,23 +14,13 @@ use App\Http\Controllers\IncludeSectionsController;
 class TOPI102FeaturedTopicsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Topics.TOPI102.FeaturedTopics.create');
     }
 
     /**
@@ -42,35 +32,13 @@ class TOPI102FeaturedTopicsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if(TOPI102TopicsFeaturedTopics::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico em destaque cadastrado com sucesso');
+            return redirect()->route('admin.topi102.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o Tópico em destaque');
             return redirect()->back();
         }
     }
@@ -83,7 +51,9 @@ class TOPI102FeaturedTopicsController extends Controller
      */
     public function edit(TOPI102TopicsFeaturedTopics $TOPI102TopicsFeaturedTopics)
     {
-        //
+        return view('Admin.cruds.Topics.TOPI102.FeaturedTopics.edit', [
+            'featuredtopic' => $TOPI102TopicsFeaturedTopics
+        ]);
     }
 
     /**
@@ -97,50 +67,13 @@ class TOPI102FeaturedTopicsController extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-        if($path_image){
-            storageDelete($TOPI102TopicsFeaturedTopics, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($TOPI102TopicsFeaturedTopics, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($TOPI102TopicsFeaturedTopics, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($TOPI102TopicsFeaturedTopics, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if($TOPI102TopicsFeaturedTopics->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico em destaque atualizado com sucesso');
+            return redirect()->route('admin.topi102.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
+            Session::flash('error', 'Erro ao atualizar o tópico em destaque');
             return redirect()->back();
         }
     }
@@ -153,11 +86,8 @@ class TOPI102FeaturedTopicsController extends Controller
      */
     public function destroy(TOPI102TopicsFeaturedTopics $TOPI102TopicsFeaturedTopics)
     {
-        //storageDelete($TOPI102TopicsFeaturedTopics, 'path_image');
-        //storageDelete($TOPI102TopicsFeaturedTopics, 'path_archive');
-
         if($TOPI102TopicsFeaturedTopics->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico em destaque deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +100,9 @@ class TOPI102FeaturedTopicsController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $TOPI102TopicsFeaturedTopicss = TOPI102TopicsFeaturedTopics::whereIn('id', $request->deleteAll)->get();
-        foreach($TOPI102TopicsFeaturedTopicss as $TOPI102TopicsFeaturedTopics){
-            storageDelete($TOPI102TopicsFeaturedTopics, 'path_image');
-            storageDelete($TOPI102TopicsFeaturedTopics, 'path_archive');
-        }
-        */
 
         if($deleted = TOPI102TopicsFeaturedTopics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos em destaque deletados com sucessso']);
         }
     }
     /**
@@ -196,51 +118,5 @@ class TOPI102FeaturedTopicsController extends Controller
             TOPI102TopicsFeaturedTopics::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Topics\TOPI102TopicsFeaturedTopics  $TOPI102TopicsFeaturedTopics
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(TOPI102TopicsFeaturedTopics $TOPI102TopicsFeaturedTopics)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

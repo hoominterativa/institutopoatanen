@@ -13,25 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class TOPI102SectionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected  $path = 'uploads/Topics/TOPI102/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -42,48 +24,24 @@ class TOPI102SectionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $data['active'] = $request->active?1:0;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
         if(TOPI102TopicsSection::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Seção cadastrado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao cadastradar a seção');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Topics\TOPI102TopicsSection  $TOPI102TopicsSection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TOPI102TopicsSection $TOPI102TopicsSection)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,151 +54,37 @@ class TOPI102SectionController extends Controller
     public function update(Request $request, TOPI102TopicsSection $TOPI102TopicsSection)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-        if($path_image){
-            storageDelete($TOPI102TopicsSection, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($TOPI102TopicsSection, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($TOPI102TopicsSection, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($TOPI102TopicsSection, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($TOPI102TopicsSection, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($TOPI102TopicsSection, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($TOPI102TopicsSection, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
         }
-
-        */
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($TOPI102TopicsSection, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
+        }
 
         if($TOPI102TopicsSection->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Seção atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao atualizar a seção');
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Topics\TOPI102TopicsSection  $TOPI102TopicsSection
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TOPI102TopicsSection $TOPI102TopicsSection)
-    {
-        //storageDelete($TOPI102TopicsSection, 'path_image');
-        //storageDelete($TOPI102TopicsSection, 'path_archive');
-
-        if($TOPI102TopicsSection->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $TOPI102TopicsSections = TOPI102TopicsSection::whereIn('id', $request->deleteAll)->get();
-        foreach($TOPI102TopicsSections as $TOPI102TopicsSection){
-            storageDelete($TOPI102TopicsSection, 'path_image');
-            storageDelete($TOPI102TopicsSection, 'path_archive');
-        }
-        */
-
-        if($deleted = TOPI102TopicsSection::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            TOPI102TopicsSection::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Topics\TOPI102TopicsSection  $TOPI102TopicsSection
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(TOPI102TopicsSection $TOPI102TopicsSection)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
+        return redirect()->back();
     }
 }

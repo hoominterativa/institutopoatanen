@@ -27,7 +27,7 @@ class SLID02Controller extends Controller
         $slides = SLID02Slides::sorting()->get();
         $topics = SLID02SlidesTopic::sorting()->get();
         return view('Admin.cruds.Slides.SLID02.index',[
-            'slides' => $slides, 
+            'slides' => $slides,
             'topics' => $topics
         ]);
     }
@@ -55,7 +55,7 @@ class SLID02Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        
+
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
@@ -136,7 +136,8 @@ class SLID02Controller extends Controller
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.slid02.index');
         }else{
-            Storage::delete($path_image_icon);
+            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_desktop);
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }

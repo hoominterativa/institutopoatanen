@@ -38,6 +38,7 @@
                         </a>
                     </li>
                 </ul>
+
                 <div class="tab-content">
                     <div class="tab-pane show active" id="slide">
                         <div class="row">
@@ -62,10 +63,11 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        <label><input name="btnSelectAll" value="btnDeleteSlide" type="checkbox"></label>
+                                                        <label><input name="btnSelectAll" value="btnDeleteSlide"
+                                                                type="checkbox"></label>
                                                     </th>
                                                     <th width="40px"></th>
-                                                    <th>Link</th>                                    
+                                                    <th>Link</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>

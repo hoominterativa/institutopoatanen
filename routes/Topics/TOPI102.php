@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Topics\TOPI102FeaturedTopicsController;
+use App\Http\Controllers\Topics\TOPI102SectionController;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
@@ -11,21 +13,24 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Topics';
+$model = 'TOPI102';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName) {
+    Route::resource($route . '/secao', TOPI102SectionController::class)->names('admin.' . $routeName . '.section')->parameters(['secao' => 'TOPI102TopicsSection']);
+    Route::post($route . '/secao/delete', [TOPI102SectionController::class, 'destroySelected'])->name('admin.' . $routeName . '.section.destroySelected');
+
+    Route::resource($route . '/topicodestaque', TOPI102FeaturedTopicsController::class)->names('admin.' . $routeName . '.featuredtopic')->parameters(['topicodestaque' => 'TOPI102TopicsFeaturedTopic']);
+    Route::post($route . '/topicodestaque/delete', [TOPI102FeaturedTopicsController::class, 'destroySelected'])->name('admin.' . $routeName . '.featuredtopic.destroySelected');
+    Route::post($route . '/topicodestaque/sorting', [TOPI102FeaturedTopicsController::class, 'sorting'])->name('admin.' . $routeName . '.featuredtopic.sorting');
+});
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Topics;
 
-use App\Models\Topics\TOPI102Topics;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Topics\TOPI102Topics;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Topics\TOPI102TopicsSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Topics\TOPI102TopicsFeaturedTopics;
 
 class TOPI102Controller extends Controller
-{   
+{
     protected $path = 'uploads/Topics/TOPI102/images/';
 
     /**
@@ -23,9 +25,14 @@ class TOPI102Controller extends Controller
     public function index()
     {
         $topics = TOPI102Topics::sorting()->paginate(6);
+        $section = TOPI102TopicsSection::first();
+        $featuredtopics = TOPI102TopicsFeaturedTopics::sorting()->paginate(6);
 
         return view('Admin.cruds.Topics.TOPI102.index', [
             'topics' => $topics,
+            'section' => $section,
+            'featuredtopics' => $featuredtopics,
+            'cropSetting' => getCropImage('Topics', 'TOPI102')
         ]);
     }
 
@@ -51,6 +58,9 @@ class TOPI102Controller extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['active_mobile'] = $request->active?1:0;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -96,6 +106,9 @@ class TOPI102Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active?1:0;
+        $data['active_mobile'] = $request->active?1:0;
+
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if($path_image_desktop){
             storageDelete($TOPI102Topics, 'path_image_desktop');
@@ -115,7 +128,7 @@ class TOPI102Controller extends Controller
             storageDelete($TOPI102Topics, 'path_image_mobile');
             $data['path_image_mobile'] = null;
         }
-       
+
 
         if($TOPI102Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');

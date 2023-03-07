@@ -15,7 +15,7 @@ class TOPI102TopicsSection extends Model
         return TOPI102TopicsSectionFactory::new();
     }
 
-    protected $table = "topi102_topics_sections'";
+    protected $table = "topi102_topics_sections";
     protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'active', 'sorting'];
 
     public function scopeSorting($query)

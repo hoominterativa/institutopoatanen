@@ -11,19 +11,19 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.slid02.index')}}"> {{getTitleModel($configModelsMain, 'Slides', 'SLID02')}} </a></li>
-                                    <li class="breadcrumb-item active">Editar {{getTitleModel($configModelsMain, 'Slides', 'SLID02')}} </li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.topi102.index')}}">{{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</a></li>
+                                    <li class="breadcrumb-item active">Editar {{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Slides', 'SLID02')}} </h4>
+                            <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($topic, ['route' => ['admin.slid02.topic.update', $topic->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Slides.SLID02.Topics.form')
+                {!! Form::model($featuredtopic, ['route' => ['admin.topi102.featuredtopic.update', $featuredtopic->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                    @include('Admin.Cruds.Topics.TOPI102.FeaturedTopics.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.slid02.topic.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.topi102.featuredtopic.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->
