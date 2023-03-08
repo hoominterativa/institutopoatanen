@@ -2,7 +2,7 @@
 
 namespace App\Models\Topics;
 
-use Database\Factories\TOPI101TopicsFactory;
+use Database\Factories\Topics\TOPI101TopicsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class TOPI101Topics extends Model
         return TOPI101TopicsFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "topi101_topics";
     protected $fillable = [];
 
     public function scopeSorting($query)

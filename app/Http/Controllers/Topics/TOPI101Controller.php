@@ -200,47 +200,8 @@ class TOPI101Controller extends Controller
 
     // METHODS CLIENT
 
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Topics\TOPI101Topics  $TOPI101Topics
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(TOPI101Topics $TOPI101Topics)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Topics.TOPI101.section');
     }
 }
