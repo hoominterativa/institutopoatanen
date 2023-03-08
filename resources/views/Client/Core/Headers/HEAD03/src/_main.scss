@@ -1,0 +1,144 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+#HEAD03{
+    border-bottom: 9px solid $color-two;
+    z-index: 101;
+    position: relative;
+
+    .container-header{
+        min-height: 100px;
+
+        @include small-device {
+            min-height: auto;
+        }
+
+        #logoHeader{
+            img{
+                @include small-device {
+                    width: 185px;
+                }
+
+                @include x-small-device {
+                    width: 155px;
+                }
+            }
+        }
+        .menu-sidebar-header{
+
+            .btn-menu-sidebar-header{
+                display: flex;
+
+                span{
+                    font: $paragraph;
+                    color: $color-black;
+                    font-weight: $weight-700;
+                    margin-right: 17px;
+                }
+                .lines{
+                    width: 32px;
+                    >i{
+                        height: 2px;
+                        display: block;
+                        background-color: #000;
+                    }
+                }
+                &:active{
+                    .lines{
+                        >i{
+                            background-color: rgb(138, 138, 138);
+                        }
+                    }
+                }
+                @include small-device {
+                    display: block;
+                }
+                @include large-device {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.head3-flutuante{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #CACACA;
+    width: 107px;
+    height: 627px;
+    z-index: 10;
+
+    @include medium-device-down{
+        width: 100%;
+        height:107px;
+        flex-direction: row;
+        top:inherit;
+        bottom: 0;
+        left: inherit;
+        padding: 0 30px;
+    }
+
+    .link-flutuante{
+        @include Flex($direction:column);
+        @include medium-device-down{
+            @include Flex($direction:row);
+            order:2;
+            margin-left: 51px;
+            gap: 0 13px;
+        }
+        gap:13px 0;
+        a{
+            height: 25px;
+            width: 25px;
+            img{
+                @include Img;
+            }
+        }
+    }
+    .link-translate{
+        position: absolute;
+        bottom: 21.2px;
+        transform: translate(-50%, 0);
+        left: 50%;
+        @include medium-device-down{
+            position: relative;
+            bottom: inherit;
+            transform: none;
+            left: inherit;
+        }
+        a{
+            color:$color-one;
+            font-weight: $weight-700 !important;
+            font: $paragraph;
+            display: flex;
+            align-items: center;
+
+            @include small-device{
+                font: $paragraph-mobile;
+            }
+
+            &:after{
+                content:'';
+                width: 3px;
+                height: 24px;
+                background: $color-one;
+                background: #404040;
+                margin-left: 29px;
+
+                @include medium-device-down{
+                    margin-left: 15px;
+                }
+            }
+
+        }
+        &:last-of-type a:after{
+            display: none;
+        }
+    }
+}

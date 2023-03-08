@@ -4,7 +4,7 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02',
+            'Code' => 'HEAD03',
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
