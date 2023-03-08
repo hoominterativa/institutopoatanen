@@ -21,6 +21,7 @@
                                 <label><input name="btnSelectAll" value="btnDeleteSlide" type="checkbox"></label>
                             </th>
                             <th>Título</th>
+                            <th>Quantidade</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -36,6 +37,7 @@
                                             value="{{ $featuredtopic->id }}"></label>
                                 </td>
                                 <td class="align-middle">{{ $featuredtopic->title }}</td>
+                                <td class="align-middle">{{ $featuredtopic->quantity }}</td>
                                 <td class="align-middle">
                                     @switch($featuredtopic->active)
                                         @case(1)
@@ -50,11 +52,11 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="{{ route('admin.topi102.featuredtopic.edit', ['TOPI102TopicsFeaturedTopic' => $featuredtopic->id]) }}"
+                                            <a href="{{ route('admin.topi102.featuredtopic.edit', ['TOPI102TopicsFeaturedTopics' => $featuredtopic->id]) }}"
                                                 class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
                                         <form
-                                            action="{{ route('admin.topi102.featuredtopic.destroy', ['TOPI102TopicsFeaturedTopic' => $featuredtopic->id]) }}"
+                                            action="{{ route('admin.topi102.featuredtopic.destroy', ['TOPI102TopicsFeaturedTopics' => $featuredtopic->id]) }}"
                                             class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i

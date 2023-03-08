@@ -19,12 +19,6 @@ class CreateTopi102TopicsTable extends Migration
             $table->text('text')->nullable();
             $table->string('path_image_desktop')->nullable();
             $table->integer('active')->default(0);
-
-            $table->string('title_mobile')->nullable();
-            $table->text('text_mobile')->nullable();
-            $table->string('path_image_mobile')->nullable();
-            $table->integer('active_mobile')->default(0);
-
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

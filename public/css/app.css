@@ -1215,13 +1215,6 @@ a {
 }
 .topi102__navigation ul li {
   list-style: none;
-}
-@media (max-width: 767.98px) {
-  .topi102__navigation ul li {
-    width: 76%;
-  }
-}
-.topi102__navigation ul li a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1229,7 +1222,12 @@ a {
   background: #CACACA;
   padding: 13px 38px;
 }
-.topi102__navigation ul li a .title {
+@media (max-width: 767.98px) {
+  .topi102__navigation ul li {
+    width: 76%;
+  }
+}
+.topi102__navigation ul li .title {
   font-size: 1.875rem;
   color: #000;
   font-family: "Ubuntu", sans-serif, arial;
@@ -1237,18 +1235,18 @@ a {
   margin-bottom: 3px;
 }
 @media (max-width: 767.98px) {
-  .topi102__navigation ul li a .title {
+  .topi102__navigation ul li .title {
     font-size: 1.563rem;
   }
 }
-.topi102__navigation ul li a span {
+.topi102__navigation ul li span {
   font-size: 1.125rem;
   color: #000;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
 @media (max-width: 767.98px) {
-  .topi102__navigation ul li a span {
+  .topi102__navigation ul li span {
     font-size: 1.063rem;
   }
 }
@@ -1301,7 +1299,7 @@ a {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
-  color: #7C7C7C;
+  color: #FFFFFF;
   margin-bottom: 0;
 }
 @media (max-width: 767.98px) {

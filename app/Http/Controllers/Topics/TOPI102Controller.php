@@ -60,21 +60,15 @@ class TOPI102Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['active_mobile'] = $request->active?1:0;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
-
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
-        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
-
 
         if(TOPI102Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
             return redirect()->route('admin.topi102.index');
         }else{
             Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar o tópico');
             return redirect()->back();
         }
@@ -107,7 +101,6 @@ class TOPI102Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['active_mobile'] = $request->active?1:0;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if($path_image_desktop){
@@ -119,23 +112,11 @@ class TOPI102Controller extends Controller
             $data['path_image_desktop'] = null;
         }
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
-        if($path_image_mobile){
-            storageDelete($TOPI102Topics, 'path_image_mobile');
-            $data['path_image_mobile'] = $path_image_mobile;
-        }
-        if($request->delete_path_image_mobile && !$path_image_mobile){
-            storageDelete($TOPI102Topics, 'path_image_mobile');
-            $data['path_image_mobile'] = null;
-        }
-
-
         if($TOPI102Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');
             return redirect()->route('admin.topi102.index');
         }else{
             Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar o tópico');
             return redirect()->back();
         }
@@ -150,7 +131,6 @@ class TOPI102Controller extends Controller
     public function destroy(TOPI102Topics $TOPI102Topics)
     {
         storageDelete($TOPI102Topics, 'path_image_desktop');
-        storageDelete($TOPI102Topics, 'path_image_mobile');
 
         if($TOPI102Topics->delete()){
             Session::flash('success', 'Tópico deletado com sucessso');
@@ -169,7 +149,6 @@ class TOPI102Controller extends Controller
         $TOPI102Topicss = TOPI102Topics::whereIn('id', $request->deleteAll)->get();
         foreach($TOPI102Topicss as $TOPI102Topics){
             storageDelete($TOPI102Topics, 'path_image_desktop');
-            storageDelete($TOPI102Topics, 'path_image_mobile');
         }
 
         if($deleted = TOPI102Topics::whereIn('id', $request->deleteAll)->delete()){
@@ -200,6 +179,20 @@ class TOPI102Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Topics.TOPI102.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $sections = TOPI102TopicsSection::where('path_image_mobile','!=', '')->active()->first();
+                    $sections->path_image_desktop = $sections->path_image_mobile;
+            break;
+            default:
+                $sections = TOPI102TopicsSection::active()->first();
+            break;
+                
+        }
+
+        $topics = TOPI102Topics::active()->sorting()->get();
+        $featuredtopics = TOPI102TopicsFeaturedTopics::active()->sorting()->get();
+        return view('Client.pages.Topics.TOPI102.section', compact('topics', 'featuredtopics', 'sections'));
     }
 }

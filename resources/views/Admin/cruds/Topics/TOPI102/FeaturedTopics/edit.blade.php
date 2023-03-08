@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.topi102.index')}}">{{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</li>
+                                    <li class="breadcrumb-item active">Editar tópicos destaque</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Topics', 'TOPI102')}}</h4>
+                            <h4 class="page-title">Editar tópicos destaque</h4>
                         </div>
                     </div>
                 </div>

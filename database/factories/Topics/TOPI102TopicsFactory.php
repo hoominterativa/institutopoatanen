@@ -23,13 +23,9 @@ class TOPI102TopicsFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'title_mobile' => $this->faker->text(10),
-            'text' => $this->faker->text(100),
-            'text_mobile' => $this->faker->text(100),
-            'path_image_desktop' => 'uploads/temp/image_temporary.png',
-            'path_image_mobile' => 'uploads/temp/image_temporary.png',
+            'text' => $this->faker->text(200),
+            'path_image_desktop' => 'uploads/tmp/gall01_image1.png',
             'active' => 1,
-            'active_mobile' => 1,
         ];
     }
 }
