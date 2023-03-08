@@ -14,31 +14,22 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI102' => (object)[
+        'Contents' => (object) [
+            'CONT02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => false,
-                    'limit' => 'all',
-                    'condition' => '',
-                    'relation' => '',
-                ],
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Texto',
                     'anchor' =>  false,
                     'linkMenu' => '',
-                    'iconMenu' => 'string',
-                    'titlePanel' => 'TOPIC102',
-                    'iconPanel' => 'string'
+                    'iconMenu' => '',
+                    'titlePanel' => 'Texto',
+                    'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
             ],
         ],
-
     ],
 
     'ModelsForm' => (object)[
