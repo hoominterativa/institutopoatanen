@@ -1,0 +1,30 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+.topi101{
+    &__encompass{
+        &__title{
+
+        }
+        &__subtitle{
+
+        }
+    }
+    &__content{
+
+    }
+    &__box{
+        &__image{
+            img{
+                
+            }
+        }
+        &__description{
+            &__paragraph{
+                p{
+
+                }
+            }
+        }
+    }
+}
