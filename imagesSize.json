@@ -36,6 +36,45 @@
         }
     },
 
+    "Portfolios": {
+        "PORT101":{
+            "path_image_box": {
+                "width":"348",
+                "height":"435",
+                "activeCrop": "true"
+            },
+            "path_image_desktop": {
+                "width":"1511",
+                "height":"798",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width":"390",
+                "height":"1370",
+                "activeCrop": "true"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width":"1500",
+                    "height":"900",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width":"390",
+                    "height":"765",
+                    "activeCrop": "true"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width":"682",
+                    "height":"407",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
     "Compliances": {
         "COMP01":{
             "Section": {

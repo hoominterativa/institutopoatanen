@@ -15,6 +15,15 @@ class CreatePort101PortfoliosTable extends Migration
     {
         Schema::create('port101_portfolios', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('description')->nullable();
+            $table->text('link_button')->nullable();
+            $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
+            $table->string('path_image_box')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

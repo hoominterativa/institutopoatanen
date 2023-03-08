@@ -4,7 +4,7 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02',
+            'Code' => 'HEAD03',
             'themeMenu' => 'SIDE03'
 
         ],
@@ -15,8 +15,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI102' => (object)[
+        'Portfolios' => (object) [
+            'PORT101' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -25,7 +25,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Portfólios',
                     'iconPanel' => 'mdi-topic-circle'
                 ],
                 'config' => (object) [
@@ -33,7 +33,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Portfólios',
                     'iconPanel' => 'mdi-topic-circle'
                 ],
                 'IncludeSections' => (object) []
