@@ -5,8 +5,7 @@
     ],
     "Footers": [
         "FOOT03",
-        "FOOT02",
-        "FOOT04"
+        "FOOT02"
     ],
     "Slides": [
         "SLID01",
@@ -16,11 +15,10 @@
         "CONT01",
         "CONT03",
         "CONT06",
-        "CONT09"
+        "CONT10"
     ],
     "Portfolios": [
-        "PORT01",
-        "PORT101"
+        "PORT01"
     ],
     "Topics": [
         "TOPI01",
@@ -55,8 +53,5 @@
     ],
     "ContentPages": [
         "COPA01"
-    ],
-    "Galleries": [
-        "GALL01"
     ]
 }

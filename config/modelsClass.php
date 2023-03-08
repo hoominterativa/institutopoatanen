@@ -22,8 +22,8 @@ return [
                 'controller' => App\Http\Controllers\Blogs\BLOG01Controller::class,
                 'model' => App\Models\Blogs\BLOG01Blogs::class,
                 'seedQty' => 8,
-                'relationship' => (object)[
-                    'category' => (object)[
+                'relationship' => [
+                    'category' => [
                         'class' => App\Models\Blogs\BLOG01BlogsCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 4,
@@ -49,9 +49,9 @@ return [
                 'model' => App\Models\Contents\CONT06Contents::class,
                 'seedQty' => 1,
             ],
-            'CONT09' => (object)[
-                'controller' => App\Http\Controllers\Contents\CONT09Controller::class,
-                'model' => App\Models\Contents\CONT09Contents::class,
+            'CONT10' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT10Controller::class,
+                'model' => App\Models\Contents\CONT10Contents::class,
                 'seedQty' => 1,
             ],
         ],
@@ -83,36 +83,24 @@ return [
             ],
         ],
         // END COMPLIANCES
-        'Galleries' => (object)[
-            'GALL01' => (object)[
-                'controller' => App\Http\Controllers\Galleries\GALL01Controller::class,
-                'model' => App\Models\Galleries\GALL01Galleries::class,
-                'seedQty' => 1,
-            ],
-        ],
-        // END GALLERIES
+
         'Portfolios' => (object)[
             'PORT01' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,
                 'model' => App\Models\Portfolios\PORT01Portfolios::class,
                 'seedQty' => 10,
-                'relationship' => (object)[
-                    'category' => (object)[
+                'relationship' => [
+                    'category' => [
                         'class' => App\Models\Portfolios\PORT01PortfoliosCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 4,
                     ],
-                    'subcategory' => (object)[
+                    'subcategory' => [
                         'class' => App\Models\Portfolios\PORT01PortfoliosSubategory::class,
                         'column' => 'subcategory_id',
                         'seedQty' => 4,
                     ]
                 ]
-            ],
-            'PORT101' => (object)[
-                'controller' => App\Http\Controllers\Portfolios\PORT101Controller::class,
-                'model' => App\Models\Portfolios\PORT101Services::class,
-                'seedQty' => 4,
             ],
         ],
         // END PORTFOLIOS
