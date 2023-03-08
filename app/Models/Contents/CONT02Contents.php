@@ -2,7 +2,7 @@
 
 namespace App\Models\Contents;
 
-use Database\Factories\CONT02ContentsFactory;
+use Database\Factories\Contents\CONT02ContentsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class CONT02Contents extends Model
         return CONT02ContentsFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "cont02_contents";
     protected $fillable = [];
 
     public function scopeSorting($query)
