@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 body {
   overflow-x: hidden;
   width: 100%;
@@ -448,6 +448,9 @@ a {
   padding: 0 15px;
 }
 .form101__boxRight input::-moz-placeholder {
+  background-color: #fff !important;
+}
+.form101__boxRight input:-ms-input-placeholder {
   background-color: #fff !important;
 }
 .form101__boxRight input::placeholder {
@@ -1340,7 +1343,6 @@ a {
 @media (max-width: 767.98px) {
   .topi102__encompass__title {
     font-size: 1.875rem;
-    margin-bottom: 5px;
   }
 }
 .topi102__encompass__subtitle {
@@ -1376,7 +1378,7 @@ a {
 }
 @media (max-width: 767.98px) {
   .topi102__navigation ul li {
-    width: 76%;
+    width: 80%;
   }
 }
 .topi102__navigation ul li a {
@@ -1416,7 +1418,7 @@ a {
 }
 @media (max-width: 767.98px) {
   .topi102__content__box {
-    width: 85% !important;
+    width: 80% !important;
   }
 }
 .topi102__content__box__image {
@@ -1566,4 +1568,4 @@ a {
 }
 .comp01-page__archives__item:hover .comp01__archives__item__icon {
   filter: invert(1) grayscale(1);
-}
+}/*# sourceMappingURL=base.css.map */

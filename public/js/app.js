@@ -11790,9 +11790,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Headers/HEAD03/src/main.js":
+/***/ "./resources/views/Client/Core/Headers/HEAD02/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD03/src/main.js ***!
+  !*** ./resources/views/Client/Core/Headers/HEAD02/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -11874,14 +11874,14 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD03/src/main */ "./resources/views/Client/Core/Headers/HEAD03/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD02/src/main */ "./resources/views/Client/Core/Headers/HEAD02/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE02/src/main */ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js");
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT03/src/main */ "./resources/views/Client/Core/Footers/FOOT03/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT10/src/main */ "./resources/views/Client/pages/Contents/CONT10/src/main.js");
-/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Topics_TOPI102_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Topics/TOPI102/src/main */ "./resources/views/Client/pages/Topics/TOPI102/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI102_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI102_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12119,49 +12119,87 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT10/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT10/src/main.js ***!
-  \******************************************************************/
+/***/ "./resources/views/Client/pages/Topics/TOPI102/src/main.js":
+/*!*****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI102/src/main.js ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
-  var quantItemAppend = $(element).find('>*').length;
-  var refFor = quantItemAppend / quantItem;
-
-  for (var i = 1; i <= refFor; i++) {
-    $(element).append('<div class="contItemAppend' + i + ' pd-carrossel"></div>');
-    $(element).find('> *:lt(' + quantItem + ')').addClass('appendItem' + i);
-    $(element).find('.appendItem' + i).appendTo('.contItemAppend' + i + '');
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.topi102__navigation ul').addClass('owl-carousel');
+    $('.topi102__navigation ul').addClass('carousel-topi02-navigation');
+    $('.carousel-topi02-navigation').owlCarousel({
+      margin: 7,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1,
+          margin: -69
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1,
+          margin: -69
+        },
+        // breakpoint from 768 up
+        500: {
+          items: 1,
+          margin: -69
+        },
+        800: {
+          items: 2,
+          margin: -69
+        }
+      }
+    });
   }
 
-  $(element).owlCarousel({
-    loop: true,
-    nav: nav,
-    dots: dots,
-    autoplay: true,
-    responsiveClass: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 1
-      },
-      620: {
-        items: 1
-      },
-      840: {
-        items: quantLamina,
-        margin: 0
-      }
-    }
-  }); // FIM $('.owl-carousel').owlCarousel({
-}
+  var countItem = document.querySelectorAll('.topi102__content .topi102__content__box').length;
 
-$(function () {
-  carrosselMultItem('.carousel-cont10', 6, 1, true, true, true);
+  if (countItem >= 4) {
+    countItem = 4;
+  }
+
+  console.log(countItem);
+  $('.carousel-topi102').owlCarousel({
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: false,
+    nav: false,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1,
+        margin: -51
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1,
+        margin: -51
+      },
+      500: {
+        items: 1,
+        margin: -51
+      },
+      800: {
+        items: 1,
+        margin: -51
+      },
+      // breakpoint from 800 up
+      850: {
+        items: countItem
+      } // breakpoint from 850 up
+
+    }
+  });
+  $('.carousel-topi102').css('width', $('.topi102 .container--pd').outerWidth());
 });
 
 /***/ }),
