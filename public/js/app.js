@@ -12133,6 +12133,7 @@ $(function () {
     smartSpeed: 450,
     dots: false,
     nav: false,
+    loop: true,
     rewind: true,
     responsive: {
       // breakpoint from 0 up
@@ -12149,6 +12150,7 @@ $(function () {
       }
     }
   });
+  $('.carousel-topi101').css('width', $(window).outerWidth());
 });
 
 /***/ }),

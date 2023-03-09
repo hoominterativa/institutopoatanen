@@ -6,9 +6,25 @@
         padding:37px 0 39px 0 !important;
     }
 
-    .carousel-topi101 .owl-item:nth-of-type {
 
+    .carousel-topi101 .owl-item:nth-of-type(even) .topi101__box__top{
+        order: 2;
+        min-height: 267px;
+        justify-content: flex-start;
     }
+    .carousel-topi101 .owl-item:nth-of-type(even) .topi101__box__bottom{
+        order:1;
+        // margin-bottom: 92px;
+    }
+    .carousel-topi101 .owl-item:nth-of-type(even) .topi101__box__line{
+        top: 45%;
+        transform: translate(-50%, -42%);
+    }
+    .carousel-topi101 .owl-item:nth-of-type(even) .topi101__box__thickline{
+        top: 50%;
+        transform: translate(-50%, 50%);
+    }
+
 
     &__encompass{
         margin-bottom:57px;
@@ -32,22 +48,39 @@
                 font-size: $T4-mobile;
             }
         }
-    }
-    &__content{
-
+        &__line{
+            color: $color-one;
+            margin-top: 14px;
+        }
     }
     &__box{
-        &__image{
-            height: 177px;
-            width: 168px;
+        gap: 78px 0;
+        min-width: 239.72px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
 
-            img{
-                width:100%;
-                height:100%;
-                object-fit:contain;
+        &__top{
+            // margin-bottom: 92px;
+            min-height: 267px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            &__image{
+                min-height: 243px;
+                width: 100%;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+
+                img{
+                    width:100%;
+                    height:100%;
+                    object-fit:contain;
+                }
             }
-
-            margin-bottom: 92px;
         }
         &__thickline{
             width: 100%;
@@ -56,7 +89,8 @@
             background: #000000;
             position: absolute;
             left: 50%;
-            transform: translate(-50%, -50px);
+            top: 50%;
+            transform: translate(-50%, 50%);
 
             &::after{
                 content: "";
@@ -77,18 +111,37 @@
             display: block;
             background: #000000;
             position: absolute;
+            top: 45%;
             left: 50%;
-            transform: translate(-50%, -91px);
+            transform: translate(-50%, -42%);
         }
-        &__description{
-            &__paragraph{
-                font: $paragraph;
-                font-weight: $weight-500;
-                color: $color-two;
-                margin-bottom:0;
-    
-                @include medium-device-down{
-                    font: $paragraph-mobile;
+        &__bottom{
+            min-height: 267px;
+            height: 100%;
+
+            &__description{
+                display:flex;
+
+                &__paragraph{
+                    font: $paragraph;
+                    font-weight: $weight-500;
+                    color: $color-two;
+
+                    p{
+                        font: $paragraph;
+                        font-weight: $weight-500;
+                        color: $color-two;
+                        margin-bottom:0;
+
+                        @include medium-device-down{
+                            font: $paragraph-mobile;
+                        }
+                    }
+
+                    @include medium-device-down{
+                        font: $paragraph-mobile;
+                    }
+
                 }
             }
         }
