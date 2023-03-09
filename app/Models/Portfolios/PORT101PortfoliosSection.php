@@ -2,7 +2,7 @@
 
 namespace App\Models\Portfolios;
 
-use Database\Factories\PORT101PortfoliosSectionFactory;
+use Database\Factories\Portfolios\PORT101PortfoliosSectionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,13 +15,8 @@ class PORT101PortfoliosSection extends Model
         return PORT101PortfoliosSectionFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
-
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
+    protected $table = "port101_portfolios_sections";
+    protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'active'];
 
     public function scopeActive($query)
     {
