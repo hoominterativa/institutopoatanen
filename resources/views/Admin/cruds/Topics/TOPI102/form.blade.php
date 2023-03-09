@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3 form-check">
                         {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                        {!! Form::label('active', 'Ativar Banner', ['class' => 'form-check-label']) !!}
+                        {!! Form::label('active', 'Ativar Tópico', ['class' => 'form-check-label']) !!}
                     </div>
                 </div>
                 {{-- end card-body --}}

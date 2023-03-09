@@ -24,7 +24,7 @@ class TOPI102Controller extends Controller
      */
     public function index()
     {
-        $topics = TOPI102Topics::sorting()->paginate(6);
+        $topics = TOPI102Topics::sorting()->paginate(10);
         $section = TOPI102TopicsSection::first();
         $featuredtopics = TOPI102TopicsFeaturedTopics::sorting()->paginate(6);
 
@@ -188,7 +188,7 @@ class TOPI102Controller extends Controller
             default:
                 $sections = TOPI102TopicsSection::active()->first();
             break;
-                
+
         }
 
         $topics = TOPI102Topics::active()->sorting()->get();
