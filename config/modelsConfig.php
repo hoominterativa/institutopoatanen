@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI102' => (object)[
+        'Brands' => (object) [
+            'BRAN01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -32,7 +32,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => 'string',
-                    'titlePanel' => 'TOPIC102',
+                    'titlePanel' => 'BRAN01',
                     'iconPanel' => 'string'
                 ],
                 'IncludeSections' => (object) []
