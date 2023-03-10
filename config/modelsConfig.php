@@ -17,23 +17,15 @@ return [
         'Brands' => (object) [
             'BRAN01' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => false,
-                    'limit' => 'all',
-                    'condition' => '',
-                    'relation' => '',
-                ],
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Marcas',
                     'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => 'string',
-                    'titlePanel' => 'BRAN01',
-                    'iconPanel' => 'string'
+                    'linkMenu' => 'bran01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Marcas',
+                    'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
             ],
