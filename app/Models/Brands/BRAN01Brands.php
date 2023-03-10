@@ -15,7 +15,7 @@ class BRAN01Brands extends Model
         return BRAN01BrandsFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "brand01_brands";
     protected $fillable = [];
 
     public function scopeSorting($query)

@@ -34,8 +34,8 @@ return [
         // END BLOGS
         'Brands' => (object)[
             'BRAN01' => (object)[
-                'controller' => App\Http\Controllers\Contents\BRAN01Controller::class,
-                'model' => App\Models\Contents\BRAN01Contents::class,
+                'controller' => App\Http\Controllers\Brands\BRAN01Controller::class,
+                'model' => App\Models\Brands\BRAN01Brands::class,
                 'seedQty' => 1,
             ],
         ],
