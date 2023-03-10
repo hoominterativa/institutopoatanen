@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Portfolios\PORT101Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT101PortfoliosGallery;
 use App\Models\Portfolios\PORT101PortfoliosSection;
 
 class PORT101Controller extends Controller
@@ -93,8 +94,11 @@ class PORT101Controller extends Controller
      */
     public function edit(PORT101Portfolios $PORT101Portfolios)
     {
+        $galleries = PORT101PortfoliosGallery::where('portfolio_id', $PORT101Portfolios->id)->get();
+
         return view('Admin.cruds.Portfolios.PORT101.edit', [
             'portfolio' => $PORT101Portfolios,
+            'galleries' => $galleries,
             'cropSetting' => getCropImage('Portfolios', 'PORT101')
         ]);
     }
@@ -169,6 +173,12 @@ class PORT101Controller extends Controller
      */
     public function destroy(PORT101Portfolios $PORT101Portfolios)
     {
+        $galleries = PORT101PortfolioGallery::where('portfolio_id', $PORT101Portfolio->id)->get();
+        foreach($galleries as $gallery){
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
         storageDelete($PORT101Portfolios, 'path_image_box');
         storageDelete($PORT101Portfolios, 'path_image_desktop');
         storageDelete($PORT101Portfolios, 'path_image_mobile');
@@ -187,10 +197,13 @@ class PORT101Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-
-
         $PORT101Portfolioss = PORT101Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT101Portfolioss as $PORT101Portfolios){
+            $galleries = PORT101PortfolioGallery::where('portfolio_id', $PORT101Portfolio->id)->get();
+        foreach($galleries as $gallery){
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
             storageDelete($PORT101Portfolios, 'path_image_box');
             storageDelete($PORT101Portfolios, 'path_image_desktop');
             storageDelete($PORT101Portfolios, 'path_image_mobile');
