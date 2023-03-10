@@ -21,8 +21,8 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
+                    'titleMenu' => 'Serviços',
+                    'anchor' =>  true,
                     'linkMenu' => '',
                     'iconMenu' => 'string',
                     'titlePanel' => 'SERV04',
