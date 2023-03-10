@@ -1,11 +1,11 @@
-<section id="SERV04" class="serv04 container-fluid" style="background-image: url({{asset('storage/uploads/tmp/image-box-white.jpg')}})">
-    <div class="container container--serv04">
+<section id="BRAN01" class="bran01 container-fluid" style="background-image: url({{asset('storage/uploads/tmp/image-box-white.jpg')}})">
+    <div class="container container--bran01">
         <div class="row">
-            <div class="serv04__encompass px-0 text-center mx-auto w-100">
-                <h2 class="serv04__encompass__title">Titulo</h2>
-                <h3 class="serv04__encompass__subtitle">subtitulo</h3>
-                <hr class="serv04__encompass__line">
-                <div class="serv04__encompass__paragraph mx-auto">
+            <div class="bran01__encompass px-0 text-center mx-auto w-100">
+                <h2 class="bran01__encompass__title">Titulo</h2>
+                <h3 class="bran01__encompass__subtitle">subtitulo</h3>
+                <hr class="bran01__encompass__line">
+                <div class="bran01__encompass__paragraph mx-auto">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor
                         eu purus gravida sollicitudin vel non libero. Vivamus commodo porta 
@@ -13,52 +13,52 @@
                     </p>
                 </div>
             </div>
-            {{-- END .serv04__encompass --}}
-            <div class="serv04__content row mx-auto px-0">
-                <div class="serv04__box col-sm-3">
-                    <div class="serv04__box__content">
-                        <div class="serv04__box__image">
+            {{-- END .bran01__encompass --}}
+            <div class="bran01__content row mx-auto px-0">
+                <div class="bran01__box col-sm-3">
+                    <div class="bran01__box__content">
+                        <div class="bran01__box__image">
                             <img src="{{asset('storage/uploads/tmp/logo.svg')}}" alt="Logo" loading="lazy">
                        </div>
                     </div>
                 </div>
-                {{-- END .serv04__box --}}
-                <div class="serv04__box col-sm-3">
-                    <div class="serv04__box__content">
-                        <div class="serv04__box__image">
+                {{-- END .bran01__box --}}
+                <div class="bran01__box col-sm-3">
+                    <div class="bran01__box__content">
+                        <div class="bran01__box__image">
                             <img src="{{asset('storage/uploads/tmp/logo.svg')}}" alt="Logo" loading="lazy">
                        </div>
                     </div>
                 </div>
-                {{-- END .serv04__box --}}
-                <div class="serv04__box col-sm-3">
-                    <div class="serv04__box__content">
-                        <div class="serv04__box__image">
+                {{-- END .bran01__box --}}
+                <div class="bran01__box col-sm-3">
+                    <div class="bran01__box__content">
+                        <div class="bran01__box__image">
                             <img src="{{asset('storage/uploads/tmp/logo.svg')}}" alt="Logo" loading="lazy">
                        </div>
                     </div>
                 </div>
-                {{-- END .serv04__box --}}
-                <div class="serv04__box col-sm-3">
-                    <div class="serv04__box__content">
-                        <div class="serv04__box__image">
+                {{-- END .bran01__box --}}
+                <div class="bran01__box col-sm-3">
+                    <div class="bran01__box__content">
+                        <div class="bran01__box__image">
                             <img src="{{asset('storage/uploads/tmp/logo.svg')}}" alt="Logo" loading="lazy">
                        </div>
                     </div>
                 </div>
-                {{-- END .serv04__box --}}
-                <div class="serv04__box col-sm-3">
-                    <div class="serv04__box__content">
-                        <div class="serv04__box__image">
+                {{-- END .bran01__box --}}
+                <div class="bran01__box col-sm-3">
+                    <div class="bran01__box__content">
+                        <div class="bran01__box__image">
                             <img src="{{asset('storage/uploads/tmp/logo.svg')}}" alt="Logo" loading="lazy">
                        </div>
                     </div>
                 </div>
-                {{-- END .serv04__box --}}
+                {{-- END .bran01__box --}}
             </div>
-            {{-- END .serv04__content --}}
+            {{-- END .bran01__content --}}
         </div>
     </div>
-    {{-- END .serv04__container --}}
+    {{-- END .bran01__container --}}
 </section>
-{{-- END .serv04 --}}
+{{-- END .bran01 --}}
