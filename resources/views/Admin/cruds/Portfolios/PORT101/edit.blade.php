@@ -48,7 +48,7 @@
                     {!! Form::close() !!}
                 </div>
             </div> <!-- container -->
-            @include('Admin.cruds.Units.PORT101.Galleries.index', [
+            @include('Admin.cruds.Portfolios.PORT101.Galleries.index', [
                 'portfolio' => $portfolio,
                 'galleries' => $galleries,
             ])

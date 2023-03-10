@@ -173,7 +173,7 @@ class PORT101Controller extends Controller
      */
     public function destroy(PORT101Portfolios $PORT101Portfolios)
     {
-        $galleries = PORT101PortfolioGallery::where('portfolio_id', $PORT101Portfolio->id)->get();
+        $galleries = PORT101PortfoliosGallery::where('portfolio_id', $PORT101Portfolios->id)->get();
         foreach($galleries as $gallery){
             storageDelete($gallery, 'path_image');
             $gallery->delete();
@@ -199,7 +199,7 @@ class PORT101Controller extends Controller
     {
         $PORT101Portfolioss = PORT101Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT101Portfolioss as $PORT101Portfolios){
-            $galleries = PORT101PortfolioGallery::where('portfolio_id', $PORT101Portfolio->id)->get();
+            $galleries = PORT101PortfoliosGallery::where('portfolio_id', $PORT101Portfolios->id)->get();
         foreach($galleries as $gallery){
             storageDelete($gallery, 'path_image');
             $gallery->delete();

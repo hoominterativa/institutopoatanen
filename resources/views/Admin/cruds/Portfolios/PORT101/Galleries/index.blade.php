@@ -50,20 +50,11 @@
                                                 value="{{ $gallery->id }}"></label>
                                     </td>
                                     <td class="align-middle avatar-group">
-                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                            style="background-image: url({{ asset('admin/assets/' . $gallery->path_image) }})">
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        @switch($gallery->active)
-                                            @case(1)
-                                                <span class="badge bg-success">Ativo</span>
-                                            @break
-
-                                            @case(0)
-                                                <span class="badge bg-danger">Inativo</span>
-                                            @break
-                                        @endswitch
+                                        @if ($gallery->path_image)
+                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
+                                                style="background-image: url({{ asset('storage/' . $gallery->path_image) }})">
+                                            </div>
+                                        @endif
                                     </td>
                                     <td class="align-middle">{{ $gallery->path_image }}</td>
                                     <td class="align-middle">
@@ -88,7 +79,7 @@
                                                 <div class="modal-dialog" style="max-width: 1100px;">
                                                     <div class="modal-content">
                                                         <div class="modal-header p-3 pt-2 pb-2">
-                                                            <h4 class="page-title">Cadastrar Topicos</h4>
+                                                            <h4 class="page-title">Atualizar fotos</h4>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
