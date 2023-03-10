@@ -1276,109 +1276,15 @@ a {
 }
 
 /* BEGIN STYLE */
-.serv04 .container--serv04 {
-  padding: 39px 0 60.16px 0;
-}
-@media (max-width: 767.98px) {
-  .serv04 .container--serv04 {
-    padding: 37px 37px 58.16px 37px;
-  }
-}
-.serv04__encompass__title {
-  font-size: 2.5rem;
-  color: #404040;
-  font-family: "Montserrat", sans-serif, arial;
-  font-weight: 700;
-}
-@media (max-width: 767.98px) {
-  .serv04__encompass__title {
-    font-size: 1.875rem;
-    font-weight: 700;
-  }
-}
-.serv04__encompass__subtitle {
-  font-size: 1.25rem;
-  font-family: "Montserrat", sans-serif, arial;
-  color: #404040;
-  font-weight: 700;
-  margin-bottom: 22.03px;
-}
-@media (max-width: 767.98px) {
-  .serv04__encompass__subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
-  }
-}
-.serv04__encompass__line {
-  margin: 24.99px 0 30px 0;
-}
-@media (max-width: 767.98px) {
-  .serv04__encompass__line {
-    margin: 23px 0;
-  }
-}
-.serv04__encompass__paragraph {
-  color: #404040;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  max-width: 890px;
-  width: 100%;
-}
-@media (max-width: 767.98px) {
-  .serv04__encompass__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.serv04__encompass__paragraph p {
-  color: #404040;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .serv04__encompass__paragraph p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.serv04__content {
-  margin-top: 58.01px;
-  display: flex;
-  gap: 21.44px 0;
-}
-@media (max-width: 767.98px) {
-  .serv04__content {
-    margin-top: 48px;
-  }
-}
-.serv04__box__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 136.84px;
-  background-color: #EFEFEF;
-}
-.serv04__box__image {
-  width: 62.29px;
-  height: 62.29px;
-}
-.serv04__box__image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.serv04-page__header .container--serv04-page {
+.serv04__header .container--serv04 {
   padding: 51px 0 46px 0;
 }
 @media (max-width: 767.98px) {
-  .serv04-page__header .container--serv04-page {
+  .serv04__header .container--serv04 {
     padding: 37px 34px 58.16px 34px;
   }
 }
-.serv04-page__header__title {
+.serv04__header__title {
   font-size: 3.125rem;
   color: #404040;
   font-family: "Montserrat", sans-serif, arial;
@@ -1386,13 +1292,13 @@ a {
   margin-bottom: 20px;
 }
 @media (max-width: 767.98px) {
-  .serv04-page__header__title {
+  .serv04__header__title {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0px;
   }
 }
-.serv04-page__header__subtitle {
+.serv04__header__subtitle {
   font-size: 1.875rem;
   font-family: "Montserrat", sans-serif, arial;
   color: #B3B3B3;
@@ -1400,20 +1306,20 @@ a {
   margin-bottom: 22.03px;
 }
 @media (max-width: 767.98px) {
-  .serv04-page__header__subtitle {
+  .serv04__header__subtitle {
     font-size: 1.563rem;
     font-weight: 700;
   }
 }
-.serv04-page__header__line {
+.serv04__header__line {
   margin-top: 25px;
 }
 @media (max-width: 767.98px) {
-  .serv04-page__header__line {
+  .serv04__header__line {
     margin: 23px 0;
   }
 }
-.serv04-page__header__paragraph {
+.serv04__header__paragraph {
   color: #404040;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
@@ -1421,113 +1327,66 @@ a {
   width: 100%;
 }
 @media (max-width: 767.98px) {
-  .serv04-page__header__paragraph {
+  .serv04__header__paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
   }
 }
-.serv04-page__header__paragraph p {
+.serv04__header__paragraph p {
   color: #404040;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
   margin-bottom: 0;
 }
 @media (max-width: 767.98px) {
-  .serv04-page__header__paragraph p {
+  .serv04__header__paragraph p {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
   }
 }
-.serv04-page__encompass__title {
-  font-size: 2.5rem;
-  color: #404040;
-  font-family: "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-@media (max-width: 767.98px) {
-  .serv04-page__encompass__title {
-    font-size: 1.875rem;
-    font-weight: 700;
-  }
-}
-.serv04-page__encompass__subtitle {
-  font-size: 1.25rem;
-  font-family: "Montserrat", sans-serif, arial;
-  color: #B3B3B3;
-  font-weight: 700;
-  margin-bottom: 22.03px;
-}
-@media (max-width: 767.98px) {
-  .serv04-page__encompass__subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
-  }
-}
-.serv04-page__encompass__line {
-  margin: 24.99px 0 30px 0;
-}
-@media (max-width: 767.98px) {
-  .serv04-page__encompass__line {
-    margin: 23px 0;
-  }
-}
-.serv04-page__encompass__paragraph {
-  color: #7C7C7C;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  max-width: 890px;
-  width: 100%;
-}
-@media (max-width: 767.98px) {
-  .serv04-page__encompass__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.serv04-page__encompass__paragraph p {
-  color: #7C7C7C;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .serv04-page__encompass__paragraph p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.serv04-page .row--serv04-page {
+.serv04__content {
   margin-top: 58.01px;
   display: flex;
-  gap: 21.44px 0;
 }
-.serv04-page .container--serv04-page__main {
-  padding: 47px 0 123.16px 0;
-}
-@media (max-width: 767.98px) {
-  .serv04-page .container--serv04-page__main {
-    padding: 47px 34px 123.16px 34px;
-  }
+.serv04__box {
+  position: relative;
 }
 @media (max-width: 575.98px) {
-  .serv04-page__box {
+  .serv04__box {
     padding: 0 !important;
   }
 }
-.serv04-page__box__content {
+.serv04__box__content {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 136.84px;
-  background-color: #EFEFEF;
-  width: 100%;
+  min-height: 488.33px;
+  height: 100%;
 }
-.serv04-page__box__image {
+.serv04__box__bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.serv04__box__description {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+.serv04__box__image {
   width: 62.29px;
   height: 62.29px;
 }
-.serv04-page__box__image img {
+.serv04__box__image img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
