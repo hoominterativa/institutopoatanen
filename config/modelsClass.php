@@ -111,6 +111,11 @@ return [
                 'model' => App\Models\Services\SERV01Services::class,
                 'seedQty' => 4,
             ],
+            'SERV04' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV04Controller::class,
+                'model' => App\Models\Services\SERV04Services::class,
+                'seedQty' => 4,
+            ],
         ],
         // END SERVICES
 

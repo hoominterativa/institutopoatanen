@@ -29,7 +29,8 @@
         "TOPI102"
     ],
     "Services": [
-        "SERV01"
+        "SERV01",
+        "SERV04"
     ],
     "Abouts": [
         "ABOU01",
