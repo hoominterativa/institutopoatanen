@@ -13,25 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class PORT101GalleryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Portfolios/PORT101/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -42,107 +24,20 @@ class PORT101GalleryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $namesImages = $helper->uploadMultipleImage($request, 'path_image', $this->path);
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(PORT101PortfoliosGallery::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
-        }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolios\PORT101PortfoliosGallery  $PORT101PortfoliosGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PORT101PortfoliosGallery $PORT101PortfoliosGallery)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Portfolios\PORT101PortfoliosGallery  $PORT101PortfoliosGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PORT101PortfoliosGallery $PORT101PortfoliosGallery)
-    {
-        $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-        if($path_image){
-            storageDelete($PORT101PortfoliosGallery, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($PORT101PortfoliosGallery, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($PORT101PortfoliosGallery, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        foreach ($namesImages as $namesImage) {
+            PORT101PortfoliosGallery::create(['path_image' => $namesImage, 'portfolio_id' => $request->portfolio_id]);
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PORT101PortfoliosGallery, 'path_archive');
-            $data['path_archive'] = null;
-        }
+        Session::flash('reopenModal', 'modal-gallery-update-'.$request->portfolio_id);
 
-        */
-
-        if($PORT101PortfoliosGallery->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
-        }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
-        }
+        return Response::json([
+            'status' => 'success',
+            'countUploads' => count($namesImages),
+        ]);
     }
 
     /**
@@ -153,8 +48,7 @@ class PORT101GalleryController extends Controller
      */
     public function destroy(PORT101PortfoliosGallery $PORT101PortfoliosGallery)
     {
-        //storageDelete($PORT101PortfoliosGallery, 'path_image');
-        //storageDelete($PORT101PortfoliosGallery, 'path_archive');
+        storageDelete($PORT101PortfoliosGallery, 'path_image');
 
         if($PORT101PortfoliosGallery->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -170,14 +64,10 @@ class PORT101GalleryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $PORT101PortfoliosGallerys = PORT101PortfoliosGallery::whereIn('id', $request->deleteAll)->get();
         foreach($PORT101PortfoliosGallerys as $PORT101PortfoliosGallery){
             storageDelete($PORT101PortfoliosGallery, 'path_image');
-            storageDelete($PORT101PortfoliosGallery, 'path_archive');
         }
-        */
 
         if($deleted = PORT101PortfoliosGallery::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -196,51 +86,5 @@ class PORT101GalleryController extends Controller
             PORT101PortfoliosGallery::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portfolios\PORT101PortfoliosGallery  $PORT101PortfoliosGallery
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PORT101PortfoliosGallery $PORT101PortfoliosGallery)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }
