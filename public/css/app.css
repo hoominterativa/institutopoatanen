@@ -1279,18 +1279,18 @@ a {
 .serv04 .container--serv04 {
   padding: 39px 0 60.16px 0;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04 .container--serv04 {
-    padding: 37px calc(var(--bs-gutter-x) * 0.5) 58.16px calc(var(--bs-gutter-x) * 0.5);
+    padding: 37px 37px 58.16px 37px;
   }
 }
 .serv04__encompass__title {
   font-size: 2.5rem;
-  color: #000;
+  color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04__encompass__title {
     font-size: 1.875rem;
     font-weight: 700;
@@ -1303,7 +1303,7 @@ a {
   font-weight: 700;
   margin-bottom: 22.03px;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04__encompass__subtitle {
     font-size: 1.125rem;
     font-weight: 700;
@@ -1312,7 +1312,7 @@ a {
 .serv04__encompass__line {
   margin: 24.99px 0 30px 0;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04__encompass__line {
     margin: 23px 0;
   }
@@ -1324,7 +1324,7 @@ a {
   max-width: 890px;
   width: 100%;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04__encompass__paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
@@ -1336,7 +1336,7 @@ a {
   font: 1rem "Montserrat", sans-serif, arial;
   margin-bottom: 0;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04__encompass__paragraph p {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
@@ -1346,6 +1346,11 @@ a {
   margin-top: 58.01px;
   display: flex;
   gap: 21.44px 0;
+}
+@media (max-width: 767.98px) {
+  .serv04__content {
+    margin-top: 48px;
+  }
 }
 .serv04__box__content {
   display: flex;
@@ -1366,42 +1371,44 @@ a {
 }
 
 .serv04-page__header .container--serv04-page {
-  padding: 39px 0 60.16px 0;
+  padding: 51px 0 46px 0;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__header .container--serv04-page {
-    padding: 37px calc(var(--bs-gutter-x) * 0.5) 58.16px calc(var(--bs-gutter-x) * 0.5);
+    padding: 37px 34px 58.16px 34px;
   }
 }
 .serv04-page__header__title {
-  font-size: 2.5rem;
-  color: #000;
+  font-size: 3.125rem;
+  color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
+  margin-bottom: 20px;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__header__title {
-    font-size: 1.875rem;
+    font-size: 2.5rem;
     font-weight: 700;
+    margin-bottom: 0px;
   }
 }
 .serv04-page__header__subtitle {
-  font-size: 1.25rem;
+  font-size: 1.875rem;
   font-family: "Montserrat", sans-serif, arial;
-  color: #404040;
+  color: #B3B3B3;
   font-weight: 700;
   margin-bottom: 22.03px;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__header__subtitle {
-    font-size: 1.125rem;
+    font-size: 1.563rem;
     font-weight: 700;
   }
 }
 .serv04-page__header__line {
-  margin: 24.99px 0 30px 0;
+  margin-top: 25px;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__header__line {
     margin: 23px 0;
   }
@@ -1413,7 +1420,7 @@ a {
   max-width: 890px;
   width: 100%;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__header__paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
@@ -1425,7 +1432,7 @@ a {
   font: 1rem "Montserrat", sans-serif, arial;
   margin-bottom: 0;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__header__paragraph p {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
@@ -1433,11 +1440,12 @@ a {
 }
 .serv04-page__encompass__title {
   font-size: 2.5rem;
-  color: #000;
+  color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
+  margin-bottom: 8px;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__encompass__title {
     font-size: 1.875rem;
     font-weight: 700;
@@ -1446,11 +1454,11 @@ a {
 .serv04-page__encompass__subtitle {
   font-size: 1.25rem;
   font-family: "Montserrat", sans-serif, arial;
-  color: #404040;
+  color: #B3B3B3;
   font-weight: 700;
   margin-bottom: 22.03px;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__encompass__subtitle {
     font-size: 1.125rem;
     font-weight: 700;
@@ -1459,31 +1467,31 @@ a {
 .serv04-page__encompass__line {
   margin: 24.99px 0 30px 0;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__encompass__line {
     margin: 23px 0;
   }
 }
 .serv04-page__encompass__paragraph {
-  color: #404040;
+  color: #7C7C7C;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
   max-width: 890px;
   width: 100%;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__encompass__paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
   }
 }
 .serv04-page__encompass__paragraph p {
-  color: #404040;
+  color: #7C7C7C;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
   margin-bottom: 0;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .serv04-page__encompass__paragraph p {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
@@ -1496,6 +1504,16 @@ a {
 }
 .serv04-page .container--serv04-page__main {
   padding: 47px 0 123.16px 0;
+}
+@media (max-width: 767.98px) {
+  .serv04-page .container--serv04-page__main {
+    padding: 47px 34px 123.16px 34px;
+  }
+}
+@media (max-width: 575.98px) {
+  .serv04-page__box {
+    padding: 0 !important;
+  }
 }
 .serv04-page__box__content {
   display: flex;

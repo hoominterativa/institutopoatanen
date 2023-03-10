@@ -2,7 +2,7 @@
     <div class="container container--serv04">
         <div class="row">
             <div class="serv04__encompass px-0 text-center mx-auto w-100">
-                <h2 class="serv04__encompass__stitle">Titulo</h2>
+                <h2 class="serv04__encompass__title">Titulo</h2>
                 <h3 class="serv04__encompass__subtitle">subtitulo</h3>
                 <hr class="serv04__encompass__line">
                 <div class="serv04__encompass__paragraph mx-auto">
