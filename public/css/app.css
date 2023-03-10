@@ -1275,7 +1275,97 @@ a {
   list-style: none;
 }
 
-/* BEGIN STYLE */ /* BEGIN STYLE */
+/* BEGIN STYLE */
+.serv04 .container--serv04 {
+  padding: 39px 0 60.16px 0;
+}
+@media (max-width: 575.98px) {
+  .serv04 .container--serv04 {
+    padding: 37px calc(var(--bs-gutter-x) * 0.5) 58.16px calc(var(--bs-gutter-x) * 0.5);
+  }
+}
+.serv04__encompass__title {
+  font-size: 2.5rem;
+  color: #000;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 575.98px) {
+  .serv04__encompass__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+}
+.serv04__encompass__subtitle {
+  font-size: 1.25rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #404040;
+  font-weight: 700;
+  margin-bottom: 22.03px;
+}
+@media (max-width: 575.98px) {
+  .serv04__encompass__subtitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+.serv04__encompass__line {
+  margin: 24.99px 0 30px 0;
+}
+@media (max-width: 575.98px) {
+  .serv04__encompass__line {
+    margin: 23px 0;
+  }
+}
+.serv04__encompass__paragraph {
+  color: #404040;
+  font-weight: 400;
+  font: 1rem "Montserrat", sans-serif, arial;
+  max-width: 890px;
+  width: 100%;
+}
+@media (max-width: 575.98px) {
+  .serv04__encompass__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.serv04__encompass__paragraph p {
+  color: #404040;
+  font-weight: 400;
+  font: 1rem "Montserrat", sans-serif, arial;
+  margin-bottom: 0;
+}
+@media (max-width: 575.98px) {
+  .serv04__encompass__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.serv04__content {
+  margin-top: 58.01px;
+  display: flex;
+  gap: 21.44px 0;
+}
+.serv04__box__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 136.84px;
+  background-color: #EFEFEF;
+}
+.serv04__box__image {
+  width: 62.29px;
+  height: 62.29px;
+}
+.serv04__box__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;

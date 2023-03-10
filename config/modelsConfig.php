@@ -17,16 +17,9 @@ return [
         'Services' => (object) [
             'SERV04' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => false,
-                    'limit' => 'all',
-                    'condition' => '',
-                    'relation' => '',
-                ],
                 'config' => (object) [
                     'titleMenu' => '',
                     'anchor' =>  false,
