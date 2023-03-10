@@ -19,14 +19,13 @@ return [
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
                 'config' => (object) [
                     'titleMenu' => 'Serviços',
-                    'anchor' =>  true,
-                    'linkMenu' => '',
-                    'iconMenu' => 'string',
-                    'titlePanel' => 'SERV04',
-                    'iconPanel' => 'string'
+                    'anchor' =>  false,
+                    'linkMenu' => 'serv04.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
             ],
