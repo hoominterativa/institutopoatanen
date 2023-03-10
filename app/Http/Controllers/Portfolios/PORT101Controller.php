@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Portfolios\PORT101Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT101PortfoliosSection;
 
 class PORT101Controller extends Controller
 {
@@ -24,8 +25,10 @@ class PORT101Controller extends Controller
     public function index()
     {
         $portfolios = PORT101Portfolios::sorting()->active()->paginate(10);
+        $section = PORT101PortfoliosSection::active()->first();
         return view('Admin.cruds.Portfolios.PORT101.index', [
             'portfolios' => $portfolios,
+            'section' => $section,
             'cropSetting' => getCropImage('Portfolios', 'PORT101')
         ]);
     }
