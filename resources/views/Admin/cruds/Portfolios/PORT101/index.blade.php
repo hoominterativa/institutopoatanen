@@ -185,9 +185,6 @@
                                                             <span class="badge bg-danger">Inativo</span>
                                                         @break
                                                     @endswitch
-                                                    @if ($portfolio->featured)
-                                                        <span class="badge bg-primary text-white">Destaque</span>
-                                                    @endif
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="row">
@@ -208,11 +205,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-
-                                {{-- PAGINATION --}}
-                                {{-- <div class="mt-3 float-end">
-                                    {{$portfolio->links()}}
-                                </div> --}}
                             </div>
                         </div> <!-- end card-->
                     </div> <!-- end col-->

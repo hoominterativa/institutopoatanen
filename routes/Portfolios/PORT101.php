@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Portfolios\PORT101GalleryController;
 use App\Http\Controllers\Portfolios\PORT101SectionController;
 
 /**
@@ -26,7 +27,7 @@ $routeName = Str::lower($model);
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/secao', PORT101SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'PORT01PortfoliosSection']);
 
-    Route::resource($route.'/galeria', PORT101GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'PORT01PortfoliosGallery']);
+    Route::resource($route.'/galeria', PORT101GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'PORT101PortfoliosGallery']);
     Route::post($route.'/galeria/delete', [PORT101GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
     Route::post($route.'/galeria/sorting', [PORT101GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });

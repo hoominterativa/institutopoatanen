@@ -25,7 +25,7 @@ class PORT101Controller extends Controller
      */
     public function index()
     {
-        $portfolios = PORT101Portfolios::sorting()->active()->paginate(10);
+        $portfolios = PORT101Portfolios::sorting()->active()->get();
         $section = PORT101PortfoliosSection::active()->first();
         return view('Admin.cruds.Portfolios.PORT101.index', [
             'portfolios' => $portfolios,
@@ -58,12 +58,6 @@ class PORT101Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['featured'] = $request->active?1:0;
-
-        $colorDelete = array_search(end($data['colors']), $data['colors']);
-        unset($data['colors'][$colorDelete]);
-        $data['colors'] = implode(',', $data['colors']);
-        $data['slug'] = Str::slug($data['title']);
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
@@ -117,12 +111,6 @@ class PORT101Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['featured'] = $request->active?1:0;
-
-        $colorDelete = array_search(end($data['colors']), $data['colors']);
-        unset($data['colors'][$colorDelete]);
-        $data['colors'] = implode(',', $data['colors']);
-        $data['slug'] = Str::slug($data['title']);
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
         if($path_image_box){

@@ -22,36 +22,63 @@
                             </h4>
                         </div>
                     </div>
-                    <div class="col-12">
+
+                    {{-- <div class="col-12">
                         <button class="btn btn-info float-end me-3 mb-3" type="button" data-bs-toggle="collapse"
                             data-bs-target="#formService" aria-expanded="false" aria-controls="collapseExample">
                             Esconder/Exibir formulário
                         </button>
                         <a href="#containerGalleries" class="btn btn-warning float-end me-3 mb-3"> Galeria de fotos </a>
+                    </div> --}}
+                </div>
+
+                <!-- end page title -->
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#portfolio" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link active d-flex align-items-center">
+                            {{ getTitleModel($configModelsMain, 'Portfolios', 'PORT101') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#containerGalleries" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Galeria
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta galeria será exibida no light box da seção."></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="portfolio">
+                        <div class="collapse show" id="formService">
+                            {!! Form::model($portfolio, [
+                                'route' => ['admin.port101.update', $portfolio->id],
+                                'class' => 'parsley-validate',
+                                'method' => 'PUT',
+                                'files' => true,
+                            ]) !!}
+                            @include('Admin.Cruds.Portfolios.PORT101.form')
+                            {!! Form::button('Salvar', [
+                                'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
+                                'type' => 'submit',
+                            ]) !!}
+                            <a href="{{ route('admin.port101.index') }}"
+                                class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                    <div class="tab-pane show active" id="containerGalleries">
+                        @include('Admin.cruds.Portfolios.PORT101.Galleries.index', [
+                            'portfolio' => $portfolio,
+                            'galleries' => $galleries,
+                        ])
                     </div>
                 </div>
-                <!-- end page title -->
-                <div class="collapse show" id="formService">
-                    {!! Form::model($portfolio, [
-                        'route' => ['admin.port101.update', $portfolio->id],
-                        'class' => 'parsley-validate',
-                        'method' => 'PUT',
-                        'files' => true,
-                    ]) !!}
-                    @include('Admin.Cruds.Portfolios.PORT101.form')
-                    {!! Form::button('Salvar', [
-                        'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
-                        'type' => 'submit',
-                    ]) !!}
-                    <a href="{{ route('admin.port101.index') }}"
-                        class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                    {!! Form::close() !!}
-                </div>
             </div> <!-- container -->
-            @include('Admin.cruds.Portfolios.PORT101.Galleries.index', [
-                'portfolio' => $portfolio,
-                'galleries' => $galleries,
-            ])
+            
         </div> <!-- content -->
     </div>
     @include('Admin.components.links.resourcesCreateEdit')

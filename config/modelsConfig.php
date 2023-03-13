@@ -38,6 +38,53 @@ return [
                 ],
                 'IncludeSections' => (object) []
             ],
+            'PORT01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Portfólios 01',
+                    'iconPanel' => 'mdi-topic-circle'
+                ],
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Portfólios 01',
+                    'iconPanel' => 'mdi-topic-circle'
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
+
+        'Slides' => (object) [
+            'SLID02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Slides',
+                    'iconPanel' => 'mdi-topic-circle'
+                ],
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Slides',
+                    'iconPanel' => 'mdi-topic-circle'
+                ],
+                'IncludeSections' => (object) []
+            ],
         ],
     ],
 

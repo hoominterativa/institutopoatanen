@@ -17,7 +17,7 @@ class PORT101Portfolios extends Model
     }
 
     protected $table = "port101_portfolios";
-    protected $fillable = ['title', 'subtitle', 'description', 'link_button', 'target_link_button', 'colors', 'path_image_box', 'path_image_desktop', 'path_image_mobile', 'featured', 'active', 'sorting'];
+    protected $fillable = ['title', 'subtitle', 'description', 'link_button', 'target_link_button', 'path_image_box', 'path_image_desktop', 'path_image_mobile', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -26,7 +26,7 @@ class PORT101Portfolios extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1)->where('featured', 1);
+        return $query->where('active', 1);
     }
 
     public function galleries()

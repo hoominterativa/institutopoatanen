@@ -26,7 +26,7 @@ class PORT101GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $namesImages = $helper->uploadMultipleImage($request, 'path_image', $this->path);
+        $namesImages = $helper->uploadMultipleImage($request, 'path_image', $this->path, null, 100);
 
         foreach ($namesImages as $namesImage) {
             PORT101PortfoliosGallery::create(['path_image' => $namesImage, 'portfolio_id' => $request->portfolio_id]);
