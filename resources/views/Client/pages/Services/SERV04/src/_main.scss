@@ -3,52 +3,52 @@
 /* BEGIN STYLE */
 
 .serv04{
-    
-    &__header{
-        .container--serv04{
-            padding: 51px 0 46px 0;
-    
-            @include medium-device-down{
-                padding: 37px 34px 58.16px 34px;
-            }
+    padding: 76px 0 33px 0;
+        @include medium-device-down{
+            padding: 37px 34px 58.16px 34px;
         }
+
+    &__header{
+
+
         &__title{
-            font-size: $T1;
+            font-size: $T2;
             color: $color-one;
             font-family: $font-paragraph;
             font-weight: $weight-700;
-            margin-bottom: 20px;
-            
+
             @include medium-device-down{
-                font-size: $T1-mobile;
+                font-size: $T2-mobile;
                 font-weight: $weight-700;
                 margin-bottom: 0px;
-                
+
             }
         }
         &__subtitle{
-            font-size: $T3;
+            font-size: $T4;
             font-family: $font-paragraph;
             color: $color-three;
             font-weight: $weight-700;
-            margin-bottom: 22.03px;
 
             @include medium-device-down{
-                font-size: $T3-mobile;
+                font-size: $T4-mobile;
                 font-weight: $weight-700;
             }
         }
         &__line{
-            margin-top: 25px;
+            margin-top: 22.14px;
+            margin-bottom: 29.89px;
+
             @include medium-device-down{
-                margin: 23px 0; 
+                margin-top: 22.14px;
+                margin-bottom: 29.89px;
             }
         }
         &__paragraph{
-            color: $color-one;
+            color: $color-two;
             font-weight: $weight-400;
             font: $paragraph;
-            max-width: 890px;
+            max-width: 1036px;
             width: 100%;
 
             @include medium-device-down{
@@ -57,7 +57,7 @@
             }
 
             p{
-                color: $color-one;
+                color: $color-two;
                 font-weight: $weight-400;
                 font: $paragraph;
                 margin-bottom: 0;
@@ -68,7 +68,7 @@
                 }
             }
         }
-        
+
     }
 
     &__content{
@@ -78,6 +78,10 @@
 
     &__box{
         position: relative;
+        display: flex;
+        margin-bottom: 45px;
+        box-sizing: border-box;
+
         @include small-device-down{
             padding: 0 !important;
         }
@@ -88,6 +92,8 @@
             justify-content: center;
             min-height:488.33px;
             height: 100%;
+            position: relative;
+            width: 100%;
         }
         &__bg{
             background-position: center;
@@ -99,6 +105,12 @@
             left: 0;
             top: 0;
             z-index: 10;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
         &__description{
             width: 100%;
@@ -107,10 +119,17 @@
             left: 0;
             top: 0;
             z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 74px 45px;
+            text-align: center;
         }
         &__image{
             width: 62.29px;
             height: 62.29px;
+            margin-bottom: 35.9px;
 
             img{
                 width: 100%;
@@ -118,7 +137,354 @@
                 object-fit: contain;
             }
         }
+        &__title{
+            font-size: $T5;
+            color: $color-black;
+            font-family: $font-paragraph;
+            font-weight: $weight-700;
+            margin-bottom: 14.03px;
+
+            @include medium-device-down{
+                font-size: $T5-mobile;
+                font-weight: $weight-700;
+                margin-bottom: 0px;
+
+            }
+        }
+        &__paragraph{
+            color: $color-two;
+            font-weight: $weight-400;
+            font: $paragraph;
+            max-width: 890px;
+            width: 100%;
+
+            @include medium-device-down{
+                font: $paragraph-mobile;
+                font-weight: $weight-400;
+            }
+
+            p{
+                color: $color-two;
+                font-weight: $weight-400;
+                font: $paragraph;
+                margin-bottom: 0;
+
+                @include medium-device-down{
+                    font: $paragraph-mobile;
+                    font-weight: $weight-400;
+                }
+            }
+        }
+        &__cta{
+            @include Flex;
+            color: $color-black;
+            background: $color-five;
+            width: 100%;
+            max-width: 177px;
+            height: 45px;
+            font-family:$font-primary;
+            font-weight: $weight-700;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            bottom: -10px;
+
+            &__icon{
+                height: 25px !important;
+                width: 25px !important;
+                object-fit:contain;
+            }
+
+            @include small-device{
+                font: $paragraph-mobile;
+                margin-top: 39px;
+                width: 147px;
+            }
+
+            &:hover{
+                color: $color-white;
+                background-color: $bg-black;
+
+                .serv04__box__cta__icon{
+                    filter: invert(1) grayscale(1);
+                }
+            }
+        }
+    }
+    &__cta{
+        @include Flex;
+        color: $color-black;
+        background: $color-five;
+        width: 100%;
+        max-width: 177px;
+        height: 45px;
+        font-family:$font-primary;
+        font-weight: $weight-700;
+        margin-left: auto;
+        margin-top: -21px;
+
+        &__icon{
+            height: 25px !important;
+            width: 25px !important;
+            object-fit:contain;
+        }
+
+        @include small-device{
+            font: $paragraph-mobile;
+            margin-top: 39px;
+            width: 147px;
+        }
+
+        &:hover{
+            color: $color-white;
+            background-color: $bg-black;
+
+            .serv04__cta__icon{
+                filter: invert(1) grayscale(1);
+            }
+        }
+    }
+    .carousel-serv04{
+        @include small-device{
+            margin: 0 auto;
+        }
+        .owl-stage-outer{
+            padding: 0;
+        }
+        .owl-dots{
+            text-align: center;
+            margin-top: 23.67px;
+            display: flex !important;
+            justify-content: center;
+            gap: 0 4px;
+
+            .owl-dot{
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                background-color: #fff;
+                margin: 0 5px;
+                &.active,
+                &:hover{
+                    background-color: #969696;
+                }
+            }
+        }
     }
 }
+
+// Fim section SERV04
+.serv04-page{
+    &__header{
+        text-align: center;
+        background-color: #EFEFEF;
+        padding: 87px 0;
+        margin: 0;
+
+        &__container{
+            margin-bottom: 25px;
+        }
+        &__title{
+            font-size: $T1;
+            font-family: $font-primary;
+            color: $color-black;
+            display: block;
+
+            @include small-device{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            color: $color-two;
+            font-weight: $weight-400;
+            font: $paragraph;
+            max-width: 890px;
+            width: 100%;
+
+            @include medium-device-down{
+                font: $paragraph-mobile;
+                font-weight: $weight-400;
+            }
+
+            p{
+                color: $color-two;
+                font-weight: $weight-400;
+                font: $paragraph;
+                margin-bottom: 0;
+
+                @include medium-device-down{
+                    font: $paragraph-mobile;
+                    font-weight: $weight-400;
+                }
+            }
+        }
+        &__line{
+            width: 100%;
+            max-width: 610px;
+            background-color: $color-one;
+        }
+    }
+    // END __header
+
+    &__content{
+        text-align: center;
+        padding: 45px 0 120px;
+        &__container{
+            margin-bottom: 25px;
+        }
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            color: $color-one;
+            display: block;
+
+            @include small-device{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-500;
+            padding: 0 30px;
+            color: $color-one;
+            line-height: 25px;
+
+            p{
+                font: $paragraph;
+                font-weight: $weight-500;
+                color: $color-one;
+                line-height: 25px;
+
+                @include small-device{
+                    font: $paragraph-mobile;
+                }
+            }
+            @include small-device{
+                font: $paragraph-mobile;
+            }
+        }
+    }
+    // END __content
+
+    &__subcategory{
+        padding: 125px 10px;
+        background-color: #fff;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &__content{
+            background-color: #CACACA;
+            padding: 51px;
+            min-height: 100%;
+
+            &:hover{
+                transform: scale(1.01);
+            }
+        }
+        &__item{
+            &__header{
+                margin-bottom: 35px;
+            }
+            &__icon{
+                width: 32px !important;
+                margin-right: 21px;
+            }
+            &__title{
+                font-size: $T3;
+                color: $color-black;
+
+                @include small-device{
+                    font-size: $T3-mobile;
+                }
+            }
+            &__paragraph{
+                font: $paragraph;
+                font-weight: $weight-500;
+                color: $color-two;
+
+                @include small-device{
+                    font: $paragraph-mobile;
+                }
+            }
+        }
+        .carousel-serv04{
+
+            @include small-device{
+                margin: 0 auto;
+            }
+            .owl-stage-outer{
+                padding: 0;
+            }
+            .owl-dots{
+                text-align: center;
+                margin-top: 20px;
+                .owl-dot{
+                    width: 20px;
+                    height: 10px;
+                    display: inline-block;
+                    background-color: $color-three;
+                    margin: 0 5px;
+                    &.active,
+                    &:hover{
+                        background-color: $color-one;
+                    }
+                }
+            }
+        }
+    }
+    // END __topic
+}
+// END .serv04-page
+// .carousel-serv04-page .owl-nav{
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 52px;
+//     gap: 0 27px;
+// }
+
+// .carousel-serv04-page .owl-nav .owl-prev{
+//     width: 40px;
+//     height: 40px;
+//     border-radius: 100%;
+//     background: #fff;
+//     transition: 0.5s all ease;
+// }
+// .carousel-serv04-page .owl-nav .owl-next{
+//     width: 40px;
+//     height: 40px;
+//     border-radius: 100%;
+//     background: #fff;
+//     transition: 0.5s all ease;
+// }
+// .carousel-serv04-page .owl-nav .owl-next span{
+//     color:#9DAFBD;
+//     font-size: 35px;
+//     line-height: 22px;
+//     transition: 0.5s all ease;
+// }
+
+// .carousel-serv04-page .owl-nav .owl-prev span{
+//     color:#9DAFBD;
+//     font-size: 35px;
+//     line-height: 22px;
+//     transition: 0.5s all ease;
+// }
+// .carousel-serv04-page .owl-nav .owl-prev:hover{
+//     background: #000;
+//     transition: 0.5s all ease;
+// }
+// .carousel-serv04-page .owl-nav .owl-next:hover{
+//     background: #000;
+//     transition: 0.5s all ease;
+// }
+// .carousel-serv04-page .owl-nav .owl-prev:hover span{
+//     color: #fff;
+//     transition: 0.5s all ease;
+// }
+// .carousel-serv04-page .owl-nav .owl-next:hover span{
+//     color: #fff;
+//     transition: 0.5s all ease;
+// }
 
 

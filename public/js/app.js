@@ -12123,9 +12123,35 @@ $(function () {
 /*!******************************************************************!*\
   !*** ./resources/views/Client/pages/Services/SERV04/src/main.js ***!
   \******************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel-serv04').owlCarousel({
+    margin: 12,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    loop: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 361 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 800 up
+      800: {
+        items: 4
+      }
+    }
+  });
+});
 
 /***/ }),
 
