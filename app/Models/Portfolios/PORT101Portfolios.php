@@ -17,7 +17,7 @@ class PORT101Portfolios extends Model
     }
 
     protected $table = "port101_portfolios";
-    protected $fillable = ['title', 'subtitle', 'description', 'link_button', 'target_link_button', 'colors', 'path_image_box', 'path_image_desktop', 'path_image_moblie', 'featured', 'active', 'sorting'];
+    protected $fillable = ['title', 'subtitle', 'description', 'link_button', 'target_link_button', 'colors', 'path_image_box', 'path_image_desktop', 'path_image_mobile', 'featured', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

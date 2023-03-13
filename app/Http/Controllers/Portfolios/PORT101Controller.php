@@ -74,9 +74,9 @@ class PORT101Controller extends Controller
         $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        if(PORT101Portfolios::create($data)){
+        if($portfolios = PORT101Portfolios::create($data)){
             Session::flash('success', 'Portfólio cadastrado com sucesso');
-            return redirect()->route('admin.port101.index');
+            return redirect()->route('admin.port101.edit', ['PORT101Portfolios' => $portfolios->id]);
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_desktop);
@@ -112,6 +112,7 @@ class PORT101Controller extends Controller
      */
     public function update(Request $request, PORT101Portfolios $PORT101Portfolios)
     {
+        
         $data = $request->all();
         $helper = new HelperArchive();
 
@@ -161,8 +162,8 @@ class PORT101Controller extends Controller
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
