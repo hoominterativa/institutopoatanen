@@ -232,8 +232,11 @@ class PORT101Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT101');
 
+        $portfolios = PORT101Portfolios::with(['gallery'])->active()->sorting()->get();
+
         return view('Client.pages.Portfolios.PORT101.show',[
-            'sections' => $sections
+            'sections' => $sections,
+            'portfolios' => $portfolios
         ]);
     }
 
@@ -246,10 +249,22 @@ class PORT101Controller extends Controller
      */
     public static function section()
     {
-        $portfolios = PORT101Portfolios::sorting()->active()->get();
-        $sections = PORT101PortfoliosSection::active()->first();
-        // $galleries = PORT101PortfoliosGallery::where()
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $sections = PORT101PortfoliosSection::where('path_image_mobile','!=', '')->active()->first();
+                    $sections->path_image_desktop = $sections->path_image_mobile;
+            break;
+            default:
+                $sections = PORT101PortfoliosSection::active()->first();
+            break;
+        }
 
-        return view('Client.pages.Portfolios.PORT101.section');
+        $portfolios = PORT101Portfolios::sorting()->active()->get();
+
+        return view('Client.pages.Portfolios.PORT101.section', [
+            'portfolios' => $portfolios,
+            'sections' => $sections
+        ]);
     }
 }

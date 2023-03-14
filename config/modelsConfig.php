@@ -61,31 +61,6 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
-
-        'Slides' => (object) [
-            'SLID02' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Slides',
-                    'iconPanel' => 'mdi-topic-circle'
-                ],
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Slides',
-                    'iconPanel' => 'mdi-topic-circle'
-                ],
-                'IncludeSections' => (object) []
-            ],
-        ],
     ],
 
     'ModelsForm' => (object)[
