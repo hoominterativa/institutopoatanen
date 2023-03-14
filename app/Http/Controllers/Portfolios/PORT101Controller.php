@@ -220,29 +220,6 @@ class PORT101Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portfolios\PORT101Portfolios  $PORT101Portfolios
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PORT101Portfolios $PORT101Portfolios)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT101');
-
-        $portfolios = PORT101Portfolios::with(['gallery'])->active()->sorting()->get();
-
-        return view('Client.pages.Portfolios.PORT101.show',[
-            'sections' => $sections,
-            'portfolios' => $portfolios
-        ]);
-    }
-
-
-
-    /**
      * Section index resource.
      *
      * @return \Illuminate\Http\Response
@@ -253,15 +230,19 @@ class PORT101Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $sections = PORT101PortfoliosSection::where('path_image_mobile','!=', '')->active()->first();
+                $portfolios = PORT101Portfolios::with('galleries')->where('path_image_mobile','!=', '')->sorting()->active()->get();
                     $sections->path_image_desktop = $sections->path_image_mobile;
+                    foreach($portfolios as $portfolio) {
+                        $portfolio->path_image_desktop = $portfolio->path_image_mobile;
+                    }
             break;
             default:
                 $sections = PORT101PortfoliosSection::active()->first();
+                $portfolios = PORT101Portfolios::with('galleries')->sorting()->active()->get();
             break;
         }
 
-        $portfolios = PORT101Portfolios::sorting()->active()->get();
-
+       
         return view('Client.pages.Portfolios.PORT101.section', [
             'portfolios' => $portfolios,
             'sections' => $sections

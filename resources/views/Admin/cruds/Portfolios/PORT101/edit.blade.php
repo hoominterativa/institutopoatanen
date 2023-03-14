@@ -22,14 +22,6 @@
                             </h4>
                         </div>
                     </div>
-
-                    {{-- <div class="col-12">
-                        <button class="btn btn-info float-end me-3 mb-3" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#formService" aria-expanded="false" aria-controls="collapseExample">
-                            Esconder/Exibir formulário
-                        </button>
-                        <a href="#containerGalleries" class="btn btn-warning float-end me-3 mb-3"> Galeria de fotos </a>
-                    </div> --}}
                 </div>
 
                 <!-- end page title -->
@@ -78,7 +70,7 @@
                     </div>
                 </div>
             </div> <!-- container -->
-            
+
         </div> <!-- content -->
     </div>
     @include('Admin.components.links.resourcesCreateEdit')

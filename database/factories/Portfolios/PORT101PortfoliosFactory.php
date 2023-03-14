@@ -29,7 +29,7 @@ class PORT101PortfoliosFactory extends Factory
             'link_button' => 'https://www.lipsum.com/',
             'target_link_button' => '_blank',
             'path_image_box' => 'uploads/tmp/port01_path_image_box.png',
-            'path_image_desktop' => 'uploads/tmp/port01_path_image_section.png',
+            'path_image_desktop' => 'uploads/tmp/slid01_path_image_desktop.png',
             'path_image_mobile' => 'uploads/tmp/slid01_path_image_desktop.png',
             'active' => 1,
         ];

@@ -10,10 +10,10 @@
                 </header>
             @endif
             {{-- END .port101__emcompass --}}
-            @if ($portfolios)
+            @if ($portfolios->count())
                 <div class="port101__content carousel-port101 owl-carousel">
                     @foreach ($portfolios as $portfolio)
-                        <div class="port101__content__box" data-modal="#lightbox-port101-1">
+                        <div class="port101__content__box" data-modal="#lightbox-port101-{{ $portfolio->id }}">
                             <div class="port101__content__box__image">
                                 <img src="{{ asset('storage/' . $portfolio->path_image_box) }}" alt="Título Tópico">
                             </div>
@@ -35,9 +35,12 @@
                 </div>
                 {{-- END .carousel-port101 --}}
             @endif
-            @include('Client.pages.Portfolios.PORT101.show')
+            @foreach ($portfolios as $portfolio)
+                @include('Client.pages.Portfolios.PORT101.show', [
+                    'portfolio' => $portfolio,
+                ])
+            @endforeach
         </div>
-
         {{-- END .container --}}
     </section>
     {{-- END .port101 --}}
