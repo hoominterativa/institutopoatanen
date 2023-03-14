@@ -16,10 +16,20 @@
                     'id' => 'description',
                     'data-parsley-trigger' => 'keyup',
                     'data-parsley-minlength' => '20',
-                    'data-parsley-maxlength' => '300',
+                    'data-parsley-maxlength' => '100',
                     'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold' => '10',
                 ]) !!}
+            </div>
+            <div class="col-12">
+                <div class="normal-editor__content mb-3">
+                    {!! Form::label('text', 'Texto', ['class'=>'form-label']) !!}
+                    {!! Form::textarea('text', null, [
+                        'class'=>'form-control normal-editor',
+                        'data-height'=>500,
+                        'id'=>'text',
+                    ]) !!}
+                </div>
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">

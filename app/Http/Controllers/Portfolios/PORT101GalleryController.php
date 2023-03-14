@@ -26,18 +26,50 @@ class PORT101GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $namesImages = $helper->uploadMultipleImage($request, 'path_image', $this->path, null, 100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if($path_image) $data['path_image'] = $path_image;
 
-        foreach ($namesImages as $namesImage) {
-            PORT101PortfoliosGallery::create(['path_image' => $namesImage, 'portfolio_id' => $request->portfolio_id]);
+        if(PORT101PortfoliosGallery::create($data)){
+            Session::flash('success', 'Galeria cadastrada com sucesso');
+        }else{
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar a galeria');
+        }
+        return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Portfolios\PORT101PortfoliosGallery  $PORT101PortfoliosGallery
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, PORT101PortfoliosGallery $PORT101PortfoliosGallery)
+    {
+
+        $data = $request->all();
+        $helper = new HelperArchive();
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if($path_image){
+            storageDelete($PORT101PortfoliosGallery, 'path_image');
+            $data['path_image'] = $path_image;
+        }
+        if($request->delete_path_image && !$path_image){
+            storageDelete($PORT101PortfoliosGallery, 'path_image');
+            $data['path_image'] = null;
         }
 
-        Session::flash('reopenModal', 'modal-gallery-update-'.$request->portfolio_id);
-
-        return Response::json([
-            'status' => 'success',
-            'countUploads' => count($namesImages),
-        ]);
+        if($PORT101PortfoliosGallery->fill($data)->save()){
+            Session::flash('success', 'Galeria atualizada com sucesso');
+        }else{
+            Storage::delete($path_image);
+            Storage::delete($path_image);
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a galeria');
+        }
+        return redirect()->back();
     }
 
     /**

@@ -106,7 +106,7 @@ class PORT101Controller extends Controller
      */
     public function update(Request $request, PORT101Portfolios $PORT101Portfolios)
     {
-        
+
         $data = $request->all();
         $helper = new HelperArchive();
 
@@ -144,7 +144,6 @@ class PORT101Controller extends Controller
 
         if($PORT101Portfolios->fill($data)->save()){
             Session::flash('success', 'Portfólio atualizado com sucesso');
-            return redirect()->route('admin.port101.index');
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_desktop);
@@ -247,6 +246,10 @@ class PORT101Controller extends Controller
      */
     public static function section()
     {
+        $portfolios = PORT101Portfolios::sorting()->active()->get();
+        $sections = PORT101PortfoliosSection::active()->first();
+        // $galleries = PORT101PortfoliosGallery::where()
+
         return view('Client.pages.Portfolios.PORT101.section');
     }
 }

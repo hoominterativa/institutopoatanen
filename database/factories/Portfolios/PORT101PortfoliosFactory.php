@@ -24,7 +24,8 @@ class PORT101PortfoliosFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(12),
-            'description' => $this->faker->text(200),
+            'description' => $this->faker->text(100),
+            'text' => $this->faker->text(400),
             'link_button' => 'https://www.lipsum.com/',
             'target_link_button' => '_blank',
             'path_image_box' => 'uploads/tmp/port01_path_image_box.png',

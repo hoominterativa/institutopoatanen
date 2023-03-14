@@ -22,7 +22,7 @@
                                 <label><input name="btnSelectAll" value="btDeleteGalleries" type="checkbox"></label>
                             </th>
                             <th>Imagem</th>
-                            {{-- <th width="100px">Status</th> --}}
+                            <th>Link do vídeo</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                                         </div>
                                     @endif
                                 </td>
-                                {{-- <td class="align-middle">{{ $gallery->path_image }}</td> --}}
+                                <td class="align-middle">{{ $gallery->link_video }}</td>
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
