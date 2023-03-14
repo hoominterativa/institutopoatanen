@@ -12141,16 +12141,20 @@ $(function () {
         items: 1
       },
       // breakpoint from 360 up
-      361: {
+      500: {
         items: 1
       },
-      // breakpoint from 768 up
+      // breakpoint from 800 up
       800: {
-        items: 6
+        items: 4
       }
     }
   });
   $('.carousel-topi101').css('width', $(window).outerWidth());
+
+  if ($(window).outerWidth() <= 801) {
+    $('.carousel-topi101').css('width', $('.container--topic101').outerWidth());
+  }
 });
 
 /***/ }),

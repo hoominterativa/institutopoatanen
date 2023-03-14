@@ -1,4 +1,4 @@
-<section id="TOPI101" class="topi101 container-fluid">
+<section id="TOPI101" class="topi101 container-fluid px-0">
     <div class="container container--topic101">
         <div class="topi101__encompass text-center">
             <h4 class="topi101__encompass__title">Titulo</h4>
