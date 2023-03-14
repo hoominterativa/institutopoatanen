@@ -18,28 +18,44 @@
             </header>
             <div class="serv04-page__content">
                 <nav class="serv04-page__navigation">
-                    <div class="container">
-                        <ul>
+                    <div class="container container--navi px-0 mx-auto">
+                        <ul class="px-0">
                             <li><a href="#">Categoria</a></li>
                             <li><a href="#">Categoria</a></li>
                             <li><a href="#">Categoria</a></li>
                         </ul>
+                        <div class="serv04-page__navigation__select">
+                            <select  name="category">
+                                <option value="category">Categoria</option>
+                            </select>
+                        </div>
                     </div>
                 </nav>
-                <div class="serv04-page__description">
-                    <h2 class="serv04-page__description__title">Categoria</h2>
-                    <div class="serv04-page__description__paragraph">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                            sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In
-                            et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                            Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                            Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
-                            tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                            Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
-                        </p>
+                <div class="serv04-page__text">
+                    <div class="container container--sepa px-0 mx-auto">
+                        <div class="serv04-page__box">
+                            <div class="row row--sepa mx-auto px-0">
+                                <div class="serv04-page__box__image col-auto px-0">
+                                    <img src="{{asset('storage/uploads/tmp/image-pmg.png')}}" alt="Image Categoria" loading="lazy">
+                                </div>
+                                <div class="serv04-page__box__description col">
+                                    <h2 class="serv04-page__box__title">Categoria</h2>
+                                    <div class="serv04-page__box__paragraph">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
+                                            sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In
+                                            et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
+                                            consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
+                                            Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
+                                            Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
+                                            tempus mi pretium sed. In et arcu eget purus mattis posuere.
+                                            Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,45 +63,55 @@
         </section>
         {{-- END .serv04-page --}}
 
-        <section class="serv04-page__subcategory container-fluid">
-            <div class="container">
+        <section class="serv04-page__subcategory container-fluid px-0">
+            <div class="container container--seps">
                 <div class="serv04-page__subcategory__nav">
-                    <div class="row carousel-serv04-page__subcategory">
-
-                    </div>
+                    <ul class="carousel-serv04-page__subcategory px-0 mb-0 owl-carousel serv04-page__subcategory____eng">
+                        <li class="serv04-page__subcategory__box position-relative" style="background-image:url({{asset('storage/uploads/tmp/retangle.png')}});">
+                                <a href="#" class="link-full"></a>
+                                <div class="serv04-page__subcategory__box__image">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Subcategoria" loading="lazy">
+                                </div>
+                               <h2 class="serv04-page__subcategory__box__title">Subcategoria</h2>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="serv04-page__subcategory__content">
                     <div class="serv04-page__subcategory__content__box">
-                        <div class="serv04-page__subcategory__content__box__image">
-                            <img src="" alt="" laoding="lazy">
-                        </div>
-                        <div class="serv04-page__subcategory__content__box__description">
-                            <h2 class="serv04-page__content__title">Categoria</h2>
-                            <div class="serv04-page__content__paragraph">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                                    sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In
-                                    et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                                    Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
-                                    tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                                    Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
-                                </p>
+                        <div class="row mx-auto px-0">
+                            <div class="serv04-page__subcategory__content__box__image col-auto px-0">
+                                <img src="{{asset('storage/uploads/tmp/image-pmg.png')}}" alt="Categoria" loading="lazy">
+                            </div>
+                            <div class="serv04-page__subcategory__content__box__description col">
+                                <h2 class="serv04-page__subcategory__content__box__title">Subcategoria</h2>
+                                <h2 class="serv04-page__subcategory__content__box__subtitle">Subtitulo</h2>
+                                <div class="serv04-page__subcategory__content__box__paragraph">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
+                                        sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In
+                                        et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
+                                        Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
+                                        Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
+                                        tempus mi pretium sed. In et arcu eget purus mattis posuere.
+                                        Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="serv04-page__subcategory__content__accordion">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item coqe__boxQuestion__title">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-1" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <div class="accordion-item serv04-page__subcategory__content__accordion__boxQuestion">
+                                <h2 class="accordion-header" id="flush-collapseOne">
+                                    <button class="accordion-button collapsed serv04-page__subcategory__content__accordion__boxQuestion__title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-1" aria-expanded="false" aria-controls="flush-collapse-1">
                                         Lorem ipsum dolor sit amet,
                                     </button>
                                 </h2>
-                                <div id="flush-collapse-1" class="accordion-collapse collapse coqe__boxQuestion__description" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body ">
+                                <div id="flush-collapse-1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body serv04-page__subcategory__content__accordion__boxQuestion__texto">
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetvLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu ege
                                         </p>
@@ -93,50 +119,6 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="card">
-                              <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Collapsible Group Item #1
-                                  </button>
-                                </h5>
-                              </div>
-
-                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Collapsible Group Item #2
-                                  </button>
-                                </h5>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingThree">
-                                <h5 class="mb-0">
-                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Collapsible Group Item #3
-                                  </button>
-                                </h5>
-                              </div>
-                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                     </div>
                 </div>
             </div>
