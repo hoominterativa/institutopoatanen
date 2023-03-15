@@ -35,7 +35,20 @@
             }
         }
     },
-
+    "Brands": {
+        "BRAN01":{
+            "path_image_thumbnail": {
+                "width":"450",
+                "height":"420",
+                "activeCrop": "true"
+            },
+            "path_image": {
+                "width":"600",
+                "height":"600",
+                "activeCrop": "false"
+            }
+        }
+    },
     "Compliances": {
         "COMP01":{
             "Section": {

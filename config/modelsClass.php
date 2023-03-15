@@ -32,7 +32,14 @@ return [
             ],
         ],
         // END BLOGS
-
+        'Brands' => (object)[
+            'BRAN01' => (object)[
+                'controller' => App\Http\Controllers\Brands\BRAN01Controller::class,
+                'model' => App\Models\Brands\BRAN01Brands::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END BRANDS
         'Contents' => (object)[
             'CONT01' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT01Controller::class,
