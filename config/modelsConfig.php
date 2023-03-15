@@ -14,18 +14,26 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Brands' => (object) [
-            'BRAN01' => (object)[
+        'Topics' => (object) [
+            'TOPI101' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => false,
+                    'limit' => 'all',
+                    'condition' => '',
+                    'relation' => '',
+                ],
                 'config' => (object) [
-                    'titleMenu' => 'Marcas',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'bran01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Marcas',
-                    'iconPanel' => 'mdi-information'
+                    'linkMenu' => '',
+                    'iconMenu' => 'string',
+                    'titlePanel' => 'TOPIC101',
+                    'iconPanel' => 'string'
                 ],
                 'IncludeSections' => (object) []
             ],
