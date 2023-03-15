@@ -22,9 +22,16 @@ class CONT02ContentsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(15),
+            'description' => $this->faker->text(200),
+            'link_button' => 'https://www.lipsum.com/',
+            'target_link_button' => '_blank',
+            'path_image_background_desktop' => 'uploads/tmp/gall01_image1.png',
+            'path_image_background_mobile' => 'uploads/tmp/port01_path_image_left.jpg',
+            'path_image' => 'uploads/tmp/image-pmg.png',
+            'color' => '#4a81d4',
+            'active' => 1
         ];
     }
 }

@@ -16,16 +16,19 @@ class CONT02Contents extends Model
     }
 
     protected $table = "cont02_contents";
-    protected $fillable = [];
-
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
+    protected $fillable = [
+        'title', 'subtitle', 'description', 'link_button', 'target_link_button', 
+        'path_image_background_desktop', 'path_image_background_mobile', 'path_image', 'color', 'active', 'sorting'
+    ];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeSorting($query)
+    {
+        return $query->orderBy('sorting', 'ASC');
     }
 
     // public function getRelationCore()

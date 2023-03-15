@@ -20,11 +20,11 @@ return [
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'config' => (object) [
-                    'titleMenu' => 'Texto',
+                    'titleMenu' => 'Conteúdo',
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Texto',
+                    'titlePanel' => 'Conteúdo',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
