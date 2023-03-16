@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Topics\TOPI101TopicsSection;
 
 class TOPI101Controller extends Controller
 {
@@ -23,8 +24,10 @@ class TOPI101Controller extends Controller
     public function index()
     {
         $topics = TOPI101Topics::active()->sorting()->paginate(10);
+        $section = TOPI101TopicsSection::first();
         return view('Admin.cruds.Topics.TOPI101.index', [
             'topics' => $topics,
+            'section' => $section,
             'cropSetting' => getCropImage('Topics', 'TOPI101')
         ]);
     }
@@ -52,13 +55,15 @@ class TOPI101Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $data['active'] = $request->active ? 1 : 0;
 
-        if(TOPI101Topics::create($data)){
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) $data['path_image'] = $path_image;
+
+        if (TOPI101Topics::create($data)) {
             Session::flash('success', 'Tópico cadastrado com sucesso');
             return redirect()->route('admin.topi101.index');
-        }else{
+        } else {
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o tópico');
             return redirect()->back();
@@ -91,20 +96,22 @@ class TOPI101Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
+        $data['active'] = $request->active ? 1 : 0;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) {
             storageDelete($TOPI101Topics, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image && !$path_image){
+        if ($request->delete_path_image && !$path_image) {
             storageDelete($TOPI101Topics, 'path_image');
             $data['path_image'] = null;
         }
 
-        if($TOPI101Topics->fill($data)->save()){
+        if ($TOPI101Topics->fill($data)->save()) {
             Session::flash('success', 'Tópico atualizado com sucesso');
             return redirect()->route('admin.topi101.index');
-        }else{
+        } else {
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar o tópico');
             return redirect()->back();
@@ -121,7 +128,7 @@ class TOPI101Controller extends Controller
     {
         storageDelete($TOPI101Topics, 'path_image');
 
-        if($TOPI101Topics->delete()){
+        if ($TOPI101Topics->delete()) {
             Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
@@ -137,24 +144,24 @@ class TOPI101Controller extends Controller
     {
 
         $TOPI101Topicss = TOPI101Topics::whereIn('id', $request->deleteAll)->get();
-        foreach($TOPI101Topicss as $TOPI101Topics){
+        foreach ($TOPI101Topicss as $TOPI101Topics) {
             storageDelete($TOPI101Topics, 'path_image');
         }
 
-        if($deleted = TOPI101Topics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos deletados com sucessso']);
+        if ($deleted = TOPI101Topics::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' Tópicos deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             TOPI101Topics::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -164,6 +171,21 @@ class TOPI101Controller extends Controller
 
     public static function section()
     {
-        return view('Client.pages.Topics.TOPI101.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = TOPI101TopicsSection::active()->first();
+                $section->path_image_desktop = $section->path_image_mobile;
+                break;
+            default:
+                $section = TOPI101TopicsSection::active()->first();
+                break;
+        }
+
+        $topics = TOPI101Topics::active()->sorting()->get();
+        return view('Client.pages.Topics.TOPI101.section', [
+            'topics' => $topics,
+            'section' => $section
+        ]);
     }
 }

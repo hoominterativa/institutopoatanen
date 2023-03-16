@@ -244,7 +244,7 @@
                 "activeCrop": "true"
             },
             "Section": {
-                "path_image_background": {
+                "path_image_desktop": {
                     "width":"1450",
                     "height":"836",
                     "activeCrop": "true"
