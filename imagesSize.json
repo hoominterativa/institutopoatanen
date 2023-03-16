@@ -37,14 +37,14 @@
     },
     "Brands": {
         "BRAN01":{
-            "path_image_thumbnail": {
-                "width":"450",
-                "height":"420",
-                "activeCrop": "true"
+            "path_image_box": {
+                "width":"322",
+                "height":"137",
+                "activeCrop": "false"
             },
-            "path_image": {
-                "width":"600",
-                "height":"600",
+            "path_image_icon": {
+                "width":"300",
+                "height":"300",
                 "activeCrop": "false"
             }
         }

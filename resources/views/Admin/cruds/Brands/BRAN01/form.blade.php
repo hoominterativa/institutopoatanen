@@ -1,31 +1,76 @@
-{{--
-    Para uma boa organização dos inputs, em caso de uma tela de cadastro com muitos campos, recomendamos dividir em dua colunas
-    o "div class=col-12 dentro de .row" adicionando a classe 'col-lg-6' e duplicando toda a div e distribuir os inputs nessas colunas.
-
-    Lista de Inputs se encontra no arquivo 'resources/views/Admin/components/forms/inputs.blade.php' é só copiar a estrutura do blase desejada e colar
-    na área indicada abaixo. Veja abaixo um exemplo da estrutura do input.
-
-    <div class="mb-3">
-        {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'First name', 'required'=>'required']) !!}
-    </div>
-
-    PS.: Excluir esse comentário e todos relacioado a instruções.
---}}
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            {{-- INSERI OS INPUTS DOS FORMULARIOS AQUI --}}
+            <div class="row">
+                <div class="col-12 col-sm-8">
+                    {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
+                    {!! Form::url('link', null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                </div>
+            </div>
         </div>
         {{-- end card-body --}}
     </div>
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Ícone', ['class' => 'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas
+                        {{ $cropSetting->path_image_icon->width }}x{{ $cropSetting->path_image_icon->height }}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_icon', [
+                            'id' => 'inputImage',
+                            'class' => 'inputImage',
+                            'data-status' => $cropSetting->path_image_icon->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_icon->width, // px
+                            'data-min-height' => $cropSetting->path_image_icon->height, // px
+                            'data-box-height' => '170', // Input height in the form
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file' => isset($content)
+                                ? ($content->path_image_icon != ''
+                                    ? url('storage/' . $content->path_image_icon)
+                                    : '')
+                                : '',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas
+                        {{ $cropSetting->path_image_box->width }}x{{ $cropSetting->path_image_box->height }}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_box', [
+                            'id' => 'inputImage',
+                            'class' => 'inputImage',
+                            'data-status' => $cropSetting->path_image_box->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_box->width, // px
+                            'data-min-height' => $cropSetting->path_image_box->height, // px
+                            'data-box-height' => '170', // Input height in the form
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file' => isset($content)
+                                ? ($content->path_image_box != ''
+                                    ? url('storage/' . $content->path_image_box)
+                                    : '')
+                                : '',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+        </div>
+        {{-- end card-body --}}
+    </div>
+    <div class="d-flex">
+        <div class="form-check me-3">
+            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+            {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
+        </div>
+        <div class="form-check me-3">
+            {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
+            {!! Form::label('featured', 'Destacar na home', ['class'=>'form-check-label']) !!}
+        </div>
+    </div>
 </div>
 {{-- end row --}}
-
-{{-- Essa estrutura pode ser usada junto ao label do input para aparecer o ícone de duvida do lado do mesmo. pode usar a estutura abaixo substituindo o "Form::label" --}}
-{{-- <div class="d-flex align-items-center mb-1">
-    {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-original-title="Coloque a mensagem desejado aqui"></i>
-</div> --}}

@@ -13,6 +13,8 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class BRAN01Controller extends Controller
 {
+    protected $path = 'uploads/Brands/BRAN01/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +22,11 @@ class BRAN01Controller extends Controller
      */
     public function index()
     {
-        //
+        $brands = BRAN01Brands::active()->sorting()->paginate();
+        return view('Admin.cruds.Brands.BRAN01.index', [
+            'brands' => $brands,
+            'cropSetting' => getCropImage('Brands', 'BRAN01')
+        ]);
     }
 
     /**
@@ -30,7 +36,9 @@ class BRAN01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.crud.Brands.BRAN01.create', [
+            'cropSetting' => getCropImage('Brands', 'BRAN01')
+        ]);
     }
 
     /**
@@ -42,34 +50,23 @@ class BRAN01Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $data['active'] = $request->active ? 1 : 0;
+        $data['featured'] = $request->active ? 1 : 0;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(BRAN01Brands::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.bran01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_box);
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -83,7 +80,10 @@ class BRAN01Controller extends Controller
      */
     public function edit(BRAN01Brands $BRAN01Brands)
     {
-        //
+        return view('Admin.cruds.Brands.BRAN01.edit', [
+            'brand' => $BRAN01Brands,
+            'cropSetting' => getCropImage('Brands', 'BRAN01')
+        ]);
     }
 
     /**
@@ -96,50 +96,38 @@ class BRAN01Controller extends Controller
     public function update(Request $request, BRAN01Brands $BRAN01Brands)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-        if($path_image){
-            storageDelete($BRAN01Brands, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active ? 1 : 0;
+        $data['featured'] = $request->active ? 1 : 0;
+
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box){
+            storageDelete($BRAN01Brands, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($BRAN01Brands, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($BRAN01Brands, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($BRAN01Brands, 'path_image_box');
+            $data['path_image_box'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($BRAN01Brands, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($BRAN01Brands, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($BRAN01Brands, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
 
-        */
 
         if($BRAN01Brands->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.bran01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_box);
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
@@ -153,8 +141,8 @@ class BRAN01Controller extends Controller
      */
     public function destroy(BRAN01Brands $BRAN01Brands)
     {
-        //storageDelete($BRAN01Brands, 'path_image');
-        //storageDelete($BRAN01Brands, 'path_archive');
+        storageDelete($BRAN01Brands, 'path_image_box');
+        storageDelete($BRAN01Brands, 'path_image_icon');
 
         if($BRAN01Brands->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -170,14 +158,12 @@ class BRAN01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $BRAN01Brandss = BRAN01Brands::whereIn('id', $request->deleteAll)->get();
         foreach($BRAN01Brandss as $BRAN01Brands){
-            storageDelete($BRAN01Brands, 'path_image');
-            storageDelete($BRAN01Brands, 'path_archive');
+            storageDelete($BRAN01Brands, 'path_image_box');
+            storageDelete($BRAN01Brands, 'path_image_icon');
         }
-        */
 
         if($deleted = BRAN01Brands::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);

@@ -15,6 +15,12 @@ class CreateBran01BrandsTable extends Migration
     {
         Schema::create('bran01_brands', function (Blueprint $table) {
             $table->id();
+            $table->string('link')->nullable();
+            $table->enum('target_link', ['_blank'])->default('_blank');
+            $table->string('path_image_icon')->nullable();
+            $table->string('path_image_box')->nullable();
+            $table->integer('active')->default(0);
+            $table->integer('featured')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
