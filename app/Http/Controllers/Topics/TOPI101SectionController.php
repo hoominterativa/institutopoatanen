@@ -84,7 +84,7 @@ class TOPI101SectionController extends Controller
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar a seção');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 }
