@@ -35,7 +35,7 @@
                                     @if ($topic->description)
                                         <div class="topi101__box__bottom__description__paragraph">
                                             <p>
-                                                {{ $topic->description }}
+                                                {!! $topic->description !!}
                                             </p>
                                         </div>
                                     @endif
