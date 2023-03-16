@@ -13,6 +13,8 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class TOPI101Controller extends Controller
 {
+    protected $path = 'uploads/Topics/TOPI101/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +22,11 @@ class TOPI101Controller extends Controller
      */
     public function index()
     {
-        //
+        $topics = TOPI101Topics::active()->sorting()->paginate(10);
+        return view('Admin.cruds.Topics.TOPI101.index', [
+            'topics' => $topics,
+            'cropSetting' => getCropImage('Topics', 'TOPI101')
+        ]);
     }
 
     /**
@@ -30,7 +36,9 @@ class TOPI101Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Topics.TOPI101.create', [
+            'cropSetting' => getCropImage('Topics', 'TOPI101')
+        ]);
     }
 
     /**
@@ -42,35 +50,17 @@ class TOPI101Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(TOPI101Topics::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico cadastrado com sucesso');
+            return redirect()->route('admin.topi101.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o tópico');
             return redirect()->back();
         }
     }
@@ -83,7 +73,10 @@ class TOPI101Controller extends Controller
      */
     public function edit(TOPI101Topics $TOPI101Topics)
     {
-        //
+        return view('Admin.cruds.Topics.TOPI101.edit', [
+            'topic' => $TOPI101Topics,
+            'cropSetting' => getCropImage('Topics', 'TOPI101')
+        ]);
     }
 
     /**
@@ -96,14 +89,9 @@ class TOPI101Controller extends Controller
     public function update(Request $request, TOPI101Topics $TOPI101Topics)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($TOPI101Topics, 'path_image');
             $data['path_image'] = $path_image;
@@ -112,35 +100,13 @@ class TOPI101Controller extends Controller
             storageDelete($TOPI101Topics, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($TOPI101Topics, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($TOPI101Topics, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($TOPI101Topics->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico atualizado com sucesso');
+            return redirect()->route('admin.topi101.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar o tópico');
             return redirect()->back();
         }
     }
@@ -153,11 +119,10 @@ class TOPI101Controller extends Controller
      */
     public function destroy(TOPI101Topics $TOPI101Topics)
     {
-        //storageDelete($TOPI101Topics, 'path_image');
-        //storageDelete($TOPI101Topics, 'path_archive');
+        storageDelete($TOPI101Topics, 'path_image');
 
         if($TOPI101Topics->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +135,14 @@ class TOPI101Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $TOPI101Topicss = TOPI101Topics::whereIn('id', $request->deleteAll)->get();
         foreach($TOPI101Topicss as $TOPI101Topics){
             storageDelete($TOPI101Topics, 'path_image');
-            storageDelete($TOPI101Topics, 'path_archive');
         }
-        */
 
         if($deleted = TOPI101Topics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos deletados com sucessso']);
         }
     }
     /**

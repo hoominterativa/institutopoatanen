@@ -238,11 +238,6 @@
             }
         },
         "TOPI101":{
-            "path_image_icon": {
-                "width":"200",
-                "height":"200",
-                "activeCrop": "false"
-            },
             "path_image": {
                 "width":"300",
                 "height":"300",
@@ -250,9 +245,14 @@
             },
             "Section": {
                 "path_image_background": {
-                    "width":"1400",
-                    "height":"700",
-                    "activeCrop": "false"
+                    "width":"1450",
+                    "height":"836",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width":"390",
+                    "height":"836",
+                    "activeCrop": "true"
                 }
             }
         }

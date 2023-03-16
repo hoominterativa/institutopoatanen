@@ -22,9 +22,9 @@ class TOPI101TopicsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'description' => $this->faker->text(250),
+            'path_image' => 'uploads/tmp/image-box.jpg',
+            'active' => 1
         ];
     }
 }

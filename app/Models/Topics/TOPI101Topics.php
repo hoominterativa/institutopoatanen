@@ -16,7 +16,7 @@ class TOPI101Topics extends Model
     }
 
     protected $table = "topi101_topics";
-    protected $fillable = [];
+    protected $fillable = ['description', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

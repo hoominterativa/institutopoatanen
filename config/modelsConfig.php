@@ -14,17 +14,17 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contents' => (object) [
-            'CONT02' => (object)[
+        'Topics' => (object) [
+            'TOPI101' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'config' => (object) [
-                    'titleMenu' => 'Conteúdo',
+                    'titleMenu' => 'Tópicos',
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
+                    'titlePanel' => 'Tópicos',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []
