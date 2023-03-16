@@ -21,7 +21,7 @@
                         <div class="cont02__paragraph">
                             @if ($content->description)
                                 <p>
-                                    {{ $content->description }}
+                                    {!! $content->description !!}
                                 </p>
                             @endif
                         </div>
