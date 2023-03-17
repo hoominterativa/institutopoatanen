@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Brands;
 
+use Illuminate\Http\Request;
 use App\Models\Brands\BRAN01Brands;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Brands\BRAN01BrandsSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
@@ -22,9 +23,11 @@ class BRAN01Controller extends Controller
      */
     public function index()
     {
-        $brands = BRAN01Brands::active()->sorting()->paginate();
+        $brands = BRAN01Brands::sorting()->paginate();
+        $section = BRAN01BrandsSection::first();
         return view('Admin.cruds.Brands.BRAN01.index', [
             'brands' => $brands,
+            'section' => $section,
             'cropSetting' => getCropImage('Brands', 'BRAN01')
         ]);
     }
@@ -36,7 +39,7 @@ class BRAN01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.crud.Brands.BRAN01.create', [
+        return view('Admin.cruds.Brands.BRAN01.create', [
             'cropSetting' => getCropImage('Brands', 'BRAN01')
         ]);
     }
@@ -53,7 +56,7 @@ class BRAN01Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['featured'] = $request->active ? 1 : 0;
+        $data['featured'] = $request->featured ? 1 : 0;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
@@ -99,7 +102,7 @@ class BRAN01Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['featured'] = $request->active ? 1 : 0;
+        $data['featured'] = $request->featured ? 1 : 0;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box){
@@ -194,11 +197,28 @@ class BRAN01Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = BRAN01BrandsSection::first();
+                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
+                $section->path_image_section_desktop = $section->path_image_section_mobile;
+                $section->path_image_home_desktop = $section->path_image_home_mobile;
+            break;
+            default:
+            $section = BRAN01BrandsSection::first();
+            break;
+        }
+
+        $brands = BRAN01Brands::active()->sorting()->get();
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN01');
 
         return view('Client.pages.Brands.BRAN01.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'brands' => $brands,
+            'section' => $section
         ]);
     }
 
@@ -209,6 +229,21 @@ class BRAN01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Brands.BRAN01.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = BRAN01BrandsSection::first();                
+                $section->path_image_section_desktop = $section->path_image_section_mobile;
+            break;
+            default:
+            $section = BRAN01BrandsSection::first();
+            break;
+        }
+
+        $brands = BRAN01Brands::active()->sorting()->get();
+        return view('Client.pages.Brands.BRAN01.section', [
+            'section' => $section,
+            'brands' => $brands,
+        ]);
     }
 }

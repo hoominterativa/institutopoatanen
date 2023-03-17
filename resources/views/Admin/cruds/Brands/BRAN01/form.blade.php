@@ -1,13 +1,24 @@
 <div class="row col-12">
-    <div class="col-12">
+    <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="row">
                 <div class="col-12 col-sm-8">
                     {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
                     {!! Form::url('link', null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
-                </div>
-            </div>
+                </div>   
+                <div class="d-flex mt-3">
+                    <div class="form-check me-3">
+                        {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                        {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
+                    </div>
+                    <div class="form-check me-3">
+                        {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
+                        {!! Form::label('featured', 'Destacar na home', ['class'=>'form-check-label']) !!}
+                    </div>
+                </div>             
+            </div>            
         </div>
+        
         {{-- end card-body --}}
     </div>
     <div class="col-12 col-lg-6">
@@ -26,9 +37,9 @@
                             'data-min-height' => $cropSetting->path_image_icon->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($content)
-                                ? ($content->path_image_icon != ''
-                                    ? url('storage/' . $content->path_image_icon)
+                            'data-default-file' => isset($brand)
+                                ? ($brand->path_image_icon != ''
+                                    ? url('storage/' . $brand->path_image_icon)
                                     : '')
                                 : '',
                         ]) !!}
@@ -50,9 +61,9 @@
                             'data-min-height' => $cropSetting->path_image_box->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($content)
-                                ? ($content->path_image_box != ''
-                                    ? url('storage/' . $content->path_image_box)
+                            'data-default-file' => isset($brand)
+                                ? ($brand->path_image_box != ''
+                                    ? url('storage/' . $brand->path_image_box)
                                     : '')
                                 : '',
                         ]) !!}
@@ -62,15 +73,6 @@
         </div>
         {{-- end card-body --}}
     </div>
-    <div class="d-flex">
-        <div class="form-check me-3">
-            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-            {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
-        </div>
-        <div class="form-check me-3">
-            {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
-            {!! Form::label('featured', 'Destacar na home', ['class'=>'form-check-label']) !!}
-        </div>
-    </div>
+    
 </div>
 {{-- end row --}}

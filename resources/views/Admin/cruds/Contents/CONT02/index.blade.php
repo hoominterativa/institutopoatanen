@@ -55,7 +55,7 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/' . $content->path_image_background_desktop)}})"></div>
+                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage' . $content->path_image_background_desktop)}})"></div>
                                                 </td>
                                                 <td class="align-middle">{{$content->title}}</td>
                                                 <td class="align-middle">{{substr($content->description, 0, 50)}}</td>

@@ -30,6 +30,14 @@ class CreateBran01BrandsSectionsTable extends Migration
             $table->string('background_color_section')->nullable();
             $table->integer('active_section')->default(0);
 
+            $table->string('title_home')->nullable();
+            $table->string('subtitle_home')->nullable();
+            $table->text('description_home')->nullable();
+            $table->string('path_image_home_desktop')->nullable();
+            $table->string('path_image_home_mobile')->nullable();
+            $table->string('background_color_home')->nullable();
+            $table->integer('active_home')->default(0);
+
             $table->timestamps();
         });
     }

@@ -36,7 +36,7 @@ return [
             'BRAN01' => (object)[
                 'controller' => App\Http\Controllers\Brands\BRAN01Controller::class,
                 'model' => App\Models\Brands\BRAN01Brands::class,
-                'seedQty' => 1,
+                'seedQty' => 4,
             ],
         ],
         // END BRANDS
