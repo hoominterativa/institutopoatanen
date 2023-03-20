@@ -14,17 +14,17 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Brands' => (object) [
-            'BRAN01' => (object)[
+        'Blogs' => (object) [
+            'BLOG01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'config' => (object) [
                     'titleMenu' => 'Marcas',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'blog01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Marcas',
+                    'titlePanel' => 'Artigos',
                     'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) []

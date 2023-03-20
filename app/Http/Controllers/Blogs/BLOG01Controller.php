@@ -351,9 +351,12 @@ class BLOG01Controller extends Controller
         $blogs = BLOG01Blogs::with('category')->featuredHome()->sorting()->get();
         $section = BLOG01BlogsSection::first();
 
+        $category = BLOG01BlogsCategory::first();
+
         return view('Client.pages.Blogs.BLOG01.section',[
             'blogs' => $blogs,
             'section' => $section,
+            'category' => $category
         ]);
     }
 }
