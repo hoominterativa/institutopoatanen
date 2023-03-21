@@ -23,7 +23,7 @@ class SERV04Controller extends Controller
      */
     public function index()
     {
-        $services = SERV04Services::active()->sorting()->paginate(10);
+        $services = SERV04Services::sorting()->paginate(10);
         $section = SERV04ServicesSection::first();
         return view('Admin.cruds.Services.SERV04.index', [
             'services' => $services,

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV04SectionController;
 
 /**
  * Uncomment the code below
@@ -23,7 +24,7 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', SERV04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV04ServiceSection']);
+    Route::resource($route.'/secao', SERV04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV04ServicesSection']);
     Route::post($route.'/secao/delete', [SERV04SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 
     // Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');

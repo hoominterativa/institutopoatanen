@@ -20,7 +20,7 @@ return [
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'config' => (object) [
-                    'titleMenu' => 'Marcas',
+                    'titleMenu' => 'Blogs',
                     'anchor' =>  false,
                     'linkMenu' => 'blog01.page',
                     'iconMenu' => '',
@@ -59,6 +59,22 @@ return [
                 ],
                 'IncludeSections' => (object) []
             ],
+        ],
+        'Brands' => (object) [
+            'BRAN01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => 'Marcas',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Marcas',
+                    'iconPanel' => 'mdi-information'
+                ],
+                'IncludeSections' => (object) []
+            ]
         ],
     ],
 
