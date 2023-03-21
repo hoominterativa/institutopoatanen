@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV04Services;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Services\SERV04Services;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV04ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV04Controller extends Controller
 {
+    protected $path = 'uploads/Services/SERV04/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +23,13 @@ class SERV04Controller extends Controller
      */
     public function index()
     {
-        //
+        $services = SERV04Services::active()->sorting()->paginate(10);
+        $section = SERV04ServicesSection::first();
+        return view('Admin.cruds.Services.SERV04.index', [
+            'services' => $services,
+            'section' => $section,
+            'cropSetting' => getCropImage('Services', 'SERV04')
+        ]);
     }
 
     /**
@@ -30,7 +39,9 @@ class SERV04Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Services.SERV04.create', [
+            'cropSetting' => getCropImage('Services', 'SERV04')
+        ]);
     }
 
     /**
@@ -42,35 +53,28 @@ class SERV04Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
 
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(SERV04Services::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço cadastrado com sucesso');
+            return redirect()->route('admin.serv04.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_box);
+            Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
     }
@@ -83,7 +87,11 @@ class SERV04Controller extends Controller
      */
     public function edit(SERV04Services $SERV04Services)
     {
-        //
+
+        return view('Admin.cruds.Services.SERV04.edit', [
+            'service' => $SERV04Services,
+            'cropSetting' => getCropImage('Services', 'SERV04')
+        ]);
     }
 
     /**
@@ -96,14 +104,12 @@ class SERV04Controller extends Controller
     public function update(Request $request, SERV04Services $SERV04Services)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($SERV04Services, 'path_image');
             $data['path_image'] = $path_image;
@@ -112,35 +118,36 @@ class SERV04Controller extends Controller
             storageDelete($SERV04Services, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($SERV04Services, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($SERV04Services, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($SERV04Services, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV04Services, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box){
+            storageDelete($SERV04Services, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
+        }
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($SERV04Services, 'path_image_box');
+            $data['path_image_box'] = null;
         }
 
-        */
 
         if($SERV04Services->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço atualizado com sucesso');
+            return redirect()->route('admin.serv04.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_box);
+            Session::flash('error', 'Erro ao atualizar o serviço');
             return redirect()->back();
         }
     }
@@ -153,11 +160,12 @@ class SERV04Controller extends Controller
      */
     public function destroy(SERV04Services $SERV04Services)
     {
-        //storageDelete($SERV04Services, 'path_image');
-        //storageDelete($SERV04Services, 'path_archive');
+        storageDelete($SERV04Services, 'path_image');
+        storageDelete($SERV04Services, 'path_image_icon');
+        storageDelete($SERV04Services, 'path_image_box');
 
         if($SERV04Services->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Serviço deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +178,18 @@ class SERV04Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
+
 
         $SERV04Servicess = SERV04Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV04Servicess as $SERV04Services){
             storageDelete($SERV04Services, 'path_image');
-            storageDelete($SERV04Services, 'path_archive');
+            storageDelete($SERV04Services, 'path_image_icon');
+            storageDelete($SERV04Services, 'path_image_box');
         }
-        */
+
 
         if($deleted = SERV04Services::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Serviços deletados com sucessso']);
         }
     }
     /**

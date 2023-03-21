@@ -30,6 +30,36 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
+        'Services' => (object) [
+            'SERV04' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => 'Serviços',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-information'
+                ],
+                'IncludeSections' => (object) []
+            ],
+            'SERV01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => 'Serviços01',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços01',
+                    'iconPanel' => 'mdi-information'
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[

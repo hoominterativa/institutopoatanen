@@ -2,24 +2,21 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\Services\SERV04ServicesFactory;
+use Database\Factories\SERV04ServicesCategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SERV04Services extends Model
+class SERV04ServicesCategory extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return SERV04ServicesFactory::new();
+        return SERV04ServicesCategoryFactory::new();
     }
 
-    protected $table = "serv04_services";
-    protected $fillable = [
-        'title', 'subtitle', 'slug', 'text', 'description', 'path_image', 'path_image_box', 'path_image_icon',
-        'background_color', 'featured', 'active', 'sorting',
-    ];
+    protected $table = "";
+    protected $fillable = [];
 
     public function scopeSorting($query)
     {
@@ -29,11 +26,6 @@ class SERV04Services extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
-    }
-
-    public function scopeFeaturedPage($query)
-    {
-        return $query->where('featured', 1);
     }
 
     // public function getRelationCore()

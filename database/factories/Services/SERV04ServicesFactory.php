@@ -21,10 +21,21 @@ class SERV04ServicesFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(10);
+        $subtitle = $this->faker->text(12);
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            // 'category_id' => rand(1,4),
+            'title' => $title,
+            'subtitle' => $subtitle,
+            // "slug" => Str::slug($title.' '.$subtitle),
+            'description' => $this->faker->text(120),
+            'text' => $this->faker->text(503),
+            'path_image' => 'uploads/tmp/image-pmg.png',
+            'path_image_box' => 'uploads/tmp/retangle.png',
+            'path_image_icon' => 'uploads/tmp/icon-general.svg',
+            'background_color' => '#4a81d4',
+            'featured' => rand(0,1),
+            'active' => 1,
         ];
     }
 }
