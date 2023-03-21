@@ -22,9 +22,11 @@ class SERV04ServicesTopicFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'service_id' => rand(1,4),
+            'title' => $this->faker->text(10),
+            'slug' => $this->faker->text(10),
+            'text' => $this->faker->text(700),
+            'active' => 1,
         ];
     }
 }

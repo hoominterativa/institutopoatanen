@@ -2,9 +2,10 @@
 
 namespace App\Models\Services;
 
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Services\SERV04ServicesTopic;
 use Database\Factories\Services\SERV04ServicesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class SERV04Services extends Model
 {
@@ -36,8 +37,7 @@ class SERV04Services extends Model
         return $query->where('featured', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function topics() {
+        return $this->hasMany(SERV04ServicesTopic::class, 'service_id')->active()->sorting();
+    }
 }

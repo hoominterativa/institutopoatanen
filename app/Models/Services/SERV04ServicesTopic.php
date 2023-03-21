@@ -2,7 +2,7 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV04ServicesTopicFactory;
+use Database\Factories\Services\SERV04ServicesTopicFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,10 @@ class SERV04ServicesTopic extends Model
         return SERV04ServicesTopicFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "serv04_services_topics";
+    protected $fillable = [
+        'service_id', 'title', 'slug', 'text', 'active', 'sorting'
+    ];
 
     public function scopeSorting($query)
     {

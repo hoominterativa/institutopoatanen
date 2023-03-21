@@ -8,6 +8,7 @@ use App\Models\Services\SERV04Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV04ServicesTopic;
 use App\Models\Services\SERV04ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
@@ -87,9 +88,11 @@ class SERV04Controller extends Controller
      */
     public function edit(SERV04Services $SERV04Services)
     {
+        $topic = SERV04ServicesTopic::sorting()->where('service_id', $SERV04Services->id)->get();
 
         return view('Admin.cruds.Services.SERV04.edit', [
             'service' => $SERV04Services,
+            'topic' => $topic,
             'cropSetting' => getCropImage('Services', 'SERV04')
         ]);
     }

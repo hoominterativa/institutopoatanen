@@ -15,6 +15,11 @@ class CreateServ04ServicesTopicsTable extends Migration
     {
         Schema::create('serv04_services_topics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('service_id')->constrained('serv04_services');
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->longText('text')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
