@@ -88,11 +88,11 @@ class SERV04Controller extends Controller
      */
     public function edit(SERV04Services $SERV04Services)
     {
-        $topic = SERV04ServicesTopic::sorting()->where('service_id', $SERV04Services->id)->get();
+        $topics = SERV04ServicesTopic::sorting()->where('service_id', $SERV04Services->id)->paginate(10);
 
         return view('Admin.cruds.Services.SERV04.edit', [
             'service' => $SERV04Services,
-            'topic' => $topic,
+            'topics' => $topics,
             'cropSetting' => getCropImage('Services', 'SERV04')
         ]);
     }

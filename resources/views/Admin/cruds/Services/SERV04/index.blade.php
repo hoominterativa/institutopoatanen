@@ -98,7 +98,7 @@
                                                             </div>
                                                         </td>
                                                         <td class="align-middle">{{ $service->title }}</td>
-                                                        <td class="align-middle">{{ substr($service->description, 0, 50) }}
+                                                        <td class="align-middle">{!! substr($service->description, 0, 50) !!}
                                                         </td>
                                                         <td class="align-middle">
                                                             @switch($service->active)

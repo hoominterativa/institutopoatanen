@@ -15,7 +15,7 @@ class CreateServ04ServicesTable extends Migration
     {
         Schema::create('serv04_services', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('category_id')->constrained('serv04_services_categories');
+            $table->foreignId('category_id')->constrained('serv04_services_categories');
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('slug')->nullable();

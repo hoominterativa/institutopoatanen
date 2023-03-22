@@ -127,6 +127,13 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV04Controller::class,
                 'model' => App\Models\Services\SERV04Services::class,
                 'seedQty' => 4,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV04ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
         ],
         // END SERVICES

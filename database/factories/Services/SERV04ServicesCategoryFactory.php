@@ -2,8 +2,9 @@
 
 namespace Database\Factories\Services;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use App\Models\Services\SERV04ServicesCategory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SERV04ServicesCategoryFactory extends Factory
 {
@@ -21,10 +22,13 @@ class SERV04ServicesCategoryFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(16);
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'description' => $this->faker->text(400),
+            'path_image' => 'uploads/tmp/image-pmg.png',
+            'active' => 1,
         ];
     }
 }

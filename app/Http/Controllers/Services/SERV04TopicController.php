@@ -13,26 +13,8 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class SERV04TopicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    protected $path = 'uploads/Services/SERV04/images/';
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -42,48 +24,16 @@ class SERV04TopicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if(SERV04ServicesTopic::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico cadastrado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao cadastradar o tópico');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Services\SERV04ServicesTopic  $SERV04ServicesTopic
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SERV04ServicesTopic $SERV04ServicesTopic)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,53 +46,16 @@ class SERV04TopicController extends Controller
     public function update(Request $request, SERV04ServicesTopic $SERV04ServicesTopic)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-        if($path_image){
-            storageDelete($SERV04ServicesTopic, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SERV04ServicesTopic, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($SERV04ServicesTopic, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV04ServicesTopic, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if($SERV04ServicesTopic->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar o tópico');
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,11 +66,9 @@ class SERV04TopicController extends Controller
      */
     public function destroy(SERV04ServicesTopic $SERV04ServicesTopic)
     {
-        //storageDelete($SERV04ServicesTopic, 'path_image');
-        //storageDelete($SERV04ServicesTopic, 'path_archive');
 
         if($SERV04ServicesTopic->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +81,9 @@ class SERV04TopicController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $SERV04ServicesTopics = SERV04ServicesTopic::whereIn('id', $request->deleteAll)->get();
-        foreach($SERV04ServicesTopics as $SERV04ServicesTopic){
-            storageDelete($SERV04ServicesTopic, 'path_image');
-            storageDelete($SERV04ServicesTopic, 'path_archive');
-        }
-        */
 
         if($deleted = SERV04ServicesTopic::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos deletados com sucessso']);
         }
     }
     /**
@@ -198,49 +101,5 @@ class SERV04TopicController extends Controller
         return Response::json(['status' => 'success']);
     }
 
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Services\SERV04ServicesTopic  $SERV04ServicesTopic
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SERV04ServicesTopic $SERV04ServicesTopic)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
-    }
+    
 }

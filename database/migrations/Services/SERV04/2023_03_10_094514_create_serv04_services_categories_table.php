@@ -15,6 +15,11 @@ class CreateServ04ServicesCategoriesTable extends Migration
     {
         Schema::create('serv04_services_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable();
+            $table->string('path_image')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

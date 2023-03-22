@@ -2,7 +2,7 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV04ServicesCategoryFactory;
+use Database\Factories\Services\SERV04ServicesCategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,10 @@ class SERV04ServicesCategory extends Model
         return SERV04ServicesCategoryFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "serv04_services_categories";
+    protected $fillable = [
+        'title', 'slug', 'slug', 'path_image', 'active', 'sorting'
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +30,18 @@ class SERV04ServicesCategory extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('serv04_services')->whereColumn('serv04_services.category_id', 'serv04_services_categories.id');
+        });
+    }
+
+    // DROPDOW MENU
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('serv04_services')->whereColumn('serv04_services.category_id', 'serv04_services_categories.id');
+        });
+    }
 }

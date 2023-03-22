@@ -62,7 +62,7 @@
                     <div class="tab-pane" id="topics">
                         @include('Admin.cruds.Services.SERV04.Topics.index', [
                             'service' => $service,
-                            'topic' => $topic,
+                            'topics' => $topics,
                         ])
                     </div>
                 </div>

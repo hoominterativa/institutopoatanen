@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV04TopicController;
 use App\Http\Controllers\Services\SERV04SectionController;
 
 /**
@@ -27,7 +28,9 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao', SERV04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV04ServicesSection']);
     Route::post($route.'/secao/delete', [SERV04SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 
-    // Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+    Route::resource($route.'/topicos', SERV04TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV04ServicesTopic']);
+    Route::post($route.'/topicos/delete', [SERV04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topicos/sorting', [SERV04TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
