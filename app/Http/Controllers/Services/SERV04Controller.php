@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Services\SERV04ServicesTopic;
 use App\Models\Services\SERV04ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV04ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV04Controller extends Controller
@@ -25,9 +26,13 @@ class SERV04Controller extends Controller
     public function index()
     {
         $services = SERV04Services::sorting()->paginate(10);
+        $serviceCategories = SERV04ServicesCategory::paginate(10);
+        $categories = SERV04ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV04ServicesSection::first();
         return view('Admin.cruds.Services.SERV04.index', [
             'services' => $services,
+            'serviceCategories' => $serviceCategories,
+            'categories' => $categories,
             'section' => $section,
             'cropSetting' => getCropImage('Services', 'SERV04')
         ]);
@@ -39,8 +44,10 @@ class SERV04Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $categories = SERV04ServicesCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Services.SERV04.create', [
+            'categories' => $categories,
             'cropSetting' => getCropImage('Services', 'SERV04')
         ]);
     }
@@ -89,9 +96,10 @@ class SERV04Controller extends Controller
     public function edit(SERV04Services $SERV04Services)
     {
         $topics = SERV04ServicesTopic::sorting()->where('service_id', $SERV04Services->id)->paginate(10);
-
+        $categories = SERV04ServicesCategory::pluck('title', 'id');
         return view('Admin.cruds.Services.SERV04.edit', [
             'service' => $SERV04Services,
+            'categories' => $categories,
             'topics' => $topics,
             'cropSetting' => getCropImage('Services', 'SERV04')
         ]);

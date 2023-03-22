@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Services\SERV04TopicController;
 use App\Http\Controllers\Services\SERV04SectionController;
+use App\Http\Controllers\Services\SERV04CategoryController;
 
 /**
  * Uncomment the code below
@@ -29,8 +30,12 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/secao/delete', [SERV04SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 
     Route::resource($route.'/topicos', SERV04TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV04ServicesTopic']);
-    Route::post($route.'/topicos/delete', [SERV04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
-    Route::post($route.'/topicos/sorting', [SERV04TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+    Route::post($route.'/topico/delete', [SERV04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topico/sorting', [SERV04TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    Route::resource($route.'/categorias', SERV04CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'SERV04ServicesCategory']);
+    Route::post($route.'/categoria/delete', [SERV04CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [SERV04CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

@@ -26,6 +26,18 @@
                         <a href="#service" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Services', 'SERV04') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre os serviços"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#listArticleCategories" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Categorias
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre as categorias"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -36,7 +48,7 @@
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esse banner será exibido na página com a listagem de todos os serviços"></i>
                         </a>
-                    </li>
+                    </li>                   
                     <li class="nav-item">
                         <a href="#infoSection" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
@@ -54,7 +66,7 @@
                             <div class="col-sm-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="row mb-3">
+                                        <div class="row mb-3">                                            
                                             <div class="col-6">
                                                 <button id="btSubmitDelete"
                                                     data-route="{{ route('admin.serv04.destroySelected') }}" type="button"
@@ -144,6 +156,11 @@
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
+                    </div>
+                    <div class="tab-pane" id="listArticleCategories">
+                        @include('Admin.cruds.Services.SERV04.Category.index',[
+                            'categories' => $serviceCategories
+                        ])
                     </div>
                     @include('Admin.cruds.Services.SERV04.Section.form')
                 </div>
