@@ -80,7 +80,7 @@
                                             <div id="modal-topic-update-{{ $topic->id }}" class="modal fade"
                                                 tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                                                 aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog" style="max-width: 1100px;">
+                                                <div class="modal-dialog" style="max-width: 750px;">
                                                     <div class="modal-content">
                                                         <div class="modal-header p-3 pt-2 pb-2">
                                                             <h4 class="page-title">Cadastrar Tópicos</h4>
@@ -119,7 +119,7 @@
 {{-- BEGIN MODAL TOPIC CREATE --}}
 <div id="modal-topic-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 1100px;">
+    <div class="modal-dialog" style="max-width: 750px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
                 <h4 class="page-title">Cadastrar Tópicos</h4>

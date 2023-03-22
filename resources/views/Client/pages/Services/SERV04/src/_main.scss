@@ -314,6 +314,7 @@
         background-color: $color-five;
         padding: 84px 0;
         margin: 0;
+        padding-bottom: 0;
 
         @include medium-device-down{
             padding: 54px 0;
@@ -341,6 +342,7 @@
             font: $paragraph;
             max-width: 929px;
             width: 100%;
+            margin-bottom: 59px;
 
             @include medium-device-down{
                 font: $paragraph-mobile;
@@ -367,8 +369,9 @@
     }
     // END __header
     &__navigation{
-        background-color: $color-five;
+        // background-color: $color-five;
         border-bottom: 13px solid $color-two;
+        width: 100%;
 
         .container--navi{
             @include medium-device-down{
@@ -398,6 +401,7 @@
                 width: 100%;
                 position: absolute;
                 bottom: -47px;
+                left: 0;
                 opacity: 0;
                 transition: all 0.3s ease;
             }

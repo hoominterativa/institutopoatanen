@@ -220,8 +220,6 @@ class SERV04Controller extends Controller
 
     // METHODS CLIENT
 
-
-
     /**
      * Display a listing of the resourcee.
      *
@@ -230,11 +228,26 @@ class SERV04Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = SERV04ServicesSection::first();
+                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
+            break;
+            default:
+            $section = SERV04ServicesSection::first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV04');
 
+        $categories = SERV04ServicesCategory::active()->sorting()->get();
+
         return view('Client.pages.Services.SERV04.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'section' => $section,
+            'categories' => $categories,
         ]);
     }
 
@@ -245,6 +258,25 @@ class SERV04Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV04.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = SERV04ServicesSection::first();
+                $section->path_image_section_desktop = $section->path_image_section_mobile;
+            break;
+            default:
+            $section = SERV04ServicesSection::first();
+            break;
+        }
+
+        
+        $services = SERV04Services::with('category')->featured()->sorting()->get();
+        $category = SERV04ServicesCategory::active()->first();
+
+        return view('Client.pages.Services.SERV04.section', [
+            'section' => $section,
+            'services' => $services,
+            'category' => $category
+        ]);
     }
 }

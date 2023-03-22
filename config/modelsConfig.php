@@ -45,36 +45,6 @@ return [
                 ],
                 'IncludeSections' => (object) []
             ],
-            'SERV01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'config' => (object) [
-                    'titleMenu' => 'Serviços01',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Serviços01',
-                    'iconPanel' => 'mdi-information'
-                ],
-                'IncludeSections' => (object) []
-            ],
-        ],
-        'Brands' => (object) [
-            'BRAN01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'config' => (object) [
-                    'titleMenu' => 'Marcas',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Marcas',
-                    'iconPanel' => 'mdi-information'
-                ],
-                'IncludeSections' => (object) []
-            ]
         ],
     ],
 

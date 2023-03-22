@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV04Controller;
 use App\Http\Controllers\Services\SERV04TopicController;
 use App\Http\Controllers\Services\SERV04SectionController;
 use App\Http\Controllers\Services\SERV04CategoryController;
@@ -38,4 +39,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/sorting', [SERV04CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 });
 // // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{SERV04ServicesCategory:slug}', [SERV04Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get('categoria/{SERV04ServicesCategory:slug}/'.$route.'/{SERV04Services:slug}', [SERV04Controller::class, 'page'])->name($routeName.'.page.content');

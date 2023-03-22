@@ -2068,6 +2068,7 @@ a {
   background-color: #EFEFEF;
   padding: 84px 0;
   margin: 0;
+  padding-bottom: 0;
 }
 @media (max-width: 767.98px) {
   .serv04-page__header {
@@ -2097,6 +2098,7 @@ a {
   font: 1rem "Montserrat", sans-serif, arial;
   max-width: 929px;
   width: 100%;
+  margin-bottom: 59px;
 }
 @media (max-width: 767.98px) {
   .serv04-page__header__paragraph {
@@ -2122,8 +2124,8 @@ a {
   background-color: #404040;
 }
 .serv04-page__navigation {
-  background-color: #EFEFEF;
   border-bottom: 13px solid #7C7C7C;
+  width: 100%;
 }
 @media (max-width: 767.98px) {
   .serv04-page__navigation .container--navi {
@@ -2154,6 +2156,7 @@ a {
   width: 100%;
   position: absolute;
   bottom: -47px;
+  left: 0;
   opacity: 0;
   transition: all 0.3s ease;
 }

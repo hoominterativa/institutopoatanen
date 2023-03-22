@@ -2,7 +2,7 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="row">
-                <div class="col-12 col-lg-6">
+                <div class="col-12">
                     <div class="mb-3">
                         {!! Form::label('category_id', 'Categoria', ['class' => 'form-label']) !!}
                         {!! Form::select('category_id', $categories, null, [

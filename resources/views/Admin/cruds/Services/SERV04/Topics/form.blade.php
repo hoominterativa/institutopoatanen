@@ -11,7 +11,7 @@
 @endif
 
 <div class="row col-12">
-    <div class="col-12 col-lg-6">
+    <div class="col-12">
         <div class="card card-body" id="tooltip-container">
             <div class="row">
                 <div class="col-12 ">
