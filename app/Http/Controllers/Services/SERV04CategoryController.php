@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV04ServicesCategory;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV04ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV04CategoryController extends Controller
@@ -27,6 +28,7 @@ class SERV04CategoryController extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
 
@@ -55,6 +57,7 @@ class SERV04CategoryController extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -105,7 +108,7 @@ class SERV04CategoryController extends Controller
         foreach($SERV04ServicesCategorys as $SERV04ServicesCategory){
             storageDelete($SERV04ServicesCategory, 'path_image');
         }
-        
+
         if($deleted = SERV04ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' Categorias deletadas com sucessso']);
         }

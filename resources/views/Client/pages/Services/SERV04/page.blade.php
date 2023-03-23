@@ -22,19 +22,19 @@
                                 <nav class="serv04-page__navigation">
                                     <div class="container container--navi px-0 mx-auto">
                                         <ul class="px-0">
-                                            @foreach ($categories as $category)
+                                            @foreach ($categories as $categoryGet)
                                                 <li>
-                                                    <a href="{{ route('serv04.page', ['SERV04ServicesCategory' => $category->slug]) }}"
-                                                        class="serv04-page__header__category__item {{ isset($category->selected) ? 'serv04-page__header__category__item--active' : '' }}">{{ $category->title }}</a>
+                                                    <a href="{{ route('serv04.category.page', ['SERV04ServicesCategory' => $categoryGet->slug]) }}"
+                                                        class="serv04-page__header__category__item {{ isset($categoryGet->selected) ? 'serv04-page__header__category__item--active' : '' }}">{{ $categoryGet->title }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
                                         <div class="serv04-page__navigation__select">
-                                            @foreach ($categories as $category)
-                                                <select name="category">
-                                                    <option value="category">{{ $category->title }}</option>
-                                                </select>
-                                            @endforeach
+                                            <select name="category">
+                                                @foreach ($categories as $categoryGet)
+                                                    <option value="category">{{ $categoryGet->title }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </nav>
@@ -47,32 +47,23 @@
                         <div class="container container--sepa px-0 mx-auto">
                             <div class="serv04-page__box">
                                 <div class="row row--sepa mx-auto px-0">
-                                    <div class="serv04-page__box__image col-auto px-0">
-                                        <img src="{{ asset('storage/uploads/tmp/image-pmg.png') }}" alt="Image Categoria"
-                                            loading="lazy">
-                                    </div>
-                                    <div class="serv04-page__box__description col">
-                                        <h2 class="serv04-page__box__title">Categoria</h2>
-                                        <div class="serv04-page__box__paragraph">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu
-                                                purus gravida
-                                                sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi
-                                                pretium sed. In
-                                                et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem
-                                                ipsum dolor sit amet,
-                                                consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
-                                                vel non libero.
-                                                Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget
-                                                purus mattis posuere.
-                                                Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit.
-                                                Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus
-                                                commodo porta velit, vel
-                                                tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                                                Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
-                                            </p>
+                                    @if ($category->path_image)
+                                        <div class="serv04-page__box__image col-auto px-0">
+                                            <img src="{{ asset('storage/' . $category->path_image) }}" alt="Image Categoria"
+                                                loading="lazy">
                                         </div>
+                                    @endif
+                                    <div class="serv04-page__box__description col">
+                                        @if ($category->title)
+                                            <h2 class="serv04-page__box__title">{{ $category->title }}</h2>
+                                        @endif
+                                        @if ($category->description)
+                                            <div class="serv04-page__box__paragraph">
+                                                <p>
+                                                    {!! $category->description !!}
+                                                </p>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -89,104 +80,75 @@
                         <div class="serv04-page__subcategory__nav">
                             <ul
                                 class="carousel-serv04-page__subcategory px-0 mb-0 owl-carousel serv04-page__subcategory____eng">
-                                <li class="serv04-page__subcategory__box position-relative"
-                                    style="background-image:url({{ asset('storage/uploads/tmp/retangle.png') }});">
-                                    <a href="" class="link-full"></a>
-                                    
-                                    <div class="serv04-page__subcategory__box__image">
-                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Subcategoria"
-                                            loading="lazy">
-                                    </div>
-                                    <h2 class="serv04-page__subcategory__box__title">Subcategoria</h2>
-                                    </a>
-                                </li>
+                                @foreach ($services as $serviceGet)
+                                    <li class="serv04-page__subcategory__box position-relative"
+                                        style="background-image:url({{ asset('storage/' . $serviceGet->path_image_box) }});">
+                                        <a href="{{ route('serv04.page.content', ['SERV04ServicesCategory' => $category->slug, 'SERV04Services' => $serviceGet->slug]) }}" class="link-full"></a>
+                                        <div class="serv04-page__subcategory__box__image">
+                                            <img src="{{ asset('storage/' . $serviceGet->path_image_icon) }}"
+                                                alt="Subcategoria" loading="lazy">
+                                        </div>
+                                        <h2 class="serv04-page__subcategory__box__title">{{ $serviceGet->title }}</h2>
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="serv04-page__subcategory__content">
                             <div class="serv04-page__subcategory__content__box">
                                 <div class="row mx-auto px-0">
                                     <div class="serv04-page__subcategory__content__box__image col-auto px-0">
-                                        <img src="{{ asset('storage/uploads/tmp/image-pmg.png') }}" alt="Categoria"
+                                        <img src="{{ asset('storage/' . $service->path_image) }}" alt="Categoria"
                                             loading="lazy">
                                     </div>
                                     <div class="serv04-page__subcategory__content__box__description col">
-                                        <h2 class="serv04-page__subcategory__content__box__title">Subcategoria</h2>
-                                        <h2 class="serv04-page__subcategory__content__box__subtitle">Subtitulo</h2>
-                                        <div class="serv04-page__subcategory__content__box__paragraph">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu
-                                                purus gravida
-                                                sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi
-                                                pretium
-                                                sed. In
-                                                et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem
-                                                ipsum dolor sit amet,
-                                                consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
-                                                vel
-                                                non libero.
-                                                Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget
-                                                purus
-                                                mattis posuere.
-                                                Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit.
-                                                Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus
-                                                commodo
-                                                porta velit, vel
-                                                tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                                                Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
-                                            </p>
-                                        </div>
+                                        @if ($service->title || $service->subtitle)
+                                            <h2 class="serv04-page__subcategory__content__box__title">{{ $service->title }}
+                                            </h2>
+                                            <h2 class="serv04-page__subcategory__content__box__subtitle">
+                                                {{ $service->subtitle }}</h2>
+                                        @endif
+                                        @if ($service->text)
+                                            <div class="serv04-page__subcategory__content__box__paragraph">
+                                                <p>
+                                                    {!! $service->text !!}
+                                                </p>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="serv04-page__subcategory__content__accordion">
                                 <div class="accordion accordion-flush" id="accordionFlushExample">
-                                    <div class="accordion-item serv04-page__subcategory__content__accordion__boxQuestion">
-                                        <h2 class="accordion-header" id="flush-collapseOne">
-                                            <button
-                                                class="accordion-button collapsed serv04-page__subcategory__content__accordion__boxQuestion__title"
-                                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-1"
-                                                aria-expanded="false" aria-controls="flush-collapse-1">
-                                                Lorem ipsum dolor sit amet,
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapse-1" class="accordion-collapse collapse"
-                                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                            <div
-                                                class="accordion-body serv04-page__subcategory__content__accordion__boxQuestion__texto">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor
-                                                    eu
-                                                    purus gravida sollicitudin vel non libero. Vivamus commodo porta velit,
-                                                    vel
-                                                    tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec
-                                                    tincidunt
-                                                    dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit.
-                                                    Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus
-                                                    commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus
-                                                    mattis
-                                                    posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                                                    sollicitudin
-                                                    vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed.
-                                                    In
-                                                    et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
-                                                    Lorem
-                                                    ipsum dolor sit amet, consectetvLorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non
-                                                    libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et
-                                                    arcu
-                                                    eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem
-                                                    ipsum
-                                                    dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus
-                                                    gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
-                                                    tempus
-                                                    mi pretium sed. In et arcu ege
-                                                </p>
-                                            </div>
+                                    @foreach ($topics as $topic)
+                                        <div
+                                            class="accordion-item serv04-page__subcategory__content__accordion__boxQuestion">
+                                            @if ($topic->title)
+                                                <h2 class="accordion-header" id="flush-collapseOne">
+                                                    <button
+                                                        class="accordion-button collapsed serv04-page__subcategory__content__accordion__boxQuestion__title"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapse-{{ $topic->id }}"
+                                                        aria-expanded="false"
+                                                        aria-controls="flush-collapse-{{ $topic->id }}">
+                                                        {{ $topic->title }}
+                                                    </button>
+                                                </h2>
+                                            @endif
+                                            @if ($topic->text)
+                                                <div id="flush-collapse-{{ $topic->id }}"
+                                                    class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div
+                                                        class="accordion-body serv04-page__subcategory__content__accordion__boxQuestion__texto">
+                                                        <p>
+                                                            {!! $topic->text !!}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

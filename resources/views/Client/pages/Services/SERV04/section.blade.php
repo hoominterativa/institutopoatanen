@@ -23,23 +23,32 @@
                     @foreach ($services as $service)
                         <div class="serv04__box w-100">
                             <div class="serv04__box__content">
-                                <a href="{{route('serv04.page.content', ['SERV04ServicesCategory' => $service->category->slug, 'SERV04Services' => $service->slug])}}" rel="next" class="link-full"></a>
+                                <a href="{{ route('serv04.page.content', ['SERV04ServicesCategory' => $service->category->slug, 'SERV04Services' => $service->slug]) }}"
+                                    rel="next" class="link-full"></a>
                                 <div class="serv04__box__bg">
-                                    <img src="{{ asset('storage/uploads/tmp/image-box.jpg') }}" alt="Logo"
-                                        loading="lazy">
+                                    @if ($service->path_image_box)
+                                        <img src="{{ asset('storage/' . $service->path_image_box) }}" alt="Logo"
+                                            loading="lazy">
+                                    @endif
                                 </div>
                                 <div class="serv04__box__description">
                                     <div class="serv04__box__image">
-                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Logo"
-                                            loading="lazy">
+                                        @if ($service->path_image_icon)
+                                            <img src="{{ asset('storage/' . $service->path_image_icon) }}"
+                                                alt="Logo" loading="lazy">
+                                        @endif
                                     </div>
-                                    <h4 class="serv04__box__title">Titulo Topico</h4>
+                                    @if ($service->title)
+                                        <h4 class="serv04__box__title">{{ $service->title }}</h4>
+                                    @endif
                                     <div class="serv04__box__paragraph">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        </p>
+                                        @if ($service->description)
+                                            <p>
+                                                {!! $service->description !!}
+                                            </p>
+                                        @endif
                                     </div>
-                                    <a rel="next" href="servicos"
+                                    <a rel="next" href="{{ route('serv04.page.content', ['SERV04ServicesCategory' => $service->category->slug, 'SERV04Services' => $service->slug]) }}"
                                         class="serv04__box__cta transition justify-content-center align-items-center">
                                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
                                             class="serv04__box__cta__icon me-3 transition">
@@ -51,7 +60,7 @@
                     @endforeach
                     {{-- END .serv04__box --}}
                 </div>
-                <a rel="next" href="servicos"
+                <a rel="next" href="{{route('serv04.category.page', ['SERV04ServicesCategory' => $category->slug])}}"
                     class="serv04__cta transition justify-content-center align-items-center">
                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
                         class="serv04__cta__icon me-3 transition">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Services;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Services\SERV04Services;
@@ -44,7 +45,7 @@ class SERV04Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $categories = SERV04ServicesCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Services.SERV04.create', [
             'categories' => $categories,
@@ -65,6 +66,7 @@ class SERV04Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
@@ -119,6 +121,7 @@ class SERV04Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -220,13 +223,7 @@ class SERV04Controller extends Controller
 
     // METHODS CLIENT
 
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
+    public function show($SERV04ServicesCategory, SERV04Services $SERV04Services)
     {
         switch(deviceDetect()) {
             case 'mobile':
@@ -242,11 +239,56 @@ class SERV04Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV04');
 
-        $categories = SERV04ServicesCategory::active()->sorting()->get();
+        $categories = SERV04ServicesCategory::exists()->active()->sorting()->get();
+        $category = SERV04ServicesCategory::where('slug', $SERV04ServicesCategory)->first();
+        $services = SERV04Services::where('category_id', $category->id)->active()->sorting()->get();
+        $topics = SERV04ServicesTopic::where('service_id', $SERV04Services->id)->active()->sorting()->get();
 
         return view('Client.pages.Services.SERV04.page',[
             'sections' => $sections,
+            'service' => $SERV04Services,
+            'services' => $services,
+            'category' => $category,
             'section' => $section,
+            'topics' => $topics,
+            'categories' => $categories,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resourcee.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function page(Request $request, SERV04ServicesCategory $SERV04ServicesCategory)
+    {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = SERV04ServicesSection::first();
+                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
+            break;
+            default:
+            $section = SERV04ServicesSection::first();
+            break;
+        }
+
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV04');
+
+        $categories = SERV04ServicesCategory::exists()->active()->sorting()->get();
+        $services = SERV04Services::where('category_id', $SERV04ServicesCategory->id)->active()->sorting()->get();
+        $service = SERV04Services::where('category_id', $SERV04ServicesCategory->id)->active()->sorting()->first();
+        $topics = SERV04ServicesTopic::where('service_id', $service->id)->active()->sorting()->get();
+
+        return view('Client.pages.Services.SERV04.page',[
+            'sections' => $sections,
+            'service' => $service,
+            'services' => $services,
+            'category' => $SERV04ServicesCategory,
+            'section' => $section,
+            'topics' => $topics,
             'categories' => $categories,
         ]);
     }
@@ -269,7 +311,7 @@ class SERV04Controller extends Controller
             break;
         }
 
-        
+
         $services = SERV04Services::with('category')->featured()->sorting()->get();
         $category = SERV04ServicesCategory::active()->first();
 
