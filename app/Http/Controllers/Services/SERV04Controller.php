@@ -263,6 +263,8 @@ class SERV04Controller extends Controller
      */
     public function page(Request $request, SERV04ServicesCategory $SERV04ServicesCategory)
     {
+        if(!$SERV04ServicesCategory->exists){ $SERV04ServicesCategory = SERV04ServicesCategory::exists()->sorting()->first(); }
+
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':

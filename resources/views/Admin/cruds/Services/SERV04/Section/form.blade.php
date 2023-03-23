@@ -42,7 +42,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo do banner (desktop)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Desktop', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_banner_desktop->width }}x{{ $cropSetting->Section->path_image_banner_desktop->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -66,7 +66,7 @@
 
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo do banner (mobile)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Mobile', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_banner_mobile->width }}x{{ $cropSetting->Section->path_image_banner_mobile->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -152,7 +152,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo da seção (desktop)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Desktop', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_section_desktop->width }}x{{ $cropSetting->Section->path_image_section_desktop->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -176,7 +176,7 @@
 
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo da seção (mobile)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Mobile', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_section_mobile->width }}x{{ $cropSetting->Section->path_image_section_mobile->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">

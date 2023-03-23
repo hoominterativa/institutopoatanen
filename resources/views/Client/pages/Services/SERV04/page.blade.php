@@ -23,7 +23,7 @@
                                     <div class="container container--navi px-0 mx-auto">
                                         <ul class="px-0">
                                             @foreach ($categories as $categoryGet)
-                                                <li>
+                                                <li class="{{$categoryGet->id == $category->id?'active':''}}">
                                                     <a href="{{ route('serv04.category.page', ['SERV04ServicesCategory' => $categoryGet->slug]) }}"
                                                         class="serv04-page__header__category__item {{ isset($categoryGet->selected) ? 'serv04-page__header__category__item--active' : '' }}">{{ $categoryGet->title }}</a>
                                                 </li>
@@ -81,7 +81,7 @@
                             <ul
                                 class="carousel-serv04-page__subcategory px-0 mb-0 owl-carousel serv04-page__subcategory____eng">
                                 @foreach ($services as $serviceGet)
-                                    <li class="serv04-page__subcategory__box position-relative"
+                                    <li class="serv04-page__subcategory__box position-relative {{$serviceGet->id == $service->id?'active':''}}"
                                         style="background-image:url({{ asset('storage/' . $serviceGet->path_image_box) }});">
                                         <a href="{{ route('serv04.page.content', ['SERV04ServicesCategory' => $category->slug, 'SERV04Services' => $serviceGet->slug]) }}" class="link-full"></a>
                                         <div class="serv04-page__subcategory__box__image">
