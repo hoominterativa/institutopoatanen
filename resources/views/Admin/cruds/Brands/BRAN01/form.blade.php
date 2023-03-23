@@ -2,10 +2,10 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="row">
-                <div class="col-12 col-sm-8">
+                <div class="col-12">
                     {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
                     {!! Form::url('link', null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
-                </div>   
+                </div>
                 <div class="d-flex mt-3">
                     <div class="form-check me-3">
                         {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
@@ -15,10 +15,10 @@
                         {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
                         {!! Form::label('featured', 'Destacar na home', ['class'=>'form-check-label']) !!}
                     </div>
-                </div>             
-            </div>            
+                </div>
+            </div>
         </div>
-        
+
         {{-- end card-body --}}
     </div>
     <div class="col-12 col-lg-6">
@@ -73,6 +73,6 @@
         </div>
         {{-- end card-body --}}
     </div>
-    
+
 </div>
 {{-- end row --}}

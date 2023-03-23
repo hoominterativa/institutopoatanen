@@ -203,7 +203,6 @@ class BRAN01Controller extends Controller
                 $section = BRAN01BrandsSection::first();
                 $section->path_image_banner_desktop = $section->path_image_banner_mobile;
                 $section->path_image_section_desktop = $section->path_image_section_mobile;
-                $section->path_image_home_desktop = $section->path_image_home_mobile;
             break;
             default:
             $section = BRAN01BrandsSection::first();
@@ -232,8 +231,8 @@ class BRAN01Controller extends Controller
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = BRAN01BrandsSection::first();                
-                $section->path_image_section_desktop = $section->path_image_section_mobile;
+                $section = BRAN01BrandsSection::first();
+                $section->path_image_home_desktop = $section->path_image_home_mobile;
             break;
             default:
             $section = BRAN01BrandsSection::first();

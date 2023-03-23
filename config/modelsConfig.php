@@ -9,8 +9,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Services' => (object) [
-            'SERV04' => (object)[
+        'Brands' => (object) [
+            'BRAN01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -31,11 +31,11 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Serviços',
+                    'titleMenu' => 'Marcas',
                     'anchor' =>  false,
-                    'linkMenu' => 'serv04.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
+                    'titlePanel' => 'Marcas',
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) []

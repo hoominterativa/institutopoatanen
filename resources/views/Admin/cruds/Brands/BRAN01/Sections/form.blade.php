@@ -12,22 +12,22 @@
     @else
         {!! Form::model(null, ['route' => 'admin.bran01.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
     @endif
-    
+
     <div class="card card-body" id="tooltip-container">
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="mb-2">
-                    {!! Form::label('title_banner', 'Título do Banner', ['class' => 'form-label']) !!}
+                    {!! Form::label('title_banner', 'Título', ['class' => 'form-label']) !!}
                     {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
                 </div>
                 <div class="mb-2">
-                    {!! Form::label('subtitle_banner', 'Subtítulo do Banner', ['class' => 'form-label']) !!}
+                    {!! Form::label('subtitle_banner', 'Subtítulo', ['class' => 'form-label']) !!}
                     {!! Form::text('subtitle_banner', null, ['class' => 'form-control', 'id' => 'subtitle_banner']) !!}
                 </div>
             </div>
             <div class="col-12 col-sm-6">
                 <div class="mb-3">
-                    {!! Form::label('colorpicker-default', 'Cor de fundo do banner', ['class' => 'form-label']) !!}
+                    {!! Form::label('colorpicker-default', 'Cor de fundo', ['class' => 'form-label']) !!}
                     {!! Form::text('background_color_banner', null, [
                         'class' => 'form-control colorpicker-default',
                         'id' => 'colorpicker-default',
@@ -35,7 +35,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo do banner (desktop)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Desktop', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_banner_desktop->width }}x{{ $cropSetting->Section->path_image_banner_desktop->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -59,7 +59,7 @@
 
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo do banner (mobile)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Mobile', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_banner_mobile->width }}x{{ $cropSetting->Section->path_image_banner_mobile->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -110,16 +110,16 @@
     @else
         {!! Form::model(null, ['route' => 'admin.bran01.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
     @endif
-    
+
     <div class="card card-body" id="tooltip-container">
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="mb-2">
-                    {!! Form::label('title_section', 'Título da seção', ['class' => 'form-label']) !!}
+                    {!! Form::label('title_section', 'Título', ['class' => 'form-label']) !!}
                     {!! Form::text('title_section', null, ['class' => 'form-control', 'id' => 'title_section']) !!}
                 </div>
                 <div class="mb-2">
-                    {!! Form::label('subtitle_section', 'Subtítulo da seção', ['class' => 'form-label']) !!}
+                    {!! Form::label('subtitle_section', 'Subtítulo', ['class' => 'form-label']) !!}
                     {!! Form::text('subtitle_section', null, ['class' => 'form-control', 'id' => 'subtitle_section']) !!}
                 </div>
                 <div class="mb-3">
@@ -127,7 +127,6 @@
                     {!! Form::textarea('description_section', null, [
                         'class' => 'form-control',
                         'id' => 'description_section',
-                        'required' => 'required',
                         'data-parsley-trigger' => 'keyup',
                         'data-parsley-minlength' => '20',
                         'data-parsley-maxlength' => '400',
@@ -138,7 +137,7 @@
             </div>
             <div class="col-12 col-sm-6">
                 <div class="mb-3">
-                    {!! Form::label('colorpicker-default', 'Cor de fundo da seção', ['class' => 'form-label']) !!}
+                    {!! Form::label('colorpicker-default', 'Cor de fundo', ['class' => 'form-label']) !!}
                     {!! Form::text('background_color_section', null, [
                         'class' => 'form-control colorpicker-default',
                         'id' => 'colorpicker-default',
@@ -146,7 +145,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo da seção (desktop)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Desktop', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_section_desktop->width }}x{{ $cropSetting->Section->path_image_section_desktop->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -170,7 +169,7 @@
 
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo da seção (mobile)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Mobile', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_section_mobile->width }}x{{ $cropSetting->Section->path_image_section_mobile->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -225,11 +224,11 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="mb-2">
-                    {!! Form::label('title_home', 'Título da home', ['class' => 'form-label']) !!}
+                    {!! Form::label('title_home', 'Título', ['class' => 'form-label']) !!}
                     {!! Form::text('title_home', null, ['class' => 'form-control', 'id' => 'title_home']) !!}
                 </div>
                 <div class="mb-2">
-                    {!! Form::label('subtitle_home', 'Subtítulo da home', ['class' => 'form-label']) !!}
+                    {!! Form::label('subtitle_home', 'Subtítulo', ['class' => 'form-label']) !!}
                     {!! Form::text('subtitle_home', null, ['class' => 'form-control', 'id' => 'subtitle_home']) !!}
                 </div>
                 <div class="mb-3">
@@ -237,7 +236,6 @@
                     {!! Form::textarea('description_home', null, [
                         'class' => 'form-control',
                         'id' => 'description_home',
-                        'required' => 'required',
                         'data-parsley-trigger' => 'keyup',
                         'data-parsley-minlength' => '20',
                         'data-parsley-maxlength' => '400',
@@ -248,7 +246,7 @@
             </div>
             <div class="col-12 col-sm-6">
                 <div class="mb-3">
-                    {!! Form::label('colorpicker-default', 'Cor de fundo da home', ['class' => 'form-label']) !!}
+                    {!! Form::label('colorpicker-default', 'Cor de fundo', ['class' => 'form-label']) !!}
                     {!! Form::text('background_color_home', null, [
                         'class' => 'form-control colorpicker-default',
                         'id' => 'colorpicker-default',
@@ -256,7 +254,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo da home (desktop)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Desktop', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_home_desktop->width }}x{{ $cropSetting->Section->path_image_home_desktop->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
@@ -280,7 +278,7 @@
 
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem de fundo da home (mobile)', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Imagem Mobile', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Section->path_image_home_mobile->width }}x{{ $cropSetting->Section->path_image_home_mobile->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
