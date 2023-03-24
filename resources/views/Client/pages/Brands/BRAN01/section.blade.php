@@ -1,6 +1,7 @@
 @if ($section)
     <section id="BRAN01" class="bran01 container-fluid"
         style="background-image: url({{ asset('storage/' . $section->path_image_home_desktop) }}); background-color: {{ $section->background_color_home }};">
+        <div class="bran01__mask"></div>
         <div class="container container--bran01">
             <div class="row">
                 <div class="bran01__encompass px-0 text-center mx-auto w-100">

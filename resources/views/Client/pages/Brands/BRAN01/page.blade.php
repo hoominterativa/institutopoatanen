@@ -6,6 +6,7 @@
             <section id="BRAN01" class="bran01-page container-fluid px-0">
                 <header class="bran01-page__header"
                     style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }}); background-color: {{ $section->background_color_banner }};">
+                    <div class="bran01-page__header__mask"></div>
                     @if ($section->title_banner || $section->subtitle_banner || $section->active_banner == 1)
                         <h2 class="container container--bran01-page d-block text-center">
                             <span class="bran01-page__header__title d-block">{{ $section->title_banner }}</span>
