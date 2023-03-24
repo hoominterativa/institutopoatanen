@@ -1,7 +1,9 @@
 @foreach ($contents as $content)
     <section id="CONT02" class="cont02 position-relative container-fluid px-0"
     style="background-image: url({{ asset('storage/' . $content->path_image_background_desktop)}}); background-color:{{$content->color}};">
-        <div class="cont02__mark"></div>
+        @if ($content->path_image_background_desktop)
+            <div class="cont02__mark"></div>
+        @endif
         <div class="container container--cont02 px-0 mx-auto">
             <div class="row px-0 mx-auto d-flex justify-content-between">
                 <div class="cont02__left d-flex col-auto px-0">

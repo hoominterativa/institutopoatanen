@@ -7,7 +7,9 @@
                 <section class="container-fluid px-0">
                     <header class="serv04-page__header position-relative"
                         style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }}); background-color: {{ $section->background_color_banner }};">
-                        <div class="serv04-page__header__mask"></div>
+                        @if ($section->path_image_banner_desktop)
+                            <div class="serv04-page__header__mask"></div>
+                        @endif
                         <div class="container serv04-page__header--container d-flex flex-column justify-content-center align-items-center">
                             @if ($section->title_banner)
                                 <h3 class="serv04-page__header__title">{{ $section->title_banner }}</h3>

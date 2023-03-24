@@ -52,9 +52,9 @@ class CoreController extends Controller
                         $relationship = $config->IncludeCore->relation;
                         $arrRelations = get_object_vars($relationship);
                         foreach($config->IncludeCore->relation as $relationName => $configRealtion){
-                            $modelDB = self::getModelParameters($this->Class->$module->$code->relationship->$relationName->class);
+                            $modelDB = self::getModelParameters($this->Class->$module->$code->relationship[$relationName]['class']);
                             $route = Str::lower($code).'.'.$relationName.'.page';
-                            $relations = $this->Class->$module->$code->relationship->$relationName->class::query();
+                            $relations = $this->Class->$module->$code->relationship[$relationName]['class']::query();
                             break;
                         }
                     }
