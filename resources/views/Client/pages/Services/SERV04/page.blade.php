@@ -5,9 +5,10 @@
         <main id="root">
             <div id="SERV04" class="serv04-page">
                 <section class="container-fluid px-0">
-                    <header class="serv04-page__header"
+                    <header class="serv04-page__header position-relative"
                         style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }}); background-color: {{ $section->background_color_banner }};">
-                        <div class="container d-flex flex-column justify-content-center align-items-center">
+                        <div class="serv04-page__header__mask"></div>
+                        <div class="container serv04-page__header--container d-flex flex-column justify-content-center align-items-center">
                             @if ($section->title_banner)
                                 <h3 class="serv04-page__header__title">{{ $section->title_banner }}</h3>
                             @endif

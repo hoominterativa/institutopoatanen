@@ -859,6 +859,14 @@ a {
   margin: 0;
   padding-bottom: 0;
 }
+.serv04-page__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.73);
+}
 @media (max-width: 767.98px) {
   .serv04-page__header {
     padding: 54px 0;
@@ -866,6 +874,10 @@ a {
 }
 .serv04-page__header__container {
   margin-bottom: 25px;
+}
+.serv04-page__header .serv04-page__header--container {
+  z-index: 100;
+  position: relative;
 }
 .serv04-page__header__title {
   font-size: 3.125rem;
