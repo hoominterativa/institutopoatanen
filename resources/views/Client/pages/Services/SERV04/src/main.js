@@ -7,7 +7,7 @@ $(function(){
             nav:false,
             rewind: true,
             autoHeight: true,
-            loop:true,
+            loop:false,
             responsive: {
                 // breakpoint from 0 up
                 0 : {
@@ -37,7 +37,7 @@ $(function(){
             nav:false,
             rewind: true,
             autoHeight: true,
-            loop:true,
+            loop:false,
             responsive: {
                 // breakpoint from 0 up
                 0 : {

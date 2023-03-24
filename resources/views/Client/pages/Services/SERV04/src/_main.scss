@@ -12,10 +12,17 @@
 }
 
 .serv04{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
     padding: 76px 0 33px 0;
-        @include medium-device-down{
-            padding: 37px 34px 58.16px 34px;
-        }
+    @include medium-device-down{
+        padding: 37px 34px 58.16px 34px;
+    }
+
+
     &__mask{
         position: absolute;
         top:0;
@@ -25,7 +32,8 @@
         background-color: rgb(0 0 0 / 73%);
     }
     &__header{
-
+        position: relative;
+        z-index: 100;
 
         &__title{
             font-size: $T2;
@@ -90,6 +98,8 @@
     &__content{
         margin-top: 58.01px;
         display: flex;
+        position: relative;
+        z-index: 100;
 
         .container{
             @include medium-device-down{
@@ -105,6 +115,9 @@
         margin-bottom: 45px;
         box-sizing: border-box;
 
+        .link-full {
+            z-index: 101;
+        }
         @include small-device-down{
             padding: 0 !important;
         }

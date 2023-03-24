@@ -77,10 +77,10 @@
                     <section class="serv04-page__subcategory container-fluid px-0">
                         <div class="container container--seps">
                             <div class="serv04-page__subcategory__nav">
-                                <ul
+                                <div
                                     class="carousel-serv04-page__subcategory px-0 mb-0 owl-carousel serv04-page__subcategory____eng">
                                     @foreach ($services as $serviceGet)
-                                        <li class="serv04-page__subcategory__box position-relative {{ $serviceGet->id == $service->id ? 'active' : '' }}"
+                                        <div class="serv04-page__subcategory__box position-relative {{ $serviceGet->id == $service->id ? 'active' : '' }}"
                                             style="background-image:url({{ asset('storage/' . $serviceGet->path_image_box) }});">
                                             <a href="{{ route('serv04.page.content', ['SERV04ServicesCategory' => $category->slug, 'SERV04Services' => $serviceGet->slug]) }}"
                                                 class="link-full"></a>
@@ -90,9 +90,9 @@
                                             </div>
                                             <h2 class="serv04-page__subcategory__box__title">{{ $serviceGet->title }}</h2>
                                             </a>
-                                        </li>
+                                        </div>
                                     @endforeach
-                                </ul>
+                                </div>
                             </div>
                             <div class="serv04-page__subcategory__content">
                                 <div class="serv04-page__subcategory__content__box">
