@@ -25,9 +25,6 @@ class CreateBran01BrandsSectionsTable extends Migration
             $table->string('title_section')->nullable();
             $table->string('subtitle_section')->nullable();
             $table->text('description_section')->nullable();
-            $table->string('path_image_section_desktop')->nullable();
-            $table->string('path_image_section_mobile')->nullable();
-            $table->string('background_color_section')->nullable();
             $table->integer('active_section')->default(0);
 
             $table->string('title_home')->nullable();

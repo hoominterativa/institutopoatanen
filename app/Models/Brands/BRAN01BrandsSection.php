@@ -18,7 +18,7 @@ class BRAN01BrandsSection extends Model
     protected $table = "bran01_brands_sections";
     protected $fillable = [
         'title_banner', 'subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner', 'active_banner',
-        'title_section', 'subtitle_section', 'path_image_section_desktop', 'path_image_section_mobile', 'background_color_section', 'active_section', 'description_section',
+        'title_section', 'subtitle_section', 'active_section', 'description_section',
         'title_home', 'subtitle_home', 'path_image_home_desktop', 'path_image_home_mobile', 'background_color_home', 'active_home', 'description_home',
     ];
 
