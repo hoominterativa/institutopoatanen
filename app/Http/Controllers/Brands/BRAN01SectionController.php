@@ -36,12 +36,6 @@ class BRAN01SectionController extends Controller
         $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null,100);
         if($path_image_banner_mobile) $data['path_image_banner_mobile'] = $path_image_banner_mobile;
 
-        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null,100);
-        if($path_image_section_desktop) $data['path_image_section_desktop'] = $path_image_section_desktop;
-
-        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null,100);
-        if($path_image_section_mobile) $data['path_image_section_mobile'] = $path_image_section_mobile;
-
         $path_image_home_desktop = $helper->optimizeImage($request, 'path_image_home_desktop', $this->path, null,100);
         if($path_image_home_desktop) $data['path_image_home_desktop'] = $path_image_home_desktop;
 
@@ -53,8 +47,6 @@ class BRAN01SectionController extends Controller
         }else{
             Storage::delete($path_image_banner_desktop);
             Storage::delete($path_image_banner_mobile);
-            Storage::delete($path_image_section_desktop);
-            Storage::delete($path_image_section_mobile);
             Storage::delete($path_image_home_desktop);
             Storage::delete($path_image_home_mobile);
             Session::flash('error', 'Erro ao cadastradar a seção');
@@ -102,27 +94,6 @@ class BRAN01SectionController extends Controller
             $data['path_image_banner_mobile'] = null;
         }
 
-        //Section
-        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null,100);
-        if($path_image_section_desktop){
-            storageDelete($BRAN01BrandsSection, 'path_image_section_desktop');
-            $data['path_image_section_desktop'] = $path_image_section_desktop;
-        }
-        if($request->delete_path_image_section_desktop && !$path_image_section_desktop){
-            storageDelete($BRAN01BrandsSection, 'path_image_section_desktop');
-            $data['path_image_section_desktop'] = null;
-        }
-
-        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null,100);
-        if($path_image_section_mobile){
-            storageDelete($BRAN01BrandsSection, 'path_image_section_mobile');
-            $data['path_image_section_mobile'] = $path_image_section_mobile;
-        }
-        if($request->delete_path_image_section_mobile && !$path_image_section_mobile){
-            storageDelete($BRAN01BrandsSection, 'path_image_section_mobile');
-            $data['path_image_section_mobile'] = null;
-        }
-
         //Home
         $path_image_home_desktop = $helper->optimizeImage($request, 'path_image_home_desktop', $this->path, null,100);
         if($path_image_home_desktop){
@@ -149,8 +120,6 @@ class BRAN01SectionController extends Controller
         }else{
             Storage::delete($path_image_banner_desktop);
             Storage::delete($path_image_banner_mobile);
-            Storage::delete($path_image_section_desktop);
-            Storage::delete($path_image_section_mobile);
             Storage::delete($path_image_home_desktop);
             Storage::delete($path_image_home_mobile);
             Session::flash('error', 'Erro ao atualizar a seção');
