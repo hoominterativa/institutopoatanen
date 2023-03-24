@@ -1,5 +1,5 @@
 @if ($section)
-    <section id="SERV04" class="serv04 container-fluid position-absolute"
+    <section id="SERV04" class="serv04 container-fluid position-relative"
         style="background-image: url({{ asset('storage/' . $section->path_image_section_desktop) }}); background-color: {{ $section->background_color_section }};">
         <div class="serv04__mask"></div>
         <header class="serv04__header">
