@@ -30,11 +30,16 @@
                                             @endforeach
                                         </ul>
                                         <div class="serv04-page__navigation__select">
-                                            <select name="category">
-                                                @foreach ($categories as $categoryGet)
-                                                    <option value="category">{{ $categoryGet->title }}</option>
-                                                @endforeach
-                                            </select>
+                                            <div class="dropdown serv04-page__navigation__select__dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Categoria
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($categories as $categoryGet)
+                                                        <li><a class="dropdown-item" href="{{ route('serv04.category.page', ['SERV04ServicesCategory' => $categoryGet->slug]) }}">{{ $categoryGet->title }}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                              </div>
                                         </div>
                                     </div>
                                 </nav>
