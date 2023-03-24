@@ -1,1 +1,1 @@
-import '../../pages/Brands/BRAN01/src/main';
+import '../../pages/Services/SERV04/src/main';
