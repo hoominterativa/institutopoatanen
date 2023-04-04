@@ -78,10 +78,49 @@
                     "height":"525",
                     "activeCrop": "true"
                 }
-
             }
         }
     },
+
+    "Portfolios": {
+        "PORT101":{
+            "path_image_box": {
+                "width":"348",
+                "height":"435",
+                "activeCrop": "true"
+            },
+            "path_image_desktop": {
+                "width":"1511",
+                "height":"798",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width":"390",
+                "height":"1370",
+                "activeCrop": "true"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width":"1500",
+                    "height":"900",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width":"390",
+                    "height":"765",
+                    "activeCrop": "true"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width":"682",
+                    "height":"407",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
     "Compliances": {
         "COMP01":{
             "Section": {
@@ -274,6 +313,24 @@
                 "height":"674",
                 "activeCrop": "true"
             }
+        },
+
+        "SLID02":{
+            "path_image_desktop": {
+                "width":"1500",
+                "height":"782",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width":"390",
+                "height":"782",
+                "activeCrop": "true"
+            },
+            "path_image_icon": {
+                "width":"200",
+                "height":"200",
+                "activeCrop": "false"
+            }
         }
     },
 
@@ -316,21 +373,26 @@
                 }
             }
         },
-        "TOPI101":{
-            "path_image": {
-                "width":"300",
-                "height":"300",
+        "TOPI102":{
+            "path_image_desktop": {
+                "width":"1450",
+                "height":"836",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width":"390",
+                "height":"836",
                 "activeCrop": "true"
             },
             "Section": {
                 "path_image_desktop": {
-                    "width":"1450",
-                    "height":"836",
+                    "width":"318",
+                    "height":"484",
                     "activeCrop": "true"
                 },
                 "path_image_mobile": {
-                    "width":"390",
-                    "height":"836",
+                    "width":"272",
+                    "height":"421",
                     "activeCrop": "true"
                 }
             }

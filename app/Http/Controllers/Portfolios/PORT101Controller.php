@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\Portfolios;
 
-use App\Models\Portfolios\PORT101Portfolios;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Portfolios\PORT101Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT101PortfoliosGallery;
+use App\Models\Portfolios\PORT101PortfoliosSection;
 
 class PORT101Controller extends Controller
 {
+    protected $path = 'uploads/Portfolios/PORT101/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +25,13 @@ class PORT101Controller extends Controller
      */
     public function index()
     {
-        //
+        $portfolios = PORT101Portfolios::sorting()->active()->get();
+        $section = PORT101PortfoliosSection::active()->first();
+        return view('Admin.cruds.Portfolios.PORT101.index', [
+            'portfolios' => $portfolios,
+            'section' => $section,
+            'cropSetting' => getCropImage('Portfolios', 'PORT101')
+        ]);
     }
 
     /**
@@ -30,7 +41,9 @@ class PORT101Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Portfolios.PORT101.create', [
+            'cropSetting' => getCropImage('Portfolios', 'PORT101')
+        ]);
     }
 
     /**
@@ -42,35 +55,27 @@ class PORT101Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $data['active'] = $request->active?1:0;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(PORT101Portfolios::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if($portfolios = PORT101Portfolios::create($data)){
+            Session::flash('success', 'Portfólio cadastrado com sucesso');
+            return redirect()->route('admin.port101.edit', ['PORT101Portfolios' => $portfolios->id]);
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_box);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao cadastradar o portfólio');
             return redirect()->back();
         }
     }
@@ -83,7 +88,13 @@ class PORT101Controller extends Controller
      */
     public function edit(PORT101Portfolios $PORT101Portfolios)
     {
-        //
+        $galleries = PORT101PortfoliosGallery::where('portfolio_id', $PORT101Portfolios->id)->get();
+
+        return view('Admin.cruds.Portfolios.PORT101.edit', [
+            'portfolio' => $PORT101Portfolios,
+            'galleries' => $galleries,
+            'cropSetting' => getCropImage('Portfolios', 'PORT101')
+        ]);
     }
 
     /**
@@ -95,54 +106,51 @@ class PORT101Controller extends Controller
      */
     public function update(Request $request, PORT101Portfolios $PORT101Portfolios)
     {
+
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            storageDelete($PORT101Portfolios, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
+        if($path_image_box){
+            storageDelete($PORT101Portfolios, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($PORT101Portfolios, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($PORT101Portfolios, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($PORT101Portfolios, 'path_image_box');
+            $data['path_image_box'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PORT101Portfolios, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if($path_image_desktop){
+            storageDelete($PORT101Portfolios, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
+        }
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($PORT101Portfolios, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        */
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if($path_image_mobile){
+            storageDelete($PORT101Portfolios, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($PORT101Portfolios, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
+        }
 
         if($PORT101Portfolios->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Portfólio atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_box);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,11 +161,18 @@ class PORT101Controller extends Controller
      */
     public function destroy(PORT101Portfolios $PORT101Portfolios)
     {
-        //storageDelete($PORT101Portfolios, 'path_image');
-        //storageDelete($PORT101Portfolios, 'path_archive');
+        $galleries = PORT101PortfoliosGallery::where('portfolio_id', $PORT101Portfolios->id)->get();
+        foreach($galleries as $gallery){
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
+        storageDelete($PORT101Portfolios, 'path_image_box');
+        storageDelete($PORT101Portfolios, 'path_image_desktop');
+        storageDelete($PORT101Portfolios, 'path_image_mobile');
 
         if($PORT101Portfolios->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Portfólio deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +185,21 @@ class PORT101Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $PORT101Portfolioss = PORT101Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT101Portfolioss as $PORT101Portfolios){
-            storageDelete($PORT101Portfolios, 'path_image');
-            storageDelete($PORT101Portfolios, 'path_archive');
+            $galleries = PORT101PortfoliosGallery::where('portfolio_id', $PORT101Portfolios->id)->get();
+        foreach($galleries as $gallery){
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
         }
-        */
+            storageDelete($PORT101Portfolios, 'path_image_box');
+            storageDelete($PORT101Portfolios, 'path_image_desktop');
+            storageDelete($PORT101Portfolios, 'path_image_mobile');
+        }
+
 
         if($deleted = PORT101Portfolios::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Portifólios deletados com sucessso']);
         }
     }
     /**
@@ -201,32 +220,32 @@ class PORT101Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portfolios\PORT101Portfolios  $PORT101Portfolios
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PORT101Portfolios $PORT101Portfolios)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT101');
-
-        return view('Client.pages.Portfolios.PORT101.show',[
-            'sections' => $sections
-        ]);
-    }
-
-
-
-    /**
      * Section index resource.
      *
      * @return \Illuminate\Http\Response
      */
     public static function section()
     {
-        return view('Client.pages.Portfolios.PORT101.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $sections = PORT101PortfoliosSection::where('path_image_mobile','!=', '')->active()->first();
+                $portfolios = PORT101Portfolios::with('galleries')->where('path_image_mobile','!=', '')->sorting()->active()->get();
+                    $sections->path_image_desktop = $sections->path_image_mobile;
+                    foreach($portfolios as $portfolio) {
+                        $portfolio->path_image_desktop = $portfolio->path_image_mobile;
+                    }
+            break;
+            default:
+                $sections = PORT101PortfoliosSection::active()->first();
+                $portfolios = PORT101Portfolios::with('galleries')->sorting()->active()->get();
+            break;
+        }
+
+       
+        return view('Client.pages.Portfolios.PORT101.section', [
+            'portfolios' => $portfolios,
+            'sections' => $sections
+        ]);
     }
 }

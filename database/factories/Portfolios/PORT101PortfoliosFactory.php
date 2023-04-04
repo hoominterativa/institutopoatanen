@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Portfolios;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Portfolios\PORT101Portfolios;
@@ -22,9 +22,16 @@ class PORT101PortfoliosFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(12),
+            'description' => $this->faker->text(100),
+            'text' => $this->faker->text(400),
+            'link_button' => 'https://www.lipsum.com/',
+            'target_link_button' => '_blank',
+            'path_image_box' => 'uploads/tmp/port01_path_image_box.png',
+            'path_image_desktop' => 'uploads/tmp/slid01_path_image_desktop.png',
+            'path_image_mobile' => 'uploads/tmp/slid01_path_image_desktop.png',
+            'active' => 1,
         ];
     }
 }

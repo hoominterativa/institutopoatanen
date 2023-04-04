@@ -60,7 +60,6 @@ class SLID01Controller extends Controller
         if($path_image_png) $data['path_image_png'] = $path_image_png;
 
         $data['active'] = $request->active?1:0;
-
         $data['active_mobile'] = $request->active_mobile?1:0;
 
         if($request->external_link_button){

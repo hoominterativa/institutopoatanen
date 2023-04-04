@@ -4,6 +4,7 @@
     {!!$optimization->scripts!!}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- <meta name="device" content=""> --}}
     <meta name="device" content="{{ deviceDetect() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="{{asset(mix('css/libraries.css'))}}">
 
 </head>
+{{-- <body data-device=""> --}}
 <body data-device="{{ deviceDetect() }}">
     {!!$optimization->other_scripts!!}
     <header id="mainHeader">

@@ -114,6 +114,11 @@ return [
                     ]
                 ]
             ],
+            'PORT101' => (object)[
+                'controller' => App\Http\Controllers\Portfolios\PORT101Controller::class,
+                'model' => App\Models\Portfolios\PORT101Portfolios::class,
+                'seedQty' => 4,
+            ],
         ],
         // END PORTFOLIOS
 

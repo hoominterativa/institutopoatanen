@@ -22,9 +22,15 @@ class SLID02SlidesFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'path_image_desktop' => "uploads/tmp/image-box.jpg",
+            'link' => 'https://www.lipsum.com/',
+            'target_link' => '_blank',
+            'active' => 1,
+
+            'path_image_mobile' => "uploads/tmp/image-box.jpg",
+            'link_mobile' => 'https://www.lipsum.com/',
+            'target_link_mobile' => '_blank',
+            'active_mobile' => 1,
         ];
     }
 }
