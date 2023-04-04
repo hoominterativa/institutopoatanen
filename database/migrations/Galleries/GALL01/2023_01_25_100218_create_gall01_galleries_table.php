@@ -15,6 +15,8 @@ class CreateGall01GalleriesTable extends Migration
     {
         Schema::create('gall01_galleries', function (Blueprint $table) {
             $table->id();
+            $table->string('path_image')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

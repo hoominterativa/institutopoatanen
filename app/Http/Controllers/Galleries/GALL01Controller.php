@@ -13,6 +13,9 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class GALL01Controller extends Controller
 {
+
+    protected $path = 'uploads/Galleries/GALL01/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +23,11 @@ class GALL01Controller extends Controller
      */
     public function index()
     {
-        //
+        $galleries = GALL01Galleries::sorting()->paginate(15);
+
+        return view('Admin.cruds.Galleries.GALL01.index', [
+            'galleries' => $galleries
+        ]);
     }
 
     /**
@@ -30,7 +37,9 @@ class GALL01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Galleries.GALL01.create', [
+            'cropSetting' => getCropImage('Galleries', 'GALL01')
+        ]);
     }
 
     /**
@@ -42,35 +51,19 @@ class GALL01Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $data['active'] = $request->active?1:0;
 
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(GALL01Galleries::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Imagem cadastrado com sucesso');
+            return redirect()->route('admin.gall01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar a imagem');
             return redirect()->back();
         }
     }
@@ -83,7 +76,10 @@ class GALL01Controller extends Controller
      */
     public function edit(GALL01Galleries $GALL01Galleries)
     {
-        //
+        return view('Admin.cruds.Galleries.GALL01.edit', [
+            'gallery' => $GALL01Galleries,
+            'cropSetting' => getCropImage('Galleries', 'GALL01')
+        ]);
     }
 
     /**
@@ -96,14 +92,11 @@ class GALL01Controller extends Controller
     public function update(Request $request, GALL01Galleries $GALL01Galleries)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $data['active'] = $request->active?1:0;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image){
             storageDelete($GALL01Galleries, 'path_image');
             $data['path_image'] = $path_image;
@@ -112,35 +105,13 @@ class GALL01Controller extends Controller
             storageDelete($GALL01Galleries, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($GALL01Galleries, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($GALL01Galleries, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($GALL01Galleries->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Imagem atualizada com sucesso');
+            return redirect()->route('admin.gall01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a imagem');
             return redirect()->back();
         }
     }
@@ -153,8 +124,7 @@ class GALL01Controller extends Controller
      */
     public function destroy(GALL01Galleries $GALL01Galleries)
     {
-        //storageDelete($GALL01Galleries, 'path_image');
-        //storageDelete($GALL01Galleries, 'path_archive');
+        storageDelete($GALL01Galleries, 'path_image');
 
         if($GALL01Galleries->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -170,14 +140,11 @@ class GALL01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $GALL01Galleriess = GALL01Galleries::whereIn('id', $request->deleteAll)->get();
         foreach($GALL01Galleriess as $GALL01Galleries){
             storageDelete($GALL01Galleries, 'path_image');
-            storageDelete($GALL01Galleries, 'path_archive');
         }
-        */
 
         if($deleted = GALL01Galleries::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -207,6 +174,10 @@ class GALL01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Galleries.GALL01.section');
+        $galleries = GALL01Galleries::active()->sorting()->get();
+
+        return view('Client.pages.Galleries.GALL01.section', [
+            'galleries' => $galleries
+        ]);
     }
 }

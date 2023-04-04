@@ -22,9 +22,8 @@ class GALL01GalleriesFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'path_image' => 'uploads/tmp/gall01_image2.png',
+            'active' => 1,
         ];
     }
 }

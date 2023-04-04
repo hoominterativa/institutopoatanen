@@ -16,7 +16,7 @@ class GALL01Galleries extends Model
     }
 
     protected $table = "gall01_galleries";
-    protected $fillable = [];
+    protected $fillable = ['path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

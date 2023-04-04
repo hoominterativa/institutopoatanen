@@ -96,6 +96,15 @@ return [
         ],
         // END COMPLIANCES
 
+        'Galleries' => (object)[
+            'GALL01' => (object)[
+                'controller' => App\Http\Controllers\Galleries\GALL01Controller::class,
+                'model' => App\Models\Galleries\GALL01Galleries::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END COMPLIANCES
+
         'Portfolios' => (object)[
             'PORT01' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,

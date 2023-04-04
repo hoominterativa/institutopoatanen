@@ -1,439 +1,436 @@
 {
     "Abouts": {
-        "ABOU01":{
+        "ABOU01": {
             "path_image_banner": {
-                "width":"1450",
-                "height":"400",
+                "width": "1450",
+                "height": "400",
                 "activeCrop": "true"
             },
             "path_image_inner_section": {
-                "width":"550",
-                "height":"550",
+                "width": "550",
+                "height": "550",
                 "activeCrop": "true"
             },
             "Topic": {
                 "path_image_icon": {
-                    "width":"200",
-                    "height":"200",
+                    "width": "200",
+                    "height": "200",
                     "activeCrop": "false"
                 }
             }
         }
     },
-
     "Blogs": {
-        "BLOG01":{
+        "BLOG01": {
             "path_image_thumbnail": {
-                "width":"450",
-                "height":"420",
+                "width": "450",
+                "height": "420",
                 "activeCrop": "true"
             },
             "path_image": {
-                "width":"600",
-                "height":"600",
+                "width": "600",
+                "height": "600",
                 "activeCrop": "false"
             }
         }
     },
     "Brands": {
-        "BRAN01":{
+        "BRAN01": {
             "path_image_box": {
-                "width":"322",
-                "height":"137",
+                "width": "322",
+                "height": "137",
                 "activeCrop": "false"
             },
             "path_image_icon": {
-                "width":"300",
-                "height":"300",
+                "width": "300",
+                "height": "300",
                 "activeCrop": "false"
             },
             "Section": {
                 "path_image_banner_desktop": {
-                    "width":"1500",
-                    "height":"218",
+                    "width": "1500",
+                    "height": "218",
                     "activeCrop": "true"
                 },
                 "path_image_banner_mobile": {
-                    "width":"390",
-                    "height":"230",
+                    "width": "390",
+                    "height": "230",
                     "activeCrop": "true"
                 },
                 "path_image_section_desktop": {
-                    "width":"1500",
-                    "height":"1235",
+                    "width": "1500",
+                    "height": "1235",
                     "activeCrop": "true"
                 },
                 "path_image_section_mobile": {
-                    "width":"390",
-                    "height":"218",
+                    "width": "390",
+                    "height": "218",
                     "activeCrop": "true"
                 },
                 "path_image_home_desktop": {
-                    "width":"1500",
-                    "height":"460",
+                    "width": "1500",
+                    "height": "460",
                     "activeCrop": "true"
                 },
                 "path_image_home_mobile": {
-                    "width":"390",
-                    "height":"525",
+                    "width": "390",
+                    "height": "525",
                     "activeCrop": "true"
                 }
             }
         }
     },
-
+    "Galleries": {
+        "GALL01": {
+            "path_image": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            }
+        }
+    },
     "Portfolios": {
-        "PORT101":{
+        "PORT101": {
             "path_image_box": {
-                "width":"348",
-                "height":"435",
+                "width": "348",
+                "height": "435",
                 "activeCrop": "true"
             },
             "path_image_desktop": {
-                "width":"1511",
-                "height":"798",
+                "width": "1511",
+                "height": "798",
                 "activeCrop": "true"
             },
             "path_image_mobile": {
-                "width":"390",
-                "height":"1370",
+                "width": "390",
+                "height": "1370",
                 "activeCrop": "true"
             },
             "Section": {
                 "path_image_desktop": {
-                    "width":"1500",
-                    "height":"900",
+                    "width": "1500",
+                    "height": "900",
                     "activeCrop": "true"
                 },
                 "path_image_mobile": {
-                    "width":"390",
-                    "height":"765",
+                    "width": "390",
+                    "height": "765",
                     "activeCrop": "true"
                 }
             },
             "Gallery": {
                 "path_image": {
-                    "width":"682",
-                    "height":"407",
+                    "width": "682",
+                    "height": "407",
                     "activeCrop": "false"
                 }
             }
         }
     },
-
     "Compliances": {
-        "COMP01":{
+        "COMP01": {
             "Section": {
                 "path_image_icon": {
-                    "width":"300",
-                    "height":"300",
+                    "width": "300",
+                    "height": "300",
                     "activeCrop": "false"
                 }
             }
         }
     },
-
     "Contents": {
-        "CONT03":{
+        "CONT03": {
             "path_image_center": {
-                "width":"600",
-                "height":"740",
+                "width": "600",
+                "height": "740",
                 "activeCrop": "true"
             },
             "path_image_right": {
-                "width":"600",
-                "height":"600",
+                "width": "600",
+                "height": "600",
                 "activeCrop": "true"
             },
             "path_image_background": {
-                "width":"1300",
-                "height":"600",
+                "width": "1300",
+                "height": "600",
                 "activeCrop": "false"
             }
         },
-        "CONT02":{
+        "CONT02": {
             "path_image_background_desktop": {
-                "width":"1500",
-                "height":"645",
+                "width": "1500",
+                "height": "645",
                 "activeCrop": "true"
             },
             "path_image_background_mobile": {
-                "width":"390",
-                "height":"782",
+                "width": "390",
+                "height": "782",
                 "activeCrop": "true"
             },
             "path_image": {
-                "width":"429.09",
-                "height":"591.92",
+                "width": "429.09",
+                "height": "591.92",
                 "activeCrop": "false"
             }
         }
     },
-
     "ContentPages": {
-        "COPA01":{
+        "COPA01": {
             "path_image_banner": {
-                "width":"1500",
-                "height":"400",
+                "width": "1500",
+                "height": "400",
                 "activeCrop": "false"
             },
             "Section": {
                 "path_image_icon": {
-                    "width":"400",
-                    "height":"400",
+                    "width": "400",
+                    "height": "400",
                     "activeCrop": "false"
                 }
             }
         }
     },
-
     "Contacts": {
-        "COTA01":{
+        "COTA01": {
             "path_image_banner": {
-                "width":"1500",
-                "height":"360",
+                "width": "1500",
+                "height": "360",
                 "activeCrop": "false"
             },
             "TopicForm": {
                 "path_image_icon": {
-                    "width":"300",
-                    "height":"300",
+                    "width": "300",
+                    "height": "300",
                     "activeCrop": "true"
                 }
             },
             "TopicSection": {
                 "path_image_icon": {
-                    "width":"300",
-                    "height":"300",
+                    "width": "300",
+                    "height": "300",
                     "activeCrop": "true"
                 }
             }
         }
     },
-
     "Services": {
-        "SERV01":{
+        "SERV01": {
             "path_image_icon": {
-                "width":"200",
-                "height":"200",
+                "width": "200",
+                "height": "200",
                 "activeCrop": "false"
             },
             "path_image": {
-                "width":"450",
-                "height":"670",
+                "width": "450",
+                "height": "670",
                 "activeCrop": "true"
             },
             "path_image_banner": {
-                "width":"450",
-                "height":"670",
+                "width": "450",
+                "height": "670",
                 "activeCrop": "false"
             },
-            "Advantage":{
+            "Advantage": {
                 "path_image_icon": {
-                    "width":"200",
-                    "height":"200",
+                    "width": "200",
+                    "height": "200",
                     "activeCrop": "false"
                 },
                 "path_image": {
-                    "width":"500",
-                    "height":"500",
+                    "width": "500",
+                    "height": "500",
                     "activeCrop": "true"
                 }
             },
-            "Portfolio":{
+            "Portfolio": {
                 "path_image": {
-                    "width":"500",
-                    "height":"610",
+                    "width": "500",
+                    "height": "610",
                     "activeCrop": "true"
                 }
             }
         },
-        "SERV04":{
+        "SERV04": {
             "path_image_icon": {
-                "width":"200",
-                "height":"200",
+                "width": "200",
+                "height": "200",
                 "activeCrop": "false"
             },
             "path_image": {
-                "width":"355",
-                "height":"410",
+                "width": "355",
+                "height": "410",
                 "activeCrop": "false"
             },
             "path_image_box": {
-                "width":"330",
-                "height":"490",
+                "width": "330",
+                "height": "490",
                 "activeCrop": "false"
             },
-            "Section":{
+            "Section": {
                 "path_image_section_desktop": {
-                    "width":"1500",
-                    "height":"951",
+                    "width": "1500",
+                    "height": "951",
                     "activeCrop": "true"
                 },
                 "path_image_section_mobile": {
-                    "width":"390",
-                    "height":"958",
+                    "width": "390",
+                    "height": "958",
                     "activeCrop": "true"
                 },
                 "path_image_banner_desktop": {
-                    "width":"1500",
-                    "height":"411",
+                    "width": "1500",
+                    "height": "411",
                     "activeCrop": "true"
                 },
                 "path_image_banner_mobile": {
-                    "width":"450",
-                    "height":"427",
+                    "width": "450",
+                    "height": "427",
                     "activeCrop": "true"
                 }
             },
-            "Category":{
+            "Category": {
                 "path_image": {
-                    "width":"195",
-                    "height":"268",
+                    "width": "195",
+                    "height": "268",
                     "activeCrop": "false"
                 }
             }
         }
     },
-
     "Slides": {
-        "SLID01":{
+        "SLID01": {
             "path_image_desktop": {
-                "width":"1300",
-                "height":"750",
+                "width": "1300",
+                "height": "750",
                 "activeCrop": "false"
             },
             "path_image_mobile": {
-                "width":"420",
-                "height":"700",
+                "width": "420",
+                "height": "700",
                 "activeCrop": "true"
             },
             "path_image_png": {
-                "width":"489",
-                "height":"674",
+                "width": "489",
+                "height": "674",
                 "activeCrop": "true"
             }
         },
-
-        "SLID02":{
+        "SLID02": {
             "path_image_desktop": {
-                "width":"1500",
-                "height":"782",
+                "width": "1500",
+                "height": "782",
                 "activeCrop": "true"
             },
             "path_image_mobile": {
-                "width":"390",
-                "height":"782",
+                "width": "390",
+                "height": "782",
                 "activeCrop": "true"
             },
             "path_image_icon": {
-                "width":"200",
-                "height":"200",
+                "width": "200",
+                "height": "200",
                 "activeCrop": "false"
             }
         }
     },
-
     "Topics": {
-        "TOPI01":{
+        "TOPI01": {
             "path_image_icon": {
-                "width":"200",
-                "height":"200",
+                "width": "200",
+                "height": "200",
                 "activeCrop": "false"
             },
             "path_image": {
-                "width":"260",
-                "height":"240",
+                "width": "260",
+                "height": "240",
                 "activeCrop": "true"
             },
             "Section": {
                 "path_image_background": {
-                    "width":"1400",
-                    "height":"700",
+                    "width": "1400",
+                    "height": "700",
                     "activeCrop": "false"
                 }
             }
         },
-        "TOPI02":{
+        "TOPI02": {
             "path_image_icon": {
-                "width":"200",
-                "height":"200",
+                "width": "200",
+                "height": "200",
                 "activeCrop": "false"
             },
             "path_image": {
-                "width":"300",
-                "height":"300",
+                "width": "300",
+                "height": "300",
                 "activeCrop": "true"
             },
             "Section": {
                 "path_image_background": {
-                    "width":"1400",
-                    "height":"700",
+                    "width": "1400",
+                    "height": "700",
                     "activeCrop": "false"
                 }
             }
         },
-        "TOPI102":{
+        "TOPI102": {
             "path_image_desktop": {
-                "width":"1450",
-                "height":"836",
+                "width": "1450",
+                "height": "836",
                 "activeCrop": "true"
             },
             "path_image_mobile": {
-                "width":"390",
-                "height":"836",
+                "width": "390",
+                "height": "836",
                 "activeCrop": "true"
             },
             "Section": {
                 "path_image_desktop": {
-                    "width":"318",
-                    "height":"484",
+                    "width": "318",
+                    "height": "484",
                     "activeCrop": "true"
                 },
                 "path_image_mobile": {
-                    "width":"272",
-                    "height":"421",
+                    "width": "272",
+                    "height": "421",
                     "activeCrop": "true"
                 }
             }
         }
     },
-
     "WorkWith": {
-        "WOWI01":{
+        "WOWI01": {
             "path_image_banner": {
-                "width":"1300",
-                "height":"400",
+                "width": "1300",
+                "height": "400",
                 "activeCrop": "false"
             },
             "path_image_icon": {
-                "width":"200",
-                "height":"200",
+                "width": "200",
+                "height": "200",
                 "activeCrop": "true"
             },
             "path_image_thumbnail": {
-                "width":"200",
-                "height":"235",
+                "width": "200",
+                "height": "235",
                 "activeCrop": "true"
             },
             "path_image_content": {
-                "width":"500",
-                "height":"500",
+                "width": "500",
+                "height": "500",
                 "activeCrop": "true"
             },
             "Topic": {
                 "path_image_thumbnail": {
-                    "width":"450",
-                    "height":"400",
+                    "width": "450",
+                    "height": "400",
                     "activeCrop": "true"
                 },
                 "path_image_icon": {
-                    "width":"300",
-                    "height":"300",
+                    "width": "300",
+                    "height": "300",
                     "activeCrop": "true"
                 }
             }
         }
     }
-
 }
