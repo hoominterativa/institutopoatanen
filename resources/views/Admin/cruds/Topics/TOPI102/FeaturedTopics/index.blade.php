@@ -5,7 +5,7 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <button id="btSubmitDelete" data-route="{{ route('admin.topi102.featuredtopic.destroySelected') }}"
-                            type="button" class="btn btn-danger btnDeleteSlide" style="display: none;">Deletar
+                            type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar
                             selecionados</button>
                     </div>
                     <div class="col-6">
@@ -18,7 +18,7 @@
                         <tr>
                             <th width="50px"></th>
                             <th width="30px" class="bs-checkbox">
-                                <label><input name="btnSelectAll" value="btnDeleteSlide" type="checkbox"></label>
+                                <label><input name="btnSelectAll" value="btnDeleteTopics" type="checkbox"></label>
                             </th>
                             <th>Título</th>
                             <th>Quantidade</th>

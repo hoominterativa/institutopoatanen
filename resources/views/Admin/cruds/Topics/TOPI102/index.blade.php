@@ -185,7 +185,7 @@
                                                         </td>
                                                         <td class="align-middle avatar-group">
                                                             <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                                style="background-image: url({{ asset('admin/assets/' . $topic->path_image_desktop) }})">
+                                                                style="background-image: url({{ asset('storage/' . $topic->path_image_desktop) }})">
                                                             </div>
                                                         </td>
                                                         <td class="align-middle">{{ $topic->title }}</td>

@@ -169,12 +169,12 @@
                                                 </td>
                                                 <td class="align-middle avatar-group">
                                                     <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                        style="background-image: url({{ asset('admin/assets/' . $portfolio->path_image_box) }})">
+                                                        style="background-image: url({{ asset('storage/' . $portfolio->path_image_box) }})">
                                                     </div>
                                                 </td>
                                                 <td class="align-middle">{{ $portfolio->title }}</td>
                                                 <td class="align-middle">{{ $portfolio->subtitle }}</td>
-                                                <td class="align-middle">{{ $portfolio->description }}</td>
+                                                <td class="align-middle">{!! $portfolio->description !!}</td>
                                                 <td class="align-middle">
                                                     @switch($portfolio->active)
                                                         @case(1)
