@@ -1,1 +1,1 @@
-import '../../pages/Galleries/GALL01/src/main';
+import '../../pages/Contents/CONT09/src/main';

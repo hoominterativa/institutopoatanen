@@ -11825,8 +11825,8 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Galleries/GALL01/src/main */ "./resources/views/Client/pages/Galleries/GALL01/src/main.js");
-/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Contents/CONT09/src/main */ "./resources/views/Client/pages/Contents/CONT09/src/main.js");
+/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -12048,10 +12048,10 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Galleries/GALL01/src/main.js":
-/*!*******************************************************************!*\
-  !*** ./resources/views/Client/pages/Galleries/GALL01/src/main.js ***!
-  \*******************************************************************/
+/***/ "./resources/views/Client/pages/Contents/CONT09/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT09/src/main.js ***!
+  \******************************************************************/
 /***/ (() => {
 
 
