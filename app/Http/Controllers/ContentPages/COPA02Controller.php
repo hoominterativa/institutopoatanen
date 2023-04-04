@@ -211,9 +211,7 @@ class COPA02Controller extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
+        $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA02.show',[
             'sections' => $sections
         ]);
     }
@@ -241,6 +239,6 @@ class COPA02Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.ContentPages.COPA02.section');
     }
 }
