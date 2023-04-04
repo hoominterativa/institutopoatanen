@@ -16,7 +16,9 @@ class CONT09Contents extends Model
     }
 
     protected $table = "cont09_contents";
-    protected $fillable = [];
+    protected $fillable = [
+        'title', 'subtitle', 'link', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active', 'sorting'
+    ];
 
     public function scopeSorting($query)
     {

@@ -22,9 +22,13 @@ class CONT09ContentsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(15),
+            'link' => 'https://www.lipsum.com/',
+            'path_image_desktop' => 'uploads/tmp/image_temporary.png',
+            'path_image_mobile' => 'uploads/tmp/image_temporary.png',
+            'background_color' => '#FFFFFF',
+            'active' => 1,
         ];
     }
 }

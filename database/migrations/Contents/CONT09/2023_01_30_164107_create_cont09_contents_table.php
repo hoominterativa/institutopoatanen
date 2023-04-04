@@ -15,6 +15,13 @@ class CreateCont09ContentsTable extends Migration
     {
         Schema::create('cont09_contents', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('link')->nullable();
+            $table->text('path_image_desktop')->nullable();
+            $table->text('path_image_mobile')->nullable();
+            $table->text('backgound_color')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
