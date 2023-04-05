@@ -8,7 +8,24 @@ return [
     ],
 
     // Configure existing modules and templates site-wide/system
-    'InsertModelsMain' => (object) [],
+    'InsertModelsMain' => (object) [
+        'Contents' => (object) [
+            'CONT10' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => 'mdi-topic-circle'
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
+    ],
 
     'ModelsForm' => (object)[
         'FORM101' => 'Contacts_FORM101.jpg',

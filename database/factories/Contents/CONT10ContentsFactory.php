@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Contents;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Contents\CONT10Contents;
@@ -22,9 +22,11 @@ class CONT10ContentsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'date' => date('Y-m-d'),
+            'locale' => 'Salvador-BA',
+            'link' => 'http://lorempixel.com',
+            'link_target' => '_blank',
+            'active' => 1
         ];
     }
 }

@@ -134,7 +134,7 @@
                         'data-parsley-validation-threshold' => '10',
                     ]) !!}
                 </div>
-                <div class="col-12 col-sm-6">                
+                <div class="col-12 col-sm-6">
                     <div class="mb-3 form-check me-3">
                         {!! Form::checkbox('active_section', '1', null, ['class' => 'form-check-input', 'id' => 'active_section']) !!}
                         {!! Form::label('active_section', 'Ativar exibição na página?', ['class' => 'form-check-label']) !!}
@@ -146,8 +146,8 @@
                     'class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0',
                     'type' => 'submit',
                 ]) !!}
-            </div>            
-        </div>        
+            </div>
+        </div>
     </div>
     {!! Form::close() !!}
 </div>

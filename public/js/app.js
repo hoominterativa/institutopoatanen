@@ -11825,8 +11825,8 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Contents/CONT09/src/main */ "./resources/views/Client/pages/Contents/CONT09/src/main.js");
-/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Contents/CONT10/src/main */ "./resources/views/Client/pages/Contents/CONT10/src/main.js");
+/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -12048,13 +12048,50 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT09/src/main.js":
+/***/ "./resources/views/Client/pages/Contents/CONT10/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT09/src/main.js ***!
+  !*** ./resources/views/Client/pages/Contents/CONT10/src/main.js ***!
   \******************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
+  var quantItemAppend = $(element).find('>*').length;
+  var refFor = quantItemAppend / quantItem;
 
+  for (var i = 1; i <= refFor; i++) {
+    $(element).append('<div class="contItemAppend' + i + ' pd-carrossel"></div>');
+    $(element).find('> *:lt(' + quantItem + ')').addClass('appendItem' + i);
+    $(element).find('.appendItem' + i).appendTo('.contItemAppend' + i + '');
+  }
+
+  $(element).owlCarousel({
+    loop: true,
+    nav: nav,
+    dots: dots,
+    autoplay: true,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      620: {
+        items: 1
+      },
+      840: {
+        items: quantLamina,
+        margin: 0
+      }
+    }
+  }); // FIM $('.owl-carousel').owlCarousel({
+}
+
+$(function () {
+  carrosselMultItem('.carousel-cont10', 6, 1, true, true, true);
+});
 
 /***/ }),
 

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Contents;
 
-use App\Models\Contents\CONT10Contents;
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Contents\CONT10Contents;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contents\CONT10ContentsSection;
 
 class CONT10Controller extends Controller
 {
@@ -20,7 +22,13 @@ class CONT10Controller extends Controller
      */
     public function index()
     {
-        //
+        $contents = CONT10Contents::sorting()->paginate(15);
+        $section = CONT10ContentsSection::first();
+        return view('Admin.cruds.Contents.CONT10.index', [
+            'contents' => $contents,
+            'section' => $section,
+            'cropSetting' => getCropImage('Contents', 'CONT10')
+        ]);
     }
 
     /**
@@ -30,7 +38,7 @@ class CONT10Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Contents.CONT10.create');
     }
 
     /**
@@ -42,35 +50,16 @@ class CONT10Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $date['active'] = $request->active?1:0;
+        $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
 
         if(CONT10Contents::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            return redirect()->route('admin.cont10.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
     }
@@ -83,7 +72,10 @@ class CONT10Controller extends Controller
      */
     public function edit(CONT10Contents $CONT10Contents)
     {
-        //
+        $CONT10Contents->date = Carbon::parse($CONT10Contents->date)->format('d/m/Y');
+        return view('Admin.cruds.Contents.CONT10.edit', [
+            'content' => $CONT10Contents
+        ]);
     }
 
     /**
@@ -96,53 +88,17 @@ class CONT10Controller extends Controller
     public function update(Request $request, CONT10Contents $CONT10Contents)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            storageDelete($CONT10Contents, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($CONT10Contents, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($CONT10Contents, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT10Contents, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $date['active'] = $request->active?1:0;
+        $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
 
         if($CONT10Contents->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,11 +109,9 @@ class CONT10Controller extends Controller
      */
     public function destroy(CONT10Contents $CONT10Contents)
     {
-        //storageDelete($CONT10Contents, 'path_image');
-        //storageDelete($CONT10Contents, 'path_archive');
 
         if($CONT10Contents->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +124,9 @@ class CONT10Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $CONT10Contentss = CONT10Contents::whereIn('id', $request->deleteAll)->get();
-        foreach($CONT10Contentss as $CONT10Contents){
-            storageDelete($CONT10Contents, 'path_image');
-            storageDelete($CONT10Contents, 'path_archive');
-        }
-        */
 
         if($deleted = CONT10Contents::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Conteúdos deletados com sucessso']);
         }
     }
     /**
@@ -206,6 +152,23 @@ class CONT10Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Contents.CONT10.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = CONT10ContentsSection::first();
+                if ($section->path_image_desktop) {
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+            break;
+            default:
+            $section = CONT10ContentsSection::first();
+            break;
+        }
+
+        $contents = CONT10Contents::active()->sorting()->get();
+        return view('Client.pages.Contents.CONT10.section', [
+            'contents' => $contents,
+            'section' => $section
+        ]);
     }
 }
