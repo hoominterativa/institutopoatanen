@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contents\CONT09ContentsTopic;
+use App\Models\Contents\CONT09ContentsTopicSection;
 
 class CONT09Controller extends Controller
 {
@@ -23,8 +25,12 @@ class CONT09Controller extends Controller
     public function index()
     {
         $contents = CONT09Contents::sorting()->paginate(10);
+        $topics = CONT09ContentsTopic::sorting()->get();
+        $section = CONT09ContentsTopicSection::first();
         return view('Admin.cruds.Contents.CONT09.index', [
             'contents' => $contents,
+            'topics' => $topics,
+            'section' => $section,
             'cropSetting' => getCropImage('Contents', 'CONT09')
         ]);
     }
@@ -182,8 +188,6 @@ class CONT09Controller extends Controller
     }
 
     // METHODS CLIENT
-
-
 
     /**
      * Section index resource.

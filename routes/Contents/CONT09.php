@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Contents\CONT09TopicController;
+use App\Http\Controllers\Contents\CONT09TopicSectionController;
 
 /**
  * Uncomment the code below
@@ -11,21 +13,25 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Contents';
+$model = 'CONT09';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/topicos', CONT09TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'CONT09ContentsTopic']);
+    Route::post($route.'/topico/delete', [CONT09TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topico/sorting', [CONT09TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+
+    Route::resource($route . '/secao', CONT09TopicSectionController::class)->names('admin.' . $routeName . '.topicsection')->parameters(['secao' => 'CONT09ContentsTopicSection']);
+    Route::post($route . '/secao/delete', [CONT09TopicSectionController::class, 'destroySelected'])->name('admin.' . $routeName . '.topicsection.destroySelected');
+});
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCont09ContentsTable extends Migration
+class CreateCont09ContentsTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateCont09ContentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cont09_contents', function (Blueprint $table) {
+        Schema::create('cont09_contents_topics', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
             $table->text('link')->nullable();
-            $table->text('path_image_desktop')->nullable();
-            $table->text('path_image_mobile')->nullable();
-            $table->text('background_color')->nullable();
+            $table->enum('link_target',['_self','_blank'])->default('_self');
+            $table->string('path_image_icon')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
@@ -34,6 +31,6 @@ class CreateCont09ContentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cont09_contents');
+        Schema::dropIfExists('cont09_contents_topics');
     }
 }

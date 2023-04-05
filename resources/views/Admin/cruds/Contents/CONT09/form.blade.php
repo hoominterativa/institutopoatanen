@@ -70,10 +70,7 @@
                 </div><!-- END container image crop -->
             </div>
         </div>
-        {{-- end card-body --}}
-    </div>
-    {{-- Color Picker --}}
-    <div class="col-12 col-lg-6">
+        {{-- Color Picker --}}
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
@@ -83,6 +80,7 @@
                 ]) !!}
             </div>
         </div>
+        {{-- end card-body --}}
     </div>
 </div>
 {{-- end row --}}
