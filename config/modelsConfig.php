@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'ContentPages' => (object) [
-            'COPA01' => (object)[
+            'COPA02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -32,7 +32,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => 'conteudo',
                     'iconMenu' => 'string',
-                    'titlePanel' => 'COPA01',
+                    'titlePanel' => 'conteudo',
                     'iconPanel' => 'string'
                 ],
                 'IncludeSections' => (object) []

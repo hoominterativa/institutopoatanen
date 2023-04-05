@@ -232,13 +232,4 @@ class COPA02Controller extends Controller
         ]);
     }
 
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('Client.pages.ContentPages.COPA02.section');
-    }
 }
