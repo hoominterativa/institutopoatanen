@@ -209,8 +209,12 @@ class CONT09Controller extends Controller
             break;
         }
 
+        $topics = CONT09ContentsTopic::active()->sorting()->get();
+        $section = CONT09ContentsTopicSection::active()->first();
         return view('Client.pages.Contents.CONT09.section', [
-            'contents' => $contents
+            'contents' => $contents,
+            'topics' => $topics,
+            'section' => $section
         ]);
     }
 }

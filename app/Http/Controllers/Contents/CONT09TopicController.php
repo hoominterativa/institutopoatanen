@@ -93,12 +93,11 @@ class CONT09TopicController extends Controller
 
         if($CONT09ContentsTopic->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');
-            return redirect()->route('admin.cont09.index');
         }else{
             Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao atualizar o tópico');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
