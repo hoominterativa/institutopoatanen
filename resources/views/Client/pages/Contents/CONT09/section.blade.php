@@ -31,6 +31,7 @@
                         @endif
                     </div>
                     @if ($content->link)
+                        {{-- {{dd($content)}} --}}
                         <div class="cont09__content__boxRight col-sm-5 px-0">
                             <div class="cont09__content__boxRight__iframe">
                                 <iframe src="{{$content->link}}" height="500" title="Iframe Example"></iframe>
