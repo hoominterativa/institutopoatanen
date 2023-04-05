@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'ContentPages' => (object) [
-            'COPA02' => (object)[
+        'Frequently' => (object) [
+            'FREQ01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -28,11 +28,11 @@ return [
                     'relation' => '',
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'conteudo',
+                    'titleMenu' => 'faq',
                     'anchor' =>  false,
-                    'linkMenu' => 'conteudo',
+                    'linkMenu' => 'faq',
                     'iconMenu' => 'string',
-                    'titlePanel' => 'conteudo',
+                    'titlePanel' => 'faq',
                     'iconPanel' => 'string'
                 ],
                 'IncludeSections' => (object) []
