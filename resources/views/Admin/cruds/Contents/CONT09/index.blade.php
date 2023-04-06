@@ -93,9 +93,7 @@
                                                         </td>
                                                         <td class="align-middle">{{ $content->title }}</td>
                                                         <td class="align-middle">{{ $content->subtitle }}</td>
-                                                        <td class="align-middle"><a href="{{ $content->link }}"
-                                                                target="_blank"
-                                                                class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                        <td class="align-middle"><a href="{{ $content->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                         <td class="align-middle">
                                                             @switch($content->active)
                                                                 @case(1)

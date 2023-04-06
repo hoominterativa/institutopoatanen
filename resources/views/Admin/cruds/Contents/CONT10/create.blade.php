@@ -11,19 +11,19 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</a></li>
-                                    <li class="breadcrumb-item active">Cadastro {{$configModelsMain->MODULE->CODE->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.cont10.index')}}">{{ getTitleModel($configModelsMain, 'Contents', 'CONT10') }}</a></li>
+                                    <li class="breadcrumb-item active">Cadastro {{ getTitleModel($configModelsMain, 'Contents', 'CONT10') }}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro {{$configModelsMain->MODULE->CODE->config->titlePanel}}</h4>
+                            <h4 class="page-title">Cadastro {{ getTitleModel($configModelsMain, 'Contents', 'CONT10') }}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model(null, ['route' => 'admin.code.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Module.CODE.form')
+                {!! Form::model(null, ['route' => 'admin.cont10.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+                    @include('Admin.Cruds.Contents.CONT10.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.cont10.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

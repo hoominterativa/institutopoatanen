@@ -3,16 +3,16 @@
 namespace Database\Factories\Contents;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Contents\CONT10Contents;
+use App\Models\Contents\CONT10ContentsSection;
 
-class CONT10ContentsFactory extends Factory
+class CONT10ContentsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CONT10Contents::class;
+    protected $model = CONT10ContentsSection::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +22,11 @@ class CONT10ContentsFactory extends Factory
     public function definition()
     {
         return [
-            'date' => date('Y-m-d'),
             'title' => $this->faker->text(10),
-            'locale' => 'Salvador-BA',
-            'link' => 'http://lorempixel.com',
-            'link_target' => '_blank',
+            'subtitle' => $this->faker->text(15),
+            'path_image' => 'uploads/tmp/image-box-white.jpg',
+            'path_image' => 'uploads/tmp/bg-slid-mobile.jpg',
+            'background_color' => '#FFFFFF',
             'active' => 1
         ];
     }

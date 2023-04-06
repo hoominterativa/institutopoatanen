@@ -16,7 +16,7 @@ class CONT10Contents extends Model
     }
 
     protected $table = "cont10_contents";
-    protected $fillable = [];
+    protected $fillable = ['date', 'title', 'locale', 'link', 'link_target', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -28,8 +28,4 @@ class CONT10Contents extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

@@ -167,7 +167,7 @@
                 "height": "1043",
                 "activeCrop": "true"
             },
-            "Topics":{
+            "Topics": {
                 "path_image_icon": {
                     "width": "1300",
                     "height": "600",
@@ -190,6 +190,20 @@
                 "width": "429.09",
                 "height": "591.92",
                 "activeCrop": "false"
+            }
+        },
+        "CONT10": {
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "900",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "1043",
+                    "activeCrop": "true"
+                }
             }
         }
     },
