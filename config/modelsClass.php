@@ -106,10 +106,10 @@ return [
         ],
         // END COMPLIANCES
 
-        'frequently' => (object)[
+        'Frequently' => (object)[
             'FREQ01' => (object)[
-                'controller' => App\Http\Controllers\frequently\FREQ01Controller::class,
-                'model' => App\Models\frequently\FREQ01frequently::class,
+                'controller' => App\Http\Controllers\Frequently\FREQ01Controller::class,
+                'model' => App\Models\Frequently\FREQ01Frequently::class,
                 'seedQty' => 1,
             ],
         ],
