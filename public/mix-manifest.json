@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js?id=5227d210cb2f3d7735b48074bc198d2a",
     "/css/libraries.css": "/css/libraries.css?id=37943e7bd8914023dc387e57d8f5d86e",
-    "/css/app.css": "/css/app.css?id=3565cbda8bf7e280cf82e80860bfd0dd",
+    "/css/app.css": "/css/app.css?id=4b66006770819fb34c951d05bc806582",
     "/css/icons.css": "/css/icons.css?id=4ddd375dece1cac4a35fb57daa0f9582",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
@@ -246,6 +246,7 @@
     "/Admin/assets/images/users/user-7.jpg": "/Admin/assets/images/users/user-7.jpg?id=61ed0000b07ecb05efc5fc0b33f89655",
     "/Admin/assets/images/users/user-8.jpg": "/Admin/assets/images/users/user-8.jpg?id=f65d09bda640f99c6f0acb847ed5d7c7",
     "/Admin/assets/images/users/user-9.jpg": "/Admin/assets/images/users/user-9.jpg?id=e89528216e82fe47d4e4ef947345474f",
+    "/images/arrow-faq.png": "/images/arrow-faq.png?id=b6f6fe7a72d510f05fb6e660280c6eba",
     "/images/bell-icon.png": "/images/bell-icon.png?id=97e2473b8ff369c3c6272998907f8a92",
     "/images/facebook.png": "/images/facebook.png?id=1aab8bbf90ebdecd9a2d957d4c2504af",
     "/images/instagram.png": "/images/instagram.png?id=381b83763091d7ccc284de27a366a49f",

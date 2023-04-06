@@ -1,48 +1,75 @@
 @extends('Client.Core.client')
 @section('content')
 {{-- BEGIN Page content --}}
-<section id="BRAN01" class="bran01-page container-fluid px-0">
-    <header class="bran01-page__header"
-        style="background-image: url(); background-color:;">
-            <div class="bran01-page__header__mask"></div>
-            <h2 class="container container--bran01-page d-block text-center">
-                <span class="bran01-page__header__title d-block">Título da Página</span>
-                <span class="bran01-page__header__subtitle d-block">Subtitulo</span>
-                <hr class="bran01-page__header__line mb-0">
-            </h2>
-    </header>
-
-    <main class="bran01-page">
-        <div class="container container--bran01-page__main">
-            <div class="bran01-page__encompass px-0 text-center mx-auto w-100">
-                <h2 class="bran01-page__encompass__title"></h2>
-                <h3 class="bran01-page__encompass__subtitle"></h3>
-                <hr class="bran01-page__encompass__line">
-                <div class="bran01-page__encompass__paragraph mx-auto">
-                    <p></p>
+<div id="FREQ01" class="freq01-page container-fluid px-0">
+    <section class="freq01-page__faq">
+        <header class="freq01-page__faq__header"
+            style="background-image: url({{asset('storage/uploads/tmp/bg-banner-inner.jpg')}}); background-color:;">
+                <div class="freq01-pag__faq__header__mask"></div>
+                <div class="container container--freq01-page">
+                    <h2 class=" d-block text-center">
+                        <span class="freq01-page__faq__header__title d-block">Título da Página</span>
+                        <span class="freq01-page__faq__header__subtitle d-block">Subtitulo</span>
+                    </h2>
+                    <hr class="freq01-page__faq__header__line mb-0">
                 </div>
-            </div>
-            <div class="bran01-page__content">
-                <div class="row row--bran01-page w-100 mx-auto">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
+        </header>
+        <div class="freq01-page__faq__content">
+            <div class="container">
+                <div class="accordion freq01-page__faq__content__box" id="accordionExample">
+                    <div class="accordion-item freq01-page__faq__content__box__item">
+                        <h2 class="accordion-header freq01-page__faq__content__box__item__title">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              Accordion Item #2
+                                Pergunta
                             </button>
-                          </h2>
-                          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse freq01-page__faq__content__box__item__text" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                               <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
+                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
+                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
+                                    Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, v
+                                    el tempus mi pretium sed. In et arcu eget
+                                    purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consect
+                               </p>
                             </div>
-                          </div>
-                      </div>
-                    {{-- END .bran01-page__box --}}
-                </div>
+                        </div>
+                    </div>
+                {{-- END .freq01-page__box --}}
+                <div class="accordion freq01-page__faq__content__box" id="accordionExample">
+                    <div class="accordion-item freq01-page__faq__content__box__item">
+                        <h2 class="accordion-header freq01-page__faq__content__box__item__title">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapseTwo">
+                                Pergunta
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse freq01-page__faq__content__box__item__text" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                               <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
+                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
+                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
+                                    Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, v
+                                    el tempus mi pretium sed. In et arcu eget
+                                    purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consect
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+                {{-- END .freq01-page__box --}}
             </div>
         </div>
-    </main>
-</section>
+    </section>
+    <section class="freq01-page__form">
+
+    </section>
+</div>
+
 {{-- Finish Content page Here --}}
 @foreach ($sections as $section)
     {!!$section!!}
