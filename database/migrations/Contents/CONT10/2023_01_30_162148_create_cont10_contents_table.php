@@ -16,6 +16,7 @@ class CreateCont10ContentsTable extends Migration
         Schema::create('cont10_contents', function (Blueprint $table) {
             $table->id();
             $table->date('date')->nullable();
+            $table->string('title')->nullable();
             $table->string('locale')->nullable();
             $table->string('link')->nullable();
             $table->enum('link_target', ['_self', '_blank'])->default('_self');

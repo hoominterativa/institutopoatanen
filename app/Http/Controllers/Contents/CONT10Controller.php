@@ -52,13 +52,13 @@ class CONT10Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $date['active'] = $request->active?1:0;
+        $date['active'] = $request->active ? 1 : 0;
         $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
 
-        if(CONT10Contents::create($data)){
+        if (CONT10Contents::create($data)) {
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
             return redirect()->route('admin.cont10.index');
-        }else{
+        } else {
             Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
@@ -90,12 +90,12 @@ class CONT10Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $date['active'] = $request->active?1:0;
+        $date['active'] = $request->active ? 1 : 0;
         $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
 
-        if($CONT10Contents->fill($data)->save()){
+        if ($CONT10Contents->fill($data)->save()) {
             Session::flash('success', 'Conteúdo atualizado com sucesso');
-        }else{
+        } else {
             Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
         return redirect()->back();
@@ -110,7 +110,7 @@ class CONT10Controller extends Controller
     public function destroy(CONT10Contents $CONT10Contents)
     {
 
-        if($CONT10Contents->delete()){
+        if ($CONT10Contents->delete()) {
             Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
@@ -125,20 +125,20 @@ class CONT10Controller extends Controller
     public function destroySelected(Request $request)
     {
 
-        if($deleted = CONT10Contents::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' Conteúdos deletados com sucessso']);
+        if ($deleted = CONT10Contents::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' Conteúdos deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             CONT10Contents::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -152,17 +152,15 @@ class CONT10Controller extends Controller
      */
     public static function section()
     {
-        switch(deviceDetect()) {
+        switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = CONT10ContentsSection::first();
-                if ($section->path_image_desktop) {
-                    $section->path_image_desktop = $section->path_image_mobile;
-                }
-            break;
+                $section = CONT10ContentsSection::active()->first();
+                $section->path_image_desktop = $section->path_image_mobile;
+                break;
             default:
-            $section = CONT10ContentsSection::first();
-            break;
+                $section = CONT10ContentsSection::active()->first();
+                break;
         }
 
         $contents = CONT10Contents::active()->sorting()->get();

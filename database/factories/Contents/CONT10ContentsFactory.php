@@ -23,6 +23,7 @@ class CONT10ContentsFactory extends Factory
     {
         return [
             'date' => date('Y-m-d'),
+            'title' => $this->faker->text(10),
             'locale' => 'Salvador-BA',
             'link' => 'http://lorempixel.com',
             'link_target' => '_blank',

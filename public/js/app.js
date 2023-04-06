@@ -12066,10 +12066,10 @@ function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
   }
 
   $(element).owlCarousel({
-    loop: true,
+    loop: false,
     nav: nav,
     dots: dots,
-    autoplay: true,
+    autoplay: false,
     responsiveClass: true,
     responsive: {
       0: {

@@ -16,7 +16,7 @@ class CONT10Contents extends Model
     }
 
     protected $table = "cont10_contents";
-    protected $fillable = ['date', 'locale', 'link', 'link_target', 'active', 'sorting'];
+    protected $fillable = ['date', 'title', 'locale', 'link', 'link_target', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

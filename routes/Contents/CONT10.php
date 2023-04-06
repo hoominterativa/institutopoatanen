@@ -1,8 +1,9 @@
 <?php
 
-use App\Models\Contents\CONT10ContentsSection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Models\Contents\CONT10ContentsSection;
+use App\Http\Controllers\Contents\CONT10SectionController;
 
 /**
  * Uncomment the code below
@@ -24,8 +25,8 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', CONT10ContentsSection::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'CONT10ContentsSection']);
-    Route::post($route.'/secao/delete', [CONT10ContentsSection::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
+    Route::resource($route.'/secao', CONT10SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'CONT10ContentsSection']);
+    Route::post($route.'/secao/delete', [CONT10SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
