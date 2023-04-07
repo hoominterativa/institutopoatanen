@@ -14,26 +14,18 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'ContentPages' => (object) [
-            'COPA02' => (object)[
+        'Contents' => (object) [
+            'CONT07' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => false,
-                    'limit' => 'all',
-                    'condition' => '',
-                    'relation' => '',
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'conteudo',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'conteudo',
-                    'iconMenu' => 'string',
-                    'titlePanel' => 'conteudo',
-                    'iconPanel' => 'string'
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contents',
+                    'iconPanel' => 'mdi-topic-circle'
                 ],
                 'IncludeSections' => (object) []
             ],
