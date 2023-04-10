@@ -175,7 +175,7 @@ class TOPI101Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $section = TOPI101TopicsSection::active()->first();
-                $section->path_image_desktop = $section->path_image_mobile;
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
                 break;
             default:
                 $section = TOPI101TopicsSection::active()->first();

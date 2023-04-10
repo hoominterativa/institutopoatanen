@@ -156,7 +156,7 @@ class CONT10Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $section = CONT10ContentsSection::active()->first();
-                $section->path_image_desktop = $section->path_image_mobile;
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
                 break;
             default:
                 $section = CONT10ContentsSection::active()->first();

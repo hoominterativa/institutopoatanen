@@ -183,7 +183,7 @@ class TOPI102Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $sections = TOPI102TopicsSection::where('path_image_mobile','!=', '')->active()->first();
-                    $sections->path_image_desktop = $sections->path_image_mobile;
+                    if($sections) $sections->path_image_desktop = $sections->path_image_mobile;
             break;
             default:
                 $sections = TOPI102TopicsSection::active()->first();

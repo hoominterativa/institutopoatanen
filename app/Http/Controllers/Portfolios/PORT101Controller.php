@@ -233,7 +233,7 @@ class PORT101Controller extends Controller
                 $portfolios = PORT101Portfolios::with('galleries')->where('path_image_mobile','!=', '')->sorting()->active()->get();
                     $sections->path_image_desktop = $sections->path_image_mobile;
                     foreach($portfolios as $portfolio) {
-                        $portfolio->path_image_desktop = $portfolio->path_image_mobile;
+                        if($portifolio) $portfolio->path_image_desktop = $portfolio->path_image_mobile;
                     }
             break;
             default:

@@ -306,7 +306,7 @@ class SERV04Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $section = SERV04ServicesSection::first();
-                $section->path_image_section_desktop = $section->path_image_section_mobile;
+                if($section) $section->path_image_section_desktop = $section->path_image_section_mobile;
             break;
             default:
             $section = SERV04ServicesSection::first();

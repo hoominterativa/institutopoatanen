@@ -214,7 +214,7 @@ class CONT02Controller extends Controller
             case 'tablet':
                 $contents = CONT02Contents::active()->sorting()->get();
                     foreach($contents as $content) {
-                        $content->path_image_background_desktop = $content->path_image_background_mobile;
+                        if($content) $content->path_image_background_desktop = $content->path_image_background_mobile;
                     }
             break;
             default:

@@ -201,7 +201,7 @@ class CONT09Controller extends Controller
             case 'tablet':
                 $contents = CONT09Contents::active()->sorting()->get();
                     foreach($contents as $content) {
-                        $content->path_image_desktop = $content->path_image_mobile;
+                        if($content) $content->path_image_desktop = $content->path_image_mobile;
                     }
             break;
             default:
