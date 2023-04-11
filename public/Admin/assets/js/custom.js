@@ -1,3 +1,24 @@
+function embedLinkYoutube(elem){
+    var val = elem.val()
+    let result = val.includes("watch?v=");
+
+    if (result) {
+        newLink = val.replace('watch?v=', 'embed/')
+        elem.val(newLink)
+    } else if(val) {
+        arrayLink = val.split('/'),
+        id = arrayLink[arrayLink.length - 1]
+        elem.val(`https://www.youtube.com/embed/${id}`)
+    }
+}
+// $('.embedLinkYoutube').on('change', function(){
+
+
+// });
+
+$('body').on('change, focusout', '.embedLinkYoutube', function(){
+    embedLinkYoutube($(this))
+});
 function slugify(text) {
     return text
         .toString() // Cast to string (optional)

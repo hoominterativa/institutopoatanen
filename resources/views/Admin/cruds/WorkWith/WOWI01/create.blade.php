@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.wowi01.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.Cruds.WorkWith.WOWI01.form')
+                    @include('Admin.cruds.WorkWith.WOWI01.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.wowi01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

@@ -15,6 +15,9 @@ class CreateCont07ContentsTable extends Migration
     {
         Schema::create('cont07_contents', function (Blueprint $table) {
             $table->id();
+            $table->text('link_video')->nullable();
+            $table->string('path_image')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

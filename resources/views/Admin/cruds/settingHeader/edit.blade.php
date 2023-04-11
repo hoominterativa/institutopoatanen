@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model($header, ['route' => ['admin.header.update', $header->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.Cruds.settingHeader.form')
+                    @include('Admin.cruds.settingHeader.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.header.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

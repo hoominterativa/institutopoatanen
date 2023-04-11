@@ -24,7 +24,7 @@
                 @else
                     {!! Form::model(null, ['route' => 'admin.cont01.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
                 @endif
-                    @include('Admin.Cruds.Contents.CONT01.form')
+                    @include('Admin.cruds.Contents.CONT01.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                 {!! Form::close() !!}
             </div> <!-- container -->

@@ -52,7 +52,7 @@
                                 'method' => 'PUT',
                                 'files' => true,
                             ]) !!}
-                            @include('Admin.Cruds.Portfolios.PORT101.form')
+                            @include('Admin.cruds.Portfolios.PORT101.form')
                             {!! Form::button('Salvar', [
                                 'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
                                 'type' => 'submit',

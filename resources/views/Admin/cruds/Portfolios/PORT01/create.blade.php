@@ -25,7 +25,7 @@
                         {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                         <a href="{{route('admin.port01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                     </div>
-                    @include('Admin.Cruds.Portfolios.PORT01.form')
+                    @include('Admin.cruds.Portfolios.PORT01.form')
                     <div class="w-100 d-table">
                         {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                         <a href="{{route('admin.port01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

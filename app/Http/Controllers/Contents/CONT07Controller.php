@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contents\CONT01Contents;
+use App\Models\Contents\CONT07ContentsSection;
 
 class CONT07Controller extends Controller
 {
+    protected $path = 'uploads/Contents/CONT07/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +24,13 @@ class CONT07Controller extends Controller
      */
     public function index()
     {
-        //
+        $contents = CONT07Contents::sorting()->paginate(10);
+        $section = CONT07ContentsSection::first();
+        return view('Admin.cruds.Contents.CONT07.index', [
+            'contents' => $contents,
+            'section' => $section,
+            'cropSetting' => getCropImage('Contents', 'CONT07')
+        ]);
     }
 
     /**
@@ -30,7 +40,9 @@ class CONT07Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Contents.CONT07.create', [
+            'cropSetting' => getCropImage('Contents', 'CONT07')
+        ]);
     }
 
     /**
@@ -42,35 +54,19 @@ class CONT07Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $data['active'] = $request->active?1:0;
 
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(CONT07Contents::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            return redirect()->route('admin.cont07.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
     }
@@ -83,7 +79,10 @@ class CONT07Controller extends Controller
      */
     public function edit(CONT07Contents $CONT07Contents)
     {
-        //
+        return view('Admin.cruds.Contents.CONT07.edit', [
+            'content' => $CONT07Contents,
+            'cropSetting' => getCropImage('Contents', 'CONT07')
+        ]);
     }
 
     /**
@@ -96,14 +95,11 @@ class CONT07Controller extends Controller
     public function update(Request $request, CONT07Contents $CONT07Contents)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $data['active'] = $request->active?1:0;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image){
             storageDelete($CONT07Contents, 'path_image');
             $data['path_image'] = $path_image;
@@ -112,35 +108,13 @@ class CONT07Controller extends Controller
             storageDelete($CONT07Contents, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($CONT07Contents, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT07Contents, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($CONT07Contents->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo atualizado com sucesso');
+            return redirect()->route('admin.cont07.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar o conteúdo');
             return redirect()->back();
         }
     }
@@ -153,11 +127,10 @@ class CONT07Controller extends Controller
      */
     public function destroy(CONT07Contents $CONT07Contents)
     {
-        //storageDelete($CONT07Contents, 'path_image');
-        //storageDelete($CONT07Contents, 'path_archive');
+        storageDelete($CONT07Contents, 'path_image');
 
         if($CONT07Contents->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +143,14 @@ class CONT07Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $CONT07Contentss = CONT07Contents::whereIn('id', $request->deleteAll)->get();
         foreach($CONT07Contentss as $CONT07Contents){
             storageDelete($CONT07Contents, 'path_image');
-            storageDelete($CONT07Contents, 'path_archive');
         }
-        */
 
         if($deleted = CONT07Contents::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Conteúdos deletados com sucessso']);
         }
     }
     /**
@@ -207,6 +177,23 @@ class CONT07Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Contents.CONT07.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = CONT07ContentsSection::active()->first();
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
+                break;
+            default:
+                $section = CONT07ContentsSection::active()->first();
+                break;
+        }
+
+        $contents = CONT07Contents::active()->sorting()->get();
+        $video = CONT07Contents::active()->first();
+        return view('Client.pages.Contents.CONT07.section', [
+            'contents' => $contents,
+            'section' => $section,
+            'video' => $video
+        ]);
     }
 }

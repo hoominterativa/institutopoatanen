@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.topi101.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Topics.TOPI101.form')
+                    @include('Admin.cruds.Topics.TOPI101.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.topi101.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

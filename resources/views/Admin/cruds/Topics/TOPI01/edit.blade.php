@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model($topic, ['route' => ['admin.topi01.update', $topic->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Topics.TOPI01.form')
+                    @include('Admin.cruds.Topics.TOPI01.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.topi01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

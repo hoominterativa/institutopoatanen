@@ -59,7 +59,7 @@
 
                     <div class="tab-pane show active" id="infoFormContact">
                         {!! Form::model($contact, ['route' => ['admin.cota01.update', $contact->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                            @include('Admin.Cruds.Contacts.COTA01.form')
+                            @include('Admin.cruds.Contacts.COTA01.form')
                             {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                             <a href="{{route('admin.cota01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}

@@ -4,7 +4,6 @@
             style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};">
             <div class="cont10__mask"></div>
             <div class="container container--pd">
-
                 <header class="cont10__encompass text-center">
                     @if ($section->title || $section->subtitle)
                         <h4 class="cont10__encompass__title">{{ $section->title }}</h4>

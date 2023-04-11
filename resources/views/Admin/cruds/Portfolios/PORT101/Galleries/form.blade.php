@@ -23,7 +23,7 @@
                     data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-original-title="Caso você queira cadastrar algum vídeo externo(exemplo: Youtube)."></i>
             </div>
-            {!! Form::url('link_video', null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+            {!! Form::url('link_video', null, ['class' => 'form-control embedLinkYoutube', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
         </div>
     </div>
 

@@ -26,7 +26,7 @@
                         <a href="{{route('admin.port01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         <button type="button" class="btn btn-info text-dark float-end me-2" data-bs-target="#modal-gallery-create" data-bs-toggle="modal">Cadastrar Imagens na galeria <i class="mdi mdi-plus"></i></button>
                     </div>
-                    @include('Admin.Cruds.Portfolios.PORT01.form')
+                    @include('Admin.cruds.Portfolios.PORT01.form')
                     <div class="w-100 d-table">
                         {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                         <a href="{{route('admin.port01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

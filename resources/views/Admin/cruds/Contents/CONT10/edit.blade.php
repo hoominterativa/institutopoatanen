@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model($content, ['route' => ['admin.cont10.update', $content->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Contents.CONT10.form')
+                    @include('Admin.cruds.Contents.CONT10.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.cont10.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

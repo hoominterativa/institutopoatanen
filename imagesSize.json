@@ -175,6 +175,30 @@
                 }
             }
         },
+        "CONT07": {
+            "path_image": {
+                "width": "200",
+                "height": "180",
+                "activeCrop": "true"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "900",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "900",
+                    "activeCrop": "true"
+                },
+                "path_image_icon": {
+                    "width": "200",
+                    "height": "200",
+                    "activeCrop": "false"
+                }
+            }
+        },
         "CONT02": {
             "path_image_background_desktop": {
                 "width": "1500",

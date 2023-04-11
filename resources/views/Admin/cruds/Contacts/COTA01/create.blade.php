@@ -22,7 +22,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.cota01.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Contacts.COTA01.form')
+                    @include('Admin.cruds.Contacts.COTA01.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.cota01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

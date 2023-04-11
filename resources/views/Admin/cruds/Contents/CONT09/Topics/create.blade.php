@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.cont09.topic.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Contents.CONT09.Topics.form')
+                    @include('Admin.cruds.Contents.CONT09.Topics.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.cont09.topic.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

@@ -50,7 +50,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
-                        @include('Admin.Cruds.Services.SERV04.form')
+                        @include('Admin.cruds.Services.SERV04.form')
                         {!! Form::button('Salvar', [
                             'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
                             'type' => 'submit',

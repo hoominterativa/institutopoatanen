@@ -48,7 +48,7 @@
                <div class="tab-content">
                     <div class="tab-pane show active" id="editService">
                         {!! Form::model($service, ['route' => ['admin.serv01.update', $service->id], 'class'=>'parsley-validate mb-5', 'method'=>'PUT', 'files'=>true]) !!}
-                            @include('Admin.Cruds.Services.SERV01.form')
+                            @include('Admin.cruds.Services.SERV01.form')
                             {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                             <a href="{{route('admin.serv01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}

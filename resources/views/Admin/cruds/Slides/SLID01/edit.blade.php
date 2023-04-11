@@ -24,7 +24,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model($slide, ['route' => ['admin.slid01.update', $slide->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.Cruds.Slides.SLID01.form')
+                    @include('Admin.cruds.Slides.SLID01.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.slid01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

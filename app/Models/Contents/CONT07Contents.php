@@ -16,7 +16,7 @@ class CONT07Contents extends Model
     }
 
     protected $table = "cont07_contents";
-    protected $fillable = [];
+    protected $fillable = ['link_video', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

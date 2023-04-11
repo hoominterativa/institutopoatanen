@@ -38,7 +38,7 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    @include('Admin.Cruds.Abouts.ABOU01.form')
+                    @include('Admin.cruds.Abouts.ABOU01.form')
                     <div class="tab-pane" id="aboutTopicsList">
                         @if ($about)
                             @include('Admin.cruds.Abouts.ABOU01.Topics.index',[

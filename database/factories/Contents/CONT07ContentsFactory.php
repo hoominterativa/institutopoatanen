@@ -22,9 +22,9 @@ class CONT07ContentsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'link_video' => 'https://www.youtube.com/embed/YlUKcNNmywk&list=RDMM7QU1nvuxaMA&index=21',
+            'path_image' => 'uploads/tmp/image-box-white.jpg',
+            'active' => 1
         ];
     }
 }
