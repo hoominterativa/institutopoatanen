@@ -11,10 +11,6 @@ function embedLinkYoutube(elem){
         elem.val(`https://www.youtube.com/embed/${id}`)
     }
 }
-// $('.embedLinkYoutube').on('change', function(){
-
-
-// });
 
 $('body').on('change, focusout', '.embedLinkYoutube', function(){
     embedLinkYoutube($(this))

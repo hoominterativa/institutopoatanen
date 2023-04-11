@@ -22,6 +22,17 @@ class CONT06ContentsFactory extends Factory
     public function definition()
     {
         return [
+            'title' => $this->faker->text(10),
+            'description' => $this->faker->text(200),
+            'link_video' => 'https://www.youtube.com/embed/NSa4DvXi1Xs',
+            'title_button' => $this->faker->text(10),
+            'link_button' => 'https://www.lipsum.com/',
+            'target_link_button' => '_blank',
+            'path_image_icon' => 'favicon.png',
+            'path_image_desktop' => 'gall01_image2.png',
+            'path_image_mobile' => 'port01_path_image_box.png',
+            'background_color' => '#FFFFFF',
+            'active' => 1
         ];
     }
 }

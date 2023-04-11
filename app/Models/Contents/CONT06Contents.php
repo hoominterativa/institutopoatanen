@@ -16,7 +16,9 @@ class CONT06Contents extends Model
     }
 
     protected $table = "cont06_contents";
-    protected $fillable = [];
+    protected $fillable = [
+        'title', 'description', 'link_video', 'title_button', 'link_button', 'target_link_button', 'path_image_icon', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active', 'sorting'
+    ];
 
     public function scopeSorting($query)
     {

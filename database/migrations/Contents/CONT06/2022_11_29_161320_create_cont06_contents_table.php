@@ -15,6 +15,17 @@ class CreateCont06ContentsTable extends Migration
     {
         Schema::create('cont06_contents', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('link_video')->nullable();
+            $table->string('title_button')->nullable();
+            $table->string('link_button')->nullable();
+            $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
+            $table->string('path_image_icon')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('background_color')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
