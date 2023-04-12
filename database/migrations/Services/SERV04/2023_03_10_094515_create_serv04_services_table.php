@@ -20,7 +20,7 @@ class CreateServ04ServicesTable extends Migration
             $table->string('subtitle')->nullable();
             $table->string('slug')->nullable();
             $table->text('text')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('path_image')->nullable();
             $table->string('path_image_box')->nullable();
             $table->string('path_image_icon')->nullable();

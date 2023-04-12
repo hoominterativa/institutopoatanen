@@ -11,7 +11,6 @@
             <div class="cont07__content d-flex justify-content-center align-content-center">
                 <div class="cont07__boxVideo">
                     @if ($video)
-
                         <div class="cont07__boxVideo__content">
                             @if ($video->link_video)
                                 <a href="{{ $video->link_video }}" class="play" data-fancybox>

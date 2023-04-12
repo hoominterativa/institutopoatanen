@@ -157,6 +157,11 @@
             }
         },
         "CONT06": {
+            "path_image": {
+                "width": "885",
+                "height": "440",
+                "activeCrop": "false"
+            },
             "path_image_icon": {
                 "width": "300",
                 "height": "300",

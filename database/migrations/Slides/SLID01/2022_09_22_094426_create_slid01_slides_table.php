@@ -18,7 +18,7 @@ class CreateSlid01SlidesTable extends Migration
 
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('title_button')->nullable();
             $table->string('link_button')->nullable();
             $table->string('path_image_desktop')->nullable();
@@ -29,7 +29,7 @@ class CreateSlid01SlidesTable extends Migration
 
             $table->string('title_mobile')->nullable();
             $table->string('subtitle_mobile')->nullable();
-            $table->string('description_mobile')->nullable();
+            $table->text('description_mobile')->nullable();
             $table->string('title_button_mobile')->nullable();
             $table->string('path_image_mobile')->nullable();
             $table->string('link_button_mobile')->nullable();
