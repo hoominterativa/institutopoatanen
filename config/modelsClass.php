@@ -88,7 +88,7 @@ return [
             'COPA02' => (object)[
                 'controller' => App\Http\Controllers\ContentPages\COPA02Controller::class,
                 'model' => App\Models\ContentPages\COPA02ContentPages::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
             ],
         ],
         // END CONTENT PAGES

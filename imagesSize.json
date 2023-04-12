@@ -267,6 +267,40 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "COPA02": {
+            "path_image_box": {
+                "width": "655",
+                "height": "473",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "690",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "387",
+                "height": "1062",
+                "activeCrop": "true"
+            },
+            "path_image_icon": {
+                "width": "400",
+                "height": "400",
+                "activeCrop": "false"
+            },
+            "SectionContent": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "312",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "352",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Contacts": {

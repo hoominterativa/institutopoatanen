@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'ContentPages', 'COPA02')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'ContentPages', 'COPA02')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -26,55 +26,162 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.code.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.copa02.destroySelected')}}" type="button" class="btn btn-danger btnDeleteCOPA02" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        <a href="{{route('admin.copa02.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        <button class="btn btn-warning float-end me-2" type="button" data-bs-toggle="collapse" data-bs-target="#sectionContent" aria-expanded="false" aria-controls="collapseExample"> Informações da Seção </button>
                                     </div>
+                                    <div class="col-12 mt-3">
+                                        <div class="collapse bg-light p-3 mb-3" id="sectionContent">
+                                            @if ($sectionContent)
+                                                {!! Form::model($sectionContent, [
+                                                    'route' => ['admin.copa02.section.content.update', $sectionContent->id],
+                                                    'class' => 'parsley-validate',
+                                                    'files' => true,
+                                                ]) !!}
+                                                @method('PUT')
+                                            @else
+                                                {!! Form::model(null, [
+                                                    'route' => 'admin.copa02.section.content.store',
+                                                    'class' => 'parsley-validate',
+                                                    'files' => true,
+                                                ]) !!}
+                                            @endif
+                                            <div class="row col-12">
+                                                <div class="col-12 col-lg-6">
+                                                        <div class="card card-body" id="tooltip-container">
+                                                            <div class="mb-2">
+                                                                {!! Form::label('title', 'Título da seção', ['class' => 'form-label']) !!}
+                                                                {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
+                                                                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="card card-body" id="tooltip-container">
+                                                        <div class="mb-3">
+                                                            <div class="container-image-crop">
+                                                                {!! Form::label('inputImage', 'Background Desktop', ['class' => 'form-label']) !!}
+                                                                <small class="ms-2">Dimensões proporcionais mínimas
+                                                                    {{ $cropSetting->SectionContent->path_image_desktop->width }}x{{ $cropSetting->SectionContent->path_image_desktop->height }}px!</small>
+                                                                <label class="area-input-image-crop" for="inputImage">
+                                                                    {!! Form::file('path_image_desktop', [
+                                                                        'id' => 'inputImage',
+                                                                        'class' => 'inputImage',
+                                                                        'data-status' => $cropSetting->SectionContent->path_image_desktop->activeCrop, // px
+                                                                        'data-min-width' => $cropSetting->SectionContent->path_image_desktop->width, // px
+                                                                        'data-min-height' => $cropSetting->SectionContent->path_image_desktop->height, // px
+                                                                        'data-box-height' => '170', // Input height in the form
+                                                                        'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                                                        'data-default-file' => isset($sectionContent)
+                                                                            ? ($sectionContent->path_image_desktop != ''
+                                                                                ? url('storage/' . $sectionContent->path_image_desktop)
+                                                                                : '')
+                                                                            : '',
+                                                                    ]) !!}
+                                                                </label>
+                                                            </div><!-- END container image crop -->
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="container-image-crop">
+                                                                {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
+                                                                <small class="ms-2">Dimensões proporcionais mínimas
+                                                                    {{ $cropSetting->SectionContent->path_image_mobile->width }}x{{ $cropSetting->SectionContent->path_image_mobile->height }}px!</small>
+                                                                <label class="area-input-image-crop" for="inputImage">
+                                                                    {!! Form::file('path_image_mobile', [
+                                                                        'id' => 'inputImage',
+                                                                        'class' => 'inputImage',
+                                                                        'data-status' => $cropSetting->SectionContent->path_image_mobile->activeCrop, // px
+                                                                        'data-min-width' => $cropSetting->SectionContent->path_image_mobile->width, // px
+                                                                        'data-min-height' => $cropSetting->SectionContent->path_image_mobile->height, // px
+                                                                        'data-box-height' => '170', // Input height in the form
+                                                                        'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                                                        'data-default-file' => isset($sectionContent)
+                                                                            ? ($sectionContent->path_image_mobile != ''
+                                                                                ? url('storage/' . $sectionContent->path_image_mobile)
+                                                                                : '')
+                                                                            : '',
+                                                                    ]) !!}
+                                                                </label>
+                                                            </div><!-- END container image crop -->
+                                                        </div>
+                                                        <div class="mb-3 border px-2 py-3">
+                                                            {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                                                            {!! Form::text('background_color', null, [
+                                                                'class' => 'form-control colorpicker-default',
+                                                                'id' => 'background_color',
+                                                            ]) !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+                                                {!! Form::button('Salvar', [
+                                                    'class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0',
+                                                    'type' => 'submit',
+                                                ]) !!}
+                                            </div>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div> <!-- end col-->
                                 </div>
                                 <table class="table table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                                <label><input name="btnSelectAll" value="" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeleteCOPA02" type="checkbox"></label>
                                             </th>
                                             <th>Imagem</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Job Title</th>
-                                            <th>DOB</th>
+                                            <th>Título/Subtítulo</th>
+                                            <th>Descrição</th>
+                                            <th>Título do botão</th>
+                                            <th>Link do botão</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody data-route="{{route('admin.code.sorting')}}">
-                                        @foreach ($teste as $test)
-                                            <tr data-code="{{$test->id}}">
+                                    <tbody data-route="{{route('admin.copa02.sorting')}}">
+                                        @foreach ($contents as $content)
+                                            <tr data-code="{{$content->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$test->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/images/users/user-10.jpg')}})"></div>
+                                                    @if ($content->path_image_icon)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_icon)}})"></div>
+                                                    @endif
+                                                    @if ($content->path_image_desktop)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_desktop)}})"></div>
+                                                    @endif
+                                                    @if ($content->path_image_mobile)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_mobile)}})"></div>
+                                                    @endif
                                                 </td>
-                                                <td class="align-middle">Boudreaux</td>
-                                                <td class="align-middle">Traffic Court Referee</td>
-                                                <td class="align-middle">22 Jun 1972</td>
-                                                <td class="align-middle">22 Jun 1972</td>
+                                                <td class="align-middle">{{$content->title}} <b>/</b> {{$content->subtitle}}</td>
+                                                <td class="align-middle">{!! substr($content->description,0,50) !!}</td>
+                                                <td class="align-middle">{{$content->title_button}}</td>
+                                                <td class="align-middle"><a href="{{ $content->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                 <td class="align-middle">
-                                                    <span class="badge bg-success">Ativo</span>
-                                                    <span class="badge bg-primary text-white">Destaque</span>
-                                                    <span class="badge bg-danger">Inativo</span>
+                                                    @if ($content->active)
+                                                        <span class="badge bg-success">Ativo</span>
+                                                    @else
+                                                        <span class="badge bg-danger">Inativo</span>
+                                                    @endif
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.code.edit',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.copa02.edit',['COPA02ContentPages' => $content->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.code.destroy',['code' => $test->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.copa02.destroy',['COPA02ContentPages' => $content->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>
@@ -87,7 +194,7 @@
 
                                 {{-- PAGINATION --}}
                                 <div class="mt-3 float-end">
-                                    {{$teste->links()}}
+                                    {{$contents->links()}}
                                 </div>
                             </div>
                         </div> <!-- end card-->
