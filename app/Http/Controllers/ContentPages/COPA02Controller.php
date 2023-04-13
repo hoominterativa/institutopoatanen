@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA02ContentPages;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA02ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA02ContentPagesSection;
 use App\Models\ContentPages\COPA02ContentPagesSectionContent;
 
 class COPA02Controller extends Controller
@@ -25,9 +26,11 @@ class COPA02Controller extends Controller
     {
         $contents = COPA02ContentPages::sorting()->paginate(15);
         $sectionContent = COPA02ContentPagesSectionContent::first();
+        $sections = COPA02ContentPagesSection::sorting()->get();
         return view('Admin.cruds.ContentPages.COPA02.index', [
             'contents' => $contents,
             'sectionContent' => $sectionContent,
+            'sections' => $sections,
             'cropSetting' => getCropImage('ContentPages', 'COPA02')
         ]);
     }

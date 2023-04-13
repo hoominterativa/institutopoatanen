@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Models\ContentPages;
+
+use Database\Factories\ContentPages\COPA02ContentPagesSectionFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class COPA02ContentPagesSection extends Model
+{
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return COPA02ContentPagesSectionFactory::new();
+    }
+
+    protected $table = "copa02_contentpages_sections";
+    protected $fillable = ['title', 'subtitle', 'description', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active', 'sorting'];
+
+    public function scopeSorting($query)
+    {
+        return $query->orderBy('sorting', 'ASC');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+}

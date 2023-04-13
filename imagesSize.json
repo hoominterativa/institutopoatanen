@@ -300,6 +300,18 @@
                     "height": "352",
                     "activeCrop": "true"
                 }
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "421",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "415",
+                    "height": "421",
+                    "activeCrop": "true"
+                }
             }
         }
     },

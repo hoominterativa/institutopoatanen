@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ContentPages\COPA02SectionContentController;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContentPages\COPA02SectionController;
+use App\Http\Controllers\ContentPages\COPA02SectionContentController;
 
 /**
  * Uncomment the code below
@@ -24,8 +25,12 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', COPA02SectionContentController::class)->names('admin.'.$routeName.'.section.content')->parameters(['secao' => 'COPA02ContentPagesSectionContent']);
-    Route::post($route.'/secao/delete', [COPA02SectionContentController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.content.destroySelected');
+    Route::resource($route.'/secaodoconteudo', COPA02SectionContentController::class)->names('admin.'.$routeName.'.section.content')->parameters(['secao' => 'COPA02ContentPagesSectionContent']);
+    Route::post($route.'/secaodoconteudo/delete', [COPA02SectionContentController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.content.destroySelected');
+
+    Route::resource($route.'/secao', COPA02SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'COPA02ContentPagesSection']);
+    Route::post($route.'/secao/delete', [COPA02SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
+    Route::post($route.'/secao/sorting', [COPA02SectionController::class, 'sorting'])->name('admin.'.$routeName.'.section.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
