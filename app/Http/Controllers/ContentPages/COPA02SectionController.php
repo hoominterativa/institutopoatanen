@@ -66,7 +66,7 @@ class COPA02SectionController extends Controller
     public function edit(COPA02ContentPagesSection $COPA02ContentPagesSection)
     {
         return view('Admin.cruds.ContentPages.COPA02.Section.edit', [
-            'section' => $COPA02ContentPagesSection,
+            'pageSection' => $COPA02ContentPagesSection,
             'cropSetting' => getCropImage('ContentPages', 'COPA02')
         ]);
     }

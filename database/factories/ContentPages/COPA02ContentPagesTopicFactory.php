@@ -3,16 +3,16 @@
 namespace Database\Factories\ContentPages;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\ContentPages\COPA02ContentPagesSectionContent;
+use App\Models\ContentPages\COPA02ContentPagesTopic;
 
-class COPA02ContentPagesSectionContentFactory extends Factory
+class COPA02ContentPagesTopicFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = COPA02ContentPagesSectionContent::class;
+    protected $model = COPA02ContentPagesTopic::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,9 @@ class COPA02ContentPagesSectionContentFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'subtitle' => $this->faker->text(10),
-            'path_image_desktop' => 'uploads/tmp/image-box.jpg',
-            'path_image_mobile' => 'uploads/tmp/image-box.jpg',
-            'background_color' => '#EFEFEF',
+            'subtitle' => $this->faker->text(12),
+            'description' => $this->faker->text(200),
+            'path_image_box' => 'uploads/tmp/gall01_image2.png',
             'active' => 1,
         ];
     }

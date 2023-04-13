@@ -24,7 +24,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Página de conteúdo',
+                    'titlePanel' => 'Soluções',
                     'iconPanel' => 'mdi-topic-circle'
                 ],
                 'IncludeSections' => (object) []

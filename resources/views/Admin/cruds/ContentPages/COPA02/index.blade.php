@@ -30,10 +30,16 @@
                     <li class="nav-item">
                         <a href="#sections" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Seção
+                            Cadastrar Seção
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esta seção será exibida abaixo da seção do conteúdo principal na página"></i>
+                                data-bs-original-title="Esta seção será exibida abaixo do conteúdo principal na página"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#topics" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Cadastrar Tópicos
                         </a>
                     </li>
                 </ul>
@@ -49,7 +55,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <a href="{{route('admin.copa02.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                                                <button class="btn btn-warning float-end me-2" type="button" data-bs-toggle="collapse" data-bs-target="#sectionContent" aria-expanded="false" aria-controls="collapseExample"> Informações da Seção </button>
+                                                <button class="btn btn-warning float-end me-2" type="button" data-bs-toggle="collapse" data-bs-target="#sectionContent" aria-expanded="false" aria-controls="collapseExample"> Informações adicionais </button>
                                             </div>
                                             <div class="col-12 mt-3">
                                                 <div class="collapse bg-light p-3 mb-3" id="sectionContent">
@@ -77,6 +83,10 @@
                                                                     <div class="mb-2">
                                                                         {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
                                                                         {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                                                                    </div>
+                                                                    <div class="mb-3 form-check">
+                                                                        {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                                                                        {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
                                                                     </div>
                                                                 </div>
                                                         </div>
@@ -222,6 +232,9 @@
                     </div>
                     <div class="tab-pane show active" id="sections">
                         @include('Admin.cruds.ContentPages.COPA02.Section.index')
+                    </div>
+                    <div class="tab-pane show active" id="topics">
+                        @include('Admin.cruds.ContentPages.COPA02.Topics.index')
                     </div>
                 </div>
                 <!-- end row -->

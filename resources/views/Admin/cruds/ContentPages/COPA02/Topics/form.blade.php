@@ -32,44 +32,21 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Background Desktop', ['class' => 'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Section->path_image_desktop->width }}x{{ $cropSetting->Section->path_image_desktop->height }}px!</small>
+                        {{ $cropSetting->Topic->path_image_box->width }}x{{ $cropSetting->Topic->path_image_box->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_desktop', [
+                        {!! Form::file('path_image_box', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->Section->path_image_desktop->activeCrop, // px
-                            'data-min-width' => $cropSetting->Section->path_image_desktop->width, // px
-                            'data-min-height' => $cropSetting->Section->path_image_desktop->height, // px
+                            'data-status' => $cropSetting->Topic->path_image_box->activeCrop, // px
+                            'data-min-width' => $cropSetting->Topic->path_image_box->width, // px
+                            'data-min-height' => $cropSetting->Topic->path_image_box->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($pageSection)
-                                ? ($pageSection->path_image_desktop != ''
-                                    ? url('storage/' . $pageSection->path_image_desktop)
-                                    : '')
-                                : '',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Section->path_image_mobile->width }}x{{ $cropSetting->Section->path_image_mobile->height }}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_mobile', [
-                            'id' => 'inputImage',
-                            'class' => 'inputImage',
-                            'data-status' => $cropSetting->Section->path_image_mobile->activeCrop, // px
-                            'data-min-width' => $cropSetting->Section->path_image_mobile->width, // px
-                            'data-min-height' => $cropSetting->Section->path_image_mobile->height, // px
-                            'data-box-height' => '170', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($pageSection)
-                                ? ($pageSection->path_image_mobile != ''
-                                    ? url('storage/' . $pageSection->path_image_mobile)
+                            'data-default-file' => isset($topic)
+                                ? ($topic->path_image_box != ''
+                                    ? url('storage/' . $topic->path_image_box)
                                     : '')
                                 : '',
                         ]) !!}

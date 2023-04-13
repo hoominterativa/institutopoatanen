@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\ContentPages\COPA02ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA02ContentPagesTopic;
 use App\Models\ContentPages\COPA02ContentPagesSection;
+use App\Models\ContentPages\COPA02ContentPagesSectionTopic;
 use App\Models\ContentPages\COPA02ContentPagesSectionContent;
 
 class COPA02Controller extends Controller
@@ -26,11 +28,15 @@ class COPA02Controller extends Controller
     {
         $contents = COPA02ContentPages::sorting()->paginate(15);
         $sectionContent = COPA02ContentPagesSectionContent::first();
-        $sections = COPA02ContentPagesSection::sorting()->get();
+        $pageSections = COPA02ContentPagesSection::sorting()->get();
+        $topics = COPA02ContentPagesTopic::sorting()->get();
+        $sectionTopic = COPA02ContentPagesSectionTopic::first();
         return view('Admin.cruds.ContentPages.COPA02.index', [
             'contents' => $contents,
             'sectionContent' => $sectionContent,
-            'sections' => $sections,
+            'pageSections' => $pageSections,
+            'topics' => $topics,
+            'sectionTopic' => $sectionTopic,
             'cropSetting' => getCropImage('ContentPages', 'COPA02')
         ]);
     }
@@ -230,11 +236,44 @@ class COPA02Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $sectionContent = COPA02ContentPagesSectionContent::active()->first();
+                if($sectionContent) $sectionContent->path_image_desktop = $sectionContent->path_image_mobile;
+
+                $sectionTopic = COPA02ContentPagesSectionTopic::active()->first();
+                if($sectionTopic) $sectionTopic->path_image_desktop = $sectionTopic->path_image_mobile;
+
+                $contents = COPA02ContentPages::active()->sorting()->get();
+                    foreach($contents as $content) {
+                        if($content) $content->path_image_desktop = $content->path_image_mobile;
+                    }
+
+                $pageSections = COPA02ContentPages::active()->sorting()->get();
+                foreach($pageSections as $pageSection) {
+                    if($pageSection) $pageSection->path_image_desktop = $pageSection->path_image_mobile;
+                }
+            break;
+            default:
+            $contents = COPA02ContentPages::active()->sorting()->get();
+            $sectionContent = COPA02ContentPagesSectionContent::active()->first();
+            $pageSections = COPA02ContentPagesSection::active()->sorting()->get();
+            $sectionTopic = COPA02ContentPagesSectionTopic::active()->first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA02');
 
+        $topics = COPA02ContentPagesTopic::active()->sorting()->get();
         return view('Client.pages.ContentPages.COPA02.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'contents' => $contents,
+            'sectionContent' => $sectionContent,
+            'pageSections' => $pageSections,
+            'sectionTopic' => $sectionTopic,
+            'topics' => $topics
         ]);
     }
 

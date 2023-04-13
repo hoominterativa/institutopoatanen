@@ -26,24 +26,24 @@
                     </thead>
 
                     <tbody data-route="{{route('admin.copa02.section.sorting')}}">
-                        @foreach ($sections as $section)
-                            <tr data-code="{{$section->id}}">
+                        @foreach ($pageSections as $pageSection)
+                            <tr data-code="{{$pageSection->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$section->id}}"></label>
+                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$pageSection->id}}"></label>
                                 </td>
                                 <td class="align-middle avatar-group">
-                                    @if ($section->path_image_desktop)
-                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $section->path_image_desktop)}})"></div>
+                                    @if ($pageSection->path_image_desktop)
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $pageSection->path_image_desktop)}})"></div>
                                     @endif
-                                    @if ($section->path_image_mobile)
-                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $section->path_image_mobile)}})"></div>
+                                    @if ($pageSection->path_image_mobile)
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $pageSection->path_image_mobile)}})"></div>
                                     @endif
                                 </td>
-                                <td class="align-middle">{{$section->title}} <b>/</b> {{$section->subtitle}}</td>
-                                <td class="align-middle">{!! substr($section->description,0,50) !!}</td>
+                                <td class="align-middle">{{$pageSection->title}} <b>/</b> {{$pageSection->subtitle}}</td>
+                                <td class="align-middle">{!! substr($pageSection->description,0,50) !!}</td>
                                 <td class="align-middle">
-                                    @if ($section->active)
+                                    @if ($pageSection->active)
                                         <span class="badge bg-success">Ativo</span>
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
@@ -52,9 +52,9 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="{{route('admin.copa02.section.edit',['COPA02ContentPagesSection' => $section->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                            <a href="{{route('admin.copa02.section.edit',['COPA02ContentPagesSection' => $pageSection->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.copa02.section.destroy',['COPA02ContentPagesSection' => $section->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.copa02.section.destroy',['COPA02ContentPagesSection' => $pageSection->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>

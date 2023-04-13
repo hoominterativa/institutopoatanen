@@ -312,6 +312,25 @@
                     "height": "421",
                     "activeCrop": "true"
                 }
+            },
+            "Topic": {
+                "path_image_box": {
+                    "width": "397",
+                    "height": "280",
+                    "activeCrop": "true"
+                }
+            },
+            "SectionTopic": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "937",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "415",
+                    "height": "991",
+                    "activeCrop": "true"
+                }
             }
         }
     },
