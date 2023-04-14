@@ -538,6 +538,28 @@
                 }
             }
         },
+        "TOPI06": {
+            "path_image_icon": {
+                "width": "400",
+                "height": "400",
+                "activeCrop": "false"
+            },
+            "path_image_icon_button": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "743",
+                "height": "443",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "385",
+                "activeCrop": "true"
+            }
+        },
         "TOPI102": {
             "path_image_desktop": {
                 "width": "1450",

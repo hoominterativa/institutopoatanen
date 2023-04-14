@@ -14,9 +14,9 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'ContentPages' => (object) [
-            'COPA02' => (object)[
-                'ViewHome' => false,
+        'Topics' => (object) [
+            'TOPI06' => (object)[
+                'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'config' => (object) [
@@ -24,7 +24,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Soluções',
+                    'titlePanel' => 'Tópicos',
                     'iconPanel' => 'mdi-topic-circle'
                 ],
                 'IncludeSections' => (object) []
