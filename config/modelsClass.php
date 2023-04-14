@@ -111,6 +111,15 @@ return [
         ],
         // END COMPLIANCES
 
+        'Frequently' => (object)[
+            'FREQ01' => (object)[
+                'controller' => App\Http\Controllers\Frequently\FREQ01Controller::class,
+                'model' => App\Models\Frequently\FREQ01Frequently::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END FREQUENTLY
+
         'Galleries' => (object)[
             'GALL01' => (object)[
                 'controller' => App\Http\Controllers\Galleries\GALL01Controller::class,
@@ -118,7 +127,7 @@ return [
                 'seedQty' => 1,
             ],
         ],
-        // END COMPLIANCES
+        // END GALLERIES
 
         'Portfolios' => (object)[
             'PORT01' => (object)[
