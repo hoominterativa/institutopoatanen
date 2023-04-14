@@ -22,9 +22,9 @@ class FREQ01FrequentlyFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'question' => $this->faker->text(20),
+            'answer' => $this->faker->text(200),
+            'active' => 1,
         ];
     }
 }

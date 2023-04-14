@@ -20,7 +20,10 @@ class FREQ01Controller extends Controller
      */
     public function index()
     {
-        //
+        $frequentlys = FREQ01Frequently::sorting()->paginate(15);
+        return view('Admin.cruds.Frequently.FREQ01.index', [
+            'frequentlys' => $frequentlys,
+        ]);
     }
 
     /**
@@ -30,7 +33,7 @@ class FREQ01Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Frequently.FREQ01.create');
     }
 
     /**
@@ -42,34 +45,14 @@ class FREQ01Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if(FREQ01Frequently::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.freq01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -83,7 +66,9 @@ class FREQ01Controller extends Controller
      */
     public function edit(FREQ01Frequently $FREQ01Frequently)
     {
-        //
+        return view('Admin.cruds.Frequently.FREQ01.edit', [
+            'frequently' => $FREQ01Frequently
+        ]);
     }
 
     /**
@@ -96,53 +81,16 @@ class FREQ01Controller extends Controller
     public function update(Request $request, FREQ01Frequently $FREQ01Frequently)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-        if($path_image){
-            storageDelete($FREQ01Frequently, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($FREQ01Frequently, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($FREQ01Frequently, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($FREQ01Frequently, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if($FREQ01Frequently->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,8 +101,6 @@ class FREQ01Controller extends Controller
      */
     public function destroy(FREQ01Frequently $FREQ01Frequently)
     {
-        //storageDelete($FREQ01Frequently, 'path_image');
-        //storageDelete($FREQ01Frequently, 'path_archive');
 
         if($FREQ01Frequently->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -170,15 +116,6 @@ class FREQ01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $FREQ01Frequentlys = FREQ01Frequently::whereIn('id', $request->deleteAll)->get();
-        foreach($FREQ01Frequentlys as $FREQ01Frequently){
-            storageDelete($FREQ01Frequently, 'path_image');
-            storageDelete($FREQ01Frequently, 'path_archive');
-        }
-        */
-
         if($deleted = FREQ01Frequently::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
@@ -201,24 +138,6 @@ class FREQ01Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Frequently\FREQ01Frequently  $FREQ01Frequently
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(FREQ01Frequently $FREQ01Frequently)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -232,15 +151,5 @@ class FREQ01Controller extends Controller
         return view('Client.pages.Frequently.FREQ01.page',[
             'sections' => $sections
         ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

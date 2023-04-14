@@ -367,6 +367,22 @@
             }
         }
     },
+    "Frequently": {
+        "FREQ01": {
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "371",
+                    "activeCrop": "true"
+                }
+            }
+        }
+    },
     "Services": {
         "SERV01": {
             "path_image_icon": {

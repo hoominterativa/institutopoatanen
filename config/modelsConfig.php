@@ -14,9 +14,9 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI06' => (object)[
-                'ViewHome' => true,
+        'Frequently' => (object) [
+            'FREQ01' => (object)[
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'config' => (object) [
@@ -24,7 +24,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Perguntas',
                     'iconPanel' => 'mdi-topic-circle'
                 ],
                 'IncludeSections' => (object) []

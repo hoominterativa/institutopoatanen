@@ -115,7 +115,7 @@ return [
             'FREQ01' => (object)[
                 'controller' => App\Http\Controllers\Frequently\FREQ01Controller::class,
                 'model' => App\Models\Frequently\FREQ01Frequently::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
             ],
         ],
         // END FREQUENTLY

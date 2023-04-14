@@ -15,6 +15,9 @@ class CreateFreq01FrequentlyTable extends Migration
     {
         Schema::create('freq01_frequently', function (Blueprint $table) {
             $table->id();
+            $table->string('question')->nullable();
+            $table->text('answer')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class FREQ01Frequently extends Model
     }
 
     protected $table = "freq01_frequently";
-    protected $fillable = [];
+    protected $fillable = ['question', 'answer', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class FREQ01Frequently extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }
