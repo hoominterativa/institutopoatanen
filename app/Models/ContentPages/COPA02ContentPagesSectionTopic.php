@@ -16,7 +16,7 @@ class COPA02ContentPagesSectionTopic extends Model
     }
 
     protected $table = "copa02_contentpages_sectiontopics";
-    protected $fillable = ['title', 'subtitle', 'description', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active'];
+    protected $fillable = ['title', 'subtitle', 'description', 'active'];
 
     public function scopeActive($query)
     {

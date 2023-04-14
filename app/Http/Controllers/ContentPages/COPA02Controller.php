@@ -245,9 +245,6 @@ class COPA02Controller extends Controller
                 $sectionContent = COPA02ContentPagesSectionContent::active()->first();
                 if($sectionContent) $sectionContent->path_image_desktop = $sectionContent->path_image_mobile;
 
-                $sectionTopic = COPA02ContentPagesSectionTopic::active()->first();
-                if($sectionTopic) $sectionTopic->path_image_desktop = $sectionTopic->path_image_mobile;
-
                 $contents = COPA02ContentPages::active()->sorting()->get();
                     foreach($contents as $content) {
                         if($content) $content->path_image_desktop = $content->path_image_mobile;
@@ -267,7 +264,6 @@ class COPA02Controller extends Controller
             $contents = COPA02ContentPages::active()->sorting()->get();
             $sectionContent = COPA02ContentPagesSectionContent::active()->first();
             $pageSections = COPA02ContentPagesSection::active()->sorting()->get();
-            $sectionTopic = COPA02ContentPagesSectionTopic::active()->first();
             $lastSections = COPA02ContentPagesLastSection::active()->sorting()->get();
             break;
         }
@@ -276,6 +272,7 @@ class COPA02Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA02');
 
         $topics = COPA02ContentPagesTopic::active()->sorting()->get();
+        $sectionTopic = COPA02ContentPagesSectionTopic::active()->first();
         return view('Client.pages.ContentPages.COPA02.page',[
             'sections' => $sections,
             'contents' => $contents,
