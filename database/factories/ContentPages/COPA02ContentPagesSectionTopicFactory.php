@@ -25,9 +25,6 @@ class COPA02ContentPagesSectionTopicFactory extends Factory
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(12),
             'description' => $this->faker->text(500),
-            'path_image_desktop' => 'uploads/tmp/port01_path_image_right.jpg',
-            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#CACACA',
             'active' => 1,
         ];
     }
