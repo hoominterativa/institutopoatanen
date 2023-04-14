@@ -42,6 +42,15 @@
                             Cadastrar Tópicos
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#lastSections" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Cadastrar Seção adicional
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida abaixo dos tópicos"></i>
+                        </a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane show active" id="contents">
@@ -235,6 +244,9 @@
                     </div>
                     <div class="tab-pane show active" id="topics">
                         @include('Admin.cruds.ContentPages.COPA02.Topics.index')
+                    </div>
+                    <div class="tab-pane show active" id="lastSections">
+                        @include('Admin.cruds.ContentPages.COPA02.LastSection.index')
                     </div>
                 </div>
                 <!-- end row -->
