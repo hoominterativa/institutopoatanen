@@ -52,7 +52,7 @@ View::composer('Client.Core.client', function ($view) {
     $socials = Social::orderBy('sorting', 'ASC')->get();
     $themeMenu = config('modelsConfig.InsertModelsCore');
     $coreRender = new CoreController();
-    $listMenu = $coreRender->relationsHeaderMenu();
+    $listMenu = $coreRender->buildListMenu();
 
     return $view->with('renderHeader', $renderCore->renderHeader())
         ->with('renderFooter', $renderCore->renderFooter())

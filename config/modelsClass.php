@@ -99,6 +99,11 @@ return [
                 'model' => App\Models\Contacts\COTA01Contacts::class,
                 'seedQty' => 1,
             ],
+            'COTA02' => (object)[
+                'controller' => App\Http\Controllers\Contacts\COTA02Controller::class,
+                'model' => App\Models\Contacts\COTA02Contacts::class,
+                'seedQty' => 1,
+            ],
         ],
         // END CONTACTS
 
@@ -226,6 +231,11 @@ return [
         // END TOPICS
 
         'Feedbacks' => (object)[
+            'FEED01' => (object)[
+                'controller' => App\Http\Controllers\Feedbacks\FEED01Controller::class,
+                'model' => App\Models\Feedbacks\FEED01Feedbacks::class,
+                'seedQty' => 1,
+            ],
             'FEED03' => (object)[
                 'controller' => App\Http\Controllers\Feedbacks\FEED03Controller::class,
                 'model' => App\Models\Feedbacks\FEED03Abouts::class,

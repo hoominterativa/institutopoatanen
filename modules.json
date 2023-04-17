@@ -50,7 +50,8 @@
         "BLOG01"
     ],
     "Contacts": [
-        "COTA01"
+        "COTA01",
+        "COTA02"
     ],
     "Compliances": [
         "COMP01"
@@ -66,6 +67,7 @@
         "BRAN01"
     ],
     "Feedbacks": [
-        "FEED03"
+        "FEED03",
+        "FEED01"
     ]
 }

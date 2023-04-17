@@ -26,35 +26,23 @@
                     </a>
                 </li>
                 @foreach ($listMenu as $module => $menu)
-                    @if ($menu->viewer == 'list')
-                        <li class="side02__navigation__item">
+                    <li class="side02__navigation__item {{$menu->dropdown?'dropdown':''}}">
+                        <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side02__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt=""> {{$menu->title}}
                             @if ($menu->dropdown)
+                                <i class="menu-arrow"></i>
+                            @endif
+                        </a>
+                        @if ($menu->dropdown)
+                            <div class="side02__navigation__dropdown dropdown-menu">
                                 @foreach ($menu->dropdown as $item)
-                                    <a href="{{$item->route}}" class="side02__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
-                                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="">{{$item->name}}
+                                    <a href="{{$item->route}}" class="side02__navigation__sublink transition">
+                                        {{$item->name}}
                                     </a>
                                 @endforeach
-                            @endif
-                        </li>
-                    @else
-                        <li class="side02__navigation__item {{$menu->dropdown?'dropdown':''}}">
-                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side02__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
-                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt=""> {{$menu->title}}
-                                @if ($menu->dropdown)
-                                    <i class="menu-arrow"></i>
-                                @endif
-                            </a>
-                            @if ($menu->dropdown)
-                                <div class="side02__navigation__dropdown dropdown-menu">
-                                    @foreach ($menu->dropdown as $item)
-                                        <a href="{{$item->route}}" class="side02__navigation__sublink transition">
-                                            {{$item->name}}
-                                        </a>
-                                    @endforeach
-                                </div>
-                            @endif
-                        </li>
-                    @endif
+                            </div>
+                        @endif
+                    </li>
                 @endforeach
             </ul>
             {{-- END .side02__navigation__wrapper --}}

@@ -22,9 +22,11 @@ class TOPI02TopicsSectionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+            "title" => $this->faker->text(10),
+            "subtitle" => $this->faker->text(10),
+            "description" => $this->faker->text(100),
+            "path_image_background" => 'uploads/temp/bg-section-gray.jpg',
+            "active" => 1,
         ];
     }
 }

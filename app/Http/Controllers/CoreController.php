@@ -119,81 +119,8 @@ class CoreController extends Controller
         }
     }
 
-    public function relationsHeaderMenu()
+    public function buildListMenu()
     {
-        $listMenu = [];
-
-        // foreach ($this->InsertModelsMain as $module => $model) {
-        //     foreach ($model as $code => $config) {
-        //         if($config->ViewListMenu){
-        //             $dropdown = self::getRelations($module, $code, $config);
-
-        //             $menu = (object) [
-        //                 "title" => $config->config->titleMenu,
-        //                 "slug" => Str::slug($config->config->titleMenu),
-        //                 "anchor" => $config->config->anchor,
-        //                 "link" => $config->config->linkMenu,
-        //                 "listFooter" => $config->ViewListFooter,
-        //                 "viewer" => $config->Viewer,
-        //                 "dropdown" => $dropdown,
-        //             ];
-
-        //             array_push($listMenu, $menu);
-        //         }
-        //     }
-        // }
-
-        return $listMenu;
-    }
-
-
-    public function renderHeader()
-    {
-        // $arrayPages = [
-        //     [
-        //         "title" => "Sobre",
-        //         "module" => "Abouts",
-        //         "model" => "ABOU01",
-        //         "dropdown" => false,
-        //         "select_dropdown" => null,
-        //         "condition" => null,
-        //         "exists" => false,
-        //         "limit" => null,
-        //     ],
-        //     [
-        //         "title" => "Soluções",
-        //         "module" => "Services",
-        //         "model" => "SERV01",
-        //         "dropdown" => true,
-        //         "select_dropdown" => 'this',
-        //         "condition" => 0,
-        //         "exists" => false,
-        //         "limit" => null,
-        //     ],
-        //     [
-        //         "title" => "Artigos",
-        //         "module" => "Blogs",
-        //         "model" => "BLOG01",
-        //         "dropdown" => true,
-        //         "select_dropdown" => 'this',
-        //         "condition" => 0,
-        //         "exists" => true,
-        //         "limit" => null,
-        //     ],
-        //     [
-        //         "title" => "Portifólio",
-        //         "module" => "Portfolios",
-        //         "model" => "PORT01",
-        //         "dropdown" => true,
-        //         "select_dropdown" => 'category,subcategory',
-        //         "condition" => 0,
-        //         "exists" => true,
-        //         "limit" => null,
-        //     ],
-        // ];
-
-        // $arrayPages = json_encode($arrayPages);
-
         $settingHeader = SettingHeader::sorting()->active()->get();
         $listMenu = [];
         foreach($settingHeader as $page){
@@ -312,27 +239,59 @@ class CoreController extends Controller
 
             array_push($listMenu, $menu);
         }
+        $response = json_encode($listMenu);
+        return json_decode($response);
+    }
 
-        $listMenu = json_encode($listMenu);
-
+    public function renderHeader()
+    {
+        $listMenu = self::buildListMenu();
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
                 'class' => $this->Class,
-                'listMenu' => json_decode($listMenu)
+                'listMenu' => $listMenu
             ]);
         }
         return;
     }
 
+    public function listModelFooter()
+    {
+        $listMenuFooter = [];
+        foreach ($this->InsertModelsMain as $module => $models) {
+            foreach ($models as $code => $config) {
+                if($config->ViewListFooter){
+
+                    $listDropdown = self::getRelations($module, $code, $config);
+
+                    $menu = [
+                        "title" => $config->config->titleMenu,
+                        "slug" => Str::slug($config->config->titleMenu),
+                        "anchor" => $config->config->anchor,
+                        "link" => $config->config->linkMenu,
+                        "dropdown" => $listDropdown,
+                    ];
+
+                    array_push($listMenuFooter, $menu);
+                }
+            }
+        }
+
+        $response = json_encode($listMenuFooter);
+        return json_decode($response);
+    }
+
     public function renderFooter()
     {
-        // $listMenu = self::relationsHeaderMenu();
-        // if(isset($this->InsertModelsCore->Footers->Code)){
-        //     return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
-        //         'class' => $this->Class,
-        //         'listMenu' => $listMenu
-        //     ]);
-        // }
+        $listMenu = self::buildListMenu();
+        $listModelFooter = self::listModelFooter();
+        if(isset($this->InsertModelsCore->Footers->Code)){
+            return view('Client.Core.Footers.'.$this->InsertModelsCore->Footers->Code.'.app', [
+                'class' => $this->Class,
+                'listMenu' => $listMenu,
+                'listModelFooter' => $listModelFooter
+            ]);
+        }
         return;
     }
 }

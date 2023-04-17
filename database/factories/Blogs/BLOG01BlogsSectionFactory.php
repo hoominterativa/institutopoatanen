@@ -22,8 +22,8 @@ class BLOG01BlogsSectionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
+            // 'title' => $this->faker->text(10),
+            // 'path_image' => 'uploads/temp/image_temporary.png',
             'active' => 1,
         ];
     }

@@ -43,6 +43,14 @@ class DatabaseSeeder extends Seeder
 
                 $seedQty = $modelsClass->$moduleName->$code->seedQty;
                 $modelsClass->$moduleName->$code->model::factory($seedQty)->create();
+
+                if(file_exists('app/Models/'.$module.'/'.$code.$module.'Section.php')){
+                    if($config->ViewHome){
+                        $namespaceFactorySection = 'App\Models\\'.$module.'\\'.$code.$module.'Section';
+                        $namespaceFactorySection::factory(1)->create();
+                    }
+                }
+
             }
         }
 

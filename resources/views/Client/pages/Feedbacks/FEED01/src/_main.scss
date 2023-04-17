@@ -1,0 +1,171 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+
+.feed01{
+    background-position: center;
+    background-size: cover;
+    background-repeat:no-repeat;
+
+    .container--feed01{
+        padding: 95px 0 92px 0;
+
+        @include large-device-down{
+            padding: 36px 0 56px 0;
+            width: 90%;
+        }
+    }
+
+    &__header{
+        width: 100%;
+        // border-bottom:1px solid #404040;
+        // padding-bottom:45px;
+        margin-bottom: 61.9px;
+
+        @include large-device-down{
+            padding-bottom:35px;
+            margin-bottom: 45px;
+        }
+
+        @include small-device-down{
+            padding-bottom: 0;
+            margin-bottom: 35px;
+        }
+
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color:$color-white;
+
+            @include large-device-down{
+                font-size: $T2-mobile;
+            }
+        }
+
+    }
+    &__content{
+        &__item{
+            width: 61.2%;
+
+
+            &__image{
+                width: 55px;
+                height: 55px;
+                margin-bottom: 18px;
+
+                @include large-device-down{
+                    width: 50px;
+                    height: 50px;
+                }
+
+                img{
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+            &__titulo{
+                font: $paragraph;
+                font-weight: $weight-700;
+                color:$color-white;
+                margin-bottom: 11px;
+
+                @include large-device-down{
+                    font-size: $paragraph-min;
+                }
+            }
+            &__subtitulo{
+                font: $paragraph;
+                font-weight: $weight-400;
+                color:$color-white;
+
+                max-width: 214px;
+                width: 100%;
+                margin: 0 auto;
+
+                @include large-device-down{
+                    font: $paragraph;
+                }
+            }
+            &__description{
+                    margin-bottom: 33px;
+
+
+                @include large-device-down{
+                    margin-bottom: 18px;
+                }
+
+                p{
+                    font: $paragraph;
+                    font-weight: $weight-400;
+                    color:$color-white;
+
+                    @include large-device-down{
+                        font: $paragraph-mobile;
+                    }
+                }
+            }
+        }
+    }
+    .carousel-feed01 .owl-nav{
+        display: flex;
+        justify-content: center;
+        margin-top: 52px;
+        gap: 0 27px;
+
+        @include large-device-down {
+            margin-top: 59px;
+        }
+    }
+    .carousel-feed01 .owl-nav .owl-prev,
+    .carousel-feed01 .owl-nav .owl-next{
+        position: absolute;
+    }
+    .carousel-feed01 .owl-nav .owl-prev{
+        width: 40px;
+        height: 40px;
+        border:1px solid $color-four;
+        background-color: transparent;
+        transition: 0.5s all ease;
+        left: 0;
+        top: 22px;
+    }
+    .carousel-feed01 .owl-nav .owl-next{
+        width: 40px;
+        height: 40px;
+        border:1px solid $color-four;
+        background-color: transparent;
+        transition: 0.5s all ease;
+        right: 0;
+        top: 22px;
+    }
+    .carousel-feed01 .owl-nav .owl-next span{
+        color:$color-four;
+        font-size: 35px;
+        line-height: 22px;
+        transition: 0.5s all ease;
+    }
+
+    .carousel-feed01 .owl-nav .owl-prev span{
+        color:$color-four;
+        font-size: 35px;
+        line-height: 22px;
+        transition: 0.5s all ease;
+    }
+    .carousel-feed01 .owl-nav .owl-prev:hover{
+        background: $color-four;
+        transition: 0.5s all ease;
+    }
+    .carousel-feed01 .owl-nav .owl-next:hover{
+        background: $color-four;
+        transition: 0.5s all ease;
+    }
+    .carousel-feed01 .owl-nav .owl-prev:hover span{
+        color: $color-black;
+        transition: 0.5s all ease;
+    }
+    .carousel-feed01 .owl-nav .owl-next:hover span{
+        color: $color-black;
+        transition: 0.5s all ease;
+    }
+}
