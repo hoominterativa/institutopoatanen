@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Frequently;
 
-use App\Models\Frequently\FREQ01Frequently;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Frequently\FREQ01Frequently;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Frequently\FREQ01FrequentlySection;
 use App\Http\Controllers\IncludeSectionsController;
 
 class FREQ01Controller extends Controller
@@ -21,8 +22,11 @@ class FREQ01Controller extends Controller
     public function index()
     {
         $frequentlys = FREQ01Frequently::sorting()->paginate(15);
+        $section = FREQ01FrequentlySection::first();
         return view('Admin.cruds.Frequently.FREQ01.index', [
             'frequentlys' => $frequentlys,
+            'section' => $section,
+            'cropSetting' => getCropImage('Frequently' , 'FREQ01')
         ]);
     }
 
