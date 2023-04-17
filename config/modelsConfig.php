@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Frequently' => (object) [
-            'FREQ01' => (object)[
+        'Portfolios' => (object) [
+            'PORT02' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -24,7 +24,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Perguntas',
+                    'titlePanel' => 'Portfolios',
                     'iconPanel' => 'mdi-topic-circle'
                 ],
                 'IncludeSections' => (object) []

@@ -125,6 +125,13 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "PORT02": {
+            "path_image_box": {
+                "width": "416",
+                "height": "375",
+                "activeCrop": "false"
+            }
         }
     },
     "Compliances": {
