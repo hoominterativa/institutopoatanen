@@ -268,9 +268,15 @@ class ContactFormController extends Controller
      *
      * @return array
      */
-    public static function section($section)
+    public static function section($page, $section=null)
     {
-        $ContactForms = ContactForm::where('session', $section)->get();
+        $ContactForms = ContactForm::where('page', $page);
+
+        if($section){
+            $ContactForms = $ContactForms->where('session', $section);
+        }
+
+        $ContactForms = $ContactForms->get();
 
         $view = '<section id="contactFormTemplate">';
 
@@ -291,7 +297,43 @@ class ContactFormController extends Controller
         if($ContactForms->count()){
             $response = [
                 'view' => $view,
-                'position' => $ContactForm->position
+                'position' => $section?$ContactForm->position:null
+            ];
+        }
+
+        return $response;
+    }
+
+    public static function sectionPage($page, $section=null, $all=null)
+    {
+        $ContactForms = ContactForm::where('page', $page);
+
+        if($section){
+            $ContactForms = $ContactForms->where('session', $section);
+        }
+
+        $ContactForms = $ContactForms->get();
+
+        $view = '<section id="contactFormTemplate">';
+
+        foreach ($ContactForms as $ContactForm) {
+            $socials = Social::whereIn('id', [$ContactForm->social_id])->get();
+            $view .= view('Client.Components.contactForm',[
+                'contactForm' => $ContactForm,
+                'inputs' => json_decode($ContactForm->inputs),
+                'model' => $ContactForm->model,
+                'socials' => $socials
+            ]);
+        }
+
+        $view .= '</section>';
+
+        $response = [];
+
+        if($ContactForms->count()){
+            $response = [
+                'view' => $view,
+                'position' => $section?$ContactForm->position:null
             ];
         }
 

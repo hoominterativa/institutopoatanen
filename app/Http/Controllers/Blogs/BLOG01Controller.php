@@ -282,6 +282,7 @@ class BLOG01Controller extends Controller
      */
     public function show($BLOG01BlogsCategory, BLOG01Blogs $BLOG01Blogs)
     {
+        $IncludeSectionsController = new IncludeSectionsController();
         $blogsRelated = BLOG01Blogs::with('category')
             ->where('category_id', $BLOG01Blogs->category_id)
             ->whereNotIn('id', [$BLOG01Blogs->id])
@@ -291,9 +292,12 @@ class BLOG01Controller extends Controller
             ->limit('5')
             ->get();
 
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Blogs', 'BLOG01', 'show');
+
         $BLOG01Blogs->text = conveterOembedCKeditor($BLOG01Blogs->text);
 
         return view('Client.pages.Blogs.BLOG01.show',[
+            'sections' => $sections,
             'blog' => $BLOG01Blogs,
             'blogsRelated' => $blogsRelated,
         ]);
@@ -309,7 +313,7 @@ class BLOG01Controller extends Controller
     {
 
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Blogs', 'BLOG01');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Blogs', 'BLOG01', 'page');
 
         $categories = BLOG01BlogsCategory::exists()->active()->sorting()->get();
 

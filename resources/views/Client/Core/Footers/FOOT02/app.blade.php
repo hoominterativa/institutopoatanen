@@ -46,15 +46,9 @@
         <div class="container foot02__copyright-section__container">
             <div class="row">
                 <nav class="foot02__copyright-section__compliances col-12 col-lg-9 d-flex align-items-center">
-                    @if (isset($linksCtaFooter))
-                        @foreach ($linksCtaFooter as $title => $linkCtaHeader)
-                            @if ($title <> 'title')
-                                @if ($linkCtaHeader[1] == '_lightbox')
-                                    <a href="{{$linkCtaHeader[0]}}" data-fancybox="" class="foot02__copyright-section__compliances__item">{{$title}}</a>
-                                @else
-                                    <a href="{{$linkCtaHeader[0]}}" target="{{$linkCtaHeader[1]}}" class="foot02__copyright-section__compliances__item">{{$title}}</a>
-                                @endif
-                            @endif
+                    @if ($linksCtaFooter->count())
+                        @foreach ($linksCtaFooter as $linkCtaHeader)
+                            <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="foot02__copyright-section__compliances__item">{{$linkCtaHeader->title}}</a>
                         @endforeach
                     @endif
                 </nav>

@@ -268,8 +268,48 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "CONT02":{
+            "path_image_background_desktop": {
+                "width":"1500",
+                "height":"645",
+                "activeCrop": "true"
+            },
+            "path_image_background_mobile": {
+                "width":"390",
+                "height":"782",
+                "activeCrop": "true"
+            },
+            "path_image": {
+                "width":"429.09",
+                "height":"591.92",
+                "activeCrop": "false"
+            }
         }
     },
+
+    "Feedbacks": {
+        "FEED01":{
+            "path_image": {
+                "width":"200",
+                "height":"200",
+                "activeCrop": "true"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width":"1500",
+                    "height":"422",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width":"390",
+                    "height":"528",
+                    "activeCrop": "true"
+                }
+            }
+        }
+    },
+
     "Services": {
         "SERV01": {
             "path_image_icon": {

@@ -13,6 +13,8 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class {{ class }} extends Controller
 {
+    protected $path = 'uploads/Module/Code/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -46,19 +48,17 @@ class {{ class }} extends Controller
         /*
         Use the code below to upload image, if not, delete code
 
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
 
         if($path_image) $data['path_image'] = $path_image;
 
         Use the code below to upload archive, if not, delete code
 
-        $path = 'uploads/Module/Code/archives/';
         $helper = new HelperArchive();
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
+        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
 
         if($path_archive) $data['path_archive'] = $path_archive;
 
@@ -100,10 +100,9 @@ class {{ class }} extends Controller
         /*
         Use the code below to upload image, if not, delete code
 
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete(${{ model }}, 'path_image');
             $data['path_image'] = $path_image;
@@ -117,10 +116,9 @@ class {{ class }} extends Controller
         /*
         Use the code below to upload archive, if not, delete code
 
-        $path = 'uploads/Module/Code/archives/';
         $helper = new HelperArchive();
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
+        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
 
         if($path_archive){
             storageDelete(${{ model }}, 'path_archive');
@@ -211,7 +209,7 @@ class {{ class }} extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
 
         return view('Client.pages.Module.Model.show',[
             'sections' => $sections
@@ -227,7 +225,7 @@ class {{ class }} extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
 
         return view('Client.pages.Module.Model.page',[
             'sections' => $sections

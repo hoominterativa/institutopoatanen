@@ -78,7 +78,7 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Feedback' => 'FEED01',
+                    'Feedbacks' => 'FEED01',
                 ]
             ],
         ],
@@ -115,7 +115,7 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Feedback' => 'FEED01',
+                    'Feedbacks' => 'FEED01',
                 ]
             ],
         ],
@@ -149,8 +149,8 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Services' => 'SERV04',
-                    'Feedback' => 'FEED01',
+                    'Services' => ['SERV04'],
+                    'Feedbacks' => ['FEED01'],
                 ]
             ],
         ],
@@ -187,14 +187,14 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Feedback' => 'FEED01',
+                    'Feedbacks' => 'FEED01',
                 ]
             ],
         ],
     ],
 
     'ModelsForm' => (object)[
-        'FORM103' => 'Contacts_FORM101.jpg',
+        'FORM101' => 'Contacts_FORM101.jpg',
     ],
 
     'ModelsCompliances' => (object)[

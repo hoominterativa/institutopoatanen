@@ -54,4 +54,7 @@
         {{-- END .blog01-show --}}
     </main>
     {{-- END #root --}}
+    @foreach ($sections as $section)
+        {!!$section!!}
+    @endforeach
 @endsection

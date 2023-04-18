@@ -7,9 +7,8 @@
             <div class="container d-flex flex-column justify-content-center h-100">
                 <h1 class="blog01-page__header__title">Título página</h1>
                 <nav class="blog01-page__header__category blog01-page__header__category__carousel d-flex justify-content-center">
-                    {{-- <a href="#" class="blog01-page__header__category__item">Categoria Artigo</a> --}}
                     @foreach ($categories as $category)
-                        <a href="{{route('blog01.page.category', ['BLOG01BlogsCategory' => $category->slug])}}" class="blog01-page__header__category__item {{isset($category->selected)?'blog01-page__header__category__item--active':''}}">{{$category->title}}</a>
+                        <a href="{{route('blog01.category.page', ['BLOG01BlogsCategory' => $category->slug])}}" class="blog01-page__header__category__item {{isset($category->selected)?'blog01-page__header__category__item--active':''}}">{{$category->title}}</a>
                     @endforeach
                 </nav>
             </div>

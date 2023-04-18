@@ -45,34 +45,25 @@
                     </ul>
                 </nav>
                 {{-- END .menu-list --}}
-                @if ($linksCtaHeader->count())
+                @if ($linksCtaHeader->count() && $callToActionTitle->active_header)
                     <div class="container-cta">
-                        @if ($linksCtaHeader->count() > 1)
-                            <div class="dropdown">
-                                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta transition">{{$linksCtaHeader['title']??''}} <i class="menu-arrow"></i></a>
+                        <div class="dropdown">
+                            @if ($linksCtaHeader->count()>1)
+                                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta transition">
+                                    {{$callToActionTitle->title_header??''}}
+                                    <i class="menu-arrow"></i>
+                                </a>
                                 <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right" >
-                                    @foreach ($linksCtaHeader as $title => $linkCtaHeader)
-                                        @if ($title <> 'title')
-                                            @if ($linkCtaHeader[1] == '_lightbox')
-                                                <a href="{{$linkCtaHeader[0]}}" data-fancybox="" class="sublink-item transition mb-2">{{$title}}</a>
-                                            @else
-                                                <a href="{{$linkCtaHeader[0]}}" target="{{$linkCtaHeader[1]}}" class="sublink-item transition mb-2">{{$title}}</a>
-                                            @endif
-                                        @endif
+                                    @foreach ($linksCtaHeader as $linkCtaHeader)
+                                        <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item transition mb-2">{{$linkCtaHeader->title}}</a>
                                     @endforeach
                                 </div>
-                            </div>
-                        @else
-                            @foreach ($linksCtaHeader as $title => $linkCtaHeader)
-                                @if ($title <> 'title')
-                                    @if ($linkCtaHeader[1] == '_lightbox')
-                                        <a href="{{$linkCtaHeader[0]}}" data-fancybox="" class="btn-cta transition">{{$title}}</a>
-                                    @else
-                                        <a href="{{$linkCtaHeader[0]}}" target="{{$linkCtaHeader[1]}}" class="btn-cta transition">{{$title}}</a>
-                                    @endif
-                                @endif
-                            @endforeach
-                        @endif
+                            @else
+                                @foreach ($linksCtaHeader as $linkCtaHeader)
+                                    <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta transition">{{$linkCtaHeader->title}}</a>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 @endif
                 {{-- END .btn-cta --}}

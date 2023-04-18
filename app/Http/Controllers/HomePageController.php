@@ -21,9 +21,8 @@ class HomePageController extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsHome();
         $contactForm = new ContactFormController();
-
         foreach ($sections as $code => $html) {
-            $form = $contactForm->section($code);
+            $form = $contactForm->section('home', $code);
             if(COUNT($form)){
                 switch ($form['position']) {
                     case 'after':

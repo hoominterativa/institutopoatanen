@@ -21,6 +21,7 @@
                                     'name' => $name,
                                     'options' => $input->option,
                                     'placeholder' => $input->placeholder,
+                                    'required' => $input->required,
                                     'type' => $input->type
                                 ])
                             @endforeach

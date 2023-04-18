@@ -1,10 +1,12 @@
 <?php
 
 use App\Models\Social;
+use App\Models\ContactLead;
 use Illuminate\Support\Str;
 use App\Models\Optimization;
 use App\Models\OptimizePage;
 use App\Models\SettingTheme;
+use App\Models\AdditionalLink;
 use App\Models\GeneralSetting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -17,19 +19,21 @@ use App\Http\Controllers\EditorController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Helpers\HelperModule;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ContactLeadController;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\SettingSmtpController;
 use App\Http\Controllers\OptimizationController;
 use App\Http\Controllers\OptimizePageController;
 use App\Http\Controllers\SettingThemeController;
-use App\Http\Controllers\GeneralSettingController;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\Helpers\HelperModule;
-use App\Http\Controllers\NewsletterLeadController;
 use App\Http\Controllers\SettingHeaderController;
-use App\Http\Controllers\SettingSmtpController;
+use App\Http\Controllers\AdditionalLinkController;
+use App\Http\Controllers\GeneralSettingController;
+use App\Http\Controllers\NewsletterLeadController;
+use App\Http\Controllers\CallToActionTitleController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
-use App\Models\ContactLead;
+use App\Models\CallToActionTitle;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,6 +151,12 @@ Route::prefix('painel')->group(function () {
         Route::post('social/delete', [SocialController::class, 'destroySelected'])->name('admin.social.destroySelected');
         Route::post('social/sorting', [SocialController::class, 'sorting'])->name('admin.social.sorting');
 
+        // ADDITIONAL LINK
+        Route::resource('links-call-to-action', AdditionalLinkController::class)->names('admin.additionalLink')->parameters(['links-call-to-action' => 'AdditionalLink']);
+        Route::post('links-call-to-action/delete', [AdditionalLinkController::class, 'destroySelected'])->name('admin.additionalLink.destroySelected');
+        Route::post('links-call-to-action/sorting', [AdditionalLinkController::class, 'sorting'])->name('admin.additionalLink.sorting');
+        Route::resource('CallToActionTitle', CallToActionTitleController::class)->names('admin.callToActionTitle');
+
         // LEAD CONTACT
         Route::resource('leads', ContactLeadController::class)->names('admin.contact')->parameters(['contato' => 'ContactLead']);
         Route::post('leads/filtro', [ContactLeadController::class, 'filter'])->name('admin.contact.filter');
@@ -188,10 +198,12 @@ if(isset($modelsCore->Headers->Code)){
     View::composer('Client.Core.Headers.'.$modelsCore->Headers->Code.'.app', function ($view) {
         $socials = Social::get();
         $generalSetting = GeneralSetting::first();
-        $linksCtaHeader = collect(json_decode($generalSetting->btn_cta_header));
+        $linksCtaHeader = AdditionalLink::where('position', 'header')->orWhere('position', 'both')->active()->sorting()->get();
+        $callToActionTitle = CallToActionTitle::first();
 
     return $view->with('generalSetting', $generalSetting)
         ->with('linksCtaHeader', $linksCtaHeader)
+        ->with('callToActionTitle', $callToActionTitle)
         ->with('socials', $socials);
     });
 }
@@ -199,10 +211,12 @@ if(isset($modelsCore->Footers->Code)){
     View::composer('Client.Core.Footers.'.$modelsCore->Footers->Code.'.app', function ($view) {
         $socials = Social::get();
         $generalSetting = GeneralSetting::first();
-        $linksCtaFooter = collect(json_decode($generalSetting->btn_cta_footer));
+        $linksCtaFooter = AdditionalLink::where('position', 'footer')->orWhere('position', 'both')->active()->sorting()->get();
+        $callToActionTitle = CallToActionTitle::first();
 
-        return $view->with('generalSetting', $generalSetting)
+    return $view->with('generalSetting', $generalSetting)
         ->with('linksCtaFooter', $linksCtaFooter)
+        ->with('callToActionTitle', $callToActionTitle)
         ->with('socials', $socials);
     });
 }

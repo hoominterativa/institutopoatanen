@@ -9,9 +9,31 @@
             </div>
             {{-- END LOGOTIPO --}}
             <div class="navigation-header d-flex align-items-center">
-                <div class="content-btn-cta me-4">
-                    <a href="#" alt="{{__('Call to Action')}}" nofollow class="btn-cta py-1 px-3 transition">Call to Action</a>
-                </div>
+                @if ($linksCtaHeader->count() && $callToActionTitle->active_header)
+                    <div class="content-btn-cta me-4">
+                        <a href="#" alt="{{__('Call to Action')}}" nofollow class="btn-cta py-1 px-3 transition">Call to Action</a>
+                    </div>
+                    <div class="content-btn-cta me-4">
+                        <div class="dropdown">
+                            @if ($linksCtaHeader->count()>1)
+                                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta py-1 px-3 transition">
+                                    {{$callToActionTitle->title_header??''}}
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right" >
+                                    @foreach ($linksCtaHeader as $linkCtaHeader)
+                                        <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item transition mb-2">{{$linkCtaHeader->title}}</a>
+                                    @endforeach
+                                </div>
+                            @else
+                                @foreach ($linksCtaHeader as $linkCtaHeader)
+                                    <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta py-1 px-3 transition">{{$linkCtaHeader->title}}</a>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                @endif
+                {{-- END .btn-cta --}}
                 {{-- END .content-btn-cta --}}
                 <nav class="d-flex align-items-center link-translate me-4">
                     <a href="#" class="btn-translate px-2" alt="{{__('Traduzir para Inglês')}}">EN</a>

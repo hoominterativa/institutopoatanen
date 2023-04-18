@@ -87,7 +87,9 @@ class SLID01Controller extends Controller
      */
     public function edit(SLID01Slides $SLID01Slides)
     {
-        $SLID01Slides->link_button = getUri($SLID01Slides->link_button);
+        if($SLID01Slides->link_button) $SLID01Slides->link_button = url(getUri($SLID01Slides->link_button));
+        if($SLID01Slides->link_button_mobile) $SLID01Slides->link_button_mobile = url(getUri($SLID01Slides->link_button_mobile));
+
         return view('Admin.cruds.Slides.SLID01.edit',[
             'slide' => $SLID01Slides,
             'cropSetting' => getCropImage('Slides', 'SLID01')

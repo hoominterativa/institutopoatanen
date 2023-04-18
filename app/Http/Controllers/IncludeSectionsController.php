@@ -2,24 +2,100 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 
 class IncludeSectionsController extends Controller
 {
-    public function IncludeSectionsPage($GetModule, $getModel)
+    public function IncludeSectionsPage($GetModule, $getModel, $where=null)
     {
-        $InsertSectionsPage = config('modelsConfig.InsertModelsMain');
-        $IncludeSections = $InsertSectionsPage->$GetModule->$getModel->IncludeSections??null;
+        $InsertModelsMain = config('modelsConfig.InsertModelsMain');
+        $configModel = $InsertModelsMain->$GetModule->$getModel;
+        $IncludeSections = $configModel->IncludeSections??null;
+        $contactForm = new ContactFormController();
+        $page = Str::slug($configModel->config->titleMenu);
 
         $return = [];
+        $vf = 0;
 
         if($IncludeSections){
-            foreach($IncludeSections as $model => $code){
+            foreach($IncludeSections as $model => $config){
+                $code = $config;
                 $ModelsController = config('modelsClass.Class');
-                $Controller = $ModelsController->$model->$code->controller;
-                array_push($return, $Controller::section());
+                if(is_array($config)){
+                    $code = $config[0];
+                    $form = $contactForm->sectionPage($page, $code);
+
+                    if(count($config)>1){
+                        if($where == $config[1]){
+                            $Controller = $ModelsController->$model->$code->controller;
+
+                            if(COUNT($form)){
+                                switch ($form['position']) {
+                                    case 'after':
+                                        $view = $Controller::section()->render();
+                                        $view .= $form['view'];
+                                    break;
+                                    case 'before':
+                                        $view = $form['view'];
+                                        $view .= $Controller::section()->render();
+                                    break;
+                                }
+                                $vf++;
+                            }else{
+                                $view = $Controller::section()->render();
+                            }
+
+                            array_push($return, $view);
+                        }
+                    }else{
+                        $Controller = $ModelsController->$model->$code->controller;
+                        if(COUNT($form)){
+                            switch ($form['position']) {
+                                case 'after':
+                                    $view = $Controller::section()->render();
+                                    $view .= $form['view'];
+                                break;
+                                case 'before':
+                                    $view = $form['view'];
+                                    $view .= $Controller::section()->render();
+                                break;
+                            }
+                            $vf++;
+                        }else{
+                            $view = $Controller::section()->render();
+                        }
+
+                        array_push($return, $view);
+                    }
+                }else{
+                    $form = $contactForm->sectionPage($page, $code);
+
+                    $Controller = $ModelsController->$model->$code->controller;
+                    if(COUNT($form)){
+                        switch ($form['position']) {
+                            case 'after':
+                                $view = $Controller::section()->render();
+                                $view .= $form['view'];
+                            break;
+                            case 'before':
+                                $view = $form['view'];
+                                $view .= $Controller::section()->render();
+                            break;
+                        }
+                        $vf++;
+                    }else{
+                        $view = $Controller::section()->render();
+                    }
+
+                    array_push($return, $view);
+                }
             }
+        }
+
+        if(!$vf){
+            $form = $contactForm->sectionPage($page);
         }
 
         return $return;
