@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Portfolios;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Portfolios\PORT02Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Portfolios\PORT02PortfoliosBanner;
+use App\Models\Portfolios\PORT02PortfoliosGallery;
 use App\Models\Portfolios\PORT02PortfoliosSection;
 use App\Http\Controllers\IncludeSectionsController;
 
@@ -60,15 +62,28 @@ class PORT02Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
+
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
         if(PORT02Portfolios::create($data)){
             Session::flash('success', 'Portfólio cadastrado com sucesso');
             return redirect()->route('admin.port02.index');
         }else{
             Storage::delete($path_image_box);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar o portfólio');
             return redirect()->back();
         }
@@ -82,8 +97,11 @@ class PORT02Controller extends Controller
      */
     public function edit(PORT02Portfolios $PORT02Portfolios)
     {
+        $galleries = PORT02PortfoliosGallery::where('portfolio_id', $PORT02Portfolios->id)->get();
+
         return view('Admin.cruds.Portfolios.PORT02.edit', [
             'portfolio' => $PORT02Portfolios,
+            'galleries' => $galleries,
             'cropSetting' => getCropImage('Portfolios', 'PORT02')
         ]);
     }
@@ -102,15 +120,46 @@ class PORT02Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box){
             storageDelete($PORT02Portfolios, 'path_image_box');
             $data['path_image_box'] = $path_image_box;
         }
-        if($request->delete_path_image && !$path_image_box){
+        if($request->delete_path_image_box && !$path_image_box){
             storageDelete($PORT02Portfolios, 'path_image_box');
             $data['path_image_box'] = null;
+        }
+
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($PORT02Portfolios, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_icon && !$path_image_icon){
+            storageDelete($PORT02Portfolios, 'path_image_icon');
+            $data['path_image_icon'] = null;
+        }
+
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($PORT02Portfolios, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
+        }
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($PORT02Portfolios, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
+        }
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($PORT02Portfolios, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($PORT02Portfolios, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
         }
 
         if($PORT02Portfolios->fill($data)->save()){
@@ -118,6 +167,9 @@ class PORT02Controller extends Controller
             return redirect()->route('admin.port02.index');
         }else{
             Storage::delete($path_image_box);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar o portfólio');
             return redirect()->back();
         }
@@ -131,7 +183,16 @@ class PORT02Controller extends Controller
      */
     public function destroy(PORT02Portfolios $PORT02Portfolios)
     {
+        $galleries = PORT02PortfoliosGallery::where('portfolio_id', $PORT02Portfolios->id)->get();
+        foreach($galleries as $gallery){
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
         storageDelete($PORT02Portfolios, 'path_image_box');
+        storageDelete($PORT02Portfolios, 'path_image_icon');
+        storageDelete($PORT02Portfolios, 'path_image_desktop');
+        storageDelete($PORT02Portfolios, 'path_image_mobile');
 
         if($PORT02Portfolios->delete()){
             Session::flash('success', 'Portfólio deletado com sucessso');
@@ -149,7 +210,16 @@ class PORT02Controller extends Controller
     {
         $PORT02Portfolioss = PORT02Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT02Portfolioss as $PORT02Portfolios){
+            $galleries = PORT02PortfoliosGallery::where('portfolio_id', $PORT02Portfolios->id)->get();
+            foreach($galleries as $gallery){
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+
             storageDelete($PORT02Portfolios, 'path_image_box');
+            storageDelete($PORT02Portfolios, 'path_image_icon');
+            storageDelete($PORT02Portfolios, 'path_image_desktop');
+            storageDelete($PORT02Portfolios, 'path_image_mobile');
         }
 
         if($deleted = PORT02Portfolios::whereIn('id', $request->deleteAll)->delete()){

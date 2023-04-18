@@ -3,6 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portfolios\PORT02BannerController;
+use App\Http\Controllers\Portfolios\PORT02GalleryController;
 use App\Http\Controllers\Portfolios\PORT02SectionController;
 
 /**
@@ -31,6 +32,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/banner', PORT02BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'PORT02PortfoliosBanner']);
     Route::post($route.'/banner/delete', [PORT02BannerController::class, 'destroySelected'])->name('admin.'.$routeName.'.banner.destroySelected');
     Route::post($route.'/banner/sorting', [PORT02BannerController::class, 'sorting'])->name('admin.'.$routeName.'.banner.sorting');
+
+    Route::resource($route.'/galeria', PORT02GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'PORT02PortfoliosGallery']);
+    Route::post($route.'/galeria/delete', [PORT02GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [PORT02GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

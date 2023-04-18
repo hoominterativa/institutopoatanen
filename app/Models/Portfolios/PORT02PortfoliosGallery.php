@@ -2,7 +2,7 @@
 
 namespace App\Models\Portfolios;
 
-use Database\Factories\PORT02PortfoliosGalleryFactory;
+use Database\Factories\Portfolios\PORT02PortfoliosGalleryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,21 +15,12 @@ class PORT02PortfoliosGallery extends Model
         return PORT02PortfoliosGalleryFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "port02_portfolios_galleries";
+    protected $fillable = ['path_image', 'link_video', 'sorting', 'portfolio_id'];
 
     public function scopeSorting($query)
     {
         return $query->orderBy('sorting', 'ASC');
     }
 
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

@@ -132,6 +132,21 @@
                 "height": "375",
                 "activeCrop": "false"
             },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1511",
+                "height": "800",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "1370",
+                "activeCrop": "true"
+            },
             "Section": {
                 "path_image_icon": {
                     "width": "300",
@@ -149,6 +164,13 @@
                     "width": "400",
                     "height": "286",
                     "activeCrop": "true"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "685",
+                    "height": "407",
+                    "activeCrop": "false"
                 }
             }
         }

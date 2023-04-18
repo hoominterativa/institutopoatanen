@@ -15,6 +15,9 @@ class CreatePort02PortfoliosGalleriesTable extends Migration
     {
         Schema::create('port02_portfolios_galleries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('portfolio_id')->constrained('port02_portfolios');
+            $table->string('path_image')->nullable();
+            $table->text('link_video')->nullable();
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

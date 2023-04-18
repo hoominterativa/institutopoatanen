@@ -13,25 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class PORT02GalleryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Portfolios/PORT02/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -42,68 +24,34 @@ class PORT02GalleryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
-
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(PORT02PortfoliosGallery::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Galeria cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar a galeria');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolios\PORT02PortfoliosGallery  $PORT02PortfoliosGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PORT02PortfoliosGallery $PORT02PortfoliosGallery)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Portfolios\PORT02PortfoliosGallery  $PORT02PortfoliosGallery
+     * @param  \App\Models\Portfolios\PORT101PortfoliosGallery  $PORT101PortfoliosGallery
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, PORT02PortfoliosGallery $PORT02PortfoliosGallery)
     {
+
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image){
             storageDelete($PORT02PortfoliosGallery, 'path_image');
             $data['path_image'] = $path_image;
@@ -112,37 +60,16 @@ class PORT02GalleryController extends Controller
             storageDelete($PORT02PortfoliosGallery, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($PORT02PortfoliosGallery, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PORT02PortfoliosGallery, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($PORT02PortfoliosGallery->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Galeria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Storage::delete($path_image);
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a galeria');
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,11 +80,10 @@ class PORT02GalleryController extends Controller
      */
     public function destroy(PORT02PortfoliosGallery $PORT02PortfoliosGallery)
     {
-        //storageDelete($PORT02PortfoliosGallery, 'path_image');
-        //storageDelete($PORT02PortfoliosGallery, 'path_archive');
-
+        storageDelete($PORT02PortfoliosGallery, 'path_image');
         if($PORT02PortfoliosGallery->delete()){
             Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('reopenModal', 'modal-gallery-create');
             return redirect()->back();
         }
     }
@@ -170,16 +96,13 @@ class PORT02GalleryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $PORT02PortfoliosGallerys = PORT02PortfoliosGallery::whereIn('id', $request->deleteAll)->get();
         foreach($PORT02PortfoliosGallerys as $PORT02PortfoliosGallery){
             storageDelete($PORT02PortfoliosGallery, 'path_image');
-            storageDelete($PORT02PortfoliosGallery, 'path_archive');
         }
-        */
 
         if($deleted = PORT02PortfoliosGallery::whereIn('id', $request->deleteAll)->delete()){
+            Session::flash('reopenModal', 'modal-gallery-create');
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
@@ -196,51 +119,5 @@ class PORT02GalleryController extends Controller
             PORT02PortfoliosGallery::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portfolios\PORT02PortfoliosGallery  $PORT02PortfoliosGallery
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PORT02PortfoliosGallery $PORT02PortfoliosGallery)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

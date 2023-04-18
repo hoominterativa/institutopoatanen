@@ -66,7 +66,9 @@
                                                         <label><input name="btnSelectAll" value="btnDeletePORT02" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
-                                                    <th>Título</th>
+                                                    <th>Título/Subtítulo</th>
+                                                    <th>Texto</th>
+                                                    <th>Link do botão</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -80,9 +82,24 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$portfolio->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_box)}})"></div>
+                                                            @if ($portfolio->path_image_icon)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_icon)}})"></div>
+                                                            @endif
+                                                            @if ($portfolio->path_image_box)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_box)}})"></div>
+                                                            @endif
+                                                            @if ($portfolio->path_image_desktop)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_desktop)}})"></div>
+                                                            @endif
+                                                            @if ($portfolio->path_image_mobile)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_mobile)}})"></div>
+                                                            @endif
                                                         </td>
-                                                        <td class="align-middle">{{$portfolio->title}}</td>
+                                                        @if ($portfolio->title || $portfolio->subtile)
+                                                            <td class="align-middle">{{$portfolio->title}} <b>/</b> {{$portfolio->subtitle}}</td>
+                                                        @endif
+                                                        <td class="align-middle">{!! substr($portfolio->text,0,50) !!}</td>
+                                                        <td class="align-middle"><a href="{{ $portfolio->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                         <td class="align-middle">
                                                             @if ($portfolio->active)
                                                                 <span class="badge bg-success">Ativo</span>

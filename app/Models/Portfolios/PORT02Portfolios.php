@@ -16,7 +16,7 @@ class PORT02Portfolios extends Model
     }
 
     protected $table = "port02_portfolios";
-    protected $fillable = ['title', 'slug', 'path_image_box', 'active', 'featured', 'sorting'];
+    protected $fillable = ['title', 'slug', 'subtitle', 'text', 'title_button', 'link_button', 'target_link_button', 'path_image_icon', 'path_image_desktop', 'path_image_mobile', 'path_image_box', 'active', 'featured', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -33,8 +33,13 @@ class PORT02Portfolios extends Model
         return $query->where('featured', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function getRelationCore()
+    {
+        return null;
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(PORT02PortfoliosGallery::class, 'portfolio_id');
+    }
 }

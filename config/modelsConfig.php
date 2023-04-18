@@ -29,6 +29,20 @@ return [
                 ],
                 'IncludeSections' => (object) []
             ],
+            'PORT01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Portfolios 01',
+                    'iconPanel' => 'mdi-topic-circle'
+                ],
+                'IncludeSections' => (object) []
+            ],
         ],
 
     ],
