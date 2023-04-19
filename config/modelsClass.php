@@ -151,6 +151,13 @@ return [
                 'controller' => App\Http\Controllers\Portfolios\PORT02Controller::class,
                 'model' => App\Models\Portfolios\PORT02Portfolios::class,
                 'seedQty' => 4,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Portfolios\PORT02PortfoliosCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
             'PORT101' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT101Controller::class,

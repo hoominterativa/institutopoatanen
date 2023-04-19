@@ -14,6 +14,8 @@ use App\Models\Portfolios\PORT02PortfoliosBanner;
 use App\Models\Portfolios\PORT02PortfoliosGallery;
 use App\Models\Portfolios\PORT02PortfoliosSection;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT02PortfoliosCategory;
+use App\Models\Portfolios\PORT02PortfoliosBannerHome;
 
 class PORT02Controller extends Controller
 {
@@ -27,12 +29,18 @@ class PORT02Controller extends Controller
     public function index()
     {
         $portfolios = PORT02Portfolios::sorting()->paginate(20);
+        $portfolioCategories = PORT02PortfoliosCategory::sorting()->paginate(20);
+        $categories = PORT02PortfoliosCategory::exists()->sorting()->pluck('title', 'id');
         $section = PORT02PortfoliosSection::first();
         $banner = PORT02PortfoliosBanner::first();
+        $bannerHome = PORT02PortfoliosBannerHome::first();
         return view('Admin.cruds.Portfolios.PORT02.index', [
             'portfolios' => $portfolios,
+            'portfolioCategories' => $portfolioCategories,
+            'categories' => $categories,
             'section' => $section,
             'banner' => $banner,
+            'bannerHome' => $bannerHome,
             'cropSetting' => getCropImage('Portfolios', 'PORT02')
         ]);
     }
@@ -44,7 +52,9 @@ class PORT02Controller extends Controller
      */
     public function create()
     {
+        $categories = PORT02PortfoliosCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Portfolios.PORT02.create', [
+            'categories' => $categories,
             'cropSetting' => getCropImage('Portfolios', 'PORT02')
         ]);
     }
@@ -76,9 +86,9 @@ class PORT02Controller extends Controller
         $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        if(PORT02Portfolios::create($data)){
+        if($portfolios = PORT02Portfolios::create($data)){
             Session::flash('success', 'Portfólio cadastrado com sucesso');
-            return redirect()->route('admin.port02.index');
+            return redirect()->route('admin.port02.edit', ['PORT02Portfolios' => $portfolios->id ]);
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_desktop);
@@ -98,9 +108,11 @@ class PORT02Controller extends Controller
     public function edit(PORT02Portfolios $PORT02Portfolios)
     {
         $galleries = PORT02PortfoliosGallery::where('portfolio_id', $PORT02Portfolios->id)->get();
+        $categories = PORT02PortfoliosCategory::sorting()->pluck('title', 'id');
 
         return view('Admin.cruds.Portfolios.PORT02.edit', [
             'portfolio' => $PORT02Portfolios,
+            'categories' => $categories,
             'galleries' => $galleries,
             'cropSetting' => getCropImage('Portfolios', 'PORT02')
         ]);

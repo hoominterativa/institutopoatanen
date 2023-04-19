@@ -1,13 +1,13 @@
-<div class="tab-pane" id="banner">
-    @if ($banner)
-        {!! Form::model($banner, [
-            'route' => ['admin.port02.banner.update', $banner->id],
+<div class="tab-pane" id="bannerHome">
+    @if ($bannerHome)
+        {!! Form::model($bannerHome, [
+            'route' => ['admin.port02.banner.home.update', $bannerHome->id],
             'class' => 'parsley-validate',
             'files' => true,
         ]) !!}
         @method('PUT')
     @else
-        {!! Form::model(null, ['route' => 'admin.port02.banner.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+        {!! Form::model(null, ['route' => 'admin.port02.banner.home.store', 'class' => 'parsley-validate', 'files' => true]) !!}
     @endif
 
     <div class="row col-12">
@@ -17,7 +17,10 @@
                     {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                     {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
                 </div>
-
+                <div class="mb-3">
+                    {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                    {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                </div>
                 <div class="mb-3 form-check">
                     {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
                     {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
@@ -31,19 +34,19 @@
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Background desktop', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
-                            {{ $cropSetting->Banner->path_image_desktop->width }}x{{ $cropSetting->Banner->path_image_desktop->height }}px!</small>
+                            {{ $cropSetting->BannerHome->path_image_desktop->width }}x{{ $cropSetting->BannerHome->path_image_desktop->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_desktop', [
                                 'id' => 'inputImage',
                                 'class' => 'inputImage',
-                                'data-status' => $cropSetting->Banner->path_image_desktop->activeCrop, // px
-                                'data-min-width' => $cropSetting->Banner->path_image_desktop->width, // px
-                                'data-min-height' => $cropSetting->Banner->path_image_desktop->height, // px
+                                'data-status' => $cropSetting->BannerHome->path_image_desktop->activeCrop, // px
+                                'data-min-width' => $cropSetting->BannerHome->path_image_desktop->width, // px
+                                'data-min-height' => $cropSetting->BannerHome->path_image_desktop->height, // px
                                 'data-box-height' => '170', // Input height in the form
                                 'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file' => isset($banner)
-                                    ? ($banner->path_image_desktop != ''
-                                        ? url('storage/' . $banner->path_image_desktop)
+                                'data-default-file' => isset($bannerHome)
+                                    ? ($bannerHome->path_image_desktop != ''
+                                        ? url('storage/' . $bannerHome->path_image_desktop)
                                         : '')
                                     : '',
                             ]) !!}
@@ -54,19 +57,19 @@
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
-                            {{ $cropSetting->Banner->path_image_mobile->width }}x{{ $cropSetting->Banner->path_image_mobile->height }}px!</small>
+                            {{ $cropSetting->BannerHome->path_image_mobile->width }}x{{ $cropSetting->BannerHome->path_image_mobile->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_mobile', [
                                 'id' => 'inputImage',
                                 'class' => 'inputImage',
-                                'data-status' => $cropSetting->Banner->path_image_mobile->activeCrop, // px
-                                'data-min-width' => $cropSetting->Banner->path_image_mobile->width, // px
-                                'data-min-height' => $cropSetting->Banner->path_image_mobile->height, // px
+                                'data-status' => $cropSetting->BannerHome->path_image_mobile->activeCrop, // px
+                                'data-min-width' => $cropSetting->BannerHome->path_image_mobile->width, // px
+                                'data-min-height' => $cropSetting->BannerHome->path_image_mobile->height, // px
                                 'data-box-height' => '170', // Input height in the form
                                 'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file' => isset($banner)
-                                    ? ($banner->path_image_mobile != ''
-                                        ? url('storage/' . $banner->path_image_mobile)
+                                'data-default-file' => isset($bannerHome)
+                                    ? ($bannerHome->path_image_mobile != ''
+                                        ? url('storage/' . $bannerHome->path_image_mobile)
                                         : '')
                                     : '',
                             ]) !!}

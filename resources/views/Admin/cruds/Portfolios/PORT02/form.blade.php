@@ -2,6 +2,18 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
+                <div class="d-flex">
+                    {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
+                    <i class="text-danger">*</i>
+                </div>
+                {!! Form::select('category_id', $categories, null, [
+                    'class'=>'form-select',
+                    'id'=>'heard',
+                    'required'=>'required',
+                    'placeholder' => 'Informe a categoria do portifólio'
+                ]) !!}
+            </div>
+            <div class="mb-3">
                 {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
             </div>

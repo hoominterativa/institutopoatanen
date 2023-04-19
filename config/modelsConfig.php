@@ -13,39 +13,7 @@ return [
     ],
 
     // Configure existing modules and templates site-wide/system
-    'InsertModelsMain' => (object) [
-        'Portfolios' => (object) [
-            'PORT02' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Portfolios',
-                    'iconPanel' => 'mdi-topic-circle'
-                ],
-                'IncludeSections' => (object) []
-            ],
-            'PORT01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Portfolios 01',
-                    'iconPanel' => 'mdi-topic-circle'
-                ],
-                'IncludeSections' => (object) []
-            ],
-        ],
-
-    ],
+    'InsertModelsMain' => (object) [],
 
     'ModelsForm' => (object)[
         'FORM101' => 'Contacts_FORM101.jpg',

@@ -24,6 +24,18 @@
                     <li class="nav-item">
                         <a href="#portfolios" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
                             {{getTitleModel($configModelsMain, 'Portfolios', 'PORT02')}}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre os portfólios"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#listArticleCategories" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Categorias
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre as categorias"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -40,6 +52,14 @@
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esse banner será exibido na página com informações complementares"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#bannerHome" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner da Homepage
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esse banner será exibido na home com informações complementares"></i>
                         </a>
                     </li>
                 </ul>
@@ -125,7 +145,6 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-
                                         {{-- PAGINATION --}}
                                         <div class="mt-3 float-end">
                                             {{$portfolios->links()}}
@@ -135,8 +154,20 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    @include('Admin.cruds.Portfolios.PORT02.Section.form')
-                    @include('Admin.cruds.Portfolios.PORT02.Banner.form')
+                    <div class="tab-pane" id="listArticleCategories">
+                        @include('Admin.cruds.Portfolios.PORT02.Category.index', [
+                            'categories' => $portfolioCategories
+                        ])
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Portfolios.PORT02.Section.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Portfolios.PORT02.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="bannerHome">
+                        @include('Admin.cruds.Portfolios.PORT02.BannerHome.form')
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->
