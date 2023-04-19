@@ -242,7 +242,7 @@ class PORT101Controller extends Controller
             break;
         }
 
-       
+
         return view('Client.pages.Portfolios.PORT101.section', [
             'portfolios' => $portfolios,
             'sections' => $sections

@@ -1,0 +1,130 @@
+<?php
+
+namespace App\Http\Controllers\Portfolios;
+
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT02PortfoliosCategory;
+
+class PORT02CategoryController extends Controller
+{
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        $path = 'uploads/Portfolios/PORT02/images/';
+        $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
+        $data['featured'] = $request->featured?1:0;
+
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+
+        if(PORT02PortfoliosCategory::create($data)){
+            Session::flash('success', 'Categoria cadastrada com sucesso');
+            return redirect()->route('admin.port02.index');
+        }else{
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao cadastradar a categoria');
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Portfolios\PORT02PortfoliosCategory  $PORT02PortfoliosCategory
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, PORT02PortfoliosCategory $PORT02PortfoliosCategory)
+    {
+        $data = $request->all();
+        $path = 'uploads/Portfolios/PORT02/images/';
+        $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
+        $data['featured'] = $request->featured?1:0;
+
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, null,100);
+        if($path_image_icon){
+            storageDelete($PORT02PortfoliosCategory, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($PORT02PortfoliosCategory, 'path_image_icon');
+            $data['path_image_icon'] = null;
+        }
+
+        if($PORT02PortfoliosCategory->fill($data)->save()){
+            Session::flash('success', 'Categoria atualizada com sucesso');
+        }else{
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao atualizar item');
+        }
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Portfolios\PORT02PortfoliosCategory  $PORT02PortfoliosCategory
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(PORT02PortfoliosCategory $PORT02PortfoliosCategory)
+    {
+        storageDelete($PORT02PortfoliosCategory, 'path_image_icon');
+
+        if($PORT02PortfoliosCategory->delete()){
+            Session::flash('success', 'Categoria deletada com sucessso');
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Remove the selected resources from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroySelected(Request $request)
+    {
+
+        $PORT02PortfoliosCategorys = PORT02PortfoliosCategory::whereIn('id', $request->deleteAll)->get();
+        foreach($PORT02PortfoliosCategorys as $PORT02PortfoliosCategory){
+            storageDelete($PORT02PortfoliosCategory, 'path_image_icon');
+        }
+
+        if($deleted = PORT02PortfoliosCategory::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        }
+    }
+    /**
+    * Sort record by dragging and dropping
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+
+    public function sorting(Request $request)
+    {
+        foreach($request->arrId as $sorting => $id){
+            PORT02PortfoliosCategory::where('id', $id)->update(['sorting' => $sorting]);
+        }
+        return Response::json(['status' => 'success']);
+    }
+}

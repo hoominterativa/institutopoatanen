@@ -125,6 +125,73 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "PORT02": {
+            "path_image_box": {
+                "width": "416",
+                "height": "375",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1511",
+                "height": "800",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "1370",
+                "activeCrop": "true"
+            },
+            "Section": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "300",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "400",
+                    "height": "286",
+                    "activeCrop": "true"
+                }
+            },
+            "BannerHome": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "300",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "400",
+                    "height": "286",
+                    "activeCrop": "true"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "685",
+                    "height": "407",
+                    "activeCrop": "false"
+                }
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Compliances": {

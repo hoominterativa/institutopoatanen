@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Models\Portfolios;
+
+use Database\Factories\Portfolios\PORT02PortfoliosFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class PORT02Portfolios extends Model
+{
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return PORT02PortfoliosFactory::new();
+    }
+
+    protected $table = "port02_portfolios";
+    protected $fillable = ['category_id', 'title', 'slug', 'subtitle', 'text', 'title_button', 'link_button', 'target_link_button', 'path_image_icon', 'path_image_desktop', 'path_image_mobile', 'path_image_box', 'active', 'featured', 'sorting'];
+
+    public function scopeSorting($query)
+    {
+        return $query->orderBy('sorting', 'ASC');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
+    public function getRelationCore()
+    {
+        return null;
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(PORT02PortfoliosGallery::class, 'portfolio_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(PORT02PortfoliosCategory::class, 'category_id');
+    }
+}
