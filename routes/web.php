@@ -178,10 +178,6 @@ Route::prefix('painel')->group(function () {
     });
 });
 
-Route::get('/teste/asdas/asdads/saddasd', function(){
-    dd(listPage());
-});
-
 Route::get('/home', [HomePageController::class ,'index'])->name('home');
 Route::get('/', function(){return redirect()->route('home');});
 Route::post('/leads/website', [ContactLeadController::class ,'store'])->name('lead.store');

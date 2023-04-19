@@ -3,15 +3,38 @@
 /* BEGIN STYLE */
 #CONT06{
     padding: 63px 0 59px 0;
+}
+.cont06{
+    @include backG();
+    &__header{
+        width: 85%;
+        display: table;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 60px;
 
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+        }
+        &__paragraph{
+            font-size: $paragraph;
+            font-weight: $weight-400;
+            width: 95%;
+            max-width: 680px;
+            display: table;
+            margin: 0 auto;
+        }
+    }
     &__boxVideo{
-
         @include small-device {
             width:100%;
         }
 
         &__content{
-            width:884px;
+            width: 95%;
+            max-width: 884px;
             height: 439px;
             margin:  0 auto;
             position: relative;
@@ -25,7 +48,8 @@
             }
 
             iframe{
-                width:884px;
+                width: 100%;
+                max-width: 884px;
                 height: 439px;
             }
             &__video{
@@ -33,17 +57,9 @@
             }
 
             @include small-device {
-                width:85%;
-                height: 166px;
-
                 .play{
                     width: 59px;
                     height: 59px;
-                }
-
-                iframe{
-                    width:80%;
-                    height: 166px;
                 }
 
             }

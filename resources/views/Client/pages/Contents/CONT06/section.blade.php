@@ -1,14 +1,24 @@
 @if ($contents->count())
     @foreach ($contents as $content)
-        <section id="CONT06" class="cont06 container-fluid px-0"
-            style="background-image: url({{ asset('storage/' . $content->path_image_desktop) }}); background-color: {{ $content->background_color }};">
-            <div class="d-flex justify-content-center align-content-center">
+        <section id="CONT06" class="cont06 container-fluid px-0" style="background-image: url({{ asset('storage/' . $content->path_image_desktop) }}); background-color: {{ $content->background_color }};">
+            <div class="d-flex justify-content-center align-content-center flex-column">
+                @if ($content->title || $content->description)
+                    <header class="cont06__header">
+                        @if ($content->title)
+                            <h3 class="cont06__header__title">
+                                {{$content->title}}
+                            </h3>
+                        @endif
+                        @if ($content->description)
+                            <hr class="cont06__header__line">
+                            <p class="cont06__header__paragraph">{{$content->description}}</p>
+                        @endif
+                    </header>
+                @endif
                 <div class="cont06__boxVideo">
                     @if ($content->link_video)
                         <div class="cont06__boxVideo__content">
-                            <div id="videoApre"
-                                class="cont06__boxVideo__content__video d-flex justify-content-center align-items-center"
-                                data-src="{{$content->link_video}}" data-capa-video="{{ asset('storage/' . $content->path_image) }}" style="background-image: url({{ asset('storage/' . $content->path_image) }});">
+                            <div id="videoApre" class="cont06__boxVideo__content__video d-flex justify-content-center align-items-center" data-src="{{$content->link_video}}" data-capa-video="{{ asset('storage/' . $content->path_image) }}" style="background-image: url({{ asset('storage/' . $content->path_image) }});">
                                 <img class="trans-fast play" src="{{ asset('storage/uploads/tmp/play.png') }}"
                                     alt="Play Vídeo">
                             </div>

@@ -97,6 +97,9 @@
                 }
             }
 
+            @include x-small-device {
+                display: none;
+            }
             @include small-device {
                 display: none;
             }
@@ -223,6 +226,9 @@
                         background-color: rgb(138, 138, 138);
                     }
                 }
+            }
+            @include x-small-device {
+                display: block;
             }
             @include small-device {
                 display: block;

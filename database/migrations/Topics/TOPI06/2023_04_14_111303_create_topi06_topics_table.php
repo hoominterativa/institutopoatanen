@@ -18,12 +18,9 @@ class CreateTopi06TopicsTable extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('path_image_icon')->nullable();
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
+            $table->string('path_image')->nullable();
 
             $table->string('title_button')->nullable();
-            $table->string('path_image_icon_button')->nullable();
             $table->string('link_button')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
             $table->integer('active')->default(0);

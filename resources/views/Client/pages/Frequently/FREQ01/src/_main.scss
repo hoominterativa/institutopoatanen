@@ -97,8 +97,19 @@
 
                 &__item{
                     &__title{
+                        &__arrow{
+                            @include trans($transition: 0.5s);
+                        }
 
-                        button{
+                        &__arrow{
+                            transform: rotate(180deg);
+                        }
+
+                        &__button:not(.collapsed) &__arrow{
+                            transform: rotate(0deg);
+                        }
+
+                        &__button{
                             border: 1px solid $color-one !important;
                             border-radius: 0 !important;
                             box-shadow: none !important;
@@ -108,22 +119,18 @@
                             color: $color-one !important;
                             font-family: $font-paragraph !important;
                             font-weight: $weight-700 !important;
+                            @include trans($transition: 0.5s);
+
+                            &::after{
+                                display: none;
+                            }
+
 
 
                             @include medium-device-down{
                                 font-size: $T4-mobile !important;
                                 font-weight: $weight-700 !important;
                             }
-                        }
-                        button:after{
-                            width: 38px;
-                            height: 38px;
-                            object-fit: contain;
-                            background: url(../../../../../../../storage/app/public/uploads/tmp/arrow-faq.png);
-                        }
-                        button:not(.collapsed)::after{
-                            background: url(../../../../../../../storage/app/public/uploads/tmp/arrow-faq.png);
-                            transform: rotate(181deg);
                         }
                     }
                     &__text{
@@ -159,6 +166,64 @@
         // Fim content
     }
     &__form{
+        background-color: $color-five;
+        padding: 50px 0;
+        &__header{
+            text-align: center;
+            width: 90%;
+            display: table;
+            margin: 0 auto;
+            margin-bottom: 65px;
+            &__title{
+                font-size: $T2;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
+            }
+            &__subtitle{
+                font-size: $T4;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
+            }
+        }
+        // END __header
+        &__item{
+            width: 95%;
+            max-width: 890px;
+            display: table;
+            margin: 0 auto;
+            .input__item:not(.input__item--textarea){
+                .form-placeholder{
+                    .form-control{
+                        height: 45px;
+                        padding-bottom: 6px !important;
+                    }
+                }
+            }
+        }
+        &__submit{
+            background-color: $color-four;
+            font: $paragraph;
+            font-weight: $weight-700;
+            border: none;
+            padding: 10px 50px;
 
+            @include trans($transition: 0.5s);
+
+            &:hover{
+                background-color: $color-one;
+                color: $color-white;
+            }
+
+            &__icon{
+                margin-right: 15px;
+                @include trans($transition: 0.5s);
+            }
+
+            &:hover &__icon{
+                filter: brightness(1) contrast(1) invert(1) grayscale(1);
+            }
+        }
     }
 }

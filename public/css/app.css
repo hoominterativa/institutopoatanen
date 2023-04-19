@@ -161,33 +161,33 @@ a {
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 100% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 90% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 1200px) and (max-width: 1399.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 1112px !important;
   }
 }
@@ -302,12 +302,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -326,17 +323,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -615,6 +602,11 @@ a {
 #HEAD02 .container-navigation .menu-list .menu-item .sublink--menu .sublink-item:hover:after {
   width: 90%;
 }
+@media (min-width: 0) and (max-width: 575.98px) {
+  #HEAD02 .container-navigation .menu-list {
+    display: none;
+  }
+}
 @media (min-width: 576px) and (max-width: 767.98px) {
   #HEAD02 .container-navigation .menu-list {
     display: none;
@@ -736,6 +728,11 @@ a {
 }
 #HEAD02 .container-navigation .menu-sidebar-header:active .lines > i {
   background-color: rgb(138, 138, 138);
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  #HEAD02 .container-navigation .menu-sidebar-header {
+    display: block;
+  }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   #HEAD02 .container-navigation .menu-sidebar-header {
@@ -1097,250 +1094,129 @@ a {
   margin: 0;
 }
 
-/* BEGIN STYLE */ /* BEGIN STYLE */
-.freq01-page__faq__header {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.freq01-page__faq__header .container--freq01-page {
-  padding: 123px 0 81px 0;
-  z-index: 100;
-  position: relative;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__header .container--freq01-page {
-    padding: 37px 34px 58.16px 34px;
-  }
-}
-.freq01-page__faq__header__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
-}
-.freq01-page__faq__header__title {
-  font-size: 3.125rem;
-  color: #000;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 0px;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__header__title {
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
-}
-.freq01-page__faq__header__subtitle {
-  font-size: 1.875rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-  font-weight: 700;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__header__subtitle {
-    font-size: 1.563rem;
-    font-weight: 700;
-  }
-}
-.freq01-page__faq__header__line {
-  margin-top: 22.14px;
-  margin-bottom: 29.89px;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__header__line {
-    margin-top: 22.14px;
-    margin-bottom: 29.89px;
-  }
-}
-.freq01-page__faq__header__paragraph {
-  color: #7C7C7C;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__header__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.freq01-page__faq__header__paragraph p {
-  color: #7C7C7C;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__header__paragraph p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.freq01-page__faq__content {
-  padding: 57px 0 94px 0;
-}
-.freq01-page__faq__content__box {
-  gap: 29px 0;
-  display: flex;
-  flex-direction: column;
-}
-.freq01-page__faq__content__box__item__title button {
-  border: 1px solid #404040 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  padding: 20px 20px !important;
-  font-size: 1.25rem !important;
-  color: #404040 !important;
-  font-family: "Montserrat", sans-serif, arial !important;
-  font-weight: 700 !important;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__content__box__item__title button {
-    font-size: 1.125rem !important;
-    font-weight: 700 !important;
-  }
-}
-.freq01-page__faq__content__box__item__title button:after {
-  width: 38px;
-  height: 38px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  background: url(/images/arrow-faq.png?458a7887305f4467b530452d4a413685);
-}
-.freq01-page__faq__content__box__item__title button:not(.collapsed)::after {
-  background: url(/images/arrow-faq.png?458a7887305f4467b530452d4a413685);
-  transform: rotate(181deg);
-}
-.freq01-page__faq__content__box__item__text {
-  color: #7C7C7C;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  border: 1px solid #404040 !important;
-  border-radius: 0 !important;
-  padding: 29px 41px;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__content__box__item__text {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.freq01-page__faq__content__box__item__text .accordion-body {
-  padding: 0 !important;
-}
-.freq01-page__faq__content__box__item__text p {
-  color: #7C7C7C;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .freq01-page__faq__content__box__item__text p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
 /* BEGIN STYLE */
-.comp01-page__header {
-  text-align: center;
-  background-color: #EFEFEF;
-  padding: 87px 0;
-  margin: 0;
-}
-.comp01-page__header__container {
-  margin-bottom: 25px;
-}
-.comp01-page__header__title {
-  font-size: 3.125rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-  display: block;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__header__title {
-    font-size: 1.875rem;
+@media (min-width: 0) and (max-width: 575.98px) {
+  .cont06__box {
+    margin-bottom: 14px;
   }
 }
-.comp01-page__content {
-  padding: 45px 0 120px;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont06__box {
+    margin-bottom: 14px;
+  }
 }
-.comp01-page__content__icon {
-  width: 36px;
-  margin: 10px auto;
-  display: table;
+.cont06__box:nth-child(even) {
+  padding-right: 0;
 }
-.comp01-page__content__container {
-  text-align: center;
-  margin-bottom: 35px;
+@media (min-width: 0) and (max-width: 575.98px) {
+  .cont06__box:nth-child(even) {
+    padding-left: 0;
+  }
 }
-.comp01-page__content__title {
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont06__box:nth-child(even) {
+    padding-left: 0;
+  }
+}
+.cont06__box:nth-child(odd) {
+  padding-left: 0;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .cont06__box:nth-child(odd) {
+    padding-right: 0;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont06__box:nth-child(odd) {
+    padding-right: 0;
+  }
+}
+.cont06__box:nth-child(even) .cont06__box__content {
+  flex-direction: row-reverse;
+  padding-right: 73px;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .cont06__box:nth-child(even) .cont06__box__content {
+    padding-right: 35px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont06__box:nth-child(even) .cont06__box__content {
+    padding-right: 35px;
+  }
+}
+.cont06__box:nth-child(odd) .cont06__box__content {
+  padding-left: 73px;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .cont06__box:nth-child(odd) .cont06__box__content {
+    padding-left: 35px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont06__box:nth-child(odd) .cont06__box__content {
+    padding-left: 35px;
+  }
+}
+.cont06__box__background {
+  z-index: 1;
+}
+.cont06__box__content {
+  z-index: 2;
+  position: relative;
+  padding: 60px 0 40px 0;
+}
+.cont06__box__title {
+  font-family: "Ubuntu", sans-serif, arial;
   font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
   color: #404040;
-  display: block;
+  margin-bottom: 45px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__content__title {
+@media (min-width: 0) and (max-width: 575.98px) {
+  .cont06__box__title {
     font-size: 1.875rem;
   }
 }
-.comp01-page__content__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-  display: block;
-}
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__content__subtitle {
-    font-size: 1.125rem;
+  .cont06__box__title {
+    font-size: 1.875rem;
   }
 }
-.comp01-page__content__line {
-  width: 100%;
-  background-color: #404040;
+.cont06__box__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
   margin-bottom: 35px;
 }
-.comp01-page__content__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  padding: 0 30px;
-  color: #404040;
-  line-height: 25px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__content__paragraph {
+@media (min-width: 0) and (max-width: 575.98px) {
+  .cont06__box__paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.comp01-page__archives {
-  margin-top: 50px;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont06__box__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
 }
-.comp01-page__archives__item {
+.cont06__box__cta {
+  background-color: #EFEFEF;
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
-  color: #000;
+  border: none;
+  padding: 10px 50px;
+  color: #404040;
   display: table;
-  margin: 0 25px 0 0;
-  max-width: 100%;
-  padding: 10px 15px;
-  background-color: #CACACA;
+  transition: all 0.5s ease;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__archives__item {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.comp01-page__archives__item:hover {
+.cont06__box__cta:hover {
+  background-color: #404040;
   color: #fff;
-  background-color: #000;
 }
-.comp01-page__archives__item:hover .comp01__archives__item__icon {
-  filter: invert(1) grayscale(1);
+.cont06__box__cta__icon {
+  margin-right: 15px;
+  transition: all 0.5s ease;
+}
+.cont06__box__cta:hover .cont06__box__cta__icon {
+  filter: brightness(1) contrast(1) invert(1) grayscale(1);
 }

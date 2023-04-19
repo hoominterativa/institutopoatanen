@@ -96,7 +96,9 @@ class IncludeSectionsController extends Controller
 
         if(!$vf){
             $form = $contactForm->sectionPage($page);
-            array_push($return, $form['view']);
+            if(COUNT($form)){
+                array_push($return, $form['view']);
+            }
         }
 
         return $return;

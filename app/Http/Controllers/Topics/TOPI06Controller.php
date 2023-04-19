@@ -55,23 +55,15 @@ class TOPI06Controller extends Controller
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        $path_image_icon_button = $helper->optimizeImage($request, 'path_image_icon_button', $path, null,100);
-        if($path_image_icon_button) $data['path_image_icon_button'] = $path_image_icon_button;
-
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
-        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
-
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
-        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        if($path_image) $data['path_image'] = $path_image;
 
         if(TOPI06Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
             return redirect()->route('admin.topi06.index');
         }else{
             Storage::delete($path_image_icon);
-            Storage::delete($path_image_icon_button);
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
+            Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o tópico');
             return redirect()->back();
         }
@@ -116,43 +108,21 @@ class TOPI06Controller extends Controller
             $data['path_image_icon'] = null;
         }
 
-        $path_image_icon_button = $helper->optimizeImage($request, 'path_image_icon_button', $path, null,100);
-        if($path_image_icon_button){
-            storageDelete($TOPI06Topics, 'path_image_icon_button');
-            $data['path_image_icon_button'] = $path_image_icon_button;
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        if($path_image){
+            storageDelete($TOPI06Topics, 'path_image');
+            $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image_icon_button && !$path_image_icon_button){
-            storageDelete($TOPI06Topics, 'path_image_icon_button');
-            $data['path_image_icon_button'] = null;
-        }
-
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
-        if($path_image_desktop){
-            storageDelete($TOPI06Topics, 'path_image_desktop');
-            $data['path_image_desktop'] = $path_image_desktop;
-        }
-        if($request->delete_path_image_desktop && !$path_image_desktop){
-            storageDelete($TOPI06Topics, 'path_image_desktop');
-            $data['path_image_desktop'] = null;
-        }
-
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
-        if($path_image_mobile){
-            storageDelete($TOPI06Topics, 'path_image_mobile');
-            $data['path_image_mobile'] = $path_image_mobile;
-        }
-        if($request->delete_path_image_mobile && !$path_image_mobile){
-            storageDelete($TOPI06Topics, 'path_image_mobile');
-            $data['path_image_mobile'] = null;
+        if($request->delete_path_image_desktop && !$path_image){
+            storageDelete($TOPI06Topics, 'path_image');
+            $data['path_image'] = null;
         }
 
         if($TOPI06Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');
         }else{
             Storage::delete($path_image_icon);
-            Storage::delete($path_image_icon_button);
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
+            Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar o tópico');
         }
         return redirect()->back();
@@ -167,9 +137,7 @@ class TOPI06Controller extends Controller
     public function destroy(TOPI06Topics $TOPI06Topics)
     {
         storageDelete($TOPI06Topics, 'path_image_icon');
-        storageDelete($TOPI06Topics, 'path_image_icon_button');
-        storageDelete($TOPI06Topics, 'path_image_desktop');
-        storageDelete($TOPI06Topics, 'path_image_mobile');
+        storageDelete($TOPI06Topics, 'path_image');
 
         if($TOPI06Topics->delete()){
             Session::flash('success', 'Tópico deletado com sucessso');
@@ -188,9 +156,7 @@ class TOPI06Controller extends Controller
         $TOPI06Topicss = TOPI06Topics::whereIn('id', $request->deleteAll)->get();
         foreach($TOPI06Topicss as $TOPI06Topics){
             storageDelete($TOPI06Topics, 'path_image_icon');
-            storageDelete($TOPI06Topics, 'path_image_icon_button');
-            storageDelete($TOPI06Topics, 'path_image_desktop');
-            storageDelete($TOPI06Topics, 'path_image_mobile');
+            storageDelete($TOPI06Topics, 'path_image');
         }
 
         if($deleted = TOPI06Topics::whereIn('id', $request->deleteAll)->delete()){
@@ -221,6 +187,9 @@ class TOPI06Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Topics.TOPI06.section');
+        $topics = TOPI06Topics::active()->sorting()->get();
+        return view('Client.pages.Topics.TOPI06.section',[
+            'topics' => $topics
+        ]);
     }
 }

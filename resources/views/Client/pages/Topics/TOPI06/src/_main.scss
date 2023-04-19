@@ -1,3 +1,117 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+#CONT06{
+
+}
+.cont06{
+    &__box{
+        @include x-small-device{
+            margin-bottom: 14px;
+        }
+        @include small-device{
+            margin-bottom: 14px;
+        }
+        &:nth-child(even){
+            padding-right: 0;
+            @include x-small-device{
+                padding-left: 0;
+            }
+            @include small-device{
+                padding-left: 0;
+            }
+        }
+        &:nth-child(odd){
+            padding-left: 0;
+            @include x-small-device{
+                padding-right: 0;
+            }
+            @include small-device{
+                padding-right: 0;
+            }
+        }
+        &:nth-child(even) &__content{
+            flex-direction: row-reverse;
+            padding-right: 73px;
+
+            @include x-small-device{
+                padding-right: 35px;
+            }
+            @include small-device{
+                padding-right: 35px;
+            }
+        }
+        &:nth-child(odd) &__content{
+            padding-left: 73px;
+
+            @include x-small-device{
+                padding-left: 35px;
+            }
+            @include small-device{
+                padding-left: 35px;
+            }
+        }
+        &__background{
+            z-index: 1;
+        }
+        &__content{
+            z-index: 2;
+            position: relative;
+            padding: 60px 0 40px 0;
+        }
+
+        &__title{
+            font-family: $font-primary;
+            font-size: $T2;
+            font-weight: $weight-700;
+            color: $color-one;
+            margin-bottom: 45px;
+
+            @include x-small-device{
+                font-size: $T2-mobile;
+            }
+            @include small-device{
+                font-size: $T2-mobile;
+            }
+        }
+        &__paragraph{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-one;
+            margin-bottom: 35px;
+
+            @include x-small-device{
+                font: $paragraph-mobile;
+            }
+            @include small-device{
+                font: $paragraph-mobile;
+            }
+        }
+
+        &__cta{
+            background-color: $color-five;
+            font: $paragraph;
+            font-weight: $weight-700;
+            border: none;
+            padding: 10px 50px;
+            color: $color-one;
+            display: table;
+
+            @include trans($transition: 0.5s);
+
+            &:hover{
+                background-color: $color-one;
+                color: $color-white;
+            }
+
+            &__icon{
+                margin-right: 15px;
+                @include trans($transition: 0.5s);
+            }
+
+            &:hover &__icon{
+                filter: brightness(1) contrast(1) invert(1) grayscale(1);
+            }
+        }
+    }
+}

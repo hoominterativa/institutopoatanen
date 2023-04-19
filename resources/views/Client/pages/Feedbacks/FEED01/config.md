@@ -1,7 +1,7 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
-'Contents' => (object) [
-    'CONT02' => (object)[
+'Feedbacks' => (object) [
+    'FEED01' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => false,
         'ViewListPanel' => true,
@@ -12,7 +12,7 @@
             'anchor' =>  false,
             'linkMenu' => '',
             'iconMenu' => '',
-            'titlePanel' => 'Conteúdo 02',
+            'titlePanel' => 'Depoimentos',
             'iconPanel' => ''
         ]
     ],

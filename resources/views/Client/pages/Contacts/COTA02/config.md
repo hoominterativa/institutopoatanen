@@ -1,19 +1,22 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
-'Contents' => (object) [
-    'CONT02' => (object)[
-        'ViewHome' => true,
-        'ViewListMenu' => false,
+'Contacts' => (object) [
+    'COTA02' => (object)[
+        'ViewHome' => false,
+        'ViewListMenu' => true,
         'ViewListPanel' => true,
         'ViewListFooter' => false,
         'Viewer' => 'dropdown', // accepted values, list or dropdown
         'config' => (object) [
-            'titleMenu' => '',
+            'titleMenu' => 'Contato',
             'anchor' =>  false,
-            'linkMenu' => '',
+            'linkMenu' => 'cota02.page',
             'iconMenu' => '',
-            'titlePanel' => 'Conteúdo 02',
+            'titlePanel' => 'Contato',
             'iconPanel' => ''
+        ],
+        'IncludeSections' => (object) [
+            'Feedbacks' => 'FEED01',
         ]
     ],
 ],
