@@ -156,6 +156,28 @@
                 "activeCrop": "false"
             }
         },
+        "CONT06": {
+            "path_image": {
+                "width": "885",
+                "height": "440",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "900",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "750",
+                "activeCrop": "true"
+            }
+        },
         "CONT09": {
             "path_image_desktop": {
                 "width": "1500",
@@ -245,6 +267,81 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "COPA02": {
+            "path_image_box": {
+                "width": "655",
+                "height": "473",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "690",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "387",
+                "height": "1062",
+                "activeCrop": "true"
+            },
+            "path_image_icon": {
+                "width": "400",
+                "height": "400",
+                "activeCrop": "false"
+            },
+            "SectionContent": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "312",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "352",
+                    "activeCrop": "true"
+                }
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "421",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "415",
+                    "height": "421",
+                    "activeCrop": "true"
+                }
+            },
+            "Topic": {
+                "path_image_box": {
+                    "width": "397",
+                    "height": "280",
+                    "activeCrop": "true"
+                }
+            },
+            "LastSection": {
+                "path_image_box": {
+                    "width": "655",
+                    "height": "473",
+                    "activeCrop": "false"
+                },
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "690",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "387",
+                    "height": "1062",
+                    "activeCrop": "true"
+                },
+                "path_image_icon": {
+                    "width": "400",
+                    "height": "400",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Contacts": {
@@ -309,7 +406,22 @@
             }
         }
     },
-
+    "Frequently": {
+        "FREQ01": {
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "371",
+                    "activeCrop": "true"
+                }
+            }
+        }
+    },
     "Services": {
         "SERV01": {
             "path_image_icon": {
@@ -467,6 +579,28 @@
                     "height": "700",
                     "activeCrop": "false"
                 }
+            }
+        },
+        "TOPI06": {
+            "path_image_icon": {
+                "width": "400",
+                "height": "400",
+                "activeCrop": "false"
+            },
+            "path_image_icon_button": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "743",
+                "height": "443",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "385",
+                "activeCrop": "true"
             }
         },
         "TOPI102": {

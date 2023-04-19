@@ -1,167 +1,221 @@
 @extends('Client.Core.client')
 @section('content')
-{{-- BEGIN Page content --}}
-<main id="root">
-    <div id="COPA02" class="copa02-page">
-        <section class="copa02-page__assortedBox container-fluid px-0">
-            <header class="copa02-page__assortedBox__header position-relative" style="background-image: url({{asset('storage/uploads/tmp/bannercopa02.png')}})">
-                <div class="copa02-page__assortedBox__header__mask"></div>
-                <div class="container-assortedBox--copa02-page container d-flex flex-column justify-content-center align-items-center">
-                    <h3 class="copa02-page__assortedBox__header__encompass flex-column">
-                        <span class="copa02-page__assortedBox__header__title">Título da Página</span>
-                        <span class="copa02-page__assortedBox__header__subtitle">Subtítulo</span>
-                    </h3>
-                    <hr class="copa02-page__assortedBox__header__line" />
-                </div>
-            </header>
-            <div class="copa02-page__assortedBox__content">
-                <div class="row  row--boxStandard flex-column">
-                    <div class="copa02-page__assortedBox__boxStandard position-relative px-0" style="background-image: url({{asset('storage/uploads/tmp/box-branco.png')}})">
+    {{-- BEGIN Page content --}}
+    <main id="root">
 
-                        <div class="copa02-page__assortedBox__boxStandard__mask"></div>
-                        <div class="container container--boxStandard">
-                            <div class="row row--boxStandard">
-                                <div class="copa02-page__assortedBox__boxStandard__image col">
-                                    <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" loading="lazy" />
+        <div id="COPA02" class="copa02-page">
+            <section class="copa02-page__assortedBox container-fluid px-0">
+                @if ($sectionContent)
+                    <header class="copa02-page__assortedBox__header position-relative"
+                        style="background-image: url({{ asset('storage/' . $sectionContent->path_image_desktop) }}); background-color: {{ $sectionContent->background_color }};">
+                        <div class="copa02-page__assortedBox__header__mask"></div>
+                        @if ($sectionContent->title || $sectionContent->subtitle)
+                            <div
+                                class="container-assortedBox--copa02-page container d-flex flex-column justify-content-center align-items-center">
+                                <h3 class="copa02-page__assortedBox__header__encompass flex-column">
+                                    <span class="copa02-page__assortedBox__header__title">{{ $sectionContent->title }}</span>
+                                    <span
+                                        class="copa02-page__assortedBox__header__subtitle">{{ $sectionContent->subtitle }}</span>
+                                </h3>
+                                <hr class="copa02-page__assortedBox__header__line" />
+                            </div>
+                        @endif
+                    </header>
+                @endif
+                @if ($contents->count())
+                    <div class="copa02-page__assortedBox__content">
+                        <div class="row  row--boxStandard flex-column">
+                            @foreach ($contents as $content)
+                                <div class="copa02-page__assortedBox__boxStandard position-relative px-0"
+                                    style="background-image: url({{ asset('storage/' . $content->path_image_desktop) }}); background-color: {{ $content->background_color }};">
+                                    <div class="copa02-page__assortedBox__boxStandard__mask"></div>
+                                    <div class="container container--boxStandard">
+                                        <div class="row row--boxStandard">
+                                            @if ($content->path_image_box)
+                                                <div class="copa02-page__assortedBox__boxStandard__image col">
+                                                    <img src="{{ asset('storage/' . $content->path_image_box) }}"
+                                                        loading="lazy" />
+                                                </div>
+                                            @endif
+                                            <div class="copa02-page__assortedBox__boxStandard__description col">
+                                                @if ($content->title || $content->subtitle)
+                                                    <h4 class="copa02-page__assortedBox__boxStandard__description__title">
+                                                        {{ $content->subtitle }}
+                                                    </h4>
+                                                    <h5
+                                                        class="copa02-page__assortedBox__boxStandard__description__subtitle">
+                                                        {{ $content->title }}
+                                                    </h5>
+                                                    <hr class="copa02-page__assortedBox__boxStandard__description__line" />
+                                                @endif
+                                                <div class="copa02-page__assortedBox__boxStandard__description__paragraph">
+                                                    @if ($content->description)
+                                                        <p>
+                                                            {!! $content->description !!}
+                                                        </p>
+                                                    @endif
+                                                </div>
+                                                <div class="copa02-page__assortedBox__boxStandard__description__cta">
+                                                    @if ($content->link_button || $content->target_link_button || $content->path_image_icon || $content->title_button)
+                                                        <a href="{{ $content->link_button }}"
+                                                            target="{{ $content->target_link_button }}"
+                                                            class="copa02-page__assortedBox__boxStandard__description__cta__link">
+                                                            <img src="{{ asset('storage/' . $content->path_image_icon) }}"
+                                                                alt=""
+                                                                class="copa02-page__assortedBox__boxStandard__description__cta__img">
+                                                            {{ $content->title_button }}
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            @endforeach
+                        </div>
+                        {{-- Finish copa02-page__assortedBox__boxStandard --}}
+                    </div>
+                @endif
+            </section>
+        </div>
+        @if ($pageSections->count())
+            @foreach ($pageSections as $pageSection)
+                <section class="copa02-page__emphasis position-relative"
+                    style="background-image: url({{ asset('storage/' . $pageSection->path_image_desktop) }}); background-color: {{ $pageSection->background_color }};">
+                    <div class="copa02-page__emphasis__mask"></div>
+                    <div class="copa02-page__emphasis__header">
+                        <div
+                            class="container container-emphasis--copa02-page d-flex flex-column justify-content-center align-items-center">
+                            @if ($pageSection->title || $pageSection->subtitle)
+                                <h3 class="copa02-page__emphasis__container">
+                                    <span class="copa02-page__emphasis__header__title">{{ $pageSection->title }}</span>
+                                    <span
+                                        class="copa02-page__emphasis__headers__subtitle">{{ $pageSection->subtitle }}</span>
+                                </h3>
+                                <hr class="copa02-page__emphasis__header__line" />
+                            @endif
+                            @if ($pageSection->description)
+                                <div class="copa02-page__emphasis__header__paragraph">
+                                    <p>
+                                        {!! $pageSection->description !!}
+                                    </p>
                                 </div>
-                                <div class="copa02-page__assortedBox__boxStandard__description col">
-                                    <h4 class="copa02-page__assortedBox__boxStandard__description__title">Subtitulo</h4>
-                                    <h5 class="copa02-page__assortedBox__boxStandard__description__subtitle">Titulo</h5>
-                                    <hr class="copa02-page__assortedBox__boxStandard__description__line" />
-                                    <div 
-                                    class="copa02-page__assortedBox__boxStandard__description__paragraph">
+                            @endif
+                        </div>
+                    </div>
+                </section>
+            @endforeach
+        @endif
+        @if ($topics->count())
+            <section class="copa02-page__boxTopic position-relative" style="background:#ffffff;">
+                <div class="copa02-page__boxTopic__mask"></div>
+                <div class="container container--copa02-page-boxTopic">
+                    @if ($sectionTopic)
+                        <header class="copa02-page__boxTopic__header">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                @if ($sectionTopic->title || $sectionTopic->subtitle)
+                                    <h3 class="copa02-page__boxTopic__header__encompass">
+                                        <span
+                                            class="copa02-page__boxTopic__header__title">{{ $sectionTopic->title }}</span>
+                                        <span
+                                            class="copa02-page__boxTopic__header__subtitle">{{ $sectionTopic->subtitle }}</span>
+                                    </h3>
+                                    <hr class="copa02-page__boxTopic__header__line" />
+                                @endif
+                                @if ($sectionTopic->description)
+                                    <div class="copa02-page__boxTopic__header__paragraph">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec 
+                                            {!! $sectionTopic->description !!}
                                         </p>
                                     </div>
-                                    <div class="copa02-page__assortedBox__boxStandard__description__cta">
-                                        <a href="#" class="copa02-page__assortedBox__boxStandard__description__cta__link">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="copa02-page__assortedBox__boxStandard__description__cta__img">
-                                            CTA
-                                        </a>
+                                @endif
+                            </div>
+                        </header>
+                    @endif
+                    <div class="copa02-page__boxTopic__content carousel-topics-copa02-page owl-carousel">
+                        @foreach ($topics as $topic)
+                            <div class="copa02-page__boxTopic__item">
+                                <div class="copa02-page__boxTopic__item__image">
+                                    @if ($topic->path_image_box)
+                                        <img src="{{ asset('storage/' . $topic->path_image_box) }}" loading="lazy" />
+                                    @endif
+                                </div>
+                                <div class="copa02-page__boxTopic__item__description">
+                                    @if ($topic->title || $topic->subtitle)
+                                        <h4 class="copa02-page__boxTopic__item__description__title">
+                                            {{ $topic->title }}</h4>
+                                        <h5 class="copa02-page__boxTopic__item__description__subtitle">
+                                            {{ $topic->subtitle }}</h5>
+                                    @endif
+                                    @if ($topic->description)
+                                        <div class="copa02-page__boxTopic__item__description__paragraph">
+                                            <p>
+                                                {!! $topic->description !!}
+                                            </p>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+        @endif
+        @if ($lastSections)
+            @foreach ($lastSections as $lastSection)
+                <section class="copa02-page__boxContent position-relative"
+                    style="background-image: url({{ asset('storage/' . $lastSection->path_image_desktop) }}); background-color: {{ $lastSection->background_color }};">
+                    <div class="copa02-page__boxContent__mask"></div>
+                    <div class="container container--copa02-page-boxContent">
+                        <div class="copa02-page__boxContent__item">
+                            <div class="row row--copa02-page-boxContent">
+                                @if ($lastSection->path_image_box)
+                                    <div class="copa02-page__boxContent__item__image col px-0">
+                                        <img src="{{ asset('storage/' . $lastSection->path_image_box) }}" loading="lazy" />
                                     </div>
+                                @endif
+                                <div class="copa02-page__boxContent__item__description col">
+                                    @if ($lastSection->title || $lastSection->subtitle)
+                                        <h4 class="copa02-page__boxContent__item__description__title">
+                                            {{ $lastSection->subtitle }}</h4>
+                                        <h5 class="copa02-page__boxContent__item__description__subtitle">
+                                            {{ $lastSection->title }}</h5>
+                                        <hr class="copa02-page__boxContent__item__description__line" />
+                                    @endif
+                                    @if ($lastSection->description)
+                                        <div class="copa02-page__boxContent__item__description__paragraph">
+                                            <p>
+                                                {!! $lastSection->description !!}
+                                            </p>
+                                        </div>
+                                    @endif
+                                    @if (
+                                        $lastSection->link_button ||
+                                            $lastSection->target_link_button ||
+                                            $lastSection->path_image_icon ||
+                                            $lastSection->title_button)
+                                        <div class="copa02-page__boxContent__item__description__cta">
+                                            <a href="{{ $lastSection->link_button }}"
+                                                target="{{ $lastSection->target_link_button }}"
+                                                class="copa02-page__boxContent__item__description__cta__link">
+                                                <img src="{{ asset('storage/' . $lastSection->path_image_icon) }}"
+                                                    alt=""
+                                                    class="copa02-page__boxContent__item__description__cta__img">
+                                                {{ $lastSection->title_button }}
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- Finish copa02-page__assortedBox__boxStandard --}}
-                    <div class="copa02-page__assortedBox__boxStandard position-relative px-0" style="background-image: url({{asset('storage/uploads/tmp/box2copa02.png')}})">
+                </section>
+            @endforeach
+        @endif
+        </div>
 
-                        <div class="copa02-page__assortedBox__boxStandard__mask"></div>
-                        <div class="container container--boxStandard">
-                            <div class="row row--boxStandard">
-                                <div class="copa02-page__assortedBox__boxStandard__image col">
-                                    <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" loading="lazy" />
-                                </div>
-                                <div class="copa02-page__assortedBox__boxStandard__description col">
-                                    <h4 class="copa02-page__assortedBox__boxStandard__description__title">Subtitulo</h4>
-                                    <h5 class="copa02-page__assortedBox__boxStandard__description__subtitle">Titulo</h5>
-                                    <hr class="copa02-page__assortedBox__boxStandard__description__line" />
-                                    <div 
-                                    class="copa02-page__assortedBox__boxStandard__description__paragraph">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec 
-                                        </p>
-                                    </div>
-                                    <div class="copa02-page__assortedBox__boxStandard__description__cta">
-                                        <a href="#" class="copa02-page__assortedBox__boxStandard__description__cta__link">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="copa02-page__assortedBox__boxStandard__description__cta__img">
-                                            CTA
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- Finish copa02-page__assortedBox__boxStandard --}}
-                </div>
-            </div>
-        </section>
-        <section class="copa02-page__emphasis position-relative" style="background-image: url({{asset('storage/uploads/tmp/boxdestaque1.png')}})">
-            <div class="copa02-page__emphasis__mask"></div>
-            <div class="copa02-page__emphasis__header">
-                <div class="container container-emphasis--copa02-page d-flex flex-column justify-content-center align-items-center">
-                    <h3 class="copa02-page__emphasis__container">
-                        <span class="copa02-page__emphasis__header__title">Titulo</span>
-                        <span class="copa02-page__emphasis__headers__subtitle">Subtitulo</span>
-                    </h3>
-                    <hr class="copa02-page__emphasis__header__line" />
-                    <div class="copa02-page__emphasis__header__paragraph">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. 
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="copa02-page__boxTopic position-relative" style="background-image: url({{asset('storage/uploads/tmp/secaobox.png')}})">
-            <div class="copa02-page__boxTopic__mask"></div>
-            <div class="container container--copa02-page-boxTopic">
-                <header class="copa02-page__boxTopic__header">
-                    <div class="d-flex flex-column justify-content-center align-items-center">
-                        <h3 class="copa02-page__boxTopic__header__encompass">
-                            <span class="copa02-page__boxTopic__header__title">Titulo</span>
-                            <span class="copa02-page__boxTopic__header__subtitle">Subtitulo</span>
-                        </h3>
-                        <hr class="copa02-page__boxTopic__header__line" />
-                        <div class="copa02-page__boxTopic__header__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. 
-                            </p>
-                        </div>
-                        
-                    </div>
-                </header>
-                <div class="copa02-page__boxTopic__content carousel-topics-copa02-page owl-carousel">
-                     <div class="copa02-page__boxTopic__item">
-                        <div class="copa02-page__boxTopic__item__image">
-                            <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" loading="lazy" />
-                        </div>
-                        <div class="copa02-page__boxTopic__item__description">
-                            <h4 class="copa02-page__boxTopic__item__description__title">Subtitulo</h4>
-                            <h5 class="copa02-page__boxTopic__item__description__subtitle">Titulo</h5>
-                            <div class="copa02-page__boxTopic__item__description__paragraph">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit
-                                </p>
-                            </div>
-                        </div>
-                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="copa02-page__boxContent position-relative" style="background-image: url({{asset('storage/uploads/tmp/destaquebx.png')}})">
-            <div class="copa02-page__boxContent__mask"></div>
-            <div class="container container--copa02-page-boxContent">
-                <div class="copa02-page__boxContent__item">
-                    <div class="row row--copa02-page-boxContent">
-                        <div class="copa02-page__boxContent__item__image col px-0">
-                            <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" loading="lazy" />
-                        </div>
-                        <div class="copa02-page__boxContent__item__description col">
-                            <h4 class="copa02-page__boxContent__item__description__title">Subtitulo</h4>
-                            <h5 class="copa02-page__boxContent__item__description__subtitle">Titulo</h5>
-                            <hr class="copa02-page__boxContent__item__description__line" />
-                            <div class="copa02-page__boxContent__item__description__paragraph">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec 
-                                </p>
-                            </div>
-                            <div class="copa02-page__boxContent__item__description__cta">
-                                <a href="#" class="copa02-page__boxContent__item__description__cta__link">
-                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="copa02-page__boxContent__item__description__cta__img">
-                                    CTA
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-</main>
-{{-- Finish Content page Here --}}
-@foreach ($sections as $section)
-    {!!$section!!}
-@endforeach
+    </main>
+    {{-- Finish Content page Here --}}
+    @foreach ($sections as $section)
+        {!! $section !!}
+    @endforeach
 @endsection

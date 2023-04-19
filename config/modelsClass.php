@@ -88,7 +88,7 @@ return [
             'COPA02' => (object)[
                 'controller' => App\Http\Controllers\ContentPages\COPA02Controller::class,
                 'model' => App\Models\ContentPages\COPA02ContentPages::class,
-                'seedQty' => 1,
+                'seedQty' => 3,
             ],
         ],
         // END CONTENT PAGES
@@ -116,6 +116,15 @@ return [
         ],
         // END COMPLIANCES
 
+        'Frequently' => (object)[
+            'FREQ01' => (object)[
+                'controller' => App\Http\Controllers\Frequently\FREQ01Controller::class,
+                'model' => App\Models\Frequently\FREQ01Frequently::class,
+                'seedQty' => 2,
+            ],
+        ],
+        // END FREQUENTLY
+
         'Galleries' => (object)[
             'GALL01' => (object)[
                 'controller' => App\Http\Controllers\Galleries\GALL01Controller::class,
@@ -123,7 +132,7 @@ return [
                 'seedQty' => 1,
             ],
         ],
-        // END COMPLIANCES
+        // END GALLERIES
 
         'Portfolios' => (object)[
             'PORT01' => (object)[
@@ -216,6 +225,11 @@ return [
                 'controller' => App\Http\Controllers\Topics\TOPI05Controller::class,
                 'model' => App\Models\Topics\TOPI05Topics::class,
                 'seedQty' => 4,
+            ],
+            'TOPI06' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI06Controller::class,
+                'model' => App\Models\Topics\TOPI06Topics::class,
+                'seedQty' => 2,
             ],
             'TOPI101' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI101Controller::class,

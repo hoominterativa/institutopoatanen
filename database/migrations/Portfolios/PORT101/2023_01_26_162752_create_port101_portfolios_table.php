@@ -17,7 +17,7 @@ class CreatePort101PortfoliosTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->text('text')->nullable();
             $table->text('link_button')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');

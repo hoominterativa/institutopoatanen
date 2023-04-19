@@ -89,10 +89,8 @@
                                                             {{ Carbon\Carbon::parse($content->date)->format('d/m/Y') }}
                                                         </td>
                                                         <td class="align-middle">{{ $content->locale }}</td>
-                                                        <td class="align-middle"><a href="{{ $content->link }}"
-                                                                target="_blank"
-                                                                class="mdi mdi-link-box-variant mdi-24px"></a></td>
-                                                                <td class="align-middle">{{ $content->title }}</td>
+                                                        <td class="align-middle"><a href="{{ $content->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                        <td class="align-middle">{{ $content->title }}</td>
                                                         <td class="align-middle">
                                                             @if ($content->active)
                                                                 <span class="badge bg-success">Ativo</span>

@@ -16,7 +16,7 @@ class CreatePort01PortfoliosSectionsTable extends Migration
         Schema::create('port01_portfolios_sections', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('path_image')->nullable();
             $table->integer('active')->default(0);
             $table->timestamps();

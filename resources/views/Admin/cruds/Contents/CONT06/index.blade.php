@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item active">{{ getTitleModel($configModelsMain, 'Contents', 'CONT06') }}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</h4>
+                            <h4 class="page-title">{{ getTitleModel($configModelsMain, 'Contents', 'CONT06') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -26,10 +26,10 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.code.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.cont06.destroySelected')}}" type="button" class="btn btn-danger btnDeleteCONT06" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        <a href="{{route('admin.cont06.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
                                 <table class="table table-bordered table-sortable">
@@ -37,44 +37,52 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                                <label><input name="btnSelectAll" value="" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeleteCONT06" type="checkbox"></label>
                                             </th>
                                             <th>Imagem</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Job Title</th>
-                                            <th>DOB</th>
+                                            <th>Título da seção</th>
+                                            <th>Descrição</th>
+                                            <th>Link Vídeo</th>
+                                            <th>Link botão</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody data-route="{{route('admin.code.sorting')}}">
-                                        @foreach ($teste as $test)
-                                            <tr data-code="{{$test->id}}">
+                                    <tbody data-route="{{route('admin.cont06.sorting')}}">
+                                        @foreach ($contents as $content)
+                                            <tr data-code="{{$content->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$test->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/images/users/user-10.jpg')}})"></div>
+                                                    @if ($content->path_image_desktop)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_desktop)}})"></div>
+                                                    @endif
+                                                    @if ($content->path_image_mobile)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_mobile)}})"></div>
+                                                    @endif
+                                                    @if ($content->path_image_icon)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_icon)}})"></div>
+                                                    @endif
                                                 </td>
-                                                <td class="align-middle">Boudreaux</td>
-                                                <td class="align-middle">Traffic Court Referee</td>
-                                                <td class="align-middle">22 Jun 1972</td>
-                                                <td class="align-middle">22 Jun 1972</td>
+                                                <td class="align-middle">{{$content->title}}</td>
+                                                <td class="align-middle">{{substr($content->description, 0, 50)}}</td>
+                                                <td class="align-middle"><a href="{{ $content->link_video }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                <td class="align-middle"><a href="{{ $content->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                 <td class="align-middle">
-                                                    <span class="badge bg-success">Ativo</span>
-                                                    <span class="badge bg-primary text-white">Destaque</span>
-                                                    <span class="badge bg-danger">Inativo</span>
+                                                    @switch($content->active)
+                                                        @case(1) <span class="badge bg-success">Ativo</span>  @break
+                                                        @case(0)  <span class="badge bg-danger">Inativo</span>  @break
+                                                    @endswitch
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.code.edit',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.cont06.edit',['CONT06Contents' => $content->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.code.destroy',['code' => $test->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.cont06.destroy',['CONT06Contents' => $content->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>
@@ -87,7 +95,7 @@
 
                                 {{-- PAGINATION --}}
                                 <div class="mt-3 float-end">
-                                    {{$teste->links()}}
+                                    {{$contents->links()}}
                                 </div>
                             </div>
                         </div> <!-- end card-->
