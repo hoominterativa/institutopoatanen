@@ -24,7 +24,7 @@ class PORT02PortfoliosSectionFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'description' => $this->faker->text(150),
-            'path_image' => 'uploads/tmp/favicon.png',
+            'path_image_icon' => 'uploads/tmp/icon-general.svg',
             'active' => 1,
         ];
     }

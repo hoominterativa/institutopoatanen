@@ -14,23 +14,38 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI06' => (object)[
+        'Portfolios' => (object) [
+            'PORT02' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques Home}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos},featured=1{Detaques Home}',
+                        ]
+                    ],
+                ],
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Portifólio',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'pot02.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópico',
+                    'titlePanel' => 'Portifólio',
                     'iconPanel' => ''
-                ]
+                ],
+                'IncludeSections' => (object) []
             ],
-        ]
+        ],
     ],
 
     'ModelsForm' => (object)[

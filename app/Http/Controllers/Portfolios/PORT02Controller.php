@@ -296,6 +296,6 @@ class PORT02Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Portfolios.PORT02.section');
     }
 }
