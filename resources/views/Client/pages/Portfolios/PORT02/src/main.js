@@ -1,0 +1,22 @@
+var owl = $('.port02__categories__carousel');
+owl.addClass('owl-carousel')
+owl.owlCarousel({
+    loop:false,
+    nav:true,
+    margin:10,
+    rewind:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        960:{
+            items:5
+        },
+        1200:{
+            items:6
+        }
+    }
+});

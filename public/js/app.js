@@ -11883,8 +11883,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Topics_TOPI06_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Topics/TOPI06/src/main */ "./resources/views/Client/pages/Topics/TOPI06/src/main.js");
-/* harmony import */ var _pages_Topics_TOPI06_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI06_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Portfolios_PORT02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Portfolios/PORT02/src/main */ "./resources/views/Client/pages/Portfolios/PORT02/src/main.js");
+/* harmony import */ var _pages_Portfolios_PORT02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Portfolios_PORT02_src_main__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -12100,13 +12100,35 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Topics/TOPI06/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI06/src/main.js ***!
-  \****************************************************************/
-/***/ (() => {
+/***/ "./resources/views/Client/pages/Portfolios/PORT02/src/main.js":
+/*!********************************************************************!*\
+  !*** ./resources/views/Client/pages/Portfolios/PORT02/src/main.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var owl = $('.port02__categories__carousel');
+owl.addClass('owl-carousel');
+owl.owlCarousel({
+  loop: false,
+  nav: true,
+  margin: 10,
+  rewind: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    960: {
+      items: 5
+    },
+    1200: {
+      items: 6
+    }
+  }
+});
 
 /***/ }),
 

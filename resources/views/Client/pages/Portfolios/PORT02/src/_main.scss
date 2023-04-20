@@ -1,3 +1,80 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.port02{
+    @include backG();
+    padding: 80px 0;
+    &__container{
+        padding: 0;
+    }
+    &__header{
+        text-align: center;
+        width: 90%;
+        display: table;
+        margin: 0 auto;
+
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-black;
+            display: block;
+            @include x-small-device {
+                font-size: $T2-mobile;
+            }
+            @include small-device {
+                font-size: $T2-mobile;
+            }
+        }
+        &__subtitle{
+            font-size: $T4;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-two;
+            display: block;
+            @include x-small-device {
+                font-size: $T4-mobile;
+            }
+            @include small-device {
+                font-size: $T4-mobile;
+            }
+        }
+    }
+    // END __header
+
+    &__categories{
+        background-color: $color-four;
+        padding: 44px 0;
+        &__carousel{
+            width: 85%;
+            margin: 0 auto;
+            display: block;
+            .owl-stage-outer{
+                overflow: visible;
+            }
+        }
+        &__item{
+            @include Flex($displayFlex:flex, $direction:column, $justify:center, $align:center);
+            height: 190px;
+            background-color: $color-five;
+            &__icon{
+                width: 62px !important;
+                margin-bottom: 32px;
+            }
+            &__title{
+                font-size: $T4;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-black;
+                display: block;
+                @include x-small-device {
+                    font-size: $T4-mobile;
+                }
+                @include small-device {
+                    font-size: $T4-mobile;
+                }
+            }
+        }
+    }
+}
+// END .port02
