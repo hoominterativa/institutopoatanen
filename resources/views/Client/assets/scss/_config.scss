@@ -51,6 +51,7 @@ a{
     width: 100%;
     height: 100%;
     display: block;
+    z-index: 10;
 }
 
 .text-primary {
@@ -320,6 +321,53 @@ a{
         transform: translateY(15px)
     }
 }
+
+body{
+    .owl-nav{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        button.owl-next, button.owl-prev{
+            background-color: $color-one !important;
+            color: $color-white !important;
+            border-radius: 100%;
+            display: flex;
+            width: 30px;
+            height: 30px;
+            font-size: 34px !important;
+            justify-content: center;
+            line-height: 22px !important;
+            margin: 0 3px;
+            &:hover{
+                background-color: $color-two;
+                color: $color-black;
+            }
+        }
+    }
+    .owl-dots{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        .owl-dot{
+            background-color: $color-one;
+            color: $color-white;
+            border-radius: 100%;
+            display: block;
+            width: 15px;
+            height: 15px;
+            margin: 0 3px;
+            &:hover{
+                background-color: $color-two;
+            }
+            &.active{
+                background-color: $color-three;
+            }
+        }
+    }
+}
+
 
 // FIXED FLOATING TOP
 .fixed-floating{

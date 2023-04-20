@@ -53,6 +53,7 @@ a {
   width: 100%;
   height: 100%;
   display: block;
+  z-index: 10;
 }
 
 .text-primary {
@@ -334,6 +335,48 @@ a {
     transform: translateY(15px);
   }
 }
+body .owl-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+body .owl-nav button.owl-next, body .owl-nav button.owl-prev {
+  background-color: #404040 !important;
+  color: #fff !important;
+  border-radius: 100%;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  font-size: 34px !important;
+  justify-content: center;
+  line-height: 22px !important;
+  margin: 0 3px;
+}
+body .owl-nav button.owl-next:hover, body .owl-nav button.owl-prev:hover {
+  background-color: #7C7C7C;
+  color: #000;
+}
+body .owl-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+body .owl-dots .owl-dot {
+  background-color: #404040;
+  color: #fff;
+  border-radius: 100%;
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin: 0 3px;
+}
+body .owl-dots .owl-dot:hover {
+  background-color: #7C7C7C;
+}
+body .owl-dots .owl-dot.active {
+  background-color: #B3B3B3;
+}
+
 .fixed-floating {
   position: fixed;
   left: 0;
@@ -1184,4 +1227,133 @@ a {
   .port02__categories__item__title {
     font-size: 1.125rem;
   }
+}
+.port02__portfolios {
+  padding: 70px 0;
+}
+.port02__portfolios__carousel {
+  width: 85%;
+  margin: 0 auto;
+  display: block;
+}
+.port02__portfolios__carousel .owl-stage-outer {
+  overflow: visible;
+}
+.port02__portfolios__carousel .owl-nav, .port02__portfolios__carousel .owl-dots {
+  margin-top: 60px;
+}
+.port02__portfolios__item {
+  position: relative;
+  height: 375px;
+  display: flex;
+  align-items: end;
+}
+.port02__portfolios__item__image {
+  z-index: 1;
+}
+.port02__portfolios__item__title {
+  position: relative;
+  z-index: 1;
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+  border-bottom: 1px solid #404040;
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+  margin-bottom: 40px;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .port02__portfolios__item__title {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .port02__portfolios__item__title {
+    font-size: 1.125rem;
+  }
+}
+.port02__portfolios__item__title::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  display: block;
+  margin-right: 10px;
+  background-color: #404040;
+}
+.port02__portfolios__link-page {
+  padding: 10px 50px;
+  background-color: #CACACA;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 500;
+  color: #7C7C7C;
+  margin-left: auto;
+  display: table;
+  margin-right: 110px;
+  margin-top: -35px;
+  position: relative;
+  z-index: 10;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .port02__portfolios__link-page {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .port02__portfolios__link-page {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.port02__show {
+  width: 100%;
+  padding: 36px 80px;
+  max-width: 1300px;
+}
+.port02__show__gallery__main {
+  position: relative;
+  height: 407px;
+  width: 100%;
+  display: block;
+  margin-bottom: 25px;
+}
+.port02__show__gallery__main__iframe, .port02__show__gallery__main__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.port02__show__gallery__main__iframe {
+  display: block;
+}
+.port02__show__gallery__thumbnail__item {
+  height: 144px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.port02__show__gallery__thumbnail__carousel .owl-nav {
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  margin-top: 0;
+}
+.port02__show__gallery__thumbnail__carousel .owl-nav .owl-next {
+  margin-right: -50px;
+}
+.port02__show__gallery__thumbnail__carousel .owl-nav .owl-prev {
+  margin-left: -50px;
 }

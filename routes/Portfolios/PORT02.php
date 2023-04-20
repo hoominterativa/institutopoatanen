@@ -44,5 +44,6 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/delete', [PORT02CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [PORT02CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+
+// CLIENT
+Route::get($route.'/categoria/{PORT02PortfoliosCategory}', [PORT02CategoryController::class, 'page'])->name($routeName.'.category.page');

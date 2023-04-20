@@ -296,6 +296,23 @@ class PORT02Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Portfolios.PORT02.section');
+        $portfolios = PORT02Portfolios::with('galleries')->active()->featured()->sorting()->get();
+        $categories = PORT02PortfoliosCategory::active()->featured()->sorting()->get();
+        $section = PORT02PortfoliosBannerHome::active()->first();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($section->path_image_mobile){
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+            break;
+        }
+
+        return view('Client.pages.Portfolios.PORT02.section',[
+            "portfolios" => $portfolios,
+            "categories" => $categories,
+            "section" => $section,
+        ]);
     }
 }

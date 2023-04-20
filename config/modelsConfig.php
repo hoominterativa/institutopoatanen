@@ -38,7 +38,7 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Portifólio',
                     'anchor' =>  false,
-                    'linkMenu' => 'pot02.page',
+                    'linkMenu' => 'port02.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Portifólio',
                     'iconPanel' => ''

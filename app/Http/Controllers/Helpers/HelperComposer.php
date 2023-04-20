@@ -227,7 +227,6 @@ if(!function_exists('listPage')){
                     foreach($models as $code => $config){
                         if($config->ViewListMenu){
                             $registers = $core->getRelations($module, $code, $config);
-
                             $merge = [
                                 'title' => $config->config->titleMenu,
                                 'route' => route($config->config->linkMenu),
