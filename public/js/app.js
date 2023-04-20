@@ -11825,8 +11825,8 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Topics/TOPI05/src/main */ "./resources/views/Client/pages/Topics/TOPI05/src/main.js");
-/* harmony import */ var _pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Topics/TOPI04/src/main */ "./resources/views/Client/pages/Topics/TOPI04/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -12048,13 +12048,37 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Topics/TOPI05/src/main.js":
+/***/ "./resources/views/Client/pages/Topics/TOPI04/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI05/src/main.js ***!
+  !*** ./resources/views/Client/pages/Topics/TOPI04/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.carrosel-topi04-topics').owlCarousel({
+  smartSpeed: 450,
+  loop: true,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  margin: 2,
+  responsive: {
+    0: {
+      items: 3
+    },
+    // breakpoint from 0 up
+    361: {
+      items: 3
+    },
+    // breakpoint from 361 up
+    801: {
+      items: 3
+    } // breakpoint from 801 up
 
+  }
+});
+$('.carrosel-topi04-topics').css('width', $('.topi04__boxRight').outerWidth());
 
 /***/ }),
 

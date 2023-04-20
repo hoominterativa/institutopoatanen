@@ -528,53 +528,144 @@ a {
 }
 
 /* BEGIN STYLE */
-.topi05 .container--pd {
-  padding: 82px 0 72px 0 !important;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .topi05 .container--pd {
-    padding: 68px 42px 68px 42px !important;
-  }
-}
-.topi05__box {
-  gap: 0 20px;
-}
-.topi05__box__image {
-  height: 319px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .topi05__box__image {
-    height: 267px;
-  }
-}
-.topi05__box__description {
-  padding: 31px 40px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .topi05__box__description {
-    padding: 24px 40px 29px 40px;
-  }
-}
-.topi05__box__description__title {
+.topi04__destaque {
+  padding: 6px 16px 5px 21px;
+  background: #CACACA;
   font-size: 1.25rem;
-  color: #000;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 10px;
+  color: #404040;
+  max-width: 200px;
+  margin-bottom: 8px;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .topi05__box__description__title {
+  .topi04__destaque {
+    font-size: 1.125rem;
+    margin-bottom: 18px;
+  }
+}
+.topi04__title {
+  font-size: 2.5rem;
+  color: #404040;
+  margin-bottom: 15.97px;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__title {
+    font-size: 1.875rem;
+  }
+}
+.topi04__subtitle {
+  font-size: 1.25rem;
+  color: #B3B3B3;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__subtitle {
     font-size: 1.125rem;
   }
 }
-.topi05__box__description__paragraph p {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #7C7C7C;
+.topi04__line {
+  margin: 17.83px auto 30px;
+  background-color: #404040;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .topi05__box__description__paragraph p {
-    font: 0.875rem "Montserrat", sans-serif, arial;
+  .topi04__line {
+    margin: 14.03px auto 25px;
   }
+}
+.topi04__paragraph {
+  font-size: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7C7C7C;
+  font-weight: 400;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__paragraph {
+    font-size: 0.813rem "Montserrat", sans-serif, arial;
+  }
+}
+.topi04__boxLeft {
+  height: 759px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__boxLeft {
+    height: 395.21px;
+  }
+}
+.topi04__boxLeft__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.topi04__cta {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  display: block;
+  margin-top: 18px;
+  max-width: 177px;
+  padding: 10px 15px;
+  background-color: #CACACA;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 39px;
+    width: 147px;
+  }
+}
+.topi04__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.topi04__cta:hover .lightbox-port101__description__cta__icon {
+  filter: invert(1) grayscale(1);
+}
+.topi04__description {
+  padding: 72px 91px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__description {
+    padding: 54px 45px 91.28px 39px;
+  }
+}
+.topi04__boxRight {
+  min-height: 759px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__boxRight {
+    min-height: inherit;
+  }
+}
+.topi04__topics__item {
+  height: 224px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__topics__item {
+    height: 129px;
+  }
+}
+.topi04__topics__item__icone {
+  height: 47px !important;
+  width: 48px !important;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__topics__item__icone {
+    height: 24.96px !important;
+    width: 24.96px !important;
+  }
+}
+.topi04__topics__item__title {
+  margin-top: 16px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi04__topics__item__title {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.topi04__topics__item__description {
+  position: absolute;
 }

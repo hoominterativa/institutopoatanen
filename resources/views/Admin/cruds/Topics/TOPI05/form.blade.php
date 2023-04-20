@@ -75,7 +75,7 @@
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link', 'Redirecionar para', ['class'=>'form-label']) !!}
-                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
+                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link']) !!}
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
@@ -88,7 +88,7 @@
     </div>
     {{-- end card --}}
     <div class="col-12 col-lg-6">
-        <div class="card card-body">
+        <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}

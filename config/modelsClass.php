@@ -231,7 +231,7 @@ return [
             'TOPI04' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI04Controller::class,
                 'model' => App\Models\Topics\TOPI04Topics::class,
-                'seedQty' => 4,
+                'seedQty' => 1,
             ],
             'TOPI05' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI05Controller::class,
