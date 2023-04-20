@@ -1,4 +1,1 @@
-import '../../Core/Headers/HEAD02/src/main';
-import '../../Components/themeMenu/SIDE02/src/main';
-import '../../Core/Footers/FOOT02/src/main';
-import '../../pages/Portfolios/PORT02/src/main';
+import '../../pages/Topics/TOPI05/src/main';

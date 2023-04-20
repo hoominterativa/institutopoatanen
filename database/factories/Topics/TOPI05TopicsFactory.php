@@ -22,7 +22,12 @@ class TOPI05TopicsFactory extends Factory
     public function definition()
     {
         return [
-
+            "title" => $this->faker->text(10),
+            "description" => $this->faker->text(100),
+            "path_image" => 'uploads/tmp/image-box.jpg',
+            "link" => 'www.example.com',
+            "target_link" => '_blank',
+            "active" => 1,
         ];
     }
 }
