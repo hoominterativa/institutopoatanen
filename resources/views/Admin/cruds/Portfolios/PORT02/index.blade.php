@@ -22,20 +22,28 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#portfolios" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
-                            {{getTitleModel($configModelsMain, 'Portfolios', 'PORT02')}}
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastre os portfólios"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#listArticleCategories" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastre as categorias"></i>
+                                data-bs-original-title="Cadastre as categorias para os portifólios"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolios" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
+                            {{getTitleModel($configModelsMain, 'Portfolios', 'PORT02')}}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos portfólios"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#bannerHome" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seção Home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Essas informações serão exibidas na home do site"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -43,7 +51,7 @@
                             Informações da seção Portfolios
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações complementares para o portfólio que serão exibidas, caso esteja ativa"></i>
+                                data-bs-original-title="Informações complementares para a página de portfólios que serão exibidas caso esteja ativa"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -51,17 +59,10 @@
                             Banner da página
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esse banner será exibido na página com informações complementares"></i>
+                                data-bs-original-title="Esse banner será exibido na página de portifólios"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#bannerHome" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Banner da Homepage
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esse banner será exibido na home com informações complementares"></i>
-                        </a>
-                    </li>
+
                 </ul>
 
                 <div class="tab-content">

@@ -1,9 +1,9 @@
-var owlCaterories = $('.port02__categories__carousel');
+var owlCaterories = $('.port02__categories__carousel, .port02-page__categories__carousel');
 owlCaterories.addClass('owl-carousel')
 owlCaterories.owlCarousel({
     loop:false,
     nav:true,
-    dots:true,
+    dots:false,
     margin:10,
     rewind:true,
     responsive:{
@@ -59,10 +59,10 @@ owlGallery.owlCarousel({
     rewind:true,
     responsive:{
         0:{
-            items:2
-        },
-        600:{
             items:3
+        },
+        400:{
+            items:4
         },
         960:{
             items:4

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Portfolios\PORT02Controller;
 use App\Http\Controllers\Portfolios\PORT02BannerController;
 use App\Http\Controllers\Portfolios\PORT02GalleryController;
 use App\Http\Controllers\Portfolios\PORT02SectionController;
@@ -46,4 +47,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 
 // CLIENT
-Route::get($route.'/categoria/{PORT02PortfoliosCategory}', [PORT02CategoryController::class, 'page'])->name($routeName.'.category.page');
+Route::get($route.'/categoria/{PORT02PortfoliosCategory:slug}', [PORT02Controller::class, 'page'])->name($routeName.'.category.page');

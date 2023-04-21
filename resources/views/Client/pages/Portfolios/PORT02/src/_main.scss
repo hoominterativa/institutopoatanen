@@ -4,8 +4,21 @@
 .port02{
     @include backG();
     padding: 80px 0;
+    position: relative;
     &__container{
         padding: 0;
+        position: relative;
+        z-index: 10;
+    }
+    &__mark{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 1;
+        background-color: rgb(0 0 0 / 0.1);
     }
     &__header{
         text-align: center;
@@ -45,6 +58,7 @@
     &__categories{
         background-color: $color-four;
         padding: 44px 0;
+        overflow: hidden;
         &__carousel{
             width: 85%;
             margin: 0 auto;
@@ -143,6 +157,14 @@
             position: relative;
             z-index: 10;
 
+            &:hover, &:focus{
+                background-color: $color-one;
+                color: $color-white;
+                img{
+                    filter: brightness(1) contrast(1) invert(1) grayscale(1);
+                }
+            }
+
             @include x-small-device {
                 font: $paragraph-mobile;
                 margin-top: 35px;
@@ -156,6 +178,7 @@
                 margin-right: auto;
             }
         }
+        // END __link-page
     }
     // END __portifolios
 
@@ -163,13 +186,150 @@
         width: 100%;
         padding: 36px 80px;
         max-width: 1300px;
+        @include backG();
+
+        @include x-small-device {
+            padding: 36px 20px;
+        }
+        @include small-device {
+            padding: 36px 20px;
+        }
+
+        .carousel__button{
+            top: 0 !important;
+            right: 0 !important;
+            color: $color-black !important;
+        }
+
+        &__row{
+            position: relative;
+            z-index: 10;
+
+            @include x-small-device {
+                flex-direction: column-reverse;
+            }
+            @include small-device {
+                flex-direction: column-reverse;
+            }
+        }
+        &__mark{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 1;
+            background-color: rgb(0 0 0 / 0.1);
+        }
+
+        &__descritpion{
+            padding-right: 50px;
+
+            @include x-small-device {
+                text-align: center;
+                padding: 0 30px;
+            }
+            @include small-device {
+                text-align: center;
+                padding: 0 30px;
+            }
+        }
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-black;
+            margin-bottom: 15px;
+            @include x-small-device {
+                font-size: $T2-mobile;
+            }
+            @include small-device {
+                font-size: $T2-mobile;
+            }
+        }
+        &__subtitle{
+            font-size: $T4;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-two;
+            margin-bottom: 15px;
+            @include x-small-device {
+                font-size: $T4-mobile;
+            }
+            @include small-device {
+                font-size: $T4-mobile;
+            }
+        }
+        &__text{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-one;
+            margin-top: 30px;
+            line-height: 27px;
+            @include x-small-device {
+                font-size: $paragraph-mobile;
+                text-align: start;
+            }
+            @include small-device {
+                font-size: $paragraph-mobile;
+                text-align: start;
+            }
+        }
+
+        &__link{
+            padding: 10px 50px;
+            background-color: $color-white;
+            font: $paragraph;
+            font-weight: $weight-700;
+            color: $color-two;
+            display: table;
+            margin-top: 53px;
+
+            &:hover, &:focus{
+                background-color: $color-one;
+                color: $color-white;
+                img{
+                    filter: brightness(1) contrast(1) invert(1) grayscale(1);
+                }
+            }
+
+            @include x-small-device {
+                font: $paragraph-mobile;
+                margin-top: 35px;
+            }
+            @include small-device {
+                font: $paragraph-mobile;
+                margin-top: 35px;
+            }
+        }
+        // END __link
+
         &__gallery{
+
+            @include x-small-device {
+                margin-bottom: 50px;
+                padding: 0 30px;
+            }
+            @include small-device {
+                margin-bottom: 50px;
+                padding: 0 30px;
+            }
+
             &__main{
                 position: relative;
                 height: 407px;
                 width: 100%;
                 display: block;
                 margin-bottom: 25px;
+
+                @include x-small-device {
+                    height: 240px;
+                }
+                @include small-device {
+                    height: 240px;
+                }
+
                 &__iframe, &__item{
                     position: absolute;
                     top: 0;
@@ -181,11 +341,20 @@
                     display: block;
                 }
             }
+            // END __main
+
             &__thumbnail{
                 &__item{
                     height: 144px;
                     object-fit: cover;
                     object-position: center;
+
+                    @include x-small-device {
+                        height: 75px;
+                    }
+                    @include small-device {
+                        height: 75px;
+                    }
                 }
                 &__carousel{
                     .owl-nav{
@@ -196,16 +365,293 @@
                         left: 0;
                         transform: translate(0, -50%);
                         margin-top: 0;
+
                         .owl-next{
                             margin-right: -50px;
+                            @include x-small-device {
+                                margin-right: -30px;
+                                width: 25px;
+                                height: 25px;
+                                line-height: 16px !important;
+                            }
+                            @include small-device {
+                                margin-right: -30px;
+                                width: 25px;
+                                height: 25px;
+                                line-height: 16px !important;
+                            }
                         }
                         .owl-prev{
                             margin-left: -50px;
+
+                            @include x-small-device {
+                                margin-left: -30px;
+                                width: 25px;
+                                height: 25px;
+                                line-height: 16px !important;
+                            }
+                            @include small-device {
+                                margin-left: -30px;
+                                width: 25px;
+                                height: 25px;
+                                line-height: 16px !important;
+                            }
+                        }
+                    }
+                }
+            }
+            // END __thumbnail
+        }
+        // END __gallery
+    }
+    // END __show
+}
+// END .port02
+
+/*
+======================================
+================== PAGE ==============
+======================================
+*/
+
+@import 'variables';
+
+/* BEGIN STYLE */
+.port02-page{
+    position: relative;
+    &__container{
+        padding: 0;
+        position: relative;
+        z-index: 10;
+    }
+    &__mark{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 1;
+        background-color: rgb(0 0 0 / 0.1);
+    }
+    &__header{
+        text-align: center;
+        width: 100%;
+        height: 286px;
+        padding: 0 7%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        @include backG();
+
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-black;
+            display: block;
+            position: relative;
+            z-index: 10;
+            @include x-small-device {
+                font-size: $T2-mobile;
+            }
+            @include small-device {
+                font-size: $T2-mobile;
+            }
+        }
+
+        &__line{
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+    }
+    // END __header
+
+    &__categories{
+        background-color: $color-four;
+        padding: 44px 0;
+        overflow: hidden;
+        &__carousel{
+            width: 85%;
+            margin: 0 auto;
+            display: block;
+            .owl-stage-outer{
+                overflow: visible;
+            }
+        }
+        &__item{
+            @include Flex($displayFlex:flex, $direction:column, $justify:center, $align:center);
+            height: 190px;
+            background-color: $color-five;
+            &__icon{
+                width: 62px !important;
+                margin-bottom: 32px;
+            }
+            &__title{
+                font-size: $T4;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-black;
+                display: block;
+                @include x-small-device {
+                    font-size: $T4-mobile;
+                }
+                @include small-device {
+                    font-size: $T4-mobile;
+                }
+            }
+        }
+        // END __item
+    }
+    // END __categories
+
+    &__portfolios{
+        padding: 70px 0;
+        width: 85%;
+        margin: 0 auto;
+        @include x-small-device {
+            width: 95%;
+        }
+        @include small-device {
+            width: 95%;
+        }
+
+        &__header{
+            text-align: center;
+            margin-bottom: 100px;
+            position: relative;
+            &__title{
+                font-size: $T2;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
+
+                @include x-small-device {
+                    font-size: $T2-mobile;
+                }
+                @include small-device {
+                    font-size: $T2-mobile;
+                }
+            }
+            &__text{
+                font: $paragraph;
+                font-weight: $weight-400;
+                color: $color-one;
+                margin-top: 30px;
+                line-height: 27px;
+                @include x-small-device {
+                    font-size: $paragraph-mobile;
+                }
+                @include small-device {
+                    font-size: $paragraph-mobile;
+                }
+            }
+        }
+        &__item{
+            position: relative;
+            height: 375px;
+            display: flex;
+            align-items: end;
+            margin-bottom: 20px;
+            &__image{
+                z-index: 1;
+            }
+            &__title{
+                position: relative;
+                z-index: 1;
+                font-size: $T4;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-one;
+                border-bottom: 1px solid $color-one;
+                display: flex;
+                align-items: center;
+                padding-right: 15px;
+                margin-bottom: 40px;
+                @include x-small-device {
+                    font-size: $T4-mobile;
+                }
+                @include small-device {
+                    font-size: $T4-mobile;
+                }
+                &::before{
+                    content: '';
+                    width: 26px;
+                    height: 26px;
+                    display: block;
+                    margin-right: 10px;
+                    background-color: $color-one;
+                }
+            }
+        }
+        // END __item
+
+        &__link-page{
+            padding: 10px 50px;
+            background-color: $color-four;
+            font: $paragraph;
+            font-weight: $weight-500;
+            color: $color-two;
+            margin-left: auto;
+            display: table;
+            margin-right: 110px;
+            margin-top: -35px;
+            position: relative;
+            z-index: 10;
+
+            &:hover, &:focus{
+                background-color: $color-one;
+                color: $color-white;
+                img{
+                    filter: brightness(1) contrast(1) invert(1) grayscale(1);
+                }
+            }
+
+            @include x-small-device {
+                font: $paragraph-mobile;
+                margin-top: 35px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            @include small-device {
+                font: $paragraph-mobile;
+                margin-top: 35px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        // END __link-page
+
+        &__pagination{
+            .pagination{
+                .page-item{
+                    .page-link{
+                        color: $color-one;
+                    }
+                    &.disabled{
+                        .page-link{
+                            opacity: 0.5;
+                        }
+                    }
+                    &:first-child{
+                        .page-link{
+                            color: $color-one;
+                        }
+                    }
+                    &.active{
+                        .page-link{
+                            background-color: $color-one;
+                            color: $color-white;
+                            border-color: $color-one;
                         }
                     }
                 }
             }
         }
     }
+    // END __portifolios
 }
-// END .port02
+// END .port02-page

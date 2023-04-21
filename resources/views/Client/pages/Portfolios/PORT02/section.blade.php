@@ -1,4 +1,7 @@
 <section id="PORT02" class="port02" style="background-image: url({{asset('storage/'.$section->path_image_desktop)}});background-color: {{$section->background_color}}">
+    @if ($section->path_image_desktop)
+        <div class="port02__mark"></div>
+    @endif
     <div class="port02__container container-fluid">
         @if ($section->title || $section->subtitle)
             <header class="port02__header">
