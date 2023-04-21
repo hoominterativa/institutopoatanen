@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Portfolios\PORT02Controller;
 use App\Http\Controllers\Portfolios\PORT02BannerController;
 use App\Http\Controllers\Portfolios\PORT02GalleryController;
 use App\Http\Controllers\Portfolios\PORT02SectionController;
@@ -44,5 +45,6 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/delete', [PORT02CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [PORT02CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+
+// CLIENT
+Route::get($route.'/categoria/{PORT02PortfoliosCategory:slug}', [PORT02Controller::class, 'page'])->name($routeName.'.category.page');
