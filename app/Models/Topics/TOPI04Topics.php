@@ -37,6 +37,8 @@ class TOPI04Topics extends Model
 
     public function topicSection()
     {
-        return $this->hasMany(TOPI04TopicsTopicSection::class, 'topic_id');
+        return $this->hasMany(TOPI04TopicsTopicSection::class, 'topic_id')->active()->sorting();
     }
+
+    
 }

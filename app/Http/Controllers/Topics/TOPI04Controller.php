@@ -75,7 +75,7 @@ class TOPI04Controller extends Controller
      */
     public function edit(TOPI04Topics $TOPI04Topics)
     {
-        $topicSections = TOPI04TopicsTopicSection::sorting()->get();
+        $topicSections = TOPI04TopicsTopicSection::where('topic_id', $TOPI04Topics->id)->sorting()->get();
         return view('Admin.cruds.Topics.TOPI04.edit', [
             'topic' => $TOPI04Topics,
             'topicSections' => $topicSections,
@@ -189,6 +189,15 @@ class TOPI04Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Topics.TOPI04.section');
+
+        $topics = TOPI04Topics::active()->sorting()->get();
+        // $topicIds = $topics->pluck('id');
+        // $topicSections = TOPI04TopicsTopicSection::whereIn('topic_id', $topicIds)->active()->sorting()->get();
+        $topicSections = TOPI04TopicsTopicSection::with('topic')->active()->sorting()->get();
+
+        return view('Client.pages.Topics.TOPI04.section', [
+            'topics' => $topics,
+            'topicSections' => $topicSections
+        ]);
     }
 }

@@ -5,7 +5,7 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <button id="btSubmitDelete"
-                            data-route="{{ route('admin.topi04.topic.section.destroySelected') }}" type="button" class="btn btn-danger btDeleteTOPI04" style="display: none;">Deletar selecionados</button>
+                            data-route="{{ route('admin.topi04.topicsection.destroySelected') }}" type="button" class="btn btn-danger btDeleteTOPI04" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)" data-bs-target="#modal-topicSection-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{ route('admin.topi04.topic.section.sorting') }}">
+                    <tbody data-route="{{ route('admin.topi04.topicsection.sorting') }}">
                         @foreach ($topicSections as $topicSection)
                             <tr data-code="{{ $topicSection->id }}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -55,7 +55,7 @@
                                         <div class="col-4">
                                             <a href="javascript:void(0)" data-bs-target="#modal-topicSection-update-{{ $topicSection->id }}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{ route('admin.topi04.topic.section.destroy', ['TOPI04TopicTopicSection' => $topicSection->id]) }}" class="col-4" method="POST">
+                                        <form action="{{ route('admin.topi04.topicsection.destroy', ['TOPI04TopicsTopicSection' => $topicSection->id]) }}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>

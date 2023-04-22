@@ -24,9 +24,9 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/topicos', TOPI04TopicSectionController::class)->names('admin.'.$routeName.'.topic.section')->parameters(['topicos' => 'TOPI04TopicTopicSection']);
-    Route::post($route.'/topico/delete', [TOPI04TopicSectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.section.destroySelected');
-    Route::post($route.'/topico/sorting', [TOPI04TopicSectionController::class, 'sorting'])->name('admin.'.$routeName.'.topic.section.sorting');
+    Route::resource($route.'/topicos', TOPI04TopicSectionController::class)->names('admin.'.$routeName.'.topicsection')->parameters(['topicos' => 'TOPI04TopicsTopicSection']);
+    Route::post($route.'/topico/delete', [TOPI04TopicSectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.topicsection.destroySelected');
+    Route::post($route.'/topico/sorting', [TOPI04TopicSectionController::class, 'sorting'])->name('admin.'.$routeName.'.topicsection.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
