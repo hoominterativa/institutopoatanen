@@ -17,6 +17,8 @@ class CreateUnit01UnitsTopicsTable extends Migration
             $table->id();
             $table->foreignId('unit_id')->constrained('unit01_units');
             $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('description')->nullable();
             $table->string('link')->nullable();
             $table->enum('target_link', ['_blank', '_lightbox'])->default('_lightbox');
             $table->string('path_image_icon')->nullable();

@@ -2,21 +2,21 @@
 
 namespace App\Models\Units;
 
-use Database\Factories\UNIT01UnitsTopicFactory;
+use Database\Factories\UNIT01UnitsGalleryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UNIT01UnitsTopic extends Model
+class UNIT01UnitsGallery extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return UNIT01UnitsTopicFactory::new();
+        return UNIT01UnitsGalleryFactory::new();
     }
 
-    protected $table = "unit01_units_topics";
-    protected $fillable = ['unit_id','title', 'subtitle', 'description', 'link', 'target_link', 'path_image_icon', 'active', 'sorting'];
+    protected $table = "";
+    protected $fillable = [];
 
     public function scopeSorting($query)
     {
@@ -28,5 +28,8 @@ class UNIT01UnitsTopic extends Model
         return $query->where('active', 1);
     }
 
-    
+    // public function getRelationCore()
+    // {
+    //     return null;
+    // }
 }

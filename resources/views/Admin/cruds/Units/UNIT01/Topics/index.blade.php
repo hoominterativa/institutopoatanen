@@ -19,7 +19,8 @@
                                 <label><input name="btnSelectAll" value="btDeleteUnit" type="checkbox"></label>
                             </th>
                             <th>Imagem</th>
-                            <th>Título</th>
+                            <th>Título/Subtítulo</th>
+                            <th>Descrição</th>
                             <th>Link</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
@@ -39,7 +40,8 @@
                                         </div>
                                     @endif                                    
                                 </td>
-                                <td class="align-middle">{{ $topic->title }}</td>
+                                <td class="align-middle">{{ $topic->title }} <b>/</b> {{$topic->subtitle}}</td>
+                                <td class="align-middle">{!! substr($topic->description, 0, 50) !!}</td>
                                 <td class="align-middle"><a href="{{ $topic->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                 <td class="align-middle">
                                     @if ($topic->active)

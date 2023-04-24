@@ -24,6 +24,8 @@ class UNIT01UnitsTopicFactory extends Factory
         return [
             'unit_id' => rand(1, 2),
             'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
+            'description' => $this->faker->text(500),
             'link' => 'https://www.youtube.com/watch?v=JA3vMBxLeMY',
             'target_link' => '_lightbox',
             'path_image_icon' => 'uploads/tmp/favicon.png',
