@@ -201,7 +201,7 @@ class BRAN01Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $section = BRAN01BrandsSection::first();
-                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
+                if($section) $section->path_image_banner_desktop = $section->path_image_banner_mobile;
             break;
             default:
             $section = BRAN01BrandsSection::first();

@@ -190,14 +190,10 @@ class TOPI04Controller extends Controller
     public static function section()
     {
 
-        $topics = TOPI04Topics::active()->sorting()->get();
-        // $topicIds = $topics->pluck('id');
-        // $topicSections = TOPI04TopicsTopicSection::whereIn('topic_id', $topicIds)->active()->sorting()->get();
-        $topicSections = TOPI04TopicsTopicSection::with('topic')->active()->sorting()->get();
+        $topics = TOPI04Topics::with('topicSection')->active()->sorting()->get();
 
         return view('Client.pages.Topics.TOPI04.section', [
             'topics' => $topics,
-            'topicSections' => $topicSections
         ]);
     }
 }
