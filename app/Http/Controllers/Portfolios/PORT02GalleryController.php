@@ -65,8 +65,6 @@ class PORT02GalleryController extends Controller
             Session::flash('success', 'Galeria atualizada com sucesso');
         }else{
             Storage::delete($path_image);
-            Storage::delete($path_image);
-            Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar a galeria');
         }
         return redirect()->back();

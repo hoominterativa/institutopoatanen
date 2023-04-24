@@ -648,6 +648,25 @@
                 }
             }
         },
+        "TOPI04": {
+            "path_image": {
+                "width": "749",
+                "height": "759",
+                "activeCrop": "false"
+            },
+            "TopicSection": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                },
+                "path_image_box": {
+                    "width": "250",
+                    "height": "225",
+                    "activeCrop": "false"
+                }
+            }
+        },
         "TOPI05": {
             "path_image": {
                 "width": "400",
