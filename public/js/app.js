@@ -11825,8 +11825,8 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Topics/TOPI04/src/main */ "./resources/views/Client/pages/Topics/TOPI04/src/main.js");
-/* harmony import */ var _pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Units/UNIT01/src/main */ "./resources/views/Client/pages/Units/UNIT01/src/main.js");
+/* harmony import */ var _pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -12048,37 +12048,27 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Topics/TOPI04/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI04/src/main.js ***!
-  \****************************************************************/
+/***/ "./resources/views/Client/pages/Units/UNIT01/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Units/UNIT01/src/main.js ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('.carrosel-topi04-topics').owlCarousel({
+$('.carousel_unit01').owlCarousel({
   smartSpeed: 450,
-  loop: false,
+  items: 1,
+  // loop: true,
   dots: true,
   nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: 2,
-  responsive: {
-    0: {
-      items: 3
-    },
-    // breakpoint from 0 up
-    361: {
-      items: 3
-    },
-    // breakpoint from 361 up
-    801: {
-      items: 3
-    } // breakpoint from 801 up
-
-  }
+  // rewind: true,
+  autoHeight: true
 });
-$('.carrosel-topi04-topics').css('width', $('.topi04__boxRight').outerWidth());
+$('.carousel_unit01').css('width', $('.unit01-page__divisor__section__boxRight').outerWidth());
+
+if ($(window).outerWidth() <= 801) {
+  $('.carousel_unit01').css('width', $('.unit01-page__divisor__section__boxRight').outerWidth());
+} // END carousel_unit01
 
 /***/ }),
 

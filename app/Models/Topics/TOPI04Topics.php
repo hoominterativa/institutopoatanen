@@ -30,15 +30,8 @@ class TOPI04Topics extends Model
         return $query->where('active', 1);
     }
 
-    public function getRelationCore()
-    {
-        return null;
-    }
-
     public function topicSection()
     {
         return $this->hasMany(TOPI04TopicsTopicSection::class, 'topic_id')->active()->sorting();
-    }
-
-    
+    }    
 }

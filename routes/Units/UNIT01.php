@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Units\UNIT01TopicController;
+use App\Http\Controllers\Units\UNIT01BannerController;
 
 /**
  * Uncomment the code below
@@ -11,21 +13,23 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Units';
+$model = 'UNIT01';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/banner', UNIT01BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'UNIT01UnitsBanner']);
+
+    Route::resource($route.'/topicos', UNIT01TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'UNIT01UnitsTopic']);
+    Route::post($route.'/topico/delete', [UNIT01TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topico/sorting', [UNIT01TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+});
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

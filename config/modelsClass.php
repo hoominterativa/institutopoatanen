@@ -274,7 +274,7 @@ return [
             'UNIT01' => (object)[
                 'controller' => App\Http\Controllers\Units\UNIT01Controller::class,
                 'model' => App\Models\Units\UNIT01Units::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
             ],
         ],
         // END UNITS

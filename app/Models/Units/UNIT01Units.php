@@ -16,7 +16,7 @@ class UNIT01Units extends Model
     }
 
     protected $table = "unit01_units";
-    protected $fillable = [];
+    protected $fillable = ['title_unit', 'title', 'description', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -28,8 +28,8 @@ class UNIT01Units extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function topic()
+    {
+        return $this->hasMany(UNIT01UnitsTopic::class, 'unit_id')->active()->sorting();
+    }
 }

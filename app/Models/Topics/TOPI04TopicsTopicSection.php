@@ -33,8 +33,4 @@ class TOPI04TopicsTopicSection extends Model
         return $this->belongsTo(TOPI04Topics::class, 'topic_id');
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnit01UnitsTable extends Migration
+class CreateUnit01UnitsBannersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateUnit01UnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('unit01_units', function (Blueprint $table) {
+        Schema::create('unit01_units_banners', function (Blueprint $table) {
             $table->id();
-            $table->string('title_unit')->nullable();
             $table->string('title')->nullable();
-            $table->text('description')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
-            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateUnit01UnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unit01_units');
+        Schema::dropIfExists('unit01_units_banners');
     }
 }

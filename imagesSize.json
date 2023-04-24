@@ -721,6 +721,29 @@
             }
         }
     },
+    "Units": {
+        "UNIT01" : {
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "270",
+                    "activeCrop": "true"
+                }
+            },
+            "Topic": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
     "WorkWith": {
         "WOWI01": {
             "path_image_banner": {

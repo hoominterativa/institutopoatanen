@@ -3,16 +3,16 @@
 namespace Database\Factories\Units;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Units\UNIT01Units;
+use App\Models\Units\UNIT01UnitsTopic;
 
-class UNIT01UnitsFactory extends Factory
+class UNIT01UnitsTopicFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = UNIT01Units::class;
+    protected $model = UNIT01UnitsTopic::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,11 @@ class UNIT01UnitsFactory extends Factory
     public function definition()
     {
         return [
-            'title_unit' => $this->faker->text(10),
+            'unit_id' => rand(1, 2),
             'title' => $this->faker->text(10),
-            'description' => $this->faker->text(200),
+            'link' => 'https://www.youtube.com/watch?v=JA3vMBxLeMY',
+            'target_link' => '_lightbox',
+            'path_image_icon' => 'uploads/tmp/favicon.png',
             'active' => 1,
         ];
     }
