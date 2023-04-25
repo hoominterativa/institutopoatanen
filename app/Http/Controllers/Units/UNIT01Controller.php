@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Units\UNIT01UnitsGallery;
 
 class UNIT01Controller extends Controller
 {
@@ -71,9 +72,11 @@ class UNIT01Controller extends Controller
     public function edit(UNIT01Units $UNIT01Units)
     {
         $topics = UNIT01UnitsTopic::where('unit_id', $UNIT01Units->id)->sorting()->get();
+        $galleries = UNIT01UnitsGallery::where('unit_id', $UNIT01Units->id)->sorting()->get();
         return view('Admin.cruds.Units.UNIT01.edit', [
             'unit' => $UNIT01Units,
             'topics' => $topics,
+            'galleries' => $galleries,
             'cropSetting' => getCropImage('Units', 'UNIT01')
         ]);
     }
@@ -89,7 +92,7 @@ class UNIT01Controller extends Controller
     {
         $data = $request->all();
 
-        $data['active'] = $request->active?1:0;        
+        $data['active'] = $request->active?1:0;
 
         if($UNIT01Units->fill($data)->save()){
             Session::flash('success', 'Unidade atualizada com sucesso');
@@ -113,6 +116,12 @@ class UNIT01Controller extends Controller
             $topic->delete();
         }
 
+        $galleries = UNIT01UnitsGallery::where('unit_id', $UNIT01Units->id)->get();
+        foreach ($galleries as $gallery) {
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
         if($UNIT01Units->delete()){
             Session::flash('success', 'Unidade deletada com sucessso');
             return redirect()->back();
@@ -129,10 +138,15 @@ class UNIT01Controller extends Controller
     {
         $UNIT01Units = UNIT01Units::whereIn('id', $request->deleteAll)->get();
         foreach($UNIT01Units as $UNIT01Unit){
-            $topics = UNIT01UnitsTopic::where('unit_id', $UNIT01Units->id)->get();
+            $topics = UNIT01UnitsTopic::where('unit_id', $UNIT01Unit->id)->get();
             foreach($topics as $topic){
                 storageDelete($topic, 'path_image_icon');
                 $topic->delete();
+            }
+            $galleries = UNIT01UnitsGallery::where('unit_id', $UNIT01Units->id)->get();
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
             }
         }
 
@@ -178,11 +192,26 @@ class UNIT01Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = UNIT01UnitsBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                break;
+            default:
+                $banner = UNIT01UnitsBanner::active()->first();
+                break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT01');
 
+        $units = UNIT01Units::with(['topics', 'galleries'])->active()->sorting()->get();
+
         return view('Client.pages.Units.UNIT01.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'units' => $units,
+            'banner' => $banner
         ]);
     }
 }

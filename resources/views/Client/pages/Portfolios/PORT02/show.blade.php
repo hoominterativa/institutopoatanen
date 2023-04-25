@@ -8,7 +8,7 @@
             <h4 class="port02__show__subtitle">{{$portfolio->subtitle}}</h4>
             <hr class="port02__show__line">
             <div class="port02__show__text">
-                <p>{{$portfolio->text}}</p>
+                <p>{!! $portfolio->text !!}</p>
             </div>
             @if ($portfolio->link_button)
                 <a href="{{$portfolio->link_button}}" target="{{$portfolio->target_link_button}}" class="port02__show__link">

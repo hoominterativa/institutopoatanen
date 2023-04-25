@@ -25,10 +25,8 @@
                                     </p>
                                 @endif
                             </div>
-                            <a href="{{ $topic->link_button }}" target="{{ $topic->target_link_button }}"
-                                class="topi04__cta transition d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                    class="topi04__cta__icon me-3 transition">
+                            <a href="{{ $topic->link_button }}" target="{{ $topic->target_link_button }}" class="topi04__cta transition d-flex justify-content-center align-items-center">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="topi04__cta__icon me-3 transition">
                                 @if ($topic->title_button)
                                     {{ $topic->title_button }}
                                 @endif
@@ -44,11 +42,9 @@
                                             alt="Imagem" class="w-100 h-100">
                                     @endif
                                 </div>
-                                <div
-                                    class="topi04__topics__item__description d-flex flex-column position-absolute top-0 start-0 w-100 h-100 justify-content-center align-items-center">
+                                <div class="topi04__topics__item__description d-flex flex-column position-absolute top-0 start-0 w-100 h-100 justify-content-center align-items-center">
                                     @if ($topicSection->path_image_icon)
-                                        <img src="{{ asset('storage/' . $topicSection->path_image_icon) }}"
-                                            class="topi04__topics__item__icone" alt="Ícone Hoom">
+                                        <img src="{{ asset('storage/' . $topicSection->path_image_icon) }}" class="topi04__topics__item__icone" alt="Ícone Hoom">
                                     @endif
                                     @if ($topicSection->title)
                                         <h4 class="topi04__topics__item__title mb-0 text-center">

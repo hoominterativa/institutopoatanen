@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Units\UNIT01TopicController;
 use App\Http\Controllers\Units\UNIT01BannerController;
+use App\Http\Controllers\Units\UNIT01GalleryController;
 
 /**
  * Uncomment the code below
@@ -30,6 +31,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicos', UNIT01TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'UNIT01UnitsTopic']);
     Route::post($route.'/topico/delete', [UNIT01TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [UNIT01TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    Route::resource($route.'/galerias', UNIT01GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galerias' => 'UNIT01UnitsGallery']);
+    Route::post($route.'/galeria/delete', [UNIT01GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [UNIT01GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

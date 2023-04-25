@@ -15,6 +15,8 @@ class CreateUnit01UnitsGalleriesTable extends Migration
     {
         Schema::create('unit01_units_galleries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('unit_id')->constrained('unit01_units');
+            $table->string('path_image')->nullable();
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

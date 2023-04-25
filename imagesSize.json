@@ -737,6 +737,13 @@
             },
             "Topic": {
                 "path_image_icon": {
+                    "width": "510",
+                    "height": "510",
+                    "activeCrop": "false"
+                }
+            },
+            "Galleries": {
+                "path_image": {
                     "width": "300",
                     "height": "300",
                     "activeCrop": "false"
