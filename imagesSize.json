@@ -471,6 +471,30 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "FEED03":{
+            "path_image_icon": {
+                "width":"300",
+                "height":"300",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width":"1500",
+                    "height":"705",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width":"390",
+                    "height":"705",
+                    "activeCrop": "true"
+                },
+                "path_image_icon": {
+                    "width":"300",
+                    "height":"300",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Frequently": {

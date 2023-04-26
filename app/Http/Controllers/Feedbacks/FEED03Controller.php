@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Feedbacks\FEED03FeedbacksSection;
 
 class FEED03Controller extends Controller
 {
+    protected $path = 'uploads/Feedbacks/FEED03/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +23,13 @@ class FEED03Controller extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks = FEED03Feedbacks::sorting()->paginate(15);
+        $section = FEED03FeedbacksSection::first();
+        return view('Admin.cruds.Feedbacks.FEED03.index', [
+            'feedbacks' => $feedbacks,
+            'section' => $section,
+            'cropSetting' => getCropImage('Feedbacks', 'FEED03')
+        ]);
     }
 
     /**
@@ -30,7 +39,9 @@ class FEED03Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Feedbacks.FEED03.create', [
+            'cropSetting' => getCropImage('Feedbacks', 'FEED03')
+        ]);
     }
 
     /**
@@ -42,35 +53,19 @@ class FEED03Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $data['active'] = $request->active?1:0;
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(FEED03Feedbacks::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Feedback cadastrado com sucesso');
+            return redirect()->route('admin.feed03.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_icon);
+            Session::flash('success', 'Erro ao cadastradar o feedback');
             return redirect()->back();
         }
     }
@@ -83,7 +78,10 @@ class FEED03Controller extends Controller
      */
     public function edit(FEED03Feedbacks $FEED03Feedbacks)
     {
-        //
+        return view('Admin.cruds.Feedbacks.FEED03.edit', [
+            'feedback' => $FEED03Feedbacks,
+            'cropSetting' => getCropImage('Feedbacks', 'FEED03')
+        ]);
     }
 
     /**
@@ -96,53 +94,27 @@ class FEED03Controller extends Controller
     public function update(Request $request, FEED03Feedbacks $FEED03Feedbacks)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            storageDelete($FEED03Feedbacks, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if($path_image_icon){
+            storageDelete($FEED03Feedbacks, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($FEED03Feedbacks, 'path_image');
-            $data['path_image'] = null;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($FEED03Feedbacks, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($FEED03Feedbacks, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($FEED03Feedbacks, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($FEED03Feedbacks->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Feedback atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('success', 'Erro ao atualizar o feedback');
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,11 +125,10 @@ class FEED03Controller extends Controller
      */
     public function destroy(FEED03Feedbacks $FEED03Feedbacks)
     {
-        //storageDelete($FEED03Feedbacks, 'path_image');
-        //storageDelete($FEED03Feedbacks, 'path_archive');
+        storageDelete($FEED03Feedbacks, 'path_image_icon');
 
         if($FEED03Feedbacks->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Feedback deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,17 +141,13 @@ class FEED03Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $FEED03Feedbackss = FEED03Feedbacks::whereIn('id', $request->deleteAll)->get();
         foreach($FEED03Feedbackss as $FEED03Feedbacks){
-            storageDelete($FEED03Feedbacks, 'path_image');
-            storageDelete($FEED03Feedbacks, 'path_archive');
+            storageDelete($FEED03Feedbacks, 'path_image_icon');
         }
-        */
 
         if($deleted = FEED03Feedbacks::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Feedbacks deletados com sucessso']);
         }
     }
     /**
@@ -201,41 +168,27 @@ class FEED03Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Feedbacks\FEED03Feedbacks  $FEED03Feedbacks
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(FEED03Feedbacks $FEED03Feedbacks)
-    public function show()
-    {
-        return view('Client.pages.Feedbacks.FEED03.show');
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Feedbacks', 'FEED03');
-
-        return view('Client.pages.Feedbacks.FEED03.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Section index resource.
      *
      * @return \Illuminate\Http\Response
      */
     public static function section()
     {
-        return view('Client.pages.Feedbacks.FEED03.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = FEED03FeedbacksSection::active()->first();
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
+                break;
+            default:
+                $section = FEED03FeedbacksSection::active()->first();
+                break;
+        }
+
+        $feedbacks = FEED03Feedbacks::active()->sorting()->get();
+        return view('Client.pages.Feedbacks.FEED03.section', [
+            'feedbacks' => $feedbacks,
+            'section' => $section
+        ]);
     }
 }

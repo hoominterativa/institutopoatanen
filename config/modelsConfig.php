@@ -11,34 +11,23 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Units' => (object) [
-            'UNIT01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
+        'Feedbacks' => (object) [
+            'FEED03' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                    ],
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Unidades',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'unit01.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Unidades',
+                    'titlePanel' => 'Depoimentos',
                     'iconPanel' => ''
-                ],
-                'IncludeSections' => (object) [
                 ]
             ],
-        ],        
+        ],
     ],
 
     'ModelsForm' => (object)[

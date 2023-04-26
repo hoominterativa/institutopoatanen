@@ -11825,8 +11825,8 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Units/UNIT01/src/main */ "./resources/views/Client/pages/Units/UNIT01/src/main.js");
-/* harmony import */ var _pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Feedbacks/FEED03/src/main */ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js");
+/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -12048,27 +12048,41 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Units/UNIT01/src/main.js":
-/*!***************************************************************!*\
-  !*** ./resources/views/Client/pages/Units/UNIT01/src/main.js ***!
-  \***************************************************************/
+/***/ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js":
+/*!*******************************************************************!*\
+  !*** ./resources/views/Client/pages/Feedbacks/FEED03/src/main.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('.carousel_unit01').owlCarousel({
+$('.carousel-feed03').owlCarousel({
   smartSpeed: 450,
-  items: 1,
-  // loop: true,
-  dots: true,
-  nav: false,
-  // rewind: true,
-  autoHeight: true
-});
-$('.carousel_unit01').css('width', $('.unit01-page__divisor__section__boxRight').outerWidth());
+  loop: true,
+  dots: false,
+  nav: true,
+  rewind: true,
+  autoHeight: true,
+  margin: 50,
+  responsive: {
+    0: {
+      items: 1
+    },
+    // breakpoint from 0 up
+    400: {
+      items: 1
+    },
+    // breakpoint from 361 up
+    500: {
+      items: 2
+    },
+    // breakpoint from 500 up
+    801: {
+      items: 3
+    } // breakpoint from 801 up
 
-if ($(window).outerWidth() <= 801) {
-  $('.carousel_unit01').css('width', $('.unit01-page__divisor__section__boxRight').outerWidth());
-} // END carousel_unit01
+  }
+});
+$('.carrossel-feed03').css('width', $('.feed03 .container').outerWidth());
 
 /***/ }),
 

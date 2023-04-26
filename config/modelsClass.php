@@ -264,8 +264,8 @@ return [
             ],
             'FEED03' => (object)[
                 'controller' => App\Http\Controllers\Feedbacks\FEED03Controller::class,
-                'model' => App\Models\Feedbacks\FEED03Abouts::class,
-                'seedQty' => 1,
+                'model' => App\Models\Feedbacks\FEED03Feedbacks::class,
+                'seedQty' => 3,
             ],
         ],
         // END FEEDBACKS
