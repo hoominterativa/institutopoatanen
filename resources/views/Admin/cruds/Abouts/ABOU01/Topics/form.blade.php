@@ -37,7 +37,7 @@
                                 'data-min-height'=>$cropSetting->Topic->path_image_icon->height, // px
                                 'data-box-height'=>'225', // Input height in the form
                                 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file'=> isset($topic)?($topic->path_image_icon<>''?url('storage/'.$test->path_image_icon):''):'',
+                                'data-default-file'=> isset($topic)?($topic->path_image_icon<>''?url('storage/'.$topic->path_image_icon):''):'',
                             ]) !!}
                         </label>
                     </div><!-- END container image crop -->

@@ -16,20 +16,11 @@ class ABOU02Abouts extends Model
     }
 
     protected $table = "abou02_abouts";
-    protected $fillable = [];
+    protected $fillable = ['title', 'subtitle', 'text'];
 
-    public function scopeSorting($query)
+    public function topics()
     {
-        return $query->orderBy('sorting', 'ASC');
+        return $this->hasMany(ABOU02AboutsTopic::class, 'about_id')->sorting();
     }
 
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

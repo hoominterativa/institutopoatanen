@@ -18,6 +18,27 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "ABOU02": {
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "290",
+                    "activeCrop": "true"
+                }
+            },
+            "Topic": {
+                "path_image": {
+                    "width": "676",
+                    "height": "669",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Blogs": {

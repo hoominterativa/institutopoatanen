@@ -11825,8 +11825,11 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Feedbacks/FEED03/src/main */ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js");
-/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Abouts/ABOU02/src/main */ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js");
+/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 /***/ }),
@@ -12048,41 +12051,134 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js":
-/*!*******************************************************************!*\
-  !*** ./resources/views/Client/pages/Feedbacks/FEED03/src/main.js ***!
-  \*******************************************************************/
+/***/ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Abouts/ABOU01/src/main.js ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('.carousel-feed03').owlCarousel({
-  smartSpeed: 450,
-  loop: true,
-  dots: false,
-  nav: true,
-  rewind: true,
-  autoHeight: true,
-  margin: 50,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 up
-    400: {
-      items: 1
-    },
-    // breakpoint from 361 up
-    500: {
-      items: 2
-    },
-    // breakpoint from 500 up
-    801: {
-      items: 3
-    } // breakpoint from 801 up
-
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-abou01-topic').addClass('owl-carousel');
+    $('.carousel-abou01-topic').owlCarousel({
+      margin: 5,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: true,
+      nav: false,
+      rewind: true,
+      autoHeight: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 361 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 800 up
+        800: {
+          items: 3,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
   }
 });
-$('.carrossel-feed03').css('width', $('.feed03 .container').outerWidth());
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Abouts/ABOU02/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel_abou02').owlCarousel({
+    smartSpeed: 450,
+    loop: true,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 0 up
+      361: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 361 up
+      801: {
+        items: 3,
+        margin: 14
+      } // breakpoint from 801 up
+
+    }
+  });
+  $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 496);
+
+  if ($(window).outerWidth() <= 801) {
+    $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 150);
+  } // END carousel_abou02
+
+
+  $('.carousel-abou02-topic').owlCarousel({
+    smartSpeed: 450,
+    loop: true,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 0
+      200: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 200 up
+      361: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 361 up
+      500: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 500 up
+      815: {
+        items: 3,
+        margin: 14
+      },
+      // breakpoint from 815 up
+      820: {
+        items: 4,
+        margin: 14
+      } // breakpoint from 820 up
+
+    }
+  });
+  $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
+
+  if ($(window).outerWidth() <= 801) {
+    $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 550);
+  } // END carousel-abou02-topic
+
+});
 
 /***/ }),
 
