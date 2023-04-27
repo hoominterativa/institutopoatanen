@@ -12101,7 +12101,7 @@ $(function () {
 $(function () {
   $('.carousel_abou02').owlCarousel({
     smartSpeed: 450,
-    loop: true,
+    loop: false,
     dots: true,
     nav: false,
     rewind: true,
@@ -12133,7 +12133,7 @@ $(function () {
 
   $('.carousel-abou02-topic').owlCarousel({
     smartSpeed: 450,
-    loop: true,
+    loop: false,
     dots: true,
     nav: false,
     rewind: true,

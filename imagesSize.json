@@ -38,6 +38,13 @@
                     "height": "669",
                     "activeCrop": "false"
                 }
+            },
+            "LastSection": {
+                "path_image": {
+                    "width": "430",
+                    "height": "592",
+                    "activeCrop": "false"
+                }
             }
         }
     },

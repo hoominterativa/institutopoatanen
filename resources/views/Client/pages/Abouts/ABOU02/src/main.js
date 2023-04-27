@@ -1,13 +1,13 @@
 $(function(){
     $('.carousel_abou02').owlCarousel({
         smartSpeed:450,
-        loop: true,
+        loop: false,
         dots:true,
         nav:false,
         rewind: true,
         autoHeight: true,
         responsive: {
-            
+
             0 : {
                 items:1,
                 margin:12
@@ -34,7 +34,7 @@ $(function(){
 
     $('.carousel-abou02-topic').owlCarousel({
         smartSpeed:450,
-        loop: true,
+        loop: false,
         dots:true,
         nav:false,
         rewind: true,
@@ -54,13 +54,13 @@ $(function(){
             361 : {
                 items:1,
                 margin:12
-                
+
             },
             // breakpoint from 361 up
             500 : {
                 items:1,
                 margin:12
-                
+
             },
             // breakpoint from 500 up
             815 : {
@@ -76,13 +76,13 @@ $(function(){
         }
     });
 
-    
+
 
     $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
 
     if($(window).outerWidth() <= 801){
         $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 550);
     }
-    
+
     // END carousel-abou02-topic
 })

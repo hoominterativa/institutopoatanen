@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Abouts\ABOU02BannerController;
 use App\Http\Controllers\Abouts\ABOU02TopicController;
+use App\Http\Controllers\Abouts\ABOU02BannerController;
+use App\Http\Controllers\Abouts\ABOU02SectionController;
+use App\Http\Controllers\Abouts\ABOU02LastSectionController;
+use App\Http\Controllers\Abouts\ABOU02SectionTopicController;
 
 /**
  * Uncomment the code below
@@ -30,6 +33,13 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicos', ABOU02TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'ABOU02AboutsTopic']);
     Route::post($route.'/topico/delete', [ABOU02TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [ABOU02TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    Route::resource($route.'/secaotopico', ABOU02SectionTopicController::class)->names('admin.'.$routeName.'.section.topic')->parameters(['secaotopico' => 'ABOU02AboutsSectionTopic']);
+
+    Route::resource($route.'/ultimasecao', ABOU02LastSectionController::class)->names('admin.'.$routeName.'.last.section')->parameters(['ultimasecao' => 'ABOU02AboutsLastSection']);
+
+    Route::resource($route.'/secao', ABOU02SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'ABOU02AboutsSection']);
+
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
