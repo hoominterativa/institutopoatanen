@@ -198,13 +198,13 @@ return [
                 'controller' => App\Http\Controllers\Products\PROD02Controller::class,
                 'model' => App\Models\Products\PROD02Products::class,
                 'seedQty' => 12,
-                // 'relationship' => [
-                //     'category' => [
-                //         'class' => App\Models\Products\PROD02ProductsCategory::class,
-                //         'column' => 'category_id',
-                //         'seedQty' => 5,
-                //     ]
-                // ]
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Products\PROD02ProductsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ]
+                ]
             ],
         ],
         // END PRODUCTS

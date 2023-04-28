@@ -16,7 +16,9 @@ class PROD02Products extends Model
     }
 
     protected $table = "prod02_products";
-    protected $fillable = [];
+    protected $fillable = [
+        'title', 'description', 'subtitle', 'text', 'path_image_box', 'title_button', 'link_button', 'target_link_button', 'category_id', 'active', 'sorting', 'featured', 'slug'
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +30,18 @@ class PROD02Products extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(PROD02ProductsCategory::class, 'category_id');
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(PROD02ProductsGallery::class, 'product_id');
+    }
 }
