@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\Products;
 
-use App\Models\Products\PROD02Products;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Products\PROD02Products;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Products\PROD02ProductsCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Products\PROD02ProductsGallery;
 
 class PROD02Controller extends Controller
 {
+    protected $path = 'uploads/Products/PROD02/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +25,15 @@ class PROD02Controller extends Controller
      */
     public function index()
     {
-        //
+        $products = PROD02Products::sorting()->paginate(20);
+        $productCategories = PROD02ProductsCategory::sorting()->paginate(20);
+        $categories = PROD02ProductsCategory::exists()->sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Products.PROD02.index', [
+            'products' => $products,
+            'categories' => $categories,
+            'productCategories' => $productCategories,
+            'cropSetting' => getCropImage('Products', 'PROD02')
+        ]);
     }
 
     /**
@@ -30,7 +43,11 @@ class PROD02Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = PROD02ProductsCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Products.PROD02.create', [
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Products', 'PROD02')
+        ]);
     }
 
     /**
@@ -42,35 +59,21 @@ class PROD02Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
 
         if(PROD02Products::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Produto cadastrado com sucesso');
+            return redirect()->route('admin.prod02.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_box);
+            Session::flash('success', 'Erro ao cadastradar o produto');
             return redirect()->back();
         }
     }
@@ -83,7 +86,14 @@ class PROD02Controller extends Controller
      */
     public function edit(PROD02Products $PROD02Products)
     {
-        //
+        $galleries = PROD02ProductsGallery::where('product_id', $PROD02Products->id)->sorting()->get();
+        $categories = PROD02ProductsCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Products.PROD02.edit', [
+            'product' => $PROD02Products,
+            'categories' => $categories,
+            'galleries' => $galleries,
+            'cropSetting' => getCropImage('Products', 'PROD02')
+        ]);
     }
 
     /**
@@ -96,53 +106,29 @@ class PROD02Controller extends Controller
     public function update(Request $request, PROD02Products $PROD02Products)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $path = 'uploads/Module/Code/images/';
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $path, 200, 80);
-        if($path_image){
-            storageDelete($PROD02Products, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($data['title']);
+
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
+        if($path_image_box){
+            storageDelete($PROD02Products, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($PROD02Products, 'path_image');
-            $data['path_image'] = null;
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($PROD02Products, 'path_image_box');
+            $data['path_image_box'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $path = 'uploads/Module/Code/archives/';
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $path);
-
-        if($path_archive){
-            storageDelete($PROD02Products, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PROD02Products, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($PROD02Products->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Produto atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('success', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_box);
+            Session::flash('success', 'Erro ao atualizar o produto');
         }
+        return redirect()->back();
     }
 
     /**
@@ -153,11 +139,16 @@ class PROD02Controller extends Controller
      */
     public function destroy(PROD02Products $PROD02Products)
     {
-        //storageDelete($PROD02Products, 'path_image');
-        //storageDelete($PROD02Products, 'path_archive');
+        $galleries = PROD02ProductsGallery::where('product_id', $PROD02Products->id)->get();
+        foreach ($galleries as $gallery) {
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
+        storageDelete($PROD02Products, 'path_image_box');
 
         if($PROD02Products->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Produto deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -170,14 +161,17 @@ class PROD02Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $PROD02Productss = PROD02Products::whereIn('id', $request->deleteAll)->get();
         foreach($PROD02Productss as $PROD02Products){
-            storageDelete($PROD02Products, 'path_image');
-            storageDelete($PROD02Products, 'path_archive');
+            $galleries = PROD02ProductsGallery::where('product_id', $PROD02Products->id)->get();
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
         }
-        */
+            storageDelete($PROD02Products, 'path_image_box');
+        }
+
 
         if($deleted = PROD02Products::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);

@@ -16,7 +16,7 @@ class PROD02ProductsCategory extends Model
     }
 
     protected $table = "prod02_products_categories";
-    protected $fillable = ['title', 'slug', 'path_image_icon', 'active', 'sorting'];
+    protected $fillable = ['title', 'slug', 'path_image_icon', 'active', 'featured', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -36,7 +36,7 @@ class PROD02ProductsCategory extends Model
     public function scopeExists($query)
     {
         return $query->whereExists(function($query){
-            $query->select('id')->from('prod02_products')->whereColumn('prod02_products.category_id', 'prod02_products_categories.id');
+            $query->select('id')->from('prod02_products')->whereRaw('prod02_products.category_id', 'prod02_products_categories.id');
         });
     }
 
