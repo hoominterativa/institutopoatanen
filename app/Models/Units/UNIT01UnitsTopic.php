@@ -2,7 +2,7 @@
 
 namespace App\Models\Units;
 
-use Database\Factories\UNIT01UnitsTopicFactory;
+use Database\Factories\Units\UNIT01UnitsTopicFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,5 +28,4 @@ class UNIT01UnitsTopic extends Model
         return $query->where('active', 1);
     }
 
-    
 }

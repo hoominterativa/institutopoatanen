@@ -43,23 +43,15 @@
                             Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Essas informações serão exibidas na home do site"></i>
+                                data-bs-original-title="Este banner será exibido na página de produtos"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
-                            Informações da seção Portfolios
+                            Informações da seção produtos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações complementares para a página de portfólios que serão exibidas caso esteja ativa"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Banner da página
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esse banner será exibido na página de portifólios"></i>
+                                data-bs-original-title="Informações complementares que serão exibidas na home, caso esteja ativa"></i>
                         </a>
                     </li>
                 </ul>
@@ -154,6 +146,12 @@
                         @include('Admin.cruds.Products.PROD02.Category.index', [
                             'categories' => $productCategories
                         ])
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Products.PROD02.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Products.PROD02.Section.form')
                     </div>
                 </div>
                 <!-- end row -->

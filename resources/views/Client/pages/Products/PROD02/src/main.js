@@ -1,12 +1,12 @@
 $('.carousel-prod02').owlCarousel({
     smartSpeed:450,
-    loop: true,
+    loop: false,
     dots:true,
     nav:false,
     rewind: true,
     autoHeight: true,
     responsive: {
-        
+
         0 : {
             items:1,
             margin:10
@@ -48,7 +48,7 @@ if($(window).outerWidth() <= 801){
         rewind: true,
         autoHeight: true
     });
- 
+
 }
 
 
@@ -66,7 +66,7 @@ if($(window).outerWidth() <= 801){
         rewind: true,
         autoHeight: true,
         responsive: {
-        
+
             0 : {
                 items:2,
                 margin:12
@@ -84,7 +84,7 @@ if($(window).outerWidth() <= 801){
             // breakpoint from 801 up
         }
     });
- 
+
 }
 
 

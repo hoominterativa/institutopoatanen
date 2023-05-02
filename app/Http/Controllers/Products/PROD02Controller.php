@@ -9,10 +9,12 @@ use App\Models\Products\PROD02Products;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Products\PROD02ProductsBanner;
+use App\Models\Products\PROD02ProductsGallery;
+use App\Models\Products\PROD02ProductsSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Products\PROD02ProductsCategory;
 use App\Http\Controllers\IncludeSectionsController;
-use App\Models\Products\PROD02ProductsGallery;
 
 class PROD02Controller extends Controller
 {
@@ -28,10 +30,14 @@ class PROD02Controller extends Controller
         $products = PROD02Products::sorting()->paginate(20);
         $productCategories = PROD02ProductsCategory::sorting()->paginate(20);
         $categories = PROD02ProductsCategory::exists()->sorting()->pluck('title', 'id');
+        $banner = PROD02ProductsBanner::first();
+        $section = PROD02ProductsSection::first();
         return view('Admin.cruds.Products.PROD02.index', [
             'products' => $products,
             'categories' => $categories,
             'productCategories' => $productCategories,
+            'banner' => $banner,
+            'section' => $section,
             'cropSetting' => getCropImage('Products', 'PROD02')
         ]);
     }
@@ -68,9 +74,9 @@ class PROD02Controller extends Controller
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        if(PROD02Products::create($data)){
+        if($product = PROD02Products::create($data)){
             Session::flash('success', 'Produto cadastrado com sucesso');
-            return redirect()->route('admin.prod02.index');
+            return redirect()->route('admin.prod02.edit', ['PROD02Product' => $product->id]);
         }else{
             Storage::delete($path_image_box);
             Session::flash('success', 'Erro ao cadastradar o produto');
@@ -213,13 +219,38 @@ class PROD02Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, PROD02ProductsCategory $PROD02ProductsCategory)
     {
+
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = PROD02ProductsBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                break;
+            default:
+                $banner = PROD02ProductsBanner::active()->first();
+                break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Products', 'PROD02');
 
+        $categories = PROD02ProductsCategory::active()->exists()->sorting()->get();
+        $products = PROD02Products::with('galleries')->active();
+
+        if($PROD02ProductsCategory->exists){
+            $products = $products->where('category_id', $PROD02ProductsCategory->id);
+        }
+
+        $products = $products->sorting()->get();
+
+
         return view('Client.pages.Products.PROD02.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'categories' => $categories,
+            'products' => $products
         ]);
     }
 
@@ -230,6 +261,14 @@ class PROD02Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Products.PROD02.section');
+        $categories = PROD02ProductsCategory::active()->featured()->exists()->sorting()->get();
+        $products = PROD02Products::with('galleries')->active()->featured()->sorting()->get();
+        $section = PROD02ProductsSection::active()->first();
+        
+        return view('Client.pages.Products.PROD02.section', [
+            'products' => $products,
+            'categories' => $categories,
+            'section' => $section
+        ]);
     }
 }

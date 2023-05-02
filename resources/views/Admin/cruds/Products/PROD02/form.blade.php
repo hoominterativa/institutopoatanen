@@ -1,6 +1,6 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
+        <div class="card card-body " id="tooltip-container">
             <div class="mb-3">
                 <div class="d-flex">
                     {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
@@ -45,6 +45,9 @@
                 </div>
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
+                <div class="mb-3">
+                    <i class="text-danger">Atenção: Estas informações são para o botão do lightbox</i>
+                </div>
                 <ul class="nav nav-pills navtab-bg nav-justified">
                     <li class="nav-item">
                         <a href="#linkPages" data-bs-toggle="tab" aria-expanded="false" class="nav-link py-1">
@@ -95,12 +98,15 @@
                     <div class="tab-pane show active" id="linkExternal"></div>
                 </div> {{-- END .tab-content --}}
                 <div class="row">
+
                     <div class="mb-3">
                         {!! Form::label('title_button', 'Título da botão', ['class' => 'form-label']) !!}
                         {!! Form::text('title_button', null, ['class' => 'form-control', 'id' => 'title_button']) !!}
+
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class'=>'form-label']) !!}
+
                         {!! Form::url('link_button', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">

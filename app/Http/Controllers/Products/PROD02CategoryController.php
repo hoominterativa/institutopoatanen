@@ -101,7 +101,7 @@ class PROD02CategoryController extends Controller
             // não há produtos atrelados à categoria, pode ser excluída
             storageDelete($PROD02ProductsCategory, 'path_image_icon');
             if ($PROD02ProductsCategory->delete()) {
-                Session::flash('success', 'Categoria deletado com sucessso');
+                Session::flash('success', 'Categoria deletada com sucessso');
                 return redirect()->back();
             }
         }

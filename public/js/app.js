@@ -11751,6 +11751,58 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js":
+/*!************************************************************************!*\
+  !*** ./resources/views/Client/Components/themeMenu/SIDE02/src/main.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('body').append('<div class="side02__override trasition"></div>');
+  $('[data-plugin=sidebar]').on('click', function () {
+    if ($('#SIDE02').hasClass('side02--show')) {
+      $('#SIDE02').removeClass('side02--show');
+      $(this).removeClass('active');
+      $('.side02__override').removeClass('side02__override--show');
+      $('body').removeClass('no-scroll');
+    } else {
+      $('#SIDE02').addClass('side02--show');
+      $(this).addClass('active');
+      $('.side02__override').addClass('side02__override--show');
+      $('body').addClass('no-scroll');
+    }
+  });
+  $('.side02__header__button-close').on('click', function () {
+    $('#SIDE02').removeClass('side02--show');
+    $(this).removeClass('active');
+    $('.side02__override').removeClass('side02__override--show');
+    $('body').removeClass('no-scroll');
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/Core/Footers/FOOT02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/Core/Footers/FOOT02/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/Core/Headers/HEAD02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/Core/Headers/HEAD02/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./resources/views/Client/assets/js/ajax.js":
 /*!**************************************************!*\
   !*** ./resources/views/Client/assets/js/ajax.js ***!
@@ -11825,8 +11877,17 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Products/PROD02/src/main */ "./resources/views/Client/pages/Products/PROD02/src/main.js");
-/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD02/src/main */ "./resources/views/Client/Core/Headers/HEAD02/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE02/src/main */ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js");
+/* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
+/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Products/PROD02/src/main */ "./resources/views/Client/pages/Products/PROD02/src/main.js");
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
 
 
 /***/ }),
@@ -12057,7 +12118,7 @@ $(function () {
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $('.carousel-prod02').owlCarousel({
   smartSpeed: 450,
-  loop: true,
+  loop: false,
   dots: true,
   nav: false,
   rewind: true,

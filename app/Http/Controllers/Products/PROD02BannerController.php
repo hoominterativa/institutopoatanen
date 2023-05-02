@@ -13,27 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class PROD02BannerController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Products/PROD02/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +24,25 @@ class PROD02BannerController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $data['active'] = $request->active?1:0;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
 
         if(PROD02ProductsBanner::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Banner cadastrado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao cadastradar o banner');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Products\PROD02ProductsBanner  $PROD02ProductsBanner
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PROD02ProductsBanner $PROD02ProductsBanner)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,149 +55,37 @@ class PROD02BannerController extends Controller
     public function update(Request $request, PROD02ProductsBanner $PROD02ProductsBanner)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($PROD02ProductsBanner, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($PROD02ProductsBanner, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($PROD02ProductsBanner, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($PROD02ProductsBanner, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($PROD02ProductsBanner, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PROD02ProductsBanner, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($PROD02ProductsBanner, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
         }
-
-        */
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($PROD02ProductsBanner, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
+        }
 
         if($PROD02ProductsBanner->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Banner atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao atualizar o banner');
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Products\PROD02ProductsBanner  $PROD02ProductsBanner
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PROD02ProductsBanner $PROD02ProductsBanner)
-    {
-        //storageDelete($PROD02ProductsBanner, 'path_image');
-        //storageDelete($PROD02ProductsBanner, 'path_archive');
-
-        if($PROD02ProductsBanner->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $PROD02ProductsBanners = PROD02ProductsBanner::whereIn('id', $request->deleteAll)->get();
-        foreach($PROD02ProductsBanners as $PROD02ProductsBanner){
-            storageDelete($PROD02ProductsBanner, 'path_image');
-            storageDelete($PROD02ProductsBanner, 'path_archive');
-        }
-        */
-
-        if($deleted = PROD02ProductsBanner::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            PROD02ProductsBanner::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Products\PROD02ProductsBanner  $PROD02ProductsBanner
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PROD02ProductsBanner $PROD02ProductsBanner)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
+        return redirect()->back();
     }
 }
