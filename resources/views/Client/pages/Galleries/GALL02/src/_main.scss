@@ -1,0 +1,78 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+/* BEGIN STYLE */
+#GALL02{
+    padding: 70px 0;
+
+    @include backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat);
+
+    @include small-device{
+        padding: 35px 20px;
+    }
+    .header-topic{
+        text-align: center;
+        .container-title{
+            margin-bottom: 25px;
+            .title{
+                font-size: $T2;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+                color: $color-one;
+                display: block;
+                @include small-device{
+                    font-size:  $T2-mobile;
+                }
+            }
+            .subtitle{
+                font-size: $T4;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+                color: $color-one;
+                display: block;
+                @include small-device{
+                    font-size: $T4-mobile;
+                }
+            }
+        }
+        .line{
+            background-color: $color-one;
+            display: flex;
+        }
+    }
+    .container {
+        .box-topic{
+            .content{
+                    position: relative;
+                    z-index: 1;
+                    .image{
+                        height: 338px;
+                        width: 100%;
+                        margin-bottom: 0;
+
+                        img{
+                            @include Img($ObjectFit:cover);
+                        }
+                    }
+                    .description{
+                        text-align: center;
+                        margin-bottom: 0;
+                        background-color: $color-five;
+                        min-height: 43px;
+                        @include Flex;
+
+                        .title{
+                            font: $paragraph;
+                            font-family: $font-primary;
+                            color: $color-black;
+                            font-weight: $weight-400;
+
+                            @include small-device{
+                                font-size: $paragraph-mobile;
+                            }
+                        }
+                    }
+            }
+        }
+    }
+}

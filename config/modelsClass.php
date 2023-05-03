@@ -131,6 +131,11 @@ return [
                 'model' => App\Models\Galleries\GALL01Galleries::class,
                 'seedQty' => 1,
             ],
+            'GALL02' => (object)[
+                'controller' => App\Http\Controllers\Galleries\GALL02Controller::class,
+                'model' => App\Models\Galleries\GALL02Galleries::class,
+                'seedQty' => 1,
+            ],
         ],
         // END GALLERIES
 
