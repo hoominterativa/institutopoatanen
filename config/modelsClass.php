@@ -134,7 +134,7 @@ return [
             'GALL02' => (object)[
                 'controller' => App\Http\Controllers\Galleries\GALL02Controller::class,
                 'model' => App\Models\Galleries\GALL02Galleries::class,
-                'seedQty' => 1,
+                'seedQty' => 4,
             ],
         ],
         // END GALLERIES

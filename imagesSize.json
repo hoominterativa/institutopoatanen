@@ -115,6 +115,25 @@
                 "height": "300",
                 "activeCrop": "false"
             }
+        },
+        "GALL02": {
+            "path_image": {
+                "width": "298",
+                "height": "338",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "1020",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "937",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Portfolios": {

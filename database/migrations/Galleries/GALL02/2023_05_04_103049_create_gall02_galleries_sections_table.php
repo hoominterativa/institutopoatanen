@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGall02GalleriesTable extends Migration
+class CreateGall02GalleriesSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateGall02GalleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('gall02_galleries', function (Blueprint $table) {
+        Schema::create('gall02_galleries_sections', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('path_image')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
-            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateGall02GalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gall02_galleries');
+        Schema::dropIfExists('gall02_galleries_sections');
     }
 }

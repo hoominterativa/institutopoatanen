@@ -16,7 +16,7 @@ class GALL02Galleries extends Model
     }
 
     protected $table = "gall02_galleries";
-    protected $fillable = [];
+    protected $fillable = ['title', 'path_image', 'sorting', 'active'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class GALL02Galleries extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Galleries\GALL02GalleriesSection;
 
 class GALL02Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Galleries/GALL02/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +23,13 @@ class GALL02Controller extends Controller
      */
     public function index()
     {
-        //
+        $galleries = GALL02Galleries::sorting()->paginate(20);
+        $section = GALL02GalleriesSection::first();
+        return view('Admin.cruds.Galleries.GALL02.index', [
+            'galleries' => $galleries,
+            'section' => $section,
+            'cropSetting' => getCropImage('Galleries', 'GALL02')
+        ]);
     }
 
     /**
@@ -32,7 +39,9 @@ class GALL02Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Galleries.GALL02.create', [
+            'cropSetting' => getCropImage('Galleries', 'GALL02')
+        ]);
     }
 
     /**
@@ -44,33 +53,19 @@ class GALL02Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(GALL02Galleries::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Imagem cadastrada com sucesso');
+            return redirect()->route('admin.gall02.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar a imagem');
             return redirect()->back();
         }
     }
@@ -83,7 +78,10 @@ class GALL02Controller extends Controller
      */
     public function edit(GALL02Galleries $GALL02Galleries)
     {
-        //
+        return view('Admin.cruds.Galleries.GALL02.edit', [
+            'gallery' => $GALL02Galleries,
+            'cropSetting' => getCropImage('Galleries', 'GALL02')
+        ]);
     }
 
     /**
@@ -96,11 +94,9 @@ class GALL02Controller extends Controller
     public function update(Request $request, GALL02Galleries $GALL02Galleries)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +107,14 @@ class GALL02Controller extends Controller
             storageDelete($GALL02Galleries, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($GALL02Galleries, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($GALL02Galleries, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($GALL02Galleries->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Imagem atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a imagem');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +125,10 @@ class GALL02Controller extends Controller
      */
     public function destroy(GALL02Galleries $GALL02Galleries)
     {
-        //storageDelete($GALL02Galleries, 'path_image');
-        //storageDelete($GALL02Galleries, 'path_archive');
+        storageDelete($GALL02Galleries, 'path_image');
 
         if($GALL02Galleries->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Imagem deletada com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +141,14 @@ class GALL02Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $GALL02Galleriess = GALL02Galleries::whereIn('id', $request->deleteAll)->get();
         foreach($GALL02Galleriess as $GALL02Galleries){
             storageDelete($GALL02Galleries, 'path_image');
-            storageDelete($GALL02Galleries, 'path_archive');
         }
-        */
 
         if($deleted = GALL02Galleries::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Imagens deletadas com sucessso']);
         }
     }
     /**
