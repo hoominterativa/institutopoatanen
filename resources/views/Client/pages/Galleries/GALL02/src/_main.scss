@@ -2,7 +2,7 @@
 
 /* BEGIN STYLE */
 /* BEGIN STYLE */
-#GALL02{
+.gall02{
     padding: 70px 0;
 
     @include backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat);
@@ -10,10 +10,12 @@
     @include small-device{
         padding: 35px 20px;
     }
-    .header-topic{
+    .header-gall02{
         text-align: center;
+        margin-bottom: 197px;
+
         .container-title{
-            margin-bottom: 25px;
+            margin-bottom: 26px;
             .title{
                 font-size: $T2;
                 font-weight: $weight-700;
@@ -41,10 +43,17 @@
         }
     }
     .container {
-        .box-topic{
+        .box-gall02{
+            width:100%;
+            &:hover .content .description{
+                opacity: 1;
+                visibility: visible;
+            }
             .content{
                     position: relative;
                     z-index: 1;
+                    width: 100%;
+
                     .image{
                         height: 338px;
                         width: 100%;
@@ -60,6 +69,8 @@
                         background-color: $color-five;
                         min-height: 43px;
                         @include Flex;
+                        opacity: 0;
+                        visibility: hidden;
 
                         .title{
                             font: $paragraph;
@@ -75,4 +86,33 @@
             }
         }
     }
+    .carousel-gall02 .owl-nav{
+        display: flex !important;
+        margin-top: 75px;
+        gap: 0 20.5px;
+    }
+    .carousel-gall02 .owl-nav .owl-prev,
+    .carousel-gall02 .owl-nav .owl-next{
+        height: 38px;
+        width: 38px;
+        border-radius: 100%;
+        background-color: $color-one !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .carousel-gall02 .owl-nav .owl-prev span,
+    .carousel-gall02 .owl-nav .owl-next span{
+        color: $color-white;
+        font-size: 41px;
+        height: 34px;
+        display: block;
+    }
+}
+
+.lightbox-gall02{
+    display: none;
+    width: 100%;
+    height: 100%;
+    color: $color-one;
 }
