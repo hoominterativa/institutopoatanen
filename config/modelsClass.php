@@ -30,6 +30,18 @@ return [
                     ]
                 ]
             ],
+            'BLOG03' => (object)[
+                'controller' => App\Http\Controllers\Blogs\BLOG03Controller::class,
+                'model' => App\Models\Blogs\BLOG03Blogs::class,
+                'seedQty' => 8,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Blogs\BLOG03BlogsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
+            ],
         ],
         // END BLOGS
         'Brands' => (object)[

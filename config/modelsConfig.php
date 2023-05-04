@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Products' => (object) [
-            'PROD02' => (object)[
+        'Blogs' => (object) [
+            'BLOG03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -25,7 +25,7 @@ return [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques Home}',
                     'titleList' => 'title',
                     'relation' => (object)[
                         'category' =>(object)[
@@ -36,12 +36,12 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Produtos',
+                    'titleMenu' => 'Artigos',
                     'anchor' =>  false,
-                    'linkMenu' => 'prod02.page',
+                    'linkMenu' => 'blog03.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Produtos',
-                    'iconPanel' => 'mdi-shopping-outline'
+                    'titlePanel' => 'Artigos',
+                    'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) []
             ],
