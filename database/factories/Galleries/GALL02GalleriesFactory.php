@@ -21,10 +21,14 @@ class GALL02GalleriesFactory extends Factory
      */
     public function definition()
     {
+        $path = $this->faker->randomElement([
+            'uploads/tmp/image-box.jpg',
+            'uploads/tmp/image-box-white.jpg'
+        ]);
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $this->faker->text(15),
+            'path_image' => $path,
+            'active' => 1
         ];
     }
 }
