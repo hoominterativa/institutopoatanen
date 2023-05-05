@@ -275,8 +275,8 @@ class BLOG03Controller extends Controller
         $BLOG03Blogs->text = conveterOembedCKeditor($BLOG03Blogs->text);
 
         return view('Client.pages.Blogs.BLOG03.show',[
-            'blog' => $BLOG03Blogs,
-            'blogsRelated' => $blogsRelated,
+            // 'blog' => $BLOG03Blogs,
+            // 'blogsRelated' => $blogsRelated,
             'sections' => $sections
         ]);
     }
@@ -318,10 +318,10 @@ class BLOG03Controller extends Controller
 
         return view('Client.pages.Blogs.BLOG03.page',[
             'sections' => $sections,
-            'categories' => $categories,
+            // 'categories' => $categories,
             // 'blogsFeatured' => $blogsFeatured,
-            'blogs' => $blogs,
-            'banner' => $banner
+            // 'blogs' => $blogs,
+            // 'banner' => $banner
         ]);
     }
 
@@ -332,15 +332,15 @@ class BLOG03Controller extends Controller
      */
     public static function section()
     {
-        $blogs = BLOG03Blogs::with('category')->featured()->sorting()->get();
-        $section = BLOG03BlogsSection::first();
+        // $blogs = BLOG03Blogs::with('category')->featured()->sorting()->get();
+        // $section = BLOG03BlogsSection::first();
 
-        $category = BLOG03BlogsCategory::first();
+        // $category = BLOG03BlogsCategory::first();
 
         return view('Client.pages.Blogs.BLOG03.section',[
-            'blogs' => $blogs,
-            'section' => $section,
-            'category' => $category
+            // 'blogs' => $blogs,
+            // 'section' => $section,
+            // 'category' => $category
         ]);
     }
 }
