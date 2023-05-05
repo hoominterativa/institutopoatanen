@@ -16,6 +16,7 @@ class CreateGall02GalleriesTable extends Migration
         Schema::create('gall02_galleries', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
             $table->string('path_image')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);

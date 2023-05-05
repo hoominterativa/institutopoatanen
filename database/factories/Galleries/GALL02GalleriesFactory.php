@@ -27,6 +27,7 @@ class GALL02GalleriesFactory extends Factory
         ]);
         return [
             'title' => $this->faker->text(15),
+            'subtitle' => $this->faker->text(15),
             'path_image' => $path,
             'active' => 1
         ];

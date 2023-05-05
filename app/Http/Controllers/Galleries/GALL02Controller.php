@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Galleries\GALL01Galleries;
 use App\Models\Galleries\GALL02GalleriesSection;
 
 class GALL02Controller extends Controller
@@ -194,6 +195,21 @@ class GALL02Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Galleries.GALL02.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = GALL02GalleriesSection::active()->first();
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
+                break;
+            default:
+                $section = GALL02GalleriesSection::active()->first();
+                break;
+        }
+
+        $galleries = GALL02Galleries::active()->sorting()->get();
+        return view('Client.pages.Galleries.GALL02.section', [
+            'section' => $section,
+            'galleries' => $galleries
+        ]);
     }
 }

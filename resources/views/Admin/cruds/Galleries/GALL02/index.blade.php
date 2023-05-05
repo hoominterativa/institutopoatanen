@@ -62,7 +62,7 @@
                                                         <label><input name="btnSelectAll" value="btnDeleteGALL02" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
-                                                    <th>Title</th>
+                                                    <th>Title/Subtítulo</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -81,7 +81,7 @@
                                                             @endif
                                                         </td>
                                                         @if ($gallery->title)
-                                                            <td class="align-middle">{{$gallery->title}}</td>
+                                                            <td class="align-middle">{{$gallery->title}} <b>/</b> {{$gallery->subtitle}}</td>
                                                         @endif
                                                         <td class="align-middle">
                                                             @if ($gallery->active)

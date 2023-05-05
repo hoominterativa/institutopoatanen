@@ -24,7 +24,7 @@ class GALL02GalleriesSectionFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
-            'path_image_desktop' => 'uploads/tmp/gall01_image2.png',
+            'path_image_desktop' => 'uploads/tmp/image-box.jpg',
             'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
             'background_color' => '#CACACA',
             'active' => 1,

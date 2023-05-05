@@ -6,6 +6,10 @@
                 {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
             </div>
             <div class="mb-3">
+                {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+            </div>
+            <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagens', ['class'=>'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
