@@ -12115,27 +12115,67 @@ $(function () {
     autoHeight: true,
     responsive: {
       0: {
-        items: 1
+        items: 1,
+        margin: -150
       },
       // breakpoint from 0 up
-      361: {
-        items: 1
+      768: {
+        items: 1,
+        margin: -150
       },
       // breakpoint from 361 up
       801: {
-        items: 5
+        items: 5,
+        margin: 0
       } // breakpoint from 801 up
 
     }
-  }); // $('.carrossel-lightbox-gall02').css('width', $(window).outerWidth());
-  // $('.carrossel-lightbox-gall02').owlCarousel({
-  //     items: 1,
-  //     thumbs: true,
-  //     thumbContainerClass: 'carrossel-lightbox-gall02-owl-thumbs',
-  //     thumbItemClass: 'carrossel-lightbox-gall02-owl-thumb-item',
-  //     nav: true,
-  //     navText: ['<', '>']
-  //   });
+  });
+  var owlGallery = $('.lightbox-gall02__bottom__thumbnail__carousel');
+  $('.lightbox-gall02__bottom__thumbnail__carousel').css('width', $(window).outerWidth() / 2 - 260);
+
+  if ($(window).outerWidth() <= 768) {
+    $('.lightbox-gall02__bottom__thumbnail__carousel').css('width', $(window).outerWidth() - 107);
+  }
+
+  owlGallery.addClass('owl-carousel');
+  owlGallery.owlCarousel({
+    loop: false,
+    nav: true,
+    dots: false,
+    margin: 3,
+    rewind: true,
+    URLhashListener: true,
+    responsive: {
+      0: {
+        items: 5
+      },
+      500: {
+        items: 5
+      },
+      960: {
+        items: 6
+      },
+      2000: {
+        items: 6
+      }
+    }
+  });
+  $("[data-main-image]").on("click", function () {
+    var mainImageSrc = $(this).data("main-image");
+    var name = $(this).data("main-title");
+    console.log(name);
+
+    if ($(this).hasClass('lightbox-gall02__bottom__thumbnail__item--video')) {
+      $(".lightbox-gall02__bottom__main__iframe").attr("src", mainImageSrc).fadeIn('fast');
+      $(".lightbox-gall02__bottom__main__item").fadeOut('slow');
+      $(".lightbox-gall02__bottom__main__legend").text(name);
+    } else {
+      $(".lightbox-gall02__bottom__main__item").attr("src", mainImageSrc).fadeIn('fast');
+      $(".lightbox-gall02__bottom__main__iframe").fadeOut('fast');
+      $(".lightbox-gall02__bottom__main__legend").text(name);
+    }
+  });
 });
 
 /***/ }),

@@ -1,21 +1,27 @@
 <div id="lightbox-gall02-1" class="lightbox-gall02 row">
-    <div class="row px-0 px-0 mx-0">
-        <div class="top">
-            <div class="lightbox-gall02__top__description">
-                <h4 class="lightbox-gall02__top__description__title">Título</h4>
-                <h5 class="lightbox-gall02__top__description__subtitle">Subtítulo</h5>
+    <div class="lightbox-gall02__content">
+        <div class="container px-0 px-0 mx-auto">
+            <div class="lightbox-gall02__top">
+                <div class="lightbox-gall02__top__description">
+                    <h4 class="lightbox-gall02__top__description__title">Título</h4>
+                    <h5 class="lightbox-gall02__top__description__subtitle">Subtítulo</h5>
+                </div>
             </div>
-        </div>
-        <div class="lightbox-gall02__bottom">
-            <div class="carrossel-lightbox-gall02">
-                <div class="item"><img src="imagem1.jpg"></div>
-                <div class="item"><img src="imagem2.jpg"></div>
-                <div class="item"><img src="imagem3.jpg"></div>
-            </div>
-            <div class="owl-thumbs">
-                <div class="thumb"><img src="imagem1.jpg"></div>
-                <div class="thumb"><img src="imagem2.jpg"></div>
-                <div class="thumb"><img src="imagem3.jpg"></div>
+            <div class="lightbox-gall02__bottom">
+                <div class="lightbox-gall02__bottom__main">
+                    <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-hash="foto-um" width="100%" height="100%" class="lightbox-gall02__bottom__main__item" alt="">
+                    <h4 class="lightbox-gall02__bottom__main__legend">Legenda da Imagem</h4>
+                </div>
+                <div class="lightbox-gall02__bottom__thumbnail">
+                    <div class="lightbox-gall02__bottom__thumbnail__carousel">
+                        <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-main-image="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-main-title="titulo2" width="100%" class="lightbox-gall02__bottom__thumbnail__item lightbox-gall02__bottom__thumbnail__item--active" alt="Imagem">
+                        <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-main-image="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-main-title="titulo1" width="100%" class="lightbox-gall02__bottom__thumbnail__item lightbox-gall02__bottom__thumbnail__item--active" alt="Imagem">
+                        <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-main-image="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-main-title="titulo2" width="100%" class="lightbox-gall02__bottom__thumbnail__item lightbox-gall02__bottom__thumbnail__item--active" alt="Imagem">
+                        <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-main-image="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-main-title="titulo1" width="100%" class="lightbox-gall02__bottom__thumbnail__item lightbox-gall02__bottom__thumbnail__item--active" alt="Imagem">
+                        <img src="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-main-image="{{asset('storage/uploads/tmp/gall01_image2.png')}}" data-main-title="titulo2" width="100%" class="lightbox-gall02__bottom__thumbnail__item lightbox-gall02__bottom__thumbnail__item--active" alt="Imagem">
+                        <img src="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-main-image="{{asset('storage/uploads/tmp/gall01_image1.png')}}" data-main-title="titulo1" width="100%" class="lightbox-gall02__bottom__thumbnail__item lightbox-gall02__bottom__thumbnail__item--active" alt="Imagem">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
