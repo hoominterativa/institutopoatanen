@@ -273,8 +273,22 @@
 }
 // END .blog03
 
+.blog03-page{
+    &__header{
+        height: 308px;
+        text-align: center;
+        &__title{
+            font-size: $T1;
+            font-weight: $weight-700;
+            color: $color-black;
+            @include medium-device-down{
+                font-size: $T1-mobile;
+            }
+        }
+    }
+    
 
-
+}
 
 
 
