@@ -3,11 +3,18 @@
 /* BEGIN STYLE */
 /* BEGIN STYLE */
 .blog03{
-    padding: 80px 0;
-    @include medium-device-down{
-        padding: 50px 20px;
-    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        padding: 81.12px 0 75px 0;
 
+        @include medium-device-down{
+            padding: 50px 0;
+            width: 90%;
+            max-width: inherit;
+            margin: 0 auto;
+        }
+    }
     &__header{
         text-align: center;
         margin-bottom: 85px;
@@ -41,7 +48,7 @@
         }
         &__paragraph{
             font: $paragraph;
-            font-weight: $weight-500;
+            font-weight: $weight-400;
             color: $color-two;
 
             @include medium-device-down{
@@ -63,16 +70,30 @@
             }
         }
         &__item{
+            width:91%;
+
+            @include medium-device-down{
+                width: 77%;
+            }
+
             &__content{
                 background-color: $color-six;
                 padding: 28px 46px 28px 23px;
                 position: relative;
+
+                @include medium-device-down{
+                    padding: 14px 15px;
+                }
             }
             &__image{
                 margin-bottom: 0;
                 height: 276px;
                 width: 422px;
                 display: block;
+
+                @include medium-device-down{
+                    width: 100%;
+                }
 
                 &__img{
                     object-fit: cover;
@@ -86,12 +107,17 @@
                 height: auto;
                 padding-left: 38px;
                 padding-right: 0;
+                @include medium-device-down{
+                   padding: 31px 29px;
+                }
             }
             &__title{
                 font-size: $T4;
                 font-weight: $weight-700;
                 color: $color-black;
                 margin-bottom: 34px;
+                display: flex;
+                gap: 0 11.24px;
 
 
                 @include medium-device-down{
@@ -114,7 +140,7 @@
                 p{
                     font: $paragraph;
                     font-weight: $weight-500;
-                    color: $color-two; 
+                    color: $color-two;
 
                     @include medium-device-down{
                         font: $paragraph-mobile;
@@ -145,35 +171,37 @@
                         width: 147px;
                     }
 
-                    &__icon{
-                        height: 25px;
-                        width: 25px;
+                    img{
+                        height: 25px !important;
+                        width: 25px !important;
                         object-fit:contain;
                     }
 
                     &:hover{
                         color: $color-white;
                         background-color: $bg-black;
-    
+
                         .blog03__boxs__item__cta__icon{
                             filter: invert(1) grayscale(1);
                         }
                     }
-                  
+
                 }
-                
-               
+
+
             }
         }
     }
     // END __boxs
 
     &__cta{
-        margin-top:28px;
-        float: right;
+        margin-top:29px;
+        margin-left: auto;
 
         @include medium-device-down{
+            margin: 0 auto;
             margin-top: 39px;
+            transform: translate(-36%, 0);
         }
         a{
             @include Flex;
@@ -192,24 +220,55 @@
                 width: 147px;
             }
 
-            &__icon{
-                height: 25px;
-                width: 25px;
+            img{
+                height: 25px !important;
+                width: 25px !important;
                 object-fit:contain;
             }
 
             &:hover{
-                color: $color-eight;
-                background-color: transparent;
+                color: $color-white;
+                background-color: $color-black;
 
                 .blog03__boxs__item__cta__icon{
                     filter: invert(1) grayscale(1);
                 }
             }
-          
+
         }
-        
-       
+
+
+    }
+
+    .blog03__boxs__carousel .owl-dots{
+        @include medium-device-down{
+            position: relative;
+            left: inherit;
+            bottom: inherit;
+            margin-top: 30px;
+            justify-content: center;
+            width: 69%;
+        }
+        display: flex !important;
+        position: absolute;
+        left: 0;
+        bottom: -50px;
+        margin-top: inherit;
+        width: auto;
+        padding: 0;
+        gap:0 2.5px;
+    }
+    .blog03__boxs__carousel .owl-dot{
+        display: flex !important;
+        border-radius:0 !important;
+        height: 19px;
+        width: 30px;
+        background-color: $color-two;
+    }
+    .blog03__boxs__carousel .owl-dot.active{
+        display: flex !important;
+        border-radius:0 !important;
+        background-color: $color-black;
     }
 }
 // END .blog03
