@@ -30,7 +30,7 @@
         <div class="blog03-page__boxs row">
                 <article class="blog03-page__boxs__item col-sm-6">
                     <div itemscope itemtype="http://schema.org/Article" class="blog03-page__boxs__item__content transition">
-                        <a itemprop="url" href="#" class="link-full"></a>
+                        <a itemprop="url" href="{{route('blog03.show')}}" class="link-full"></a>
                         <figure class="blog03-page__boxs__item__image">
                             <img itemprop="image" src="{{asset('storage/uploads/tmp/inner-image.jpg')}}" class="blog03-page__boxs__item__image__img" width="100%" alt="Título Blog"/>
                         </figure>
@@ -47,7 +47,7 @@
                 {{-- END .blog03-page__boxs__item --}}
                 <article class="blog03-page__boxs__item col-sm-6">
                     <div itemscope itemtype="http://schema.org/Article" class="blog03-page__boxs__item__content transition">
-                        <a itemprop="url" href="#" class="link-full"></a>
+                        <a itemprop="url" href="{{route('blog03.show')}}" class="link-full"></a>
                         <figure class="blog03-page__boxs__item__image">
                             <img itemprop="image" src="{{asset('storage/uploads/tmp/inner-image.jpg')}}" class="blog03-page__boxs__item__image__img" width="100%" alt="Título Blog"/>
                         </figure>
