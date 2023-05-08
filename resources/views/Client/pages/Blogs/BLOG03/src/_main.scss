@@ -454,6 +454,7 @@
             }
             &__content{
                 height: 100%;
+                position: relative;
             }
             &__image{
                 height: 100%;
@@ -489,11 +490,12 @@
                 font-weight: $weight-700;
                 color: $color-two;
                 position: relative;
+                width: 56%;
 
                 &::before{
                     content: "";
                     position: absolute;
-                    left: -41px;
+                    left: -55px;
                     top: 7px;
                     width: 25px;
                     height: 22px;
@@ -502,7 +504,7 @@
 
                 @include medium-device-down{
                     font-size: $T4-mobile;
-                    width: 64%;
+
                 }
             }
             &__paragraph{

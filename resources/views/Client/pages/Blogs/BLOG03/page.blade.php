@@ -38,7 +38,7 @@
                             <div class="blog03-page__boxs__item__buttons">
                                 <h3 itemprop="name" class="blog03-page__boxs__item__title">Lorem ipsum dolor sit amet, consect etur adipiscing elit</h3>
                                 <div class="blog03-page__boxs__item__cta">
-                                    <a href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03-page__boxs__item__cta__icon" alt="title"/> CTA</a>
+                                    <a href="{{route('blog03.show')}}"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03-page__boxs__item__cta__icon" alt="title"/> CTA</a>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="blog03-page__boxs__item__description">
                             <h3 itemprop="name" class="blog03-page__boxs__item__title">Lorem ipsum dolor sit amet, consect etur adipiscing elit</h3>
                             <div class="blog03-page__boxs__item__cta">
-                                <a href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03-page__boxs__item__cta__icon" alt="title"/> CTA</a>
+                                <a href="{{route('blog03.show')}}"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03-page__boxs__item__cta__icon" alt="title"/> CTA</a>
                             </div>
                         </div>
                     </div>
