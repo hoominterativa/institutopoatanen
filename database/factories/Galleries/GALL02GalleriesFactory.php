@@ -26,6 +26,7 @@ class GALL02GalleriesFactory extends Factory
             'uploads/tmp/image-box-white.jpg'
         ]);
         return [
+            'image_legend' => $this->faker->text(15),
             'title' => $this->faker->text(15),
             'subtitle' => $this->faker->text(15),
             'path_image' => $path,

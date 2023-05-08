@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Galleries\GALL01Galleries;
+use App\Models\Galleries\GALL02GalleriesImage;
 use App\Models\Galleries\GALL02GalleriesSection;
 
 class GALL02Controller extends Controller
@@ -61,9 +62,9 @@ class GALL02Controller extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        if(GALL02Galleries::create($data)){
+        if($gallery = GALL02Galleries::create($data)){
             Session::flash('success', 'Imagem cadastrada com sucesso');
-            return redirect()->route('admin.gall02.index');
+            return redirect()->route('admin.gall02.index', ['GALL02Gallery' => $gallery->id]);
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar a imagem');
@@ -79,8 +80,10 @@ class GALL02Controller extends Controller
      */
     public function edit(GALL02Galleries $GALL02Galleries)
     {
+        $images = GALL02GalleriesImage::where('gallery_id', $GALL02Galleries->id)->sorting()->get();
         return view('Admin.cruds.Galleries.GALL02.edit', [
             'gallery' => $GALL02Galleries,
+            'images' => $images,
             'cropSetting' => getCropImage('Galleries', 'GALL02')
         ]);
     }
@@ -126,6 +129,12 @@ class GALL02Controller extends Controller
      */
     public function destroy(GALL02Galleries $GALL02Galleries)
     {
+        $images = GALL02GalleriesImage::where('gallery_id', $GALL02Galleries->id)->get();
+        foreach ($images as $image) {
+            storageDelete($image, 'path_image');
+            $image->delete();
+        }
+
         storageDelete($GALL02Galleries, 'path_image');
 
         if($GALL02Galleries->delete()){
@@ -145,6 +154,11 @@ class GALL02Controller extends Controller
 
         $GALL02Galleriess = GALL02Galleries::whereIn('id', $request->deleteAll)->get();
         foreach($GALL02Galleriess as $GALL02Galleries){
+            $images = GALL02GalleriesImage::where('gallery_id', $GALL02Galleries->id)->get();
+            foreach ($images as $image) {
+            storageDelete($image, 'path_image');
+            $image->delete();
+        }
             storageDelete($GALL02Galleries, 'path_image');
         }
 
@@ -206,7 +220,7 @@ class GALL02Controller extends Controller
                 break;
         }
 
-        $galleries = GALL02Galleries::active()->sorting()->get();
+        $galleries = GALL02Galleries::with('images')->active()->sorting()->get();
         return view('Client.pages.Galleries.GALL02.section', [
             'section' => $section,
             'galleries' => $galleries

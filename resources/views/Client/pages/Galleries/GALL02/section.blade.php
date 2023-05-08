@@ -23,12 +23,11 @@
                                 </figure>
                                 @if ($gallery->title)
                                     <div class="description w-100">
-                                        <h3 class="title">{{$gallery->title}}</h3>
+                                        <h3 class="title">{{$gallery->image_legend}}</h3>
                                     </div>
                                 @endif
                             </div>
                             @include('Client.pages.Galleries.GALL02.show', [
-                                'galleries' => $galleries,
                                 'gallery' => $gallery
                             ])
                         </article>

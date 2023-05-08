@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Galleries\GALL02ImageController;
 use App\Http\Controllers\Galleries\GALL02SectionController;
 
 /**
@@ -25,6 +26,11 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/secao', GALL02SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'GALL02GalleriesSection']);
+
+    Route::resource($route.'/imagens', GALL02ImageController::class)->names('admin.'.$routeName.'.image')->parameters(['imagens' => 'GALL02GalleriesImage']);
+    Route::post($route.'/imagem/delete', [GALL02ImageController::class, 'destroySelected'])->name('admin.'.$routeName.'.image.destroySelected');
+    Route::post($route.'/imagem/sorting', [GALL02ImageController::class, 'sorting'])->name('admin.'.$routeName.'.image.sorting');
+
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

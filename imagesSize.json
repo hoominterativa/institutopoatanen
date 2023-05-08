@@ -133,6 +133,13 @@
                     "height": "937",
                     "activeCrop": "true"
                 }
+            },
+            "Images": {
+                "path_image": {
+                    "width": "1210",
+                    "height": "675",
+                    "activeCrop": "false"
+                }
             }
         }
     },

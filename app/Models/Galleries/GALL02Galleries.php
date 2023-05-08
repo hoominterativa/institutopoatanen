@@ -16,7 +16,7 @@ class GALL02Galleries extends Model
     }
 
     protected $table = "gall02_galleries";
-    protected $fillable = ['title', 'subtitle', 'path_image', 'sorting', 'active'];
+    protected $fillable = ['image_legend', 'title', 'subtitle', 'path_image', 'sorting', 'active'];
 
     public function scopeSorting($query)
     {
@@ -26,5 +26,10 @@ class GALL02Galleries extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(GALL02GalleriesImage::class, 'gallery_id');
     }
 }

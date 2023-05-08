@@ -61,8 +61,9 @@
                                                         {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
                                                         <label><input name="btnSelectAll" value="btnDeleteGALL02" type="checkbox"></label>
                                                     </th>
-                                                    <th>Imagem</th>
-                                                    <th>Title/Subtítulo</th>
+                                                    <th>Thumbnail da galeria</th>
+                                                    <th>Legenda da galeria</th>
+                                                    <th>Título/Subtítulo</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -80,7 +81,10 @@
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $gallery->path_image)}})"></div>
                                                             @endif
                                                         </td>
-                                                        @if ($gallery->title)
+                                                        @if ($gallery->image_legend)
+                                                            <td class="align-middle">{{$gallery->image_legend}}</td>
+                                                        @endif
+                                                        @if ($gallery->title || $gallery->subtitle)
                                                             <td class="align-middle">{{$gallery->title}} <b>/</b> {{$gallery->subtitle}}</td>
                                                         @endif
                                                         <td class="align-middle">
