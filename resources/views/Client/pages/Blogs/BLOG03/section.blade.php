@@ -10,7 +10,7 @@
         </header>
         <div class="blog03__boxs row blog03__boxs__carousel owl-carousel">
             <article class="blog03__boxs__item">
-                <a itemprop="url" href="artigo" class="link-full"></a>
+                <a itemprop="url" href="{{route('blog03.show)}}" class="link-full"></a>
                 <div class="blog03__boxs__item__content d-flex justify-content-between row transition">
 
                     <figure class="blog03__boxs__item__image px-0">
