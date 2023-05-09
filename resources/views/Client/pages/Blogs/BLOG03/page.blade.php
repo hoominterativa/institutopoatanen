@@ -4,7 +4,8 @@
 <section id="BLOG03" class="blog03-page container-fluid px-0">
     @if ($banner)
         <header class="blog03-page__header bg-light" style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{ $banner->background_color }};">
-            <div class="container d-flex flex-column justify-content-center h-100">
+            <div class="blog03-page__header__mask"></div>
+            <div class="container container--header d-flex flex-column justify-content-center h-100">
                 @if ($banner->title)
                     <h1 class="blog03-page__header__title">{{$banner->title}}</h1>
                 @endif
@@ -16,7 +17,7 @@
             @if ($categories->count())
                 <nav class="blog03-page__category blog03-page__category__carousel d-flex">
                     @foreach ($categories as $category)
-                        <li class="blog03-page__category__item active">
+                        <li class="blog03-page__category__item {{isset($category->selected) ? 'blog03-pagecategoryitem--active':''}}">
                             <a href="{{route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug])}}" >{{$category->title}}</a>
                         </li>
                     @endforeach
@@ -56,14 +57,14 @@
         @endif
         {{-- END .blog03-page__boxs --}}
         <nav aria-label="..." class="blog03-page__pagination">
-            <ul class="pagination pagination-sm">
+            {{-- <ul class="pagination pagination-sm">
                 <li class="page-item active" aria-current="page">
                 <span class="page-link">1</span>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
-            </ul>
-            {{-- {{ $blogs->links() }} --}}
+            </ul> --}}
+            {{ $blogs->links() }}
         </nav>
 
 

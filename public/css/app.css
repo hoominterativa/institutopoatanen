@@ -1433,6 +1433,22 @@ body .owl-dots .owl-dot.active {
 .blog03-page__header {
   height: 308px;
   text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.blog03-page__header .container--header {
+  z-index: 100;
+  position: relative;
+}
+.blog03-page__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.73);
 }
 .blog03-page__header__title {
   font-size: 3.125rem;
@@ -1486,10 +1502,10 @@ body .owl-dots .owl-dot.active {
     min-width: 146px;
   }
 }
-.blog03-page__category__item.active, .blog03-page__category__item:hover {
+.blog03-page__category__item.active, .blog03-page__category__item:hover, .blog03-page__category__item--active {
   background-color: #000;
 }
-.blog03-page__category__item.active a, .blog03-page__category__item:hover a {
+.blog03-page__category__item.active a, .blog03-page__category__item:hover a, .blog03-page__category__item--active a {
   color: #fff;
 }
 .blog03-page__category__item::marker {
@@ -1634,12 +1650,13 @@ body .owl-dots .owl-dot.active {
   display: flex;
   height: 100%;
   align-items: flex-end;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.73);
 }
 .blog03-page__boxs__item__buttons {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  width: 100%;
 }
 .blog03-page__boxs__item__title {
   font-size: 1.25rem;
@@ -1724,10 +1741,12 @@ body .owl-dots .owl-dot.active {
 .blog03-page__pagination ul li {
   display: flex;
 }
-.blog03-page__pagination ul li.active .page-link {
+.blog03-page__pagination ul li.active .page-link, .blog03-page__pagination ul li:hover .page-link {
   background: #000;
+  transition: all 0.5s ease;
 }
 .blog03-page__pagination ul li .page-link {
+  cursor: pointer;
   display: flex;
   background: #7C7C7C;
   font: 1rem "Montserrat", sans-serif, arial;
