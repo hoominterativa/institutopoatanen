@@ -1,59 +1,53 @@
-<section id="BLOG03" class="blog03 container-fluid">
-    <div class="container">
-        <header class="blog03__header">
-            <h3 class="blog03__header__hypertext">
-                <span class="blog03__header__title">Titulo</span>
-                <span class="blog03__header__subtitle">Subtitulo</span>
-            </h3>
-            <hr class="blog03__header__line">
-            <p class="blog03__header__paragraph">dsadsadsad</p>
-        </header>
-        <div class="blog03__boxs row blog03__boxs__carousel owl-carousel">
-            <article class="blog03__boxs__item">
-                <a itemprop="url" href="{{route('blog03.show')}}" class="link-full"></a>
-                <div class="blog03__boxs__item__content d-flex justify-content-between row transition">
-
-                    <figure class="blog03__boxs__item__image px-0">
-                        <img itemprop="image" src="{{asset('storage/uploads/tmp/inner-image.jpg')}}" class="blog03__boxs__item__image__img" width="100%" alt="image"/>
-                    </figure>
-                    <div class="blog03__boxs__item__description col">
-                        <h2 itemprop="name" class="blog03__boxs__item__title"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="34" class="blog03__boxs__item__title__icon" alt="title"/> Titulo Topico</h2>
-                        <div class="blog03__boxs__item__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
-                            </p>
+@if ($blogs->count())
+    <section id="BLOG03" class="blog03 container-fluid">
+        <div class="container">
+            @if ($section)
+                <header class="blog03__header">
+                    @if ($section->title || $section->subtitle)
+                        <h3 class="blog03__header__hypertext">
+                            <span class="blog03__header__title">{{$section->title}}</span>
+                            <span class="blog03__header__subtitle">{{$section->subtitle}}</span>
+                            <hr class="blog03__header__line">
+                        </h3>
+                    @endif
+                    @if ($section->description)
+                        <p class="blog03__header__paragraph">{!! $section->description !!}</p>
+                    @endif
+                </header>
+            @endif
+            <div class="blog03__boxs row blog03__boxs__carousel owl-carousel">
+                @foreach ($blogs as $blog)
+                    <article class="blog03__boxs__item">
+                        <a itemprop="url" href="{{route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug])}}" class="link-full"></a>
+                        <div class="blog03__boxs__item__content d-flex justify-content-between row transition">
+                            <figure class="blog03__boxs__item__image px-0">
+                                @if ($blog->path_image)
+                                    <img itemprop="image" src="{{asset('storage/' . $blog->path_image)}}" class="blog03__boxs__item__image__img" width="100%" alt="image"/>
+                                @endif
+                            </figure>
+                            <div class="blog03__boxs__item__description col">
+                                @if ($blog->title)
+                                    <h2 itemprop="name" class="blog03__boxs__item__title"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="34" class="blog03__boxs__item__title__icon" alt="title"/> {{$blog->title}}</h2>
+                                @endif
+                                <div class="blog03__boxs__item__paragraph">
+                                    @if ($blog->description)
+                                        <p>
+                                            {!! $blog->description !!}
+                                        </p>
+                                    @endif
+                                </div>
+                                <div class="blog03__boxs__item__cta">
+                                    <a href="{{route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug])}}"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03__boxs__item__cta__icon" alt="title"/> CTA</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="blog03__boxs__item__cta">
-                            <a href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03__boxs__item__cta__icon" alt="title"/> CTA</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            {{-- Fim-blog03__boxs__item --}}
-            <article class="blog03__boxs__item">
-                <a itemprop="url" href="{{route('blog03.show')}}" class="link-full"></a>
-                <div class="blog03__boxs__item__content d-flex justify-content-between row transition">
-
-                    <figure class="blog03__boxs__item__image px-0">
-                        <img itemprop="image" src="{{asset('storage/uploads/tmp/inner-image.jpg')}}" class="blog03__boxs__item__image__img" width="100%" alt="image"/>
-                    </figure>
-                    <div class="blog03__boxs__item__description col">
-                        <h2 itemprop="name" class="blog03__boxs__item__title"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="34" class="blog03__boxs__item__title__icon" alt="title"/> Titulo Topico</h2>
-                        <div class="blog03__boxs__item__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
-                            </p>
-                        </div>
-                        <div class="blog03__boxs__item__cta">
-                            <a href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03__boxs__item__cta__icon" alt="title"/> CTA</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            {{-- Fim-blog03__boxs__item --}}
+                    </article>
+                @endforeach
+                {{-- Fim-blog03__boxs__item --}}
+            </div>
+            <div class="blog03__cta">
+                <a href="{{route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug])}}"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03__cta__icon" alt="title"/> Ver todos</a>
+            </div>
         </div>
-        <div class="blog03__cta">
-            <a href="#"><img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="blog03__cta__icon" alt="title"/> CTA</a>
-        </div>
-    </div>
-</section>
+    </section>
+@endif

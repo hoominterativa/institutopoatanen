@@ -54,14 +54,8 @@
                 <div class="row mb-3">
                     <div class="col-12 col-sm-6">
                         <div class="form-check">
-                            {!! Form::checkbox('featured_home', '1', Session::get('filter.featured_home'), ['class'=>'form-check-input', 'id'=>'featured_home']) !!}
-                            {!! Form::label('featured_home', 'Destaque Home', ['class'=>'form-check-label']) !!}
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <div class="form-check">
-                            {!! Form::checkbox('featured_page', '1', Session::get('filter.featured_page'), ['class'=>'form-check-input', 'id'=>'featured_page']) !!}
-                            {!! Form::label('featured_page', 'Destaque Página', ['class'=>'form-check-label']) !!}
+                            {!! Form::checkbox('featured', '1', Session::get('filter.featured'), ['class'=>'form-check-input', 'id'=>'featured']) !!}
+                            {!! Form::label('featured', 'Destaque Home', ['class'=>'form-check-label']) !!}
                         </div>
                     </div>
                 </div>

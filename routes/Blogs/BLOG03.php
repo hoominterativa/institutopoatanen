@@ -40,4 +40,6 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 // // CLIENT
 Route::get($route.'/categoria/{BLOG03BlogsCategory:slug}', [BLOG03Controller::class, 'page'])->name($routeName.'.category.page');
-// Route::get('categoria/{BLOG03BlogsCategory:slug}/'.$route.'/{BLOG03Blogs:slug}', [BLOG03Controller::class, 'show'])->name($routeName.'.show.content');
+Route::get('categoria/{BLOG03BlogsCategory:slug}/'.$route.'/{BLOG03Blogs:slug}', [BLOG03Controller::class, 'show'])->name($routeName.'.show.content');
+Route::get('buscar/'.$route, [BLOG03Controller::class, 'page'])->name($routeName.'.search');
+

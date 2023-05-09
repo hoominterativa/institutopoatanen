@@ -275,8 +275,8 @@ class BLOG03Controller extends Controller
         $BLOG03Blogs->text = conveterOembedCKeditor($BLOG03Blogs->text);
 
         return view('Client.pages.Blogs.BLOG03.show',[
-            // 'blog' => $BLOG03Blogs,
-            // 'blogsRelated' => $blogsRelated,
+            'blog' => $BLOG03Blogs,
+            'blogsRelated' => $blogsRelated,
             'sections' => $sections
         ]);
     }
@@ -287,41 +287,34 @@ class BLOG03Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request, BLOG03BlogsCategory $BLOG03Category)
+    public function page(Request $request, BLOG03BlogsCategory $BLOG03BlogsCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Blogs', 'BLOG03');
 
         $categories = BLOG03BlogsCategory::exists()->active()->sorting()->get();
+        $blogs = BLOG03Blogs::with('category')->active();
 
-        // $blogsFeatured = BLOG03Blogs::with('category')->featuredPage();
-        // $blogFeaturedValidate = BLOG03Blogs::with('category')->featuredPage();
-        $blogs = BLOG03Blogs::with('category')->active()->sorting()->paginate('32');
-
-        if($BLOG03Category->exists){
-            foreach ($categories as $category) {
-                if($BLOG03Category->id==$category->id){
-                    $category->selected = true;
-                }
-            }
-
-            // $blogsFeatured = $blogsFeatured->where('category_id', $BLOG03Category->id);
-            // $blogFeaturedValidate = $blogFeaturedValidate->where('category_id', $BLOG03Category->id);
-            $blogs = $blogs->where('category_id', $BLOG03Category->id);
+        if($BLOG03BlogsCategory->exists){
+            $blogs = $blogs->where('category_id', $BLOG03BlogsCategory->id);
         }
 
-        // $blogsFeatured = $blogsFeatured->sorting()->get();
-        // $blogFeaturedValidate = $blogFeaturedValidate->pluck('id');
-        // $blogs = $blogs->whereNotIn('id', $blogFeaturedValidate)->sorting()->paginate('32');
+        $search = $request->buscar;
+
+        if($search) {
+            $blogs = $blogs->where('title', 'like', "%$search%");
+        }
+
+        $blogs = $blogs->sorting()->paginate(32);
 
         $banner = BLOG03BlogsBanner::active()->first();
 
         return view('Client.pages.Blogs.BLOG03.page',[
             'sections' => $sections,
-            // 'categories' => $categories,
-            // 'blogsFeatured' => $blogsFeatured,
-            // 'blogs' => $blogs,
-            // 'banner' => $banner
+            'categories' => $categories,
+            'blogs' => $blogs,
+            'banner' => $banner,
+            'buscar' => $search
         ]);
     }
 
@@ -332,15 +325,15 @@ class BLOG03Controller extends Controller
      */
     public static function section()
     {
-        // $blogs = BLOG03Blogs::with('category')->featured()->sorting()->get();
-        // $section = BLOG03BlogsSection::first();
+        $blogs = BLOG03Blogs::with('category')->active()->featured()->sorting()->get();
+        $section = BLOG03BlogsSection::first();
 
-        // $category = BLOG03BlogsCategory::first();
+        $category = BLOG03BlogsCategory::first();
 
         return view('Client.pages.Blogs.BLOG03.section',[
-            // 'blogs' => $blogs,
-            // 'section' => $section,
-            // 'category' => $category
+            'blogs' => $blogs,
+            'section' => $section,
+            'category' => $category
         ]);
     }
 }

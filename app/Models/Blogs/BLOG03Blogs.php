@@ -39,7 +39,7 @@ class BLOG03Blogs extends Model
         return $query->where('active', 1);
     }
 
-    public function scopeFeaturedHome($query)
+    public function scopeFeatured($query)
     {
         return $query->where('featured', 1);
     }

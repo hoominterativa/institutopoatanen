@@ -12,7 +12,7 @@
 
     <div class="row col-12">
         <div class="col-12 col-lg-6">
-            <div class="card card-body" id="tooltip-container">
+            <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                     {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
@@ -26,7 +26,7 @@
             {{-- end card-body --}}
         </div>
         <div class="col-12 col-lg-6">
-            <div class="card card-body" id="tooltip-container">
+            <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Background desktop', ['class' => 'form-label']) !!}
@@ -73,9 +73,6 @@
                         </label>
                     </div><!-- END container image crop -->
                 </div>
-            </div>
-            {{-- Color Picker --}}
-            <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
                     {!! Form::text('background_color', null, [
@@ -84,6 +81,7 @@
                     ]) !!}
                 </div>
             </div>
+            {{-- Color Picker --}}
         </div>
         <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
             {!! Form::button('Salvar', [
