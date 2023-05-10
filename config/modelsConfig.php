@@ -228,5 +228,6 @@ return [
     ],
 
     'ModelsCompliances' => (object)[
+        'Code' => 'COMP01'
     ],
 ];
