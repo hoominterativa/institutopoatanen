@@ -114,12 +114,14 @@
                                 </p>
                             </div>
                         @endif
+                        @if ($lastSection->link_button || $lastSection->title_button)
                         <a href="{{ $lastSection->link_button ? getUri($lastSection->link_button) : 'javascript:void(0)' }}" target="{{ $lastSection->target_link_button }}" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02-page__section__cta__icon me-3 transition">
                             @if ($lastSection->title_button)
                                 {{$lastSection->title_button}}
                             @endif
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>
