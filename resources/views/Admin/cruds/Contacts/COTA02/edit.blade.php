@@ -35,24 +35,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#infoBanner" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações do Banner
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode editar as informações do banner"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#infoTopic" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações da seção Tópico
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode editar as informações do tópico"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#infoForm" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Informações formulário
@@ -62,12 +44,30 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#infoBanner" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Informações do Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode editar as informações do banner"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#topicSection" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Tópicos da seção
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro dos tópicos que aparecem na seção acima do formulário"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#infoTopic" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Informações da seção Tópico
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode editar as informações do tópico"></i>
                         </a>
                     </li>
                 </ul>
