@@ -23,10 +23,11 @@
                     @endforeach
                 </nav>
             @endif
-            <form action="{{route('blog03.page')}}" method="GET" class="blog03-page__search parsley-validate send_form_ajax  form-contact">
-                <div class="blog03-page__search__content">
-                    <input type="text" name="buscar" placeholder="Buscar">
-                    <img src="{{asset('storage/uploads/tmp/lupa.png')}}" alt="Lupa">
+            <form action="{{route('blog03.page')}}" method="GET" class="blog03-page__search form">
+                <div class="blog03-page__search__content form-placeholder">
+                    <label for="buscar" class="placeholder--custom">Buscar</label>
+                    <input type="text" name="buscar" class="input">
+                    {{-- <img src="{{asset('storage/uploads/tmp/lupa.png')}}" alt="Lupa"> --}}
                 </div>
             </form>
         </div>
@@ -57,13 +58,6 @@
         @endif
         {{-- END .blog03-page__boxs --}}
         <nav aria-label="..." class="blog03-page__pagination">
-            {{-- <ul class="pagination pagination-sm">
-                <li class="page-item active" aria-current="page">
-                <span class="page-link">1</span>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-            </ul> --}}
             {{ $blogs->links() }}
         </nav>
 

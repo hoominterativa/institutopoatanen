@@ -3447,6 +3447,11 @@ body .owl-dots .owl-dot.active {
 .cont02-page__form .input__item {
   width: 100%;
 }
+.cont02-page__form .input__item--select .form-select {
+  margin-bottom: 0 !important;
+  height: 52px;
+  border-radius: 0 !important;
+}
 .cont02-page__form__inputs__formIput {
   width: 100%;
   justify-content: space-between;
