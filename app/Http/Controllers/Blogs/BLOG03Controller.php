@@ -297,6 +297,12 @@ class BLOG03Controller extends Controller
 
         if($BLOG03BlogsCategory->exists){
             $blogs = $blogs->where('category_id', $BLOG03BlogsCategory->id);
+
+            foreach ($categories as $category) {
+                if($BLOG03BlogsCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
         }
 
         $search = $request->buscar;

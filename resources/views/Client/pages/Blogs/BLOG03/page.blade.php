@@ -17,7 +17,7 @@
             @if ($categories->count())
                 <nav class="blog03-page__category blog03-page__category__carousel d-flex">
                     @foreach ($categories as $category)
-                        <li class="blog03-page__category__item {{isset($category->selected) ? 'blog03-pagecategoryitem--active':''}}">
+                        <li class="blog03-page__category__item {{isset($category->selected) ? 'active':''}}">
                             <a href="{{route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug])}}" >{{$category->title}}</a>
                         </li>
                     @endforeach
