@@ -11,3 +11,4 @@ import '../../pages/Topics/TOPI05/src/main';
 import '../../pages/Feedbacks/FEED03/src/main';
 import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Blogs/BLOG03/src/main';
+import '../../pages/Compliances/COMP01/src/main';
