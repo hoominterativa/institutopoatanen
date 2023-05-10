@@ -24,14 +24,14 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem Desktop', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_banner_desktop->width }}x{{ $cropSetting->path_image_banner_desktop->height }}px!</small>
+                        {{ $cropSetting->InfoBanner->path_image_banner_desktop->width }}x{{ $cropSetting->InfoBanner->path_image_banner_desktop->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_banner_desktop', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_banner_desktop->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_banner_desktop->width, // px
-                            'data-min-height' => $cropSetting->path_image_banner_desktop->height, // px
+                            'data-status' => $cropSetting->InfoBanner->path_image_banner_desktop->activeCrop, // px
+                            'data-min-width' => $cropSetting->InfoBanner->path_image_banner_desktop->width, // px
+                            'data-min-height' => $cropSetting->InfoBanner->path_image_banner_desktop->height, // px
                             'data-box-height' => '300', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($contact)
@@ -47,14 +47,14 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem Mobile', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_banner_mobile->width }}x{{ $cropSetting->path_image_banner_mobile->height }}px!</small>
+                        {{ $cropSetting->InfoBanner->path_image_banner_mobile->width }}x{{ $cropSetting->InfoBanner->path_image_banner_mobile->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_banner_mobile', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_banner_mobile->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_banner_mobile->width, // px
-                            'data-min-height' => $cropSetting->path_image_banner_mobile->height, // px
+                            'data-status' => $cropSetting->InfoBanner->path_image_banner_mobile->activeCrop, // px
+                            'data-min-width' => $cropSetting->InfoBanner->path_image_banner_mobile->width, // px
+                            'data-min-height' => $cropSetting->InfoBanner->path_image_banner_mobile->height, // px
                             'data-box-height' => '300', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($contact)
