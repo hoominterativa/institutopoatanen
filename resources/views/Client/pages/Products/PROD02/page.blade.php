@@ -17,7 +17,7 @@
         @if ($categories->count())
         <ul class="prod02__page__content__category  container-fluid d-flex flex-row justify-content-center align-items-center px-0 flex-wrap">
             @foreach ($categories as $category)
-                <li class="col-md-2 prod02__page__content__category_li">
+                <li class="col-md-2 prod02__page__content__category_li {{isset($category->selected) ? 'active':''}}">
                     <a class="w-100 d-flex justify-content-center align-items-center" href="{{route('prod02.category.page', ['PROD02ProductsCategory' => $category->slug ])}}">
                         @if ($category->path_image_icon)
                             <img src="{{asset('storage/' . $category->path_image_icon)}}" alt="" class="prod02__page__content__category__li__img">

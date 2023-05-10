@@ -2421,13 +2421,13 @@ body .owl-dots .owl-dot.active {
     margin-right: 3px;
   }
 }
-.prod02__page__content__category li:hover {
+.prod02__page__content__category li:hover, .prod02__page__content__category li.active {
   background: #000;
 }
-.prod02__page__content__category li:hover a {
+.prod02__page__content__category li:hover a, .prod02__page__content__category li.active a {
   color: #fff;
 }
-.prod02__page__content__category li:hover img {
+.prod02__page__content__category li:hover img, .prod02__page__content__category li.active img {
   filter: invert(1) grayscale(1);
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
