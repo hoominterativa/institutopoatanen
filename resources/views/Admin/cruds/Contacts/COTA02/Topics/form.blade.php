@@ -1,13 +1,13 @@
 @if (isset($topic))
-    {!! Form::model($topic, ['route' => ['admin.cota02.topic.update', $topic->id], 'class' => 'parsley-validate', 'files' => true, ]) !!}
+    {!! Form::model($topic, ['route' => ['admin.cota02.topic.update', $topic->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => ['admin.cota02.topic.store'], 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => ['admin.cota02.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    <input type="hidden" name="contact_id" value="{{ $contact->id }}">
 @endif
 
 <div class="row">
     <div class="col-12 col-sm-6">
-        <input type="hidden" name="contact_id" value="{{ $contact->id }}">
         <div class="mb-3">
             {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
             {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
