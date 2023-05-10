@@ -1,7 +1,7 @@
 <div id="lightbox-prod02-1-{{$product->slug}}" class="lightbox-prod02 row">
     <div class="row px-0 px-0 mx-0">
         <div class="lightbox-prod02__content__carrossel px-0 col-md-6">
-            <div class="caroussel_prod02-show">
+            <div class="caroussel_prod02-show owl-carousel">
                 @foreach ($product->galleries as $gallery)
                     <div class="lightbox-prod02__image h-100">
                         <img src="{{asset('storage/' . $gallery->path_image)}}" class="h-100 w-100" alt="Subtitulo">
