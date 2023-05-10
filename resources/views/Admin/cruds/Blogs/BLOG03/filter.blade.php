@@ -5,7 +5,7 @@
             Filtros
         </button>
         @if (Session::has('filter'))
-            <a href="{{route('admin.blog03.clearFilter')}}" class="btn btn-info ms-2">Limpar Filtro</a>
+            <a href="{{route('admin.blog01.clearFilter')}}" class="btn btn-info ms-2">Limpar Filtro</a>
         @endif
         <div class="dropdown-menu p-3 bg-light">
             {!! Form::model(null, ['route' => 'admin.blog03.index.filter', 'class'=>'parsley-validate', 'method'=>'POST', 'style' => 'width:300px']) !!}

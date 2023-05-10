@@ -11,42 +11,68 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Blogs', 'BLOG01')}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Blogs', 'BLOG03')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Blogs', 'BLOG01')}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Blogs', 'BLOG03')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end row -->
-                <ul class="mb-0 nav nav-tabs">
+
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#listArticles" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Artigos do Blog</a>
+                        <a href="#categories" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Categorias
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre as categorias para os produtos"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#listArticleCategories" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Categorias</a>
+                        <a href="#blogs" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
+                            {{getTitleModel($configModelsMain, 'Blogs', 'BLOG03')}}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos blogs"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#listArticleSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Este banner será exibido na página blog"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Informações da seção produtos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações complementares que serão exibidas na home, caso esteja ativa"></i>
+                        </a>
                     </li>
                 </ul>
+
                 <div class="tab-content">
-                    <div class="tab-pane show active" id="listArticles">
+                    <div class="tab-pane show active" id="blogs">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row mb-3">
                                             <div class="col-3">
-                                                @include('Admin.cruds.Blogs.BLOG01.filter',[
+                                                @include('Admin.cruds.Blogs.BLOG03.filter',[
                                                     'categories' => $categories
                                                 ])
                                             </div>
                                             <div class="col-4">
-                                                <button id="btSubmitDelete" data-route="{{route('admin.blog01.destroySelected')}}" type="button" class="btn btn-danger btnDeleteBlog" style="display: none;">Deletar selecionados</button>
+                                                <button id="btSubmitDelete" data-route="{{route('admin.blog03.destroySelected')}}" type="button" class="btn btn-danger btnDeleteBLOG03" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-5">
-                                                <a href="{{route('admin.blog01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                <a href="{{route('admin.blog03.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
@@ -54,9 +80,9 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        <label><input name="btnSelectAll" value="btnDeleteBlog" type="checkbox"></label>
+                                                        <label><input name="btnSelectAll" value="btnDeleteBLOG03" type="checkbox"></label>
                                                     </th>
-                                                    <th width="80px"></th>
+                                                    <th></th>
                                                     <th>Categoria</th>
                                                     <th>Título</th>
                                                     <th>Publicação</th>
@@ -65,7 +91,7 @@
                                                 </tr>
                                             </thead>
 
-                                            <tbody data-route="{{route('admin.blog01.sorting')}}">
+                                            <tbody data-route="{{route('admin.blog03.sorting')}}">
                                                 @foreach ($blogs as $blog)
                                                     <tr data-code="{{$blog->id}}">
                                                         <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -74,36 +100,28 @@
                                                         </td>
                                                         <td class="align-middle avatar-group">
                                                             @if ($blog->path_image)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$blog->path_image)}})"></div>
-                                                            @endif
-                                                            @if ($blog->path_image_thumbnail)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$blog->path_image_thumbnail)}})"></div>
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' .$blog->path_image)}})"></div>
                                                             @endif
                                                         </td>
-                                                        <td class="align-middle"><b>{{$blog->category->title}}</b></td>
+                                                        <td class="align-middle">{{$blog->category->title}}</td>
                                                         <td class="align-middle">{{$blog->title}}</td>
                                                         <td class="align-middle">{{Carbon\Carbon::parse($blog->publishing)->format('d/m/Y')}}</td>
                                                         <td class="align-middle">
-                                                            <div class="d-flex">
-                                                                @if ($blog->active)
-                                                                    <span class="badge bg-success me-2">Ativo</span>
-                                                                @else
-                                                                    <span class="badge bg-danger me-2">Inativo</span>
-                                                                @endif
-                                                                @if ($blog->featured_home)
-                                                                    <span class="badge bg-primary text-white me-2">Destaque Home</span>
-                                                                @endif
-                                                                @if ($blog->featured_page)
-                                                                    <span class="badge bg-info text-white me-2">Destaque Página</span>
-                                                                @endif
-                                                            </div>
+                                                            @if ($blog->active)
+                                                                <span class="badge bg-success me-2">Ativo</span>
+                                                            @else
+                                                                <span class="badge bg-danger me-2">Inativo</span>
+                                                            @endif
+                                                            @if ($blog->featured)
+                                                                <span class="badge bg-primary text-white me-2">Destaque Home</span>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <a href="{{route('admin.blog01.edit',['BLOG01Blogs' => $blog->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                                    <a href="{{route('admin.blog03.edit',['BLOG03Blogs' => $blog->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                                 </div>
-                                                                <form action="{{route('admin.blog01.destroy',['BLOG01Blogs' => $blog->id])}}" class="col-4" method="POST">
+                                                                <form action="{{route('admin.blog03.destroy',['BLOG03Blogs' => $blog->id])}}" class="col-4" method="POST">
                                                                     @method('DELETE') @csrf
                                                                     <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                                 </form>
@@ -123,16 +141,25 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="listArticleCategories">
-                        @include('Admin.cruds.Blogs.BLOG01.Category.index',[
+                    <div class="tab-pane" id="categories">
+                        @include('Admin.cruds.Blogs.BLOG03.Category.index',[
                             'categories' => $blogCategories
                         ])
                     </div>
-                    <div class="tab-pane" id="listArticleSection">
+                    <div class="tab-pane" id="section">
                         <div class="card">
                             <div class="card-body">
-                                @include('Admin.cruds.Blogs.BLOG01.Section.form',[
+                                @include('Admin.cruds.Blogs.BLOG03.Section.form',[
                                     'section' => $section
+                                ])
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        <div class="card">
+                            <div class="card-body">
+                                @include('Admin.cruds.Blogs.BLOG03.Banner.form',[
+                                    'banner' => $banner
                                 ])
                             </div>
                         </div>

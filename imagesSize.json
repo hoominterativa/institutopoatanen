@@ -60,6 +60,25 @@
                 "height": "600",
                 "activeCrop": "false"
             }
+        },
+        "BLOG03": {
+            "path_image": {
+                "width": "600",
+                "height": "600",
+                "activeCrop": "false"
+            },
+            "Banner":{
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "308",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "1500",
+                    "height": "308",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Brands": {
