@@ -50,6 +50,8 @@
         }
     }
     &__boxForm{
+        @include backG;
+        
         .container--boxForm{
             padding: 68px 0 59px 0;
 

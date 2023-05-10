@@ -3324,6 +3324,11 @@ body .owl-dots .owl-dot.active {
   margin-top: 0;
   color: #7C7C7C;
 }
+.cont02-page__boxForm {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .cont02-page__boxForm .container--boxForm {
   padding: 68px 0 59px 0;
 }
