@@ -9,6 +9,8 @@
 
 
     &__content{
+        margin-left: 170px;
+
         @include medium-device-down {
            margin-left: 53px;
         }
@@ -19,9 +21,12 @@
 
         .header-gall02{
             text-align: center;
+            width: 88%;
+            margin: 0 auto;
             margin-bottom: 197px;
 
             @include medium-device-down {
+                width: 100%;
                 margin-bottom: 157px;
             }
             .container-title{
@@ -112,7 +117,8 @@
         display: flex !important;
         margin-top: 75px;
         gap: 0 20.5px;
-        width: 82%;
+        width: calc(100vw - 350px);
+        margin-right: auto;
 
         @include medium-device-down {
             width: 62%;

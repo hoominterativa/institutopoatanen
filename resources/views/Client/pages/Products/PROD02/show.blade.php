@@ -33,6 +33,7 @@
                 @if ($product->title_button)
                     {{$product->title_button}}
                 @endif
+            </a>    
         </div>
         {{-- END .lightbox-prod02__description --}}
     </div>

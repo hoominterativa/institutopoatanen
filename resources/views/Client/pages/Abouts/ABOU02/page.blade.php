@@ -5,6 +5,7 @@
     <section class="container-fluid px-0">
         @if ($banner)
             <header class="abou02-page__header" style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{ $banner->background_color }};">
+                <div class="abou02-page__header__mask"></div>
                 @if ($banner->title || $banner->subtitle)
                     <h2 class="container container--abou02-header d-block text-center">
                         <span class="abou02-page__header__title d-block">{{$banner->title}}</span>

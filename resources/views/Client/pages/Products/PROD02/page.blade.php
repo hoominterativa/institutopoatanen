@@ -4,7 +4,8 @@
 <section class="container-fluid px-0 prod02__page">
     @if ($banner)
         <header class="prod02__page__header w-100 d-flex justify-content-center align-items-end" style="background-image: url({{asset('storage/'.$banner->path_image_desktop)}});background-color: {{$banner->background_color}}">
-            <div class="d-flex">
+            <div class="prod02__page__header__mask"></div>
+            <div class="d-flex container--prod02__page__header">
                 @if ($banner->title)
                     <h4 class="prod02__page__header__title">{{$banner->title}}</h4>
                 @endif
