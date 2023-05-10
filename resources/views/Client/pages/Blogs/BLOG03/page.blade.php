@@ -23,7 +23,7 @@
                     @endforeach
                 </nav>
             @endif
-            <form action="{{route('blog03.page')}}" method="GET" class="blog03-page__search">
+            <form action="{{route('blog03.page')}}" method="GET" class="blog03-page__search parsley-validate send_form_ajax  form-contact">
                 <div class="blog03-page__search__content">
                     <input type="text" name="buscar" placeholder="Buscar">
                     <img src="{{asset('storage/uploads/tmp/lupa.png')}}" alt="Lupa">

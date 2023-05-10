@@ -311,7 +311,7 @@ class BLOG03Controller extends Controller
             $blogs = $blogs->where('title', 'like', "%$search%");
         }
 
-        $blogs = $blogs->sorting()->paginate(1);
+        $blogs = $blogs->sorting()->paginate(9);
 
         $banner = BLOG03BlogsBanner::active()->first();
 

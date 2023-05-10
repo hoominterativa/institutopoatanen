@@ -3956,13 +3956,16 @@ body .owl-dots .owl-dot.active {
     width: 90%;
   }
 }
+.blog03-page__boxs {
+  gap: 28px 0;
+}
 @media (max-width: 767.98px) {
   .blog03-page__boxs {
     gap: 15px 0;
   }
 }
 .blog03-page__boxs__item {
-  min-height: 351px;
+  height: 351px;
   position: relative;
 }
 @media (max-width: 767.98px) {

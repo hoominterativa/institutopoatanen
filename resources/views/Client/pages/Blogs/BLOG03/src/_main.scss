@@ -451,13 +451,14 @@
     }
 
     &__boxs{
-
+        gap:28px 0;
         @include medium-device-down{
             gap: 15px 0;
         }
         &__item{
-            min-height: 351px;
+            height: 351px;
             position: relative;
+            
 
             @include medium-device-down{
                 height: 351px;
