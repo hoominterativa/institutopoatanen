@@ -7,6 +7,7 @@
                 <header class="cont02-page__header"
                     style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }}); background-color: {{
                     $contact->background_color_banner }};">
+                    <div class="cont02-page__header__mask"></div>
                     <div class="container container-cont02-page__header">
                         @if ($contact->title_banner || $contact->subtitle_banner)
                             <h2 class="cont02-page__header__title d-block">{{ $contact->title_banner }}</h2>

@@ -14,8 +14,8 @@
                 <hr class="lightbox-abou02__line">
             @endif
             <div class="lightbox-abou02__paragraph">
-                @if ($topic->description)
-                    <p>{!! $topic->description !!}</p>
+                @if ($topic->text)
+                    <p>{!! $topic->text !!}</p>
                 @endif
             </div>
         </div>

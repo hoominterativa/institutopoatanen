@@ -541,21 +541,49 @@
                 }
             }
         },
-        "CONT02":{
-            "path_image_background_desktop": {
-                "width":"1500",
-                "height":"645",
-                "activeCrop": "true"
+        "COTA02":{
+            "InfoForm": {
+                "path_image_form_desktop": {
+                    "width":"1500",
+                    "height":"645",
+                    "activeCrop": "true"
+                },
+                "path_image_form_mobile": {
+                    "width":"390",
+                    "height":"782",
+                    "activeCrop": "true"
+                }
             },
-            "path_image_background_mobile": {
-                "width":"390",
-                "height":"782",
-                "activeCrop": "true"
+            "InfoBanner": {
+                "path_image_banner_desktop": {
+                    "width":"1500",
+                    "height":"352",
+                    "activeCrop": "true"
+                },
+                "path_image_banner_mobile": {
+                    "width":"390",
+                    "height":"340",
+                    "activeCrop": "true"
+                }
             },
-            "path_image": {
-                "width":"429.09",
-                "height":"591.92",
-                "activeCrop": "false"
+            "InfoTopic": {
+                "path_image_topic_desktop": {
+                    "width":"1500",
+                    "height":"280",
+                    "activeCrop": "true"
+                },
+                "path_image_topic_mobile": {
+                    "width":"390",
+                    "height":"725",
+                    "activeCrop": "true"
+                }
+            },
+            "Topic": {
+                "path_image_icon": {
+                    "width":"300",
+                    "height":"300",
+                    "activeCrop": "false"
+                }
             }
         }
     },

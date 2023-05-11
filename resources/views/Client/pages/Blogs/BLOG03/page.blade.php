@@ -23,9 +23,9 @@
                     @endforeach
                 </nav>
             @endif
-            <form action="{{route('blog03.page')}}" method="GET" class="blog03-page__search">
-                <div class="blog03-page__search__content">
-                    <input type="text" name="buscar" placeholder="Buscar">
+            <form action="{{route('blog03.page')}}" method="GET" class="blog03-page__search form">
+                <div class="blog03-page__search__content input__item input__item--text">
+                    <input type="text" name="buscar" class="input" placeholder="Buscar">
                     <img src="{{asset('storage/uploads/tmp/lupa.png')}}" alt="Lupa">
                 </div>
             </form>
@@ -57,13 +57,6 @@
         @endif
         {{-- END .blog03-page__boxs --}}
         <nav aria-label="..." class="blog03-page__pagination">
-            {{-- <ul class="pagination pagination-sm">
-                <li class="page-item active" aria-current="page">
-                <span class="page-link">1</span>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-            </ul> --}}
             {{ $blogs->links() }}
         </nav>
 

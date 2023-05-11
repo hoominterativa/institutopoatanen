@@ -5,6 +5,7 @@
     <section class="container-fluid px-0">
         @if ($banner)
             <header class="abou02-page__header" style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{ $banner->background_color }};">
+                <div class="abou02-page__header__mask"></div>
                 @if ($banner->title || $banner->subtitle)
                     <h2 class="container container--abou02-header d-block text-center">
                         <span class="abou02-page__header__title d-block">{{$banner->title}}</span>
@@ -113,12 +114,14 @@
                                 </p>
                             </div>
                         @endif
+                        @if ($lastSection->link_button || $lastSection->title_button)
                         <a href="{{ $lastSection->link_button ? getUri($lastSection->link_button) : 'javascript:void(0)' }}" target="{{ $lastSection->target_link_button }}" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02-page__section__cta__icon me-3 transition">
                             @if ($lastSection->title_button)
                                 {{$lastSection->title_button}}
                             @endif
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>

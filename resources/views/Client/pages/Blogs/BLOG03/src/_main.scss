@@ -230,7 +230,7 @@
                 color: $color-white;
                 background-color: $color-black;
 
-                .blog03__boxs__item__cta__icon{
+                img{
                     filter: invert(1) grayscale(1);
                 }
             }
@@ -451,13 +451,14 @@
     }
 
     &__boxs{
-
+        gap:28px 0;
         @include medium-device-down{
             gap: 15px 0;
         }
         &__item{
-            min-height: 351px;
+            height: 351px;
             position: relative;
+
 
             @include medium-device-down{
                 height: 351px;
@@ -620,9 +621,9 @@
 
 
 
-// END .blog01-page
+// END .blog03-page
 
-.blog01-show{
+.blog03-show{
     padding: 80px 0;
     @include medium-device-down{
         padding: 50px 30px;

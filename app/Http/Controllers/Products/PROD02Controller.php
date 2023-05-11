@@ -241,6 +241,12 @@ class PROD02Controller extends Controller
 
         if($PROD02ProductsCategory->exists){
             $products = $products->where('category_id', $PROD02ProductsCategory->id);
+
+            foreach ($categories as $category) {
+                if($PROD02ProductsCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
         }
 
         $products = $products->sorting()->get();

@@ -157,6 +157,11 @@
         line-height: 22px;
         transition: 0.5s all ease;
     }
+
+    .carousel-feed03 .owl-nav .owl-next span,
+    .carousel-feed03 .owl-nav .owl-prev span{
+        line-height: 32px;
+    }
     .carousel-feed03 .owl-nav .owl-prev:hover{
         background: #000;
         transition: 0.5s all ease;

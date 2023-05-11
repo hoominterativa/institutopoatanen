@@ -54,12 +54,16 @@
             &__nav__desktop{
                 display: flex;
                 width: 79.5%;
+                gap: 0 108px;
 
                 @include small-device{
                     width: auto;
                 }
                 ul{
-                    gap:0 46px;
+                    gap: 11px 46px;
+                    justify-content: flex-end;
+                    margin-left: auto;
+                    flex-wrap: wrap;
 
                     @include small-device{
                         display: none !important;
@@ -73,6 +77,14 @@
                             color: $color-black;
                             font-family: $font-primary;
                             font-weight: $weight-700;
+                            gap: 0 10px;
+                            display: flex;
+
+                            img{
+                                width:34px;
+                                height:auto;
+                                object-fit: contain;
+                            }
                         }
 
                         &:hover a{
@@ -228,29 +240,56 @@
             }
         }
         .carousel-prod02 .owl-dots{
-            display: flex;
-            margin: 0 auto;
-            justify-content: center;
-            margin-top: 28px;
-            gap: 0 5px;
-
-
-            @include small-device{
-                margin: inherit !important;
-                margin-top: 28px !important;
-                justify-content: flex-start;
-            }
-
+            display:none !important;
         }
-        .carousel-prod02 .owl-dots .owl-dot{
-            width: 22px;
-            height: 16px;
-            background-color: $color-three;
+        .carousel-prod02 .owl-nav{
+            display: flex;
+            margin-top: 30px;
+            gap: 0 20.5px;
+
+
+            @include medium-device-down{
+                width: 61%;
+            }
+        }
+        .carousel-prod02 .owl-nav .owl-prev,
+        .carousel-prod02 .owl-nav .owl-next{
+            height: 29px;
+            width: 29px;
+            border-radius: 100%;
+            background-color: $color-one;
             @include dflex;
         }
-        .carousel-prod02 .owl-dots .owl-dot.active{
-            background-color: $color-one;
+        .carousel-prod02 .owl-nav .owl-prev span,
+        .carousel-prod02 .owl-nav .owl-next span{
+            color:#fff;
+            font-size: 32px;
+            height: 30px;
         }
+        // .carousel-prod02 .owl-dots{
+        //     display: flex;
+        //     margin: 0 auto;
+        //     justify-content: center;
+        //     margin-top: 28px;
+        //     gap: 0 5px;
+
+
+        //     @include small-device{
+        //         margin: inherit !important;
+        //         margin-top: 28px !important;
+        //         justify-content: flex-start;
+        //     }
+
+        // }
+        // .carousel-prod02 .owl-dots .owl-dot{
+        //     width: 22px;
+        //     height: 22px;
+        //     background-color: $color-three;
+        //     @include dflex;
+        // }
+        // .carousel-prod02 .owl-dots .owl-dot.active{
+        //     background-color: $color-one;
+        // }
     }
 
     // END content_product
@@ -268,7 +307,21 @@
         height: 304px;
         padding: 0 16px;
         padding-bottom: 61px;
+        @include backG;
+        position: relative;
 
+        .container--prod02__page__header{
+            z-index:100;
+            position: relative;
+        }
+        &__mask{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0 0 0 / 73%);
+        }
         &__title{
             font-size: $T1;
             color: $color-black;
@@ -287,6 +340,7 @@
     &__content{
         margin-top: -23px;
         padding-bottom: 79px;
+        position: relative;
 
         @include small-device{
             overflow: hidden;
@@ -334,7 +388,7 @@
 
                 }
 
-                &:hover{
+                &:hover, &.active{
                     background: $color-black;
 
                     a{
@@ -493,7 +547,7 @@
     .caroussel_prod02-show .owl-nav .owl-next span{
         color:#fff;
         font-size: 32px;
-        height: 58px;
+        height: 30px;
     }
     &__description{
         position: relative;
