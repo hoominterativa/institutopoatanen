@@ -3800,7 +3800,7 @@ body .owl-dots .owl-dot.active {
   color: #fff;
   background-color: #000;
 }
-.blog03__cta a:hover .blog03__boxs__item__cta__icon {
+.blog03__cta a:hover img {
   filter: invert(1) grayscale(1);
 }
 .blog03 .blog03__boxs__carousel .owl-dots {
