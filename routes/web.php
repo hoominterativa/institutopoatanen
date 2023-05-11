@@ -58,6 +58,9 @@ View::composer('Client.Core.client', function ($view) {
     $coreRender = new CoreController();
     $listMenu = $coreRender->buildListMenu();
 
+    $arrayParam = explode('/',Route::current()->uri);
+    $classCores = end($arrayParam);
+
     return $view->with('renderHeader', $renderCore->renderHeader())
         ->with('renderFooter', $renderCore->renderFooter())
         ->with('optimizePage', $optimizePage)
@@ -67,6 +70,7 @@ View::composer('Client.Core.client', function ($view) {
         ->with('listMenu', $listMenu)
         ->with('linksCtaHeader', $linksCtaHeader)
         ->with('linksCtaFooter', $linksCtaFooter)
+        ->with('classCores', $classCores)
         ->with('generalSetting', $generalSetting);
 });
 
@@ -133,10 +137,10 @@ Route::prefix('painel')->group(function () {
         })->name('admin.icons');
 
         // GENERAL SETTING
-        Route::resource('configuracoes/gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['configuracoes-gerais' => 'GeneralSetting']);
+        Route::resource('configuracoes/gerais', GeneralSettingController::class)->names('admin.generalSetting')->parameters(['gerais' => 'GeneralSetting']);
 
         // SETTING SMTP
-        Route::resource('configuracoes/smtp', SettingSmtpController::class)->names('admin.settingSmtp')->parameters(['configuracao-smtp' => 'SettingSmtp']);
+        Route::resource('configuracoes/smtp', SettingSmtpController::class)->names('admin.settingSmtp')->parameters(['smtp' => 'SettingSmtp']);
         Route::post('configuracoes/smtp/verify', [SettingSmtpController::class, 'smtpVerify'])->name('admin.settingSmtp.smtpVerify');
 
         // SETTING HEADER

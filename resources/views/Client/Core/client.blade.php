@@ -22,11 +22,11 @@
 {{-- <body data-device=""> --}}
 <body data-device="{{ deviceDetect() }}">
     {!!$optimization->other_scripts!!}
-    <header id="mainHeader">
+    <header id="mainHeader" class="header-{{$classCores}} {{$classCores<>'home'?'custom-header':''}}">
         {!!$renderHeader!!}
     </header>
     @yield('content')
-    <footer id="mainFooter">
+    <footer id="mainFooter" class="footer-{{$classCores}} {{$classCores<>'home'?'custom-footer':''}}">
         {!!$renderFooter!!}
     </footer>
 

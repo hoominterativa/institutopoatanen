@@ -49,38 +49,63 @@ class GeneralSettingController extends Controller
         $data = $request->all();
 
         $path_logo_header_light = $helper->optimizeImage($request, 'path_logo_header_light', $path, null,100);
-        $path_logo_header_dark = $helper->optimizeImage($request, 'path_logo_header_dark', $path, null,100);
-        $path_logo_footer_light = $helper->optimizeImage($request, 'path_logo_footer_light', $path, null,100);
-        $path_logo_footer_dark = $helper->optimizeImage($request, 'path_logo_footer_dark', $path, null, 100);
-        $path_logo_share = $helper->optimizeImage($request, 'path_logo_share', $path, null,100);
-        $path_favicon = $helper->optimizeImage($request, 'path_favicon', $path, null,100);
-
         if($path_logo_header_light){
             storageDelete($GeneralSetting, 'path_logo_header_light');
-            $data["path_logo_header_light"] = $path_logo_header_light;
+            $data['path_logo_header_light'] = $path_logo_header_light;
         }
+        if($request->delete_path_logo_header_light && !$path_logo_header_light){
+            storageDelete($GeneralSetting, 'path_logo_header_light');
+            $data['path_logo_header_light'] = null;
+        }
+
+        $path_logo_header_dark = $helper->optimizeImage($request, 'path_logo_header_dark', $path, null,100);
         if($path_logo_header_dark){
             storageDelete($GeneralSetting, 'path_logo_header_dark');
-            $data["path_logo_header_dark"] = $path_logo_header_dark;
+            $data['path_logo_header_dark'] = $path_logo_header_dark;
+        }
+        if($request->delete_path_logo_header_dark && !$path_logo_header_dark){
+            storageDelete($GeneralSetting, 'path_logo_header_dark');
+            $data['path_logo_header_dark'] = null;
         }
 
+        $path_logo_footer_light = $helper->optimizeImage($request, 'path_logo_footer_light', $path, null,100);
         if($path_logo_footer_light){
             storageDelete($GeneralSetting, 'path_logo_footer_light');
-            $data["path_logo_footer_light"] = $path_logo_footer_light;
+            $data['path_logo_footer_light'] = $path_logo_footer_light;
         }
+        if($request->delete_path_logo_footer_light && !$path_logo_footer_light){
+            storageDelete($GeneralSetting, 'path_logo_footer_light');
+            $data['path_logo_footer_light'] = null;
+        }
+
+        $path_logo_footer_dark = $helper->optimizeImage($request, 'path_logo_footer_dark', $path, null,100);
         if($path_logo_footer_dark){
             storageDelete($GeneralSetting, 'path_logo_footer_dark');
-            $data["path_logo_footer_dark"] = $path_logo_footer_dark;
+            $data['path_logo_footer_dark'] = $path_logo_footer_dark;
+        }
+        if($request->delete_path_logo_footer_dark && !$path_logo_footer_dark){
+            storageDelete($GeneralSetting, 'path_logo_footer_dark');
+            $data['path_logo_footer_dark'] = null;
         }
 
+        $path_logo_share = $helper->optimizeImage($request, 'path_logo_share', $path, null,100);
         if($path_logo_share){
             storageDelete($GeneralSetting, 'path_logo_share');
-		    $data["path_logo_share"] = $path_logo_share;
+            $data['path_logo_share'] = $path_logo_share;
+        }
+        if($request->delete_path_logo_share && !$path_logo_share){
+            storageDelete($GeneralSetting, 'path_logo_share');
+            $data['path_logo_share'] = null;
         }
 
+        $path_favicon = $helper->optimizeImage($request, 'path_favicon', $path, null,100);
         if($path_favicon){
             storageDelete($GeneralSetting, 'path_favicon');
-		    $data["path_favicon"] = $path_favicon;
+            $data['path_favicon'] = $path_favicon;
+        }
+        if($request->delete_path_favicon && !$path_favicon){
+            storageDelete($GeneralSetting, 'path_favicon');
+            $data['path_favicon'] = null;
         }
 
         if($GeneralSetting->fill($data)->save()){
@@ -97,7 +122,6 @@ class GeneralSettingController extends Controller
             Session::flash('error', 'Erro ao atualizar informações');
             return redirect()->back();
         }
-
     }
 
     /**
