@@ -31,7 +31,7 @@
             }
             .container-title{
                 margin-bottom: 26px;
-                
+
                 @include medium-device-down {
                     margin-bottom:18px;
                 }
@@ -63,7 +63,7 @@
             }
         }
 
-        
+
         .box-gall02{
             width:100%;
 
@@ -96,7 +96,7 @@
                         @include Flex;
                         opacity: 0;
                         visibility: hidden;
-                      
+
 
                         .title{
                             font: $paragraph;
@@ -121,9 +121,9 @@
         margin-right: auto;
 
         @include medium-device-down {
-            width: 62%;
+            width: 75%;
         }
-        
+
     }
     .carousel-gall02 .owl-dots{
         display: none !important;
@@ -174,8 +174,8 @@
         border-radius: 5px;
         background-color: $color-black;
     }
-   
-    &__content{  
+
+    &__content{
         display: flex;
         flex-direction: column;
     }
@@ -223,7 +223,7 @@
             display: block;
             margin-bottom: 25px;
 
- 
+
             @include medium-device-down {
                 height: 240px;
             }

@@ -123,11 +123,20 @@
             color:$color-black;
         }
 
-
+        .carousel_abou02 .owl-dots{
+            display:none !important;
+        }
         .carousel_abou02 .owl-nav{
             display: flex;
             margin-top: 30px;
-            gap: 0 20.5px;
+            gap: 0 18px;
+            justify-content: flex-start;
+
+
+            @include medium-device-down{
+                width: 61%;
+                justify-content: flex-start;
+            }
         }
         .carousel_abou02 .owl-nav .owl-prev,
         .carousel_abou02 .owl-nav .owl-next{
@@ -179,7 +188,7 @@
         @include bgpadrao;
         height: 352px;
         position: relative;
-        
+
         .container--abou02-header{
             padding: 112px 0 92px 0 !important;
             z-index:100;
@@ -460,7 +469,7 @@
     &__image{
         height: 592px;
         width: 429px;
-        border-radius: 0px; 
+        border-radius: 0px;
     }
     &__description{
         padding-left: 170.46px;

@@ -24,10 +24,9 @@
                 </nav>
             @endif
             <form action="{{route('blog03.page')}}" method="GET" class="blog03-page__search form">
-                <div class="blog03-page__search__content form-placeholder">
-                    <label for="buscar" class="placeholder--custom">Buscar</label>
-                    <input type="text" name="buscar" class="input">
-                    {{-- <img src="{{asset('storage/uploads/tmp/lupa.png')}}" alt="Lupa"> --}}
+                <div class="blog03-page__search__content input__item input__item--text">
+                    <input type="text" name="buscar" class="input" placeholder="Buscar">
+                    <img src="{{asset('storage/uploads/tmp/lupa.png')}}" alt="Lupa">
                 </div>
             </form>
         </div>

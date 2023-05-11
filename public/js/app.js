@@ -12315,31 +12315,33 @@ $(function () {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-var valorAntigo = $("#videoApre").attr('data-src');
-var caminhoCapaVideo = $("#videoApre").attr('data-capa-video');
-var arrValorAntigo = new Array();
+if ($("#videoApre").length) {
+  var valorAntigo = $("#videoApre").attr('data-src');
+  var caminhoCapaVideo = $("#videoApre").attr('data-capa-video');
+  var arrValorAntigo = new Array();
 
-if (valorAntigo.indexOf("/embed/") > 0) {
-  if (valorAntigo != "") {
-    arrValorAntigo = valorAntigo.split("/embed/");
+  if (valorAntigo.indexOf("/embed/") > 0) {
+    if (valorAntigo != "") {
+      arrValorAntigo = valorAntigo.split("/embed/");
 
-    if (arrValorAntigo.length > 1) {
-      arrValorAntigo = arrValorAntigo[1].split('&');
+      if (arrValorAntigo.length > 1) {
+        arrValorAntigo = arrValorAntigo[1].split('&');
 
-      if (caminhoCapaVideo == "") {
-        $("#videoApre").css('background-image', 'url(https://i.ytimg.com/vi/' + arrValorAntigo[0] + '/hqdefault.jpg)');
-      } else {
-        $("#videoApre").css('background-image', 'url(' + caminhoCapaVideo + ')');
+        if (caminhoCapaVideo == "") {
+          $("#videoApre").css('background-image', 'url(https://i.ytimg.com/vi/' + arrValorAntigo[0] + '/hqdefault.jpg)');
+        } else {
+          $("#videoApre").css('background-image', 'url(' + caminhoCapaVideo + ')');
+        }
       }
     }
   }
-}
 
-$('body').on('click', '#videoApre .play', function () {
-  $urlVideo = $(this).parents('#videoApre').attr('data-src');
-  $(this).parents('.cont06__boxVideo__content').append('<iframe id="urlYoutube" width="99.5%" height=500" src="' + $urlVideo + '?autoplay=1" frameborder="0" allowfullscreen></iframe>');
-  $(this).parents('#videoApre').remove();
-});
+  $('body').on('click', '#videoApre .play', function () {
+    $urlVideo = $(this).parents('#videoApre').attr('data-src');
+    $(this).parents('.cont06__boxVideo__content').append('<iframe id="urlYoutube" width="99.5%" height=500" src="' + $urlVideo + '?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+    $(this).parents('#videoApre').remove();
+  });
+}
 
 /***/ }),
 
