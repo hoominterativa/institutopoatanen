@@ -10,11 +10,11 @@
                 </div>
                 {{-- Finish prod02__navigation__content__encompass --}}
                 <nav class="prod02__navigation__content__nav__desktop justify-content-between align-items-center">
-                    @foreach ($categories as $category)
-                        <ul class="d-flex align-content-center mb-0 px-0">
+                    <ul class="d-flex align-content-center mb-0 px-0">
+                        @foreach ($categories as $category)
                             <li><a href="{{route('prod02.category.page',['PROD02ProductsCategory' => $category->slug])}}">{{$category->title}}</a></li>
-                        </ul>
-                    @endforeach
+                        @endforeach
+                    </ul>
                     {{-- Finish prod02__navigation__content__ul --}}
                     <a href="{{route('prod02.page')}}" class="prod02__navigation__content__nav__desktop__cta transition d-flex justify-content-center align-items-center">
                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__navigation__content__nav__desktop__cta__icon me-3 transition">
