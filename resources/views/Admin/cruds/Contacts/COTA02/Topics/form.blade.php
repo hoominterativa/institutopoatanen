@@ -30,7 +30,6 @@
             {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
     </div>
-
     <div class="col-12 col-sm-6">
         <div class="mb-3">
             <div class="container-image-crop">
