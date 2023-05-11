@@ -1,6 +1,7 @@
 @if (isset($topic))
     {!! Form::model($topic, ['route' => ['admin.cota02.topic.update', $topic->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
+
 @else
     {!! Form::model(null, ['route' => ['admin.cota02.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
     <input type="hidden" name="contact_id" value="{{ $contact->id }}">

@@ -98,6 +98,7 @@
                             'files' => true,
                         ]) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoBanner.form')
+                        {!! Form::close() !!}
                     </div>
 
                     <div class="tab-pane" id="infoTopic">
@@ -108,6 +109,7 @@
                             'files' => true,
                         ]) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoTopic.form')
+                        {!! Form::close() !!}
                     </div>
 
                     <div class="tab-pane" id="infoForm">
@@ -118,6 +120,7 @@
                             'files' => true,
                         ]) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoForm.form')
+                        {!! Form::close() !!}
                     </div>
 
                     <div class="tab-pane" id="topicSection">
