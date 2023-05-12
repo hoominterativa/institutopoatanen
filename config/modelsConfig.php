@@ -42,7 +42,7 @@ return [
                     'linkMenu' => 'pota01.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Portais',
-                    'iconPanel' => ''
+                    'iconPanel' => 'mdi-filter-plus'
                 ],
                 'IncludeSections' => (object) []
             ],

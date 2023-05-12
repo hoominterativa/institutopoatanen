@@ -32,7 +32,7 @@
                     <div class="owl-carousel-dashboard">
                         @foreach ($modelsMain as $module => $models)
                             @foreach ($models as $code => $model)
-                                @if ($model->ViewListPanel)
+                                @if ($model->ViewListPanel && !isset($model->CustomPanelView))
                                     <div class="col-auto">
                                         <a nofollow href="{{route('admin.'.Str::lower($code).'.index')}}">
                                             <div class="widget-rounded-circle card mb-0">
@@ -59,6 +59,34 @@
                         @endforeach
                     </div>
                 </div>
+
+                {{-- CUSTOM VIEW PANEL --}}
+                @foreach ($modelsMain as $module => $models)
+                    @foreach ($models as $code => $model)
+                        @if ($model->CustomPanelView??false)
+                            @if ($model->CustomPanelView[0])
+                                <div id="{{$module}}" class="card card-body card--custom" >
+                                    <!-- start page title -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="page-title-box">
+                                                <h4 class="page-title d-flex align-items-center mb-2" style="line-height: 47px; {{isset($model->CustomPanelView[1])?'color:'.$model->CustomPanelView[1].' !important;':''}}">
+                                                    <i class="mdi {{$model->config->iconPanel}} mdi-36px me-2 mt-1 text-muted" style="{{isset($model->CustomPanelView[1])?'color:'.$model->CustomPanelView[1].' !important;':''}}"></i>
+                                                    {{$model->config->titlePanel}}
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end page title -->
+
+                                    @include('Admin.cruds.'.$module.'.'.$code.'.panel')
+
+                                </div>
+                            @endif
+                        @endif
+                    @endforeach
+                @endforeach
+
                 <div class="card card-body card--custom" >
                     <!-- start page title -->
                     <div class="row">
