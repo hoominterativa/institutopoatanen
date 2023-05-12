@@ -189,6 +189,38 @@ return [
         ],
         // END PORTFOLIOS
 
+        'Products' => (object)[
+            'PROD02' => (object)[
+                'controller' => App\Http\Controllers\Products\PROD02Controller::class,
+                'model' => App\Models\Products\PROD02Products::class,
+                'seedQty' => 12,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Products\PROD02ProductsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ]
+                ]
+            ],
+        ],
+        // END PRODUCTS
+
+        'Portals' => (object)[
+            'POTA01' => (object)[
+                'controller' => App\Http\Controllers\Portals\POTA01Controller::class,
+                'model' => App\Models\Portals\POTA01Portals::class,
+                'seedQty' => 12,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Portals\POTA01PortalsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ]
+                ]
+            ],
+        ],
+        // END PRODUCTS
+
         'Services' => (object)[
             'SERV01' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV01Controller::class,
@@ -209,23 +241,6 @@ return [
             ],
         ],
         // END SERVICES
-
-        'Products' => (object)[
-            'PROD02' => (object)[
-                'controller' => App\Http\Controllers\Products\PROD02Controller::class,
-                'model' => App\Models\Products\PROD02Products::class,
-                'seedQty' => 12,
-                'relationship' => [
-                    'category' => [
-                        'class' => App\Models\Products\PROD02ProductsCategory::class,
-                        'column' => 'category_id',
-                        'seedQty' => 5,
-                    ]
-                ]
-            ],
-        ],
-        // END PRODUCTS
-
 
         'Slides' => (object)[
             'SLID01' => (object)[
