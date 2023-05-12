@@ -25,7 +25,7 @@
                                     <div class="sublink--menu text-end dropdown-menu" aria-labelledby="sublink--menu" >
                                         @foreach ($menu->dropdown as $item)
                                             @if ($item->subList)
-                                                <div class="mb-2 {{$menu->dropdown?'dropdown':''}}">
+                                                <div class="mb-2 dropdown">
                                                     <a href="{{$item->route}}" data-bs-toggle="dropdown" class="sublink-item transition">{{$item->name}} <i class="menu-arrow"></i></a>
                                                     <div class="dropdown-menu">
                                                         @foreach ($item->subList as $subItem)
@@ -41,11 +41,10 @@
                                 @endif
                             </li>
                         @endforeach
-
                     </ul>
                 </nav>
                 {{-- END .menu-list --}}
-                @if ($linksCtaHeader->count() && $callToActionTitle->active_header)
+                @if ($linksCtaHeader->count() && $callToActionTitle->active_header??false)
                     <div class="container-cta">
                         <div class="dropdown">
                             @if ($linksCtaHeader->count()>1)

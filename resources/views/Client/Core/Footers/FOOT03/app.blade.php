@@ -13,49 +13,43 @@
                         </a>
                     </div>
                     <div class="foot03__top__logo mx-auto">
-                        <a href="" rel="next">
-                            <img src="{{asset('storage/uploads/tmp/logo-for.png')}}" class="w-100 h-100" alt="Logo">
+                        <a href="{{route('home')}}" rel="next">
+                            <img src="{{asset('storage/'.$generalSetting->path_logo_footer_light??$generalSetting->path_logo_footer_dark)}}" class="w-100 h-100" alt="{{env('APP_NAME')}}">
                         </a>
                     </div>
                     <div class="foot03__top__redeSocial d-flex justify-content-between align-items-center">
-                        <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
-                        </a>
-                        <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
-                        </a>
-                        <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
-                        </a>
-                        <a href="#" rel="external">
-                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="">
-                        </a>
+                        @foreach ($socials as $social)
+                            <a href="{{$social->link}}" title="{{$social->title}}" class="mdi {{$social->icon}}" target="_blank" rel="external"></a>
+                        @endforeach
                     </div>
                 </div>
             </div>
-            <div class="foot03__bottom px-0">
+            <div id="teste" class="foot03__bottom px-0">
                 <div class="row mx-0 w-100 justify-content-between ">
                     <div class="foot03__bottom__boxLeft col-sm-7 row px-0">
                         <nav class="foot03__bottom__boxLeft__nav  col-sm-4 px-0 mx-0">
                             <h4 class="foot03__bottom__boxLeft__nav__title">Início</h4>
                             <ul class="px-0 mb-0">
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
+                                <li><a href="{{route('home')}}" class="{{isActive('home')}}" rel="next">Home</a></li>
+                                @foreach ($listMenu as $module => $menu)
+                                    <li><a href="{{$menu->anchor?$menu->link:route($menu->link)}}" class="{{!$menu->anchor?isActive($menu->link):''}}" rel="next" {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}}>{{$menu->title}}</a></li>
+                                @endforeach
                             </ul>
                         </nav>
-                        <nav class="foot03__bottom__boxLeft__nav col-sm-4 px-0 mx-0">
-                            <h4 class="foot03__bottom__boxLeft__nav__title">Serviços</h4>
-                            <ul class="px-0 mb-0">
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                                <li><a href="#" rel="next">Menu Tópicos</a></li>
-                            </ul>
-                        </nav>
+
+                        @foreach ($listModelFooter as $menuFooter)
+                            <nav class="foot03__bottom__boxLeft__nav col-sm-4 px-0 mx-0">
+                                <h4 class="foot03__bottom__boxLeft__nav__title"><a href="{{route($menuFooter->link)}}">{{$menuFooter->title}}</a></h4>
+                                <ul class="px-0 mb-0">
+                                    @if ($menuFooter->dropdown)
+                                        @foreach ($menuFooter->dropdown as $item)
+                                            <li><a href="{{$item->route}}" class="{{isActive($item->route)}}" rel="next">{{$item->name}}</a></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </nav>
+                        @endforeach
+
                     </div>
                     <div class="foot03__bottom__boxRight col-sm-5 row px-0 mx-0 justify-content-between">
                         <nav class="foot03__bottom__boxRight__nav col-sm-5 px-0 w-auto">
@@ -101,9 +95,11 @@
                 <div class="d-flex justify-content-between w-100 px-0 foot03__credits__content">
                     <nav class="foot03__credits__nav d-flex align-items-center">
                         <ul class="d-flex align-items-center justify-content-between px-0 mb-0">
-                            <li><a href="#" rel="next">Privacidade</a></li>
-                            <li><a href="#" rel="next">Ética e Integridade</a></li>
-                            <li><a href="#" rel="next">Trabalhe Conosco</a></li>
+                            @if ($linksCtaFooter->count())
+                                @foreach ($linksCtaFooter as $linkCtaHeader)
+                                    <li><a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" rel="next">{{$linkCtaHeader->title}}</a></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </nav>
                     <div class="foot03__credits__logo">
