@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('css/icons.css'))}}">
     <script src="{{asset(mix('js/app.js'))}}"></script>
-
+    
     @if ($themeMenu)
         @include('Client.Components.themeMenu.'.$themeMenu.'.structure',[
             "listMenu" => $listMenu,

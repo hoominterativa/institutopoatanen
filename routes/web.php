@@ -51,8 +51,9 @@ View::composer('Client.Core.client', function ($view) {
     $optimization = Optimization::first();
     $optimizePage = OptimizePage::where('page', Request::path())->first();
     $generalSetting = GeneralSetting::first();
-    $linksCtaHeader = collect(json_decode($generalSetting->btn_cta_header));
-    $linksCtaFooter = collect(json_decode($generalSetting->btn_cta_footer));
+    $linksCtaHeader = AdditionalLink::where('position', 'header')->orWhere('position', 'both')->active()->sorting()->get();
+    $linksCtaFooter = AdditionalLink::where('position', 'footer')->orWhere('position', 'both')->active()->sorting()->get();
+    $callToActionTitle = CallToActionTitle::first();
     $socials = Social::orderBy('sorting', 'ASC')->get();
     $themeMenu = config('modelsConfig.InsertModelsCore');
     $coreRender = new CoreController();
@@ -71,7 +72,8 @@ View::composer('Client.Core.client', function ($view) {
         ->with('linksCtaHeader', $linksCtaHeader)
         ->with('linksCtaFooter', $linksCtaFooter)
         ->with('classCores', $classCores)
-        ->with('generalSetting', $generalSetting);
+        ->with('generalSetting', $generalSetting)
+        ->with('callToActionTitle', $callToActionTitle);
 });
 
 View::composer('Admin.core.auth', function ($view) {

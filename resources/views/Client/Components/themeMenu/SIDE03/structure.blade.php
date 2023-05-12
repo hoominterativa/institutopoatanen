@@ -1,6 +1,5 @@
 <div id="SIDE03" class="side03 transition">
-       
-        <div class="side03__scroll row mx-auto">
+    <div class="side03__scroll row mx-auto">
         <div class="side03__left col-sm-6 h-100 col-sm-6 h-100 flex-column d-flex justify-content-end" style="background-image">
             <div class="side03__image mx-auto">
                 <img src="{{asset('storage/uploads/tmp/png-slide.png')}}" alt="Logo" loading="lazy"/>
@@ -23,70 +22,66 @@
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> Home
                         </a>
                     </li>
-                    <li class="side03__navigation__item">
-                        <a href="{{route('home')}}" class="side03__navigation__item__link transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> Home
-                        </a>
-                    </li>
-                    <li class="side03__navigation__item">
-                        <a href="{{route('home')}}" class="side03__navigation__item__link transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> Home
-                        </a>
-                    </li>
-                    <li class="side03__navigation__item">
-                        <a href="{{route('home')}}" class="side03__navigation__item__link transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> Home
-                        </a>
-                    </li>
-                    <li class="side03__navigation__item">
-                        <a href="{{route('home')}}" class="side03__navigation__item__link transition">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> Home
-                        </a>
-                    </li>
+                    @foreach ($listMenu as $module => $menu)
+                        <li class="side03__navigation__item {{$menu->dropdown?'dropdown': ''}}">
+                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side03__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> {{$menu->title}}
+                                @if ($menu->dropdown)
+                                    <i class="menu-arrow"></i>
+                                @endif
+                            </a>
+                            @if ($menu->dropdown)
+                                <div class="side03__navigation__dropdown dropdown-menu">
+                                    @foreach ($menu->dropdown as $item)
+                                        <a href="{{$item->route}}" class="side03__navigation__sublink transition">
+                                            {{$item->name}}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
                 {{-- END .side03__navigation__wrapper --}}
             </nav>
             {{-- END .side03__navigation --}}
-
-            <div class="dropdown side03__dropdown mx-auto">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    CTA
-                </button>
-                <ul class="dropdown-menu side03__dropdown__menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
+            @if ($linksCtaHeader->count())
+                <div class="dropdown side03__dropdown mx-auto">
+                    @if ($linksCtaHeader->count() > 1)
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{$callToActionTitle->title_header??''}} <i class="menu-arrow"></i>
+                        </button>
+                        <ul class="dropdown-menu side03__dropdown__menu">
+                            @foreach ($linksCtaHeader as $linkCtaHeader)
+                                <li><a class="dropdown-item" href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a></li>
+                            @endforeach
+                        </ul>
+                    @else
+                        @foreach ($linksCtaHeader as $title => $linkCtaHeader)
+                            <li><a class="dropdown-item" href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a></li>
+                        @endforeach
+                    @endif
+                </div>
+            @endif
             {{-- END .side03__dropdown --}}
 
-
-            <div class="side03__network d-flex align-items-center justify-content-center">
-                <a href="#" target="_blank" class="side03__cta-network transition">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px" alt="logos" loading="lazy"/>
-                </a>
-                    <a href="#" target="_blank" class="btn-cta-network transition">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px" alt="logos" loading="lazy"/>
-                </a>
-                <a href="#" target="_blank" class="btn-cta-network transition">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px" alt="logos" loading="lazy"/>
-                </a>
-                <a href="#" target="_blank" class="btn-cta-network transition">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px" alt="logos" loading="lazy"/>
-                </a>
-            </div>
+            @if ($socials->count())
+                <div class="side03__network d-flex align-items-center justify-content-center">
+                    @foreach ($socials as $social)
+                        <a href="{{$social->link}}" target="_blank" class="side03__cta-network transition" title="{{$social->title}}"><i class="mdi {{$social->icon}}"></i></a>
+                    @endforeach
+                </div>
+            @endif
 
             <nav class="side03__privacy">
-                <ul class="d-flex align-items-center justify-content-center">
-                    <li>
-                        <a href="#">Privacidade</a>
-                    </li>
-                    <li>
-                        <a href="#">Trabalhe Conosco</a>
-                    </li>
-                </ul>
+                @if (isset($linksCtaFooter))
+                    <ul class="d-flex align-items-center justify-content-center">
+                        @foreach ($linksCtaFooter as $title => $linkCtaHeader)
+                            <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a>
+                        @endforeach
+                    </ul>
+                @endif
             </nav>
-
         </div>
         {{-- END .side03__network --}}
     </div>
