@@ -7,9 +7,16 @@
             <div class="foot03__top px-0">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="foot03__top__telefone px-0">
-                        <a href="#" rel="next">
+                        <a href="Telefone:{{$generalSetting->phone}}" rel="next">
                             <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="#">
-                            Telefone
+                            {{$generalSetting->phone}}
+                        </a>        
+                    </div>
+                    <span></span> 
+                    <div class="foot03__top__telefone px-0">
+                        <a href="https://api.whatsapp.com/send?phone=55{{Str::slug($generalSetting->whatsapp,'')}}" rel="next">
+                            <img src="{{asset('storage/uploads/tmp/logo-two.png')}}" alt="#">
+                            {{$generalSetting->whatsapp}}
                         </a>
                     </div>
                     <div class="foot03__top__logo mx-auto">
