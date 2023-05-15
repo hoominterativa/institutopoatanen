@@ -77,7 +77,7 @@
                 @if (isset($linksCtaFooter))
                     <ul class="d-flex align-items-center justify-content-center">
                         @foreach ($linksCtaFooter as $title => $linkCtaHeader)
-                            <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a>
+                            <li><a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a></li>
                         @endforeach
                     </ul>
                 @endif
