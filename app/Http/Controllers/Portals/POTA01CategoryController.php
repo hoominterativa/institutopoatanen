@@ -2,39 +2,15 @@
 
 namespace App\Http\Controllers\Portals;
 
-use App\Models\Portals\POTA01PortalsCategory;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portals\POTA01PortalsCategory;
 
 class POTA01CategoryController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -44,46 +20,17 @@ class POTA01CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['slug'] = Str::slug($request->title);
+        $data['view_featured'] = $request->view_featured?1:0;
+        $data['active'] = $request->active?1:0;
 
         if(POTA01PortalsCategory::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Session::flash('success', 'Erro ao cadastradar o item');
         }
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portals\POTA01PortalsCategory  $POTA01PortalsCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(POTA01PortalsCategory $POTA01PortalsCategory)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,51 +43,16 @@ class POTA01CategoryController extends Controller
     public function update(Request $request, POTA01PortalsCategory $POTA01PortalsCategory)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($POTA01PortalsCategory, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($POTA01PortalsCategory, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($POTA01PortalsCategory, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($POTA01PortalsCategory, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['slug'] = Str::slug($request->title);
+        $data['view_featured'] = $request->view_featured?1:0;
+        $data['active'] = $request->active?1:0;
 
         if($POTA01PortalsCategory->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('success', 'Erro ao atualizar item');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +63,8 @@ class POTA01CategoryController extends Controller
      */
     public function destroy(POTA01PortalsCategory $POTA01PortalsCategory)
     {
-        //storageDelete($POTA01PortalsCategory, 'path_image');
-        //storageDelete($POTA01PortalsCategory, 'path_archive');
-
         if($POTA01PortalsCategory->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Categoria deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,15 +77,6 @@ class POTA01CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $POTA01PortalsCategorys = POTA01PortalsCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($POTA01PortalsCategorys as $POTA01PortalsCategory){
-            storageDelete($POTA01PortalsCategory, 'path_image');
-            storageDelete($POTA01PortalsCategory, 'path_archive');
-        }
-        */
-
         if($deleted = POTA01PortalsCategory::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
@@ -194,51 +94,5 @@ class POTA01CategoryController extends Controller
             POTA01PortalsCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portals\POTA01PortalsCategory  $POTA01PortalsCategory
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(POTA01PortalsCategory $POTA01PortalsCategory)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

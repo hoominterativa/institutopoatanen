@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers\Portals;
 
-use App\Models\Portals\POTA01Portals;
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Portals\POTA01Portals;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Portals\POTA01PortalsSection;
+use App\Models\Portals\POTA01PortalsCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
 class POTA01Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Portals/POTA01/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +26,87 @@ class POTA01Controller extends Controller
      */
     public function index()
     {
-        //
+        $portals = POTA01Portals::with('category')->sorting()->paginate('32');
+        $categories = POTA01PortalsCategory::exists()->sorting()->pluck('title', 'id');
+        $portalCategories = POTA01PortalsCategory::sorting()->get();
+        $section = POTA01PortalsSection::first();
+
+        return view('Admin.cruds.Portals.POTA01.index',[
+            'portals' => $portals,
+            'categories' => $categories,
+            'portalCategories' => $portalCategories,
+            'section' => $section,
+        ]);
+    }
+
+    /**
+     * Display a filtered listing of the resource.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function filter(Request $request)
+    {
+        Session::put('filter.category_id', $request->category_id);
+        Session::put('filter.title', $request->title);
+        Session::put('filter.date_start', $request->date_start);
+        Session::put('filter.date_end', $request->date_end);
+        Session::put('filter.active', $request->active);
+        Session::put('filter.featured_home', $request->featured_home);
+        Session::put('filter.featured_page', $request->featured_page);
+        Session::save();
+
+        $portals = POTA01Portals::with('category');
+
+        if($request->category_id){
+            $portals = $portals->where('category_id', Session::get('filter.category_id'));
+        }
+        if($request->title){
+            $portals = $portals->where('title','LIKE', '%'.Session::get('filter.title').'%');
+        }
+        if(Session::get('filter.date_start') && Session::get('filter.date_end')){
+            $date_start = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_start'))->format('Y-m-d');
+            $date_end = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_end'))->format('Y-m-d');
+            $portals = $portals->whereBetween('publishing', [$date_start, $date_end]);
+        }
+        if(Session::get('filter.date_start') && !Session::get('filter.date_end')){
+            $date_start = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_start'))->format('Y-m-d');
+            $portals = $portals->where('publishing','>=', $date_start);
+        }
+        if(!Session::get('filter.date_start') && Session::get('filter.date_end')){
+            $date_start = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_end'))->format('Y-m-d');
+            $portals = $portals->where('publishing','<=', $date_end);
+        }
+        if(Session::get('filter.active')=='1'){
+            $portals = $portals->where('active', 1);
+        }
+        if(Session::get('filter.active')=='0'){
+            $portals = $portals->where('active', 0);
+        }
+        if(Session::get('filter.featured_home')){
+            $portals = $portals->where('featured_home', 1);
+        }
+        if(Session::get('filter.featured_page')){
+            $portals = $portals->where('featured_page', 1);
+        }
+
+        $portals = POTA01Portals::with('category')->sorting()->paginate('32');
+        $categories = POTA01PortalsCategory::exists()->sorting()->pluck('title', 'id');
+        $portalCategories = POTA01PortalsCategory::sorting()->get();
+        $section = POTA01PortalsSection::first();
+
+        return view('Admin.cruds.Portals.POTA01.index',[
+            'portals' => $portals,
+            'categories' => $categories,
+            'portalCategories' => $portalCategories,
+            'section' => $section,
+        ]);
+    }
+
+    public function clearFilter()
+    {
+        Session::forget('filter');
+        return redirect()->back();
     }
 
     /**
@@ -32,7 +116,11 @@ class POTA01Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = POTA01PortalsCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Portals.POTA01.create',[
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Portals', 'POTA01')
+        ]);
     }
 
     /**
@@ -44,33 +132,26 @@ class POTA01Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null,100);
+        if($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['slug'] = Str::slug($request->title);
+        $data['featured_home'] = $request->featured_home?1:0;
+        $data['featured_page'] = $request->featured_page?1:0;
+        $data['active'] = $request->active?1:0;
 
         if(POTA01Portals::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações cadastradas com sucesso');
+            return redirect()->route('admin.pota01.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Storage::delete($path_image_thumbnail);
+            Session::flash('success', 'Erro ao cadastradar informações');
             return redirect()->back();
         }
     }
@@ -83,7 +164,13 @@ class POTA01Controller extends Controller
      */
     public function edit(POTA01Portals $POTA01Portals)
     {
-        //
+        $categories = POTA01PortalsCategory::pluck('title', 'id');
+        $POTA01Portals->publishing = Carbon::parse($POTA01Portals->publishing)->format('d/m/Y');
+        return view('Admin.cruds.Portals.POTA01.edit',[
+            'portal' => $POTA01Portals,
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Portals', 'POTA01')
+        ]);
     }
 
     /**
@@ -96,11 +183,9 @@ class POTA01Controller extends Controller
     public function update(Request $request, POTA01Portals $POTA01Portals)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        // dd($data);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +196,30 @@ class POTA01Controller extends Controller
             storageDelete($POTA01Portals, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($POTA01Portals, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null,100);
+        if($path_image_thumbnail){
+            storageDelete($POTA01Portals, 'path_image_thumbnail');
+            $data['path_image_thumbnail'] = $path_image_thumbnail;
+        }
+        if($request->delete_path_image_thumbnail && !$path_image_thumbnail){
+            storageDelete($POTA01Portals, 'path_image_thumbnail');
+            $data['path_image_thumbnail'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($POTA01Portals, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['slug'] = Str::slug($request->title);
+        $data['featured_home'] = $request->featured_home?1:0;
+        $data['featured_page'] = $request->featured_page?1:0;
+        $data['active'] = $request->active?1:0;
 
         if($POTA01Portals->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Storage::delete($path_image_thumbnail);
+            Session::flash('success', 'Erro ao atualizar item');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,8 +230,8 @@ class POTA01Controller extends Controller
      */
     public function destroy(POTA01Portals $POTA01Portals)
     {
-        //storageDelete($POTA01Portals, 'path_image');
-        //storageDelete($POTA01Portals, 'path_archive');
+        storageDelete($POTA01Portals, 'path_image');
+        storageDelete($POTA01Portals, 'path_image_thumbnail');
 
         if($POTA01Portals->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -168,14 +247,11 @@ class POTA01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $POTA01Portalss = POTA01Portals::whereIn('id', $request->deleteAll)->get();
         foreach($POTA01Portalss as $POTA01Portals){
             storageDelete($POTA01Portals, 'path_image');
-            storageDelete($POTA01Portals, 'path_archive');
+            storageDelete($POTA01Portals, 'path_image_thumbnail');
         }
-        */
 
         if($deleted = POTA01Portals::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -205,30 +281,97 @@ class POTA01Controller extends Controller
      * @param  \App\Models\Portals\POTA01Portals  $POTA01Portals
      * @return \Illuminate\Http\Response
      */
-    //public function show(POTA01Portals $POTA01Portals)
-    public function show()
+
+    public function show($POTA01PortalsCategory, POTA01Portals $POTA01Portals)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $portalsRelated = POTA01Portals::with('category')
+            ->where('category_id', $POTA01Portals->category_id)
+            ->whereNotIn('id', [$POTA01Portals->id])
+            ->sorting()
+            ->orderBy('featured_home', 'DESC')
+            ->orderBy('featured_page', 'DESC')
+            ->limit('5')
+            ->get();
 
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portals', 'POTA01', 'show');
+
+        $POTA01Portals->text = conveterOembedCKeditor($POTA01Portals->text);
+
+        return view('Client.pages.Portals.POTA01.show',[
+            'sections' => $sections,
+            'portal' => $POTA01Portals,
+            'portalsRelated' => $portalsRelated,
         ]);
     }
 
     /**
      * Display a listing of the resourcee.
      *
+     * @param  \App\Models\Portals\POTA01PortalsCategory  $POTA01PortalsCategory
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, POTA01PortalsCategory $POTA01PortalsCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portals', 'POTA01', 'page');
 
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
+        $categories = POTA01PortalsCategory::exists()->active()->sorting()->get();
+
+        $portalsFeatured = POTA01Portals::with('category')->featuredPage();
+        $blogFeaturedValidate = POTA01Portals::with('category')->featuredPage();
+        $portals = POTA01Portals::with('category');
+
+        if($POTA01PortalsCategory->exists){
+            foreach ($categories as $category) {
+                if($POTA01PortalsCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+
+            $portalsFeatured = $portalsFeatured->where('category_id', $POTA01PortalsCategory->id);
+            $blogFeaturedValidate = $blogFeaturedValidate->where('category_id', $POTA01PortalsCategory->id);
+            $portals = $portals->where('category_id', $POTA01PortalsCategory->id);
+        }
+
+        $portalsFeatured = $portalsFeatured->sorting()->get();
+        $blogFeaturedValidate = $blogFeaturedValidate->pluck('id');
+        $portals = $portals->whereNotIn('id', $blogFeaturedValidate)->sorting()->paginate('32');
+
+        return view('Client.pages.Portals.POTA01.page',[
+            'sections' => $sections,
+            'categories' => $categories,
+            'portalsFeatured' => $portalsFeatured,
+            'portals' => $portals,
+        ]);
+    }
+
+    public static function viewPageHome()
+    {
+        $portalsFeatureHome = POTA01Portals::with('category')->featuredHome()->sorting()->get();
+        $portalsNotIn = $portalsFeatureHome->pluck('id');
+        $portals = POTA01Portals::with('category')->whereNotIn('id' ,$portalsNotIn)->sorting()->orderBy('created_at', 'DESC')->orderBy('updated_at', 'DESC')->get();
+
+        $portalsVideoFeatured = POTA01Portals::with('category')->viewSectionVideo()->featuredPage()->first();
+        if(!$portalsVideoFeatured){
+            $portalsVideoFeatured = POTA01Portals::with('category')->viewSectionVideo()->first();
+        }
+
+        $idVideoFeatured = [$portalsVideoFeatured->id??0];
+
+        $portalsVideo = POTA01Portals::with('category')->whereNotIn('id' ,$idVideoFeatured)->viewSectionVideo()->sorting()->get();
+
+        $categories = POTA01PortalsCategory::exists()->sorting()->get();
+        $categoriesFeaturedHome = POTA01PortalsCategory::with('portals')->exists()->featuredHome()->sorting()->get();
+
+        return view('Client.pages.Portals.POTA01.home',[
+            'portalsFeatureHome' => $portalsFeatureHome,
+            'portals' => $portals,
+            'portalsVideoFeatured' => $portalsVideoFeatured,
+            'portalsVideo' => $portalsVideo,
+            'categories' => $categories,
+            'categoriesFeaturedHome' => $categoriesFeaturedHome,
         ]);
     }
 
@@ -239,6 +382,22 @@ class POTA01Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        switch ('home') {
+            case 'home':
+                return self::viewPageHome();
+            break;
+            default:
+                $portals = POTA01Portals::with('category')->featuredHome()->sorting()->get();
+                $section = POTA01PortalsCategory::first();
+
+                $category = POTA01PortalsCategory::first();
+
+                return view('Client.pages.Portals.POTA01.section',[
+                    'portals' => $portals,
+                    'section' => $section,
+                    'category' => $category
+                ]);
+            break;
+        }
     }
 }

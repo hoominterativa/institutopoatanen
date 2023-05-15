@@ -27,6 +27,7 @@ class POTA01Portals extends Model
         "path_image",
         "active",
         "featured_home",
+        "view_section_video",
         "featured_page",
         "sorting",
     ];
@@ -49,6 +50,11 @@ class POTA01Portals extends Model
     public function scopeFeaturedHome($query)
     {
         return $query->where('featured_home', 1);
+    }
+
+    public function scopeViewSectionVideo($query)
+    {
+        return $query->where('view_section_video', 1);
     }
 
     public function category()

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePota01PortalsCategoriesTable extends Migration
+class CreatePota01PortalsSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreatePota01PortalsCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pota01_portals_categories', function (Blueprint $table) {
+        Schema::create('pota01_portals_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug');
-            $table->enum('view_type', ['row1', 'row2', 'row3', 'row4'])->default('row4');
-            $table->integer('view_featured')->default(0);
-            $table->integer('featured_home')->default(0);
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('description')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
@@ -33,6 +31,6 @@ class CreatePota01PortalsCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pota01_portals_categories');
+        Schema::dropIfExists('pota01_portals_sections');
     }
 }

@@ -19,6 +19,9 @@ class POTA01PortalsCategory extends Model
     protected $fillable = [
         "title",
         "slug",
+        "view_type",
+        "view_featured",
+        "featured_home",
         "active",
         "sorting",
     ];
@@ -33,11 +36,21 @@ class POTA01PortalsCategory extends Model
         return $query->where('active', 1);
     }
 
+    public function scopeFeaturedHome($query)
+    {
+        return $query->where('featured_home', 1);
+    }
+
     public function scopeExists($query)
     {
         return $query->whereExists(function($query){
             $query->select('id')->from('pota01_portals')->whereColumn('pota01_portals.category_id', 'pota01_portals_categories.id');
         });
+    }
+
+    public function portals()
+    {
+        return $this->hasMany(POTA01Portals::class, 'category_id', 'id')->sorting()->orderBy('created_at', 'DESC')->active();
     }
 
     // DROPDOW MENU

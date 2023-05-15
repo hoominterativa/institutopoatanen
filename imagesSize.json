@@ -267,6 +267,22 @@
             }
         }
     },
+
+    "Portals": {
+        "POTA01": {
+            "path_image_thumbnail": {
+                "width": "410",
+                "height": "320",
+                "activeCrop": "true"
+            },
+            "path_image": {
+                "width": "700",
+                "height": "700",
+                "activeCrop": "false"
+            }
+        }
+    },
+
     "Products": {
         "PROD02": {
             "path_image_box": {

@@ -25,6 +25,7 @@ class CreatePota01PortalsTable extends Migration
             $table->string('path_image')->nullable();
             $table->integer('active')->default(0);
             $table->integer('featured_home')->default(0);
+            $table->integer('view_section_video')->default(0);
             $table->integer('featured_page')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

@@ -11,87 +11,132 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Portals', 'POTA01')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Portals', 'POTA01')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end row -->
+                <ul class="mb-0 nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#listArticles" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Artigos do Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#listArticleCategories" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#listArticleSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="listArticles">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-3">
+                                                @include('Admin.cruds.Portals.POTA01.filter',[
+                                                    'categories' => $categories
+                                                ])
+                                            </div>
+                                            <div class="col-4">
+                                                <button id="btSubmitDelete" data-route="{{route('admin.pota01.destroySelected')}}" type="button" class="btn btn-danger btnDeleteBlog" style="display: none;">Deletar selecionados</button>
+                                            </div>
+                                            <div class="col-5">
+                                                <a href="{{route('admin.pota01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <table class="table table-bordered table-sortable">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th width="50px"></th>
+                                                    <th width="30px" class="bs-checkbox">
+                                                        <label><input name="btnSelectAll" value="btnDeleteBlog" type="checkbox"></label>
+                                                    </th>
+                                                    <th width="80px"></th>
+                                                    <th>Categoria</th>
+                                                    <th>Título</th>
+                                                    <th>Publicação</th>
+                                                    <th width="100px">Status</th>
+                                                    <th width="90px">Ações</th>
+                                                </tr>
+                                            </thead>
 
-                <div class="row">
-                    <div class="col-sm-12">
+                                            <tbody data-route="{{route('admin.pota01.sorting')}}">
+                                                @foreach ($portals as $portal)
+                                                    <tr data-code="{{$portal->id}}">
+                                                        <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                                        <td class="bs-checkbox align-middle">
+                                                            <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$portal->id}}"></label>
+                                                        </td>
+                                                        <td class="align-middle avatar-group">
+                                                            @if ($portal->path_image)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$portal->path_image)}})"></div>
+                                                            @endif
+                                                            @if ($portal->path_image_thumbnail)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$portal->path_image_thumbnail)}})"></div>
+                                                            @endif
+                                                        </td>
+                                                        <td class="align-middle"><b>{{$portal->category->title}}</b></td>
+                                                        <td class="align-middle">{{$portal->title}}</td>
+                                                        <td class="align-middle">{{Carbon\Carbon::parse($portal->publishing)->format('d/m/Y')}}</td>
+                                                        <td class="align-middle">
+                                                            <div class="d-flex">
+                                                                @if ($portal->active)
+                                                                    <span class="badge bg-success me-2">Ativo</span>
+                                                                @else
+                                                                    <span class="badge bg-danger me-2">Inativo</span>
+                                                                @endif
+                                                                @if ($portal->featured_home)
+                                                                    <span class="badge bg-primary text-white me-2">Destaque Home</span>
+                                                                @endif
+                                                                @if ($portal->featured_page)
+                                                                    <span class="badge bg-info text-white me-2">Destaque Página</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <a href="{{route('admin.pota01.edit',['POTA01Portals' => $portal->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                                </div>
+                                                                <form action="{{route('admin.pota01.destroy',['POTA01Portals' => $portal->id])}}" class="col-4" method="POST">
+                                                                    @method('DELETE') @csrf
+                                                                    <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+
+                                        {{-- PAGINATION --}}
+                                        <div class="mt-3 float-end">
+                                            {{$portals->links()}}
+                                        </div>
+                                    </div>
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="listArticleCategories">
+                        @include('Admin.cruds.Portals.POTA01.Category.index',[
+                            'categories' => $portalCategories
+                        ])
+                    </div>
+                    <div class="tab-pane" id="listArticleSection">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.code.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                                    </div>
-                                </div>
-                                <table class="table table-bordered table-sortable">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th width="50px"></th>
-                                            <th width="30px" class="bs-checkbox">
-                                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                                <label><input name="btnSelectAll" value="" type="checkbox"></label>
-                                            </th>
-                                            <th>Imagem</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Job Title</th>
-                                            <th>DOB</th>
-                                            <th width="100px">Status</th>
-                                            <th width="90px">Ações</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody data-route="{{route('admin.code.sorting')}}">
-                                        @foreach ($teste as $test)
-                                            <tr data-code="{{$test->id}}">
-                                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                                <td class="bs-checkbox align-middle">
-                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$test->id}}"></label>
-                                                </td>
-                                                <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/images/users/user-10.jpg')}})"></div>
-                                                </td>
-                                                <td class="align-middle">Boudreaux</td>
-                                                <td class="align-middle">Traffic Court Referee</td>
-                                                <td class="align-middle">22 Jun 1972</td>
-                                                <td class="align-middle">22 Jun 1972</td>
-                                                <td class="align-middle">
-                                                    <span class="badge bg-success">Ativo</span>
-                                                    <span class="badge bg-primary text-white">Destaque</span>
-                                                    <span class="badge bg-danger">Inativo</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <a href="{{route('admin.code.edit',['code' => $test->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                        </div>
-                                                        <form action="{{route('admin.code.destroy',['code' => $test->id])}}" class="col-4" method="POST">
-                                                            @method('DELETE') @csrf
-                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-
-                                {{-- PAGINATION --}}
-                                <div class="mt-3 float-end">
-                                    {{$teste->links()}}
-                                </div>
+                                @include('Admin.cruds.Portals.POTA01.Section.form',[
+                                    'section' => $section
+                                ])
                             </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
+                        </div>
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->

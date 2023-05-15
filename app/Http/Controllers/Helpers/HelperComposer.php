@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Detection\MobileDetect;
 use Illuminate\Support\Str;
 use Cohensive\Embed\Facades\Embed;
@@ -11,6 +12,38 @@ if(!function_exists('isActive'))
 {
     function isActive($href, $class = 'active'){
         return $class = (strpos(Route::currentRouteName(),$href) === 0 ? $class : '');
+    }
+}
+
+if(!function_exists('dateFormat'))
+{
+    /**
+     * Returns the date formatted according to the specified format.
+     *
+     * @param string $date -
+     * @param string $day "D" - day name | "d" - day number
+     * @param string $month "M" - month name | "m" - month number
+     * @param string $year "Y" - full year | "y" - abbreviated year
+     * @param string $split inform which character will be used in date formatting, white equals space and include "de"
+     *
+     * @return string
+     */
+    function dateFormat($date, $day = 'd', $month = 'm', $year = 'Y', $split = '/'){
+        $dayWeek = date("N", strtotime($date));
+        $arrayDay = ['1' => 'Segunda Feira', '2' => 'Terça Feira', '3' => 'Quarta Feira', '4' => 'Quinta Feira', '5' => 'Sexta Feira', '6' => 'Sábado', '7' => 'Domíngo'];
+        $arrayMonth = ['01' => 'Janeiro', '02' => 'Fevereiero', '03' => 'Março', '04' => 'Abril', '05' => 'Maio', '06' => 'Junho', '07' => 'Julho', '08' => 'Agosto', '09' => 'Setembro', '10' => 'Outubro', '11' => 'Novembro', '12' => 'Dezembro'];
+
+        $dayN = ($day === 'D'?$arrayDay[$dayWeek]:Carbon::parse($date)->format('d'));
+        $monthN = ($month === 'M'?$arrayMonth[Carbon::parse($date)->format('m')]:Carbon::parse($date)->format('m'));
+        $yearN = Carbon::parse($date)->format($year);
+
+        if($split <> ''){
+            $dateFormatted = $dayN.$split.$monthN.$split.$yearN;
+        }else{
+            $dateFormatted = $dayN.' de '.$monthN.' de '.$yearN;
+        }
+
+        return $dateFormatted;
     }
 }
 
