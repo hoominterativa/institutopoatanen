@@ -533,41 +533,42 @@ body{
     background-repeat: no-repeat;
 
     .container--pd{
-        padding: 91px 0 45px 0 !important;
+        padding: 58px 0 58px 0 !important;
 
         @include small-device{
-            padding: 73px 0 45px 0 !important;
+            padding: 58px 0 58px 0 !important;
             max-width: 83% !important;
         }
     }
     &__boxLeft{
+        @include large-device-down{
+            margin-bottom: 32px;
+            width: 100%;
+            max-width: 100%;
+        }
         &__subtitle{
-            max-width: 367px;
-            background-color: $color-three;
-            color:$color-two;
-            min-height: 40px;
-            padding: 8px;
-            font-size: $T4;
-            margin-bottom: 18px;
+            color:$color-one;
+            font-size: $T3;
             font-weight: $weight-700;
+            margin-bottom: 0;
+            max-width: 328px;
 
             @include small-device{
-                font-size: $T4-mobile;
-                max-width: 229px;
+                font-size: $T3-mobile;
             }
         }
-        &__title{
-            font-size: $T2;
-            color:$color-black;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            font-weight: $weight-700;
+        // &__title{
+        //     font-size: $T2;
+        //     color:$color-black;
+        //     text-transform: uppercase;
+        //     margin-bottom: 30px;
+        //     font-weight: $weight-700;
 
-            @include small-device{
-                font-size: $T2-mobile;
-                margin-bottom: 17px;
-            }
-        }
+        //     @include small-device{
+        //         font-size: $T2-mobile;
+        //         margin-bottom: 17px;
+        //     }
+        // }
         &__paragraph{
             width: 499px;
 
@@ -587,12 +588,23 @@ body{
         }
     }
     &__boxRight{
-        margin-top: 67px;
-
-        @include small-device{
-            margin-top: 50px;
+        @include large-device-down{
+            width: 100%;
+            max-width: 100%;
         }
+        @include small-device{
+        }
+        &__inputs{
+            flex-wrap: wrap;
+        }
+        .input__item{
+            width: 48%;
 
+            @include large-device-down{
+                width: 100%;
+                max-width: 100%;
+            }
+        }
         &__form{
             display: flex;
 
@@ -613,19 +625,20 @@ body{
         }
 
         &__cta{
+            margin-left: 109px;
+            margin-top: -21px;
             background-color: $color-white;
             color:$color-one;
             height: 45px;
-            width: 177px;
+            width: 100%;
+            max-width: 177px;
             padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 16px;
             border: 0;
             font:$paragraph;
             font-weight: $weight-700;
-            margin-left: auto;
             transition: 0.5s all ease;
 
             @include small-device{

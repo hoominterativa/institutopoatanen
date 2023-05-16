@@ -120,7 +120,7 @@ return [
     ],
 
     'ModelsForm' => (object)[
-        'FORM101' => 'Contacts_FORM101.jpg',
+        'FORM102' => 'Contacts_FORM101.jpg',
     ],
 
     'ModelsCompliances' => (object)[
