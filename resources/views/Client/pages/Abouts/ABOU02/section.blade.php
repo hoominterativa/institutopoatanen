@@ -4,8 +4,8 @@
             <div class="abou02__boxLeft col-md-4 d-flex row align-items-start m-0">
                 <div class="abou02__boxLeft__description p-0">
                     @if ($section->title || $section->subtitle)
-                        <h3 class="abou02__boxLeft__subtitle text-center">subtitulo</h3>
-                        <h2 class="abou02__boxLeft__title mb-0">Titulo</h2>
+                        <h3 class="abou02__boxLeft__subtitle text-center">{{$section->subtitle}}</h3>
+                        <h2 class="abou02__boxLeft__title mb-0">{{$section->title}}</h2>
                         <hr class="abou02__boxLeft__line">
                     @endif
                     <div class="abou02__boxLeft__paragraph">

@@ -21,9 +21,9 @@
                     <a class="w-100 d-flex justify-content-center align-items-center" href="{{route('prod02.category.page', ['PROD02ProductsCategory' => $category->slug ])}}">
                         @if ($category->path_image_icon)
                             <img src="{{asset('storage/' . $category->path_image_icon)}}" alt="" class="prod02__page__content__category__li__img">
-                            @if ($category->title)
-                                {{$category->title}}
-                            @endif
+                        @endif
+                        @if ($category->title)
+                            {{$category->title}}
                         @endif
                     </a>
                 </li>
@@ -37,7 +37,7 @@
                     @foreach ($products as $product)
                         <article class="prod02__page__content__product__item col-md-3 ">
                             <div class="prod02__page__content__product__item__image w-100 h-100">
-                                <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Titulo Topico">
+                                <img src="{{asset('storage/' . $product->path_image_box)}}" class="w-100 h-100" alt="Titulo Topico">
                             </div>
                             <div class="prod02__page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 h-100 text-center">
                                 @if ($product->title)

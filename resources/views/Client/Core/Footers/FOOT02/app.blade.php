@@ -32,11 +32,15 @@
             <nav class="foot02__nav foot02__nav--right col-8 col-lg-3 px-0">
                 <span class="foot02__nav__header">Contatos</span>
                 <div class="phones d-flex align-items-center  w-100">
-                    <a href="tel:{{$generalSetting->phone}}" class="foot02__nav__item transition" style="margin: inherit;">{{$generalSetting->phone}} </a> <span></span> <a href="https://api.whatsapp.com/send?phone=55{{Str::slug($generalSetting->whatsapp,'')}}" target="_blank" class="foot02__nav__item transition" style="margin: inherit;">{{$generalSetting->whatsapp}}</a>
+                    @if ($generalSetting->phone || $generalSetting->whatsapp)
+                        <a href="tel:{{$generalSetting->phone}}" class="foot02__nav__item transition" style="margin: inherit;">{{$generalSetting->phone}} </a> <span></span> <a href="https://api.whatsapp.com/send?phone=55{{Str::slug($generalSetting->whatsapp,'')}}" target="_blank" class="foot02__nav__item transition" style="margin: inherit;">{{$generalSetting->whatsapp}}</a>
+                    @endif
                 </div>
-                <p class="foot02__nav__item transition pe-3">
-                    {{$generalSetting->address}}
-                </p>
+                @if ($generalSetting->address)
+                    <p class="foot02__nav__item transition pe-3">
+                        {{$generalSetting->address}}
+                    </p>
+                @endif
             </nav>
             <div class="foot02__nav foot02__nav--icon col-6 col-lg-2">
                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="43" alt="">

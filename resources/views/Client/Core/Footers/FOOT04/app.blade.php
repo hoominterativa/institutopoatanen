@@ -21,12 +21,10 @@
             </div>
         </div>
         <div class="foot04__content__logo d-flex justify-content-center">
-            <img src="{{asset('storage/uploads/tmp/logo-for.png')}}" alt="Logo">
+            <a href="{{route('home')}}" rel="next">
+                <img src="{{asset('storage/'.$generalSetting->path_logo_footer_light??$generalSetting->path_logo_footer_dark)}}" class="w-100 h-100" alt="{{env('APP_NAME')}}">
+            </a>
         </div>
-        <div class="foot04__copyright text-center">
-            <p>Todos os direitos reservados 2022 ©</p>
-        </div>
-
     </div>
     <div class="foot04__credits d-flex justify-content-between align-items-center px-0">
         <div class="container px-0">
@@ -34,9 +32,11 @@
                 <div class="d-flex justify-content-between w-100 px-0 foot04__credits__content">
                     <nav class="foot04__credits__nav d-flex align-items-center">
                         <ul class="d-flex align-items-center justify-content-between px-0 mb-0">
-                            <li><a href="#" rel="next">Privacidade</a></li>
-                            <li><a href="#" rel="next">Ética e Integridade</a></li>
-                            <li><a href="#" rel="next">Trabalhe Conosco</a></li>
+                            @if ($linksCtaFooter->count())
+                                @foreach ($linksCtaFooter as $linkCtaHeader)
+                                    <li><a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" rel="next">{{$linkCtaHeader->title}}</a></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </nav>
                     <div class="foot04__credits__logo">

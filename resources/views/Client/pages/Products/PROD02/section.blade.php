@@ -16,7 +16,10 @@
                                 <li>
                                     <a href="{{route('prod02.category.page',['PROD02ProductsCategory' => $category->slug])}}">
                                         @if ($category->path_image_icon)
-                                        <img src="{{asset('storage/' . $category->path_image_icon)}}" alt="Ícone">{{$category->title}}
+                                            <img src="{{asset('storage/' . $category->path_image_icon)}}" alt="Ícone">
+                                        @endif
+                                        @if ($category->title)
+                                            {{$category->title}}
                                         @endif
                                     </a>
                                 </li>
