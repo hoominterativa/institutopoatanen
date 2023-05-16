@@ -9,27 +9,29 @@
                     @endif
                 </header>
                 <div class="cont09__content row justify-content-between d-flex">
-                    <div class="cont09__content__boxLeft col-sm-5 px-0 text-center d-flex flex-column align-items-center justify-content-center">
-                        <div class="cont09__content__boxLeft__description">
-                            @if ($section->title)
-                                <h4 class="cont09__content__boxLeft__description__title">{{$section->title}}</h4>
-                            @endif
-                            @if ($topics->count())
-                                <div class="cont09__content__boxLeft__description__link">
-                                    @foreach ($topics as $topic)
-                                        <a href="{{$topic->link}}" target="{{$topic->link_target}}" class="transition">
-                                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}" />
-                                        </a>
-                                    @endforeach
+                    @if ($section)
+                        <div class="cont09__content__boxLeft col-sm-5 px-0 text-center d-flex flex-column align-items-center justify-content-center">
+                            <div class="cont09__content__boxLeft__description">
+                                @if ($section->title)
+                                    <h4 class="cont09__content__boxLeft__description__title">{{$section->title}}</h4>
+                                @endif
+                                @if ($topics->count())
+                                    <div class="cont09__content__boxLeft__description__link">
+                                        @foreach ($topics as $topic)
+                                            <a href="{{$topic->link}}" target="{{$topic->link_target}}" class="transition">
+                                                <img src="{{ asset('storage/' . $topic->path_image_icon) }}" />
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+                            @if ($section->subtitle)
+                                <div class="cont09__content__boxLeft__description__paragraph">
+                                    <p>{{$section->subtitle}}</p>
                                 </div>
                             @endif
                         </div>
-                        @if ($section->subtitle)
-                            <div class="cont09__content__boxLeft__description__paragraph">
-                                <p>{{$section->subtitle}}</p>
-                            </div>
-                        @endif
-                    </div>
+                    @endif
                     @if ($content->link)
                         {{-- {{dd($content)}} --}}
                         <div class="cont09__content__boxRight col-sm-5 px-0">

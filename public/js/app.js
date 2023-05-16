@@ -11793,9 +11793,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Headers/HEAD02/src/main.js":
+/***/ "./resources/views/Client/Core/Headers/HEAD03/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD02/src/main.js ***!
+  !*** ./resources/views/Client/Core/Headers/HEAD03/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -11877,18 +11877,21 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD02/src/main */ "./resources/views/Client/Core/Headers/HEAD02/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD03/src/main */ "./resources/views/Client/Core/Headers/HEAD03/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE03/src/main */ "./resources/views/Client/Components/themeMenu/SIDE03/src/main.js");
 /* harmony import */ var _Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT04/src/main */ "./resources/views/Client/Core/Footers/FOOT04/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Products/PROD02/src/main */ "./resources/views/Client/pages/Products/PROD02/src/main.js");
-/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Services/SERV04/src/main */ "./resources/views/Client/pages/Services/SERV04/src/main.js");
-/* harmony import */ var _pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID02/src/main */ "./resources/views/Client/pages/Slides/SLID02/src/main.js");
+/* harmony import */ var _pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID02_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Topics/TOPI02/src/main */ "./resources/views/Client/pages/Topics/TOPI02/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Portfolios_PORT101_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Portfolios/PORT101/src/main */ "./resources/views/Client/pages/Portfolios/PORT101/src/main.js");
+/* harmony import */ var _pages_Portfolios_PORT101_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Portfolios_PORT101_src_main__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -12125,178 +12128,238 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Products/PROD02/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Products/PROD02/src/main.js ***!
-  \******************************************************************/
+/***/ "./resources/views/Client/pages/Portfolios/PORT101/src/main.js":
+/*!*********************************************************************!*\
+  !*** ./resources/views/Client/pages/Portfolios/PORT101/src/main.js ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('.carousel-prod02').owlCarousel({
-  smartSpeed: 450,
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  responsive: {
-    0: {
-      items: 1,
-      margin: 10
-    },
-    // breakpoint from 0 up
-    361: {
-      items: 1,
-      margin: 10
-    },
-    // breakpoint from 361 up
-    801: {
-      items: 4,
-      margin: 20
-    } // breakpoint from 801 up
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+$(function () {
+  var countItem = document.querySelectorAll('.port101__content .port101__content__box').length;
+
+  if (countItem >= 4) {
+    countItem = 4;
   }
-});
-$('.carousel-prod02').css('width', $('.prod02 .container--edit').outerWidth());
 
-if ($(window).outerWidth() <= 801) {
-  $('.carousel-prod02').css('width', $('.prod02 .container--edit').outerWidth() + 150);
-} // END carousel_prod02
-
-
-if ($(window).outerWidth() <= 801) {
-  $('.prod02__navigation__nav__mobile').addClass('owl-carousel');
-  $('.prod02__navigation__nav__mobile').addClass('caroussel-prod02-mobile');
-  $('.caroussel-prod02-mobile').css('width', $(window).outerWidth());
-  $('.caroussel-prod02-mobile').owlCarousel({
-    margin: 10,
-    items: 3,
+  console.log(countItem);
+  $('.carousel-port101').owlCarousel({
+    margin: 0,
     stagePadding: 0,
     smartSpeed: 450,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true
-  });
-}
-
-if ($(window).outerWidth() <= 801) {
-  $('.prod02__page__content__category').addClass('owl-carousel');
-  $('.prod02__page__content__category').addClass('caroussel_prod02-page');
-  $('.caroussel_prod02-page').owlCarousel({
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true,
+    dots: false,
+    nav: true,
     responsive: {
-      0: {
-        items: 2,
-        margin: 12
-      },
       // breakpoint from 0 up
-      400: {
-        items: 2,
-        margin: 12
+      0: {
+        items: 1,
+        margin: 0
       },
-      // breakpoint from 400 up
-      801: {
-        items: 2,
-        margin: 20
-      } // breakpoint from 801 up
+      // breakpoint from 360 up
+      361: {
+        items: 1,
+        margin: 0
+      },
+      500: {
+        items: 1,
+        margin: 0
+      },
+      800: {
+        items: 1,
+        margin: -50
+      },
+      // breakpoint from 800 up
+      850: {
+        items: countItem,
+        margin: 8
+      } // breakpoint from 850 up
 
     }
   });
-}
+  $('.carousel-port101').css('width', $('.port101 .container--pd').outerWidth());
+  $('.carousel-show-port101').owlCarousel({
+    items: 1,
+    loop: false,
+    center: true,
+    margin: 0,
+    // mouseDrag:false,
+    // touchDrag:false,
+    URLhashListener: true,
+    // ESSE
+    autoplayHoverPause: true,
+    startPosition: 'URLHash' // E ESSE
 
-$('.caroussel_prod02-show').owlCarousel({
-  margin: 5,
-  items: 1,
-  stagePadding: 0,
-  smartSpeed: 450,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true
+  });
+  $('.carousel-show-port101').css('width', $(window).outerWidth() / 2 - 91);
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101').css('width', $(window).outerWidth() - 84);
+  }
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101').css('width', $(window).outerWidth() - 84);
+  }
+
+  $('.carousel-show-port101-nav').owlCarousel({
+    margin: 12,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: false,
+    nav: true,
+    // mouseDrag:false,
+    // touchDrag:false,
+    items: 4
+  });
+  $('.carousel-show-port101-nav').css('width', $(window).outerWidth() / 2 - 91);
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 84);
+  }
+
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-show-port101-nav').css('width', $(window).outerWidth() - 84);
+  } // Change defaults
+
 });
-$('.caroussel_prod02-show').css('width', $(window).outerWidth() / 2 - 108);
-var altLightbox = $('.lightbox-prod02__content__carrossel').outerHeight();
-$('.caroussel_prod02-show').css('height', $(altLightbox));
+/* controle dos modals */
 
-if ($(window).outerWidth() <= 801) {
-  $('.caroussel_prod02-show').css('width', $(window).outerWidth() - 16); // $('.caroussel_prod02-show .owl-stage').css('width', $(window).outerWidth() - 150);
-  // $('.caroussel_prod02-show .owl-item').css('width', $(window).outerWidth() - 150);
+if (document.querySelector("[data-modal]")) {
+  /* fecha o modal e backdrop */
+  var closeModal = function closeModal() {
+    document.body.style.overflowY = "visible";
+
+    if (document.querySelector(".modal.open")) {
+      document.querySelector(".modal.open").classList.remove("open");
+    }
+  };
+
+  document.querySelectorAll(".modal").forEach(function (el) {
+    var backdrop = document.createElement("div");
+    backdrop.classList.add("modal__backdrop");
+    backdrop.addEventListener("click", closeModal);
+    el.append(backdrop);
+  });
+  document.querySelectorAll(".modal__content").forEach(function (el) {
+    /* cria botões de fechar em cada modal */
+    var btnClose = document.createElement("button");
+    btnClose.classList.add("modal__btn--close");
+    btnClose.innerHTML = "X";
+    el.append(btnClose);
+  });
+  /* pega todos os itens como data-modal e add os efeitos de click */
+
+  var linksModal = document.querySelectorAll("[data-modal]");
+
+  var _iterator = _createForOfIteratorHelper(linksModal),
+      _step;
+
+  try {
+    var _loop = function _loop() {
+      var linkModal = _step.value;
+      linkModal.addEventListener("click", function (event) {
+        event.preventDefault();
+        document.body.style.overflowY = "hidden";
+        var target = document.querySelector(linkModal.dataset.modal);
+        target.classList.add("open");
+      });
+    };
+
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      _loop();
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  var _iterator2 = _createForOfIteratorHelper(document.querySelectorAll(".modal__btn--close")),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var btnCloseModal = _step2.value;
+      btnCloseModal.addEventListener("click", closeModal);
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  document.querySelectorAll(".vhem-modal__help-link").forEach(function (el) {
+    el.addEventListener("click", closeModal);
+  });
 }
+/* controle dos modals */
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Services/SERV04/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Services/SERV04/src/main.js ***!
-  \******************************************************************/
+/***/ "./resources/views/Client/pages/Slides/SLID02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Slides/SLID02/src/main.js ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(function () {
-  $('.carousel-serv04').owlCarousel({
-    margin: 12,
+  $('.SLID02').owlCarousel({
+    animateOut: 'fadeOut',
+    items: 1,
+    margin: 0,
     stagePadding: 0,
     smartSpeed: 450,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    loop: true,
     dots: true,
     nav: false,
-    rewind: true,
-    autoHeight: true,
-    loop: false,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 1
-      },
-      // breakpoint from 500 up
-      500: {
-        items: 1
-      },
-      // breakpoint from 800 up
-      800: {
-        items: 4
-      }
-    }
+    dotsContainer: "#dotsSlideCustom"
   });
+});
 
-  if ($(window).outerWidth() <= 500) {
-    $('.carousel-serv04').css('width', $(window).outerWidth());
-  }
+/***/ }),
 
-  $('.carousel-serv04-page__subcategory').owlCarousel({
-    margin: 12,
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true,
-    loop: false,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 1,
-        margin: 0
-      },
-      // breakpoint from 500 up
-      500: {
-        items: 1,
-        margin: 0
-      },
-      // breakpoint from 800 up
-      800: {
-        items: 4
+/***/ "./resources/views/Client/pages/Topics/TOPI02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI02/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.carousel-topi02').addClass('owl-carousel');
+    $('.carousel-topi02').owlCarousel({
+      margin: 0,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 5,
+          touchDrag: false,
+          mouseDrag: false
+        }
       }
-    }
-  });
-
-  if ($(window).outerWidth() <= 500) {
-    $('.carousel-serv04-page__subcategory').css('width', $(window).outerWidth() + 200);
+    });
   }
 });
 
