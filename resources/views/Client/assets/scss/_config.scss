@@ -556,6 +556,10 @@ body{
             @include small-device{
                 font-size: $T3-mobile;
             }
+
+            @include large-device-down{
+                max-width: inherit;
+            }
         }
         // &__title{
         //     font-size: $T2;
@@ -608,6 +612,9 @@ body{
         &__form{
             display: flex;
 
+            @include large-device-down{
+                flex-wrap: wrap;
+            }
             div{
                 padding: 0;
             }
@@ -641,10 +648,11 @@ body{
             font-weight: $weight-700;
             transition: 0.5s all ease;
 
-            @include small-device{
-                height: 39px;
-                width: 153px;
+            @include large-device-down{
+                margin: 0 auto;
                 margin-top: 18px;
+                max-width: inherit;
+                width: 80%;
             }
 
             &:hover{

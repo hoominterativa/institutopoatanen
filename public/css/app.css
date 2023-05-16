@@ -577,6 +577,11 @@ body .owl-dots .owl-dot.active {
     font-size: 1.563rem;
   }
 }
+@media (max-width: 991.98px) {
+  .form102__boxLeft__subtitle {
+    max-width: inherit;
+  }
+}
 .form102__boxLeft__paragraph {
   width: 499px;
 }
@@ -616,6 +621,11 @@ body .owl-dots .owl-dot.active {
 .form102__boxRight__form {
   display: flex;
 }
+@media (max-width: 991.98px) {
+  .form102__boxRight__form {
+    flex-wrap: wrap;
+  }
+}
 .form102__boxRight__form div {
   padding: 0;
 }
@@ -649,11 +659,12 @@ body .owl-dots .owl-dot.active {
   font-weight: 700;
   transition: 0.5s all ease;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .form102__boxRight__cta {
-    height: 39px;
-    width: 153px;
+    margin: 0 auto;
     margin-top: 18px;
+    max-width: inherit;
+    width: 80%;
   }
 }
 .form102__boxRight__cta:hover {
