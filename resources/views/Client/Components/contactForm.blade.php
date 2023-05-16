@@ -35,4 +35,37 @@
             </div>
         </section>
     @break
+    @case('FORM102')
+    <section class="form102 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+        <div class="container container--pd">
+            <div class="row mx-0">
+                <div class="form102__boxLeft col-lg-4 px-0">
+                    <h2 class="form102__boxLeft__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h2>
+                </div>
+                <div class="form102__boxRight col-lg-8 px-0 d-flex justify-content-between align-items-center">
+                    {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form102__boxRight__form form-contact parsley-validate align-items-center']) !!}
+                        <div class="form102__boxRight__inputs d-flex justify-content-between">
+                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                            @foreach ($inputs as $name => $input)
+                                @include('Client.Components.inputs', [
+                                    'name' => $name,
+                                    'options' => $input->option,
+                                    'placeholder' => $input->placeholder,
+                                    'required' => $input->required??false,
+                                    'type' => $input->type,
+                                    'class' => 'col-md-8'
+                                ])
+                            @endforeach
+                        </div>
+                        <button type="submit" class="form102__boxRight__cta">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                            CTA
+                        </button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </section>
+    @break
 @endswitch
