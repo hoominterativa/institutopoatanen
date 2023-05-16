@@ -1,6 +1,14 @@
 @extends('Client.Core.client')
 @section('content')
     <main id="root">
+        <div class="pota01-page__container container-fluid">
+            <nav class="pota01-page__categories d-flex justify-content-center align-items-center">
+                @foreach ($categories as $category)
+                    <a href="{{route('pota01.category.page', ['POTA01PortalsCategory' => $category->slug])}}" class="pota01-page__categories__item {{$categoryCurrent->id==$category->id?'active':''}}">{{$category->title}}</a>
+                @endforeach
+            </nav>
+            {{-- END .pota01-page__categories --}}
+        </div>
         <section id="POTA01" class="pota01-show container-fluid">
             <div class="container">
                 <div class="row justify-content-between">
@@ -8,7 +16,7 @@
                         <article itemscope itemtype="http://schema.org/Article" class="pota01-show__item">
                             <h1 itemprop="name" class="pota01-show__item__title">{{$portal->title}}</h1>
                             <span class="pota01-show__item__published">
-                                Data: <span itemprop="datePublished" content="{{$portal->publishing}}" class="pota01-show__item__date">{{Carbon\Carbon::parse($portal->publishing)->formatLocalized('%d de %B de %Y')}}</span>
+                                Data: <span itemprop="datePublished" content="{{$portal->publishing}}" class="pota01-show__item__date">{{dateFormat($portal->publishing, 'd', 'M', 'Y', '')}}</span>
                             </span>
                             <p itemprop="articleSection" class="pota01-show__item__paragraph">{{$portal->description}}</p>
                             <figure class="pota01-show__item__image">
@@ -21,24 +29,18 @@
                     </div>
                     <div class="pota01-show__col-end col-12 col-sm-3">
                         <div class="pota01-show__related">
-                            {{-- <a href="" class="pota01-show__related__share">Compartilhar Artigo</a> --}}
+                            <a href="" class="pota01-show__related__share">Compartilhar Artigo</a>
                             <h4 class="pota01-show__related__title">Artigos Relacionados</h4>
                             @foreach ($portalsRelated as $portalRelated)
-                                <article class="pota01-show__boxs__item">
+                                <article class="pota01-show__boxs__item col-12">
                                     <div itemscope itemtype="http://schema.org/Article" class="pota01-show__boxs__item__content transition">
                                         <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portalRelated->category->slug, 'POTA01Portals' => $portalRelated->slug])}}">
-                                            <figure class="pota01-show__boxs__item__image">
+                                            <figure class="pota01-show__boxs__item__image mb-0">
                                                 <img itemprop="image" src="{{asset('storage/'.$portalRelated->path_image_thumbnail)}}" class="pota01-show__boxs__item__image__img" width="100%" alt="{{$portalRelated->title}}"/>
                                             </figure>
                                             <div class="pota01-show__boxs__item__description">
-                                                <span class="pota01-show__boxs__item__date-publish">
-                                                    Data: <span itemprop="datePublished" content="{{$portalRelated->publishing}}" class="pota01-show__boxs__item__date">{{Carbon\Carbon::parse($portalRelated->publishing)->formatLocalized('%d de %B de %Y')}}</span>
-                                                </span>
-                                                <h3 itemprop="name" class="pota01-show__boxs__item__title">{{$portalRelated->title}}</h3>
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <p itemprop="articleBody" class="pota01-show__boxs__item__paragraph">{{$portalRelated->description}}</p>
-                                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="34" class="pota01-show__boxs__item__icon ms-3" alt="{{$portalRelated->title}}"/>
-                                                </div>
+                                                <span class="pota01-show__boxs__item__publish">{{dateFormat($portalRelated->publishing, 'd', 'M', 'Y', '')}}</span>
+                                                <h2 itemprop="name" class="pota01-show__boxs__item__title">{{$portalRelated->title}}</h2>
                                             </div>
                                         </a>
                                     </div>
@@ -46,6 +48,40 @@
                             @endforeach
                             {{-- END .pota01-page__boxs__item --}}
                         </div>
+                    </div>
+                </div>
+                <div class="pota01-show__footer d-flex">
+                    <nav class="pota01-show__footer__tags d-flex flex-wrap align-items-center">
+                        <h5 class="pota01-show__footer__tags__title d-flex align-items-center">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="me-1" width="16px" alt="">
+                            TAGS
+                        </h5>
+                        <a href="#" class="pota01-show__footer__tags__item">MODA</a>
+                        <a href="#" class="pota01-show__footer__tags__item">SUCESSO</a>
+                        <a href="#" class="pota01-show__footer__tags__item">POLITICA</a>
+                        <a href="#" class="pota01-show__footer__tags__item">VIDEOS</a>
+                        <a href="#" class="pota01-show__footer__tags__item">NEWS</a>
+                    </nav>
+                    <a href="" class="pota01-show__footer__share ms-auto">Compartilhar Artigo</a>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="pota01-home__adverts pota01-home__adverts--blogInner">
+                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                                <a href="#" class="link-full"></a>
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            </div>
+                        </div>
+                        {{-- END .pota01-home__adverts --}}
+                    </div>
+                    <div class="col-6">
+                        <div class="pota01-home__adverts pota01-home__adverts--blogInner">
+                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                                <a href="#" class="link-full"></a>
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            </div>
+                        </div>
+                        {{-- END .pota01-home__adverts --}}
                     </div>
                 </div>
             </div>

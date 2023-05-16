@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portals\POTA01Controller;
 use App\Http\Controllers\Portals\POTA01CategoryController;
+use App\Http\Controllers\Portals\POTA01PodcastController;
 
 /**
  * Uncomment the code below
@@ -25,9 +26,15 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    // CATEGORIES
     Route::resource($route.'/categorias', POTA01CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'POTA01PortalsCategory']);
     Route::post($route.'/categoria/delete', [POTA01CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [POTA01CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+
+    // PODCASTS
+    Route::resource('podcasts', POTA01PodcastController::class)->names('admin.'.$routeName.'.podcast')->parameters(['podcasts' => 'POTA01PortalsPodcast']);
+    Route::post('podcasts/delete', [POTA01PodcastController::class, 'destroySelected'])->name('admin.'.$routeName.'.podcast.destroySelected');
+    Route::post('podcasts/sorting', [POTA01PodcastController::class, 'sorting'])->name('admin.'.$routeName.'.podcast.sorting');
 
     Route::post('busca/'.$route, [POTA01Controller::class, 'filter'])->name('admin.'.$routeName.'.index.filter');
     Route::get('clearFilter/'.$route, [POTA01Controller::class, 'clearFilter'])->name('admin.'.$routeName.'.clearFilter');
@@ -38,3 +45,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 //CLIENT
 Route::get($route.'/categoria/{POTA01PortalsCategory:slug}', [POTA01Controller::class, 'page'])->name($routeName.'.category.page');
 Route::get('categoria/{POTA01PortalsCategory:slug}/'.$route.'/{POTA01Portals:slug}', [POTA01Controller::class, 'show'])->name($routeName.'.show.content');
+Route::get('podcasts', [POTA01Controller::class, 'podcast'])->name($routeName.'.podcast');

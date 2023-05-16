@@ -105,12 +105,14 @@
 
 .pota01-page{
     &__header{
-        height: 352px;
+        height: 200px;
         text-align: center;
         &__title{
-            font-size: $T1;
+            font-size: $T2;
             font-weight: $weight-700;
             color: $color-black;
+            border-bottom: 7px solid $color-one;
+            padding-bottom: 15px;
             @include medium-device-down{
                 font-size: $T1-mobile;
             }
@@ -164,6 +166,31 @@
     }
     // END __header
 
+    &__container{
+        padding: 0;
+    }
+
+    &__categories{
+        padding: 20px 0;
+        padding-bottom: 0;
+        background-color: $color-five;
+        &__item{
+            font-size: $T5;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+            margin: 0 40px;
+            border-bottom: 12px solid transparent;
+            padding-bottom: 20px;
+
+            &:hover, &.active{
+                color: $color-two;
+                border-color: $color-one;
+            }
+        }
+    }
+    // END __categories
+
     &__boxs{
         padding-bottom: 80px;
         @include medium-device-down{
@@ -172,6 +199,7 @@
         }
         &__featured{
             padding: 80px 0;
+            padding-top: 0;
             @include medium-device-down{
                 padding: 50px 0;
             }
@@ -282,62 +310,27 @@
         }
         // END __featured
 
+
         &__item{
-            margin-bottom: 75px;
-            @include medium-device-down{
-                margin: 0;
-                margin-bottom: 30px;
+            margin-bottom: 50px;
+            &__description{
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-bottom: 6px solid $color-three;
+                border-top: none;
             }
-            &__content{
-                &:hover{
-                    transform: scale(1.02);
-                    box-shadow: 0 0 5px #ccc;
-                }
-            }
-            &__image{
-                margin-bottom: 20px;
-                height: 285px;
-                display: block;
-                &__img{
-                    object-fit: cover;
-                    object-position: center;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                }
-            }
-            &__date-publish{
+            &__publish{
                 font: $paragraph-min;
                 font-weight: $weight-400;
-                color: $color-two;
-                @include medium-device-down{
-                    font: $paragraph-min-mobile;
-                }
-            }
-            &__description{
-                padding: 0 15px;
+                color: $color-black;
+                margin-bottom: 15px;
+                display: block;
             }
             &__title{
                 font-size: $T4;
-                font-weight: $weight-700;
-                color: $color-black;
-
-                @include medium-device-down{
-                    font-size: $T4-mobile;
-                }
-            }
-            &__paragraph{
-                font: $paragraph;
+                font-family: $font-primary;
                 font-weight: $weight-500;
-                color: $color-two;
-                margin-top: 20px;
-
-                @include medium-device-down{
-                    font: $paragraph-mobile;
-                }
-            }
-            &__icon{
-                width: 34px !important;
+                color: $color-black;
             }
         }
         // END __item
@@ -378,12 +371,6 @@
                 font: $paragraph-mobile;
             }
         }
-        &__image{
-
-        }
-        &__img{
-
-        }
         &__description{
             font: $paragraph;
             font-weight: $weight-400;
@@ -400,6 +387,20 @@
         @include medium-device-down{
             margin-top: 80px;
         }
+        &__share{
+            font-size: $T5;
+            font-family: $font-primary;
+            font-weight: $weight-400;
+            color: $color-black;
+            border: 1px solid $color-black;
+            padding: 8px 20px;
+            margin-bottom: 50px;
+            display: table;
+            &:hover{
+                background-color: $color-black;
+                color: $color-white;
+            }
+        }
         &__title{
             font-size: $T5;
             font-weight: $weight-700;
@@ -414,67 +415,80 @@
 
     &__boxs{
         &__item{
-            margin-bottom: 75px;
-            @include medium-device-down{
-                margin: 0;
-                margin-bottom: 30px;
-            }
-            &__content{
-                &:hover{
-                    transform: scale(1.02);
-                    box-shadow: 0 0 5px #ccc;
-                }
-            }
+            margin-bottom: 0;
             &__image{
-                margin-bottom: 20px;
-                height: 285px;
-                display: block;
-                &__img{
-                    object-fit: cover;
-                    object-position: center;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                }
+                display: none;
             }
-            &__date-publish{
-                font: $paragraph-min;
-                font-weight: $weight-400;
-                color: $color-two;
-                @include medium-device-down{
-                    font: $paragraph-min-mobile;
-                }
+            &:first-of-type &__image{
+                display: block;
             }
             &__description{
-                padding: 0 15px;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-bottom: 6px solid $color-three;
+                border-top: none;
+            }
+            &__publish{
+                font: $paragraph-min;
+                font-weight: $weight-400;
+                color: $color-black;
+                margin-bottom: 15px;
+                display: block;
             }
             &__title{
                 font-size: $T4;
-                font-weight: $weight-700;
+                font-family: $font-primary;
+                font-weight: $weight-400;
                 color: $color-black;
-
-                @include medium-device-down{
-                    font-size: $T4-mobile;
-                }
-            }
-            &__paragraph{
-                font: $paragraph;
-                font-weight: $weight-500;
-                color: $color-two;
-                margin-top: 20px;
-
-                @include medium-device-down{
-                    font: $paragraph-mobile;
-                }
-            }
-            &__icon{
-                width: 34px !important;
             }
         }
         // END __item
     }
     // END __boxs
+
+    &__footer{
+        margin-top: 70px;
+        border-top: 7px solid $color-three;
+        padding-top: 37px;
+        margin-bottom: 100px;
+        &__tags{
+            &__title{
+                font-size: $T5;
+                font-weight: $weight-500;
+                font-family: $font-primary;
+                color: $color-black;
+                margin-right: 18px;
+                margin-bottom: 0;
+            }
+            &__item{
+                font: $paragraph;
+                font-weight: $weight-600;
+                color: $color-black;
+                background-color: $color-five;
+                padding: 5px 20px;
+                margin: 0 4px;
+            }
+        }
+        // END __tags
+
+        &__share{
+            font-size: $T5;
+            font-family: $font-primary;
+            font-weight: $weight-400;
+            color: $color-white;
+            border: 1px solid $color-two;
+            background-color: $color-two;
+            padding: 8px 20px;
+            display: table;
+            &:hover{
+                background-color: transparent;
+                color: $color-two;
+            }
+        }
+    }
+    // END __footer
 }
+// END .pota01-show
 
 .pota01-home{
     padding: 0;
@@ -546,6 +560,7 @@
                 color: $color-two;
                 position: relative;
                 width: 100%;
+                margin-bottom: 30px;
                 span{
                     position: relative;
                     z-index: 10;
@@ -712,6 +727,36 @@
             height: 144px;
             margin-top: 50px;
         }
+
+        &--category &__item{
+            height: 144px;
+            margin-top: 40px;
+        }
+
+        &--categoryInnerBeginPage &__item{
+            width: 580px;
+            height: 85px;
+        }
+
+        &--categoryInnerEndPage &__item{
+            height: 144px;
+            margin-top: 50px;
+        }
+
+        &--blogInner &__item{
+            height: 162px;
+            margin-top: 50px;
+        }
+
+        &--podcastBeforeArticle &__item{
+            height: 305px;
+            margin-bottom: 65px;
+        }
+
+        &--podcastAfterArticle &__item{
+            height: 305px;
+            margin-top: 60px;
+        }
     }
 
     // ======= VIDEOS =======
@@ -763,6 +808,12 @@
         &__item{
             width: 100%;
             height: 481px;
+            &__image{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
             &__description{
                 z-index: 9;
                 position: relative;
@@ -791,7 +842,6 @@
 
         &__boxs{
             &__item{
-                margin-bottom: 17px;
                 &__image{
                     position: relative;
                     height: 150px;
@@ -822,5 +872,189 @@
         }
     }
     // END __videos
+
+
+    // ========== CATEGORIES FEATURED HOME ==============
+
+    &__categoriesFeatured{
+        padding: 90px 0;
+        &__container{
+            margin-bottom: 70px;
+        }
+        &__titleSection{
+            font-size: $T3;
+            font-weight: $weight-700;
+            font-family: $font-primary;
+            color: $color-two;
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+            display: flex;
+            span{
+                position: relative;
+                z-index: 10;
+                background-color: $color-white;
+                padding-right: 30px;
+            }
+            &__link{
+                position: relative;
+                z-index: 10;
+                background-color: $color-four;
+                margin-left: auto;
+                display: inline-table;
+                font: $paragraph;
+                font-weight: $weight-400;
+                font-family: $font-primary;
+                color: $color-white;
+                padding: 10px 20px;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                height: 3px;
+                width: 100%;
+                z-index: 1;
+                transform: translate(0, -50%);
+                background-color: $color-four;
+            }
+        }
+        // END __titleSection
+
+        &__news{
+            &__item{
+                margin-bottom: 17px;
+                &__description{
+                    padding: 20px;
+                    border: 1px solid #ccc;
+                    border-bottom: 6px solid $color-three;
+                    border-top: none;
+                }
+                &__publish{
+                    font: $paragraph-min;
+                    font-weight: $weight-400;
+                    color: $color-black;
+                    margin-bottom: 15px;
+                    display: block;
+                }
+                &__title{
+                    font-size: $T4;
+                    font-family: $font-primary;
+                    font-weight: $weight-500;
+                    color: $color-black;
+                }
+            }
+        }
+        // __news
+    }
+    // END __categoriesFeatured
 }
 // END .pota01-home
+
+.pota01-podcast{
+    padding-bottom: 80px;
+    &__header{
+        border-bottom: 1px solid $color-two;
+        padding: 25px 0;
+        margin-bottom: 70px;
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+        }
+    }
+    &__end{
+        padding-left: 40px;
+    }
+    &__podcast{
+        padding: 0 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        &__titleSection{
+            font-size: $T4;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+            margin-top: 21px;
+            margin-bottom: 20px;
+            &__icon{
+                margin-right: 15px;
+            }
+        }
+        &__item{
+            padding: 35px 0;
+            border-bottom: 1px solid #ccc;
+            &__content{
+                @include Flex($align:start);
+            }
+            &__image{
+                border-radius: 100%;
+                overflow: hidden;
+                width: 100px;
+                height: 100px;
+                display: block;
+                border: 1px solid #ccc;
+                padding: 5px;
+                margin-right: 30px;
+                &__img{
+                    border-radius: 100%;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+            // END __image
+
+            &__description{
+                display: block;
+                width: calc(100% - 100px);
+                padding-left: 15px;
+            }
+            &__title{
+                font: $paragraph;
+                font-weight: $weight-600;
+                color: $color-black;
+                margin-bottom: 10px;
+            }
+            &__duration{
+                display: block;
+                font: $paragraph;
+                font-weight: $weight-400;
+                color: $color-three;
+                margin-bottom: 10px;
+            }
+            &__publish{
+                display: block;
+                font: $paragraph;
+                font-weight: $weight-400;
+                color: $color-one;
+            }
+            &__paragraph{
+                font: $paragraph-min;
+                font-weight: $weight-400;
+                color: $color-two;
+                margin-top: 18px;
+                margin-bottom: 0;
+            }
+        }
+        // END __item
+        &__link{
+            background-color: $color-three;
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-white;
+            padding: 10px 20px;
+            display: table;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: -25px;
+            margin-bottom: -5px;
+        }
+    }
+    // END __podcast
+}
+// END .pota01-podcast

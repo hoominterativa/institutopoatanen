@@ -42,7 +42,7 @@
         </a>
     </div> <!-- end col-->
     <div class="col-md-6 col-xl-3">
-        <a nofollow href="{{route('admin.contact.index')}}">
+        <a nofollow href="{{route('admin.pota01.podcast.index')}}">
             <div class="widget-rounded-circle card">
                 <div class="card-body bg-light">
                     <div class="row">

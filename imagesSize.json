@@ -279,6 +279,13 @@
                 "width": "700",
                 "height": "700",
                 "activeCrop": "false"
+            },
+            "Podcast":{
+                "path_image_thumbnail": {
+                    "width": "400",
+                    "height": "400",
+                    "activeCrop": "true"
+                }
             }
         }
     },

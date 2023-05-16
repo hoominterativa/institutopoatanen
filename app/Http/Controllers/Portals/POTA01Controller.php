@@ -14,6 +14,7 @@ use App\Models\Portals\POTA01PortalsSection;
 use App\Models\Portals\POTA01PortalsCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portals\POTA01PortalsPodcast;
 
 class POTA01Controller extends Controller
 {
@@ -297,11 +298,15 @@ class POTA01Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portals', 'POTA01', 'show');
 
         $POTA01Portals->text = conveterOembedCKeditor($POTA01Portals->text);
+        $categories = POTA01PortalsCategory::exists()->active()->sorting()->get();
+        $categoryCurrent = POTA01PortalsCategory::where('slug', $POTA01PortalsCategory)->first();
 
         return view('Client.pages.Portals.POTA01.show',[
             'sections' => $sections,
             'portal' => $POTA01Portals,
             'portalsRelated' => $portalsRelated,
+            'categories' => $categories,
+            'categoryCurrent' => $categoryCurrent,
         ]);
     }
 
@@ -341,6 +346,7 @@ class POTA01Controller extends Controller
 
         return view('Client.pages.Portals.POTA01.page',[
             'sections' => $sections,
+            'categoryCurrent' => $POTA01PortalsCategory,
             'categories' => $categories,
             'portalsFeatured' => $portalsFeatured,
             'portals' => $portals,
@@ -359,15 +365,19 @@ class POTA01Controller extends Controller
         }
 
         $idVideoFeatured = [$portalsVideoFeatured->id??0];
-
         $portalsVideo = POTA01Portals::with('category')->whereNotIn('id' ,$idVideoFeatured)->viewSectionVideo()->sorting()->get();
+        $categoryVideo = $portalsVideo->first();
 
         $categories = POTA01PortalsCategory::exists()->sorting()->get();
-        $categoriesFeaturedHome = POTA01PortalsCategory::with('portals')->exists()->featuredHome()->sorting()->get();
+        $categoriesFeaturedHome = POTA01PortalsCategory::exists()->featuredHome()->sorting()->get();
+        foreach ($categoriesFeaturedHome as $categoryFeaturedHome) {
+            $categoryFeaturedHome->portals = POTA01Portals::where('category_id', $categoryFeaturedHome->id)->limit(4)->get();
+        }
 
         return view('Client.pages.Portals.POTA01.home',[
             'portalsFeatureHome' => $portalsFeatureHome,
             'portals' => $portals,
+            'categoryVideo' => $categoryVideo->category,
             'portalsVideoFeatured' => $portalsVideoFeatured,
             'portalsVideo' => $portalsVideo,
             'categories' => $categories,
@@ -399,5 +409,27 @@ class POTA01Controller extends Controller
                 ]);
             break;
         }
+    }
+
+    /**
+     * Display a listing of the resourcee.
+     *
+     * @param  \App\Models\Portals\POTA01PortalsCategory  $POTA01PortalsCategory
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function podcast()
+    {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portals', 'POTA01', 'page');
+        $portals = POTA01Portals::with('category')->sorting()->orderBy('created_at', 'DESC')->orderBy('updated_at', 'DESC')->limit('5')->get();
+        $podcasts = POTA01PortalsPodcast::active()->orderBy('created_at', 'DESC')->sorting()->get();
+
+
+        return view('Client.pages.Portals.POTA01.podcast',[
+            'sections' => $sections,
+            'portals' => $portals,
+            'podcasts' => $podcasts,
+        ]);
     }
 }

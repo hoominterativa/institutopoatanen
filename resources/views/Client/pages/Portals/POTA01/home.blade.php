@@ -115,8 +115,11 @@
                                     </div>
                                 </div>
                             </article>
+                            <article class="pota01-home__podcast__item">
+                                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/31Cf5jVqLfzMM8WM15nOJB?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </article>
                         </div>
-                        <a href="#" class="pota01-home__podcast__link">Todos os Podcasts</a>
+                        <a href="{{route('pota01.podcast')}}" class="pota01-home__podcast__link">Todos os Podcasts</a>
                     </div>
                     {{-- END .pota01-home__podcast --}}
 
@@ -152,7 +155,7 @@
             <div class="container">
                 <h4 class="pota01-home__videos__titleSection">
                     <span>Vídeos</span>
-                    <a href="#" class="pota01-home__videos__titleSection__link">Ver Todos</a>
+                    <a href="{{route('pota01.category.page', ['POTA01PortalsCategory' => $categoryVideo->slug])}}" class="pota01-home__videos__titleSection__link">Ver Todos</a>
                 </h4>
                 {{-- END .pota01-home__videos__titleSection --}}
                 <div class="pota01-home__videos__items row">
@@ -201,5 +204,43 @@
         </section>
         {{-- END .pota01-home__videos --}}
     @endif
+
+    <section class="pota01-home__categoriesFeatured">
+        @foreach ($categoriesFeaturedHome as $categoryFeaturedHome)
+            <div class="pota01-home__categoriesFeatured__container container">
+                <h4 class="pota01-home__categoriesFeatured__titleSection">
+                    <span>{{$categoryFeaturedHome->title}}</span>
+                    <a href="{{route('pota01.category.page', ['POTA01PortalsCategory' => $categoryFeaturedHome->slug])}}" class="pota01-home__categoriesFeatured__titleSection__link">Ver Todos</a>
+                </h4>
+                {{-- END .pota01-home__videos__titleSection --}}
+                <div class="pota01-home__categoriesFeatured__news row">
+                    @foreach ($categoryFeaturedHome->portals as $portal)
+                        <article class="pota01-home__categoriesFeatured__news__item col-12 col-sm-4 col-md-3">
+                            <div itemscope itemtype="http://schema.org/Article" class="pota01-home__categoriesFeatured__news__item__content transition">
+                                <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portal->category->slug, 'POTA01Portals' => $portal->slug])}}">
+                                    <figure class="pota01-home__categoriesFeatured__news__item__image mb-0">
+                                        <img itemprop="image" src="{{asset('storage/'.$portal->path_image_thumbnail)}}" class="pota01-home__categoriesFeatured__news__item__image__img" width="100%" alt="{{$portal->title}}"/>
+                                    </figure>
+                                    <div class="pota01-home__categoriesFeatured__news__item__description">
+                                        <span class="pota01-home__categoriesFeatured__news__item__publish">{{dateFormat($portal->publishing, 'd', 'M', 'Y', '')}}</span>
+                                        <h2 itemprop="name" class="pota01-home__categoriesFeatured__news__item__title">{{$portal->title}}</h2>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
+                <div class="pota01-home__adverts pota01-home__adverts--category">
+                    <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                        <a href="#" class="link-full"></a>
+                        <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                    </div>
+                </div>
+                {{-- END .pota01-home__adverts --}}
+            </div>
+            {{-- END .container --}}
+        @endforeach
+    </section>
+    {{-- END .pota01-home__categoriesFeatured --}}
 </div>
 {{-- END #POTA01 --}}
