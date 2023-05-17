@@ -8,14 +8,8 @@
                         {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
                     </div>
                     <div class="mb-3">
-                        {!! Form::label(null, 'Quantidade', ['class'=>'form-label']) !!}
-                        {!! Form::number('quantity', null, [
-                            'class'=>'form-control',
-                            'required'=>'required',
-                            'pattern' => '[0-9]+',
-                            'min' => '0',
-                            'data-parsley-maxlength'=>'6',
-                        ]) !!}
+                        {!! Form::label('quantity', 'Quantidade', ['class' => 'form-label']) !!}
+                        {!! Form::text('quantity', null, ['class' => 'form-control', 'id' => 'quantity']) !!}
                     </div>
                     <div class="mb-3 form-check">
                         {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}

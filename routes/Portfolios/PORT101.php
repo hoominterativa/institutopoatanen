@@ -25,7 +25,7 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', PORT101SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'PORT01PortfoliosSection']);
+    Route::resource($route.'/secao', PORT101SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'PORT101PortfoliosSection']);
 
     Route::resource($route.'/galeria', PORT101GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'PORT101PortfoliosGallery']);
     Route::post($route.'/galeria/delete', [PORT101GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');

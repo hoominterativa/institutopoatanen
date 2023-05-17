@@ -16,7 +16,7 @@ class CreateTopi102TopicsFeaturedtopicsTable extends Migration
         Schema::create('topi102_topics_featuredtopics', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->integer('quantity')->default(0);
+            $table->string('quantity')->default(0);
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

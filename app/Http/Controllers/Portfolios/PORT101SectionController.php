@@ -54,6 +54,8 @@ class PORT101SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        // dd($data);
+
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){
             storageDelete($PORT101PortfoliosSection, 'path_image_desktop');
