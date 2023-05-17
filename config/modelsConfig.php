@@ -77,7 +77,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 09',
+                    'titlePanel' => 'Ouça Agora',
                     'iconPanel' => 'mdi-folder-outline'
                 ]
             ],
@@ -92,7 +92,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 07',
+                    'titlePanel' => 'Show',
                     'iconPanel' => 'mdi-folder-outline'
                 ]
             ],
@@ -107,7 +107,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 10',
+                    'titlePanel' => 'Agenda',
                     'iconPanel' => 'mdi-folder-outline'
                 ]
             ],
