@@ -63,8 +63,8 @@
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">{{$podcast->title}}</td>
-                                                <td class="align-middle">{{$podcast->duration}}min</td>
-                                                <td class="align-middle">{{dateFormat($podcast->publising, 'd', 'M', 'Y', '')}}</td>
+                                                <td class="align-middle">{{$podcast->duration??'0'}}min</td>
+                                                <td class="align-middle">{{dateFormat($podcast->publishing, 'd', 'M', 'Y', '')}}</td>
                                                 <td class="align-middle">
                                                     @if ($podcast->active)
                                                         <span class="badge bg-success">Ativo</span>

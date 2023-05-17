@@ -1806,10 +1806,8 @@ body .owl-dots .owl-dot.active {
   margin-bottom: -5px;
 }
 .pota01-home__adverts__item {
-  height: 385px;
   display: block;
   width: 100%;
-  margin-bottom: 11px;
   position: relative;
 }
 .pota01-home__adverts__item__image {
@@ -1834,6 +1832,10 @@ body .owl-dots .owl-dot.active {
   color: #000;
   border-bottom: 7px solid #B3B3B3;
   padding-bottom: 10px;
+}
+.pota01-home__adverts--homeBottomPodcast .pota01-home__adverts__item {
+  height: 385px;
+  margin-bottom: 11px;
 }
 .pota01-home__adverts--bottomLatestNews .pota01-home__adverts__item {
   height: 144px;
@@ -2076,6 +2078,10 @@ body .owl-dots .owl-dot.active {
   padding: 35px 0;
   border-bottom: 1px solid #ccc;
 }
+.pota01-podcast__podcast__item.target {
+  background-color: #EFEFEF;
+  padding: 15px;
+}
 .pota01-podcast__podcast__item__content {
   display: flex;
   flex-direction: row;
@@ -2143,6 +2149,59 @@ body .owl-dots .owl-dot.active {
   margin-left: auto;
   margin-right: -25px;
   margin-bottom: -5px;
+}
+
+.audioplayer {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin: 1em 0;
+  padding: 0 24px;
+  width: 100%;
+  height: 65px;
+  align-items: center;
+  border: 1px solid #DDE2E6;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.audioplayer-volume-adjust > div {
+  background-color: #BEC8D2;
+  height: 8px;
+}
+
+.audioplayer-volume-adjust div div {
+  background-color: #0059FF;
+  height: 8px;
+}
+
+.audioplayer-playing .audioplayer-bar-played::after {
+  border: 2px solid #0059FF;
+}
+
+.audioplayer-bar-played {
+  background: -webkit-linear-gradient(left, #0059FF, #09B1FA);
+}
+
+.audioplayer-bar-loaded {
+  background: #BEC8D2;
+}
+
+.audioplayer-time {
+  color: rgba(51, 51, 51, 0.6);
+}
+
+.audioplayer:not(.audioplayer-playing) .audioplayer-playpause a {
+  margin-left: 2px;
+  border-top: 7px solid transparent;
+  border-right: none;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid #0059FF;
+}
+
+.audioplayer:not(.audioplayer-playing) .audioplayer-playpause {
+  background: rgba(91, 130, 255, 0);
+  border: 1px solid #5B82FF;
 }
 
 /* BEGIN STYLE */

@@ -286,6 +286,13 @@
                     "height": "400",
                     "activeCrop": "true"
                 }
+            },
+            "Adverts":{
+                "path_image": {
+                    "width": "400",
+                    "height": "400",
+                    "activeCrop": "false"
+                }
             }
         }
     },

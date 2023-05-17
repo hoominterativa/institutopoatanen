@@ -13,7 +13,7 @@
                 <div class="pota01-podcast__start col-12 col-md-8">
                     <div class="pota01-podcast__podcast__tracks">
                         @foreach ($podcasts as $podcast)
-                            <article class="pota01-podcast__podcast__item">
+                            <article id="{{Str::slug($podcast->title)}}" class="targetPlayingAudio pota01-podcast__podcast__item">
                                 <div class="pota01-podcast__podcast__item__content">
                                     @if ($podcast->path_image_thumbnail)
                                         <div class="pota01-podcast__podcast__item__image">
@@ -39,6 +39,9 @@
                                             <div class="mt-3">
                                                 {!! $podcast->embed !!}
                                             </div>
+                                        @endif
+                                        @if ($podcast->path_archive)
+                                            <audio class="audio" src="{{asset('storage/'.$podcast->path_archive)}}" preload="none" controls></audio>
                                         @endif
                                     </div>
                                 </div>

@@ -67,71 +67,69 @@
                             PODCAST
                         </h4>
                         <div class="pota01-home__podcast__tracks">
-                            <article class="pota01-home__podcast__item">
-                                <div class="pota01-home__podcast__item__content">
-                                    <div class="pota01-home__podcast__item__image">
-                                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="pota01-home__podcast__item__image__img" alt="">
+                            @foreach ($podcasts as $podcast)
+                                <article class="pota01-home__podcast__item">
+                                    <div class="pota01-home__podcast__item__content">
+                                        <a href="{{route('pota01.podcast',['playing' => Str::slug($podcast->title)])}}" class="">
+                                            @if ($podcast->path_image_thumbnail)
+                                                <div class="pota01-home__podcast__item__image">
+                                                    <img src="{{asset('storage/'.$podcast->path_image_thumbnail)}}" class="pota01-home__podcast__item__image__img" alt="">
+                                                </div>
+                                            @endif
+                                        </a>
+                                        <div class="pota01-home__podcast__item__description" {{!$podcast->path_image_thumbnail?'style=width:100%;':''}}>
+                                            <a href="{{route('pota01.podcast',['playing' => Str::slug($podcast->title)])}}" class="">
+                                                @if ($podcast->title)
+                                                    <h2 class="pota01-home__podcast__item__title">{{$podcast->title}}</h2>
+                                                @endif
+                                                @if ($podcast->duration)
+                                                    <span class="pota01-home__podcast__item__duration">Duração: {{$podcast->duration}}min</span>
+                                                @endif
+                                                @if ($podcast->publishing)
+                                                    <span class="pota01-home__podcast__item__publish">{{dateFormat($podcast->publishing, 'd', 'M', 'Y', '')}}</span>
+                                                @endif
+                                            </a>
+                                            @if ($podcast->embed && !$podcast->path_image_thumbnail)
+                                                <div class="mt-3">
+                                                    {!! $podcast->embed !!}
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="pota01-home__podcast__item__description">
-                                        <h2 class="pota01-home__podcast__item__title">Ouça o que esta acontecendo na sua região com Liborio News</h2>
-                                        <span class="pota01-home__podcast__item__duration">Duração: 30min</span>
-                                        <span class="pota01-home__podcast__item__publish">{{dateFormat(date('Y-m-d'), 'd', 'M', 'Y', '')}}</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="pota01-home__podcast__item">
-                                <div class="pota01-home__podcast__item__content">
-                                    <div class="pota01-home__podcast__item__image">
-                                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="pota01-home__podcast__item__image__img" alt="">
-                                    </div>
-                                    <div class="pota01-home__podcast__item__description">
-                                        <h2 class="pota01-home__podcast__item__title">Ouça o que esta acontecendo na sua região com Liborio News</h2>
-                                        <span class="pota01-home__podcast__item__duration">Duração: 30min</span>
-                                        <span class="pota01-home__podcast__item__publish">{{dateFormat(date('Y-m-d'), 'd', 'M', 'Y', '')}}</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="pota01-home__podcast__item">
-                                <div class="pota01-home__podcast__item__content">
-                                    <div class="pota01-home__podcast__item__image">
-                                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="pota01-home__podcast__item__image__img" alt="">
-                                    </div>
-                                    <div class="pota01-home__podcast__item__description">
-                                        <h2 class="pota01-home__podcast__item__title">Ouça o que esta acontecendo na sua região com Liborio News</h2>
-                                        <span class="pota01-home__podcast__item__duration">Duração: 30min</span>
-                                        <span class="pota01-home__podcast__item__publish">{{dateFormat(date('Y-m-d'), 'd', 'M', 'Y', '')}}</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="pota01-home__podcast__item">
-                                <div class="pota01-home__podcast__item__content">
-                                    <div class="pota01-home__podcast__item__image">
-                                        <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="pota01-home__podcast__item__image__img" alt="">
-                                    </div>
-                                    <div class="pota01-home__podcast__item__description">
-                                        <h2 class="pota01-home__podcast__item__title">Ouça o que esta acontecendo na sua região com Liborio News</h2>
-                                        <span class="pota01-home__podcast__item__duration">Duração: 30min</span>
-                                        <span class="pota01-home__podcast__item__publish">{{dateFormat(date('Y-m-d'), 'd', 'M', 'Y', '')}}</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="pota01-home__podcast__item">
-                                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/31Cf5jVqLfzMM8WM15nOJB?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                            </article>
+                                </article>
+                            @endforeach
+
                         </div>
                         <a href="{{route('pota01.podcast')}}" class="pota01-home__podcast__link">Todos os Podcasts</a>
                     </div>
                     {{-- END .pota01-home__podcast --}}
 
-                    <div class="pota01-home__adverts pota01-home__adverts--bottomPodcast">
-                        <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                            <a href="#" class="link-full"></a>
-                            <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
-                        </div>
-                        <div class="pota01-home__adverts__item">
-                            <a href="#" class="link-full"></a>
-                            <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" width="100%" class="pota01-home__adverts__item__image" alt="">
-                        </div>
+                    <div class="pota01-home__adverts pota01-home__adverts--homeBottomPodcast">
+                        @forelse ($advertsBottomPodcast as $advertBottomPodcast)
+                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                                @if ($advertsBottomPodcast->count())
+                                    @if ($advertBottomPodcast->path_image)
+                                        @if ($advertBottomPodcast->link)
+                                            <a href="{{$advertBottomPodcast->link}}" target="{{$advertBottomPodcast->link_target}}" class="link-full"></a>
+                                        @endif
+                                        <img src="{{asset('storage/'.$advertBottomPodcast->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                                    @elseif($advertBottomPodcast->adsense)
+                                        {!! $advertBottomPodcast->adsense !!}
+                                    @else
+                                        <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                                    @endif
+                                @else
+                                    <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                                @endif
+                            </div>
+                        @empty
+                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            </div>
+                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            </div>
+                        @endforelse
                     </div>
                     {{-- END .pota01-home__adverts --}}
                 </div>
@@ -141,8 +139,20 @@
 
             <div class="pota01-home__adverts pota01-home__adverts--bottomLatestNews">
                 <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                    <a href="#" class="link-full"></a>
-                    <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                    @if ($advertsBottomLatestNews)
+                        @if ($advertsBottomLatestNews->path_image)
+                            @if ($advertsBottomLatestNews->link)
+                                <a href="{{$advertsBottomLatestNews->link}}" target="{{$advertsBottomLatestNews->link_target}}" class="link-full"></a>
+                            @endif
+                            <img src="{{asset('storage/'.$advertsBottomLatestNews->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                        @elseif($advertsBottomLatestNews->adsense)
+                            {!! $advertsBottomLatestNews->adsense !!}
+                        @else
+                            <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        @endif
+                    @else
+                        <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                    @endif
                 </div>
             </div>
             {{-- END .pota01-home__adverts --}}
@@ -232,8 +242,20 @@
                 </div>
                 <div class="pota01-home__adverts pota01-home__adverts--category">
                     <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                        <a href="#" class="link-full"></a>
-                        <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        @if ($categoryFeaturedHome->adverts)
+                            @if ($categoryFeaturedHome->adverts->path_image)
+                                @if ($categoryFeaturedHome->adverts->link)
+                                    <a href="{{$categoryFeaturedHome->adverts->link}}" target="{{$categoryFeaturedHome->adverts->link_target}}" class="link-full"></a>
+                                @endif
+                                <img src="{{asset('storage/'.$categoryFeaturedHome->adverts->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                            @elseif($categoryFeaturedHome->adverts->adsense)
+                                {!! $categoryFeaturedHome->adverts->adsense !!}
+                            @else
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            @endif
+                        @else
+                            <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        @endif
                     </div>
                 </div>
                 {{-- END .pota01-home__adverts --}}

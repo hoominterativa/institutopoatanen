@@ -11,6 +11,7 @@ import { Popper } from "popper.js/dist/popper.min.js";
 import { Dropdown } from "bootstrap/js/dist/dropdown.js";
 import { Collapse } from "bootstrap/js/dist/collapse.js";
 import { Toast } from "jquery-toast-plugin/dist/jquery.toast.min.js";
+import "./audioplayer";
 
 import { FormValidate } from "../views/Admin/assets/js/pages/form-validation.init.js";
 import { FormMask } from "../views/Admin/assets/js/pages/form-masks.init.js";

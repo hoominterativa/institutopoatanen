@@ -14,6 +14,7 @@ use Carbon\Carbon;
 class POTA01PodcastController extends Controller
 {
     protected $path = 'uploads/Portals/POTA01/images/';
+    protected $pathArchive = 'uploads/Portals/POTA01/archives/';
 
     /**
      * Display a listing of the resource.
@@ -54,7 +55,7 @@ class POTA01PodcastController extends Controller
         $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null,100);
         if($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
+        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->pathArchive);
         if($path_archive) $data['path_archive'] = $path_archive;
 
         $data['featured_home'] = $request->featured_home?1:0;
@@ -83,6 +84,7 @@ class POTA01PodcastController extends Controller
      */
     public function edit(POTA01PortalsPodcast $POTA01PortalsPodcast)
     {
+        $POTA01PortalsPodcast->publishing = Carbon::parse($POTA01PortalsPodcast->publishing)->format('d/m/Y');
         return view('Admin.cruds.Portals.POTA01.Podcast.edit',[
             'podcast' => $POTA01PortalsPodcast,
             'cropSetting' => getCropImage('Portals', 'POTA01')
@@ -111,7 +113,7 @@ class POTA01PodcastController extends Controller
             $data['path_image_thumbnail'] = null;
         }
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
+        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->pathArchive);
         if($path_archive){
             storageDelete($POTA01PortalsPodcast, 'path_archive');
             $data['path_archive'] = $path_archive;

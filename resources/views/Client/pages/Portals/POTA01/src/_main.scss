@@ -697,10 +697,8 @@
 
     &__adverts{
         &__item{
-            height: 385px;
             display: block;
             width: 100%;
-            margin-bottom: 11px;
             position: relative;
             &__image{
                 width: 100%;
@@ -722,6 +720,10 @@
             }
         }
         // END __item
+        &--homeBottomPodcast &__item{
+            height: 385px;
+            margin-bottom: 11px;
+        }
 
         &--bottomLatestNews &__item{
             height: 144px;
@@ -987,6 +989,10 @@
         &__item{
             padding: 35px 0;
             border-bottom: 1px solid #ccc;
+            &.target{
+                background-color: $color-five;
+                padding: 15px;
+            }
             &__content{
                 @include Flex($align:start);
             }
@@ -1058,3 +1064,51 @@
     // END __podcast
 }
 // END .pota01-podcast
+.audioplayer {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin: 1em 0;
+    padding: 0 24px;
+    width: 100%;
+    height: 65px;
+    align-items: center;
+    border: 1px solid #DDE2E6;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.audioplayer-volume-adjust > div{
+    background-color: #BEC8D2;
+    height: 8px;
+}
+.audioplayer-volume-adjust div div{
+    background-color: #0059FF;
+    height: 8px;
+}
+.audioplayer-playing .audioplayer-bar-played::after{
+    border: 2px solid #0059FF;
+}
+.audioplayer-bar-played{
+    background: -webkit-linear-gradient(left,#0059FF,#09B1FA);
+}
+.audioplayer-bar-loaded{
+    background: #BEC8D2;
+}
+
+.audioplayer-time{
+    color: rgba(51, 51 ,51, .6)
+}
+.audioplayer:not(.audioplayer-playing) .audioplayer-playpause a{
+    margin-left: 2px;
+    border-top: 7px solid transparent;
+    border-right: none;
+    border-bottom: 7px solid transparent;
+    border-left: 12px solid #0059FF;
+}
+.audioplayer:not(.audioplayer-playing) .audioplayer-playpause{
+    background: rgba(91, 130, 255, 0);
+    border: 1px solid #5B82FF;
+}
+
+

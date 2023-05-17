@@ -53,6 +53,11 @@ class POTA01PortalsCategory extends Model
         return $this->hasMany(POTA01Portals::class, 'category_id', 'id')->sorting()->orderBy('created_at', 'DESC')->active();
     }
 
+    public function adverts()
+    {
+        return $this->hasOne(POTA01PortalsAdverts::class, 'category_id', 'id')->where('position', 'categoryInnerEndPage')->inRandomOrder()->between();
+    }
+
     // DROPDOW MENU
 
     public function scopeExistsRegister($query)

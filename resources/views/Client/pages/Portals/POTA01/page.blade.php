@@ -20,8 +20,20 @@
                 @endif
                 <div class="pota01-home__adverts pota01-home__adverts--categoryInnerBeginPage ms-auto">
                     <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                        <a href="#" class="link-full"></a>
-                        <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        @if ($advertsInnerBeginPage)
+                            @if ($advertsInnerBeginPage->path_image)
+                                @if ($advertsInnerBeginPage->link)
+                                    <a href="{{$advertsInnerBeginPage->link}}" target="{{$advertsInnerBeginPage->link_target}}" class="link-full"></a>
+                                @endif
+                                <img src="{{asset('storage/'.$advertsInnerBeginPage->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                            @elseif($advertsInnerBeginPage->adsense)
+                                {!! $advertsInnerBeginPage->adsense !!}
+                            @else
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            @endif
+                        @else
+                            <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        @endif
                     </div>
                 </div>
                 {{-- END .pota01-home__adverts --}}
@@ -81,8 +93,20 @@
                 </div>
                 <div class="pota01-home__adverts pota01-home__adverts--categoryInnerEndPage">
                     <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                        <a href="#" class="link-full"></a>
-                        <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        @if ($advertsInnerEndPage)
+                            @if ($advertsInnerEndPage->path_image)
+                                @if ($advertsInnerEndPage->link)
+                                    <a href="{{$advertsInnerEndPage->link}}" target="{{$advertsInnerEndPage->link_target}}" class="link-full"></a>
+                                @endif
+                                <img src="{{asset('storage/'.$advertsInnerEndPage->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                            @elseif($advertsInnerEndPage->adsense)
+                                {!! $advertsInnerEndPage->adsense !!}
+                            @else
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            @endif
+                        @else
+                            <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        @endif
                     </div>
                 </div>
                 {{-- END .pota01-home__adverts --}}

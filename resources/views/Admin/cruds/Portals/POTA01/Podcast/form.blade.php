@@ -65,7 +65,7 @@
                     'data-plugins'=>'dropify',
                     'data-height'=>'225',
                     'data-max-file-size-preview'=>'2M',
-                    'accept'=>'.mp3, .3gpp, .3gp, .ogg, .aac, .flac, .wav, .alac, .aiff, .ape, .dsd, .mqa, .opus, .wma',
+                    'accept'=>'.mp3, .3gp, .ogg, .aac, .flac, .wav, .alac, .aiff, .ape, .dsd, .mqa, .opus, .wma',
                     'data-default-file'=> isset($podcast)?($podcast->path_archive<>''?url('storage/'.$podcast->path_archive):''):'',
                 ]) !!}
             </div>

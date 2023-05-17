@@ -76,4 +76,16 @@ $(function(){
             }
         }
     });
+
+    $('audio').audioPlayer();
+
+
+    var elemetTarget = window.location.search.split('=')[1]
+    if(elemetTarget){
+        var offsetTarget = ($(`#${elemetTarget}`).offset().top - 50)
+        $(`#${elemetTarget}`).addClass('target')
+        $('html, body').animate({
+            scrollTop: offsetTarget
+        }, 'fast')
+    }
 })

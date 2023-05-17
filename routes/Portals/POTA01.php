@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portals\POTA01Controller;
 use App\Http\Controllers\Portals\POTA01CategoryController;
 use App\Http\Controllers\Portals\POTA01PodcastController;
+use App\Http\Controllers\Portals\POTA01AdvertsController;
 
 /**
  * Uncomment the code below
@@ -35,6 +36,11 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource('podcasts', POTA01PodcastController::class)->names('admin.'.$routeName.'.podcast')->parameters(['podcasts' => 'POTA01PortalsPodcast']);
     Route::post('podcasts/delete', [POTA01PodcastController::class, 'destroySelected'])->name('admin.'.$routeName.'.podcast.destroySelected');
     Route::post('podcasts/sorting', [POTA01PodcastController::class, 'sorting'])->name('admin.'.$routeName.'.podcast.sorting');
+
+    // ADVERTS
+    Route::resource('anuncios', POTA01AdvertsController::class)->names('admin.'.$routeName.'.adverts')->parameters(['anuncios' => 'POTA01PortalsAdverts']);
+    Route::post('anuncios/delete', [POTA01AdvertsController::class, 'destroySelected'])->name('admin.'.$routeName.'.adverts.destroySelected');
+    Route::post('anuncios/sorting', [POTA01AdvertsController::class, 'sorting'])->name('admin.'.$routeName.'.adverts.sorting');
 
     Route::post('busca/'.$route, [POTA01Controller::class, 'filter'])->name('admin.'.$routeName.'.index.filter');
     Route::get('clearFilter/'.$route, [POTA01Controller::class, 'clearFilter'])->name('admin.'.$routeName.'.clearFilter');

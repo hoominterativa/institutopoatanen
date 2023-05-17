@@ -14,6 +14,7 @@ use App\Models\Portals\POTA01PortalsSection;
 use App\Models\Portals\POTA01PortalsCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portals\POTA01PortalsAdverts;
 use App\Models\Portals\POTA01PortalsPodcast;
 
 class POTA01Controller extends Controller
@@ -328,6 +329,9 @@ class POTA01Controller extends Controller
         $blogFeaturedValidate = POTA01Portals::with('category')->featuredPage();
         $portals = POTA01Portals::with('category');
 
+        $advertsInnerEndPage = null;
+        $advertsInnerBeginPage = null;
+
         if($POTA01PortalsCategory->exists){
             foreach ($categories as $category) {
                 if($POTA01PortalsCategory->id==$category->id){
@@ -338,6 +342,10 @@ class POTA01Controller extends Controller
             $portalsFeatured = $portalsFeatured->where('category_id', $POTA01PortalsCategory->id);
             $blogFeaturedValidate = $blogFeaturedValidate->where('category_id', $POTA01PortalsCategory->id);
             $portals = $portals->where('category_id', $POTA01PortalsCategory->id);
+
+
+            $advertsInnerBeginPage = POTA01PortalsAdverts::between()->where('category_id', $POTA01PortalsCategory->id)->where('position', 'categoryInnerBeginPage')->inRandomOrder()->first();
+            $advertsInnerEndPage = POTA01PortalsAdverts::between()->where('category_id', $POTA01PortalsCategory->id)->where('position', 'categoryInnerEndPage')->inRandomOrder()->first();
         }
 
         $portalsFeatured = $portalsFeatured->sorting()->get();
@@ -350,6 +358,8 @@ class POTA01Controller extends Controller
             'categories' => $categories,
             'portalsFeatured' => $portalsFeatured,
             'portals' => $portals,
+            'advertsInnerBeginPage' => $advertsInnerBeginPage,
+            'advertsInnerEndPage' => $advertsInnerEndPage,
         ]);
     }
 
@@ -373,6 +383,10 @@ class POTA01Controller extends Controller
         foreach ($categoriesFeaturedHome as $categoryFeaturedHome) {
             $categoryFeaturedHome->portals = POTA01Portals::where('category_id', $categoryFeaturedHome->id)->limit(4)->get();
         }
+        $podcasts = POTA01PortalsPodcast::active()->featuredHome()->orderBy('created_at', 'DESC')->sorting()->get();
+
+        $advertsBottomPodcast = POTA01PortalsAdverts::between()->where('position', 'homeBottomPodcast')->inRandomOrder()->limit(2)->get();
+        $advertsBottomLatestNews = POTA01PortalsAdverts::between()->where('position', 'bottomLatestNews')->inRandomOrder()->first();
 
         return view('Client.pages.Portals.POTA01.home',[
             'portalsFeatureHome' => $portalsFeatureHome,
@@ -382,6 +396,9 @@ class POTA01Controller extends Controller
             'portalsVideo' => $portalsVideo,
             'categories' => $categories,
             'categoriesFeaturedHome' => $categoriesFeaturedHome,
+            'podcasts' => $podcasts,
+            'advertsBottomPodcast' => $advertsBottomPodcast,
+            'advertsBottomLatestNews' => $advertsBottomLatestNews,
         ]);
     }
 
@@ -414,11 +431,10 @@ class POTA01Controller extends Controller
     /**
      * Display a listing of the resourcee.
      *
-     * @param  \App\Models\Portals\POTA01PortalsCategory  $POTA01PortalsCategory
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function podcast()
+    public function podcast(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portals', 'POTA01', 'page');
@@ -430,6 +446,7 @@ class POTA01Controller extends Controller
             'sections' => $sections,
             'portals' => $portals,
             'podcasts' => $podcasts,
+            'request' => $request,
         ]);
     }
 }
