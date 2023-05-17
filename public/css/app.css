@@ -1825,6 +1825,9 @@ body .owl-dots .owl-dot.active {
     height: 67px;
   }
 }
+.lightbox-port101__galery .carousel-show-port101-nav .owl-dots {
+  display: none !important;
+}
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav {
   display: flex !important;
   gap: 0 18px;
@@ -1873,7 +1876,7 @@ body .owl-dots .owl-dot.active {
 .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-next span {
   color: #fff;
   font-size: 32px;
-  height: 58px;
+  height: 32px;
 }
 @media (max-width: 575.98px) {
   .lightbox-port101__galery .carousel-show-port101-nav .owl-nav .owl-prev span,

@@ -98,6 +98,7 @@
                                                                                         'mdi-instagram' => 'Instagram',
                                                                                         'mdi-linkedin' => 'Linkedin',
                                                                                         'mdi-twitter' => 'Twitter',
+                                                                                        'mdi-tiktok' => 'Tik Tok',
                                                                                     ], null, [
                                                                                         'class'=>'form-select',
                                                                                         'id'=>'heard',
@@ -164,6 +165,7 @@
                                     'mdi-instagram' => 'Instagram',
                                     'mdi-linkedin' => 'Linkedin',
                                     'mdi-twitter' => 'Twitter',
+                                    'mdi-tiktok' => 'Tik Tok',
                                 ], null, [
                                     'class'=>'form-select',
                                     'id'=>'heard',

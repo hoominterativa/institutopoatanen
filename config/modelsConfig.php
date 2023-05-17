@@ -34,14 +34,14 @@ return [
         'Topics' => (object) [
             'TOPI102' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Biografia',
+                    'anchor' =>  true,
+                    'linkMenu' => '#TOPI102',
                     'iconMenu' => '',
                     'titlePanel' => 'Biografia',
                     'iconPanel' => 'mdi-account-box'
@@ -51,16 +51,16 @@ return [
         'Portfolios' => (object) [
             'PORT101' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => 'Portifólio',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Projetos',
+                    'anchor' =>  true,
+                    'linkMenu' => '#PORT101',
                     'iconMenu' => '',
-                    'titlePanel' => 'Portifólio',
+                    'titlePanel' => 'Projetos',
                     'iconPanel' => ''
                 ],
             ],
@@ -73,9 +73,9 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Ouça Agora',
+                    'anchor' =>  true,
+                    'linkMenu' => '#CONT09',
                     'iconMenu' => '',
                     'titlePanel' => 'Ouça Agora',
                     'iconPanel' => 'mdi-folder-outline'

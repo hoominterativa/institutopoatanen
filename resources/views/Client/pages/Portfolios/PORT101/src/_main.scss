@@ -311,6 +311,9 @@
                 }
             }
         }
+        .carousel-show-port101-nav .owl-dots{
+            display: none !important;
+        }
         .carousel-show-port101-nav .owl-nav {
             display: flex !important;
             gap: 0 18px;
@@ -360,7 +363,7 @@
           .carousel-show-port101-nav .owl-nav .owl-next span {
             color: #fff;
             font-size: 32px;
-            height: 58px;
+            height: 32px;
 
             @include small-device-down{
                 font-size: 15px;
