@@ -11889,8 +11889,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _pages_Portfolios_PORT101_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Portfolios/PORT101/src/main */ "./resources/views/Client/pages/Portfolios/PORT101/src/main.js");
 /* harmony import */ var _pages_Portfolios_PORT101_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Portfolios_PORT101_src_main__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Contents/CONT09/src/main */ "./resources/views/Client/pages/Contents/CONT09/src/main.js");
+/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Contents/CONT07/src/main */ "./resources/views/Client/pages/Contents/CONT07/src/main.js");
+/* harmony import */ var _pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Contents/CONT10/src/main */ "./resources/views/Client/pages/Contents/CONT10/src/main.js");
+/* harmony import */ var _pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT10_src_main__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Galleries/GALL01/src/main */ "./resources/views/Client/pages/Galleries/GALL01/src/main.js");
+/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__);
+
+
+
+
+
 
 
 
@@ -12118,10 +12133,207 @@ $(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Blogs/BLOG01/src/main.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  if ($(window).outerWidth() <= 800) {
+    $('.blog01__boxs__carousel').addClass('owl-carousel');
+    $('.blog01__boxs__carousel').owlCarousel({
+      margin: 10,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 360 up
+        361: {
+          items: 1
+        },
+        // breakpoint from 768 up
+        800: {
+          items: 4,
+          touchDrag: false,
+          mouseDrag: false
+        }
+      }
+    });
+    $('.blog01-page__header__category__carousel').addClass('owl-carousel');
+    $('.blog01-page__header__category__carousel').owlCarousel({
+      margin: 10,
+      stagePadding: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 2
+        }
+      }
+    });
+  }
+
+  $('.blog01-page__boxs__featured__carousel').addClass('owl-carousel');
+  $('.blog01-page__boxs__featured__carousel').owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 1
+      }
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/views/Client/pages/Compliances/COMP01/src/main.js":
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
   \*********************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contents/CONT07/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT07/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel-gallery-cont07').owlCarousel({
+    loop: false,
+    autoplay: false,
+    nav: false,
+    dots: true,
+    margin: 5,
+    stagePadding: 0,
+    smartSpeed: 450,
+    autoplayTimeout: 5000,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: -25
+      },
+      500: {
+        items: 2,
+        margin: -25
+      },
+      992: {
+        items: 3,
+        margin: -25
+      },
+      800: {
+        items: 4
+      },
+      1200: {
+        items: 4
+      }
+    }
+  });
+  $('.carousel-gallery-cont07').css('width', $(window).outerWidth() - 213);
+  $(window).resize(function () {
+    $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
+  });
+
+  if ($(window).outerWidth() <= 600) {
+    $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contents/CONT09/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT09/src/main.js ***!
+  \******************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contents/CONT10/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT10/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
+  var quantItemAppend = $(element).find('>*').length;
+  var refFor = quantItemAppend / quantItem;
+
+  for (var i = 1; i <= refFor; i++) {
+    $(element).append('<div class="contItemAppend' + i + ' pd-carrossel"></div>');
+    $(element).find('> *:lt(' + quantItem + ')').addClass('appendItem' + i);
+    $(element).find('.appendItem' + i).appendTo('.contItemAppend' + i + '');
+  }
+
+  $(element).owlCarousel({
+    loop: false,
+    nav: nav,
+    dots: dots,
+    autoplay: false,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      620: {
+        items: 1
+      },
+      840: {
+        items: quantLamina,
+        margin: 0
+      }
+    }
+  }); // FIM $('.owl-carousel').owlCarousel({
+}
+
+$(function () {
+  carrosselMultItem('.carousel-cont10', 6, 1, true, true, true);
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Galleries/GALL01/src/main.js":
+/*!*******************************************************************!*\
+  !*** ./resources/views/Client/pages/Galleries/GALL01/src/main.js ***!
+  \*******************************************************************/
 /***/ (() => {
 
 
