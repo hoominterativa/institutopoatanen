@@ -32,7 +32,7 @@ return [
             ],
         ],
         'Topics' => (object) [
-            'TOPI02' => (object)[
+            'TOPI102' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
