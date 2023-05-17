@@ -43,7 +43,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Biografia',
                     'iconPanel' => 'mdi-account-box'
                 ]
             ],
