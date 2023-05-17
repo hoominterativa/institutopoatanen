@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js?id=b6b2f2cffaebfda7a80655af23fc9563",
-    "/css/libraries.css": "/css/libraries.css?id=37943e7bd8914023dc387e57d8f5d86e",
-    "/css/app.css": "/css/app.css?id=067b2cb272eb8e4c962f1648d04ea8e3",
-    "/css/icons.css": "/css/icons.css?id=4ddd375dece1cac4a35fb57daa0f9582",
+    "/js/app.js": "/js/app.js",
+    "/css/libraries.css": "/css/libraries.css",
+    "/css/app.css": "/css/app.css",
+    "/css/icons.css": "/css/icons.css",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
     "/Admin/assets/js/custom.js": "/Admin/assets/js/custom.js?id=8dce5dadb9635382c8125ff844910b78",

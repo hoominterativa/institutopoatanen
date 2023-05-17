@@ -145,7 +145,9 @@
         left: 50%;
         bottom: 14px;
       }
-
+      .carousel-cont10  .owl-dots{
+        display: none !important;
+      }
       .carousel-cont10 .owl-nav .owl-prev{
         left: -52px;
       }
@@ -172,7 +174,7 @@
       .carousel-cont10 .owl-nav .owl-next span {
         color: #fff;
         font-size: 32px;
-        height: 58px;
+        height: 32px;
 
 
       }

@@ -2186,6 +2186,9 @@ body .owl-dots .owl-dot.active {
   left: 50%;
   bottom: 14px;
 }
+.cont10 .carousel-cont10 .owl-dots {
+  display: none !important;
+}
 .cont10 .carousel-cont10 .owl-nav .owl-prev {
   left: -52px;
 }
@@ -2209,7 +2212,7 @@ body .owl-dots .owl-dot.active {
 .cont10 .carousel-cont10 .owl-nav .owl-next span {
   color: #fff;
   font-size: 32px;
-  height: 58px;
+  height: 32px;
 }
 
 /* BEGIN STYLE */
