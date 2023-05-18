@@ -11,7 +11,7 @@
             </div>
             <div class="mb-3">
                 {!! Form::label('link', 'Link', ['class' => 'form-label']) !!}
-                {!! Form::text('link', null, ['class' => 'form-control', 'id' => 'link']) !!}
+                {!! Form::text('link', null, ['class' => 'form-control embedLinkYoutube', 'id' => 'link']) !!}
             </div>
             <div class="mb-3 form-check">
                 {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
