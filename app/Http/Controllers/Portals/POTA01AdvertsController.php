@@ -48,6 +48,10 @@ class POTA01AdvertsController extends Controller
                 $adverts = POTA01PortalsAdverts::whereIn('position', ['podcastBeforeArticle', 'podcastAfterArticle'])->sorting()->get();
                 $titlePage = 'Anúncios Podcast';
             break;
+            case 'blog':
+                $adverts = POTA01PortalsAdverts::whereIn('position', ['blogInner'])->whereNull('blog_id')->sorting()->get();
+                $titlePage = 'Anúncios das Internas dos Artigos';
+            break;
         }
 
         return view('Admin.cruds.Portals.POTA01.Adverts.index',[
@@ -65,6 +69,7 @@ class POTA01AdvertsController extends Controller
      */
     public function create(Request $request)
     {
+        if(!$request->has('type')) return redirect()->back();
         switch ($request->type) {
             case 'category':
                 $positions = [
@@ -82,6 +87,11 @@ class POTA01AdvertsController extends Controller
                 $positions = [
                     'podcastBeforeArticle' => 'Antes dos Artigos',
                     'podcastAfterArticle' => 'Depois dos Artigos',
+                ];
+            break;
+            case 'blog':
+                $positions = [
+                    'blogInner' => 'Final da página',
                 ];
             break;
         }
@@ -130,7 +140,6 @@ class POTA01AdvertsController extends Controller
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
-
     }
 
     /**
@@ -141,13 +150,14 @@ class POTA01AdvertsController extends Controller
      */
     public function edit(Request $request, POTA01PortalsAdverts $POTA01PortalsAdverts)
     {
+        if(!$request->has('type')) return redirect()->back();
         $categories = POTA01PortalsCategory::active()->sorting()->pluck('title','id');
 
         switch ($request->type) {
             case 'category':
                 $positions = [
                     'categoryInnerBeginPage' => 'Início da página',
-                    'categoryInnerEndPage' => 'Fim da Página',
+                    'categoryInnerEndPage' => 'Final da Página',
                 ];
             break;
             case 'home':
@@ -160,6 +170,11 @@ class POTA01AdvertsController extends Controller
                 $positions = [
                     'podcastBeforeArticle' => 'Antes dos Artigos',
                     'podcastAfterArticle' => 'Depois dos Artigos',
+                ];
+            break;
+            case 'blog':
+                $positions = [
+                    'blogInner' => 'Final da página',
                 ];
             break;
         }

@@ -552,6 +552,7 @@
     // END __featuredHome
 
     &__news{
+        padding-bottom: 80px;
         &__start{
             &__titleSection{
                 font-size: $T3;
@@ -728,6 +729,7 @@
         &--bottomLatestNews &__item{
             height: 144px;
             margin-top: 50px;
+            margin-top: 11px;
         }
 
         &--category &__item{

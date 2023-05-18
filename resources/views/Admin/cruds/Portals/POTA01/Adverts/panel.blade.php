@@ -77,6 +77,27 @@
                         </a>
                     </div> <!-- end col-->
                     <div class="col-md-6 col-xl-3">
+                        <a nofollow href="{{route('admin.pota01.adverts.index', ['type' => 'blog'])}}">
+                            <div class="widget-rounded-circle card">
+                                <div class="card-body bg-light">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="avatar-xl rounded-circle border-secondary border shadow m-auto mb-3">
+                                                <i class="mdi mdi-page-next-outline mdi-36px avatar-title text-dark"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="text-center">
+                                                <h4 class="text-dark mt-1">Anúncios das Internas dos Artigos</h4>
+                                                <p class="text-muted mb-1">Anúncios gerais para as páginas internas de artigos</p>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                </div>
+                            </div> <!-- end widget-rounded-circle-->
+                        </a>
+                    </div> <!-- end col-->
+                    <div class="col-md-6 col-xl-3">
                         <a nofollow href="{{route('admin.pota01.adverts.index', ['type' => 'podcast'])}}">
                             <div class="widget-rounded-circle card">
                                 <div class="card-body bg-light">

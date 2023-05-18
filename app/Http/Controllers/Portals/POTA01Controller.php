@@ -441,12 +441,16 @@ class POTA01Controller extends Controller
         $portals = POTA01Portals::with('category')->sorting()->orderBy('created_at', 'DESC')->orderBy('updated_at', 'DESC')->limit('5')->get();
         $podcasts = POTA01PortalsPodcast::active()->orderBy('created_at', 'DESC')->sorting()->get();
 
+        $advertsBeforeArticle = POTA01PortalsAdverts::between()->where('position', 'podcastBeforeArticle')->inRandomOrder()->first();
+        $advertsAfterArticle = POTA01PortalsAdverts::between()->where('position', 'podcastAfterArticle')->inRandomOrder()->first();
 
         return view('Client.pages.Portals.POTA01.podcast',[
             'sections' => $sections,
             'portals' => $portals,
             'podcasts' => $podcasts,
             'request' => $request,
+            'advertsBeforeArticle' => $advertsBeforeArticle,
+            'advertsAfterArticle' => $advertsAfterArticle,
         ]);
     }
 }

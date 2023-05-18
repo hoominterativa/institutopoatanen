@@ -19,7 +19,7 @@
                     <h3 class="pota01-page__header__title">Blog</h3>
                 @endif
                 <div class="pota01-home__adverts pota01-home__adverts--categoryInnerBeginPage ms-auto">
-                    <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                    <div class="pota01-home__adverts__item {{!$advertsInnerBeginPage?'pota01-home__adverts__item--advertiseHere':''}}">
                         @if ($advertsInnerBeginPage)
                             @if ($advertsInnerBeginPage->path_image)
                                 @if ($advertsInnerBeginPage->link)
@@ -92,7 +92,7 @@
                     {{$portals->links()}}
                 </div>
                 <div class="pota01-home__adverts pota01-home__adverts--categoryInnerEndPage">
-                    <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                    <div class="pota01-home__adverts__item {{!$advertsInnerEndPage?'pota01-home__adverts__item--advertiseHere':''}}">
                         @if ($advertsInnerEndPage)
                             @if ($advertsInnerEndPage->path_image)
                                 @if ($advertsInnerEndPage->link)

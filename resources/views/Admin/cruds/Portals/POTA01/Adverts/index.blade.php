@@ -20,7 +20,12 @@
                     </div>
                 </div>
                 <!-- end row -->
-
+                <div class="alert alert-warning">
+                    <p class="mb-0"><b>IMPORTANT: </b>Para cadastrar os anúncios de um artigo específico você deverá navegar até o artigo, clicar em editar e rolar a página até a seção de anúncios. <a href="{{route('admin.pota01.index')}}">Clique aqui e confira Listagem dos Artigos</a></p>
+                    @if ($type=='blog')
+                        <p class="mb-0"><b class="text-danger">ATENÇÃO: </b> Os anúncios cadastrado nesta seção não serão exibidos em artigos ao qual existam anúncios cadastrados.</p>
+                    @endif
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
@@ -107,6 +112,9 @@
                                                         @case('podcastAfterArticle')
                                                             <span class="badge bg-warning">Depois dos Artigos</span>
                                                         @break
+                                                        @case('blogInner')
+                                                            <span class="badge bg-warning">Final da Página</span>
+                                                        @break
                                                         @default
                                                             <span class="badge bg-danger">Sem posicionamento</span>
                                                     @endswitch
@@ -116,9 +124,6 @@
                                                         <span class="badge bg-success">Ativo</span>
                                                     @else
                                                         <span class="badge bg-danger">Inativo</span>
-                                                    @endif
-                                                    @if ($advert->featured_home)
-                                                        <span class="badge bg-primary text-white">Destaque</span>
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">

@@ -106,7 +106,7 @@
 
                     <div class="pota01-home__adverts pota01-home__adverts--homeBottomPodcast">
                         @forelse ($advertsBottomPodcast as $advertBottomPodcast)
-                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                            <div class="pota01-home__adverts__item {{!$advertsBottomPodcast->count()?'pota01-home__adverts__item--advertiseHere':''}}">
                                 @if ($advertsBottomPodcast->count())
                                     @if ($advertBottomPodcast->path_image)
                                         @if ($advertBottomPodcast->link)
@@ -138,7 +138,7 @@
             {{-- END .row --}}
 
             <div class="pota01-home__adverts pota01-home__adverts--bottomLatestNews">
-                <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                <div class="pota01-home__adverts__item {{!$advertsBottomLatestNews?'pota01-home__adverts__item--advertiseHere':''}}">
                     @if ($advertsBottomLatestNews)
                         @if ($advertsBottomLatestNews->path_image)
                             @if ($advertsBottomLatestNews->link)
@@ -241,7 +241,7 @@
                     @endforeach
                 </div>
                 <div class="pota01-home__adverts pota01-home__adverts--category">
-                    <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                    <div class="pota01-home__adverts__item {{!$categoryFeaturedHome->adverts?'pota01-home__adverts__item--advertiseHere':''}}">
                         @if ($categoryFeaturedHome->adverts)
                             @if ($categoryFeaturedHome->adverts->path_image)
                                 @if ($categoryFeaturedHome->adverts->link)

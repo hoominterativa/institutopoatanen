@@ -1677,6 +1677,9 @@ body .owl-dots .owl-dot.active {
   font-weight: 400;
   color: #fff;
 }
+.pota01-home__news {
+  padding-bottom: 80px;
+}
 .pota01-home__news__start__titleSection {
   font-size: 1.875rem;
   font-weight: 700;
@@ -1840,6 +1843,7 @@ body .owl-dots .owl-dot.active {
 .pota01-home__adverts--bottomLatestNews .pota01-home__adverts__item {
   height: 144px;
   margin-top: 50px;
+  margin-top: 11px;
 }
 .pota01-home__adverts--category .pota01-home__adverts__item {
   height: 144px;

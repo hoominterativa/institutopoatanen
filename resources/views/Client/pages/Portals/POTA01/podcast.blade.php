@@ -51,9 +51,21 @@
                 </div>
                 <div class="pota01-podcast__end col-12 col-md-4">
                     <div class="pota01-home__adverts pota01-home__adverts--podcastBeforeArticle">
-                        <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                            <a href="#" class="link-full"></a>
-                            <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        <div class="pota01-home__adverts__item {{!$advertsBeforeArticle?'pota01-home__adverts__item--advertiseHere':''}}">
+                            @if ($advertsBeforeArticle)
+                                @if ($advertsBeforeArticle->path_image)
+                                    @if ($advertsBeforeArticle->link)
+                                        <a href="{{$advertsBeforeArticle->link}}" target="{{$advertsBeforeArticle->link_target}}" class="link-full"></a>
+                                    @endif
+                                    <img src="{{asset('storage/'.$advertsBeforeArticle->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                                @elseif($advertsBeforeArticle->adsense)
+                                    {!! $advertsBeforeArticle->adsense !!}
+                                @else
+                                    <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                                @endif
+                            @else
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            @endif
                         </div>
                     </div>
                     {{-- END .pota01-home__adverts --}}
@@ -79,9 +91,21 @@
                     </div>
 
                     <div class="pota01-home__adverts pota01-home__adverts--podcastAfterArticle">
-                        <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                            <a href="#" class="link-full"></a>
-                            <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                        <div class="pota01-home__adverts__item {{!$advertsAfterArticle?'pota01-home__adverts__item--advertiseHere':''}}">
+                            @if ($advertsAfterArticle)
+                                @if ($advertsAfterArticle->path_image)
+                                    @if ($advertsAfterArticle->link)
+                                        <a href="{{$advertsAfterArticle->link}}" target="{{$advertsAfterArticle->link_target}}" class="link-full"></a>
+                                    @endif
+                                    <img src="{{asset('storage/'.$advertsAfterArticle->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                                @elseif($advertsAfterArticle->adsense)
+                                    {!! $advertsAfterArticle->adsense !!}
+                                @else
+                                    <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                                @endif
+                            @else
+                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                            @endif
                         </div>
                     </div>
                     {{-- END .pota01-home__adverts --}}
