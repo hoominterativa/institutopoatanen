@@ -11773,8 +11773,7 @@ $(function () {
       $('body').addClass('no-scroll');
     }
   });
-  $('#SIDE03 ul li a[href^="#"]').on('click', function (event) {
-    event.preventDefault();
+  $('#SIDE03 ul li a[href^="#"]').on('click', function () {
     var target = $(this.getAttribute('href'));
 
     if (target.length) {
