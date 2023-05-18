@@ -71,11 +71,10 @@ class TOPI102FeaturedTopicsController extends Controller
 
         if($TOPI102TopicsFeaturedTopics->fill($data)->save()){
             Session::flash('success', 'Tópico em destaque atualizado com sucesso');
-            return redirect()->route('admin.topi102.index');
         }else{
             Session::flash('error', 'Erro ao atualizar o tópico em destaque');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**

@@ -10,8 +10,8 @@
                 {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
-                {!! Form::url('link', null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                {!! Form::label('link', 'Link', ['class' => 'form-label']) !!}
+                {!! Form::text('link', null, ['class' => 'form-control embedLinkYoutube', 'id' => 'link']) !!}
             </div>
             <div class="mb-3 form-check">
                 {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}

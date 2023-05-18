@@ -67,5 +67,5 @@
             </div>
         </div>
     </section>
-@break
+    @break
 @endswitch

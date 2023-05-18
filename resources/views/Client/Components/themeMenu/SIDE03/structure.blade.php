@@ -24,12 +24,22 @@
                     </li>
                     @foreach ($listMenu as $module => $menu)
                         <li class="side03__navigation__item {{$menu->dropdown?'dropdown': ''}}">
-                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side03__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
-                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> {{$menu->title}}
-                                @if ($menu->dropdown)
-                                    <i class="menu-arrow"></i>
-                                @endif
-                            </a>
+                            @if (Route::current()->uri != 'home')
+                                <a href="{{route('home')}}{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side03__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> {{$menu->title}}
+                                    @if ($menu->dropdown)
+                                        <i class="menu-arrow"></i>
+                                    @endif
+                                </a>
+                            @else
+                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side03__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy"> {{$menu->title}}
+                                    @if ($menu->dropdown)
+                                        <i class="menu-arrow"></i>
+                                    @endif
+                                </a>
+                            @endif
+
                             @if ($menu->dropdown)
                                 <div class="side03__navigation__dropdown dropdown-menu">
                                     @foreach ($menu->dropdown as $item)

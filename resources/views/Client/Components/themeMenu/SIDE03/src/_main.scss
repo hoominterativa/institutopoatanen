@@ -11,18 +11,25 @@
     background-color: #fff;
     z-index: 1000;
     border-bottom: 9px solid $color-two;
-    transition-duration: 0.6s;
-
-
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
 
     &--show{
         left: 0;
         top:0;
         transition-duration: 0.6s;
         display: block;
+        -webkit-transition: all 0.7s ease-in;
+        -moz-transition: all 0.7s ease-in;
+        -o-transition: all 0.7s ease-in;
+        -ms-transition: all 0.7s ease-in;
+        transition: all 0.7s ease-in;
     }
 
-    
+
     &__scroll{
         width: 100%;
         height: 100%;
@@ -57,7 +64,7 @@
         @include medium-device-down{
             width:100% !important;
         }
-       
+
     }
 
     &__button-close{
@@ -69,12 +76,12 @@
             color:#fff;
         }
     }
-   
+
     &__image{
         height: 707px;
         max-width: 514px;
         width:100%;
-        
+
         img{
             object-fit:cover;
             width:100%;
@@ -84,9 +91,9 @@
 
 
     &__logo{
-       
+
         width:100%;
-        height:auto; 
+        height:auto;
         display: table;
         margin: 0 auto;
         object-fit: contain;
@@ -126,7 +133,7 @@
                 }
             }
         }
-        
+
     }
     &__sublink{
         font-size: $T5;
@@ -177,10 +184,10 @@
     }
     // END __navigation
 
-    
+
     // END __container-cta
 
-  
+
     &__network{
         gap:0 9.87px;
         margin-top:90px;
@@ -204,7 +211,7 @@
             li{
                display:flex;
                 align-items: center;
-               
+
                 a{
                     font: $paragraph;
                     font-weight: $weight-400;
@@ -218,14 +225,14 @@
                     display: flex;
                     margin: 0 20px;
                 }
-    
+
                 &:last-of-type::after, &:last-of-type::marker{
                     display:none !important;
                 }
 
             }
         }
-        
+
     }
 
     &__override{
