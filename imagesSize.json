@@ -331,6 +331,18 @@
                 "activeCrop": "false"
             }
         },
+        "CONT05":{
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "472",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "586",
+                "activeCrop": "true"
+            }
+        },
         "CONT06": {
             "path_image": {
                 "width": "885",
