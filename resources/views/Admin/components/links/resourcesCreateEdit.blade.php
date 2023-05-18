@@ -1,9 +1,9 @@
 @push('createEditCss')
     <!-- Plugins css -->
     <link href="{{url(mix('Admin/assets/libs/switchery.min.css'))}}" rel="stylesheet" type="text/css" />
+    <link href="{{url(mix('Admin/assets/libs/selectize.bootstrap3.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('Admin/assets/libs/multi-select.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('Admin/assets/libs/select2.min.css'))}}" rel="stylesheet" type="text/css" />
-    <link href="{{url(mix('Admin/assets/libs/selectize.bootstrap3.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('Admin/assets/libs/jquery.bootstrap-touchspin.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('Admin/assets/libs/spectrum.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('Admin/assets/libs/flatpickr.min.css'))}}" rel="stylesheet" type="text/css" />
@@ -23,8 +23,10 @@
     <!-- Plugin js-->
     <script src="{{url(mix('Admin/assets/libs/parsley.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/i18n/pt-br.js'))}}"></script>
+    <script src="{{url(mix('Admin/assets/libs/selectize.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/switchery.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/jquery.multi-select.js'))}}"></script>
+    <script src="{{url(mix('Admin/assets/libs/select2.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/jquery.mockjax.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/jquery.autocomplete.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/jquery.bootstrap-touchspin.min.js'))}}"></script>
@@ -47,6 +49,7 @@
     <!-- Pages init js-->
     <script src="{{url(mix('Admin/assets/js/pages/form-fileuploads.init.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/js/pages/add-product.init.js'))}}"></script>
+    <script src="{{url(mix('Admin/assets/js/pages/form-advanced.init.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/js/pages/form-validation.init.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/js/pages/form-pickers.init.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/js/pages/form-masks.init.js'))}}"></script>

@@ -65,24 +65,42 @@
                     <a href="" class="pota01-show__footer__share ms-auto">Compartilhar Artigo</a>
                 </div>
                 <div class="row">
-                    <div class="col-6">
-                        <div class="pota01-home__adverts pota01-home__adverts--blogInner">
-                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                                <a href="#" class="link-full"></a>
-                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                    @forelse ($advertsBlogInner as $advertBlogInner)
+                        <div class="col-6">
+                            <div class="pota01-home__adverts pota01-home__adverts--blogInner">
+                                <div class="pota01-home__adverts__item {{!$advertBlogInner->path_image && !$advertBlogInner->adsense?'pota01-home__adverts__item--advertiseHere':''}}">
+                                    @if ($advertBlogInner->path_image)
+                                        @if ($advertBlogInner->link)
+                                            <a href="{{$advertBlogInner->link}}" target="{{$advertBlogInner->link_target}}" class="link-full"></a>
+                                        @endif
+                                        <img src="{{asset('storage/'.$advertBlogInner->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
+                                    @elseif($advertBlogInner->adsense)
+                                        {!! $advertBlogInner->adsense !!}
+                                    @else
+                                        <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                                    @endif
+                                </div>
                             </div>
+                            {{-- END .pota01-home__adverts --}}
                         </div>
-                        {{-- END .pota01-home__adverts --}}
-                    </div>
-                    <div class="col-6">
-                        <div class="pota01-home__adverts pota01-home__adverts--blogInner">
-                            <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
-                                <a href="#" class="link-full"></a>
-                                <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                    @empty
+                        <div class="col-6">
+                            <div class="pota01-home__adverts pota01-home__adverts--blogInner">
+                                <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                                    <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                                </div>
                             </div>
+                            {{-- END .pota01-home__adverts --}}
                         </div>
-                        {{-- END .pota01-home__adverts --}}
-                    </div>
+                        <div class="col-6">
+                            <div class="pota01-home__adverts pota01-home__adverts--blogInner">
+                                <div class="pota01-home__adverts__item pota01-home__adverts__item--advertiseHere">
+                                    <h5 class="pota01-home__adverts__item__title">Anúncie aqui</h5>
+                                </div>
+                            </div>
+                            {{-- END .pota01-home__adverts --}}
+                        </div>
+                    @endforelse
                 </div>
             </div>
             {{-- END .container --}}

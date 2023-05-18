@@ -20,11 +20,31 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($portal, ['route' => ['admin.pota01.update', $portal->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Portals.POTA01.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.pota01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                {!! Form::close() !!}
+
+                <ul class="mb-0 nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#editArticle" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Editar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#listArticleAdverts" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Cadastrar Anúncios</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="editArticle">
+                        {!! Form::model($portal, ['route' => ['admin.pota01.update', $portal->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                            @include('Admin.cruds.Portals.POTA01.form')
+                            {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                            <a href="{{route('admin.pota01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::close() !!}
+                    </div>
+                    <div class="tab-pane" id="listArticleAdverts">
+                        @include('Admin.cruds.Portals.POTA01.AdvertsBlog.index',[
+                            'adverts' => $adverts,
+                            'portal' => $portal,
+                        ])
+                    </div>
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

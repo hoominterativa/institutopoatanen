@@ -18,7 +18,8 @@
                                 <label><input name="btnSelectAll" value="btnDeleteBlogCategory" type="checkbox"></label>
                             </th>
                             <th>Title</th>
-                            <th width="100px">Status</th>
+                            <th>Exibição por linha</th>
+                            <th width="200px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
@@ -32,10 +33,24 @@
                                 </td>
                                 <td class="align-middle">{{$category->title}}</td>
                                 <td class="align-middle">
+                                    @switch($category->view_type)
+                                        @case('row1') <span class="badge bg-primary">Um por linha</span> @break
+                                        @case('row2') <span class="badge bg-primary">Dois por linha</span> @break
+                                        @case('row3') <span class="badge bg-primary">Três por linha</span> @break
+                                        @case('row4') <span class="badge bg-primary">Quatro por linha</span> @break
+                                    @endswitch
+                                </td>
+                                <td class="align-middle">
                                     @if ($category->active)
                                         <span class="badge bg-success">Ativo</span>
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
+                                    @endif
+                                    @if ($category->featured_home)
+                                        <span class="badge bg-primary">Exibindo na Home</span>
+                                    @endif
+                                    @if ($category->view_featured)
+                                        <span class="badge bg-warning">Exibindo seção de destaque</span>
                                     @endif
                                 </td>
                                 <td class="align-middle">

@@ -41,38 +41,40 @@
         </header>
         <div class="container">
             <div class="pota01-page__boxs row">
-                <div class="pota01-page__boxs__featured pota01-page__boxs__featured__carousel col-12 {{$portalsFeatured->count()<=0?'p-5':''}}">
-                    @foreach ($portalsFeatured as $portalFeatured)
-                        <article class="pota01-page__boxs__featured__item">
-                            <div itemscope itemtype="http://schema.org/Article" class="pota01-page__boxs__featured__item__content transition row align-items-center">
-                                <figure class="pota01-page__boxs__featured__item__image col-12 col-sm-6">
-                                    <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portalFeatured->category->slug, 'POTA01Portals' => $portalFeatured->slug])}}">
-                                        <img itemprop="image" src="{{asset('storage/'.$portalFeatured->path_image)}}" class="pota01-page__boxs__featured__item__image__img" width="100%" alt="{{$portalFeatured->title}}"/>
-                                    </a>
-                                </figure>
-                                <div class="pota01-page__boxs__featured__item__description col-12 col-sm-6">
-                                    <span class="pota01-page__boxs__featured__item__category">{{$portalFeatured->category->title}}</span>
-                                    <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portalFeatured->category->slug, 'POTA01Portals' => $portalFeatured->slug])}}">
-                                        <h2 itemprop="name" class="pota01-page__boxs__featured__item__title">{{$portalFeatured->title}}</h2>
-                                    </a>
-                                    <span class="pota01-page__boxs__featured__item__date-publish">
-                                        Data: <span itemprop="datePublished" content="{{$portalFeatured->publishing}}" class="pota01-page__boxs__featured__item__date">{{dateFormat($portalFeatured->publishing, 'd', 'M', 'Y', '')}}</span>
-                                    </span>
-                                    <p itemprop="articleBody" class="pota01-page__boxs__featured__item__paragraph">{{$portalFeatured->description}}</p>
-                                    <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portalFeatured->category->slug, 'POTA01Portals' => $portalFeatured->slug])}}" class="pota01-page__boxs__featured__item__cta d-flex align-items-center justify-content-center ms-auto">
-                                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="pota01-page__boxs__featured__item__cta__icon me-3" alt="{{$portalFeatured->title}}"/>
-                                        CTA
-                                    </a>
+                @if ($categoryCurrent->view_featured)
+                    <div class="pota01-page__boxs__featured pota01-page__boxs__featured__carousel col-12 {{$portalsFeatured->count()<=0?'p-5':''}}">
+                        @foreach ($portalsFeatured as $portalFeatured)
+                            <article class="pota01-page__boxs__featured__item">
+                                <div itemscope itemtype="http://schema.org/Article" class="pota01-page__boxs__featured__item__content transition row align-items-center">
+                                    <figure class="pota01-page__boxs__featured__item__image col-12 col-sm-6">
+                                        <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portalFeatured->category->slug, 'POTA01Portals' => $portalFeatured->slug])}}">
+                                            <img itemprop="image" src="{{asset('storage/'.$portalFeatured->path_image)}}" class="pota01-page__boxs__featured__item__image__img" width="100%" alt="{{$portalFeatured->title}}"/>
+                                        </a>
+                                    </figure>
+                                    <div class="pota01-page__boxs__featured__item__description col-12 col-sm-6">
+                                        <span class="pota01-page__boxs__featured__item__category">{{$portalFeatured->category->title}}</span>
+                                        <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portalFeatured->category->slug, 'POTA01Portals' => $portalFeatured->slug])}}">
+                                            <h2 itemprop="name" class="pota01-page__boxs__featured__item__title">{{$portalFeatured->title}}</h2>
+                                        </a>
+                                        <span class="pota01-page__boxs__featured__item__date-publish">
+                                            Data: <span itemprop="datePublished" content="{{$portalFeatured->publishing}}" class="pota01-page__boxs__featured__item__date">{{dateFormat($portalFeatured->publishing, 'd', 'M', 'Y', '')}}</span>
+                                        </span>
+                                        <p itemprop="articleBody" class="pota01-page__boxs__featured__item__paragraph">{{$portalFeatured->description}}</p>
+                                        <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portalFeatured->category->slug, 'POTA01Portals' => $portalFeatured->slug])}}" class="pota01-page__boxs__featured__item__cta d-flex align-items-center justify-content-center ms-auto">
+                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="pota01-page__boxs__featured__item__cta__icon me-3" alt="{{$portalFeatured->title}}"/>
+                                            CTA
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                    @endforeach
-                    {{-- END .pota01-page__boxs__featured__item --}}
-                </div>
-                {{-- END .pota01-page__boxs__featured --}}
+                            </article>
+                        @endforeach
+                        {{-- END .pota01-page__boxs__featured__item --}}
+                    </div>
+                    {{-- END .pota01-page__boxs__featured --}}
+                @endif
 
                 @foreach ($portals as $portal)
-                    <article class="pota01-page__boxs__item col-12 col-sm-4 col-md-3">
+                    <article class="pota01-page__boxs__item {{$cols}}">
                         <div itemscope itemtype="http://schema.org/Article" class="pota01-page__boxs__item__content transition">
                             <a itemprop="url" href="{{route('pota01.show.content', ['POTA01PortalsCategory' => $portal->category->slug, 'POTA01Portals' => $portal->slug])}}">
                                 <figure class="pota01-page__boxs__item__image mb-0">

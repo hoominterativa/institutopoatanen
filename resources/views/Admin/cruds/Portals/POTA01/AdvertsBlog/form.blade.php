@@ -1,28 +1,14 @@
-{!! Form::hidden('type', $request->type) !!}
+@if (isset($advert))
+    {!! Form::model($advert, ['route' => ['admin.pota01.adverts.update', $advert->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+    @method('PUT')
+@else
+    {!! Form::model(null, ['route' => ['admin.pota01.adverts.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+@endif
+{!! Form::hidden('position', 'blogInner') !!}
+{!! Form::hidden('blog_id', $portal->id) !!}
 
-<div class="row col-12">
-    <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
-            @if ($request->type == 'category')
-                <div class="mb-3">
-                    {!! Form::label('category_id', 'Categoria', ['class'=>'form-label']) !!}
-                    {!! Form::select('category_id', $categories, null, [
-                        'class'=>'form-select',
-                        'id'=>'category_id',
-                        'required'=>'required',
-                        'placeholder' => '--'
-                    ]) !!}
-                </div>
-            @endif
-            <div class="mb-3">
-                {!! Form::label('position', 'Posição do Anúncio', ['class'=>'form-label']) !!}
-                {!! Form::select('position', $positions, null, [
-                    'class'=>'form-select',
-                    'id'=>'position',
-                    'required'=>'required',
-                    'placeholder' => '--'
-                ]) !!}
-            </div>
+    <div class="row">
+        <div class="col-12">
             <div class="mb-3">
                 <div class="row">
                     <div class="col-12 col-sm-6">
@@ -82,11 +68,6 @@
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
             </div>
-        </div>
-        {{-- end card-body --}}
-    </div>
-    <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
             <div class="mb-3 row">
                 <div class="col-12 col-sm-8">
                     {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
@@ -100,7 +81,7 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Thumbnail', ['class'=>'form-label']) !!}
-                    <small class="ms-2 receiverDimension text-warning"></small>
+                    <small class="ms-2 receiverDimension text-warning">Dimensões proporcionais mínimas 613x162px</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id'=>'inputImage',
@@ -122,52 +103,9 @@
                 </div>
             </div>
         </div>
-        {{-- end card-body --}}
     </div>
-</div>
-{{-- end row --}}
-
-<script>
-    function dimensions(value){
-        switch (value) {
-            case 'homeBottomPodcast':
-                var dimension = 'Dimensões proporcionais mínimas 375x305px';
-            break;
-            case 'bottomLatestNews':
-                var dimension = 'Dimensões proporcionais mínimas 1235x144px';
-            break;
-            case 'categoryInnerBeginPage':
-                var dimension = 'Dimensões proporcionais mínimas 582x83px';
-            break;
-            case 'categoryInnerEndPage':
-                var dimension = 'Dimensões proporcionais mínimas 1235x144px';
-            break;
-            case 'podcastBeforeArticle':
-                var dimension = 'Dimensões proporcionais mínimas 375x305px';
-            break;
-            case 'podcastAfterArticle':
-                var dimension = 'Dimensões proporcionais mínimas 375x305px';
-            break;
-            case 'blogInner':
-                var dimension = 'Dimensões proporcionais mínimas 613x162px';
-            break;
-        }
-
-        $('.receiverDimension').text(dimension);
-    }
-    $(function(){
-        dimensions('{{isset($advert)?$advert->position:''}}')
-        $('#position').on('change', function(){
-            var value = $(this).val()
-            dimensions(value)
-        })
-    })
-</script>
-
-{{-- Essa estrutura pode ser usada junto ao label do input para aparecer o ícone de duvida do lado do mesmo. pode usar a estutura abaixo substituindo o "Form::label" --}}
-{{-- <div class="d-flex align-items-center mb-1">
-    {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-original-title="Coloque a mensagem desejado aqui"></i>
-</div> --}}
+    <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
+        {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
+    </div>
+{!! Form::close() !!}

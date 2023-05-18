@@ -38,18 +38,22 @@
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
             </div>
-            <div class="d-flex">
-                <div class="form-check me-3">
+            <div class="row ps-2">
+                <div class="form-check col-6 mb-2">
                     {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
                     {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
                 </div>
-                <div class="form-check me-3">
+                <div class="form-check col-6 mb-2">
                     {!! Form::checkbox('featured_home', '1', null, ['class'=>'form-check-input', 'id'=>'featured_home']) !!}
                     {!! Form::label('featured_home', 'Destacar na Home', ['class'=>'form-check-label']) !!}
                 </div>
-                <div class="form-check me-3">
+                <div class="form-check col-6 mb-2">
                     {!! Form::checkbox('featured_page', '1', null, ['class'=>'form-check-input', 'id'=>'featured_page']) !!}
                     {!! Form::label('featured_page', 'Destacar na Página', ['class'=>'form-check-label']) !!}
+                </div>
+                <div class="form-check col-6 mb-2">
+                    {!! Form::checkbox('view_section_video', '1', null, ['class'=>'form-check-input', 'id'=>'view_section_video']) !!}
+                    {!! Form::label('view_section_video', 'Exibir na seção de Vídeo', ['class'=>'form-check-label']) !!}
                 </div>
             </div>
         </div>
@@ -58,6 +62,16 @@
     {{-- end card --}}
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                {!! Form::label('tags', 'Tags do artigo', ['class'=>'form-label']) !!}
+                {!! Form::select('tags[]', $categories, null, [
+                    'required'=>'required',
+                    'class'=>'selectize-tags',
+                    'id'=>'tags',
+                    'multiple'=>'multiple',
+                    'placeholder' => 'Selecione uma tag existente ou adicione uma nova'
+                ]) !!}
+            </div>
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}

@@ -22,6 +22,7 @@ class POTA01CategoryController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
         $data['view_featured'] = $request->view_featured?1:0;
+        $data['view_type'] = $request->view_type?1:0;
         $data['active'] = $request->active?1:0;
 
         if(POTA01PortalsCategory::create($data)){
