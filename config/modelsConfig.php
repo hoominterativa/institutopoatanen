@@ -68,7 +68,7 @@ return [
         'Contents' => (object) [
             'CONT09' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
@@ -81,31 +81,34 @@ return [
                     'iconPanel' => 'mdi-folder-outline'
                 ]
             ],
+
             'CONT07' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Videos',
+                    'anchor' =>  true,
+                    'linkMenu' => '#CONT07',
                     'iconMenu' => '',
-                    'titlePanel' => 'Show',
-                    'iconPanel' => 'mdi-folder-outline'
+                    'titlePanel' => 'Videos',
+                    'iconPanel' => ''
                 ]
             ],
+
+
             'CONT10' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Agenda',
+                    'anchor' =>  true,
+                    'linkMenu' => '#CONT10',
                     'iconMenu' => '',
                     'titlePanel' => 'Agenda',
                     'iconPanel' => 'mdi-folder-outline'
@@ -134,11 +137,11 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Artigos',
+                    'titleMenu' => 'Imprensa',
                     'anchor' =>  false,
                     'linkMenu' => 'blog01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Artigos',
+                    'titlePanel' => 'Imprensa',
                     'iconPanel' => 'mdi-blogger'
                 ],
             ],

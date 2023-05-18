@@ -7,6 +7,7 @@
 
         @include small-device-down{
             padding:106px 0 80px 0;
+            margin: 0 auto !important;
         }
     }
     &__content{
@@ -71,6 +72,7 @@
             @include small-device-down{
                 margin-top:60.52px;
                 margin-bottom:60.52px;
+                width: 320px;
             }
             img{
                 @include Img;
@@ -93,6 +95,7 @@
         .row--mobile{
             @include small-device-down{
                 padding: 13px 53px;
+                margin: 0 auto !important;
             }
         }
         &__content{

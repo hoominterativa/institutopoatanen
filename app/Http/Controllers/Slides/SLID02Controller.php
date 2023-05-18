@@ -207,7 +207,7 @@ class SLID02Controller extends Controller
         switch(deviceDetect()){
             case 'mobile':
             case 'tablet':
-                $slides = SLID02Slides::where('path_image_mobile','!=','')->activeMobile()->sorting()->get();
+                $slides = SLID02Slides::where('path_image_mobile','!=','')->sorting()->get();
                 foreach($slides as $slide){
                     $slide->link = $slide->link_mobile;
                     $slide->target_link = $slide->target_link;
