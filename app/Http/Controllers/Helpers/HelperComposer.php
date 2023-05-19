@@ -262,7 +262,7 @@ if(!function_exists('listPage')){
                             $registers = $core->getRelations($module, $code, $config);
                             $merge = [
                                 'title' => $config->config->titleMenu,
-                                'route' => route($config->config->linkMenu),
+                                'route' => $config->config->anchor?$config->config->linkMenu:route($config->config->linkMenu),
                                 'dropdown' => $registers
                             ];
                             array_push($pages, $merge);

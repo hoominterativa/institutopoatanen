@@ -62,6 +62,11 @@ class POTA01Portals extends Model
         return $this->belongsTo(POTA01PortalsCategory::class, 'category_id');
     }
 
+    public function tags()
+    {
+        return $this->hasMany(POTA01PortalsTagAndPortal::class, 'blog_id', 'id')->with('tag')->join('pota01_portals_tags', 'pota01_portals_tags.id', 'pota01_portals_tagandportals.tag_id')->orderBy('pota01_portals_tags.title');
+    }
+
     // public function getRelationCore()
     // {
     //     return null;

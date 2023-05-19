@@ -49,6 +49,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 
 //CLIENT
+Route::get($route.'/{POTA01PortalsTag:slug}/tag', [POTA01Controller::class, 'tags'])->name($routeName.'.tags');
 Route::get($route.'/categoria/{POTA01PortalsCategory:slug}', [POTA01Controller::class, 'page'])->name($routeName.'.category.page');
 Route::get('categoria/{POTA01PortalsCategory:slug}/'.$route.'/{POTA01Portals:slug}', [POTA01Controller::class, 'show'])->name($routeName.'.show.content');
 Route::get('podcasts', [POTA01Controller::class, 'podcast'])->name($routeName.'.podcast');

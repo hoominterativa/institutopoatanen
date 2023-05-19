@@ -15,6 +15,8 @@
             <div class="container d-flex align-items-center h-100">
                 @if ($categoryCurrent->exists)
                     <h1 class="pota01-page__header__title">{{$categoryCurrent->title}}</h1>
+                @elseif(isset($tagCurrent))
+                    <h2 class="pota01-page__header__title">{{$tagCurrent->title}}</h2>
                 @else
                     <h3 class="pota01-page__header__title">Blog</h3>
                 @endif

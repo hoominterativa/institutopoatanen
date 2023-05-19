@@ -52,15 +52,15 @@
                 </div>
                 <div class="pota01-show__footer d-flex">
                     <nav class="pota01-show__footer__tags d-flex flex-wrap align-items-center">
-                        <h5 class="pota01-show__footer__tags__title d-flex align-items-center">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="me-1" width="16px" alt="">
-                            TAGS
-                        </h5>
-                        <a href="#" class="pota01-show__footer__tags__item">MODA</a>
-                        <a href="#" class="pota01-show__footer__tags__item">SUCESSO</a>
-                        <a href="#" class="pota01-show__footer__tags__item">POLITICA</a>
-                        <a href="#" class="pota01-show__footer__tags__item">VIDEOS</a>
-                        <a href="#" class="pota01-show__footer__tags__item">NEWS</a>
+                        @if ($portal->tags->count())
+                            <h5 class="pota01-show__footer__tags__title d-flex align-items-center">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="me-1" width="16px" alt="">
+                                TAGS
+                            </h5>
+                            @foreach ($portal->tags as $tagPortal)
+                                <a href="{{route('pota01.tags', ['POTA01PortalsTag' => $tagPortal->tag->slug])}}" class="pota01-show__footer__tags__item">{{$tagPortal->tag->title}}</a>
+                            @endforeach
+                        @endif
                     </nav>
                     <a href="" class="pota01-show__footer__share ms-auto">Compartilhar Artigo</a>
                 </div>

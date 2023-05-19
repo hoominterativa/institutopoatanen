@@ -16,6 +16,8 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Portals\POTA01PortalsAdverts;
 use App\Models\Portals\POTA01PortalsPodcast;
+use App\Models\Portals\POTA01PortalsTag;
+use App\Models\Portals\POTA01PortalsTagAndPortal;
 
 class POTA01Controller extends Controller
 {
@@ -28,7 +30,7 @@ class POTA01Controller extends Controller
      */
     public function index()
     {
-        $portals = POTA01Portals::with('category')->sorting()->paginate('32');
+        $portals = POTA01Portals::with('category')->sorting()->orderBy('publishing', 'DESC')->paginate('32');
         $categories = POTA01PortalsCategory::exists()->sorting()->pluck('title', 'id');
         $portalCategories = POTA01PortalsCategory::sorting()->get();
         $section = POTA01PortalsSection::first();
@@ -92,7 +94,7 @@ class POTA01Controller extends Controller
             $portals = $portals->where('featured_page', 1);
         }
 
-        $portals = POTA01Portals::with('category')->sorting()->paginate('32');
+        $portals = POTA01Portals::with('category')->sorting()->orderBy('publishing', 'DESC')->paginate('32');
         $categories = POTA01PortalsCategory::exists()->sorting()->pluck('title', 'id');
         $portalCategories = POTA01PortalsCategory::sorting()->get();
         $section = POTA01PortalsSection::first();
@@ -119,8 +121,12 @@ class POTA01Controller extends Controller
     public function create()
     {
         $categories = POTA01PortalsCategory::sorting()->pluck('title', 'id');
+        $tags = POTA01PortalsTag::orderBy('title', 'ASC')->pluck('title', 'id');
+
         return view('Admin.cruds.Portals.POTA01.create',[
             'categories' => $categories,
+            'tags' => $tags,
+            'tagsPortal' => [],
             'cropSetting' => getCropImage('Portals', 'POTA01')
         ]);
     }
@@ -152,7 +158,18 @@ class POTA01Controller extends Controller
             $data['publishing'] = Carbon::createFromFormat('d/m/Y', $request->publishing)->format('Y-m-d');
         }
 
-        if(POTA01Portals::create($data)){
+        if($POTA01Portals = POTA01Portals::create($data)){
+
+            if($request->has('tags')){
+                foreach ($request->tags as $tag) {
+                    if(!POTA01PortalsTag::where('id', $tag)->first()){
+                        $newTag = POTA01PortalsTag::create(['title' => $tag, 'slug' => Str::slug($tag)]);
+                        $tag = $newTag->id;
+                    }
+                    POTA01PortalsTagAndPortal::create(['blog_id' => $POTA01Portals->id, 'tag_id' => $tag]);
+                }
+            }
+
             Session::flash('success', 'Informações cadastradas com sucesso');
             return redirect()->route('admin.pota01.index');
         }else{
@@ -174,11 +191,15 @@ class POTA01Controller extends Controller
         $categories = POTA01PortalsCategory::pluck('title', 'id');
         $POTA01Portals->publishing = Carbon::parse($POTA01Portals->publishing)->format('d/m/Y');
         $adverts = POTA01PortalsAdverts::where('blog_id', $POTA01Portals->id)->sorting()->get();
+        $tags = POTA01PortalsTag::orderBy('title', 'ASC')->pluck('title', 'id');
+        $tagsPortal = $POTA01Portals->tags->pluck('tag_id')->toArray();
 
         return view('Admin.cruds.Portals.POTA01.edit',[
             'portal' => $POTA01Portals,
             'categories' => $categories,
             'adverts' => $adverts,
+            'tags' => $tags,
+            'tagsPortal' => $tagsPortal,
             'cropSetting' => getCropImage('Portals', 'POTA01')
         ]);
     }
@@ -194,8 +215,6 @@ class POTA01Controller extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
-
-        // dd($data);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -228,6 +247,18 @@ class POTA01Controller extends Controller
         }
 
         if($POTA01Portals->fill($data)->save()){
+
+            POTA01PortalsTagAndPortal::where('blog_id', $POTA01Portals->id)->delete();
+            if($request->has('tags')){
+                foreach ($request->tags as $tag) {
+                    if(!POTA01PortalsTag::where('id', $tag)->first()){
+                        $newTag = POTA01PortalsTag::create(['title' => $tag, 'slug' => Str::slug($tag)]);
+                        $tag = $newTag->id;
+                    }
+                    POTA01PortalsTagAndPortal::create(['blog_id' => $POTA01Portals->id, 'tag_id' => $tag]);
+                }
+            }
+
             Session::flash('success', 'Item atualizado com sucesso');
         }else{
             Storage::delete($path_image);
@@ -300,7 +331,7 @@ class POTA01Controller extends Controller
     public function show($POTA01PortalsCategory, POTA01Portals $POTA01Portals)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $portalsRelated = POTA01Portals::with('category')
+        $portalsRelated = POTA01Portals::with(['category', 'tags'])
             ->where('category_id', $POTA01Portals->category_id)
             ->whereNotIn('id', [$POTA01Portals->id])
             ->sorting()
@@ -348,8 +379,8 @@ class POTA01Controller extends Controller
         $blogFeaturedValidate = POTA01Portals::with('category')->featuredPage();
         $portals = POTA01Portals::with('category');
 
-        $advertsInnerEndPage = null;
-        $advertsInnerBeginPage = null;
+        $advertsInnerBeginPage = POTA01PortalsAdverts::between()->whereNotNull('category_id')->where('position', 'categoryInnerBeginPage')->active()->inRandomOrder()->first();
+        $advertsInnerEndPage = POTA01PortalsAdverts::between()->whereNotNull('category_id')->where('position', 'categoryInnerEndPage')->active()->inRandomOrder()->first();
 
         if($POTA01PortalsCategory->exists){
             foreach ($categories as $category) {
@@ -393,8 +424,32 @@ class POTA01Controller extends Controller
             'portals' => $portals,
             'advertsInnerBeginPage' => $advertsInnerBeginPage,
             'advertsInnerEndPage' => $advertsInnerEndPage,
-            'advertsInnerEndPage' => $advertsInnerEndPage,
             'cols' => $cols,
+        ]);
+    }
+
+    public function tags(POTA01PortalsTag $POTA01PortalsTag, POTA01PortalsCategory $POTA01PortalsCategory)
+    {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portals', 'POTA01', 'page');
+
+        $categories = POTA01PortalsCategory::exists()->active()->sorting()->get();
+        $portals = POTA01Portals::with('category')->join('pota01_portals_tagandportals', 'pota01_portals_tagandportals.blog_id', 'pota01_portals.id')
+            ->where('pota01_portals_tagandportals.tag_id', $POTA01PortalsTag->id)->paginate('32');
+
+        $advertsInnerBeginPage = POTA01PortalsAdverts::between()->whereNotNull('category_id')->where('position', 'categoryInnerBeginPage')->active()->inRandomOrder()->first();
+        $advertsInnerEndPage = POTA01PortalsAdverts::between()->whereNotNull('category_id')->where('position', 'categoryInnerEndPage')->active()->inRandomOrder()->first();
+
+        return view('Client.pages.Portals.POTA01.page',[
+            'sections' => $sections,
+            'categoryCurrent' => $POTA01PortalsCategory,
+            'tagCurrent' => $POTA01PortalsTag,
+            'categories' => $categories,
+            'portalsFeatured' => [],
+            'portals' => $portals,
+            'advertsInnerBeginPage' => $advertsInnerBeginPage,
+            'advertsInnerEndPage' => $advertsInnerEndPage,
+            'cols' => 'col-12 col-sm-6 col-md-3',
         ]);
     }
 

@@ -64,13 +64,12 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 {!! Form::label('tags', 'Tags do artigo', ['class'=>'form-label']) !!}
-                {!! Form::select('tags[]', $categories, null, [
-                    'required'=>'required',
-                    'class'=>'selectize-tags',
-                    'id'=>'tags',
-                    'multiple'=>'multiple',
-                    'placeholder' => 'Selecione uma tag existente ou adicione uma nova'
-                ]) !!}
+                <select name="tags[]" id="tags" class="selectize-tags" multiple>
+                    <option value>Selecione uma tag existente ou adicione uma nova</option>
+                    @foreach ($tags as $id => $tag)
+                        <option value="{{$id}}" {{array_search($id, $tagsPortal)!==false?'selected':''}}>{{$tag}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">

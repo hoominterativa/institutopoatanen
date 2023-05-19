@@ -12,11 +12,13 @@ class POTA01PortalsTag extends Model
     use HasFactory;
     use SoftDeletes;
 
+    public $timestamps = false;
+
     protected static function newFactory()
     {
         return POTA01PortalsTagFactory::new();
     }
 
     protected $table = "pota01_portals_tags";
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'slug'];
 }
