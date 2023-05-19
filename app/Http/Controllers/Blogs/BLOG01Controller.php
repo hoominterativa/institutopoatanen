@@ -145,6 +145,8 @@ class BLOG01Controller extends Controller
         $data['featured_page'] = $request->featured_page?1:0;
         $data['active'] = $request->active?1:0;
 
+        $data['publishing'] = Carbon::createFromFormat('d/m/Y', $request->publishing)->format('Y-m-d');
+
         if(BLOG01Blogs::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
             return redirect()->route('admin.blog01.index');
@@ -209,6 +211,8 @@ class BLOG01Controller extends Controller
         $data['featured_home'] = $request->featured_home?1:0;
         $data['featured_page'] = $request->featured_page?1:0;
         $data['active'] = $request->active?1:0;
+
+        $data['publishing'] = Carbon::createFromFormat('d/m/Y', $request->publishing)->format('Y-m-d');
 
         if($BLOG01Blogs->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
