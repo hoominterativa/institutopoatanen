@@ -52,6 +52,7 @@ class SettingHeaderController extends Controller
             $data['limit'] = null;
         }
 
+        $data['page'] = null;
         if($request->pageN){
             $data['page'] = $request->pageN;
         }
@@ -106,6 +107,7 @@ class SettingHeaderController extends Controller
             $data['limit'] = null;
         }
 
+        $data['page'] = null;
         if($request->pageN){
             $data['page'] = $request->pageN;
         }

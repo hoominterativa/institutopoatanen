@@ -481,7 +481,7 @@ class POTA01Controller extends Controller
         return view('Client.pages.Portals.POTA01.home',[
             'portalsFeatureHome' => $portalsFeatureHome,
             'portals' => $portals,
-            'categoryVideo' => $categoryVideo->category,
+            'categoryVideo' => $categoryVideo?$categoryVideo->category:null,
             'portalsVideoFeatured' => $portalsVideoFeatured,
             'portalsVideo' => $portalsVideo,
             'categories' => $categories,
