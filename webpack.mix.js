@@ -9,7 +9,7 @@ mix
     // plugins
     .scripts('node_modules/parsleyjs/dist/parsley.min.js', 'public/Admin/assets/libs/parsley.min.js')
     .scripts('node_modules/@fancyapps/ui/dist/fancybox.umd.js', 'public/Admin/assets/libs/fancybox.js')
-    .scripts('node_modules/selectize/dist/js/selectize.min.js', 'public/Admin/assets/libs/selectize.min.js')
+    .scripts('node_modules/@selectize/selectize/dist/js/selectize.min.js', 'public/Admin/assets/libs/selectize.min.js')
     .scripts('node_modules/mohithg-switchery/dist/switchery.min.js', 'public/Admin/assets/libs/switchery.min.js')
     .scripts('node_modules/multiselect/js/jquery.multi-select.js', 'public/Admin/assets/libs/jquery.multi-select.js')
     .scripts('node_modules/select2/dist/js/select2.min.js', 'public/Admin/assets/libs/select2.min.js')

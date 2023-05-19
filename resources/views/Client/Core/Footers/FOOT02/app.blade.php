@@ -15,7 +15,7 @@
                 <span class="foot02__nav__header">Site Map</span>
                 <a href="{{route('home')}}" class="foot02__nav__item transition">Home</a>
                 @foreach ($listMenu as $module => $menu)
-                    <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" class="foot02__nav__item transition {{!$menu->anchor?'foot02__nav__item--'.isActive($menu->link):''}}" {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}}>{{$menu->title}}</a>
+                    <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" class="foot02__nav__item transition {{!$menu->anchor?'foot02__nav__item--'.isActive($menu->link):''}}" {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}}>{{$menu->title}}</a>
                 @endforeach
             </nav>
             @foreach ($listModelFooter as $menuFooter)

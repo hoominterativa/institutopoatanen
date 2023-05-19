@@ -21,6 +21,7 @@ class ModuleMakeModel extends Command
         {--m|migration : Create migration in the model}
         {--c|controller : Create controller in the model}
         {--r|resource : Create the resource type controller in the model}
+        {--p|pivot : Indicates if the generated model should be a custom intermediate table model}
     ';
 
     /**
@@ -66,7 +67,11 @@ class ModuleMakeModel extends Command
                 return;
             }
 
-            Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model']);
+            if($options['pivot']){
+                Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model'].' --pivot');
+            }else{
+                Artisan::call('make:model '.$arguments['module'].'/'.$arguments['code'].$arguments['module'].$arguments['model']);
+            }
 
             if($options['migration']){
 

@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Detection\MobileDetect;
 use Illuminate\Support\Str;
 use Cohensive\Embed\Facades\Embed;
@@ -11,6 +12,38 @@ if(!function_exists('isActive'))
 {
     function isActive($href, $class = 'active'){
         return $class = (strpos(Route::currentRouteName(),$href) !== false ? $class : '');
+    }
+}
+
+if(!function_exists('dateFormat'))
+{
+    /**
+     * Returns the date formatted according to the specified format.
+     *
+     * @param string $date -
+     * @param string $day "D" - day name | "d" - day number
+     * @param string $month "M" - month name | "m" - month number
+     * @param string $year "Y" - full year | "y" - abbreviated year
+     * @param string $split inform which character will be used in date formatting, white equals space and include "de"
+     *
+     * @return string
+     */
+    function dateFormat($date, $day = 'd', $month = 'm', $year = 'Y', $split = '/'){
+        $dayWeek = date("N", strtotime($date));
+        $arrayDay = ['1' => 'Segunda Feira', '2' => 'Terça Feira', '3' => 'Quarta Feira', '4' => 'Quinta Feira', '5' => 'Sexta Feira', '6' => 'Sábado', '7' => 'Domíngo'];
+        $arrayMonth = ['01' => 'Janeiro', '02' => 'Fevereiero', '03' => 'Março', '04' => 'Abril', '05' => 'Maio', '06' => 'Junho', '07' => 'Julho', '08' => 'Agosto', '09' => 'Setembro', '10' => 'Outubro', '11' => 'Novembro', '12' => 'Dezembro'];
+
+        $dayN = ($day === 'D'?$arrayDay[$dayWeek]:Carbon::parse($date)->format('d'));
+        $monthN = ($month === 'M'?$arrayMonth[Carbon::parse($date)->format('m')]:Carbon::parse($date)->format('m'));
+        $yearN = Carbon::parse($date)->format($year);
+
+        if($split <> ''){
+            $dateFormatted = $dayN.$split.$monthN.$split.$yearN;
+        }else{
+            $dateFormatted = $dayN.' de '.$monthN.' de '.$yearN;
+        }
+
+        return $dateFormatted;
     }
 }
 
@@ -257,11 +290,24 @@ if(!function_exists('listPage')){
             case 'pages':
                 foreach($modelsMain as $module => $models){
                     foreach($models as $code => $config){
+
                         if($config->ViewListMenu){
                             $merge = [
                                 $module.'|'.$code => $config->config->titleMenu,
                             ];
                             $pages = array_merge($pages, $merge);
+                        }
+
+                        if(isset($config->pages)){
+                            if(count(get_object_vars($config->pages))){
+                                foreach ($config->pages as $key => $page) {
+
+                                    $merge = [
+                                        $module.'|'.$code.'|'.$key => $page->name,
+                                    ];
+                                    $pages = array_merge($pages, $merge);
+                                }
+                            }
                         }
                     }
                 }
@@ -368,20 +414,22 @@ if(!function_exists('listRelations')){
      * @param string $code
      * @return array
      */
-    function getRelationsModel($module, $code)
+    function getRelationsModel($module, $code, $page=null)
     {
         $modelsMain = config('modelsConfig.InsertModelsMain');
-        if(isset($modelsMain->$module->$code->IncludeCore->relation)){
-            $arrRelations[$modelsMain->$module->$code->config->titleMenu]=[];
-            if($modelsMain->$module->$code->IncludeCore->relation){
-                foreach ($modelsMain->$module->$code->IncludeCore->relation as $relation => $configRelation) {
-                    $merge = [
-                        $relation => $configRelation->name
-                    ];
-                    $arrRelations[$modelsMain->$module->$code->config->titleMenu] = array_merge($arrRelations[$modelsMain->$module->$code->config->titleMenu], $merge);
+        if(!$page){
+            if(isset($modelsMain->$module->$code->IncludeCore->relation)){
+                $arrRelations[$modelsMain->$module->$code->config->titleMenu]=[];
+                if($modelsMain->$module->$code->IncludeCore->relation){
+                    foreach ($modelsMain->$module->$code->IncludeCore->relation as $relation => $configRelation) {
+                        $merge = [
+                            $relation => $configRelation->name
+                        ];
+                        $arrRelations[$modelsMain->$module->$code->config->titleMenu] = array_merge($arrRelations[$modelsMain->$module->$code->config->titleMenu], $merge);
+                    }
                 }
+                return $arrRelations;
             }
-            return $arrRelations;
         }
         return;
     }

@@ -267,6 +267,36 @@
             }
         }
     },
+
+    "Portals": {
+        "POTA01": {
+            "path_image_thumbnail": {
+                "width": "410",
+                "height": "320",
+                "activeCrop": "true"
+            },
+            "path_image": {
+                "width": "700",
+                "height": "700",
+                "activeCrop": "false"
+            },
+            "Podcast":{
+                "path_image_thumbnail": {
+                    "width": "400",
+                    "height": "400",
+                    "activeCrop": "true"
+                }
+            },
+            "Adverts":{
+                "path_image": {
+                    "width": "400",
+                    "height": "400",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
     "Products": {
         "PROD02": {
             "path_image_box": {

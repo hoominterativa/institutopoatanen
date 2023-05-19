@@ -11687,15 +11687,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_js_dist_collapse_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_collapse_js__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var jquery_toast_plugin_dist_jquery_toast_min_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery-toast-plugin/dist/jquery.toast.min.js */ "./node_modules/jquery-toast-plugin/dist/jquery.toast.min.js");
 /* harmony import */ var jquery_toast_plugin_dist_jquery_toast_min_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery_toast_plugin_dist_jquery_toast_min_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-validation.init.js */ "./resources/views/Admin/assets/js/pages/form-validation.init.js");
-/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-masks.init.js */ "./resources/views/Admin/assets/js/pages/form-masks.init.js");
-/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../views/Client/assets/js/ajax */ "./resources/views/Client/assets/js/ajax.js");
-/* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _audioplayer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./audioplayer */ "./resources/js/audioplayer.js");
+/* harmony import */ var _audioplayer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_audioplayer__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-validation.init.js */ "./resources/views/Admin/assets/js/pages/form-validation.init.js");
+/* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-masks.init.js */ "./resources/views/Admin/assets/js/pages/form-masks.init.js");
+/* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../views/Client/assets/js/ajax */ "./resources/views/Client/assets/js/ajax.js");
+/* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_15__);
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
@@ -11714,6 +11716,193 @@ window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODU
 
 
 
+
+
+/***/ }),
+
+/***/ "./resources/js/audioplayer.js":
+/*!*************************************!*\
+  !*** ./resources/js/audioplayer.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/*
+	AUTHOR: Osvaldas Valutis, www.osvaldas.info
+*/
+(function ($, window, document, undefined) {
+  var isTouch = ('ontouchstart' in window),
+      eStart = isTouch ? 'touchstart' : 'mousedown',
+      eMove = isTouch ? 'touchmove' : 'mousemove',
+      eEnd = isTouch ? 'touchend' : 'mouseup',
+      eCancel = isTouch ? 'touchcancel' : 'mouseup',
+      secondsToTime = function secondsToTime(secs) {
+    var hours = Math.floor(secs / 3600),
+        minutes = Math.floor(secs % 3600 / 60),
+        seconds = Math.ceil(secs % 3600 % 60);
+    return (hours == 0 ? '' : hours > 0 && hours.toString().length < 2 ? '0' + hours + ':' : hours + ':') + (minutes.toString().length < 2 ? '0' + minutes : minutes) + ':' + (seconds.toString().length < 2 ? '0' + seconds : seconds);
+  },
+      canPlayType = function canPlayType(file) {
+    var audioElement = document.createElement('audio');
+    return !!(audioElement.canPlayType && audioElement.canPlayType('audio/' + file.split('.').pop().toLowerCase() + ';').replace(/no/, ''));
+  };
+
+  $.fn.audioPlayer = function (params) {
+    var params = $.extend({
+      classPrefix: 'audioplayer',
+      strPlay: '',
+      strPause: '',
+      strVolume: ''
+    }, params),
+        cssClass = {},
+        cssClassSub = {
+      playPause: 'playpause',
+      playing: 'playing',
+      time: 'time',
+      timeCurrent: 'time-current',
+      timeDuration: 'time-duration',
+      bar: 'bar',
+      barLoaded: 'bar-loaded',
+      barPlayed: 'bar-played',
+      volume: 'volume',
+      volumeButton: 'volume-button',
+      volumeAdjust: 'volume-adjust',
+      noVolume: 'novolume',
+      mute: 'mute',
+      mini: 'mini'
+    };
+
+    for (var subName in cssClassSub) {
+      cssClass[subName] = params.classPrefix + '-' + cssClassSub[subName];
+    }
+
+    this.each(function () {
+      if ($(this).prop('tagName').toLowerCase() != 'audio') return false;
+      var $this = $(this),
+          audioFile = $this.attr('src'),
+          isAutoPlay = $this.get(0).getAttribute('autoplay'),
+          isAutoPlay = isAutoPlay === '' || isAutoPlay === 'autoplay' ? true : false,
+          isLoop = $this.get(0).getAttribute('loop'),
+          isLoop = isLoop === '' || isLoop === 'loop' ? true : false,
+          isSupport = false;
+
+      if (typeof audioFile === 'undefined') {
+        $this.find('source').each(function () {
+          audioFile = $(this).attr('src');
+
+          if (typeof audioFile !== 'undefined' && canPlayType(audioFile)) {
+            isSupport = true;
+            return false;
+          }
+        });
+      } else if (canPlayType(audioFile)) isSupport = true;
+
+      var thePlayer = $('<div class="' + params.classPrefix + '">' + (isSupport ? $('<div>').append($this.eq(0).clone()).html() : '<embed src="' + audioFile + '" width="0" height="0" volume="100" autostart="' + isAutoPlay.toString() + '" loop="' + isLoop.toString() + '" />') + '<div class="' + cssClass.playPause + '" title="' + params.strPlay + '"><a href="#">' + params.strPlay + '</a></div></div>'),
+          theAudio = isSupport ? thePlayer.find('audio') : thePlayer.find('embed'),
+          theAudio = theAudio.get(0);
+
+      if (isSupport) {
+        thePlayer.find('audio').css({
+          'width': 0,
+          'height': 0,
+          'visibility': 'hidden'
+        });
+        thePlayer.append('<div class="' + cssClass.time + ' ' + cssClass.timeCurrent + '"></div><div class="' + cssClass.bar + '"><div class="' + cssClass.barLoaded + '"></div><div class="' + cssClass.barPlayed + '"></div></div><div class="' + cssClass.time + ' ' + cssClass.timeDuration + '"></div><div class="' + cssClass.volume + '"><div class="' + cssClass.volumeButton + '" title="' + params.strVolume + '"><a href="#">' + params.strVolume + '</a></div><div class="' + cssClass.volumeAdjust + '"><div><div></div></div></div></div>');
+
+        var theBar = thePlayer.find('.' + cssClass.bar),
+            barPlayed = thePlayer.find('.' + cssClass.barPlayed),
+            barLoaded = thePlayer.find('.' + cssClass.barLoaded),
+            timeCurrent = thePlayer.find('.' + cssClass.timeCurrent),
+            timeDuration = thePlayer.find('.' + cssClass.timeDuration),
+            volumeButton = thePlayer.find('.' + cssClass.volumeButton),
+            volumeAdjuster = thePlayer.find('.' + cssClass.volumeAdjust + ' > div'),
+            volumeDefault = 0,
+            adjustCurrentTime = function adjustCurrentTime(e) {
+          theRealEvent = isTouch ? e.originalEvent.touches[0] : e;
+          theAudio.currentTime = Math.round(theAudio.duration * (theRealEvent.pageX - theBar.offset().left) / theBar.width());
+        },
+            adjustVolume = function adjustVolume(e) {
+          theRealEvent = isTouch ? e.originalEvent.touches[0] : e;
+          theAudio.volume = Math.abs((theRealEvent.pageX - volumeAdjuster.offset().left) / volumeAdjuster.width());
+        },
+            updateLoadBar = setInterval(function () {
+          if (theAudio.buffered.length > 0) {
+            barLoaded.width(theAudio.buffered.end(0) / theAudio.duration * 100 + '%');
+            if (theAudio.buffered.end(0) >= theAudio.duration) clearInterval(updateLoadBar);
+          }
+        }, 100);
+
+        var volumeTestDefault = theAudio.volume,
+            volumeTestValue = theAudio.volume = 0.111;
+        if (Math.round(theAudio.volume * 1000) / 1000 == volumeTestValue) theAudio.volume = volumeTestDefault;else thePlayer.addClass(cssClass.noVolume);
+        timeDuration.html('&hellip;');
+        timeCurrent.text(secondsToTime(0));
+        theAudio.addEventListener('loadeddata', function () {
+          timeDuration.text(secondsToTime(theAudio.duration));
+          volumeAdjuster.find('div').width(theAudio.volume * 100 + '%');
+          volumeDefault = theAudio.volume;
+        });
+        theAudio.addEventListener('timeupdate', function () {
+          timeCurrent.text(secondsToTime(theAudio.currentTime));
+          barPlayed.width(theAudio.currentTime / theAudio.duration * 100 + '%');
+        });
+        theAudio.addEventListener('volumechange', function () {
+          volumeAdjuster.find('div').width(theAudio.volume * 100 + '%');
+          if (theAudio.volume > 0 && thePlayer.hasClass(cssClass.mute)) thePlayer.removeClass(cssClass.mute);
+          if (theAudio.volume <= 0 && !thePlayer.hasClass(cssClass.mute)) thePlayer.addClass(cssClass.mute);
+        });
+        theAudio.addEventListener('ended', function () {
+          thePlayer.removeClass(cssClass.playing);
+        });
+        theBar.on(eStart, function (e) {
+          adjustCurrentTime(e);
+          theBar.on(eMove, function (e) {
+            adjustCurrentTime(e);
+          });
+        }).on(eCancel, function () {
+          theBar.unbind(eMove);
+        });
+        volumeButton.on('click', function () {
+          if (thePlayer.hasClass(cssClass.mute)) {
+            thePlayer.removeClass(cssClass.mute);
+            theAudio.volume = volumeDefault;
+          } else {
+            thePlayer.addClass(cssClass.mute);
+            volumeDefault = theAudio.volume;
+            theAudio.volume = 0;
+          }
+
+          return false;
+        });
+        volumeAdjuster.on(eStart, function (e) {
+          adjustVolume(e);
+          volumeAdjuster.on(eMove, function (e) {
+            adjustVolume(e);
+          });
+        }).on(eCancel, function () {
+          volumeAdjuster.unbind(eMove);
+        });
+      } else thePlayer.addClass(cssClass.mini);
+
+      if (isAutoPlay) thePlayer.addClass(cssClass.playing);
+      thePlayer.find('.' + cssClass.playPause).on('click', function () {
+        if (thePlayer.hasClass(cssClass.playing)) {
+          $(this).attr('title', params.strPlay).find('a').html(params.strPlay);
+          thePlayer.removeClass(cssClass.playing);
+          isSupport ? theAudio.pause() : theAudio.Stop();
+        } else {
+          $(this).attr('title', params.strPause).find('a').html(params.strPause);
+          thePlayer.addClass(cssClass.playing);
+          isSupport ? theAudio.play() : theAudio.Play();
+        }
+
+        return false;
+      });
+      $this.replaceWith(thePlayer);
+    });
+    return this;
+  };
+})(jQuery, window, document);
 
 /***/ }),
 
@@ -11751,57 +11940,41 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Components/themeMenu/SIDE03/src/main.js":
+/***/ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js":
 /*!************************************************************************!*\
-  !*** ./resources/views/Client/Components/themeMenu/SIDE03/src/main.js ***!
+  !*** ./resources/views/Client/Components/themeMenu/SIDE02/src/main.js ***!
   \************************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(function () {
-  $('body').append('<div class="side03__override trasition"></div>');
+  $('body').append('<div class="side02__override trasition"></div>');
   $('[data-plugin=sidebar]').on('click', function () {
-    if ($('#SIDE03').hasClass('side03--show')) {
-      $('#SIDE03').removeClass('side03--show');
+    if ($('#SIDE02').hasClass('side02--show')) {
+      $('#SIDE02').removeClass('side02--show');
       $(this).removeClass('active');
-      $('.side03__override').removeClass('side03__override--show');
+      $('.side02__override').removeClass('side02__override--show');
       $('body').removeClass('no-scroll');
     } else {
-      $('#SIDE03').addClass('side03--show');
+      $('#SIDE02').addClass('side02--show');
       $(this).addClass('active');
-      $('.side03__override').addClass('side03__override--show');
+      $('.side02__override').addClass('side02__override--show');
       $('body').addClass('no-scroll');
     }
   });
-  $('#SIDE03 ul li a[href^="#"]').on('click', function () {
-    var target = $(this.getAttribute('href'));
-
-    if (target.length) {
-      $('html, body').animate({
-        scrollTop: target.offset().top
-      }, 1000);
-    }
-
-    setTimeout(function () {
-      $('#SIDE03').removeClass('side03--show');
-      $(this).removeClass('active');
-      $('.side03__override').removeClass('side03__override--show');
-      $('body').removeClass('no-scroll');
-    }, 1000);
-  });
-  $('.side03__button-close').on('click', function () {
-    $('#SIDE03').removeClass('side03--show');
+  $('.side02__header__button-close').on('click', function () {
+    $('#SIDE02').removeClass('side02--show');
     $(this).removeClass('active');
-    $('.side03__override').removeClass('side03__override--show');
+    $('.side02__override').removeClass('side02__override--show');
     $('body').removeClass('no-scroll');
   });
 });
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Footers/FOOT04/src/main.js":
+/***/ "./resources/views/Client/Core/Footers/FOOT02/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Footers/FOOT04/src/main.js ***!
+  !*** ./resources/views/Client/Core/Footers/FOOT02/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -11809,9 +11982,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Headers/HEAD03/src/main.js":
+/***/ "./resources/views/Client/Core/Headers/HEAD02/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD03/src/main.js ***!
+  !*** ./resources/views/Client/Core/Headers/HEAD02/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -11893,14 +12066,14 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD03/src/main */ "./resources/views/Client/Core/Headers/HEAD03/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE03/src/main */ "./resources/views/Client/Components/themeMenu/SIDE03/src/main.js");
-/* harmony import */ var _Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT04/src/main */ "./resources/views/Client/Core/Footers/FOOT04/src/main.js");
-/* harmony import */ var _Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT04_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contents_CONT05_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT05/src/main */ "./resources/views/Client/pages/Contents/CONT05/src/main.js");
-/* harmony import */ var _pages_Contents_CONT05_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT05_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD02/src/main */ "./resources/views/Client/Core/Headers/HEAD02/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE02/src/main */ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js");
+/* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
+/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _pages_Portals_POTA01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Portals/POTA01/src/main */ "./resources/views/Client/pages/Portals/POTA01/src/main.js");
+/* harmony import */ var _pages_Portals_POTA01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Portals_POTA01_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12138,13 +12311,99 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT05/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT05/src/main.js ***!
-  \******************************************************************/
-/***/ (() => {
+/***/ "./resources/views/Client/pages/Portals/POTA01/src/main.js":
+/*!*****************************************************************!*\
+  !*** ./resources/views/Client/pages/Portals/POTA01/src/main.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.pota01__boxs__carousel').addClass('owl-carousel');
+  $('.pota01__boxs__carousel').owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    dots: true,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 4,
+        touchDrag: false,
+        mouseDrag: false
+      }
+    }
+  });
+  $('.pota01-page__header__category__carousel').addClass('owl-carousel');
+  $('.pota01-page__header__category__carousel').owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    dots: false,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 2
+      }
+    }
+  });
+  $('.pota01-home__featuredHome__caroussel').addClass('owl-carousel');
+  $('.pota01-home__featuredHome__caroussel').owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    dots: false,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 2
+      }
+    }
+  });
+  $('.pota01-page__boxs__featured__carousel').addClass('owl-carousel');
+  $('.pota01-page__boxs__featured__carousel').owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    dots: true,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 1
+      }
+    }
+  });
+  $('audio').audioPlayer();
+  var elemetTarget = window.location.search.split('=')[1];
 
+  if (elemetTarget) {
+    var offsetTarget = $("#".concat(elemetTarget)).offset().top - 50;
+    $("#".concat(elemetTarget)).addClass('target');
+    $('html, body').animate({
+      scrollTop: offsetTarget
+    }, 'fast');
+  }
+});
 
 /***/ }),
 

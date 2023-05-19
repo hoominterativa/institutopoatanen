@@ -128,7 +128,9 @@ class CoreController extends Controller
             $module = $page->module;
             $code = $page->model;
             $dropdown = null;
-            $config = $this->InsertModelsMain->$module->$code; // Get config current model
+            if(!$page->link){
+                $config = $this->InsertModelsMain->$module->$code; // Get config current model
+            }
 
             if($page->dropdown){
                 $dropdown = $page->select_dropdown;
@@ -229,13 +231,38 @@ class CoreController extends Controller
                 }
             }
 
-            $menu = (object) [
-                "title" => $page->title,
-                "slug" => Str::slug($config->config->titleMenu),
-                "anchor" => $config->config->anchor,
-                "link" => $config->config->linkMenu,
-                "dropdown" => $listDropdown,
-            ];
+            if($page->page){
+                $pageCurrent = $page->page;
+                $menu = (object) [
+                    "title" => $page->title,
+                    "slug" => Str::slug($config->pages->$pageCurrent->name),
+                    "anchor" => false,
+                    "link" => $config->pages->$pageCurrent->route,
+                    "dropdown" => $listDropdown,
+                ];
+            }
+
+            if($page->link){
+                $menu = (object) [
+                    "title" => $page->title,
+                    "slug" => Str::slug($page->title),
+                    "anchor" => true,
+                    "link" => $page->link,
+                    "target_link" => $page->link,
+                    "dropdown" => $listDropdown,
+                ];
+            }
+
+            if(!$page->page && !$page->link){
+                $menu = (object) [
+                    "title" => $page->title,
+                    "slug" => Str::slug($config->config->titleMenu),
+                    "anchor" => $config->config->anchor,
+                    "link" => $config->config->linkMenu,
+                    "dropdown" => $listDropdown,
+                ];
+            }
+
 
             array_push($listMenu, $menu);
         }

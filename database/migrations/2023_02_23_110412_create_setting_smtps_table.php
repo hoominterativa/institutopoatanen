@@ -20,7 +20,7 @@ class CreateSettingSmtpsTable extends Migration
             $table->integer('port')->nullable();
             $table->string('user')->nullable();
             $table->string('password')->nullable();
-            $table->json('report')->nullable();
+            $table->longText('report')->nullable();
             $table->timestamps();
         });
     }

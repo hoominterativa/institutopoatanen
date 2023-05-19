@@ -2,22 +2,24 @@ $(function(){
     $('body').on('change', '.selectPage', function(){
         let value = $(this).val(),
             module = value.split('|')[0],
-            model = value.split('|')[1]
+            model = value.split('|')[1],
+            page = value.split('|')[2]
 
-        getRelationsModel(module, model)
+        getRelationsModel(module, model, page)
     })
 })
 
-function getRelationsModel(module, model, mode='create', callback=null){
+function getRelationsModel(module, model, page=null, mode='create', callback=null){
     $.ajax({
         type: 'POST',
         url: $url+'/painel/getRelationsModel',
-        data: {module, model},
+        data: {module, model, page},
         success: function(response){
             switch (mode) {
                 case 'create':
                     $("input[name=module]").val(module)
                     $("input[name=model]").val(model)
+                    $("input[name=pageN]").val(page)
                     $("input[name=select_dropdown]").val('')
                     $('.btnViewPage .title').text('')
 
