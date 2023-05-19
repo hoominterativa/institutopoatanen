@@ -1,10 +1,11 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
-'Blogs' => (object) [
-    'BLOG01' => (object)[
+'Portals' => (object) [
+    'POTA01' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => true,
         'ViewListPanel' => true,
+        'CustomPanelView' => [true, '#ffa500'], // [boolean, hexadecimal]
         'ViewListFooter' => true,
         'Viewer' => 'dropdown', // accepted values, list or dropdown
         'IncludeCore' => (object) [
@@ -17,21 +18,24 @@
                 'category' =>(object)[
                     'name' => 'Categoria',
                     'titleList' => 'title',
-                    'condition' => 'active=1{Ativos}',
+                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home}',
                 ]
             ],
         ],
-        'config' => (object) [
-            'titleMenu' => 'Artigos',
-            'anchor' =>  false,
-            'linkMenu' => 'blog01.page',
-            'iconMenu' => '',
-            'titlePanel' => 'Artigos',
-            'iconPanel' => ''
+        'pages' => (object) [
+            'podcast' =>(object)[
+                'name' => 'Podcast',
+                'route' => 'pota01.podcast',
+            ]
         ],
-        'IncludeSections' => (object) [
-            'Services' => ['SERV04'],
-            'Feedbacks' => ['FEED01'],
-        ]
+        'config' => (object) [
+            'titleMenu' => 'Portal',
+            'anchor' =>  false,
+            'linkMenu' => 'pota01.page',
+            'iconMenu' => '',
+            'titlePanel' => 'Portais',
+            'iconPanel' => 'mdi-filter-plus'
+        ],
+        'IncludeSections' => (object) []
     ],
 ],

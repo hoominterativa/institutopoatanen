@@ -18,6 +18,9 @@ class CreateSettingHeadersTable extends Migration
             $table->string('title')->nullable();
             $table->string('module')->nullable();
             $table->string('model')->nullable();
+            $table->string('page')->nullable();
+            $table->string('link')->nullable();
+            $table->enum('target_link',['_self','_blank'])->default('_self');
             $table->boolean('dropdown')->nullable();
             $table->string('select_dropdown')->nullable();
             $table->string('condition')->nullable();

@@ -52,7 +52,11 @@ class SettingHeaderController extends Controller
             $data['limit'] = null;
         }
 
-        if($data['select_dropdown']==''){
+        if($request->pageN){
+            $data['page'] = $request->pageN;
+        }
+
+        if($data['select_dropdown']=='' && $data['link']<>''){
             $data['select_dropdown'] = NULL;
             $data['condition'] = NULL;
             $data['exists'] = NULL;
@@ -102,7 +106,11 @@ class SettingHeaderController extends Controller
             $data['limit'] = null;
         }
 
-        if($data['select_dropdown']==''){
+        if($request->pageN){
+            $data['page'] = $request->pageN;
+        }
+
+        if($data['select_dropdown']=='' && $data['link']<>''){
             $data['select_dropdown'] = NULL;
             $data['condition'] = NULL;
             $data['exists'] = NULL;
@@ -160,13 +168,14 @@ class SettingHeaderController extends Controller
 
     public function listRelations(Request $request)
     {
-        $pages = getRelationsModel($request->module, $request->model);
+        $pages = getRelationsModel($request->module, $request->model, $request->page);
         if(!$pages) return Response::json(['dropdown' => 'false']);
 
         return view('Admin.components.models.dropdownRelations',[
             'pages' => $pages,
             'module' => $request->module,
             'code' => $request->model,
+            'page' => $request->page,
             'type' => 'relations'
         ])->render();
 

@@ -15,7 +15,7 @@
                         </li>
                         @foreach ($listMenu as $module => $menu)
                             <li class="list-inline-item menu-item {{$menu->dropdown?'dropdown':''}}">
-                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="link transition {{!$menu->anchor?isActive($menu->link):''}}">
                                     {{$menu->title}}
                                     @if ($menu->dropdown)
                                         <i class="menu-arrow"></i>

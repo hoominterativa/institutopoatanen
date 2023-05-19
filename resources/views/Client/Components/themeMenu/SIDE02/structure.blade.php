@@ -27,7 +27,7 @@
                 </li>
                 @foreach ($listMenu as $module => $menu)
                     <li class="side02__navigation__item {{$menu->dropdown?'dropdown':''}}">
-                        <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side02__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                        <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="side02__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt=""> {{$menu->title}}
                             @if ($menu->dropdown)
                                 <i class="menu-arrow"></i>
