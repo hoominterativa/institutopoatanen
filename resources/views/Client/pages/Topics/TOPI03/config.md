@@ -1,7 +1,6 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
-
 'Topics' => (object) [
-    'TOPI01' => (object)[
+    'TOPI03' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => false,
         'ViewListPanel' => true,
