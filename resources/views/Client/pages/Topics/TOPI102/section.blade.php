@@ -29,7 +29,7 @@
                         @foreach ($topics as $topic)
                             <article class="topi102__content__box w-100">
                                 <figure class="topi102__content__box__image w-100 h-100  mb-0">
-                                    <img src="{{ asset('storage/' . $topic->path_image_desktop) }}" class="w-100 h-100"
+                                    <img src="{{ asset('storage/' . $topic->path_image) }}" class="w-100 h-100"
                                         alt="Image Título Tópico">
                                 </figure>
                                 <div class="topi102__content__box__description text-center w-100">
