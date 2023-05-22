@@ -3,16 +3,16 @@
 namespace Database\Factories\Topics;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Topics\TOPI03Topics;
+use App\Models\Topics\TOPI03TopicsSection;
 
-class TOPI03TopicsFactory extends Factory
+class TOPI03TopicsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = TOPI03Topics::class;
+    protected $model = TOPI03TopicsSection::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,8 @@ class TOPI03TopicsFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
             'description' => $this->faker->text(300),
-            'path_image_icon' => 'uploads/tmp/favicon.png',
-            'link' => 'https://www.lipsum.com/',
-            'target_link' => '_blank',
             'active' => 1,
         ];
     }

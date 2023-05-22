@@ -16,7 +16,7 @@ class TOPI03Topics extends Model
     }
 
     protected $table = "topi03_topics";
-    protected $fillable = [];
+    protected $fillable = ['title', 'description', 'link', 'target_link', 'path_image_icon', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class TOPI03Topics extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

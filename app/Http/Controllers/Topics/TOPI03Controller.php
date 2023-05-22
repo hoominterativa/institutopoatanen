@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Topics;
 
+use Illuminate\Http\Request;
 use App\Models\Topics\TOPI03Topics;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Topics\TOPI03TopicsSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
 class TOPI03Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Topics/TOPI03/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +23,12 @@ class TOPI03Controller extends Controller
      */
     public function index()
     {
-        //
+        $topics = TOPI03Topics::sorting()->get();
+        $section = TOPI03TopicsSection::first();
+        return view('Admin.cruds.Topics.TOPI03.index', [
+            'topics' => $topics,
+            'section' => $section
+        ]);
     }
 
     /**
@@ -32,7 +38,9 @@ class TOPI03Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Topics.TOPI03.create', [
+            'cropSetting' => getCropImage('Topics', 'TOPI03')
+        ]);
     }
 
     /**
@@ -44,33 +52,19 @@ class TOPI03Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $data['active'] = $request->active?1:0;
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(TOPI03Topics::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico cadastrado com sucesso');
+            return redirect()->route('admin.topi03.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao cadastradar o tópico');
             return redirect()->back();
         }
     }
@@ -83,7 +77,10 @@ class TOPI03Controller extends Controller
      */
     public function edit(TOPI03Topics $TOPI03Topics)
     {
-        //
+        return view('Admin.cruds.Topics.TOPI03.edit', [
+            'topic' => $TOPI03Topics,
+            'cropSetting' => getCropImage('Topics', 'TOPI03')
+        ]);
     }
 
     /**
@@ -96,51 +93,27 @@ class TOPI03Controller extends Controller
     public function update(Request $request, TOPI03Topics $TOPI03Topics)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($TOPI03Topics, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($TOPI03Topics, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($TOPI03Topics, 'path_image');
-            $data['path_image'] = null;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($TOPI03Topics, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($TOPI03Topics, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($TOPI03Topics, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($TOPI03Topics->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Tópico atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao atualizar o tópico');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +124,10 @@ class TOPI03Controller extends Controller
      */
     public function destroy(TOPI03Topics $TOPI03Topics)
     {
-        //storageDelete($TOPI03Topics, 'path_image');
-        //storageDelete($TOPI03Topics, 'path_archive');
+        storageDelete($TOPI03Topics, 'path_image_icon');
 
         if($TOPI03Topics->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +140,14 @@ class TOPI03Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $TOPI03Topicss = TOPI03Topics::whereIn('id', $request->deleteAll)->get();
         foreach($TOPI03Topicss as $TOPI03Topics){
-            storageDelete($TOPI03Topics, 'path_image');
-            storageDelete($TOPI03Topics, 'path_archive');
+            storageDelete($TOPI03Topics, 'path_image_icon');
         }
-        */
 
         if($deleted = TOPI03Topics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos deletados com sucessso']);
         }
     }
     /**
@@ -198,39 +167,6 @@ class TOPI03Controller extends Controller
 
     // METHODS CLIENT
 
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Topics\TOPI03Topics  $TOPI03Topics
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(TOPI03Topics $TOPI03Topics)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
 
     /**
      * Section index resource.
@@ -239,6 +175,6 @@ class TOPI03Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Topics.TOPI03.section');
     }
 }
