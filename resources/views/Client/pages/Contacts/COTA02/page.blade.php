@@ -90,7 +90,7 @@
                                             'required' => true,
                                         ]) !!}
                                         {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                        <a href="{{ $compliance->link ?? '#' }}" target="_blank"
+                                        <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
                                             class="cota01-show__form__compliance__link ms-1">Política de Privacidade</a>
                                     </div>
                                     <button type="submit" class="cota01-show__form__inputs__formIput__input-submit ms-auto">

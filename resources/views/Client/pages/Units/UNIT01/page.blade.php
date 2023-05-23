@@ -39,7 +39,7 @@
                                 @foreach ($unit->topics as $topic)
                                     <div class="unit01-page__divisor__section__boxLeft__topics__topic col-sm-3 px-0 position-relative">
                                         @if ($topic->link !== '' && $topic->target_link == '_blank')
-                                            <a rel="next" href="{{$topic->link}}" target="{{$topic->target_link}}">
+                                            <a rel="next" href="{{getUri($topic->link)}}" target="{{$topic->target_link}}">
                                                 <div class="unit01-page__divisor__section__boxLeft__topics__topic__image position-absolute w-100 h-100">
                                                     <img src="{{asset('storage/uploads/tmp/image-box.jpg')}}" class="w-100 h-100" alt="Logo">
                                                 </div>

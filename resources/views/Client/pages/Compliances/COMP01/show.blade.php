@@ -34,7 +34,7 @@
                                         @if ($archive->path_archive)
                                             <a href="{{asset('storage/'.$archive->path_archive)}}" download="" class="comp01-page__archives__item d-flex align-items-center">
                                         @else
-                                            <a href="{{$archive->link}}" target="{{$archive->link_target}}" class="comp01-page__archives__item d-flex align-items-center">
+                                            <a href="{{getUri($archive->link)}}" target="{{$archive->link_target}}" class="comp01-page__archives__item d-flex align-items-center">
                                         @endif
                                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="36" alt="{{$archive->title}}" class="comp01__archives__item__icon">
                                             <span class="ms-3">{{$archive->title}}</span>

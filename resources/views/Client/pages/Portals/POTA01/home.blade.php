@@ -110,7 +110,7 @@
                                 @if ($advertsBottomPodcast->count())
                                     @if ($advertBottomPodcast->path_image)
                                         @if ($advertBottomPodcast->link)
-                                            <a href="{{$advertBottomPodcast->link}}" target="{{$advertBottomPodcast->link_target}}" class="link-full"></a>
+                                            <a href="{{getUri($advertBottomPodcast->link)}}" target="{{$advertBottomPodcast->link_target}}" class="link-full"></a>
                                         @endif
                                         <img src="{{asset('storage/'.$advertBottomPodcast->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                                     @elseif($advertBottomPodcast->adsense)
@@ -142,7 +142,7 @@
                     @if ($advertsBottomLatestNews)
                         @if ($advertsBottomLatestNews->path_image)
                             @if ($advertsBottomLatestNews->link)
-                                <a href="{{$advertsBottomLatestNews->link}}" target="{{$advertsBottomLatestNews->link_target}}" class="link-full"></a>
+                                <a href="{{getUri($advertsBottomLatestNews->link)}}" target="{{$advertsBottomLatestNews->link_target}}" class="link-full"></a>
                             @endif
                             <img src="{{asset('storage/'.$advertsBottomLatestNews->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                         @elseif($advertsBottomLatestNews->adsense)
@@ -245,7 +245,7 @@
                         @if ($categoryFeaturedHome->adverts)
                             @if ($categoryFeaturedHome->adverts->path_image)
                                 @if ($categoryFeaturedHome->adverts->link)
-                                    <a href="{{$categoryFeaturedHome->adverts->link}}" target="{{$categoryFeaturedHome->adverts->link_target}}" class="link-full"></a>
+                                    <a href="{{getUri($categoryFeaturedHome->adverts->link)}}" target="{{$categoryFeaturedHome->adverts->link_target}}" class="link-full"></a>
                                 @endif
                                 <img src="{{asset('storage/'.$categoryFeaturedHome->adverts->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                             @elseif($categoryFeaturedHome->adverts->adsense)

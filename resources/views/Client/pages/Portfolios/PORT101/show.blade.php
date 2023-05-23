@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 @if ($portfolio->link_button)
-                    <a href="{{ $portfolio->link_button }} " target="{{ $portfolio->target_link_button }}"
+                    <a href="{{ getUri($portfolio->link_button) }} " target="{{ $portfolio->target_link_button }}"
                         class="lightbox-port101__description__cta transition d-flex justify-content-center align-items-center">
                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
                             class="lightbox-port101__description__cta__icon me-3 transition">
@@ -26,7 +26,7 @@
                     <div class="carousel-show-port101 owl-carousel">
                         @foreach ($portfolio->galleries as $gallery)
                             <div class="item" data-hash="foto-{{ $gallery->id }}">
-                                <a href="{{ $gallery->link_video != '' ? $gallery->link_video : asset('storage/' . $gallery->path_image) }}"
+                                <a href="{{ getUri($gallery->link_video != '' ? $gallery->link_video) : asset('storage/' . $gallery->path_image) }}"
                                     data-fancybox>
                                     <img src="{{ asset('storage/' . $gallery->path_image) }}" class="h-100 w-100"
                                         alt="Subtitulo">

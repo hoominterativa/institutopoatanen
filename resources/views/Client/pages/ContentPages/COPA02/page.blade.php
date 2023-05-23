@@ -57,7 +57,7 @@
                                                 </div>
                                                 <div class="copa02-page__assortedBox__boxStandard__description__cta">
                                                     @if ($content->link_button || $content->target_link_button || $content->path_image_icon || $content->title_button)
-                                                        <a href="{{ $content->link_button }}"
+                                                        <a href="{{ getUri($content->link_button) }}"
                                                             target="{{ $content->target_link_button }}"
                                                             class="copa02-page__assortedBox__boxStandard__description__cta__link">
                                                             <img src="{{ asset('storage/' . $content->path_image_icon) }}"
@@ -194,7 +194,7 @@
                                             $lastSection->path_image_icon ||
                                             $lastSection->title_button)
                                         <div class="copa02-page__boxContent__item__description__cta">
-                                            <a href="{{ $lastSection->link_button }}"
+                                            <a href="{{ getUri($lastSection->link_button) }}"
                                                 target="{{ $lastSection->target_link_button }}"
                                                 class="copa02-page__boxContent__item__description__cta__link">
                                                 <img src="{{ asset('storage/' . $lastSection->path_image_icon) }}"

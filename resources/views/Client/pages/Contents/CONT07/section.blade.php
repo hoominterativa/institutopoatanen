@@ -13,7 +13,7 @@
                     @if ($video)
                         <div class="cont07__boxVideo__content">
                             @if ($video->link_video)
-                                <a href="{{ $video->link_video }}" class="play" data-fancybox>
+                                <a href="{{ getUri($video->link_video) }}" class="play" data-fancybox>
                                     <img class="trans-fast " src="{{ asset('storage/uploads/tmp/play.png') }}"
                                         alt="Play Vídeo">
                                 </a>
@@ -28,7 +28,7 @@
                 @foreach ($contents as $content)
                     <div class="cont07__gallery__item">
                         @if ($content->link_video)
-                            <a href="{{ $content->link_video }}" data-fancybox="galeria-video">
+                            <a href="{{ getUri($content->link_video) }}" data-fancybox="galeria-video">
                                 @if ($content->path_image)
                                     <img src="{{ asset('storage/' . $content->path_image) }}" />
                                 @endif
@@ -39,7 +39,7 @@
             </div>
         @endif
         @if ($section->link_button)
-            <a href="{{ $section->link_button }}" target="{{ $section->target_link_button }}"
+            <a href="{{ getUri($section->link_button) }}" target="{{ $section->target_link_button }}"
                 class="cont07__cta transition d-flex justify-content-center align-items-center">
                 @if ($section->path_image_icon)
                     <img src="{{ asset('storage/' . $section->path_image_icon) }}" alt=""

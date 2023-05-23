@@ -38,7 +38,7 @@
                             <div class="row row--bran01-page w-100 mx-auto">
                                 @foreach ($brands as $brand)
                                     <div class="bran01-page__box col-sm-3 position-relative">
-                                        <a href="{{ $brand->link }}" target="{{ $brand->target_link }}"
+                                        <a href="{{getUri($brand->link)}}" target="{{ $brand->target_link }}"
                                             class="link-full"></a>
                                         <div class="bran01-page__box__content"
                                             style="background-image:url({{ asset('storage/' . $brand->path_image_box) }}); background-size:cover;background-repeat:no-repeat; background-position:center;">
