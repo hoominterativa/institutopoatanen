@@ -133,13 +133,13 @@ class ABOU01Controller extends Controller
 
     // METHODS CLIENT
 
-    /**
+     /**
      * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU01');
