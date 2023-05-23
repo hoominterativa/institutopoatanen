@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-12 col-sm-8">
                     {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                    {!! Form::url('link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
+                    {!! Form::text('link', null, ['class'=>'form-control', 'id' => 'targetUrl']) !!}
                 </div>
                 <div class="col-12 col-sm-4">
                     {!! Form::label('link_target', 'Redirecionar para', ['class'=>'form-label']) !!}
