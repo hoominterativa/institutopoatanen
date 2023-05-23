@@ -26,7 +26,7 @@
                                     @if ($topic->path_image)
                                         <img src="{{asset('storage/'.$topic->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                                     @endif
-                                    <div class="container-info d-flex flex-column justify-content-center align-items-center">
+                                    <div class="container-info d-flex flex-column justify-content-start align-items-center">
                                         @if ($topic->path_image_icon)
                                             <figure class="image">
                                                 <img src="{{asset('storage/'.$topic->path_image_icon)}}" class="icon" width="50px" alt="">

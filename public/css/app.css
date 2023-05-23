@@ -1499,11 +1499,12 @@ body .owl-dots .owl-dot.active {
   }
 }
 #TOPI01 .container-box .box-topic {
-  padding-right: 0.25rem;
+  padding: 0.25rem;
   padding-left: 0.25rem;
 }
 #TOPI01 .container-box .box-topic .content {
-  padding: 0 20px;
+  padding: 1rem 20px 0 20px;
+  height: 100%;
 }
 #TOPI01 .container-box .box-topic .content .container-info {
   position: relative;

@@ -1,74 +1,75 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-#TOPI01{
+#TOPI01 {
     padding: 70px 0;
-    @include medium-device-down{
+    @include medium-device-down {
         padding: 35px 0;
     }
-    .header-topic{
+    .header-topic {
         text-align: center;
-        .container-title{
+        .container-title {
             margin-bottom: 25px;
-            .title{
+            .title {
                 font-size: $T2;
                 font-family: $font-primary;
                 color: $color-one;
                 display: block;
             }
-            .subtitle{
+            .subtitle {
                 font-size: $T4;
                 font-family: $font-primary;
                 color: $color-three;
                 display: block;
             }
         }
-        .paragraph{
+        .paragraph {
             width: 60%;
             margin: 0 auto;
             margin-bottom: 50px;
             margin-top: 25px;
 
-            @include medium-device-down{
+            @include medium-device-down {
                 width: 90%;
             }
         }
-        .line{
+        .line {
             background-color: $color-one;
         }
     }
     .container-box {
-        @include medium-device-down{
+        @include medium-device-down {
             width: 70%;
         }
-        .owl-stage-outer{
-            @include medium-device-down{
+        .owl-stage-outer {
+            @include medium-device-down {
                 overflow: visible;
             }
         }
-        .box-topic{
-            padding-right: 0.25rem;
+        .box-topic {
+            padding: 0.25rem;
             padding-left: 0.25rem;
 
-            .content{
-                padding: 0 20px;
-                .container-info{
+            .content {
+                padding: 1rem 20px 0 20px;
+                height: 100%;
+                .container-info {
                     position: relative;
                     z-index: 1;
                     min-height: 240px;
-                    .image{
-                        img{
+                    .image {
+                        img {
                             width: 50px;
                         }
                     }
-                    .description{
+                    .description {
                         text-align: center;
-                        .title{
+                        .title {
                             font-size: $T5;
                             font-family: $font-primary;
                             color: $color-black;
                         }
-                        .paragraph{
+                        .paragraph {
                             font: $paragraph-min;
                             color: $color-two;
                             font-weight: $weight-500;
@@ -76,7 +77,7 @@
                     }
                 }
 
-                &:hover{
+                &:hover {
                     transform: scale(1.01);
                     box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
                 }
