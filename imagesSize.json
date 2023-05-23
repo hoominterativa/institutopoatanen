@@ -905,6 +905,18 @@
                 "activeCrop": "true"
             }
         },
+        "TOPI10": {
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "360",
+                "height": "232",
+                "activeCrop": "false"
+            }
+        },
         "TOPI102": {
             "path_image_desktop": {
                 "width": "1450",

@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{getTitleModel ($configModelsMain, 'Topics', 'TOPI03') }}</li>
+                                    <li class="breadcrumb-item active">{{ getTitleModel ($configModelsMain, 'Topics', 'TOPI10')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{getTitleModel ($configModelsMain, 'Topics', 'TOPI03') }}</h4>
+                            <h4 class="page-title">{{ getTitleModel ($configModelsMain, 'Topics', 'TOPI10')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
                         <a href="#topics" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
-                            {{getTitleModel($configModelsMain, 'Topics', 'TOPI03')}}
+                            {{getTitleModel($configModelsMain, 'Topics', 'TOPI10')}}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro dos tópicos"></i>
@@ -38,6 +38,7 @@
                         </a>
                     </li>
                 </ul>
+
                 <div class="tab-content">
                     <div class="tab-pane show active" id="topics">
                         <div class="row">
@@ -46,10 +47,10 @@
                                     <div class="card-body">
                                         <div class="row mb-3">
                                             <div class="col-6">
-                                                <button id="btSubmitDelete" data-route="{{route('admin.topi03.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTOPI03" style="display: none;">Deletar selecionados</button>
+                                                <button id="btSubmitDelete" data-route="{{route('admin.topi10.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTOPI10" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                <a href="{{route('admin.topi03.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                <a href="{{route('admin.topi10.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
@@ -57,18 +58,17 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        <label><input name="btnSelectAll" value="btnDeleteTOPI03" type="checkbox"></label>
+                                                        <label><input name="btnSelectAll" value="btnDeleteTOPI10" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
                                                     <th>Título</th>
                                                     <th>Descrição</th>
-                                                    <th>Link</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
                                             </thead>
 
-                                            <tbody data-route="{{route('admin.topi03.sorting')}}">
+                                            <tbody data-route="{{route('admin.topi10.sorting')}}">
                                                 @foreach ($topics as $topic)
                                                     <tr data-code="{{$topic->id}}">
                                                         <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -79,22 +79,25 @@
                                                             @if ($topic->path_image_icon)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_icon)}})"></div>
                                                             @endif
+                                                            @if ($topic->path_image_box)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_box)}})"></div>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">{{$topic->title}}</td>
-                                                        <td class="align-middle">{!! substr($topic->description, 0, 30) !!}</td>
-                                                        <td class="align-middle"><a href="{{ $topic->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                        <td class="align-middle">{!! substr($topic->description, 0, 40) !!}</td>
                                                         <td class="align-middle">
-                                                            @switch($topic->active)
-                                                                @case(1) <span class="badge bg-success">Ativo</span>  @break
-                                                                @case(0) <span class="badge bg-danger">Inativo</span> @break
-                                                            @endswitch
+                                                            @if ($topic->active)
+                                                                <span class="badge bg-success">Ativo</span>
+                                                            @else
+                                                                <span class="badge bg-danger">Inativo</span>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <a href="{{route('admin.topi03.edit',['TOPI03Topics' => $topic->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                                    <a href="{{route('admin.topi10.edit',['TOPI10Topics' => $topic->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                                 </div>
-                                                                <form action="{{route('admin.topi03.destroy',['TOPI03Topics' => $topic->id])}}" class="col-4" method="POST">
+                                                                <form action="{{route('admin.topi10.destroy',['TOPI10Topics' => $topic->id])}}" class="col-4" method="POST">
                                                                     @method('DELETE') @csrf
                                                                     <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                                 </form>
@@ -110,7 +113,7 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="section">
-                        @include('Admin.cruds.Topics.TOPI03.Section.form')
+                        @include("Admin.cruds.Topics.TOPI10.Section.form")
                     </div>
                 </div>
                 <!-- end row -->
