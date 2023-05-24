@@ -2876,6 +2876,7 @@ body .owl-dots .owl-dot.active {
   color: #7C7C7C;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
+  white-space: nowrap;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .prod02__page__content__category li a {
