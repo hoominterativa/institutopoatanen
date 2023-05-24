@@ -1,5 +1,5 @@
 
-        <section id="CONT05" class="cont05 container-fluid px-0" style="background-image: url({{ asset('storage/' . $content->path_image_desktop) }}); background-color: {{ $content->background_color }};">
+        <section id="CONT05" class="cont05 container-fluid px-0" style="background-image: url(); background-color: ;">
             <div class="d-flex justify-content-center align-content-center flex-column">
                 <header class="cont05__header">
                         <h3 class="cont05__header__title">
