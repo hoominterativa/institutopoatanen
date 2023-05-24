@@ -3217,6 +3217,10 @@ body .owl-dots .owl-dot.active {
 }
 .bran01 .container--bran01 {
   padding: 39px 0 60.16px 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 @media (max-width: 767.98px) {
   .bran01 .container--bran01 {
@@ -3312,6 +3316,46 @@ body .owl-dots .owl-dot.active {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.bran01__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  background: #EFEFEF;
+  width: 100%;
+  max-width: 177px;
+  height: 45px;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-top: 24px;
+  align-self: center;
+}
+@media (max-width: 575.98px) {
+  .bran01__cta {
+    margin-top: -32px;
+    z-index: 100;
+    position: relative;
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 700;
+    margin-top: -34px;
+    width: 147px;
+    width: 147px;
+  }
+}
+.bran01__cta__icon {
+  height: 25px !important;
+  width: 25px !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.bran01__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.bran01__cta:hover .bran01__cta__icon {
+  filter: invert(1) grayscale(1);
 }
 
 .bran01-page__header {
