@@ -191,6 +191,11 @@ class TOPI10Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Topics.TOPI10.section');
+        $topics = TOPI10Topics::active()->sorting()->get();
+        $section = TOPI10TopicsSection::active()->first();
+        return view('Client.pages.Topics.TOPI10.section', [
+            'topics' => $topics,
+            'section' => $section
+        ]);
     }
 }
