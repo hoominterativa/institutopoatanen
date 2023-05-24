@@ -26,7 +26,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Conteúdo',
                     'iconPanel' => ''
                 ]
             ],

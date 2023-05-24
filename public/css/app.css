@@ -1297,7 +1297,62 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 
-/* BEGIN STYLE */ /* BEGIN STYLE */
+/* BEGIN STYLE */
+#CONT05 {
+  padding: 63px 0 59px 0;
+}
+
+.cont05 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cont05__header {
+  width: 85%;
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.cont05__header__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+}
+.cont05__header__paragraph {
+  font-size: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  width: 95%;
+  max-width: 680px;
+  display: table;
+  margin: 0 auto;
+}
+.cont05__content__cta {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  display: block;
+  margin: 28px auto 0;
+  max-width: 177px;
+  padding: 10px 15px;
+  background-color: #CACACA;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont05__content__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin: 36px auto 0;
+    width: 147px;
+  }
+}
+.cont05__content__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.cont05__content__cta:hover .cont05__cta__icon {
+  filter: invert(1) grayscale(1);
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;
