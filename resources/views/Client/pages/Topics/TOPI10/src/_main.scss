@@ -1,3 +1,107 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+#TOPI10{
+    padding: 70px 0;
+
+    @include backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat);
+
+    @include small-device{
+        padding: 35px 20px;
+    }
+    .header-topic{
+        text-align: center;
+        .container-title{
+            margin-bottom: 25px;
+            .title{
+                font-size: $T2;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+                color: $color-one;
+                display: block;
+                @include small-device{
+                    font-size:  $T2-mobile;
+                }
+            }
+            .subtitle{
+                font-size: $T4;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+                color: $color-three;
+                display: block;
+                @include small-device{
+                    font-size: $T4-mobile;
+                }
+            }
+        }
+        .paragraph{
+            font: $paragraph;
+            font-weight: $weight-500;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            margin-top: 25px;
+
+            @include small-device{
+                font: 90%;
+                width: $paragraph-mobile;
+            }
+        }
+        .line{
+            background-color: $color-one;
+        }
+    }
+    .container-box {
+        @include small-device{
+            width: 70%;
+        }
+        .owl-stage-outer{
+            @include small-device{
+                overflow: visible;
+            }
+        }
+        .box-topic{
+            padding-right: 0.25rem;
+            padding-left: 0.25rem;
+
+            .content{
+                padding: 0 20px;
+                .container-info{
+                    position: relative;
+                    z-index: 1;
+                    min-height: 320px;
+                    .image{
+                        img{
+                            width: 61px;
+                        }
+                    }
+                    .description{
+                        text-align: center;
+                        .title{
+                            font-size: $T2;
+                            font-family: $font-primary;
+                            color: $color-black;
+                            font-weight: $weight-700;
+                            @include small-device{
+                                font-size: $T2-mobile;
+                            }
+                        }
+                        .paragraph{
+                            font: $paragraph-min;
+                            color: $color-two;
+                            font-weight:$weight-500;
+                            @include small-device{
+                                font: $paragraph-min-mobile;
+                            }
+                        }
+                    }
+                }
+
+                &:hover{
+                    transform: scale(1.02);
+                    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+                }
+            }
+        }
+    }
+}
