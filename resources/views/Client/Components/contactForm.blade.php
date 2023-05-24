@@ -1,50 +1,18 @@
 @switch($model)
-    @case('FORM101')
-        <section class="form101 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
-            <div class="container container--pd">
-                <div class="row mx-0">
-                    <div class="form101__boxLeft col-lg-6 px-0">
-                        <h2 class="form101__boxLeft__subtitle text-center">Subtitulo</h2>
-                        <h4 class="form101__boxLeft__title">TITULO COM DESCRIÇÃO</h4>
-                        <div class="form101__boxLeft__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur
-                            </p>
-                        </div>
-                    </div>
-                    <div class="form101__boxRight col-lg-6 px-0">
-                        {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form101__boxRight__form form-contact parsley-validate d-flex row mx-0']) !!}
-                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
-                            <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
-                            @foreach ($inputs as $name => $input)
-                                @include('Client.Components.inputs', [
-                                    'name' => $name,
-                                    'options' => $input->option,
-                                    'placeholder' => $input->placeholder,
-                                    'required' => $input->required??false,
-                                    'type' => $input->type
-                                ])
-                            @endforeach
-                            <button type="submit" class="form101__boxRight__cta">
-                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
-                                CTA
-                            </button>
-                        {!! Form::close() !!}
-                    </div>
-                </div>
-            </div>
-        </section>
-    @break
-    @case('FORM102')
-    <section class="form102 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+    @case('FORM02')
+    <section class="form02 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
         <div class="container container--pd">
             <div class="row mx-0">
-                <div class="form102__boxLeft col-lg-4 px-0">
-                    <h2 class="form102__boxLeft__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h2>
-                </div>
-                <div class="form102__boxRight col-lg-8 px-0 d-flex justify-content-between align-items-center">
-                    {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form102__boxRight__form form-contact parsley-validate align-items-center']) !!}
-                        <div class="form102__boxRight__inputs d-flex justify-content-between">
+                <div class="form02__content col-lg-8 px-0 d-flex justify-content-between align-items-center">
+                    <h2 class="form02__content__title">Lorem ipsum dolor</h2>
+                    <div class="form02__content__paragraph">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+
+                    {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form02__content__form form-contact parsley-validate align-items-center']) !!}
+                        <div class="form02__content__inputs d-flex justify-content-between">
                             <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
                             <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
                             @foreach ($inputs as $name => $input)
@@ -58,7 +26,112 @@
                                 ])
                             @endforeach
                         </div>
-                        <button type="submit" class="form102__boxRight__cta">
+                        <a href="#lightbox-form" class="form02__content__cta data-fancybox" >
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                            CTA
+                        </a>
+
+                        <div id="lightbox-form" class="lifo">
+                            <div class="lifo__boxLeft col-lg-4 px-0">
+                                <h2 class="lifo__boxLeft__title">Title</h2>
+                                <div class="lifo__boxLeft__paragraph">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                </div>
+                                {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax lifo__boxLeft__form form-contact parsley-validate align-items-center']) !!}
+                                    <div class="lifo__boxLeft__inputs d-flex justify-content-between">
+                                        <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                                        <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                                        @foreach ($inputs as $name => $input)
+                                            @include('Client.Components.inputs', [
+                                                'name' => $name,
+                                                'options' => $input->option,
+                                                'placeholder' => $input->placeholder,
+                                                'required' => $input->required??false,
+                                                'type' => $input->type,
+                                                'class' => 'col-md-8'
+                                            ])
+                                        @endforeach
+                                    </div>
+                                    <button type="submit" class="lifo__boxRight__cta">
+                                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                                        CTA
+                                    </button>
+                                {!! Form::close() !!}
+                            </div>
+                            <div class="lifo__boxRight col-lg-8 px-0 d-flex justify-content-between align-items-center">
+                                <div class="lifo__boxRight__image">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </section>
+    @break
+    @case('FORM101')
+        <section class="form101 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+            <div class="container container--pd">
+                <div class="row mx-0">
+                    <div class="form101__content col-lg-6 px-0">
+                        <h2 class="form101__content__subtitle text-center">Subtitulo</h2>
+                        <h4 class="form101__content__title">TITULO COM DESCRIÇÃO</h4>
+                        <div class="form101__content__paragraph">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form101__content col-lg-6 px-0">
+                        {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form101__content__form form-contact parsley-validate d-flex row mx-0']) !!}
+                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                            @foreach ($inputs as $name => $input)
+                                @include('Client.Components.inputs', [
+                                    'name' => $name,
+                                    'options' => $input->option,
+                                    'placeholder' => $input->placeholder,
+                                    'required' => $input->required??false,
+                                    'type' => $input->type
+                                ])
+                            @endforeach
+                            <button type="submit" class="form101__content__cta">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                                CTA
+                            </button>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </section>
+    @break
+    @case('FORM102')
+    <section class="form102 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+        <div class="container container--pd">
+            <div class="row mx-0">
+                <div class="form102__content col-lg-4 px-0">
+                    <h2 class="form102__content__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h2>
+                </div>
+                <div class="form102__content col-lg-8 px-0 d-flex justify-content-between align-items-center">
+                    {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form102__content__form form-contact parsley-validate align-items-center']) !!}
+                        <div class="form102__content__inputs d-flex justify-content-between">
+                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                            @foreach ($inputs as $name => $input)
+                                @include('Client.Components.inputs', [
+                                    'name' => $name,
+                                    'options' => $input->option,
+                                    'placeholder' => $input->placeholder,
+                                    'required' => $input->required??false,
+                                    'type' => $input->type,
+                                    'class' => 'col-md-8'
+                                ])
+                            @endforeach
+                        </div>
+                        <button type="submit" class="form102__content__cta">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
                             CTA
                         </button>
