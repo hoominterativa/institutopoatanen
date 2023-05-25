@@ -29,7 +29,7 @@
                                     @endif
                                     @if ($content->link || $content->link_target)
                                         <div class="cont10__content__list__item__title">
-                                            <a href="{{ $content->link }}" target="{{ $content->link_target }}"
+                                            <a href="{{ getUri($content->link) }}" target="{{ $content->link_target }}"
                                                 class="cont10__content__cta transition d-flex justify-content-center align-items-center">
                                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
                                                     alt="" class="cont10__content__cta__icon me-3 transition">

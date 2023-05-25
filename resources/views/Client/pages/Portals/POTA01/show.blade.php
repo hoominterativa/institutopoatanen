@@ -71,7 +71,7 @@
                                 <div class="pota01-home__adverts__item {{!$advertBlogInner->path_image && !$advertBlogInner->adsense?'pota01-home__adverts__item--advertiseHere':''}}">
                                     @if ($advertBlogInner->path_image)
                                         @if ($advertBlogInner->link)
-                                            <a href="{{$advertBlogInner->link}}" target="{{$advertBlogInner->link_target}}" class="link-full"></a>
+                                            <a href="{{getUri($advertBlogInner->link)}}" target="{{$advertBlogInner->link_target}}" class="link-full"></a>
                                         @endif
                                         <img src="{{asset('storage/'.$advertBlogInner->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                                     @elseif($advertBlogInner->adsense)

@@ -16,7 +16,7 @@
                             <div class="content-network">
                                 @foreach ($topics as $topic)
                                     @if ($topic->link ||$topic->target_link)
-                                        <a href="{{ $topic->link }}" target="{{ $topic->target_link }}"
+                                        <a href="{{ getUri($topic->link) }}" target="{{ $topic->target_link }}"
                                             class="btn-cta-network transition">
                                             @if ($topic->path_image_icon)
                                                 <img src="{{ asset('storage/' . $topic->path_image_icon) }}"

@@ -55,7 +55,7 @@
                             @if ($advertsBeforeArticle)
                                 @if ($advertsBeforeArticle->path_image)
                                     @if ($advertsBeforeArticle->link)
-                                        <a href="{{$advertsBeforeArticle->link}}" target="{{$advertsBeforeArticle->link_target}}" class="link-full"></a>
+                                        <a href="{{getUri($advertsBeforeArticle->link)}}" target="{{$advertsBeforeArticle->link_target}}" class="link-full"></a>
                                     @endif
                                     <img src="{{asset('storage/'.$advertsBeforeArticle->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                                 @elseif($advertsBeforeArticle->adsense)
@@ -95,7 +95,7 @@
                             @if ($advertsAfterArticle)
                                 @if ($advertsAfterArticle->path_image)
                                     @if ($advertsAfterArticle->link)
-                                        <a href="{{$advertsAfterArticle->link}}" target="{{$advertsAfterArticle->link_target}}" class="link-full"></a>
+                                        <a href="{{getUri($advertsAfterArticle->link)}}" target="{{$advertsAfterArticle->link_target}}" class="link-full"></a>
                                     @endif
                                     <img src="{{asset('storage/'.$advertsAfterArticle->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                                 @elseif($advertsAfterArticle->adsense)

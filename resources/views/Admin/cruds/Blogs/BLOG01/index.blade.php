@@ -29,6 +29,9 @@
                     <li class="nav-item">
                         <a href="#listArticleSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#listArticleBanner" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para o Banner</a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane show active" id="listArticles">
@@ -133,6 +136,15 @@
                             <div class="card-body">
                                 @include('Admin.cruds.Blogs.BLOG01.Section.form',[
                                     'section' => $section
+                                ])
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="listArticleBanner">
+                        <div class="card">
+                            <div class="card-body">
+                                @include('Admin.cruds.Blogs.BLOG01.Banner.form',[
+                                    'banner' => $banner
                                 ])
                             </div>
                         </div>
