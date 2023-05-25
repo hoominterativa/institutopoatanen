@@ -1,78 +1,78 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.prod02{
+.prod02 {
     background-color: $color-five;
 
-    .container--edit{
+    .container--edit {
         padding: 76px 0 43px 0;
 
-        @include small-device{
+        @include small-device {
             padding: 73px 0 49px 0 !important;
         }
     }
-    &__navigation{
-        &__content{
+    &__navigation {
+        &__content {
             padding-bottom: 32.48px;
             border-bottom: 1px solid $color-one;
             margin-bottom: 29.89px;
 
-            @include small-device{
+            @include small-device {
                 width: 86% !important;
-                margin:  0 auto;
+                margin: 0 auto;
                 padding-bottom: 17px;
                 margin-bottom: 30px;
             }
-            &__encompass{
+            &__encompass {
                 max-width: 265px;
-                @include small-device{
-                    max-width:146px;
+                @include small-device {
+                    max-width: 146px;
                 }
-                &__title{
-                    color:$color-one;
+                &__title {
+                    color: $color-one;
                     font-size: $T2;
                     font-family: $font-primary;
                     font-weight: $weight-700;
                     margin-bottom: 18px;
-                    @include small-device{
+                    @include small-device {
                         font-size: $T2-mobile;
                         margin-bottom: 9px;
                     }
                 }
-                &__subtitle{
+                &__subtitle {
                     color: $color-three;
                     font-size: $T4;
                     font-family: $font-primary;
                     font-weight: $weight-700;
 
-                    @include small-device{
+                    @include small-device {
                         font-size: $T4-mobile;
                     }
                 }
             }
 
-            &__nav__desktop{
+            &__nav__desktop {
                 display: flex;
                 width: 79.5%;
                 gap: 0 108px;
 
-                @include small-device{
+                @include small-device {
                     width: auto;
                 }
-                ul{
+                ul {
                     gap: 11px 46px;
                     justify-content: flex-end;
                     margin-left: auto;
                     flex-wrap: wrap;
 
-                    @include small-device{
+                    @include small-device {
                         display: none !important;
                     }
 
-                    li{
+                    li {
                         @include listapadrao;
 
-                        a{
+                        a {
                             font-size: $T5;
                             color: $color-black;
                             font-family: $font-primary;
@@ -80,21 +80,20 @@
                             gap: 0 10px;
                             display: flex;
 
-                            img{
-                                width:34px;
-                                height:auto;
+                            img {
+                                width: 34px;
+                                height: auto;
                                 object-fit: contain;
                             }
                         }
 
-                        &:hover a{
+                        &:hover a {
                             color: $color-two;
                         }
                     }
-
                 }
 
-                &__cta{
+                &__cta {
                     font: $paragraph;
                     font-weight: $weight-700;
                     color: $color-one;
@@ -103,108 +102,104 @@
                     padding: 10px 50px;
                     background-color: $color-four;
 
-                    @include small-device{
+                    @include small-device {
                         font: $paragraph-mobile;
                         max-width: 146px;
                     }
 
-                    &:hover{
+                    &:hover {
                         color: $color-white;
                         background-color: $bg-black;
 
-                        .prod02__navigation__content__nav__desktop__cta__icon{
+                        .prod02__navigation__content__nav__desktop__cta__icon {
                             filter: invert(1) grayscale(1);
                         }
                     }
                 }
-
             }
         }
-        &__nav__mobile{
-
+        &__nav__mobile {
             display: none !important;
-            gap:0 46px;
+            gap: 0 46px;
 
-            @include small-device{
+            @include small-device {
                 display: flex !important;
                 margin-bottom: 30px !important;
                 margin-left: 23px;
-                margin-top:30px;
-                gap:inherit !important;
+                margin-top: 30px;
+                gap: inherit !important;
             }
-            li{
+            li {
                 @include listapadrao;
                 display: flex;
 
-                @include small-device{
+                @include small-device {
                     width: auto;
                 }
-                a{
+                a {
                     font-size: $T5;
                     color: $color-black;
                     font-family: $font-primary;
                     font-weight: $weight-700;
 
-                    @include small-device{
+                    @include small-device {
                         font-size: $T5-mobile;
                     }
                 }
             }
         }
-        &__paragraph{
-            @include small-device{
-                width:86% !important;
+        &__paragraph {
+            @include small-device {
+                width: 86% !important;
                 margin: 0 auto;
-
             }
 
-            p{
-                color:$color-two;
-                font:$paragraph;
+            p {
+                color: $color-two;
+                font: $paragraph;
                 font-weight: $weight-400;
                 margin-bottom: 0;
 
-                @include small-device{
-                    font:$paragraph-mobile;
+                @include small-device {
+                    font: $paragraph-mobile;
                 }
             }
         }
     }
     // END __navigation
 
-    &__content__product{
+    &__content__product {
         margin-top: 54px;
 
-        @include small-device{
+        @include small-device {
             width: 85%;
             margin: 0 auto;
-            margin-top:54px;
+            margin-top: 54px;
         }
 
-        &__item{
+        &__item {
             position: relative;
             min-height: 447px;
             height: 447px;
 
-            &__description{
+            &__description {
                 position: absolute;
                 top: 0;
                 left: 0;
                 padding: 48.66px 53px;
 
-
-                &__title{
+                &__title {
                     font-size: $T5;
                     color: $color-black;
                     font-family: $font-paragraph;
                     font-weight: $weight-700;
                 }
-                &__paragraph{
+                &__paragraph {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
                 }
-                &__paragraph p{
+                &__paragraph p {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
@@ -212,7 +207,7 @@
                 }
             }
 
-            &__cta{
+            &__cta {
                 font: $paragraph;
                 font-weight: $weight-700;
                 color: $color-three;
@@ -221,39 +216,38 @@
                 padding: 10px 50px;
                 background-color: $color-five;
 
-                @include small-device{
+                @include small-device {
                     font: $paragraph-mobile;
                     max-width: 146px;
                 }
 
-                &:hover{
+                &:hover {
                     color: $color-white;
                     background-color: $bg-black;
 
-                    .prod02__content__product__item__cta__icon{
+                    .prod02__content__product__item__cta__icon {
                         filter: invert(1) grayscale(1);
                     }
                 }
             }
-            &__item a{
-                color:$color-black;
+            &__item a {
+                color: $color-black;
             }
         }
-        .carousel-prod02 .owl-dots{
-            display:none !important;
+        .carousel-prod02 .owl-dots {
+            display: none !important;
         }
-        .carousel-prod02 .owl-nav{
+        .carousel-prod02 .owl-nav {
             display: flex;
             margin-top: 30px;
             gap: 0 20.5px;
 
-
-            @include medium-device-down{
+            @include medium-device-down {
                 width: 61%;
             }
         }
         .carousel-prod02 .owl-nav .owl-prev,
-        .carousel-prod02 .owl-nav .owl-next{
+        .carousel-prod02 .owl-nav .owl-next {
             height: 29px;
             width: 29px;
             border-radius: 100%;
@@ -261,8 +255,8 @@
             @include dflex;
         }
         .carousel-prod02 .owl-nav .owl-prev span,
-        .carousel-prod02 .owl-nav .owl-next span{
-            color:#fff;
+        .carousel-prod02 .owl-nav .owl-next span {
+            color: #fff;
             font-size: 32px;
             height: 30px;
         }
@@ -272,7 +266,6 @@
         //     justify-content: center;
         //     margin-top: 28px;
         //     gap: 0 5px;
-
 
         //     @include small-device{
         //         margin: inherit !important;
@@ -293,165 +286,157 @@
     }
 
     // END content_product
-
-
 }
-
-
 
 ///.prod02
 
-.prod02__page{
-
-    &__header{
+.prod02__page {
+    &__header {
         height: 304px;
         padding: 0 16px;
         padding-bottom: 61px;
         @include backG;
         position: relative;
 
-        .container--prod02__page__header{
-            z-index:100;
+        .container--prod02__page__header {
+            z-index: 100;
             position: relative;
         }
-        &__mask{
+        &__mask {
             position: absolute;
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgb(0 0 0 / 73%);
         }
-        &__title{
+        &__title {
             font-size: $T1;
             color: $color-black;
             font-family: $font-paragraph;
             font-weight: $weight-700;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T1-mobile;
                 text-align: center;
                 max-width: 309px;
             }
         }
-
     }
 
-    &__content{
+    &__content {
         margin-top: -23px;
         padding-bottom: 79px;
         position: relative;
 
-        @include small-device{
+        @include small-device {
             overflow: hidden;
         }
 
-        &__category{
+        &__category {
             gap: 14px;
 
-            @include small-device{
+            @include small-device {
                 margin-left: 42px;
                 margin-bottom: 0;
             }
 
-            li{
+            li {
                 padding: 9px 39px;
                 @include listapadrao;
                 background-color: $color-five;
 
-                @include small-device{
-                   width: 100% !important;
+                @include small-device {
+                    width: 100% !important;
                 }
 
-                a{
+                a {
                     font-size: $T5;
                     color: $color-two;
                     font-family: $font-paragraph;
                     font-weight: $weight-700;
-                    @include small-device{
+                    white-space: nowrap;
+                    @include small-device {
                         font-size: $T5-mobile;
                     }
 
-                    img{
+                    img {
                         width: 36px;
-                        height:auto;
+                        height: auto;
                         object-fit: contain;
                         margin-right: 20px;
 
-                        @include small-device{
+                        @include small-device {
                             width: 36px !important;
                             height: 37px !important;
                             margin-right: 3px;
                         }
                     }
-
-
                 }
 
-                &:hover, &.active{
+                &:hover,
+                &.active {
                     background: $color-black;
 
-                    a{
+                    a {
                         color: $color-white;
                     }
-                    img{
-                        filter:invert(1) grayscale(1);
+                    img {
+                        filter: invert(1) grayscale(1);
                     }
                 }
             }
         }
-        @include small-device{
-            .caroussel_prod02-page .owl-dots{
+        @include small-device {
+            .caroussel_prod02-page .owl-dots {
                 display: none !important;
             }
-            .caroussel_prod02-page .owl-nav{
+            .caroussel_prod02-page .owl-nav {
                 display: none !important;
             }
         }
-        &__product{
-
+        &__product {
             margin-top: 89px;
 
-            @include small-device{
-                padding:0 28px !important;
+            @include small-device {
+                padding: 0 28px !important;
                 margin-top: 51.28px;
             }
 
-            .prod02__page__content--row{
+            .prod02__page__content--row {
                 gap: 26px 0;
-                @include small-device{
+                @include small-device {
                     margin: 0 auto;
                 }
             }
 
-            &__item{
+            &__item {
                 position: relative;
                 min-height: 447px;
                 height: 447px;
 
-                @include small-device{
-                   padding:0 !important;
+                @include small-device {
+                    padding: 0 !important;
                 }
 
-                &__description{
+                &__description {
                     position: absolute;
                     top: 0;
                     left: 0;
                     padding: 48.66px 53px;
 
-
-                    &__title{
+                    &__title {
                         font-size: $T5;
                         color: $color-black;
                         font-family: $font-paragraph;
                         font-weight: $weight-700;
                     }
-                    &__paragraph{
+                    &__paragraph {
                         color: $color-two;
                         font: $paragraph-min;
                         font-weight: $weight-400;
                     }
-                    &__paragraph p{
+                    &__paragraph p {
                         color: $color-two;
                         font: $paragraph-min;
                         font-weight: $weight-400;
@@ -459,7 +444,7 @@
                     }
                 }
 
-                &__cta{
+                &__cta {
                     font: $paragraph;
                     font-weight: $weight-700;
                     color: $color-three;
@@ -468,21 +453,21 @@
                     padding: 10px 50px;
                     background-color: $color-five;
 
-                    @include small-device{
+                    @include small-device {
                         font: $paragraph-mobile;
                     }
 
-                    &:hover{
+                    &:hover {
                         color: $color-white;
                         background-color: $bg-black;
 
-                        .prod02__page__content__product__item__cta__icon{
+                        .prod02__page__content__product__item__cta__icon {
                             filter: invert(1) grayscale(1);
                         }
                     }
                 }
-                &__item a{
-                    color:$color-black;
+                &__item a {
+                    color: $color-black;
                 }
             }
         }
@@ -490,52 +475,52 @@
 }
 // END .prod02__page
 
-.lightbox-prod02{
+.lightbox-prod02 {
     width: 100%;
     display: none;
     padding: 0;
     padding-top: 170x;
 
-    &__content__carrossel{
+    &__content__carrossel {
         position: relative;
     }
-    .caroussel_prod02-show{
-        height:100% !important;
-        @include small-device{
-            height:321px;
-        }
-    }
-    .caroussel_prod02-show .owl-item{
+    .caroussel_prod02-show {
         height: 100% !important;
-        @include small-device{
+        @include small-device {
             height: 321px;
         }
     }
-    .caroussel_prod02-show .owl-stage{
+    .caroussel_prod02-show .owl-item {
         height: 100% !important;
-        @include small-device{
-            height:321px;
+        @include small-device {
+            height: 321px;
         }
     }
-    .caroussel_prod02-show .owl-stage-outer{
+    .caroussel_prod02-show .owl-stage {
         height: 100% !important;
-        @include small-device{
-            height:321px;
+        @include small-device {
+            height: 321px;
         }
     }
-    .caroussel_prod02-show .owl-dot{
-        display:none;
+    .caroussel_prod02-show .owl-stage-outer {
+        height: 100% !important;
+        @include small-device {
+            height: 321px;
+        }
     }
-    .caroussel_prod02-show .owl-nav{
+    .caroussel_prod02-show .owl-dot {
+        display: none;
+    }
+    .caroussel_prod02-show .owl-nav {
         display: flex;
         padding: 0 31px;
         justify-content: space-between;
         position: absolute;
-        top:50%;
+        top: 50%;
         width: 100%;
     }
     .caroussel_prod02-show .owl-nav .owl-prev,
-    .caroussel_prod02-show .owl-nav .owl-next{
+    .caroussel_prod02-show .owl-nav .owl-next {
         height: 29px;
         width: 29px;
         border-radius: 100%;
@@ -544,81 +529,79 @@
         border: none;
     }
     .caroussel_prod02-show .owl-nav .owl-prev span,
-    .caroussel_prod02-show .owl-nav .owl-next span{
-        color:#fff;
+    .caroussel_prod02-show .owl-nav .owl-next span {
+        color: #fff;
         font-size: 32px;
         height: 30px;
     }
-    &__description{
+    &__description {
         position: relative;
-        padding:  37px 71px 84px 54px;
+        padding: 37px 71px 84px 54px;
 
-        @include small-device{
+        @include small-device {
             padding: 30px 35px;
         }
     }
-    &__navigation{
+    &__navigation {
         margin-bottom: 108px;
-        @include small-device{
-            margin-bottom:50px;
+        @include small-device {
+            margin-bottom: 50px;
         }
 
-        li{
+        li {
             display: flex;
 
-            a{
+            a {
                 color: $color-one;
                 font: $paragraph-min;
                 font-weight: $weight-400;
             }
-            img{
-                margin-right:14px;
-                width:10.61px;
-                height:10.61px;
+            img {
+                margin-right: 14px;
+                width: 10.61px;
+                height: 10.61px;
             }
         }
     }
-    &__title{
+    &__title {
         font-size: $T2;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
         @include dflex;
 
-        @include small-device{
+        @include small-device {
             font-size: $T2-mobile;
             text-align: left;
         }
-
-
     }
-    &__subtitle{
+    &__subtitle {
         font-size: $T4;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
 
-        @include small-device{
+        @include small-device {
             font-size: $T4-mobile;
             text-align: left;
         }
     }
 
-    &__line{
+    &__line {
         margin-top: 14px;
         margin-bottom: 37px;
     }
-    &__paragraph{
+    &__paragraph {
         font: $paragraph;
         color: $color-one;
         font-weight: $weight-400;
 
-        @include small-device{
+        @include small-device {
             text-align: left;
             font: $paragraph-min;
         }
-        ul{
-            display:flex;
+        ul {
+            display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             margin: 0;
@@ -626,15 +609,15 @@
             margin-top: 20px;
             gap: 20px 0;
 
-            li{
-                display:flex;
+            li {
+                display: flex;
                 width: 50%;
                 min-width: 300px;
                 text-align: left;
                 align-items: flex-start;
 
-                &:before{
-                    content:"";
+                &:before {
+                    content: "";
                     width: 7px;
                     height: 7px;
                     display: flex;
@@ -648,8 +631,7 @@
         }
     }
 
-
-    &__cta{
+    &__cta {
         margin-top: 148px;
         font: $paragraph;
         font-weight: $weight-700;
@@ -659,22 +641,22 @@
         padding: 10px 50px;
         background-color: $color-five;
 
-        @include small-device{
+        @include small-device {
             font: $paragraph-mobile;
             margin-top: 64px;
         }
 
-        &:hover{
+        &:hover {
             color: $color-white;
             background-color: $bg-black;
 
-            .lightbox-prod02__cta__icon{
+            .lightbox-prod02__cta__icon {
                 filter: invert(1) grayscale(1);
             }
         }
     }
 
-    .carousel__button.is-close{
+    .carousel__button.is-close {
         right: 17px;
         top: 17px;
         left: inherit;
@@ -683,13 +665,13 @@
         background: #000000;
         border-radius: 5px;
         color: $color-white;
-        font-size:11px;
+        font-size: 11px;
     }
-    .fancybox__backdrop{
+    .fancybox__backdrop {
         background: $color-one !important;
     }
 
-    @include small-device{
+    @include small-device {
         text-align: center;
     }
 }

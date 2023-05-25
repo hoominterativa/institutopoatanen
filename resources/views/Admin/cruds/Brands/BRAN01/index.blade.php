@@ -51,7 +51,7 @@
                             Informações para seção
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações que serão exibidas, caso esteja ativa na página."></i>
+                                data-bs-original-title="Informações que serão exibidas acima da lista de marcas na página interna."></i>
                         </a>
                     </li>
                 </ul>
