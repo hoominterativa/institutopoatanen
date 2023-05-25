@@ -33,7 +33,7 @@ class BLOG01Controller extends Controller
         $section = BLOG01BlogsSection::first();
         $banner = BLOG01BlogsBanner::first();
 
-        return view('Admin.cruds.Blogs.BLOG01.index',[
+        return view('Admin.cruds.Blogs.BLOG01.index', [
             'blogs' => $blogs,
             'categories' => $categories,
             'blogCategories' => $blogCategories,
@@ -62,35 +62,35 @@ class BLOG01Controller extends Controller
 
         $blogs = BLOG01Blogs::with('category');
 
-        if($request->category_id){
+        if ($request->category_id) {
             $blogs = $blogs->where('category_id', Session::get('filter.category_id'));
         }
-        if($request->title){
-            $blogs = $blogs->where('title','LIKE', '%'.Session::get('filter.title').'%');
+        if ($request->title) {
+            $blogs = $blogs->where('title', 'LIKE', '%' . Session::get('filter.title') . '%');
         }
-        if(Session::get('filter.date_start') && Session::get('filter.date_end')){
+        if (Session::get('filter.date_start') && Session::get('filter.date_end')) {
             $request->date_start = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_start'))->format('Y-m-d');
             $request->date_end = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_end'))->format('Y-m-d');
             $blogs = $blogs->whereBetween('publishing', [$request->date_start, $request->date_end]);
         }
-        if(Session::get('filter.date_start') && !Session::get('filter.date_end')){
+        if (Session::get('filter.date_start') && !Session::get('filter.date_end')) {
             $request->date_start = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_start'))->format('Y-m-d');
-            $blogs = $blogs->where('publishing','>=', $request->date_start);
+            $blogs = $blogs->where('publishing', '>=', $request->date_start);
         }
-        if(!Session::get('filter.date_start') && Session::get('filter.date_end')){
+        if (!Session::get('filter.date_start') && Session::get('filter.date_end')) {
             $request->date_start = Carbon::createFromFormat('d/m/Y', Session::get('filter.date_end'))->format('Y-m-d');
-            $blogs = $blogs->where('publishing','<=', $request->date_end);
+            $blogs = $blogs->where('publishing', '<=', $request->date_end);
         }
-        if(Session::get('filter.active')=='1'){
+        if (Session::get('filter.active') == '1') {
             $blogs = $blogs->where('active', 1);
         }
-        if(Session::get('filter.active')=='0'){
+        if (Session::get('filter.active') == '0') {
             $blogs = $blogs->where('active', 0);
         }
-        if(Session::get('filter.featured_home')){
+        if (Session::get('filter.featured_home')) {
             $blogs = $blogs->where('featured_home', 1);
         }
-        if(Session::get('filter.featured_page')){
+        if (Session::get('filter.featured_page')) {
             $blogs = $blogs->where('featured_page', 1);
         }
 
@@ -99,7 +99,7 @@ class BLOG01Controller extends Controller
         $blogCategories = BLOG01BlogsCategory::sorting()->get();
         $section = BLOG01BlogsSection::first();
 
-        return view('Admin.cruds.Blogs.BLOG01.index',[
+        return view('Admin.cruds.Blogs.BLOG01.index', [
             'blogs' => $blogs,
             'categories' => $categories,
             'blogCategories' => $blogCategories,
@@ -121,7 +121,7 @@ class BLOG01Controller extends Controller
     public function create()
     {
         $categories = BLOG01BlogsCategory::sorting()->pluck('title', 'id');
-        return view('Admin.cruds.Blogs.BLOG01.create',[
+        return view('Admin.cruds.Blogs.BLOG01.create', [
             'categories' => $categories,
             'cropSetting' => getCropImage('Blogs', 'BLOG01')
         ]);
@@ -138,23 +138,23 @@ class BLOG01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null,100);
-        if($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null, 100);
+        if ($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) $data['path_image'] = $path_image;
 
         $data['slug'] = Str::slug($request->title);
-        $data['featured_home'] = $request->featured_home?1:0;
-        $data['featured_page'] = $request->featured_page?1:0;
-        $data['active'] = $request->active?1:0;
+        $data['featured_home'] = $request->featured_home ? 1 : 0;
+        $data['featured_page'] = $request->featured_page ? 1 : 0;
+        $data['active'] = $request->active ? 1 : 0;
 
         $data['publishing'] = Carbon::createFromFormat('d/m/Y', $request->publishing)->format('Y-m-d');
 
-        if(BLOG01Blogs::create($data)){
+        if (BLOG01Blogs::create($data)) {
             Session::flash('success', 'Informações cadastradas com sucesso');
             return redirect()->route('admin.blog01.index');
-        }else{
+        } else {
             Storage::delete($path_image);
             Storage::delete($path_image_thumbnail);
             Session::flash('success', 'Erro ao cadastradar informações');
@@ -172,7 +172,7 @@ class BLOG01Controller extends Controller
     {
         $categories = BLOG01BlogsCategory::pluck('title', 'id');
         $BLOG01Blogs->publishing = Carbon::parse($BLOG01Blogs->publishing)->format('d/m/Y');
-        return view('Admin.cruds.Blogs.BLOG01.edit',[
+        return view('Admin.cruds.Blogs.BLOG01.edit', [
             'blog' => $BLOG01Blogs,
             'categories' => $categories,
             'cropSetting' => getCropImage('Blogs', 'BLOG01')
@@ -191,36 +191,36 @@ class BLOG01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) {
             storageDelete($BLOG01Blogs, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image && !$path_image){
+        if ($request->delete_path_image && !$path_image) {
             storageDelete($BLOG01Blogs, 'path_image');
             $data['path_image'] = null;
         }
 
-        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null,100);
-        if($path_image_thumbnail){
+        $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null, 100);
+        if ($path_image_thumbnail) {
             storageDelete($BLOG01Blogs, 'path_image_thumbnail');
             $data['path_image_thumbnail'] = $path_image_thumbnail;
         }
-        if($request->delete_path_image_thumbnail && !$path_image_thumbnail){
+        if ($request->delete_path_image_thumbnail && !$path_image_thumbnail) {
             storageDelete($BLOG01Blogs, 'path_image_thumbnail');
             $data['path_image_thumbnail'] = null;
         }
 
         $data['slug'] = Str::slug($request->title);
-        $data['featured_home'] = $request->featured_home?1:0;
-        $data['featured_page'] = $request->featured_page?1:0;
-        $data['active'] = $request->active?1:0;
+        $data['featured_home'] = $request->featured_home ? 1 : 0;
+        $data['featured_page'] = $request->featured_page ? 1 : 0;
+        $data['active'] = $request->active ? 1 : 0;
 
         $data['publishing'] = Carbon::createFromFormat('d/m/Y', $request->publishing)->format('Y-m-d');
 
-        if($BLOG01Blogs->fill($data)->save()){
+        if ($BLOG01Blogs->fill($data)->save()) {
             Session::flash('success', 'Item atualizado com sucesso');
-        }else{
+        } else {
             Storage::delete($path_image);
             Storage::delete($path_image_thumbnail);
             Session::flash('success', 'Erro ao atualizar item');
@@ -239,7 +239,7 @@ class BLOG01Controller extends Controller
         storageDelete($BLOG01Blogs, 'path_image');
         storageDelete($BLOG01Blogs, 'path_image_thumbnail');
 
-        if($BLOG01Blogs->delete()){
+        if ($BLOG01Blogs->delete()) {
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -253,26 +253,26 @@ class BLOG01Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        $BLOG01Blogss = BLOG01Blogs::whereNotIn('id', $request->deleteAll)->get();
-        foreach($BLOG01Blogss as $BLOG01Blogs){
+        $BLOG01Blogss = BLOG01Blogs::whereIn('id', $request->deleteAll)->get();
+        foreach ($BLOG01Blogss as $BLOG01Blogs) {
             storageDelete($BLOG01Blogs, 'path_image');
             storageDelete($BLOG01Blogs, 'path_image_thumbnail');
         }
 
-        if($deleted = BLOG01Blogs::whereNotIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        if ($deleted = BLOG01Blogs::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             BLOG01Blogs::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -304,7 +304,7 @@ class BLOG01Controller extends Controller
 
         $BLOG01Blogs->text = conveterOembedCKeditor($BLOG01Blogs->text);
 
-        return view('Client.pages.Blogs.BLOG01.show',[
+        return view('Client.pages.Blogs.BLOG01.show', [
             'sections' => $sections,
             'blog' => $BLOG01Blogs,
             'blogsRelated' => $blogsRelated,
@@ -319,15 +319,15 @@ class BLOG01Controller extends Controller
      */
     public function page(Request $request, BLOG01BlogsCategory $BLOG01Category)
     {
-        switch(deviceDetect()) {
+        switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
                 $banner = BLOG01BlogsBanner::active()->first();
-                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
-            break;
+                if ($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                break;
             default:
-            $banner = BLOG01BlogsBanner::active()->first();
-            break;
+                $banner = BLOG01BlogsBanner::active()->first();
+                break;
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
@@ -339,9 +339,9 @@ class BLOG01Controller extends Controller
         $blogFeaturedValidate = BLOG01Blogs::with('category')->featuredPage();
         $blogs = BLOG01Blogs::with('category');
 
-        if($BLOG01Category->exists){
+        if ($BLOG01Category->exists) {
             foreach ($categories as $category) {
-                if($BLOG01Category->id==$category->id){
+                if ($BLOG01Category->id == $category->id) {
                     $category->selected = true;
                 }
             }
@@ -355,7 +355,7 @@ class BLOG01Controller extends Controller
         $blogFeaturedValidate = $blogFeaturedValidate->pluck('id');
         $blogs = $blogs->whereNotIn('id', $blogFeaturedValidate)->sorting()->paginate('32');
 
-        return view('Client.pages.Blogs.BLOG01.page',[
+        return view('Client.pages.Blogs.BLOG01.page', [
             'sections' => $sections,
             'categories' => $categories,
             'blogsFeatured' => $blogsFeatured,
@@ -376,7 +376,7 @@ class BLOG01Controller extends Controller
 
         $category = BLOG01BlogsCategory::first();
 
-        return view('Client.pages.Blogs.BLOG01.section',[
+        return view('Client.pages.Blogs.BLOG01.section', [
             'blogs' => $blogs,
             'section' => $section,
             'category' => $category
