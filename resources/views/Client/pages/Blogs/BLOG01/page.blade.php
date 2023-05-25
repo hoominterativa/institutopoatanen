@@ -3,9 +3,12 @@
 {{-- BEGIN Page content --}}
 <main id="root">
     <section id="BLOG01" class="blog01-page container-fluid px-0">
-        <header class="blog01-page__header bg-light" style="background-image: url({{asset('images/image-blog.jpg')}})">
+        <header class="blog01-page__header bg-light"
+        style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{ $banner->background_color }};">
             <div class="container d-flex flex-column justify-content-center h-100">
-                <h1 class="blog01-page__header__title">Título página</h1>
+                @if ($banner->title)
+                    <h1 class="blog01-page__header__title">{{$banner->title}}</h1>
+                @endif
                 <nav class="blog01-page__header__category blog01-page__header__category__carousel d-flex justify-content-center">
                     @foreach ($categories as $category)
                         <a href="{{route('blog01.category.page', ['BLOG01BlogsCategory' => $category->slug])}}" class="blog01-page__header__category__item {{isset($category->selected)?'blog01-page__header__category__item--active':''}}">{{$category->title}}</a>

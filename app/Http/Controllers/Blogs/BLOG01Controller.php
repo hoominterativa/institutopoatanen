@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Blogs\BLOG01Blogs;
 use Cohensive\Embed\Facades\Embed;
 use App\Http\Controllers\Controller;
+use App\Models\Blogs\BLOG01BlogsBanner;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Blogs\BLOG01BlogsSection;
@@ -30,12 +31,15 @@ class BLOG01Controller extends Controller
         $categories = BLOG01BlogsCategory::exists()->sorting()->pluck('title', 'id');
         $blogCategories = BLOG01BlogsCategory::sorting()->get();
         $section = BLOG01BlogsSection::first();
+        $banner = BLOG01BlogsBanner::first();
 
         return view('Admin.cruds.Blogs.BLOG01.index',[
             'blogs' => $blogs,
             'categories' => $categories,
             'blogCategories' => $blogCategories,
             'section' => $section,
+            'banner' => $banner,
+            'cropSetting' => getCropImage('Blogs', 'BLOG01')
         ]);
     }
 
@@ -315,6 +319,16 @@ class BLOG01Controller extends Controller
      */
     public function page(Request $request, BLOG01BlogsCategory $BLOG01Category)
     {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = BLOG01BlogsBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+            break;
+            default:
+            $banner = BLOG01BlogsBanner::active()->first();
+            break;
+        }
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Blogs', 'BLOG01', 'page');
@@ -346,6 +360,7 @@ class BLOG01Controller extends Controller
             'categories' => $categories,
             'blogsFeatured' => $blogsFeatured,
             'blogs' => $blogs,
+            'banner' => $banner,
         ]);
     }
 
