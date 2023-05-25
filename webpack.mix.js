@@ -310,14 +310,14 @@ mix
         "public/Admin/assets/images"
     )
     .copyDirectory("resources/views/Client/assets/images", "public/images")
-    // .copyDirectory(
-    //     "node_modules/@ckeditor/ckeditor5-build-classic/build/translations",
-    //     "public/Admin/assets/libs/translations"
-    // )
-    // .copyDirectory(
-    //     "node_modules/parsleyjs/dist/i18n",
-    //     "public/Admin/assets/libs/i18n"
-    // )
+    .copyDirectory(
+        "node_modules/@ckeditor/ckeditor5-build-classic/build/translations",
+        "public/Admin/assets/libs/translations"
+    )
+    .copyDirectory(
+        "node_modules/parsleyjs/dist/i18n",
+        "public/Admin/assets/libs/i18n"
+    )
 
     //COMPILED
     .js("resources/js/app.js", "public/js")
