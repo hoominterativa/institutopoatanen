@@ -305,12 +305,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -329,17 +326,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -3625,7 +3612,7 @@ body .owl-dots .owl-dot.active {
 }
 .blog01__boxs__item__description {
   height: 107px;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   padding: 0 20px;
 }
 .blog01__boxs__item__title {
@@ -3640,6 +3627,45 @@ body .owl-dots .owl-dot.active {
 }
 .blog01__boxs__item__icon {
   width: 34px !important;
+}
+.blog01__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  background: #EFEFEF;
+  width: 100%;
+  max-width: 177px;
+  height: 45px;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin: 24px 0 0 auto;
+}
+@media (max-width: 575.98px) {
+  .blog01__cta {
+    margin-top: -32px;
+    z-index: 100;
+    position: relative;
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 700;
+    margin-top: -34px;
+    width: 147px;
+    width: 147px;
+  }
+}
+.blog01__cta__icon {
+  height: 25px !important;
+  width: 25px !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.blog01__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.blog01__cta:hover .blog01__cta__icon {
+  filter: invert(1) grayscale(1);
 }
 
 .blog01-page__header {
@@ -3937,7 +3963,8 @@ body .owl-dots .owl-dot.active {
   color: #7C7C7C;
   line-height: 27px;
 }
-.blog01-show__item__description ul, .blog01-show__item__description ol {
+.blog01-show__item__description ul,
+.blog01-show__item__description ol {
   margin: 20px 0;
 }
 @media (max-width: 767.98px) {
