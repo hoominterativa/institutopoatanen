@@ -21,7 +21,7 @@
             @endif
             <div class="blog01__boxs row blog01__boxs__carousel">
                 @foreach ($blogs as $blog)
-                    <article class="blog01__boxs__item col-12 col-sm-3">
+                    <article class="blog01__boxs__item">
                         <div itemscope itemtype="http://schema.org/Article"
                             class="blog01__boxs__item__content transition">
                             <a itemprop="url"
