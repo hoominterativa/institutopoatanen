@@ -1,55 +1,55 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
 
-.abou01{
+.abou01 {
     text-align: center;
     padding: 80px 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include small-device{
+    @include small-device {
         padding: 40px 0;
     }
 
-    &__title{
+    &__title {
         font-size: $T2;
         font-family: $font-primary;
         color: $color-one;
         display: block;
 
-        @include small-device{
+        @include small-device {
             font-size: $T2-mobile;
         }
     }
-    &__subtitle{
+    &__subtitle {
         font-size: $T4;
         font-family: $font-primary;
         color: $color-one;
         display: block;
 
-        @include small-device{
+        @include small-device {
             font-size: $T4-mobile;
         }
     }
-    &__line{
+    &__line {
         width: 100%;
         background-color: $color-one;
         margin: 30px 0;
     }
-    &__paragraph{
+    &__paragraph {
         font: $paragraph;
         font-weight: $weight-500;
         padding: 0 30px;
         color: $color-one;
         line-height: 25px;
 
-        @include small-device{
+        @include small-device {
             font: $paragraph-mobile;
         }
     }
-    &__cta{
+    &__cta {
         font: $paragraph;
         font-weight: $weight-700;
         color: $color-black;
@@ -59,52 +59,52 @@
         padding: 10px 15px;
         background-color: $bg-soft;
 
-        &:hover{
+        &:hover {
             color: $color-white;
             background-color: $bg-black;
         }
 
-        &:hover &__icon{
+        &:hover &__icon {
             filter: invert(1) grayscale(1);
         }
 
-        @include small-device{
+        @include small-device {
             font: $paragraph-mobile;
         }
     }
 }
 // END .abou01
 
-.abou01-page{
-    &__header{
+.abou01-page {
+    &__header {
         text-align: center;
-        background-color: #EFEFEF;
+        background-color: #efefef;
         padding: 87px 0;
         margin: 0;
-        &__container{
+        &__container {
             margin-bottom: 25px;
         }
-        &__title{
+        &__title {
             font-size: $T1;
             font-family: $font-primary;
             color: $color-black;
             display: block;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T2-mobile;
             }
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $T4;
             font-family: $font-primary;
             color: $color-two;
             display: block;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T4-mobile;
             }
         }
-        &__line{
+        &__line {
             width: 100%;
             max-width: 610px;
             background-color: $color-one;
@@ -112,110 +112,110 @@
     }
     // END __header
 
-    &__content{
+    &__content {
         text-align: center;
         padding: 45px 0 120px;
-        &__container{
+        &__container {
             margin-bottom: 25px;
         }
-        &__title{
+        &__title {
             font-size: $T2;
             font-family: $font-primary;
             color: $color-one;
             display: block;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T2-mobile;
             }
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $T4;
             font-family: $font-primary;
             color: $color-one;
             display: block;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T4-mobile;
             }
         }
-        &__line{
+        &__line {
             width: 100%;
             background-color: $color-one;
         }
-        &__paragraph{
+        &__paragraph {
             font: $paragraph;
             font-weight: $weight-500;
             padding: 0 30px;
             color: $color-one;
             line-height: 25px;
 
-            @include small-device{
+            @include small-device {
                 font: $paragraph-mobile;
             }
         }
     }
     // END __content
 
-    &__topic{
+    &__topic {
         padding: 125px 10px;
         background-color: #fff;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
 
-        &__content{
-            background-color: #CACACA;
+        &__content {
+            background-color: #cacaca;
             padding: 51px;
             min-height: 100%;
 
-            &:hover{
+            &:hover {
                 transform: scale(1.01);
             }
         }
-        &__item{
-            &__header{
+        &__item {
+            &__header {
                 margin-bottom: 35px;
             }
-            &__icon{
+            &__icon {
                 width: 32px !important;
                 margin-right: 21px;
             }
-            &__title{
+            &__title {
                 font-size: $T3;
                 color: $color-black;
 
-                @include small-device{
+                @include small-device {
                     font-size: $T3-mobile;
                 }
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph;
                 font-weight: $weight-500;
                 color: $color-two;
 
-                @include small-device{
+                @include small-device {
                     font: $paragraph-mobile;
                 }
             }
         }
-        .carousel-abou01-topic{
-            @include small-device{
+        .carousel-abou01-topic {
+            @include small-device {
                 margin: 0 auto;
             }
-            .owl-stage-outer{
+            .owl-stage-outer {
                 padding: 0;
             }
-            .owl-dots{
+            .owl-dots {
                 text-align: center;
                 margin-top: 20px;
-                .owl-dot{
+                .owl-dot {
                     width: 20px;
                     height: 10px;
                     display: inline-block;
                     background-color: #fff;
                     margin: 0 5px;
                     &.active,
-                    &:hover{
+                    &:hover {
                         background-color: #969696;
                     }
                 }
@@ -224,50 +224,50 @@
     }
     // END __topic
 
-    &__section{
+    &__section {
         padding: 68px 15px 0 15px;
-        &__row{
-            @include small-device{
+        &__row {
+            @include small-device {
                 flex-direction: column-reverse;
             }
         }
-        &__image{
-            &__item{
+        &__image {
+            &__item {
                 width: 100%;
                 max-width: 430px;
                 object-fit: contain;
             }
         }
-        &__title{
+        &__title {
             font-size: $T2;
             font-weight: $weight-700;
             color: $color-black;
             display: block;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T2-mobile;
             }
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $T4;
             font-weight: $weight-700;
             color: $color-one;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T4-mobile;
             }
         }
-        &__line{
+        &__line {
             width: 100%;
             background-color: $bg-secondary;
         }
-        &__paragraph{
+        &__paragraph {
             font: $paragraph;
             font-weight: $weight-500;
             color: $color-one;
             line-height: 25px;
 
-            @include small-device{
+            @include small-device {
                 font: $paragraph-mobile;
                 margin-bottom: 30px;
             }

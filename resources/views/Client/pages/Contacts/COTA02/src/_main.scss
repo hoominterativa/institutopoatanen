@@ -1,70 +1,70 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.cont02-page{
-    &__header{
+.cont02-page {
+    &__header {
         @include backG;
         position: relative;
 
-        .container-cont02-page__header{
-            padding: 44px 0;
+        .container-cont02-page__header {
+            padding: 108px 0;
             position: relative;
             z-index: 100;
+            @include Flex($direction: column);
 
-            @include small-device-down{
+            @include small-device-down {
                 padding: 44px 20px;
             }
         }
-        &__mask{
+        &__mask {
             position: absolute;
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgb(0 0 0 / 73%);
         }
-        &__title{
-            font-size: $T2;
+        &__title {
+            font-size: $T1;
             color: $color-one;
             font-family: $font-primary;
             font-weight: $weight-700;
             margin-bottom: 0;
 
-            @include small-device-down{
+            @include small-device-down {
                 font-size: $T2-mobile;
             }
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $T3;
             font-family: $font-paragraph;
-            color: $color-one;
+            color: $color-two;
             font-weight: $weight-700;
 
-            @include small-device-down{
+            @include small-device-down {
                 font-size: $T3-mobile;
             }
         }
-        &__line{
-            margin-top: 0;
+        &__line {
+            margin-top: 1.25rem;
             color: $color-two;
+            width: 100%;
         }
     }
-    &__boxForm{
+    &__boxForm {
         @include backG;
-        
-        .container--boxForm{
+
+        .container--boxForm {
             padding: 68px 0 59px 0;
 
-            .row{
-                @include small-device-down{
+            .row {
+                @include small-device-down {
                     margin: 0 auto;
                 }
-
             }
         }
-        &__item{
-
-            &:last-of-type &__content::after{
+        &__item {
+            &:last-of-type &__content::after {
                 display: none;
             }
 
@@ -74,13 +74,13 @@
                 width: 94%;
             }
 
-            &__content{
+            &__content {
                 position: relative;
                 display: flex;
                 flex-direction: column;
                 padding: 0 36px;
 
-                &::after{
+                &::after {
                     content: "";
                     width: 1px;
                     height: 88%;
@@ -90,49 +90,48 @@
                     right: -10px;
                     top: 0;
                 }
-                &__image{
+                &__image {
                     width: 55px;
                     height: 55px;
                     margin-bottom: 14.04px;
 
-                    @include large-device-down{
+                    @include large-device-down {
                         width: 50px;
                         height: 50px;
                     }
 
-                    img{
+                    img {
                         width: 100%;
                         object-fit: contain;
                     }
                 }
 
-                &__description{
-
-                    &__title{
+                &__description {
+                    &__title {
                         font-size: $T4;
                         font-weight: $weight-500;
-                        color:$color-one;
+                        color: $color-one;
                         font-family: $font-primary;
                         margin-bottom: 5px;
 
-                        @include large-device-down{
+                        @include large-device-down {
                             font-size: $T4-mobile;
                         }
                     }
-                    &__paragraph{
+                    &__paragraph {
                         font: $paragraph;
                         font-family: $font-primary;
                         font-weight: $weight-400;
-                        color:$color-one;
+                        color: $color-one;
 
-                        p{
+                        p {
                             font: $paragraph;
                             font-family: $font-primary;
                             font-weight: $weight-400;
-                            color:$color-one;
+                            color: $color-one;
                             margin-bottom: 0;
 
-                            @include large-device-down{
+                            @include large-device-down {
                                 font: $paragraph-mobile;
                             }
                         }
@@ -142,69 +141,75 @@
         }
     }
 
-    &__form{
+    &__form {
         padding: 78px 0 154.45px 0;
-        &__header{
+        &__header {
             margin-bottom: 50px;
 
-            &__title{
+            &__title {
                 font-size: $T2;
                 color: $color-one;
                 font-family: $font-primary;
                 font-weight: $weight-700;
-                background: linear-gradient(to right, $color-one 14.8%, $color-two 25px);
+                background: linear-gradient(
+                    to right,
+                    $color-one 14.8%,
+                    $color-two 25px
+                );
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
 
-                @include small-device-down{
+                @include small-device-down {
                     font-size: $T2-mobile;
-                    background: linear-gradient(to right, #132229 39.8%, #B34423 25px);
+                    background: linear-gradient(
+                        to right,
+                        #132229 39.8%,
+                        #b34423 25px
+                    );
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
             }
-            &__line{
-               background: $color-one;
-               display: flex;
-               margin-top: 15px;
-               margin-bottom: 18px;
-               display: block;
+            &__line {
+                background: $color-one;
+                display: flex;
+                margin-top: 15px;
+                margin-bottom: 18px;
+                display: block;
             }
-            &__paragraph{
-                p{
+            &__paragraph {
+                p {
                     font: $paragraph;
                     font-weight: $weight-400;
-                    color:$color-black;
+                    color: $color-black;
 
-                    @include large-device-down{
+                    @include large-device-down {
                         font: $paragraph-mobile;
                     }
                 }
             }
         }
-        .input__item{
+        .input__item {
             width: 100%;
-            
         }
-        .input__item--select .form-select{
-              margin-bottom: 0 !important;  
-              height: 52px;
-              border-radius: 0 !important;
+        .input__item--select .form-select {
+            margin-bottom: 0 !important;
+            height: 52px;
+            border-radius: 0 !important;
         }
-        &__inputs{
-            &__formIput{
-
+        &__inputs {
+            &__formIput {
                 width: 100%;
                 justify-content: space-between;
                 display: flex;
 
-                .input__item{
+                .input__item {
                     width: 100%;
                     font: $paragraph;
                     font-weight: $weight-400;
-                    color:$color-one;
+                    color: $color-one;
 
-                    .form-control{
+                    .form-control {
                         height: 52px;
                         border-radius: 0 !important;
                     }
@@ -222,21 +227,17 @@
                 //     font-weight: $weight-400;
                 //     color:$color-one;
 
-
-
-
                 //     &:hover{
                 //         background-color: $color-black;
 
                 //     }
                 //     &:hover img{
 
-
                 //     }
                 // }
             }
 
-            &__compliance{
+            &__compliance {
                 display: flex;
 
                 input {
@@ -244,27 +245,26 @@
                     font: $paragraph-min;
                 }
                 label {
-                    color:#393939;
+                    color: #393939;
                     font: $paragraph-min;
 
-                    a{
-                        color: #7C7C7C;
+                    a {
+                        color: #7c7c7c;
                         font: $paragraph-min;
                     }
                 }
             }
         }
     }
-
 }
 
-.cota01-show__form__item__input:nth-of-type(5){
+.cota01-show__form__item__input:nth-of-type(5) {
     width: 100% !important;
 }
-.cota01-show__form__item__input .input__item--textarea textarea{
+.cota01-show__form__item__input .input__item--textarea textarea {
     height: 136px !important;
 }
-.cota01-show__form__inputs__formIput__input-submit{
+.cota01-show__form__inputs__formIput__input-submit {
     height: 31px;
     width: 165px;
     background-color: $color-two;
@@ -274,28 +274,27 @@
     border: 2px solid $color-two;
     font: $paragraph;
     font-weight: $weight-400;
-    color:$color-white;
+    color: $color-white;
 
-    &:hover{
+    &:hover {
         background-color: transparent;
         color: $color-two;
-
     }
 }
-.cota01-show__form__compliance{
+.cota01-show__form__compliance {
     font: $paragraph-min;
     font-weight: $weight-400;
-    color:#393939;
+    color: #393939;
 
-    a{
-        color: #7C7C7C;
+    a {
+        color: #7c7c7c;
         text-decoration: underline;
     }
 }
-.form-check-input:checked[type=checkbox]{
+.form-check-input:checked[type="checkbox"] {
     border: 1px solid #393939;
 }
 .form-check-input:checked {
-    background-color: #B34423;
-    border-color: #B34423;
+    background-color: #b34423;
+    border-color: #b34423;
 }

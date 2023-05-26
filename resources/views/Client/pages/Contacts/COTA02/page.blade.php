@@ -5,19 +5,19 @@
         <section id="CONT02" class="cont02-page">
             <div class="container-fluid px-0">
                 <header class="cont02-page__header"
-                    style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }}); background-color: {{
-                    $contact->background_color_banner }};">
-                    @if($contact->path_image_banner_desktop)
+                    style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }}); background-color: {{ $contact->background_color_banner }};">
+                    @if ($contact->path_image_banner_desktop)
                         <div class="cont02-page__header__mask"></div>
                     @endif
                     {{-- <div class="cont02-page__header__mask"></div> --}}
                     <div class="container container-cont02-page__header">
                         @if ($contact->title_banner || $contact->subtitle_banner)
                             <h2 class="cont02-page__header__title d-block">{{ $contact->title_banner }}</h2>
-                            <h3 class="cont02-page__header__subtitle d-block text-uppercase">{{ $contact->subtitle_banner }}</h3>
+                            <h3 class="cont02-page__header__subtitle d-block">{{ $contact->subtitle_banner }}
+                            </h3>
                         @endif
+                        <hr class="cont02-page__header__line mb-0">
                     </div>
-                    <hr class="cont02-page__header__line mb-0">
                 </header>
                 <div class="cont02-page__boxForm"
                     style="background-image: url({{ asset('storage/' . $contact->path_image_topic_desktop) }}); background-color: {{ $contact->background_color_topic }};">
@@ -54,7 +54,7 @@
                     <div class="container">
                         <div class="cont02-page__form__header">
                             @if ($contact->title_form)
-                                <h2 class="cont02-page__form__header__title">{{$contact->title_form}}</h2>
+                                <h2 class="cont02-page__form__header__title">{{ $contact->title_form }}</h2>
                             @endif
                             {{-- <h4 class="cont02-page__form__header__line"></h4> --}}
                             @if ($contact->description_form)
@@ -95,7 +95,8 @@
                                         <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
                                             class="cota01-show__form__compliance__link ms-1">Política de Privacidade</a>
                                     </div>
-                                    <button type="submit" class="cota01-show__form__inputs__formIput__input-submit ms-auto">
+                                    <button type="submit"
+                                        class="cota01-show__form__inputs__formIput__input-submit ms-auto">
                                         {{ $contact->title_button_form }}
                                     </button>
                                 </div>

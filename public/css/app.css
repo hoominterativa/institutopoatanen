@@ -4290,7 +4290,7 @@ body .owl-dots .owl-dot.active {
 
 .abou01-page__header {
   text-align: center;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   padding: 87px 0;
   margin: 0;
 }
@@ -4377,7 +4377,7 @@ body .owl-dots .owl-dot.active {
   background-repeat: no-repeat;
 }
 .abou01-page__topic__content {
-  background-color: #CACACA;
+  background-color: #cacaca;
   padding: 51px;
   min-height: 100%;
 }
@@ -4492,9 +4492,13 @@ body .owl-dots .owl-dot.active {
   position: relative;
 }
 .cont02-page__header .container-cont02-page__header {
-  padding: 44px 0;
+  padding: 108px 0;
   position: relative;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 575.98px) {
   .cont02-page__header .container-cont02-page__header {
@@ -4510,7 +4514,7 @@ body .owl-dots .owl-dot.active {
   background-color: rgba(0, 0, 0, 0.73);
 }
 .cont02-page__header__title {
-  font-size: 2.5rem;
+  font-size: 3.125rem;
   color: #404040;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
@@ -4524,7 +4528,7 @@ body .owl-dots .owl-dot.active {
 .cont02-page__header__subtitle {
   font-size: 1.875rem;
   font-family: "Montserrat", sans-serif, arial;
-  color: #404040;
+  color: #7C7C7C;
   font-weight: 700;
 }
 @media (max-width: 575.98px) {
@@ -4533,8 +4537,9 @@ body .owl-dots .owl-dot.active {
   }
 }
 .cont02-page__header__line {
-  margin-top: 0;
+  margin-top: 1.25rem;
   color: #7C7C7C;
+  width: 100%;
 }
 .cont02-page__boxForm {
   background-size: cover;
@@ -4639,7 +4644,7 @@ body .owl-dots .owl-dot.active {
 @media (max-width: 575.98px) {
   .cont02-page__form__header__title {
     font-size: 1.875rem;
-    background: linear-gradient(to right, #132229 39.8%, #B34423 25px);
+    background: linear-gradient(to right, #132229 39.8%, #b34423 25px);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -4696,7 +4701,7 @@ body .owl-dots .owl-dot.active {
   font: 0.875rem "Montserrat", sans-serif, arial;
 }
 .cont02-page__form__inputs__compliance label a {
-  color: #7C7C7C;
+  color: #7c7c7c;
   font: 0.875rem "Montserrat", sans-serif, arial;
 }
 
@@ -4731,7 +4736,7 @@ body .owl-dots .owl-dot.active {
   color: #393939;
 }
 .cota01-show__form__compliance a {
-  color: #7C7C7C;
+  color: #7c7c7c;
   text-decoration: underline;
 }
 
@@ -4740,8 +4745,8 @@ body .owl-dots .owl-dot.active {
 }
 
 .form-check-input:checked {
-  background-color: #B34423;
-  border-color: #B34423;
+  background-color: #b34423;
+  border-color: #b34423;
 }
 
 /* BEGIN STYLE */
