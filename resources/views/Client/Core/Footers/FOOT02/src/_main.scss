@@ -1,60 +1,59 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.foot02{
+.foot02 {
     background-color: $color-five;
     padding: 0;
 
-
-    &__container{
+    &__container {
         padding: 80px 0;
 
-        @include small-device-down{
+        @include small-device-down {
             padding: 50px 30px !important;
         }
     }
-    &__logo{
-        &__item{
+    &__logo {
+        &__item {
             width: 202px;
             display: block;
             margin: 0 0 46px 0;
         }
 
-        &__wraper{
-            @include small-device-down{
+        &__wraper {
+            @include small-device-down {
                 margin: 0 auto 67px auto;
                 display: table;
             }
 
-            @include large-device{
+            @include large-device {
                 margin: 0 auto 67px auto;
                 display: table;
             }
         }
     }
-    &__socials{
-        &__item{
+    &__socials {
+        &__item {
             font-size: 28px;
             font-family: $font-primary;
             color: $color-two;
             margin: 0 8px;
-            &:hover{
+            &:hover {
                 color: $color-one;
             }
         }
     }
     // END __socials
 
-    &__nav{
-        @include small-device-down{
+    &__nav {
+        @include small-device-down {
             margin: 0 0 47px 0;
         }
 
-        @include large-device{
+        @include large-device {
             margin: 0 0 47px 0;
         }
 
-        &__header{
+        &__header {
             font-size: $T4;
             font-weight: $weight-700;
             font-family: $font-primary;
@@ -62,66 +61,69 @@
             margin: 0 0 21px 0;
             display: block;
         }
-        &__item{
+        &__item {
             font: $paragraph;
             font-weight: $weight-400;
             color: $color-black;
             margin: 0 0 15px 0;
             display: block;
-            &:hover{
+            &:hover {
                 color: $color-three;
             }
-            &:last-child{
+            &:last-child {
                 margin: 0;
             }
         }
-        &--icon{
+        &--icon {
             display: flex;
             flex-direction: column;
             align-items: end;
             justify-content: end;
         }
+
+        .phones {
+            flex-direction: column;
+        }
     }
-    a.foot02__nav__header{
-        &:hover{
+    a.foot02__nav__header {
+        &:hover {
             color: $color-three;
         }
     }
     // END __nav
 
-    &__copyright-section{
+    &__copyright-section {
         background-color: $color-two;
         padding: 17px 0;
 
-        @include small-device-down{
+        @include small-device-down {
             text-align: center;
             padding: 25px 0;
         }
 
-        @include large-device{
+        @include large-device {
             text-align: center;
             padding: 25px 0;
         }
 
-        &__container{
-            @include small-device-down{
+        &__container {
+            @include small-device-down {
                 padding: 0 30px !important;
             }
         }
 
-        &__compliances{
-
-            @include small-device-down{
+        &__compliances {
+            @include small-device-down {
                 margin: 0 0 30px 0;
                 justify-content: center;
             }
 
-            @include large-device{
+            @include large-device {
                 margin: 0 0 30px 0;
                 justify-content: center;
             }
 
-            &__item{
+            &__item {
                 font: $paragraph;
                 font-weight: $weight-700;
                 color: $color-one;
@@ -129,17 +131,16 @@
                 padding: 0 30px 0 0;
                 margin: 0 30px 0 0;
 
-                &:hover{
+                &:hover {
                     color: $color-white;
                 }
 
-                &:last-of-type{
+                &:last-of-type {
                     border: none;
                     padding: 0;
                     margin: 0;
                 }
             }
-
         }
     }
     // EMD __copyright-section
