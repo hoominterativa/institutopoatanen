@@ -7,12 +7,14 @@
                 <header class="cont02-page__header"
                     style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }}); background-color: {{
                     $contact->background_color_banner }};">
-                    <div class="cont02-page__header__mask"></div>
+                    @if($contact->path_image_banner_desktop)
+                        <div class="cont02-page__header__mask"></div>
+                    @endif
+                    {{-- <div class="cont02-page__header__mask"></div> --}}
                     <div class="container container-cont02-page__header">
                         @if ($contact->title_banner || $contact->subtitle_banner)
                             <h2 class="cont02-page__header__title d-block">{{ $contact->title_banner }}</h2>
-                            {{-- <h3 class="cont02-page__header__subtitle d-block text-uppercase">{{ $contact->subtitle_banner }}</h3> --}}
-
+                            <h3 class="cont02-page__header__subtitle d-block text-uppercase">{{ $contact->subtitle_banner }}</h3>
                         @endif
                     </div>
                     <hr class="cont02-page__header__line mb-0">
