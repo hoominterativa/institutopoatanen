@@ -20,7 +20,7 @@ $(".carousel-prod02").owlCarousel({
             items: 2,
             margin: 10,
         },
-        // breakpoint from 361 up
+        // breakpoint from 480 up
         801: {
             items: 4,
             margin: 20,
