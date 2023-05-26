@@ -26,7 +26,6 @@
                         {!! Form::textarea('description_section', null, [
                             'class'=>'form-control',
                             'id'=>'message',
-                            'required'=>'required',
                             'data-parsley-trigger'=>'keyup',
                             'data-parsley-minlength'=>'20',
                             'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
@@ -155,7 +154,7 @@
                     </div>
                     <div class="normal-editor__content mb-3">
                         {!! Form::label('normal-editor', 'Descrição', ['class'=>'form-label']) !!}
-                        {!! Form::textarea('description_section', null, [
+                        {!! Form::textarea('text_inner_section', null, [
                             'class'=>'form-control normal-editor',
                             'id'=>'normal-editor',
                         ]) !!}

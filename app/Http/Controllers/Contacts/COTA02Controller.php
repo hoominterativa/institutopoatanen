@@ -352,10 +352,20 @@ class COTA02Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $contact = COTA02Contacts::with(['topics'])->first();
+                if($contact) $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
+            break;
+            default:
+            $contact = COTA02Contacts::with(['topics'])->first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA02');
 
-        $contact = COTA02Contacts::with(['topics'])->first();
         $compliance = getCompliance($contact->compliance_id??'0');
         $topics = COTA02ContactsTopic::where('contact_id', $contact->id )->active()->sorting()->get();
 

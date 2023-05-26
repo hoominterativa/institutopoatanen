@@ -98,12 +98,15 @@ class BLOG01Controller extends Controller
         $categories = BLOG01BlogsCategory::exists()->sorting()->pluck('title', 'id');
         $blogCategories = BLOG01BlogsCategory::sorting()->get();
         $section = BLOG01BlogsSection::first();
+        $banner = BLOG01BlogsBanner::first();
 
         return view('Admin.cruds.Blogs.BLOG01.index', [
             'blogs' => $blogs,
             'categories' => $categories,
             'blogCategories' => $blogCategories,
             'section' => $section,
+            'banner' => $banner,
+            'cropSetting' => getCropImage('Blogs', 'BLOG01')
         ]);
     }
 
