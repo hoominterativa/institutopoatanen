@@ -1,31 +1,24 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.side02{
+.side02 {
     position: fixed;
     left: -100%;
     top: 2.5%;
-    display: none;
+    display: block;
     width: 95%;
     height: 95%;
     background-color: #fff;
     z-index: 1000;
     border-bottom: 9px solid $color-two;
     transition-duration: 0.6s;
-    @include small-device{
-        display: block;
-    }
-    @include large-device{
-        display: block;
-    }
 
-    &--show{
+    &--show {
         left: 2.5%;
         transition-duration: 0.6s;
     }
 
-
-    &__scroll{
+    &__scroll {
         display: block;
         width: 100%;
         height: 100%;
@@ -36,11 +29,11 @@
         &::-webkit-scrollbar {
             width: 8px;
             height: 10px;
-            background: rgba($color-one, 0.50);
+            background: rgba($color-one, 0.5);
         }
 
         &::-webkit-scrollbar-thumb {
-            background: rgba($color-one, 0.80);
+            background: rgba($color-one, 0.8);
         }
 
         &::-webkit-scrollbar-thumb:hover {
@@ -48,23 +41,23 @@
         }
     }
 
-    &__header{
+    &__header {
         padding: 10px 20px;
         margin-bottom: 40px;
-        &__button-close{
-            &__icon{
-                path{
+        &__button-close {
+            &__icon {
+                path {
                     fill: $color-two;
                 }
-                &:hover{
-                    path{
+                &:hover {
+                    path {
                         fill: $color-one;
                     }
                 }
             }
         }
-        &__languages{
-            &__item{
+        &__languages {
+            &__item {
                 font-size: $T5;
                 font-family: $font-primary;
                 font-weight: $weight-400;
@@ -73,12 +66,12 @@
                 line-height: 15px;
                 padding-right: 10px;
                 margin-right: 10px;
-                &:last-of-type{
+                &:last-of-type {
                     border: none;
                     padding-right: 0;
                     margin-right: 0;
                 }
-                &:hover{
+                &:hover {
                     color: $color-four;
                 }
             }
@@ -86,7 +79,7 @@
     }
     // END __header
 
-    &__logo{
+    &__logo {
         width: 202px;
         display: table;
         margin: 0 auto;
@@ -96,11 +89,11 @@
     }
     // END __logo
 
-    &__navigation{
+    &__navigation {
         padding: 0 30px;
         margin-bottom: 70px;
 
-        &__wrapper{
+        &__wrapper {
             display: table;
             margin: 0 auto;
             list-style: none;
@@ -108,8 +101,8 @@
             max-width: 412px;
             padding: 0;
         }
-        &__item{
-            &__link{
+        &__item {
+            &__link {
                 font-size: $T5;
                 font-family: $font-primary;
                 font-weight: $weight-900;
@@ -121,7 +114,7 @@
                 margin-bottom: 7px;
 
                 &:active,
-                &:focus{
+                &:focus {
                     background-color: $color-four;
                     color: $color-white;
                 }
@@ -129,13 +122,13 @@
         }
         // END __item
 
-        &__dropdown{
+        &__dropdown {
             width: 100%;
             border-radius: 0;
             background-color: $color-four;
             padding: 0 20px;
         }
-        &__sublink{
+        &__sublink {
             font-size: $T5;
             font-family: $font-primary;
             font-weight: $weight-700;
@@ -144,23 +137,23 @@
             width: 100%;
             padding: 8px 0;
             border-bottom: 1px solid $gray-300;
-            &:last-of-type{
+            &:last-of-type {
                 border: none;
             }
         }
     }
     // END __navigation
 
-    &__container-cta{
+    &__container-cta {
         padding: 0 60px;
         margin-bottom: 130px;
 
-        &__dropdown{
+        &__dropdown {
             display: table;
             margin: 0 auto;
         }
 
-        &__btn-cta{
+        &__btn-cta {
             background-color: #000;
             border-radius: 50px;
             min-width: 175px;
@@ -169,11 +162,11 @@
             padding: 1px 15px;
             display: table;
 
-            &:hover{
+            &:hover {
                 color: $color-three;
             }
 
-            .menu-arrow{
+            .menu-arrow {
                 border-top-color: #fff;
                 margin-left: 10px;
                 margin-right: -25px;
@@ -181,7 +174,7 @@
             }
         }
 
-        &__sublink{
+        &__sublink {
             background-color: #404040;
             border-radius: 0;
             width: 200px;
@@ -189,16 +182,16 @@
             left: 50% !important;
             transform: translate(-50%) !important;
             text-align: center;
-            &__item{
+            &__item {
                 color: $color-white;
                 display: block;
                 padding: 5px 0;
                 border-bottom: 1px solid $gray-400;
-                &:last-of-type{
+                &:last-of-type {
                     border: none;
                 }
 
-                &:hover{
+                &:hover {
                     color: $color-three;
                 }
             }
@@ -206,25 +199,25 @@
     }
     // END __container-cta
 
-    &__social{
+    &__social {
         margin-bottom: 44px;
-        &__item{
+        &__item {
             color: #404040;
             font-size: 25px;
             margin: 0 5px;
         }
     }
 
-    &__footer{
+    &__footer {
         margin-bottom: 30px;
-        &__item{
+        &__item {
             font: $paragraph;
             font-weight: $weight-400;
             color: $color-one;
             border-right: 2px solid $color-one;
             padding: 0 30px 0 0;
             margin: 0 30px 0 0;
-            &:last-of-type{
+            &:last-of-type {
                 border: none;
                 padding: 0;
                 margin: 0;
@@ -232,7 +225,7 @@
         }
     }
 
-    &__override{
+    &__override {
         position: fixed;
         top: 0;
         left: 0;
@@ -245,7 +238,7 @@
         opacity: 0;
         transition-duration: 0.8s;
 
-        &--show{
+        &--show {
             transition-duration: 0.8s;
             visibility: visible;
             opacity: 1;

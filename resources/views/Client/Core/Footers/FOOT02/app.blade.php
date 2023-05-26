@@ -36,7 +36,7 @@
                     @endif
                 </nav>
             @endforeach
-            <nav class="foot02__nav foot02__nav--right col-8 col-lg-3 px-0">
+            <nav class="foot02__nav foot02__nav--right col-6 col-lg-3 px-0">
                 <span class="foot02__nav__header">Contatos</span>
                 <div class="phones d-flex align-items-start  w-100">
                     @if ($generalSetting->phone || $generalSetting->whatsapp)
