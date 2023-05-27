@@ -117,9 +117,9 @@
                             {{-- END MODAL LEGEND INPUTS --}}
                         </div>
                     </div>
-
+                    {{-- {{dd($configForm)}} --}}
                     @if (isset($configForm))
-                        @foreach ($configForm as $key => $value)
+                        @forelse ($configForm as $key => $value)
                             <div class="container-type-input col-12 col-lg-6 p-1">
                                 <div class="border p-2">
                                     <div class="d-flex align-items-center">
@@ -169,7 +169,32 @@
                                 </div>
                             </div>
                             {{-- END .container-type-input --}}
-                        @endforeach
+                        @empty
+                            <div class="container-type-input col-12 col-lg-6 p-1">
+                                <div class="border p-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mb-3 w-100">
+                                            {!! Form::label(null, 'Tipo do Campo', ['class'=>'form-label']) !!}
+                                            {!! Form::select('', [
+                                                'text' => 'Texto comum',
+                                                'textarea' => 'Texto Longo',
+                                                'email' => 'E-mail',
+                                                'phone' => 'Telefone',
+                                                'cellphone' => 'Celular',
+                                                'select' => 'Opções',
+                                                'selectEmail' => 'Opções com email',
+                                                'checkbox' => 'Multiplas escolhas',
+                                                'radio' => 'Escolha única (Um ou outro)',
+                                                'date' => 'Calendário',
+                                                'file' => 'Arquivos (Anexo)',
+                                            ], null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
+                                        </div>
+                                        <a href="javascript:void(0)" class="mdi mdi-close-circle-outline font-22 ms-2 text-danger deleteTypeButton"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- END .container-type-input --}}
+                        @endforelse
                     @else
                         <div class="container-type-input col-12 col-lg-6 p-1">
                             <div class="border p-2">

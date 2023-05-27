@@ -224,8 +224,6 @@ class ContactFormController extends Controller
         $ContactForm->position = $request->position;
         $ContactForm->page = $request->page;
         $ContactForm->model = $request->model;
-        $ContactForm->section_title = $request->section_title;
-        $ContactForm->description = $request->description;
         $ContactForm->social_id = $social;
         $ContactForm->inputs = $jsonInputs;
         $ContactForm->external_structure = $request->external_structure;
@@ -292,14 +290,13 @@ class ContactFormController extends Controller
 
         $ContactForms = $ContactForms->get();
 
-        dd($ContactForms);
-
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
             $socials = Social::whereIn('id', [$ContactForm->social_id])->get();
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
+                'content' => json_decode($ContactForm->content),
                 'inputs' => json_decode($ContactForm->inputs),
                 'model' => $ContactForm->model,
                 'socials' => $socials

@@ -23,8 +23,8 @@ class HomePageController extends Controller
         $contactForm = new ContactFormController();
         if(!count($sections)){
             $form = $contactForm->section('home');
+            $sections = $form;
         }
-        dd($form);
         foreach ($sections as $code => $html) {
             $form = $contactForm->section('home', $code);
             if(COUNT($form)){
