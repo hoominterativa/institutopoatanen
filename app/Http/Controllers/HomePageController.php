@@ -21,6 +21,10 @@ class HomePageController extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsHome();
         $contactForm = new ContactFormController();
+        if(!count($sections)){
+            $form = $contactForm->section('home');
+        }
+        dd($form);
         foreach ($sections as $code => $html) {
             $form = $contactForm->section('home', $code);
             if(COUNT($form)){

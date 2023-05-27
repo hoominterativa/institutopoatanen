@@ -175,12 +175,13 @@ Route::prefix('painel')->group(function () {
         // SETTING FORM CONTACT
         Route::resource('configuracao-formulario', ContactFormController::class)->names('admin.contactForm')->parameters(['configuracao-formulario' => 'ContactForm']);
         Route::post('configuracao-formulario/delete', [ContactFormController::class, 'destroySelected'])->name('admin.contactForm.destroySelected');
+        Route::post('getContentModel', [ContactFormController::class, 'getContentModel'])->name('dmin.contactForm.getContentModel');
 
+        // GENERAL SETTING
         Route::post('links-cta-header/{GeneralSetting}', [GeneralSettingController::class, 'linksHeader'])->name('admin.cta.header');
         Route::post('links-cta-footer/{GeneralSetting}', [GeneralSettingController::class, 'linksFooter'])->name('admin.cta.footer');
 
         Route::post('editor/image_upload', [EditorController::class, 'upload'])->name('editor.upload.archive');
-
     });
 });
 

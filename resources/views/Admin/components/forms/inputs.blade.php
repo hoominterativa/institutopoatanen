@@ -120,6 +120,13 @@
     ]) !!}
 </div>
 <div class="mb-3">
+    {!! Form::label(null, 'Telefone e Celular', ['class'=>'form-label sp_celphones']) !!}
+    {!! Form::text('phone_celphone', null, [
+        'class'=>'form-control',
+        'required'=>'required',
+    ]) !!}
+</div>
+<div class="mb-3">
     {!! Form::label(null, 'Celphone', ['class'=>'form-label']) !!}
     {!! Form::text('celphone', null, [
         'class'=>'form-control',

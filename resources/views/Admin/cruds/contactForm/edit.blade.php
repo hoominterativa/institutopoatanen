@@ -23,7 +23,8 @@
                 <!-- end page title -->
                 {!! Form::model($contactForm, ['route' => ['admin.contactForm.update', $contactForm->id], 'method' => 'PUT', 'files' => true, 'class'=>'parsley-validate']) !!}
                     @include('Admin.cruds.contactForm.form', [
-                        'configForm' => $configForm
+                        'configForm' => $configForm,
+                        'content' => $content,
                     ])
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.generalSetting.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

@@ -1007,5 +1007,14 @@
                 }
             }
         }
+    },
+    "ModelsForm": {
+        "FORM02": {
+            "path_image_inner": {
+                "width": "455",
+                "height": "625",
+                "activeCrop": "false"
+            }
+        }
     }
 }

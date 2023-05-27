@@ -50,6 +50,8 @@ class ContactFormController extends Controller
             }
         }
 
+        // dd($modelsForm);
+
         return view('Admin.cruds.contactForm.create',[
             'sessions' => $sessions,
             'pages' => $pages,
@@ -66,12 +68,29 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $path = 'uploads/images/contactForm/';
+        // dd($request->all());
         $helperArchive = new HelperArchive();
-        $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,null,100);
-        $arrayInputs = [];
         $data = $request->all();
+
+        $arrayInputs = [];
+        $arrayContents = [];
+
+        foreach ($data['content'] as $name => $value) {
+            $type = $data['type_'.$name];
+
+            if($type=='image'){
+                $value = $helperArchive->optimizeImage($request, $name, $path, null, 100);
+            }
+
+            $content = [
+                $name => [
+                    'value' => $value,
+                    'type' => $type,
+                ]
+            ];
+            $arrayContents = array_merge($arrayContents, $content);
+        }
 
         foreach ($data as $name => $value) {
             $arrayName = explode('_', $name);
@@ -97,21 +116,14 @@ class ContactFormController extends Controller
 
         $ContactForm = new ContactForm();
 
-        if($path_image){
-            Storage::delete($ContactForm->path_image);
-            $ContactForm->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
-        }
-
         $ContactForm->email = $request->email;
         $ContactForm->session = $request->session;
         $ContactForm->position = $request->position;
         $ContactForm->page = $request->page;
         $ContactForm->model = $request->model;
-        $ContactForm->section_title = $request->section_title;
-        $ContactForm->description = $request->description;
         $ContactForm->social_id = $social;
         $ContactForm->inputs = $jsonInputs;
+        $ContactForm->content = json_encode($arrayContents);
         $ContactForm->external_structure = $request->external_structure;
         $ContactForm->save();
 
@@ -132,6 +144,7 @@ class ContactFormController extends Controller
         $socials = Social::get();
         $sessions = [];
         $pages = ['home' => 'Home'];
+
         foreach ($modelsMain as $models) {
             foreach ($models as $key => $model) {
                 $nameModel = $model->config->titleMenu<>''?$model->config->titleMenu:$model->config->titlePanel;
@@ -147,6 +160,7 @@ class ContactFormController extends Controller
             'sessions' => $sessions,
             'pages' => $pages,
             'configForm' => json_decode($ContactForm->inputs),
+            'content' => json_decode($ContactForm->content),
             'modelsForm' => $modelsForm,
             'socials' => $socials,
             'socialsCheck' => json_decode($ContactForm->social_id),
@@ -278,6 +292,8 @@ class ContactFormController extends Controller
 
         $ContactForms = $ContactForms->get();
 
+        dd($ContactForms);
+
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
@@ -338,5 +354,18 @@ class ContactFormController extends Controller
         }
 
         return $response;
+    }
+
+    public function getContentModel(Request $request)
+    {
+        $modelsForm = config('modelsConfig.ModelsForm');
+        $model = $request->model;
+
+        $view = view('Admin.cruds.contactForm.formContent',[
+            'model' => $modelsForm->$model,
+            'code' => $model
+        ]);
+
+        return $view;
     }
 }

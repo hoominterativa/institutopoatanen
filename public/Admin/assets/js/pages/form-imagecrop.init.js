@@ -1,5 +1,4 @@
-$(function() {
-    'use strict';
+function createImageCrop(){
     var $container = $('.container-image-crop')
     if ($container.length) {
         $container.each(function() {
@@ -155,4 +154,8 @@ $(function() {
             })
         })
     }
+}
+$(function() {
+    'use strict';
+    createImageCrop();
 });

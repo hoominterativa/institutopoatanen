@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model($user, ['route' => ['admin.user.update', $user->id], 'class'=>'parsley-validate', 'method' => 'PUT', 'files' => true]) !!}
-                    @include('Admin.cruds.user.form',[
+                    @include('Admin.cruds.User.form',[
                         'user' => $user
                     ])
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}

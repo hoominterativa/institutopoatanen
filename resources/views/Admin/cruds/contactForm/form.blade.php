@@ -9,91 +9,71 @@
                     'parsley-type'=>'email',
                 ]) !!}
             </div>
+            <h5 class="mb-3">Modelos de formulários <small class="text-warning ms-3">Selecione um modelo abaixo para que a seção de cadastro de conteúdo apareça.</small></h5>
+            <div id="ModelsFormSelect" class="mb-4">
+                <div class="models-form-carousel">
+                    @foreach ($modelsForm as $model => $info)
+                        <div class="mb-3 mt-3 position-relative">
+                            <a href="{{asset('Admin/assets/images/modelsFrom/'.$info->model)}}" class="viewModelForm" data-fancybox><i class="mdi mdi-eye font-24"></i></a>
+                            {!! Form::radio('model', $model, null, ['id' => $model, 'class' => 'd-none getContentModel']) !!}
+                            <label for="{{$model}}" style="cursor: pointer;">
+                                <img src="{{asset('Admin/assets/images/modelsFrom/'.$info->model)}}" width="100%">
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
             <div class="alert alert-warning">
                 <p class="mb-0">• Caso a sessão não seja informada ou não exista na página o formulário será inserido no fim da página antes do rodapé.</p>
                 <p class="mb-0">• Caso na página existe uma estrutura padrão (Ex.: Página de serviço com os box de serviços) o formulário será inserido logo após a mesma.</p>
             </div>
             <div class="row">
-                <div class="col-4 mb-3">
-                    {!! Form::label(null, 'Página', ['class'=>'form-label']) !!}
-                    <span class="ms-1 mb-1" data-bs-original-title="Informe em qual página o formulário será implementado." data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span>
-                    {!! Form::select('page', $pages, null, ['class'=>'form-select selectTypeInput','placeholder' => '-', 'required' => true]) !!}
-                </div>
-                <div class="col-4 mb-3">
-                    {!! Form::label(null, 'Posição', ['class'=>'form-label']) !!}
-                    <span class="ms-1 mb-1" data-bs-original-title="Informe qual a posição o formulário será implementado" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span>
-                    {!! Form::select('position', ['after' => 'Depois da sessão', 'before' => 'Antes da sessão'], null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
-                </div>
-                <div class="col-4 mb-3">
-                    {!! Form::label(null, 'Sessão', ['class'=>'form-label']) !!}
-                    <span class="ms-1 mb-1" data-bs-original-title="Informe qual sessão da página será a refência para o formulário ser implementado." data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span>
-                    {!! Form::select('session', $sessions, null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
-                </div>
-            </div>
-            <h5 class="mb-3">Modelos de formulários</h5>
-            <div id="ModelsFormSelect" class="row">
-                @foreach ($modelsForm as $model => $info)
-                    @php
-                        $i=1;
-                    @endphp
-                    <div class="col-12 col-lg-3">
-                        <div class="mb-3 position-relative">
-                            <a href="{{asset('Admin/assets/images/modelsFrom/'.$info)}}" class="viewModelForm" data-fancybox><i class="mdi mdi-eye font-24"></i></a>
-                            {!! Form::radio('model', $model, null, ['id'=>$model, 'class' => 'd-none', 'required'=>($i<=1?true:false)]) !!}
-                            <label for="{{$model}}" style="cursor: pointer;">
-                                <img src="{{asset('Admin/assets/images/modelsFrom/'.$info)}}" width="100%">
-                            </label>
+                <div class="col-12 col-md-6">
+                    <div class="p-3 my-3 border">
+                        <h5 class="mb-3">Configuração de Posicionamento <br><small class="text-warning">Informe a página onde será exibido o formulário, ou a seção e posição para indicar onde, nessa página, será impresso o formulário.</small></h5>
+                        <div class="mb-3">
+                            {!! Form::label(null, 'Página', ['class'=>'form-label']) !!}
+                            <span class="ms-1 mb-1" data-bs-original-title="Informe em qual página o formulário será implementado." data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span>
+                            {!! Form::select('page', $pages, null, ['class'=>'form-select selectTypeInput','placeholder' => '-', 'required' => true]) !!}
+                        </div>
+                        <div class="mb-3">
+                            {!! Form::label(null, 'Sessão', ['class'=>'form-label']) !!}
+                            <span class="ms-1 mb-1" data-bs-original-title="Informe qual sessão da página será a refência para o formulário ser implementado." data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span>
+                            {!! Form::select('session', $sessions, null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
+                        </div>
+                        <div class="mb-3">
+                            {!! Form::label(null, 'Posição', ['class'=>'form-label']) !!}
+                            <span class="ms-1 mb-1" data-bs-original-title="Informe qual a posição o formulário será implementado" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span>
+                            {!! Form::select('position', ['after' => 'Depois da sessão', 'before' => 'Antes da sessão'], null, ['class'=>'form-select selectTypeInput','placeholder' => '-']) !!}
                         </div>
                     </div>
-                    @php
-                        $i++;
-                    @endphp
-                @endforeach
+                </div>
+                <div class="col-12 col-md-6">
+                    <div id="sectionContentForm">
+                        @if (isset($contactForm))
+                            @php
+                                $code = $contactForm->model;
+                            @endphp
+                            @include('Admin.cruds.contactForm.formContent',[
+                                'model' => $modelsForm->$code,
+                                'code' => $code,
+                                'content' => $content,
+                            ])
+                        @endif
+                    </div>
+                </div>
             </div>
             <div class="p-3 my-3 border">
-                <h4 class="mb-3">Informações <span class="ms-1 mb-1" data-bs-original-title="Informações, de acordo com o modelo, que serão impressas na sessão do formulário" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span></h4>
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            {!! Form::label('section_title', 'Título', ['class'=>'form-label']) !!}
-                            {!! Form::text('section_title', null, ['class'=>'form-control', 'id'=>'section_title']) !!}
-                        </div>
-                        <div class="mb-3">
-                            {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                            {!! Form::textarea('description', null, [
-                                'class'=>'form-control',
-                                'id'=>'description',
-                                'data-parsley-trigger'=>'keyup',
-                                'data-parsley-minlength'=>'20',
-                                'data-parsley-maxlength'=>'100',
-                                'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                                'data-parsley-validation-threshold'=>'10',
-                            ]) !!}
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            {!! Form::label('file', 'Imagem', ['class'=>'form-label']) !!}
-                            {!! Form::file('path_image', [
-                                'data-plugins'=>'dropify',
-                                'data-height'=>'300',
-                                'data-max-file-size-preview'=>'2M',
-                                'accept'=>'image/*',
-                                'data-default-file'=> isset($contactForm)?$contactForm->path_image<>''?url('storage/'.$contactForm->path_image):'':'',
-                            ]) !!}
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <h5>Redes sociais <span class="ms-1 mb-1" data-bs-original-title="As redes sociais devem ser cadastradas na sessão de Configurações Gerais" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span></h5>
-                        <p class="mb-3">Selecione as redes sociais que iram aparecer na sessão do formulário</p>
-                        <div class="row ps-2">
-                            @foreach ($socials as $social)
-                                <div class="mb-3 form-check col">
-                                    <input type="checkbox" name="social_id[]" id="social{{$social->id}}" value="{{$social->id}}" class="form-check-input" {{isset($socialsCheck)?array_search($social->id, $socialsCheck)!==false?'checked':'':''}}>
-                                    {!! Form::label('social'.$social->id, $social->title, ['class'=>'form-check-label']) !!}
-                                </div>
-                            @endforeach
-                        </div>
+                <div class="">
+                    <h5><i class="mdi mdi-graph-outline"></i> Redes sociais <span class="ms-1 mb-1" data-bs-original-title="As redes sociais devem ser cadastradas na sessão de Redes sociais" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"><i class="mdi mdi-help-circle"></i></span></h5>
+                    <p class="mb-3">Selecione as redes sociais que irão aparecer na sessão do formulário</p>
+                    <div class="row ps-2">
+                        @foreach ($socials as $social)
+                            <div class="mb-3 form-check col">
+                                <input type="checkbox" name="social_id[]" id="social{{$social->id}}" value="{{$social->id}}" class="form-check-input" {{isset($socialsCheck)?array_search($social->id, $socialsCheck)!==false?'checked':'':''}}>
+                                {!! Form::label('social'.$social->id, $social->title, ['class'=>'form-check-label']) !!}
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -20,11 +20,9 @@ class CreateContactFormTable extends Migration
             $table->string('session')->nullable();
             $table->string('position')->nullable();
             $table->string('model')->nullable();
-            $table->string('section_title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('path_image')->nullable();
             $table->longText('social_id')->nullable();
             $table->longText('inputs')->nullable();
+            $table->longText('content')->nullable();
             $table->text('external_structure')->nullable();
             $table->string('title_newsletter')->nullable();
             $table->string('subtitle_newsletter')->nullable();

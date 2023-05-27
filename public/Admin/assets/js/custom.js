@@ -543,4 +543,54 @@ $(function() {
             getConditionsModel(module, model, splitRelations[0])
 
     })
+
+    var owlForm = $('.models-form-carousel')
+    owlForm.addClass('owl-carousel');
+    owlForm.owlCarousel({
+        margin:20,
+        dots:false,
+        nav:true,
+        responsive: {
+            // breakpoint from 0 up
+            0 : {
+                items:1
+            },
+            // breakpoint from 360 up
+            361 : {
+                items:2
+            },
+            // breakpoint from 768 up
+            800 : {
+                items:4
+            }
+        }
+    });
+
+    $('body').on('click', '.getContentModel', function(){
+        var model = $(this).val()
+        $.ajax({
+            type: 'POST',
+            url: $url+'/painel/getContentModel',
+            data: {model},
+            success: function(data) {
+                $('#appendContent').remove()
+                $('#sectionContentForm').append(data)
+                createImageCrop();
+            },
+            error: function() {
+                $.NotificationApp.send("Erro!", "Ocorreu um erro ao buscar a seção de conteúdo, entre em contato com o suporte.", "bottom-left", "#00000080", "error", '10000');
+            }
+        })
+    })
+
+    var SPMaskBehavior = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+    spOptions = {
+        onKeyPress: function(val, e, field, options) {
+            field.mask(SPMaskBehavior.apply({}, arguments), options);
+        }
+    };
+
+    $('.sp_celphones').mask(SPMaskBehavior, spOptions);
 })
