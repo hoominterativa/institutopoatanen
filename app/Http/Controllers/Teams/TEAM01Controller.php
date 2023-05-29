@@ -225,9 +225,9 @@ class TEAM01Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Teams', 'TEAM01', 'page');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Teams.TEAM01.page',[
             'sections' => $sections
         ]);
     }
@@ -239,6 +239,6 @@ class TEAM01Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Teams.TEAM01.section');
     }
 }
