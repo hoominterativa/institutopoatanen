@@ -310,6 +310,15 @@ return [
         ],
         // END TOPICS
 
+        'Teams' => (object)[
+            'TEAM01' => (object)[
+                'controller' => App\Http\Controllers\Teams\TEAM01Controller::class,
+                'model' => App\Models\Teams\TEAM01Teams::class,
+                'seedQty' => 1,
+            ]
+        ], 
+        // END TEAMS
+
         'Feedbacks' => (object)[
             'FEED01' => (object)[
                 'controller' => App\Http\Controllers\Feedbacks\FEED01Controller::class,
