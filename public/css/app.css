@@ -2598,7 +2598,7 @@ body .owl-dots .owl-dot.active {
   margin-left: auto;
   flex-wrap: wrap;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .prod02__navigation__content__nav__desktop ul {
     display: none !important;
   }
@@ -2649,9 +2649,9 @@ body .owl-dots .owl-dot.active {
   display: none !important;
   gap: 0 46px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .prod02__navigation__nav__mobile {
-    display: flex !important;
+    display: block !important;
     margin-bottom: 30px !important;
     margin-left: 23px;
     margin-top: 30px;
@@ -2662,7 +2662,7 @@ body .owl-dots .owl-dot.active {
   list-style: none;
   display: flex;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .prod02__navigation__nav__mobile li {
     width: auto;
   }
@@ -2673,7 +2673,7 @@ body .owl-dots .owl-dot.active {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .prod02__navigation__nav__mobile li a {
     font-size: 1.063rem;
   }
@@ -2698,7 +2698,7 @@ body .owl-dots .owl-dot.active {
 .prod02__content__product {
   margin-top: 54px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .prod02__content__product {
     width: 85%;
     margin: 0 auto;

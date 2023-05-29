@@ -65,7 +65,7 @@
                     margin-left: auto;
                     flex-wrap: wrap;
 
-                    @include small-device {
+                    @include medium-device-down {
                         display: none !important;
                     }
 
@@ -122,8 +122,8 @@
             display: none !important;
             gap: 0 46px;
 
-            @include small-device {
-                display: flex !important;
+            @include medium-device-down {
+                display: block !important;
                 margin-bottom: 30px !important;
                 margin-left: 23px;
                 margin-top: 30px;
@@ -133,7 +133,7 @@
                 @include listapadrao;
                 display: flex;
 
-                @include small-device {
+                @include medium-device-down {
                     width: auto;
                 }
                 a {
@@ -142,7 +142,7 @@
                     font-family: $font-primary;
                     font-weight: $weight-700;
 
-                    @include small-device {
+                    @include medium-device-down {
                         font-size: $T5-mobile;
                     }
                 }
@@ -171,7 +171,7 @@
     &__content__product {
         margin-top: 54px;
 
-        @include small-device {
+        @include medium-device-down {
             width: 85%;
             margin: 0 auto;
             margin-top: 54px;
