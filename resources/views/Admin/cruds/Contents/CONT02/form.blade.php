@@ -86,7 +86,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button', null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button', null, ['class' => 'form-control', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button', 'Redirecionar para', ['class' => 'form-label']) !!}
@@ -186,7 +186,7 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 {!! Form::label('color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('color', '#4a81d4', [
+                {!! Form::text('color', null, [
                     'class' => 'form-control colorpicker-default',
                     'id' => 'color',
                     'required' => 'required',

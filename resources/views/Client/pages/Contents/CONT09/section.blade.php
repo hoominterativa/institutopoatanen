@@ -18,7 +18,7 @@
                                 @if ($topics->count())
                                     <div class="cont09__content__boxLeft__description__link">
                                         @foreach ($topics as $topic)
-                                            <a href="{{$topic->link}}" target="{{$topic->link_target}}" class="transition">
+                                            <a href="{{getUri($topic->link)}}" target="{{$topic->link_target}}" class="transition">
                                                 <img src="{{ asset('storage/' . $topic->path_image_icon) }}" />
                                             </a>
                                         @endforeach
@@ -33,10 +33,9 @@
                         </div>
                     @endif
                     @if ($content->link)
-                        {{-- {{dd($content)}} --}}
                         <div class="cont09__content__boxRight col-sm-5 px-0">
                             <div class="cont09__content__boxRight__iframe">
-                                <iframe src="{{$content->link}}" height="500" title="Iframe Example"></iframe>
+                                <iframe src="{{getUri($content->link)}}" height="500" title="Iframe Example"></iframe>
                             </div>
                         </div>
                     @endif

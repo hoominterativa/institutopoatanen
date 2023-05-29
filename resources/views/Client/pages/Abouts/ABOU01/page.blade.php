@@ -41,7 +41,7 @@
                                         @endif
                                         <h3 class="abou01-page__topic__item__title">{{$topic->title}}</h3>
                                     </div>
-                                    <p class="abou01-page__topic__item__paragraph">{{$topic->description}}</p>
+                                    <p class="abou01-page__topic__item__paragraph">{!! $topic->description !!}</p>
                                 </div>
                             </article>
                         @endforeach
@@ -64,7 +64,7 @@
                                 <span class="abou01-page__section__subtitle">{{$about->subtitle_inner_section}}</span>
                             </h2>
                             <hr class="abou01-page__section__line">
-                            <p class="abou01-page__section__paragraph">{{$about->text_inner_section}}</p>
+                            <p class="abou01-page__section__paragraph">{!!$about->text_inner_section !!}</p>
                         </div>
                     </div>
                 </div>

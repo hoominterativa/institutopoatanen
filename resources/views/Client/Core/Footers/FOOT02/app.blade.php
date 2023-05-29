@@ -3,47 +3,58 @@
         <div class="row">
             <div class="foot02__logo col-12 col-lg-3">
                 <div class="d-table foot02__logo__wraper">
-                    <img class="foot02__logo__item" width="202" src="{{asset('storage/'.$generalSetting->path_logo_footer_light??$generalSetting->path_logo_footer_dark)}}" alt="{{env('APP_NAME')}}">
+                    <img class="foot02__logo__item" width="202"
+                        src="{{ asset('storage/' . $generalSetting->path_logo_footer_light ?? $generalSetting->path_logo_footer_dark) }}"
+                        alt="{{ env('APP_NAME') }}">
                     <nav class="foot02__socials d-flex align-items-center justify-content-center">
                         @foreach ($socials as $social)
-                            <a href="{{$social->link}}" title="{{$social->title}}" target="_blank" class="foot02__socials__item transition mdi {{$social->icon}}"></a>
+                            <a href="{{ $social->link }}" title="{{ $social->title }}" target="_blank"
+                                class="foot02__socials__item transition mdi {{ $social->icon }}"></a>
                         @endforeach
                     </nav>
                 </div>
             </div>
             <nav class="foot02__nav foot02__nav--left col-6 col-lg-2">
                 <span class="foot02__nav__header">Site Map</span>
-                <a href="{{route('home')}}" class="foot02__nav__item transition">Home</a>
+                <a href="{{ route('home') }}" class="foot02__nav__item transition">Home</a>
                 @foreach ($listMenu as $module => $menu)
-                    <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" class="foot02__nav__item transition {{!$menu->anchor?'foot02__nav__item--'.isActive($menu->link):''}}" {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}}>{{$menu->title}}</a>
+                    <a href="{{ $menu->anchor ? $menu->link : route($menu->link) }}"
+                        target="{{ $menu->target_link ?? '_self' }}"
+                        class="foot02__nav__item transition {{ !$menu->anchor ? 'foot02__nav__item--' . isActive($menu->link) : '' }}"
+                        {{ $menu->anchor ? 'data-bs-toggle=jqueryanchor' : '' }}>{{ $menu->title }}</a>
                 @endforeach
             </nav>
             @foreach ($listModelFooter as $menuFooter)
                 <nav class="foot02__nav foot02__nav--center col-6 col-lg-2">
-                    <a href="{{route($menuFooter->link)}}" class="foot02__nav__header">{{$menuFooter->title}}</a>
+                    <a href="{{ route($menuFooter->link) }}" class="foot02__nav__header">{{ $menuFooter->title }}</a>
 
                     @if ($menuFooter->dropdown)
                         @foreach ($menuFooter->dropdown as $item)
-                            <a href="{{$item->route}}" class="foot02__nav__item transition {{isActive($item->route)?'foot02__nav__item--'.isActive($menuFooter->link):''}}">{{$item->name}}</a>
+                            <a href="{{ $item->route }}"
+                                class="foot02__nav__item transition {{ isActive($item->route) ? 'foot02__nav__item--' . isActive($menuFooter->link) : '' }}">{{ $item->name }}</a>
                         @endforeach
                     @endif
                 </nav>
             @endforeach
-            <nav class="foot02__nav foot02__nav--right col-8 col-lg-3 px-0">
+            <nav class="foot02__nav foot02__nav--right col-6 col-lg-3 px-0">
                 <span class="foot02__nav__header">Contatos</span>
-                <div class="phones d-flex align-items-center  w-100">
+                <div class="phones d-flex align-items-start  w-100">
                     @if ($generalSetting->phone || $generalSetting->whatsapp)
-                        <a href="tel:{{$generalSetting->phone}}" class="foot02__nav__item transition" style="margin: inherit;">{{$generalSetting->phone}} </a> <span></span> <a href="https://api.whatsapp.com/send?phone=55{{Str::slug($generalSetting->whatsapp,'')}}" target="_blank" class="foot02__nav__item transition" style="margin: inherit;">{{$generalSetting->whatsapp}}</a>
+                        <a href="tel:{{ $generalSetting->phone }}" class="foot02__nav__item transition"
+                            style="margin: inherit;">{{ $generalSetting->phone }} </a> <span></span> <a
+                            href="https://api.whatsapp.com/send?phone=55{{ Str::slug($generalSetting->whatsapp, '') }}"
+                            target="_blank" class="foot02__nav__item transition"
+                            style="margin: inherit;">{{ $generalSetting->whatsapp }}</a>
                     @endif
                 </div>
                 @if ($generalSetting->address)
                     <p class="foot02__nav__item transition pe-3">
-                        {{$generalSetting->address}}
+                        {{ $generalSetting->address }}
                     </p>
                 @endif
             </nav>
             <div class="foot02__nav foot02__nav--icon col-6 col-lg-2">
-                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="43" alt="">
+                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="43" alt="">
             </div>
         </div>
     </div>
@@ -53,13 +64,15 @@
                 <nav class="foot02__copyright-section__compliances col-12 col-lg-9 d-flex align-items-center">
                     @if ($linksCtaFooter->count())
                         @foreach ($linksCtaFooter as $linkCtaHeader)
-                            <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="foot02__copyright-section__compliances__item">{{$linkCtaHeader->title}}</a>
+                            <a href="{{ $linkCtaHeader->link }}" target="{{ $linkCtaHeader->link_target }}"
+                                class="foot02__copyright-section__compliances__item">{{ $linkCtaHeader->title }}</a>
                         @endforeach
                     @endif
                 </nav>
                 <div class="col-12 col-lg-2">
                     <a href="http://hoom.com.br" target="_blank" class="d-table ms-auto">
-                        <img class="foot02__logo__hoom" width="147" src="{{asset('storage/uploads/tmp/logo.png')}}" alt="Hoom Interativa">
+                        <img class="foot02__logo__hoom" width="147"
+                            src="{{ asset('storage/uploads/tmp/logo.png') }}" alt="Hoom Interativa">
                     </a>
                 </div>
             </div>

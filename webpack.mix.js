@@ -1,105 +1,335 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 mix
-//JS
-    .scripts('resources/views/Admin/assets/js/app.min.js', 'public/Admin/assets/js/app.min.js')
-    .scripts('resources/views/Admin/assets/js/vendor.min.js', 'public/Admin/assets/js/vendor.min.js')
-    .scripts('resources/views/Admin/assets/js/custom.js', 'public/Admin/assets/js/custom.js')
-    .scripts('resources/views/Admin/assets/js/ajax.js', 'public/Admin/assets/js/ajax.js')
+    //JS
+    .scripts(
+        "resources/views/Admin/assets/js/app.min.js",
+        "public/Admin/assets/js/app.min.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/vendor.min.js",
+        "public/Admin/assets/js/vendor.min.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/custom.js",
+        "public/Admin/assets/js/custom.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/ajax.js",
+        "public/Admin/assets/js/ajax.js"
+    )
     // plugins
-    .scripts('node_modules/parsleyjs/dist/parsley.min.js', 'public/Admin/assets/libs/parsley.min.js')
-    .scripts('node_modules/@fancyapps/ui/dist/fancybox.umd.js', 'public/Admin/assets/libs/fancybox.js')
-    .scripts('node_modules/@selectize/selectize/dist/js/selectize.min.js', 'public/Admin/assets/libs/selectize.min.js')
-    .scripts('node_modules/mohithg-switchery/dist/switchery.min.js', 'public/Admin/assets/libs/switchery.min.js')
-    .scripts('node_modules/multiselect/js/jquery.multi-select.js', 'public/Admin/assets/libs/jquery.multi-select.js')
-    .scripts('node_modules/select2/dist/js/select2.min.js', 'public/Admin/assets/libs/select2.min.js')
-    .scripts('node_modules/jquery-mockjax/dist/jquery.mockjax.min.js', 'public/Admin/assets/libs/jquery.mockjax.min.js')
-    .scripts('node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js', 'public/Admin/assets/libs/jquery.autocomplete.min.js')
-    .scripts('node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js', 'public/Admin/assets/libs/jquery.bootstrap-touchspin.min.js')
-    .scripts('node_modules/bootstrap-maxlength/dist/bootstrap-maxlength.min.js', 'public/Admin/assets/libs/bootstrap-maxlength.min.js')
-    .scripts('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js', 'public/Admin/assets/libs/bootstrap-datepicker.min.js')
-    .scripts('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js', 'public/Admin/assets/libs/bootstrap-datepicker.pt-BR.min.js')
-    .scripts('node_modules/clockpicker/dist/bootstrap-clockpicker.min.js', 'public/Admin/assets/libs/bootstrap-clockpicker.min.js')
-    .scripts('node_modules/spectrum-colorpicker2/dist/spectrum.min.js', 'public/Admin/assets/libs/spectrum.min.js')
-    .scripts('node_modules/flatpickr/dist/flatpickr.min.js', 'public/Admin/assets/libs/flatpickr.min.js')
-    .scripts('node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', 'public/Admin/assets/libs/jquery.mask.min.js')
-    .scripts('node_modules/autonumeric/dist/autoNumeric.min.js', 'public/Admin/assets/libs/autoNumeric.min.js')
-    .scripts('node_modules/dropzone/dist/min/dropzone.min.js', 'public/Admin/assets/libs/dropzone.min.js')
-    .scripts('node_modules/dropify/dist/js/dropify.min.js', 'public/Admin/assets/libs/dropify.min.js')
-    .scripts('resources/views/Admin/assets/js/libs/ckeditor.js', 'public/Admin/assets/libs/ckeditor.js')
-    .scripts('node_modules/bootstrap-table/dist/bootstrap-table.min.js', 'public/Admin/assets/libs/bootstrap-table.min.js')
-    .scripts('node_modules/jquery-tabledit/jquery.tabledit.min.js', 'public/Admin/assets/libs/jquery.tabledit.min.js')
-    .scripts('node_modules/sweetalert2/dist/sweetalert2.all.min.js', 'public/Admin/assets/libs/sweetalert2.all.min.js')
-    .scripts('node_modules/jquery-toast-plugin/dist/jquery.toast.min.js', 'public/Admin/assets/libs/jquery.toast.min.js')
-    .scripts('resources/views/Admin/assets/js/libs/jquery.sortable.min.js', 'public/Admin/assets/libs/jquery.sortable.min.js')
-    .scripts('node_modules/tippy.js/dist/tippy.all.min.js', 'public/Admin/assets/libs/tippy.all.min.js')
-    .scripts('node_modules/cropper/dist/cropper.min.js', 'public/Admin/assets/libs/cropper.min.js')
-    .scripts('resources/views/Admin/assets/js/libs/cropimage/rcrop.js', 'public/Admin/assets/libs/rcrop.js')
-    .scripts('node_modules/owl.carousel/dist/owl.carousel.min.js', 'public/Admin/assets/libs/owl.carousel.min.js')
-    .scripts('resources/views/Admin/assets/js/libs/Sortable.min.js', 'public/Admin/assets/libs/Sortable.min.js')
+    .scripts(
+        "node_modules/parsleyjs/dist/parsley.min.js",
+        "public/Admin/assets/libs/parsley.min.js"
+    )
+    .scripts(
+        "node_modules/@fancyapps/ui/dist/fancybox.umd.js",
+        "public/Admin/assets/libs/fancybox.js"
+    )
+    .scripts(
+        "node_modules/@selectize/selectize/dist/js/selectize.min.js",
+        "public/Admin/assets/libs/selectize.min.js"
+    )
+    .scripts(
+        "node_modules/mohithg-switchery/dist/switchery.min.js",
+        "public/Admin/assets/libs/switchery.min.js"
+    )
+    .scripts(
+        "node_modules/multiselect/js/jquery.multi-select.js",
+        "public/Admin/assets/libs/jquery.multi-select.js"
+    )
+    .scripts(
+        "node_modules/select2/dist/js/select2.min.js",
+        "public/Admin/assets/libs/select2.min.js"
+    )
+    .scripts(
+        "node_modules/jquery-mockjax/dist/jquery.mockjax.min.js",
+        "public/Admin/assets/libs/jquery.mockjax.min.js"
+    )
+    .scripts(
+        "node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js",
+        "public/Admin/assets/libs/jquery.autocomplete.min.js"
+    )
+    .scripts(
+        "node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js",
+        "public/Admin/assets/libs/jquery.bootstrap-touchspin.min.js"
+    )
+    .scripts(
+        "node_modules/bootstrap-maxlength/dist/bootstrap-maxlength.min.js",
+        "public/Admin/assets/libs/bootstrap-maxlength.min.js"
+    )
+    .scripts(
+        "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js",
+        "public/Admin/assets/libs/bootstrap-datepicker.min.js"
+    )
+    .scripts(
+        "node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js",
+        "public/Admin/assets/libs/bootstrap-datepicker.pt-BR.min.js"
+    )
+    .scripts(
+        "node_modules/clockpicker/dist/bootstrap-clockpicker.min.js",
+        "public/Admin/assets/libs/bootstrap-clockpicker.min.js"
+    )
+    .scripts(
+        "node_modules/spectrum-colorpicker2/dist/spectrum.min.js",
+        "public/Admin/assets/libs/spectrum.min.js"
+    )
+    .scripts(
+        "node_modules/flatpickr/dist/flatpickr.min.js",
+        "public/Admin/assets/libs/flatpickr.min.js"
+    )
+    .scripts(
+        "node_modules/jquery-mask-plugin/dist/jquery.mask.min.js",
+        "public/Admin/assets/libs/jquery.mask.min.js"
+    )
+    .scripts(
+        "node_modules/autonumeric/dist/autoNumeric.min.js",
+        "public/Admin/assets/libs/autoNumeric.min.js"
+    )
+    .scripts(
+        "node_modules/dropzone/dist/min/dropzone.min.js",
+        "public/Admin/assets/libs/dropzone.min.js"
+    )
+    .scripts(
+        "node_modules/dropify/dist/js/dropify.min.js",
+        "public/Admin/assets/libs/dropify.min.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/libs/ckeditor.js",
+        "public/Admin/assets/libs/ckeditor.js"
+    )
+    .scripts(
+        "node_modules/bootstrap-table/dist/bootstrap-table.min.js",
+        "public/Admin/assets/libs/bootstrap-table.min.js"
+    )
+    .scripts(
+        "node_modules/jquery-tabledit/jquery.tabledit.min.js",
+        "public/Admin/assets/libs/jquery.tabledit.min.js"
+    )
+    .scripts(
+        "node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+        "public/Admin/assets/libs/sweetalert2.all.min.js"
+    )
+    .scripts(
+        "node_modules/jquery-toast-plugin/dist/jquery.toast.min.js",
+        "public/Admin/assets/libs/jquery.toast.min.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/libs/jquery.sortable.min.js",
+        "public/Admin/assets/libs/jquery.sortable.min.js"
+    )
+    .scripts(
+        "node_modules/tippy.js/dist/tippy.all.min.js",
+        "public/Admin/assets/libs/tippy.all.min.js"
+    )
+    .scripts(
+        "node_modules/cropper/dist/cropper.min.js",
+        "public/Admin/assets/libs/cropper.min.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/libs/cropimage/rcrop.js",
+        "public/Admin/assets/libs/rcrop.js"
+    )
+    .scripts(
+        "node_modules/owl.carousel/dist/owl.carousel.min.js",
+        "public/Admin/assets/libs/owl.carousel.min.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/libs/Sortable.min.js",
+        "public/Admin/assets/libs/Sortable.min.js"
+    )
     // Pages
-    .scripts('resources/views/Admin/assets/js/pages/form-validation.init.js', 'public/Admin/assets/js/pages/form-validation.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/form-advanced.init.js', 'public/Admin/assets/js/pages/form-advanced.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/form-pickers.init.js', 'public/Admin/assets/js/pages/form-pickers.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/form-masks.init.js', 'public/Admin/assets/js/pages/form-masks.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/form-fileuploads.init.js', 'public/Admin/assets/js/pages/form-fileuploads.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/add-product.init.js', 'public/Admin/assets/js/pages/add-product.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/ckeditor.init.js', 'public/Admin/assets/js/pages/ckeditor.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/bootstrap-tables.init.js', 'public/Admin/assets/js/pages/bootstrap-tables.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/tabledit.init.js', 'public/Admin/assets/js/pages/tabledit.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/toastr.init.js', 'public/Admin/assets/js/pages/toastr.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/materialdesign.init.js', 'public/Admin/assets/js/pages/materialdesign.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/form-imagecrop.init.js', 'public/Admin/assets/js/pages/form-imagecrop.init.js')
-    .scripts('resources/views/Admin/assets/js/pages/kanban.init.js', 'public/Admin/assets/js/pages/kanban.init.js')
+    .scripts(
+        "resources/views/Admin/assets/js/pages/form-validation.init.js",
+        "public/Admin/assets/js/pages/form-validation.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/form-advanced.init.js",
+        "public/Admin/assets/js/pages/form-advanced.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/form-pickers.init.js",
+        "public/Admin/assets/js/pages/form-pickers.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/form-masks.init.js",
+        "public/Admin/assets/js/pages/form-masks.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/form-fileuploads.init.js",
+        "public/Admin/assets/js/pages/form-fileuploads.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/add-product.init.js",
+        "public/Admin/assets/js/pages/add-product.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/ckeditor.init.js",
+        "public/Admin/assets/js/pages/ckeditor.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/bootstrap-tables.init.js",
+        "public/Admin/assets/js/pages/bootstrap-tables.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/tabledit.init.js",
+        "public/Admin/assets/js/pages/tabledit.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/toastr.init.js",
+        "public/Admin/assets/js/pages/toastr.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/materialdesign.init.js",
+        "public/Admin/assets/js/pages/materialdesign.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/form-imagecrop.init.js",
+        "public/Admin/assets/js/pages/form-imagecrop.init.js"
+    )
+    .scripts(
+        "resources/views/Admin/assets/js/pages/kanban.init.js",
+        "public/Admin/assets/js/pages/kanban.init.js"
+    )
 
-//CSS
-.styles('resources/views/Admin/assets/css/config/bootstrap.min.css', 'public/Admin/assets/css/config/bootstrap.min.css')
-    .styles('resources/views/Admin/assets/css/config/app.min.css', 'public/Admin/assets/css/config/app.min.css')
-    .styles('resources/views/Admin/assets/css/config/bootstrap-dark.min.css', 'public/Admin/assets/css/config/bootstrap-dark.min.css')
-    .styles('resources/views/Admin/assets/css/config/app-dark.min.css', 'public/Admin/assets/css/config/app-dark.min.css')
-    .styles('resources/views/Admin/assets/css/icons.min.css', 'public/Admin/assets/css/icons.min.css')
-    .styles('resources/views/Admin/assets/css/custom.css', 'public/Admin/assets/css/custom.css')
+    //CSS
+    .styles(
+        "resources/views/Admin/assets/css/config/bootstrap.min.css",
+        "public/Admin/assets/css/config/bootstrap.min.css"
+    )
+    .styles(
+        "resources/views/Admin/assets/css/config/app.min.css",
+        "public/Admin/assets/css/config/app.min.css"
+    )
+    .styles(
+        "resources/views/Admin/assets/css/config/bootstrap-dark.min.css",
+        "public/Admin/assets/css/config/bootstrap-dark.min.css"
+    )
+    .styles(
+        "resources/views/Admin/assets/css/config/app-dark.min.css",
+        "public/Admin/assets/css/config/app-dark.min.css"
+    )
+    .styles(
+        "resources/views/Admin/assets/css/icons.min.css",
+        "public/Admin/assets/css/icons.min.css"
+    )
+    .styles(
+        "resources/views/Admin/assets/css/custom.css",
+        "public/Admin/assets/css/custom.css"
+    )
     //Plugins
-    .styles('node_modules/mohithg-switchery/dist/switchery.min.css', 'public/Admin/assets/libs/switchery.min.css')
-    .styles('node_modules/@fancyapps/ui/dist/fancybox.css', 'public/Admin/assets/libs/fancybox.css')
-    .styles('node_modules/multiselect/css/multi-select.css', 'public/Admin/assets/libs/multi-select.css')
-    .styles('node_modules/select2/dist/css/select2.min.css', 'public/Admin/assets/libs/select2.min.css')
-    .styles('node_modules/selectize/dist/css/selectize.bootstrap3.css', 'public/Admin/assets/libs/selectize.bootstrap3.css')
-    .styles('node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css', 'public/Admin/assets/libs/jquery.bootstrap-touchspin.min.css')
-    .styles('node_modules/spectrum-colorpicker2/dist/spectrum.min.css', 'public/Admin/assets/libs/spectrum.min.css')
-    .styles('node_modules/flatpickr/dist/flatpickr.min.css', 'public/Admin/assets/libs/flatpickr.min.css')
-    .styles('node_modules/clockpicker/dist/bootstrap-clockpicker.min.css', 'public/Admin/assets/libs/bootstrap-clockpicker.min.css')
-    .styles('node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css', 'public/Admin/assets/libs/bootstrap-datepicker.min.css')
-    .styles('node_modules/dropzone/dist/min/dropzone.min.css', 'public/Admin/assets/libs/dropzone.min.css')
-    .styles('node_modules/quill/dist/quill.core.css', 'public/Admin/assets/libs/quill.core.css')
-    .styles('node_modules/quill/dist/quill.snow.css', 'public/Admin/assets/libs/quill.snow.css')
-    .styles('node_modules/dropify/dist/css/dropify.min.css', 'public/Admin/assets/libs/dropify.min.css')
-    .styles('node_modules/bootstrap-table/dist/bootstrap-table.min.css', 'public/Admin/assets/libs/bootstrap-table.min.css')
-    .styles('node_modules/sweetalert2/dist/sweetalert2.min.css', 'public/Admin/assets/libs/sweetalert2.min.css')
-    .styles('node_modules/jquery-toast-plugin/dist/jquery.toast.min.css', 'public/Admin/assets/libs/jquery.toast.min.css')
-    .styles('node_modules/cropper/dist/cropper.min.css', 'public/Admin/assets/libs/cropper.min.css')
-    .styles('resources/views/Admin/assets/js/libs/cropimage/rcrop.css', 'public/Admin/assets/libs/rcrop.css')
-    .styles('node_modules/owl.carousel/dist/assets/owl.carousel.min.css', 'public/Admin/assets/libs/owl.carousel.min.css')
+    .styles(
+        "node_modules/mohithg-switchery/dist/switchery.min.css",
+        "public/Admin/assets/libs/switchery.min.css"
+    )
+    .styles(
+        "node_modules/@fancyapps/ui/dist/fancybox.css",
+        "public/Admin/assets/libs/fancybox.css"
+    )
+    .styles(
+        "node_modules/multiselect/css/multi-select.css",
+        "public/Admin/assets/libs/multi-select.css"
+    )
+    .styles(
+        "node_modules/select2/dist/css/select2.min.css",
+        "public/Admin/assets/libs/select2.min.css"
+    )
+    .styles(
+        "node_modules/selectize/dist/css/selectize.bootstrap3.css",
+        "public/Admin/assets/libs/selectize.bootstrap3.css"
+    )
+    .styles(
+        "node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css",
+        "public/Admin/assets/libs/jquery.bootstrap-touchspin.min.css"
+    )
+    .styles(
+        "node_modules/spectrum-colorpicker2/dist/spectrum.min.css",
+        "public/Admin/assets/libs/spectrum.min.css"
+    )
+    .styles(
+        "node_modules/flatpickr/dist/flatpickr.min.css",
+        "public/Admin/assets/libs/flatpickr.min.css"
+    )
+    .styles(
+        "node_modules/clockpicker/dist/bootstrap-clockpicker.min.css",
+        "public/Admin/assets/libs/bootstrap-clockpicker.min.css"
+    )
+    .styles(
+        "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css",
+        "public/Admin/assets/libs/bootstrap-datepicker.min.css"
+    )
+    .styles(
+        "node_modules/dropzone/dist/min/dropzone.min.css",
+        "public/Admin/assets/libs/dropzone.min.css"
+    )
+    .styles(
+        "node_modules/quill/dist/quill.core.css",
+        "public/Admin/assets/libs/quill.core.css"
+    )
+    .styles(
+        "node_modules/quill/dist/quill.snow.css",
+        "public/Admin/assets/libs/quill.snow.css"
+    )
+    .styles(
+        "node_modules/dropify/dist/css/dropify.min.css",
+        "public/Admin/assets/libs/dropify.min.css"
+    )
+    .styles(
+        "node_modules/bootstrap-table/dist/bootstrap-table.min.css",
+        "public/Admin/assets/libs/bootstrap-table.min.css"
+    )
+    .styles(
+        "node_modules/sweetalert2/dist/sweetalert2.min.css",
+        "public/Admin/assets/libs/sweetalert2.min.css"
+    )
+    .styles(
+        "node_modules/jquery-toast-plugin/dist/jquery.toast.min.css",
+        "public/Admin/assets/libs/jquery.toast.min.css"
+    )
+    .styles(
+        "node_modules/cropper/dist/cropper.min.css",
+        "public/Admin/assets/libs/cropper.min.css"
+    )
+    .styles(
+        "resources/views/Admin/assets/js/libs/cropimage/rcrop.css",
+        "public/Admin/assets/libs/rcrop.css"
+    )
+    .styles(
+        "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+        "public/Admin/assets/libs/owl.carousel.min.css"
+    )
 
-// COPY DIRECTORIES
-.copyDirectory('resources/views/Admin/assets/fonts', 'public/Admin/assets/fonts')
-    .copyDirectory('resources/views/Admin/assets/images', 'public/Admin/assets/images')
-    .copyDirectory('resources/views/Client/assets/images', 'public/images')
-    .copyDirectory('node_modules/@ckeditor/ckeditor5-build-classic/build/translations', 'public/Admin/assets/libs/translations')
-    .copyDirectory('node_modules/parsleyjs/dist/i18n', 'public/Admin/assets/libs/i18n')
+    // COPY DIRECTORIES
+    .copyDirectory(
+        "resources/views/Admin/assets/fonts",
+        "public/Admin/assets/fonts"
+    )
+    .copyDirectory(
+        "resources/views/Admin/assets/images",
+        "public/Admin/assets/images"
+    )
+    .copyDirectory("resources/views/Client/assets/images", "public/images")
+    .copyDirectory(
+        "node_modules/@ckeditor/ckeditor5-build-classic/build/translations",
+        "public/Admin/assets/libs/translations"
+    )
+    .copyDirectory(
+        "node_modules/parsleyjs/dist/i18n",
+        "public/Admin/assets/libs/i18n"
+    )
 
-//COMPILED
-.js('resources/js/app.js', 'public/js')
-.sass('resources/sass/icons.scss', 'public/css')
-.sass('resources/sass/libraries.scss', 'public/css')
-.sass('resources/sass/app.scss', 'public/css')
+    //COMPILED
+    .js("resources/js/app.js", "public/js")
+    .sass("resources/sass/icons.scss", "public/css")
+    .sass("resources/sass/libraries.scss", "public/css")
+    .sass("resources/sass/app.scss", "public/css")
 
-//CONFIG
-.autoload({
-        'jquery': ['$', 'window.jQuery', 'jQuery']
+    //CONFIG
+    .autoload({
+        jquery: ["$", "window.jQuery", "jQuery"],
     })
-    .version()
-
+    .version();
 
 //BROWSER SYNC
 

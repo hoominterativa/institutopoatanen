@@ -25,7 +25,7 @@ class TOPI01Controller extends Controller
         $topics = TOPI01Topics::sorting()->get();
         $section = TOPI01TopicsSection::first();
 
-        return view('Admin.cruds.Topics.TOPI01.index',[
+        return view('Admin.cruds.Topics.TOPI01.index', [
             'topics' => $topics,
             'section' => $section,
             'cropSetting' => getCropImage('Topics', 'TOPI01')
@@ -39,7 +39,7 @@ class TOPI01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Topics.TOPI01.create',[
+        return view('Admin.cruds.Topics.TOPI01.create', [
             'cropSetting' => getCropImage('Topics', 'TOPI01')
         ]);
     }
@@ -55,19 +55,18 @@ class TOPI01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) $data['path_image'] = $path_image;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon) $data['path_image'] = $path_image_icon;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if ($path_image_icon) $data['path_image'] = $path_image_icon;
 
-        $data['active'] = $request->active?1:0;
-        $data['link'] = getUri($request->link);
+        $data['active'] = $request->active ? 1 : 0;
 
-        if(TOPI01Topics::create($data)){
+        if (TOPI01Topics::create($data)) {
             Session::flash('success', 'Tópico cadastrado com sucesso');
             return redirect()->route('admin.topi01.index');
-        }else{
+        } else {
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
             Session::flash('success', 'Erro ao cadastradar tópico');
@@ -83,8 +82,7 @@ class TOPI01Controller extends Controller
      */
     public function edit(TOPI01Topics $TOPI01Topics)
     {
-        $TOPI01Topics->link = getUri($TOPI01Topics->link);
-        return view('Admin.cruds.Topics.TOPI01.edit',[
+        return view('Admin.cruds.Topics.TOPI01.edit', [
             'topic' => $TOPI01Topics,
             'cropSetting' => getCropImage('Topics', 'TOPI01')
         ]);
@@ -102,33 +100,32 @@ class TOPI01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) {
             storageDelete($TOPI01Topics, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image && !$path_image){
+        if ($request->delete_path_image && !$path_image) {
             storageDelete($TOPI01Topics, 'path_image');
             $data['path_image'] = null;
         }
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon){
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
+        if ($path_image_icon) {
             storageDelete($TOPI01Topics, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image_icon && !$path_image_icon){
+        if ($request->delete_path_image_icon && !$path_image_icon) {
             storageDelete($TOPI01Topics, 'path_image_icon');
             $data['path_image_icon'] = null;
         }
 
-        $data['active'] = $request->active?1:0;
-        $data['link'] = getUri($request->link);
+        $data['active'] = $request->active ? 1 : 0;
 
-        if($TOPI01Topics->fill($data)->save()){
+        if ($TOPI01Topics->fill($data)->save()) {
             Session::flash('success', 'Tópico atualizado com sucesso');
             return redirect()->route('admin.topi01.index');
-        }else{
+        } else {
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
             Session::flash('success', 'Erro ao atualizar informações');
@@ -147,7 +144,7 @@ class TOPI01Controller extends Controller
         storageDelete($TOPI01Topics, 'path_image');
         storageDelete($TOPI01Topics, 'path_image_icon');
 
-        if($TOPI01Topics->delete()){
+        if ($TOPI01Topics->delete()) {
             Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
@@ -162,25 +159,25 @@ class TOPI01Controller extends Controller
     public function destroySelected(Request $request)
     {
         $TOPI01Topicss = TOPI01Topics::whereIn('id', $request->deleteAll)->get();
-        foreach($TOPI01Topicss as $TOPI01Topics){
+        foreach ($TOPI01Topicss as $TOPI01Topics) {
             storageDelete($TOPI01Topics, 'path_image');
             storageDelete($TOPI01Topics, 'path_image_icon');
         }
 
-        if($deleted = TOPI01Topics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        if ($deleted = TOPI01Topics::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             TOPI01Topics::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -197,7 +194,7 @@ class TOPI01Controller extends Controller
     {
         $topics = TOPI01Topics::active()->sorting()->get();
         $section = TOPI01TopicsSection::active()->first();
-        return view('Client.pages.Topics.TOPI01.section',[
+        return view('Client.pages.Topics.TOPI01.section', [
             'topics' => $topics,
             'section' => $section,
         ]);

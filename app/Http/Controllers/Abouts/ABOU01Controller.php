@@ -39,14 +39,8 @@ class ABOU01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_center_section = $helper->optimizeImage($request, 'path_image_center_section', $this->path, null, 100);
-        if($path_image_center_section) $data['path_image_center_section'] = $path_image_center_section;
-
-        $path_image_right_section = $helper->optimizeImage($request, 'path_image_right_section', $this->path, null, 100);
-        if($path_image_right_section) $data['path_image_right_section'] = $path_image_right_section;
-
-        $path_image_background_section = $helper->optimizeImage($request, 'path_image_background_section', $this->path, null, 100);
-        if($path_image_background_section) $data['path_image_background_section'] = $path_image_background_section;
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
+        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
 
         $path_image_inner_section = $helper->optimizeImage($request, 'path_image_inner_section', $this->path, null, 100);
         if($path_image_inner_section) $data['path_image_inner_section'] = $path_image_inner_section;
@@ -54,9 +48,7 @@ class ABOU01Controller extends Controller
         if(ABOU01Abouts::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            Storage::delete($path_image_center_section);
-            Storage::delete($path_image_right_section);
-            Storage::delete($path_image_background_section);
+            Storage::delete($path_image_banner);
             Storage::delete($path_image_inner_section);
             Session::flash('success', 'Erro ao cadastradar informações');
         }
@@ -75,37 +67,15 @@ class ABOU01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        // path_image_center_section
-        $path_image_center_section = $helper->optimizeImage($request, 'path_image_center_section', $this->path, null, 100);
-        if($path_image_center_section){
-            storageDelete($ABOU01Abouts, 'path_image_center_section');
-            $data['path_image_center_section'] = $path_image_center_section;
+        // path_image_banner
+        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
+        if($path_image_banner){
+            storageDelete($ABOU01Abouts, 'path_image_banner');
+            $data['path_image_banner'] = $path_image_banner;
         }
-        if($request->delete_path_image_center_section && !$path_image_center_section){
-            storageDelete($ABOU01Abouts, 'path_image_center_section');
-            $data['path_image_center_section'] = null;
-        }
-
-        // path_image_right_section
-        $path_image_right_section = $helper->optimizeImage($request, 'path_image_right_section', $this->path, null, 100);
-        if($path_image_right_section){
-            storageDelete($ABOU01Abouts, 'path_image_right_section');
-            $data['path_image_right_section'] = $path_image_right_section;
-        }
-        if($request->delete_path_image_right_section && !$path_image_right_section){
-            storageDelete($ABOU01Abouts, 'path_image_right_section');
-            $data['path_image_right_section'] = null;
-        }
-
-        // path_image_background_section
-        $path_image_background_section = $helper->optimizeImage($request, 'path_image_background_section', $this->path, null, 100);
-        if($path_image_background_section){
-            storageDelete($ABOU01Abouts, 'path_image_background_section');
-            $data['path_image_background_section'] = $path_image_background_section;
-        }
-        if($request->delete_path_image_background_section && !$path_image_background_section){
-            storageDelete($ABOU01Abouts, 'path_image_background_section');
-            $data['path_image_background_section'] = null;
+        if($request->delete_path_image_banner && !$path_image_banner){
+            storageDelete($ABOU01Abouts, 'path_image_banner');
+            $data['path_image_banner'] = null;
         }
 
         // path_image_inner_section
@@ -122,9 +92,7 @@ class ABOU01Controller extends Controller
         if($ABOU01Abouts->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            Storage::delete($path_image_center_section);
-            Storage::delete($path_image_right_section);
-            Storage::delete($path_image_background_section);
+            Storage::delete($path_image_banner);
             Storage::delete($path_image_inner_section);
             Session::flash('success', 'Erro ao atualizar informações');
         }
@@ -133,13 +101,13 @@ class ABOU01Controller extends Controller
 
     // METHODS CLIENT
 
-    /**
+     /**
      * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU01');

@@ -23,11 +23,9 @@
                             <div class="bran01__box col-sm-3">
                                 <div class="bran01__box__content position-relative"
                                     style="background-image:url({{ asset('storage/' . $brand->path_image_box) }}); background-size:cover;background-repeat:no-repeat; background-position:center;">
-                                    <a href="{{ $brand->link }}" target="{{ $brand->target_link }}"
-                                        class="link-full"></a>
+                                    <a href="{{getUri($brand->link)}}" target="{{ $brand->target_link }}" class="link-full"></a>
                                     <div class="bran01__box__image">
-                                        <img src="{{ asset('storage/' . $brand->path_image_icon) }}" alt="Logo"
-                                            loading="lazy">
+                                        <img src="{{ asset('storage/' . $brand->path_image_icon) }}" alt="Logo" loading="lazy">
                                     </div>
                                 </div>
                             </div>
@@ -37,6 +35,12 @@
                 </div>
                 {{-- END .bran01__content --}}
             </div>
+            <a rel="next" href="{{ route('bran01.page') }}"
+                class="bran01__cta transition justify-content-center align-items-center">
+                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
+                    class="bran01__cta__icon me-3 transition">
+                CTA
+            </a>
         </div>
         {{-- END .bran01__container --}}
     </section>

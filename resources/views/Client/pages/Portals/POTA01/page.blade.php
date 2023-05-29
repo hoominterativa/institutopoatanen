@@ -25,7 +25,7 @@
                         @if ($advertsInnerBeginPage)
                             @if ($advertsInnerBeginPage->path_image)
                                 @if ($advertsInnerBeginPage->link)
-                                    <a href="{{$advertsInnerBeginPage->link}}" target="{{$advertsInnerBeginPage->link_target}}" class="link-full"></a>
+                                    <a href="{{getUri($advertsInnerBeginPage->link)}}" target="{{$advertsInnerBeginPage->link_target}}" class="link-full"></a>
                                 @endif
                                 <img src="{{asset('storage/'.$advertsInnerBeginPage->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                             @elseif($advertsInnerBeginPage->adsense)
@@ -100,7 +100,7 @@
                         @if ($advertsInnerEndPage)
                             @if ($advertsInnerEndPage->path_image)
                                 @if ($advertsInnerEndPage->link)
-                                    <a href="{{$advertsInnerEndPage->link}}" target="{{$advertsInnerEndPage->link_target}}" class="link-full"></a>
+                                    <a href="{{getUri($advertsInnerEndPage->link)}}" target="{{$advertsInnerEndPage->link_target}}" class="link-full"></a>
                                 @endif
                                 <img src="{{asset('storage/'.$advertsInnerEndPage->path_image)}}" width="100%" class="pota01-home__adverts__item__image" alt="">
                             @elseif($advertsInnerEndPage->adsense)

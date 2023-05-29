@@ -99,7 +99,7 @@
                                 <hr class="wowi01-show__content-section__info__line">
                                 <p class="wowi01-show__content-section__info__paragraph">{{$workWith->description_content}}</p>
                                 @if ($workWith->link_content)
-                                    <a href="{{$workWith->link_content}}" target="{{$workWith->link_target_content}}" class="wowi01-show__content-section__info__cta float-end d-flex align-items-center justify-content-center">
+                                    <a href="{{getUri($workWith->link_content)}}" target="{{$workWith->link_target_content}}" class="wowi01-show__content-section__info__cta float-end d-flex align-items-center justify-content-center">
                                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25px" class="me-3 wowi01-show__content-section__info__cta__icon">
                                         CTA
                                     </a>

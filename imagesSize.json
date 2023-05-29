@@ -59,6 +59,18 @@
                 "width": "600",
                 "height": "600",
                 "activeCrop": "false"
+            },
+            "Banner":{
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "352",
+                    "activeCrop": "true"
+                }
             }
         },
         "BLOG03": {
@@ -74,7 +86,7 @@
                     "activeCrop": "true"
                 },
                 "path_image_mobile": {
-                    "width": "1500",
+                    "width": "390",
                     "height": "308",
                     "activeCrop": "true"
                 }
