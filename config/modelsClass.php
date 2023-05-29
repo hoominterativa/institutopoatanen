@@ -315,6 +315,13 @@ return [
                 'controller' => App\Http\Controllers\Teams\TEAM01Controller::class,
                 'model' => App\Models\Teams\TEAM01Teams::class,
                 'seedQty' => 1,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Teams\TEAM01TeamsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ]
         ], 
         // END TEAMS
