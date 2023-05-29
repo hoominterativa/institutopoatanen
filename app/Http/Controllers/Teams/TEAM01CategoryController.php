@@ -2,38 +2,21 @@
 
 namespace App\Http\Controllers\Teams;
 
-use App\Models\Teams\TEAM01TeamsCategory;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Teams\TEAM01Teams;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Teams\TEAM01TeamsCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
 class TEAM01CategoryController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Teams/TEAM01/images/';
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +27,21 @@ class TEAM01CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(TEAM01TeamsCategory::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao cadastradar a categoria');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Teams\TEAM01TeamsCategory  $TEAM01TeamsCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TEAM01TeamsCategory $TEAM01TeamsCategory)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,51 +54,28 @@ class TEAM01CategoryController extends Controller
     public function update(Request $request, TEAM01TeamsCategory $TEAM01TeamsCategory)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($TEAM01TeamsCategory, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($data['title']);
+
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($TEAM01TeamsCategory, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($TEAM01TeamsCategory, 'path_image');
-            $data['path_image'] = null;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($TEAM01TeamsCategory, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($TEAM01TeamsCategory, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($TEAM01TeamsCategory, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($TEAM01TeamsCategory->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao atualizar a categoria');
         }
+        return redirect()->back();
     }
 
     /**
@@ -149,16 +84,24 @@ class TEAM01CategoryController extends Controller
      * @param  \App\Models\Teams\TEAM01TeamsCategory  $TEAM01TeamsCategory
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(TEAM01TeamsCategory $TEAM01TeamsCategory)
     {
-        //storageDelete($TEAM01TeamsCategory, 'path_image');
-        //storageDelete($TEAM01TeamsCategory, 'path_archive');
+        // Verificar se existem equipes associadas à categoria
+        if (TEAM01Teams::where('category_id', $TEAM01TeamsCategory->id)->count()) {
+            Session::flash('error', 'Não é possível excluir a categoria porque existem equipes associadas a ela.');
+            return redirect()->back();
+        }
 
-        if($TEAM01TeamsCategory->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+        // Excluir a categoria
+        storageDelete($TEAM01TeamsCategory, 'path_image_icon');
+
+        if ($TEAM01TeamsCategory->delete()) {
+            Session::flash('success', 'Item deletado com sucesso');
             return redirect()->back();
         }
     }
+
 
     /**
      * Remove the selected resources from storage.
@@ -166,21 +109,35 @@ class TEAM01CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
+        $categoryIds = $request->deleteAll;
 
-        $TEAM01TeamsCategorys = TEAM01TeamsCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($TEAM01TeamsCategorys as $TEAM01TeamsCategory){
-            storageDelete($TEAM01TeamsCategory, 'path_image');
-            storageDelete($TEAM01TeamsCategory, 'path_archive');
+        // Verificar se existem equipes associadas às categorias
+        $teamsExist = TEAM01Teams::whereIn('category_id', $categoryIds)->exists();
+        if ($teamsExist) {
+            return Response::json([
+                'status' => 'error',
+                'message' => 'Não é possível excluir as categorias porque existem equipes associadas a elas.'
+            ]);
         }
-        */
 
-        if($deleted = TEAM01TeamsCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        // Excluir as categorias
+        $deletedCategories = TEAM01TeamsCategory::whereIn('id', $categoryIds)->get();
+
+        foreach ($deletedCategories as $category) {
+            storageDelete($category, 'path_image_icon');
+        }
+
+        if ($deleted = TEAM01TeamsCategory::whereIn('id', $categoryIds)->delete()) {
+            return Response::json([
+                'status' => 'success',
+                'message' => $deleted . ' itens deletados com sucesso'
+            ]);
         }
     }
+
     /**
     * Sort record by dragging and dropping
     *
@@ -194,51 +151,5 @@ class TEAM01CategoryController extends Controller
             TEAM01TeamsCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Teams\TEAM01TeamsCategory  $TEAM01TeamsCategory
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(TEAM01TeamsCategory $TEAM01TeamsCategory)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

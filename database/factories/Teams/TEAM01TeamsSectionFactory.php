@@ -2,18 +2,17 @@
 
 namespace Database\Factories\Teams;
 
-use Illuminate\Support\Str;
-use App\Models\Teams\TEAM01TeamsCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Teams\TEAM01TeamsSection;
 
-class TEAM01TeamsCategoryFactory extends Factory
+class TEAM01TeamsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = TEAM01TeamsCategory::class;
+    protected $model = TEAM01TeamsSection::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +21,10 @@ class TEAM01TeamsCategoryFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->text(12);
         return [
-            'title' => $title,
-            'slug' => Str::slug($title),
-            'path_image_icon' => 'uploads/tmp/favicon.png',
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
+            'description' => $this->faker->text(350),
             'active' => 1,
         ];
     }

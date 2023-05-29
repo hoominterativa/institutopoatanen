@@ -314,7 +314,7 @@ return [
             'TEAM01' => (object)[
                 'controller' => App\Http\Controllers\Teams\TEAM01Controller::class,
                 'model' => App\Models\Teams\TEAM01Teams::class,
-                'seedQty' => 1,
+                'seedQty' => 12,
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Teams\TEAM01TeamsCategory::class,
@@ -323,7 +323,7 @@ return [
                     ]
                 ]
             ]
-        ], 
+        ],
         // END TEAMS
 
         'Feedbacks' => (object)[

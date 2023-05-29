@@ -15,6 +15,10 @@ class CreateTeam01TeamsCategoriesTable extends Migration
     {
         Schema::create('team01_teams_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('path_image_icon')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

@@ -15,6 +15,19 @@ class CreateTeam01TeamsTable extends Migration
     {
         Schema::create('team01_teams', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('team01_teams_categories');
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable();
+            $table->text('text')->nullable();
+            $table->string('title_button')->nullable();
+            $table->string('link_button')->nullable();
+            $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
+            $table->string('path_image_icon')->nullable();
+            $table->string('path_image_box')->nullable();
+            $table->integer('featured')->default(0);
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

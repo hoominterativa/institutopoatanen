@@ -16,7 +16,10 @@ class TEAM01Teams extends Model
     }
 
     protected $table = "team01_teams";
-    protected $fillable = [];
+    protected $fillable = [
+        'category_id', 'title', 'description', 'slug', 'subtitle', 'text', 'title_button', 'link_button', 'target_link_button',
+        'path_image_icon', 'path_image_box', 'featured', 'active', 'sorting'
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +31,13 @@ class TEAM01Teams extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(TEAM01TeamsCategory::class, 'category_id');
+    }
 }
