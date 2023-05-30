@@ -987,6 +987,48 @@
             }
         }
     },
+
+    "Teams": {
+        "TEAM01": {
+            "path_image_box": {
+                "width": "327",
+                "height": "270",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                }
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Social": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
+        }
+    },
+
     "Units": {
         "UNIT01" : {
             "Banner": {
