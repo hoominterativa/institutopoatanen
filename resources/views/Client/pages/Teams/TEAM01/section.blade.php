@@ -28,12 +28,15 @@
                                 <div class="team01__content__product__item__description__encompass__icon">
                                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" />
                                 </div>
-                                <h2 class="team01__content__product__item__description__encompass__title mx-0 px-0">sdasdasdasd</h2>
-                                <h2 class="team01__content__product__item__description__encompass__subtitle mx-0 px-0">sdasdasdasd</h2>
+                                <div class="flex-column team01__content__product__item__description__encompass__txt">
+                                    <h2 class="team01__content__product__item__description__encompass__txt__title mx-0 px-0">sdasdasdasd</h2>
+                                    <h2 class="team01__content__product__item__description__encompass__txt__subtitle mx-0 px-0">sdasdasdasd</h2>
+                                </div>
+
                             </div>
-                            <div class="team01__content__product__item__description_paragraph mx-0 px-0 ">
+                            <div class="team01__content__product__item__description_paragraph text-start px-0 ">
                                 <p>
-                                    asdasdasdadasd
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 </p>
                             </div>
                             <div class="team01__content__product__item__description__buttons">
@@ -55,12 +58,15 @@
                                 <div class="team01__content__product__item__description__encompass__icon">
                                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" />
                                 </div>
-                                <h2 class="team01__content__product__item__description__encompass__title mx-0 px-0">sdasdasdasd</h2>
-                                <h2 class="team01__content__product__item__description__encompass__subtitle mx-0 px-0">sdasdasdasd</h2>
+                                <div class="flex-column team01__content__product__item__description__encompass__txt">
+                                    <h2 class="team01__content__product__item__description__encompass__txt__title mx-0 px-0">sdasdasdasd</h2>
+                                    <h2 class="team01__content__product__item__description__encompass__txt__subtitle mx-0 px-0">sdasdasdasd</h2>
+                                </div>
+
                             </div>
-                            <div class="team01__content__product__item__description_paragraph mx-0 px-0 ">
+                            <div class="team01__content__product__item__description_paragraph text-start px-0 ">
                                 <p>
-                                    asdasdasdadasd
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 </p>
                             </div>
                             <div class="team01__content__product__item__description__buttons">
@@ -82,12 +88,15 @@
                                 <div class="team01__content__product__item__description__encompass__icon">
                                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" />
                                 </div>
-                                <h2 class="team01__content__product__item__description__encompass__title mx-0 px-0">sdasdasdasd</h2>
-                                <h2 class="team01__content__product__item__description__encompass__subtitle mx-0 px-0">sdasdasdasd</h2>
+                                <div class="flex-column team01__content__product__item__description__encompass__txt">
+                                    <h2 class="team01__content__product__item__description__encompass__txt__title mx-0 px-0">sdasdasdasd</h2>
+                                    <h2 class="team01__content__product__item__description__encompass__txt__subtitle mx-0 px-0">sdasdasdasd</h2>
+                                </div>
+
                             </div>
-                            <div class="team01__content__product__item__description_paragraph mx-0 px-0 ">
+                            <div class="team01__content__product__item__description_paragraph text-start px-0 ">
                                 <p>
-                                    asdasdasdadasd
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 </p>
                             </div>
                             <div class="team01__content__product__item__description__buttons">

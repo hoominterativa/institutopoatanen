@@ -7,8 +7,9 @@
     .container--edit{
         padding: 76px 0 43px 0;
 
-        @include small-device{
+        @include small-device-down{
             padding: 73px 0 49px 0 !important;
+                width: 90%;
         }
     }
     &__navigation{
@@ -199,24 +200,32 @@
                     justify-content: space-between;
 
                     &__icone{
+                        width:22px;
+                        height: auto;
+
                         img{
                             width: 100%;
                             height: 100%;
                             object-fit: contain;
                         }
                     }
-                    &__title{
-                        font-size: $T5;
-                        color: $color-black;
-                        font-family: $font-paragraph;
-                        font-weight: $weight-700;
+                    &__txt{
+                        width: 80%;
+                        text-align: left;
+
+                        &__title{
+                            font-size: $T5;
+                            color: $color-black;
+                            font-family: $font-paragraph;
+                            font-weight: $weight-700;
+                        }
+                        &__subtitle{
+                            font: $paragraph-min;
+                            color: $color-two;
+                            font-weight: $weight-700;
+                        }
                     }
-                    &__subtitle{
-                        font-size: $T5;
-                        color: $color-black;
-                        font-family: $font-paragraph;
-                        font-weight: $weight-700;
-                    }
+
                 }
                 &__paragraph{
                     color: $color-two;
@@ -239,16 +248,20 @@
                         font: $paragraph;
                         font-weight: $weight-700;
                         color: $color-three;
-                        max-width: 177px;
+                        max-width: 127px;
                         height: auto;
-                        padding: 10px 50px;
+                        padding: 4px 50px;
                         background-color: $color-five;
 
                         @include small-device{
                             font: $paragraph-mobile;
                             max-width: 146px;
                         }
-
+                        img{
+                            width:18.03px !important;
+                            height: auto !important;
+                            object-fit: contain;
+                        }
                         &:hover{
                             color: $color-white;
                             background-color: $bg-black;
@@ -279,7 +292,7 @@
             z-index:100;
             position: relative;
 
-            @include small-device{
+            @include small-device-down{
                 font: $paragraph-mobile;
                 max-width: 146px;
             }
@@ -318,51 +331,24 @@
             font-size: 32px;
             height: 30px;
         }
-        // .carousel-team01 .owl-dots{
-        //     display: flex;
-        //     margin: 0 auto;
-        //     justify-content: center;
-        //     margin-top: 28px;
-        //     gap: 0 5px;
-
-
-        //     @include small-device{
-        //         margin: inherit !important;
-        //         margin-top: 28px !important;
-        //         justify-content: flex-start;
-        //     }
-
-        // }
-        // .carousel-team01 .owl-dots .owl-dot{
-        //     width: 22px;
-        //     height: 22px;
-        //     background-color: $color-three;
-        //     @include dflex;
-        // }
-        // .carousel-team01 .owl-dots .owl-dot.active{
-        //     background-color: $color-one;
-        // }
     }
 
     // END content_product
 
 
 }
-
-
-
 ///.team01
 
-.team01__page{
+.team01-page{
+    background-color: #EFEFEF;
 
     &__header{
         height: 304px;
         padding: 0 16px;
-        padding-bottom: 61px;
         @include backG;
         position: relative;
 
-        .container--team01__page__header{
+        .container--team01-page__header{
             z-index:100;
             position: relative;
         }
@@ -390,26 +376,56 @@
     }
 
     &__content{
-        margin-top: -23px;
-        padding-bottom: 79px;
+        padding-top: 41px;
+        padding-bottom: 68px;
         position: relative;
 
         @include small-device{
             overflow: hidden;
         }
 
+        &__text{
+            &__title{
+                color:$color-black;
+                font-size: $T2;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                margin-bottom: 8px;
+                @include small-device{
+                    font-size: $T2-mobile;
+                    margin-bottom: 9px;
+                }
+            }
+            &__subtitle{
+                color: $color-three;
+                font-size: $T4;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+
+                @include small-device{
+                    font-size: $T4-mobile;
+                }
+            }
+            &__line{
+                color:$color-black;
+            }
+        }
         &__category{
             gap: 14px;
+            margin-top: 35px;
 
-            @include small-device{
-                margin-left: 42px;
-                margin-bottom: 0;
+            @include small-device-down{
+                margin-top: 35px;
+                display: none !important;
             }
-
+            .accordion-body{
+                background-color: $color-white;
+            }
             li{
                 padding: 9px 39px;
                 // @include listapadrao;
-                background-color: $color-five;
+                background-color: $color-white;
+                list-style: none;
 
                 @include small-device{
                    width: 100% !important;
@@ -441,7 +457,7 @@
                 }
 
                 &:hover, &.active{
-                    background: $color-black;
+                    background: $color-three;
 
                     a{
                         color: $color-white;
@@ -450,6 +466,44 @@
                         filter:invert(1) grayscale(1);
                     }
                 }
+            }
+        }
+        &__dropdown-mobile{
+            display: none;
+            @include medium-device-down{
+                 display: flex;
+            }
+            .accordion-flush{
+                width: 100%;
+            }
+            .accordion-item{
+                max-width: 325px;
+                margin: 0 auto;
+                height: 40px;
+                color: $color-one !important;
+                font: $paragraph !important;
+
+                li{
+                    list-style: none;
+                    color: $color-one !important;
+                    font: $paragraph !important;
+                }
+
+            }
+            .accordion-button::after{
+                border-left: 8px solid transparent;
+                border-right: 7px solid transparent;
+                border-top: 11px solid #949396;
+                width: auto;
+                height: auto;
+            }
+            .accordion-button:not(.collapsed)::after{
+                border-left: 8px solid transparent;
+                border-right: 7px solid transparent;
+                border-top: 11px solid #949396;
+                transform: rotate(184deg);
+                width: auto;
+                height: auto;
             }
         }
         @include small-device{
@@ -469,7 +523,7 @@
                 margin-top: 51.28px;
             }
 
-            .team01__page__content--row{
+            .team01-page__content--row{
                 gap: 26px 0;
                 @include small-device{
                     margin: 0 auto;
@@ -478,25 +532,53 @@
 
             &__item{
                 position: relative;
-                min-height: 447px;
-                height: 447px;
+                &__image{
+                    width: 100%;
+                    height: 267.65px;
+                    background-color: #000;
 
-                @include small-device{
-                   padding:0 !important;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
                 }
-
                 &__description{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    padding: 48.66px 53px;
+                    background-color: $color-white;
+                    padding: 19px 24px;
 
+                    &__encompass{
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: space-between;
 
-                    &__title{
-                        font-size: $T5;
-                        color: $color-black;
-                        font-family: $font-paragraph;
-                        font-weight: $weight-700;
+                        &__icone{
+                            width:22px;
+                            height: auto;
+
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                        &__txt{
+                            width: 80%;
+                            text-align: left;
+
+                            &__title{
+                                font-size: $T5;
+                                color: $color-black;
+                                font-family: $font-paragraph;
+                                font-weight: $weight-700;
+                            }
+                            &__subtitle{
+                                font: $paragraph-min;
+                                color: $color-two;
+                                font-weight: $weight-700;
+                            }
+                        }
+
                     }
                     &__paragraph{
                         color: $color-two;
@@ -509,38 +591,47 @@
                         font-weight: $weight-400;
                         margin-bottom: 0;
                     }
-                }
 
-                &__cta{
-                    font: $paragraph;
-                    font-weight: $weight-700;
-                    color: $color-three;
-                    max-width: 177px;
-                    height: auto;
-                    padding: 10px 50px;
-                    background-color: $color-five;
+                    &__buttons{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
 
-                    @include small-device{
-                        font: $paragraph-mobile;
-                    }
+                        &__cta{
+                            font: $paragraph;
+                            font-weight: $weight-700;
+                            color: $color-three;
+                            max-width: 127px;
+                            height: auto;
+                            padding: 4px 50px;
+                            background-color: $color-five;
 
-                    &:hover{
-                        color: $color-white;
-                        background-color: $bg-black;
+                            @include small-device{
+                                font: $paragraph-mobile;
+                                max-width: 146px;
+                            }
+                            img{
+                                width:18.03px !important;
+                                height: auto !important;
+                                object-fit: contain;
+                            }
+                            &:hover{
+                                color: $color-white;
+                                background-color: $bg-black;
 
-                        .team01__page__content__product__item__cta__icon{
-                            filter: invert(1) grayscale(1);
+                                .team01__content__product__item__description__buttons__cta__icon{
+                                    filter: invert(1) grayscale(1);
+                                }
+                            }
                         }
                     }
                 }
-                &__item a{
-                    color:$color-black;
-                }
+
             }
         }
     }
 }
-// END .team01__page
+// END .team01-page
 
 .lightbox-team01{
     width: 100%;
@@ -579,7 +670,7 @@
             font-weight: $weight-400;
         }
         img{
-            
+
             width:18px;
             height:18px;
         }
