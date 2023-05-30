@@ -207,6 +207,18 @@ return [
                     ]
                 ]
             ],
+            'PROD02V1' => (object)[
+                'controller' => App\Http\Controllers\Products\PROD02V1Controller::class,
+                'model' => App\Models\Products\PROD02V1Products::class,
+                'seedQty' => 12,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Products\PROD02V1ProductsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ]
+                ]
+            ],
         ],
         // END PRODUCTS
 

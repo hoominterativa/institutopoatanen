@@ -1,0 +1,75 @@
+@extends('Client.Core.client')
+@section('content')
+{{-- BEGIN Page content --}}
+<section class="container-fluid px-0 prod02v1__page">
+    @if ($banner)
+        <header class="prod02v1__page__header w-100 d-flex justify-content-center align-items-end" style="background-image: url({{asset('storage/'.$banner->path_image_desktop)}});background-color: {{$banner->background_color}}">
+            <div class="prod02v1__page__header__mask"></div>
+            <div class="d-flex container--prod02v1__page__header">
+                @if ($banner->title)
+                    <h4 class="prod02v1__page__header__title">{{$banner->title}}</h4>
+                @endif
+            </div>
+        </header>
+    @endif
+    {{-- Finish prod02v1__page__header --}}
+    <div class="prod02v1__page__content container">
+        @if ($categories->count())
+        <ul class="prod02v1__page__content__category  container-fluid d-flex flex-row justify-content-center align-items-center px-0 flex-wrap">
+            @foreach ($categories as $category)
+                <li class="col-md-2 prod02v1__page__content__category_li {{isset($category->selected) ? 'active':''}}">
+                    <a class="w-100 d-flex justify-content-center align-items-center" href="{{route('prod02v1.category.page', ['PROD02V1ProductsCategory' => $category->slug ])}}">
+                        @if ($category->path_image_icon)
+                            <img src="{{asset('storage/' . $category->path_image_icon)}}" alt="" class="prod02v1__page__content__category__li__img">
+                        @endif
+                        @if ($category->title)
+                            {{$category->title}}
+                        @endif
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        @endif
+        {{-- Finish prod02v1__page__content__category --}}
+        @if ($products->count())
+            <div class="prod02v1__page__content__product container">
+                <div class="row prod02v1__page__content--row">
+                    @foreach ($products as $product)
+                        <article class="prod02v1__page__content__product__item col-md-3 ">
+                            <div class="prod02v1__page__content__product__item__image w-100 h-100">
+                                <img src="{{asset('storage/' . $product->path_image_box)}}" class="w-100 h-100" alt="Titulo Topico">
+                            </div>
+                            <div class="prod02v1__page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 h-100 text-center">
+                                @if ($product->title)
+                                    <h2 class="prod02v1__page__content__product__item__description__title mx-0 px-0">{{$product->title}}</h2>
+                                @endif
+                                <div class="prod02v1__page__content__product__item__description_paragraph mx-0 px-0 ">
+                                    @if ($product->description)
+                                        <p>
+                                            {!! $product->description !!}
+                                        </p>
+                                    @endif
+                                </div>
+                                <a rel="next" href="javascript-void(0);" data-fancybox="{{$product->slug}}" data-src="#lightbox-prod02v1-1-{{$product->slug}}" class="prod02v1__page__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="w-100  prod02v1__page__content__product__item__cta__icon me-3 transition">
+                                    CTA
+                                </a>
+                            </div>
+                            @include('Client.pages.Products.PROD02V1.show', [
+                                'product' => $product
+                            ])
+                        </article>
+                    @endforeach
+                    {{-- Finish prod02v1__page__content__product__item --}}
+                </div>
+                {{-- Finish row prod02v1__page__content--row --}}
+            </div>
+            {{-- Finish prod02v1__page__content__product --}}
+        @endif
+    </div>
+</section>
+{{-- Finish Content page Here --}}
+@foreach ($sections as $section)
+    {!!$section!!}
+@endforeach
+@endsection

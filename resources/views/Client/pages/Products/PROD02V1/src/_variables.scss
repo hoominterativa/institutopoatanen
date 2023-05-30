@@ -1,0 +1,10 @@
+@mixin listapadrao {
+    list-style: none;
+}
+@mixin dflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

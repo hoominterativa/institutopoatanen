@@ -342,6 +342,39 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "PROD02V1": {
+            "path_image_box": {
+                "width": "327",
+                "height": "447",
+                "activeCrop": "false"
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "304",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                }
+            },
+            "Galleries": {
+                "path_image": {
+                    "width": "676",
+                    "height": "669",
+                    "activeCrop": "false"
+                }
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Compliances": {

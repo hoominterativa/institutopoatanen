@@ -46,7 +46,8 @@
         "ABOU02"
     ],
     "Products": [
-        "PROD02"
+        "PROD02",
+        "PROD02V1"
     ],
     "Units": [
         "UNIT01"
