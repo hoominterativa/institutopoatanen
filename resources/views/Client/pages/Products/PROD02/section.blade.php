@@ -67,7 +67,7 @@
                                         {!! $product->description !!}
                                     </p>
                                 </div>
-                                <a rel="next" href="javascript-void(0);" data-fancybox="{{$product->slug}}" data-src="#lightbox-prod02-1-{{$product->slug}}" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
+                                <a rel="next" href="javascript-void(0);" data-fancybox="{{$product->slug}}" data-src="#lightbox-prod02-{{$product->slug}}" class="prod02__content__product__item__cta transition d-flex justify-content-center align-items-center mx-auto">
                                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="prod02__content__product__item__cta__icon me-3 transition">
                                     CTA
                                 </a>

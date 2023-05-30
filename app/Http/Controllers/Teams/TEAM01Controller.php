@@ -287,9 +287,9 @@ class TEAM01Controller extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Teams', 'TEAM01', 'show');
 
-        return view('Client.pages.Module.Model.show',[
+        return view('Client.pages.Teams.TEAM01.show',[
             'sections' => $sections
         ]);
     }
@@ -300,13 +300,45 @@ class TEAM01Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, TEAM01TeamsCategory $TEAM01TeamsCategory)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = TEAM01TeamsBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                break;
+            default:
+                $banner = TEAM01TeamsBanner::active()->first();
+                break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Teams', 'TEAM01', 'page');
 
+        $categories = TEAM01TeamsCategory::active()->exists()->sorting()->get();
+        $sectionTeam = TEAM01TeamsSection::active()->first();
+        $teams = TEAM01Teams::with(['socials' => function ($query) {$query->where('active', 1);}])->active();
+
+
+        if($TEAM01TeamsCategory->exists){
+            $teams = $teams->where('category_id', $TEAM01TeamsCategory->id);
+
+            foreach ($categories as $category) {
+                if($TEAM01TeamsCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+        }
+
+        $teams = $teams->sorting()->get();
+
         return view('Client.pages.Teams.TEAM01.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'categories' => $categories,
+            'teams' => $teams,
+            'sectionTeam' => $sectionTeam
         ]);
     }
 
@@ -317,6 +349,12 @@ class TEAM01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Teams.TEAM01.section');
+        $section = TEAM01TeamsSection::active()->first();
+        $teams = TEAM01Teams::with(['socials' => function ($query) {$query->where('active', 1);}])->active()->featured()->sorting()->get();
+
+        return view('Client.pages.Teams.TEAM01.section', [
+            'section' => $section,
+            'teams' => $teams
+        ]);
     }
 }

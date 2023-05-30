@@ -1,6 +1,6 @@
 $('.carousel-team01').owlCarousel({
     smartSpeed:450,
-    loop: true,
+    loop: false,
     dots:true,
     nav:false,
     rewind: true,

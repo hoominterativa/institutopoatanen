@@ -47,4 +47,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/banner', TEAM01BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'TEAM01TeamsBanner']);
 });
 // CLIENT
-Route::get($route.'/teste', [TEAM01CategoryController::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{TEAM01TeamsCategory:slug}', [TEAM01Controller::class, 'page'])->name($routeName.'.category.page');

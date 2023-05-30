@@ -76,7 +76,7 @@ class PROD02Controller extends Controller
 
         if($product = PROD02Products::create($data)){
             Session::flash('success', 'Produto cadastrado com sucesso');
-            return redirect()->route('admin.prod02.edit', ['PROD02Product' => $product->id]);
+            return redirect()->route('admin.prod02.edit', ['PROD02Products' => $product->id]);
         }else{
             Storage::delete($path_image_box);
             Session::flash('success', 'Erro ao cadastradar o produto');
@@ -270,7 +270,7 @@ class PROD02Controller extends Controller
         $categories = PROD02ProductsCategory::active()->featured()->exists()->sorting()->get();
         $products = PROD02Products::with('galleries')->active()->featured()->sorting()->get();
         $section = PROD02ProductsSection::active()->first();
-        
+
         return view('Client.pages.Products.PROD02.section', [
             'products' => $products,
             'categories' => $categories,

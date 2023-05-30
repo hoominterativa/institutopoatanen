@@ -619,7 +619,7 @@
                                 color: $color-white;
                                 background-color: $bg-black;
 
-                                .team01__content__product__item__description__buttons__cta__icon{
+                                .team01-page__content__product__item__description__buttons__cta__icon{
                                     filter: invert(1) grayscale(1);
                                 }
                             }
@@ -682,7 +682,7 @@
         font-weight: $weight-700;
 
 
-        @include small-device{
+        @include medium-device-down{
             font-size: $T2-mobile;
             text-align: left;
         }
@@ -695,7 +695,7 @@
         font-family: $font-paragraph;
         font-weight: $weight-700;
 
-        @include small-device{
+        @include medium-device-down{
             font-size: $T4-mobile;
             text-align: left;
         }
@@ -752,8 +752,7 @@
         font-weight: $weight-700;
         color: $color-three;
         max-width: 177px;
-        height: auto;
-        padding: 10px 50px;
+        height: 56px;
         background-color: $color-five;
         display: flex;
         align-items: center;

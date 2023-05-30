@@ -1893,7 +1893,7 @@ body .owl-dots .owl-dot.active {
   color: #fff;
   background-color: #000;
 }
-.team01-page__content__product__item__description__buttons__cta:hover .team01__content__product__item__description__buttons__cta__icon {
+.team01-page__content__product__item__description__buttons__cta:hover .team01-page__content__product__item__description__buttons__cta__icon {
   filter: invert(1) grayscale(1);
 }
 
@@ -1940,7 +1940,7 @@ body .owl-dots .owl-dot.active {
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .lightbox-team01__title {
     font-size: 1.875rem;
     text-align: left;
@@ -1952,7 +1952,7 @@ body .owl-dots .owl-dot.active {
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .lightbox-team01__subtitle {
     font-size: 1.125rem;
     text-align: left;
@@ -2006,8 +2006,7 @@ body .owl-dots .owl-dot.active {
   font-weight: 700;
   color: #B3B3B3;
   max-width: 177px;
-  height: auto;
-  padding: 10px 50px;
+  height: 56px;
   background-color: #EFEFEF;
   display: flex;
   align-items: center;
