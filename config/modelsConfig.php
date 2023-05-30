@@ -31,7 +31,6 @@ return [
                 ]
             ],
         ],
-
         'Topics' => (object) [
             'TOPI01' => (object)[
                 'ViewHome' => true,
@@ -152,7 +151,7 @@ return [
                 ]
             ],
         ],
-        'Topics' => (object) [
+        'Topics.1' => (object) [
             'TOPI02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
