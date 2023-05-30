@@ -99,7 +99,7 @@ return [
                 ]
             ],
         ],
-        'Contents' => (object) [
+        'Contents.1' => (object) [
             'CONT03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -165,6 +165,26 @@ return [
                     'iconMenu' => '',
                     'titlePanel' => 'Tópicos',
                     'iconPanel' => ''
+                ]
+            ],
+        ],
+        'Abouts' => (object) [
+            'ABOU01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown',
+                'config' => (object) [
+                    'titleMenu' => 'Sobre',
+                    'anchor' =>  false,
+                    'linkMenu' => 'abou01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre',
+                    'iconPanel' => 'mdi-information-variant'
+                ],
+                'IncludeSections' => (object) [
+
                 ]
             ],
         ],
