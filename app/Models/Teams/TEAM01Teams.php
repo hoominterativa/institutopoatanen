@@ -40,4 +40,9 @@ class TEAM01Teams extends Model
     {
         return $this->belongsTo(TEAM01TeamsCategory::class, 'category_id');
     }
+
+    public function social()
+    {
+        return $this->hasMany(TEAM01TeamsSocialMedia::class, 'team_id');
+    }
 }

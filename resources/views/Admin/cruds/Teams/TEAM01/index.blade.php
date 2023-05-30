@@ -39,11 +39,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#sectionTeam" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seção Equipe
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Seção complementar do conteúdo principal"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Este banner será exibido na página de produtos"></i>
+                                data-bs-original-title="Este banner será exibido na página interna"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -63,10 +71,15 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row mb-3">
-                                            <div class="col-6">
+                                            <div class="col-3">
+                                                @include('Admin.cruds.Teams.TEAM01.filter',[
+                                                    'categories' => $categories
+                                                ])
+                                            </div>
+                                            <div class="col-4">
                                                 <button id="btSubmitDelete" data-route="{{route('admin.team01.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTeams" style="display: none;">Deletar selecionados</button>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-5">
                                                 <a href="{{route('admin.team01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
@@ -150,14 +163,19 @@
                             'categories' => $teamsCategories
                         ])
                     </div>
-                    <div class="tab-pane" id="section">
-                        @include('Admin.cruds.Teams.TEAM01.Section.form', [
-                            'section' => $section
+                    <div class="tab-pane" id="sectionTeam">
+                        @include('Admin.cruds.Teams.TEAM01.SectionTeam.form', [
+                            'sectionTeam' => $sectionTeam
                         ])
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Teams.TEAM01.Banner.form', [
                             'banner' => $banner
+                        ])
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Teams.TEAM01.Section.form', [
+                            'section' => $section
                         ])
                     </div>
                 </div>

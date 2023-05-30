@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Teams\TEAM01TeamsCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Teams\TEAM01TeamsSectionTeam;
+use App\Models\Teams\TEAM01TeamsSocialMedia;
 
 class TEAM01Controller extends Controller
 {
@@ -31,14 +33,72 @@ class TEAM01Controller extends Controller
         $categories = TEAM01TeamsCategory::exists()->sorting()->pluck('title', 'id');
         $section = TEAM01TeamsSection::first();
         $banner = TEAM01TeamsBanner::first();
+        $sectionTeam = TEAM01TeamsSectionTeam::first();
         return view('Admin.cruds.Teams.TEAM01.index', [
             'teams' => $teams,
             'teamsCategories' => $teamsCategories,
             'categories' => $categories,
             'section' => $section,
             'banner' => $banner,
+            'sectionTeam' => $sectionTeam,
             'cropSetting' => getCropImage('Teams', 'TEAM01')
         ]);
+    }
+
+    public function filter(Request $request)
+    {
+        Session::put('filter.category_id', $request->category_id);
+        Session::put('filter.title', $request->title);
+        Session::put('filter.subtitle', $request->subtitle);
+        Session::put('filter.active', $request->active);
+        Session::put('filter.featured', $request->featured);
+        Session::save();
+
+        $teams = TEAM01Teams::with('category');
+
+        if($request->category_id){
+            $teams = $teams->where('category_id', Session::get('filter.category_id'));
+        }
+        if($request->title){
+            $teams = $teams->where('title','LIKE', '%'.Session::get('filter.title').'%');
+        }
+        if($request->subtitle){
+            $teams = $teams->where('subtitle','LIKE', '%'.Session::get('filter.subtitle').'%');
+        }
+
+        if(Session::get('filter.active')=='1'){
+            $teams = $teams->where('active', 1);
+        }
+        if(Session::get('filter.active')=='0'){
+            $teams = $teams->where('active', 0);
+        }
+        if(Session::get('filter.featured')){
+            $teams = $teams->where('featured', 1);
+        }
+
+
+        $teams = TEAM01Teams::with('category')->sorting()->paginate(20);
+        $teamsCategories = TEAM01TeamsCategory::sorting()->paginate(20);
+        $categories = TEAM01TeamsCategory::exists()->sorting()->pluck('title', 'id');
+        $section = TEAM01TeamsSection::first();
+        $banner = TEAM01TeamsBanner::first();
+        $sectionTeam = TEAM01TeamsSectionTeam::first();
+
+        return view('Admin.cruds.Teams.TEAM01.index',[
+            'teams' => $teams,
+            'categories' => $categories,
+            'teamsCategories' => $teamsCategories,
+            'section' => $section,
+            'banner' => $banner,
+            'sectionTeam' => $sectionTeam,
+            'cropSetting' => getCropImage('Teams', 'TEAM01')
+        ]);
+    }
+
+    public function clearFilter()
+    {
+        Session::forget('filter');
+        return redirect()->route('admin.team01.index');
     }
 
     /**
@@ -76,9 +136,9 @@ class TEAM01Controller extends Controller
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        if(TEAM01Teams::create($data)){
+        if($team = TEAM01Teams::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.team01.index');
+            return redirect()->route('admin.team01.edit', ['TEAM01Teams' => $team->id]);
         }else{
             Storage::delete($path_image_icon);
             Storage::delete($path_image_box);
@@ -96,9 +156,11 @@ class TEAM01Controller extends Controller
     public function edit(TEAM01Teams $TEAM01Teams)
     {
         $categories = TEAM01TeamsCategory::sorting()->pluck('title', 'id');
+        $socials = TEAM01TeamsSocialMedia::where('team_id', $TEAM01Teams->id)->sorting()->get();
         return view('Admin.cruds.Teams.TEAM01.edit', [
             'team' => $TEAM01Teams,
             'categories' => $categories,
+            'socials' => $socials,
             'cropSetting' => getCropImage('Teams', 'TEAM01')
         ]);
     }
@@ -157,6 +219,12 @@ class TEAM01Controller extends Controller
      */
     public function destroy(TEAM01Teams $TEAM01Teams)
     {
+        $socials = TEAM01TeamsSocialMedia::where('team_id', $TEAM01Teams->id)->get();
+        foreach($socials as $social) {
+            storageDelete($social, 'path_image_icon');
+            $social->delete();
+        }
+
         storageDelete($TEAM01Teams, 'path_image_icon');
         storageDelete($TEAM01Teams, 'path_image_box');
 
@@ -177,6 +245,12 @@ class TEAM01Controller extends Controller
 
         $TEAM01Teamss = TEAM01Teams::whereIn('id', $request->deleteAll)->get();
         foreach($TEAM01Teamss as $TEAM01Teams){
+            $socials = TEAM01TeamsSocialMedia::where('team_id', $TEAM01Teams->id)->get();
+            foreach($socials as $social) {
+                storageDelete($social, 'path_image_icon');
+                $social->delete();
+            }
+
             storageDelete($TEAM01Teams, 'path_image_icon');
             storageDelete($TEAM01Teams, 'path_image_box');
         }
