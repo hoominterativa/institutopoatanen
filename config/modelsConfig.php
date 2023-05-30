@@ -381,7 +381,7 @@ return [
                 ],
             ],
         ],
-        'Contacts.1' => (object) [
+        'Contacts.2' => (object) [
             'COTA02' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
