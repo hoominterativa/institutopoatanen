@@ -26,7 +26,7 @@
                             <div class="accordion-item freq01-page__faq__content__box__item">
                                 @if ($frequently->question)
                                     <h2 class="accordion-header freq01-page__faq__content__box__item__title">
-                                        <button class="freq01-page__faq__content__box__item__title__button accordion-button collapsed d-flex align-items-center justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
+                                        <button class="freq01-page__faq__content__box__item__title__button accordion-button collapsed d-flex align-items-center justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#frequently-{{ $frequently->id }}" aria-expanded="false" aria-controls="collapseTwo">
                                             {{$frequently->question}}
                                             <svg class="freq01-page__faq__content__box__item__title__arrow" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <circle cx="19" cy="19" r="19" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 38 38)" fill="#404040"/>
@@ -36,7 +36,7 @@
                                     </h2>
                                 @endif
                                 @if ($frequently->answer)
-                                    <div id="collapseOne" class="accordion-collapse collapse freq01-page__faq__content__box__item__text" data-bs-parent="#accordionExample">
+                                    <div id="frequently-{{ $frequently->id }}" class="accordion-collapse collapse freq01-page__faq__content__box__item__text" data-bs-parent="#frequently-{{ $frequently->id }}">
                                         <div class="accordion-body">
                                             <p>
                                                 {!! $frequently->answer !!}
