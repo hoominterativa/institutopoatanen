@@ -306,7 +306,7 @@ return [
             ],
         ],
         'ContentPages' => (object) [
-            'COPA02' => (object)[
+            'COPA01' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -315,7 +315,7 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Soluções',
                     'anchor' =>  false,
-                    'linkMenu' => 'copa02.page',
+                    'linkMenu' => 'copa01.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Soluções',
                     'iconPanel' => ''
