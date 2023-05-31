@@ -54,12 +54,12 @@
                                 </a>
                                 <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right" >
                                     @foreach ($linksCtaHeader as $linkCtaHeader)
-                                        <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item transition mb-2">{{$linkCtaHeader->title}}</a>
+                                        <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item transition mb-2">{{$linkCtaHeader->title}}</a>
                                     @endforeach
                                 </div>
                             @else
                                 @foreach ($linksCtaHeader as $linkCtaHeader)
-                                    <a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta transition">{{$linkCtaHeader->title}}</a>
+                                    <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta transition">{{$linkCtaHeader->title}}</a>
                                 @endforeach
                             @endif
                         </div>
