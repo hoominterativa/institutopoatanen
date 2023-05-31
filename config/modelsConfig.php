@@ -184,8 +184,6 @@ return [
                     'iconPanel' => 'mdi-information-variant'
                 ],
                 'IncludeSections' => (object) [
-                    'Teams' => 'TEAM01',
-                    'Topics' => 'TOPI02',
                 ]
             ],
         ],
@@ -253,7 +251,7 @@ return [
                     'iconPanel' => 'mdi-shopping-outline'
                 ],
                 'IncludeSections' => (object) [
-                    'Feedbacks' => 'FEED01',
+                    'Topics' => 'TOPI02',
                 ]
             ],
         ],
@@ -262,6 +260,7 @@ return [
                 'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
+                'ViewListFooter' => false,
                 'config' => (object) [
                     'titleMenu' => '',
                     'anchor' =>  false,
@@ -360,47 +359,7 @@ return [
                     'Topics' => 'TOPI02',
                 ]
             ],
-        ],
-        'Contacts.1' => (object) [
-            'COTA02' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Agendamento',
-                    'anchor' =>  false,
-                    'linkMenu' => 'cota02.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Agendamento',
-                    'iconPanel' => ''
-                ],
-                'IncludeSections' => (object) [
-                    'Topics' => 'TOPI02',
-                ],
-            ],
-        ],
-        'Contacts.2' => (object) [
-            'COTA02' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Cadastro Médico',
-                    'anchor' =>  false,
-                    'linkMenu' => 'cota02.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Cadastro Médico',
-                    'iconPanel' => ''
-                ],
-                'IncludeSections' => (object) [
-                    'Topics' => 'TOPI02',
-                ],
-            ],
-        ],
+        ],        
     ],
 
     'ModelsForm' => (object)[
