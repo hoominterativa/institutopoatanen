@@ -11,37 +11,20 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Products' => (object) [
-            'PROD02V1' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
+        'Frequently' => (object) [
+            'FREQ01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Produtos',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'prod02v1.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Produtos',
-                    'iconPanel' => 'mdi-shopping-outline'
+                    'titlePanel' => 'Perguntas',
+                    'iconPanel' => 'mdi-topic-circle'
                 ],
-                'IncludeSections' => (object) [
-                ]
+                'IncludeSections' => (object) []
             ],
         ],
     ],
