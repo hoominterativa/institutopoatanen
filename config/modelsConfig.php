@@ -43,7 +43,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Vantagens',
                     'iconPanel' => ''
                 ]
             ],
@@ -60,7 +60,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 02',
+                    'titlePanel' => 'Destaque Home',
                     'iconPanel' => ''
                 ]
             ],
@@ -87,15 +87,15 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Produtos',
+                    'titleMenu' => 'Procedimentos',
                     'anchor' =>  false,
                     'linkMenu' => 'prod02v1.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Produtos',
+                    'titlePanel' => 'Procedimentos',
                     'iconPanel' => 'mdi-shopping-outline'
                 ],
                 'IncludeSections' => (object) [
-                    'Feedbacks' => 'FEED01',
+                    'Topics' => 'TOPI02',
                 ]
             ],
         ],
@@ -111,11 +111,46 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 03',
+                    'titlePanel' => 'Destaque Médico',
                     'iconPanel' => ''
                 ]
             ],
         ],
+        'Products' => (object) [
+            'PROD02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Estrutura',
+                    'anchor' =>  false,
+                    'linkMenu' => 'prod02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Nossa Estrutura',
+                    'iconPanel' => 'mdi-shopping-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Topics' => 'TOPI02',
+                ]
+            ],
+        ],
+        
         'Blogs' => (object) [
             'BLOG01' => (object)[
                 'ViewHome' => true,
@@ -138,16 +173,15 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Artigos',
+                    'titleMenu' => 'Novidades',
                     'anchor' =>  false,
                     'linkMenu' => 'blog01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Artigos',
+                    'titlePanel' => 'Novidades',
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Services' => ['SERV04'],
-                    'Feedbacks' => ['FEED01'],
+                    'Topics' => 'TOPI02',
                 ],
             ],
         ],
@@ -163,7 +197,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Contatos Final',
                     'iconPanel' => ''
                 ]
             ],
@@ -184,6 +218,8 @@ return [
                     'iconPanel' => 'mdi-information-variant'
                 ],
                 'IncludeSections' => (object) [
+                    'Teams' => 'TEAM01',
+                    'Topics' => 'TOPI02',
                 ]
             ],
         ],
@@ -306,40 +342,7 @@ return [
                 ]
             ],
         ],
-        'Products' => (object) [
-            'PROD02' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Produtos',
-                    'anchor' =>  false,
-                    'linkMenu' => 'prod02.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Produtos',
-                    'iconPanel' => 'mdi-shopping-outline'
-                ],
-                'IncludeSections' => (object) [
-                    'Topics' => 'TOPI02',
-                ],
-            ],
-        ],
+        //COPA02
         'Contacts' => (object) [
             'COTA02' => (object)[
                 'ViewHome' => false,

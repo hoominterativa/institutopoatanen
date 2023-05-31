@@ -76,7 +76,7 @@ class PROD02V1Controller extends Controller
 
         if($product = PROD02V1Products::create($data)){
             Session::flash('success', 'Produto cadastrado com sucesso');
-            return redirect()->route('admin.prod02.edit', ['PROD02V1Product' => $product->id]);
+            return redirect()->route('admin.prod02v1.edit', ['PROD02V1Product' => $product->id]);
         }else{
             Storage::delete($path_image_box);
             Session::flash('success', 'Erro ao cadastradar o produto');
