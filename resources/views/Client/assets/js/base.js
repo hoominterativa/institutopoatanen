@@ -12,6 +12,6 @@ import '../../pages/Topics/TOPI02/src/main';
 import '../../pages/Abouts/ABOU01/src/main';
 import '../../pages/Teams/TEAM01/src/main';
 import '../../pages/Frequently/FREQ01/src/main';
-import '../../pages/ContentPages/COPA02/src/main';
+import '../../pages/ContentPages/COPA01/src/main';
 import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Compliances/COMP01/src/main';
