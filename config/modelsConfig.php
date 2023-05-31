@@ -98,25 +98,6 @@ return [
                     'Topics' => 'TOPI02',
                 ]
             ],
-        ],
-        'Contents.1' => (object) [
-            'CONT03' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Destaque Médico',
-                    'iconPanel' => ''
-                ]
-            ],
-        ],
-        'Products.1' => (object) [
             'PROD02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
@@ -150,7 +131,23 @@ return [
                 ]
             ],
         ],
-        
+        'Contents.1' => (object) [
+            'CONT03' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Destaque Médico',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
         'Blogs' => (object) [
             'BLOG01' => (object)[
                 'ViewHome' => true,
