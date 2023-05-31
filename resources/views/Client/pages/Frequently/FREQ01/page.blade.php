@@ -3,77 +3,56 @@
 {{-- BEGIN Page content --}}
 <div id="FREQ01" class="freq01-page container-fluid px-0">
     <section class="freq01-page__faq">
-        <header class="freq01-page__faq__header"
-            style="background-image: url({{asset('storage/uploads/tmp/bg-banner-inner.jpg')}}); background-color:;">
-                <div class="freq01-pag__faq__header__mask"></div>
-                <div class="container container--freq01-page">
-                    <h2 class=" d-block text-center">
-                        <span class="freq01-page__faq__header__title d-block">Título da Página</span>
-                        <span class="freq01-page__faq__header__subtitle d-block">Subtitulo</span>
-                    </h2>
-                    <hr class="freq01-page__faq__header__line mb-0">
-                </div>
-        </header>
-        <div class="freq01-page__faq__content">
-            <div class="container">
-                <div class="accordion freq01-page__faq__content__box" id="accordionExample">
-                    <div class="accordion-item freq01-page__faq__content__box__item">
-                        <h2 class="accordion-header freq01-page__faq__content__box__item__title">
-                            <button class="freq01-page__faq__content__box__item__title__button accordion-button collapsed d-flex align-items-center justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-                                Pergunta
-                                <svg class="freq01-page__faq__content__box__item__title__arrow" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="19" cy="19" r="19" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 38 38)" fill="#404040"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8076 22.2759L9.17262 20.6409L19.0001 10.8134L28.8276 20.6409L27.1926 22.2759L19.0001 14.0834L10.8076 22.2759Z" fill="#F6F3F0"/>
-                                </svg>
-                            </button>
+        @if ($section)
+            <header class="freq01-page__faq__header"
+            style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};">
+                    <div class="freq01-pag__faq__header__mask"></div>
+                    <div class="container container--freq01-page">
+                        <h2 class=" d-block text-center">
+                            @if ($section->title || $section->subtitle)
+                                <span class="freq01-page__faq__header__title d-block">{{$section->title}}</span>
+                                <span class="freq01-page__faq__header__subtitle d-block">{{$section->subtitle}}</span>
+                            @endif
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse freq01-page__faq__content__box__item__text" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                               <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                                    Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, v
-                                    el tempus mi pretium sed. In et arcu eget
-                                    purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consect
-                               </p>
-                            </div>
-                        </div>
+                        <hr class="freq01-page__faq__header__line mb-0">
                     </div>
-                    {{-- END .freq01-page__box --}}
-                    <div class="accordion-item freq01-page__faq__content__box__item">
-                        <h2 class="accordion-header freq01-page__faq__content__box__item__title">
-                            <button class="freq01-page__faq__content__box__item__title__button accordion-button collapsed d-flex align-items-center justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Pergunta
-                                <svg class="freq01-page__faq__content__box__item__title__arrow" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="19" cy="19" r="19" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 38 38)" fill="#404040"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8076 22.2759L9.17262 20.6409L19.0001 10.8134L28.8276 20.6409L27.1926 22.2759L19.0001 14.0834L10.8076 22.2759Z" fill="#F6F3F0"/>
-                                </svg>
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse freq01-page__faq__content__box__item__text" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                               <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                                    Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                                    Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, v
-                                    el tempus mi pretium sed. In et arcu eget
-                                    purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consect
-                               </p>
+            </header>
+        @endif
+        @if ($frequentlys->count())
+            <div class="freq01-page__faq__content">
+                <div class="container">
+                    <div class="accordion freq01-page__faq__content__box" id="accordionExample">
+                        @foreach ($frequentlys as $frequently)
+                            <div class="accordion-item freq01-page__faq__content__box__item">
+                                @if ($frequently->question)
+                                    <h2 class="accordion-header freq01-page__faq__content__box__item__title">
+                                        <button class="freq01-page__faq__content__box__item__title__button accordion-button collapsed d-flex align-items-center justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
+                                            {{$frequently->question}}
+                                            <svg class="freq01-page__faq__content__box__item__title__arrow" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="19" cy="19" r="19" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 38 38)" fill="#404040"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8076 22.2759L9.17262 20.6409L19.0001 10.8134L28.8276 20.6409L27.1926 22.2759L19.0001 14.0834L10.8076 22.2759Z" fill="#F6F3F0"/>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                @endif
+                                @if ($frequently->answer)
+                                    <div id="collapseOne" class="accordion-collapse collapse freq01-page__faq__content__box__item__text" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                {!! $frequently->answer !!}
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
-                        </div>
+                        {{-- END .freq01-page__box --}}
+                        @endforeach
                     </div>
-                    {{-- END .freq01-page__box --}}
+                    {{-- END .freq01-page__faq__content__box --}}
                 </div>
-                {{-- END .freq01-page__faq__content__box --}}
+                {{-- END .container --}}
             </div>
-            {{-- END .container --}}
-        </div>
+        @endif
         {{-- END .freq01-page__faq__content --}}
     </section>
     <section class="freq01-page__form">
