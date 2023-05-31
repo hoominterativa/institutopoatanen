@@ -353,7 +353,7 @@
                 "path_image_desktop": {
                     "width": "1500",
                     "height": "304",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_mobile": {
                     "width": "390",
@@ -393,12 +393,12 @@
             "path_image_center": {
                 "width": "600",
                 "height": "740",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_right": {
                 "width": "600",
                 "height": "600",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_background": {
                 "width": "1300",

@@ -289,6 +289,8 @@ class CoreController extends Controller
             foreach ($models as $code => $config) {
                 if($config->ViewListFooter){
 
+                    $module = getNameModule($this->InsertModelsMain, $module, $code);
+
                     $listDropdown = self::getRelations($module, $code, $config);
 
                     $menu = [
