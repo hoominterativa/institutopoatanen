@@ -10,22 +10,15 @@
                 </div>
                 {!! Form::text('title_form', null, ['class' => 'form-control', 'id' => 'title_form']) !!}
             </div>
-            <div class="mb-3">
-                <div class="d-flex align-items-center mb-1">
-                    {!! Form::label('description_form', 'Descrição', ['class' => 'form-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Informação que é exibida na descrição do formulário"></i>
+            <div class="col-12">
+                <div class="complete-editor__content mb-3">
+                    {!! Form::label('description_form', 'Texto Artigo', ['class'=>'form-label']) !!}
+                    <small class="ms-1"><b>Recomendamos salvar de tempo em tempo caso a matéria seja extensa</b></small>
+                    {!! Form::textarea('description_form', null, [
+                        'class'=>'form-control complete-editor',
+                        'id'=>'complete-editor',
+                    ]) !!}
                 </div>
-                {!! Form::textarea('description_form', null, [
-                    'class' => 'form-control',
-                    'id' => 'message',
-                    'data-parsley-trigger' => 'keyup',
-                    'rows' => '6',
-                    'data-parsley-minlength' => '20',
-                    'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold' => '10',
-                ]) !!}
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">
