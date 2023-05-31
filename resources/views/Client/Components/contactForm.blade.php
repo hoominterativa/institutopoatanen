@@ -1,60 +1,25 @@
 @switch($model)
     @case('FORM02')
-    <section class="form02 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
-        <div class="container container--pd">
-            <div class="row mx-0">
-                <div class="form02__content col-lg-8 px-0 d-flex justify-content-between align-items-center">
-                    <h2 class="form02__content__title">{{$content->title->value}}</h2>
-                    <div class="form02__content__paragraph">
-                        <p>
-                            {{$content->description->value}}
-                        </p>
-                    </div>
-
-                    {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form02__content__form form-contact parsley-validate align-items-center']) !!}
-                        <div class="form02__content__inputs d-flex justify-content-between">
-                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
-                            <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
-                            @php
-                                $i=1;
-                            @endphp
-                            @foreach ($inputs as $name => $input)
-                                @if ($i<=3)
-                                    @include('Client.Components.inputs', [
-                                        'name' => $name,
-                                        'options' => $input->option,
-                                        'placeholder' => $input->placeholder,
-                                        'required' => $input->required??false,
-                                        'type' => $input->type,
-                                        'class' => 'col-md-8'
-                                    ])
-                                @endif
-
-                                @php
-                                    $i++;
-                                @endphp
-                            @endforeach
+        <section class="form02 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+            <div class="container container--pd">
+                <div class="row mx-0">
+                    <div class="form02__content col-lg-8 px-0 d-flex justify-content-between align-items-center">
+                        <h2 class="form02__content__title">{{$content->title->value}}</h2>
+                        <div class="form02__content__paragraph">
+                            <p>
+                                {{$content->description->value}}
+                            </p>
                         </div>
-                    {!! Form::close() !!}
 
-                    <a href="#lightbox-form" data-fancybox="fomulario-de-inscricao" class="form02__content__cta data-fancybox" >
-                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
-                        CTA
-                    </a>
-
-                    <div id="lightbox-form" class="lifo" style="display: none;">
-                        <div class="lifo__boxLeft col-lg-4 px-0">
-                            <h2 class="lifo__boxLeft__title">{{$content->title_inner->value}}</h2>
-                            <div class="lifo__boxLeft__paragraph">
-                                <p>
-                                    {{$content->description_inner->value}}
-                                </p>
-                            </div>
-                            {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax lifo__boxLeft__form form-contact parsley-validate align-items-center']) !!}
-                                <div class="lifo__boxLeft__inputs d-flex justify-content-between">
-                                    <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
-                                    <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
-                                    @foreach ($inputs as $name => $input)
+                        {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form02__content__form form-contact parsley-validate align-items-center']) !!}
+                            <div class="form02__content__inputs d-flex justify-content-between">
+                                <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                                <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                                @php
+                                    $i=1;
+                                @endphp
+                                @foreach ($inputs as $name => $input)
+                                    @if ($i<=3)
                                         @include('Client.Components.inputs', [
                                             'name' => $name,
                                             'options' => $input->option,
@@ -63,24 +28,106 @@
                                             'type' => $input->type,
                                             'class' => 'col-md-8'
                                         ])
-                                    @endforeach
+                                    @endif
+
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endforeach
+                            </div>
+                        {!! Form::close() !!}
+
+                        <a href="#lightbox-form" data-fancybox="fomulario-de-inscricao" class="form02__content__cta data-fancybox" >
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                            CTA
+                        </a>
+
+                        <div id="lightbox-form" class="lifo" style="display: none;">
+                            <div class="lifo__boxLeft col-lg-4 px-0">
+                                <h2 class="lifo__boxLeft__title">{{$content->title_inner->value}}</h2>
+                                <div class="lifo__boxLeft__paragraph">
+                                    <p>
+                                        {{$content->description_inner->value}}
+                                    </p>
                                 </div>
-                                <button type="submit" class="lifo__boxRight__cta">
-                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
-                                    CTA
-                                </button>
-                            {!! Form::close() !!}
-                        </div>
-                        <div class="lifo__boxRight col-lg-8 px-0 d-flex justify-content-between align-items-center">
-                            <div class="lifo__boxRight__image">
-                                <img src="{{asset('storage/'.$content->path_image_inner->value)}}" width="300" alt="">
+                                {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax lifo__boxLeft__form form-contact parsley-validate align-items-center']) !!}
+                                    <div class="lifo__boxLeft__inputs d-flex justify-content-between">
+                                        <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                                        <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                                        @foreach ($inputs as $name => $input)
+                                            @include('Client.Components.inputs', [
+                                                'name' => $name,
+                                                'options' => $input->option,
+                                                'placeholder' => $input->placeholder,
+                                                'required' => $input->required??false,
+                                                'type' => $input->type,
+                                                'class' => 'col-md-8'
+                                            ])
+                                        @endforeach
+                                    </div>
+                                    <button type="submit" class="lifo__boxRight__cta">
+                                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                                        CTA
+                                    </button>
+                                {!! Form::close() !!}
+                            </div>
+                            <div class="lifo__boxRight col-lg-8 px-0 d-flex justify-content-between align-items-center">
+                                <div class="lifo__boxRight__image">
+                                    <img src="{{asset('storage/'.$content->path_image_inner->value)}}" width="300" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @break
+    @case('FORM03')
+        <section class="form03 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+            <div class="container container--pd">
+                <div class="row mx-0">
+                    <div class="form03__boxLeft col-lg-4 px-0">
+                        <h2 class="form03__boxLeft__title">Title</h2>
+                        <h2 class="form103__boxLeft__subtitle">Subitle</h3>
+                        <div class="form03__boxLeft__buttons">
+                            <a class= "form03__boxLeft__buttons__cta" href="">
+                                <img src="" alt="">
+                                CTA
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form03__boxRight col-lg-8 px-0 d-flex justify-content-between align-items-center">
+                        <h2 class="form03__boxRight__title">Lorem ipsum dolor</h2>
+                        <div class="form03__boxRight__paragraph">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                        </div>
+
+                        {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form03__boxRight__form form-contact parsley-validate align-items-center']) !!}
+                            <div class="form03__boxRight__inputs d-flex justify-content-between">
+                                <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                                <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                                @foreach ($inputs as $name => $input)
+                                    @include('Client.Components.inputs', [
+                                        'name' => $name,
+                                        'options' => $input->option,
+                                        'placeholder' => $input->placeholder,
+                                        'required' => $input->required??false,
+                                        'type' => $input->type,
+                                        'class' => 'col-md-8'
+                                    ])
+                                @endforeach
+                            </div>
+                            <button type="submit" class="form03__boxRight__cta">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                                CTA
+                            </button>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </section>
     @break
     @case('FORM101')
         <section class="form101 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
