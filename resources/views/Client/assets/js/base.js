@@ -4,7 +4,7 @@ import '../../Core/Footers/FOOT02/src/main';
 import '../../pages/Slides/SLID01/src/main';
 import '../../pages/Topics/TOPI01/src/main';
 import '../../pages/Contents/CONT02/src/main';
-import '../../pages/Products/PROD02/src/main';
+import '../../pages/Products/PROD02V1/src/main';
 import '../../pages/Contents/CONT03/src/main';
 import '../../pages/Blogs/BLOG01/src/main';
 import '../../pages/Topics/TOPI02/src/main';
