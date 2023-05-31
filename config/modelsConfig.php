@@ -116,7 +116,7 @@ return [
                 ]
             ],
         ],
-        'Products' => (object) [
+        'Products.1' => (object) [
             'PROD02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
@@ -257,7 +257,7 @@ return [
                 ],
             ],
         ],
-        'Products' => (object) [
+        'Products.2' => (object) [
             'PROD02V1' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
