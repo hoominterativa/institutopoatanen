@@ -950,6 +950,25 @@
                 "activeCrop": "true"
             }
         },
+        "TOPI08": {
+            "path_image_box": {
+                "width": "350",
+                "height": "521",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1450",
+                    "height": "836",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "836",
+                    "activeCrop": "true"
+                }
+            }
+        },
         "TOPI10": {
             "path_image_icon": {
                 "width": "300",
