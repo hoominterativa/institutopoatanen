@@ -36,7 +36,7 @@ class PROD02V1ProductsCategory extends Model
     public function scopeExists($query)
     {
         return $query->whereExists(function($query){
-            $query->select('id')->from('prod02v1_products')->whereRaw('prod02v1_products.category_id', 'prod02v1_products_categories.id');
+            $query->select('id')->from('prod02v1_products')->whereColumn('prod02v1_products.category_id', 'prod02v1_products_categories.id');
         });
     }
 

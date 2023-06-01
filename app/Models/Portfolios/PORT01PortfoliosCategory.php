@@ -31,7 +31,7 @@ class PORT01PortfoliosCategory extends Model
     public function scopeExists($query)
     {
         return $query->whereExists(function($query){
-            $query->select('id')->from('port01_portfolios')->whereRaw('port01_portfolios.category_id = port01_portfolios_categories.id');
+            $query->select('id')->from('port01_portfolios')->whereColumn('port01_portfolios.category_id = port01_portfolios_categories.id');
         });
     }
 
@@ -45,7 +45,7 @@ class PORT01PortfoliosCategory extends Model
     public function scopeExistsRegister($query)
     {
         return $query->whereExists(function($query){
-            $query->select('id')->from('port01_portfolios')->whereRaw('port01_portfolios.category_id = port01_portfolios_categories.id');
+            $query->select('id')->from('port01_portfolios')->whereColumn('port01_portfolios.category_id = port01_portfolios_categories.id');
         });
     }
 

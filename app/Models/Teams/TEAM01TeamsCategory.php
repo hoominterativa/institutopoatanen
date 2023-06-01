@@ -31,7 +31,7 @@ class TEAM01TeamsCategory extends Model
     public function scopeExists($query)
     {
         return $query->whereExists(function ($query){
-            $query->select('id')->from('team01_teams')->whereRaw('team01_teams.category_id', 'team01_teams_categories.id');
+            $query->select('id')->from('team01_teams')->whereColumn('team01_teams.category_id', 'team01_teams_categories.id');
         });
     }
 }
