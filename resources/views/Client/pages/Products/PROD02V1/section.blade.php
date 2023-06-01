@@ -2,12 +2,14 @@
     <div class="container container--edit">
         <header class="prod02v1__navigation">
             <div class="prod02v1__navigation__content d-flex justify-content-between w-100">
-                <div class="prod02v1__navigation__content__encompass">
-                    @if ($section->title || $section->subtitle)
-                        <h2 class="prod02v1__navigation__content__encompass__title">{{ $section->title }}</h2>
-                        <h3 class="prod02v1__navigation__content__encompass__subtitle mb-0">{{ $section->subtitle }}</h3>
-                    @endif
-                </div>
+                @if ($section)
+                    <div class="prod02v1__navigation__content__encompass">
+                        @if ($section->title  || $section->subtitle)
+                            <h2 class="prod02v1__navigation__content__encompass__title">{{ $section->title }}</h2>
+                            <h3 class="prod02v1__navigation__content__encompass__subtitle mb-0">{{ $section->subtitle }}</h3>
+                        @endif
+                    </div>
+                @endif
                 {{-- Finish prod02v1__navigation__content__encompass --}}
                 <nav class="prod02v1__navigation__content__nav__desktop justify-content-between align-items-center">
 
@@ -47,6 +49,7 @@
                 @endforeach
             </ul>
             {{-- Finish prod02v1__navigation__nav__mobile --}}
+            @if ($section)
             <div class="prod02v1__navigation__paragraph">
                 @if ($section->description)
                     <p>
@@ -54,6 +57,7 @@
                     </p>
                 @endif
             </div>
+            @endif
             {{-- Finish prod02v1__navigation__paragraph --}}
         </header>
         {{-- Finish prod02v1__navigation --}}
