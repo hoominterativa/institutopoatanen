@@ -134,6 +134,21 @@ if(!function_exists('getCompliance')){
     }
 }
 
+if(!function_exists('clearVersionNameModule')){
+
+    /**
+     * clear a number the name module
+     *
+     * @param string $module
+     *
+     * @return string
+     */
+    function clearVersionNameModule($module){
+        $arrayName = explode('.', $module);
+        return $arrayName[0];
+    }
+}
+
 if(!function_exists('getNameModule')){
 
     /**

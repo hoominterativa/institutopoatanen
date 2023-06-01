@@ -41,6 +41,7 @@ class CoreController extends Controller
                 $include = isset($config->IncludeCore->include)?$config->IncludeCore->include:false;
 
                 if(isset($config->IncludeCore)){
+                    $module = clearVersionNameModule($module);
                     $modelElloquent = $this->Class->$module->$code->model;
                     $modelDB = self::getModelParameters($modelElloquent);
 

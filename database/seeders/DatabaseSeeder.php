@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CallToActionTitle;
 use App\Models\User;
 use App\Models\Optimization;
 use App\Models\SettingTheme;
@@ -92,6 +93,12 @@ class DatabaseSeeder extends Seeder
         if(!GeneralSetting::first()){
             $this->call([
                 GeneralSettingSeeder::class,
+            ]);
+        }
+
+        if(!CallToActionTitle::first()){
+            $this->call([
+                CallToActionTitleSeeder::class,
             ]);
         }
     }

@@ -66,38 +66,6 @@ return [
             ],
         ],
         'Products' => (object) [
-            'PROD02V1' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Procedimentos',
-                    'anchor' =>  false,
-                    'linkMenu' => 'prod02v1.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Procedimentos',
-                    'iconPanel' => 'mdi-shopping-outline'
-                ],
-                'IncludeSections' => (object) [
-                    'Topics' => 'TOPI02',
-                ]
-            ],
             'PROD02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
@@ -147,6 +115,40 @@ return [
                     'iconPanel' => ''
                 ]
             ],
+        ],
+        'Products.1' => (object) [
+            'PROD02V1' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Procedimentos',
+                    'anchor' =>  false,
+                    'linkMenu' => 'prod02v1.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Procedimentos',
+                    'iconPanel' => 'mdi-shopping-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Topics' => 'TOPI02',
+                ]
+            ]
         ],
         'Blogs' => (object) [
             'BLOG01' => (object)[
