@@ -487,7 +487,24 @@
             "path_image_background_desktop": {
                 "width": "1500",
                 "height": "645",
+                "activeCrop": "false"
+            },
+            "path_image_background_mobile": {
+                "width": "390",
+                "height": "782",
                 "activeCrop": "true"
+            },
+            "path_image": {
+                "width": "429.09",
+                "height": "591.92",
+                "activeCrop": "false"
+            }
+        },
+        "CONT02V1": {
+            "path_image_background_desktop": {
+                "width": "1500",
+                "height": "645",
+                "activeCrop": "false"
             },
             "path_image_background_mobile": {
                 "width": "390",
