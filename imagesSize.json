@@ -406,6 +406,25 @@
                 "activeCrop": "false"
             }
         },
+        "CONT04": {
+            "path_image": {
+                "width": "430",
+                "height": "415",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "900",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "900",
+                    "activeCrop": "true"
+                }
+            }
+        },
         "CONT05":{
             "path_image_desktop": {
                 "width": "1500",
