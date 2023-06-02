@@ -1,3 +1,72 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
+.topi08 {
+    position: relative;
+    padding: 60px 0 80px 0;
+    @include backG;
+
+    &__header {
+        @include Flex($direction: column, $align: start);
+        @include medium-device-down {
+            align-items: center;
+        }
+
+        &__title {
+            font-family: $font-primary;
+            font-size: $T2;
+            font-weight: 700;
+            line-height: $font-46;
+            color: $color-one;
+            text-align: left;
+
+            @include medium-device-down {
+                font-size: $T2-mobile;
+                text-align: center;
+            }
+        }
+
+        &__subtitle {
+            font-family: $font-primary;
+            font-size: $T4;
+            font-weight: 700;
+            line-height: $font-22;
+            color: $color-three;
+            text-align: left;
+            margin-bottom: 17px;
+
+            @include medium-device-down {
+                font-size: $T4-mobile;
+                text-align: center;
+            }
+        }
+
+        &__line {
+            width: 100%;
+            border-top: 1px solid $color-one;
+            margin-bottom: 49px;
+        }
+    }
+
+    &__main {
+        @include Flex($justify: start);
+        width: 100%;
+        gap: 0 17px;
+    }
+
+    &__item {
+        position: relative;
+        width: 350px;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 350/521;
+        overflow: hidden;
+        &__bg {
+            @include Img($ObjectFit: cover);
+            object-position: center;
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+        }
+    }
+}
