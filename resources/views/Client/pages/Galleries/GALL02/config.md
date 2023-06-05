@@ -1,4 +1,6 @@
-  'Galleries' => (object) [
+<!-- IDEAL CONFIGURATION FOR THE MODEL -->
+
+'Galleries' => (object) [
     'GALL02' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => false,

@@ -163,6 +163,11 @@ return [
                 'model' => App\Models\Galleries\GALL02Galleries::class,
                 'seedQty' => 4,
             ],
+            'GALL03' => (object)[
+                'controller' => App\Http\Controllers\Galleries\GALL03Controller::class,
+                'model' => App\Models\Galleries\GALL03Galleries::class,
+                'seedQty' => 12,
+            ],
         ],
         // END GALLERIES
 

@@ -1,7 +1,7 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
-'Teams' => (object) [
-    'TEAM01' => (object)[
+'Galleries' => (object) [
+    'GALL03' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => true,
         'ViewListPanel' => true,
@@ -13,24 +13,16 @@
             'limit' => 'all',
             'condition' => 'active=1{Ativos},featured=1{Detaques}',
             'titleList' => 'title',
-            'relation' => (object)[
-                'category' =>(object)[
-                    'name' => 'Categoria',
-                    'titleList' => 'title',
-                    'condition' => 'active=1{Ativos}',
-                ]
-            ],
         ],
         'config' => (object) [
-            'titleMenu' => 'Equipe',
+            'titleMenu' => 'Galeria',
             'anchor' =>  false,
-            'linkMenu' => 'team01.page',
+            'linkMenu' => 'gall03.page',
             'iconMenu' => '',
-            'titlePanel' => 'Equipe',
+            'titlePanel' => 'Galeria',
             'iconPanel' => ''
         ],
         'IncludeSections' => (object) [
-            'Topics' => 'TOPI02',
         ],
     ],
 ],

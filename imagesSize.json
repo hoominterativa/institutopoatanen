@@ -172,6 +172,32 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "GALL03": {
+            "path_image": {
+                "width": "319",
+                "height": "437",
+                "activeCrop": "false"
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "248",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "200",
+                    "activeCrop": "true"
+                }
+            },
+            "Images": {
+                "path_image": {
+                    "width": "1210",
+                    "height": "675",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Portfolios": {
