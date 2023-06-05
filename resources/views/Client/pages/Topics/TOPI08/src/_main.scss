@@ -48,25 +48,100 @@
         }
     }
 
-    &__main {
-        @include Flex($justify: start);
-        width: 100%;
-        gap: 0 17px;
-    }
-
     &__item {
         position: relative;
-        width: 350px;
-        max-width: 100%;
+        width: 80%;
         height: auto;
         aspect-ratio: 350/521;
-        overflow: hidden;
+
         &__bg {
             @include Img($ObjectFit: cover);
             object-position: center;
             position: absolute;
             z-index: 1;
             inset: 0;
+        }
+
+        &__content {
+            z-index: 5;
+            padding: 0 23px 25px 37px;
+            transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s;
+        }
+
+        &__title {
+            font-size: $T5;
+            font-family: $font-primary;
+            font-weight: 700;
+            color: $color-five;
+            position: relative;
+            transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s;
+
+            &::before {
+                content: "";
+                height: 20px;
+                width: 22px;
+                left: -37px;
+                top: 0;
+                background-color: $color-five;
+                position: absolute;
+            }
+        }
+
+        &__desc {
+            @include Flex($direction: column, $align: stretch);
+            max-height: 0px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s;
+
+            font: $paragraph;
+            color: $color-white;
+            text-align: left;
+
+            p {
+                font: $paragraph;
+                color: $color-white;
+                text-align: left;
+            }
+        }
+
+        &:hover .topi08__item__desc {
+            max-height: 500px;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        &__cta {
+            @include Flex();
+            align-self: end;
+            white-space: nowrap;
+            background-color: $color-five;
+            padding: 4px 19px;
+            margin: 0 0 0 auto;
+            gap: 7px;
+
+            font-family: $font-secondary;
+            font-weight: 700;
+            font-size: $font-11;
+            color: $color-one;
+
+            &:hover {
+                background-color: $color-one;
+                color: $color-five;
+            }
+
+            &__icon {
+                height: 10px;
+                width: 10px;
+                object-fit: contain;
+                object-position: center;
+                @include trans($transition: 0.5s);
+            }
+
+            &:hover &__icon {
+                filter: brightness(1) contrast(1) invert(1) grayscale(1);
+            }
         }
     }
 }

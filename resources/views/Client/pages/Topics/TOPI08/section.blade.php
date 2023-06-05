@@ -7,15 +7,16 @@
             <hr class="topi08__header__line">
         </header>
 
-        <main class="topi08__main topi08__carousel">
+        <main class="topi08__carousel owl-carousel">
 
             @for ($i = 0; $i < 5; $i++)
-                <article class="topi08__item d-flex align-items-end flex-column">
-                    <img src="{{ asset('storage/uploads/tmp/bg-slid-mobile.jpg') }}" alt="imagem de fundo do tópico"
+                <article class="topi08__item d-flex justify-content-end flex-column">
+                    <img src="{{ asset('storage/uploads/tmp/bg-slide-dark.png') }}" alt="imagem de fundo do tópico"
                         class="topi08__item__bg">
 
-                    <div class="topi08__item__content d-flex flex-column w-100">
+                    <div class="topi08__item__content d-flex flex-column w-100 position-relative">
                         <h3 class="topi08__item__title">Título</h3>
+
                         <div class="topi08__item__desc">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus</p>
 
