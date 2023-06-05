@@ -1,3 +1,104 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
+.gall03 {
+    padding: 47px 0;
+    background-color: $color-five;
+
+    &__header {
+        &__title {
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: 700;
+            color: $color-black;
+
+            @include medium-device-down {
+                font-size: $T2-mobile;
+            }
+        }
+
+        &__subtitle {
+            font-size: $T4;
+            font-family: $font-primary;
+            font-weight: 700;
+            color: $color-four;
+
+            @include medium-device-down {
+                font-size: $T4-mobile;
+            }
+        }
+
+        &__line {
+            width: 100%;
+            border-top: solid 1px $color-one;
+            margin: 0.75rem 0 3rem 0;
+        }
+    }
+
+    &__carousel {
+        &__item {
+            @include Flex($align: end, $justify: start);
+            height: auto;
+            width: 100%;
+            aspect-ratio: 319/437;
+            position: relative;
+            padding: 33px;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                z-index: 1;
+                inset: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &__title {
+                font-family: $font-primary;
+                font-size: $T4;
+                font-weight: 700;
+                color: $color-one;
+                position: relative;
+                z-index: 5;
+
+                @include medium-device-down {
+                    font-size: $T4-mobile;
+                }
+
+                &::before {
+                    content: "";
+                    height: 25px;
+                    width: 27px;
+                    position: absolute;
+                    left: -33px;
+                    top: 0;
+                    background-color: $color-one;
+                }
+
+                &::after {
+                    content: "";
+                    height: 1px;
+                    width: 95px;
+                    position: absolute;
+                    left: -7px;
+                    top: 24px;
+                    background-color: $color-one;
+                }
+            }
+        }
+    }
+
+    .owl-nav {
+        margin-left: -20%;
+
+        @include small-device-down {
+            margin-left: -3%;
+        }
+    }
+}
+
+/* lightbox */
+.lightbox-gall03 {
+}
