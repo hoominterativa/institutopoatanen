@@ -13,27 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class GALL03ImageController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Galleries/GALL03/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +24,18 @@ class GALL03ImageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(GALL03GalleriesImage::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Imagem cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar a imagem');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Galleries\GALL03GalleriesImage  $GALL03GalleriesImage
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(GALL03GalleriesImage $GALL03GalleriesImage)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,10 +48,6 @@ class GALL03ImageController extends Controller
     public function update(Request $request, GALL03GalleriesImage $GALL03GalleriesImage)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -111,36 +59,14 @@ class GALL03ImageController extends Controller
             storageDelete($GALL03GalleriesImage, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($GALL03GalleriesImage, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($GALL03GalleriesImage, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($GALL03GalleriesImage->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Imagem atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a imagem');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +77,10 @@ class GALL03ImageController extends Controller
      */
     public function destroy(GALL03GalleriesImage $GALL03GalleriesImage)
     {
-        //storageDelete($GALL03GalleriesImage, 'path_image');
-        //storageDelete($GALL03GalleriesImage, 'path_archive');
+        storageDelete($GALL03GalleriesImage, 'path_image');
 
         if($GALL03GalleriesImage->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Imagem deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +93,13 @@ class GALL03ImageController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $GALL03GalleriesImages = GALL03GalleriesImage::whereIn('id', $request->deleteAll)->get();
         foreach($GALL03GalleriesImages as $GALL03GalleriesImage){
             storageDelete($GALL03GalleriesImage, 'path_image');
-            storageDelete($GALL03GalleriesImage, 'path_archive');
         }
-        */
 
         if($deleted = GALL03GalleriesImage::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Imagens deletadas com sucessso']);
         }
     }
     /**
@@ -194,51 +115,5 @@ class GALL03ImageController extends Controller
             GALL03GalleriesImage::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Galleries\GALL03GalleriesImage  $GALL03GalleriesImage
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(GALL03GalleriesImage $GALL03GalleriesImage)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

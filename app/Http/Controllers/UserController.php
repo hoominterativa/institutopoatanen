@@ -102,7 +102,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('Admin.cruds.user.edit',[
+        return view('Admin.cruds.User.edit',[
             'user' => $user
         ]);
     }
