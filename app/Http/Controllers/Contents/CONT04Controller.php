@@ -110,6 +110,21 @@ class CONT04Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Contents.CONT04.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = CONT04ContentsSection::active()->first();
+                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+                break;
+            default:
+                $section = CONT04ContentsSection::active()->first();
+                break;
+        }
+
+        $content = CONT04Contents::first();
+        return view('Client.pages.Contents.CONT04.section', [
+            'content' => $content,
+            'section' => $section
+        ]);
     }
 }

@@ -1,46 +1,49 @@
-<section id="CONT04" class="cont04 container-fluid"
-    style="background-image: url({{ asset('storage/uploads/tmp/bg-slide.jpg') }}); ">
-    <div class="container">
-
-        <header class="cont04__header w-100 d-flex flex-column align-items-center">
-            <h2 class="cont04__header__title text-center">Título</h2>
-
-            <h3 class="cont04__header__subtitle text-center">Subtítulo</h3>
-
-            <hr class="cont04__header__line">
-
-            <div class="cont04__header__desc text-center">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                    sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget
-                    purus mattis posuere. Donec tincidunt dignissim faucibus.
-                </p>
-            </div>
-        </header>
-
-        <main class="cont04__main w-100">
-            <img src="{{ asset('storage/uploads/tmp/png-slide.png') }}" alt="" class="cont04__main__image">
-
-            <div class="cont04__main__content d-flex flex-column align-self-stretch">
-                <h4 class="cont04__main__subtitle">Subtítulo</h4>
-
-                <h4 class="cont04__main__title">Título</h4>
-
-                <hr class="cont04__main__line">
-
-                <div class="cont04__main__desc w-100">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                        sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                        get purus mattis posuere. Donec tincidunt dignissim faucibus. </p>
+@if ($section)
+    <section id="CONT04" class="cont04 container-fluid"
+        style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};">
+        <div class="container">
+            <header class="cont04__header w-100 d-flex flex-column align-items-center">
+                @if ($section->title || $section->subtitle)
+                    <h2 class="cont04__header__title text-center">{{$section->title}}</h2>
+                    <h3 class="cont04__header__subtitle text-center">{{$section->subtitle}}</h3>
+                    <hr class="cont04__header__line">
+                @endif
+                <div class="cont04__header__desc text-center">
+                    @if ($section->description)
+                        <p>
+                            {!! $section->description !!}
+                        </p>
+                    @endif
                 </div>
-
-                <a href="" class="cont04__main__cta">
-                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                        class="cont04__main__content__cta__icon" alt="Ícone do botão">
-                    CTA
-                </a>
-            </div>
-
-        </main>
-
-    </div>
-</section>
+            </header>
+            @if ($content)
+                <main class="cont04__main w-100">
+                    @if ($content->path_image)
+                        <img src="{{ asset('storage/' . $content->path_image) }}" alt="" class="cont04__main__image">
+                    @endif
+                    <div class="cont04__main__content d-flex flex-column align-self-stretch">
+                        @if ($content->title || $content->subtitle)
+                            <h4 class="cont04__main__subtitle">{{$content->title}}</h4>
+                            <h4 class="cont04__main__title">{{$content->subtitle}}</h4>
+                            <hr class="cont04__main__line">
+                        @endif
+                        <div class="cont04__main__desc w-100">
+                            @if ($content->description)
+                                <p>
+                                    {!! $content->description !!}
+                                </p>
+                            @endif
+                        </div>
+                        <a href="{{ $content->link_button ? getUri($content->link_button) : '#' }}" target="{{ $content->target_link_button }}" class="cont04__main__cta">
+                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
+                                class="cont04__main__content__cta__icon" alt="Ícone do botão">
+                            @if ($content->title_button)
+                                {{ $content->title_button }}
+                            @endif
+                        </a>
+                    </div>
+                </main>
+            @endif
+        </div>
+    </section>
+@endif
