@@ -1,3 +1,152 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
+.topi08 {
+    position: relative;
+    padding: 60px 0 80px 0;
+    @include backG;
+
+    &__header {
+        @include Flex($direction: column, $align: start);
+        @include medium-device-down {
+            align-items: center;
+        }
+
+        &__title {
+            font-family: $font-primary;
+            font-size: $T2;
+            font-weight: 700;
+            line-height: $font-46;
+            color: $color-one;
+            text-align: left;
+
+            @include medium-device-down {
+                font-size: $T2-mobile;
+                text-align: center;
+            }
+        }
+
+        &__subtitle {
+            font-family: $font-primary;
+            font-size: $T4;
+            font-weight: 700;
+            line-height: $font-22;
+            color: $color-three;
+            text-align: left;
+            margin-bottom: 17px;
+
+            @include medium-device-down {
+                font-size: $T4-mobile;
+                text-align: center;
+            }
+        }
+
+        &__line {
+            width: 100%;
+            border-top: 1px solid $color-one;
+            margin-bottom: 49px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        width: 80%;
+        height: auto;
+        aspect-ratio: 350/521;
+        max-width: 350px;
+        max-height: 521px;
+        @include small-device-down {
+            width: 95%;
+        }
+
+        &__bg {
+            @include Img($ObjectFit: cover);
+            object-position: center;
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+        }
+
+        &__content {
+            z-index: 5;
+            padding: 0 23px 25px 37px;
+            transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s;
+        }
+
+        &__title {
+            font-size: $T5;
+            font-family: $font-primary;
+            font-weight: 700;
+            color: $color-five;
+            position: relative;
+            transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s;
+
+            &::before {
+                content: "";
+                height: 20px;
+                width: 22px;
+                left: -37px;
+                top: 0;
+                background-color: $color-five;
+                position: absolute;
+            }
+        }
+
+        &__desc {
+            @include Flex($direction: column, $align: stretch);
+            max-height: 0px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s;
+
+            font: $paragraph;
+            color: $color-white;
+            text-align: left;
+
+            p {
+                font: $paragraph;
+                color: $color-white;
+                text-align: left;
+            }
+        }
+
+        &:hover .topi08__item__desc {
+            max-height: 500px;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        &__cta {
+            @include Flex();
+            align-self: end;
+            white-space: nowrap;
+            background-color: $color-five;
+            padding: 4px 19px;
+            margin: 0 0 0 auto;
+            gap: 7px;
+
+            font-family: $font-secondary;
+            font-weight: 700;
+            font-size: $font-11;
+            color: $color-one;
+
+            &:hover {
+                background-color: $color-one;
+                color: $color-five;
+            }
+
+            &__icon {
+                height: 10px;
+                width: 10px;
+                object-fit: contain;
+                object-position: center;
+                @include trans($transition: 0.5s);
+            }
+
+            &:hover &__icon {
+                filter: brightness(1) contrast(1) invert(1) grayscale(1);
+            }
+        }
+    }
+}

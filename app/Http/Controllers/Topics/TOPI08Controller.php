@@ -174,6 +174,20 @@ class TOPI08Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.Pages.Topics.TOPI08.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = TOPI08TopicsSection::active()->first();
+                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+                break;
+            default:
+            $section = TOPI08TopicsSection::active()->first();
+        }
+
+        $topics = TOPI08Topics::active()->sorting()->get();
+        return view('Client.Pages.Topics.TOPI08.section', [
+            'topics' => $topics,
+            'section' => $section
+        ]);
     }
 }
