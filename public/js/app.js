@@ -12338,20 +12338,20 @@ $(function () {
     autoHeight: true,
     responsive: {
       0: {
-        items: 1 // margin: -150,
+        items: 1,
+        margin: 0
+      },
+      480: {
+        items: 2 // margin: -150,
 
       },
-      // breakpoint from 0 up
-      768: {
-        items: 1 // margin: -150,
-
-      },
-      // breakpoint from 361 up
       801: {
-        items: 4 // margin: 0,
+        items: 3 // margin: 0,
 
-      } // breakpoint from 801 up
-
+      },
+      992: {
+        items: 4
+      }
     }
   });
   $(".gall03__carousel").css("width", $(window).outerWidth());

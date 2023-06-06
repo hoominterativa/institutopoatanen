@@ -12,11 +12,17 @@
                     class="lightbox-gall03__bottom__main__item" alt="">
                 <h4 class="lightbox-gall03__bottom__main__legend">Legenda da Imagem</h4>
             </div>
+
             <div class="lightbox-gall03__bottom__thumbnail">
                 <div class="lightbox-gall03__bottom__thumbnail__carousel">
-                    <img src="{{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }}" alt="Imagem">
+                    @for ($i = 0; $i < 5; $i++)
+                        <img src="{{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }}" alt="Imagem"
+                            data-main-image="{{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }}"
+                            data-main-title="Título {{ $i }}">
+                    @endfor
                 </div>
             </div>
+
         </div>
 
     </div>
