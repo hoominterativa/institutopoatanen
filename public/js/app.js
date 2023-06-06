@@ -12340,14 +12340,26 @@ $(function () {
     dots: false,
     nav: false,
     rewind: true
-  }, _defineProperty(_$$owlCarousel, "margin", -70), _defineProperty(_$$owlCarousel, "items", 3), _defineProperty(_$$owlCarousel, "responsive", {
+  }, _defineProperty(_$$owlCarousel, "margin", -140), _defineProperty(_$$owlCarousel, "items", 3), _defineProperty(_$$owlCarousel, "responsive", {
     // breakpoint from 0 up
     0: {
-      items: 1
+      items: 1,
+      margin: 0
     },
     // breakpoint from 360 up
-    361: {
-      items: 1
+    425: {
+      items: 2,
+      margin: 0
+    },
+    769: {
+      items: 3,
+      margin: -42
+    },
+    1200: {
+      margin: -80
+    },
+    1320: {
+      margin: -120
     }
   }), _$$owlCarousel)); // }
 

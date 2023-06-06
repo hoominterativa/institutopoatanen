@@ -53,6 +53,11 @@
         width: 80%;
         height: auto;
         aspect-ratio: 350/521;
+        max-width: 350px;
+        max-height: 521px;
+        @include small-device-down {
+            width: 95%;
+        }
 
         &__bg {
             @include Img($ObjectFit: cover);

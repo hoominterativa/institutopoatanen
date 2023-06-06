@@ -7,17 +7,29 @@ $(function () {
         dots: false,
         nav: false,
         rewind: true,
-        margin: -70,
+        margin: -140,
         items: 3,
         responsive: {
             // breakpoint from 0 up
             0: {
                 items: 1,
+                margin: 0,
             },
             // breakpoint from 360 up
-            361: {
-                items: 1,
+            425: {
+                items: 2,
+                margin: 0,
             },
+            769: {
+                items: 3,
+                margin: -42,
+            },
+            1200: {
+                margin: -80,
+            },
+            1320: {
+                margin: -120,
+            }
         },
     });
     // }
