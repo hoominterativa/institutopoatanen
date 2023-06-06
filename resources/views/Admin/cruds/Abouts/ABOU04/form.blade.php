@@ -31,23 +31,18 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Background desktop', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image->width }}x{{ $cropSetting->path_image->height }}px!</small>
+                    {!! Form::label('inputImage', 'Imagem Interna', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
-                            'id' => 'inputImage',
-                            'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image->width, // px
-                            'data-min-height' => $cropSetting->path_image->height, // px
-                            'data-box-height' => '170', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($about)
-                                ? ($about->path_image != ''
-                                    ? url('storage/' . $about->path_image)
-                                    : '')
-                                : '',
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image->width, // px
+                            'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-box-height'=>'225', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($about)?($about->path_image<>''?url('storage/'.$about->path_image):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->

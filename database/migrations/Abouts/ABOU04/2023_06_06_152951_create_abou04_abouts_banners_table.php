@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAbou04AboutsTable extends Migration
+class CreateAbou04AboutsBannersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateAbou04AboutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('abou04_abouts', function (Blueprint $table) {
+        Schema::create('abou04_abouts_banners', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->text('text')->nullable();
-            $table->string('path_image')->nullable();
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateAbou04AboutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abou04_abouts');
+        Schema::dropIfExists('abou04_abouts_banners');
     }
 }

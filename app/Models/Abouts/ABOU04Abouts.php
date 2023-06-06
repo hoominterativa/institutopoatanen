@@ -16,5 +16,5 @@ class ABOU04Abouts extends Model
     }
 
     protected $table = "abou04_abouts";
-    protected $fillable = ['title', 'subtitle', 'text'];
+    protected $fillable = ['title', 'subtitle', 'text', 'path_image'];
 }

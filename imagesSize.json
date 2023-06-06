@@ -48,6 +48,11 @@
             }
         },
         "ABOU04": {
+            "path_image": {
+                "width": "600",
+                "height": "600",
+                "activeCrop": "false"
+            },
             "Banner": {
                 "path_image_desktop": {
                     "width": "1500",
@@ -59,11 +64,6 @@
                     "height": "290",
                     "activeCrop": "true"
                 }
-            },
-            "path_image": {
-                "width": "430",
-                "height": "592",
-                "activeCrop": "false"
             },
             "Gallery": {
                 "path_image": {

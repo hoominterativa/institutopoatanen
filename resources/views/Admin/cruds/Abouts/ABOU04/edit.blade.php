@@ -72,18 +72,18 @@
                     <div class="tab-pane show active" id="about">
                         @include('Admin.cruds.Abouts.ABOU04.form')
                     </div>
-                    <div class="tab-pane" id="banner">
+                    {{-- <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Abouts.ABOU04.Banner.form')
                     </div>
                     <div class="tab-pane" id="gallery">
-                        @include('Admin.cruds.Abouts.ABOU04.Gallery.index',)
+                        @include('Admin.cruds.Abouts.ABOU04.Gallery.index')
                     </div>
                     <div class="tab-pane" id="lastSection">
                         @include('Admin.cruds.Abouts.ABOU04.Topic.index')
                     </div>
                     <div class="tab-pane" id="section">
                         @include('Admin.cruds.Abouts.ABOU02.Section.form')
-                    </div>
+                    </div> --}}
                 </div>
             </div> <!-- container -->
         </div> <!-- content -->

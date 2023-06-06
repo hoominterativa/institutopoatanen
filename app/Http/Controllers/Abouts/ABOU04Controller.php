@@ -13,7 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class ABOU04Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Abouts/ABOU04/images/';
 
     /**
      * Display a listing of the resource.
@@ -23,6 +23,10 @@ class ABOU04Controller extends Controller
     public function index()
     {
         $about = ABOU04Abouts::first();
+        return view('Admin.cruds.Abouts.ABOU04.edit', [
+            'about' => $about,
+            'cropSetting' => getCropImage('Abouts', 'ABOU04')
+        ]);
     }
 
     /**
@@ -34,35 +38,18 @@ class ABOU04Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(ABOU04Abouts::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar as informações');
         }
+        return redirect()->back();
     }
 
     /**
@@ -75,10 +62,6 @@ class ABOU04Controller extends Controller
     public function update(Request $request, ABOU04Abouts $ABOU04Abouts)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -90,36 +73,14 @@ class ABOU04Controller extends Controller
             storageDelete($ABOU04Abouts, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($ABOU04Abouts, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($ABOU04Abouts, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($ABOU04Abouts->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar as informações');
         }
+        return redirect()->back();
     }
 
     // METHODS CLIENT
