@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Abouts\ABOU04AboutsBanner;
+use App\Models\Abouts\ABOU04AboutsSection;
 
 class ABOU04Controller extends Controller
 {
@@ -23,8 +25,12 @@ class ABOU04Controller extends Controller
     public function index()
     {
         $about = ABOU04Abouts::first();
+        $banner = ABOU04AboutsBanner::first();
+        $section = ABOU04AboutsSection::first();
         return view('Admin.cruds.Abouts.ABOU04.edit', [
             'about' => $about,
+            'banner' => $banner,
+            'section' => $section,
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }

@@ -2,7 +2,7 @@
 
 namespace App\Models\Abouts;
 
-use Database\Factories\ABOU04AboutsBannerFactory;
+use Database\Factories\Abouts\ABOU04AboutsBannerFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,21 +15,11 @@ class ABOU04AboutsBanner extends Model
         return ABOU04AboutsBannerFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
-
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
+    protected $table = "abou04_abouts_banners";
+    protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active'];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }
