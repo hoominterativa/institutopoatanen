@@ -46,6 +46,68 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "ABOU04": {
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "290",
+                    "activeCrop": "true"
+                }
+            },
+            "path_image": {
+                "width": "430",
+                "height": "592",
+                "activeCrop": "false"
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Topic": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "SectionTopic": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "true"
+                }
+            },
+            "Section": {
+                "path_image": {
+                    "width": "430",
+                    "height": "592",
+                    "activeCrop": "false"
+                },
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Blogs": {

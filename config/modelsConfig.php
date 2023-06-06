@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Galleries' => (object) [
-            'GALL03' => (object)[
+        'Abouts' => (object) [
+            'ABOU04' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -25,15 +25,15 @@ return [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'condition' => 'active=1{Ativos}',
                     'titleList' => 'title',
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Galeria',
+                    'titleMenu' => 'Sobre',
                     'anchor' =>  false,
-                    'linkMenu' => 'gall03.page',
+                    'linkMenu' => 'abou04.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Galeria',
+                    'titlePanel' => 'Sobre',
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
