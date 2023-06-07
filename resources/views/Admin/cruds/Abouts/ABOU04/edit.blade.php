@@ -45,7 +45,7 @@
                             Galeria
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esta seção será apresentada abaixo da seção Tópicos"></i>
+                                data-bs-original-title="Aqui você pode cadastrar diversas imagens"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -75,10 +75,10 @@
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Abouts.ABOU04.Banner.form')
                     </div>
-                    {{-- <div class="tab-pane" id="gallery">
+                    <div class="tab-pane" id="gallery">
                         @include('Admin.cruds.Abouts.ABOU04.Gallery.index')
                     </div>
-                    <div class="tab-pane" id="lastSection">
+                    {{-- <div class="tab-pane" id="topics">
                         @include('Admin.cruds.Abouts.ABOU04.Topic.index')
                     </div>--}}
                     <div class="tab-pane" id="section">

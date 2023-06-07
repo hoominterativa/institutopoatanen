@@ -1,7 +1,7 @@
 
 <div class="row mb-3">
     <div class="col-6">
-        <button id="btSubmitDelete" data-route="{{route('admin.comp01.archive.destroySelected')}}" type="button" class="btn btn-danger btnDeleteBlogCategory" style="display: none;">Deletar selecionados</button>
+        <button id="btSubmitDelete" data-route="{{route('admin.copa01.archive.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
     </div>
 </div>
 <table class="table table-bordered table-sortable">
@@ -9,7 +9,7 @@
         <tr>
             <th width="50px"></th>
             <th width="30px" class="bs-checkbox">
-                <label><input name="btnSelectAll" value="btnDeleteBlogCategory" type="checkbox"></label>
+                <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
             </th>
             <th>Title</th>
             <th>Arquivo</th>
@@ -17,7 +17,7 @@
         </tr>
     </thead>
 
-    <tbody data-route="{{route('admin.comp01.archive.sorting')}}">
+    <tbody data-route="{{route('admin.copa01.archive.sorting')}}">
         @foreach ($archives as $archive)
             <tr data-code="{{$archive->id}}">
                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -31,7 +31,7 @@
                         <div class="col-4">
                             <a href="javascript:void(0)" data-bs-target="#modal-archive-update-{{$archive->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                         </div>
-                        <form action="{{route('admin.comp01.archive.destroy',['COMP01CompliancesArchive' => $archive->id])}}" class="col-4" method="POST">
+                        <form action="{{route('admin.copa01.archive.destroy',['COPA01ContentPagesSectionArchive' => $archive->id])}}" class="col-4" method="POST">
                             @method('DELETE') @csrf
                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                         </form>
@@ -45,7 +45,7 @@
                                     </div>
 
                                     <div class="modal-body p-3 pt-0 pb-3">
-                                        @include('Admin.cruds.Compliances.COMP01.Archives.form',[
+                                        @include('Admin.cruds.ContentPages.COPA01.Archives.form',[
                                             'archive' => $archive,
                                             'section' => $section
                                         ])

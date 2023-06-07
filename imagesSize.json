@@ -65,7 +65,7 @@
                     "activeCrop": "true"
                 }
             },
-            "Gallery": {
+            "Galleries": {
                 "path_image": {
                     "width": "300",
                     "height": "300",

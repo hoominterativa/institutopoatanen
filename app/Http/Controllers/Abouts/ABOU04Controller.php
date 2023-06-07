@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Abouts\ABOU04AboutsBanner;
+use App\Models\Abouts\ABOU04AboutsGallery;
 use App\Models\Abouts\ABOU04AboutsSection;
+use App\Models\Abouts\ABOU04AboutsSectionGallery;
 
 class ABOU04Controller extends Controller
 {
@@ -27,10 +29,14 @@ class ABOU04Controller extends Controller
         $about = ABOU04Abouts::first();
         $banner = ABOU04AboutsBanner::first();
         $section = ABOU04AboutsSection::first();
+        $galleries = ABOU04AboutsGallery::sorting()->get();
+        $sectionGallery = ABOU04AboutsSectionGallery::first();
         return view('Admin.cruds.Abouts.ABOU04.edit', [
             'about' => $about,
             'banner' => $banner,
             'section' => $section,
+            'galleries' => $galleries,
+            'sectionGallery' => $sectionGallery,
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }

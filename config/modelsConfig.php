@@ -21,13 +21,13 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                ],
+                // 'IncludeCore' => (object) [
+                //     'include' => true,
+                //     'sorting' => true,
+                //     'limit' => 'all',
+                //     'condition' => 'active=1{Ativos}',
+                //     'titleList' => 'title',
+                // ],
                 'config' => (object) [
                     'titleMenu' => 'Sobre',
                     'anchor' =>  false,

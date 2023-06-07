@@ -3,7 +3,9 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Abouts\ABOU04BannerController;
+use App\Http\Controllers\Abouts\ABOU04GalleryController;
 use App\Http\Controllers\Abouts\ABOU04SectionController;
+use App\Http\Controllers\Abouts\ABOU04SectionGalleryController;
 
 /**
  * Uncomment the code below
@@ -31,9 +33,11 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
     Route::resource($route.'/secao', ABOU04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'ABOU04AboutsSection']);
 
-    Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-    Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-    Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+    Route::resource($route.'/secaogaleria', ABOU04SectionGalleryController::class)->names('admin.'.$routeName.'.sectionGallery')->parameters(['secaogaleria' => 'ABOU04AboutsSectionGallery']);
+
+    Route::resource($route.'/galeria', ABOU04GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'ABOU04AboutsGallery']);
+    Route::post($route.'/galeria/delete', [ABOU04GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [ABOU04GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
