@@ -305,12 +305,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -329,17 +326,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -1290,7 +1277,441 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 
-/* BEGIN STYLE */ /* BEGIN STYLE */
+/* BEGIN STYLE */
+.abou04 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 68px;
+}
+.abou04__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+@media (max-width: 575.98px) {
+  .abou04__main {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: end;
+  }
+}
+.abou04__image {
+  width: 34%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center bottom;
+     object-position: center bottom;
+}
+@media (max-width: 575.98px) {
+  .abou04__image {
+    width: 100%;
+    margin-top: 59px;
+  }
+}
+.abou04__content {
+  width: 52%;
+}
+@media (max-width: 575.98px) {
+  .abou04__content {
+    width: 100%;
+  }
+}
+.abou04__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+}
+@media (max-width: 767.98px) {
+  .abou04__title {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+}
+.abou04__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  text-align: left;
+  margin-bottom: 39px;
+}
+@media (max-width: 767.98px) {
+  .abou04__subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+}
+.abou04__line {
+  width: 100%;
+  border-top: 1px solid #7C7C7C;
+  margin: 0 0 34px 0;
+  opacity: 1;
+}
+.abou04__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: end;
+  white-space: nowrap;
+  background-color: #fff;
+  padding: 10px 40px;
+  margin-top: 25px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+.abou04__cta:hover {
+  background-color: #404040;
+  color: #fff;
+}
+.abou04__cta__icon {
+  height: 25px;
+  width: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transition: all 0.5s ease;
+}
+.abou04__cta:hover .abou04__cta__icon {
+  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+}
+
+.abou04-page {
+  width: 100%;
+}
+.abou04-page__banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 112px 0 92px 0;
+}
+.abou04-page__banner__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 3.125rem;
+  font-weight: 700;
+  line-height: 2.875rem;
+  color: #000;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__banner__title {
+    font-size: 2.5rem;
+  }
+}
+.abou04-page__banner__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.315rem;
+  color: #7C7C7C;
+  text-align: center;
+  margin-bottom: 28px;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__banner__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.abou04-page__banner__line {
+  width: 95%;
+  max-width: 610px;
+  border-top: 1px solid #000;
+  margin: 0 auto;
+  opacity: 1;
+}
+.abou04-page__cont {
+  padding-top: 48px;
+}
+.abou04-page__cont__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+@media (max-width: 575.98px) {
+  .abou04-page__cont__main {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: end;
+  }
+}
+.abou04-page__cont__image {
+  width: 34%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center bottom;
+     object-position: center bottom;
+}
+@media (max-width: 575.98px) {
+  .abou04-page__cont__image {
+    width: 100%;
+    margin-top: 59px;
+  }
+}
+.abou04-page__cont__content {
+  width: 52%;
+}
+@media (max-width: 575.98px) {
+  .abou04-page__cont__content {
+    width: 100%;
+  }
+}
+.abou04-page__cont__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__cont__title {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+}
+.abou04-page__cont__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  text-align: left;
+  margin-bottom: 39px;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__cont__subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+}
+.abou04-page__cont__line {
+  width: 100%;
+  border-top: 1px solid #7C7C7C;
+  margin: 0 0 34px 0;
+  opacity: 1;
+}
+.abou04-page__gallery {
+  padding: 70px 0;
+  background-color: #CACACA;
+}
+.abou04-page__gallery__header {
+  margin-bottom: 70px;
+}
+.abou04-page__gallery__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #404040;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__gallery__header__title {
+    font-size: 1.875rem;
+  }
+}
+.abou04-page__gallery__header__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  margin-bottom: 39px;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__gallery__header__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.abou04-page__gallery__header__line {
+  width: 100%;
+  border-top: 1px solid #7C7C7C;
+  margin: 0 auto;
+  opacity: 1;
+}
+.abou04-page__gallery__list {
+  gap: 15px 11px;
+}
+.abou04-page__gallery__list__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  width: calc(25% - 9px);
+  height: auto;
+  aspect-ratio: 319/288;
+  position: relative;
+  padding: 33px;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .abou04-page__gallery__list__item {
+    width: calc(33% - 5px);
+  }
+}
+@media (max-width: 767.98px) {
+  .abou04-page__gallery__list__item {
+    width: calc(50% - 5.5px);
+  }
+}
+@media (max-width: 575.98px) {
+  .abou04-page__gallery__list__item {
+    width: 100%;
+  }
+}
+.abou04-page__gallery__list__item__image {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.abou04-page__gallery__list__item__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  position: relative;
+  z-index: 5;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__gallery__list__item__title {
+    font-size: 1.125rem;
+  }
+}
+.abou04-page__gallery__list__item__title::before {
+  content: "";
+  height: 25px;
+  width: 27px;
+  position: absolute;
+  left: -33px;
+  top: 0;
+  background-color: #404040;
+}
+.abou04-page__gallery__list__item__title::after {
+  content: "";
+  height: 1px;
+  width: 95px;
+  position: absolute;
+  left: -7px;
+  top: 24px;
+  background-color: #404040;
+}
+.abou04-page__gallery__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+  background-color: #B3B3B3;
+  padding: 10px 40px;
+  margin-top: 55px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+.abou04-page__gallery__cta:hover {
+  background-color: #404040;
+  color: #B3B3B3;
+}
+.abou04-page__gallery__cta__icon {
+  height: 25px;
+  width: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transition: all 0.5s ease;
+}
+.abou04-page__gallery__cta:hover .abou04-page__gallery__cta__icon {
+  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+}
+.abou04-page__topics {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 125px 0;
+}
+.abou04-page__topics__list {
+  gap: 27px;
+}
+.abou04-page__topics__item {
+  gap: 27px;
+  width: calc(33% - 15px);
+  padding: 55px 30px 45px 30px;
+  background-color: #CACACA;
+}
+@media (max-width: 991.98px) {
+  .abou04-page__topics__item {
+    width: calc(50% - 15px);
+  }
+}
+@media (max-width: 991.98px) {
+  .abou04-page__topics__item {
+    width: 100%;
+  }
+}
+.abou04-page__topics__item__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  gap: 19px;
+}
+.abou04-page__topics__item__icon {
+  width: 32px;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-fit: center;
+     object-fit: center;
+}
+.abou04-page__topics__item__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__topics__item__title {
+    font-size: 1.563rem;
+  }
+}
+.abou04-page__topics__item__desc {
+  width: 100%;
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7C7C7C;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__topics__item__desc {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.abou04-page__topics__item__desc p {
+  width: 100%;
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7C7C7C;
+}
+@media (max-width: 767.98px) {
+  .abou04-page__topics__item__desc p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;
