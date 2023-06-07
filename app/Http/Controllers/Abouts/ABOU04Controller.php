@@ -129,11 +129,37 @@ class ABOU04Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = ABOU04AboutsBanner::active()->first();
+                if ($banner) {$banner->path_image_desktop = $banner->path_image_mobile;}
+                $sectionTopic = ABOU04AboutsSectionTopic::active()->first();
+                if ($sectionTopic) {$sectionTopic->path_image_desktop = $sectionTopic->path_image_mobile;}
+            break;
+            default:
+                $banner = ABOU04AboutsBanner::active()->first();
+                $sectionTopic = ABOU04AboutsSectionTopic::active()->first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU04', 'page');
 
+        $about = ABOU04Abouts::first();
+        $galleries = ABOU04AboutsGallery::active()->sorting()->get();
+        $sectionGallery = ABOU04AboutsSectionGallery::active()->first();
+        $topics = ABOU04AboutsTopic::active()->sorting()->get();
+
         return view('Client.pages.Abouts.ABOU04.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'about' => $about,
+            'galleries' => $galleries,
+            'sectionGallery' => $sectionGallery,
+            'topics' => $topics,
+            'sectionTopic' => $sectionTopic,
+
         ]);
     }
 
@@ -144,6 +170,18 @@ class ABOU04Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Abouts.ABOU04.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = ABOU04AboutsSection::active()->first();
+                if ($section) {$section->path_image_desktop = $section->path_image_mobile;}
+            break;
+            default:
+                $section = ABOU04AboutsSection::active()->first();
+            break;
+        }
+        return view('Client.pages.Abouts.ABOU04.section', [
+            'section' => $section
+        ]);
     }
 }

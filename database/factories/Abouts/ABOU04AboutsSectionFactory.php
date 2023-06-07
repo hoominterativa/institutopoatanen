@@ -24,7 +24,7 @@ class ABOU04AboutsSectionFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
-            'description' => $this->faker->text(10),
+            'description' => $this->faker->text(300),
             'path_image' => 'uploads/tmp/image-pmg.png',
             'path_image_desktop' => 'uploads/tmp/port01_path_image_section.jpg',
             'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
