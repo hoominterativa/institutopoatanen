@@ -8,7 +8,7 @@ return [
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT02'
+            'Code' => 'FOOT05'
         ]
     ],
 
@@ -36,8 +36,7 @@ return [
                     'titlePanel' => 'Galeria',
                     'iconPanel' => ''
                 ],
-                'IncludeSections' => (object) [
-                ],
+                'IncludeSections' => (object) [],
             ],
         ],
     ],
