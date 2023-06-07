@@ -232,6 +232,11 @@ class GALL03Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Galleries.GALL03.section');
+        $section = GALL03GalleriesSection::active()->first();
+        $galleries = GALL03Galleries::with('images')->active()->sorting()->get();
+        return view('Client.pages.Galleries.GALL03.section', [
+            'section' => $section,
+            'galleries' => $galleries
+        ]);
     }
 }

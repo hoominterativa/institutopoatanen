@@ -1,9 +1,8 @@
-<div class="lightbox-gall03" id="lightbox-gall03">
+<div class="lightbox-gall03{{$galery->id}}" id="lightbox-gall03">
     <div class="lightbox-gall03__content container">
 
         <div class="lightbox-gall03__top">
             <h4 class="lightbox-gall03__title">Title</h4>
-            <h4 class="lightbox-gall03__subtitle">Subtitle</h4>
         </div>
 
         <div class="lightbox-gall03__bottom">
