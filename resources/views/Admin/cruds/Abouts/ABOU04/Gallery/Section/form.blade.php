@@ -12,6 +12,9 @@
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
+            <div class="alert alert-warning">
+                <p class="mb-0">Informações complementares para a seção galeria.</p>
+            </div>
             <div class="mb-3">
                 {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
@@ -98,6 +101,8 @@
     </div>
 </div>
 
-{!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-<a href="{{route('admin.dashboard')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+<div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
+    {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
+</div>
 {!! Form::close() !!}

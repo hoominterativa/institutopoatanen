@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\Abouts;
 
+use Illuminate\Http\Request;
 use App\Models\Abouts\ABOU04Abouts;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Abouts\ABOU04AboutsTopic;
+use Illuminate\Support\Facades\Response;
 use App\Models\Abouts\ABOU04AboutsBanner;
 use App\Models\Abouts\ABOU04AboutsGallery;
 use App\Models\Abouts\ABOU04AboutsSection;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Abouts\ABOU04AboutsSectionTopic;
 use App\Models\Abouts\ABOU04AboutsSectionGallery;
+use App\Http\Controllers\IncludeSectionsController;
 
 class ABOU04Controller extends Controller
 {
@@ -31,12 +33,16 @@ class ABOU04Controller extends Controller
         $section = ABOU04AboutsSection::first();
         $galleries = ABOU04AboutsGallery::sorting()->get();
         $sectionGallery = ABOU04AboutsSectionGallery::first();
+        $topics = ABOU04AboutsTopic::sorting()->get();
+        $sectionTopic = ABOU04AboutsSectionTopic::first();
         return view('Admin.cruds.Abouts.ABOU04.edit', [
             'about' => $about,
             'banner' => $banner,
             'section' => $section,
             'galleries' => $galleries,
             'sectionGallery' => $sectionGallery,
+            'topics' => $topics,
+            'sectionTopic' => $sectionTopic,
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }

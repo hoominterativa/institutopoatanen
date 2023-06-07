@@ -78,9 +78,9 @@
                     <div class="tab-pane" id="gallery">
                         @include('Admin.cruds.Abouts.ABOU04.Gallery.index')
                     </div>
-                    {{-- <div class="tab-pane" id="topics">
+                    <div class="tab-pane" id="topics">
                         @include('Admin.cruds.Abouts.ABOU04.Topic.index')
-                    </div>--}}
+                    </div>
                     <div class="tab-pane" id="section">
                         @include('Admin.cruds.Abouts.ABOU04.Section.form')
                     </div>
