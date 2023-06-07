@@ -247,5 +247,174 @@
                 opacity: 1;
             }
         }
+
+        &__list {
+            gap: 15px 11px;
+
+            &__item {
+                @include Flex($align: end, $justify: start);
+                width: calc(25% - 9px);
+                height: auto;
+                aspect-ratio: 319/288;
+                position: relative;
+                padding: 33px;
+                overflow: hidden;
+
+                @include large-device-down() {
+                    width: calc(33% - 5px);
+                }
+
+                @include medium-device-down() {
+                    width: calc(50% - 5.5px);
+                }
+
+                @include small-device-down() {
+                    width: 100%;
+                }
+
+                &__image {
+                    position: absolute;
+                    z-index: 1;
+                    inset: 0;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                &__title {
+                    font-family: $font-primary;
+                    font-size: $T4;
+                    font-weight: 700;
+                    color: $color-one;
+                    position: relative;
+                    z-index: 5;
+
+                    @include medium-device-down {
+                        font-size: $T4-mobile;
+                    }
+
+                    &::before {
+                        content: "";
+                        height: 25px;
+                        width: 27px;
+                        position: absolute;
+                        left: -33px;
+                        top: 0;
+                        background-color: $color-one;
+                    }
+
+                    &::after {
+                        content: "";
+                        height: 1px;
+                        width: 95px;
+                        position: absolute;
+                        left: -7px;
+                        top: 24px;
+                        background-color: $color-one;
+                    }
+                }
+            }
+        }
+
+        &__cta {
+            @include Flex();
+            gap: 16px;
+            white-space: nowrap;
+            background-color: $color-three;
+            padding: 10px 40px;
+            margin-top: 55px;
+
+            font: $paragraph;
+            font-weight: 700;
+            color: $color-one;
+
+            &:hover {
+                background-color: $color-one;
+                color: $color-three;
+            }
+
+            &__icon {
+                height: 25px;
+                width: 25px;
+                object-fit: contain;
+                object-position: center;
+                @include trans($transition: 0.5s);
+            }
+
+            &:hover &__icon {
+                filter: brightness(1) contrast(1) invert(1) grayscale(1);
+            }
+        }
+    }
+
+    &__topics {
+        @include backG;
+        padding: 125px 0;
+
+        &__list {
+            gap: 27px;
+        }
+
+        &__item {
+            gap: 27px;
+            width: calc(33% - 15px);
+            padding: 55px 30px 45px 30px;
+            background-color: $color-four;
+
+            @include large-device-down {
+                width: calc(50% - 15px);
+            }
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__header {
+                @include Flex($justify: start);
+                width: 100%;
+                gap: 19px;
+            }
+
+            &__icon {
+                width: 32px;
+                height: auto;
+                aspect-ratio: 1/1;
+                object-fit: contain;
+                object-fit: center;
+            }
+
+            &__title {
+                font-family: $font-primary;
+                font-size: $T3;
+                font-weight: 700;
+                color: $color-black;
+                text-align: left;
+
+                @include medium-device-down {
+                    font-size: $T3-mobile;
+                }
+            }
+
+            &__desc {
+                width: 100%;
+                font: $paragraph;
+                color: $color-two;
+
+                @include medium-device-down {
+                    font: $paragraph-mobile;
+                }
+
+                p {
+                    width: 100%;
+                    font: $paragraph;
+                    color: $color-two;
+
+                    @include medium-device-down {
+                        font: $paragraph-mobile;
+                    }
+                }
+            }
+        }
     }
 }

@@ -44,12 +44,23 @@
         <section class="abou04-page__gallery w-100 d-flex flex-column align-items-center">
             <header class="abou04-page__gallery__header container d-flex flex-column align-items-center">
                 <h2 class="abou04-page__gallery__header__title text-center">Título</h2>
-                <h2 class="abou04-page__gallery__header__subtitle text-center">Subtítulo</h2>
+                <h3 class="abou04-page__gallery__header__subtitle text-center">Subtítulo</h3>
                 <hr class="abou04-page__gallery__header__line" />
             </header>
 
-            <main class="abou04-page__gallery__main d-flex flex-column align-items-center">
-                <div class="abou04-page__gallery__list"></div>
+            <main class="abou04-page__gallery__main container d-flex flex-column align-items-center">
+                <div class="abou04-page__gallery__list w-100 d-flex justify-content-start align-items-stretch flex-wrap">
+
+                    @for ($i = 0; $i < 8; $i++)
+                        <div class="abou04-page__gallery__list__item">
+                            <img src="{{ asset('storage/uploads/tmp/port01_path_image_section.jpg') }}" alt=""
+                                class="abou04-page__gallery__list__item__image">
+
+                            <h4 class="abou04-page__gallery__list__item__title">Título {{ $i }}</h4>
+                        </div>
+                    @endfor
+
+                </div>
 
                 <a href="#" class="abou04-page__gallery__cta">
                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
@@ -57,6 +68,30 @@
                     CTA
                 </a>
             </main>
+        </section>
+
+        <section class="abou04-page__topics w-100"
+            style="background-image: url({{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }})">
+            <div class="abou04-page__topics__list container d-flex flex-wrap justify-content-start align-items-stretch ">
+
+                @for ($i = 0; $i < 3; $i++)
+                    <article class="abou04-page__topics__item d-flex flex-column justify-content-start align-items-stretch">
+                        <header class="abou04-page__topics__item__header">
+                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
+                                class="abou04-page__topics__item__icon">
+                            <h3 class="abou04-page__topics__item__title">Título</h3>
+                        </header>
+
+                        <main class="abou04-page__topics__item__desc">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
+                                sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et
+                                arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit
+                                amet, co</p>
+                        </main>
+                    </article>
+                @endfor
+
+            </div>
         </section>
 
     </div>
