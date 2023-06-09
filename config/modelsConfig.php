@@ -14,12 +14,12 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Abouts' => (object) [
-            'ABOU04' => (object)[
-                'ViewHome' => true,
+        'Schedules' => (object) [
+            'SCHE01' => (object)[
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 // 'IncludeCore' => (object) [
                 //     'include' => true,
@@ -29,15 +29,14 @@ return [
                 //     'titleList' => 'title',
                 // ],
                 'config' => (object) [
-                    'titleMenu' => 'Sobre',
+                    'titleMenu' => 'Agenda',
                     'anchor' =>  false,
-                    'linkMenu' => 'abou04.page',
+                    'linkMenu' => 'sche01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Sobre',
+                    'titlePanel' => 'Agenda',
                     'iconPanel' => ''
                 ],
-                'IncludeSections' => (object) [
-                ],
+                'IncludeSections' => (object) [],
             ],
         ],
     ],
