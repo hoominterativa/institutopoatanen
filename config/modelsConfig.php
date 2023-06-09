@@ -21,13 +21,13 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
-                    'titleList' => 'title',
-                ],
+                // 'IncludeCore' => (object) [
+                //     'include' => true,
+                //     'sorting' => true,
+                //     'limit' => 'all',
+                //     'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                //     'titleList' => 'title',
+                // ],
                 'config' => (object) [
                     'titleMenu' => 'Galeria',
                     'anchor' =>  false,
@@ -37,6 +37,40 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [],
+            ],
+        ],
+        'Products' => (object) [
+            'PROD02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Produtos',
+                    'anchor' =>  false,
+                    'linkMenu' => 'prod02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Produtos',
+                    'iconPanel' => 'mdi-shopping-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Feedbacks' => 'FEED01',
+                ]
             ],
         ],
     ],
