@@ -217,10 +217,27 @@ class GALL03Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = GALL03GalleriesBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                break;
+            default:
+                $banner = GALL03GalleriesBanner::active()->first();
+                break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Galleries', 'GALL03', 'page');
 
+        $sectionGallery = GALL03GalleriesSectionGallery::active()->first();
+        $galleries = GALL03Galleries::with('images')->active()->sorting()->get();
+
         return view('Client.pages.Galleries.GALL03.page',[
+            'banner' => $banner,
+            'sectionGallery' => $sectionGallery,
+            'galleries' => $galleries,
             'sections' => $sections
         ]);
     }

@@ -1,28 +1,32 @@
-<div class="lightbox-gall03{{$galery->id}}" id="lightbox-gall03">
+<div class="lightbox-gall03" id="lightbox-gall03{{$gallery->id}}">
     <div class="lightbox-gall03__content container">
-
         <div class="lightbox-gall03__top">
-            <h4 class="lightbox-gall03__title">Title</h4>
+            @if ($gallery->title)
+                <h4 class="lightbox-gall03__title">{{$gallery->title}}</h4>
+            @endif
         </div>
-
         <div class="lightbox-gall03__bottom">
             <div class="lightbox-gall03__bottom__main">
-                <img src="{{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }}" width="100%" height="100%"
+                @if ($gallery->path_image || $gallery->image_legend)
+                    <img src="{{ asset('storage/' . $gallery->path_image) }}" width="100%" height="100%"
                     class="lightbox-gall03__bottom__main__item" alt="">
-                <h4 class="lightbox-gall03__bottom__main__legend">Legenda da Imagem</h4>
+                    <h4 class="lightbox-gall03__bottom__main__legend">{{$gallery->image_legend}}</h4>
+                @endif
             </div>
-
             <div class="lightbox-gall03__bottom__thumbnail">
                 <div class="lightbox-gall03__bottom__thumbnail__carousel">
-                    @for ($i = 0; $i < 5; $i++)
-                        <img src="{{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }}" alt="Imagem"
-                            data-main-image="{{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }}"
-                            data-main-title="Título {{ $i }}">
-                    @endfor
+                    @if ($gallery->path_image || $gallery->image_legend)
+                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem"
+                        data-main-image="{{ asset('storage/' . $gallery->path_image) }}"
+                        data-main-title=" {{$gallery->image_legend}} ">
+                    @endif
+                    @foreach ($gallery->images as $image)
+                        <img src="{{ asset('storage/' . $image->path_image) }}" alt="Imagem"
+                        data-main-image="{{ asset('storage/' . $image->path_image) }}"
+                        data-main-title=" {{$gallery->image_legend}} ">
+                    @endforeach
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>

@@ -13,7 +13,7 @@
             <main class="gall03__carousel owl-carousel">
                 @foreach ($galleries as $gallery)
                     <div class="gall03__carousel__item">
-                        <a href="#lightbox-gall03" data-fancybox class="link-full"></a>
+                        <a href="#lightbox-gall03{{$gallery->id}}" data-fancybox class="link-full"></a>
                         @if ($gallery->path_image)
                             <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="" class="gall03__carousel__item__image">
                         @endif
@@ -22,11 +22,11 @@
                                 {{$gallery->title}}
                             </h4>
                         @endif
+                        @include('Client.pages.Galleries.GALL03.show', [
+                            'gallery' => $gallery
+                        ])
                     </div>
                 @endforeach
-                @include('Client.pages.Galleries.GALL03.show', [
-                    'gallery' => $gallery
-                ])
             </main>
         @endif
 

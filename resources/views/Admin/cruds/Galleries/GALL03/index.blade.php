@@ -78,6 +78,7 @@
                                                     </th>
                                                     <th>Imagem</th>
                                                     <th>Título</th>
+                                                    <th>Legenda da Imagem</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -96,6 +97,7 @@
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">{{$gallery->title}}</td>
+                                                        <td class="align-middle">{{$gallery->image_legend}}</td>
                                                         <td class="align-middle">
                                                             @if ($gallery->active)
                                                                 <span class="badge bg-success">Ativo</span>
