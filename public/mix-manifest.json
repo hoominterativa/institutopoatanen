@@ -1,8 +1,8 @@
 {
     "/js/app.js": "/js/app.js?id=de22749f86fe2cdad5f2ec48a7937432",
-    "/css/libraries.css": "/css/libraries.css?id=b3db66e436d084a42d41087944a2727d",
-    "/css/app.css": "/css/app.css?id=c2d1d98980fd328a6e49f8eb6dd2fab4",
-    "/css/icons.css": "/css/icons.css?id=4ddd375dece1cac4a35fb57daa0f9582",
+    "/css/libraries.css": "/css/libraries.css?id=36dd31e852712226d4074d526f7124ed",
+    "/css/app.css": "/css/app.css?id=94b46fa0668f27b22b384f8556a07888",
+    "/css/icons.css": "/css/icons.css?id=3f9680e27210ffa888675878b10de8b4",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
     "/Admin/assets/js/custom.js": "/Admin/assets/js/custom.js?id=c237b423f70b686322ccbee9c633fcff",
@@ -437,5 +437,6 @@
     "/Admin/assets/libs/i18n/ur.js": "/Admin/assets/libs/i18n/ur.js?id=3cc894ecacb70594c1df9552064c8d97",
     "/Admin/assets/libs/i18n/zh_cn.extra.js": "/Admin/assets/libs/i18n/zh_cn.extra.js?id=e5d635d10d14819a7ffc950fe9f3077a",
     "/Admin/assets/libs/i18n/zh_cn.js": "/Admin/assets/libs/i18n/zh_cn.js?id=3b26d4d158a3f6e8a7702cdcee0d0452",
-    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf"
+    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf",
+    "/Admin/assets/images/modelsFrom/FORM03.jpg": "/Admin/assets/images/modelsFrom/FORM03.jpg?id=0b7ffd42f52be1d56ded77ddf8562744"
 }
