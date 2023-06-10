@@ -82,6 +82,66 @@
         </div>
     </section>
     @break
+    @case('FORM03')
+    <section class="form03 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+        <div class="container container--pd">
+            <div class="row mx-0 justify-content-between">
+                <div class="form03__boxLeft d-flex flex-column">
+                    <h2 class="form03__boxLeft__title">Title</h2>
+                    <h2 class="form03__boxLeft__subtitle">Subitle</h3>
+                    <div class="form03__boxLeft__paragraph">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur adipiscing elit. Cras vel tortor
+                        </p>
+                    </div>
+                    <div class="form03__boxLeft__buttons">
+                        <a class="form03__boxLeft__buttons__cta" href="">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                            Contato 1
+                        </a>
+                        <a class="form03__boxLeft__buttons__cta" href="">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                            Contato 1
+                        </a>
+                        <a class="form03__boxLeft__buttons__cta" href="">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
+                            Contato 1
+                        </a>
+                    </div>
+                </div>
+                <div class="form03__boxRight d-flex flex-column">
+                    <h2 class="form03__boxRight__title">Form Completo</h2>
+                    <div class="form03__boxRight__paragraph">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+
+                    {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form03__boxRight__form form-contact parsley-validate align-items-center']) !!}
+                        <div class="form03__boxRight__inputs d-flex justify-content-between">
+                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                            @foreach ($inputs as $name => $input)
+                                @include('Client.Components.inputs', [
+                                    'name' => $name,
+                                    'options' => $input->option,
+                                    'placeholder' => $input->placeholder,
+                                    'required' => $input->required??false,
+                                    'type' => $input->type,
+                                    'class' => 'col-md-8'
+                                ])
+                            @endforeach
+                        </div>
+                        <button type="submit" class="form03__boxRight__cta">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                            CTA
+                        </button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </section>
+    @break
     @case('FORM101')
         <section class="form101 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
             <div class="container container--pd">

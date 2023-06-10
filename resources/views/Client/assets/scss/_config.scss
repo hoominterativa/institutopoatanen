@@ -694,79 +694,142 @@ body{
         }
     }
     &__boxLeft{
-        @include large-device-down{
-            margin-bottom: 32px;
-            width: 100%;
-            max-width: 100%;
+        width: 100%;
+        max-width: 583px;
+        padding: 0;
+        @include medium-device-down{
+            margin-bottom: 52px;
         }
-        &__subtitle{
+
+        &__title{
+            font-size: $T2;
             color:$color-one;
-            font-size: $T3;
             font-weight: $weight-700;
             margin-bottom: 0;
-            max-width: 328px;
 
-            @include small-device{
-                font-size: $T3-mobile;
-            }
-
-            @include large-device-down{
-                max-width: inherit;
+            @include medium-device-down{
+                font-size: $T2-mobile;
             }
         }
-        // &__title{
-        //     font-size: $T2;
-        //     color:$color-black;
-        //     text-transform: uppercase;
-        //     margin-bottom: 30px;
-        //     font-weight: $weight-700;
 
-        //     @include small-device{
-        //         font-size: $T2-mobile;
-        //         margin-bottom: 17px;
-        //     }
-        // }
-        &__paragraph{
-            width: 499px;
+        &__subtitle{
+            color:$color-three;
+            font-size: $T4;
+            font-weight: $weight-700;
+            margin-bottom: 0;
 
             @include small-device{
-                width: 100%;
+                font-size: $T4-mobile;
             }
+        }
+
+        &__paragraph{
+            margin-top: 18px;
+            font:$paragraph;
+            font-weight: $weight-400;
+            color: $color-one;
+            letter-spacing: 0.2px;
 
             p{
                 font:$paragraph;
                 font-weight: $weight-400;
-                color: $color-two;
+                color: $color-one;
+                letter-spacing: 0.2px;
 
-                @include small-device{
+                @include medium-device-down{
                     font:$paragraph-min;
+                }
+            }
+        }
+        &__buttons{
+            margin-top: 40px;
+            display:flex;
+            justify-content:space-between;
+            flex-wrap: wrap;
+            gap: 20px 0;
+            width: 66%;
+            @include medium-device-down{
+                width: 100%;
+            }
+
+            &__cta{
+                display:flex;
+                color:$color-black;
+                font-weight: 700;
+                font-size:$T5;
+                align-items: center;
+                gap:0 13.45px;
+                width: 50%;
+
+                @include medium-device-down{
+                    width: 100%;
+                }
+
+                img{
+                    width: 25.13px;
+                    height: auto;
+                    object-fit: cover;
                 }
             }
         }
     }
     &__boxRight{
-        @include large-device-down{
-            width: 100%;
-            max-width: 100%;
+        flex-direction: column;
+        align-items: flex-start !important;
+        text-align: left;
+        max-width: 443px;
+        width: 100%;
+        padding: 0;
+
+        &__title{
+            font-size: $T2;
+            color:$color-black;
+            margin-bottom: 15px;
+            line-height: 46px;
+            font-weight: $weight-700;
+
+            @include medium-device-down{
+                font-size: $T2-mobile;
+            }
         }
-        @include small-device{
+
+        &__paragraph{
+            $paragraph: $P1;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            color:$color-one;
+            margin-bottom: 45px;
+
+            @include medium-device-down{
+                font-size: $P1-mobile;
+            }
+
+            p{
+                $paragraph: $P1;
+                font-weight: 400;
+                letter-spacing: 0.2px;
+                color:$color-one;
+                margin-bottom: 0;
+
+                @include medium-device-down{
+                    font-size: $P1-mobile;
+                }
+            }
         }
+
         &__inputs{
             flex-wrap: wrap;
         }
         .input__item{
-            width: 48%;
-
-            @include large-device-down{
-                width: 100%;
-                max-width: 100%;
-            }
+            width: 100%;
         }
         &__form{
             display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
 
             @include large-device-down{
-                flex-wrap: wrap;
+
             }
             div{
                 padding: 0;
@@ -800,12 +863,14 @@ body{
             font:$paragraph;
             font-weight: $weight-700;
             transition: 0.5s all ease;
+            margin-left:auto;
+            margin-top: 0;
 
             @include large-device-down{
-                margin: 0 auto;
                 margin-top: 18px;
                 max-width: inherit;
                 width: 80%;
+                font:$paragraph-min;
             }
 
             &:hover{

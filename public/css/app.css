@@ -689,73 +689,141 @@ body .owl-dots .owl-dot.active {
     width: 71% !important;
   }
 }
-@media (max-width: 991.98px) {
+.form03__boxLeft {
+  width: 100%;
+  max-width: 583px;
+  padding: 0;
+}
+@media (max-width: 767.98px) {
   .form03__boxLeft {
-    margin-bottom: 32px;
-    width: 100%;
-    max-width: 100%;
+    margin-bottom: 52px;
+  }
+}
+.form03__boxLeft__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .form03__boxLeft__title {
+    font-size: 1.875rem;
   }
 }
 .form03__boxLeft__subtitle {
-  color: #404040;
-  font-size: 1.875rem;
+  color: #B3B3B3;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0;
-  max-width: 328px;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .form03__boxLeft__subtitle {
-    font-size: 1.563rem;
-  }
-}
-@media (max-width: 991.98px) {
-  .form03__boxLeft__subtitle {
-    max-width: inherit;
+    font-size: 1.125rem;
   }
 }
 .form03__boxLeft__paragraph {
-  width: 499px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .form03__boxLeft__paragraph {
-    width: 100%;
-  }
+  margin-top: 18px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+  letter-spacing: 0.2px;
 }
 .form03__boxLeft__paragraph p {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 400;
-  color: #7C7C7C;
+  color: #404040;
+  letter-spacing: 0.2px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .form03__boxLeft__paragraph p {
     font: 0.875rem "Montserrat", sans-serif, arial;
   }
 }
-@media (max-width: 991.98px) {
-  .form03__boxRight {
+.form03__boxLeft__buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 0;
+  width: 66%;
+}
+@media (max-width: 767.98px) {
+  .form03__boxLeft__buttons {
     width: 100%;
-    max-width: 100%;
+  }
+}
+.form03__boxLeft__buttons__cta {
+  display: flex;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.125rem;
+  align-items: center;
+  gap: 0 13.45px;
+  width: 50%;
+}
+@media (max-width: 767.98px) {
+  .form03__boxLeft__buttons__cta {
+    width: 100%;
+  }
+}
+.form03__boxLeft__buttons__cta img {
+  width: 25.13px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.form03__boxRight {
+  flex-direction: column;
+  align-items: flex-start !important;
+  text-align: left;
+  max-width: 443px;
+  width: 100%;
+  padding: 0;
+}
+.form03__boxRight__title {
+  font-size: 2.5rem;
+  color: #000;
+  margin-bottom: 15px;
+  line-height: 46px;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .form03__boxRight__title {
+    font-size: 1.875rem;
+  }
+}
+.form03__boxRight__paragraph {
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: #404040;
+  margin-bottom: 45px;
+}
+@media (max-width: 767.98px) {
+  .form03__boxRight__paragraph {
+    font-size: 0.938rem;
+  }
+}
+.form03__boxRight__paragraph p {
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: #404040;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .form03__boxRight__paragraph p {
+    font-size: 0.938rem;
   }
 }
 .form03__boxRight__inputs {
   flex-wrap: wrap;
 }
 .form03__boxRight .input__item {
-  width: 48%;
-}
-@media (max-width: 991.98px) {
-  .form03__boxRight .input__item {
-    width: 100%;
-    max-width: 100%;
-  }
+  width: 100%;
 }
 .form03__boxRight__form {
   display: flex;
-}
-@media (max-width: 991.98px) {
-  .form03__boxRight__form {
-    flex-wrap: wrap;
-  }
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .form03__boxRight__form div {
   padding: 0;
@@ -789,13 +857,15 @@ body .owl-dots .owl-dot.active {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   transition: 0.5s all ease;
+  margin-left: auto;
+  margin-top: 0;
 }
 @media (max-width: 991.98px) {
   .form03__boxRight__cta {
-    margin: 0 auto;
     margin-top: 18px;
     max-width: inherit;
     width: 80%;
+    font: 0.875rem "Montserrat", sans-serif, arial;
   }
 }
 .form03__boxRight__cta:hover {
