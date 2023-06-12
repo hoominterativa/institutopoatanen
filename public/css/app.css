@@ -305,12 +305,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -329,17 +326,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -1290,7 +1277,88 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 
-/* BEGIN STYLE */ /* BEGIN STYLE */
+/* BEGIN STYLE */
+.unit03__banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 123px 0 59px 0;
+}
+.unit03__banner__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 3.125rem;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .unit03__banner__title {
+    font-size: 2.5rem;
+  }
+}
+.unit03__banner__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 28px;
+}
+@media (max-width: 767.98px) {
+  .unit03__banner__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.unit03__banner__line {
+  width: 100%;
+  border-top: 1px solid #000;
+  margin: 0 auto;
+  opacity: 1;
+}
+.unit03__main {
+  padding: 41px 0 80px 0;
+}
+.unit03__categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 34px;
+}
+.unit03__categories__item a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 15px 26px;
+  background-color: #CACACA;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+}
+.unit03__categories__item a:hover {
+  background-color: #404040;
+  color: #CACACA;
+}
+.unit03__categories__item a img {
+  height: 31px;
+  width: 31px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transition: all 0.5s ease;
+}
+.unit03__categories__item a:hover img {
+  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;
