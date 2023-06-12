@@ -64,6 +64,12 @@
                             'topics' => $topics,
                         ])
                     </div>
+                    <div class="tab-pane" id="socials">
+                        @include('Admin.cruds.Units.UNIT03.Social.index', [
+                            'unit' => $unit,
+                            'socials' => $socials,
+                        ])
+                    </div>
                 </div>
             </div> <!-- container -->
         </div> <!-- content -->

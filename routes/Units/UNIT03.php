@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Units\UNIT03TopicController;
 use App\Http\Controllers\Units\UNIT03BannerController;
+use App\Http\Controllers\Units\UNIT03SocialController;
 use App\Http\Controllers\Units\UNIT03CategoryController;
 
 /**
@@ -34,6 +35,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicos', UNIT03TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'UNIT03UnitsTopic']);
     Route::post($route.'/topico/delete', [UNIT03TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [UNIT03TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    Route::resource($route.'/sociais', UNIT03SocialController::class)->names('admin.'.$routeName.'.social')->parameters(['sociais' => 'UNIT03UnitsSocial']);
+    Route::post($route.'/social/delete', [UNIT03SocialController::class, 'destroySelected'])->name('admin.'.$routeName.'.social.destroySelected');
+    Route::post($route.'/social/sorting', [UNIT03SocialController::class, 'sorting'])->name('admin.'.$routeName.'.social.sorting');
 
     Route::resource($route.'/banner', UNIT03BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'UNIT03UnitsBanner']);
 });
