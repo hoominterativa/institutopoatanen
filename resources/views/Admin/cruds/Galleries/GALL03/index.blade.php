@@ -20,77 +20,127 @@
                 </div>
                 <!-- end row -->
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.gall03.destroySelected')}}" type="button" class="btn btn-danger btnDelete" style="display: none;">Deletar selecionados</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('admin.gall03.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                                    </div>
-                                </div>
-                                <table class="table table-bordered table-sortable">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th width="50px"></th>
-                                            <th width="30px" class="bs-checkbox">
-                                                <label><input name="btnSelectAll" value="btnDelete" type="checkbox"></label>
-                                            </th>
-                                            <th>Imagem</th>
-                                            <th>Título</th>
-                                            <th width="100px">Status</th>
-                                            <th width="90px">Ações</th>
-                                        </tr>
-                                    </thead>
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#galleries" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            {{getTitleModel($configModelsMain, 'Galleries', 'GALL03')}}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de imagens"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sectionGallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Informações da seção interna
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações complementares que serão exibidas na página, caso esteja ativa"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Informações do banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações complementares que serão exibidas no banner da página interna, caso esteja ativa"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Informações da seção
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações complementares que serão exibidas na home, caso esteja ativa"></i>
+                        </a>
+                    </li>
+                </ul>
 
-                                    <tbody data-route="{{route('admin.gall03.sorting')}}">
-                                        @foreach ($galleries as $gallery)
-                                            <tr data-code="{{$gallery->id}}">
-                                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                                <td class="bs-checkbox align-middle">
-                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$gallery->id}}"></label>
-                                                </td>
-                                                <td class="align-middle avatar-group">
-                                                    @if ($gallery->path_image)
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $gallery->path_image)}})"></div>
-                                                    @endif
-                                                </td>
-                                                <td class="align-middle">{{$gallery->title}}</td>
-                                                <td class="align-middle">
-                                                    @if ($gallery->active)
-                                                        <span class="badge bg-success">Ativo</span>
-                                                    @else
-                                                        <span class="badge bg-danger">Inativo</span>
-                                                    @endif
-                                                    @if ($gallery->featured)
-                                                        <span class="badge bg-primary text-white">Destaque</span>
-                                                    @endif
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <a href="{{route('admin.gall03.edit',['GALL03Galleries' => $gallery->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                        </div>
-                                                        <form action="{{route('admin.gall03.destroy',['GALL03Galleries' => $gallery->id])}}" class="col-4" method="POST">
-                                                            @method('DELETE') @csrf
-                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                                {{-- PAGINATION --}}
-                                <div class="mt-3 float-end">
-                                    {{$galleries->links()}}
-                                </div>
-                            </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="galleries">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-6">
+                                                <button id="btSubmitDelete" data-route="{{route('admin.gall03.destroySelected')}}" type="button" class="btn btn-danger btnDelete" style="display: none;">Deletar selecionados</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="{{route('admin.gall03.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <table class="table table-bordered table-sortable">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th width="50px"></th>
+                                                    <th width="30px" class="bs-checkbox">
+                                                        <label><input name="btnSelectAll" value="btnDelete" type="checkbox"></label>
+                                                    </th>
+                                                    <th>Imagem</th>
+                                                    <th>Título</th>
+                                                    <th>Legenda da Imagem</th>
+                                                    <th width="100px">Status</th>
+                                                    <th width="90px">Ações</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody data-route="{{route('admin.gall03.sorting')}}">
+                                                @foreach ($galleries as $gallery)
+                                                    <tr data-code="{{$gallery->id}}">
+                                                        <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                                        <td class="bs-checkbox align-middle">
+                                                            <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$gallery->id}}"></label>
+                                                        </td>
+                                                        <td class="align-middle avatar-group">
+                                                            @if ($gallery->path_image)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $gallery->path_image)}})"></div>
+                                                            @endif
+                                                        </td>
+                                                        <td class="align-middle">{{$gallery->title}}</td>
+                                                        <td class="align-middle">{{$gallery->image_legend}}</td>
+                                                        <td class="align-middle">
+                                                            @if ($gallery->active)
+                                                                <span class="badge bg-success">Ativo</span>
+                                                            @else
+                                                                <span class="badge bg-danger">Inativo</span>
+                                                            @endif
+                                                            @if ($gallery->featured)
+                                                                <span class="badge bg-primary text-white">Destaque</span>
+                                                            @endif
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <a href="{{route('admin.gall03.edit',['GALL03Galleries' => $gallery->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                                </div>
+                                                                <form action="{{route('admin.gall03.destroy',['GALL03Galleries' => $gallery->id])}}" class="col-4" method="POST">
+                                                                    @method('DELETE') @csrf
+                                                                    <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                        {{-- PAGINATION --}}
+                                        <div class="mt-3 float-end">
+                                            {{$galleries->links()}}
+                                        </div>
+                                    </div>
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="sectionGallery">
+                        @include('Admin.cruds.Galleries.GALL03.SectionGallery.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Galleries.GALL03.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Galleries.GALL03.Section.form')
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->
