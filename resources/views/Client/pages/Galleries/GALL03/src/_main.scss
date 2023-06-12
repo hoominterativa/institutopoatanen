@@ -96,6 +96,10 @@
     .owl-nav {
         margin-left: -20%;
 
+        @include xx-large-device-up {
+            margin-left: -5%;
+        }
+
         @include x-large-device-down {
             margin-left: -10%;
         }
@@ -252,6 +256,19 @@
             }
         }
         // END __thumbnail
+    }
+
+    .owl-carousel .owl-item {
+        height: 68px !important;
+        width: 68px !important;
+        aspect-ratio: 1/1;
+
+        img {
+            height: 100% !important;
+            width: 100% !important;
+            object-fit: cover;
+            object-position: center;
+        }
     }
 
     .lightbox-gall02__bottom__thumbnail__carousel .owl-nav {

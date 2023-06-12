@@ -305,12 +305,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -329,17 +326,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -1383,6 +1370,11 @@ body .owl-dots .owl-dot.active {
 .gall03 .owl-nav {
   margin-left: -20%;
 }
+@media (min-width: 1400px) {
+  .gall03 .owl-nav {
+    margin-left: -5%;
+  }
+}
 @media (max-width: 1199.98px) {
   .gall03 .owl-nav {
     margin-left: -10%;
@@ -1547,6 +1539,19 @@ body .owl-dots .owl-dot.active {
   .lightbox-gall03__bottom__thumbnail__item {
     height: 47px;
   }
+}
+.lightbox-gall03 .owl-carousel .owl-item {
+  height: 68px !important;
+  width: 68px !important;
+  aspect-ratio: 1/1;
+}
+.lightbox-gall03 .owl-carousel .owl-item img {
+  height: 100% !important;
+  width: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav {
   display: flex !important;
