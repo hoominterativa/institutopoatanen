@@ -61,7 +61,7 @@
 
                                 <main class="sche01-page__cont__item__main d-flex flex-column">
 
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
+                                    <img src="{{ asset('storage/uploads/tmp/bg-gray.png') }}" alt=""
                                         class="sche01-page__cont__item__img">
 
                                     <div class="sche01-page__cont__item__desc">
@@ -90,9 +90,91 @@
 
                     </div>
 
+                    <ul
+                        class="sche01-page__cont__pagination w-100 d-flex flex-row align-items-center justify-content-center">
+                        <li class="sche01-page__cont__pagination__item"><a
+                                class="d-flex align-items-center justify-content-center" href="#">1</a></li>
+                        <li class="sche01-page__cont__pagination__item"><a
+                                class="d-flex align-items-center justify-content-center" href="#">2</a></li>
+                        <li class="sche01-page__cont__pagination__item"><a
+                                class="d-flex align-items-center justify-content-center" href="#">3</a></li>
+                    </ul>
+
                 </main>
 
-                <aside class="sche01-page__cont__aside"></aside>
+                <aside class="sche01-page__cont__aside d-flex flex-column align-items-stretch justify-content-start">
+
+                    <div class="sche01-form d-flex flex-column align-items-start justify-content-start">
+                        <h4 class="sche01-form__subtitle">Subtitulo</h4>
+                        <h3 class="sche01-form__title">Título</h3>
+
+                        <div class="sche01-form__desc">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
+                                sollicitudin vel non</p>
+                        </div>
+
+                        {!! Form::open([
+                            'route' => 'lead.store',
+                            'method' => 'post',
+                            'files' => true,
+                            'class' =>
+                                'send_form_ajax sche01-form__form d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
+                        ]) !!}
+
+                        <div class="sche01-form__form__inputs d-flex flex-column w-100 align-items-stretch">
+                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            {{-- <input type="hidden" name="target_send" value="{{ base64_encode($contactForm->email) }}"> --}}
+
+                            @for ($i = 0; $i < 2; $i++)
+                                @include('Client.Components.inputs', [
+                                    'name' => 'name',
+                                    // 'options' => $input->option,
+                                    'placeholder' => 'Nome',
+                                    'required' => false,
+                                    'type' => 'text',
+                                    'class' => 'col-md-8',
+                                ])
+                            @endfor
+
+                            <label for="" class="sche01-form__form__checkbox-label">
+                                <input type="checkbox" name='checkbox' id=""> Lorem ipsum dolor sit amet,
+                                consectetur a
+                            </label>
+                        </div>
+
+                        <button type="submit" class="sche01-form__cta">
+                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="sche01-form__cta__icon"
+                                alt="Ícone">
+                            CTA
+                        </button>
+                        {!! Form::close() !!}
+                    </div>
+
+                    <ul class="sche01-month-categories w-100 d-flex flex-column align-items-stretch">
+                        <li
+                            class="sche01-month-categories__item w-100 position-relative d-flex align-items-center justify-content-between">
+                            <a href="#" class="link-full"></a>
+
+                            <h3 class="sche01-month-categories__item__title">Abril</h3>
+                            <h4 class="sche01-month-categories__item__subtitle">
+                                Eventos <span class="sche01-month-categories__item__counter">3</span>
+                            </h4>
+                        </li>
+
+                        <li
+                            class="sche01-month-categories__item w-100 position-relative d-flex align-items-center justify-content-between">
+                            <a href="#" class="link-full"></a>
+
+                            <h3 class="sche01-month-categories__item__title">Maio</h3>
+                            <h4 class="sche01-month-categories__item__subtitle">
+                                Eventos <span class="sche01-month-categories__item__counter">3</span>
+                            </h4>
+                        </li>
+
+
+                    </ul>
+
+                </aside>
 
             </div>
         </section>
