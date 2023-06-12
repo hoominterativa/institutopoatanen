@@ -14,30 +14,37 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Abouts' => (object) [
-            'ABOU04' => (object)[
-                'ViewHome' => true,
+        'Units' => (object) [
+            'UNIT03' => (object)[
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                // 'IncludeCore' => (object) [
-                //     'include' => true,
-                //     'sorting' => true,
-                //     'limit' => 'all',
-                //     'condition' => 'active=1{Ativos}',
-                //     'titleList' => 'title',
-                // ],
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
                 'config' => (object) [
-                    'titleMenu' => 'Sobre',
+                    'titleMenu' => 'Unidades',
                     'anchor' =>  false,
-                    'linkMenu' => 'abou04.page',
+                    'linkMenu' => 'unit03.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Sobre',
-                    'iconPanel' => ''
+                    'titlePanel' => 'Unidades',
+                    'iconPanel' => 'mdi-warehouse'
                 ],
                 'IncludeSections' => (object) [
-                ],
+                ]
             ],
         ],
     ],

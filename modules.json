@@ -55,7 +55,8 @@
         "PROD02V1"
     ],
     "Units": [
-        "UNIT01"
+        "UNIT01",
+        "UNIT03"
     ],
     "Blogs": [
         "BLOG01",

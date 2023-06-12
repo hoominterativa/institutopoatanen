@@ -383,6 +383,18 @@ return [
                 'model' => App\Models\Units\UNIT01Units::class,
                 'seedQty' => 2,
             ],
+            'UNIT03' => (object)[
+                'controller' => App\Http\Controllers\Units\UNIT03Controller::class,
+                'model' => App\Models\Units\UNIT03Units::class,
+                'seedQty' => 8,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Units\UNIT03UnitsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 6,
+                    ]
+                ]
+            ],
         ],
         // END UNITS
 

@@ -1177,19 +1177,26 @@
             "Banner": {
                 "path_image_desktop": {
                     "width": "1500",
-                    "height": "270",
-                    "activeCrop": "true"
+                    "height": "312",
+                    "activeCrop": "false"
                 },
                 "path_image_mobile": {
                     "width": "390",
-                    "height": "270",
+                    "height": "352",
                     "activeCrop": "true"
+                }
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
                 }
             },
             "Topic": {
                 "path_image_icon": {
-                    "width": "510",
-                    "height": "510",
+                    "width": "300",
+                    "height": "300",
                     "activeCrop": "false"
                 }
             },
@@ -1198,6 +1205,87 @@
                     "width": "300",
                     "height": "300",
                     "activeCrop": "false"
+                }
+            }
+        },
+        "UNIT03" : {
+            "path_image": {
+                "width": "327",
+                "height": "306",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "352",
+                    "activeCrop": "true"
+                }
+            },
+            "BannerShow": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "312",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "352",
+                    "activeCrop": "true"
+                }
+            },
+            "Topic": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Social": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Content": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "352",
+                    "activeCrop": "true"
+                },
+                "path_image": {
+                    "width": "655",
+                    "height": "473",
+                    "activeCrop": "true"
                 }
             }
         }
