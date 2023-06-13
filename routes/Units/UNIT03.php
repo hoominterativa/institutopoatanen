@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Units\UNIT03Controller;
 use App\Http\Controllers\Units\UNIT03TopicController;
 use App\Http\Controllers\Units\UNIT03BannerController;
 use App\Http\Controllers\Units\UNIT03SocialController;
@@ -43,4 +44,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/banner', UNIT03BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'UNIT03UnitsBanner']);
 });
 // // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{UNIT03UnitsCategory:slug}', [UNIT03Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get('categoria/{UNIT03UnitsCategory:slug}/'.$route.'/{UNIT03Units:slug}', [UNIT03Controller::class, 'show'])->name($routeName.'.page.content');
