@@ -33,7 +33,7 @@ return [
         ],
         'Abouts' => (object) [
             'ABOU01' => (object)[
-                'ViewHome' => false,
+                'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -47,6 +47,8 @@ return [
                     'iconPanel' => 'mdi-information-variant'
                 ],
                 'IncludeSections' => (object) [
+                     'Topics' => 'TOPI101',
+                     'Feedbacks' => 'FEED01'
                 ]
             ],
         ],
@@ -80,10 +82,11 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    // 'Feedbacks' => 'FEED01',
+                    'Feedbacks' => 'FEED01',
+                    'Topics' => 'TOPI101'
                 ]
             ],
-        ], 
+        ],
         'Contents' => (object) [
             'CONT02' => (object)[
                 'ViewHome' => true,
@@ -151,8 +154,7 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Services' => ['SERV04'],
-                    // 'Feedbacks' => ['FEED01'],
+                    'Feedbacks' => ['FEED01']
                 ]
             ],
         ],
@@ -175,7 +177,7 @@ return [
         ],
         'Topics' => (object) [
             'TOPI101' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -190,7 +192,27 @@ return [
                 ]
             ],
         ],
-                       
+        'Contacts' => (object) [
+            'COTA02' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Contato',
+                    'anchor' =>  false,
+                    'linkMenu' => 'cota02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => ''
+                ],
+                'IncludeSections' => (object) [
+                    'Feedbacks' => 'FEED01',
+                ]
+            ],
+        ],
+
     ],
 
     'ModelsForm' => (object)[
