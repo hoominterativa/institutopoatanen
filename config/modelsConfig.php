@@ -57,6 +57,16 @@ return [
                 'path_image_inner' => (object) ['name' => 'Imagem Lightbox',  'type' => 'image'],
             ]
         ],
+        'FORM03' => (object) [
+            'model' => 'FORM03.jpg',
+            'config' => (object) [
+                'title' => (object) ['name' => 'Título Seção', 'type' => 'text'],
+                'description' => (object) ['name' => 'Descrição Seção',  'type' => 'textarea'],
+                'title_inner' => (object) ['name' => 'Título Lightbox',  'type' => 'text'],
+                'description_inner' => (object) ['name' => 'Descrição Lightbox',  'type' => 'textarea'],
+                'path_image_inner' => (object) ['name' => 'Imagem Lightbox',  'type' => 'image'],
+            ]
+        ],
         'FORM101' => (object) [
             'model' => 'FORM101.jpg',
             'config' => (object) [
