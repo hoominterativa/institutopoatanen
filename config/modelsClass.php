@@ -338,6 +338,11 @@ return [
                 'model' => App\Models\Topics\TOPI08Topics::class,
                 'seedQty' => 4,
             ],
+            'TOPI09' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI09Controller::class,
+                'model' => App\Models\Topics\TOPI09Topics::class,
+                'seedQty' => 4,
+            ],
             'TOPI10' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI10Controller::class,
                 'model' => App\Models\Topics\TOPI10Topics::class,

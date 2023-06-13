@@ -1,0 +1,55 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+.topi09{
+    .container--pd{}
+    &__box{
+
+    }
+    &__content{
+
+    }
+    &__image {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 14.04px;
+
+        @include large-device-down {
+            width: 50px;
+            height: 50px;
+        }
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    &__title{
+        font-size: $T2;
+        font-weight: $weight-700;
+        font-family: $font-primary;
+        color: $color-one;
+        display: block;
+        @include small-device{
+            font-size:  $T2-mobile;
+        }
+    }
+    &__paragraph {
+        font: $paragraph;
+        font-family: $font-primary;
+        font-weight: $weight-400;
+        color: $color-one;
+
+        p {
+            font: $paragraph;
+            font-family: $font-primary;
+            font-weight: $weight-400;
+            color: $color-one;
+            margin-bottom: 0;
+
+            @include large-device-down {
+                font: $paragraph-mobile;
+            }
+        }
+    }
+}

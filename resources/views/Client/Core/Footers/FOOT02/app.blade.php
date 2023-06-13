@@ -3,9 +3,12 @@
         <div class="row">
             <div class="foot02__logo col-12 col-lg-3">
                 <div class="d-table foot02__logo__wraper">
-                    <img class="foot02__logo__item" width="202"
+                 
+                        <img class="foot02__logo__item" width="202"
                         src="{{ asset('storage/' . $generalSetting->path_logo_footer_light ?? $generalSetting->path_logo_footer_dark) }}"
                         alt="{{ env('APP_NAME') }}">
+               
+
                     <nav class="foot02__socials d-flex align-items-center justify-content-center">
                         @foreach ($socials as $social)
                             <a href="{{ $social->link }}" title="{{ $social->title }}" target="_blank"

@@ -4,39 +4,31 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02',
-            'themeMenu' => 'SIDE02'
+            // 'Code' => 'HEAD02',
+            // 'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT02'
+            // 'Code' => 'FOOT02'
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Schedules' => (object) [
-            'SCHE01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
+        'Topics' => (object) [
+            'TOPI09' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                // 'IncludeCore' => (object) [
-                //     'include' => true,
-                //     'sorting' => true,
-                //     'limit' => 'all',
-                //     'condition' => 'active=1{Ativos}',
-                //     'titleList' => 'title',
-                // ],
                 'config' => (object) [
-                    'titleMenu' => 'Agenda',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'sche01.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Agenda',
+                    'titlePanel' => 'Tópicos',
                     'iconPanel' => ''
-                ],
-                'IncludeSections' => (object) [],
+                ]
             ],
         ],
     ],
