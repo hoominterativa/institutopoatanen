@@ -1,12 +1,12 @@
 @import "variables";
 
 /* BEGIN STYLE */
-.cota02-page {
+.cont02-page {
     &__header {
         @include backG;
         position: relative;
 
-        .container-cota02-page__header {
+        .container-cont02-page__header {
             padding: 108px 0;
             position: relative;
             z-index: 100;
@@ -258,13 +258,13 @@
     }
 }
 
-.cota02-show__form__item__input:nth-of-type(5) {
+.cota01-show__form__item__input:nth-of-type(5) {
     width: 100% !important;
 }
-.cota02-show__form__item__input .input__item--textarea textarea {
+.cota01-show__form__item__input .input__item--textarea textarea {
     height: 136px !important;
 }
-.cota02-show__form__inputs__formIput__input-submit {
+.cota01-show__form__inputs__formIput__input-submit {
     height: 31px;
     width: 165px;
     background-color: $color-two;
@@ -281,7 +281,7 @@
         color: $color-two;
     }
 }
-.cota02-show__form__compliance {
+.cota01-show__form__compliance {
     font: $paragraph-min;
     font-weight: $weight-400;
     color: #393939;
