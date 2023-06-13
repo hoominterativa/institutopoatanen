@@ -83,7 +83,6 @@ return [
                 ],
                 'IncludeSections' => (object) [
                     'Feedbacks' => 'FEED01',
-                    'Topics' => 'TOPI101'
                 ]
             ],
         ],

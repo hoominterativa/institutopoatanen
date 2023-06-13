@@ -2552,13 +2552,13 @@ body .owl-dots .owl-dot.active {
 .serv04-page__subcategory .carousel-serv04-page__subcategory .owl-nav .owl-next span {
   color: #fff;
   font-size: 35px;
-  line-height: 22px;
+  line-height: 32px;
   transition: 0.5s all ease;
 }
 .serv04-page__subcategory .carousel-serv04-page__subcategory .owl-nav .owl-prev span {
   color: #fff;
   font-size: 35px;
-  line-height: 22px;
+  line-height: 32px;
   transition: 0.5s all ease;
 }
 .serv04-page__subcategory .carousel-serv04-page__subcategory .owl-nav .owl-prev:hover {
@@ -3366,7 +3366,7 @@ body .owl-dots .owl-dot.active {
 }
 .blog01-page__boxs__featured__carousel .owl-dots .owl-dot {
   width: 26px;
-  height: 19px;
+  height: 26px;
   display: inline-block;
   background-color: #ccc;
   margin: 0 6px;
@@ -3711,13 +3711,13 @@ body .owl-dots .owl-dot.active {
 .feed01 .carousel-feed01 .owl-nav .owl-next span {
   color: #CACACA;
   font-size: 35px;
-  line-height: 22px;
+  line-height: 29px;
   transition: 0.5s all ease;
 }
 .feed01 .carousel-feed01 .owl-nav .owl-prev span {
   color: #CACACA;
   font-size: 35px;
-  line-height: 22px;
+  line-height: 29px;
   transition: 0.5s all ease;
 }
 .feed01 .carousel-feed01 .owl-nav .owl-prev:hover {
@@ -3776,13 +3776,13 @@ body .owl-dots .owl-dot.active {
 .topi101 .carousel-topi101 .owl-nav .owl-next span {
   color: #fff;
   font-size: 35px;
-  line-height: 22px;
+  line-height: 29px;
   transition: 0.5s all ease;
 }
 .topi101 .carousel-topi101 .owl-nav .owl-prev span {
   color: #fff;
   font-size: 35px;
-  line-height: 22px;
+  line-height: 29px;
   transition: 0.5s all ease;
 }
 .topi101 .carousel-topi101 .owl-nav .owl-prev:hover {
@@ -3883,6 +3883,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   display: flex;
   flex-direction: column;
+  margin: 90px 0;
 }
 @media (max-width: 767.98px) {
   .topi101__box {
@@ -3890,7 +3891,7 @@ body .owl-dots .owl-dot.active {
   }
 }
 .topi101__box__top {
-  height: 162px;
+  height: 281px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3953,7 +3954,7 @@ body .owl-dots .owl-dot.active {
   transform: translate(-50%, -42%);
 }
 .topi101__box__bottom {
-  height: 162px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
