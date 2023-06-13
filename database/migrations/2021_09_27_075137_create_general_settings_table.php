@@ -24,6 +24,7 @@ class CreateGeneralSettingsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('address')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

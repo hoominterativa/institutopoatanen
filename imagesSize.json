@@ -1105,6 +1105,25 @@
                 "activeCrop": "false"
             }
         },
+        "TOPI101": {
+            "path_image": {
+                "width": "1450",
+                "height": "836",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1450",
+                    "height": "836",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "836",
+                    "activeCrop": "true"
+                }
+            }
+        },
         "TOPI102": {
             "path_image_desktop": {
                 "width": "1450",

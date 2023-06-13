@@ -161,7 +161,7 @@
                                                 </td>
                                                 <td class="align-middle avatar-group">
                                                     <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                        style="background-image: url({{ asset('storage' . $topic->path_image) }})">
+                                                        style="background-image: url({{ asset('storage/' . $topic->path_image) }})">
                                                     </div>
                                                 </td>
                                                 <td class="align-middle">{{ $topic->description }}</td>

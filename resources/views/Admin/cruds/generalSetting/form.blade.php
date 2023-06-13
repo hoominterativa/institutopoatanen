@@ -19,7 +19,15 @@
                 ]) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label(null, 'Endereço', ['class'=>'form-label']) !!}
+                {!! Form::label(null, 'E-mail', ['class'=>'form-label']) !!}
+                {!! Form::email('email', null, [
+                    'class'=>'form-control',
+                    'parsley-type'=>'email',
+                    'placeholder'=> 'exemplo@exemplo.com',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'Informações complementares', ['class'=>'form-label']) !!}
                 {!! Form::textarea('address', null, [
                     'class'=>'form-control',
                     'id'=>'message',

@@ -22,5 +22,6 @@ class GeneralSetting extends Model
         "address",
         "btn_cta_header",
         "btn_cta_footer",
+        'email',
     ];
 }
