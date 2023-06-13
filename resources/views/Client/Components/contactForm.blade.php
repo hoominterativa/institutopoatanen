@@ -96,8 +96,8 @@
                     </div>
                     <div class="form03__boxLeft__buttons">
                         @foreach ($socials as $social)
-                            <a class="form03__boxLeft__buttons__cta {{ $social->icon }}" href="{{ $social->link }}" target="_blank">
-                                {{-- <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt=""> --}}
+                            <a class="form03__boxLeft__buttons__cta" href="{{ $social->link }}" target="_blank">
+                                <img src="{{asset('storage/' . $social->path_image_icon)}}" alt="">
                                 {{ $social->title }}
                             </a>
                         @endforeach

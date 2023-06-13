@@ -38,9 +38,9 @@
                                             <th width="30px" class="bs-checkbox">
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
+                                            <th>Imagem</th>
                                             <th>Title</th>
                                             <th>Link</th>
-                                            <th width="50">Icone</th>
                                             <th width="90">Ações</th>
                                         </tr>
                                     </thead>
@@ -52,9 +52,13 @@
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$social->id}}"></label>
                                                 </td>
+                                                <td class="align-middle avatar-group">
+                                                    @if ($social->path_image_icon)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $social->path_image_icon)}})"></div>
+                                                    @endif
+                                                </td>
                                                 <td>{{$social->title}}</td>
                                                 <td><a class="breakText text-muted" href="{{$social->link}}">{{$social->link}}</a></td>
-                                                <td><i class="mdi {{$social->icon}} font-22"></i></td>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-4">
@@ -73,7 +77,7 @@
                                                                         <h4 class="modal-title">Editar rede Social</h4>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
-                                                                    {!! Form::model($social, ['autocomplete' => 'off', 'method' => 'PUT', 'route' => ['admin.social.update', $social->id], 'class'=>'parsley-validate']) !!}
+                                                                    {!! Form::model($social, ['autocomplete' => 'off', 'method' => 'PUT', 'files' => true, 'route' => ['admin.social.update', $social->id], 'class'=>'parsley-validate']) !!}
                                                                         <div class="modal-body p-4">
                                                                             <div class="mb-3">
                                                                                 <div class="mb-3">
@@ -88,7 +92,7 @@
                                                                                         'parsley-type'=>'url',
                                                                                     ]) !!}
                                                                                 </div>
-                                                                                <div class="mb-3">
+                                                                                {{-- <div class="mb-3">
                                                                                     {!! Form::label(null, 'Tipo', ['class'=>'form-label']) !!}
                                                                                     {!! Form::select('icon', [
                                                                                         'mdi-facebook' => 'Facebook',
@@ -104,6 +108,16 @@
                                                                                         'id'=>'heard',
                                                                                         'required'=>'required',
                                                                                         'placeholder' => '--'
+                                                                                    ]) !!}
+                                                                                </div> --}}
+                                                                                <div class="mb-3">
+                                                                                    {!! Form::label('file', 'Ícone', ['class' => 'form-label']) !!}
+                                                                                    {!! Form::file('path_image_icon', [
+                                                                                        'data-plugins' => 'dropify',
+                                                                                        'data-height' => '300',
+                                                                                        'data-max-file-size-preview' => '2M',
+                                                                                        'accept' => 'image/*',
+                                                                                        'data-default-file' => isset($social) ? ($social->path_image_icon != '' ? url('storage/' . $social->path_image_icon) : '') : '',
                                                                                     ]) !!}
                                                                                 </div>
                                                                             </div>
@@ -155,7 +169,7 @@
                                     'parsley-type'=>'url',
                                 ]) !!}
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 {!! Form::label(null, 'Tipo', ['class'=>'form-label']) !!}
                                 {!! Form::select('icon', [
                                     'mdi-facebook' => 'Facebook',
@@ -172,24 +186,16 @@
                                     'required'=>'required',
                                     'placeholder' => '--'
                                 ]) !!}
-                            </div>
+                            </div> --}}
                             <div class="mb-3">
-                                <div class="container-image-crop">
-                                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
-                                    <small class="ms-2">Dimensões proporcionais mínimas px!</small>
-                                    <label class="area-input-image-crop" for="inputImage">
-                                        {!! Form::file('path_image', [
-                                            'id'=>'inputImage',
-                                            'class'=>'inputImage',
-                                            'data-status'=>$cropSetting->path_image->activeCrop, // px
-                                            'data-min-width'=>$cropSetting->path_image->width, // px
-                                            'data-min-height'=>$cropSetting->path_image->height, // px
-                                            'data-box-height'=>'180', // Input height in the form
-                                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                            'data-default-file'=> isset($social)?($social->path_image<>''?url('storage/'.$social->path_image):''):'',
-                                        ]) !!}
-                                    </label>
-                                </div><!-- END container image crop -->
+                                {!! Form::label('file', 'Ícone', ['class' => 'form-label']) !!}
+                                {!! Form::file('path_image_icon', [
+                                    'data-plugins' => 'dropify',
+                                    'data-height' => '300',
+                                    'data-max-file-size-preview' => '2M',
+                                    'accept' => 'image/*',
+                                    'data-default-file' => isset($social) ? ($social->path_image_icon != '' ? url('storage/' . $social->path_image_icon) : '') : '',
+                                ]) !!}
                             </div>
                         </div>
                     </div>
