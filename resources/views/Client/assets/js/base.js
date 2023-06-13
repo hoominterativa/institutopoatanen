@@ -9,4 +9,5 @@ import '../../pages/Brands/BRAN01/src/main';
 import '../../pages/Blogs/BLOG01/src/main';
 import '../../pages/Feedbacks/FEED01/src/main';
 import '../../pages/Topics/TOPI101/src/main';
+import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Compliances/COMP01/src/main';

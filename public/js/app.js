@@ -12097,8 +12097,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Feedbacks_FEED01_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED01_src_main__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _pages_Topics_TOPI101_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Topics/TOPI101/src/main */ "./resources/views/Client/pages/Topics/TOPI101/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI101_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI101_src_main__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_12__);
+
 
 
 
@@ -12463,6 +12466,16 @@ $(function () {
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
   \*********************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contacts/COTA02/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contacts/COTA02/src/main.js ***!
+  \******************************************************************/
 /***/ (() => {
 
 
