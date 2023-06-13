@@ -173,6 +173,24 @@
                                     'placeholder' => '--'
                                 ]) !!}
                             </div>
+                            <div class="mb-3">
+                                <div class="container-image-crop">
+                                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
+                                    <small class="ms-2">Dimensões proporcionais mínimas px!</small>
+                                    <label class="area-input-image-crop" for="inputImage">
+                                        {!! Form::file('path_image', [
+                                            'id'=>'inputImage',
+                                            'class'=>'inputImage',
+                                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                                            'data-min-width'=>$cropSetting->path_image->width, // px
+                                            'data-min-height'=>$cropSetting->path_image->height, // px
+                                            'data-box-height'=>'180', // Input height in the form
+                                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                            'data-default-file'=> isset($social)?($social->path_image<>''?url('storage/'.$social->path_image):''):'',
+                                        ]) !!}
+                                    </label>
+                                </div><!-- END container image crop -->
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

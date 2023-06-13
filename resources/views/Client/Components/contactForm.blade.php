@@ -47,7 +47,7 @@
                                 <h2 class="lifo__boxLeft__title">{{$content->title_inner->value}}</h2>
                                 <div class="lifo__boxLeft__paragraph">
                                     <p>
-                                        {{$content->description_inner->value}}
+                                        {!!$content->description_inner->value!!}
                                     </p>
                                 </div>
                                 {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax lifo__boxLeft__form form-contact parsley-validate align-items-center']) !!}
@@ -83,84 +83,31 @@
         </section>
     @break
     @case('FORM03')
-        <section class="form03 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
-            <div class="container container--pd">
-                <div class="row mx-0">
-                    <div class="form03__boxLeft col-lg-4 px-0">
-                        <h2 class="form03__boxLeft__title">Title</h2>
-                        <h2 class="form103__boxLeft__subtitle">Subitle</h3>
-                        <div class="form03__boxLeft__buttons">
-                            <a class= "form03__boxLeft__buttons__cta" href="">
-                                <img src="" alt="">
-                                CTA
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form03__boxRight col-lg-8 px-0 d-flex justify-content-between align-items-center">
-                        <h2 class="form03__boxRight__title">Lorem ipsum dolor</h2>
-                        <div class="form03__boxRight__paragraph">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-
-                        {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form03__boxRight__form form-contact parsley-validate align-items-center']) !!}
-                            <div class="form03__boxRight__inputs d-flex justify-content-between">
-                                <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
-                                <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
-                                @foreach ($inputs as $name => $input)
-                                    @include('Client.Components.inputs', [
-                                        'name' => $name,
-                                        'options' => $input->option,
-                                        'placeholder' => $input->placeholder,
-                                        'required' => $input->required??false,
-                                        'type' => $input->type,
-                                        'class' => 'col-md-8'
-                                    ])
-                                @endforeach
-                            </div>
-                            <button type="submit" class="form03__boxRight__cta">
-                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
-                                CTA
-                            </button>
-                        {!! Form::close() !!}
-                    </div>
-                </div>
-            </div>
-        </section>
-    @break
-    @case('FORM03')
-    <section class="form03 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+    <section class="form03 container-fluid px-0" style="background-image: url({{asset('storage/' . $content->path_image_inner->value )}})">
         <div class="container container--pd">
             <div class="row mx-0 justify-content-between">
                 <div class="form03__boxLeft d-flex flex-column">
-                    <h2 class="form03__boxLeft__title">Title</h2>
-                    <h2 class="form03__boxLeft__subtitle">Subitle</h3>
+                    <h2 class="form03__boxLeft__title">{{$content->title->value}}</h2>
+                    <h2 class="form03__boxLeft__subtitle">{{$content->subtitle->value}}</h3>
                     <div class="form03__boxLeft__paragraph">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur adipiscing elit. Cras vel tortor
+                            {!!$content->description->value!!}
                         </p>
                     </div>
                     <div class="form03__boxLeft__buttons">
-                        <a class="form03__boxLeft__buttons__cta" href="">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
-                            Contato 1
-                        </a>
-                        <a class="form03__boxLeft__buttons__cta" href="">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
-                            Contato 1
-                        </a>
-                        <a class="form03__boxLeft__buttons__cta" href="">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="">
-                            Contato 1
-                        </a>
+                        @foreach ($socials as $social)
+                            <a class="form03__boxLeft__buttons__cta {{ $social->icon }}" href="{{ $social->link }}" target="_blank">
+                                {{-- <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt=""> --}}
+                                {{ $social->title }}
+                            </a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="form03__boxRight d-flex flex-column">
-                    <h2 class="form03__boxRight__title">Form Completo</h2>
+                    <h2 class="form03__boxRight__title">{{$content->title_inner->value}}</h2>
                     <div class="form03__boxRight__paragraph">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            {!!$content->description_inner->value!!}
                         </p>
                     </div>
 
