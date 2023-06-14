@@ -12267,9 +12267,43 @@ $(function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/pages/Topics/TOPI09/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+$(function () {
+  if ($(window).outerWidth() <= 768) {
+    $(".row--carrossel").addClass("owl-carousel");
+    $(".row--carrossel").addClass("topi09__carousel");
+    $(".topi09__box").css("width", "100%");
+    $(".topi09__carousel").owlCarousel({
+      margin: 0,
+      smartSpeed: 450,
+      dots: false,
+      nav: false,
+      rewind: true,
+      items: 3,
+      responsive: {
+        // breakpoint from 0 up
+        0: _defineProperty({
+          items: 1,
+          margin: 0
+        }, "margin", 46),
+        // breakpoint from 360 up
+        425: {
+          items: 2,
+          margin: 46
+        },
+        768: {
+          items: 2,
+          margin: 46
+        }
+      }
+    });
+    $(".topi09__carousel").css("width", $(window).outerWidth());
+  }
+});
 
 /***/ }),
 

@@ -837,16 +837,74 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.topi09 .container--pd {
+  padding: 50px 0;
+}
+@media (max-width: 767.98px) {
+  .topi09 .container--pd {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 29px;
+  }
+}
+.topi09__box {
+  flex: 0 0 auto;
+  width: 24.933333%;
+  padding-right: 23px;
+  padding-left: 23px;
+  position: relative;
+}
+@media (max-width: 767.98px) {
+  .topi09__box {
+    width: 100%;
+    padding: 0 !important;
+  }
+}
+.topi09__box::after {
+  content: "";
+  width: 1px;
+  height: 100%;
+  display: block;
+  background-color: rgba(64, 64, 64, 0.11);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media (max-width: 767.98px) {
+  .topi09__box::after {
+    display: none;
+  }
+}
+.topi09__box:last-of-type::after {
+  display: none;
+}
+.topi09__content {
+  padding: 16.21px 16.44px;
+  background: #D9D9D9;
+  gap: 0 20.84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 767.98px) {
+  .topi09__content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+.topi09__description {
+  width: 100%;
+}
+@media (max-width: 767.98px) {
+  .topi09__description {
+    margin-top: 11px;
+  }
+}
 .topi09__image {
   width: 55px;
-  height: 55px;
-  margin-bottom: 14.04px;
-}
-@media (max-width: 991.98px) {
-  .topi09__image {
-    width: 50px;
-    height: 50px;
-  }
+  height: auto;
 }
 .topi09__image img {
   width: 100%;
@@ -854,33 +912,34 @@ body .owl-dots .owl-dot.active {
      object-fit: contain;
 }
 .topi09__title {
-  font-size: 2.5rem;
+  font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #404040;
+  color: #000;
   display: block;
+  margin-bottom: 5.46px;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .topi09__title {
-    font-size: 1.875rem;
+    font-size: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
 .topi09__paragraph {
-  font: 1rem "Montserrat", sans-serif, arial;
+  font: 0.875rem "Montserrat", sans-serif, arial;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 400;
-  color: #404040;
+  color: #7C7C7C;
 }
 .topi09__paragraph p {
-  font: 1rem "Montserrat", sans-serif, arial;
+  font: 0.875rem "Montserrat", sans-serif, arial;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 400;
-  color: #404040;
+  color: #7C7C7C;
   margin-bottom: 0;
+  line-height: 19px !important;
 }
 @media (max-width: 991.98px) {
   .topi09__paragraph p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
+    font: 0.813rem "Montserrat", sans-serif, arial;
   }
 }
 

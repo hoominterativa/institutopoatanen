@@ -2,22 +2,72 @@
 
 /* BEGIN STYLE */
 .topi09{
-    .container--pd{}
-    &__box{
+    .container--pd{
+        padding: 50px 0;
 
+        @include medium-device-down{
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 29px;
+        }
+    }
+    &__box{
+        flex: 0 0 auto;
+        width: 24.933333%;
+        padding-right: 23px;
+        padding-left: 23px;
+        position: relative;
+
+        @include medium-device-down{
+           width: 100%;
+           padding: 0 !important;
+        }
+
+        &::after{
+            content: "";
+            width: 1px;
+            height: 100%;
+            display: block;
+            background-color: rgba(64, 64, 64, 0.11);
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            @include medium-device-down{
+                display: none;
+            }
+        }
+        &:last-of-type::after{
+            display: none;
+        }
+
+        
     }
     &__content{
+        padding: 16.21px 16.44px;
+        background: $color-nine;
+        gap: 0 20.84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
+        @include medium-device-down{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+    &__description{
+        width: 100%;
+
+        @include medium-device-down{
+            margin-top: 11px;
+        }
     }
     &__image {
         width: 55px;
-        height: 55px;
-        margin-bottom: 14.04px;
-
-        @include large-device-down {
-            width: 50px;
-            height: 50px;
-        }
+        height: auto;
 
         img {
             width: 100%;
@@ -25,30 +75,32 @@
         }
     }
     &__title{
-        font-size: $T2;
+        font: $paragraph;
         font-weight: $weight-700;
-        font-family: $font-primary;
-        color: $color-one;
+        color: $color-black;
         display: block;
+        margin-bottom: 5.46px;
+
         @include small-device{
-            font-size:  $T2-mobile;
+            font-size:  $paragraph-mobile;
         }
     }
     &__paragraph {
-        font: $paragraph;
+        font: $paragraph-min;
         font-family: $font-primary;
         font-weight: $weight-400;
-        color: $color-one;
+        color:$color-two;
 
         p {
-            font: $paragraph;
+            font: $paragraph-min;
             font-family: $font-primary;
             font-weight: $weight-400;
-            color: $color-one;
+            color:$color-two;
             margin-bottom: 0;
+            line-height: 19px !important;
 
             @include large-device-down {
-                font: $paragraph-mobile;
+                font: $paragraph-min-mobile;
             }
         }
     }
