@@ -187,6 +187,35 @@
         </div>
     </section>
 
+    <section class="unit03-show__gallery">
+        <div class="container">
+
+            <header class="unit03-show__gallery__header d-flex flex-column align-items-center">
+                <h4 class="unit03-show__gallery__subtitle">Subtítulo</h4>
+                <h3 class="unit03-show__gallery__title">Título</h3>
+                <hr class="unit03-show__gallery__line">
+            </header>
+
+            <div class="unit03-show__gallery__list">
+
+                @for ($i = 0; $i < 8; $i++)
+                    <div class="unit03-show__gallery__item">
+                        <img src="{{ asset('storage/uploads/tmp/thumbnail.png') }}" alt="">
+
+                        <h3 class="unit03-show__gallery__item__title">Título</h3>
+                    </div>
+                @endfor
+
+                <div class="unit03-show__gallery__item--big">
+                    <img src="{{ asset('storage/uploads/tmp/thumbnail-b.png') }}" alt="">
+
+                    <h3 class="unit03-show__gallery__item__title">Título</h3>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
     {{-- Finish Content page Here --}}
     @foreach ($sections as $section)
