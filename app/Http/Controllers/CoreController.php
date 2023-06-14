@@ -79,7 +79,7 @@ class CoreController extends Controller
                                     $key=0;
                                     foreach($config->IncludeCore->relation as $relationName => $configRealtion){
                                         if($key==1) {
-                                            $modelDBSubrelation = self::getModelParameters($this->Class->$module->$code->relationship->$relationName->class);
+                                            $modelDBSubrelation = self::getModelParameters($this->Class->$module->$code->relationship[$relationName]['class']);
                                             $subRoute = Str::lower($code).'.'.$relationName.'.page';
                                         }
                                         $key++;
@@ -161,11 +161,30 @@ class CoreController extends Controller
                         $route = Str::lower($code).'.show'; // Build route
                         $columTitleRef = $config->IncludeCore->titleList; // Get reference title
 
+                        if(isset($this->Class->$module->$code->relationship)){
+                            $paramsThis = [];
+                            foreach ($this->Class->$module->$code->relationship as $relation => $value) {
+                                $columnIdRef = $value['column'];
+                                $routeName = $this->Class->$module->$code->routeName;
+                                $queryRelation = $value['class']::find($item->$columnIdRef);
+
+                                $getParam = self::getModelParameters($value['class']);
+
+                                $paramsThis = array_merge($paramsThis, [$getParam => $queryRelation->slug]);
+                            }
+
+                            $paramsThis = array_merge($paramsThis, [$param => $item->slug]);
+                            $routeCurrent = route($routeName, $paramsThis);
+
+                        }else{
+                            $routeCurrent = route($route, [$param => $item->slug]);
+                        }
+
                         $menu = [
                             "id" => $item->id,
                             "name" => $item->$columTitleRef,
-                            "slug" => Str::slug($item->$columTitleRef),
-                            "route" => route($route, [$param => Str::slug($item->$columTitleRef)]),
+                            "slug" => $item->slug,
+                            "route" => $routeCurrent,
                             'subList' => null
                         ];
                         array_push($listDropdown, $menu);
@@ -173,7 +192,7 @@ class CoreController extends Controller
                 }else{
                     $relation = explode(',', $dropdown); // Get relations to query
                     $r0=$relation[0]; // Get first telationship
-                    $model = $this->Class->$module->$code->relationship->$r0->class; // Get model class
+                    $model = $this->Class->$module->$code->relationship[$r0]['class']; // Get model class
                     $param = self::getModelParameters($model); // Get parameter the model
                     $subRoute = Str::lower($code).'.'.$r0.'.page'; // Build route
 
@@ -204,7 +223,7 @@ class CoreController extends Controller
                         if(count($relation) > 1){
                             $r1=$relation[1];
                             $columTitleRefSub = $config->IncludeCore->relation->$r1->titleList; // Get reference title
-                            $modelSub = $this->Class->$module->$code->relationship->$r1->class; // Get model class
+                            $modelSub = $this->Class->$module->$code->relationship[$r1]['class']; // Get model class
                             $paramSub = self::getModelParameters($modelSub); // Get parameter the model
 
                             // Build array for subitems

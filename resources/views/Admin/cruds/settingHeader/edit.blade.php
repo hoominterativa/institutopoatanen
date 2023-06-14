@@ -40,9 +40,14 @@
                     $('.ifRelations').fadeIn('fast')
                 }
 
+                var page = null;
+                if($('input[name=pageN]').val()!=''){
+                    page = $('input[name=pageN]').val()
+                }
+
                 $(`.selectPage option[value="${module}|${model}"]`).attr('selected', 'selected')
 
-                getRelationsModel(module, model, 'edit', function(){
+                getRelationsModel(module, model, page, 'edit', function(){
                     var relation = null;
                     if(selectDropdown!='this'){
                         relation = selectDropdown.split(',')[0];
@@ -67,8 +72,8 @@
                                 }
                             }
                         }
-                    })
-                })
+                    }) // END getConditionsModel()
+                }) // END getRelationsModel()
             })
         })
     </script>
