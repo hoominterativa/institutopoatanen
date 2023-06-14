@@ -293,14 +293,16 @@ class ContactFormController extends Controller
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
-            $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
+            if($ContactForm->socials_id){
+                $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
+            }
             // dd($socials);
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
                 'content' => json_decode($ContactForm->content),
                 'inputs' => json_decode($ContactForm->inputs),
                 'model' => $ContactForm->model,
-                'socials' => $socials
+                'socials' => $socials?? null
             ]);
         }
 

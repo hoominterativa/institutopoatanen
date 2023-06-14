@@ -42,13 +42,10 @@ class SocialController extends Controller
         // $social->save();
 
         $data = $request->all();
-
         $helper = new HelperArchive();
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
-
-
 
         if(Social::create($data)){
             Session::flash('success', 'Item cadastrado com sucessso');
@@ -75,7 +72,6 @@ class SocialController extends Controller
         // $Social->save();
 
         $data = $request->all();
-
         $helper = new HelperArchive();
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);

@@ -154,7 +154,7 @@
                     <h4 class="modal-title">Cadastrar Rede Social</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                {!! Form::model(null, ['autocomplete' => 'off', 'route' => ['admin.social.store'], 'class'=>'parsley-validate']) !!}
+                {!! Form::model(null, ['autocomplete' => 'off', 'files' => true, 'route' => ['admin.social.store'], 'class'=>'parsley-validate']) !!}
                     <div class="modal-body p-4">
                         <div class="mb-3">
                             <div class="mb-3">
@@ -194,7 +194,7 @@
                                     'data-height' => '300',
                                     'data-max-file-size-preview' => '2M',
                                     'accept' => 'image/*',
-                                    'data-default-file' => isset($social) ? ($social->path_image_icon != '' ? url('storage/' . $social->path_image_icon) : '') : '',
+                                    'data-default-file' => ''
                                 ]) !!}
                             </div>
                         </div>

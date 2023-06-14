@@ -95,12 +95,14 @@
                         </p>
                     </div>
                     <div class="form03__boxLeft__buttons">
-                        @foreach ($socials as $social)
-                            <a class="form03__boxLeft__buttons__cta" href="{{ $social->link }}" target="_blank">
-                                <img src="{{asset('storage/' . $social->path_image_icon)}}" alt="">
-                                {{ $social->title }}
-                            </a>
-                        @endforeach
+                        @if ($socials)
+                            @foreach ($socials as $social)
+                                <a class="form03__boxLeft__buttons__cta" href="{{ $social->link }}" target="_blank">
+                                    <img src="{{asset('storage/' . $social->path_image_icon)}}" alt="">
+                                    {{ $social->title }}
+                                </a>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="form03__boxRight d-flex flex-column">
