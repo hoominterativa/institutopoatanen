@@ -287,6 +287,15 @@ return [
         ],
         // END SERVICES
 
+        'Schedules' => (object)[
+            'SCHE01' => (object)[
+                'controller' => App\Http\Controllers\Schedules\SCHE01Controller::class,
+                'model' => App\Models\Schedules\SCHE01Schedules::class,
+                'seedQty' => 1,
+            ],
+        ],
+        // END Schedules
+
         'Slides' => (object)[
             'SLID01' => (object)[
                 'controller' => App\Http\Controllers\Slides\SLID01Controller::class,

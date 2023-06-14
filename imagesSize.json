@@ -1264,6 +1264,13 @@
                 "height": "625",
                 "activeCrop": "false"
             }
+        },
+        "FORM03": {
+            "path_image_inner": {
+                "width": "1500",
+                "height": "689",
+                "activeCrop": "false"
+            }
         }
     }
 }

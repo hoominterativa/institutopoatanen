@@ -28,6 +28,7 @@ class GALL03GalleriesFactory extends Factory
         ]);
         return [
             'title' => $this->faker->text(10),
+            'image_legend' => $this->faker->text(10),
             'path_image' => $path,
             'featured' => rand(0, 1),
             'active' => 1,

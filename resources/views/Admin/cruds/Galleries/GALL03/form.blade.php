@@ -5,6 +5,10 @@
                 {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
             </div>
+            <div class="mb-3">
+                {!! Form::label('image_legend', 'Legenda da imagem', ['class' => 'form-label']) !!}
+                {!! Form::text('image_legend', null, ['class' => 'form-control', 'id' => 'image_legend']) !!}
+            </div>
             <div class="d-flex">
                 <div class="mb-3 form-check me-3">
                     {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}

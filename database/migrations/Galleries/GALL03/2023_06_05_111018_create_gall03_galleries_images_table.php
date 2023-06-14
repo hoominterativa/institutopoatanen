@@ -17,6 +17,7 @@ class CreateGall03GalleriesImagesTable extends Migration
             $table->id();
             $table->foreignId('gallery_id')->constrained('gall03_galleries');
             $table->string('path_image')->nullable();
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }

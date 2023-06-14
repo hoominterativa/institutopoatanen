@@ -16,7 +16,7 @@ class GALL03GalleriesImage extends Model
     }
 
     protected $table = "gall03_galleries_images";
-    protected $fillable = [];
+    protected $fillable = ['path_image', 'gallery_id', 'sorting'];
 
     public function gallery()
     {

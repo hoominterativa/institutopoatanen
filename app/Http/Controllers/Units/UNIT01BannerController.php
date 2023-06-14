@@ -37,7 +37,8 @@ class UNIT01BannerController extends Controller
         if(UNIT01UnitsBanner::create($data)){
             Session::flash('success', 'Banner cadastrado com sucesso');
         }else{
-            Storage::delete($path_image);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar o banner');
         }
         return redirect()->back();
@@ -80,7 +81,8 @@ class UNIT01BannerController extends Controller
         if($UNIT01UnitsBanner->fill($data)->save()){
             Session::flash('success', 'Banner atualizado com sucesso');
         }else{
-            Storage::delete($path_image);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar banner');
         }
         return redirect()->back();

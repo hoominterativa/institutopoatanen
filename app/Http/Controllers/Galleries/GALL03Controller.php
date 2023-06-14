@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\Galleries;
 
-use App\Models\Galleries\GALL03Galleries;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
+use Illuminate\Support\Facades\Response;
+use App\Models\Galleries\GALL03Galleries;
 use App\Models\Galleries\GALL03GalleriesImage;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Galleries\GALL03GalleriesBanner;
+use App\Models\Galleries\GALL03GalleriesSection;
+use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Galleries\GALL03GalleriesSectionGallery;
+use App\Http\Controllers\Galleries\GALL03SectionController;
 
 class GALL03Controller extends Controller
 {
@@ -24,8 +28,14 @@ class GALL03Controller extends Controller
     public function index()
     {
         $galleries = GALL03Galleries::sorting()->paginate(20);
+        $section = GALL03GalleriesSection::first();
+        $sectionGallery = GALL03GalleriesSectionGallery::first();
+        $banner = GALL03GalleriesBanner::first();
         return view('Admin.cruds.Galleries.GALL03.index', [
             'galleries' => $galleries,
+            'sectionGallery' => $sectionGallery,
+            'section' => $section,
+            'banner' => $banner,
             'cropSetting' => getCropImage('Galleries', 'GALL03')
         ]);
     }
@@ -207,10 +217,27 @@ class GALL03Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = GALL03GalleriesBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                break;
+            default:
+                $banner = GALL03GalleriesBanner::active()->first();
+                break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Galleries', 'GALL03', 'page');
 
+        $sectionGallery = GALL03GalleriesSectionGallery::active()->first();
+        $galleries = GALL03Galleries::with('images')->active()->sorting()->get();
+
         return view('Client.pages.Galleries.GALL03.page',[
+            'banner' => $banner,
+            'sectionGallery' => $sectionGallery,
+            'galleries' => $galleries,
             'sections' => $sections
         ]);
     }
@@ -222,6 +249,11 @@ class GALL03Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Galleries.GALL03.section');
+        $section = GALL03GalleriesSection::active()->first();
+        $galleries = GALL03Galleries::with('images')->active()->sorting()->get();
+        return view('Client.pages.Galleries.GALL03.section', [
+            'section' => $section,
+            'galleries' => $galleries
+        ]);
     }
 }
