@@ -14,29 +14,21 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Schedules' => (object) [
-            'SCHE01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
+        'Feedbacks' => (object) [
+            'FEED06' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                // 'IncludeCore' => (object) [
-                //     'include' => true,
-                //     'sorting' => true,
-                //     'limit' => 'all',
-                //     'condition' => 'active=1{Ativos}',
-                //     'titleList' => 'title',
-                // ],
                 'config' => (object) [
-                    'titleMenu' => 'Agenda',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'sche01.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Agenda',
+                    'titlePanel' => 'Depoimentos',
                     'iconPanel' => ''
-                ],
-                'IncludeSections' => (object) [],
+                ]
             ],
         ],
     ],
