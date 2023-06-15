@@ -6,7 +6,10 @@ use App\Http\Controllers\Units\UNIT03Controller;
 use App\Http\Controllers\Units\UNIT03TopicController;
 use App\Http\Controllers\Units\UNIT03BannerController;
 use App\Http\Controllers\Units\UNIT03SocialController;
+use App\Http\Controllers\Units\UNIT03ContentController;
+use App\Http\Controllers\Units\UNIT03GalleryController;
 use App\Http\Controllers\Units\UNIT03CategoryController;
+use App\Http\Controllers\Units\UNIT03BannerShowController;
 
 /**
  * Uncomment the code below
@@ -41,7 +44,17 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/social/delete', [UNIT03SocialController::class, 'destroySelected'])->name('admin.'.$routeName.'.social.destroySelected');
     Route::post($route.'/social/sorting', [UNIT03SocialController::class, 'sorting'])->name('admin.'.$routeName.'.social.sorting');
 
+    Route::resource($route.'/conteudos', UNIT03ContentController::class)->names('admin.'.$routeName.'.content')->parameters(['conteudos' => 'UNIT03UnitsContent']);
+    Route::post($route.'/conteudo/delete', [UNIT03ContentController::class, 'destroySelected'])->name('admin.'.$routeName.'.content.destroySelected');
+    Route::post($route.'/conteudo/sorting', [UNIT03ContentController::class, 'sorting'])->name('admin.'.$routeName.'.content.sorting');
+
+    Route::resource($route.'/galerias', UNIT03GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galerias' => 'UNIT03UnitsGallery']);
+    Route::post($route.'/galeria/delete', [UNIT03GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [UNIT03GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
+
     Route::resource($route.'/banner', UNIT03BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'UNIT03UnitsBanner']);
+
+    Route::resource($route.'/bannershow', UNIT03BannerShowController::class)->names('admin.'.$routeName.'.bannerShow')->parameters(['bannershow' => 'UNIT03UnitsBannerShow']);
 });
 // // CLIENT
 Route::get($route.'/categoria/{UNIT03UnitsCategory:slug}', [UNIT03Controller::class, 'page'])->name($routeName.'.category.page');

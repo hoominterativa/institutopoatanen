@@ -30,6 +30,11 @@ class UNIT03UnitsFactory extends Factory
             'path_image' => 'uploads/tmp/image-box.jpg',
             'path_image_icon' => 'uploads/tmp/favicon.png',
             'active' => 1,
+
+            // Table show
+            'title_show' => $this->faker->text(10),
+            'subtitle_show' => $this->faker->text(10),
+            'path_image_icon_show' => 'uploads/tmp/favicon.png',
         ];
     }
 }

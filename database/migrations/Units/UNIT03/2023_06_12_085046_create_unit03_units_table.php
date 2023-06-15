@@ -22,6 +22,11 @@ class CreateUnit03UnitsTable extends Migration
             $table->string('path_image_icon')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
+
+            // Table show
+            $table->string('title_show')->nullable();
+            $table->string('subtitle_show')->nullable();
+            $table->string('path_image_icon_show')->nullable();
             $table->timestamps();
         });
     }

@@ -31,6 +31,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro do banner para a página interna"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#topics" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Tópicos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -46,6 +54,22 @@
                                 data-bs-original-title="Cadastro de redes sociais"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Conteúdo
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastrar conteúdos"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Galeria
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastrar galeria"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -58,6 +82,12 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Units.UNIT03.BannerShow.form', [
+                            'unit' => $unit,
+                            'bannerShow' => $bannerShow,
+                        ])
+                    </div>
                     <div class="tab-pane" id="topics">
                         @include('Admin.cruds.Units.UNIT03.Topic.index', [
                             'unit' => $unit,
@@ -68,6 +98,18 @@
                         @include('Admin.cruds.Units.UNIT03.Social.index', [
                             'unit' => $unit,
                             'socials' => $socials,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="content">
+                        @include('Admin.cruds.Units.UNIT03.Content.index', [
+                            'unit' => $unit,
+                            'contents' => $contents,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="gallery">
+                        @include('Admin.cruds.Units.UNIT03.Gallery.index', [
+                            'unit' => $unit,
+                            'galleries' => $galleries,
                         ])
                     </div>
                 </div>

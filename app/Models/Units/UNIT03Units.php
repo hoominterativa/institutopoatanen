@@ -16,7 +16,7 @@ class UNIT03Units extends Model
     }
 
     protected $table = "unit03_units";
-    protected $fillable = ['category_id', 'title', 'slug', 'path_image', 'path_image_icon', 'active', 'sorting'];
+    protected $fillable = ['category_id', 'title', 'slug', 'path_image', 'path_image_icon', 'active', 'sorting', 'title_show', 'subtitle_show', 'path_image_icon_show'];
 
     public function scopeSorting($query)
     {
@@ -41,5 +41,20 @@ class UNIT03Units extends Model
     public function social()
     {
         return $this->hasMany(UNIT03UnitsSocial::class, 'unit_id');
+    }
+
+    public function banner()
+    {
+        return $this->hasMany(UNIT03UnitsBannerShow::class, 'unit_id');
+    }
+
+    public function content()
+    {
+        return $this->hasMany(UNIT03UnitsContent::class, 'unit_id');
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany(UNIT03UnitsGallery::class, 'unit_id');
     }
 }
