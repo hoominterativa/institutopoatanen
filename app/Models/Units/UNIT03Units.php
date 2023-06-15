@@ -16,7 +16,7 @@ class UNIT03Units extends Model
     }
 
     protected $table = "unit03_units";
-    protected $fillable = ['category_id', 'title', 'slug', 'path_image', 'path_image_icon', 'active', 'sorting', 'title_show', 'subtitle_show', 'path_image_icon_show'];
+    protected $fillable = ['category_id', 'title', 'slug', 'path_image', 'path_image_icon',  'path_image_gallery', 'active', 'sorting', 'title_show', 'subtitle_show', 'path_image_icon_show','title_gallery', 'link_video'];
 
     public function scopeSorting($query)
     {

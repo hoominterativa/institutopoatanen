@@ -1224,6 +1224,11 @@
                 "height": "300",
                 "activeCrop": "false"
             },
+            "path_image_gallery": {
+                "width": "1314",
+                "height": "488",
+                "activeCrop": "false"
+            },
             "Category": {
                 "path_image_icon": {
                     "width": "300",

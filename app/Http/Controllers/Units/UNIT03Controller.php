@@ -18,6 +18,8 @@ use App\Models\Units\UNIT03UnitsCategory;
 use App\Models\Units\UNIT03UnitsBannerShow;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Units\UNIT03UnitsGalleryContent;
+use App\Models\Units\UNIT03UnitsSectionGallery;
 
 class UNIT03Controller extends Controller
 {
@@ -81,6 +83,9 @@ class UNIT03Controller extends Controller
         $path_image_icon_show = $helper->optimizeImage($request, 'path_image_icon_show', $this->path, null,100);
         if($path_image_icon_show) $data['path_image_icon_show'] = $path_image_icon_show;
 
+        $path_image_gallery = $helper->optimizeImage($request, 'path_image_gallery', $this->path, null,100);
+        if($path_image_gallery) $data['path_image_gallery'] = $path_image_gallery;
+
         if($unit = UNIT03Units::create($data)){
             Session::flash('success', 'Unidade cadastrada com sucesso');
             return redirect()->route('admin.unit03.index', ['UNIT03Units' => $unit->id]);
@@ -88,6 +93,7 @@ class UNIT03Controller extends Controller
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
             Storage::delete($path_image_icon_show);
+            Storage::delete($path_image_gallery);
             Session::flash('error', 'Erro ao cadastradar a unidade');
             return redirect()->back();
         }
@@ -99,7 +105,7 @@ class UNIT03Controller extends Controller
      * @param  \App\Models\Units\UNIT03Units  $UNIT03Units
      * @return \Illuminate\Http\Response
      */
-    public function edit(UNIT03Units $UNIT03Units)
+    public function edit(UNIT03Units $UNIT03Units, UNIT03UnitsContent $UNIT03UnitsContent)
     {
         $categories = UNIT03UnitsCategory::exists()->sorting()->pluck('title', 'id');
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->sorting()->get();
@@ -107,6 +113,8 @@ class UNIT03Controller extends Controller
         $bannerShow = UNIT03UnitsBannerShow::first();
         $contents = UNIT03UnitsContent::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
+        $sectionGallery = UNIT03UnitsSectionGallery::first();
+        $galleryContents = UNIT03UnitsGalleryContent::where('content_id', $UNIT03UnitsContent->id)->sorting()->get();
         return view('Admin.cruds.Units.UNIT03.edit', [
             'unit' => $UNIT03Units,
             'categories' => $categories,
@@ -115,6 +123,8 @@ class UNIT03Controller extends Controller
             'bannerShow' => $bannerShow,
             'contents' => $contents,
             'galleries' => $galleries,
+            'sectionGallery' => $sectionGallery,
+            'galleryContents' => $galleryContents,
             'cropSetting' => getCropImage('Units', 'UNIT03')
         ]);
     }
@@ -164,12 +174,23 @@ class UNIT03Controller extends Controller
             $data['path_image_icon_show'] = null;
         }
 
+        $path_image_gallery = $helper->optimizeImage($request, 'path_image_gallery', $this->path, null,100);
+        if($path_image_gallery){
+            storageDelete($UNIT03Units, 'path_image_gallery');
+            $data['path_image_gallery'] = $path_image_gallery;
+        }
+        if($request->delete_path_image_gallery && !$path_image_gallery){
+            storageDelete($UNIT03Units, 'path_image_gallery');
+            $data['path_image_gallery'] = null;
+        }
+
         if($UNIT03Units->fill($data)->save()){
             Session::flash('success', 'Unidade atualizada com sucesso');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
             Storage::delete($path_image_icon_show);
+            Storage::delete($path_image_gallery);
             Session::flash('error', 'Erro ao atualizar a unidade');
         }
         return redirect()->back();
@@ -195,9 +216,31 @@ class UNIT03Controller extends Controller
             $social->delete();
         }
 
+        $banners = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->get();
+        foreach($banners as $banner){
+            storageDelete($banner, 'path_image_desktop');
+            storageDelete($banner, 'path_image_mobile');
+            $banner->delete();
+        }
+
+        $contents = UNIT03UnitsContent::where('unit_id', $UNIT03Units->id)->get();
+        foreach($contents as $content){
+            storageDelete($content, 'path_image');
+            storageDelete($content, 'path_image_mobile');
+            storageDelete($content, 'path_image_desktop');
+            $content->delete();
+        }
+
+        $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->get();
+        foreach($galleries as $gallery){
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
         storageDelete($UNIT03Units, 'path_image');
         storageDelete($UNIT03Units, 'path_image_icon');
         storageDelete($UNIT03Units, 'path_image_icon_show');
+        storageDelete($UNIT03Units, 'path_image_gallery');
 
         if($UNIT03Units->delete()){
             Session::flash('success', 'Unidade deletada com sucessso');
@@ -229,9 +272,31 @@ class UNIT03Controller extends Controller
                 $social->delete();
             }
 
+            $banners = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->get();
+            foreach($banners as $banner){
+                storageDelete($banner, 'path_image_desktop');
+                storageDelete($banner, 'path_image_mobile');
+                $banner->delete();
+            }
+
+            $contents = UNIT03UnitsContent::where('unit_id', $UNIT03Units->id)->get();
+            foreach($contents as $content){
+                storageDelete($content, 'path_image');
+                storageDelete($content, 'path_image_mobile');
+                storageDelete($content, 'path_image_desktop');
+                $content->delete();
+            }
+
+            $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->get();
+            foreach($galleries as $gallery){
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+
             storageDelete($UNIT03Units, 'path_image');
             storageDelete($UNIT03Units, 'path_image_icon');
             storageDelete($UNIT03Units, 'path_image_icon_show');
+            storageDelete($UNIT03Units, 'path_image_gallery');
         }
 
         if($deleted = UNIT03Units::whereIn('id', $request->deleteAll)->delete()){

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Units\UNIT03UnitsGalleryContent;
 
 class UNIT03ContentController extends Controller
 {
@@ -109,6 +110,12 @@ class UNIT03ContentController extends Controller
      */
     public function destroy(UNIT03UnitsContent $UNIT03UnitsContent)
     {
+        $galleries = UNIT03UnitsGalleryContent::where('content_id', $UNIT03UnitsContent->id)->get();
+        foreach($galleries as $gallery){
+            storageDelete($gallery, 'path_image');
+            $gallery->delete();
+        }
+
         storageDelete($UNIT03UnitsContent, 'path_image');
         storageDelete($UNIT03UnitsContent, 'path_image_desktop');
         storageDelete($UNIT03UnitsContent, 'path_image_mobile');
@@ -130,6 +137,13 @@ class UNIT03ContentController extends Controller
 
         $UNIT03UnitsContents = UNIT03UnitsContent::whereIn('id', $request->deleteAll)->get();
         foreach($UNIT03UnitsContents as $UNIT03UnitsContent){
+            
+            $galleries = UNIT03UnitsGalleryContent::where('content_id', $UNIT03UnitsContent->id)->get();
+            foreach($galleries as $gallery){
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+
             storageDelete($UNIT03UnitsContent, 'path_image');
             storageDelete($UNIT03UnitsContent, 'path_image_mobile');
             storageDelete($UNIT03UnitsContent, 'path_image_desktop');

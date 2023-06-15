@@ -77,7 +77,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- END MODAL GALLERIES UPDATE --}}
+                                        {{-- END MODAL TOPICS UPDATE --}}
                                     </div>
                                 </td>
                             </tr>

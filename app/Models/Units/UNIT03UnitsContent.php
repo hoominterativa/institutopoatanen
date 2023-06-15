@@ -32,4 +32,9 @@ class UNIT03UnitsContent extends Model
     {
         return $this->belongsTo(UNIT01Units::class, 'unit_id');
     }
+
+    public function gallery()
+    {
+        return $this->hasMany(UNIT03UnitsGalleryContent::class, 'content_id');
+    }
 }
