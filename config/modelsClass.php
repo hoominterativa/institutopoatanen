@@ -289,6 +289,11 @@ return [
                     ]
                 ]
             ],
+            'SERV05' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV05Controller::class,
+                'model' => App\Models\Services\SERV05Services::class,
+                'seedQty' => 4,
+            ],
         ],
         // END SERVICES
 

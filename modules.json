@@ -44,7 +44,8 @@
     ],
     "Services": [
         "SERV01",
-        "SERV04"
+        "SERV04",
+        "SERV05"
     ],
     "Abouts": [
         "ABOU01",
