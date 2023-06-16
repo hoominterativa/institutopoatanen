@@ -8,14 +8,49 @@ return [
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT02'
+            'Code' => 'FOOT03'
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
+        'Slides' => (object) [
+            'SLID01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Slide',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
+        'Abouts' => (object) [
+            'ABOU02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Sobre',
+                    'anchor' =>  false,
+                    'linkMenu' => 'abou02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre',
+                    'iconPanel' => ''
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
         'Contents' => (object) [
-            'CONT11' => (object)[
+            'CONT06' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -27,6 +62,91 @@ return [
                     'linkMenu' => '',
                     'iconMenu' => '',
                     'titlePanel' => 'Conteúdo',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
+        // 'Topics' => (object) [
+        //     'TOPI04' => (object)[
+        //         'ViewHome' => true,
+        //         'ViewListMenu' => false,
+        //         'ViewListPanel' => true,
+        //         'ViewListFooter' => false,
+        //         'Viewer' => 'dropdown', // accepted values, list or dropdown
+        //         'config' => (object) [
+        //             'titleMenu' => '',
+        //             'anchor' =>  false,
+        //             'linkMenu' => '',
+        //             'iconMenu' => '',
+        //             'titlePanel' => 'Tópicos',
+        //             'iconPanel' => ''
+        //         ]
+        //     ],
+        // ],
+        'Products' => (object) [
+            'PROD02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' => (object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Produtos',
+                    'anchor' =>  false,
+                    'linkMenu' => 'prod02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Produtos',
+                    'iconPanel' => 'mdi-shopping-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Feedbacks' => 'FEED01',
+                ]
+            ],
+        ],
+        'Feedbacks' => (object) [
+            'FEED03' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Depoimentos',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
+        'Topics.1' => (object) [
+            'TOPI05' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos',
                     'iconPanel' => ''
                 ]
             ],

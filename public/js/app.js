@@ -11981,9 +11981,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Footers/FOOT02/src/main.js":
+/***/ "./resources/views/Client/Core/Footers/FOOT03/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Footers/FOOT02/src/main.js ***!
+  !*** ./resources/views/Client/Core/Footers/FOOT03/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -12079,12 +12079,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE02/src/main */ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js");
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
-/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contents_CONT11_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT11/src/main */ "./resources/views/Client/pages/Contents/CONT11/src/main.js");
-/* harmony import */ var _pages_Contents_CONT11_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT11_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT03/src/main */ "./resources/views/Client/Core/Footers/FOOT03/src/main.js");
+/* harmony import */ var _Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT03_src_main__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
+/* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Abouts/ABOU02/src/main */ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js");
+/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Contents/CONT06/src/main */ "./resources/views/Client/pages/Contents/CONT06/src/main.js");
+/* harmony import */ var _pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Topics/TOPI04/src/main */ "./resources/views/Client/pages/Topics/TOPI04/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI04_src_main__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Products/PROD02/src/main */ "./resources/views/Client/pages/Products/PROD02/src/main.js");
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Feedbacks/FEED03/src/main */ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js");
+/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Topics/TOPI05/src/main */ "./resources/views/Client/pages/Topics/TOPI05/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10__);
+
+
+
+
+
+
 
 
 
@@ -12310,6 +12328,97 @@ $(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Abouts/ABOU02/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel_abou02').owlCarousel({
+    smartSpeed: 450,
+    loop: false,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 0 up
+      361: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 361 up
+      801: {
+        items: 3,
+        margin: 14
+      } // breakpoint from 801 up
+
+    }
+  });
+  $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 496);
+
+  if ($(window).outerWidth() <= 801) {
+    $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 150);
+  } // END carousel_abou02
+
+
+  $('.carousel-abou02-topic').owlCarousel({
+    smartSpeed: 450,
+    loop: false,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 0
+      200: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 200 up
+      361: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 361 up
+      500: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 500 up
+      815: {
+        items: 3,
+        margin: 14
+      },
+      // breakpoint from 815 up
+      820: {
+        items: 4,
+        margin: 14
+      } // breakpoint from 820 up
+
+    }
+  });
+  $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
+
+  if ($(window).outerWidth() <= 801) {
+    $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 550);
+  } // END carousel-abou02-topic
+
+});
+
+/***/ }),
+
 /***/ "./resources/views/Client/pages/Compliances/COMP01/src/main.js":
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
@@ -12320,22 +12429,258 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT11/src/main.js":
+/***/ "./resources/views/Client/pages/Contents/CONT06/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT11/src/main.js ***!
+  !*** ./resources/views/Client/pages/Contents/CONT06/src/main.js ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(".cont11__carousel").owlCarousel({
+if ($("#videoApre").length) {
+  var valorAntigo = $("#videoApre").attr('data-src');
+  var caminhoCapaVideo = $("#videoApre").attr('data-capa-video');
+  var arrValorAntigo = new Array();
+
+  if (valorAntigo.indexOf("/embed/") > 0) {
+    if (valorAntigo != "") {
+      arrValorAntigo = valorAntigo.split("/embed/");
+
+      if (arrValorAntigo.length > 1) {
+        arrValorAntigo = arrValorAntigo[1].split('&');
+
+        if (caminhoCapaVideo == "") {
+          $("#videoApre").css('background-image', 'url(https://i.ytimg.com/vi/' + arrValorAntigo[0] + '/hqdefault.jpg)');
+        } else {
+          $("#videoApre").css('background-image', 'url(' + caminhoCapaVideo + ')');
+        }
+      }
+    }
+  }
+
+  $('body').on('click', '#videoApre .play', function () {
+    $urlVideo = $(this).parents('#videoApre').attr('data-src');
+    $(this).parents('.cont06__boxVideo__content').append('<iframe id="urlYoutube" width="99.5%" height=500" src="' + $urlVideo + '?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+    $(this).parents('#videoApre').remove();
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js":
+/*!*******************************************************************!*\
+  !*** ./resources/views/Client/pages/Feedbacks/FEED03/src/main.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.carousel-feed03').owlCarousel({
   smartSpeed: 450,
   loop: true,
   dots: false,
   nav: true,
   rewind: true,
   autoHeight: true,
-  items: 1
+  margin: 50,
+  responsive: {
+    0: {
+      items: 1
+    },
+    // breakpoint from 0 up
+    400: {
+      items: 1
+    },
+    // breakpoint from 361 up
+    500: {
+      items: 2
+    },
+    // breakpoint from 500 up
+    801: {
+      items: 3
+    } // breakpoint from 801 up
+
+  }
 });
+$('.carrossel-feed03').css('width', $('.feed03 .container').outerWidth());
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Products/PROD02/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Products/PROD02/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(".carousel-prod02").owlCarousel({
+  smartSpeed: 450,
+  loop: false,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  responsive: {
+    0: {
+      items: 1,
+      margin: 10
+    },
+    // breakpoint from 0 up
+    361: {
+      items: 1,
+      margin: 10
+    },
+    // breakpoint from 361 up
+    480: {
+      items: 2,
+      margin: 10
+    },
+    // breakpoint from 480 up
+    801: {
+      items: 4,
+      margin: 20
+    } // breakpoint from 801 up
+
+  }
+});
+$(".carousel-prod02").css("width", $(".prod02 .container--edit").outerWidth());
+
+if ($(window).outerWidth() <= 801) {
+  $(".carousel-prod02").css("width", $(".prod02 .container--edit").outerWidth() + 150);
+} // END carousel_prod02
+
+
+if ($(window).outerWidth() <= 801) {
+  $(".prod02__navigation__nav__mobile").addClass("owl-carousel");
+  $(".prod02__navigation__nav__mobile").addClass("caroussel-prod02-mobile");
+  $(".caroussel-prod02-mobile").css("width", $(window).outerWidth());
+  $(".caroussel-prod02-mobile").owlCarousel({
+    margin: 10,
+    items: 3,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true
+  });
+}
+
+if ($(window).outerWidth() <= 801) {
+  $(".prod02__page__content__category").addClass("owl-carousel");
+  $(".prod02__page__content__category").addClass("caroussel_prod02-page");
+  $(".caroussel_prod02-page").owlCarousel({
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 0 up
+      400: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 400 up
+      801: {
+        items: 2,
+        margin: 20
+      } // breakpoint from 801 up
+
+    }
+  });
+}
+
+$(".caroussel_prod02-show").owlCarousel({
+  margin: 5,
+  items: 1,
+  stagePadding: 0,
+  smartSpeed: 450,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true
+});
+$(".caroussel_prod02-show").css("width", $(window).outerWidth() / 2 - 108);
+var altLightbox = $(".lightbox-prod02__content__carrossel").outerHeight();
+$(".caroussel_prod02-show").css("height", $(altLightbox));
+
+if ($(window).outerWidth() <= 801) {
+  $(".caroussel_prod02-show").css("width", $(window).outerWidth() - 16); // $('.caroussel_prod02-show .owl-stage').css('width', $(window).outerWidth() - 150);
+  // $('.caroussel_prod02-show .owl-item').css('width', $(window).outerWidth() - 150);
+}
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Slides/SLID01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Slides/SLID01/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.SLID01').owlCarousel({
+    animateOut: 'fadeOut',
+    items: 1,
+    margin: 0,
+    stagePadding: 0,
+    smartSpeed: 450,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    loop: true,
+    dots: true,
+    nav: false,
+    dotsContainer: "#dotsSlideCustom"
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Topics/TOPI04/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI04/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.carrosel-topi04-topics').owlCarousel({
+  smartSpeed: 450,
+  loop: false,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  margin: 2,
+  responsive: {
+    0: {
+      items: 3
+    },
+    // breakpoint from 0 up
+    361: {
+      items: 3
+    },
+    // breakpoint from 361 up
+    801: {
+      items: 3
+    } // breakpoint from 801 up
+
+  }
+});
+$('.carrosel-topi04-topics').css('width', $('.topi04__boxRight').outerWidth());
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Topics/TOPI05/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI05/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 
