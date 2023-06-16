@@ -1274,6 +1274,13 @@
                     "activeCrop": "false"
                 }
             },
+            "GalleryContent": {
+                "path_image": {
+                    "width": "655",
+                    "height": "473",
+                    "activeCrop": "false"
+                }
+            },
             "Social": {
                 "path_image_icon": {
                     "width": "300",

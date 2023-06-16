@@ -19,7 +19,7 @@
 
     <div class="col-12">
         <div class="alert alert-warning">
-            <p class="mb-0">Atenção: Você pode escolher apenas uma das opções de cadastro, caso queira.</p>
+            <p class="mb-0">Atenção: Você pode escolher apenas uma das opções de cadastro(Imagem ou Link), caso queira.</p>
         </div>
     </div>
     <div class="col-12">

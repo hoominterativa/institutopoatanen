@@ -34,4 +34,6 @@ class UNIT03UnitsCategory extends Model
             $query->select('id')->from('unit03_units')->whereColumn('unit03_units.category_id', 'unit03_units_categories.id');
         });
     }
+
+    
 }

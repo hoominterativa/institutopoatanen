@@ -38,12 +38,12 @@ class UNIT03Units extends Model
         return $this->hasMany(UNIT03UnitsTopic::class, 'unit_id');
     }
 
-    public function social()
+    public function socials()
     {
         return $this->hasMany(UNIT03UnitsSocial::class, 'unit_id');
     }
 
-    public function banner()
+    public function banners()
     {
         return $this->hasMany(UNIT03UnitsBannerShow::class, 'unit_id');
     }

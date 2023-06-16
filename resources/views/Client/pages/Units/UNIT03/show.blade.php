@@ -1,14 +1,18 @@
 @extends('Client.Core.client')
 @section('content')
     {{-- BEGIN Page content --}}
-    <section class="unit03-show__banner"
-        style="background-image: url({{ asset('storage/uploads/tmp/bg-section-dark-gray.jpg') }})">
-        <header class="unit03-show__banner__content container d-flex flex-column align-items-center justify-content-center">
-            <h1 class="unit03-show__banner__title text-center">Título da Página</h1>
-            <h2 class="unit03-show__banner__subtitle text-center">Subtítulo</h2>
-            <hr class="unit03-show__banner__line">
-        </header>
-    </section>
+    @if ($bannerShow)
+        <section class="unit03-show__banner"
+        style="background-image: url({{ asset('storage/' . $bannerShow->path_image_desktop) }}); background-color: {{$bannerShow->background_color}}">
+            <header class="unit03-show__banner__content container d-flex flex-column align-items-center justify-content-center">
+                @if ($bannerShow->title || $bannerShow->subtitle)
+                    <h1 class="unit03-show__banner__title text-center">{{$bannerShow->title}}</h1>
+                    <h2 class="unit03-show__banner__subtitle text-center">{{$bannerShow->subtitle}}</h2>
+                    <hr class="unit03-show__banner__line">
+                @endif
+            </header>
+        </section>
+    @endif
 
     <section class="unit03-show__top">
         <div class="unit03-show__top__left d-flex flex-column align-items-stretch">
@@ -26,39 +30,40 @@
                     </span>
                     <hr class="unit03-show__top__line">
 
-                    <ul class="unit03-show__top__social">
-
-                        @for ($i = 0; $i < 5; $i++)
-                            <li class="unit03-show__top__social__item">
-                                <a href="#" target="_blank">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="">
-                                </a>
-                            </li>
-                        @endfor
-
-                    </ul>
-
+                    @if ($socials->count())
+                        <ul class="unit03-show__top__social">
+                            @foreach ( $socials as $social)
+                                <li class="unit03-show__top__social__item">
+                                    <a href="{{$social->link ? getUri($social->link) : 'javascript:void(0)'}}" target="{{ $social->target_link }}" rel="prev">
+                                        @if ($social->path_image_icon)
+                                            <img src="{{ asset('storage/' . $social->path_image_icon) }}" alt="">
+                                        @endif
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
             </div>
-
-            <div class="unit03-show__top__carousel owl-carousel">
-
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="unit03-show__top__carousel__item d-flex justify-content-start align-items-center">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                            class="unit03-show__top__carousel__item__icon">
-
-                        <div
-                            class="unit03-show__top__carousel__item__content d-flex flex-column justify-content-center align-items-start">
-                            <h3 class="unit03-show__top__carousel__item__title">Título</h3>
-                            <p class="unit03-show__top__carousel__item__desc">Descrição</p>
+            @if ($topics->count())
+                <div class="unit03-show__top__carousel owl-carousel">
+                   @foreach ($topics as $topic)
+                        <div class="unit03-show__top__carousel__item d-flex justify-content-start align-items-center">
+                            @if ($topic->path_image_icon)
+                                <img src="{{ asset('storage/' . $topic->path_image_icon) }}" alt="" class="unit03-show__top__carousel__item__icon">
+                            @endif
+                            <div
+                                class="unit03-show__top__carousel__item__content d-flex flex-column justify-content-center align-items-start">
+                                @if ($topic->title || $topic->description)
+                                    <h3 class="unit03-show__top__carousel__item__title">{{$topic->title}}</h3>
+                                    <p class="unit03-show__top__carousel__item__desc">{!! $topic->description!!}</p>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                @endfor
-
-            </div>
+                    @endforeach
+                </div>
+            @endif
         </div>
-
         <div class="unit03-show__top__form">
 
             <h4 class="unit03-show__top__form__subtitle">Subtítulo</h4>
@@ -109,83 +114,50 @@
         </div>
     </section>
 
-    <section class="unit03-show__content" style="background-image: url({{ asset('storage/uploads/tmp/box-branco.png') }})">
-        <div class="container unit03-show__content__container">
+    @if ($contents->count())
+        @foreach ($contents as $content)
+            <section class="unit03-show__content" style="background-image: url({{ asset('storage/' . $content->path_image_desktop) }}); background-color: {{$content->background_color}}">
+                <div class="container unit03-show__content__container">
 
-            <div class="unit03-show__content__carousel owl-carousel">
+                    {{-- @if ($galleryContents->count()) --}}
+                        <div class="unit03-show__content__carousel owl-carousel">
+                            @foreach ($content->galleryContents as $galleryContent)
+                                <div class="unit03-show__content__carousel__item">
+                                    @if ($galleryContent->path_image)
+                                        <img src="{{ asset('storage/' . $galleryContent->path_image) }}" alt="">
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    {{-- @endif --}}
 
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="unit03-show__content__carousel__item">
-                        <img src="{{ asset('storage/uploads/tmp/thumbnail-b.png') }}" alt="">
+                    <div class="unit03-show__content__right">
+                        @if ($content->subtitle || $content->title)
+                            <h4 class="unit03-show__content__subtitle">{{$content->subtitle}}</h4>
+                            <h3 class="unit03-show__content__title">{{$content->title}}</h3>
+                            <hr class="unit03-show__content__line">
+                        @endif
+
+                        <div class="unit03-show__content__text">
+                            @if ($content->text)
+                                <p>
+                                    {!! $content->text !!}
+                                </p>
+                            @endif
+                        </div>
+
+                        <a rel="next" href="{{$content->link_button ? getUri($content->link_button) : 'javascript:void(0)'}}" target="{{ $content->target_link_button }}" class="unit03-show__content__cta">
+                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
+                                class="unit03-show__content__cta__icon">
+                            @if ($content->title_button)
+                                {{$content->title_button}}
+                            @endif
+                        </a>
                     </div>
-                @endfor
-
-            </div>
-
-            <div class="unit03-show__content__right">
-                <h4 class="unit03-show__content__subtitle">Subtítulo</h4>
-                <h3 class="unit03-show__content__title">Título</h3>
-                <hr class="unit03-show__content__line">
-
-                <div class="unit03-show__content__text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                        sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                        eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                        Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                        Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
-                        tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec </p>
                 </div>
-
-                <a href="#" class="unit03-show__content__cta">
-                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                        class="unit03-show__content__cta__icon">
-                    CTA
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="unit03-show__content" style="background-image: url({{ asset('storage/uploads/tmp/box2copa02.png') }})">
-        <div class="container unit03-show__content__container">
-
-            <div class="unit03-show__content__carousel owl-carousel">
-
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="unit03-show__content__carousel__item">
-                        <img src="{{ asset('storage/uploads/tmp/thumbnail-b.png') }}" alt="">
-                    </div>
-                @endfor
-
-            </div>
-
-            <div class="unit03-show__content__right">
-                <h4 class="unit03-show__content__subtitle">Subtítulo</h4>
-                <h3 class="unit03-show__content__title">Título</h3>
-                <hr class="unit03-show__content__line">
-
-                <div class="unit03-show__content__text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                        sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                        eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                        Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
-                        Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
-                        tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec </p>
-                </div>
-
-                <a href="#" class="unit03-show__content__cta">
-                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                        class="unit03-show__content__cta__icon">
-                    CTA
-                </a>
-            </div>
-
-        </div>
-    </section>
+            </section>
+        @endforeach
+    @endif
 
     <section class="unit03-show__gallery">
         <div class="container">

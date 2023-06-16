@@ -305,9 +305,12 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  animation-name: DropDownSlide;
-  animation-duration: 0.3s;
-  animation-fill-mode: both;
+  -webkit-animation-name: DropDownSlide;
+          animation-name: DropDownSlide;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -326,7 +329,17 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  animation: none !important;
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
+@-webkit-keyframes DropDownSlide {
+  100% {
+    transform: translateY(0);
+  }
+  0% {
+    transform: translateY(15px);
+  }
 }
 
 @keyframes DropDownSlide {
@@ -2122,6 +2135,106 @@ body .owl-dots .owl-dot.active {
   width: 80%;
   left: -10px;
   bottom: 1px;
+}
+
+/* BEGIN STYLE */
+.copa01-page__header {
+  text-align: center;
+  background-color: #EFEFEF;
+  padding: 87px 0;
+  margin: 0;
+}
+.copa01-page__header__container {
+  margin-bottom: 25px;
+}
+.copa01-page__header__title {
+  font-size: 3.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  display: block;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copa01-page__header__title {
+    font-size: 1.875rem;
+  }
+}
+.copa01-page__content {
+  padding: 45px 0 120px;
+}
+.copa01-page__content__icon {
+  width: 36px;
+  margin: 10px auto;
+  display: table;
+}
+.copa01-page__content__container {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.copa01-page__content__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+  display: block;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copa01-page__content__title {
+    font-size: 1.875rem;
+  }
+}
+.copa01-page__content__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+  display: block;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copa01-page__content__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.copa01-page__content__line {
+  width: 100%;
+  background-color: #404040;
+  margin-bottom: 35px;
+}
+.copa01-page__content__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 500;
+  padding: 0 30px;
+  color: #404040;
+  line-height: 25px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copa01-page__content__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.copa01-page__archives {
+  margin-top: 50px;
+}
+.copa01-page__archives__item {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  display: table;
+  margin: 0 25px 0 0;
+  max-width: 100%;
+  padding: 10px 15px;
+  background-color: #CACACA;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copa01-page__archives__item {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.copa01-page__archives__item:hover {
+  color: #fff;
+  background-color: #000;
+}
+.copa01-page__archives__item:hover .copa01__archives__item__icon {
+  filter: invert(1) grayscale(1);
 }
 
 /* BEGIN STYLE */

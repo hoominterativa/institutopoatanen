@@ -1,10 +1,39 @@
 @if (isset($content))
+    <div class="row mb-3">
+        <div class="col-6">
+            <a href="javascript:void(0)"  data-bs-target="#modal-galleryContent-create-{{$content->id}}" data-bs-toggle="modal" class="btn btn-warning">Galeria <i class="mdi mdi-plus"></i></a>
+        </div>
+    </div>
+
+    {{-- BEGIN MODAL GALERIA CREATE --}}
+    <div id="modal-galleryContent-create-{{$content->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" style="max-width: 1100px;">
+            <div class="modal-content">
+                <div class="modal-header p-3 pt-2 pb-2">
+                    <h4 class="page-title">Cadastrar Imagens</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-3 pt-0 pb-3">
+                    @include('Admin.cruds.Units.UNIT03.Content.Gallery.form',[
+                        'galleryContent' => null,
+                        'content' => $content
+                    ])
+                    @include('Admin.cruds.Units.UNIT03.Content.Gallery.index',[
+                        'content' => $content
+                    ])
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL GALERIA CREATE --}}
+
     {!! Form::model($content, ['route' => ['admin.unit03.content.update', $content->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => ['admin.unit03.content.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
-    <input type="hidden" name="unit_id" value="{{ $unit->id }}">
 @endif
+    <input type="hidden" name="unit_id" value="{{ $unit->id }}">
     <div class="row">
         <div class="col-12 col-lg-6">
             <div class="card card-body border" id="tooltip-container">

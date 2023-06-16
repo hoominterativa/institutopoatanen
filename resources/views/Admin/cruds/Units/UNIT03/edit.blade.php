@@ -31,8 +31,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Banner
+                        <a href="#bannerShow" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner Interno
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do banner para a página interna"></i>
@@ -82,7 +82,7 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
-                    <div class="tab-pane" id="banner">
+                    <div class="tab-pane" id="bannerShow">
                         @include('Admin.cruds.Units.UNIT03.BannerShow.form', [
                             'unit' => $unit,
                             'bannerShow' => $bannerShow,

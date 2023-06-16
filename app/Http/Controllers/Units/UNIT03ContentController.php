@@ -38,8 +38,9 @@ class UNIT03ContentController extends Controller
         $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        if(UNIT03UnitsContent::create($data)){
+        if($unit= UNIT03UnitsContent::create($data)){
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            Session::flash('reopenModal', 'modal-unit-update-'.$unit->id);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_desktop);
@@ -93,6 +94,7 @@ class UNIT03ContentController extends Controller
 
         if($UNIT03UnitsContent->fill($data)->save()){
             Session::flash('success', 'Conteúdo atualizado com sucesso');
+            Session::flash('reopenModal', 'modal-content-update-'.$UNIT03UnitsContent->id);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_desktop);
@@ -137,7 +139,7 @@ class UNIT03ContentController extends Controller
 
         $UNIT03UnitsContents = UNIT03UnitsContent::whereIn('id', $request->deleteAll)->get();
         foreach($UNIT03UnitsContents as $UNIT03UnitsContent){
-            
+
             $galleries = UNIT03UnitsGalleryContent::where('content_id', $UNIT03UnitsContent->id)->get();
             foreach($galleries as $gallery){
                 storageDelete($gallery, 'path_image');

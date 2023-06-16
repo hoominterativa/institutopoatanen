@@ -111,10 +111,9 @@ class UNIT03Controller extends Controller
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $socials = UNIT03UnitsSocial::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $bannerShow = UNIT03UnitsBannerShow::first();
-        $contents = UNIT03UnitsContent::where('unit_id', $UNIT03Units->id)->sorting()->get();
+        $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $sectionGallery = UNIT03UnitsSectionGallery::first();
-        $galleryContents = UNIT03UnitsGalleryContent::where('content_id', $UNIT03UnitsContent->id)->sorting()->get();
         return view('Admin.cruds.Units.UNIT03.edit', [
             'unit' => $UNIT03Units,
             'categories' => $categories,
@@ -124,7 +123,6 @@ class UNIT03Controller extends Controller
             'contents' => $contents,
             'galleries' => $galleries,
             'sectionGallery' => $sectionGallery,
-            'galleryContents' => $galleryContents,
             'cropSetting' => getCropImage('Units', 'UNIT03')
         ]);
     }
@@ -328,13 +326,35 @@ class UNIT03Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(UNIT03Units $UNIT03Units)
-    public function show()
+    public function show($UNIT03UnitsCategory, UNIT03Units $UNIT03Units)
     {
+        // dd($UNIT03Units);
+
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $bannerShow = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->active()->first();
+                if($bannerShow) $bannerShow->path_image_desktop = $bannerShow->path_image_mobile;
+            break;
+            default:
+                $bannerShow = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->active()->first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT03', 'show');
 
+        // $units = UNIT03Units::with('socials')->where('unit_id', $UNIT03Units->id)->first();
+        $socials = UNIT03UnitsSocial::where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
+        $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
+        $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
+
         return view('Client.pages.Units.UNIT03.show',[
-            'sections' => $sections
+            'sections' => $sections,
+            'bannerShow' => $bannerShow,
+            'socials' => $socials,
+            'topics' => $topics,
+            'contents' => $contents,
         ]);
     }
 
@@ -344,13 +364,41 @@ class UNIT03Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, UNIT03UnitsCategory $UNIT03UnitsCategory)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = UNIT03UnitsBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+            break;
+            default:
+                $banner = UNIT03UnitsBanner::active()->first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT03', 'page');
 
+        $categories = UNIT03UnitsCategory::active()->exists()->sorting()->get();
+        $units = UNIT03Units::with('category')->active();
+
+        if($UNIT03UnitsCategory->exists){
+            $units = $units->where('category_id', $UNIT03UnitsCategory->id);
+            foreach($categories as $category){
+                if($UNIT03UnitsCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+        }
+
+        $units = $units->sorting()->get();
+
         return view('Client.pages.Units.UNIT03.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'categories' => $categories,
+            'units' => $units
         ]);
     }
 }

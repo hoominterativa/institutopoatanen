@@ -35,6 +35,7 @@ class UNIT03GalleryContentController extends Controller
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar a imagem');
         }
+        Session::flash('reopenModal', ['modal-galleryContent-create-'.$request->content_id, 'modal-content-update-'.$request->content_id]);
         return redirect()->back();
     }
 
@@ -66,6 +67,7 @@ class UNIT03GalleryContentController extends Controller
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar a imagem');
         }
+        Session::flash('reopenModal', ['modal-galleryContent-create-'.$request->content_id, 'modal-content-update-'.$request->content_id]);
         return redirect()->back();
     }
 
