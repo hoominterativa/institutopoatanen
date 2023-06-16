@@ -46,7 +46,9 @@ return [
                     'titlePanel' => 'Sobre',
                     'iconPanel' => ''
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [
+                    'Feedbacks' => 'FEED03',
+                ]
             ],
         ],
         'Contents' => (object) [
@@ -113,7 +115,7 @@ return [
                     'iconPanel' => 'mdi-shopping-outline'
                 ],
                 'IncludeSections' => (object) [
-                    'Feedbacks' => 'FEED01',
+                    'Topics' => 'TOPI05',
                 ]
             ],
         ],
@@ -151,6 +153,46 @@ return [
                 ]
             ],
         ],
+        'Units' => (object) [
+            'UNIT01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Unidades',
+                    'anchor' =>  false,
+                    'linkMenu' => 'unit01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Unidades',
+                    'iconPanel' => ''
+                ],
+                'IncludeSections' => (object) [
+                ]
+            ],
+        ],
+        'Contacts' => (object) [
+            'COTA01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Contato',
+                    'anchor' =>  false,
+                    'linkMenu' => 'cota01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => ''
+                ],
+                'IncludeSections' => (object) [
+                    'Feedbacks' => 'FEED01',
+                ]
+            ],
+        ],
+        
     ],
 
     'ModelsForm' => (object)[
