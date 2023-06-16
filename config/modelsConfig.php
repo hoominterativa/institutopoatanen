@@ -26,7 +26,7 @@ return [
                     'anchor' => false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Depoimentos',
+                    'titlePanel' => 'Serviços', // acertar esse parâmetro para o modelo que estiver usando, qnd diferente dá erro de rota pra page
                     'iconPanel' => ''
                 ]
             ],

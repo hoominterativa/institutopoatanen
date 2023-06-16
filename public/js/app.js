@@ -12352,6 +12352,36 @@ $(".serv05__carousel").owlCarousel({
     }
   }
 });
+$(".serv05-banner-carousel").owlCarousel({
+  smartSpeed: 450,
+  loop: true,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  margin: 0,
+  items: 1
+});
+$(".serv05-show__topics__carousel").owlCarousel({
+  smartSpeed: 450,
+  loop: true,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  margin: 30,
+  responsive: {
+    0: {
+      items: 1
+    },
+    620: {
+      items: 2
+    },
+    980: {
+      items: 3
+    }
+  }
+});
 
 /***/ }),
 
