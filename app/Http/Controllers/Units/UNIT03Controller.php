@@ -110,7 +110,7 @@ class UNIT03Controller extends Controller
         $categories = UNIT03UnitsCategory::exists()->sorting()->pluck('title', 'id');
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $socials = UNIT03UnitsSocial::where('unit_id', $UNIT03Units->id)->sorting()->get();
-        $bannerShow = UNIT03UnitsBannerShow::first();
+        $bannerShow = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->first();
         $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $sectionGallery = UNIT03UnitsSectionGallery::first();
@@ -334,7 +334,9 @@ class UNIT03Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $bannerShow = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->active()->first();
-                if($bannerShow) $bannerShow->path_image_desktop = $bannerShow->path_image_mobile;
+                if($bannerShow) {
+                    $bannerShow->path_image_desktop = $bannerShow->path_image_mobile;
+                }
             break;
             default:
                 $bannerShow = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->active()->first();
@@ -344,10 +346,10 @@ class UNIT03Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT03', 'show');
 
-        // $units = UNIT03Units::with('socials')->where('unit_id', $UNIT03Units->id)->first();
         $socials = UNIT03UnitsSocial::where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
         $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
+        $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
 
         return view('Client.pages.Units.UNIT03.show',[
             'sections' => $sections,
@@ -355,6 +357,7 @@ class UNIT03Controller extends Controller
             'socials' => $socials,
             'topics' => $topics,
             'contents' => $contents,
+            'galleries' => $galleries
         ]);
     }
 

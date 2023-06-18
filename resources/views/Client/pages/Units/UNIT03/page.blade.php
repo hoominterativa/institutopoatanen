@@ -82,7 +82,7 @@
 
                                 <div class="unit03-page__list__item__bottom">
                                     @if ($unit->path_image_icon)
-                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="unit03-page__list__item__icon">
+                                        <img src="{{ asset('storage/' . $unit->path_image_icon) }}" alt="" class="unit03-page__list__item__icon">
                                     @endif
                                 </div>
                             </article>

@@ -118,19 +118,15 @@
         @foreach ($contents as $content)
             <section class="unit03-show__content" style="background-image: url({{ asset('storage/' . $content->path_image_desktop) }}); background-color: {{$content->background_color}}">
                 <div class="container unit03-show__content__container">
-
-                    {{-- @if ($galleryContents->count()) --}}
-                        <div class="unit03-show__content__carousel owl-carousel">
-                            @foreach ($content->galleryContents as $galleryContent)
-                                <div class="unit03-show__content__carousel__item">
-                                    @if ($galleryContent->path_image)
-                                        <img src="{{ asset('storage/' . $galleryContent->path_image) }}" alt="">
-                                    @endif
-                                </div>
-                            @endforeach
-                        </div>
-                    {{-- @endif --}}
-
+                    <div class="unit03-show__content__carousel owl-carousel">
+                        @foreach ($content->galleryContents as $galleryContent)
+                            <div class="unit03-show__content__carousel__item">
+                                @if ($galleryContent->path_image)
+                                    <img src="{{ asset('storage/' . $galleryContent->path_image) }}" alt="">
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
                     <div class="unit03-show__content__right">
                         @if ($content->subtitle || $content->title)
                             <h4 class="unit03-show__content__subtitle">{{$content->subtitle}}</h4>
@@ -168,24 +164,25 @@
                 <hr class="unit03-show__gallery__line">
             </header>
 
-            <div class="unit03-show__gallery__list">
-
-                @for ($i = 0; $i < 8; $i++)
-                    <div class="unit03-show__gallery__item">
-                        <img src="{{ asset('storage/uploads/tmp/thumbnail.png') }}" alt="">
+            @if ($galleries->count())
+                <div class="unit03-show__gallery__list">
+                    @foreach ($galleries as $gallery)
+                        <div class="unit03-show__gallery__item">
+                            @if ($gallery->path_image)
+                                <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="">
+                            @endif
+                            @if ($gallery->title)
+                                <h3 class="unit03-show__gallery__item__title">{{$gallery->title}}</h3>
+                            @endif
+                        </div>
+                    @endforeach
+                    <div class="unit03-show__gallery__item--big">
+                        <img src="{{ asset('storage/uploads/tmp/thumbnail-b.png') }}" alt="">
 
                         <h3 class="unit03-show__gallery__item__title">Título</h3>
                     </div>
-                @endfor
-
-                <div class="unit03-show__gallery__item--big">
-                    <img src="{{ asset('storage/uploads/tmp/thumbnail-b.png') }}" alt="">
-
-                    <h3 class="unit03-show__gallery__item__title">Título</h3>
                 </div>
-
-            </div>
-
+            @endif
         </div>
     </section>
 

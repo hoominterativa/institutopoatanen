@@ -19,6 +19,7 @@
                                 <label><input name="btnSelectAll" value="btDeleteGalleries" type="checkbox"></label>
                             </th>
                             <th>Imagem</th>
+                            <th>Título</th>
                             <th>Link do vídeo</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -37,6 +38,7 @@
                                         </div>
                                     @endif
                                 </td>
+                                <td class="align-middle">{{$gallery->title}}</td>
                                 <td class="align-middle"><a href="{{$gallery->link_video }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                 <td class="align-middle">
                                     <div class="row">
