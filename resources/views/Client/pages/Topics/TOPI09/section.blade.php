@@ -1,66 +1,33 @@
-
-<section id="TOPI09" class="topi09 container-fluid px-0" style="background-color:;">
-    <div class="container container--pd">
-        <div class="row px-0 row--carrossel">
-            <article class="topi09__box">
-                <div class="topi09__content transition">
-                    <div class="topi09__image">
-                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="icon" width="53.74" alt="Ícone">
-                    </div>
-                    <div class="topi09__description">
-                        <h3 class="topi09__title">Título Tópico</h3>
-                        <div class="topi09__paragraph">
-                            <p>Lorem ipsum dolor sit amet, consectur</p>
+@if ($topics->count())
+    <section id="TOPI09" class="topi09 container-fluid px-0" style="background-color:;">
+        <div class="container container--pd">
+            <div class="row px-0 row--carrossel">
+                @foreach ($topics as $topic)
+                    <article class="topi09__box">
+                        <div class="topi09__content transition">
+                            <div class="topi09__image">
+                                @if ($topic->path_image_icon)
+                                    <img src="{{asset('storage/' . $topic->path_image_icon)}}" class="icon" width="53.74" alt="Ícone">
+                                @endif
+                            </div>
+                            <div class="topi09__description">
+                                @if ($topic->title)
+                                    <h3 class="topi09__title">{{$topic->title}}</h3>
+                                @endif
+                                <div class="topi09__paragraph">
+                                    @if ($topic->description)
+                                        <p>{!! $topic->description !!}</p>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </article>
-            {{-- Fim box --}}
-            <article class="topi09__box">
-                <div class="topi09__content transition">
-                    <div class="topi09__image">
-                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="icon" width="53.74" alt="Ícone">
-                    </div>
-                    <div class="topi09__description">
-                        <h3 class="topi09__title">Título Tópico</h3>
-                        <div class="topi09__paragraph">
-                            <p>Lorem ipsum dolor sit amet, consectur</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            {{-- Fim box --}}
-            <article class="topi09__box">
-                <div class="topi09__content transition">
-                    <div class="topi09__image">
-                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="icon" width="53.74" alt="Ícone">
-                    </div>
-                    <div class="topi09__description">
-                        <h3 class="topi09__title">Título Tópico</h3>
-                        <div class="topi09__paragraph">
-                            <p>Lorem ipsum dolor sit amet, consectur</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            {{-- Fim box --}}
-            <article class="topi09__box">
-                <div class="topi09__content transition">
-                    <div class="topi09__image">
-                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="icon" width="53.74" alt="Ícone">
-                    </div>
-                    <div class="topi09__description">
-                        <h3 class="topi09__title">Título Tópico</h3>
-                        <div class="topi09__paragraph">
-                            <p>Lorem ipsum dolor sit amet, consectur</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            {{-- Fim box --}}
+                    </article>
+                @endforeach
+                {{-- Fim box --}}
+            </div>
+            {{-- Fim row --}}
         </div>
-        {{-- Fim row --}}
-    </div>
-    {{-- Fim container --}}
-</section>
+        {{-- Fim container --}}
+    </section>
+@endif
 {{-- Fim section topi09 --}}

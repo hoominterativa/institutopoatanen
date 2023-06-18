@@ -15,6 +15,10 @@ class CreateTopi09TopicsTable extends Migration
     {
         Schema::create('topi09_topics', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('path_image_icon')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
