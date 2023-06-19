@@ -1,218 +1,214 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
 
-
-.unit01-page{
-    &__header{
+.unit01-page {
+    &__header {
         @include bgpadrao;
         height: 352px;
 
-        @include small-device{
+        @include small-device {
             height: 270px;
             padding: 0 60px;
         }
 
-        .container--unit01-header{
+        .container--unit01-header {
             padding: 112px 0 92px 0 !important;
-            @include small-device{
+            @include small-device {
                 padding: 0 72px;
             }
         }
-        &__title{
+        &__title {
             font-size: $T1;
             font-family: $font-paragraph;
             color: $color-black;
             margin-bottom: 25px;
             font-weight: $weight-700;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T1-mobile;
                 margin-bottom: 39px;
             }
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $T4;
             color: $color-two;
             font-family: $font-paragraph;
             font-weight: $weight-700;
 
-            @include small-device{
-                font-size: $T4-mobile
+            @include small-device {
+                font-size: $T4-mobile;
             }
         }
-        &__line{
+        &__line {
             width: 100%;
             margin-top: 28.81px;
         }
-        @include small-device{
-            &__title{
+        @include small-device {
+            &__title {
                 font-size: $T2-mobile;
                 margin-bottom: 0;
             }
-            &__subtitle{
+            &__subtitle {
                 font-size: $T4-mobile;
             }
-            &__line{
+            &__line {
                 margin-top: 25px;
                 margin-bottom: 21px;
             }
-            &__content{
+            &__content {
                 padding: 46px 0 81px !important;
             }
         }
     }
-    &__divisor{
-        &__section{
+    &__divisor {
+        &__section {
             padding: 91px 110px;
-            @include small-device{
+            @include small-device {
                 padding: 55px 22px;
             }
-            &__boxLeft{
+            &__boxLeft {
+                &__title {
+                    font-size: $T2;
+                    font-family: $font-primary;
+                    font-weight: $weight-700;
+                    color: $color-one;
+                    margin-bottom: 30px;
 
-             &__title{
-                font-size: $T2;
-                font-family:$font-primary;
-                font-weight: $weight-700;
-                color: $color-one;
-                margin-bottom: 30px;
-
-                @include small-device{
-                    font-size: $T2-mobile;
+                    @include small-device {
+                        font-size: $T2-mobile;
+                    }
                 }
-             }
-             &__line{
-                margin: 30px auto;
-                color:$color-one;
+                &__line {
+                    margin: 30px auto;
+                    color: $color-one;
 
-                @include small-device{
-                    margin: 20px auto 27px auto;
+                    @include small-device {
+                        margin: 20px auto 27px auto;
+                    }
                 }
-             }
-             &__subtitle{
-                font-size: $T4;
-                font-family:$font-primary;
-                font-weight: $weight-700;
-                color: $color-one;
-                margin-bottom: 18px;
+                &__subtitle {
+                    font-size: $T4;
+                    font-family: $font-primary;
+                    font-weight: $weight-700;
+                    color: $color-one;
+                    margin-bottom: 18px;
 
-                @include small-device{
-                    font-size: $T4-mobile;
-                    margin-bottom: 13px;
+                    @include small-device {
+                        font-size: $T4-mobile;
+                        margin-bottom: 13px;
+                    }
                 }
-             }
-             &__paragraph{
-                font:$paragraph;
-                font-weight: $weight-400;
-                color: $color-one;
-
-                @include small-device{
-                    font:$paragraph-min;
-                }
-
-                p{
-                    font:$paragraph;
+                &__paragraph {
+                    font: $paragraph;
                     font-weight: $weight-400;
                     color: $color-one;
-                    margin-bottom: 0;
 
-                    @include small-device{
-                        font:$paragraph-min;
-                    }
-                }
-             }
-             &__topics{
-                margin-top: 50px;
-                gap:15px;
-
-                @include small-device{
-                    gap: 5px;
-                }
-
-                &__topic{
-                    height: 120px;
-                    width: 21.5%;
-
-                    @include small-device{
-                        height: 85px;
-                        width: 23.81%;
+                    @include small-device {
+                        font: $paragraph-min;
                     }
 
-                    &__image{
-                        position: absolute;
-                        top:0;
-                        left: 0;
-                        height: 100%;
-                        width: 100%;
-                    }
-                    &__description{
-                        left: 0;
-                        top:0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: column;
-
-                        &__icon{
-                          width: 32px;
-                          height: 32px;
-
-                          @include small-device{
-                            width: 22.67px;
-                            height: 22.67px;
-                          }
-                        }
-                      &__title{
-                        font-size: $T5;
-                        font-family:$font-primary;
-                        font-weight: $weight-700;
+                    p {
+                        font: $paragraph;
+                        font-weight: $weight-400;
                         color: $color-one;
-                        margin-top: 10px;
+                        margin-bottom: 0;
 
-                        @include small-device{
-                            font-size: $T5-mobile;
+                        @include small-device {
+                            font: $paragraph-min;
                         }
-                      }
-
-
                     }
                 }
-              }
-            }
-            &__boxRight{
-                width: 509px;
-                    @include small-device{
-                        width: 100%;
-                        margin-top: 22px;
+                &__topics {
+                    margin-top: 50px;
+                    gap: 15px;
+
+                    @include small-device {
+                        gap: 5px;
                     }
-                .carousel_unit01 .owl-item{
+
+                    &__topic {
+                        height: 120px;
+                        width: 21.5%;
+
+                        @include small-device {
+                            height: 85px;
+                            width: 23.81%;
+                        }
+
+                        &__image {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            width: 100%;
+                        }
+                        &__description {
+                            left: 0;
+                            top: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+
+                            &__icon {
+                                width: 32px;
+                                height: 32px;
+
+                                @include small-device {
+                                    width: 22.67px;
+                                    height: 22.67px;
+                                }
+                            }
+                            &__title {
+                                font-size: $T5;
+                                font-family: $font-primary;
+                                font-weight: $weight-700;
+                                color: $color-one;
+                                margin-top: 10px;
+
+                                @include small-device {
+                                    font-size: $T5-mobile;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__boxRight {
+                width: 509px;
+                @include small-device {
+                    width: 100%;
+                    margin-top: 22px;
+                }
+                .carousel_unit01 .owl-item {
                     height: 100% !important;
-                    @include small-device{
+                    @include small-device {
                         height: 321px;
                     }
                 }
-                .carousel_unit01 .owl-stage{
+                .carousel_unit01 .owl-stage {
                     height: 100% !important;
-                    @include small-device{
-                        height:321px;
+                    @include small-device {
+                        height: 321px;
                     }
                 }
-                .carousel_unit01 .owl-stage-outer{
+                .carousel_unit01 .owl-stage-outer {
                     height: 100% !important;
-                    @include small-device{
-                        height:321px;
+                    @include small-device {
+                        height: 321px;
                     }
                 }
-                .carousel_unit01 .owl-nav{
+                .carousel_unit01 .owl-nav {
                     display: flex;
                     padding: 0 12px;
                     justify-content: space-between;
                     position: absolute;
-                    top:50%;
+                    top: 50%;
                     width: 100%;
                 }
                 .carousel_unit01 .owl-nav .owl-prev,
-                .carousel_unit01 .owl-nav .owl-next{
+                .carousel_unit01 .owl-nav .owl-next {
                     height: 29px;
                     width: 29px;
                     border-radius: 100%;
@@ -221,19 +217,19 @@
                     border: none;
                 }
                 .carousel_unit01 .owl-nav .owl-prev span,
-                .carousel_unit01 .owl-nav .owl-next span{
-                    color:#fff;
+                .carousel_unit01 .owl-nav .owl-next span {
+                    color: #fff;
                     font-size: 32px;
-                    height: 58px;
+                    height: 32px;
                 }
-                &__imageBox{
+                &__imageBox {
                     width: 509px;
                     height: 509px;
                     @include small-device {
                         width: 100%;
                         height: 355px;
                     }
-                    img{
+                    img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
@@ -246,55 +242,52 @@
 
 // END .unit01-page
 
-
-
-
-.lightbox-unit01{
+.lightbox-unit01 {
     width: 100%;
     display: none;
     padding: 0;
 
-    &__subtitle{
+    &__subtitle {
         font-size: $T4;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
 
-        @include small-device{
+        @include small-device {
             font-size: $T4-mobile;
         }
     }
-    &__title{
+    &__title {
         font-size: $T2;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
 
-        @include small-device{
+        @include small-device {
             font-size: $T2-mobile;
         }
 
-        img{
+        img {
             margin-right: 13px;
             width: 32px;
             height: 32px;
 
-            @include small-device{
+            @include small-device {
                 width: 22.67px;
                 height: 22.67px;
             }
         }
     }
-    &__line{
+    &__line {
         margin-top: 22px;
         margin-bottom: 61px;
     }
-    &__paragraph{
+    &__paragraph {
         font: $paragraph;
         color: $color-one;
         font-weight: $weight-400;
     }
-    .carousel__button.is-close{
+    .carousel__button.is-close {
         right: 17px;
         top: 17px;
         left: inherit;
@@ -303,13 +296,13 @@
         background: #000000;
         border-radius: 5px;
         color: $color-white;
-        font-size:11px;
+        font-size: 11px;
     }
-    .fancybox__backdrop{
+    .fancybox__backdrop {
         background: $color-one !important;
     }
 
-    @include small-device{
+    @include small-device {
         text-align: center;
     }
 }
