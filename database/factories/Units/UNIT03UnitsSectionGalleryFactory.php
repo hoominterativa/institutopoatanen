@@ -22,6 +22,7 @@ class UNIT03UnitsSectionGalleryFactory extends Factory
     public function definition()
     {
         return [
+            'unit_id' => rand(1,8),
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
             'active' => 1

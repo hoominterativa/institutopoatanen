@@ -7,8 +7,8 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => 'admin.unit03.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    <input type="hidden" name="unit_id" value="{{ $unit->id }}">
 @endif
-
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body border" id="tooltip-container">

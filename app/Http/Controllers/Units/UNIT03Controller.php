@@ -113,7 +113,7 @@ class UNIT03Controller extends Controller
         $bannerShow = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->first();
         $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
-        $sectionGallery = UNIT03UnitsSectionGallery::first();
+        $sectionGallery = UNIT03UnitsSectionGallery::where('unit_id', $UNIT03Units->id)->first();
         return view('Admin.cruds.Units.UNIT03.edit', [
             'unit' => $UNIT03Units,
             'categories' => $categories,
@@ -350,7 +350,7 @@ class UNIT03Controller extends Controller
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
         $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
-        $unit = UNIT03Units::with('category')->active()->sorting()->first();
+        $sectionGallery = UNIT03UnitsSectionGallery::where('unit_id', $UNIT03Units->id)->active()->first();
 
         return view('Client.pages.Units.UNIT03.show',[
             'sections' => $sections,
@@ -359,7 +359,8 @@ class UNIT03Controller extends Controller
             'topics' => $topics,
             'contents' => $contents,
             'galleries' => $galleries,
-            'unit' => $unit
+            'unit' => $UNIT03Units,
+            'sectionGallery' => $sectionGallery,
         ]);
     }
 

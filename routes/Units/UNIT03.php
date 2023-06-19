@@ -60,7 +60,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
     Route::resource($route.'/banner', UNIT03BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'UNIT03UnitsBanner']);
 
-    Route::resource($route.'/secao', UNIT03SectionGalleryController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'UNIT03UnitsSectionGallery']);
+    Route::resource($route.'/secao-galeria', UNIT03SectionGalleryController::class)->names('admin.'.$routeName.'.section')->parameters(['secao-galeria' => 'UNIT03UnitsSectionGallery']);
 
     Route::resource($route.'/bannershow', UNIT03BannerShowController::class)->names('admin.'.$routeName.'.bannerShow')->parameters(['bannershow' => 'UNIT03UnitsBannerShow']);
 });

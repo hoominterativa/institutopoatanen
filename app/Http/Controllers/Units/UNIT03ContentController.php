@@ -40,7 +40,7 @@ class UNIT03ContentController extends Controller
 
         if($unit= UNIT03UnitsContent::create($data)){
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
-            Session::flash('reopenModal', 'modal-unit-update-'.$unit->id);
+            Session::flash('reopenModal', 'modal-content-update-'. $unit->id);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_desktop);

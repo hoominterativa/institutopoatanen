@@ -110,6 +110,7 @@
             <div class="modal-body p-3 pt-0 pb-3">
                 @include('Admin.cruds.Units.UNIT03.Gallery.Section.form', [
                     'sectionGallery' => $sectionGallery?? null,
+                    'unit' => $unit
                 ])
             </div>
         </div>

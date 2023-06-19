@@ -15,6 +15,7 @@ class CreateUnit03UnitsSectiongalleriesTable extends Migration
     {
         Schema::create('unit03_units_sectiongalleries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('unit_id')->constrained('unit03_units');
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->integer('active')->default(0);

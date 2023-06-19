@@ -57,4 +57,8 @@ class UNIT03Units extends Model
     {
         return $this->hasMany(UNIT03UnitsGallery::class, 'unit_id');
     }
+    public function section()
+    {
+        return $this->hasMany(UNIT03UnitsSectionGallery::class, 'unit_id');
+    }
 }
