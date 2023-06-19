@@ -402,6 +402,11 @@ return [
                 'model' => App\Models\Feedbacks\FEED03Feedbacks::class,
                 'seedQty' => 3,
             ],
+            'FEED05' => (object)[
+                'controller' => App\Http\Controllers\Feedbacks\FEED05Controller::class,
+                'model' => App\Models\Feedbacks\FEED05Feedbacks::class,
+                'seedQty' => 3,
+            ],
             'FEED06' => (object)[
                 'controller' => App\Http\Controllers\Feedbacks\FEED06Controller::class,
                 'model' => App\Models\Feedbacks\FEED06Feedbacks::class,
