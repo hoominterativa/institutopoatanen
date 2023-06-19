@@ -18,15 +18,18 @@
         <div class="unit03-show__top__left d-flex flex-column align-items-stretch">
 
             <div class="unit03-show__top__upper">
-                <img src="{{ asset('storage/uploads/tmp/thumbnail.png') }}" alt="" class="unit03-show__top__img">
+                @if ($unit->path_image_icon_show)
+                    <img src="{{ asset('storage/' . $unit->path_image_icon_show) }}" alt="" class="unit03-show__top__img">
+                @endif
 
                 <div class="unit03-show__top__ttl-grp d-flex flex-column align-items-start">
-                    <h3 class="unit03-show__top__subtitle">Subtítulo</h3>
-                    <h2 class="unit03-show__top__title">Título</h2>
+                    @if ($unit->title_show || $unit->subtitle_show)
+                        <h3 class="unit03-show__top__subtitle">{{$unit->subtitle_show}}</h3>
+                        <h2 class="unit03-show__top__title">{{$unit->title_show}}</h2>
+                    @endif
                     <span class="unit03-show__top__category d-flex align-items-center">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                            class="unit03-show__top__category__icon">
-                        Categoria
+                        <img src="{{ asset('storage/' . $unit->category->path_image_icon) }}" alt="" class="unit03-show__top__category__icon">
+                        {{$unit->category->title}}
                     </span>
                     <hr class="unit03-show__top__line">
 
@@ -168,9 +171,10 @@
                 <div class="unit03-show__gallery__list">
                     @foreach ($galleries as $gallery)
                         <div class="unit03-show__gallery__item">
-                            @if ($gallery->path_image)
-                                <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="">
-                            @endif
+                            <a href="{{ getUri($gallery->link_video != '' ? $gallery->link_video : asset('storage/' . $gallery->path_image)) }}" data-fancybox>
+                                <img src="{{ asset('storage/' . $gallery->path_image) }}" class="h-100 w-100" alt="">
+                                <img src="{{ getUri($gallery->link_video ? $gallery->link_video : asset('storage/' . $gallery->path_image)) }}" class="h-100 w-100" alt="">
+                            </a>
                             @if ($gallery->title)
                                 <h3 class="unit03-show__gallery__item__title">{{$gallery->title}}</h3>
                             @endif

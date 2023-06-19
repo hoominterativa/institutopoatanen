@@ -350,6 +350,7 @@ class UNIT03Controller extends Controller
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
         $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
+        $unit = UNIT03Units::with('category')->active()->sorting()->first();
 
         return view('Client.pages.Units.UNIT03.show',[
             'sections' => $sections,
@@ -357,7 +358,8 @@ class UNIT03Controller extends Controller
             'socials' => $socials,
             'topics' => $topics,
             'contents' => $contents,
-            'galleries' => $galleries
+            'galleries' => $galleries,
+            'unit' => $unit
         ]);
     }
 
