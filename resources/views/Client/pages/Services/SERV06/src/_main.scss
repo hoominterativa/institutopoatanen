@@ -1,0 +1,382 @@
+@import "variables";
+
+/* BEGIN STYLE */
+.serv06 {
+    @include backG;
+    padding-top: 68px;
+
+    &__container {
+        @include Flex($justify: space-between, $align: stretch);
+
+        @include medium-device-down {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__image {
+        width: 34%;
+        height: auto;
+        object-fit: contain;
+        object-position: center bottom;
+
+        @include medium-device-down {
+            width: 100%;
+        }
+    }
+
+    &__right {
+        width: 53%;
+        padding-bottom: 40px;
+
+        @include medium-device-down {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $T2;
+        font-weight: 700;
+        line-height: $font-46;
+        margin-bottom: 20px;
+        color: $color-black;
+        text-align: left;
+
+        @include medium-device-down {
+            font-size: $T2-mobile;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T4;
+        font-weight: 700;
+        line-height: $font-24;
+        margin-bottom: 20px;
+        color: $color-one;
+        text-align: left;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-two;
+        margin: 19px auto 34px auto;
+        opacity: 1;
+
+        @include medium-device-down {
+            display: none;
+        }
+    }
+
+    &__desc {
+        width: 100%;
+        font: $paragraph;
+        font-weight: 400;
+        color: $color-one;
+        text-align: left;
+
+        @include medium-device-down {
+            font: $paragraph-mobile;
+            font-weight: 400;
+        }
+
+        p {
+            font: inherit;
+            font-weight: inherit;
+            color: inherit;
+            text-align: inherit;
+        }
+    }
+
+    &__cta {
+        @include Flex();
+        gap: 16px;
+        align-self: end;
+        white-space: nowrap;
+        background-color: $color-white;
+        padding: 10px 40px;
+        margin-top: 25px;
+
+        font: $paragraph-min;
+        font-weight: 700;
+        color: $color-one;
+
+        @include medium-device-down {
+            align-self: start;
+        }
+
+        &:hover {
+            background-color: $color-one;
+            color: $color-white;
+        }
+
+        &__icon {
+            height: 25px;
+            width: 25px;
+            object-fit: contain;
+            object-position: center;
+            @include trans($transition: 0.5s);
+        }
+
+        &:hover &__icon {
+            filter: brightness(1) contrast(1) invert(1) grayscale(1);
+        }
+    }
+}
+
+.serv06-page {
+    &__header {
+        @include backG;
+        padding-top: 150px;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $T1;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: $color-black;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $T1-mobile;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T4;
+        font-weight: 700;
+        line-height: $font-24;
+        margin-bottom: 20px;
+        color: $color-one;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-two;
+        margin: 15px auto 68px auto;
+        opacity: 1;
+    }
+
+    &__item {
+        @include Flex($align: stretch);
+
+        &:nth-of-type(even) {
+            flex-direction: row-reverse;
+
+            @include medium-device-down {
+                flex-direction: column;
+            }
+        }
+
+        @include medium-device-down {
+            flex-direction: column;
+        }
+
+        &__image {
+            width: 50%;
+            height: auto;
+            aspect-ratio: 750/619;
+            object-fit: cover;
+            object-position: center;
+
+            @include medium-device-down {
+                width: 100%;
+            }
+        }
+
+        &__right {
+            @include Flex($direction: column, $align: start);
+            width: 50%;
+            padding: 5%;
+
+            @include medium-device-down {
+                width: 100%;
+                align-items: center;
+                padding: 46px 38px 80px 38px;
+            }
+        }
+
+        &__subtitle {
+            font-size: $T5;
+            font-weight: 700;
+            text-align: left;
+            color: $color-black;
+            margin-bottom: 0;
+
+            @include medium-device-down {
+                font-size: $T5-mobile;
+                text-align: center;
+            }
+        }
+
+        &__title {
+            font-size: $T2;
+            font-weight: 700;
+            text-align: left;
+            color: $color-one;
+            margin-bottom: 10px;
+
+            @include medium-device-down {
+                font-size: $T2-mobile;
+                text-align: center;
+            }
+        }
+
+        &__line {
+            width: 100%;
+            border-top: 1px solid $color-one;
+            margin: 27px auto 35px 0;
+            opacity: 1;
+        }
+
+        &__text {
+            width: 100%;
+            font: $paragraph;
+            font-weight: 400;
+            color: $color-two;
+            text-align: left;
+
+            @include medium-device-down {
+                font: $paragraph-mobile;
+                text-align: center;
+            }
+
+            p {
+                font: inherit;
+                font-weight: inherit;
+                color: inherit;
+                text-align: inherit;
+            }
+        }
+    }
+}
+
+// categorias que ser reptem na seção e na page
+.serv06-categories {
+    width: 100%;
+    padding-bottom: 21px;
+
+    &__list {
+        @include Flex();
+        flex-wrap: wrap;
+        gap: 18px;
+        width: 100%;
+        margin-bottom: 0;
+        list-style-type: none;
+        padding-left: 0;
+
+        @include medium-device-down {
+            display: none;
+        }
+
+        &__item {
+            a {
+                @include Flex;
+                gap: 1rem;
+                padding: 9px 19px;
+                background-color: $color-nine;
+                white-space: nowrap;
+
+                font-size: $T5;
+                font-family: $font-primary;
+                font-weight: 700;
+                color: $color-two;
+
+                &:hover {
+                    background-color: $color-three;
+                    color: $color-black;
+                }
+
+                img {
+                    height: 36px;
+                    width: 36px;
+                    object-fit: contain;
+                    object-position: center;
+                    @include trans($transition: 0.5s);
+                }
+            }
+        }
+    }
+
+    &__dropdown-mobile {
+        display: none;
+        // border-bottom: solid 3px $color-black;
+
+        @include medium-device-down {
+            display: flex;
+        }
+
+        &__item {
+            a,
+            button {
+                @include Flex($justify: start);
+                gap: 1rem;
+                padding: 15px 26px;
+                background-color: $color-nine;
+                white-space: nowrap;
+
+                font-size: $T5-mobile;
+                font-family: $font-primary;
+                font-weight: 700;
+                color: $color-black;
+
+                img {
+                    height: 25px;
+                    width: 25px;
+                    object-fit: contain;
+                    object-position: center;
+                    @include trans($transition: 0.5s);
+                }
+            }
+        }
+
+        .accordion-flush {
+            width: 100%;
+        }
+
+        .accordion-item {
+            margin: 0 auto;
+            color: $color-one !important;
+            font: $paragraph !important;
+
+            li {
+                list-style: none;
+                color: $color-one !important;
+                font: $paragraph !important;
+            }
+        }
+
+        .accordion-button::after {
+            border-left: 8px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 11px solid $color-black;
+            width: auto;
+            height: auto;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            border-left: 8px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 11px solid $color-black;
+            transform: rotate(184deg);
+            width: auto;
+            height: auto;
+        }
+    }
+
+    .accordion-item {
+        background-color: transparent;
+    }
+}
