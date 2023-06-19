@@ -63,28 +63,28 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
+                    'titlePanel' => 'Videos',
                     'iconPanel' => ''
                 ]
             ],
         ],
-        // 'Topics' => (object) [
-        //     'TOPI04' => (object)[
-        //         'ViewHome' => true,
-        //         'ViewListMenu' => false,
-        //         'ViewListPanel' => true,
-        //         'ViewListFooter' => false,
-        //         'Viewer' => 'dropdown', // accepted values, list or dropdown
-        //         'config' => (object) [
-        //             'titleMenu' => '',
-        //             'anchor' =>  false,
-        //             'linkMenu' => '',
-        //             'iconMenu' => '',
-        //             'titlePanel' => 'Tópicos',
-        //             'iconPanel' => ''
-        //         ]
-        //     ],
-        // ],
+        'Topics' => (object) [
+            'TOPI04' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Destaque',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
         'Products' => (object) [
             'PROD02' => (object)[
                 'ViewHome' => true,
@@ -107,11 +107,11 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Produtos',
+                    'titleMenu' => 'Menu',
                     'anchor' =>  false,
                     'linkMenu' => 'prod02.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Produtos',
+                    'titlePanel' => 'Menu',
                     'iconPanel' => 'mdi-shopping-outline'
                 ],
                 'IncludeSections' => (object) [
@@ -168,8 +168,7 @@ return [
                     'titlePanel' => 'Unidades',
                     'iconPanel' => ''
                 ],
-                'IncludeSections' => (object) [
-                ]
+                'IncludeSections' => (object) []
             ],
         ],
         'Contacts' => (object) [
@@ -192,7 +191,7 @@ return [
                 ]
             ],
         ],
-        
+
     ],
 
     'ModelsForm' => (object)[
