@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Services' => (object) [
-            'SERV05' => (object)[
+        'Feedbacks' => (object) [
+            'FEED05' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -26,7 +26,7 @@ return [
                     'anchor' => false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Serviços', // acertar esse parâmetro para o modelo que estiver usando, qnd diferente dá erro de rota pra page
+                    'titlePanel' => 'Depoimentos',
                     'iconPanel' => ''
                 ]
             ],
