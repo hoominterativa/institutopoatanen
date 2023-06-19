@@ -8,4 +8,6 @@ import '../../pages/Topics/TOPI04/src/main';
 import '../../pages/Products/PROD02/src/main';
 import '../../pages/Feedbacks/FEED03/src/main';
 import '../../pages/Topics/TOPI05/src/main';
+import '../../pages/Units/UNIT01/src/main';
+import '../../pages/Contacts/COTA01/src/main';
 import '../../pages/Compliances/COMP01/src/main';

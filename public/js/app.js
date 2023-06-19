@@ -12095,8 +12095,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Topics/TOPI05/src/main */ "./resources/views/Client/pages/Topics/TOPI05/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI05_src_main__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Units/UNIT01/src/main */ "./resources/views/Client/pages/Units/UNIT01/src/main.js");
+/* harmony import */ var _pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Contacts/COTA01/src/main */ "./resources/views/Client/pages/Contacts/COTA01/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA01_src_main__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_12__);
+
+
 
 
 
@@ -12429,6 +12435,16 @@ $(function () {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Contacts/COTA01/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contacts/COTA01/src/main.js ***!
+  \******************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./resources/views/Client/pages/Contents/CONT06/src/main.js":
 /*!******************************************************************!*\
   !*** ./resources/views/Client/pages/Contents/CONT06/src/main.js ***!
@@ -12681,6 +12697,30 @@ $('.carrosel-topi04-topics').css('width', $('.topi04__boxRight').outerWidth());
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Units/UNIT01/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Units/UNIT01/src/main.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.carousel_unit01').owlCarousel({
+  smartSpeed: 450,
+  items: 1,
+  // loop: true,
+  dots: true,
+  nav: false,
+  // rewind: true,
+  autoHeight: true
+});
+$('.carousel_unit01').css('width', $('.unit01-page__divisor__section__boxRight').outerWidth());
+
+if ($(window).outerWidth() <= 801) {
+  $('.carousel_unit01').css('width', $('.unit01-page__divisor__section__boxRight').outerWidth());
+} // END carousel_unit01
 
 /***/ }),
 
