@@ -11,15 +11,16 @@ use App\Models\Units\UNIT03UnitsBanner;
 use App\Models\Units\UNIT03UnitsSocial;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Units\UNIT03UnitsContact;
 use App\Models\Units\UNIT03UnitsContent;
 use App\Models\Units\UNIT03UnitsGallery;
 use Illuminate\Support\Facades\Response;
 use App\Models\Units\UNIT03UnitsCategory;
 use App\Models\Units\UNIT03UnitsBannerShow;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Units\UNIT03UnitsGalleryContent;
 use App\Models\Units\UNIT03UnitsSectionGallery;
+use App\Http\Controllers\IncludeSectionsController;
 
 class UNIT03Controller extends Controller
 {
@@ -105,7 +106,7 @@ class UNIT03Controller extends Controller
      * @param  \App\Models\Units\UNIT03Units  $UNIT03Units
      * @return \Illuminate\Http\Response
      */
-    public function edit(UNIT03Units $UNIT03Units, UNIT03UnitsContent $UNIT03UnitsContent)
+    public function edit(UNIT03Units $UNIT03Units)
     {
         $categories = UNIT03UnitsCategory::exists()->sorting()->pluck('title', 'id');
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->sorting()->get();
@@ -114,6 +115,8 @@ class UNIT03Controller extends Controller
         $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $sectionGallery = UNIT03UnitsSectionGallery::where('unit_id', $UNIT03Units->id)->first();
+        $contact = UNIT03UnitsContact::where('unit_id', $UNIT03Units->id)->first();
+        $configForm = json_decode($contact->inputs_form);
         return view('Admin.cruds.Units.UNIT03.edit', [
             'unit' => $UNIT03Units,
             'categories' => $categories,
@@ -123,6 +126,8 @@ class UNIT03Controller extends Controller
             'contents' => $contents,
             'galleries' => $galleries,
             'sectionGallery' => $sectionGallery,
+            'contact' => $contact,
+            'configForm' => !is_array($configForm)?$configForm:null,
             'cropSetting' => getCropImage('Units', 'UNIT03')
         ]);
     }
@@ -351,7 +356,8 @@ class UNIT03Controller extends Controller
         $contents = UNIT03UnitsContent::with('galleryContents')->where('unit_id', $UNIT03Units->id)->active()->sorting()->get();
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $sectionGallery = UNIT03UnitsSectionGallery::where('unit_id', $UNIT03Units->id)->active()->first();
-
+        $contact = UNIT03UnitsContact::where('unit_id', $UNIT03Units->id)->active()->first();
+        
         return view('Client.pages.Units.UNIT03.show',[
             'sections' => $sections,
             'bannerShow' => $bannerShow,
@@ -360,6 +366,8 @@ class UNIT03Controller extends Controller
             'contents' => $contents,
             'galleries' => $galleries,
             'unit' => $UNIT03Units,
+            'contact' => $contact,
+            'inputs' => json_decode($contact->inputs_form),
             'sectionGallery' => $sectionGallery,
         ]);
     }

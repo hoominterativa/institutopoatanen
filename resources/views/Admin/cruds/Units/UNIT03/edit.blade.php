@@ -70,6 +70,14 @@
                                 data-bs-original-title="Cadastrar galeria"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#contact" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Formulário de contato
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastrar informações para o formulário"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -110,6 +118,13 @@
                         @include('Admin.cruds.Units.UNIT03.Gallery.index', [
                             'unit' => $unit,
                             'galleries' => $galleries,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="contact">
+                        @include('Admin.cruds.Units.UNIT03.Contact.form', [
+                            'unit' => $unit,
+                            'contact' => $contact,
+                            'configForm' => $configForm
                         ])
                     </div>
                 </div>

@@ -67,54 +67,46 @@
                 </div>
             @endif
         </div>
-        <div class="unit03-show__top__form">
+        @if ($contact)
+            <div class="unit03-show__top__form">
+                @if ($contact->title || $contact->subtitle)
+                    <h4 class="unit03-show__top__form__subtitle">{{$contact->subtitle}}</h4>
+                    <h3 class="unit03-show__top__form__title">{{$contact->title}}</h3>
+                    <hr class="unit03-show__top__form__line">
+                @endif
 
-            <h4 class="unit03-show__top__form__subtitle">Subtítulo</h4>
-            <h3 class="unit03-show__top__form__title">Título</h3>
-            <hr class="unit03-show__top__form__line">
+                {!! Form::open([
+                    'route' => 'lead.store',
+                    'method' => 'post',
+                    'files' => true,
+                    'class' =>
+                        'send_form_ajax unit03-show__top__form__item d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
+                ]) !!}
 
-            {!! Form::open([
-                'route' => 'lead.store',
-                'method' => 'post',
-                'files' => true,
-                'class' =>
-                    'send_form_ajax unit03-show__top__form__item d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
-            ]) !!}
+                <div class="sche01-form__form__inputs d-flex flex-column w-100 align-items-stretch">
+                    <input type="hidden" name="target_lead" value="{{$contact->title}}">
+                    <input type="hidden" name="target_send" value="{{ base64_encode($contact->email) }}">
 
-            <div class="sche01-form__form__inputs d-flex flex-column w-100 align-items-stretch">
-                <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
-                {{-- <input type="hidden" name="target_send" value="{{ base64_encode($contactForm->email) }}"> --}}
+                    @foreach ($inputs as $name => $input)
+                        @include('Client.Components.inputs', [
+                            'name' => $name,
+                            'options' => $input->option,
+                            'placeholder' => $input->placeholder,
+                            'type' => $input->type,
+                            'required' => isset($input->required) ? $input->required : false,
+                        ])
+                    @endforeach
 
-                @for ($i = 0; $i < 3; $i++)
-                    @include('Client.Components.inputs', [
-                        'name' => 'name',
-                        // 'options' => $input->option,
-                        'placeholder' => 'Nome',
-                        'required' => false,
-                        'type' => 'text',
-                        'class' => 'col-md-8',
-                    ])
-                @endfor
-
-                @include('Client.Components.inputs', [
-                    'name' => 'name',
-                    // 'options' => $input->option,
-                    'placeholder' => 'Nome',
-                    'required' => false,
-                    'type' => 'textarea',
-                    'class' => 'col-md-8',
-                ])
-
+                </div>
+                <button type="submit" class="unit03-show__top__form__cta">
+                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="unit03-show__top__form__cta__icon" alt="Ícone">
+                    @if ($contact->title_button)
+                        {{ $contact->title_button }}
+                    @endif
+                </button>
+                {!! Form::close() !!}
             </div>
-
-            <button type="submit" class="unit03-show__top__form__cta">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="unit03-show__top__form__cta__icon"
-                    alt="Ícone">
-                CTA
-            </button>
-            {!! Form::close() !!}
-
-        </div>
+        @endif
     </section>
 
     @if ($contents->count())

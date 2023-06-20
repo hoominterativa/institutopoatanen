@@ -6,6 +6,7 @@ use App\Http\Controllers\Units\UNIT03Controller;
 use App\Http\Controllers\Units\UNIT03TopicController;
 use App\Http\Controllers\Units\UNIT03BannerController;
 use App\Http\Controllers\Units\UNIT03SocialController;
+use App\Http\Controllers\Units\UNIT03ContactController;
 use App\Http\Controllers\Units\UNIT03ContentController;
 use App\Http\Controllers\Units\UNIT03GalleryController;
 use App\Http\Controllers\Units\UNIT03CategoryController;
@@ -63,6 +64,9 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao-galeria', UNIT03SectionGalleryController::class)->names('admin.'.$routeName.'.section')->parameters(['secao-galeria' => 'UNIT03UnitsSectionGallery']);
 
     Route::resource($route.'/bannershow', UNIT03BannerShowController::class)->names('admin.'.$routeName.'.bannerShow')->parameters(['bannershow' => 'UNIT03UnitsBannerShow']);
+
+    Route::resource($route.'/contato', UNIT03ContactController::class)->names('admin.'.$routeName.'.contact')->parameters(['contato' => 'UNIT03UnitsContact']);
+
 });
 // // CLIENT
 Route::get($route.'/categoria/{UNIT03UnitsCategory:slug}', [UNIT03Controller::class, 'page'])->name($routeName.'.category.page');
