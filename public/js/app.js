@@ -12081,10 +12081,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Services_SERV06_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Services/SERV06/src/main */ "./resources/views/Client/pages/Services/SERV06/src/main.js");
-/* harmony import */ var _pages_Services_SERV06_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV06_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Slides_SLID03_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID03/src/main */ "./resources/views/Client/pages/Slides/SLID03/src/main.js");
+/* harmony import */ var _pages_Slides_SLID03_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID03_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Services/SERV04/src/main */ "./resources/views/Client/pages/Services/SERV04/src/main.js");
+/* harmony import */ var _pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -12205,35 +12208,15 @@ $(function () {
           thisFont = that.css('font'),
           thisFontSize = that.css('font-size'),
           thisLineHeight = that.css('line-height');
-      that.css('height', thisHeight);
-      formPlaceholder.css({
-        'position': 'relative'
-      });
-      placeholderCustom.css({
-        'position': 'absolute',
-        'left': '0',
-        'top': '0',
-        'line-height': thisLineHeight,
-        'padding': thisPadding,
-        'width': thisWidth,
-        'height': thisHeight,
-        'font': thisFont
-      });
       placeholderCustom.on('click', function () {
         that.trigger('focus');
       });
       that.on('focus', function () {
-        focusInput(placeholderCustom);
+        formPlaceholder.addClass('focusing');
       });
       that.on('focusout', function () {
         if ($(this).val() == '') {
-          placeholderCustom.css({
-            'padding': thisPadding,
-            'width': thisWidth,
-            'height': thisHeight,
-            'font-size': thisFontSize,
-            'line-height': 'inherit'
-          }, 'fast');
+          formPlaceholder.removeClass('focusing');
         }
       });
     }
@@ -12320,13 +12303,87 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Services/SERV06/src/main.js":
+/***/ "./resources/views/Client/pages/Services/SERV04/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Services/SERV06/src/main.js ***!
+  !*** ./resources/views/Client/pages/Services/SERV04/src/main.js ***!
   \******************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel-serv04').owlCarousel({
+    margin: 12,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    loop: false,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 500 up
+      500: {
+        items: 1
+      },
+      // breakpoint from 800 up
+      800: {
+        items: 4
+      }
+    }
+  });
 
+  if ($(window).outerWidth() <= 500) {
+    $('.carousel-serv04').css('width', $(window).outerWidth());
+  }
+
+  $('.carousel-serv04-page__subcategory').owlCarousel({
+    margin: 12,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    loop: false,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1,
+        margin: 0
+      },
+      // breakpoint from 500 up
+      500: {
+        items: 1,
+        margin: 0
+      },
+      // breakpoint from 800 up
+      800: {
+        items: 4
+      }
+    }
+  });
+
+  if ($(window).outerWidth() <= 500) {
+    $('.carousel-serv04-page__subcategory').css('width', $(window).outerWidth() + 200);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Slides/SLID03/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Slides/SLID03/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('#SLID03').css('height', $(window).height() - 100);
+});
 
 /***/ }),
 

@@ -322,6 +322,11 @@ return [
                 'model' => App\Models\Slides\SLID02Slides::class,
                 'seedQty' => 1,
             ],
+            'SLID03' => (object)[
+                'controller' => App\Http\Controllers\Slides\SLID03Controller::class,
+                'model' => App\Models\Slides\SLID03Slides::class,
+                'seedQty' => 1,
+            ],
         ],
         // END SLIDES
 

@@ -1,0 +1,192 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+#SLID03{
+    height: 100%;
+    .slid03{
+        &__content{
+            &__text{
+                h1, h2, h3, h4, h5, h6{
+                    color: $color-black;
+                    font-family: $font-primary;
+                    b, span, strong{
+                        font-weight: $weight-700;
+                    }
+                }
+                h1{
+                    font-size: $T1;
+                    @include x-small-device{
+                        font-size: $T1-mobile;
+                    }
+                    @include small-device{
+                        font-size: $T1-mobile;
+                    }
+                    @include medium-device{
+                        font-size: $T1-mobile;
+                    }
+                }
+                h2{
+                    font-size: $T2;
+                    @include x-small-device{
+                        font-size: $T2-mobile;
+                    }
+                    @include small-device{
+                        font-size: $T2-mobile;
+                    }
+                    @include medium-device{
+                        font-size: $T2-mobile;
+                    }
+                }
+                h3{
+                    font-size: $T3;
+                    @include x-small-device{
+                        font-size: $T3-mobile;
+                    }
+                    @include small-device{
+                        font-size: $T3-mobile;
+                    }
+                    @include medium-device{
+                        font-size: $T3-mobile;
+                    }
+                }
+                h4{
+                    font-size: $T4;
+                    @include x-small-device{
+                        font-size: $T4-mobile;
+                    }
+                    @include small-device{
+                        font-size: $T4-mobile;
+                    }
+                    @include medium-device{
+                        font-size: $T4-mobile;
+                    }
+                }
+                h5,h6{
+                    font-size: $T5;
+                    @include x-small-device{
+                        font-size: $T5-mobile;
+                    }
+                    @include small-device{
+                        font-size: $T5-mobile;
+                    }
+                    @include medium-device{
+                        font-size: $T5-mobile;
+                    }
+                }
+
+                p{
+                    font: $paragraph;
+                    @include x-small-device{
+                        font: $paragraph-mobile;
+                    }
+                    @include small-device{
+                        font: $paragraph-mobile;
+                    }
+                    @include medium-device{
+                        font: $paragraph-mobile;
+                    }
+
+                    b, span, strong{
+                        font-weight: $weight-700;
+                    }
+                }
+
+            }
+            // END __text
+            &__cta{
+                font: $paragraph;
+                color: $color-black;
+                border: 1px solid $color-black;
+                font-weight: $weight-500;
+                padding: 10px 30px;
+                margin-top: 30px;
+                display: table;
+                border-radius: 50px;
+                @include x-small-device{
+                    font: $paragraph-mobile;
+                }
+                @include small-device{
+                    font: $paragraph-mobile;
+                }
+                @include medium-device{
+                    font: $paragraph-mobile;
+                }
+            }
+            // END __cta
+
+            &__form{
+                width: 100%;
+                max-width: 350px;
+                background-color: $color-white;
+                border-radius: 20px;
+                padding: 35px;
+                margin-left: auto;
+
+                &__title{
+                    font-size: $T4;
+                    font-family: $font-primary;
+                    color: $color-black;
+                    font-weight: $weight-500;
+                    margin-bottom: 20px;
+
+                    @include x-small-device{
+                        font-size: $T3-mobile;
+                    }
+                    @include small-device{
+                        font-size: $T3-mobile;
+                    }
+                    @include medium-device{
+                        font-size: $T3-mobile;
+                    }
+                }
+                // END __title
+
+                &__item{
+                    &__input{
+                        .form-placeholder{
+                            .placeholder--custom{
+                                font-size: 0.98rem;
+                                font-weight: $weight-500;
+                                font-family: $font-primary;
+                                padding-left: 0;
+                            }
+                            input{
+                                border: none;
+                                border-bottom: 1px solid #ccc;
+                                border-radius: 0;
+                                padding-left: 0 !important;
+                                font-size: 1rem;
+                            }
+                            &.focusing{
+                                .placeholder--custom{
+                                    font-size: 0.7rem;
+                                }
+                            }
+                        }
+                    }
+                    &__submit{
+                        font: $paragraph;
+                        color: $color-black;
+                        border: 1px solid $color-black;
+                        font-weight: $weight-500;
+                        padding: 5px 30px;
+                        margin-top: 30px;
+                        display: table;
+                        border-radius: 50px;
+                        width: 100%;
+                        @include x-small-device{
+                            font: $paragraph-mobile;
+                        }
+                        @include small-device{
+                            font: $paragraph-mobile;
+                        }
+                        @include medium-device{
+                            font: $paragraph-mobile;
+                        }
+                    }
+                }
+            }
+        }
+        // END  __content
+    }
+}
