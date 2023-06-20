@@ -21,10 +21,22 @@ class SCHE01SchedulesFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
+            'description' => $this->faker->text(300),
+            'information' => $this->faker->text(150),
+            'text' => $this->faker->paragraph(3),
+            'event_date' => $this->faker->date('Y-m-d'),
+            'event_time' => $this->faker->time('H:i:s'),
+            'title_button' => $this->faker->text(10),
+            'link_button' => $this->faker->url(),
+            'target_link_button' => '_blank',
+            'path_image' => 'uploads/tmp/gall01_image2.png',
+            'path_image_sub' => 'uploads/tmp/favicon.png',
+            'path_image_hours' => 'uploads/tmp/favicon.png',
+            'active' => 1,
         ];
     }
 }

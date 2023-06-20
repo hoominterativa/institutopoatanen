@@ -16,7 +16,7 @@ class SCHE01Schedules extends Model
     }
 
     protected $table = "sche01_schedules";
-    protected $fillable = [];
+    protected $fillable = ['title', 'subtitle', 'event_date', 'event_time', 'description', 'text', 'information', 'title_button', 'link_button', 'target_link_button','path_image_sub', 'path_image_hours', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class SCHE01Schedules extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

@@ -1131,6 +1131,26 @@
         }
     },
 
+    "Schedules": {
+        "SCHE01": {
+            "path_image": {
+                "width": "774",
+                "height": "315",
+                "activeCrop": "false"
+            },
+            "path_image_hours": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_sub": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            }
+        }
+    },
+
     "Teams": {
         "TEAM01": {
             "path_image_box": {
