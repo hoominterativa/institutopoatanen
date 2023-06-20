@@ -2,7 +2,7 @@
 
 namespace App\Models\Schedules;
 
-use Database\Factories\SCHE01SchedulesFactory;
+use Database\Factories\Schedules\SCHE01SchedulesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class SCHE01Schedules extends Model
         return SCHE01SchedulesFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "sche01_schedules";
     protected $fillable = [];
 
     public function scopeSorting($query)

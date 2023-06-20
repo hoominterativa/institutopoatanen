@@ -12083,8 +12083,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Schedules_SCHE01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Schedules/SCHE01/src/main */ "./resources/views/Client/pages/Schedules/SCHE01/src/main.js");
 /* harmony import */ var _pages_Schedules_SCHE01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Schedules_SCHE01_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Blogs_BLOG03_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Blogs/BLOG03/src/main */ "./resources/views/Client/pages/Blogs/BLOG03/src/main.js");
+/* harmony import */ var _pages_Blogs_BLOG03_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Blogs_BLOG03_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -12306,6 +12309,54 @@ $(function () {
       }
     });
   });
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Blogs/BLOG03/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Blogs/BLOG03/src/main.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.blog03__boxs__carousel').owlCarousel({
+    smartSpeed: 450,
+    loop: false,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1,
+        margin: -100
+      },
+      // breakpoint from 0
+      200: {
+        items: 1,
+        margin: -100
+      },
+      // breakpoint from 200 up
+      500: {
+        items: 1,
+        margin: -100
+      },
+      // breakpoint from 815 up
+      820: {
+        items: 1,
+        margin: -50
+      } // breakpoint from 820 up
+
+    }
+  });
+  $('.blog03__boxs__carousel').css('width', $(window).outerWidth() + 150);
+
+  if ($(window).outerWidth() <= 801) {
+    $('.blog03__boxs__carousel').css('width', $(window).outerWidth());
+  }
 });
 
 /***/ }),
