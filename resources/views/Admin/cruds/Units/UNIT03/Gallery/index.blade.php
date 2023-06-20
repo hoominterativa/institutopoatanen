@@ -4,11 +4,10 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete"
-                            data-route="{{ route('admin.abou04.topic.destroySelected') }}" type="button" class="btn btn-danger btDeleteTopics" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{ route('admin.unit03.gallery.destroySelected') }}" type="button"class="btn btn-danger btDeleteGalleries" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="javascript:void(0)" data-bs-target="#modal-topic-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)" data-bs-target="#modal-gallery-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                         <a href="javascript:void(0)" data-bs-target="#modal-sectionTopic-create" data-bs-toggle="modal" class="btn btn-warning float-end me-2">Informações adicionais <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
@@ -17,67 +16,59 @@
                         <tr>
                             <th width="50px"></th>
                             <th width="30px" class="bs-checkbox">
-                                <label><input name="btnSelectAll" value="btDeleteTopics" type="checkbox"></label>
+                                <label><input name="btnSelectAll" value="btDeleteGalleries" type="checkbox"></label>
                             </th>
                             <th>Imagem</th>
                             <th>Título</th>
-                            <th>Descrição</th>
-                            <th width="100px">Status</th>
+                            <th>Link do vídeo</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{ route('admin.abou04.topic.sorting') }}">
-                        @foreach ($topics as $topic)
-                            <tr data-code="{{ $topic->id }}">
+                    <tbody data-route="{{ route('admin.unit03.gallery.sorting') }}">
+                        @foreach ($galleries as $gallery)
+                            <tr data-code="{{ $gallery->id }}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{ $topic->id }}"></label>
+                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{ $gallery->id }}"></label>
                                 </td>
                                 <td class="align-middle avatar-group">
-                                    @if ($topic->path_image_icon)
-                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $topic->path_image_icon) }})">
+                                    @if ($gallery->path_image)
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $gallery->path_image) }})">
                                         </div>
                                     @endif
                                 </td>
-                                <td class="align-middle">{{$topic->title}}</td>
-                                <td class="align-middle">{!! substr($topic->description, 0, 30) !!}</td>
-                                <td class="align-middle">
-                                    @if ($topic->active)
-                                        <span class="badge bg-success me-2">Ativo</span>
-                                    @else
-                                        <span class="badge bg-danger me-2">Inativo</span>
-                                    @endif
-                                </td>
+                                <td class="align-middle">{{$gallery->title}}</td>
+                                <td class="align-middle"><a href="{{$gallery->link_video }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="javascript:void(0)" data-bs-target="#modal-topic-update-{{ $topic->id }}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                            <a href="javascript:void(0)" data-bs-target="#modal-gallery-update-{{ $gallery->id }}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{ route('admin.abou04.topic.destroy', ['ABOU04AboutsTopic' => $topic->id]) }}" class="col-4" method="POST">
+                                        <form action="{{ route('admin.unit03.gallery.destroy', ['UNIT03UnitsGallery' => $gallery->id]) }}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
-                                        {{-- BEGIN MODAL TOPICS UPDATE --}}
-                                        <div id="modal-topic-update-{{ $topic->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 900px;">
+                                        {{-- BEGIN MODAL GALLERY UPDATE --}}
+                                        <div id="modal-gallery-update-{{ $gallery->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <div class="modal-dialog" style="max-width: 1100px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
-                                                        <h4 class="page-title">Atualizar tópicos</h4>
+                                                        <h4 class="page-title">Atualizar Imagem/Vídeo</h4>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body p-3 pt-0 pb-3">
                                                         @include(
-                                                            'Admin.cruds.Abouts.ABOU04.Topic.form',
+                                                            'Admin.cruds.Units.UNIT03.Gallery.form',
                                                             [
-                                                                'topic' => $topic,
+                                                                'gallery' => $gallery,
                                                             ]
                                                         )
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- END MODAL TOPICS UPDATE --}}
+                                        {{-- END MODAL GALLERY UPDATE --}}
                                     </div>
                                 </td>
                             </tr>
@@ -89,24 +80,23 @@
     </div> <!-- end col-->
 </div>
     <!-- end row -->
-{{-- BEGIN MODAL TOPICS CREATE --}}
-<div id="modal-topic-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 900px;">
+{{-- BEGIN MODAL GALLERY CREATE --}}
+<div id="modal-gallery-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="max-width: 1100px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
-                <h4 class="page-title">Cadastrar tópicos</h4>
+                <h4 class="page-title">Cadastrar Imagem/Vídeo</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Abouts.ABOU04.Topic.form', [
-                    'topic' => null,
+                @include('Admin.cruds.Units.UNIT03.Gallery.form', [
+                    'gallery' => null,
                 ])
             </div>
         </div>
     </div>
 </div>
-{{-- END MODAL GALLERIES CREATE --}}
+{{-- END MODAL GALLERY CREATE --}}
 
 {{-- BEGIN MODAL SECTION CREATE --}}
 <div id="modal-sectionTopic-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -118,12 +108,12 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Abouts.ABOU04.Topic.Section.form', [
-                    'sectionTopic' => $sectionTopic?? null,
+                @include('Admin.cruds.Units.UNIT03.Gallery.Section.form', [
+                    'sectionGallery' => $sectionGallery?? null,
+                    'unit' => $unit
                 ])
             </div>
         </div>
     </div>
 </div>
 {{-- END MODAL SECTION CREATE --}}
-

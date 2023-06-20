@@ -43,6 +43,7 @@ function cloneInputsColorPicker(elem, taregt, receiver, action='clone'){
 }
 
 $(function() {
+
     if($(".colorpicker-default").length){
         $(".colorpicker-default").spectrum()
     }
