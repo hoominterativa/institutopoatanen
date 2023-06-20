@@ -250,6 +250,11 @@ return [
                     ]
                 ]
             ],
+            'PROD05' => (object)[
+                'controller' => App\Http\Controllers\Products\PROD05Controller::class,
+                'model' => App\Models\Products\PROD05Products::class,
+                'seedQty' => 4,
+            ],
         ],
         // END PRODUCTS
 

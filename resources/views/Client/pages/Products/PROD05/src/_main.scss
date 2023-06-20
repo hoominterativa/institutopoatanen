@@ -1,0 +1,410 @@
+@import "variables";
+
+/* BEGIN STYLE */
+.prod05 {
+    width: 100%;
+    padding: 60px 0;
+    background-color: $color-five;
+
+    &__header {
+        @include Flex($align: center, $direction: column);
+        width: 100%;
+
+        @include medium-device-down {
+            align-items: start;
+        }
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $T2;
+        font-weight: 700;
+        color: $color-one;
+        text-align: center;
+        margin-bottom: 0;
+
+        @include medium-device-down {
+            font-size: $T2-mobile;
+            text-align: left;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T4;
+        font-weight: 700;
+        color: $color-three;
+        text-align: center;
+        margin-bottom: 0;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+            text-align: left;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-one;
+        margin: 22px 0 29px 0;
+        opacity: 1;
+    }
+
+    &__desc {
+        font: $paragraph;
+        font-weight: 400;
+        text-align: center;
+        width: 100%;
+        max-width: 1018px;
+        margin-bottom: 31px;
+        color: $color-two;
+
+        @include medium-device-down {
+            font: $paragraph-mobile;
+            text-align: left;
+        }
+    }
+
+    &__carousel {
+        width: 100%;
+        max-width: 1187px;
+        margin-top: 32px;
+
+        .owl-height {
+            padding-bottom: 20px;
+            overflow: visible;
+        }
+
+        &__item {
+            width: 100% !important;
+        }
+
+        .owl-dots {
+            justify-content: start;
+
+            .owl-dot {
+                border-radius: 0;
+            }
+
+            @include medium-device-down {
+                justify-content: center;
+                margin-bottom: 47px;
+            }
+        }
+    }
+
+    &__cta {
+        @include Flex();
+        gap: 16px;
+        align-self: center;
+        white-space: nowrap;
+        background-color: $color-four;
+        padding: 10px 40px;
+        margin-top: 0;
+
+        font: $paragraph;
+        font-weight: 700;
+        color: $color-one;
+
+        &:hover {
+            background-color: $color-one;
+            color: $color-four;
+        }
+
+        &__icon {
+            height: 25px;
+            width: 25px;
+            object-fit: contain;
+            object-position: center;
+            @include trans($transition: 0.5s);
+        }
+
+        &:hover &__icon {
+            filter: brightness(1) contrast(1) invert(1) grayscale(1);
+        }
+    }
+}
+
+// categorias que ser reptem na seção e na page
+.prod05-categories {
+    width: 100%;
+
+    &__list {
+        @include Flex();
+        flex-wrap: wrap;
+        gap: 18px;
+        width: 100%;
+        list-style-type: none;
+        padding-left: 0;
+
+        @include medium-device-down {
+            display: none;
+        }
+
+        &__item {
+            a {
+                @include Flex;
+                gap: 1rem;
+                padding: 9px 19px;
+                background-color: $color-nine;
+                white-space: nowrap;
+
+                font-size: $T5;
+                font-family: $font-primary;
+                font-weight: 700;
+                color: $color-two;
+
+                &:hover {
+                    background-color: $color-three;
+                    color: $color-black;
+                }
+
+                img {
+                    height: 36px;
+                    width: 36px;
+                    object-fit: contain;
+                    object-position: center;
+                    @include trans($transition: 0.5s);
+                }
+            }
+        }
+    }
+
+    &__dropdown-mobile {
+        display: none;
+        // border-bottom: solid 3px $color-black;
+
+        @include medium-device-down {
+            display: flex;
+        }
+
+        &__item {
+            a,
+            button {
+                @include Flex($justify: start);
+                gap: 1rem;
+                padding: 15px 26px;
+                background-color: $color-nine;
+                white-space: nowrap;
+
+                font-size: $T5-mobile;
+                font-family: $font-primary;
+                font-weight: 700;
+                color: $color-black;
+
+                img {
+                    height: 25px;
+                    width: 25px;
+                    object-fit: contain;
+                    object-position: center;
+                    @include trans($transition: 0.5s);
+                }
+            }
+        }
+
+        .accordion-flush {
+            width: 100%;
+        }
+
+        .accordion-item {
+            margin: 0 auto;
+            color: $color-one !important;
+            font: $paragraph !important;
+
+            li {
+                list-style: none;
+                color: $color-one !important;
+                font: $paragraph !important;
+            }
+        }
+
+        .accordion-button::after {
+            border-left: 8px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 11px solid $color-black;
+            width: auto;
+            height: auto;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            border-left: 8px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 11px solid $color-black;
+            transform: rotate(184deg);
+            width: auto;
+            height: auto;
+        }
+    }
+}
+
+// boxes que ser reptem na seção e na page
+.prod05-box {
+    @include Flex($direction: column);
+    width: calc(25% - 9px);
+    background-color: $color-three;
+
+    @include large-device-down {
+        width: calc(33% - 6px);
+    }
+
+    @include medium-device-down {
+        width: calc(50% - 6px);
+    }
+
+    @include small-device-down {
+        width: 100%;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 281/220;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__top {
+        margin-top: 28px;
+
+        @include medium-device-down {
+            margin-top: 16px;
+        }
+
+        &__title {
+            font-family: $font-primary;
+            font-size: $T5;
+            font-weight: 700;
+            color: $color-black;
+            margin-bottom: 0;
+            text-align: inherit;
+
+            @include medium-device-down {
+                font-size: $T5-mobile;
+            }
+        }
+
+        &__subtitle {
+            font: $paragraph-min;
+            font-weight: 700;
+            color: $color-black;
+            margin-bottom: 0;
+            text-align: inherit;
+
+            @include medium-device-down {
+                font-size: $paragraph-min-mobile;
+            }
+        }
+    }
+
+    &__content {
+        padding: 0 42px 14px 42px;
+
+        @include medium-device-down {
+            padding: 0 36px 12px 36px;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-black;
+        margin: 13px 0;
+        opacity: 0.6;
+    }
+
+    &__desc {
+        font: $paragraph-min;
+        color: $color-two;
+        text-align: center;
+
+        @include medium-device-down {
+            font: $paragraph-min-mobile;
+        }
+    }
+
+    &__cta {
+        @include Flex();
+        gap: 16px;
+        align-self: center;
+        white-space: nowrap;
+        background-color: $color-five;
+        padding: 10px 40px;
+        margin: 11px auto 0 auto;
+
+        font: $paragraph;
+        font-weight: 700;
+        color: $color-one;
+
+        &:hover {
+            background-color: $color-one;
+            color: $color-five;
+        }
+
+        &__icon {
+            height: 25px;
+            width: 25px;
+            object-fit: contain;
+            object-position: center;
+            @include trans($transition: 0.5s);
+        }
+
+        &:hover &__icon {
+            filter: brightness(1) contrast(1) invert(1) grayscale(1);
+        }
+    }
+}
+
+//especificos da page
+.serv05-page {
+    &__main {
+        padding: 29px 0 50px 0;
+        width: 100%;
+
+        .serv05-categories {
+            margin-bottom: 56px;
+
+            &__list {
+                margin-bottom: 0;
+            }
+        }
+
+        &__list {
+            @include Flex($align: start, $justify: start);
+            flex-wrap: wrap;
+            gap: 44px 12px;
+            padding-bottom: 40px;
+        }
+    }
+
+    &__pagination {
+        padding-left: 0;
+        width: 100%;
+        gap: 9px;
+        list-style-type: none;
+        margin-top: 22px;
+
+        &__item {
+            height: 38px;
+            width: 38px;
+
+            a {
+                @include Flex;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                font: $paragraph-min;
+                color: $color-nine;
+                background-color: $color-one;
+                font-weight: 500;
+
+                @include medium-device-down {
+                    font: $paragraph-min-mobile;
+                }
+
+                &:hover {
+                    background-color: $color-nine;
+                    color: $color-one;
+                }
+            }
+        }
+    }
+}
