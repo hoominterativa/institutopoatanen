@@ -1,8 +1,8 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-#SLID01{
-    position:relative;
+#SLID01 {
+    position: relative;
 
     .img-background-slide {
         position: absolute;
@@ -15,17 +15,17 @@
         object-fit: cover;
     }
 
-    .content-slide{
+    .content-slide {
         height: 100%;
         position: relative;
 
-        .img-floating-png{
+        .img-floating-png {
             z-index: 10;
             position: absolute;
             top: 0;
             height: 100%;
 
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 display: block;
@@ -33,7 +33,7 @@
                 object-position: bottom;
             }
 
-            @include small-device{
+            @include medium-device-down {
                 position: relative;
                 height: 300px;
                 max-width: 476px;
@@ -41,59 +41,59 @@
             }
         }
 
-        &.start{
+        &.start {
             flex-direction: row;
             text-align: left;
 
-            .img-floating-png{
+            .img-floating-png {
                 right: 0;
             }
         }
-        &.center{
+        &.center {
             flex-direction: column;
             justify-content: center;
             text-align: center;
 
-            .img-floating-png{
+            .img-floating-png {
                 display: none;
             }
         }
-        &.end{
+        &.end {
             flex-direction: row-reverse;
             text-align: right;
 
-            .img-floating-png{
+            .img-floating-png {
                 left: 0;
             }
         }
 
-        .content-description{
+        .content-description {
             z-index: 20;
 
-            .title{
+            .title {
                 font-size: $T1;
                 font-family: $font-primary;
                 font-weight: $weight-700;
                 color: $color-one;
                 display: block;
 
-                @include small-device{
+                @include medium-device-down {
                     font-size: $T1-mobile;
                 }
             }
 
-            .subtitle{
+            .subtitle {
                 font-size: $T3;
                 font-family: $font-primary;
                 font-weight: $weight-700;
                 color: $color-two;
 
-                @include small-device{
+                @include medium-device-down {
                     font-size: $T3-mobile;
                 }
             }
 
-            .description{
+            .description {
                 font: $paragraph;
                 font-weight: $weight-500;
                 color: $color-two;
@@ -101,12 +101,12 @@
                 width: 70%;
                 line-height: 25px;
 
-                @include small-device{
+                @include medium-device-down {
                     font: $paragraph-mobile;
                 }
             }
 
-            .btn-cta-slide{
+            .btn-cta-slide {
                 font: $paragraph;
                 color: $color-black;
                 font-weight: $weight-500;
@@ -114,34 +114,34 @@
                 background-color: $color-white;
                 min-width: 177px;
                 display: table;
-                img{
+                img {
                     width: 25px;
                     margin-right: 16px;
                 }
 
-                &:hover{
+                &:hover {
                     background-color: $bg-main;
                     color: $color-white;
-                    img{
+                    img {
                         filter: grayscale(1) invert(1);
                     }
                 }
             }
         }
 
-        @include small-device{
+        @include medium-device-down {
             justify-content: center;
             align-items: end !important;
         }
     }
-    #dotsSlideCustom{
+    #dotsSlideCustom {
         position: absolute;
         top: 50%;
         right: 3%;
         z-index: 100;
         transform: translate(0, -50%);
 
-        .owl-dot{
+        .owl-dot {
             width: 13px;
             height: 13px;
             display: block;
@@ -151,7 +151,7 @@
             margin: 0 0 5px 0;
             border: none;
             &:hover,
-            &.active{
+            &.active {
                 background-color: $bg-secondary;
             }
         }

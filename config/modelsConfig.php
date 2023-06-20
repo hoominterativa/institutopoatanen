@@ -31,7 +31,7 @@ return [
                 ]
             ],
         ],
-        'Topics' => (object) [
+        'Topics.1' => (object) [
             'TOPI03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -47,6 +47,9 @@ return [
                     'iconPanel' => ''
                 ]
             ],
+        ],
+        'Topics.2' => (object) [
+            //FIXME: TOPI08 não tá aparecendo
             'TOPI08' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -62,6 +65,8 @@ return [
                     'iconPanel' => ''
                 ]
             ],
+        ],
+        'Topics.3' => (object) [
             'TOPI04' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -77,6 +82,8 @@ return [
                     'iconPanel' => ''
                 ]
             ],
+        ],
+        'Topics.4' => (object) [
             'TOPI05' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -93,7 +100,7 @@ return [
                 ]
             ],
         ],
-        'Contents' => (object) [
+        'Contents.1' => (object) [
             'CONT02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -109,6 +116,8 @@ return [
                     'iconPanel' => ''
                 ]
             ],
+        ],
+        'Contents.2' => (object) [
             'CONT02V1' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -124,6 +133,8 @@ return [
                     'iconPanel' => ''
                 ]
             ],
+        ],
+        'Contents.3' => (object) [
             'CONT06' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -158,7 +169,7 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
-        'Contents' => (object) [
+        'Contents.4' => (object) [
             'CONT03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -209,7 +220,7 @@ return [
                 ]
             ],
         ],
-        'Topics' => (object) [
+        'Topics.5' => (object) [
             'TOPI09' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -242,8 +253,8 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Contents' => 'CONT04',
-                    'Contents' => 'CONT06',
+                    'Contents.1' => 'CONT04',
+                    'Contents.2' => 'CONT06',
                     'Brands' => 'BRAND01',
                     'Contents' => 'CONT03',
                     'Topics' => 'TOPI09',
