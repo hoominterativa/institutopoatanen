@@ -43,12 +43,12 @@ class CONT04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) $data['path_image'] = $path_image;
 
-        if(CONT04Contents::create($data)){
+        if (CONT04Contents::create($data)) {
             Session::flash('success', 'Conteúdo cadastrado com sucesso');;
-        }else{
+        } else {
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o conteúdo');
         }
@@ -67,19 +67,19 @@ class CONT04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) {
             storageDelete($CONT04Contents, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image && !$path_image){
+        if ($request->delete_path_image && !$path_image) {
             storageDelete($CONT04Contents, 'path_image');
             $data['path_image'] = null;
         }
 
-        if($CONT04Contents->fill($data)->save()){
+        if ($CONT04Contents->fill($data)->save()) {
             Session::flash('success', 'Conteúdo atualizado com sucesso');
-        }else{
+        } else {
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
@@ -87,15 +87,15 @@ class CONT04Controller extends Controller
     }
 
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             CONT04Contents::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);

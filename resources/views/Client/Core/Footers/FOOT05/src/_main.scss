@@ -52,6 +52,10 @@
             @include Flex($justify: start, $align: start);
             gap: 54px;
 
+            @include medium-device-down {
+                flex-wrap: wrap;
+            }
+
             @include small-device-down {
                 gap: 32px;
                 width: 100%;

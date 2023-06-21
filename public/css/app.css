@@ -1438,6 +1438,11 @@ body .owl-dots .owl-dot.active {
   align-items: start;
   gap: 54px;
 }
+@media (max-width: 767.98px) {
+  .foot05__site__nav {
+    flex-wrap: wrap;
+  }
+}
 @media (max-width: 575.98px) {
   .foot05__site__nav {
     gap: 32px;

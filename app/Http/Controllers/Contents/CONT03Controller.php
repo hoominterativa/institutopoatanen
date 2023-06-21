@@ -23,7 +23,7 @@ class CONT03Controller extends Controller
     public function index()
     {
         $contents = CONT03Contents::sorting()->get();
-        return view('Admin.cruds.Contents.CONT03.index',[
+        return view('Admin.cruds.Contents.CONT03.index', [
             'contents' => $contents
         ]);
     }
@@ -35,7 +35,7 @@ class CONT03Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Contents.CONT03.create',[
+        return view('Admin.cruds.Contents.CONT03.create', [
             'cropSetting' => getCropImage('Contents', 'CONT03')
         ]);
     }
@@ -51,22 +51,22 @@ class CONT03Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null,100);
-        if($path_image_center) $data['path_image_center'] = $path_image_center;
+        $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);
+        if ($path_image_center) $data['path_image_center'] = $path_image_center;
 
-        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $this->path, null,100);
-        if($path_image_right) $data['path_image_right'] = $path_image_right;
+        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $this->path, null, 100);
+        if ($path_image_right) $data['path_image_right'] = $path_image_right;
 
-        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null,100);
-        if($path_image_background) $data['path_image_background'] = $path_image_background;
+        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
+        if ($path_image_background) $data['path_image_background'] = $path_image_background;
 
-        $data['active'] = $request->active?1:0;
+        $data['active'] = $request->active ? 1 : 0;
         $data['link'] = getUri($request->link);
 
-        if(CONT03Contents::create($data)){
+        if (CONT03Contents::create($data)) {
             Session::flash('success', 'Informações cadastradas com sucesso');
             return redirect()->route('admin.cont03.index');
-        }else{
+        } else {
             Storage::delete($path_image_center);
             Storage::delete($path_image_right);
             Storage::delete($path_image_background);
@@ -84,7 +84,7 @@ class CONT03Controller extends Controller
     public function edit(CONT03Contents $CONT03Contents)
     {
         $CONT03Contents->link = getUri($CONT03Contents->link);
-        return view('Admin.cruds.Contents.CONT03.edit',[
+        return view('Admin.cruds.Contents.CONT03.edit', [
             'content' => $CONT03Contents,
             'cropSetting' => getCropImage('Contents', 'CONT03')
         ]);
@@ -103,44 +103,44 @@ class CONT03Controller extends Controller
         $helper = new HelperArchive();
 
         // path_image_center
-        $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null,100);
-        if($path_image_center){
+        $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);
+        if ($path_image_center) {
             storageDelete($CONT03Contents, 'path_image_center');
             $data['path_image_center'] = $path_image_center;
         }
-        if($request->delete_path_image_center && !$path_image_center){
+        if ($request->delete_path_image_center && !$path_image_center) {
             storageDelete($CONT03Contents, 'path_image_center');
             $data['path_image_center'] = null;
         }
 
         //path_image_right
-        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $this->path, null,100);
-        if($path_image_right){
+        $path_image_right = $helper->optimizeImage($request, 'path_image_right', $this->path, null, 100);
+        if ($path_image_right) {
             storageDelete($CONT03Contents, 'path_image_right');
             $data['path_image_right'] = $path_image_right;
         }
-        if($request->delete_path_image_right && !$path_image_right){
+        if ($request->delete_path_image_right && !$path_image_right) {
             storageDelete($CONT03Contents, 'path_image_right');
             $data['path_image_right'] = null;
         }
 
         // path_image_background
-        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null,100);
-        if($path_image_background){
+        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
+        if ($path_image_background) {
             storageDelete($CONT03Contents, 'path_image_background');
             $data['path_image_background'] = $path_image_background;
         }
-        if($request->delete_path_image_background && !$path_image_background){
+        if ($request->delete_path_image_background && !$path_image_background) {
             storageDelete($CONT03Contents, 'path_image_background');
             $data['path_image_background'] = null;
         }
 
-        $data['active'] = $request->active?1:0;
+        $data['active'] = $request->active ? 1 : 0;
         $data['link'] = getUri($request->link);
 
-        if($CONT03Contents->fill($data)->save()){
+        if ($CONT03Contents->fill($data)->save()) {
             Session::flash('success', 'Informações atualizadas com sucesso');
-        }else{
+        } else {
             Storage::delete($path_image_center);
             Storage::delete($path_image_right);
             Storage::delete($path_image_background);
@@ -161,7 +161,7 @@ class CONT03Controller extends Controller
         storageDelete($CONT03Contents, 'path_image_right');
         storageDelete($CONT03Contents, 'path_image_background');
 
-        if($CONT03Contents->delete()){
+        if ($CONT03Contents->delete()) {
             Session::flash('success', 'Informações deletadas com sucessso');
             return redirect()->back();
         }
@@ -176,26 +176,26 @@ class CONT03Controller extends Controller
     public function destroySelected(Request $request)
     {
         $CONT03Contentss = CONT03Contents::whereIn('id', $request->deleteAll)->get();
-        foreach($CONT03Contentss as $CONT03Contents){
+        foreach ($CONT03Contentss as $CONT03Contents) {
             storageDelete($CONT03Contents, 'path_image_center');
             storageDelete($CONT03Contents, 'path_image_right');
             storageDelete($CONT03Contents, 'path_image_background');
         }
 
-        if($deleted = CONT03Contents::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        if ($deleted = CONT03Contents::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             CONT03Contents::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -211,7 +211,7 @@ class CONT03Controller extends Controller
     public static function section()
     {
         $contents = CONT03Contents::active()->sorting()->get();
-        return view('Client.pages.Contents.CONT03.section',[
+        return view('Client.pages.Contents.CONT03.section', [
             'contents' => $contents
         ]);
     }

@@ -33,7 +33,6 @@
                                 </a>
                             @endif
                         </div>
-                        {{-- FIXME: ESSA IMG NÃO ESTÁ SENDO IMPRIMIDA --}}
                         <div class="img-floating-png col-lg-5">
                             @if ($slide->path_image_png)
                                 <img src="{{ asset('storage/' . $slide->path_image_png) }}"

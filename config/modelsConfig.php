@@ -49,7 +49,6 @@ return [
             ],
         ],
         'Topics.2' => (object) [
-            //FIXME: TOPI08 não tá aparecendo
             'TOPI08' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -253,10 +252,10 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Contents.1' => 'CONT04',
-                    'Contents.2' => 'CONT06',
-                    'Brands' => 'BRAND01',
-                    'Contents' => 'CONT03',
+                    'Contents.5' => 'CONT04',
+                    'Contents.6' => 'CONT06',
+                    'Brands' => 'BRAN01',
+                    'Contents.7' => 'CONT03',
                     'Topics' => 'TOPI09',
                 ],
             ],
