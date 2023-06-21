@@ -1,9 +1,3 @@
-@extends('Client.Core.client')
-@section('content')
-{{-- BEGIN Page content --}}
-
-{{-- Finish Content page Here --}}
-@foreach ($sections as $section)
-    {!!$section!!}
-@endforeach
-@endsection
+<section id="slid03__lightbox__form" class="slid03-show" style="display: none;">
+    <h3>TESTE</h3>
+</section>

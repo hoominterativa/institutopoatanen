@@ -50,6 +50,8 @@
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="30" class="me-3">
                             Continuar
                         </button>
+                        <a href="#slid03__lightbox__form" class="slid03__content__form__targetLightnbox" data-fancybox="formulario-de-cadastro">asdas</a>
+                        @include('Client.pages.Slides.SLID03.show')
                     {!! Form::close() !!}
                 </div>
             </div>
