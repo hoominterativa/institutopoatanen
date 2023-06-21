@@ -30,15 +30,18 @@
                     </div>
                     <div class="foot03__top__redeSocial d-flex justify-content-between align-items-center">
                         @foreach ($socials as $social)
-                            <a href="{{$social->link}}" title="{{$social->title}}" class="mdi {{$social->icon}}" target="_blank" rel="external"></a>
+                            <a href="{{$social->link}}" class="social-link transition" title="{{$social->title}}">
+                                <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
+                                {{$social->title}}
+                            </a>
                         @endforeach
                     </div>
                 </div>
             </div>
-            <div id="teste" class="foot03__bottom px-0">
-                <div class="row mx-0 w-100 justify-content-between ">
-                    <div class="foot03__bottom__boxLeft col-sm-7 row px-0">
-                        <nav class="foot03__bottom__boxLeft__nav  col-sm-4 px-0 mx-0">
+            <div id="teste"foot03__bottom d-flex px-0">
+                <div class=" d-flex justify-content-between  col">
+                    <div class="foot03__bottom__boxLeft col px-0 d-flex">
+                        <nav class="foot03__bottom__boxLeft__nav col px-0 mx-0">
                             <h4 class="foot03__bottom__boxLeft__nav__title">Início</h4>
                             <ul class="px-0 mb-0">
                                 <li><a href="{{route('home')}}" class="{{isActive('home')}}" rel="next">Home</a></li>
@@ -49,7 +52,7 @@
                         </nav>
 
                         @foreach ($listModelFooter as $menuFooter)
-                            <nav class="foot03__bottom__boxLeft__nav col-sm-4 px-0 mx-0">
+                            <nav class="foot03__bottom__boxLeft__nav col px-0 mx-0">
                                 <h4 class="foot03__bottom__boxLeft__nav__title"><a href="{{route($menuFooter->link)}}">{{$menuFooter->title}}</a></h4>
                                 <ul class="px-0 mb-0">
                                     @if ($menuFooter->dropdown)
@@ -62,8 +65,8 @@
                         @endforeach
 
                     </div>
-                    <div class="foot03__bottom__boxRight col-sm-5 row px-0 mx-0 justify-content-between">
-                        <nav class="foot03__bottom__boxRight__nav col-sm-5 px-0 w-auto">
+                    <div class="foot03__bottom__boxRight col-sm-5  d-flex px-0 mx-0">
+                        <nav class="foot03__bottom__boxRight__nav col px-0">
                             <h4 class="foot03__bottom__boxRight__nav__title">Unidades</h4>
                             <ul class="px-0 mb-0">
                                 <li>
@@ -79,7 +82,7 @@
                                 </li>
                             </ul>
                         </nav>
-                        <nav class="foot03__bottom__boxRight__nav col-sm-5 px-0 w-auto">
+                        <nav class="foot03__bottom__boxRight__nav col px-0">
                             <h4 class="foot03__bottom__boxRight__nav__title">Funcionamento</h4>
                             <ul class="mb-0">
                                 <li>
