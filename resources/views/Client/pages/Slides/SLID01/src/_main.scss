@@ -57,6 +57,9 @@
             .img-floating-png{
                 display: none;
             }
+            .content-description .description {
+                margin: 0 auto;
+            }
         }
         &.end{
             flex-direction: row-reverse;

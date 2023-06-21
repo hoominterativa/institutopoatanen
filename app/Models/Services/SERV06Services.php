@@ -15,7 +15,7 @@ class SERV06Services extends Model
         return SERV06ServicesFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "serv06_services";
     protected $fillable = [];
 
     public function scopeSorting($query)

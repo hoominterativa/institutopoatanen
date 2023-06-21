@@ -8,14 +8,14 @@ return [
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT02'
+            'Code' => 'FOOT03'
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Services' => (object) [
-            'SERV06' => (object)[
+        'Slides' => (object) [
+            'SLID01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -23,14 +23,173 @@ return [
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => '',
-                    'anchor' => false,
+                    'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
+                    'titlePanel' => 'Slide',
                     'iconPanel' => ''
                 ]
             ],
         ],
+        'Contents' => (object) [
+            'CONT02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Apresentação',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
+        'Abouts' => (object) [
+            'ABOU02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Sobre',
+                    'anchor' =>  false,
+                    'linkMenu' => 'abou02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre',
+                    'iconPanel' => 'mdi-information-variant'
+                ],
+                'IncludeSections' => (object) [
+                ]
+            ],
+        ],
+        'Contents.1' => (object) [
+            'CONT05' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Banner Conteudo',
+                    'iconPanel' => 'mdi-folder-outline'
+                ]
+            ],
+        ],
+        'Products' => (object) [
+            'PROD02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Produtos',
+                    'anchor' =>  false,
+                    'linkMenu' => 'prod02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Produtos',
+                    'iconPanel' => 'mdi-shopping-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Feedbacks' => 'FEED01',
+                ]
+            ],
+        ],
+        'Feedbacks' => (object) [
+            'FEED03' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Feedbacks',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
+        'Blogs' => (object) [
+            'BLOG01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home},featured_page=1{Detaques Página}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Blogs',
+                    'anchor' =>  false,
+                    'linkMenu' => 'blog01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Blogs',
+                    'iconPanel' => ''
+                ],
+                'IncludeSections' => (object) [
+                    'Feedbacks' => ['FEED01'],
+                ]
+            ],
+        ],
+        'Contacts' => (object) [
+            'COTA02' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Contato',
+                    'anchor' =>  false,
+                    'linkMenu' => 'cota02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => ''
+                ],
+                'IncludeSections' => (object) [
+
+                ]
+            ],
+        ],
+
     ],
 
     'ModelsForm' => (object)[
@@ -43,6 +202,17 @@ return [
                 'description_inner' => (object) ['name' => 'Descrição Lightbox',  'type' => 'textarea'],
                 'path_image_inner' => (object) ['name' => 'Imagem Lightbox',  'type' => 'image'],
             ],
+        ],
+        'FORM03' => (object) [
+            'model' => 'FORM03.jpg',
+            'config' => (object) [
+                'title' => (object) ['name' => 'Título', 'type' => 'text'],
+                'subtitle' => (object) ['name' => 'Subtítulo',  'type' => 'text'],
+                'description' => (object) ['name' => 'Descrição',  'type' => 'textarea'],
+                'title_inner' => (object) ['name' => 'Título Formulário ',  'type' => 'text'],
+                'description_inner' => (object) ['name' => 'Descrição Formulário',  'type' => 'textarea'],
+                'path_image_inner' => (object) ['name' => 'Background',  'type' => 'image'],
+            ]
         ],
         'FORM101' => (object) [
             'model' => 'FORM101.jpg',
