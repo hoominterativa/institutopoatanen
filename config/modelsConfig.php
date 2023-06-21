@@ -260,6 +260,38 @@ return [
                 ],
             ],
         ],
+        'Contents' => (object) [
+            'CONT04' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Qualidade para você',
+                    'iconPanel' => ''
+                ]
+            ],
+            'CONT06' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Lojista',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
         'Units' => (object) [
             'UNIT03' => (object)[
                 'ViewHome' => false,

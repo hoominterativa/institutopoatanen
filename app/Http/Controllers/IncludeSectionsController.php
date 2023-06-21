@@ -23,13 +23,16 @@ class IncludeSectionsController extends Controller
             foreach($IncludeSections as $model => $config){
                 $code = $config;
                 $ModelsController = config('modelsClass.Class');
+
+                $moduleName = explode('.', $model)[0];
+
                 if(is_array($config)){
                     $code = $config[0];
                     $form = $contactForm->sectionPage($page, $code);
 
                     if(count($config)>1){
                         if($where == $config[1]){
-                            $Controller = $ModelsController->$model->$code->controller;
+                            $Controller = $ModelsController->$moduleName->$code->controller;
 
                             if(COUNT($form)){
                                 switch ($form['position']) {
@@ -50,7 +53,7 @@ class IncludeSectionsController extends Controller
                             array_push($return, $view);
                         }
                     }else{
-                        $Controller = $ModelsController->$model->$code->controller;
+                        $Controller = $ModelsController->$moduleName->$code->controller;
                         if(COUNT($form)){
                             switch ($form['position']) {
                                 case 'after':
@@ -72,7 +75,7 @@ class IncludeSectionsController extends Controller
                 }else{
                     $form = $contactForm->sectionPage($page, $code);
 
-                    $Controller = $ModelsController->$model->$code->controller;
+                    $Controller = $ModelsController->$moduleName->$code->controller;
                     if(COUNT($form)){
                         switch ($form['position']) {
                             case 'after':
