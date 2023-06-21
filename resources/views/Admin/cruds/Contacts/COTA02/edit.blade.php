@@ -81,6 +81,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
+                        {!! Form::hidden('title_banner', $contact->title_banner) !!}
                         @include('Admin.cruds.Contacts.COTA02.form')
                         {!! Form::button('Salvar', [
                             'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
@@ -108,6 +109,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
+                        {!! Form::hidden('title_banner', $contact->title_banner) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoTopic.form')
                         {!! Form::close() !!}
                     </div>
@@ -119,6 +121,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
+                        {!! Form::hidden('title_banner', $contact->title_banner) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoForm.form')
                         {!! Form::close() !!}
                     </div>

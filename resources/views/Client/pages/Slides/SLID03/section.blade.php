@@ -16,7 +16,7 @@
             <div class="slid03__rightside col-12 col-md-6">
                 <div class="slid03__content__form">
                     <h4 class="slid03__content__form__title">Cadastre-se no Club Pet</h4>
-                    {!! Form::model(null, ["class" => "slid03__form__item send_form_ajax parsley-validate", "method" => "POST", "files" => true]) !!}
+                    {!! Form::model(null, ["class" => "slid03__form__item", "method" => "POST", "files" => true]) !!}
                         <input type="hidden" name="target_lead" value="Razão do formulário">
                         <input type="hidden" name="target_send" value="anderson@hoom.com.br">
                         <div class="slid03__content__form__item__input col-12">

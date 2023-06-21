@@ -308,10 +308,9 @@ class ContactFormController extends Controller
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
-            if($ContactForm->socials_id){
+            if($ContactForm->social_id){
                 $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
             }
-            // dd($socials);
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
                 'content' => json_decode($ContactForm->content),
@@ -348,13 +347,15 @@ class ContactFormController extends Controller
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
-            $socials = Social::whereIn('id', [$ContactForm->social_id])->get();
+            if($ContactForm->social_id){
+                $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
+            }
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
                 'inputs' => json_decode($ContactForm->inputs),
                 'content' => json_decode($ContactForm->content),
                 'model' => $ContactForm->model,
-                'socials' => $socials
+                'socials' => $socials?? null
             ]);
         }
 

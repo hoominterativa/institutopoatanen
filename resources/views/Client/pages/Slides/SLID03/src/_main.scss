@@ -156,14 +156,22 @@
                                 border-radius: 0;
                                 padding-left: 0 !important;
                                 font-size: 1rem;
+                                &.parsley-error{
+                                    border-bottom: 1px solid $color-danger;
+                                }
                             }
                             &.focusing{
                                 .placeholder--custom{
                                     font-size: 0.7rem;
                                 }
                             }
+                            .parsley-errors-list{
+                                display: none;
+                            }
                         }
+                        // END .form-placeholder
                     }
+                    // END __input
                     &__submit{
                         font: $paragraph;
                         color: $color-black;

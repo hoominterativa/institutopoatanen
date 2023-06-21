@@ -1728,8 +1728,14 @@ body .owl-dots .owl-dot.active {
   padding-left: 0 !important;
   font-size: 1rem;
 }
+#SLID03 .slid03__content__form__item__input .form-placeholder input.parsley-error {
+  border-bottom: 1px solid #c90000;
+}
 #SLID03 .slid03__content__form__item__input .form-placeholder.focusing .placeholder--custom {
   font-size: 0.7rem;
+}
+#SLID03 .slid03__content__form__item__input .form-placeholder .parsley-errors-list {
+  display: none;
 }
 #SLID03 .slid03__content__form__item__submit {
   font: 1rem "Montserrat", sans-serif, arial;

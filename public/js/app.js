@@ -12383,6 +12383,9 @@ $(function () {
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(function () {
   $('#SLID03').css('height', $(window).height() - 100);
+  $('.slid03__form__item').parsley().on('form:submit', function (formInstance) {
+    return false;
+  });
 });
 
 /***/ }),

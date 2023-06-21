@@ -86,7 +86,7 @@ class COTA02Controller extends Controller
 
         $data['inputs_form'] = $jsonInputs;
 
-        $data['slug'] = Str::slug($request->title_form);
+        $data['slug'] = Str::slug($request->title_banner);
 
         $data['active'] = $request->active?1:0;
 
@@ -132,7 +132,7 @@ class COTA02Controller extends Controller
      */
     public function edit(COTA02Contacts $COTA02Contacts)
     {
-        $topics = COTA02ContactsTopic::sorting()->get();
+        $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id)->sorting()->get();
 
         $configForm = json_decode($COTA02Contacts->inputs_form);
         $compliances = getCompliance(null, 'id', 'title_page');
@@ -195,7 +195,7 @@ class COTA02Controller extends Controller
             $data['active'] = $request->active?1:0;
         }
 
-        $data['slug'] = Str::slug($request->title_form);
+        $data['slug'] = Str::slug($request->title_banner);;
 
         //Banner
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
@@ -360,6 +360,40 @@ class COTA02Controller extends Controller
             break;
             default:
             $contact = COTA02Contacts::with(['topics'])->first();
+            break;
+        }
+
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA02');
+
+        $compliance = getCompliance($contact->compliance_id??'0');
+        $topics = COTA02ContactsTopic::where('contact_id', $contact->id )->active()->sorting()->get();
+
+        return view('Client.pages.Contacts.COTA02.page',[
+            'sections' => $sections,
+            'contact' => $contact,
+            'topics' => $topics,
+            'compliance' => $compliance,
+            'inputs' => json_decode($contact->inputs_form)
+        ]);
+    }
+
+    /**
+     * Display a listing of the resourcee.
+     *
+     * @param  \App\Models\Contacts\COTA02Contacts  $COTA02Contacts
+     * @return \Illuminate\Http\Response
+     */
+    public function show(COTA02Contacts $COTA02Contacts)
+    {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $contact = COTA02Contacts::with(['topics'])->where('id', $COTA02Contacts->id)->first();
+                if($contact) $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
+            break;
+            default:
+                $contact = COTA02Contacts::with(['topics'])->where('id', $COTA02Contacts->id)->first();
             break;
         }
 
