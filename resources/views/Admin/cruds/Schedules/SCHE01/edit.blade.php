@@ -20,11 +20,44 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($schedule, ['route' => ['admin.sche01.update', $schedule->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Schedules.SCHE01.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.sche01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                {!! Form::close() !!}
+
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#editSchedule" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
+                            {{ getTitleModel($configModelsMain, 'Schedules', 'SCHE01') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro do conteúdo principal"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#bannerShow" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner Interno
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Este banner será exibido na página interna acima de cada conteúdo principal"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="editSchedule">
+                        <div class="collapse show" id="formService">
+                            {!! Form::model($schedule, ['route' => ['admin.sche01.update', $schedule->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                                @include('Admin.cruds.Schedules.SCHE01.form')
+                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                <a href="{{route('admin.sche01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                    <div class="tab-pane"  id="bannerShow">
+                        @include('Admin.cruds.Schedules.SCHE01.BannerShow.form', [
+                            'bannerShow' => $bannerShow,
+                            'schedule' => $schedule
+                        ])
+                    </div>
+                </div>
+
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

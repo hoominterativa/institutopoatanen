@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Schedules\SCHE01Schedules;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Schedules\SCHE01SchedulesBanner;
+use App\Models\Schedules\SCHE01SchedulesBannerShow;
+use App\Models\Schedules\SCHE01SchedulesSectionSchedule;
 
 class SCHE01Controller extends Controller
 {
@@ -24,8 +27,12 @@ class SCHE01Controller extends Controller
     public function index()
     {
         $schedules = SCHE01Schedules::sorting()->get();
+        $banner = SCHE01SchedulesBanner::first();
+        $sectionSchedule = SCHE01SchedulesSectionSchedule::first();
         return view('Admin.cruds.Schedules.SCHE01.index', [
             'schedules' => $schedules,
+            'banner' => $banner,
+            'sectionSchedule' => $sectionSchedule,
             'cropSetting' => getCropImage('Schedules', 'SCHE01')
         ]);
     }
@@ -65,9 +72,9 @@ class SCHE01Controller extends Controller
         $path_image_hours = $helper->optimizeImage($request, 'path_image_hours', $this->path, null,100);
         if($path_image_hours) $data['path_image_hours'] = $path_image_hours;
 
-        if (SCHE01Schedules::create($data)) {
+        if ($schedule = SCHE01Schedules::create($data)) {
             Session::flash('success', 'Agenda cadastrada com sucesso');
-            return redirect()->route('admin.sche01.index');
+            return redirect()->route('admin.sche01.edit', ['SCHE01Schedules' => $schedule->id]);
         } else {
             Storage::delete($path_image);
             Storage::delete($path_image_hours);
@@ -86,8 +93,10 @@ class SCHE01Controller extends Controller
     public function edit(SCHE01Schedules $SCHE01Schedules)
     {
         $SCHE01Schedules->event_date = Carbon::parse($SCHE01Schedules->event_date)->format('d/m/Y');
+        $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->first();
         return view('Admin.cruds.Schedules.SCHE01.edit', [
             'schedule' =>  $SCHE01Schedules,
+            'bannerShow' => $bannerShow,
             'cropSetting' => getCropImage('Schedules', 'SCHE01')
         ]);
     }
@@ -159,15 +168,23 @@ class SCHE01Controller extends Controller
      */
     public function destroy(SCHE01Schedules $SCHE01Schedules)
     {
+        $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->first();
+        if ($bannerShow) {
+            storageDelete($bannerShow, 'path_image_desktop');
+            storageDelete($bannerShow, 'path_image_mobile');
+            $bannerShow->delete();
+        }
+
         storageDelete($SCHE01Schedules, 'path_image');
         storageDelete($SCHE01Schedules, 'path_image_hours');
         storageDelete($SCHE01Schedules, 'path_image_sub');
 
         if ($SCHE01Schedules->delete()) {
-            Session::flash('success', 'agenda deletada com sucessso');
+            Session::flash('success', 'agenda deletada com sucesso');
             return redirect()->back();
         }
     }
+
 
     /**
      * Remove the selected resources from storage.
@@ -179,6 +196,14 @@ class SCHE01Controller extends Controller
     {
         $SCHE01Scheduless = SCHE01Schedules::whereIn('id', $request->deleteAll)->get();
         foreach($SCHE01Scheduless as $SCHE01Schedules){
+
+            $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->first();
+            if ($bannerShow) {
+                storageDelete($bannerShow, 'path_image_desktop');
+                storageDelete($bannerShow, 'path_image_mobile');
+                $bannerShow->delete();
+            }
+
             storageDelete($SCHE01Schedules, 'path_image');
             storageDelete($SCHE01Schedules, 'path_image_hours');
             storageDelete($SCHE01Schedules, 'path_image_sub');

@@ -149,11 +149,11 @@
                             'data-min-width' => $cropSetting->path_image->width, // px
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedules) ? false : true,
+                            'required' => isset($schedule) ? false : true,
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($schedules)
-                                ? ($schedules->path_image != ''
-                                    ? url('storage/' . $schedules->path_image)
+                            'data-default-file' => isset($schedule)
+                                ? ($schedule->path_image != ''
+                                    ? url('storage/' . $schedule->path_image)
                                     : '')
                                 : '',
                         ]) !!}
@@ -173,11 +173,11 @@
                             'data-min-width' => $cropSetting->path_image_hours->width, // px
                             'data-min-height' => $cropSetting->path_image_hours->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedules) ? false : true,
+                            'required' => isset($schedule) ? false : true,
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($schedules)
-                                ? ($schedules->path_image_hours != ''
-                                    ? url('storage/' . $schedules->path_image_hours)
+                            'data-default-file' => isset($schedule)
+                                ? ($schedule->path_image_hours != ''
+                                    ? url('storage/' . $schedule->path_image_hours)
                                     : '')
                                 : '',
                         ]) !!}
@@ -197,11 +197,11 @@
                             'data-min-width' => $cropSetting->path_image_sub->width, // px
                             'data-min-height' => $cropSetting->path_image_sub->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedules) ? false : true,
+                            'required' => isset($schedule) ? false : true,
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($schedules)
-                                ? ($schedules->path_image_sub != ''
-                                    ? url('storage/' . $schedules->path_image_sub)
+                            'data-default-file' => isset($schedule)
+                                ? ($schedule->path_image_sub != ''
+                                    ? url('storage/' . $schedule->path_image_sub)
                                     : '')
                                 : '',
                         ]) !!}
