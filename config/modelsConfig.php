@@ -77,7 +77,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos Seção',
+                    'titlePanel' => 'Seção com tópicos',
                     'iconPanel' => ''
                 ]
             ],
@@ -111,7 +111,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 1',
+                    'titlePanel' => 'História',
                     'iconPanel' => ''
                 ]
             ],
@@ -128,7 +128,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 2',
+                    'titlePanel' => 'Pet Friendly',
                     'iconPanel' => ''
                 ]
             ],
@@ -145,7 +145,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 3',
+                    'titlePanel' => 'Video de apresentação',
                     'iconPanel' => ''
                 ]
             ],
@@ -162,7 +162,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => 'bran01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Marcas',
+                    'titlePanel' => 'Nossas Lojas',
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) []
@@ -180,7 +180,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo 4',
+                    'titlePanel' => 'Logista',
                     'iconPanel' => ''
                 ]
             ],
@@ -190,7 +190,7 @@ return [
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => False,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
@@ -241,7 +241,7 @@ return [
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => 'Sobre',
@@ -273,21 +273,6 @@ return [
                     'linkMenu' => '',
                     'iconMenu' => '',
                     'titlePanel' => 'Qualidade para você',
-                    'iconPanel' => ''
-                ]
-            ],
-            'CONT06' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Lojista',
                     'iconPanel' => ''
                 ]
             ],
@@ -328,6 +313,23 @@ return [
                 ]
             ],
         ],
+        'Feedbacks' => (object) [
+            'FEED03' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Depoimentos',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
         'Galleries' => (object) [
             'GALL03' => (object)[
                 'ViewHome' => false,
@@ -361,7 +363,7 @@ return [
                 'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => 'Contato',

@@ -116,7 +116,10 @@ class UNIT03Controller extends Controller
         $galleries = UNIT03UnitsGallery::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $sectionGallery = UNIT03UnitsSectionGallery::where('unit_id', $UNIT03Units->id)->first();
         $contact = UNIT03UnitsContact::where('unit_id', $UNIT03Units->id)->first();
-        $configForm = json_decode($contact->inputs_form);
+        $configForm = null;
+        if ($contact) {
+            $configForm = $contact->inputs_form ? json_decode($contact->inputs_form) : [];
+        }
         return view('Admin.cruds.Units.UNIT03.edit', [
             'unit' => $UNIT03Units,
             'categories' => $categories,
@@ -367,7 +370,7 @@ class UNIT03Controller extends Controller
             'galleries' => $galleries,
             'unit' => $UNIT03Units,
             'contact' => $contact,
-            'inputs' => $contact->inputs_form ? json_decode($contact->inputs_form) : [],
+            'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
             'sectionGallery' => $sectionGallery,
         ]);
     }

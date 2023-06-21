@@ -4537,94 +4537,6 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-#CONT06 {
-  padding: 63px 0 59px 0;
-}
-
-.cont06 {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.cont06__header {
-  width: 85%;
-  display: table;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 60px;
-}
-.cont06__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-}
-.cont06__header__paragraph {
-  font-size: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  width: 95%;
-  max-width: 680px;
-  display: table;
-  margin: 0 auto;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont06__boxVideo {
-    width: 100%;
-  }
-}
-.cont06__boxVideo__content {
-  width: 95%;
-  max-width: 884px;
-  height: 439px;
-  margin: 0 auto;
-  position: relative;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.cont06__boxVideo__content .play {
-  width: 87px;
-  height: 87px;
-}
-.cont06__boxVideo__content iframe {
-  width: 100%;
-  max-width: 884px;
-  height: 439px;
-}
-.cont06__boxVideo__content__video {
-  height: 100%;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont06__boxVideo__content .play {
-    width: 59px;
-    height: 59px;
-  }
-}
-.cont06__boxVideo__cta {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-  display: block;
-  margin: 28px auto 0;
-  max-width: 177px;
-  padding: 10px 15px;
-  background-color: #CACACA;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont06__boxVideo__cta {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    margin: 36px auto 0;
-    width: 147px;
-  }
-}
-.cont06__boxVideo__cta:hover {
-  color: #fff;
-  background-color: #000;
-}
-.cont06__boxVideo__cta:hover .cont06__cta__icon {
-  filter: invert(1) grayscale(1);
-}
-
-/* BEGIN STYLE */
 .unit03-page__banner {
   background-size: cover;
   background-position: center;
@@ -5485,6 +5397,180 @@ body .owl-dots .owl-dot.active {
   width: 80%;
   left: -10px;
   bottom: 1px;
+}
+
+/* BEGIN STYLE */
+.feed03 {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.feed03 .container--feed03 {
+  padding: 159px 0 69px 0;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03 .container--feed03 {
+    padding: 132px 44px 42px 44px;
+  }
+}
+.feed03__header {
+  width: 100%;
+  border-bottom: 1px solid #CACACA;
+  padding-bottom: 45.99px;
+  margin-bottom: 80px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__header {
+    padding-bottom: 35px;
+    margin-bottom: 59px;
+  }
+}
+.feed03__header__image {
+  width: 74px;
+  height: 74px;
+  margin-right: 28px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__header__image {
+    width: 64px;
+    height: 64px;
+    margin-right: 24px;
+  }
+}
+.feed03__header__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.feed03__header__texto__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #7C7C7C;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__header__texto__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 0px;
+  }
+}
+.feed03__header__texto__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__header__texto__title {
+    font-size: 1.875rem;
+  }
+}
+.feed03__header__texto__line {
+  margin: 30px auto;
+  color: #404040;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__header__texto__line {
+    margin: 20px auto 27px auto;
+  }
+}
+.feed03__content__item__top__image {
+  width: 55px;
+  height: 55px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__content__item__top__image {
+    width: 50px;
+    height: 50px;
+  }
+}
+.feed03__content__item__top__titulo {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  margin-left: 5px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__content__item__top__titulo {
+    font-size: 1.125rem;
+  }
+}
+.feed03__content__item__description {
+  margin-top: 29px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__content__item__description {
+    margin-top: 24px;
+  }
+}
+.feed03__content__item__description p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03__content__item__description p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.feed03 .carousel-feed03 .owl-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+  gap: 0 27px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed03 .carousel-feed03 .owl-nav {
+    margin-top: 59px;
+  }
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #fff;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #fff;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next span {
+  color: #9DAFBD;
+  font-size: 35px;
+  line-height: 22px;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev span {
+  color: #9DAFBD;
+  font-size: 35px;
+  line-height: 22px;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next span,
+.feed03 .carousel-feed03 .owl-nav .owl-prev span {
+  line-height: 32px;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev:hover {
+  background: #000;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next:hover {
+  background: #000;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-prev:hover span {
+  color: #fff;
+  transition: 0.5s all ease;
+}
+.feed03 .carousel-feed03 .owl-nav .owl-next:hover span {
+  color: #fff;
+  transition: 0.5s all ease;
 }
 
 /* BEGIN STYLE */

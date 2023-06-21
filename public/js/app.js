@@ -12111,12 +12111,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Contents_CONT04_src_main__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT04_src_main__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _pages_Units_UNIT03_src_main__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../pages/Units/UNIT03/src/main */ "./resources/views/Client/pages/Units/UNIT03/src/main.js");
 /* harmony import */ var _pages_Units_UNIT03_src_main__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_pages_Units_UNIT03_src_main__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../pages/Galleries/GALL03/src/main */ "./resources/views/Client/pages/Galleries/GALL03/src/main.js");
-/* harmony import */ var _pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../pages/Feedbacks/FEED03/src/main */ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js");
+/* harmony import */ var _pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED03_src_main__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../pages/Galleries/GALL03/src/main */ "./resources/views/Client/pages/Galleries/GALL03/src/main.js");
+/* harmony import */ var _pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_21__);
 
 
 
@@ -12521,6 +12523,44 @@ if ($("#videoApre").length) {
     $(this).parents('#videoApre').remove();
   });
 }
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Feedbacks/FEED03/src/main.js":
+/*!*******************************************************************!*\
+  !*** ./resources/views/Client/pages/Feedbacks/FEED03/src/main.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.carousel-feed03').owlCarousel({
+  smartSpeed: 450,
+  loop: true,
+  dots: false,
+  nav: true,
+  rewind: true,
+  autoHeight: true,
+  margin: 50,
+  responsive: {
+    0: {
+      items: 1
+    },
+    // breakpoint from 0 up
+    400: {
+      items: 1
+    },
+    // breakpoint from 361 up
+    500: {
+      items: 2
+    },
+    // breakpoint from 500 up
+    801: {
+      items: 3
+    } // breakpoint from 801 up
+
+  }
+});
+$('.carrossel-feed03').css('width', $('.feed03 .container').outerWidth());
 
 /***/ }),
 
