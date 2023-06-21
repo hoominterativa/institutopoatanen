@@ -2,8 +2,9 @@
 
 namespace Database\Factories\Schedules;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use App\Models\Schedules\SCHE01Schedules;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SCHE01SchedulesFactory extends Factory
 {
@@ -22,8 +23,10 @@ class SCHE01SchedulesFactory extends Factory
     public function definition()
     {
 
+        $title = $this->faker->text(25);
         return [
-            'title' => $this->faker->text(10),
+            'title' => $title,
+            'slug' => Str::slug($title),
             'subtitle' => $this->faker->text(10),
             'description' => $this->faker->text(300),
             'information' => $this->faker->text(150),

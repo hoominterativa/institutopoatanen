@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Schedules;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -72,6 +73,7 @@ class SCHE01Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->event_date)->format('Y-m-d');
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -125,6 +127,7 @@ class SCHE01Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->publishing)->format('Y-m-d');
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -266,11 +269,33 @@ class SCHE01Controller extends Controller
      */
     public function page(Request $request)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = SCHE01SchedulesBanner::active()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                break;
+            default:
+                $banner = SCHE01SchedulesBanner::active()->first();
+                break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Schedules', 'SCHE01', 'page');
 
+        $contact = SCHE01SchedulesContact::active()->first();
+        $compliance = getCompliance($contact->compliance_id??'0');
+        $sectionSchedule = SCHE01SchedulesSectionSchedule::active()->first();
+        $schedules = SCHE01Schedules::active()->sorting()->paginate(1);
+
         return view('Client.pages.Schedules.SCHE01.page', [
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'contact' => $contact,
+            'compliance' => $compliance,
+            'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
+            'sectionSchedule' => $sectionSchedule,
+            'schedules' => $schedules,
         ]);
     }
 }

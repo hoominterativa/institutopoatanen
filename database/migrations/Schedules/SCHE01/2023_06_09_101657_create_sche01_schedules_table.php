@@ -16,6 +16,7 @@ class CreateSche01SchedulesTable extends Migration
         Schema::create('sche01_schedules', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->text('slug')->nullable();
             $table->string('subtitle')->nullable();
             $table->date('event_date')->nullable();
             $table->time('event_time')->nullable();

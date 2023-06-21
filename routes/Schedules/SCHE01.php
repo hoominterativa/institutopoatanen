@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Schedules\SCHE01Controller;
 use App\Http\Controllers\Schedules\SCHE01BannerController;
 use App\Http\Controllers\Schedules\SCHE01ContactController;
 use App\Http\Controllers\Schedules\SCHE01BannerShowController;
@@ -28,9 +29,6 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-    Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-    Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
     Route::resource($route.'/banner', SCHE01BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SCHE01SchedulesBanner']);
     Route::resource($route.'/banner-show', SCHE01BannerShowController::class)->names('admin.'.$routeName.'.bannershow')->parameters(['banner-show' => 'SCHE01SchedulesBannerShow']);
@@ -39,4 +37,6 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
 });
 // // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/{SCHE01Schedules:slug}', [SCHE01Controller::class, 'show'])->name($routeName.'.show.content');
+// Route::get('buscar/'.$route, [SCHE01Controller::class, 'page'])->name($routeName.'.search');
+

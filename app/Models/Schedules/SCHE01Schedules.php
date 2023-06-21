@@ -16,7 +16,7 @@ class SCHE01Schedules extends Model
     }
 
     protected $table = "sche01_schedules";
-    protected $fillable = ['title', 'subtitle', 'event_date', 'event_time', 'description', 'text', 'information', 'title_button', 'link_button', 'target_link_button','path_image_sub', 'path_image_hours', 'path_image', 'active', 'sorting'];
+    protected $fillable = ['title', 'slug', 'subtitle', 'event_date', 'event_time', 'description', 'text', 'information', 'title_button', 'link_button', 'target_link_button','path_image_sub', 'path_image_hours', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
