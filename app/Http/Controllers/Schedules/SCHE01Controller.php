@@ -32,7 +32,10 @@ class SCHE01Controller extends Controller
         $sectionSchedule = SCHE01SchedulesSectionSchedule::first();
         $compliances = getCompliance(null, 'id', 'title_page');
         $contact = SCHE01SchedulesContact::first();
-        $configForm = json_decode($contact->inputs_form ? $contact->inputs_form : []);
+        $configForm = null;
+        if ($contact) {
+            $configForm = $contact->inputs_form ? json_decode($contact->inputs_form) : [];
+        }
         return view('Admin.cruds.Schedules.SCHE01.index', [
             'schedules' => $schedules,
             'banner' => $banner,
