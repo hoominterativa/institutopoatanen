@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\Schedules\SCHE01Schedules;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Schedules\SCHE01SchedulesBanner;
+use App\Models\Schedules\SCHE01SchedulesContact;
+use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Schedules\SCHE01SchedulesBannerShow;
 use App\Models\Schedules\SCHE01SchedulesSectionSchedule;
 
@@ -29,10 +30,16 @@ class SCHE01Controller extends Controller
         $schedules = SCHE01Schedules::sorting()->get();
         $banner = SCHE01SchedulesBanner::first();
         $sectionSchedule = SCHE01SchedulesSectionSchedule::first();
+        $compliances = getCompliance(null, 'id', 'title_page');
+        $contact = SCHE01SchedulesContact::first();
+        $configForm = json_decode($contact->inputs_form ? $contact->inputs_form : []);
         return view('Admin.cruds.Schedules.SCHE01.index', [
             'schedules' => $schedules,
             'banner' => $banner,
             'sectionSchedule' => $sectionSchedule,
+            'compliances' => $compliances,
+            'contact' => $contact,
+            'configForm' => !is_array($configForm)?$configForm:null,
             'cropSetting' => getCropImage('Schedules', 'SCHE01')
         ]);
     }

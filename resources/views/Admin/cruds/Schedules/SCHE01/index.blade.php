@@ -45,6 +45,14 @@
                                 data-bs-original-title="Informações complementares que serão exibidas acima do conteúdo principal, caso esteja ativa"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#contact" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Informações de contato
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="informações de contato"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -143,6 +151,13 @@
                     <div class="tab-pane" id="sectionSchedule">
                         @include('Admin.cruds.Schedules.SCHE01.SectionSchedule.form', [
                             'sectionSchedule' => $sectionSchedule
+                        ])
+                    </div>
+                    <div class="tab-pane" id="contact">
+                        @include('Admin.cruds.Schedules.SCHE01.Contact.form', [
+                            'contact' => $contact,
+                            'configForm' => $configForm,
+                            'compliances' => $compliances
                         ])
                     </div>
                 </div>
