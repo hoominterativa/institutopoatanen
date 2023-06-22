@@ -251,13 +251,34 @@ class SCHE01Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SCHE01Schedules $SCHE01Schedules)
-    public function show()
+    public function show(SCHE01Schedules $SCHE01Schedules)
     {
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->active()->first();
+                if($bannerShow) {
+                    $bannerShow->path_image_desktop = $bannerShow->path_image_mobile;
+                }
+            break;
+            default:
+                $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->active()->first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Schedules', 'SCHE01', 'show');
 
+        $contact = SCHE01SchedulesContact::active()->first();
+        $compliance = getCompliance($contact->compliance_id??'0');
+
         return view('Client.pages.Schedules.SCHE01.show', [
-            'sections' => $sections
+            'sections' => $sections,
+            'bannerShow' => $bannerShow,
+            'schedule' => $SCHE01Schedules,
+            'contact' => $contact,
+            'compliance' => $compliance,
+            'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
         ]);
     }
 
@@ -273,11 +294,13 @@ class SCHE01Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $banner = SCHE01SchedulesBanner::active()->first();
-                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
-                break;
+                if($banner) {
+                    $banner->path_image_desktop = $banner->path_image_mobile;
+                }
+            break;
             default:
                 $banner = SCHE01SchedulesBanner::active()->first();
-                break;
+            break;
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
@@ -286,7 +309,7 @@ class SCHE01Controller extends Controller
         $contact = SCHE01SchedulesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
         $sectionSchedule = SCHE01SchedulesSectionSchedule::active()->first();
-        $schedules = SCHE01Schedules::active()->sorting()->paginate(1);
+        $schedules = SCHE01Schedules::active()->sorting()->paginate(2);
 
         return view('Client.pages.Schedules.SCHE01.page', [
             'sections' => $sections,
