@@ -6,7 +6,7 @@
     background: #000;
 
     .container--pd{
-        padding: 21px 0 90px 0 !important;
+        padding: 79px 0 90px 0 !important;
 
         @include medium-device-down {
             padding: 22px 50px 143px 50px !important;
@@ -53,22 +53,26 @@
             }
 
         }
-
+        .content-nv{
+            display: flex;
+            align-items: center;
+            gap:0 30px;
+        }
         &__telefone{
             a{
                 display: flex;
                 align-items: center;
                 color:$color-black;
-                font-size: $T4;
+                font: $paragraph;
                 font-weight: $weight-700;
                 font-family: $font-primary;
 
                 @include medium-device-down{
-                    font-size: $T4-mobile;
+                    font: $paragraph-min;
                 }
 
                 img{
-                   width: 43px;
+                   width: 35px;
                    margin-right: 9px;
                    object-fit: contain;
 
@@ -82,6 +86,9 @@
         &__logo{
             height: 125px;
             width: 268px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
 
             @include medium-device-down {
                 margin-bottom: 40px;
@@ -90,7 +97,9 @@
             }
         }
         &__redeSocial{
-            gap:0 17.5px;
+            gap:15px 17.5px;
+            flex-wrap: wrap;
+            max-width: 30%;
 
             a{
                 img{
@@ -106,13 +115,18 @@
         }
     }
     &__bottom{
+        margin-top: 83px;
+        z-index: 100;
+        position: relative;
+
         @include medium-device-down{
             margin-top: 43.67px;
         }
-
+        .footer-divider{
+            gap:0 37px;
+        }
         &__boxLeft{
-            gap:0 108px;
-            margin: auto !important;
+            gap: 0 86px;
 
             @include medium-device-down {
                 gap:0 16px;
@@ -156,8 +170,8 @@
             }
         }
         &__boxRight{
-            gap:0 88px;
-            padding-right: 27px !important;
+            gap:0 37px;
+            padding-right: 0 !important;
 
             @include medium-device-down{
                 margin-top: 54px;

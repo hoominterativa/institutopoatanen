@@ -191,7 +191,7 @@ a {
 .container-sm,
 .container-xl,
 .container-xxl {
-    max-width: 1112px !important;
+    max-width: 1170px !important;
   }
 }
 .btn-icon {
@@ -1366,7 +1366,7 @@ body .owl-dots .owl-dot.active {
   background: #000;
 }
 .foot03 .container--pd {
-  padding: 21px 0 90px 0 !important;
+  padding: 79px 0 90px 0 !important;
 }
 @media (max-width: 767.98px) {
   .foot03 .container--pd {
@@ -1412,21 +1412,26 @@ body .owl-dots .owl-dot.active {
     flex-direction: column;
   }
 }
+.foot03__top .content-nv {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+}
 .foot03__top__telefone a {
   display: flex;
   align-items: center;
   color: #000;
-  font-size: 1.25rem;
+  font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   font-family: "Ubuntu", sans-serif, arial;
 }
 @media (max-width: 767.98px) {
   .foot03__top__telefone a {
-    font-size: 1.125rem;
+    font: 0.875rem "Montserrat", sans-serif, arial;
   }
 }
 .foot03__top__telefone a img {
-  width: 43px;
+  width: 35px;
   margin-right: 9px;
   -o-object-fit: contain;
      object-fit: contain;
@@ -1440,6 +1445,9 @@ body .owl-dots .owl-dot.active {
 .foot03__top__logo {
   height: 125px;
   width: 268px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 @media (max-width: 767.98px) {
   .foot03__top__logo {
@@ -1449,7 +1457,9 @@ body .owl-dots .owl-dot.active {
   }
 }
 .foot03__top__redeSocial {
-  gap: 0 17.5px;
+  gap: 15px 17.5px;
+  flex-wrap: wrap;
+  max-width: 30%;
 }
 .foot03__top__redeSocial a img {
   width: 32px;
@@ -1462,14 +1472,21 @@ body .owl-dots .owl-dot.active {
     width: 30px;
   }
 }
+.foot03__bottom {
+  margin-top: 83px;
+  z-index: 100;
+  position: relative;
+}
 @media (max-width: 767.98px) {
   .foot03__bottom {
     margin-top: 43.67px;
   }
 }
+.foot03__bottom .footer-divider {
+  gap: 0 37px;
+}
 .foot03__bottom__boxLeft {
-  gap: 0 108px;
-  margin: auto !important;
+  gap: 0 86px;
 }
 @media (max-width: 767.98px) {
   .foot03__bottom__boxLeft {
@@ -1516,8 +1533,8 @@ body .owl-dots .owl-dot.active {
   }
 }
 .foot03__bottom__boxRight {
-  gap: 0 88px;
-  padding-right: 27px !important;
+  gap: 0 37px;
+  padding-right: 0 !important;
 }
 @media (max-width: 767.98px) {
   .foot03__bottom__boxRight {
