@@ -145,13 +145,18 @@
                         </div>
                     @endif
                     <ul class="sche01-month-categories w-100 d-flex flex-column align-items-stretch">
-                        <li class="sche01-month-categories__item w-100 position-relative d-flex align-items-center justify-content-between">
-                            <a href="#" class="link-full"></a>
-                            <h3 class="sche01-month-categories__item__title">Abril</h3>
-                            <h4 class="sche01-month-categories__item__subtitle">
-                                Eventos <span class="sche01-month-categories__item__counter">3</span>
-                            </h4>
-                        </li>
+                        @foreach($monthlyEventCounts as $month => $count)
+                            <li class="sche01-month-categories__item w-100 position-relative d-flex align-items-center justify-content-between">
+                                <a href="{{ route('sche01.monthlyEventCounts', ['SCHE01Schedules' => $schedule->slug]) }}" class="link-full"></a>
+                                <h3 class="sche01-month-categories__item__title">
+                                    {{ ucfirst(\Carbon\Carbon::createFromFormat('m', $month)->formatLocalized('%B')) }}
+                                </h3>
+                                <h4 class="sche01-month-categories__item__subtitle">
+                                    Eventos
+                                    <span class="sche01-month-categories__item__counter">{{ $count }}</span>
+                                </h4>
+                            </li>
+                        @endforeach
                     </ul>
                 </aside>
             </div>

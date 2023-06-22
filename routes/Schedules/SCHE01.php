@@ -38,5 +38,8 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 // // CLIENT
 Route::get($route.'/{SCHE01Schedules:slug}', [SCHE01Controller::class, 'show'])->name($routeName.'.show.content');
-// Route::get('buscar/'.$route, [SCHE01Controller::class, 'page'])->name($routeName.'.search');
+Route::get($route.'/month/{month?}', [SCHE01Controller::class, 'page'])->name($routeName.'.monthlyEventCounts');
+
+
+
 

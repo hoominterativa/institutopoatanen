@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Schedules;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -272,6 +273,14 @@ class SCHE01Controller extends Controller
         $contact = SCHE01SchedulesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
 
+        $monthlyEventCounts = SCHE01Schedules::select(
+            DB::raw('MONTH(event_date) as month'),
+            DB::raw('COUNT(*) as count')
+        )
+            ->active()
+            ->groupBy('month')
+            ->pluck('count', 'month');
+
         return view('Client.pages.Schedules.SCHE01.show', [
             'sections' => $sections,
             'bannerShow' => $bannerShow,
@@ -279,6 +288,7 @@ class SCHE01Controller extends Controller
             'contact' => $contact,
             'compliance' => $compliance,
             'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
+            'monthlyEventCounts' => $monthlyEventCounts,
         ]);
     }
 
@@ -311,6 +321,14 @@ class SCHE01Controller extends Controller
         $sectionSchedule = SCHE01SchedulesSectionSchedule::active()->first();
         $schedules = SCHE01Schedules::active()->sorting()->paginate(2);
 
+        $monthlyEventCounts = SCHE01Schedules::select(
+            DB::raw('MONTH(event_date) as month'),
+            DB::raw('COUNT(*) as count')
+        )
+            ->active()
+            ->groupBy('month')
+            ->pluck('count', 'month');
+
         return view('Client.pages.Schedules.SCHE01.page', [
             'sections' => $sections,
             'banner' => $banner,
@@ -319,6 +337,7 @@ class SCHE01Controller extends Controller
             'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
             'sectionSchedule' => $sectionSchedule,
             'schedules' => $schedules,
+            'monthlyEventCounts' => $monthlyEventCounts,
         ]);
     }
 }
