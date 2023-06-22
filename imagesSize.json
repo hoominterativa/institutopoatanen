@@ -1157,6 +1157,50 @@
         }
     },
 
+    "Schedules": {
+        "SCHE01": {
+            "path_image": {
+                "width": "774",
+                "height": "315",
+                "activeCrop": "false"
+            },
+            "path_image_hours": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_sub": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                }
+            },
+            "BannerShow": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                }
+            }
+        }
+    },
+
     "Teams": {
         "TEAM01": {
             "path_image_box": {

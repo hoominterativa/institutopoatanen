@@ -306,7 +306,7 @@ return [
             'SCHE01' => (object)[
                 'controller' => App\Http\Controllers\Schedules\SCHE01Controller::class,
                 'model' => App\Models\Schedules\SCHE01Schedules::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
             ],
         ],
         // END Schedules
