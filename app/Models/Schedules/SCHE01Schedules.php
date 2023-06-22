@@ -2,7 +2,7 @@
 
 namespace App\Models\Schedules;
 
-use Database\Factories\SCHE01SchedulesFactory;
+use Database\Factories\Schedules\SCHE01SchedulesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,8 @@ class SCHE01Schedules extends Model
         return SCHE01SchedulesFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "sche01_schedules";
+    protected $fillable = ['title', 'slug', 'subtitle', 'event_date', 'event_time', 'description', 'text', 'information', 'title_button', 'link_button', 'target_link_button','path_image_sub', 'path_image_hours', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class SCHE01Schedules extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }
