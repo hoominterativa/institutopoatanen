@@ -590,7 +590,8 @@
 
             &__item {
                 width: 100%;
-                height: 100%;
+                height: auto;
+                aspect-ratio: 655/473;
 
                 img {
                     width: 100%;
@@ -764,21 +765,23 @@
             height: auto;
             padding: 32px;
             aspect-ratio: 1/1;
+            overflow: hidden;
 
-            &.play-button::before{
-                content: '';
+            &.play-button::before {
+                content: "";
                 background-color: $color-three;
                 width: 20%;
                 max-width: 120px;
                 height: auto;
                 aspect-ratio: 1/1;
-                -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%); clip-path: polygon(0 0, 0% 100%, 100% 50%);
+                -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
+                clip-path: polygon(0 0, 0% 100%, 100% 50%);
                 position: absolute;
                 z-index: 5;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                opacity: .8;
+                opacity: 0.8;
             }
 
             &--big {

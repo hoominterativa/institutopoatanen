@@ -5139,7 +5139,8 @@ body .owl-dots .owl-dot.active {
 }
 .unit03-show__content__carousel__item {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 655/473;
 }
 .unit03-show__content__carousel__item img {
   width: 100%;
@@ -5317,6 +5318,7 @@ body .owl-dots .owl-dot.active {
   height: auto;
   padding: 32px;
   aspect-ratio: 1/1;
+  overflow: hidden;
 }
 .unit03-show__gallery__item.play-button::before, .play-button.unit03-show__gallery__item--big::before {
   content: "";
