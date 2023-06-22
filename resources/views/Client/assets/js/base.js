@@ -18,5 +18,6 @@ import '../../pages/Contents/CONT04/src/main';
 import '../../pages/Units/UNIT03/src/main';
 import '../../pages/Feedbacks/FEED03/src/main';
 import '../../pages/Galleries/GALL03/src/main';
+import '../../pages/Schedules/SCHE01/src/main';
 import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Compliances/COMP01/src/main';

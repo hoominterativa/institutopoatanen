@@ -264,24 +264,34 @@
             }
         }
 
-        &__pagination {
-            // FIXME: CORRIGIR PAGINAÇÃO PARA O MODELO LARAVEL
+        .pagination {
+            @include Flex();
+            width: 100%;
             gap: 9px;
             margin-top: 58px;
             list-style-type: none;
 
-            &__item, .page-item {
+            .page-item {
+                .page-link {
+                    @include Flex();
+                    border: none;
+                }
+            }
+
+            .page-item {
                 height: 38px;
                 width: 38px;
 
-                a, .page-link{
+                .page-link {
+                    @include Flex();
+                    border: none;
                     width: 100%;
                     height: 100%;
                     border-radius: 50%;
                     vertical-align: center;
                     font: $paragraph-min;
-                    color: $color-nine;
-                    background-color: $color-one;
+                    color: $color-one;
+                    background-color: $color-nine;
                     font-weight: 500;
 
                     @include medium-device-down {
@@ -289,8 +299,24 @@
                     }
 
                     &:hover {
-                        background-color: $color-nine;
+                        background-color: $color-one;
+                        color: $color-nine;
+                    }
+                }
+
+                &:first-of-type,
+                &:last-of-type {
+                    .page-link {
+                        background-color: transparent !important;
                         color: $color-one;
+                        font-size: 2rem;
+                    }
+                }
+
+                &.active {
+                    .page-link {
+                        background-color: $color-one;
+                        color: $color-nine;
                     }
                 }
             }
