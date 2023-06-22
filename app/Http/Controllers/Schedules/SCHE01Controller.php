@@ -126,7 +126,7 @@ class SCHE01Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->publishing)->format('Y-m-d');
+        $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->event_date)->format('Y-m-d');
         $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);

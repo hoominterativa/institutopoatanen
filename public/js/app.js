@@ -12085,8 +12085,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Schedules_SCHE01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Schedules_SCHE01_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Blogs_BLOG03_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Blogs/BLOG03/src/main */ "./resources/views/Client/pages/Blogs/BLOG03/src/main.js");
 /* harmony import */ var _pages_Blogs_BLOG03_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Blogs_BLOG03_src_main__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Abouts/ABOU02/src/main */ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js");
+/* harmony import */ var _pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU02_src_main__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -12309,6 +12312,97 @@ $(function () {
       }
     });
   });
+});
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Abouts/ABOU02/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Abouts/ABOU02/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $('.carousel_abou02').owlCarousel({
+    smartSpeed: 450,
+    loop: false,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 0 up
+      361: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 361 up
+      801: {
+        items: 3,
+        margin: 14
+      } // breakpoint from 801 up
+
+    }
+  });
+  $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 496);
+
+  if ($(window).outerWidth() <= 801) {
+    $('.carousel_abou02').css('width', $('.abou02 .abou02__boxRight').outerWidth() + 150);
+  } // END carousel_abou02
+
+
+  $('.carousel-abou02-topic').owlCarousel({
+    smartSpeed: 450,
+    loop: false,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 0
+      200: {
+        items: 2,
+        margin: 12
+      },
+      // breakpoint from 200 up
+      361: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 361 up
+      500: {
+        items: 1,
+        margin: 12
+      },
+      // breakpoint from 500 up
+      815: {
+        items: 3,
+        margin: 14
+      },
+      // breakpoint from 815 up
+      820: {
+        items: 4,
+        margin: 14
+      } // breakpoint from 820 up
+
+    }
+  });
+  $('.carousel-abou02-topic').css('width', $(window).outerWidth() + 280);
+
+  if ($(window).outerWidth() <= 801) {
+    $('.carousel-abou02-topic').css('width', $('.abou02-page__topic__content').outerWidth() + 550);
+  } // END carousel-abou02-topic
+
 });
 
 /***/ }),
