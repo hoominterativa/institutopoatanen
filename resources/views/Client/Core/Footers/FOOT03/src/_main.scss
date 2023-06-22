@@ -9,10 +9,14 @@
         padding: 79px 0 90px 0 !important;
 
         @include medium-device-down {
-            padding: 22px 50px 143px 50px !important;
+            max-width: 90%;
         }
     }
-
+    .row--pd{
+        @include medium-device-down{
+            margin: 0 auto;
+        }
+    }
     .btn-comeBack{
         position: absolute;
         right: 13px;
@@ -28,7 +32,7 @@
         @include medium-device-down {
             width: 50px;
             height: 87px;
-            bottom: 219px;
+            bottom: 119px;
         }
         // @include small-width {
         //     bottom: 219px;
@@ -91,9 +95,13 @@
             transform: translate(-50%, 0);
 
             @include medium-device-down {
+                margin-top: 40px;
                 margin-bottom: 40px;
                 height: 113px;
                 width: 243px;
+                position: relative;
+                left: 0;
+                transform: inherit !important;
             }
         }
         &__redeSocial{
@@ -129,12 +137,13 @@
             gap: 0 86px;
 
             @include medium-device-down {
-                gap:0 16px;
+                gap: 54px 16px;
                 margin: 0 auto !important;
+                flex-direction: column;
             }
             &__nav{
                 @include medium-device-down {
-                  width: 47%;
+                  width: 100%;
                 }
                 &__title{
                     color:$color-black;
@@ -176,10 +185,15 @@
             @include medium-device-down{
                 margin-top: 54px;
                 padding-right: 0px !important;
-                gap:0;
+                gap: 20px 0;
+                display: flex;
+                flex-direction: column;
             }
 
             &__nav{
+                @include medium-device-down{
+                    width: 100% !important;
+                }
                 &__title{
                     color:$color-black;
                     font-size: $T4;
@@ -246,6 +260,7 @@
         .row--mobile{
             @include medium-device-down{
                 padding: 13px 53px;
+                margin: 0 auto;
             }
         }
         &__content{

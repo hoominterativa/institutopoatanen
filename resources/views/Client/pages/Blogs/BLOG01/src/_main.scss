@@ -61,6 +61,28 @@
                 overflow: visible;
             }
         }
+        &__carousel {
+            .owl-dots {
+                text-align: center;
+                margin-top: 56px;
+                justify-content: flex-start;
+
+                .owl-dot {
+                    width: 33.4px;
+                    height: 21px;
+                    display: inline-block;
+                    background-color: #ccc;
+                    margin: 0 6px;
+                    border-radius: 0;
+                    &.active {
+                        background-color: #3f3f3f;
+                    }
+                    &:hover {
+                        background-color: #3f3f3f;
+                    }
+                }
+            }
+        }
         &__item {
             &__content {
                 &:hover {
@@ -112,14 +134,12 @@
         font-weight: $weight-700;
         margin: 24px 0 0 auto;
 
-        @include small-device-down {
+        @include medium-device-down {
             margin-top: -32px;
-            z-index: 100;
             position: relative;
+            z-index: 100;
             font: $paragraph-mobile;
             font-weight: $weight-700;
-            margin-top: -34px;
-            width: 147px;
             width: 147px;
         }
 

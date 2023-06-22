@@ -11985,9 +11985,15 @@ $(function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/Core/Footers/FOOT03/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var btn = $("#back-to-top");
+btn.on('click', function () {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 'slow');
+});
 
 /***/ }),
 

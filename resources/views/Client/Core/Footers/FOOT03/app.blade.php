@@ -1,9 +1,9 @@
 <div class="foot03 container-fluid px-0 position-relative" style="background-color:#EFEFEF;" >
-    <a class="btn-comeBack">
+    <a id ="btn-comeBack" class="btn-comeBack">
         <img src="{{asset('storage/uploads/tmp/seta.png')}}" alt="Seta">
     </a>
     <div class="container container--pd px-0">
-        <div class="row align-items-center">
+        <div class="row row--pd align-items-center">
             <div class="foot03__top px-0">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="content-nv">
@@ -24,7 +24,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="foot03__top__logo">
                         <a href="{{route('home')}}" rel="next">
                             <img src="{{asset('storage/'.$generalSetting->path_logo_footer_light??$generalSetting->path_logo_footer_dark)}}" class="w-100 h-100" alt="{{env('APP_NAME')}}">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div id="teste" class="foot03__bottom d-flex px-0">
-                <div class=" d-flex justify-content-between  col footer-divider">
+                <div class=" d-flex justify-content-between  col footer-divider row mx-auto px-">
                     <div class="foot03__bottom__boxLeft col-sm-6 px-0 d-flex">
                         <nav class="foot03__bottom__boxLeft__nav col px-0 mx-0">
                             <h4 class="foot03__bottom__boxLeft__nav__title">Início</h4>
