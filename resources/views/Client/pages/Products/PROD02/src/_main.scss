@@ -7,7 +7,7 @@
     .container--edit {
         padding: 76px 0 43px 0;
 
-        @include small-device {
+        @include medium-device-down {
             padding: 73px 0 49px 0 !important;
         }
     }
@@ -17,7 +17,7 @@
             border-bottom: 1px solid $color-one;
             margin-bottom: 29.89px;
 
-            @include small-device {
+            @include medium-device-down {
                 width: 86% !important;
                 margin: 0 auto;
                 padding-bottom: 17px;
@@ -25,7 +25,7 @@
             }
             &__encompass {
                 max-width: 265px;
-                @include small-device {
+                @include medium-device-down {
                     max-width: 146px;
                 }
                 &__title {
@@ -34,7 +34,7 @@
                     font-family: $font-primary;
                     font-weight: $weight-700;
                     margin-bottom: 18px;
-                    @include small-device {
+                    @include medium-device-down {
                         font-size: $T2-mobile;
                         margin-bottom: 9px;
                     }
@@ -45,7 +45,7 @@
                     font-family: $font-primary;
                     font-weight: $weight-700;
 
-                    @include small-device {
+                    @include medium-device-down {
                         font-size: $T4-mobile;
                     }
                 }
@@ -56,7 +56,7 @@
                 width: 79.5%;
                 gap: 0 108px;
 
-                @include small-device {
+                @include medium-device-down {
                     width: auto;
                 }
                 ul {
@@ -102,7 +102,7 @@
                     padding: 10px 50px;
                     background-color: $color-four;
 
-                    @include small-device {
+                    @include medium-device-down {
                         font: $paragraph-mobile;
                         max-width: 146px;
                     }
@@ -149,7 +149,7 @@
             }
         }
         &__paragraph {
-            @include small-device {
+            @include medium-device-down {
                 width: 86% !important;
                 margin: 0 auto;
             }
@@ -160,7 +160,7 @@
                 font-weight: $weight-400;
                 margin-bottom: 0;
 
-                @include small-device {
+                @include medium-device-down {
                     font: $paragraph-mobile;
                 }
             }
@@ -216,7 +216,7 @@
                 padding: 10px 50px;
                 background-color: $color-five;
 
-                @include small-device {
+                @include medium-device-down {
                     font: $paragraph-mobile;
                     max-width: 146px;
                 }
@@ -267,7 +267,7 @@
         //     margin-top: 28px;
         //     gap: 0 5px;
 
-        //     @include small-device{
+        //     @include medium-device-down{
         //         margin: inherit !important;
         //         margin-top: 28px !important;
         //         justify-content: flex-start;
@@ -316,7 +316,7 @@
             font-family: $font-paragraph;
             font-weight: $weight-700;
 
-            @include small-device {
+            @include medium-device-down {
                 font-size: $T1-mobile;
                 text-align: center;
                 max-width: 309px;
@@ -329,14 +329,14 @@
         padding-bottom: 79px;
         position: relative;
 
-        @include small-device {
+        @include medium-device-down {
             overflow: hidden;
         }
 
         &__category {
             gap: 14px;
 
-            @include small-device {
+            @include medium-device-down {
                 margin-left: 42px;
                 margin-bottom: 0;
             }
@@ -346,7 +346,7 @@
                 @include listapadrao;
                 background-color: $color-five;
 
-                @include small-device {
+                @include medium-device-down {
                     width: 100% !important;
                 }
 
@@ -356,7 +356,7 @@
                     font-family: $font-paragraph;
                     font-weight: $weight-700;
                     white-space: nowrap;
-                    @include small-device {
+                    @include medium-device-down {
                         font-size: $T5-mobile;
                     }
 
@@ -366,7 +366,7 @@
                         object-fit: contain;
                         margin-right: 20px;
 
-                        @include small-device {
+                        @include medium-device-down {
                             width: 36px !important;
                             height: 37px !important;
                             margin-right: 3px;
@@ -387,7 +387,7 @@
                 }
             }
         }
-        @include small-device {
+        @include medium-device-down {
             .caroussel_prod02-page .owl-dots {
                 display: none !important;
             }
@@ -398,14 +398,14 @@
         &__product {
             margin-top: 89px;
 
-            @include small-device {
+            @include medium-device-down {
                 padding: 0 28px !important;
                 margin-top: 51.28px;
             }
 
             .prod02__page__content--row {
                 gap: 26px 0;
-                @include small-device {
+                @include medium-device-down {
                     margin: 0 auto;
                 }
             }
@@ -415,13 +415,13 @@
                 min-height: 447px;
                 height: 447px;
 
-                @include small-device {
+                @include medium-device-down {
                     padding: 0 !important;
                 }
                 &__image{
                     width: 100%;
                     height: 100%;
-                    
+
                     img{
                         width: 100%;
                         height: 100%;
@@ -462,7 +462,7 @@
                     padding: 10px 50px;
                     background-color: $color-five;
 
-                    @include small-device {
+                    @include medium-device-down {
                         font: $paragraph-mobile;
                     }
 
@@ -495,25 +495,25 @@
     }
     .caroussel_prod02-show {
         height: 100% !important;
-        @include small-device {
+        @include medium-device-down {
             height: 321px;
         }
     }
     .caroussel_prod02-show .owl-item {
         height: 100% !important;
-        @include small-device {
+        @include medium-device-down {
             height: 321px;
         }
     }
     .caroussel_prod02-show .owl-stage {
         height: 100% !important;
-        @include small-device {
+        @include medium-device-down {
             height: 321px;
         }
     }
     .caroussel_prod02-show .owl-stage-outer {
         height: 100% !important;
-        @include small-device {
+        @include medium-device-down {
             height: 321px;
         }
     }
@@ -547,13 +547,13 @@
         position: relative;
         padding: 37px 71px 84px 54px;
 
-        @include small-device {
+        @include medium-device-down {
             padding: 30px 35px;
         }
     }
     &__navigation {
         margin-bottom: 108px;
-        @include small-device {
+        @include medium-device-down {
             margin-bottom: 50px;
         }
 
@@ -579,7 +579,7 @@
         font-weight: $weight-700;
         @include dflex;
 
-        @include small-device {
+        @include medium-device-down {
             font-size: $T2-mobile;
             text-align: left;
         }
@@ -590,7 +590,7 @@
         font-family: $font-paragraph;
         font-weight: $weight-700;
 
-        @include small-device {
+        @include medium-device-down {
             font-size: $T4-mobile;
             text-align: left;
         }
@@ -605,7 +605,7 @@
         color: $color-one;
         font-weight: $weight-400;
 
-        @include small-device {
+        @include medium-device-down {
             text-align: left;
             font: $paragraph-min;
         }
@@ -650,7 +650,7 @@
         padding: 10px 50px;
         background-color: $color-five;
 
-        @include small-device {
+        @include medium-device-down {
             font: $paragraph-mobile;
             margin-top: 64px;
         }
@@ -680,7 +680,7 @@
         background: $color-one !important;
     }
 
-    @include small-device {
+    @include medium-device-down {
         text-align: center;
     }
 }

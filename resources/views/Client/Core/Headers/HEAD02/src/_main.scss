@@ -6,17 +6,15 @@
     .container-header{
         min-height: 100px;
 
-        @include small-device {
+        @include medium-device-down {
             min-height: auto;
         }
 
         #logoHeader{
             img{
-                @include small-device {
-                    width: 185px;
-                }
+                width: 185px;
 
-                @include x-small-device {
+                @include medium-device-down {
                     width: 155px;
                 }
             }
@@ -97,14 +95,8 @@
                 }
             }
 
-            @include x-small-device {
-                display: none;
-            }
-            @include small-device {
-                display: none;
-            }
-
-            @include large-device {
+        
+            @include large-device-down {
                 display: none;
             }
         }
@@ -175,11 +167,8 @@
                     }
                 }
             }
-            @include small-device {
-                display: none;
-            }
 
-            @include large-device {
+            @include large-device-down {
                 display: none;
             }
         }
@@ -204,7 +193,7 @@
                     color: #7C7C7C;
                 }
             }
-            @include small-device{
+            @include medium-device-down{
                 display: none !important;
             }
         }
@@ -227,13 +216,7 @@
                     }
                 }
             }
-            @include x-small-device {
-                display: block;
-            }
-            @include small-device {
-                display: block;
-            }
-            @include large-device {
+            @include large-device-down {
                 display: block;
             }
         }

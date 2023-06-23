@@ -10,7 +10,7 @@
     .container--feed03{
         padding: 159px 0 69px 0;
 
-        @include small-device{
+        @include medium-device-down{
             padding: 132px 44px 42px 44px;
         }
     }
@@ -21,7 +21,7 @@
         padding-bottom:45.99px;
         margin-bottom: 80px;
 
-        @include small-device{
+        @include medium-device-down{
             padding-bottom:35px;
             margin-bottom: 59px;
         }
@@ -31,7 +31,7 @@
             height: 74px;
             margin-right: 28px;
 
-            @include small-device{
+            @include medium-device-down{
                 width:64px;
                 height: 64px;
                 margin-right: 24px;
@@ -48,7 +48,7 @@
                 margin-bottom: 10px;
                 color:$color-two;
 
-                @include small-device{
+                @include medium-device-down{
                     font-size: $T4-mobile;
                     margin-bottom: 0px;
                 }
@@ -60,7 +60,7 @@
                 font-weight: $weight-700;
                 color:$color-one;
 
-                @include small-device{
+                @include medium-device-down{
                     font-size: $T2-mobile;
                 }
             }
@@ -69,7 +69,7 @@
                 margin: 30px auto;
                 color:$color-one;
 
-                @include small-device{
+                @include medium-device-down{
                     margin: 20px auto 27px auto;
                 }
             }
@@ -82,7 +82,7 @@
                     width: 55px;
                     height: 55px;
 
-                    @include small-device{
+                    @include medium-device-down{
                         width: 50px;
                         height: 50px;
                     }
@@ -94,7 +94,7 @@
                     color:$color-black;
                     margin-left: 5px;
 
-                    @include small-device{
+                    @include medium-device-down{
                         font-size: $T4-mobile;
                     }
                 }
@@ -102,7 +102,7 @@
             &__description{
                 margin-top: 29px;
 
-                @include small-device{
+                @include medium-device-down{
                     margin-top: 24px;
                 }
 
@@ -112,7 +112,7 @@
                     font-weight: $weight-400;
                     color:$color-black;
 
-                    @include small-device{
+                    @include medium-device-down{
                         font: $paragraph-mobile;
                     }
                 }
@@ -125,7 +125,7 @@
         margin-top: 52px;
         gap: 0 27px;
 
-        @include small-device {
+        @include medium-device-down {
             margin-top: 59px;
         }
     }
