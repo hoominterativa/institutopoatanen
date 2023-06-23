@@ -1649,7 +1649,7 @@ body .owl-dots .owl-dot.active {
   font-weight: 700;
   color: #7c7c7c;
 }
-.prod05-categories__list__item a:hover {
+.active .prod05-categories__list__item a, .prod05-categories__list__item a:hover {
   background-color: #b3b3b3;
   color: #000;
 }
@@ -1845,17 +1845,17 @@ body .owl-dots .owl-dot.active {
   filter: brightness(1) contrast(1) invert(1) grayscale(1);
 }
 
-.serv05-page__main {
+.prod05-page__main {
   padding: 29px 0 50px 0;
   width: 100%;
 }
-.serv05-page__main .serv05-categories {
+.prod05-page__main .serv05-categories {
   margin-bottom: 56px;
 }
-.serv05-page__main .serv05-categories__list {
+.prod05-page__main .serv05-categories__list {
   margin-bottom: 0;
 }
-.serv05-page__main__list {
+.prod05-page__main__list {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1864,18 +1864,18 @@ body .owl-dots .owl-dot.active {
   gap: 44px 12px;
   padding-bottom: 40px;
 }
-.serv05-page__pagination {
+.prod05-page__pagination {
   padding-left: 0;
   width: 100%;
   gap: 9px;
   list-style-type: none;
   margin-top: 22px;
 }
-.serv05-page__pagination__item {
+.prod05-page__pagination__item {
   height: 38px;
   width: 38px;
 }
-.serv05-page__pagination__item a {
+.prod05-page__pagination__item a {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1889,13 +1889,122 @@ body .owl-dots .owl-dot.active {
   font-weight: 500;
 }
 @media (max-width: 767.98px) {
-  .serv05-page__pagination__item a {
+  .prod05-page__pagination__item a {
     font: 0.813rem "Montserrat", sans-serif, arial;
   }
 }
-.serv05-page__pagination__item a:hover {
+.prod05-page__pagination__item a:hover {
   background-color: #d9d9d9;
   color: #404040;
+}
+
+.prod05-banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 150px 0 0 0;
+}
+.prod05-banner__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 3.125rem;
+  font-weight: 700;
+  color: #000;
+}
+@media (max-width: 767.98px) {
+  .prod05-banner__title {
+    font-size: 2.5rem;
+  }
+}
+.prod05-banner__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0px;
+}
+@media (max-width: 767.98px) {
+  .prod05-banner__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.prod05-banner__line {
+  width: 100%;
+  border-top: 1px solid #000;
+  margin: 31px auto 80px auto;
+  opacity: 1;
+}
+.prod05-banner .prod05-categories__list {
+  justify-content: start;
+  margin-bottom: 0;
+}
+.prod05-banner .prod05-categories__item a {
+  background-color: #d9d9d9;
+  color: #7c7c7c;
+}
+.prod05-banner .prod05-categories__item a:hover {
+  background-color: #cacaca;
+  color: #000;
+}
+.prod05-banner .prod05-categories__item.active a {
+  background-color: #cacaca;
+  color: #000;
+}
+
+.prod05-top {
+  background-color: #cacaca;
+  padding: 87px 0 58px 0;
+}
+@media (max-width: 767.98px) {
+  .prod05-top {
+    padding: 68px 0 20px 0;
+  }
+}
+.prod05-top__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+}
+@media (max-width: 767.98px) {
+  .prod05-top__title {
+    font-size: 1.875rem;
+  }
+}
+.prod05-top__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0px;
+}
+@media (max-width: 767.98px) {
+  .prod05-top__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.prod05-top__line {
+  width: 100%;
+  border-top: 1px solid #000;
+  margin: 10px auto 35px auto;
+  opacity: 1;
+}
+.prod05-top__desc {
+  width: 100%;
+  max-width: 890px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .prod05-top__desc {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.prod05-top__desc p {
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  margin-bottom: 0;
 }
 
 /* BEGIN STYLE */

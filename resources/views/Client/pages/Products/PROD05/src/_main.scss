@@ -154,6 +154,7 @@
                 font-weight: 700;
                 color: $color-two;
 
+                .active &,
                 &:hover {
                     background-color: $color-three;
                     color: $color-black;
@@ -354,7 +355,7 @@
 }
 
 //especificos da page
-.serv05-page {
+.prod05-page {
     &__main {
         padding: 29px 0 50px 0;
         width: 100%;
@@ -405,6 +406,128 @@
                     color: $color-one;
                 }
             }
+        }
+    }
+}
+
+// banner  que se repete na page e na show
+.prod05-banner {
+    @include backG;
+    padding: 150px 0 0 0;
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $T1;
+        font-weight: 700;
+        color: $color-black;
+
+        @include medium-device-down {
+            font-size: $T1-mobile;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T3;
+        font-weight: 700;
+        color: $color-black;
+        margin-bottom: 0px;
+
+        @include medium-device-down {
+            font-size: $T3-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-black;
+        margin: 31px auto 80px auto;
+        opacity: 1;
+    }
+
+    .prod05-categories {
+        &__list {
+            justify-content: start;
+            margin-bottom: 0;
+        }
+
+        &__item {
+            a {
+                background-color: $color-nine;
+                color: $color-two;
+
+                &:hover {
+                    background-color: $color-four;
+                    color: $color-black;
+                }
+            }
+
+            &.active {
+                a {
+                    background-color: $color-four;
+                    color: $color-black;
+                }
+            }
+        }
+    }
+}
+
+// topo da page que se repete na show
+.prod05-top {
+    background-color: $color-four;
+    padding: 87px 0 58px 0;
+
+    @include medium-device-down {
+        padding: 68px 0 20px 0;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $T2;
+        font-weight: 700;
+        color: $color-black;
+
+        @include medium-device-down {
+            font-size: $T2-mobile;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T4;
+        font-weight: 700;
+        color: $color-black;
+        margin-bottom: 0px;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-black;
+        margin: 10px auto 35px auto;
+        opacity: 1;
+    }
+
+    &__desc {
+        width: 100%;
+        max-width: 890px;
+
+        font: $paragraph;
+        color: $color-two;
+        text-align: center;
+
+        @include medium-device-down {
+            font: $paragraph-mobile;
+        }
+
+        p {
+            font: inherit;
+            color: inherit;
+            text-align: inherit;
+            margin-bottom: 0;
         }
     }
 }
