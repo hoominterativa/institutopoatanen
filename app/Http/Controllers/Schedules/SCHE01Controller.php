@@ -325,8 +325,6 @@ class SCHE01Controller extends Controller
         }
         $schedules = $schedules->sorting()->paginate(2);
 
-        // dd($schedules);
-
         $monthlyEventCounts = SCHE01Schedules::select(
             DB::raw('MONTH(event_date) as month'),
             DB::raw('COUNT(*) as count')
