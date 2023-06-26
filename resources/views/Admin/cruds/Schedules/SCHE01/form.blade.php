@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6">
                     {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
-                    {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                    {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required'=>'required',]) !!}
                 </div>
                 <div class="col-12 col-sm-6">
                     {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
