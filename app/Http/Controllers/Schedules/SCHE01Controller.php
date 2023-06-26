@@ -298,7 +298,7 @@ class SCHE01Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, $month = null)
     {
         switch (deviceDetect()) {
             case 'mobile':
@@ -319,7 +319,11 @@ class SCHE01Controller extends Controller
         $contact = SCHE01SchedulesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
         $sectionSchedule = SCHE01SchedulesSectionSchedule::active()->first();
-        $schedules = SCHE01Schedules::active()->sorting()->paginate(2);
+        $schedules = SCHE01Schedules::active();
+        if($month) {
+            $schedules = $schedules->whereRaw('MONTH(event_date) = '.$month);
+        }
+        $schedules = $schedules->sorting()->paginate(2);
 
         $monthlyEventCounts = SCHE01Schedules::select(
             DB::raw('MONTH(event_date) as month'),
