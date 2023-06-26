@@ -147,7 +147,7 @@
                     <ul class="sche01-month-categories w-100 d-flex flex-column align-items-stretch">
                         @foreach($monthlyEventCounts as $month => $count)
                             <li class="sche01-month-categories__item w-100 position-relative d-flex align-items-center justify-content-between">
-                                <a href="{{ route('sche01.monthlyEventCounts', ['SCHE01Schedules' => $schedule->slug]) }}" class="link-full"></a>
+                                <a href="{{ route('sche01.monthlyEventCounts', ['month' => $month]) }}" class="link-full"></a>
                                 <h3 class="sche01-month-categories__item__title">
                                     {{ ucfirst(\Carbon\Carbon::createFromFormat('m', $month)->formatLocalized('%B')) }}
                                 </h3>
