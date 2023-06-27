@@ -17,8 +17,6 @@
                 <div class="slid03__content__form">
                     <h4 class="slid03__content__form__title">Cadastre-se no Club Pet</h4>
                     {!! Form::model(null, ["class" => "slid03__form__item", "method" => "POST", "files" => true]) !!}
-                        <input type="hidden" name="target_lead" value="Razão do formulário">
-                        <input type="hidden" name="target_send" value="anderson@hoom.com.br">
                         <div class="slid03__content__form__item__input col-12">
                             @include('Client.Components.inputs', [
                                 'name' => 'name',
@@ -50,12 +48,10 @@
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="30" class="me-3">
                             Continuar
                         </button>
-                        <a href="#slid03__lightbox__form" class="slid03__content__form__targetLightnbox" data-fancybox="formulario-de-cadastro">asdas</a>
-                        @include('Client.pages.Slides.SLID03.show')
                     {!! Form::close() !!}
+                    @include('Client.pages.Slides.SLID03.show')
                 </div>
             </div>
         </div>
     </div>
 </section>
-<hr>

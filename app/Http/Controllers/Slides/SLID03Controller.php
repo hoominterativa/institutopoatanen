@@ -22,7 +22,10 @@ class SLID03Controller extends Controller
      */
     public function index()
     {
-        //
+        $slides = SLID03Slides::all();
+        return view('Admin.cruds.Slides.SLID03.index',[
+            'slides' => $slides
+        ]);
     }
 
     /**

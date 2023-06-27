@@ -198,3 +198,102 @@
         // END  __content
     }
 }
+
+.slid03-show{
+    width: 100%;
+    max-width: 1300px;
+    padding: 50px;
+
+    .carousel__button.is-close{
+        right: 17px;
+        top: 17px;
+        left: inherit;
+        width: 31px;
+        height: 31px;
+        background: #000000;
+        border-radius: 5px;
+        color: $color-white;
+        font-size: 11px;
+    }
+
+    &__sideLeft{
+        &__content{
+            margin-bottom: 40px;
+            &__title{
+                font-size: $T2;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+            }
+            &__description{
+                font: $paragraph;
+                font-weight: $weight-500;
+            }
+        }
+    }
+    // END __sideLeft
+
+    &__sideRight{
+        padding-left: 100px;
+        &__img{
+            width: 100%;
+        }
+    }
+
+    &__form{
+        &__item{
+            &__input{
+                .form-placeholder{
+                    .placeholder--custom{
+                        font-size: 0.98rem;
+                        font-weight: $weight-500;
+                        font-family: $font-primary;
+                        padding-left: 0;
+                    }
+                    input{
+                        border: none;
+                        border-bottom: 1px solid #ccc;
+                        border-radius: 0;
+                        padding-left: 0 !important;
+                        font-size: 1rem;
+                        &.parsley-error{
+                            border-bottom: 1px solid $color-danger;
+                        }
+                    }
+                    &.focusing{
+                        .placeholder--custom{
+                            font-size: 0.7rem;
+                        }
+                    }
+                    .parsley-errors-list{
+                        display: none;
+                    }
+                }
+                // END .form-placeholder
+            }
+            // END __input
+            &__submit{
+                font: $paragraph;
+                color: $color-black;
+                border: 1px solid $color-black;
+                font-weight: $weight-500;
+                padding: 5px 30px;
+                margin-top: 30px;
+                display: table;
+                border-radius: 50px;
+                width: 100%;
+                @include x-small-device{
+                    font: $paragraph-mobile;
+                }
+                @include small-device{
+                    font: $paragraph-mobile;
+                }
+                @include medium-device{
+                    font: $paragraph-mobile;
+                }
+            }
+            // END __submit
+        }
+        // END __item
+    }
+    // END __form
+}

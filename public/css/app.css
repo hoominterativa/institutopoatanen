@@ -164,33 +164,33 @@ a {
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 100% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 90% !important;
     padding: 0 !important;
   }
 }
 @media (min-width: 1200px) and (max-width: 1399.98px) {
   .container,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
     max-width: 1112px !important;
   }
 }
@@ -305,12 +305,9 @@ a {
 
 .dropdown-menu {
   padding: 0.3rem;
-  -webkit-animation-name: DropDownSlide;
-          animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: DropDownSlide;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   top: 100%;
 }
 .dropdown-menu.show {
@@ -329,17 +326,7 @@ a {
 .dropdown-menu[data-popper-placement^=top],
 .dropdown-menu[data-popper-placement^=left] {
   top: auto !important;
-  -webkit-animation: none !important;
-          animation: none !important;
-}
-
-@-webkit-keyframes DropDownSlide {
-  100% {
-    transform: translateY(0);
-  }
-  0% {
-    transform: translateY(15px);
-  }
+  animation: none !important;
 }
 
 @keyframes DropDownSlide {
@@ -687,6 +674,293 @@ body .owl-dots .owl-dot.active {
 .form102__boxRight__cta:hover img {
   filter: invert(1) grayscale(1);
   transition: 0.5s all ease;
+}
+
+.form02 {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.form02 .container--pd {
+  padding: 91px 0 45px 0 !important;
+}
+@media (max-width: 767.98px) {
+  .form02 .container--pd {
+    padding: 73px 0 45px 0 !important;
+    max-width: 83% !important;
+  }
+}
+.form02__content__title {
+  font-size: 1.875rem;
+  color: #000;
+  margin-bottom: 17px;
+  font-weight: 700;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .form02__content__title {
+    font-size: 1.563rem;
+  }
+}
+.form02__content__paragraph {
+  max-width: 592px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .form02__content__paragraph {
+    width: 100%;
+  }
+}
+.form02__content__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .form02__content__paragraph p {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
+.form02__content__form {
+  display: flex;
+  margin-top: 48px;
+}
+.form02__content__form div {
+  padding: 0;
+}
+@media (max-width: 767.98px) {
+  .form02__content__form div {
+    flex-direction: column;
+  }
+}
+.form02__content .input__item {
+  width: 32.333333%;
+}
+@media (max-width: 767.98px) {
+  .form02__content .input__item {
+    width: 100%;
+  }
+}
+.form02__content label {
+  width: auto !important;
+}
+.form02__content input {
+  height: 42px;
+  background: #fff !important;
+  border: 0;
+  border-radius: 0;
+  padding: 0 15px;
+}
+.form02__content input::-moz-placeholder {
+  background-color: #fff !important;
+}
+.form02__content input::placeholder {
+  background-color: #fff !important;
+}
+.form02__content__cta {
+  background-color: #fff;
+  color: #404040;
+  height: 45px;
+  width: 177px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  border: 0;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  margin-left: auto;
+  transition: 0.5s all ease;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .form02__content__cta {
+    height: 39px;
+    width: 153px;
+    margin-top: 18px;
+  }
+}
+.form02__content__cta:hover {
+  background-color: #000;
+  color: #fff;
+  transition: 0.5s all ease;
+}
+.form02__content__cta img {
+  width: 25.16px;
+  height: 25.16px;
+  margin-right: 16.87px;
+  transition: 0.5s all ease;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .form02__content__cta img {
+    width: 21px;
+    height: 21px;
+    margin-right: 14.58px;
+  }
+}
+.form02__content__cta:hover img {
+  filter: invert(1) grayscale(1);
+  transition: 0.5s all ease;
+}
+
+.lifo {
+  max-width: 1225px;
+  width: 100%;
+  background-color: #B3B3B3;
+  background-position: center;
+  background-size: cover;
+  padding: 93px;
+  padding-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .lifo {
+    padding: 38px !important;
+    padding-bottom: 38px;
+  }
+}
+.lifo .row--container {
+  gap: 0 73.48px;
+}
+.lifo__boxLeft {
+  max-width: 443px;
+  width: 100%;
+}
+.lifo__boxLeft__title {
+  font-size: 1.875rem;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lifo__boxLeft__title {
+    font-size: 1.563rem;
+    margin-bottom: 17px;
+  }
+}
+.lifo__boxLeft__paragraph {
+  width: 499px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lifo__boxLeft__paragraph {
+    width: 100%;
+  }
+}
+.lifo__boxLeft__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #7C7C7C;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lifo__boxLeft__paragraph p {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
+.lifo__boxLeft__form {
+  display: flex;
+  margin-top: 48px;
+  flex-direction: column;
+}
+.lifo__boxLeft__form .input__item {
+  width: 100%;
+  padding: 0;
+}
+.lifo__boxLeft__inputs {
+  width: 100%;
+}
+.lifo__boxLeft label {
+  width: auto !important;
+}
+.lifo__boxLeft input {
+  height: 42px;
+  background: #fff !important;
+  border: 0;
+  border-radius: 0;
+  padding: 0 15px;
+}
+.lifo__boxLeft input::-moz-placeholder {
+  background-color: #fff !important;
+}
+.lifo__boxLeft input::placeholder {
+  background-color: #fff !important;
+}
+.lifo__boxLeft__cta {
+  background-color: #fff;
+  color: #404040;
+  height: 45px;
+  width: 177px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  border: 0;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  margin-left: auto;
+  transition: 0.5s all ease;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lifo__boxLeft__cta {
+    height: 39px;
+    width: 153px;
+    margin-top: 18px;
+  }
+}
+.lifo__boxLeft__cta:hover {
+  background-color: #000;
+  color: #fff;
+  transition: 0.5s all ease;
+}
+.lifo__boxLeft__cta img {
+  width: 25.16px;
+  height: 25.16px;
+  margin-right: 16.87px;
+  transition: 0.5s all ease;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lifo__boxLeft__cta img {
+    width: 21px;
+    height: 21px;
+    margin-right: 14.58px;
+  }
+}
+.lifo__boxLeft__cta:hover img {
+  filter: invert(1) grayscale(1);
+  transition: 0.5s all ease;
+}
+@media (max-width: 575.98px) {
+  .lifo__boxRight {
+    display: none;
+  }
+}
+.lifo__boxRight__image {
+  height: 592px;
+  max-width: 451px;
+  width: 100%;
+  background: white;
+  margin-left: auto;
+}
+.lifo__boxRight__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.lifo .carousel__button.is-close {
+  right: 17px;
+  top: 17px;
+  left: inherit;
+  width: 31px;
+  height: 31px;
+  background: #000000;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 11px;
+}
+.lifo .fancybox__backdrop {
+  background: #404040 !important;
 }
 
 .form03 {
@@ -1760,6 +2034,89 @@ body .owl-dots .owl-dot.active {
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   #SLID03 .slid03__content__form__item__submit {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+
+.slid03-show {
+  width: 100%;
+  max-width: 1300px;
+  padding: 50px;
+}
+.slid03-show .carousel__button.is-close {
+  right: 17px;
+  top: 17px;
+  left: inherit;
+  width: 31px;
+  height: 31px;
+  background: #000000;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 11px;
+}
+.slid03-show__sideLeft__content {
+  margin-bottom: 40px;
+}
+.slid03-show__sideLeft__content__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+}
+.slid03-show__sideLeft__content__description {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 500;
+}
+.slid03-show__sideRight {
+  padding-left: 100px;
+}
+.slid03-show__sideRight__img {
+  width: 100%;
+}
+.slid03-show__form__item__input .form-placeholder .placeholder--custom {
+  font-size: 0.98rem;
+  font-weight: 500;
+  font-family: "Ubuntu", sans-serif, arial;
+  padding-left: 0;
+}
+.slid03-show__form__item__input .form-placeholder input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  padding-left: 0 !important;
+  font-size: 1rem;
+}
+.slid03-show__form__item__input .form-placeholder input.parsley-error {
+  border-bottom: 1px solid #c90000;
+}
+.slid03-show__form__item__input .form-placeholder.focusing .placeholder--custom {
+  font-size: 0.7rem;
+}
+.slid03-show__form__item__input .form-placeholder .parsley-errors-list {
+  display: none;
+}
+.slid03-show__form__item__submit {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #000;
+  border: 1px solid #000;
+  font-weight: 500;
+  padding: 5px 30px;
+  margin-top: 30px;
+  display: table;
+  border-radius: 50px;
+  width: 100%;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .slid03-show__form__item__submit {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .slid03-show__form__item__submit {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .slid03-show__form__item__submit {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
