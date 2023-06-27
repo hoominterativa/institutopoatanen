@@ -44,7 +44,7 @@ class UNIT03ContactController extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
+                        'required' => $required?? false,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -97,7 +97,7 @@ class UNIT03ContactController extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
+                        'required' => $required?? false,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);

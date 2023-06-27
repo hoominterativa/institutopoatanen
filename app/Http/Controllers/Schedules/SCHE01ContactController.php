@@ -43,7 +43,7 @@ class SCHE01ContactController extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
+                        'required' => $required?? false,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -96,7 +96,7 @@ class SCHE01ContactController extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
+                        'required' => $required?? false,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);

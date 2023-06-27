@@ -1,5 +1,5 @@
 @if ($sections)
-    <section id="TOPI102 " class="topi102 container-fluid px-0"
+    <section id="TOPI102" class="topi102 container-fluid px-0"
         style="background-image: url({{ asset('storage/' . $sections->path_image_desktop) }});">
         <div class="container container--pd">
             <div class="row mx-auto">
