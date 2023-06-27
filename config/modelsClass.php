@@ -435,6 +435,7 @@ return [
                 'controller' => App\Http\Controllers\Units\UNIT03Controller::class,
                 'model' => App\Models\Units\UNIT03Units::class,
                 'seedQty' => 8,
+                'routeName' => 'unit03.page.content',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Units\UNIT03UnitsCategory::class,

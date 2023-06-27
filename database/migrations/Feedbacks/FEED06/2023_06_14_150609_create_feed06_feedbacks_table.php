@@ -15,7 +15,11 @@ class CreateFeed06FeedbacksTable extends Migration
     {
         Schema::create('feed06_feedbacks', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->text('testimony')->nullable();
+            $table->integer('classification')->default(5);
             $table->integer('sorting')->default(0);
+            $table->integer('active')->default(0);
             $table->timestamps();
         });
     }

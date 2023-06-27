@@ -842,6 +842,20 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "FEED06":{
+            "Section": {
+                "path_image_desktop": {
+                    "width":"1500",
+                    "height":"422",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width":"390",
+                    "height":"510",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Frequently": {

@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\Feedbacks;
 
-use App\Models\Feedbacks\FEED06Feedbacks;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Feedbacks\FEED06Feedbacks;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Feedbacks\FEED01FeedbacksSection;
+use App\Models\Feedbacks\FEED06FeedbacksSection;
 use App\Http\Controllers\IncludeSectionsController;
 
 class FEED06Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Feedbacks/FEED06/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +24,13 @@ class FEED06Controller extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks = FEED06Feedbacks::sorting()->get();
+        $section = FEED06FeedbacksSection::first();
+        return view('Admin.cruds.Feedbacks.FEED06.index', [
+            'feedbacks' => $feedbacks,
+            'section' => $section,
+            'cropSetting' => getCropImage('Feedbacks', 'FEED06')
+        ]);
     }
 
     /**
@@ -32,7 +40,7 @@ class FEED06Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Feedbacks.FEED06.create');
     }
 
     /**
@@ -45,32 +53,13 @@ class FEED06Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if (FEED06Feedbacks::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Depoimento cadastrado com sucesso');
+            return redirect()->route('admin.feed06.index');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o depoimento');
             return redirect()->back();
         }
     }
@@ -83,7 +72,9 @@ class FEED06Controller extends Controller
      */
     public function edit(FEED06Feedbacks $FEED06Feedbacks)
     {
-        //
+        return view('Admin.cruds.Feedbacks.FEED06.edit', [
+            'feedback' => $FEED06Feedbacks
+        ]);
     }
 
     /**
@@ -97,50 +88,14 @@ class FEED06Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($FEED06Feedbacks, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($FEED06Feedbacks, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($FEED06Feedbacks, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($FEED06Feedbacks, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if ($FEED06Feedbacks->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Depoimento atualizado com sucesso');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar depoimento');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +106,9 @@ class FEED06Controller extends Controller
      */
     public function destroy(FEED06Feedbacks $FEED06Feedbacks)
     {
-        //storageDelete($FEED06Feedbacks, 'path_image');
-        //storageDelete($FEED06Feedbacks, 'path_archive');
 
         if ($FEED06Feedbacks->delete()) {
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Depoimento deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +121,9 @@ class FEED06Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $FEED06Feedbackss = FEED06Feedbacks::whereIn('id', $request->deleteAll)->get();
-        foreach($FEED06Feedbackss as $FEED06Feedbacks){
-            storageDelete($FEED06Feedbacks, 'path_image');
-            storageDelete($FEED06Feedbacks, 'path_archive');
-        }
-        */
 
         if ($deleted = FEED06Feedbacks::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted . ' Depoimentos deletados com sucessso']);
         }
     }
     /**
@@ -198,39 +143,6 @@ class FEED06Controller extends Controller
 
     // METHODS CLIENT
 
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Feedbacks\FEED06Feedbacks  $FEED06Feedbacks
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(FEED06Feedbacks $FEED06Feedbacks)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show', [
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page', [
-            'sections' => $sections
-        ]);
-    }
 
     /**
      * Section index resource.
@@ -239,6 +151,23 @@ class FEED06Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Feedbacks.FEED06.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = FEED06FeedbacksSection::active()->first();
+                if($section) {
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+            break;
+            default:
+            $section = FEED06FeedbacksSection::active()->first();
+            break;
+        }
+
+        $feedbacks = FEED06Feedbacks::active()->sorting()->get();
+        return view('Client.pages.Feedbacks.FEED06.section', [
+            'feedbacks' => $feedbacks,
+            'section' => $section
+        ]);
     }
 }
