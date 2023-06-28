@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers\Products;
 
-use Illuminate\Http\Request;
+use App\Models\Products\PROD05ProductsSection;
 use App\Http\Controllers\Controller;
-use App\Models\Products\PROD05Products;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\Products\PROD05ProductsCategory;
-use App\Models\Products\PROD05ProductsSubcategory;
 use App\Http\Controllers\IncludeSectionsController;
 
-class PROD05Controller extends Controller
+class PROD05SectionController extends Controller
 {
-    protected $path = 'uploads/Products/PROD05/images/';
+    protected $path = 'uploads/Module/Code/images/';
 
     /**
      * Display a listing of the resource.
@@ -24,14 +22,7 @@ class PROD05Controller extends Controller
      */
     public function index()
     {
-        $products = PROD05Products::with(['category', 'subcategory'])->paginate('32');
-        $categories = PROD05ProductsCategory::all();
-        $subcategories = PROD05ProductsSubcategory::all();
-        $cropSetting = getCropImage('Products', 'PROD05');
-
-        return view('Admin.cruds.Products.PROD05.index',
-            compact('products', 'categories', 'subcategories', 'cropSetting')
-        );
+        //
     }
 
     /**
@@ -73,10 +64,10 @@ class PROD05Controller extends Controller
 
         */
 
-        if (PROD05Products::create($data)) {
+        if(PROD05ProductsSection::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
-        } else {
+        }else{
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -87,10 +78,10 @@ class PROD05Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Products\PROD05Products  $PROD05Products
+     * @param  \App\Models\Products\PROD05ProductsSection  $PROD05ProductsSection
      * @return \Illuminate\Http\Response
      */
-    public function edit(PROD05Products $PROD05Products)
+    public function edit(PROD05ProductsSection $PROD05ProductsSection)
     {
         //
     }
@@ -99,10 +90,10 @@ class PROD05Controller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Products\PROD05Products  $PROD05Products
+     * @param  \App\Models\Products\PROD05ProductsSection  $PROD05ProductsSection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PROD05Products $PROD05Products)
+    public function update(Request $request, PROD05ProductsSection $PROD05ProductsSection)
     {
         $data = $request->all();
 
@@ -113,11 +104,11 @@ class PROD05Controller extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($PROD05Products, 'path_image');
+            storageDelete($PROD05ProductsSection, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($PROD05Products, 'path_image');
+            storageDelete($PROD05ProductsSection, 'path_image');
             $data['path_image'] = null;
         }
         */
@@ -130,21 +121,21 @@ class PROD05Controller extends Controller
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
 
         if($path_archive){
-            storageDelete($PROD05Products, 'path_archive');
+            storageDelete($PROD05ProductsSection, 'path_archive');
             $data['path_archive'] = $path_archive;
         }
 
         if($request->delete_path_archive && !$path_archive){
-            storageDelete($PROD05Products, 'path_archive');
+            storageDelete($PROD05ProductsSection, 'path_archive');
             $data['path_archive'] = null;
         }
 
         */
 
-        if ($PROD05Products->fill($data)->save()) {
+        if($PROD05ProductsSection->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
-        } else {
+        }else{
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar item');
@@ -155,15 +146,15 @@ class PROD05Controller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Products\PROD05Products  $PROD05Products
+     * @param  \App\Models\Products\PROD05ProductsSection  $PROD05ProductsSection
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PROD05Products $PROD05Products)
+    public function destroy(PROD05ProductsSection $PROD05ProductsSection)
     {
-        //storageDelete($PROD05Products, 'path_image');
-        //storageDelete($PROD05Products, 'path_archive');
+        //storageDelete($PROD05ProductsSection, 'path_image');
+        //storageDelete($PROD05ProductsSection, 'path_archive');
 
-        if ($PROD05Products->delete()) {
+        if($PROD05ProductsSection->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -179,28 +170,28 @@ class PROD05Controller extends Controller
     {
         /* Use the code below to upload image or archive, if not, delete code
 
-        $PROD05Productss = PROD05Products::whereIn('id', $request->deleteAll)->get();
-        foreach($PROD05Productss as $PROD05Products){
-            storageDelete($PROD05Products, 'path_image');
-            storageDelete($PROD05Products, 'path_archive');
+        $PROD05ProductsSections = PROD05ProductsSection::whereIn('id', $request->deleteAll)->get();
+        foreach($PROD05ProductsSections as $PROD05ProductsSection){
+            storageDelete($PROD05ProductsSection, 'path_image');
+            storageDelete($PROD05ProductsSection, 'path_archive');
         }
         */
 
-        if ($deleted = PROD05Products::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
+        if($deleted = PROD05ProductsSection::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
     /**
-     * Sort record by dragging and dropping
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Sort record by dragging and dropping
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
 
     public function sorting(Request $request)
     {
-        foreach ($request->arrId as $sorting => $id) {
-            PROD05Products::where('id', $id)->update(['sorting' => $sorting]);
+        foreach($request->arrId as $sorting => $id){
+            PROD05ProductsSection::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
@@ -211,16 +202,16 @@ class PROD05Controller extends Controller
      * Display the specified resource.
      * Content method
      *
-     * @param  \App\Models\Products\PROD05Products  $PROD05Products
+     * @param  \App\Models\Products\PROD05ProductsSection  $PROD05ProductsSection
      * @return \Illuminate\Http\Response
      */
-    //public function show(PROD05Products $PROD05Products)
+    //public function show(PROD05ProductsSection $PROD05ProductsSection)
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Products', 'PROD05', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
 
-        return view('Client.pages.Products.PROD05.show', [
+        return view('Client.pages.Module.Model.show',[
             'sections' => $sections
         ]);
     }
@@ -234,9 +225,9 @@ class PROD05Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Products', 'PROD05', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
 
-        return view('Client.pages.Products.PROD05.page', [
+        return view('Client.pages.Module.Model.page',[
             'sections' => $sections
         ]);
     }
@@ -248,6 +239,6 @@ class PROD05Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Products.PROD05.section');
+        return view('');
     }
 }

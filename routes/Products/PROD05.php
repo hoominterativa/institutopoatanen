@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Products\PROD05SectionController;
+use App\Http\Controllers\Products\PROD05CategoryController;
+use App\Http\Controllers\Products\PROD05SubcategoryController;
 
 /**
  * Uncomment the code below
@@ -11,22 +14,28 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Products';
+$model = 'PROD05';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $module = getNameModule($modelConfig, $module, $model);
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
-// // CLIENT
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/categorias', PROD05CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PROD05ProductsCategory']);
+    Route::post($route.'/categoria/delete', [PROD05CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [PROD05CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+
+    Route::resource($route.'/subcategorias', PROD05SubcategoryController::class)->names('admin.'.$routeName.'.subcategory')->parameters(['subcategorias' => 'PROD05ProductsSubcategory']);
+    Route::post($route.'/subcategoria/delete', [PROD05SubcategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.subcategory.destroySelected');
+    Route::post($route.'/subcategoria/sorting', [PROD05SubcategoryController::class, 'sorting'])->name('admin.'.$routeName.'.subcategory.sorting');
+
+    Route::resource($route.'/section', PROD05SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'PROD05ProductsSection']);
+});
+// CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

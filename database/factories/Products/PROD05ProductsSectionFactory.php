@@ -2,18 +2,17 @@
 
 namespace Database\Factories\Products;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Products\PROD05Products;
+use App\Models\Products\PROD05ProductsSection;
 
-class PROD05ProductsFactory extends Factory
+class PROD05ProductsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = PROD05Products::class;
+    protected $model = PROD05ProductsSection::class;
 
     /**
      * Define the model's default state.
@@ -22,13 +21,7 @@ class PROD05ProductsFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->text(12);
-        $subtitle = $this->faker->text(9);
-
         return [
-            "category_id" =>rand(1, 5),
-            "subcategory_id" =>rand(1, 5),
-            "slug" => Str::slug($title.' '.$subtitle),
             'title' => $this->faker->text(10),
             'active' => 1,
         ];
