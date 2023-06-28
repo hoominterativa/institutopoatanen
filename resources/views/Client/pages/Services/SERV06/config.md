@@ -1,7 +1,7 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
 'Services' => (object) [
-    'SERV04' => (object)[
+    'SERV06' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => true,
         'ViewListPanel' => true,
@@ -11,7 +11,7 @@
             'include' => true,
             'sorting' => true,
             'limit' => 'all',
-            'condition' => 'active=1{Ativos},featured=1{Detaques}',
+            'condition' => 'active=1{Ativos}',
             'titleList' => 'title',
             'relation' => (object)[
                 'category' =>(object)[
@@ -24,10 +24,10 @@
         'config' => (object) [
             'titleMenu' => 'Serviços',
             'anchor' =>  false,
-            'linkMenu' => 'serv04.page',
+            'linkMenu' => 'serv06.page',
             'iconMenu' => '',
             'titlePanel' => 'Serviços',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-alpha-s-box-outline'
         ],
         'IncludeSections' => (object) [
         ]

@@ -956,6 +956,37 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "SERV06": {
+            "path_image": {
+                "width": "750",
+                "height": "619",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "645",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width": "430",
+                    "height": "593",
+                    "activeCrop": "false"
+                }
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Slides": {
