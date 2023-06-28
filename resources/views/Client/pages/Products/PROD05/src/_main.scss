@@ -127,6 +127,7 @@
 
 // categorias que ser reptem na seção e na page
 .prod05-categories {
+    margin-top: 60px;
     width: 100%;
 
     &__list {
@@ -531,3 +532,115 @@
         }
     }
 }
+
+.prod05-show{
+    &__banner{
+        @include backG;
+        @include Flex($displayFlex:flex, $direction:column, $justify:center, $align:center);
+        height: 440px;
+        text-align: center;
+        position: relative;
+
+        &__title{
+            font-family: $font-primary;
+            font-size: $T1;
+            font-weight: $weight-700;
+            color: $color-black;
+        }
+
+        &__subtitle{
+            font-family: $font-primary;
+            font-size: $T3;
+            font-weight: $weight-700;
+            color: $color-black;
+        }
+
+        &__line{
+            width: 100%;
+            border-top: 1px solid $color-black;
+            margin-top: 31px ;
+        }
+
+        &__container{
+            position: relative;
+        }
+    }
+    // END __banner
+
+    &__contentTitle{
+        background-color: $color-four;
+
+        &__container{
+            position: relative;
+            display: table;
+        }
+
+        &__wrap{
+            margin-top: 125px;
+        }
+
+        &__title{
+            font-family: $font-primary;
+            font-size: $T2;
+            font-weight: $weight-700;
+            color: $color-black;
+        }
+
+        &__subtitle{
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-black;
+        }
+    }
+    // END __contentTitle
+
+    &__wrapForm{
+        position: absolute;
+        right: 0;
+        top: -60px;
+        display: block;
+        width: 100%;
+        max-width: 290px;
+        border-radius: 10px;
+        background-color: $color-four;
+        padding: 0 20px;
+
+        &--showForm{
+            .prod05-show__form{
+                display: block;
+            }
+        }
+    }
+    // END __wrapForm
+
+    &__btnForm{
+        background-color: transparent;
+        font-family: $font-primary;
+        font-size: $T5;
+        font-weight: $weight-300;
+        border: 0;
+        width: 100%;
+        margin-bottom: 27px;
+        height: 60px;
+    }
+    // END __btnForm
+
+    &__form{
+        display: none;
+        .input__item--textarea textarea{
+            height: 110px !important;
+        }
+        &__submit{
+            width: 100%;
+            background-color: $color-two;
+            color: $color-white;
+            font: $paragraph;
+            font-weight: $weight-400;
+            padding: 5px 0;
+            border:0;
+            border-radius: 10px;
+            margin-bottom: 27px;
+        }
+    }
+}
+// END .prod05-show

@@ -23,3 +23,13 @@ $(".prod05__carousel").owlCarousel({
         },
     },
 });
+
+$('.prod05-show__btnForm--showForm').on('click', function(){
+    if($(this).hasClass('active')){
+        $('.prod05-show__wrapForm').removeClass('prod05-show__wrapForm--showForm');
+        $(this).removeClass('active')
+    }else{
+        $('.prod05-show__wrapForm').addClass('prod05-show__wrapForm--showForm');
+        $(this).addClass('active')
+    }
+})
