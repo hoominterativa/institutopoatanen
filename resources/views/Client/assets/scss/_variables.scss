@@ -16,7 +16,6 @@ $T3-mobile: 1.563rem;
 $T4-mobile: 1.125rem;
 $T5-mobile: 1.063rem;
 
-
 // PARAGRAPHS SIZES
 $P1: 1rem;
 $P2: 0.875rem;
@@ -24,32 +23,29 @@ $P2: 0.875rem;
 $P1-mobile: 0.938rem;
 $P2-mobile: 0.813rem;
 
-
 // COLORS THEME
 $color-one: #404040;
-$color-two: #7C7C7C;
-$color-three: #B3B3B3;
-$color-four: #CACACA;
-$color-five: #EFEFEF;
-$color-six:#E6E6E6;
-$color-seven:#F2F2F2;
-$color-eight:#282828;
-$color-nine:#D9D9D9;
-
-
+$color-two: #7c7c7c;
+$color-three: #b3b3b3;
+$color-four: #cacaca;
+$color-five: #efefef;
+$color-six: #e6e6e6;
+$color-seven: #f2f2f2;
+$color-eight: #282828;
+$color-nine: #d9d9d9;
 
 $color-white: #fff;
 $color-black: #000;
 $color-black-opacity: #000;
 
-$color-info: #0D84F5;
+$color-info: #0d84f5;
 $color-warning: #f5980d;
 $color-danger: #c90000;
 
 // FONTS FAMILY
-$font-primary: 'Ubuntu', sans-serif, arial;
-$font-secondary: 'Ubuntu', sans-serif, arial;
-$font-paragraph: 'Montserrat', sans-serif, arial;
+$font-primary: "Ubuntu", sans-serif, arial;
+$font-secondary: "Ubuntu", sans-serif, arial;
+$font-paragraph: "Montserrat", sans-serif, arial;
 
 // FONT PARAGRAPH
 $paragraph: $P1 $font-paragraph;

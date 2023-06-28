@@ -94,23 +94,6 @@ $(function(){
                 thisFontSize = that.css('font-size'),
                 thisLineHeight = that.css('line-height')
 
-            that.css('height', thisHeight)
-
-            formPlaceholder.css({
-                'position': 'relative',
-            });
-
-            placeholderCustom.css({
-                'position': 'absolute',
-                'left': '0',
-                'top': '0',
-                'line-height': thisLineHeight,
-                'padding': thisPadding,
-                'width': thisWidth,
-                'height': thisHeight,
-                'font': thisFont
-            });
-
             function focusInput(elem){
                 elem.css('height', 'auto')
                 elem.stop().animate({
@@ -128,18 +111,12 @@ $(function(){
             })
 
             that.on('focus', function(){
-                focusInput(placeholderCustom)
+                formPlaceholder.addClass('focusing')
             })
 
             that.on('focusout', function(){
                 if($(this).val()==''){
-                    placeholderCustom.css({
-                        'padding': thisPadding,
-                        'width': thisWidth,
-                        'height': thisHeight,
-                        'font-size': thisFontSize,
-                        'line-height': 'inherit'
-                    }, 'fast');
+                    formPlaceholder.removeClass('focusing')
                 }
             })
         }
