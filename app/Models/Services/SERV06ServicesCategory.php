@@ -35,6 +35,11 @@ class SERV06ServicesCategory extends Model
         });
     }
 
+    public function services()
+    {
+        return $this->hasMany(SERV06Services::class, 'category_id');
+    }
+
     // DROPDOW MENU
     public function scopeExistsRegister($query)
     {

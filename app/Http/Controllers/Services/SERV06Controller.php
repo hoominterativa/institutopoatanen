@@ -9,6 +9,8 @@ use App\Models\Services\SERV06Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV06ServicesBanner;
+use App\Models\Services\SERV06ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV06ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
@@ -27,10 +29,14 @@ class SERV06Controller extends Controller
         $services = SERV06Services::sorting()->get();
         $serviceCategories = SERV06ServicesCategory::get();
         $categories = SERV06ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $section = SERV06ServicesSection::first();
+        $banner = SERV06ServicesBanner::first();
         return view('Admin.cruds.Services.SERV06.index', [
             'services' => $services,
             'serviceCategories' => $serviceCategories,
             'categories' => $categories,
+            'section' => $section,
+            'banner' => $banner,
             'cropSetting' => getCropImage('Services', 'SERV06')
         ]);
     }
@@ -183,13 +189,32 @@ class SERV06Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV06ServicesCategory $SERV06ServicesCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV06', 'page');
 
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = SERV06ServicesBanner::active()->first();
+                if($banner) {
+                    $banner->path_image_desktop = $banner->path_image_mobile;
+                }
+            break;
+            default:
+            $banner = SERV06ServicesBanner::active()->first();
+            break;
+        }
+
+        $categories = SERV06ServicesCategory::exists()->active()->sorting()->get();
+        $services = SERV06Services::active()->sorting()->get();
+
         return view('Client.pages.Services.SERV06.page', [
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'services' => $services,
+            'categories' => $categories
         ]);
     }
 
@@ -200,6 +225,21 @@ class SERV06Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV06.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = SERV06ServicesSection::active()->first();
+                if($section) {
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+            break;
+            default:
+            $section = SERV06ServicesSection::active()->first();
+            break;
+        }
+
+        return view('Client.pages.Services.SERV06.section', [
+            'section' => $section,
+        ]);
     }
 }

@@ -972,7 +972,24 @@
                 "path_image_mobile": {
                     "width": "390",
                     "height": "775",
+                    "activeCrop": "true"
+                },
+                "path_image": {
+                    "width": "430",
+                    "height": "593",
                     "activeCrop": "false"
+                }
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "304",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "true"
                 },
                 "path_image": {
                     "width": "430",

@@ -2,99 +2,97 @@
 @section('content')
     {{-- BEGIN Page content --}}
     <section class="serv06-page">
-        <header class="serv06-page__header"
-            style="background-image: url({{ asset('storage/uploads/tmp/bg-section-gray.jpg') }})">
-            <div class="container d-flex flex-column align-items-center">
-
-                <h1 class="serv06-page__title">Título</h1>
-
-                <h3 class="serv06-page__subtitle">Subtítulo</h3>
-
-                <hr class="serv06-page__line">
-
-                <div class="serv06-categories">
-
-                    <ul class="serv06-categories__list w-100">
-                        @for ($i = 0; $i < 3; $i++)
-                            <li class="serv06-categories__list__item">
-                                <a href="">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                        class="serv06-categories__list__item__icon">
-                                    Categoria
-                                </a>
-                            </li>
-                        @endfor
-                    </ul>
-
-                    <div class="serv06-categories__dropdown-mobile">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header serv06-categories__dropdown-mobile__item">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">
-                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                            class="serv06-categories__dropdown-mobile__item__icon">
-                                        Categoria
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            @for ($i = 0; $i < 3; $i++)
-                                                <li class="serv06-categories__dropdown-mobile__item">
-                                                    <a href="">
-                                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                                            alt=""
-                                                            class="serv06-categories__dropdown-mobile__item__icon">
-                                                        Categoria
-                                                    </a>
-                                                </li>
-                                            @endfor
-                                        </ul>
+        @if ($banner)
+            <header class="serv06-page__header"
+                style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{$banner->background_color}};">
+                <div class="container d-flex flex-column align-items-center">
+                    @if ($banner->title || $banner->subtitle)
+                        <h1 class="serv06-page__title">{{$banner->title}}</h1>
+                        <h3 class="serv06-page__subtitle">{{$banner->subtitle}}</h3>
+                        <hr class="serv06-page__line">
+                    @endif
+                    <div class="serv06-categories">
+                        @if ($categories->count())
+                            <ul class="serv06-categories__list w-100">
+                                @foreach ($categories as $category)
+                                    <li class="serv06-categories__list__item">
+                                        <a href="#sec-{{ $category->slug }}-{{ $category->services->first()->slug }}">
+                                            @if ($category->path_image_icon)
+                                                <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv06-categories__list__item__icon">
+                                            @endif
+                                            @if ($category->title)
+                                                {{ $category->title }}
+                                            @endif
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        <div class="serv06-categories__dropdown-mobile">
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header serv06-categories__dropdown-mobile__item">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
+                                                class="serv06-categories__dropdown-mobile__item__icon">
+                                            Categorias
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            @if ($categories->count())
+                                                <ul>
+                                                    @foreach ($categories as $category)
+                                                        <li class="serv06-categories__dropdown-mobile__item">
+                                                            <a href="#sec-{{ $category->slug }}-{{ $category->services->first()->slug }}">
+                                                                @if ($category->path_image_icon)
+                                                                    <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv06-categories__dropdown-mobile__item__icon">
+                                                                    @if ($category->title)
+                                                                        {{ $category->title }}
+                                                                    @endif
+                                                                @endif
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-            </div>
-        </header>
-
-        <main class="serv06-page__main">
-
-            @for ($i = 1; $i < 3; $i++)
-                <article id="sec{{ $i }}" class="serv06-page__item w-100">
-                    <img src="{{ asset('storage/uploads/tmp/thumbnail.png') }}" alt=""
-                        class="serv06-page__item__image">
-
-                    <div class="serv06-page__item__right">
-                        <h4 class="serv06-page__item__subtitle">Subtítulo</h4>
-                        <h3 class="serv06-page__item__title">Título</h3>
-                        <hr class="serv06-page__item__line">
-
-                        <div class="serv06-page__item__text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                                sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et
-                                arcu
-                                eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                                Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis
-                                posuere.
-                                Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit,
-                                vel
-                                tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec </p>
+            </header>
+        @endif
+        @if ($services->count())
+            <main class="serv06-page__main">
+                @foreach ($services as $service)
+                <article id="sec-{{ $service->category->slug }}-{{ $service->slug }}" class="serv06-page__item w-100">
+                        @if ($service->path_image)
+                            <img src="{{ asset('storage/' . $service->path_image) }}" alt="" class="serv06-page__item__image">
+                        @endif
+                        <div class="serv06-page__item__right">
+                            @if ($service->title || $service->subtitle)
+                                <h4 class="serv06-page__item__subtitle">{{$service->subtitle}}</h4>
+                                <h3 class="serv06-page__item__title">{{$service->title}}</h3>
+                                <hr class="serv06-page__item__line">
+                            @endif
+                            <div class="serv06-page__item__text">
+                                @if ($service->text)
+                                    <p>
+                                        {!! $service->text !!}
+                                    </p>
+                                @endif
+                            </div>
                         </div>
-
-                    </div>
-                </article>
-            @endfor
-
-        </main>
+                    </article>
+                @endforeach
+            </main>
+        @endif
     </section>
     {{-- Finish Content page Here --}}
     @foreach ($sections as $section)

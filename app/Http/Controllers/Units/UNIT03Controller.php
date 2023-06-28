@@ -336,7 +336,6 @@ class UNIT03Controller extends Controller
     //public function show(UNIT03Units $UNIT03Units)
     public function show($UNIT03UnitsCategory, UNIT03Units $UNIT03Units)
     {
-        // dd($UNIT03Units);
 
         switch (deviceDetect()) {
             case 'mobile':
