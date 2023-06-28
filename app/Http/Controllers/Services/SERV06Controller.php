@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV06Services;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Services\SERV06Services;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV06ServicesBanner;
+use App\Models\Services\SERV06ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV06ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV06Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Services/SERV06/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +26,19 @@ class SERV06Controller extends Controller
      */
     public function index()
     {
-        //
+        $services = SERV06Services::sorting()->get();
+        $serviceCategories = SERV06ServicesCategory::get();
+        $categories = SERV06ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $section = SERV06ServicesSection::first();
+        $banner = SERV06ServicesBanner::first();
+        return view('Admin.cruds.Services.SERV06.index', [
+            'services' => $services,
+            'serviceCategories' => $serviceCategories,
+            'categories' => $categories,
+            'section' => $section,
+            'banner' => $banner,
+            'cropSetting' => getCropImage('Services', 'SERV06')
+        ]);
     }
 
     /**
@@ -32,7 +48,11 @@ class SERV06Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = SERV06ServicesCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Services.SERV06.create', [
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Services', 'SERV06')
+        ]);
     }
 
     /**
@@ -44,33 +64,20 @@ class SERV06Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if (SERV06Services::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço cadastrado com sucesso');
+            return redirect()->route('admin.serv06.index');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
     }
@@ -83,7 +90,12 @@ class SERV06Controller extends Controller
      */
     public function edit(SERV06Services $SERV06Services)
     {
-        //
+        $categories = SERV06ServicesCategory::pluck('title', 'id');
+        return view('Admin.cruds.Services.SERV06.edit', [
+            'service' => $SERV06Services,
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Services', 'SERV06')
+        ]);
     }
 
     /**
@@ -96,11 +108,10 @@ class SERV06Controller extends Controller
     public function update(Request $request, SERV06Services $SERV06Services)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +122,14 @@ class SERV06Controller extends Controller
             storageDelete($SERV06Services, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SERV06Services, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV06Services, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if ($SERV06Services->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço atualizado com sucesso');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar serviço');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +140,10 @@ class SERV06Controller extends Controller
      */
     public function destroy(SERV06Services $SERV06Services)
     {
-        //storageDelete($SERV06Services, 'path_image');
-        //storageDelete($SERV06Services, 'path_archive');
+        storageDelete($SERV06Services, 'path_image');
 
         if ($SERV06Services->delete()) {
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Serviço deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +156,13 @@ class SERV06Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $SERV06Servicess = SERV06Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV06Servicess as $SERV06Services){
             storageDelete($SERV06Services, 'path_image');
-            storageDelete($SERV06Services, 'path_archive');
         }
-        */
 
         if ($deleted = SERV06Services::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted . ' Serviços deletados com sucessso']);
         }
     }
     /**
@@ -198,23 +182,6 @@ class SERV06Controller extends Controller
 
     // METHODS CLIENT
 
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Services\SERV06Services  $SERV06Services
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SERV06Services $SERV06Services)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show', [
-            'sections' => $sections
-        ]);
-    }
 
     /**
      * Display a listing of the resourcee.
@@ -222,13 +189,32 @@ class SERV06Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV06ServicesCategory $SERV06ServicesCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV06', 'page');
 
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $banner = SERV06ServicesBanner::active()->first();
+                if($banner) {
+                    $banner->path_image_desktop = $banner->path_image_mobile;
+                }
+            break;
+            default:
+            $banner = SERV06ServicesBanner::active()->first();
+            break;
+        }
+
+        $categories = SERV06ServicesCategory::exists()->active()->sorting()->get();
+        $services = SERV06Services::active()->sorting()->get();
+
         return view('Client.pages.Services.SERV06.page', [
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'services' => $services,
+            'categories' => $categories
         ]);
     }
 
@@ -239,6 +225,21 @@ class SERV06Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV06.section');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = SERV06ServicesSection::active()->first();
+                if($section) {
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+            break;
+            default:
+            $section = SERV06ServicesSection::active()->first();
+            break;
+        }
+
+        return view('Client.pages.Services.SERV06.section', [
+            'section' => $section,
+        ]);
     }
 }

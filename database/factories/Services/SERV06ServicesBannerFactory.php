@@ -2,18 +2,17 @@
 
 namespace Database\Factories\Services;
 
-use Illuminate\Support\Str;
-use App\Models\Services\SERV06Services;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Services\SERV06ServicesBanner;
 
-class SERV06ServicesFactory extends Factory
+class SERV06ServicesBannerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = SERV06Services::class;
+    protected $model = SERV06ServicesBanner::class;
 
     /**
      * Define the model's default state.
@@ -22,14 +21,12 @@ class SERV06ServicesFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->text(16);
         return [
-            'category_id' =>rand(1,4),
-            'title' => $title,
-            'slug' => Str::slug($title),
+            'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(15),
-            'text' => $this->faker->text(900),
-            'path_image' => 'uploads/tmp/thumbnail.png',
+            'path_image_desktop' => 'uploads/tmp/thumbnail.png',
+            'path_image_mobile' => 'uploads/tmp/secaobox.png',
+            'background_color' => '#FFFFFF',
             'active' => 1,
         ];
     }

@@ -16,18 +16,15 @@
                                 <header class="feed06__item__header d-flex flex-column align-items-start w-100">
                                     <h3 class="feed06__item__title">{{$feedback->name}}</h3>
                                     <ul class="feed06__item__stars d-flex justify-content-start align-items-center">
-                                        @if($feedback->classification >= 1)
-                                            @for($i = 0; $i < $feedback->classification; $i++)
-                                                <li class="feed06__item__stars__item">
-                                                    <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
-                                                </li>
-                                            @endfor
-                                        @endif
-                                        @if($feedback->classification < 5)
+                                        @for ($i = 1; $i <= 5; $i++)
                                             <li class="feed06__item__stars__item">
-                                                <img src="{{ asset('storage/uploads/tmp/star-outline.png') }}" alt="Contorno de estrela">
+                                                @if ($i <= $feedback->classification)
+                                                    <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
+                                                @else
+                                                    <img src="{{ asset('storage/uploads/tmp/star-outline.png') }}" alt="Contorno de estrela">
+                                                @endif
                                             </li>
-                                        @endif
+                                        @endfor
                                     </ul>
                                 </header>
                                 <main class="feed06__item__text">

@@ -303,6 +303,13 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV06Controller::class,
                 'model' => App\Models\Services\SERV06Services::class,
                 'seedQty' => 4,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV06ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
         ],
         // END SERVICES

@@ -5,17 +5,17 @@ namespace App\Http\Controllers\Services;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Services\SERV04Services;
+use App\Models\Services\SERV06Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\Services\SERV04ServicesCategory;
+use App\Models\Services\SERV06ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
-class SERV04CategoryController extends Controller
+class SERV06CategoryController extends Controller
 {
-    protected $path = 'uploads/Services/SERV04/images/';
+    protected $path = 'uploads/Services/SERV06/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -31,28 +31,26 @@ class SERV04CategoryController extends Controller
         $data['active'] = $request->active?1:0;
         $data['slug'] = Str::slug($request->title);
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        if(SERV04ServicesCategory::create($data)){
-            Session::flash('success', 'Categoria cadastrada com sucesso');
-            return redirect()->route('admin.serv04.index');
+        if(SERV06ServicesCategory::create($data)){
+            Session::flash('success', 'Categoria cadastrado com sucesso');
         }else{
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao cadastradar a categoria');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao cadastradar a seção');
         }
+        return redirect()->back();
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Services\SERV04ServicesCategory  $SERV04ServicesCategory
+     * @param  \App\Models\Services\SERV06ServicesCategory  $SERV06ServicesCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SERV04ServicesCategory $SERV04ServicesCategory)
+    public function update(Request $request, SERV06ServicesCategory $SERV06ServicesCategory)
     {
         $data = $request->all();
         $helper = new HelperArchive();
@@ -60,44 +58,43 @@ class SERV04CategoryController extends Controller
         $data['active'] = $request->active?1:0;
         $data['slug'] = Str::slug($request->title);
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($SERV04ServicesCategory, 'path_image');
-            $data['path_image'] = $path_image;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($SERV06ServicesCategory, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SERV04ServicesCategory, 'path_image');
-            $data['path_image'] = null;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($SERV06ServicesCategory, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
 
-        if($SERV04ServicesCategory->fill($data)->save()){
+        if($SERV06ServicesCategory->fill($data)->save()){
             Session::flash('success', 'Categoria atualizada com sucesso');
-            return redirect()->route('admin.serv04.index');
         }else{
-            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao atualizar a categoria');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Services\SERV04ServicesCategory  $SERV04ServicesCategory
+     * @param  \App\Models\Services\SERV06ServicesCategory  $SERV06ServicesCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SERV04ServicesCategory $SERV04ServicesCategory)
+    public function destroy(SERV06ServicesCategory $SERV06ServicesCategory)
     {
         // Verificar se existem unidades associadas à categoria
-        if (SERV04Services::where('category_id', $SERV04ServicesCategory->id)->count()) {
+        if (SERV06Services::where('category_id', $SERV06ServicesCategory->id)->count()) {
         Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
         return redirect()->back();
         }
 
         // Excluir a categoria
-        storageDelete($SERV04ServicesCategory, 'path_image_icon');
+        storageDelete($SERV06ServicesCategory, 'path_image_icon');
 
-        if($SERV04ServicesCategory->delete()){
+        if($SERV06ServicesCategory->delete()){
             Session::flash('success', 'categoria deletado com sucessso');
             return redirect()->back();
         }
@@ -114,7 +111,7 @@ class SERV04CategoryController extends Controller
         $categoryIds = $request->deleteAll;
 
         // Verificar se existem serviços associadas às categorias
-        $servicesExist = SERV04Services::whereIn('category_id', $categoryIds)->exists();
+        $servicesExist = SERV06Services::whereIn('category_id', $categoryIds)->exists();
         if ($servicesExist) {
             return Response::json([
                 'status' => 'error',
@@ -123,13 +120,13 @@ class SERV04CategoryController extends Controller
         }
 
         // Excluir as categorias
-        $deletedCategories = SERV04ServicesCategory::whereIn('id', $categoryIds)->get();
+        $deletedCategories = SERV06ServicesCategory::whereIn('id', $categoryIds)->get();
 
         foreach ($deletedCategories as $category) {
             storageDelete($category, 'path_image_icon');
         }
 
-        if ($deleted = SERV04ServicesCategory::whereIn('id', $categoryIds)->delete()) {
+        if ($deleted = SERV06ServicesCategory::whereIn('id', $categoryIds)->delete()) {
             return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
         }
     }
@@ -143,7 +140,7 @@ class SERV04CategoryController extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            SERV04ServicesCategory::where('id', $id)->update(['sorting' => $sorting]);
+            SERV06ServicesCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
