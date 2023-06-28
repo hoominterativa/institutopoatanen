@@ -1,55 +1,48 @@
 <section class="feed05 w-100" id="FEED05">
     <div class="container">
-
-        <header class="feed05__header d-flex flex-column align-items-center">
-            <h1 class="feed05__title">Título</h1>
-            <hr class="feed05__line">
-        </header>
-
+        @if ($section)
+            <header class="feed05__header d-flex flex-column align-items-center">
+                @if ($section->title)
+                    <h1 class="feed05__title">{{$section->title}}</h1>
+                    <hr class="feed05__line">
+                @endif
+            </header>
+        @endif
         <main class="feed05__main w-100 d-flex flex-column align-items-center">
-
-            <div class="feed05__carousel owl-carousel">
-
-                @for ($i = 0; $i < 4; $i++)
-                    <article class="feed05__item">
-
-                        <header class="feed05__item__header d-flex flex-column align-items-center w-100">
-
-                            <img src="{{ asset('storage/uploads/tmp/thumbnail.png') }}" alt=""
-                                class="feed05__item__avatar">
-
-                            <h3 class="feed05__item__title">Nome do usuário {{ $i }}</h3>
-
-                            <ul class="feed05__item__stars d-flex justify-content-center align-items-center">
-                                <li class="feed05__item__stars__item">
-                                    <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
-                                </li>
-                                <li class="feed05__item__stars__item">
-                                    <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
-                                </li>
-                                <li class="feed05__item__stars__item">
-                                    <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
-                                </li>
-                                <li class="feed05__item__stars__item">
-                                    <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
-                                </li>
-                                <li class="feed05__item__stars__item">
-                                    <img src="{{ asset('storage/uploads/tmp/star-outline.png') }}"
-                                        alt="Contorno de estrela">
-                                </li>
-                            </ul>
-                        </header>
-
-                        <main class="feed05__item__text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                                sollicitudin vel non libero. Vivamus commodo porta velit</p>
-                        </main>
-                    </article>
-                @endfor
-
-            </div>
-
+            @if ($feedbacks->count())
+                <div class="feed05__carousel owl-carousel">
+                    @foreach ($feedbacks as $feedback)
+                        <article class="feed05__item">
+                            <header class="feed05__item__header d-flex flex-column align-items-center w-100">
+                                @if ($feedback->path_image)
+                                    <img src="{{ asset('storage/' . $feedback->path_image) }}" alt="" class="feed05__item__avatar">
+                                @endif
+                                @if ($feedback->name)
+                                    <h3 class="feed05__item__title">{{$feedback->name}}</h3>
+                                @endif
+                                <ul class="feed05__item__stars d-flex justify-content-center align-items-center">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <li class="feed05__item__stars__item">
+                                            @if ($i <= $feedback->classification)
+                                                <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
+                                            @else
+                                                <img src="{{ asset('storage/uploads/tmp/star-outline.png') }}" alt="Contorno de estrela">
+                                            @endif
+                                        </li>
+                                    @endfor
+                                </ul>
+                            </header>
+                            <main class="feed05__item__text">
+                                @if ($feedback->testimony)
+                                    <p>
+                                        {!! $feedback->testimony !!}
+                                    </p>
+                                @endif
+                            </main>
+                        </article>
+                    @endforeach
+                </div>
+            @endif
         </main>
-
     </div>
 </section>

@@ -843,6 +843,13 @@
                 }
             }
         },
+        "FEED05":{
+            "path_image": {
+                "width":"300",
+                "height":"300",
+                "activeCrop": "false"
+            }
+        },
         "FEED06":{
             "Section": {
                 "path_image_desktop": {

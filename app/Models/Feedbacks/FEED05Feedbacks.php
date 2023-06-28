@@ -2,7 +2,7 @@
 
 namespace App\Models\Feedbacks;
 
-use Database\Factories\FEED05FeedbacksFactory;
+use Database\Factories\Feedbacks\FEED05FeedbacksFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,8 @@ class FEED05Feedbacks extends Model
         return FEED05FeedbacksFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "feed05_feedbacks";
+    protected $fillable = ['name', 'testimony', 'classification', 'path_image', 'sorting', 'active',];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class FEED05Feedbacks extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

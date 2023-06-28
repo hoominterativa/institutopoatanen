@@ -25,5 +25,6 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', FEED06SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'FEED06FeedbacksSection']);});
+    Route::resource($route.'/secao', FEED06SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'FEED06FeedbacksSection']);
+});
 

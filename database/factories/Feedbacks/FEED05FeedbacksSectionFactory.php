@@ -3,16 +3,16 @@
 namespace Database\Factories\Feedbacks;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Feedbacks\FEED05Feedbacks;
+use App\Models\Feedbacks\FEED05FeedbacksSection;
 
-class FEED05FeedbacksFactory extends Factory
+class FEED05FeedbacksSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = FEED05Feedbacks::class;
+    protected $model = FEED05FeedbacksSection::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,7 @@ class FEED05FeedbacksFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(10),
-            'testimony' => $this->faker->text(150),
-            'classification' => rand(3, 5),
-            'path_image' => 'uploads/tmp/guerreiro.png',
+            'title' => $this->faker->text(10),
             'active' => 1,
         ];
     }

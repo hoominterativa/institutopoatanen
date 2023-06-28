@@ -76,11 +76,13 @@
                                                         <td class="align-middle">{{$feedback->name}}</td>
                                                         <td class="align-middle">{!! substr($feedback->testimony, 0, 30) !!}</td>
                                                         <td class="align-middle">
-                                                            @if($feedback->classification >= 1)
-                                                                @for($i = 0; $i < $feedback->classification; $i++)
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                @if ($i <= $feedback->classification)
                                                                     <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
-                                                                @endfor
-                                                            @endif
+                                                                @else
+                                                                    <img src="{{ asset('storage/uploads/tmp/star-outline.png') }}" alt="Contorno de estrela">
+                                                                @endif
+                                                            @endfor
                                                         </td>
                                                         <td class="align-middle">
                                                             @if ($feedback->active)

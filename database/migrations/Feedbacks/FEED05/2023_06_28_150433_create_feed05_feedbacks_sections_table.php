@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeed05FeedbacksTable extends Migration
+class CreateFeed05FeedbacksSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateFeed05FeedbacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('feed05_feedbacks', function (Blueprint $table) {
+        Schema::create('feed05_feedbacks_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->text('testimony')->nullable();
-            $table->integer('classification')->default(5);
-            $table->string('path_image')->nullable();
-            $table->integer('sorting')->default(0);
+            $table->string('title')->nullable();
             $table->integer('active')->default(0);
             $table->timestamps();
         });
@@ -32,6 +28,6 @@ class CreateFeed05FeedbacksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feed05_feedbacks');
+        Schema::dropIfExists('feed05_feedbacks_sections');
     }
 }

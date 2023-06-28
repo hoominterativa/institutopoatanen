@@ -14,7 +14,9 @@
                         @foreach ($feedbacks as $feedback)
                             <article class="feed06__item">
                                 <header class="feed06__item__header d-flex flex-column align-items-start w-100">
-                                    <h3 class="feed06__item__title">{{$feedback->name}}</h3>
+                                    @if ($feedback->name)
+                                        <h3 class="feed06__item__title">{{$feedback->name}}</h3>
+                                    @endif
                                     <ul class="feed06__item__stars d-flex justify-content-start align-items-center">
                                         @for ($i = 1; $i <= 5; $i++)
                                             <li class="feed06__item__stars__item">
