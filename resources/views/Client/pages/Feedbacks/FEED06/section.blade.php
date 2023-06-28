@@ -41,10 +41,12 @@
                         @endforeach
                     </div>
                 @endif
-                @if ($feedback->link_button)
-                    <a href="#" class="feed06__cta">
+                @if ($section->link_button)
+                    <a href="{{ $section->link_button ? getUri($section->link_button) : 'javascript:void(0)' }}" target="{{ $section->target_link_button }}" class="feed06__cta">
                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="feed06__cta__icon">
-                        CTA
+                        @if ($section->title_button)
+                            {{ $section->title_button }}
+                        @endif
                     </a>
                 @endif
             </main>
