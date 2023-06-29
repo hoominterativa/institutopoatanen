@@ -11,42 +11,7 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Services' => (object) [
-            'SERV06' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Serviços',
-                    'anchor' =>  false,
-                    'linkMenu' => 'serv06.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
-                    'iconPanel' => 'mdi-alpha-s-box-outline'
-                ],
-                'IncludeSections' => (object) [
-                ]
-            ],
-        ],
-        'Feedbacks' => (object) [
-            'FEED05' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                'titleMenu' => '',
-                'anchor' => false,
-                'linkMenu' => '',
-                'iconMenu' => '',
-                'titlePanel' => 'Depoimentos',
-                'iconPanel' => 'mdi-android-messages'
-                ]
-            ],
-        ],
+
     ],
 
     'ModelsForm' => (object)[

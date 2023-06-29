@@ -254,6 +254,19 @@ return [
                 'controller' => App\Http\Controllers\Products\PROD05Controller::class,
                 'model' => App\Models\Products\PROD05Products::class,
                 'seedQty' => 4,
+                'routeName' => 'prod05.page.content',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Products\PROD05ProductsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ],
+                    'subcategory' => [
+                        'class' => App\Models\Products\PROD05ProductsSubcategory::class,
+                        'column' => 'subcategory_id',
+                        'seedQty' => 5,
+                    ]
+                ]
             ],
         ],
         // END PRODUCTS
