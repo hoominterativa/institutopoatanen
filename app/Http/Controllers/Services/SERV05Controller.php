@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV05Services;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Services\SERV05Services;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV05ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV05ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV05Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Services/SERV05/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +25,17 @@ class SERV05Controller extends Controller
      */
     public function index()
     {
-        //
+        $services = SERV05Services::sorting()->paginate(30);
+        $serviceCategories = SERV05ServicesCategory::sorting()->paginate(10);
+        $categories = SERV05ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $section = SERV05ServicesSection::first();
+        return view('Admin.cruds.Services.SERV05.index', [
+            'services' => $services,
+            'categories' => $categories,
+            'serviceCategories' => $serviceCategories,
+            'section' => $section,
+            'cropSetting' => getCropImage('Services', 'SERV05')
+        ]);
     }
 
     /**
@@ -32,7 +45,11 @@ class SERV05Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = SERV05ServicesCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Services.SERV05.create', [
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Services', 'SERV05')
+        ]);
     }
 
     /**
@@ -44,33 +61,25 @@ class SERV05Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if (SERV05Services::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço cadastrado com sucesso');
+            return redirect()->route('admin.serv05.index');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
     }
@@ -83,7 +92,12 @@ class SERV05Controller extends Controller
      */
     public function edit(SERV05Services $SERV05Services)
     {
-        //
+        $categories = SERV05ServicesCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Services.SERV05.edit', [
+            'service' => $SERV05Services,
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Services', 'SERV05')
+        ]);
     }
 
     /**
@@ -96,11 +110,11 @@ class SERV05Controller extends Controller
     public function update(Request $request, SERV05Services $SERV05Services)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +125,25 @@ class SERV05Controller extends Controller
             storageDelete($SERV05Services, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SERV05Services, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($SERV05Services, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV05Services, 'path_archive');
-            $data['path_archive'] = null;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($SERV05Services, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
-
-        */
 
         if ($SERV05Services->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço atualizado com sucesso');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar o serviço');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +154,11 @@ class SERV05Controller extends Controller
      */
     public function destroy(SERV05Services $SERV05Services)
     {
-        //storageDelete($SERV05Services, 'path_image');
-        //storageDelete($SERV05Services, 'path_archive');
+        storageDelete($SERV05Services, 'path_image');
+        storageDelete($SERV05Services, 'path_image_icon');
 
         if ($SERV05Services->delete()) {
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Serviço deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +171,15 @@ class SERV05Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $SERV05Servicess = SERV05Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV05Servicess as $SERV05Services){
             storageDelete($SERV05Services, 'path_image');
-            storageDelete($SERV05Services, 'path_archive');
+            storageDelete($SERV05Services, 'path_image_icon');
         }
-        */
 
         if ($deleted = SERV05Services::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted . ' Serviços deletados com sucessso']);
         }
     }
     /**

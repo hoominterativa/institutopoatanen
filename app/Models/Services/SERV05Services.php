@@ -16,7 +16,7 @@ class SERV05Services extends Model
     }
 
     protected $table = "serv05_services";
-    protected $fillable = [];
+    protected $fillable = ['category_id', 'slug', 'title', 'description', 'subtitle', 'title_price', 'path_image', 'path_image_icon', 'price', 'featured', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -28,8 +28,13 @@ class SERV05Services extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(SERV05ServicesCategory::class, 'category_id');
+    }
 }

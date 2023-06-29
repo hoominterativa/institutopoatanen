@@ -975,11 +975,6 @@
                 "height": "410",
                 "activeCrop": "false"
             },
-            "path_image_box": {
-                "width": "330",
-                "height": "490",
-                "activeCrop": "false"
-            },
             "Section": {
                 "path_image_section_desktop": {
                     "width": "1500",

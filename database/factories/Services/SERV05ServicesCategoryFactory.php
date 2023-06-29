@@ -28,6 +28,7 @@ class SERV05ServicesCategoryFactory extends Factory
             'slug' => Str::slug($title),
             'path_image_icon' => 'uploads/tmp/favicon.png',
             'active' => 1,
+            'featured' => rand(0, 1)
         ];
     }
 }
