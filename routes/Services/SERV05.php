@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV05Controller;
 use App\Http\Controllers\Services\SERV05SectionController;
 use App\Http\Controllers\Services\SERV05CategoryController;
 
@@ -33,4 +34,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/seção', SERV05SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV05ServicesSection']);
 });
 // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{SERV05ServicesCategory:slug}', [SERV05Controller::class, 'page'])->name($routeName.'.category.page');

@@ -2,7 +2,7 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV05ServicesFactory;
+use Database\Factories\Services\SERV05ServicesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class SERV05Services extends Model
         return SERV05ServicesFactory::new();
     }
 
-    protected $table = "";
+    protected $table = "serv05_services";
     protected $fillable = [];
 
     public function scopeSorting($query)
