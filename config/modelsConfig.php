@@ -31,7 +31,7 @@ return [
                 ]
             ],
         ],
-        
+
         'Contents.1' => (object) [
             'CONT02' => (object)[
                 'ViewHome' => true,
@@ -168,8 +168,7 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) [
-                    'Services' => ['SERV04'],
-                    'Feedbacks' => ['FEED01'],
+                    'Topics' => 'TOPI02',
                 ]
             ],
         ],
@@ -235,14 +234,14 @@ return [
         'Frequently' => (object) [
             'FREQ01' => (object)[
                 'ViewHome' => false,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Perguntas',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'freq01.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Perguntas',
                     'iconPanel' => 'mdi-topic-circle'

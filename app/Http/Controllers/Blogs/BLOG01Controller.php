@@ -326,7 +326,9 @@ class BLOG01Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $banner = BLOG01BlogsBanner::active()->first();
-                if ($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+                if ($banner) {
+                    $banner->path_image_desktop = $banner->path_image_mobile;
+                }
                 break;
             default:
                 $banner = BLOG01BlogsBanner::active()->first();
