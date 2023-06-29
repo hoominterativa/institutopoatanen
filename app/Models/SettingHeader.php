@@ -22,6 +22,7 @@ class SettingHeader extends Model
         "exists",
         "limit",
         "sorting",
+        "active",
     ];
 
     public function scopeSorting($query)

@@ -27,14 +27,10 @@ class SERV06Controller extends Controller
     public function index()
     {
         $services = SERV06Services::sorting()->get();
-        $serviceCategories = SERV06ServicesCategory::get();
-        $categories = SERV06ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV06ServicesSection::first();
         $banner = SERV06ServicesBanner::first();
         return view('Admin.cruds.Services.SERV06.index', [
             'services' => $services,
-            'serviceCategories' => $serviceCategories,
-            'categories' => $categories,
             'section' => $section,
             'banner' => $banner,
             'cropSetting' => getCropImage('Services', 'SERV06')
@@ -48,9 +44,7 @@ class SERV06Controller extends Controller
      */
     public function create()
     {
-        $categories = SERV06ServicesCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Services.SERV06.create', [
-            'categories' => $categories,
             'cropSetting' => getCropImage('Services', 'SERV06')
         ]);
     }
@@ -72,11 +66,15 @@ class SERV06Controller extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+
         if (SERV06Services::create($data)) {
             Session::flash('success', 'Serviço cadastrado com sucesso');
             return redirect()->route('admin.serv06.index');
         } else {
             Storage::delete($path_image);
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
@@ -90,10 +88,8 @@ class SERV06Controller extends Controller
      */
     public function edit(SERV06Services $SERV06Services)
     {
-        $categories = SERV06ServicesCategory::pluck('title', 'id');
         return view('Admin.cruds.Services.SERV06.edit', [
             'service' => $SERV06Services,
-            'categories' => $categories,
             'cropSetting' => getCropImage('Services', 'SERV06')
         ]);
     }
@@ -123,10 +119,21 @@ class SERV06Controller extends Controller
             $data['path_image'] = null;
         }
 
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($SERV06Services, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($SERV06Services, 'path_image_icon');
+            $data['path_image_icon'] = null;
+        }
+
         if ($SERV06Services->fill($data)->save()) {
             Session::flash('success', 'Serviço atualizado com sucesso');
         } else {
             Storage::delete($path_image);
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao atualizar serviço');
         }
         return redirect()->back();
@@ -141,6 +148,7 @@ class SERV06Controller extends Controller
     public function destroy(SERV06Services $SERV06Services)
     {
         storageDelete($SERV06Services, 'path_image');
+        storageDelete($SERV06Services, 'path_image_icon');
 
         if ($SERV06Services->delete()) {
             Session::flash('success', 'Serviço deletado com sucessso');
@@ -159,6 +167,7 @@ class SERV06Controller extends Controller
         $SERV06Servicess = SERV06Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV06Servicess as $SERV06Services){
             storageDelete($SERV06Services, 'path_image');
+            storageDelete($SERV06Services, 'path_image_icon');
         }
 
         if ($deleted = SERV06Services::whereIn('id', $request->deleteAll)->delete()) {
@@ -189,7 +198,7 @@ class SERV06Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request, SERV06ServicesCategory $SERV06ServicesCategory)
+    public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV06', 'page');
@@ -207,14 +216,13 @@ class SERV06Controller extends Controller
             break;
         }
 
-        $categories = SERV06ServicesCategory::exists()->active()->sorting()->get();
+
         $services = SERV06Services::active()->sorting()->get();
 
         return view('Client.pages.Services.SERV06.page', [
             'sections' => $sections,
             'banner' => $banner,
             'services' => $services,
-            'categories' => $categories
         ]);
     }
 

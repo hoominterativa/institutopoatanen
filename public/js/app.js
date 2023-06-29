@@ -12017,10 +12017,13 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Feedbacks_FEED05_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Feedbacks/FEED05/src/main */ "./resources/views/Client/pages/Feedbacks/FEED05/src/main.js");
-/* harmony import */ var _pages_Feedbacks_FEED05_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED05_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _pages_Services_SERV06_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Services/SERV06/src/main */ "./resources/views/Client/pages/Services/SERV06/src/main.js");
+/* harmony import */ var _pages_Services_SERV06_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV06_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Feedbacks_FEED05_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/Feedbacks/FEED05/src/main */ "./resources/views/Client/pages/Feedbacks/FEED05/src/main.js");
+/* harmony import */ var _pages_Feedbacks_FEED05_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED05_src_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -12250,6 +12253,16 @@ $(".feed05__carousel").owlCarousel({
   margin: 60,
   items: 1
 });
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Services/SERV06/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Services/SERV06/src/main.js ***!
+  \******************************************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 

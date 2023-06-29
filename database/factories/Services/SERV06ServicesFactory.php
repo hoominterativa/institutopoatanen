@@ -24,12 +24,13 @@ class SERV06ServicesFactory extends Factory
     {
         $title = $this->faker->text(16);
         return [
-            'category_id' =>rand(1,4),
             'title' => $title,
+            'title_section' => $this->faker->text(16),
             'slug' => Str::slug($title),
             'subtitle' => $this->faker->text(15),
             'text' => $this->faker->text(900),
             'path_image' => 'uploads/tmp/thumbnail.png',
+            'path_image_icon' => 'uploads/tmp/favicon.png',
             'active' => 1,
         ];
     }

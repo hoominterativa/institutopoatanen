@@ -22,15 +22,6 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#categories" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Categorias
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastre as categorias"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#services" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Services', 'SERV06') }}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -79,7 +70,7 @@
                                                         <label><input name="btnSelectAll" value="btnDeleteService" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
-                                                    <th>Categoria</th>
+                                                    <th>Título da seção</th>
                                                     <th>Título</th>
                                                     <th>Subtítulo</th>
                                                     <th>Texto</th>
@@ -99,8 +90,11 @@
                                                             @if ($service->path_image)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $service->path_image)}})"></div>
                                                             @endif
+                                                            @if ($service->path_image_icon)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $service->path_image_icon)}})"></div>
+                                                            @endif
                                                         </td>
-                                                        <td class="align-middle">{{$service->category->title}}</td>
+                                                        <td class="align-middle">{{$service->title_section}}</td>
                                                         <td class="align-middle">{{$service->title}}</td>
                                                         <td class="align-middle">{{$service->subtitle}}</td>
                                                         <td class="align-middle">{!! substr($service->text, 0, 30) !!}</td>
@@ -130,11 +124,6 @@
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
-                    </div>
-                    <div class="tab-pane" id="categories">
-                        @include('Admin.cruds.Services.SERV06.Category.index', [
-                            'categories' => $serviceCategories
-                        ])
                     </div>
                     <div class="tab-pane" id="section">
                         @include('Admin.cruds.Services.SERV06.Section.form')

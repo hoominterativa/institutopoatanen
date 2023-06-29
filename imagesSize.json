@@ -970,6 +970,11 @@
                 "height": "619",
                 "activeCrop": "false"
             },
+            "path_image_icon": {
+                "width": "250",
+                "height": "250",
+                "activeCrop": "false"
+            },
             "Section": {
                 "path_image_desktop": {
                     "width": "1500",
@@ -1001,13 +1006,6 @@
                 "path_image": {
                     "width": "430",
                     "height": "593",
-                    "activeCrop": "false"
-                }
-            },
-            "Category": {
-                "path_image_icon": {
-                    "width": "300",
-                    "height": "300",
                     "activeCrop": "false"
                 }
             }

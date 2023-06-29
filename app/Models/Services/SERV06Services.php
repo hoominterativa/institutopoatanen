@@ -16,7 +16,7 @@ class SERV06Services extends Model
     }
 
     protected $table = "serv06_services";
-    protected $fillable = ['category_id', 'title', 'slug', 'subtitle', 'text', 'path_image', 'active', 'sorting'];
+    protected $fillable = ['title_section','title', 'slug', 'subtitle', 'text', 'path_image', 'path_image_icon', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -26,10 +26,5 @@ class SERV06Services extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(SERV06ServicesCategory::class, 'category_id');
     }
 }

@@ -28,12 +28,8 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/categorias', SERV06CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'SERV06ServicesCategory']);
-    Route::post($route.'/categoria/delete', [SERV06CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-    Route::post($route.'/categoria/sorting', [SERV06CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-
     Route::resource($route.'/secao', SERV06SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV06ServicesSection']);
     Route::resource($route.'/banner', SERV06BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SERV06ServicesBanner']);
 });
 // // CLIENT
-Route::get($route.'/categoria/{SERV06ServicesCategory:slug}', [SERV06Controller::class, 'page'])->name($routeName.'.category.page');
+

@@ -12,16 +12,16 @@
                         <hr class="serv06-page__line">
                     @endif
                     <div class="serv06-categories">
-                        @if ($categories->count())
+                        @if ($services->count())
                             <ul class="serv06-categories__list w-100">
-                                @foreach ($categories as $category)
+                                @foreach ($services as $service)
                                     <li class="serv06-categories__list__item">
-                                        <a href="#sec-{{ $category->slug }}-{{ $category->services->first()->slug }}">
-                                            @if ($category->path_image_icon)
-                                                <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv06-categories__list__item__icon">
+                                        <a href="#sec-{{ $service->slug }}">
+                                            @if ($service->path_image_icon)
+                                                <img src="{{ asset('storage/' . $service->path_image_icon) }}" alt="" class="serv06-categories__list__item__icon">
                                             @endif
-                                            @if ($category->title)
-                                                {{ $category->title }}
+                                            @if ($service->title_section)
+                                                {{ $service->title_section }}
                                             @endif
                                         </a>
                                     </li>
@@ -37,22 +37,22 @@
                                             aria-controls="flush-collapseOne">
                                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
                                                 class="serv06-categories__dropdown-mobile__item__icon">
-                                            Categorias
+                                            Seções
                                         </button>
                                     </h2>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body">
-                                            @if ($categories->count())
+                                            @if ($services->count())
                                                 <ul>
-                                                    @foreach ($categories as $category)
+                                                    @foreach ($services as $service)
                                                         <li class="serv06-categories__dropdown-mobile__item">
-                                                            <a href="#sec-{{ $category->slug }}-{{ $category->services->first()->slug }}">
-                                                                @if ($category->path_image_icon)
-                                                                    <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv06-categories__dropdown-mobile__item__icon">
-                                                                    @if ($category->title)
-                                                                        {{ $category->title }}
-                                                                    @endif
+                                                            <a href="#sec-{{$service->slug}}">
+                                                                @if ($service->path_image_icon)
+                                                                    <img src="{{ asset('storage/' . $service->path_image_icon) }}" alt="" class="serv06-categories__dropdown-mobile__item__icon">
+                                                                @endif
+                                                                @if ($service->title_section)
+                                                                    {{$service->title_section}}
                                                                 @endif
                                                             </a>
                                                         </li>
@@ -71,7 +71,7 @@
         @if ($services->count())
             <main class="serv06-page__main">
                 @foreach ($services as $service)
-                <article id="sec-{{ $service->category->slug }}-{{ $service->slug }}" class="serv06-page__item w-100">
+                <article id="sec-{{$service->slug}}" class="serv06-page__item w-100">
                         @if ($service->path_image)
                             <img src="{{ asset('storage/' . $service->path_image) }}" alt="" class="serv06-page__item__image">
                         @endif
