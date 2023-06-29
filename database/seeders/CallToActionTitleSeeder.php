@@ -17,8 +17,8 @@ class CallToActionTitleSeeder extends Seeder
     public function run()
     {
         DB::table('call_to_action_titles')->insert([
-            'active_header' => 0,
-            'active_footer' => 0,
+            'active_header' => 1,
+            'active_footer' => 1,
         ]);
     }
 }

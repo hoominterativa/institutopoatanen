@@ -41,6 +41,8 @@ use App\Models\CallToActionTitle;
 |--------------------------------------------------------------------------
 */
 
+// listPage();
+
 View::composer('Admin.cruds.*', function ($view) {
     $configModelsMain = config('modelsConfig.InsertModelsMain');
     return $view->with('configModelsMain', $configModelsMain);

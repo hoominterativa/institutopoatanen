@@ -86,7 +86,7 @@ class COTA02Controller extends Controller
 
         $data['inputs_form'] = $jsonInputs;
 
-        $data['slug'] = Str::slug($request->title_form);
+        $data['slug'] = Str::slug($request->title_banner);
 
         $data['active'] = $request->active?1:0;
 
@@ -195,7 +195,7 @@ class COTA02Controller extends Controller
             $data['active'] = $request->active?1:0;
         }
 
-        $data['slug'] = Str::slug($request->title_form);
+        $data['slug'] = Str::slug($request->title_banner);
 
         //Banner
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
@@ -343,6 +343,36 @@ class COTA02Controller extends Controller
     }
 
     // METHODS CLIENT
+
+    /**
+     * Display a listing of the resourcee.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request, COTA02Contacts $COTA02Contacts)
+    {
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($COTA02Contacts) $COTA02Contacts->path_image_banner_desktop = $COTA02Contacts->path_image_banner_mobile;
+            break;
+        }
+
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA02');
+
+        $compliance = getCompliance($COTA02Contacts->compliance_id??'0');
+        $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id )->active()->sorting()->get();
+
+        return view('Client.pages.Contacts.COTA02.page',[
+            'sections' => $sections,
+            'contact' => $COTA02Contacts,
+            'topics' => $topics,
+            'compliance' => $compliance,
+            'inputs' => json_decode($COTA02Contacts->inputs_form)
+        ]);
+    }
 
     /**
      * Display a listing of the resourcee.

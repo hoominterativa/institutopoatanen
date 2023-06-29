@@ -28,19 +28,10 @@
                     <li class="nav-item">
                         <a href="#infoContact" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active  d-flex align-items-center">
-                            Informações da Página
+                            Campos do Formulário
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro das informações da página e dos campos do formulário"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#infoForm" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações formulário
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode editar as informações do formulário"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -50,6 +41,15 @@
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Aqui você pode editar as informações do banner"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#infoForm" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Informações formulário
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode editar as informações do formulário"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -81,6 +81,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
+                        {!! Form::hidden('title_banner', $contact->contact) !!}
                         @include('Admin.cruds.Contacts.COTA02.form')
                         {!! Form::button('Salvar', [
                             'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
@@ -97,6 +98,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
+                        {!! Form::hidden('title_banner', $contact->contact) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoBanner.form')
                         {!! Form::close() !!}
                     </div>
@@ -108,6 +110,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
+                        {!! Form::hidden('title_banner', $contact->contact) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoTopic.form')
                         {!! Form::close() !!}
                     </div>
@@ -119,6 +122,7 @@
                             'method' => 'PUT',
                             'files' => true,
                         ]) !!}
+                        {!! Form::hidden('title_banner', $contact->contact) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoForm.form')
                         {!! Form::close() !!}
                     </div>
