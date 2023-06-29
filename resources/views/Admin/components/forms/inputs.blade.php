@@ -318,7 +318,7 @@
                 'data-min-width'=>$cropSetting->path_image->width, // px
                 'data-min-height'=>$cropSetting->path_image->height, // px
                 'data-box-height'=>'225', // Input height in the form
-                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                 'data-default-file'=> isset($test)?($test->path_image<>''?url('storage/'.$test->path_image):''):'',
             ]) !!}
         </label>
@@ -329,7 +329,7 @@
 <div class="mb-3">
     <div class="uploadMultipleImage">
         <label for="path_image" class="content-message">
-            {!! Form::file('path_image[]', [ 'id' => 'path_image', 'multiple' => 'multiple', 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp', 'class' => 'inputGetImage']) !!}
+            {!! Form::file('path_image[]', [ 'id' => 'path_image', 'multiple' => 'multiple', 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff', 'class' => 'inputGetImage']) !!}
             <i class="mdi mdi-cloud-upload-outline mdi-36px"></i>
             <h4 class="title">Solte as imagens aqui ou clique para fazer upload.</h4>
             <span class="text-muted font-13">Carregar imagens com no máximo <strong>2mb</strong></span>

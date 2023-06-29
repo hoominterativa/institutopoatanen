@@ -23,6 +23,7 @@ class PROD05ProductsSection extends Model
         "title_banner",
         "subtitle_banner",
         "path_image_banner",
+        "path_image_banner_mobile",
         "active",
         "sorting",
     ];

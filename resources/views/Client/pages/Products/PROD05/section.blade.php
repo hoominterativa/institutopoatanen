@@ -1,26 +1,27 @@
 <section id="PROD05" class="prod05">
     <div class="container">
         <header class="prod05__header d-flex flex-column align-items-center">
-            <h2 class="prod05__title">Título</h2>
-            <h3 class="prod05__subtitle">Subtítulo</h3>
-            <hr class="prod05__line">
+            @if ($section->title || $section->subtitle || $section->description)
+                <h2 class="prod05__title">{{$section->title}}</h2>
+                <h3 class="prod05__subtitle">{{$section->subtitle}}</h3>
+                <hr class="prod05__line">
 
-            <p class="prod05__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus
-                gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                eget purus mattis posuere. Donec tincidunt dignissim faucibus.</p>
+                <p class="prod05__desc">{{$section->description}}</p>
+            @endif
 
             <div class="prod05-categories">
 
                 <ul class="prod05-categories__list w-100">
-                    @for ($i = 0; $i < 3; $i++)
+                    @foreach ($categories as $category)
                         <li class="prod05-categories__list__item">
-                            <a href="">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                    class="prod05-categories__list__item__icon">
-                                Categoria
+                            <a href="{{route('prod05.category.page', ['PROD05ProductsCategory' => $category->slug])}}">
+                                @if ($category->path_image_icon)
+                                    <img src="{{ asset('storage/'.$category->path_image_icon) }}" alt="{{$category->title}}" class="prod05-categories__list__item__icon">
+                                @endif
+                                {{$category->title}}
                             </a>
                         </li>
-                    @endfor
+                    @endforeach
                 </ul>
 
                 <div class="prod05-categories__dropdown-mobile">
@@ -30,25 +31,24 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne" aria-expanded="false"
                                     aria-controls="flush-collapseOne">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                        class="prod05-categories__dropdown-mobile__item__icon">
-                                    Categoria
+                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Categorias de Produtos" class="prod05-categories__dropdown-mobile__item__icon">
+                                    Categorias
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
                                 data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <ul>
-                                        @for ($i = 0; $i < 3; $i++)
+                                        @foreach ($categories as $category)
                                             <li class="prod05-categories__dropdown-mobile__item">
-                                                <a href="">
-                                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                                        alt=""
-                                                        class="prod05-categories__dropdown-mobile__item__icon">
-                                                    Categoria
+                                                <a href="{{route('prod05.category.page', ['PROD05ProductsCategory' => $category->slug])}}">
+                                                    @if ($category->path_image_icon)
+                                                        <img src="{{ asset('storage/'.$category->path_image_icon) }}" alt="{{$category->title}}" class="prod05-categories__dropdown-mobile__item__icon">
+                                                    @endif
+                                                    {{$category->title}}
                                                 </a>
                                             </li>
-                                        @endfor
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -64,39 +64,33 @@
 
             <div class="prod05__carousel owl-carousel">
 
-                @for ($i = 0; $i < 6; $i++)
+                @foreach ($products as $product)
                     <article class="prod05__carousel__item prod05-box">
-
-                        <img src="{{ asset('storage/uploads/tmp/thumbnail.png') }}" alt=""
-                            class="prod05-box__image">
+                        @if ($product->path_image_thumbnail)
+                            <img src="{{ asset('storage/'.$product->path_image_thumbnail) }}" alt="{{$product->title}}" class="prod05-box__image">
+                        @endif
 
                         <div class="prod05-box__content w-100 d-flex flex-column align-items-center">
                             <div class="prod05-box__top w-100 d-flex flex-column align-items-center">
-
-                                <h3 class="prod05-box__top__title">Título</h3>
-                                <h4 class="prod05-box__top__subtitle">Subtitulo</h4>
-
+                                <h3 class="prod05-box__top__title">{{$product->title}}</h3>
+                                <h4 class="prod05-box__top__subtitle">{{$product->subtitle}}</h4>
                             </div>
-
                             <hr class="prod05-box__line">
-
-                            <p class="prod05-box__desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-
-                            <a href="#" class="prod05-box__cta">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                    class="prod05-box__cta__icon">
+                            @if ($product->description)
+                                <p class="prod05-box__desc">{{$product->description}}</p>
+                            @endif
+                            <a href="{{route('prod05.page.content', ['PROD05ProductsCategory' => $product->category->slug, 'PROD05ProductsSubcategory' => $product->subcategory->slug ,'PROD05Products' => $product->slug])}}" class="prod05-box__cta">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="{{$product->title}}" class="prod05-box__cta__icon">
                                 CTA
                             </a>
                         </div>
 
                     </article>
-                @endfor
+                @endforeach
 
             </div>
 
-            <a href="#" class="prod05__cta">
+            <a href="{{route('prod05.category.page',['PROD05ProductsCategory'=>$categoryFirst->slug])}}" class="prod05__cta">
                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="prod05__cta__icon">
                 CTA
             </a>

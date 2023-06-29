@@ -23,6 +23,7 @@ class CreateProd05ProductsSectionsTable extends Migration
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
             $table->string('path_image_banner')->nullable();
+            $table->string('path_image_banner_mobile')->nullable();
 
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);

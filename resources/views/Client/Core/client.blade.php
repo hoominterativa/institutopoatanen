@@ -4,7 +4,7 @@
     {!!$optimization->scripts!!}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <meta name="device" content=""> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="device" content="{{ deviceDetect() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
     <link rel="stylesheet" href="{{asset(mix('css/icons.css'))}}">
     <script src="{{asset(mix('js/app.js'))}}"></script>
-    
+
     @if ($themeMenu)
         @include('Client.Components.themeMenu.'.$themeMenu.'.structure',[
             "listMenu" => $listMenu,

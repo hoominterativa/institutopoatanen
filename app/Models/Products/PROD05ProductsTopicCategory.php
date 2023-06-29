@@ -34,6 +34,25 @@ class PROD05ProductsTopicCategory extends Model
         return $query->where('active', 1);
     }
 
+    public function topics()
+    {
+        return $this->hasMany(PROD05ProductsTopic::class, 'category_id', 'id');
+    }
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('prod05_products_topics')->whereColumn('prod05_products_topics.category_id', 'prod05_products_topiccategories.id');
+        });
+    }
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('prod05_products_topics')->whereColumn('prod05_products_topics.category_id', 'prod05_products_topiccategories.id');
+        });
+    }
+
     // public function getRelationCore()
     // {
     //     return null;

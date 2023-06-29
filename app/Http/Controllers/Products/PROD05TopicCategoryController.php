@@ -2,38 +2,19 @@
 
 namespace App\Http\Controllers\Products;
 
-use App\Models\Products\PROD05ProductsTopicCategory;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Products\PROD05ProductsTopic;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Products\PROD05ProductsTopicCategory;
 
 class PROD05TopicCategoryController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Products/PROD05/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +25,20 @@ class PROD05TopicCategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if(PROD05ProductsTopicCategory::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao cadastradar categoria');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Products\PROD05ProductsTopicCategory  $PROD05ProductsTopicCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PROD05ProductsTopicCategory $PROD05ProductsTopicCategory)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,51 +51,27 @@ class PROD05TopicCategoryController extends Controller
     public function update(Request $request, PROD05ProductsTopicCategory $PROD05ProductsTopicCategory)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($PROD05ProductsTopicCategory, 'path_image');
-            $data['path_image'] = $path_image;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($PROD05ProductsTopicCategory, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($PROD05ProductsTopicCategory, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($PROD05ProductsTopicCategory, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($PROD05ProductsTopicCategory, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PROD05ProductsTopicCategory, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if($PROD05ProductsTopicCategory->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao atualizar categoria');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +82,15 @@ class PROD05TopicCategoryController extends Controller
      */
     public function destroy(PROD05ProductsTopicCategory $PROD05ProductsTopicCategory)
     {
-        //storageDelete($PROD05ProductsTopicCategory, 'path_image');
-        //storageDelete($PROD05ProductsTopicCategory, 'path_archive');
+        if(PROD05ProductsTopic::where('category_id', $PROD05ProductsTopicCategory->id)->exists()){
+            Session::flash('error', 'A categoria não pode ser deletada pois existem tópicos vinculados a ela');
+            return redirect()->back();
+        }
+
+        storageDelete($PROD05ProductsTopicCategory, 'path_image_icon');
 
         if($PROD05ProductsTopicCategory->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Categoria deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,19 +103,22 @@ class PROD05TopicCategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $PROD05ProductsTopicCategorys = PROD05ProductsTopicCategory::whereIn('id', $request->deleteAll)->get();
         foreach($PROD05ProductsTopicCategorys as $PROD05ProductsTopicCategory){
-            storageDelete($PROD05ProductsTopicCategory, 'path_image');
-            storageDelete($PROD05ProductsTopicCategory, 'path_archive');
+
+            if(PROD05ProductsTopic::where('category_id', $PROD05ProductsTopicCategory->id)->exists()){
+                Session::flash('error', 'A categoria não pode ser deletada pois existem tópicos vinculados a ela');
+                return redirect()->back();
+            }
+
+            storageDelete($PROD05ProductsTopicCategory, 'path_image_icon');
         }
-        */
 
         if($deleted = PROD05ProductsTopicCategory::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
+
     /**
     * Sort record by dragging and dropping
     *
@@ -194,51 +132,5 @@ class PROD05TopicCategoryController extends Controller
             PROD05ProductsTopicCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Products\PROD05ProductsTopicCategory  $PROD05ProductsTopicCategory
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PROD05ProductsTopicCategory $PROD05ProductsTopicCategory)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

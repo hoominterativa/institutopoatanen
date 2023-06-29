@@ -33,6 +33,11 @@ class PROD05ProductsGallery extends Model
         return $query->where('active', 1);
     }
 
+    public function color()
+    {
+        return $this->belongsTo(PROD05ProductsGalleryType::class, 'gallery_type_id');
+    }
+
     // public function getRelationCore()
     // {
     //     return null;

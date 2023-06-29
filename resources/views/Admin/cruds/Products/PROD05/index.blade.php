@@ -49,7 +49,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Banner
+                            Banner Interno
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Este banner será exibido na página de produtos"></i>
@@ -57,7 +57,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
-                            Informações da seção produtos
+                            Informações para Home
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Informações complementares que serão exibidas na home, caso esteja ativa"></i>
@@ -155,8 +155,14 @@
                         ])
                     </div>
                     <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Products.PROD05.Banner.form',[
+                            'section' => $section
+                        ])
                     </div>
                     <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Products.PROD05.Section.form',[
+                            'section' => $section
+                        ])
                     </div>
                 </div>
                 <!-- end row -->

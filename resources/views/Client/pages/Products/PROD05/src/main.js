@@ -99,3 +99,52 @@ $('body, html').on('click', '.prod05-show__info__gallery__options__item', functi
     $('.prod05-show__info__gallery__options__item').removeClass('prod05-show__info__gallery__options__item--active');
     $(this).addClass('prod05-show__info__gallery__options__item--active');
 });
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$('.prod05-show__info__gallery__options__item').on('click', function(e){
+    e.preventDefault();
+    var id = $(this).data('id'),
+        url = $(this).data('url');
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {id},
+        success: function(response){
+            console.log(response)
+            $('#receiveGallery > *').remove();
+            $('#receiveGallery').append(response);
+
+            $('.prod05-show__info__gallery__carousel').addClass('owl-carousel');
+            $(".prod05-show__info__gallery__carousel").owlCarousel({
+                loop: false,
+                dots: true,
+                nav: false,
+                rewind: true,
+                autoHeight: true,
+                margin: 10,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    // breakpoint from 0 up
+                    520: {
+                        items: 2,
+                    },
+                    // breakpoint from 361 up
+                    768: {
+                        items: 3,
+                    },
+                    980: {
+                        items: 4,
+                    },
+                },
+            });
+        }
+    })
+});

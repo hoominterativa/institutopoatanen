@@ -6,6 +6,7 @@
     <link href="{{url(mix('Admin/assets/libs/bootstrap-table.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('Admin/assets/libs/sweetalert2.min.css'))}}" rel="stylesheet" type="text/css" />
     <link href="{{url(mix('Admin/assets/libs/bootstrap-datepicker.min.css'))}}" rel="stylesheet" type="text/css" />
+    <link href="{{url(mix('Admin/assets/libs/rcrop.css'))}}" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('indexJs')
@@ -19,6 +20,7 @@
     <script src="{{url(mix('Admin/assets/libs/dropify.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/bootstrap-datepicker.min.js'))}}"></script>
     <script src="{{url(mix('Admin/assets/libs/bootstrap-datepicker.pt-BR.min.js'))}}"></script>
+    <script src="{{url(mix('Admin/assets/libs/rcrop.js'))}}"></script>
 
     <!-- Pages init js-->
     <script src="{{url(mix('Admin/assets/js/pages/form-pickers.init.js'))}}"></script>

@@ -26,12 +26,26 @@ class PROD05ProductsSubcategory extends Model
 
     public function scopeSorting($query)
     {
-        return $query->orderBy('sorting', 'ASC');
+        return $query->orderBy('prod05_products_subcategories.sorting', 'ASC');
     }
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('prod05_products_subcategories.active', 1);
+    }
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('prod05_products_subcategories.id')->from('prod05_products')->whereColumn('prod05_products.subcategory_id', 'prod05_products_subcategories.id');
+        });
+    }
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('prod05_products_subcategories.id')->from('prod05_products')->whereColumn('prod05_products.subcategory_id', 'prod05_products_subcategories.id');
+        });
     }
 
     // public function getRelationCore()

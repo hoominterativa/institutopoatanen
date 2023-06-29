@@ -465,18 +465,33 @@
             }
         },
         "PROD05": {
-            "path_image_box": {
+            "path_image": {
+                "width": "327",
+                "height": "447",
+                "activeCrop": "false"
+            },
+            "path_image_thumbnail": {
+                "width": "327",
+                "height": "447",
+                "activeCrop": "false"
+            },
+            "path_image_banner": {
+                "width": "327",
+                "height": "447",
+                "activeCrop": "false"
+            },
+            "path_image_banner_mobile": {
                 "width": "327",
                 "height": "447",
                 "activeCrop": "false"
             },
             "Banner": {
-                "path_image_desktop": {
+                "path_image_banner": {
                     "width": "1500",
                     "height": "304",
                     "activeCrop": "true"
                 },
-                "path_image_mobile": {
+                "path_image_banner_mobile": {
                     "width": "390",
                     "height": "321",
                     "activeCrop": "true"
@@ -497,6 +512,13 @@
                 }
             },
             "Subcategory": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "TopicCategory": {
                 "path_image_icon": {
                     "width": "300",
                     "height": "300",

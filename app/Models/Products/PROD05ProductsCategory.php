@@ -30,21 +30,40 @@ class PROD05ProductsCategory extends Model
 
     public function scopeSorting($query)
     {
-        return $query->orderBy('sorting', 'ASC');
+        return $query->orderBy('prod05_products_categories.sorting', 'ASC');
     }
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('prod05_products_categories.active', 1);
     }
 
     public function scopeFeaturedHome($query)
     {
-        return $query->where('featured_home', 1);
+        return $query->where('prod05_products_categories.featured_home', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('prod05_products_categories.id')->from('prod05_products')->whereColumn('prod05_products.category_id', 'prod05_products_categories.id');
+        });
+    }
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('prod05_products_categories.id')->from('prod05_products')->whereColumn('prod05_products.category_id', 'prod05_products_categories.id');
+        });
+    }
+
+    public function pROD05ProductsSubcategories()
+    {
+        return $this->belongsToMany(PROD05ProductsSubcategory::class, 'prod05_products','category_id','subcategory_id')->groupBy('category_id');
+    }
+
+    public function getRelationCore()
+    {
+        return $this->belongsToMany(PROD05ProductsSubcategory::class, 'prod05_products','category_id','subcategory_id')->groupBy('category_id');
+    }
 }

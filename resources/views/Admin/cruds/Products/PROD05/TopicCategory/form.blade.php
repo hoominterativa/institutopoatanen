@@ -1,9 +1,10 @@
-@if (isset($subcategory))
-    {!! Form::model($subcategory, ['route' => ['admin.prod05.subcategory.update', $subcategory->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+@if (isset($topicCategory))
+    {!! Form::model($topicCategory, ['route' => ['admin.prod05.topicCategory.update', $topicCategory->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => ['admin.prod05.subcategory.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => ['admin.prod05.topicCategory.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
 @endif
+    {!! Form::hidden('product_id', $product->id) !!}
     <div class="row">
         <div class="col-12 col-lg-6 ">
             <div class="card card-body border" id="tooltip-container">
@@ -25,17 +26,17 @@
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Ícone', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
-                            {{ $cropSetting->Subcategory->path_image_icon->width }}x{{ $cropSetting->Subcategory->path_image_icon->height }}px!</small>
+                            {{ $cropSetting->TopicCategory->path_image_icon->width }}x{{ $cropSetting->TopicCategory->path_image_icon->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_icon', [
                                 'id' => 'inputImage',
                                 'class' => 'inputImage',
-                                'data-status' => $cropSetting->Subcategory->path_image_icon->activeCrop, // px
-                                'data-min-width' => $cropSetting->Subcategory->path_image_icon->width, // px
-                                'data-min-height' => $cropSetting->Subcategory->path_image_icon->height, // px
+                                'data-status' => $cropSetting->TopicCategory->path_image_icon->activeCrop, // px
+                                'data-min-width' => $cropSetting->TopicCategory->path_image_icon->width, // px
+                                'data-min-height' => $cropSetting->TopicCategory->path_image_icon->height, // px
                                 'data-box-height' => '225', // Input height in the form
                                 'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file' => isset($subcategory)? ($subcategory->path_image_icon != ''? url('storage/' . $subcategory->path_image_icon): ''): '',
+                                'data-default-file' => isset($topicCategory)? ($topicCategory->path_image_icon != ''? url('storage/' . $topicCategory->path_image_icon): ''): '',
                             ]) !!}
                         </label>
                     </div><!-- END container image crop -->

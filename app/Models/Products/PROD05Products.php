@@ -30,6 +30,7 @@ class PROD05Products extends Model
         "link_target",
         "title_button",
         "path_image_banner",
+        "path_image_banner_mobile",
         "title_banner",
         "subtitle_banner",
         "title_section_topic",
@@ -61,7 +62,7 @@ class PROD05Products extends Model
 
     public function subcategory()
     {
-        return $this->belongsTo(PROD05ProductsSubcategory::class, 'category_id');
+        return $this->belongsTo(PROD05ProductsSubcategory::class, 'subcategory_id');
     }
 
     // public function getRelationCore()
