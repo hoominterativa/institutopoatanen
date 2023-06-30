@@ -2,50 +2,24 @@
     <div class="row">
         <div class="slid03-show__sideLeft col-12 col-md-6">
             <div class="slid03-show__sideLeft__content">
-                <h3 class="slid03-show__sideLeft__content__title">Form Completo</h3>
-                <p class="slid03-show__sideLeft__content__description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur adipiscing elit. Cras vel tortor
-                </p>
+                <h3 class="slid03-show__sideLeft__content__title">{{$form->title_lightbox}}</h3>
+                <p class="slid03-show__sideLeft__content__description">{{$form->description_lightbox}}</p>
             </div>
             {!! Form::model(null, ["class" => "slid03-show__form__item parsley-validate", "method" => "POST", "files" => true]) !!}
                 <input type="hidden" name="target_lead" value="Razão do formulário">
-                <input type="hidden" name="target_send" value="anderson@hoom.com.br">
-                <div class="slid03-show__form__item__input">
-                    @include('Client.Components.inputs', [
-                        'name' => 'name',
-                        'options' => '',
-                        'placeholder' => "Seu Nome",
-                        'type' => 'text',
-                        'required' => true,
-                    ])
-                </div>
-                <div class="slid03-show__form__item__input">
-                    @include('Client.Components.inputs', [
-                        'name' => 'cellphone',
-                        'options' => '',
-                        'placeholder' => "Celular",
-                        'type' => 'cellphone',
-                        'required' => true,
-                    ])
-                </div>
-                <div class="slid03-show__form__item__input">
-                    @include('Client.Components.inputs', [
-                        'name' => 'email',
-                        'options' => '',
-                        'placeholder' => "E-mail",
-                        'type' => 'email',
-                        'required' => true,
-                    ])
-                </div>
-                <div class="slid03-show__form__item__input">
-                    @include('Client.Components.inputs', [
-                        'name' => 'endereco',
-                        'options' => '',
-                        'placeholder' => "Endereço",
-                        'type' => 'text',
-                        'required' => true,
-                    ])
-                </div>
+                <input type="hidden" name="target_send" value="{{$form->email_form}}">
+
+                @foreach ($inputs as $name => $input)
+                    <div class="slid03-show__form__item__input">
+                        @include('Client.Components.inputs', [
+                            'name' => $name,
+                            'options' => $input->option,
+                            'placeholder' => $input->placeholder,
+                            'type' => $input->type,
+                            'required' => isset($input->required) ? $input->required : false,
+                        ])
+                    </div>
+                @endforeach
                 <div class="slid03-show__form__additional">
                     <div class="slid03-show__form__additional__header d-flex align-items-center">
                         <div>
@@ -60,24 +34,17 @@
                     <div id="receiveInputs">
                         <div class="addedInput slid03-show__form__additional__item">
                             <a href="javascript:void(0)" class="mdi mdi-trash-can-outline slid03-show__form__additional__delete"></a>
+                            @foreach ($inputsAdditionals as $name => $input)
                             <div class="slid03-show__form__additional__input">
-                                @include('Client.Components.inputs', [
-                                    'name' => 'nome-do-pet[]',
-                                    'options' => '',
-                                    'placeholder' => "Nome do Pet",
-                                    'type' => 'text',
-                                    'required' => true,
-                                ])
-                            </div>
-                            <div class="slid03-show__form__additional__input">
-                                @include('Client.Components.inputs', [
-                                    'name' => 'idade-do-pet[]',
-                                    'options' => '',
-                                    'placeholder' => "Idade do Pet",
-                                    'type' => 'text',
-                                    'required' => true,
-                                ])
-                            </div>
+                                    @include('Client.Components.inputs', [
+                                        'name' => $name,
+                                        'options' => $input->option,
+                                        'placeholder' => $input->placeholder,
+                                        'type' => $input->type,
+                                        'required' => isset($input->required) ? $input->required : false,
+                                    ])
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

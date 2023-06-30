@@ -6,34 +6,12 @@ use App\Models\Slides\SLID03SlidesForm;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
 
 class SLID03FormController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Slides/SLID03/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +22,20 @@ class SLID03FormController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $path_image_lightbox = $helper->optimizeImage($request, 'path_image_lightbox', $this->path, null,100);
+        if($path_image_lightbox) $data['path_image_lightbox'] = $path_image_lightbox;
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if(SLID03SlidesForm::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_lightbox);
+            Session::flash('error', 'Erro ao cadastradar informações');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Slides\SLID03SlidesForm  $SLID03SlidesForm
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SLID03SlidesForm $SLID03SlidesForm)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,149 +48,228 @@ class SLID03FormController extends Controller
     public function update(Request $request, SLID03SlidesForm $SLID03SlidesForm)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($SLID03SlidesForm, 'path_image');
-            $data['path_image'] = $path_image;
+        $path_image_lightbox = $helper->optimizeImage($request, 'path_image_lightbox', $this->path, null,100);
+        if($path_image_lightbox){
+            storageDelete($SLID03SlidesForm, 'path_image_lightbox');
+            $data['path_image_lightbox'] = $path_image_lightbox;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SLID03SlidesForm, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SLID03SlidesForm, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_lightbox && !$path_image_lightbox){
+            storageDelete($SLID03SlidesForm, 'path_image_lightbox');
+            $data['path_image_lightbox'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SLID03SlidesForm, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if($SLID03SlidesForm->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_lightbox);
+            Session::flash('error', 'Erro ao atualizar informações');
         }
+        return redirect()->back();
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Slides\SLID03SlidesForm  $SLID03SlidesForm
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SLID03SlidesForm $SLID03SlidesForm)
-    {
-        //storageDelete($SLID03SlidesForm, 'path_image');
-        //storageDelete($SLID03SlidesForm, 'path_archive');
-
-        if($SLID03SlidesForm->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroySelected(Request $request)
+    public function inputStore(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
+        $data = $request->all();
 
-        $SLID03SlidesForms = SLID03SlidesForm::whereIn('id', $request->deleteAll)->get();
-        foreach($SLID03SlidesForms as $SLID03SlidesForm){
-            storageDelete($SLID03SlidesForm, 'path_image');
-            storageDelete($SLID03SlidesForm, 'path_archive');
-        }
-        */
+        $arrayInputs = [];
 
-        if($deleted = SLID03SlidesForm::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
         }
+        $jsonInputs = json_encode($arrayInputs);
+
+        $data['inputs'] = $jsonInputs;
+
+        if(SLID03SlidesForm::create($data)){
+            Session::flash('success', 'Informações cadastradas com sucesso');
+        }else{
+            Session::flash('error', 'Erro ao cadastradar informações');
+        }
+        return redirect()->back();
     }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            SLID03SlidesForm::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
+     * Update the specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Slides\SLID03SlidesForm  $SLID03SlidesForm
      * @return \Illuminate\Http\Response
      */
-    //public function show(SLID03SlidesForm $SLID03SlidesForm)
-    public function show()
+    public function inputUpdate(Request $request, SLID03SlidesForm $SLID03SlidesForm)
     {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $data = $request->all();
+        $arrayInputs = [];
 
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                $required = false;
+
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
+
+        if(count($arrayInputs)){
+            $jsonInputs = json_encode($arrayInputs);
+            $data['inputs'] = $jsonInputs;
+        }
+
+        if($SLID03SlidesForm->fill($data)->save()){
+            Session::flash('success', 'Informações atualizadas com sucesso');
+        }else{
+            Session::flash('error', 'Erro ao atualizar informações');
+        }
+        return redirect()->back();
     }
 
     /**
-     * Display a listing of the resourcee.
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function additionalStore(Request $request)
     {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $data = $request->all();
 
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
+        $arrayInputs = [];
+
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
+        $jsonInputs = json_encode($arrayInputs);
+
+        $data['inputs_additionals'] = $jsonInputs;
+
+        if(SLID03SlidesForm::create($data)){
+            Session::flash('success', 'Informações cadastradas com sucesso');
+        }else{
+            Session::flash('error', 'Erro ao cadastradar informações');
+        }
+        return redirect()->back();
     }
 
     /**
-     * Section index resource.
+     * Update the specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Slides\SLID03SlidesForm  $SLID03SlidesForm
      * @return \Illuminate\Http\Response
      */
-    public static function section()
+    public function additionalUpdate(Request $request, SLID03SlidesForm $SLID03SlidesForm)
     {
-        return view('');
+        $data = $request->all();
+        $arrayInputs = [];
+
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                $required = false;
+
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
+
+        if(count($arrayInputs)){
+            $jsonInputs = json_encode($arrayInputs);
+            $data['inputs_additionals'] = $jsonInputs;
+        }
+
+        if($SLID03SlidesForm->fill($data)->save()){
+            Session::flash('success', 'Informações atualizadas com sucesso');
+        }else{
+            Session::flash('error', 'Erro ao atualizar informações');
+        }
+        return redirect()->back();
     }
 }

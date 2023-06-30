@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Slides;
 
+
 use App\Models\Slides\SLID03Slides;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Slides\SLID03SlidesForm;
 
 class SLID03Controller extends Controller
 {
@@ -23,9 +25,18 @@ class SLID03Controller extends Controller
     public function index()
     {
         $slide = SLID03Slides::first();
-        return view('Admin.cruds.Slides.SLID03.create',[
+        $form = SLID03SlidesForm::first();
+        $inputs = json_decode($form->inputs);
+        $inputsAdditionals = json_decode($form->inputs_additionals);
+        $compliances = getCompliance(null, 'id', 'title_page');
+
+        return view('Admin.cruds.Slides.SLID03.index',[
             'slide' => $slide,
-            'cropSetting' => getCropImage('Slides', 'SLID03')
+            'form' => $form,
+            'inputs' => !is_array($inputs)?$inputs:null,
+            'inputsAdditionals' => !is_array($inputsAdditionals)?$inputsAdditionals:null,
+            'compliances' => $compliances,
+            'cropSetting' => getCropImage('Slides', 'SLID03'),
         ]);
     }
 
@@ -111,46 +122,22 @@ class SLID03Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Slides\SLID03Slides  $SLID03Slides
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SLID03Slides $SLID03Slides)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Section index resource.
      *
      * @return \Illuminate\Http\Response
      */
     public static function section()
     {
-        return view('Client.pages.Slides.SLID03.section');
+        $slide = SLID03Slides::first();
+        $form = SLID03SlidesForm::first();
+        $inputs = json_decode($form->inputs);
+        $inputsAdditionals = json_decode($form->inputs_additionals);
+
+        return view('Client.pages.Slides.SLID03.section',[
+            'slide' => $slide,
+            'form' => $form,
+            'inputs' => !is_array($inputs)?$inputs:null,
+            'inputsAdditionals' => !is_array($inputsAdditionals)?$inputsAdditionals:null,
+        ]);
     }
 }

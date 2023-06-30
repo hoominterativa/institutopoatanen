@@ -24,7 +24,8 @@ class SLID03SlidesForm extends Model
         "inputs",
         "inputs_additionals",
         "active",
-        "sorting",
+        "compliance_id",
+        "email_form",
     ];
 
     public function scopeActive($query)

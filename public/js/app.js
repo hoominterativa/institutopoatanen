@@ -11916,20 +11916,6 @@ $(function () {
       name = that.attr('name'),
       typeElem = that[0].localName;
     if (placeholder) {
-      var focusInput = function focusInput(elem) {
-        elem.css('height', 'auto');
-        elem.stop().animate({
-          'padding': '1px 7px;',
-          'font-size': '11px',
-          'line-height': '18px'
-        }, 'fast', function () {
-          var newHeightPlaceholder = elem.css('height');
-          that.css({
-            'padding-top': newHeightPlaceholder,
-            'padding-bottom': '3px'
-          });
-        });
-      };
       if (typeElem == 'select') {
         placeholder = that.find('option').first().text();
         that.find('option').first().text('');
@@ -11939,13 +11925,7 @@ $(function () {
       that.removeAttr('placeholder');
       that.attr('id', name);
       var formPlaceholder = that.parent(),
-        placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-        thisPadding = that.css('padding'),
-        thisHeight = that.css('height'),
-        thisWidth = that.css('width'),
-        thisFont = that.css('font'),
-        thisFontSize = that.css('font-size'),
-        thisLineHeight = that.css('line-height');
+        placeholderCustom = formPlaceholder.find('.placeholder--custom');
       placeholderCustom.on('click', function () {
         that.trigger('focus');
       });
@@ -11963,66 +11943,17 @@ $(function () {
     var that = $(this),
       placeholder = that.find('option').first().text(),
       name = that.attr('name');
-    that.parent().append("\n            <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
+    that.parent().append("\n            <div class=\"form-placeholder select\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
     that.parent().find('.form-placeholder').append(that);
     that.removeAttr('placeholder');
     that.attr('id', name);
-    var formPlaceholder = that.parent(),
-      placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-      thisPadding = that.css('padding'),
-      thisHeight = that.css('height'),
-      thisWidth = that.css('width'),
-      thisFont = that.css('font'),
-      thisFontSize = that.css('font-size'),
-      thisLineHeight = that.css('line-height');
-    that.css('height', thisHeight);
-    formPlaceholder.css({
-      'position': 'relative'
-    });
-    placeholderCustom.css({
-      'position': 'absolute',
-      'left': '0',
-      'top': '0',
-      'line-height': thisLineHeight,
-      'padding': thisPadding,
-      'width': thisWidth,
-      'height': thisHeight,
-      'font': thisFont,
-      'opacity': '0',
-      'visibility': 'hidden'
-    });
+    var formPlaceholder = that.parent();
     that.on('change', function () {
       var thisValue = $(this).val();
       if (thisValue != '') {
-        placeholderCustom.css({
-          'height': 'auto',
-          'opacity': '1',
-          'visibility': 'visible'
-        });
-        placeholderCustom.stop().animate({
-          'padding': '1px 7px;',
-          'font-size': '11px',
-          'line-height': '18px'
-        }, 'fast', function () {
-          var newHeightPlaceholder = placeholderCustom.css('height');
-          that.css({
-            'padding-top': newHeightPlaceholder,
-            'padding-bottom': '3px'
-          });
-        });
+        formPlaceholder.addClass('focusing');
       } else {
-        placeholderCustom.css({
-          'padding': thisPadding,
-          'width': thisWidth,
-          'height': thisHeight,
-          'font-size': thisFontSize,
-          'line-height': 'inherit',
-          'opacity': '0',
-          'visibility': 'hidden'
-        }, 'fast');
-        that.css({
-          'padding': thisPadding
-        });
+        formPlaceholder.removeClass('focusing');
       }
     });
   });
@@ -12111,6 +12042,24 @@ $('.slid03-show__form__additional__add').on('click', function () {
             }
           });
         }
+      });
+      $('.slid03-show__form__additional__item').first().find('select').each(function (elem) {
+        var that = $(this),
+          placeholder = that.find('option').first().text(),
+          name = that.attr('name');
+        that.parent().append("\n                    <div class=\"form-placeholder select\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n                "));
+        that.parent().find('.form-placeholder').append(that);
+        that.removeAttr('placeholder');
+        that.attr('id', name);
+        var formPlaceholder = that.parent();
+        that.on('change', function () {
+          var thisValue = $(this).val();
+          if (thisValue != '') {
+            formPlaceholder.addClass('focusing');
+          } else {
+            formPlaceholder.removeClass('focusing');
+          }
+        });
       });
     }
   });

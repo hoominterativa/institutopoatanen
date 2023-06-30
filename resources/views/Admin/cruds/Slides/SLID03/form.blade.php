@@ -13,6 +13,10 @@
                         'id'=>'complete-editor',
                     ]) !!}
                 </div>
+                <div class="mb-3 form-check">
+                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                    {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
+                </div>
                 <div class="wrapper-links my-2 border px-2 py-3">
                     <ul class="nav nav-pills navtab-bg nav-justified">
                         <li class="nav-item">

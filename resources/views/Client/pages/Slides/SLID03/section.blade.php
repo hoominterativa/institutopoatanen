@@ -3,53 +3,38 @@
         <div class="d-flex align-items-center slid03__content h-100">
             <div class="slid03__leftside col-12 col-md-6">
                 <div class="slid03__content__text">
-                    <h2>Armazzém <br><b>Clube pet</b></h2><br>
-                    <h5>Mime seu pet com economia 🐶🐱😍</h5><br>
-                    <p>
-                        ✓ Ofertas exclusivas <b>no</b> seu CPF<br>
-                        ✓ Compre na loja física, site ou app<br>
-                        ✓ Promoções e parceria com grandes marcas
-                    </p>
+                    {!!$slide->description!!}
                 </div>
-                <a href="#" class="slid03__content__cta">e muito mais</a>
+                @if ($slide->link)
+                    <a href="{{$slide->link}}" target="{{$slide->target_link}}" class="slid03__content__cta">{{$slide->title_button}}</a>
+                @endif
             </div>
             <div class="slid03__rightside col-12 col-md-6">
                 <div class="slid03__content__form">
-                    <h4 class="slid03__content__form__title">Cadastre-se no Club Pet</h4>
+                    <h4 class="slid03__content__form__title">{{$form->title}}</h4>
                     {!! Form::model(null, ["class" => "slid03__form__item", "method" => "POST", "files" => true]) !!}
-                        <div class="slid03__content__form__item__input col-12">
-                            @include('Client.Components.inputs', [
-                                'name' => 'name',
-                                'options' => '',
-                                'placeholder' => "Seu Nome",
-                                'type' => 'text',
-                                'required' => true,
-                            ])
-                        </div>
-                        <div class="slid03__content__form__item__input col-12">
-                            @include('Client.Components.inputs', [
-                                'name' => 'cellphone',
-                                'options' => '',
-                                'placeholder' => "Celular",
-                                'type' => 'cellphone',
-                                'required' => true,
-                            ])
-                        </div>
-                        <div class="slid03__content__form__item__input col-12">
-                            @include('Client.Components.inputs', [
-                                'name' => 'email',
-                                'options' => '',
-                                'placeholder' => "E-mail",
-                                'type' => 'email',
-                                'required' => true,
-                            ])
-                        </div>
+                        @foreach ($inputs as $name => $input)
+                            <div class="slid03__content__form__item__input col-12">
+                                @include('Client.Components.inputs', [
+                                    'name' => $name,
+                                    'options' => $input->option,
+                                    'placeholder' => $input->placeholder,
+                                    'type' => $input->type,
+                                    'required' => isset($input->required) ? $input->required : false,
+                                ])
+                            </div>
+                        @endforeach
                         <button type="submit" class="slid03__content__form__item__submit d-flex align-items-center">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="30" class="me-3">
                             Continuar
                         </button>
                     {!! Form::close() !!}
-                    @include('Client.pages.Slides.SLID03.show')
+
+                    @include('Client.pages.Slides.SLID03.show',[
+                        'form' => $form,
+                        'inputs' => $inputs,
+                        'inputsAdditionals' => $inputsAdditionals,
+                    ])
                 </div>
             </div>
         </div>

@@ -1221,6 +1221,23 @@ body .owl-dots .owl-dot.active {
   transform: translate(0, -50%);
   transition: ease all 0.3s;
 }
+.form-placeholder.select .placeholder--custom {
+  opacity: 0;
+  visibility: hidden;
+}
+.form-placeholder.select.focusing .placeholder--custom {
+  opacity: 1;
+  visibility: visible;
+}
+.form-placeholder.select.focusing > select {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+.form-placeholder > select {
+  transition: ease all 0.3s;
+  background-color: #fff !important;
+  height: 40px;
+}
 .form-placeholder > input {
   transition: ease all 0.3s;
   background-color: #fff !important;

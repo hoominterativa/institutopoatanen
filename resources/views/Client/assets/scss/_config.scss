@@ -1232,6 +1232,31 @@ body{
         transform: translate(0, -50%);
         transition: ease all 0.3s;
     }
+    &.select{
+        .placeholder--custom{
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &.select{
+        &.focusing{
+            .placeholder--custom{
+                opacity: 1;
+                visibility: visible;
+            }
+            > select{
+                padding-top: 10px;
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    > select{
+        transition: ease all 0.3s;
+        background-color: #fff !important;
+        height: 40px;
+    }
 
     > input{
         transition: ease all 0.3s;

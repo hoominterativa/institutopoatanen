@@ -70,6 +70,30 @@ $('.slid03-show__form__additional__add').on('click', function(){
                     })
                 }
             })
+
+            $('.slid03-show__form__additional__item').first().find('select').each(function(elem){
+                var that = $(this),
+                    placeholder = that.find('option').first().text(),
+                    name = that.attr('name')
+
+                that.parent().append(`
+                    <div class="form-placeholder select"><label for="${name}" class="placeholder--custom">${placeholder}</label></div>
+                `)
+                that.parent().find('.form-placeholder').append(that)
+                that.removeAttr('placeholder')
+                that.attr('id', name)
+
+                var formPlaceholder = that.parent()
+
+                that.on('change', function(){
+                    var thisValue = $(this).val()
+                    if(thisValue!=''){
+                        formPlaceholder.addClass('focusing')
+                    }else{
+                        formPlaceholder.removeClass('focusing')
+                    }
+                })
+            })
         }
     })
 })

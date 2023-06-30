@@ -15,6 +15,8 @@ class CreateSlid03SlidesFormsTable extends Migration
     {
         Schema::create('slid03_slides_forms', function (Blueprint $table) {
             $table->id();
+            $table->integer('compliance_id')->nullable();
+            $table->string('email_form')->nullable();
             $table->string('title')->nullable();
             $table->string('title_lightbox')->nullable();
             $table->text('description_lightbox')->nullable();
