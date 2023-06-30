@@ -336,6 +336,7 @@ class ContactFormController extends Controller
             $socials = Social::whereIn('id', [$ContactForm->social_id])->get();
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
+                'content' => $ContactForm ? (json_decode($ContactForm->content) ?? []) : [],
                 'inputs' => $ContactForm ? (json_decode($ContactForm->inputs) ?? []) : [],
                 'model' => $ContactForm->model,
                 'socials' => $socials
