@@ -317,7 +317,7 @@ class TEAM01Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Teams', 'TEAM01', 'page');
 
         $categories = TEAM01TeamsCategory::active()->exists()->sorting()->get();
-        $sectionTeam = TEAM01TeamsSection::active()->first();
+        $sectionTeam = TEAM01TeamsSectionTeam::active()->first();  
         $teams = TEAM01Teams::with(['socials' => function ($query) {$query->where('active', 1);}])->active();
 
 

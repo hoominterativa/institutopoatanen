@@ -76,7 +76,7 @@ class COTA02Controller extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
+                        'required' => $required?? false,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -180,7 +180,7 @@ class COTA02Controller extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
+                        'required' => $required?? false,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -374,7 +374,7 @@ class COTA02Controller extends Controller
             'contact' => $contact,
             'topics' => $topics,
             'compliance' => $compliance,
-            'inputs' => json_decode($contact->inputs_form)
+            'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
         ]);
     }
 }
