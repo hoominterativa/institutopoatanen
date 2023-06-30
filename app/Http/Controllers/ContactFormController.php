@@ -204,7 +204,7 @@ class ContactFormController extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
+                        'required' => $required?? false,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -299,8 +299,8 @@ class ContactFormController extends Controller
             // dd($socials);
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
-                'content' => json_decode($ContactForm->content),
-                'inputs' => json_decode($ContactForm->inputs),
+                'content' => $ContactForm ? (json_decode($ContactForm->content) ?? []) : [],
+                'inputs' => $ContactForm ? (json_decode($ContactForm->inputs) ?? []) : [],
                 'model' => $ContactForm->model,
                 'socials' => $socials?? null
             ]);
@@ -336,7 +336,7 @@ class ContactFormController extends Controller
             $socials = Social::whereIn('id', [$ContactForm->social_id])->get();
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
-                'inputs' => json_decode($ContactForm->inputs),
+                'inputs' => $ContactForm ? (json_decode($ContactForm->inputs) ?? []) : [],
                 'model' => $ContactForm->model,
                 'socials' => $socials
             ]);
