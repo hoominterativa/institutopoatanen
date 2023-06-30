@@ -116,7 +116,11 @@ class SLID03Controller extends Controller
 
     public function additionals()
     {
-        return view('Client.pages.Slides.SLID03.additionals');
+        $form = SLID03SlidesForm::first();
+        $inputsAdditionals = json_decode($form->inputs_additionals);
+        return view('Client.pages.Slides.SLID03.additionals',[
+            'inputsAdditionals' => !is_array($inputsAdditionals)?$inputsAdditionals:null,
+        ]);
     }
 
     // METHODS CLIENT
