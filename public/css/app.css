@@ -2120,6 +2120,72 @@ body .owl-dots .owl-dot.active {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
+.slid03-show__form__additional__header {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: #EFEFEF;
+  padding: 10px 15px;
+}
+.slid03-show__form__additional__title {
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0;
+}
+.slid03-show__form__additional__add {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #fff;
+  background-color: #404040;
+  padding: 5px 20px;
+  transition: all 0.5s ease;
+}
+.slid03-show__form__additional__add:hover {
+  color: #404040;
+  background-color: #B3B3B3;
+  transition: all 0.5s ease;
+}
+.slid03-show__form__additional__delete {
+  font-size: 1rem;
+  background-color: #c90000;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+.slid03-show__form__additional__item {
+  background-color: #EFEFEF;
+  padding: 20px 15px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.slid03-show__form__additional__input:last-of-type input {
+  margin-bottom: 0 !important;
+}
+.slid03-show__form__additional__input .form-placeholder .placeholder--custom {
+  font-size: 0.98rem;
+  font-weight: 500;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+.slid03-show__form__additional__input .form-placeholder input {
+  font-size: 1rem;
+}
+.slid03-show__form__additional__input .form-placeholder input.parsley-error {
+  border-bottom: 1px solid #c90000;
+}
+.slid03-show__form__additional__input .form-placeholder.focusing .placeholder--custom {
+  font-size: 0.7rem;
+}
+.slid03-show__form__additional__input .form-placeholder .parsley-errors-list {
+  display: none;
+}
 
 /* BEGIN STYLE */
 .comp01-page__header {

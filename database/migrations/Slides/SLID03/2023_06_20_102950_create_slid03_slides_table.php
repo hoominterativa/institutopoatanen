@@ -15,7 +15,13 @@ class CreateSlid03SlidesTable extends Migration
     {
         Schema::create('slid03_slides', function (Blueprint $table) {
             $table->id();
-            $table->integer('sorting')->default(0);
+            $table->text('description')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('title_button')->nullable();
+            $table->string('link')->nullable();
+            $table->enum('target_link', ['_blank', '_self'])->default('_self');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

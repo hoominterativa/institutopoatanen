@@ -13,7 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class SLID03Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Slides/SLID03/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,20 +22,11 @@ class SLID03Controller extends Controller
      */
     public function index()
     {
-        $slides = SLID03Slides::all();
-        return view('Admin.cruds.Slides.SLID03.index',[
-            'slides' => $slides
+        $slide = SLID03Slides::first();
+        return view('Admin.cruds.Slides.SLID03.create',[
+            'slide' => $slide,
+            'cropSetting' => getCropImage('Slides', 'SLID03')
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -47,46 +38,25 @@ class SLID03Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if(SLID03Slides::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao cadastradar informações');
         }
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Slides\SLID03Slides  $SLID03Slides
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SLID03Slides $SLID03Slides)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -99,104 +69,43 @@ class SLID03Controller extends Controller
     public function update(Request $request, SLID03Slides $SLID03Slides)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($SLID03Slides, 'path_image');
-            $data['path_image'] = $path_image;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($SLID03Slides, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SLID03Slides, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SLID03Slides, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($SLID03Slides, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SLID03Slides, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($SLID03Slides, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($SLID03Slides, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
         }
 
-        */
+        $data['active'] = $request->active?1:0;
 
         if($SLID03Slides->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao atualizar informações');
         }
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Slides\SLID03Slides  $SLID03Slides
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SLID03Slides $SLID03Slides)
+    public function additionals()
     {
-        //storageDelete($SLID03Slides, 'path_image');
-        //storageDelete($SLID03Slides, 'path_archive');
-
-        if($SLID03Slides->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $SLID03Slidess = SLID03Slides::whereIn('id', $request->deleteAll)->get();
-        foreach($SLID03Slidess as $SLID03Slides){
-            storageDelete($SLID03Slides, 'path_image');
-            storageDelete($SLID03Slides, 'path_archive');
-        }
-        */
-
-        if($deleted = SLID03Slides::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            SLID03Slides::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
+        return view('Client.pages.Slides.SLID03.additionals');
     }
 
     // METHODS CLIENT

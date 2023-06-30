@@ -7,10 +7,10 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur adipiscing elit. Cras vel tortor
                 </p>
             </div>
-            {!! Form::model(null, ["class" => "slid03-show__form__item", "method" => "POST", "files" => true]) !!}
+            {!! Form::model(null, ["class" => "slid03-show__form__item parsley-validate", "method" => "POST", "files" => true]) !!}
                 <input type="hidden" name="target_lead" value="Razão do formulário">
                 <input type="hidden" name="target_send" value="anderson@hoom.com.br">
-                <div class="slid03-show__content__form__item__input col-12">
+                <div class="slid03-show__form__item__input">
                     @include('Client.Components.inputs', [
                         'name' => 'name',
                         'options' => '',
@@ -19,7 +19,7 @@
                         'required' => true,
                     ])
                 </div>
-                <div class="slid03-show__content__form__item__input col-12">
+                <div class="slid03-show__form__item__input">
                     @include('Client.Components.inputs', [
                         'name' => 'cellphone',
                         'options' => '',
@@ -28,7 +28,7 @@
                         'required' => true,
                     ])
                 </div>
-                <div class="slid03-show__content__form__item__input col-12">
+                <div class="slid03-show__form__item__input">
                     @include('Client.Components.inputs', [
                         'name' => 'email',
                         'options' => '',
@@ -37,7 +37,7 @@
                         'required' => true,
                     ])
                 </div>
-                <div class="slid03-show__content__form__item__input col-12">
+                <div class="slid03-show__form__item__input">
                     @include('Client.Components.inputs', [
                         'name' => 'endereco',
                         'options' => '',
@@ -46,22 +46,39 @@
                         'required' => true,
                     ])
                 </div>
-                <div class="slid03-show__content__form__additional">
-                    <h3 class="slid03-show__content__form__additional__title">Adicionar Informações</h3>
+                <div class="slid03-show__form__additional">
+                    <div class="slid03-show__form__additional__header d-flex align-items-center">
+                        <div>
+                            <h4 class="slid03-show__form__additional__title">Adicionar Informações</h4>
+                            <p class="mb-0">Clique no botão adicionar para criar novos campos</p>
+                        </div>
+                        <button type="button" data-url="{{route('slid03.additionals')}}" class="slid03-show__form__additional__add border-0 d-flex align-items-center ms-auto">
+                            <i class="mdi mdi-clipboard-plus-outline font-22 me-2"></i> Adicionar
+                        </button>
+                    </div>
 
-                    <button class="slid03-show__content__form__additional__add border-0 d-flex align-items-center">
-                        <i class="mdi mdi-clipboard-plus-outline font-22 me-3"></i> Adicionar
-                    </button>
-
-                    <div class="slid03-show__content__form__additional__item">
-
-                        @include('Client.Components.inputs', [
-                            'name' => 'endereco',
-                            'options' => '',
-                            'placeholder' => "Endereço",
-                            'type' => 'text',
-                            'required' => true,
-                        ])
+                    <div id="receiveInputs">
+                        <div class="addedInput slid03-show__form__additional__item">
+                            <a href="javascript:void(0)" class="mdi mdi-trash-can-outline slid03-show__form__additional__delete"></a>
+                            <div class="slid03-show__form__additional__input">
+                                @include('Client.Components.inputs', [
+                                    'name' => 'nome-do-pet[]',
+                                    'options' => '',
+                                    'placeholder' => "Nome do Pet",
+                                    'type' => 'text',
+                                    'required' => true,
+                                ])
+                            </div>
+                            <div class="slid03-show__form__additional__input">
+                                @include('Client.Components.inputs', [
+                                    'name' => 'idade-do-pet[]',
+                                    'options' => '',
+                                    'placeholder' => "Idade do Pet",
+                                    'type' => 'text',
+                                    'required' => true,
+                                ])
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="slid03-show__form__item__submit d-flex align-items-center">

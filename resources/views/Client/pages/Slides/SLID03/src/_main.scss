@@ -294,6 +294,89 @@
             // END __submit
         }
         // END __item
+
+        &__additional{
+            &__header{
+                margin-top: 25px;
+                margin-bottom: 25px;
+                background-color: $color-five;
+                padding: 10px 15px;
+            }
+            &__title{
+                font-size: $T5;
+                font-family: $font-primary;
+                font-weight: $weight-700;
+                color: $color-black;
+                margin-bottom: 0;
+            }
+            &__add{
+                font: $paragraph-min;
+                font-weight: $weight-700;
+                color: $color-white;
+                background-color: $color-one;
+                padding: 5px 20px;
+                @include trans();
+                &:hover{
+                    color: $color-one;
+                    background-color: $color-three;
+                    @include trans();
+                }
+            }
+
+            &__delete{
+                font-size: 1rem;
+                background-color: $color-danger;
+                color: $color-white;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: block;
+                text-align: center;
+                line-height: 30px;
+                position: absolute;
+                right: -10px;
+                top: -10px;
+            }
+
+            &__item{
+                background-color: $color-five;
+                padding: 20px 15px;
+                position: relative;
+                margin-bottom: 20px;
+            }
+
+            &__input{
+                &:last-of-type{
+                    input{
+                        margin-bottom: 0 !important;
+                    }
+                }
+                .form-placeholder{
+                    .placeholder--custom{
+                        font-size: 0.98rem;
+                        font-weight: $weight-500;
+                        font-family: $font-primary;
+                    }
+                    input{
+                        font-size: 1rem;
+                        &.parsley-error{
+                            border-bottom: 1px solid $color-danger;
+                        }
+                    }
+                    &.focusing{
+                        .placeholder--custom{
+                            font-size: 0.7rem;
+                        }
+                    }
+                    .parsley-errors-list{
+                        display: none;
+                    }
+                }
+                // END .form-placeholder
+            }
+            // END __input
+        }
+        // END __additional
     }
     // END __form
 }
