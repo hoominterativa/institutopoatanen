@@ -3,7 +3,7 @@
     @foreach ($inputsAdditionals as $name => $input)
         <div class="slid03-show__form__additional__input">
             @include('Client.Components.inputs', [
-                'name' => $name,
+                'name' => $name.'[]',
                 'options' => $input->option,
                 'placeholder' => $input->placeholder,
                 'type' => $input->type,

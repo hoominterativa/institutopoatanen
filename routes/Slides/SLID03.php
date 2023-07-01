@@ -37,3 +37,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
 // // CLIENT
 Route::post($route.'/get/additionals', [SLID03Controller::class, 'additionals'])->name($routeName.'.additionals');
+Route::post($route.'/leads', [SLID03Controller::class, 'leads'])->name($routeName.'.leads');

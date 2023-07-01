@@ -111,7 +111,7 @@
                                             <ul class="sortable-list tasklist list-unstyled" id="upcoming">
                                                 @foreach ($contactLeadsUpcoming as $contactLeadUpcoming)
                                                     <li id="task1" class="border-0" data-code="{{$contactLeadUpcoming->id}}">
-                                                        <span class="badge bg-soft-warning text-warning float-end">{{$contactLeadUpcoming->target_lead}}</span>
+                                                        <span class="badge bg-soft-warning text-warning w-100 mb-2">{{$contactLeadUpcoming->target_lead}}</span>
                                                         <div>
                                                             @php
                                                                 $i=0;
@@ -154,20 +154,18 @@
                                                                             <div class="card-body">
                                                                                 <div class="row align-items-center">
                                                                                     <div class="col-sm-4">
-                                                                                        <div class="d-flex align-items-start">
-                                                                                            <div class="w-100">
-                                                                                                <p class="mb-1 d-flex align-items-center">
-                                                                                                    <span class="badge font-14 mb-2 bg-soft-warning text-dark p-1">{{$contactLeadUpcoming->target_lead}}</span>
-                                                                                                </p>
-                                                                                                <p class="mb-1"><b>Data da Solicitação:</b> {{Carbon\Carbon::parse($contactLeadUpcoming->created_at)->format('d/m/Y H:i')}}</p>
-                                                                                                @foreach ($contactLeadUpcoming->json as $key => $informations)
-                                                                                                    @if (isset($informations->type))
-                                                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                                                            <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
-                                                                                                        @endif
+                                                                                        <div class="w-100">
+                                                                                            <p class="mb-1 d-flex align-items-center">
+                                                                                                <span class="badge font-14 mb-2 bg-soft-warning text-dark p-1">{{$contactLeadUpcoming->target_lead}}</span>
+                                                                                            </p>
+                                                                                            <p class="mb-1"><b>Data da Solicitação:</b> {{Carbon\Carbon::parse($contactLeadUpcoming->created_at)->format('d/m/Y H:i')}}</p>
+                                                                                            @foreach ($contactLeadUpcoming->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                                                        <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
                                                                                                     @endif
-                                                                                                @endforeach
-                                                                                            </div>
+                                                                                                @endif
+                                                                                            @endforeach
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-3">
@@ -229,6 +227,28 @@
                                                                                 </div> <!-- end row -->
                                                                             </div>
                                                                         </div> <!-- end card-->
+
+                                                                        @if ($contactLeadUpcoming->json->additionals)
+                                                                            <div class="card mb-2">
+                                                                                <div class="card-body">
+                                                                                    <h5 class="text-warning mt-0">Informações Adicionais</h5>
+                                                                                    <div class="row">
+                                                                                        @foreach ($contactLeadUpcoming->json->additionals as $additional)
+                                                                                            <div class="col-12 col-md-3">
+                                                                                                <div class="bg-light p-2 mb-2" style="border-radius: 5px;">
+                                                                                                    @foreach ($additional as $key => $value)
+                                                                                                        <p class="mb-1"><b>{{$key}}:</b> {{$value}}</p>
+                                                                                                    @endforeach
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                    {{-- END .row --}}
+                                                                                </div>
+                                                                                {{-- END .card-body --}}
+                                                                            </div>
+                                                                            {{-- END .card --}}
+                                                                        @endif
                                                                     </div>
                                                                     {{-- END BODY MODAL --}}
                                                                 </div>

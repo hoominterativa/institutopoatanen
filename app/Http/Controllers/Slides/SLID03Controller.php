@@ -3,15 +3,20 @@
 namespace App\Http\Controllers\Slides;
 
 
+use Exception;
+use App\Models\ContactLead;
+use App\Mail\ContactLead as ContactLeadMail;
+use Illuminate\Http\Request;
 use App\Models\Slides\SLID03Slides;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactLeadConfirmation;
+use App\Models\Slides\SLID03SlidesForm;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
-use App\Models\Slides\SLID03SlidesForm;
 
 class SLID03Controller extends Controller
 {
@@ -120,6 +125,83 @@ class SLID03Controller extends Controller
         $inputsAdditionals = json_decode($form->inputs_additionals);
         return view('Client.pages.Slides.SLID03.additionals',[
             'inputsAdditionals' => !is_array($inputsAdditionals)?$inputsAdditionals:null,
+        ]);
+    }
+
+    public function leads(Request $request)
+    {
+        $data = $request->all();
+        unset($data['_token']);
+
+        $arrayInsert = [];
+        $arrayInsertAddtionals = [];
+        $newEmailRecipient = null;
+        foreach ($data as $key => $value) {
+            $array = explode('_', $key);
+            $requestFile = null;
+            if(COUNT($array) >= 3 ){
+                $type = end($array);
+                $name = str_replace('_'.$type, '', $key);
+                switch ($type) {
+                    case 'file':
+                        $helperArchive = new HelperArchive();
+                        $nameFile = $helperArchive->uploadArchive($request, $key, 'uploads/leads/archives/');
+                        $value = $nameFile;
+                        $requestFile = $request->file($key);
+                    break;
+                    case 'selectEmail':
+                        $infoValue = explode('|',$value);
+                        $value = $infoValue[0];
+                        $newEmailRecipient = $infoValue[1];
+                    break;
+                }
+
+                if(!is_array($value)){
+                    $arrayInsert = array_merge($arrayInsert, [$data[$name] => ['value' => $value, 'type' => $type, 'requestFile' => $requestFile]]);
+                }else{
+                    $arrayInsertAddtionals = array_merge($arrayInsertAddtionals, [$data[$name][0] => ['value' => $value, 'type' => $type, 'requestFile' => $requestFile]]);
+                }
+            }
+        }
+
+        $additionals = [];
+        foreach ($arrayInsertAddtionals as $name => $values) {
+            foreach ($values['value'] as $key => $value) {
+                if(isset($additionals['additional_'.$key])){
+                    $additionals['additional_'.$key] = array_merge($additionals['additional_'.$key], [$name => $value]);
+                }else{
+                    $additionals = array_merge($additionals, ['additional_'.$key => [$name => $value]]);
+                }
+            }
+        }
+
+        if(COUNT($additionals)){
+            $arrayInsert = array_merge($arrayInsert, ['additionals' => $additionals]);
+        }
+
+        if($request->has('target_send')){
+            $emailRecipient = base64_decode($request->target_send);
+        }
+
+        if($newEmailRecipient){
+            $emailRecipient = $newEmailRecipient;
+        }
+
+        // $contactLead = ContactLead::first();
+        // return new ContactLeadMail($arrayInsert, $emailRecipient, $contactLead);
+
+        $contactLead = ContactLead::create(['json' => json_encode($arrayInsert), 'target_lead' => $data['target_lead'], 'status_process' => 'upcoming']);
+
+        try {
+            Mail::send(new ContactLeadMail($arrayInsert, $emailRecipient, $contactLead));
+            Mail::send(new ContactLeadConfirmation($contactLead));
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+
+        return Response::json([
+            'status' => 'success',
+            'redirect' => route('lead.confirmation')
         ]);
     }
 

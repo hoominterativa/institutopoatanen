@@ -5,9 +5,9 @@
                 <h3 class="slid03-show__sideLeft__content__title">{{$form->title_lightbox}}</h3>
                 <p class="slid03-show__sideLeft__content__description">{{$form->description_lightbox}}</p>
             </div>
-            {!! Form::model(null, ["class" => "slid03-show__form__item parsley-validate", "method" => "POST", "files" => true]) !!}
-                <input type="hidden" name="target_lead" value="Razão do formulário">
-                <input type="hidden" name="target_send" value="{{$form->email_form}}">
+            {!! Form::model(null, ["route" => "slid03.leads", "class" => "send_form_ajax slid03-show__form__item parsley-validate", "method" => "POST", "files" => true]) !!}
+                <input type="hidden" name="target_lead" value="Cadastro de Pets">
+                <input type="hidden" name="target_send" value="{{base64_encode($form->email_form)}}">
 
                 @foreach ($inputs as $name => $input)
                     <div class="slid03-show__form__item__input">
@@ -37,7 +37,7 @@
                             @foreach ($inputsAdditionals as $name => $input)
                                 <div class="slid03-show__form__additional__input">
                                     @include('Client.Components.inputs', [
-                                        'name' => $name,
+                                        'name' => $name.'[]',
                                         'options' => $input->option,
                                         'placeholder' => $input->placeholder,
                                         'type' => $input->type,

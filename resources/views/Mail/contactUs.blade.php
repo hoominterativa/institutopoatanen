@@ -45,6 +45,26 @@
                                 @endif
                             @endforeach
                         </div>
+                        @if (isset($infomrations['additionals']))
+                            <h4 style="font-size: 23px;font-family: sans-serif;margin-bottom: 20px;">Informações Adicionais</h4>
+                            @foreach ($infomrations['additionals'] as $additional)
+                                <div style="border: 1px solid #d6d6d6;box-sizing: border-box;padding: 15px;display: table;width: 100%;margin-bottom: 15px">
+                                    @foreach ($additional as $key => $value)
+                                        <p style="
+                                            font-size: 16px;
+                                            font-family: sans-serif;
+                                            line-height: 27px;
+                                            text-align: left;
+                                            margin: 0 0 10px 0;
+                                            padding: 10px;
+                                            background-color: #f1f1f1;
+                                        ">
+                                            <b>{{$key}}:</b> {{$value}}
+                                        </p>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        @endif
                     </td>
                 </tr>
 
