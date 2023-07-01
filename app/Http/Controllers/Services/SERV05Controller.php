@@ -29,6 +29,7 @@ class SERV05Controller extends Controller
         $serviceCategories = SERV05ServicesCategory::sorting()->paginate(10);
         $categories = SERV05ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV05ServicesSection::first();
+        
         return view('Admin.cruds.Services.SERV05.index', [
             'services' => $services,
             'categories' => $categories,

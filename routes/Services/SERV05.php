@@ -31,7 +31,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/delete', [SERV05CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [SERV05CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
-    Route::resource($route.'/seção', SERV05SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV05ServicesSection']);
+    Route::resource($route.'/secao', SERV05SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV05ServicesSection']);
 });
 // CLIENT
 Route::get($route.'/categoria/{SERV05ServicesCategory:slug}', [SERV05Controller::class, 'page'])->name($routeName.'.category.page');

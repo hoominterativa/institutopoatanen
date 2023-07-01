@@ -16,7 +16,16 @@ class SERV05ServicesSection extends Model
     }
 
     protected $table = "serv05_services_sections";
-    protected $fillable = ['title', 'description', 'subtitle', 'active'];
+    protected $fillable =
+    [
+        //Home
+        'title', 'description', 'subtitle',
+        //Banner
+        'title_banner', 'subtitle_banner',
+        //Topic
+        'title_topic', 'subtitle_topic', 'description_topic',
+        'active'
+    ];
 
     public function scopeActive($query)
     {

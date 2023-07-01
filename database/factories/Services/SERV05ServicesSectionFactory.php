@@ -22,9 +22,17 @@ class SERV05ServicesSectionFactory extends Factory
     public function definition()
     {
         return [
+            // Home
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
             'description' => $this->faker->text(400),
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            //Topic
+            'title_topic' => $this->faker->text(10),
+            'subtitle_topic' => $this->faker->text(10),
+            'description_topic' => $this->faker->text(400),
             'active' => 1,
         ];
     }
