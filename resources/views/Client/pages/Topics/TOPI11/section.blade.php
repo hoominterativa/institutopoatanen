@@ -1,17 +1,19 @@
 <section id="TOPI11" class="topi11">
     <div class="topi11__container container">
-        @if ($section->title || $section->subtitle || $section->description)
-            <div class="topi11__header">
-                <h3 class="topi11__header__title">{{$section->title}}</h3>
-                <h4 class="topi11__header__subtitle">{{$section->subtitle}}</h4>
-                <hr class="topi11__header__line">
-                <p class="topi11__header__paragraph">{{$section->description}}</p>
-            </div>
+        @if ($section)
+            @if ($section->title || $section->subtitle || $section->description)
+                <div class="topi11__header">
+                    <h3 class="topi11__header__title">{{$section->title}}</h3>
+                    <h4 class="topi11__header__subtitle">{{$section->subtitle}}</h4>
+                    <hr class="topi11__header__line">
+                    <p class="topi11__header__paragraph">{{$section->description}}</p>
+                </div>
+            @endif
         @endif
         {{-- END .topi11__header --}}
         <div class="topi11__wrapper">
             <div class="topi11__wrapper__row row">
-                <div class="topi11__wrapper__items col-12 {{$section->path_image?'col-md-8':''}}">
+                <div class="topi11__wrapper__items col-12 {{$section?($section->path_image?'col-md-8':''):''}}">
                     <div class="accordion" id="accordion__topi11">
                         @foreach ($topics as $topic)
                             <div class="topi11__wrapper__item accordion-item">
@@ -32,10 +34,12 @@
                     {{-- END .accordion --}}
                 </div>
                 {{-- END .topi11__wrapper__items --}}
-                @if ($section->path_image)
-                    <div class="topi11__wrapper__image col-12 col-md-4">
-                        <img src="{{asset('storage/'.$section->path_image)}}" class="topi11__wrapper__image__img" alt="">
-                    </div>
+                @if ($section)
+                    @if ($section->path_image)
+                        <div class="topi11__wrapper__image col-12 col-md-4">
+                            <img src="{{asset('storage/'.$section->path_image)}}" class="topi11__wrapper__image__img" alt="">
+                        </div>
+                    @endif
                 @endif
             </div>
             {{-- END .topi11__wrapper --}}

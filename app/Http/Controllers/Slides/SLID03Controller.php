@@ -31,8 +31,8 @@ class SLID03Controller extends Controller
     {
         $slide = SLID03Slides::first();
         $form = SLID03SlidesForm::first();
-        $inputs = json_decode($form->inputs);
-        $inputsAdditionals = json_decode($form->inputs_additionals);
+        $inputs = $form?json_decode($form->inputs):[];
+        $inputsAdditionals = $form?json_decode($form->inputs_additionals):[];
         $compliances = getCompliance(null, 'id', 'title_page');
 
         return view('Admin.cruds.Slides.SLID03.index',[
@@ -216,8 +216,8 @@ class SLID03Controller extends Controller
     {
         $slide = SLID03Slides::first();
         $form = SLID03SlidesForm::first();
-        $inputs = json_decode($form->inputs);
-        $inputsAdditionals = json_decode($form->inputs_additionals);
+        $inputs = $form?json_decode($form->inputs):[];
+        $inputsAdditionals = $form?json_decode($form->inputs_additionals):[];
 
         return view('Client.pages.Slides.SLID03.section',[
             'slide' => $slide,
