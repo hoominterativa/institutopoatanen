@@ -6,7 +6,6 @@ return [
         'Headers' => (object)[
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT06'
         ]
     ],
 
