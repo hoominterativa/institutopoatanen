@@ -11,6 +11,7 @@ class IncludeSectionsController extends Controller
     public function IncludeSectionsPage($GetModule, $getModel, $where=null)
     {
         $InsertModelsMain = config('modelsConfig.InsertModelsMain');
+        $GetModule = getNameModule($InsertModelsMain, $GetModule, $getModel);
         $configModel = $InsertModelsMain->$GetModule->$getModel;
         $IncludeSections = $configModel->IncludeSections??null;
         $contactForm = new ContactFormController();

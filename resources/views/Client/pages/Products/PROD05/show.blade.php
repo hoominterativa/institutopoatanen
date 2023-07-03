@@ -75,11 +75,13 @@
                             <div id="receiveGallery">
                                 <div class="prod05-show__info__gallery__wrap">
                                     <img src="{{ asset('storage/'.$product->path_image) }}" width="100%" class="prod05-show__info__gallery__imgMain" alt="{{$product->title}}">
-                                    <div class="prod05-show__info__gallery__carousel">
-                                        @foreach ($galleryTypesFirst->galleries as $galleryTypeGallery)
-                                            <img src="{{ asset('storage/'.$galleryTypeGallery->path_image) }}" class="prod05-show__info__gallery__thumbnail" alt="{{$product->title}}">
-                                        @endforeach
-                                    </div>
+                                    @if ($galleryTypesFirst)
+                                        <div class="prod05-show__info__gallery__carousel">
+                                            @foreach ($galleryTypesFirst->galleries as $galleryTypeGallery)
+                                                <img src="{{ asset('storage/'.$galleryTypeGallery->path_image) }}" class="prod05-show__info__gallery__thumbnail" alt="{{$product->title}}">
+                                            @endforeach
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             {{-- END .prod05-show__info__gallery__wrap --}}

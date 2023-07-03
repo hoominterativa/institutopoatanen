@@ -41,6 +41,7 @@ class CoreController extends Controller
                 $include = isset($config->IncludeCore->include)?$config->IncludeCore->include:false;
 
                 if(isset($config->IncludeCore)){
+                    $moduleRaw = $module;
                     $module = clearVersionNameModule($module);
                     $modelElloquent = $this->Class->$module->$code->model;
                     $modelDB = self::getModelParameters($modelElloquent);
@@ -98,9 +99,11 @@ class CoreController extends Controller
 
                         }
 
+                        $titleReference = $this->InsertModelsMain->$moduleRaw->$code->IncludeCore->titleList;
+
                         $menu = (object) [
                             "id" => $relation->id,
-                            "name" => ($relation->name??$relation->title)??$relation->title_page,
+                            "name" => $relation->$titleReference,
                             "slug" => $relation->slug,
                             "route" => $buildRouteParameters[$modelDB]?route($route, $buildRouteParameters):route($route),
                             'subList' => $sublistDropdown

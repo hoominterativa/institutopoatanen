@@ -7,6 +7,14 @@
         'ViewListPanel' => true,
         'ViewListFooter' => false,
         'Viewer' => 'dropdown', // accepted values, list or dropdown
+        'IncludeCore' => (object) [
+            'include' => true,
+            'sorting' => true,
+            'limit' => 'all',
+            'condition' => 'active=1{Ativos}',
+            'titleList' => 'title_banner',
+            'relation' => ''
+        ],
         'config' => (object) [
             'titleMenu' => 'Contato',
             'anchor' =>  false,
@@ -16,7 +24,6 @@
             'iconPanel' => ''
         ],
         'IncludeSections' => (object) [
-            'Feedbacks' => 'FEED01',
         ]
     ],
 ],
