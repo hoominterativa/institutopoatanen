@@ -403,12 +403,15 @@ if(!function_exists('getNameRelation')){
         if(isset($modelsMain->$module->$code->IncludeCore->relation)){
             $name = $page;
             $splitRelation = explode(',', $relation);
+
             if($splitRelation[0]<>'this'){
                 $arrRelation = $modelsMain->$module->$code->IncludeCore->relation;
+
                 if($arrRelation <> ''){
                     $refName = $splitRelation[0];
                     $name = $arrRelation->$refName->name;
-                    if(count(get_object_vars($arrRelation))>1){
+
+                    if(count($splitRelation)>1){
                         $refName = $splitRelation[1];
                         $name .= ' / '.$arrRelation->$refName->name;
                     }

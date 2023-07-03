@@ -93,7 +93,7 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Products.PROD05.topicCategory.form',[
+                @include('Admin.cruds.Products.PROD05.TopicCategory.form',[
                     'topicCategory' => null
                 ])
             </div>
