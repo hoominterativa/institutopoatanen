@@ -156,7 +156,7 @@ a {
     width: 90% !important;
 }
 
-@include medium-device {
+@include x-small-device {
     .container,
     .container-lg,
     .container-md,
@@ -164,6 +164,30 @@ a {
     .container-xl,
     .container-xxl {
         max-width: 100% !important;
+        padding: 0 !important;
+    }
+}
+
+@include small-device {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+}
+
+@include medium-device {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 95% !important;
         padding: 0 !important;
     }
 }
@@ -180,7 +204,18 @@ a {
     }
 }
 
-@include x-large-device {
+@include x-large-device-up {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: $max-width-container-fluid !important;
+    }
+}
+
+@include xx-large-device-up {
     .container,
     .container-lg,
     .container-md,

@@ -11767,8 +11767,8 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Products/PROD05/src/main */ "./resources/views/Client/pages/Products/PROD05/src/main.js");
-/* harmony import */ var _pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pages_Topics_TOPI11_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/Topics/TOPI11/src/main */ "./resources/views/Client/pages/Topics/TOPI11/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI11_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI11_src_main__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -11850,20 +11850,6 @@ $(function () {
       name = that.attr('name'),
       typeElem = that[0].localName;
     if (placeholder) {
-      var focusInput = function focusInput(elem) {
-        elem.css('height', 'auto');
-        elem.stop().animate({
-          'padding': '1px 7px;',
-          'font-size': '11px',
-          'line-height': '18px'
-        }, 'fast', function () {
-          var newHeightPlaceholder = elem.css('height');
-          that.css({
-            'padding-top': newHeightPlaceholder,
-            'padding-bottom': '3px'
-          });
-        });
-      };
       if (typeElem == 'select') {
         placeholder = that.find('option').first().text();
         that.find('option').first().text('');
@@ -11873,13 +11859,7 @@ $(function () {
       that.removeAttr('placeholder');
       that.attr('id', name);
       var formPlaceholder = that.parent(),
-        placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-        thisPadding = that.css('padding'),
-        thisHeight = that.css('height'),
-        thisWidth = that.css('width'),
-        thisFont = that.css('font'),
-        thisFontSize = that.css('font-size'),
-        thisLineHeight = that.css('line-height');
+        placeholderCustom = formPlaceholder.find('.placeholder--custom');
       placeholderCustom.on('click', function () {
         that.trigger('focus');
       });
@@ -11897,66 +11877,17 @@ $(function () {
     var that = $(this),
       placeholder = that.find('option').first().text(),
       name = that.attr('name');
-    that.parent().append("\n            <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
+    that.parent().append("\n            <div class=\"form-placeholder select\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
     that.parent().find('.form-placeholder').append(that);
     that.removeAttr('placeholder');
     that.attr('id', name);
-    var formPlaceholder = that.parent(),
-      placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-      thisPadding = that.css('padding'),
-      thisHeight = that.css('height'),
-      thisWidth = that.css('width'),
-      thisFont = that.css('font'),
-      thisFontSize = that.css('font-size'),
-      thisLineHeight = that.css('line-height');
-    that.css('height', thisHeight);
-    formPlaceholder.css({
-      'position': 'relative'
-    });
-    placeholderCustom.css({
-      'position': 'absolute',
-      'left': '0',
-      'top': '0',
-      'line-height': thisLineHeight,
-      'padding': thisPadding,
-      'width': thisWidth,
-      'height': thisHeight,
-      'font': thisFont,
-      'opacity': '0',
-      'visibility': 'hidden'
-    });
+    var formPlaceholder = that.parent();
     that.on('change', function () {
       var thisValue = $(this).val();
       if (thisValue != '') {
-        placeholderCustom.css({
-          'height': 'auto',
-          'opacity': '1',
-          'visibility': 'visible'
-        });
-        placeholderCustom.stop().animate({
-          'padding': '1px 7px;',
-          'font-size': '11px',
-          'line-height': '18px'
-        }, 'fast', function () {
-          var newHeightPlaceholder = placeholderCustom.css('height');
-          that.css({
-            'padding-top': newHeightPlaceholder,
-            'padding-bottom': '3px'
-          });
-        });
+        formPlaceholder.addClass('focusing');
       } else {
-        placeholderCustom.css({
-          'padding': thisPadding,
-          'width': thisWidth,
-          'height': thisHeight,
-          'font-size': thisFontSize,
-          'line-height': 'inherit',
-          'opacity': '0',
-          'visibility': 'hidden'
-        }, 'fast');
-        that.css({
-          'padding': thisPadding
-        });
+        formPlaceholder.removeClass('focusing');
       }
     });
   });
@@ -11974,156 +11905,13 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Products/PROD05/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Products/PROD05/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./resources/views/Client/pages/Topics/TOPI11/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI11/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
 
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(".prod05__carousel").owlCarousel({
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: 21,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 up
-    520: {
-      items: 2
-    },
-    // breakpoint from 361 up
-    768: {
-      items: 3
-    },
-    980: {
-      items: 4
-    }
-  }
-});
-$('.prod05-show__info__gallery__carousel').addClass('owl-carousel');
-$(".prod05-show__info__gallery__carousel").owlCarousel({
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: 10,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 up
-    520: {
-      items: 2
-    },
-    // breakpoint from 361 up
-    768: {
-      items: 3
-    },
-    980: {
-      items: 4
-    }
-  }
-});
-if ($('.prod05-show__galleries__thumbnail').length > 5) {
-  $('.prod05-show__galleries__carousel').addClass('owl-carousel');
-  $(".prod05-show__galleries__carousel").owlCarousel({
-    loop: false,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true,
-    margin: 0,
-    responsive: {
-      0: {
-        items: 1
-      },
-      // breakpoint from 0 up
-      520: {
-        items: 2
-      },
-      // breakpoint from 361 up
-      768: {
-        items: 4
-      },
-      980: {
-        items: 5
-      }
-    }
-  });
-}
-$('.prod05-show__btnForm--showForm').on('click', function () {
-  if ($(this).hasClass('active')) {
-    $('.prod05-show__wrapForm').removeClass('prod05-show__wrapForm--showForm');
-    $(this).removeClass('active');
-    $('.prod05-show__form').slideUp('fast');
-  } else {
-    $('.prod05-show__wrapForm').addClass('prod05-show__wrapForm--showForm');
-    $(this).addClass('active');
-    $('.prod05-show__form').slideDown('fast');
-  }
-});
-$('body, html').on('click', '.prod05-show__info__gallery__thumbnail', function (e) {
-  var img = $(this).attr('src');
-  $('.prod05-show__info__gallery__imgMain').attr('src', img);
-});
-$('body, html').on('click', '.prod05-show__info__gallery__options__item', function (e) {
-  e.preventDefault();
-  $('.prod05-show__info__gallery__options__item').removeClass('prod05-show__info__gallery__options__item--active');
-  $(this).addClass('prod05-show__info__gallery__options__item--active');
-});
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-$('.prod05-show__info__gallery__options__item').on('click', function (e) {
-  e.preventDefault();
-  var id = $(this).data('id'),
-    url = $(this).data('url');
-  $.ajax({
-    type: 'POST',
-    url: url,
-    data: {
-      id: id
-    },
-    success: function success(response) {
-      console.log(response);
-      $('#receiveGallery > *').remove();
-      $('#receiveGallery').append(response);
-      $('.prod05-show__info__gallery__carousel').addClass('owl-carousel');
-      $(".prod05-show__info__gallery__carousel").owlCarousel({
-        loop: false,
-        dots: true,
-        nav: false,
-        rewind: true,
-        autoHeight: true,
-        margin: 10,
-        responsive: {
-          0: {
-            items: 1
-          },
-          // breakpoint from 0 up
-          520: {
-            items: 2
-          },
-          // breakpoint from 361 up
-          768: {
-            items: 3
-          },
-          980: {
-            items: 4
-          }
-        }
-      });
-    }
-  });
-});
+
 
 /***/ }),
 

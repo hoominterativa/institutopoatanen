@@ -1,0 +1,135 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+
+#TOPI11{
+    padding-top: 50px;
+}
+
+.topi11{
+    &__container{
+        @include x-small-device{
+            padding: 0 40px !important;
+        }
+        @include small-device{
+            padding: 0 40px !important;
+        }
+    }
+    &__header{
+        text-align: center;
+        &__title{
+            font-size: $T2;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-one;
+            @include x-small-device{
+                font-size:  $T2-mobile;
+            }
+            @include small-device{
+                font-size:  $T2-mobile;
+            }
+        }
+        &__subtitle{
+            font-size: $T4;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            color: $color-three;
+            @include x-small-device{
+                font-size:  $T4-mobile;
+            }
+            @include small-device{
+                font-size:  $T4-mobile;
+            }
+        }
+        &__line{
+            margin-top: 17px;
+        }
+        &__paragraph{
+            margin-top: 30px;
+            font: $paragraph;
+            font-weight: $weight-400;
+            color: $color-two;
+            width: 100%;
+            max-width: 890px;
+            display: table;
+            margin: 0 auto;
+            @include x-small-device{
+                font: $paragraph-mobile;
+            }
+            @include small-device{
+                font: $paragraph-mobile;
+            }
+        }
+    }
+    // END __header
+
+    &__wrapper{
+        margin-top: 80px;
+        &__items{
+            padding-right: 150px;
+            padding-top: 40px;
+            @include x-small-device{
+                padding: 0;
+                margin-bottom: 50px;
+            }
+            @include small-device{
+                padding: 0;
+                margin-bottom: 50px;
+            }
+            @include medium-device{
+                padding-right: 80px;
+                padding-top: 0;
+            }
+        }
+        &__item{
+            border-radius: 0 !important;
+            border: none !important;
+            .accordion-button{
+                border: none !important;
+                border-bottom: 1px solid $color-three !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                padding-left: 0 !important;
+                font: $paragraph;
+                font-weight: $weight-700;
+                color: $color-black;
+                @include trans();
+                @include x-small-device{
+                    font: $paragraph-mobile;
+                }
+                @include small-device{
+                    font: $paragraph-mobile;
+                }
+
+                &::before{
+                    content: '';
+                    display: block;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 100%;
+                    background-color: $color-three;
+                    margin-right: 10px;
+                }
+
+                &:not(.collapsed){
+                    background-color: $color-five !important;
+                    padding-left: 20px !important;
+                    @include trans();
+                }
+            }
+        }
+        &__image{
+            @include x-small-device{
+                padding: 0;
+            }
+            @include small-device{
+                padding: 0;
+            }
+
+            &__img{
+                width: 100%;
+            }
+        }
+    }
+}
+// END .topi11

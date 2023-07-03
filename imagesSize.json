@@ -1260,6 +1260,13 @@
                 "activeCrop": "false"
             }
         },
+        "TOPI11": {
+            "path_image": {
+                "width": "300",
+                "height": "400",
+                "activeCrop": "true"
+            }
+        },
         "TOPI101": {
             "path_image": {
                 "width": "1450",
