@@ -1107,6 +1107,25 @@
                 "height": "200",
                 "activeCrop": "false"
             }
+        },
+        "SLID03": {
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "782",
+                "activeCrop": "true"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "782",
+                "activeCrop": "true"
+            },
+            "Form": {
+                "path_image_lightbox": {
+                    "width": "195",
+                    "height": "268",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Topics": {

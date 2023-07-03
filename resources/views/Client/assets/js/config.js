@@ -86,25 +86,7 @@ $(function(){
             that.attr('id', name)
 
             var formPlaceholder = that.parent(),
-                placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-                thisPadding = that.css('padding'),
-                thisHeight = that.css('height'),
-                thisWidth = that.css('width'),
-                thisFont = that.css('font'),
-                thisFontSize = that.css('font-size'),
-                thisLineHeight = that.css('line-height')
-
-            function focusInput(elem){
-                elem.css('height', 'auto')
-                elem.stop().animate({
-                    'padding': '1px 7px;',
-                    'font-size': '11px',
-                    'line-height': '18px'
-                },'fast', function(){
-                    let newHeightPlaceholder = elem.css('height')
-                    that.css({'padding-top': newHeightPlaceholder, 'padding-bottom':'3px'})
-                });
-            }
+                placeholderCustom = formPlaceholder.find('.placeholder--custom')
 
             placeholderCustom.on('click', function(){
                 that.trigger('focus')
@@ -128,63 +110,20 @@ $(function(){
             name = that.attr('name')
 
         that.parent().append(`
-            <div class="form-placeholder"><label for="${name}" class="placeholder--custom">${placeholder}</label></div>
+            <div class="form-placeholder select"><label for="${name}" class="placeholder--custom">${placeholder}</label></div>
         `)
         that.parent().find('.form-placeholder').append(that)
         that.removeAttr('placeholder')
         that.attr('id', name)
 
-        var formPlaceholder = that.parent(),
-            placeholderCustom = formPlaceholder.find('.placeholder--custom'),
-            thisPadding = that.css('padding'),
-            thisHeight = that.css('height'),
-            thisWidth = that.css('width'),
-            thisFont = that.css('font'),
-            thisFontSize = that.css('font-size'),
-            thisLineHeight = that.css('line-height')
-
-        that.css('height', thisHeight)
-
-        formPlaceholder.css({
-            'position': 'relative',
-        });
-
-        placeholderCustom.css({
-            'position': 'absolute',
-            'left': '0',
-            'top': '0',
-            'line-height': thisLineHeight,
-            'padding': thisPadding,
-            'width': thisWidth,
-            'height': thisHeight,
-            'font': thisFont,
-            'opacity': '0',
-            'visibility': 'hidden',
-        });
+        var formPlaceholder = that.parent()
 
         that.on('change', function(){
             var thisValue = $(this).val()
             if(thisValue!=''){
-                placeholderCustom.css({'height': 'auto', 'opacity': '1', 'visibility': 'visible'});
-                placeholderCustom.stop().animate({
-                    'padding': '1px 7px;',
-                    'font-size': '11px',
-                    'line-height': '18px',
-                },'fast', function(){
-                    let newHeightPlaceholder = placeholderCustom.css('height')
-                    that.css({'padding-top': newHeightPlaceholder, 'padding-bottom':'3px'})
-                });
+                formPlaceholder.addClass('focusing')
             }else{
-                placeholderCustom.css({
-                    'padding': thisPadding,
-                    'width': thisWidth,
-                    'height': thisHeight,
-                    'font-size': thisFontSize,
-                    'line-height': 'inherit',
-                    'opacity': '0',
-                    'visibility': 'hidden',
-                }, 'fast');
-                that.css({'padding': thisPadding})
+                formPlaceholder.removeClass('focusing')
             }
         })
     })

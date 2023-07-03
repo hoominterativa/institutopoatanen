@@ -68,8 +68,7 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        $path = 'uploads/images/contactForm/';
-        // dd($request->all());
+        $path = 'uploads/contactForm/images/';
         $helperArchive = new HelperArchive();
         $data = $request->all();
 
@@ -177,47 +176,62 @@ class ContactFormController extends Controller
     public function update(Request $request, ContactForm $ContactForm)
     {
         // dd($request->all());
-        $path = 'uploads/images/contactForm/';
+        $path = 'uploads/contactForm/images/';
         $helperArchive = new HelperArchive();
-        $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,null,100);
-        $arrayInputs = [];
         $data = $request->all();
+
+        $arrayInputs = [];
+        $arrayContents = [];
+
+        foreach ($data['content'] as $name => $value) {
+            $type = $data['type_'.$name];
+
+            if($type=='image'){
+                $contentCurrent = json_decode($ContactForm->content);
+                if($request->hasFile($name)){
+                    Storage::delete($contentCurrent->$name->value);
+                    $value = $helperArchive->optimizeImage($request, $name, $path, null, 100);
+                }else{
+                    if($request->has('delete_path_image_inner')){
+                        Storage::delete($contentCurrent->$name->value);
+                        $value = null;
+                    }else{
+                        $value = $contentCurrent->$name->value;
+                    }
+                }
+            }
+
+            $content = [
+                $name => [
+                    'value' => $value,
+                    'type' => $type,
+                ]
+            ];
+            $arrayContents = array_merge($arrayContents, $content);
+        }
 
         foreach ($data as $name => $value) {
             $arrayName = explode('_', $name);
             if($arrayName[0] == 'column'){
                 $type = end($arrayName);
                 $inputOption = str_replace('column', 'option', $name);
-                $inputRequired = str_replace('column', 'required', $name);
                 $option = '';
-                $required = false;
-
                 if(isset($data[$inputOption])){
                     $option = $data[$inputOption];
                 }
-                if(isset($data[$inputRequired])){
-                    $required = true;
-                }
-
                 $pushArray = [
                     $name => [
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
             }
         }
+
         $jsonInputs = json_encode($arrayInputs);
         $social = json_encode($request->social_id, true);
-
-        if($path_image){
-            Storage::delete($ContactForm->path_image);
-            $ContactForm->path_image = $path.$path_image;
-            $request->path_image->storeAs($path, $path_image);
-        }
 
         $ContactForm->email = $request->email;
         $ContactForm->session = $request->session;
@@ -226,6 +240,7 @@ class ContactFormController extends Controller
         $ContactForm->model = $request->model;
         $ContactForm->social_id = $social;
         $ContactForm->inputs = $jsonInputs;
+        $ContactForm->content = json_encode($arrayContents);
         $ContactForm->external_structure = $request->external_structure;
         $ContactForm->save();
 
@@ -293,10 +308,9 @@ class ContactFormController extends Controller
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
-            if($ContactForm->socials_id){
+            if($ContactForm->social_id){
                 $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
             }
-            // dd($socials);
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
                 'content' => json_decode($ContactForm->content),
@@ -333,12 +347,15 @@ class ContactFormController extends Controller
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
-            $socials = Social::whereIn('id', [$ContactForm->social_id])->get();
+            if($ContactForm->social_id){
+                $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
+            }
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
                 'inputs' => json_decode($ContactForm->inputs),
+                'content' => json_decode($ContactForm->content),
                 'model' => $ContactForm->model,
-                'socials' => $socials
+                'socials' => $socials?? null
             ]);
         }
 

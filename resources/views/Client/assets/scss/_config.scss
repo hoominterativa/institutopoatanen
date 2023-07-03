@@ -679,6 +679,298 @@ body {
     }
 }
 //FIM FORM102
+// INICIO FORM02
+.form02{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .container--pd{
+        padding: 91px 0 45px 0 !important;
+
+        @include medium-device-down{
+            padding: 73px 0 45px 0 !important;
+            max-width: 83% !important;
+        }
+    }
+    &__content{
+        &__title{
+            font-size: $T3;
+            color:$color-black;
+            margin-bottom: 17px;
+            font-weight: $weight-700;
+
+            @include small-device{
+                font-size: $T3-mobile;
+            }
+        }
+        &__paragraph{
+            max-width:592px;
+            margin: 0 auto;
+            width:100%;
+            text-align:center;
+
+            @include small-device{
+                width: 100%;
+            }
+
+            p{
+                font:$paragraph;
+                font-weight: $weight-400;
+                color: $color-one;
+
+                @include small-device{
+                    font:$paragraph-min;
+                }
+            }
+        }
+
+        &__form{
+            display: flex;
+            margin-top: 48px;
+
+            div{
+                padding: 0;
+
+                @include medium-device-down{
+                    flex-direction: column;
+                }
+            }
+        }
+        .input__item{
+            width: 32.333333%;
+
+            @include medium-device-down{
+                width: 100%;
+            }
+        }
+        label{
+            width: auto !important;
+        }
+        input{
+            height: 42px;
+            background: $color-white !important;
+            border: 0;
+            border-radius: 0;
+            padding: 0 15px;
+
+            &::placeholder{
+                background-color: $color-white !important;
+            }
+        }
+
+        &__cta{
+            background-color: $color-white;
+            color:$color-one;
+            height: 45px;
+            width: 177px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 16px;
+            border: 0;
+            font:$paragraph;
+            font-weight: $weight-700;
+            margin-left: auto;
+            transition: 0.5s all ease;
+
+            @include small-device{
+                height: 39px;
+                width: 153px;
+                margin-top: 18px;
+            }
+
+            &:hover{
+                background-color: $color-black;
+                color:$color-white;
+                transition: 0.5s all ease;
+            }
+
+            img{
+                width: 25.16px;
+                height: 25.16px;
+                margin-right: 16.87px;
+                transition: 0.5s all ease;
+
+                @include small-device{
+                    width: 21px;
+                    height: 21px;
+                    margin-right: 14.58px;
+                }
+            }
+            &:hover img{
+                filter:invert(1) grayscale(1);
+                transition: 0.5s all ease;
+            }
+        }
+    }
+
+}
+.lifo{
+    max-width: 1225px;
+    width: 100%;
+    background-color: #B3B3B3;
+    background-position: center;
+    background-size: cover;
+    padding: 93px;
+    padding-bottom: 0;
+
+    @include medium-device-down{
+        padding: 38px !important;
+        padding-bottom: 38px;
+    }
+
+    .row--container{
+        gap:0 73.48px;
+    }
+
+
+    &__boxLeft{
+        max-width: 443px;
+        width: 100%;
+
+
+        &__title{
+            font-size: $T3;
+            color:$color-black;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            font-weight: $weight-700;
+
+            @include small-device{
+                font-size: $T3-mobile;
+                margin-bottom: 17px;
+            }
+        }
+        &__paragraph{
+            width: 499px;
+
+            @include small-device{
+                width: 100%;
+            }
+
+            p{
+                font:$paragraph;
+                font-weight: $weight-400;
+                color: $color-two;
+
+                @include small-device{
+                    font:$paragraph-min;
+                }
+            }
+        }
+
+        &__form{
+            display: flex;
+            margin-top: 48px;
+            flex-direction: column;
+
+
+            .input__item{
+                width: 100%;
+                padding: 0;
+            }
+        }
+        &__inputs{
+            width: 100%;
+        }
+        label{
+            width: auto !important;
+        }
+        input{
+            height: 42px;
+            background: $color-white !important;
+            border: 0;
+            border-radius: 0;
+            padding: 0 15px;
+
+            &::placeholder{
+                background-color: $color-white !important;
+            }
+        }
+
+        &__cta{
+            background-color: $color-white;
+            color:$color-one;
+            height: 45px;
+            width: 177px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 16px;
+            border: 0;
+            font:$paragraph;
+            font-weight: $weight-700;
+            margin-left: auto;
+            transition: 0.5s all ease;
+
+            @include small-device{
+                height: 39px;
+                width: 153px;
+                margin-top: 18px;
+            }
+
+            &:hover{
+                background-color: $color-black;
+                color:$color-white;
+                transition: 0.5s all ease;
+            }
+
+            img{
+                width: 25.16px;
+                height: 25.16px;
+                margin-right: 16.87px;
+                transition: 0.5s all ease;
+
+                @include small-device{
+                    width: 21px;
+                    height: 21px;
+                    margin-right: 14.58px;
+                }
+            }
+            &:hover img{
+                filter:invert(1) grayscale(1);
+                transition: 0.5s all ease;
+            }
+        }
+    }
+    &__boxRight{
+        @include small-device-down{
+            display: none;
+        }
+        &__image{
+        height: 592px;
+        max-width: 451px;
+        width: 100%;
+        background: #ffff;
+        margin-left: auto;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .carousel__button.is-close {
+        right: 17px;
+        top: 17px;
+        left: inherit;
+        width: 31px;
+        height: 31px;
+        background: #000000;
+        border-radius: 5px;
+        color: $color-white;
+        font-size: 11px;
+    }
+    .fancybox__backdrop {
+        background: $color-one !important;
+    }
+}
+//FIM FORM02
 // INICIO form03
 .form03 {
     background-position: center;
@@ -937,6 +1229,31 @@ body {
         padding-left: 15px;
         transform: translate(0, -50%);
         transition: ease all 0.3s;
+    }
+    &.select{
+        .placeholder--custom{
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &.select{
+        &.focusing{
+            .placeholder--custom{
+                opacity: 1;
+                visibility: visible;
+            }
+            > select{
+                padding-top: 10px;
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    > select{
+        transition: ease all 0.3s;
+        background-color: #fff !important;
+        height: 40px;
     }
 
     > input{
