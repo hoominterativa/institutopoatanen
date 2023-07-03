@@ -11,7 +11,6 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-
     ],
 
     'ModelsForm' => (object)[

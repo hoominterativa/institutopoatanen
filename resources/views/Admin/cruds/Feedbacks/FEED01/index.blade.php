@@ -31,10 +31,10 @@
                     <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Informações para home
+                            Informações complementares
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações que serão exibidas, caso esteja ativa, na seção que é exibida na Home"></i>
+                                data-bs-original-title="Cadastro de informações adcionais para o conteúdo principal"></i>
                         </a>
                     </li>
                 </ul>
@@ -165,7 +165,7 @@
 
                                                 <div class="mb-3 form-check me-3">
                                                     {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                                                    {!! Form::label('active', 'Ativar exibição na home?', ['class' => 'form-check-label']) !!}
+                                                    {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6">
