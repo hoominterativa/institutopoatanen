@@ -280,13 +280,34 @@ class SERV05Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV05Services $SERV05Services)
-    public function show()
+    public function show(SERV05Services $SERV05Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV05', 'show');
 
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->sorting()->get();
+                if ($galleryServices) {
+                    foreach ($galleryServices as $galleryService) {
+                        $galleryService->path_image_desktop = $galleryService->path_image_mobile;
+                    }
+                }
+            break;
+            default:
+            $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->sorting()->get();
+            break;
+        }
+
+        $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->active()->sorting()->get();
+        $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->active()->sorting()->get();
         return view('Client.pages.Services.SERV05.show', [
-            'sections' => $sections
+            'sections' => $sections,
+            'galleryServices' => $galleryServices,
+            'service' => $SERV05Services,
+            'contents' => $contents,
+            'topics' => $topics
         ]);
     }
 
@@ -296,13 +317,45 @@ class SERV05Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV05ServicesCategory $SERV05ServicesCategory, SERV05Services $SERV05Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV05', 'page');
 
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $galleries = SERV05ServicesGallery::sorting()->get();
+                if ($galleries) {
+                    foreach ($galleries as $gallery) {
+                        $gallery->path_image_banner_desktop = $gallery->path_image_banner_mobile;
+                    }
+                }
+            break;
+            default:
+            $galleries = SERV05ServicesGallery::sorting()->get();
+            break;
+        }
+
+        $section = SERV05ServicesSection::first();
+        $categories = SERV05ServicesCategory::active()->exists()->sorting()->get();
+        $services = SERV05Services::active();
+        if($SERV05ServicesCategory->exists){
+            $services = $services->where('category_id', $SERV05ServicesCategory->id);
+
+            foreach ($categories as $category) {
+                if($SERV05ServicesCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+        }
+        $services = $services->active()->sorting()->paginate(12);
         return view('Client.pages.Services.SERV05.page', [
-            'sections' => $sections
+            'sections' => $sections,
+            'galleries' => $galleries,
+            'section' => $section,
+            'categories' => $categories,
+            'services' => $services
         ]);
     }
 
@@ -313,6 +366,15 @@ class SERV05Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV05.section');
+        $section = SERV05ServicesSection::active()->first();
+        $categories = SERV05ServicesCategory::active()->featured()->exists()->sorting()->get();
+        $categoryFirst = SERV05ServicesCategory::active()->featured()->exists()->sorting()->first();
+        $services = SERV05Services::active()->featured()->sorting()->get();
+        return view('Client.pages.Services.SERV05.section',[
+            'section' => $section,
+            'categories' => $categories,
+            'services' => $services,
+            'categoryFirst' => $categoryFirst,
+        ]);
     }
 }

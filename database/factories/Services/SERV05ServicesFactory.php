@@ -26,8 +26,8 @@ class SERV05ServicesFactory extends Factory
         $subtitle = $this->faker->text(12);
         $path = $this->faker->randomElement([
             'uploads/tmp/image-box.jpg',
-            'uploads/tmp/gall01_image2.png',
-            'uploads/tmp/slid01_path_image_desktop.png',
+            'uploads/tmp/gall01_image1.png',
+            'uploads/tmp/thumbnail.png',
         ]);
         return [
             //Service

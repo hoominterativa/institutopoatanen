@@ -1104,6 +1104,15 @@ body .owl-dots .owl-dot.active {
      object-position: center;
   transition: all 0.5s ease;
 }
+.serv05-categories__list__item.active {
+  background: #000;
+}
+.serv05-categories__list__item.active a {
+  color: #fff;
+}
+.serv05-categories__list__item.active img {
+  filter: invert(1) grayscale(1);
+}
 .serv05-categories__dropdown-mobile {
   display: none;
 }
@@ -1297,37 +1306,33 @@ body .owl-dots .owl-dot.active {
   padding-bottom: 40px;
 }
 .serv05-page__pagination {
-  padding-left: 0;
-  width: 100%;
-  gap: 9px;
-  list-style-type: none;
-  margin-top: 22px;
+  margin-top: 52px;
 }
-.serv05-page__pagination__item {
-  height: 38px;
-  width: 38px;
-}
-.serv05-page__pagination__item a {
+.serv05-page__pagination ul {
+  gap: 0 3.52px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+}
+.serv05-page__pagination ul li {
+  display: flex;
+}
+.serv05-page__pagination ul li.active .page-link, .serv05-page__pagination ul li:hover .page-link {
+  background: #000;
+  transition: all 0.5s ease;
+}
+.serv05-page__pagination ul li .page-link {
+  cursor: pointer;
+  display: flex;
+  background: #7C7C7C;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  border: 0;
+  color: #fff;
+  border-radius: 0 !important;
+  width: 33.4px;
+  height: 21px;
+  display: flex;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  font: 0.875rem "Montserrat", sans-serif, arial;
-  color: #d9d9d9;
-  background-color: #404040;
-  font-weight: 500;
-}
-@media (max-width: 767.98px) {
-  .serv05-page__pagination__item a {
-    font: 0.813rem "Montserrat", sans-serif, arial;
-  }
-}
-.serv05-page__pagination__item a:hover {
-  background-color: #d9d9d9;
-  color: #404040;
+  justify-content: center;
 }
 
 .serv05-banner-carousel__item {
