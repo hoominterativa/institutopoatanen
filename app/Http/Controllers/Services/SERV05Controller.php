@@ -9,10 +9,14 @@ use App\Models\Services\SERV05Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV05ServicesTopic;
+use App\Models\Services\SERV05ServicesContent;
+use App\Models\Services\SERV05ServicesGallery;
 use App\Models\Services\SERV05ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV05ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV05ServicesGalleryService;
 
 class SERV05Controller extends Controller
 {
@@ -29,12 +33,13 @@ class SERV05Controller extends Controller
         $serviceCategories = SERV05ServicesCategory::sorting()->paginate(10);
         $categories = SERV05ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV05ServicesSection::first();
-        
+        $galleries = SERV05ServicesGallery::sorting()->get();
         return view('Admin.cruds.Services.SERV05.index', [
             'services' => $services,
             'categories' => $categories,
             'serviceCategories' => $serviceCategories,
             'section' => $section,
+            'galleries' => $galleries,
             'cropSetting' => getCropImage('Services', 'SERV05')
         ]);
     }
@@ -74,9 +79,9 @@ class SERV05Controller extends Controller
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        if (SERV05Services::create($data)) {
+        if ($service = SERV05Services::create($data)) {
             Session::flash('success', 'Serviço cadastrado com sucesso');
-            return redirect()->route('admin.serv05.index');
+            return redirect()->route('admin.serv05.edit', ['SERV05Services' => $service->id]);
         } else {
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
@@ -94,9 +99,15 @@ class SERV05Controller extends Controller
     public function edit(SERV05Services $SERV05Services)
     {
         $categories = SERV05ServicesCategory::sorting()->pluck('title', 'id');
+        $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->sorting()->get();
+        $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->sorting()->get();
+        $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->sorting()->get();
         return view('Admin.cruds.Services.SERV05.edit', [
             'service' => $SERV05Services,
             'categories' => $categories,
+            'contents' => $contents,
+            'galleryServices' => $galleryServices,
+            'topics' => $topics,
             'cropSetting' => getCropImage('Services', 'SERV05')
         ]);
     }
@@ -155,6 +166,33 @@ class SERV05Controller extends Controller
      */
     public function destroy(SERV05Services $SERV05Services)
     {
+        $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->get();
+        if ($contents) {
+            foreach($contents as $content) {
+                storageDelete($content, 'path_image');
+                storageDelete($content, 'path_image_icon');
+                $content->delete();
+            }
+        }
+
+        $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->get();
+        if ($galleryServices) {
+            foreach ($galleryServices as $galleryService) {
+                storageDelete($galleryService, 'path_image_desktop');
+                storageDelete($galleryService, 'path_image_mobile');
+                $galleryService->delete();
+            }
+        }
+
+        $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->get();
+        if ($topics) {
+            foreach ($topics as $topic) {
+                storageDelete($topic, 'path_image');
+                storageDelete($topic, 'path_image_icon');
+                $topic->delete();
+            }
+        }
+
         storageDelete($SERV05Services, 'path_image');
         storageDelete($SERV05Services, 'path_image_icon');
 
@@ -175,6 +213,34 @@ class SERV05Controller extends Controller
 
         $SERV05Servicess = SERV05Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV05Servicess as $SERV05Services){
+
+            $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->get();
+            if ($contents) {
+                foreach($contents as $content) {
+                    storageDelete($content, 'path_image');
+                    storageDelete($content, 'path_image_icon');
+                    $content->delete();
+                }
+            }
+
+            $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->get();
+            if ($galleryServices) {
+                foreach ($galleryServices as $galleryService) {
+                    storageDelete($galleryService, 'path_image_desktop');
+                    storageDelete($galleryService, 'path_image_mobile');
+                    $galleryService->delete();
+                }
+            }
+
+            $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->get();
+            if ($topics) {
+                foreach ($topics as $topic) {
+                    storageDelete($topic, 'path_image');
+                    storageDelete($topic, 'path_image_icon');
+                    $topic->delete();
+                }
+            }
+
             storageDelete($SERV05Services, 'path_image');
             storageDelete($SERV05Services, 'path_image_icon');
         }

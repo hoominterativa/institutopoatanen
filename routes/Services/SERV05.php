@@ -3,8 +3,12 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Services\SERV05Controller;
+use App\Http\Controllers\Services\SERV05TopicController;
+use App\Http\Controllers\Services\SERV05ContentController;
+use App\Http\Controllers\Services\SERV05GalleryController;
 use App\Http\Controllers\Services\SERV05SectionController;
 use App\Http\Controllers\Services\SERV05CategoryController;
+use App\Http\Controllers\Services\SERV05GalleryServiceController;
 
 /**
  * Uncomment the code below
@@ -30,6 +34,22 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/categorias', SERV05CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'SERV05ServicesCategory']);
     Route::post($route.'/categoria/delete', [SERV05CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [SERV05CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+
+    Route::resource($route.'/galeria', SERV05GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'SERV05ServicesGallery']);
+    Route::post($route.'/galeria/delete', [SERV05GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [SERV05GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
+
+    Route::resource($route.'/conteudos', SERV05ContentController::class)->names('admin.'.$routeName.'.content')->parameters(['conteudos' => 'SERV05ServicesContent']);
+    Route::post($route.'/conteudo/delete', [SERV05ContentController::class, 'destroySelected'])->name('admin.'.$routeName.'.content.destroySelected');
+    Route::post($route.'/conteudo/sorting', [SERV05ContentController::class, 'sorting'])->name('admin.'.$routeName.'.content.sorting');
+
+    Route::resource($route.'/galeria-servico', SERV05GalleryServiceController::class)->names('admin.'.$routeName.'.gallery-service')->parameters(['galeria-servico' => 'SERV05ServicesGalleryService']);
+    Route::post($route.'/galeria-servico/delete', [SERV05GalleryServiceController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery-service.destroySelected');
+    Route::post($route.'/galeria-servico/sorting', [SERV05GalleryServiceController::class, 'sorting'])->name('admin.'.$routeName.'.gallery-service.sorting');
+
+    Route::resource($route.'/topicos', SERV05TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV05ServicesTopic']);
+    Route::post($route.'/topico/delete', [SERV05TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topico/sorting', [SERV05TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
 
     Route::resource($route.'/secao', SERV05SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV05ServicesSection']);
 });

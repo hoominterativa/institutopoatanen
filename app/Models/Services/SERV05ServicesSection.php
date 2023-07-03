@@ -22,8 +22,10 @@ class SERV05ServicesSection extends Model
         'title', 'description', 'subtitle',
         //Banner
         'title_banner', 'subtitle_banner',
+        //About
+        'title_about', 'subtitle_about', 'description_about',
         //Topic
-        'title_topic', 'subtitle_topic', 'description_topic',
+        'title_topic', 'subtitle_topic', 'title_topic_button', 'link_topic', 'target_link',
         'active'
     ];
 

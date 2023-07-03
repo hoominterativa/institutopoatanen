@@ -45,25 +45,25 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="alert alert-warning">
-                <p class="mb-0">• As informações cadastradas nestes campos serão mostradas em destaque na seção banner da página interna.</p>
+                <p class="mb-0">• As informações cadastradas nestes campos serão mostradas em destaque na seção "SOBRE" da página interna.</p>
             </div>
             <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Form::label('title_topic', 'Título do tópico', ['class' => 'form-label']) !!}
-                        {!! Form::text('title_topic', null, ['class' => 'form-control', 'id' => 'title_topic']) !!}
+                        {!! Form::label('title_about', 'Título Sobre', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_about', null, ['class' => 'form-control', 'id' => 'title_about']) !!}
                     </div>
                     <div class="col-sm-6">
-                        {!! Form::label('subtitle_topic', 'Subtítulo do tópico', ['class' => 'form-label']) !!}
-                        {!! Form::text('subtitle_topic', null, ['class' => 'form-control', 'id' => 'subtitle_topic']) !!}
+                        {!! Form::label('subtitle_about', 'Subtítulo Sobre', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle_about', null, ['class' => 'form-control', 'id' => 'subtitle_about']) !!}
                     </div>
                 </div>
             </div>
             <div class="mb-3">
-                {!! Form::label('description_topic', 'Descrição do tópico', ['class' => 'form-label']) !!}
-                {!! Form::textarea('description_topic', null, [
+                {!! Form::label('description_about', 'Descrição', ['class' => 'form-label']) !!}
+                {!! Form::textarea('description_about', null, [
                     'class' => 'form-control',
-                    'id' => 'description_topic',
+                    'id' => 'description_about',
                     'required' => 'required',
                     'data-parsley-trigger' => 'keyup',
                     'data-parsley-minlength' => '20',
@@ -77,7 +77,7 @@
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
             <div class="alert alert-warning">
-                <p class="mb-0">• As informações cadastradas nestes campos serão mostradas em destaque na seção tópico da página interna.</p>
+                <p class="mb-0">• As informações cadastradas nestes campos serão mostradas em destaque na seção "BANNER" da página interna.</p>
             </div>
             <div class="mb-3">
                 <div class="row">

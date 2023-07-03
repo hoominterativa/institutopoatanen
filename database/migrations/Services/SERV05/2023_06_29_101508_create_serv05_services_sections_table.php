@@ -22,10 +22,16 @@ class CreateServ05ServicesSectionsTable extends Migration
             // Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
+            //About
+            $table->string('title_about')->nullable();
+            $table->string('subtitle_about')->nullable();
+            $table->text('description_about')->nullable();
             //Topic
             $table->string('title_topic')->nullable();
             $table->string('subtitle_topic')->nullable();
-            $table->text('description_topic')->nullable();
+            $table->string('title_topic_button')->nullable();
+            $table->text('link_topic')->nullable();
+            $table->enum('target_link', ['_self', '_blank'])->default('_self');
 
             $table->integer('active')->default(0);
             $table->timestamps();

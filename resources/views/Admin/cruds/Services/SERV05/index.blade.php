@@ -150,6 +150,9 @@
                     <div class="tab-pane" id="section">
                         @include('Admin.cruds.Services.SERV05.Section.form')
                     </div>
+                    <div class="tab-pane" id="gallery">
+                        @include('Admin.cruds.Services.SERV05.Gallery.index')
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->

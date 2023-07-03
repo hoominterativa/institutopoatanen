@@ -29,10 +29,10 @@ class SERV05ServicesSectionFactory extends Factory
             //Banner
             'title_banner' => $this->faker->text(10),
             'subtitle_banner' => $this->faker->text(10),
-            //Topic
-            'title_topic' => $this->faker->text(10),
-            'subtitle_topic' => $this->faker->text(10),
-            'description_topic' => $this->faker->text(400),
+            //About
+            'title_about' => $this->faker->text(10),
+            'subtitle_about' => $this->faker->text(10),
+            'description_about' => $this->faker->text(400),
             'active' => 1,
         ];
     }

@@ -975,32 +975,58 @@
                 "height": "410",
                 "activeCrop": "false"
             },
-            "Section": {
-                "path_image_section_desktop": {
-                    "width": "1500",
-                    "height": "951",
-                    "activeCrop": "true"
-                },
-                "path_image_section_mobile": {
-                    "width": "390",
-                    "height": "958",
-                    "activeCrop": "true"
-                },
-                "path_image_banner_desktop": {
-                    "width": "1500",
-                    "height": "411",
-                    "activeCrop": "true"
-                },
-                "path_image_banner_mobile": {
-                    "width": "450",
-                    "height": "427",
-                    "activeCrop": "true"
-                }
-            },
             "Category": {
                 "path_image_icon": {
                     "width": "250",
                     "height": "250",
+                    "activeCrop": "false"
+                }
+            },
+            "Galleries": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "419",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "true"
+                }
+            },
+            "GalleryService": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "419",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "true"
+                }
+            },
+            "Content": {
+                "path_image": {
+                    "width": "750",
+                    "height": "619",
+                    "activeCrop": "false"
+                },
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Topic": {
+                "path_image": {
+                    "width": "325",
+                    "height": "295",
+                    "activeCrop": "false"
+                },
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
                     "activeCrop": "false"
                 }
             }
