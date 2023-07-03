@@ -41,6 +41,7 @@ class CreateProd05ProductsTable extends Migration
             $table->integer('featured_home')->default(0);
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

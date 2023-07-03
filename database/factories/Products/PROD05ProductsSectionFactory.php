@@ -23,6 +23,12 @@ class PROD05ProductsSectionFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
+            'description' => $this->faker->text(180),
+            "path_image_banner" => 'uploads/tmp/bg-banner-inner.jpg',
+            "path_image_banner_mobile" => 'uploads/tmp/bg-slid-mobile.jpg',
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
             'active' => 1,
         ];
     }

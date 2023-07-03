@@ -5,10 +5,11 @@ namespace App\Models\Products;
 use Database\Factories\Products\PROD05ProductsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PROD05Products extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected static function newFactory()
     {
