@@ -1,0 +1,38 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+.foot06{
+    padding: 105px 0;
+    background-color: $color-five;
+
+    &__item{
+        &__socials{
+            &__link{
+                margin: 0 10px;
+            }
+            &__title{
+                font-size: $T5;
+                font-family: $font-primary;
+                color: $color-black;
+                font-weight: $weight-700;
+                margin-bottom: 16px;
+            }
+        }
+        // END __socials
+        &__cta{
+            &__link{
+                padding: 10px 55px;
+                font: $paragraph;
+                font-weight: $weight-600;
+                color: $color-one;
+                background-color: $color-white;
+                display: table;
+                &:hover{
+                    background-color: $color-one;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+    // END __item
+}
