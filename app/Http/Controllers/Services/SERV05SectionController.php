@@ -23,6 +23,8 @@ class SERV05SectionController extends Controller
     {
         $data = $request->all();
         $data['active'] = $request->active?1:0;
+        $data['active_about'] = $request->active_about?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
 
         if(SERV05ServicesSection::create($data)){
             Session::flash('success', 'Seção cadastrada com sucesso');
@@ -43,6 +45,8 @@ class SERV05SectionController extends Controller
     {
         $data = $request->all();
         $data['active'] = $request->active?1:0;
+        $data['active_about'] = $request->active_about?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
 
         if($SERV05ServicesSection->fill($data)->save()){
             Session::flash('success', 'Seção atualizado com sucesso');

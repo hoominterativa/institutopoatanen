@@ -40,6 +40,12 @@
                     'data-parsley-validation-threshold' => '10',
                 ]) !!}
             </div>
+            <div class="col-12">
+                <div class="mb-3 form-check me-3">
+                    {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                    {!! Form::label('active', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-12 col-lg-6">
@@ -72,6 +78,12 @@
                     'data-parsley-validation-threshold' => '10',
                 ]) !!}
             </div>
+            <div class="col-12">
+                <div class="mb-3 form-check me-3">
+                    {!! Form::checkbox('active_about', '1', null, ['class' => 'form-check-input', 'id' => 'active_about']) !!}
+                    {!! Form::label('active_about', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-12">
@@ -91,12 +103,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="mb-3 form-check me-3">
-            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-            {!! Form::label('active', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
+            <div class="col-12">
+                <div class="mb-3 form-check me-3">
+                    {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}
+                    {!! Form::label('active_banner', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
+                </div>
+            </div>
         </div>
     </div>
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">

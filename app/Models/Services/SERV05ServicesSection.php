@@ -19,18 +19,28 @@ class SERV05ServicesSection extends Model
     protected $fillable =
     [
         //Home
-        'title', 'description', 'subtitle',
+        'title', 'description', 'subtitle', 'active',
+
         //Banner
-        'title_banner', 'subtitle_banner',
+        'title_banner', 'subtitle_banner', 'active_banner',
+
         //About
-        'title_about', 'subtitle_about', 'description_about',
-        //Topic
-        'title_topic', 'subtitle_topic', 'title_topic_button', 'link_topic', 'target_link',
-        'active'
+        'title_about', 'subtitle_about', 'description_about', 'active_about',
+
     ];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
+    }
+
+    public function scopeActiveAbout($query)
+    {
+        return $query->where('active_about', 1);
     }
 }

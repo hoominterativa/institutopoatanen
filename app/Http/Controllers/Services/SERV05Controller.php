@@ -70,6 +70,9 @@ class SERV05Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['active_topic'] = $request->active_topic?1:0;
+        $data['active_about'] = $request->active_about?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
         $data['featured'] = $request->featured?1:0;
         $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 
@@ -125,6 +128,9 @@ class SERV05Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['active_topic'] = $request->active_topic?1:0;
+        $data['active_about'] = $request->active_about?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
         $data['featured'] = $request->featured?1:0;
         $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 

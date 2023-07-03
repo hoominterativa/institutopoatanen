@@ -30,6 +30,7 @@ class SERV05ServicesFactory extends Factory
             'uploads/tmp/slid01_path_image_desktop.png',
         ]);
         return [
+            //Service
             'category_id' => rand(1, 7),
             'slug' => Str::slug($title.' '.$subtitle),
             'title' => $title,
@@ -41,6 +42,25 @@ class SERV05ServicesFactory extends Factory
             'price' => $this->faker->randomFloat(2, 0, 100),
             'featured' => rand(0, 1),
             'active' => 1,
+
+            //Topic
+            'title_topic' => $this->faker->text(10),
+            'subtitle_topic' => $this->faker->text(10),
+            'title_topic_button' => $this->faker->text(6),
+            'link_topic' => $this->faker->url(),
+            'target_link' => '_blank',
+            'active_topic' => 1,
+
+            //About
+            'title_about' => $this->faker->text(10),
+            'subtitle_about' => $this->faker->text(10),
+            'description_about' => $this->faker->text(200),
+            'active_about' => 1,
+
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'active_banner' => 1,
         ];
     }
 }
