@@ -1,7 +1,7 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
 'Services' => (object) [
-    'SERV04' => (object)[
+    'SERV05' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => true,
         'ViewListPanel' => true,
@@ -24,7 +24,7 @@
         'config' => (object) [
             'titleMenu' => 'Serviços',
             'anchor' =>  false,
-            'linkMenu' => 'serv04.page',
+            'linkMenu' => 'serv05.page',
             'iconMenu' => '',
             'titlePanel' => 'Serviços',
             'iconPanel' => 'mdi-alpha-s-box-outline'

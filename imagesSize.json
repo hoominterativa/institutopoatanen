@@ -1026,6 +1026,73 @@
                 }
             }
         },
+        "SERV05": {
+            "path_image_icon": {
+                "width": "200",
+                "height": "200",
+                "activeCrop": "false"
+            },
+            "path_image": {
+                "width": "355",
+                "height": "410",
+                "activeCrop": "false"
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "250",
+                    "height": "250",
+                    "activeCrop": "false"
+                }
+            },
+            "Galleries": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "419",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "true"
+                }
+            },
+            "GalleryService": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "419",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "true"
+                }
+            },
+            "Content": {
+                "path_image": {
+                    "width": "750",
+                    "height": "619",
+                    "activeCrop": "false"
+                },
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Topic": {
+                "path_image": {
+                    "width": "325",
+                    "height": "295",
+                    "activeCrop": "false"
+                },
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
+        },
         "SERV06": {
             "path_image": {
                 "width": "750",

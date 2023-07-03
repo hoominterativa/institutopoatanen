@@ -1,59 +1,53 @@
 @extends('Client.Core.client')
 @section('content')
     {{-- BEGIN Page content --}}
-
     <section class="serv05-page">
-
         <header class="serv05-page__header w-100">
-
             <div class="serv05-banner-carousel owl-carousel w-100">
-
-                @for ($i = 0; $i < 3; $i++)
-                    <div class="serv05-banner-carousel__item"
-                        style="background-image: url({{ asset('storage/uploads/tmp/bg-banner-inner.jpg') }})">
+                @foreach ($galleries as $gallery)
+                    <div class="serv05-banner-carousel__item" style="background-image: url({{ asset('storage/' . $gallery->path_image_desktop) }});  background-color: #ffffff;">
                         <div class="container d-flex flex-column align-items-center justify-content-center">
-                            <h3 class="serv05-banner-carousel__title text-center">Título Página {{ $i }}</h3>
-                            <h4 class="serv05-banner-carousel__subtitle text-center">Subtítulo</h4>
-                            <hr class="serv05-banner-carousel__line">
+                            @if ($section)
+                                <h3 class="serv05-banner-carousel__title text-center">{{$section->title_banner}}</h3>
+                                <h4 class="serv05-banner-carousel__subtitle text-center">{{$section->subtitle_banner}}</h4>
+                                <hr class="serv05-banner-carousel__line">
+                            @endif
                         </div>
                     </div>
-                @endfor
-
+                @endforeach
             </div>
-
             <div class="serv05-top w-100">
                 <div class="container d-flex flex-column align-items-center justify-content-center">
-                    <h1 class="serv05-top__title text-center">Título Página {{ $i }}</h1>
-                    <h2 class="serv05-top__subtitle text-center">Subtítulo</h2>
-                    <hr class="serv05-top__line">
-                    <div class="serv05-top__desc">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                            sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                            eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Cras vel tortor</p>
-                    </div>
+                    @if ($section)
+                        <h1 class="serv05-top__title text-center">{{$section->title_about}}</h1>
+                        <h2 class="serv05-top__subtitle text-center">{{$section->subtitle_about}}</h2>
+                        <hr class="serv05-top__line">
+                        <div class="serv05-top__desc">
+                            <p>
+                                {!! $section->description !!}
+                            </p>
+                        </div>
+                    @endif
                 </div>
             </div>
-
         </header>
-
         <main class="serv05-page__main">
             <div class="container d-flex flex-column align-items-center">
-
                 <div class="serv05-categories">
-
                     <ul class="serv05-categories__list w-100">
-                        @for ($i = 0; $i < 3; $i++)
-                            <li class="serv05-categories__list__item">
-                                <a href="">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                        class="serv05-categories__list__item__icon">
-                                    Categoria
+                        @foreach ($categories as $category)
+                            <li class="serv05-categories__list__item {{isset($category->selected) ? 'active':''}}">
+                                <a href="{{route('serv05.category.page' , ['SERV05ServicesCategory' => $category->slug])}}">
+                                    @if ($category->path_image_icon)
+                                        <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv05-categories__list__item__icon">
+                                    @endif
+                                    @if ($category->title)
+                                        {{$category->title}}
+                                    @endif
                                 </a>
                             </li>
-                        @endfor
+                        @endforeach
                     </ul>
-
                     <div class="serv05-categories__dropdown-mobile">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
@@ -63,90 +57,78 @@
                                         aria-controls="flush-collapseOne">
                                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
                                             class="serv05-categories__dropdown-mobile__item__icon">
-                                        Categoria
+                                        Categorias
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <ul>
-                                            @for ($i = 0; $i < 3; $i++)
+                                            @foreach ($categories as $category)
                                                 <li class="serv05-categories__dropdown-mobile__item">
-                                                    <a href="">
-                                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                                            alt=""
-                                                            class="serv05-categories__dropdown-mobile__item__icon">
-                                                        Categoria
+                                                    <a href="{{route('serv05.category.page' , ['SERV05ServicesCategory' => $category->slug])}}">
+                                                        @if ($category->path_image_icon)
+                                                            <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv05-categories__dropdown-mobile__item__icon">
+                                                        @endif
+                                                        @if ($category->title)
+                                                            {{$category->title}}
+                                                        @endif
                                                     </a>
                                                 </li>
-                                            @endfor
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="serv05-page__main__list">
-
-                    @for ($i = 0; $i < 8; $i++)
-                        <article class="serv05-box"
-                            style="background-image: url({{ asset('storage/uploads/tmp/bg-boxitem.png') }})">
-
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                class="serv05-box__icon">
-
+                    @foreach ($services as $service)
+                        <article class="serv05-box" style="background-image: url({{ asset('storage/' . $service->path_image) }}); background-color: #ffffff;">
+                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv05-box__icon">
                             <div class="serv05-box__content w-100 d-flex flex-column align-items-stretch">
                                 <div class="serv05-box__top w-100 d-flex align-items-center justify-content-between">
-                                    <div
-                                        class="serv05-box__top__left d-flex flex-column align-items-start justify-content-start ">
-
-                                        <h3 class="serv05-box__top__title">Título</h3>
-                                        <h4 class="serv05-box__top__subtitle">Subtitulo</h4>
-
+                                    <div class="serv05-box__top__left d-flex flex-column align-items-start justify-content-start ">
+                                        @if ($service->title || $service->subtitle)
+                                            <h3 class="serv05-box__top__title">{{$service->title}}</h3>
+                                            <h4 class="serv05-box__top__subtitle">{{$service->subtitle}}</h4>
+                                        @endif
                                     </div>
-
-                                    <div
-                                        class="serv05-box__top__right d-flex flex-column align-items-end justify-content-start ">
-                                        <h4 class="serv05-box__top__subtitle">Subtitulo</h4>
-                                        <h3 class="serv05-box__top__title">00,00</h3>
+                                    <div class="serv05-box__top__right d-flex flex-column align-items-end justify-content-start ">
+                                        @if ($service->title_price || $service->price)
+                                            <h4 class="serv05-box__top__subtitle">{{$service->title_price}}</h4>
+                                            <h3 class="serv05-box__top__title">R$ {{$service->price}}</h3>
+                                        @endif
                                     </div>
                                 </div>
-
                                 <hr class="serv05-box__line">
-
-                                <p class="serv05-box__desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. olor sit amet, consectetur
-                                    adipiscing elit.
-                                </p>
-
-                                <a href="#" class="serv05-box__cta">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                        class="serv05-box__cta__icon">
+                                @if ($service->description)
+                                    <p class="serv05-box__desc">
+                                        {!! $service->description !!}
+                                    </p>
+                                @endif
+                                <a href="{{route('serv05.show.content', ['SERV05Services' => $service->slug])}}" class="serv05-box__cta">
+                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv05-box__cta__icon">
                                     CTA
                                 </a>
                             </div>
-
                         </article>
-                    @endfor
-
+                    @endforeach
                 </div>
-
-                <ul class="serv05-page__pagination w-100 d-flex flex-row align-items-center justify-content-center">
+                {{-- <ul class="serv05-page__pagination w-100 d-flex flex-row align-items-center justify-content-center">
                     @for ($i = 1; $i < 4; $i++)
                         <li class="serv05-page__pagination__item">
                             <a href="#">{{ $i }}</a>
                         </li>
                     @endfor
-                </ul>
-
+                </ul> --}}
+                <nav aria-label="..." class="serv05-page__pagination">
+                    {{ $services->links() }}
+                </nav>
             </div>
         </main>
-
     </section>
-
     {{-- Finish Content page Here --}}
     @foreach ($sections as $section)
         {!! $section !!}

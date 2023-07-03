@@ -26,7 +26,7 @@
         <div class="col-12 col-lg-6">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem de fundo do banner (desktop)', ['class' => 'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
                         {{ $cropSetting->Category->path_image->width }}x{{ $cropSetting->Category->path_image->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">

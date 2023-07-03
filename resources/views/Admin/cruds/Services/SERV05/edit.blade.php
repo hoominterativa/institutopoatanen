@@ -11,20 +11,76 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">{{$configModelsMain->MODULE->CODE->config->titlePanel}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{$configModelsMain->MODULE->CODE->config->titlePanel}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.serv05.index')}}">{{getTitleModel($configModelsMain, 'Services', 'SERV05')}}</a></li>
+                                    <li class="breadcrumb-item active">Editar {{getTitleModel($configModelsMain, 'Services', 'SERV05')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{$configModelsMain->MODULE->CODE->config->titlePanel}}</h4>
+                            <h4 class="page-title">Editar {{getTitleModel($configModelsMain, 'Services', 'SERV05')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Module.CODE.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                {!! Form::close() !!}
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#editService" data-bs-toggle="tab" aria-expanded="true" class="nav-link active  d-flex align-items-center">
+                            {{ getTitleModel($configModelsMain, 'Services', 'SERV05') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Edição do conteúdo principal"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#galleryContent" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Galeria
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner de cada serviço específico."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Conteúdo
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastrar conteúdos com as informações específicas para cada serviço"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#topics" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Tópicos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de tópicos com as informações específicas para cada serviço"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="editService">
+                        {!! Form::model($service, ['route' => ['admin.serv05.update', $service->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                            @include('Admin.cruds.Services.SERV05.form')
+                            {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                            <a href="{{route('admin.serv05.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::close() !!}
+                    </div>
+                    <div class="tab-pane" id="galleryContent">
+                        @include('Admin.cruds.Services.SERV05.GalleryService.index', [
+                            'galleryServices' => $galleryServices,
+                            'service' => $service
+                        ])
+                    </div>
+                    <div class="tab-pane" id="content">
+                        @include('Admin.cruds.Services.SERV05.Content.index', [
+                            'contents' => $contents,
+                            'service' => $service
+                        ])
+                    </div>
+                    <div class="tab-pane" id="topics">
+                        @include('Admin.cruds.Services.SERV05.Topic.index', [
+                            'topics' => $topics,
+                            'service' => $service
+                        ])
+                    </div>
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

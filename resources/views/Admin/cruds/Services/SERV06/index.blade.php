@@ -66,7 +66,6 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
                                                         <label><input name="btnSelectAll" value="btnDeleteService" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>

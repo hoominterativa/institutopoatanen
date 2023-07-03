@@ -37,7 +37,7 @@ $(".serv05-banner-carousel").owlCarousel({
 
 $(".serv05-show__topics__carousel").owlCarousel({
     smartSpeed: 450,
-    loop: true,
+    loop: false,
     dots: true,
     nav: false,
     rewind: true,

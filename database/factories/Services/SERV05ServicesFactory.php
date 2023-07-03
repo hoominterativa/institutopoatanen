@@ -2,8 +2,9 @@
 
 namespace Database\Factories\Services;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use App\Models\Services\SERV05Services;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SERV05ServicesFactory extends Factory
 {
@@ -21,10 +22,45 @@ class SERV05ServicesFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(10);
+        $subtitle = $this->faker->text(12);
+        $path = $this->faker->randomElement([
+            'uploads/tmp/image-box.jpg',
+            'uploads/tmp/gall01_image1.png',
+            'uploads/tmp/thumbnail.png',
+        ]);
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            //Service
+            'category_id' => rand(1, 7),
+            'slug' => Str::slug($title.' '.$subtitle),
+            'title' => $title,
+            'subtitle' => $subtitle,
+            'description' => $this->faker->text(200),
+            'title_price' => $this->faker->text(12),
+            'path_image' => $path,
+            'path_image_icon' => 'uploads/tmp/favicon.png',
+            'price' => $this->faker->randomFloat(2, 0, 100),
+            'featured' => rand(0, 1),
+            'active' => 1,
+
+            //Topic
+            'title_topic' => $this->faker->text(10),
+            'subtitle_topic' => $this->faker->text(10),
+            'title_topic_button' => $this->faker->text(6),
+            'link_topic' => $this->faker->url(),
+            'target_link' => '_blank',
+            'active_topic' => 1,
+
+            //About
+            'title_about' => $this->faker->text(10),
+            'subtitle_about' => $this->faker->text(10),
+            'description_about' => $this->faker->text(200),
+            'active_about' => 1,
+
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'active_banner' => 1,
         ];
     }
 }
