@@ -12,7 +12,7 @@
             'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Tópicos',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-file-table-box-multiple'
         ]
     ],
 ],

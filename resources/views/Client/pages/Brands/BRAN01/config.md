@@ -13,10 +13,9 @@
             'linkMenu' => 'bran01.page',
             'iconMenu' => '',
             'titlePanel' => 'Marcas',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-google-my-business'
         ],
         'IncludeSections' => (object) [
-            'Feedbacks' => 'FEED01',
         ]
     ],
 ],

@@ -20,7 +20,7 @@
             'linkMenu' => 'gall03.page',
             'iconMenu' => '',
             'titlePanel' => 'Galeria',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-folder-multiple-image'
         ],
         'IncludeSections' => (object) [
         ],
