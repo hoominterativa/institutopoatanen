@@ -233,7 +233,7 @@ return [
         ],
         'Abouts' => (object) [
             'ABOU04' => (object)[
-            'ViewHome' => true,
+            'ViewHome' => false,
             'ViewListMenu' => true,
             'ViewListPanel' => true,
             'ViewListFooter' => false,
@@ -291,7 +291,7 @@ return [
         ],
         'Galleries' => (object) [
             'GALL03' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
