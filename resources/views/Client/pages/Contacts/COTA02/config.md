@@ -21,7 +21,7 @@
             'linkMenu' => 'cota02.page',
             'iconMenu' => '',
             'titlePanel' => 'Contato',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-contacts'
         ],
         'IncludeSections' => (object) [
         ]

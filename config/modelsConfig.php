@@ -315,6 +315,54 @@ return [
                 ],
             ],
         ],
+        'Schedules' => (object) [
+            'SCHE01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Agenda',
+                    'anchor' =>  false,
+                    'linkMenu' => 'sche01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Agenda',
+                    'iconPanel' => 'mdi-calendar-month-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Topics.2' => 'TOPI09',
+                ],
+            ],
+        ],
+        'Contacts' => (object) [
+            'COTA02' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_banner',
+                    'relation' => ''
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Contato',
+                    'anchor' =>  false,
+                    'linkMenu' => 'cota02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => 'mdi-contacts'
+                ],
+                'IncludeSections' => (object) [
+                    'Topics.2' => 'TOPI09',
+                ]
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[
