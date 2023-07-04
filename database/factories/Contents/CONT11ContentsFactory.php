@@ -24,7 +24,7 @@ class CONT11ContentsFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
-            'text' => $this->faker->paragraph(2),
+            'text' => $this->faker->text(1000),
             'title_button' => $this->faker->text(6),
             'link_button' => $this->faker->url(),
             'target_link_button' => '_blank',

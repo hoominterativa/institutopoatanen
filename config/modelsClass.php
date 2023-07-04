@@ -113,7 +113,7 @@ return [
             'CONT11' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT11Controller::class,
                 'model' => App\Models\Contents\CONT11Contents::class,
-                'seedQty' => 2,
+                'seedQty' => 1,
             ],
         ],
         // END CONTENTS

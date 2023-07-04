@@ -33,7 +33,7 @@ class UNIT03Controller extends Controller
      */
     public function index()
     {
-        $units = UNIT03Units::sorting()->paginate(20);
+        $units = UNIT03Units::with('category')->sorting()->paginate(20);
         $unitsCategories = UNIT03UnitsCategory::sorting()->get();
         $categories = UNIT03UnitsCategory::exists()->sorting()->pluck('title', 'id');
         $banner = UNIT03UnitsBanner::first();
@@ -54,7 +54,7 @@ class UNIT03Controller extends Controller
      */
     public function create()
     {
-        $categories = UNIT03UnitsCategory::exists()->sorting()->pluck('title', 'id');
+        $categories = UNIT03UnitsCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Units.UNIT03.create', [
             'categories' => $categories,
             'cropSetting' => getCropImage('Units', 'UNIT03')
@@ -108,7 +108,7 @@ class UNIT03Controller extends Controller
      */
     public function edit(UNIT03Units $UNIT03Units)
     {
-        $categories = UNIT03UnitsCategory::exists()->sorting()->pluck('title', 'id');
+        $categories = UNIT03UnitsCategory::sorting()->pluck('title', 'id');
         $topics = UNIT03UnitsTopic::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $socials = UNIT03UnitsSocial::where('unit_id', $UNIT03Units->id)->sorting()->get();
         $bannerShow = UNIT03UnitsBannerShow::where('unit_id', $UNIT03Units->id)->first();

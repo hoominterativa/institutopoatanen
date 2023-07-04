@@ -28,7 +28,7 @@ class CONT11Contents extends Model
         return $query->where('active', 1);
     }
 
-    public function gallery()
+    public function galleries()
     {
         return $this->hasMany(CONT11ContentsGallery::class, 'content_id');
     }

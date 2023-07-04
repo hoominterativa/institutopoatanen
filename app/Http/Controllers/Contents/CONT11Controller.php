@@ -10,11 +10,10 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contents\CONT11ContentsGallery;
 
 class CONT11Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +21,10 @@ class CONT11Controller extends Controller
      */
     public function index()
     {
-        //
+        $contents = CONT11Contents::sorting()->get();
+        return view('Admin.cruds.Contents.CONT11.index', [
+            'contents' => $contents,
+        ]);
     }
 
     /**
@@ -32,7 +34,7 @@ class CONT11Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Contents.CONT11.create');
     }
 
     /**
@@ -44,33 +46,13 @@ class CONT11Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['active'] = $request->active?1:0;
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if (CONT11Contents::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if ($content = CONT11Contents::create($data)) {
+            Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            return redirect()->route('admin.cont11.edit', ['CONT11Contents' => $content->id]);
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
     }
@@ -83,7 +65,12 @@ class CONT11Controller extends Controller
      */
     public function edit(CONT11Contents $CONT11Contents)
     {
-        //
+        $galleries = CONT11ContentsGallery::where('content_id', $CONT11Contents->id)->sorting()->get();
+        return view('Admin.cruds.Contents.CONT11.edit', [
+            'content' => $CONT11Contents,
+            'galleries' => $galleries,
+            'cropSetting' => getCropImage('Contents', 'CONT11'),
+        ]);
     }
 
     /**
@@ -96,51 +83,14 @@ class CONT11Controller extends Controller
     public function update(Request $request, CONT11Contents $CONT11Contents)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($CONT11Contents, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($CONT11Contents, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($CONT11Contents, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT11Contents, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
+        $data['active'] = $request->active?1:0;
 
         if ($CONT11Contents->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo atualizado com sucesso');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +101,16 @@ class CONT11Controller extends Controller
      */
     public function destroy(CONT11Contents $CONT11Contents)
     {
-        //storageDelete($CONT11Contents, 'path_image');
-        //storageDelete($CONT11Contents, 'path_archive');
+        $galleries = CONT11ContentsGallery::where('content_id', $CONT11Contents->id)->get();
+        if ($galleries) {
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+        }
 
         if ($CONT11Contents->delete()) {
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +123,20 @@ class CONT11Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $CONT11Contentss = CONT11Contents::whereIn('id', $request->deleteAll)->get();
         foreach($CONT11Contentss as $CONT11Contents){
-            storageDelete($CONT11Contents, 'path_image');
-            storageDelete($CONT11Contents, 'path_archive');
+            $galleries = CONT11ContentsGallery::where('content_id', $CONT11Contents->id)->get();
+            if ($galleries) {
+                foreach ($galleries as $gallery) {
+                    storageDelete($gallery, 'path_image');
+                    $gallery->delete();
+                }
+            }
         }
-        */
 
         if ($deleted = CONT11Contents::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted . ' Conteúdos deletados com sucessso']);
         }
     }
     /**
@@ -199,46 +157,15 @@ class CONT11Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Contents\CONT11Contents  $CONT11Contents
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(CONT11Contents $CONT11Contents)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show', [
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page', [
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Section index resource.
      *
      * @return \Illuminate\Http\Response
      */
     public static function section()
     {
-        return view('Client.pages.Contents.CONT11.section');
+        $contents = CONT11Contents::with('galleries')->active()->sorting()->get();
+        return view('Client.pages.Contents.CONT11.section',[
+            'contents' => $contents
+        ]);
     }
 }
