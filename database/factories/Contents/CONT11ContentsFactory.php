@@ -22,9 +22,13 @@ class CONT11ContentsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
+            'text' => $this->faker->paragraph(2),
+            'title_button' => $this->faker->text(6),
+            'link_button' => $this->faker->url(),
+            'target_link_button' => '_blank',
+            'active' => 1,
         ];
     }
 }

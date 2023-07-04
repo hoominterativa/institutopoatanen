@@ -699,6 +699,15 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "CONT11": {
+            "Gallery": {
+                "path_image": {
+                    "width": "750",
+                    "height": "760",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "ContentPages": {
