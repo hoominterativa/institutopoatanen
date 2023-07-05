@@ -57,17 +57,14 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    @if ($topic->path_image_desktop)                                                        
+                                                    @if ($topic->path_image_desktop)
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_desktop)}})"></div>
                                                     @endif
-                                                    @if ($topic->path_image_icon)                                                        
+                                                    @if ($topic->path_image_icon)
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_icon)}})"></div>
                                                     @endif
-                                                    @if ($topic->path_image_mobile)                                                        
+                                                    @if ($topic->path_image_mobile)
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_mobile)}})"></div>
-                                                    @endif
-                                                    @if ($topic->path_image_icon_button)                                                        
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_icon_button)}})"></div>
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">{{$topic->title}}</td>

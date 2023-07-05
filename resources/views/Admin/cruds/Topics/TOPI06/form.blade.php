@@ -119,29 +119,6 @@
             </div>
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone do botão', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_icon_button->width }}x{{ $cropSetting->path_image_icon_button->height }}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_icon_button', [
-                            'id' => 'inputImage',
-                            'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_icon_button->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_icon_button->width, // px
-                            'data-min-height' => $cropSetting->path_image_icon_button->height, // px
-                            'data-box-height' => '170', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($topic)
-                                ? ($topic->path_image_icon_button != ''
-                                    ? url('storage/' . $topic->path_image_icon_button)
-                                    : '')
-                                : '',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background Desktop', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
                         {{ $cropSetting->path_image_desktop->width }}x{{ $cropSetting->path_image_desktop->height }}px!</small>
@@ -185,13 +162,6 @@
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3 border px-2 py-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
-                ]) !!}
             </div>
         </div>
     </div>

@@ -17,7 +17,7 @@ class TOPI06Topics extends Model
 
     protected $table = "topi06_topics";
     protected $fillable = [
-        'title', 'description', 'path_image_icon', 'path_image',
+        'title', 'description', 'path_image_icon', 'path_image_desktop', 'path_image_mobile',
         'title_button', 'link_button', 'target_link_button', 'active', 'sorting',
     ];
 
