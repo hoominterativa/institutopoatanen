@@ -58,14 +58,14 @@
                             {!! Form::close() !!}
                         </div>
                         {{-- END .cota01-show__form --}}
-                        @if ($contact->topicsForm->count())
+                        @if ($contact->topicsForms->count())
                             <div class="cota01-show__topics-form col-12 col-xl-5 row">
-                                @foreach ($contact->topicsForm as $topicForm)
+                                @foreach ($contact->topicsForms as $topicsForm)
                                     <div class="cota01-show__topics-form__item d-flex align-items-center col-6 col-lg-12">
-                                        <img src="{{asset('storage/'.$topicForm->path_image_icon)}}" class="cota01-show__topics-form__icon" width="26" alt="{{$topicForm->title}}">
+                                        <img src="{{asset('storage/'.$topicsForm->path_image_icon)}}" class="cota01-show__topics-form__icon" width="26" alt="{{$topicsForm->title}}">
                                         <div class="cota01-show__topics-form__description">
-                                            <h4 class="cota01-show__topics-form__title">{{$topicForm->title}}</h4>
-                                            <p class="cota01-show__topics-form__paragraph">{{$topicForm->description}}</p>
+                                            <h4 class="cota01-show__topics-form__title">{{$topicsForm->title}}</h4>
+                                            <p class="cota01-show__topics-form__paragraph">{{$topicsForm->description}}</p>
                                         </div>
                                     </div>
                                 @endforeach

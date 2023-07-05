@@ -45,7 +45,7 @@ class COTA01Contacts extends Model
         return $query->where('active', 1);
     }
 
-    public function topicsForm()
+    public function topicsForms()
     {
         return $this->hasMany(COTA01ContactsTopicForm::class, 'contact_id')->sorting();
     }

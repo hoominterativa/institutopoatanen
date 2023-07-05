@@ -297,7 +297,7 @@ class COTA01Controller extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA01');
-        $contact = COTA01Contacts::with(['topicsForm', 'topicsSection'])->find($COTA01Contacts->id);
+        $contact = COTA01Contacts::with(['topicsSection', 'topicsForms'])->active()->sorting()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
 
         return view('Client.pages.Contacts.COTA01.show',[
