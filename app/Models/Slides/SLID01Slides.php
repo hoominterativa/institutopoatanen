@@ -27,24 +27,13 @@ class SLID01Slides extends Model
         "target_link_button",
         "position_content",
         "active",
-        "title_mobile",
-        "subtitle_mobile",
-        "description_mobile",
-        "title_button_mobile",
         "path_image_mobile",
-        "link_button_mobile",
-        "active_mobile",
         "sorting",
     ];
 
     public function scopeSorting($query)
     {
         return $query->orderBy('sorting', 'ASC');
-    }
-
-    public function scopeActiveMobile($query)
-    {
-        return $query->where('active_mobile', 1);
     }
 
     public function scopeActive($query)

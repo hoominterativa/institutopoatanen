@@ -30,6 +30,9 @@ class ABOU01Abouts extends Model
         "title_inner_section",
         "subtitle_inner_section",
         "path_image_inner_section",
+        "path_image_section_desktop",
+        "path_image_section_mobile",
+        "path_image",
         "text_inner_section",
         "sorting",
     ];

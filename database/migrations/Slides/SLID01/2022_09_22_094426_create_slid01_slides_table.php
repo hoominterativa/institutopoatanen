@@ -25,17 +25,8 @@ class CreateSlid01SlidesTable extends Migration
             $table->string('path_image_png')->nullable();
             $table->enum('target_link_button',['_self', '_blank'])->default('_self');
             $table->enum('position_content',['center','start','end'])->default('start');
-            $table->integer('active')->default(0);
-
-            $table->string('title_mobile')->nullable();
-            $table->string('subtitle_mobile')->nullable();
-            $table->text('description_mobile')->nullable();
-            $table->string('title_button_mobile')->nullable();
             $table->string('path_image_mobile')->nullable();
-            $table->string('link_button_mobile')->nullable();
-            $table->enum('target_link_button_mobile',['_self', '_blank'])->default('_self');
-            $table->integer('active_mobile')->default(0);
-
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

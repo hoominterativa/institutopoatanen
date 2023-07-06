@@ -32,6 +32,9 @@ class CreateAbou01AboutsTable extends Migration
             $table->string('subtitle_inner_section')->nullable();
             $table->string('path_image_inner_section')->nullable();
             $table->text('text_inner_section')->nullable();
+            $table->string('path_image_section_desktop')->nullable();
+            $table->string('path_image_section_mobile')->nullable();
+            $table->string('path_image')->nullable();
 
             $table->timestamps();
         });

@@ -1,15 +1,30 @@
 {
     "Abouts": {
         "ABOU01": {
+            "path_image": {
+                "width": "550",
+                "height": "550",
+                "activeCrop": "false"
+            },
+            "path_image_section_desktop": {
+                "width": "1500",
+                "height": "622",
+                "activeCrop": "false"
+            },
+            "path_image_section_mobile": {
+                "width": "410",
+                "height": "546",
+                "activeCrop": "true"
+            },
             "path_image_banner": {
                 "width": "1450",
                 "height": "400",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_inner_section": {
                 "width": "550",
                 "height": "550",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "Topic": {
                 "path_image_icon": {
@@ -1254,7 +1269,7 @@
             "path_image": {
                 "width": "749",
                 "height": "759",
-                "activeCrop": "false"
+                "activeCrop": "true"
             },
             "TopicSection": {
                 "path_image_icon": {

@@ -60,12 +60,6 @@ class SLID01Controller extends Controller
         if($path_image_png) $data['path_image_png'] = $path_image_png;
 
         $data['active'] = $request->active?1:0;
-        $data['active_mobile'] = $request->active_mobile?1:0;
-
-        if($request->external_link_button){
-            $data['link_button'] = $request->link_button;
-            $data['target_link_button'] = '_self';
-        }
 
         if(SLID01Slides::create($data)){
             Session::flash('success', 'Banner cadastrado com sucesso');
@@ -87,8 +81,6 @@ class SLID01Controller extends Controller
      */
     public function edit(SLID01Slides $SLID01Slides)
     {
-        if($SLID01Slides->link_button) $SLID01Slides->link_button = url(getUri($SLID01Slides->link_button));
-        if($SLID01Slides->link_button_mobile) $SLID01Slides->link_button_mobile = url(getUri($SLID01Slides->link_button_mobile));
 
         return view('Admin.cruds.Slides.SLID01.edit',[
             'slide' => $SLID01Slides,
@@ -144,8 +136,6 @@ class SLID01Controller extends Controller
         }
 
         $data['active'] = $request->active?1:0;
-        $data['active_mobile'] = $request->active_mobile?1:0;
-        $data['link_button'] = getUri($request->link_button);
 
         if($SLID01Slides->fill($data)->save()){
             Session::flash('success', 'Banner atualizado com sucesso');
@@ -220,20 +210,16 @@ class SLID01Controller extends Controller
         switch(deviceDetect()){
             case 'mobile':
             case 'tablet':
-                $slides = SLID01Slides::where('path_image_mobile','!=','')->activeMobile()->sorting()->get();
-                foreach($slides as $slide){
-                    $slide->title = $slide->title_mobile;
-                    $slide->subtitle = $slide->subtitle_mobile;
-                    $slide->description = $slide->description_mobile;
-                    $slide->title_button = $slide->title_button_mobile;
-                    $slide->link_button = $slide->link_button_mobile;
-                    $slide->path_image_desktop = $slide->path_image_mobile;
-                    $slide->path_image_png = null;
-                    $slide->active = $slide->active_mobile;
+                $slides = SLID01Slides::active()->sorting()->get();
+                if ($slides) {
+                    foreach($slides as $slide){
+                        $slide->path_image_desktop = $slide->path_image_mobile;
+                        $slide->path_image_png = null;
+                    }
                 }
             break;
             default:
-                $slides = SLID01Slides::where('path_image_desktop','!=','')->active()->sorting()->get();
+                $slides = SLID01Slides::active()->sorting()->get();
             break;
         }
 

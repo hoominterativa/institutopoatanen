@@ -34,6 +34,9 @@
                         <a href="#formSectionInnerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção Página</a>
                     </li>
                     <li class="nav-item">
+                        <a href="#formSectionTopics" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção Tópicos</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#aboutTopicsList" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Tópicos</a>
                     </li>
                 </ul>

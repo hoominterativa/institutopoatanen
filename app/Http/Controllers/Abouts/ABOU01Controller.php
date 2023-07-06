@@ -45,10 +45,22 @@ class ABOU01Controller extends Controller
         $path_image_inner_section = $helper->optimizeImage($request, 'path_image_inner_section', $this->path, null, 100);
         if($path_image_inner_section) $data['path_image_inner_section'] = $path_image_inner_section;
 
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if($path_image) $data['path_image'] = $path_image;
+
+        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null, 100);
+        if($path_image_section_desktop) $data['path_image_section_desktop'] = $path_image_section_desktop;
+
+        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null, 100);
+        if($path_image_section_mobile) $data['path_image_section_mobile'] = $path_image_section_mobile;
+
         if(ABOU01Abouts::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
             Storage::delete($path_image_banner);
+            Storage::delete($path_image_section_desktop);
+            Storage::delete($path_image_section_mobile);
+            Storage::delete($path_image);
             Storage::delete($path_image_inner_section);
             Session::flash('success', 'Erro ao cadastradar informações');
         }
@@ -89,11 +101,47 @@ class ABOU01Controller extends Controller
             $data['path_image_inner_section'] = null;
         }
 
+        // path_image_section_desktop
+        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null, 100);
+        if($path_image_section_desktop){
+            storageDelete($ABOU01Abouts, 'path_image_section_desktop');
+            $data['path_image_section_desktop'] = $path_image_section_desktop;
+        }
+        if($request->delete_path_image_section_desktop && !$path_image_section_desktop){
+            storageDelete($ABOU01Abouts, 'path_image_section_desktop');
+            $data['path_image_section_desktop'] = null;
+        }
+
+        // path_image_section_mobile
+        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null, 100);
+        if($path_image_section_mobile){
+            storageDelete($ABOU01Abouts, 'path_image_section_mobile');
+            $data['path_image_section_mobile'] = $path_image_section_mobile;
+        }
+        if($request->delete_path_image_section_mobile && !$path_image_section_mobile){
+            storageDelete($ABOU01Abouts, 'path_image_section_mobile');
+            $data['path_image_section_mobile'] = null;
+        }
+
+        // path_image
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if($path_image){
+            storageDelete($ABOU01Abouts, 'path_image');
+            $data['path_image'] = $path_image;
+        }
+        if($request->delete_path_image && !$path_image){
+            storageDelete($ABOU01Abouts, 'path_image');
+            $data['path_image'] = null;
+        }
+
         if($ABOU01Abouts->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
             Storage::delete($path_image_banner);
+            Storage::delete($path_image);
             Storage::delete($path_image_inner_section);
+            Storage::delete($path_image_section_desktop);
+            Storage::delete($path_image_section_mobile);
             Session::flash('success', 'Erro ao atualizar informações');
         }
         return redirect()->back();
@@ -112,7 +160,18 @@ class ABOU01Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU01');
 
-        $about = ABOU01Abouts::with('topics')->first();
+        switch (deviceDetect()) {
+            case "mobile":
+            case "tablet":
+                $about = ABOU01Abouts::with('topics')->first();
+                if ($about) {
+                    $about->path_image_section_desktop = $about->path_image_section_mobile;
+                    break;
+                }
+            default:
+                $about = ABOU01Abouts::with('topics')->first();
+                break;
+        }
 
         return view('Client.pages.Abouts.ABOU01.page',[
             'about' => $about,
