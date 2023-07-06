@@ -44,6 +44,17 @@ function cloneInputsColorPicker(elem, taregt, receiver, action='clone'){
 
 $(function() {
 
+    // Manipula o evento "blur" (perda de foco) em campos de entrada de URL
+    $('input[type="url"]').on('blur', function() {
+        var val = $(this).val();
+
+        // Verifica se o valor do campo não começa com 'http://' ou 'https://'
+        if (val && !val.startsWith('http://') && !val.startsWith('https://')) {
+            // Adiciona 'https://' automaticamente ao valor do campo
+            $(this).val('https://' + val);
+        }
+    });
+
     if($(".colorpicker-default").length){
         $(".colorpicker-default").spectrum()
     }

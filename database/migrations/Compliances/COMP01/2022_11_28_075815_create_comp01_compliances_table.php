@@ -16,6 +16,7 @@ class CreateComp01CompliancesTable extends Migration
         Schema::create('comp01_compliances', function (Blueprint $table) {
             $table->id();
             $table->string('title_page')->nullable();
+            $table->text('text')->nullable();
             $table->string('slug')->nullable();
             $table->string('title_banner')->nullable();
             $table->string('path_image_banner')->nullable();

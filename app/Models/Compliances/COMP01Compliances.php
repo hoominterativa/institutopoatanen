@@ -24,6 +24,7 @@ class COMP01Compliances extends Model
         "active",
         "show_footer",
         "sorting   ",
+        "text",
     ];
 
     public function scopeSorting($query)
