@@ -36,8 +36,8 @@
                     <ul class="foot05__site__right__list">
                         @foreach ($socials as $social)
                             <li class="foot05__site__right__list__item">
-                                <a href="{{$social->link}}" title="{{$social->title}}" class="mdi {{$social->icon}}" target="_blank" rel="external">
-                                    {{-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""> --}}
+                                <a href="{{$social->link}}" title="{{$social->title}}" class="" target="_blank" rel="external">
+                                    <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
                                 </a>
                             </li>
                         @endforeach

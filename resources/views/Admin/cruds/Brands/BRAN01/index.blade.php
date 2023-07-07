@@ -101,7 +101,7 @@
                                                         </td>
                                                         <td class="align-middle avatar-group">
                                                             <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                                style="background-image: url({{ asset('/' . $brand->path_image_icon) }})">
+                                                                style="background-image: url({{ asset('storage/' . $brand->path_image_icon) }})">
                                                             </div>
                                                         </td>
                                                         <td class="align-middle">{{ $brand->link }}</td>

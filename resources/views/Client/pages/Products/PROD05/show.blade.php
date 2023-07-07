@@ -94,10 +94,12 @@
                         {{-- END .prod05-show__info__gallery --}}
                         <div class="col-12 col-md-6 prod05-show__info__description">
                             {!! $product->text !!}
-                            <a href="#" class="prod05-show__info__description__cta">
-                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="31px" class="me-2" alt="">
-                                CTA
-                            </a>
+                            @if ($product->link)
+                                <a href="{{$product->link}}" target="{{$product->link_target}}" class="prod05-show__info__description__cta">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="31px" class="me-2" alt="">
+                                    {{$product->title_button}}
+                                </a>
+                            @endif
                         </div>
                         {{-- END .prod05-show__info__description --}}
                     </div>
@@ -131,8 +133,9 @@
                         <ul class="prod05-show__details__content__nav-tabs nav nav-tabs mb-3">
                             @foreach ($topicCategories as $topicCategory)
                                 <li class="prod05-show__details__content__nav-item nav-item" role="presentation">
-                                    <button class="prod05-show__details__content__nav-link nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#{{Str::slug($topicCategory->title)}}" type="button" role="tab">
-                                        {{$topicCategory->title}}
+                                    <button class="prod05-show__details__content__nav-link nav-link {{ $loop->first ? 'active' : '' }}" id="pills-home-tab" data-bs-toggle="pill"
+                                        data-bs-target="#{{ Str::slug($topicCategory->title) }}" type="button" role="tab">
+                                        {{ $topicCategory->title }}
                                     </button>
                                 </li>
                             @endforeach
@@ -141,7 +144,7 @@
                     {{-- END .container --}}
                     <div class="prod05-show__details__content__tab-content tab-content" id="pills-tabContent">
                         @foreach ($topicCategories as $topicCategory)
-                            <div class="prod05-show__details__content__tab-pane tab-pane fade show active" id="{{Str::slug($topicCategory->title)}}" role="tabpanel">
+                        <div class="prod05-show__details__content__tab-pane tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{ Str::slug($topicCategory->title) }}" role="tabpanel">
                                 <div class="container">
                                     <div class="prod05-show__details__content__accordion accordion">
                                         @foreach ($topicCategory->topics as $key => $topic)

@@ -23,12 +23,14 @@
                             @if ($slide->description)
                                 <p class="description">{{ $slide->description }}</p>
                             @endif
-                            @if ($slide->title_button && $slide->link_button)
+                            @if ($slide->link_button)
                                 <a href="{{ getUri($slide->link_button) }}" target="{{ $slide->target_link_button }}"
                                     class="btn-cta-slide py-2 px-4 transition">
                                     <div class="w-auto d-flex justify-content-center align-items-center">
                                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="25px">
-                                        {{ $slide->title_button }}
+                                        @if ($slide->title_button)
+                                            {{ $slide->title_button }}
+                                        @endif
                                     </div>
                                 </a>
                             @endif

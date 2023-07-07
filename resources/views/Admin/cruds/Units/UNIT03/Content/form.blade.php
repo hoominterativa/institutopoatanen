@@ -107,7 +107,6 @@
                             <div class="tab-pane show active" id="linkExternal"></div>
                         </div> {{-- END .tab-content --}}
                         <div class="row">
-
                             <div class="mb-3">
                                 {!! Form::label('title_button', 'Título da botão', ['class' => 'form-label']) !!}
                                 {!! Form::text('title_button', null, ['class' => 'form-control', 'id' => 'title_button']) !!}
@@ -123,7 +122,7 @@
                                 {!! Form::select('target_link_button', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
                             </div>
                         </div>
-                    </div> {{-- END ."wrapper-links --}}
+                    </div> {{-- END .wrapper-links --}}
                     <div class="d-flex">
                         <div class="mb-3 form-check me-3">
                             {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}

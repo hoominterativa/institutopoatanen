@@ -6,7 +6,7 @@
                 <h3 class="prod05__subtitle">{{$section->subtitle}}</h3>
                 <hr class="prod05__line">
 
-                <p class="prod05__desc">{{$section->description}}</p>
+                <p class="prod05__desc">{!! $section->description !!}</p>
             @endif
 
             <div class="prod05-categories">
@@ -77,7 +77,7 @@
                             </div>
                             <hr class="prod05-box__line">
                             @if ($product->description)
-                                <p class="prod05-box__desc">{{$product->description}}</p>
+                                <p class="prod05-box__desc">{!! $product->description !!}</p>
                             @endif
                             <a href="{{route('prod05.page.content', ['PROD05ProductsCategory' => $product->category->slug, 'PROD05ProductsSubcategory' => $product->subcategory->slug ,'PROD05Products' => $product->slug])}}" class="prod05-box__cta">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="{{$product->title}}" class="prod05-box__cta__icon">

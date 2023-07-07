@@ -616,7 +616,7 @@
             "path_image_desktop": {
                 "width": "1500",
                 "height": "900",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_mobile": {
                 "width": "390",
@@ -1179,7 +1179,7 @@
             "path_image_png": {
                 "width": "489",
                 "height": "674",
-                "activeCrop": "true"
+                "activeCrop": "false"
             }
         },
         "SLID02": {

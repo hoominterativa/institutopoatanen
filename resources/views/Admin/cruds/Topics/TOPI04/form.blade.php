@@ -77,7 +77,7 @@
                 </div> {{-- END .tab-content --}}
                 <div class="row">
                     <div class="mb-3">
-                        {!! Form::label('title_button', 'Título', ['class'=>'form-label']) !!}
+                        {!! Form::label('title_button', 'Título do botão', ['class'=>'form-label']) !!}
                         {!! Form::text('title_button', null, ['class'=>'form-control', 'id'=>'title_button']) !!}
                     </div>
                     <div class="col-12 col-sm-8">
