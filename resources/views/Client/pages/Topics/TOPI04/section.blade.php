@@ -25,12 +25,14 @@
                                     </p>
                                 @endif
                             </div>
-                            <a href="{{ getUri($topic->link_button) }}" target="{{ $topic->target_link_button }}" class="topi04__cta transition d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="topi04__cta__icon me-3 transition">
-                                @if ($topic->title_button)
-                                    {{ $topic->title_button }}
-                                @endif
-                            </a>
+                            @if ($topic->link_button)
+                                <a href="{{ getUri($topic->link_button) }}" target="{{ $topic->target_link_button }}" class="topi04__cta transition d-flex justify-content-center align-items-center">
+                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="topi04__cta__icon me-3 transition">
+                                    @if ($topic->title_button)
+                                        {{ $topic->title_button }}
+                                    @endif
+                                </a>
+                            @endif
                         </div>
                     </div>
                     <div class="topi04__topics carrosel-topi04-topics owl-carousel">

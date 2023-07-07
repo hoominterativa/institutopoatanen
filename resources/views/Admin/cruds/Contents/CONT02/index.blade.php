@@ -41,8 +41,9 @@
                                             <th>Imagem</th>
                                             <th>Título</th>
                                             <th>Texto</th>
-                                            <th>Link</th>                                        
-                                            <th>Cor</th>                                        
+                                            <th>Título do botão</th>
+                                            <th>Link</th>
+                                            <th>Cor</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
@@ -59,13 +60,14 @@
                                                 </td>
                                                 <td class="align-middle">{{$content->title}}</td>
                                                 <td class="align-middle">{{substr($content->description, 0, 50)}}</td>
+                                                <td class="align-middle">{{$content->title_button}}</td>
                                                 <td class="align-middle"><a href="{{$content->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                 <td class="align-middle">{{$content->color}}</td>
                                                 <td class="align-middle">
                                                     @switch($content->active)
                                                         @case(1) <span class="badge bg-success">Ativo</span> @break
                                                         @case(0) <span class="badge bg-danger">Inativo</span> @break
-                                                    @endswitch                                                                            
+                                                    @endswitch
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="row">

@@ -83,6 +83,10 @@
                     <div class="tab-pane show active" id="linkExternal"></div>
                 </div> {{-- END .tab-content --}}
                 <div class="row">
+                    <div class="mb-3">
+                        {!! Form::label('title_button', 'Título do botão', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_button', null, ['class' => 'form-control', 'id' => 'title_button']) !!}
+                    </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
                         {!! Form::url('link_button', null, ['class' => 'form-control', 'id' => 'targetUrl']) !!}
@@ -177,21 +181,16 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-        </div>
-        {{-- end card-body --}}
-    </div>
-    {{-- Color Picker --}}
-    <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 {!! Form::label('color', 'Cor do background', ['class' => 'form-label']) !!}
                 {!! Form::text('color', null, [
                     'class' => 'form-control colorpicker-default',
                     'id' => 'color',
-                    'required' => 'required',
                 ]) !!}
             </div>
         </div>
+        {{-- end card-body --}}
     </div>
+    {{-- Color Picker --}}
 </div>
 {{-- end row --}}

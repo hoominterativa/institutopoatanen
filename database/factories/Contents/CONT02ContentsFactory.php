@@ -25,6 +25,7 @@ class CONT02ContentsFactory extends Factory
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(15),
             'description' => $this->faker->text(200),
+            'title_button' => $this->faker->text(6),
             'link_button' => 'https://www.lipsum.com/',
             'target_link_button' => '_blank',
             'path_image_background_desktop' => 'uploads/tmp/gall01_image1.png',

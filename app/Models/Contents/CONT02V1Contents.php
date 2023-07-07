@@ -17,7 +17,7 @@ class CONT02V1Contents extends Model
 
     protected $table = "cont02v1_contents";
     protected $fillable = [
-        'title', 'subtitle', 'description', 'link_button', 'target_link_button',
+        'title', 'subtitle', 'description', 'title_button', 'link_button', 'target_link_button',
         'path_image_background_desktop', 'path_image_background_mobile', 'path_image', 'color', 'active', 'sorting'
     ];
 

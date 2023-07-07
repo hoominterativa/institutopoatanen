@@ -18,6 +18,7 @@ class CreateCont02v1ContentsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
+            $table->string('title_button')->nullable();
             $table->string('link_button')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_blank');
             $table->string('path_image_background_desktop')->nullable();

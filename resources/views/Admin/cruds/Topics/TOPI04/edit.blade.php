@@ -46,7 +46,7 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
-                    <div class="tab-pane show active" id="topicSection">
+                    <div class="tab-pane" id="topicSection">
                         @include('Admin.cruds.Topics.TOPI04.TopicSection.index', [
                             'topic' => $topic,
                             'topicSections' => $topicSections,

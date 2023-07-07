@@ -1269,7 +1269,7 @@
             "path_image": {
                 "width": "749",
                 "height": "759",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "TopicSection": {
                 "path_image_icon": {
