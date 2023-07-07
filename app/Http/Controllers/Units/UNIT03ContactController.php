@@ -108,9 +108,8 @@ class UNIT03ContactController extends Controller
             $jsonInputs = json_encode($arrayInputs);
             $data['inputs_form'] = $jsonInputs;
         }
-        if($request->active){
-            $data['active'] = $request->active?1:0;
-        }
+        
+        $data['active'] = $request->active?1:0;
 
         if($UNIT03UnitsContact->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
