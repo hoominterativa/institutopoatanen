@@ -3,16 +3,17 @@
         <div class="row">
             <div class="foot02__logo col-12 col-lg-3">
                 <div class="d-table foot02__logo__wraper">
-                 
+
                         <img class="foot02__logo__item" width="202"
                         src="{{ asset('storage/' . $generalSetting->path_logo_footer_light ?? $generalSetting->path_logo_footer_dark) }}"
                         alt="{{ env('APP_NAME') }}">
-               
+
 
                     <nav class="foot02__socials d-flex align-items-center justify-content-center">
                         @foreach ($socials as $social)
-                            <a href="{{ $social->link }}" title="{{ $social->title }}" target="_blank"
-                                class="foot02__socials__item transition mdi {{ $social->icon }}"></a>
+                            <a href="{{$social->link}}" class="social-link transition" title="{{$social->title}}">
+                                <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
+                            </a>
                         @endforeach
                     </nav>
                 </div>
@@ -43,18 +44,22 @@
                 <span class="foot02__nav__header">Contatos</span>
                 <div class="phones d-flex align-items-start  w-100">
                     @if ($generalSetting->phone || $generalSetting->whatsapp)
-                        <a href="tel:{{ $generalSetting->phone }}" class="foot02__nav__item transition"
-                            style="margin: inherit;">{{ $generalSetting->phone }} </a> <span></span> <a
+                        <a href="tel:{{ $generalSetting->phone }}" class="foot02__nav__item transition" style="margin: inherit;">{{ $generalSetting->phone }} </a> <span></span> <a
                             href="https://api.whatsapp.com/send?phone=55{{ Str::slug($generalSetting->whatsapp, '') }}"
                             target="_blank" class="foot02__nav__item transition"
                             style="margin: inherit;">{{ $generalSetting->whatsapp }}</a>
                     @endif
+                    @if ($generalSetting->email)
+                        <a href="mailto:{{ $generalSetting->email }}" class="foot02__nav__item transition pe-3">
+                            {{ $generalSetting->email }}
+                        </a>
+                    @endif
+                    @if ($generalSetting->address)
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($generalSetting->address) }}" target="_blank" class="foot02__nav__item transition pe-3">
+                            {{ $generalSetting->address }}
+                        </a>
+                    @endif
                 </div>
-                @if ($generalSetting->address)
-                    <p class="foot02__nav__item transition pe-3">
-                        {{ $generalSetting->address }}
-                    </p>
-                @endif
             </nav>
             <div class="foot02__nav foot02__nav--icon col-6 col-lg-2">
                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="43" alt="">

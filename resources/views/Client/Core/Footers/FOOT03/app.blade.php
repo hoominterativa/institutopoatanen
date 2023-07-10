@@ -22,6 +22,16 @@
                                     {{$generalSetting->whatsapp}}
                                 </a>
                             @endif
+                            @if ($generalSetting->email)
+                                <a href="mailto:{{ $generalSetting->email }}" class="foot02__nav__item transition pe-3">
+                                    {{ $generalSetting->email }}
+                                </a>
+                            @endif
+                            @if ($generalSetting->address)
+                                <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($generalSetting->address) }}" target="_blank" class="foot02__nav__item transition pe-3">
+                                    {{ $generalSetting->address }}
+                                </a>
+                            @endif
                         </div>
                     </div>
 
@@ -35,7 +45,6 @@
                         @foreach ($socials as $social)
                             <a href="{{$social->link}}" class="social-link transition" title="{{$social->title}}">
                                 <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
-                                {{$social->title}}
                             </a>
                         @endforeach
                     </div>

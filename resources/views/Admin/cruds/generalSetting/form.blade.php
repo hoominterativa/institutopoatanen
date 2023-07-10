@@ -27,10 +27,11 @@
                 ]) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label(null, 'Informações complementares', ['class'=>'form-label']) !!}
+                {!! Form::label(null, 'Endereço', ['class'=>'form-label']) !!}
                 {!! Form::textarea('address', null, [
                     'class'=>'form-control',
                     'id'=>'message',
+                    'placeholder'=> 'Rua Pedro Alvarez Cabral N° 1500, Salvador-BA',
                 ]) !!}
             </div>
         </div> <!-- end card-body-->

@@ -12,7 +12,6 @@ import '../../pages/Topics/TOPI02/src/main';
 import '../../pages/Abouts/ABOU01/src/main';
 import '../../pages/Abouts/ABOU04/src/main';
 import '../../pages/Brands/BRAN01/src/main';
-import '../../pages/Contents/CONT06/src/main';
 import '../../pages/Contacts/COTA01/src/main';
 import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Galleries/GALL02/src/main';

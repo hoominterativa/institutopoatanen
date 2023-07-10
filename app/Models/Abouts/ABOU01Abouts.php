@@ -35,6 +35,7 @@ class ABOU01Abouts extends Model
         "path_image",
         "text_inner_section",
         "sorting",
+        "background_color"
     ];
 
     public function scopeActive($query)

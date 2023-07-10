@@ -22,7 +22,7 @@
                     @foreach ($topics as $topic)
                         <article class="box-topic col">
                             <div class="content transition">
-                                <a href="{{$topic->link?getUri($topic->link):'javascript:void(0)'}}" target="{{$topic->target_link}}">
+                                <a href="{{$topic->link?getUri($topic->link):'javascript:void(0)'}}" target="{{$topic->target_link}}" @if (!$topic->link) style="cursor: default;" @endif>
                                     @if ($topic->path_image)
                                         <img src="{{asset('storage/'.$topic->path_image)}}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                                     @endif

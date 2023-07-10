@@ -7,9 +7,11 @@
         <div class="container container--bran01">
             <div class="row">
                 <div class="bran01__encompass px-0 text-center mx-auto w-100">
-                    <h2 class="bran01__encompass__title">{{ $section->title_home }}</h2>
-                    <h3 class="bran01__encompass__subtitle">{{ $section->subtitle_home }}</h3>
-                    <hr class="bran01__encompass__line">
+                    @if ($section->title_home || $section->subtitle_home)
+                        <h2 class="bran01__encompass__title">{{ $section->title_home }}</h2>
+                        <h3 class="bran01__encompass__subtitle">{{ $section->subtitle_home }}</h3>
+                        <hr class="bran01__encompass__line">
+                    @endif
                     <div class="bran01__encompass__paragraph mx-auto">
                         <p>
                             {!! $section->description_home !!}

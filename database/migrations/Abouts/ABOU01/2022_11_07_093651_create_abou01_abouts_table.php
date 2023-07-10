@@ -35,6 +35,7 @@ class CreateAbou01AboutsTable extends Migration
             $table->string('path_image_section_desktop')->nullable();
             $table->string('path_image_section_mobile')->nullable();
             $table->string('path_image')->nullable();
+            $table->string('background_color')->nullable();
 
             $table->timestamps();
         });

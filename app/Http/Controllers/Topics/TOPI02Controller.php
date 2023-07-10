@@ -63,7 +63,6 @@ class TOPI02Controller extends Controller
         if($path_image_icon) $data['path_image'] = $path_image_icon;
 
         $data['active'] = $request->active?1:0;
-        $data['link'] = getUri($request->link);
 
         if(TOPI02Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
@@ -84,7 +83,6 @@ class TOPI02Controller extends Controller
      */
     public function edit(TOPI02Topics $TOPI02Topics)
     {
-        $TOPI02Topics->link = getUri($TOPI02Topics->link);
         return view('Admin.cruds.Topics.TOPI02.edit',[
             'topic' => $TOPI02Topics,
             'cropSetting' => getCropImage('Topics', 'TOPI02')
@@ -124,7 +122,6 @@ class TOPI02Controller extends Controller
         }
 
         $data['active'] = $request->active?1:0;
-        $data['link'] = getUri($request->link);
 
         if($TOPI02Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');

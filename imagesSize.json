@@ -186,7 +186,7 @@
                 "path_image_banner_desktop": {
                     "width": "1500",
                     "height": "218",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_banner_mobile": {
                     "width": "390",
@@ -196,7 +196,7 @@
                 "path_image_section_desktop": {
                     "width": "1500",
                     "height": "1235",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_section_mobile": {
                     "width": "390",
@@ -827,14 +827,14 @@
                 "path_image_icon": {
                     "width": "300",
                     "height": "300",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 }
             },
             "TopicSection": {
                 "path_image_icon": {
                     "width": "300",
                     "height": "300",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 }
             }
         },
@@ -843,7 +843,7 @@
                 "path_image_form_desktop": {
                     "width":"1500",
                     "height":"645",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_form_mobile": {
                     "width":"390",
@@ -855,7 +855,7 @@
                 "path_image_banner_desktop": {
                     "width":"1500",
                     "height":"352",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_banner_mobile": {
                     "width":"390",
@@ -867,7 +867,7 @@
                 "path_image_topic_desktop": {
                     "width":"1500",
                     "height":"280",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_topic_mobile": {
                     "width":"390",

@@ -29,7 +29,7 @@
             </section>
             {{-- END .abou01-page__content --}}
 
-            <section class="abou01-page__topic container-fluid" style="background-image: url({{asset('storage/uploads/tmp/bg-section-dark-gray.jpg')}})">
+            <section class="abou01-page__topic container-fluid" style="background-image: url({{asset('storage/' . $about->path_image_section_desktop)}}); background-color: {{$about->background_color}};">
                 <div class="container">
                     <div class="row carousel-abou01-topic">
                         @foreach ($about->topics as $topic)
@@ -59,11 +59,13 @@
                             @endif
                         </div>
                         <div class="col-12 col-lg-7">
-                            <h2 class="abou01-page__section__container">
-                                <span class="abou01-page__section__title">{{$about->title_inner_section}}</span>
-                                <span class="abou01-page__section__subtitle">{{$about->subtitle_inner_section}}</span>
-                            </h2>
-                            <hr class="abou01-page__section__line">
+                            @if ($about->title_inner_section || $about->subtitle_inner_section)
+                                <h2 class="abou01-page__section__container">
+                                    <span class="abou01-page__section__title">{{$about->title_inner_section}}</span>
+                                    <span class="abou01-page__section__subtitle">{{$about->subtitle_inner_section}}</span>
+                                    <hr class="abou01-page__section__line">
+                                </h2>
+                            @endif
                             <p class="abou01-page__section__paragraph">{!!$about->text_inner_section !!}</p>
                         </div>
                     </div>

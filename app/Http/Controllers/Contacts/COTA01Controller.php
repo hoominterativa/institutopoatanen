@@ -293,7 +293,7 @@ class COTA01Controller extends Controller
      * @param  \App\Models\Services\COTA01Contacts  $COTA01Contacts
      * @return \Illuminate\Http\Response
      */
-    public function show(COTA01Contacts $COTA01Contacts)
+    public function page(COTA01Contacts $COTA01Contacts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA01');

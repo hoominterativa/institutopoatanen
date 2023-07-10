@@ -21,7 +21,7 @@
                         </div>
                     @endif
                     <div class="cota01-show__form-section__container row">
-                        <div class="cota01-show__form-section__form col-12 {{$contact->topicsForm->count()?'col-xl-7':''}}">
+                        <div class="cota01-show__form-section__form col-12 {{$contact->topicsForm}}">
                             @if ($contact->title_form || $contact->description_form)
                                 <div class="cota01-show__form__header">
                                     <h2 class="cota01-show__form__header__title">{{$contact->title_form}}</h2>
