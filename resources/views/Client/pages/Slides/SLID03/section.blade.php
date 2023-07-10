@@ -1,4 +1,4 @@
-<section id="SLID03" class="slid03" style="background-image: url({{ asset('storage/uploads/tmp/bg-slide.jpg') }})">
+<section id="SLID03" class="slid03" style="background-image: url({{ asset('storage/' . $slide->path_image_desktop) }})">
     <div class="container slid03__container h-100">
         <div class="d-flex align-items-center slid03__content h-100">
             <div class="slid03__leftside col-12 col-md-6">

@@ -89,7 +89,7 @@
             <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem Desktop', ['class'=>'form-label']) !!}
+                        {!! Form::label('inputImage', 'Background Desktop', ['class'=>'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_desktop->width}}x{{$cropSetting->path_image_desktop->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_desktop', [
@@ -107,7 +107,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem Mobile', ['class'=>'form-label']) !!}
+                        {!! Form::label('inputImage', 'Background Mobile', ['class'=>'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_mobile->width}}x{{$cropSetting->path_image_mobile->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_mobile', [

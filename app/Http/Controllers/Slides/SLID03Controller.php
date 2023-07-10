@@ -214,16 +214,31 @@ class SLID03Controller extends Controller
      */
     public static function section()
     {
-        $slide = SLID03Slides::first();
+
         $form = SLID03SlidesForm::first();
-        $inputs = $form?json_decode($form->inputs):[];
-        $inputsAdditionals = $form?json_decode($form->inputs_additionals):[];
+        // $inputs = $form?json_decode($form->inputs):[];
+        // $inputsAdditionals = $form?json_decode($form->inputs_additionals):[];
+
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                $slide = SLID03Slides::first();
+                    if ($slide) {
+                        $slide->path_image_desktop = $slide->path_image_mobile;
+                    }
+            break;
+            default:
+                $slide = SLID03Slides::first();
+            break;
+        }
 
         return view('Client.pages.Slides.SLID03.section',[
             'slide' => $slide,
             'form' => $form,
-            'inputs' => !is_array($inputs)?$inputs:null,
-            'inputsAdditionals' => !is_array($inputsAdditionals)?$inputsAdditionals:null,
+            // 'inputs' => !is_array($inputs)?$inputs:null,
+            // 'inputsAdditionals' => !is_array($inputsAdditionals)?$inputsAdditionals:null,
+            'inputs' => $form ? (json_decode($form->inputs) ?? []) : [],
+            'inputsAdditionals' => $form ? (json_decode($form->inputsAdditionals) ?? []) : [],
         ]);
     }
 }
