@@ -31,9 +31,9 @@
                         @if ($content->link_button)
                             <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}"
                                 class="cont02__cta transition d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                    class="cont02__cta__icon me-3 transition">
-                                CTA
+                                <!-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
+                                    class="cont02__cta__icon me-3 transition"> -->
+                                Quero Desconto
                             </a>
                         @endif
                     </div>
