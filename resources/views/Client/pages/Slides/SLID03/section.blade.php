@@ -26,8 +26,8 @@
                                 </div>
                             @endforeach
                             <button type="submit" class="slid03__content__form__item__submit d-flex align-items-center">
-                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="30" class="me-3">
                                 Continuar
+                                <img src="{{asset('storage/uploads/tmp/seta-dir.png')}}" width="30" class="me-3">
                             </button>
                         {!! Form::close() !!}
 
