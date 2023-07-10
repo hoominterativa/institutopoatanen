@@ -13,7 +13,7 @@
             'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Galeria',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-folder-multiple-image'
         ]
     ],
 ], 

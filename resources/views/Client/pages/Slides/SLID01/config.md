@@ -13,7 +13,7 @@
             'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Slide',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-projector-screen'
         ]
     ],
 ],

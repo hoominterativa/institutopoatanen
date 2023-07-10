@@ -13,7 +13,7 @@
             'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Tópicos',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-book-multiple-outline'
         ]
     ],
 ],

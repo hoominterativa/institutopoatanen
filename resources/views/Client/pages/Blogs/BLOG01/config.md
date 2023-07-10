@@ -30,8 +30,6 @@
             'iconPanel' => ''
         ],
         'IncludeSections' => (object) [
-            'Services' => ['SERV04'],
-            'Feedbacks' => ['FEED01'],
         ]
     ],
 ],

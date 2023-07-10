@@ -11,7 +11,6 @@
                     'class'=>'form-control',
                     'id'=>'description',
                     'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
                     'data-parsley-maxlength'=>'150',
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold'=>'10',

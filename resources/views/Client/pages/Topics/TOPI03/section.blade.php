@@ -19,7 +19,7 @@
                 @foreach ($topics as $topic)
                     <article class="box-topic col-sm-4">
                         <div class="content transition">
-                            <a href="{{$topic->link ? getUri($topic->link) : 'javascript:void(0)' }}" target="{{$topic->target_link}}" @if (!$topic->link) style="cursor: default;" @endif>
+                            <a href="{{ $topic->link ? getUri($topic->link) : 'javascript:void(0)' }}" @if ($topic->link) target="{{ $topic->target_link }}" @endif @if (!$topic->link) style="cursor: default;" @endif>
                                 <div class="container-info d-flex flex-column justify-content-center align-items-center">
                                     <figure class="image">
                                         @if ($topic->path_image_icon)
