@@ -3,7 +3,15 @@
         <div class="d-flex align-items-center slid03__content h-100">
             <div class="slid03__leftside col-12 col-md-6">
                 <div class="slid03__content__text">
-                    {!!$slide->description!!}
+                    @if ($slide->title || $slide->subtitle)
+                        <h2>
+                            <span class="title">{{ $slide->title }}</span>
+                            <span class="subtitle">{{ $slide->subtitle }}</span>
+                        </h2>
+                    @endif
+                    @if ($slide->description)
+                        {!!$slide->description!!}
+                    @endif
                 </div>
                 @if ($slide->link)
                     <a href="{{$slide->link}}" target="{{$slide->target_link}}" class="slid03__content__cta">{{$slide->title_button}}</a>
