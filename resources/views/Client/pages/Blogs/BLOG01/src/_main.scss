@@ -165,6 +165,9 @@
     &__header {
         height: 352px;
         text-align: center;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         &__title {
             font-size: $T1;
             font-weight: $weight-700;

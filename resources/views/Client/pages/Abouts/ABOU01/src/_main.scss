@@ -79,6 +79,9 @@
     &__header {
         text-align: center;
         background-color: #efefef;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         padding: 87px 0;
         margin: 0;
         &__container {

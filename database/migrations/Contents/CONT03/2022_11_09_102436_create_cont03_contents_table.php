@@ -16,6 +16,7 @@ class CreateCont03ContentsTable extends Migration
         Schema::create('cont03_contents', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('title_button')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
             $table->string('link')->nullable();

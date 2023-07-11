@@ -12,7 +12,7 @@
             'anchor' =>  false,
             'linkMenu' => '',
             'iconMenu' => '',
-            'titlePanel' => 'Conteúdo3',
+            'titlePanel' => 'Conteúdo',
             'iconPanel' => 'mdi-view-split-horizontal'
         ]
     ],

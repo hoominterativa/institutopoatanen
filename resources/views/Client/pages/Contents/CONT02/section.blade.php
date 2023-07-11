@@ -33,7 +33,9 @@
                                 class="cont02__cta transition d-flex justify-content-center align-items-center">
                                 <!-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
                                     class="cont02__cta__icon me-3 transition"> -->
-                                Quero Desconto
+                                @if ($content->title_button)
+                                    {{$content->title_button}}
+                                @endif
                             </a>
                         @endif
                     </div>

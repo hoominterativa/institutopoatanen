@@ -5,7 +5,7 @@
         <section id="BLOG01" class="blog01-page container-fluid px-0">
             @if ($banner)
                 <header class="blog01-page__header bg-light"
-                    style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{ $banner->background_color }};">
+                style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{$banner->background_color}} !important;">
                     <div class="container d-flex flex-column justify-content-center h-100">
                         @if ($banner->title)
                             <h1 class="blog01-page__header__title">{{ $banner->title }}</h1>

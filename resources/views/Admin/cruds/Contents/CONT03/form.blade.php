@@ -73,6 +73,10 @@
                     <div class="tab-pane show active" id="linkExternal"></div>
                 </div> {{-- END .tab-content --}}
                 <div class="row">
+                    <div class="mb-3">
+                        {!! Form::label('title_button', 'Título do botão', ['class'=>'form-label']) !!}
+                        {!! Form::text('title_button', null, ['class'=>'form-control', 'id'=>'title_button']) !!}
+                    </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
                         {!! Form::url('link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}

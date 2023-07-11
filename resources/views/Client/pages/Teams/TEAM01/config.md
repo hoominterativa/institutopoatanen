@@ -30,7 +30,6 @@
             'iconPanel' => ''
         ],
         'IncludeSections' => (object) [
-            'Topics' => 'TOPI02',
         ],
     ],
 ],

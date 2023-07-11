@@ -13,7 +13,9 @@
                         @if ($content->link)
                             <a href="{{getUri($content->link)}}" target="{{$content->target_link}}" class="cont03__content__cta d-flex justify-content-center align-items-center transition">
                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="cont03__content__cta__icon transition me-3" width="25" alt="">
-                                CTA
+                                @if ($content->title_button)
+                                    {{$content->title_button}}
+                                @endif
                             </a>
                         @endif
                     </article>
