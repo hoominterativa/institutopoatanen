@@ -1203,7 +1203,7 @@
             "path_image_desktop": {
                 "width": "1500",
                 "height": "782",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_mobile": {
                 "width": "390",

@@ -6,6 +6,18 @@
     <div class="row col-12">
         <div class="col-12 col-lg-6">
             <div class="card card-body" id="tooltip-container">
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                            {!! Form::text('title', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title']) !!}
+                        </div>
+                        <div class="col-sm-6">
+                            {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                            {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                        </div>
+                    </div>
+                </div>
                 <div class="complete-editor__content mb-3">
                     {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
                     {!! Form::textarea('description', null, [
@@ -89,7 +101,7 @@
             <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem Desktop', ['class'=>'form-label']) !!}
+                        {!! Form::label('inputImage', 'Background Desktop', ['class'=>'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_desktop->width}}x{{$cropSetting->path_image_desktop->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_desktop', [
@@ -107,7 +119,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem Mobile', ['class'=>'form-label']) !!}
+                        {!! Form::label('inputImage', 'Background Mobile', ['class'=>'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_mobile->width}}x{{$cropSetting->path_image_mobile->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_mobile', [
