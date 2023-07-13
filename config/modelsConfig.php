@@ -4,33 +4,17 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02',
-            'themeMenu' => 'SIDE02'
+            'Code' => '',
+            'themeMenu' => ''
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT02',
+            'Code' => '',
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI04' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
-                    'iconPanel' => 'mdi-book-multiple'
-                ]
-            ],
-        ],
+
     ],
 
     'ModelsForm' => (object)[
