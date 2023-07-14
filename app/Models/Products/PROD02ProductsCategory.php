@@ -40,5 +40,12 @@ class PROD02ProductsCategory extends Model
         });
     }
 
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('prod02_products_categories.id')->from('prod02_products')->whereColumn('prod02_products.category_id', 'prod02_products_categories.id');
+        });
+    }
+
 
 }

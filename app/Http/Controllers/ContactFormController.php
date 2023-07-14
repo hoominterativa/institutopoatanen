@@ -37,6 +37,7 @@ class ContactFormController extends Controller
     {
         $modelsMain = config('modelsConfig.InsertModelsMain');
         $modelsForm = config('modelsConfig.ModelsForm');
+        $compliances = getCompliance(null, 'id', 'title_page');
         $socials = Social::get();
         $sessions = [];
         $pages = ['home' => 'Home'];
@@ -57,6 +58,7 @@ class ContactFormController extends Controller
             'pages' => $pages,
             'modelsForm' => $modelsForm,
             'socials' => $socials,
+            'compliances' => $compliances
         ]);
     }
 
@@ -69,7 +71,6 @@ class ContactFormController extends Controller
     public function store(Request $request)
     {
         $path = 'uploads/images/contactForm/';
-        // dd($request->all());
         $helperArchive = new HelperArchive();
         $data = $request->all();
 
@@ -117,6 +118,7 @@ class ContactFormController extends Controller
         $ContactForm = new ContactForm();
 
         $ContactForm->email = $request->email;
+        $ContactForm->compliance_id = $request->compliance_id;
         $ContactForm->session = $request->session;
         $ContactForm->position = $request->position;
         $ContactForm->page = $request->page;
@@ -141,6 +143,7 @@ class ContactFormController extends Controller
     {
         $modelsMain = config('modelsConfig.InsertModelsMain');
         $modelsForm = config('modelsConfig.ModelsForm');
+        $compliances = getCompliance(null, 'id', 'title_page');
         $socials = Social::get();
         $sessions = [];
         $pages = ['home' => 'Home'];
@@ -157,6 +160,7 @@ class ContactFormController extends Controller
 
         return view('Admin.cruds.contactForm.edit',[
             'contactForm' => $ContactForm,
+            'compliances' => $compliances,
             'sessions' => $sessions,
             'pages' => $pages,
             'configForm' => json_decode($ContactForm->inputs),
@@ -176,7 +180,6 @@ class ContactFormController extends Controller
      */
     public function update(Request $request, ContactForm $ContactForm)
     {
-        // dd($request->all());
         $path = 'uploads/images/contactForm/';
         $helperArchive = new HelperArchive();
         $path_image = $helperArchive->optimizeImage($request, 'path_image',$path,null,100);
@@ -220,6 +223,7 @@ class ContactFormController extends Controller
         }
 
         $ContactForm->email = $request->email;
+        $ContactForm->compliance_id = $request->compliance_id;
         $ContactForm->session = $request->session;
         $ContactForm->position = $request->position;
         $ContactForm->page = $request->page;
@@ -293,6 +297,7 @@ class ContactFormController extends Controller
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
+            $compliance = getCompliance($ContactForm->compliance_id??'0');
             $socials = null;
             if($ContactForm->socials_id){
                 $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
@@ -300,6 +305,7 @@ class ContactFormController extends Controller
             // dd($socials);
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
+                'compliance' => $compliance,
                 'content' => $ContactForm ? (json_decode($ContactForm->content) ?? []) : [],
                 'inputs' => $ContactForm ? (json_decode($ContactForm->inputs) ?? []) : [],
                 'model' => $ContactForm->model,
@@ -334,6 +340,7 @@ class ContactFormController extends Controller
         $view = '<section id="contactFormTemplate">';
 
         foreach ($ContactForms as $ContactForm) {
+            $compliance = getCompliance($ContactForm->compliance_id??'0');
             $socials = null;
             if($ContactForm->socials_id){
                 $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
@@ -341,6 +348,7 @@ class ContactFormController extends Controller
             // dd($socials);
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
+                'compliance' => $compliance,
                 'content' => $ContactForm ? (json_decode($ContactForm->content) ?? []) : [],
                 'inputs' => $ContactForm ? (json_decode($ContactForm->inputs) ?? []) : [],
                 'model' => $ContactForm->model,

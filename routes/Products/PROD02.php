@@ -42,3 +42,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 // // CLIENT
 Route::get($route.'/categoria/{PROD02ProductsCategory:slug}', [PROD02Controller::class, 'page'])->name($routeName.'.category.page');
+

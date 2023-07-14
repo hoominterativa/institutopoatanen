@@ -10,4 +10,5 @@ class ContactForm extends Model
     use HasFactory;
 
     protected $table = 'contact_form';
+    protected $fillable = ['compliance_id', 'email', 'session', 'position', 'page', 'model', 'social_id', 'inputs', 'content', 'external_structure'];
 }

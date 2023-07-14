@@ -37,12 +37,12 @@
                 </div>
                 {{-- END .bran01__content --}}
             </div>
-            <a rel="next" href="{{ route('bran01.page') }}"
+            <!-- <a rel="next" href="{{ route('bran01.page') }}"
                 class="bran01__cta transition justify-content-center align-items-center">
                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
                     class="bran01__cta__icon me-3 transition">
                 CTA
-            </a>
+            </a> -->
         </div>
         {{-- END .bran01__container --}}
     </section>

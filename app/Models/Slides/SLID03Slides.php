@@ -18,6 +18,8 @@ class SLID03Slides extends Model
     protected $table = "slid03_slides";
     protected $fillable = [
         "description",
+        "title",
+        "subtitle",
         "path_image_desktop",
         "path_image_mobile",
         "title_button",

@@ -91,6 +91,29 @@
                     }
                 }
 
+                .title {
+                    font-size: $T1;
+                    font-family: $font-primary;
+                    font-weight: $weight-700;
+                    color: $color-one;
+                    display: block;
+
+                    @include medium-device-down {
+                        font-size: $T1-mobile;
+                    }
+                }
+
+                .subtitle {
+                    font-size: $T3;
+                    font-family: $font-primary;
+                    font-weight: $weight-700;
+                    color: $color-two;
+
+                    @include medium-device-down {
+                        font-size: $T3-mobile;
+                    }
+                }
+
             }
             // END __text
             &__cta{

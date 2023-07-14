@@ -60,8 +60,8 @@ class OptimizePageController extends Controller
         $optimizePage->description = $request->description;
         $optimizePage->page = $request->page;
         if($optimizePage->save()){
-            $request->session()->flash('success', 'Informações cadastradas com sucesso');
-            return redirect($request->_previous);
+            Session::flash('success', 'Informações cadastradas com sucesso');
+            return redirect()->route('admin.optimization.index');
         }
     }
 
@@ -119,8 +119,8 @@ class OptimizePageController extends Controller
         $optimizePage->description = $request->description;
         $optimizePage->page = $request->page;
         if($optimizePage->save()){
-            $request->session()->flash('success', 'Informações atualizadas com sucesso');
-            return redirect($request->_previous);
+            Session::flash('success', 'Informações atualizadas com sucesso');
+            return redirect()->back();
         }
     }
 
@@ -134,8 +134,8 @@ class OptimizePageController extends Controller
     public function destroy(Request $request, OptimizePage $optimizePage)
     {
         if($optimizePage->delete()){
-            $request->session()->flash('success', 'Informações atualizadas com sucesso');
-            return redirect($request->_previous);
+            Session::flash('success', 'Item deletado com sucessso');
+            return redirect()->back();
         }
     }
 

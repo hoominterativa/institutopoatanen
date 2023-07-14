@@ -54,8 +54,8 @@
                 </button>
             {!! Form::close() !!}
         </div>
-        <div class="slid03-show__sideRight col-12 col-md-6">
-            <img src="{{asset('storage/uploads/tmp/png-slide.png')}}" width="100%" class="slid03-show__sideRight__img" alt="">
-        </div>
+        @if ($form->path_image_lightbox)
+            <img src="{{asset('storage/' . $form->path_image_lightbox)}}" width="100%" class="slid03-show__sideRight__img" alt="">
+        @endif
     </div>
 </section>

@@ -1,7 +1,7 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
-'Contents' => (object) [
-    'CONT03' => (object)[
+'Slides' => (object) [
+    'SLID03' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => false,
         'ViewListPanel' => true,
@@ -12,8 +12,8 @@
             'anchor' =>  false,
             'linkMenu' => '',
             'iconMenu' => '',
-            'titlePanel' => 'Conteúdo',
-            'iconPanel' => 'mdi-view-split-horizontal'
+            'titlePanel' => 'Slide',
+            'iconPanel' => ''
         ]
     ],
 ],

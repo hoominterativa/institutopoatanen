@@ -27,7 +27,7 @@ return [
                 'controller' => App\Http\Controllers\Blogs\BLOG01Controller::class,
                 'model' => App\Models\Blogs\BLOG01Blogs::class,
                 'seedQty' => 8,
-                'routeName' => 'blog01.page.content',
+                'routeName' => 'blog01.show.content',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Blogs\BLOG01BlogsCategory::class,
@@ -40,7 +40,7 @@ return [
                 'controller' => App\Http\Controllers\Blogs\BLOG03Controller::class,
                 'model' => App\Models\Blogs\BLOG03Blogs::class,
                 'seedQty' => 8,
-                'routeName' => 'blog03.page.content',
+                'routeName' => 'blog03.show.content',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Blogs\BLOG03BlogsCategory::class,
@@ -188,7 +188,8 @@ return [
                 'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,
                 'model' => App\Models\Portfolios\PORT01Portfolios::class,
                 'seedQty' => 10,
-                'routeName' => 'port01.page.content',
+                // 'routeName' => 'port01.page.content',
+                'routeName' => 'port01.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Portfolios\PORT01PortfoliosCategory::class,
@@ -206,7 +207,8 @@ return [
                 'controller' => App\Http\Controllers\Portfolios\PORT02Controller::class,
                 'model' => App\Models\Portfolios\PORT02Portfolios::class,
                 'seedQty' => 4,
-                'routeName' => 'port02.page.content',
+                // 'routeName' => 'port02.page.content',
+                'routeName' => 'port02.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Portfolios\PORT02PortfoliosCategory::class,
@@ -228,7 +230,8 @@ return [
                 'controller' => App\Http\Controllers\Products\PROD02Controller::class,
                 'model' => App\Models\Products\PROD02Products::class,
                 'seedQty' => 12,
-                'routeName' => 'prod02.page.content',
+                // 'routeName' => 'prod02.page.content',
+                'routeName' => 'prod02.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Products\PROD02ProductsCategory::class,
@@ -241,7 +244,8 @@ return [
                 'controller' => App\Http\Controllers\Products\PROD02V1Controller::class,
                 'model' => App\Models\Products\PROD02V1Products::class,
                 'seedQty' => 12,
-                'routeName' => 'prod02v1.page.content',
+                // 'routeName' => 'prod02v1.page.content',
+                'routeName' => 'prod02v1.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Products\PROD02V1ProductsCategory::class,
@@ -276,7 +280,7 @@ return [
                 'controller' => App\Http\Controllers\Portals\POTA01Controller::class,
                 'model' => App\Models\Portals\POTA01Portals::class,
                 'seedQty' => 12,
-                'routeName' => 'pota01.page.content',
+                'routeName' => 'pota01.show.content',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Portals\POTA01PortalsCategory::class,
@@ -311,7 +315,8 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV05Controller::class,
                 'model' => App\Models\Services\SERV05Services::class,
                 'seedQty' => 12,
-                'routeName' => 'serv05.page.content',
+                // 'routeName' => 'serv05.page.content',
+                'routeName' => 'serv05.show.content',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Services\SERV05ServicesCategory::class,
@@ -425,7 +430,8 @@ return [
                 'controller' => App\Http\Controllers\Teams\TEAM01Controller::class,
                 'model' => App\Models\Teams\TEAM01Teams::class,
                 'seedQty' => 12,
-                'routeName' => 'team01.page.content',
+                // 'routeName' => 'team01.page.content',
+                'routeName' => 'team01.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Teams\TEAM01TeamsCategory::class,

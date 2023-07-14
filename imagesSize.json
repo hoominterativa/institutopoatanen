@@ -130,7 +130,7 @@
             "path_image_thumbnail": {
                 "width": "450",
                 "height": "420",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image": {
                 "width": "600",
@@ -141,7 +141,7 @@
                 "path_image_desktop": {
                     "width": "1500",
                     "height": "352",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_mobile": {
                     "width": "390",
@@ -423,7 +423,7 @@
                 "path_image_desktop": {
                     "width": "1500",
                     "height": "304",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_mobile": {
                     "width": "390",
@@ -957,7 +957,7 @@
                 "path_image_desktop": {
                     "width": "1500",
                     "height": "352",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_mobile": {
                     "width": "390",
@@ -1203,7 +1203,7 @@
             "path_image_desktop": {
                 "width": "1500",
                 "height": "782",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_mobile": {
                 "width": "390",
@@ -1463,7 +1463,7 @@
                 "path_image_desktop": {
                     "width": "1500",
                     "height": "270",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_mobile": {
                     "width": "390",

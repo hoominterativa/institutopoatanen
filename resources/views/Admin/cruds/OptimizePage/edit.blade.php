@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($optimizePage, ['route' => ['admin.optimizePage.update', $optimizePage->id], 'class'=>'parsley-validate']) !!}
+                {!! Form::model($optimizePage, ['route' => ['admin.optimizePage.update', $optimizePage->id], 'class'=>'parsley-validate', 'method'=>'PUT']) !!}
                     @include('Admin.cruds.OptimizePage.form',[
                         'listPages' => $listPages
                     ])

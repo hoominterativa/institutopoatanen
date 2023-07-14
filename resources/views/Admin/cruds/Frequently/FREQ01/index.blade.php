@@ -118,7 +118,7 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane show active" id="section">
+                    <div class="tab-pane" id="section">
                         @include('Admin.cruds.Frequently.FREQ01.Section.form')
                     </div>
                 </div>

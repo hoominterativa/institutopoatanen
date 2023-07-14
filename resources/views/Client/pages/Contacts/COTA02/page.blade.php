@@ -56,7 +56,6 @@
                             @if ($contact->title_form)
                                 <h2 class="cota02__form__header__title">{{ $contact->title_form }}</h2>
                             @endif
-                            {{-- <h4 class="cota02__form__header__line"></h4> --}}
                             @if ($contact->description_form)
                                 <div class="cota02__form__header__paragraph">
                                     <p>
@@ -66,14 +65,12 @@
                             @endif
                         </div>
                         <div class="cota02__form__inputs">
-                            <form action=""
-                                class="cota02__form__inputs__formIput parsley-validate flex-column mx-auto">
+                            {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax cota01-show__form__item parsley-validate d-table w-100']) !!}
                                 <input type="hidden" name="target_lead" value="{{ $contact->title_page }}">
                                 <input type="hidden" name="target_send" value="{{ base64_encode($contact->email_form) }}">
                                 <div class="row">
                                     @foreach ($inputs as $name => $input)
-                                        <div
-                                            class="cota02-show__form__item__input col-12 {{ $input->type != 'textarea' ? 'col-sm-6' : '' }}">
+                                        <div class="cota02-show__form__item__input col-12 {{ $input->type != 'textarea' ? 'col-sm-6' : '' }}">
                                             @include('Client.Components.inputs', [
                                                 'name' => $name,
                                                 'options' => $input->option,
@@ -86,22 +83,16 @@
                                 </div>
                                 <div class="cota02-show__form__footer d-flex align-items-center">
                                     <div class="cota02-show__form__compliance form-check d-flex align-items-center">
-                                        {!! Form::checkbox('term_accept', 1, null, [
-                                            'class' => 'form-check-input me-1',
-                                            'id' => 'term_accept',
-                                            'required' => true,
-                                        ]) !!}
+                                        {!! Form::checkbox('term_accept', 1, null, ['class' => 'form-check-input me-1', 'id' => 'term_accept', 'required' => true]) !!}
                                         {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
                                         <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
                                             class="cota02-show__form__compliance__link ms-1">Política de Privacidade</a>
                                     </div>
-                                    <button type="submit"
-                                        class="cota02-show__form__inputs__formIput__input-submit ms-auto">
+                                    <button type="submit" class="cota02-show__form__inputs__formIput__input-submit ms-auto">
                                         {{ $contact->title_button_form }}
                                     </button>
                                 </div>
-                                {!! Form::close() !!}
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

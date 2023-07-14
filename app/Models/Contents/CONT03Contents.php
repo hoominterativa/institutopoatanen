@@ -20,6 +20,7 @@ class CONT03Contents extends Model
         "title",
         "subtitle",
         "description",
+        "title_button",
         "link",
         "link_target",
         "path_image_center",

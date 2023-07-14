@@ -28,6 +28,7 @@ class CreateContactFormTable extends Migration
             $table->string('subtitle_newsletter')->nullable();
             $table->text('text_newsletter')->nullable();
             $table->string('path_image_newsletter')->nullable();
+            $table->integer('compliance_id')->nullable();
             $table->timestamps();
         });
     }

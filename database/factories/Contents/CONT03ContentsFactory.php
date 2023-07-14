@@ -23,6 +23,7 @@ class CONT03ContentsFactory extends Factory
     {
         return [
             "title" => $this->faker->text(10),
+            "title_button" => $this->faker->text(10),
             "subtitle" => $this->faker->text(15),
             "description" => $this->faker->text(250),
             "link" => $this->faker->url(),
