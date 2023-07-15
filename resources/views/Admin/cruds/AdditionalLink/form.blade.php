@@ -16,7 +16,7 @@
         <div class="wrapper-links my-2 border px-2 py-3">
             <ul class="nav nav-pills navtab-bg nav-justified">
                 <li class="nav-item">
-                    <a href="#linkPages" data-bs-toggle="tab" aria-expanded="false" class="nav-link py-1">
+                    <a href="#linkPages{{isset($additionalLink)?'-'.$additionalLink->id:''}}" data-bs-toggle="tab" aria-expanded="false" class="nav-link py-1">
                         <div class="d-flex align-items-center justify-content-center">
                             Link para página do site
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#linkExternal" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                    <a href="#linkExternal{{isset($additionalLink)?'-'.$additionalLink->id:''}}" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
                         <div class="d-flex align-items-center justify-content-center">
                             Link para página externa
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
@@ -37,7 +37,7 @@
                 </li>
             </ul> {{-- END .nav-tabs --}}
             <div class="tab-content">
-                <div class="tab-pane" id="linkPages">
+                <div class="tab-pane" id="linkPages{{isset($additionalLink)?'-'.$additionalLink->id:''}}">
                     <div class="row">
                         <div class="dropdown mb-3 col-12">
                             {!! Form::label(null, 'Selecione uma página do site', ['class'=>'form-label']) !!}
@@ -47,11 +47,11 @@
                             <ul class="dropdown-menu multi-level col-12" aria-labelledby="dropdownPages">
                                 @foreach (listPage() as $page)
                                     <li class="dropdown {{$page->dropdown?'dropdown-submenu':''}}">
-                                        <a href="{{$page->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl" data-bs-toggle="dropdown">{{$page->title}}</a>
+                                        <a href="{{$page->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl{{isset($additionalLink)?'-'.$additionalLink->id:''}}" data-bs-toggle="dropdown">{{$page->title}}</a>
                                         @if ($page->dropdown)
                                             <ul class="dropdown-menu">
                                                 @foreach ($page->dropdown as $itens)
-                                                    <li><a href="{{$itens->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl">{{$itens->name}}</a></li>
+                                                    <li><a href="{{$itens->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl{{isset($additionalLink)?'-'.$additionalLink->id:''}}">{{$itens->name}}</a></li>
                                                 @endforeach
                                             </ul>
                                         @endif
@@ -61,12 +61,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane show active" id="linkExternal"></div>
+                <div class="tab-pane show active" id="linkExternal{{isset($additionalLink)?'-'.$additionalLink->id:''}}"></div>
             </div> {{-- END .tab-content --}}
             <div class="row">
                 <div class="col-12 col-sm-8">
                     {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                    {!! Form::text('link', null, ['class'=>'form-control', 'id' => 'targetUrl']) !!}
+                    {!! Form::text('link', null, ['class'=>'form-control', 'id' => 'targetUrl'.(isset($additionalLink)?'-'.$additionalLink->id:'')]) !!}
                 </div>
                 <div class="col-12 col-sm-4">
                     {!! Form::label('link_target', 'Redirecionar para', ['class'=>'form-label']) !!}
