@@ -118,7 +118,7 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$additionalLink->id}}"></label>
                                                 </td>
                                                 <td class="align-middle">{{$additionalLink->title}}</td>
-                                                <td class="align-middle">{{$additionalLink->link}}</td>
+                                                <td class="align-middle"><a href="{{getUri($additionalLink->link)}}" target="_blank">{{getUri($additionalLink->link)}}</a></td>
                                                 <td class="align-middle">
                                                     @switch($additionalLink->link_target)
                                                         @case('_self')
