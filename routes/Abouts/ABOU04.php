@@ -6,6 +6,7 @@ use App\Http\Controllers\Abouts\ABOU04TopicController;
 use App\Http\Controllers\Abouts\ABOU04BannerController;
 use App\Http\Controllers\Abouts\ABOU04GalleryController;
 use App\Http\Controllers\Abouts\ABOU04SectionController;
+use App\Http\Controllers\Abouts\ABOU04CategoryController;
 use App\Http\Controllers\Abouts\ABOU04SectionTopicController;
 use App\Http\Controllers\Abouts\ABOU04SectionGalleryController;
 
@@ -44,6 +45,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicos', ABOU04TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'ABOU04AboutsTopic']);
     Route::post($route.'/topico/delete', [ABOU04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [ABOU04TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    Route::resource($route.'/categorias', ABOU04CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'ABOU04AboutsCategory']);
+    Route::post($route.'/categoria/delete', [ABOU04CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [ABOU04CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
     Route::resource($route.'/secaotopico', ABOU04SectionTopicController::class)->names('admin.'.$routeName.'.sectionTopic')->parameters(['secaotopico' => 'ABOU04AboutsSectionTopic']);
 });

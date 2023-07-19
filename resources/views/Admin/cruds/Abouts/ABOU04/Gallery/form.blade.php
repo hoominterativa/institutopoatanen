@@ -8,6 +8,18 @@
         <div class="col-12">
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
+                    <div class="d-flex">
+                        {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
+                        <i class="text-danger">*</i>
+                    </div>
+                    {!! Form::select('category_id', $categoryCreate, null, [
+                        'class'=>'form-select',
+                        'id'=>'heard',
+                        'required'=>'required',
+                        'placeholder' => 'Informe a categoria'
+                    ]) !!}
+                </div>
+                <div class="mb-3">
                     {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
                     {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
                 </div>

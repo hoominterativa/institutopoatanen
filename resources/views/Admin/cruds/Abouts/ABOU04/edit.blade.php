@@ -40,6 +40,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#categories" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Categorias
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre as categorias para as galerias"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#gallery" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Galeria
@@ -69,6 +78,11 @@
                 </ul>
 
                 <div class="tab-content">
+                    <div class="tab-pane" id="categories">
+                        @include('Admin.cruds.Abouts.ABOU04.Category.index',[
+                            'categories' => $galleryCategories
+                        ])
+                    </div>
                     <div class="tab-pane show active" id="about">
                         @include('Admin.cruds.Abouts.ABOU04.form')
                     </div>

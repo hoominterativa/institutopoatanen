@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAbou04AboutsGalleriesTable extends Migration
+class CreateAbou04AboutsCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateAbou04AboutsGalleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('abou04_abouts_galleries', function (Blueprint $table) {
+        Schema::create('abou04_abouts_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('abou04_abouts_categories');
             $table->string('title')->nullable();
-            $table->string('path_image')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateAbou04AboutsGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abou04_abouts_galleries');
+        Schema::dropIfExists('abou04_abouts_categories');
     }
 }
