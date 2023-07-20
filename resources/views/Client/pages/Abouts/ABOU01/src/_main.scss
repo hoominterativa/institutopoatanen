@@ -76,6 +76,34 @@
 // END .abou01
 
 .abou01-page {
+    .container {
+        display: flex;
+        align-items: flex-start;
+        padding: 68px 15px 0 15px !important;
+
+        @include large-device-down {
+            flex-direction: column-reverse;
+            gap: 25px 0;
+        }
+
+        .container__img {
+            width: 41.66666667%;
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            
+            @include large-device-down{
+                width: 100%;
+            }
+
+
+            img {
+                width: 100%;
+                max-width: 430px;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+    }
     &__header {
         text-align: center;
         background-color: #efefef;
@@ -116,8 +144,14 @@
     // END __header
 
     &__content {
-        text-align: center;
-        padding: 45px 0 120px;
+        width: 58.33333333%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+
+        @include large-device-down {
+            width: 100%;
+        }
+
         &__container {
             margin-bottom: 25px;
         }
@@ -148,7 +182,6 @@
         &__paragraph {
             font: $paragraph;
             font-weight: $weight-500;
-            padding: 0 30px;
             color: $color-one;
             line-height: 25px;
 
@@ -175,7 +208,7 @@
                 transform: scale(1.01);
             }
         }
-        .carousel-abou01-topic{
+        .carousel-abou01-topic {
             gap: 25px 0;
         }
         &__item {
@@ -232,6 +265,15 @@
 
     &__section {
         padding: 68px 15px 0 15px;
+
+        .align-items-center {
+            align-items: flex-start !important;
+
+            @include large-device-down {
+                flex-direction: column-reverse;
+                gap: 25px 0;
+            }
+        }
         &__row {
             @include small-device {
                 flex-direction: column-reverse;

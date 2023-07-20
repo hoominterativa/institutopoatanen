@@ -15,7 +15,7 @@
                 </header>
 
                 <div class="container">
-                    <div>
+                    <div class="container__img">
                         @if ($about->path_image)
                             <img src="{{asset('storage/'.$about->path_image)}}" class="" width="430" alt="{{$about->title}}">
                         @endif
