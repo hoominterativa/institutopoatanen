@@ -16,6 +16,16 @@
                 "height": "546",
                 "activeCrop": "true"
             },
+            "path_image_home_desktop": {
+                "width": "1500",
+                "height": "622",
+                "activeCrop": "false"
+            },
+            "path_image_home_mobile": {
+                "width": "410",
+                "height": "546",
+                "activeCrop": "true"
+            },
             "path_image_banner": {
                 "width": "1450",
                 "height": "400",

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Abouts\ABOU04AboutsBanner;
 use App\Models\Abouts\ABOU04AboutsGallery;
 use App\Models\Abouts\ABOU04AboutsSection;
+use App\Models\Abouts\ABOU04AboutsCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Abouts\ABOU04AboutsSectionTopic;
 use App\Models\Abouts\ABOU04AboutsSectionGallery;
@@ -31,7 +32,10 @@ class ABOU04Controller extends Controller
         $about = ABOU04Abouts::first();
         $banner = ABOU04AboutsBanner::first();
         $section = ABOU04AboutsSection::first();
-        $galleries = ABOU04AboutsGallery::sorting()->get();
+        $galleries = ABOU04AboutsGallery::with('category')->sorting()->get();
+        $categories = ABOU04AboutsCategory::exists()->sorting()->pluck('title', 'id');
+        $categoryCreate = ABOU04AboutsCategory::sorting()->pluck('title', 'id');
+        $galleryCategories = ABOU04AboutsCategory::sorting()->get();
         $sectionGallery = ABOU04AboutsSectionGallery::first();
         $topics = ABOU04AboutsTopic::sorting()->get();
         $sectionTopic = ABOU04AboutsSectionTopic::first();
@@ -40,6 +44,9 @@ class ABOU04Controller extends Controller
             'banner' => $banner,
             'section' => $section,
             'galleries' => $galleries,
+            'categories' => $categories,
+            'galleryCategories' => $galleryCategories,
+            'categoryCreate' => $categoryCreate,
             'sectionGallery' => $sectionGallery,
             'topics' => $topics,
             'sectionTopic' => $sectionTopic,
@@ -127,7 +134,7 @@ class ABOU04Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, ABOU04AboutsCategory $ABOU04AboutsCategory)
     {
         switch (deviceDetect()) {
             case 'mobile':
@@ -147,7 +154,7 @@ class ABOU04Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU04', 'page');
 
         $about = ABOU04Abouts::first();
-        $galleries = ABOU04AboutsGallery::active()->sorting()->get();
+        $categories = ABOU04AboutsCategory::with(['galleries' => function ($query) {$query->where('active', 1);}])->exists()->active()->sorting()->get();
         $sectionGallery = ABOU04AboutsSectionGallery::active()->first();
         $topics = ABOU04AboutsTopic::active()->sorting()->get();
 
@@ -155,7 +162,7 @@ class ABOU04Controller extends Controller
             'sections' => $sections,
             'banner' => $banner,
             'about' => $about,
-            'galleries' => $galleries,
+            'categories' => $categories,
             'sectionGallery' => $sectionGallery,
             'topics' => $topics,
             'sectionTopic' => $sectionTopic,

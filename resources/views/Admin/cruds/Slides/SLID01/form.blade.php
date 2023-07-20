@@ -91,7 +91,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link Botão', ['class'=>'form-label']) !!}
-                        {!! Form::url('link_button', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button', (isset($slide)?getUri($slide->link_button):null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button', 'Redirecionar', ['class'=>'form-label']) !!}

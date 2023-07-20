@@ -12,10 +12,10 @@
                                     <p>{{$topic->description}}</p>
                                 </div>
                                 @if ($topic->link_button)
-                                    <!-- <a href="{{getUri($topic->link_button)}}" target="{{$topic->target_link_button}}" class="topi06__box__cta">
+                                    <a href="{{getUri($topic->link_button)}}" target="{{$topic->target_link_button}}" class="topi06__box__cta">
                                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="topi06__box__cta__icon" alt="">
                                         {{$topic->title_button}}
-                                    </a> -->
+                                    </a>
                                 @endif
                             </div>
                             <div class="col-4 topi06__box__image d-flex align-items-center justify-content-center">

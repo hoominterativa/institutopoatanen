@@ -15,6 +15,7 @@ class CreateAbou04AboutsGalleriesTable extends Migration
     {
         Schema::create('abou04_abouts_galleries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('abou04_abouts_categories');
             $table->string('title')->nullable();
             $table->string('path_image')->nullable();
             $table->integer('active')->default(0);

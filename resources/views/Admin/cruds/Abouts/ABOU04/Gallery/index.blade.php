@@ -21,6 +21,7 @@
                             </th>
                             <th>Imagem</th>
                             <th>Título</th>
+                            <th>Categoria</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -40,6 +41,7 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$gallery->title}}</td>
+                                <td class="align-middle">{{$gallery->category->title}}</td>
                                 <td class="align-middle">
                                     @if ($gallery->active)
                                         <span class="badge bg-success me-2">Ativo</span>
@@ -69,6 +71,7 @@
                                                             'Admin.cruds.Abouts.ABOU04.Gallery.form',
                                                             [
                                                                 'gallery' => $gallery,
+                                                                'categoryCreate' => $categoryCreate,
                                                             ]
                                                         )
                                                     </div>
@@ -99,6 +102,7 @@
             <div class="modal-body p-3 pt-0 pb-3">
                 @include('Admin.cruds.Abouts.ABOU04.Gallery.form', [
                     'gallery' => null,
+                    'categoryCreate' => $categoryCreate
                 ])
             </div>
         </div>

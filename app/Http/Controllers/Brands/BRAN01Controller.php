@@ -57,6 +57,7 @@ class BRAN01Controller extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
+        $data['link'] = getUri($data['link']);
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
@@ -103,6 +104,7 @@ class BRAN01Controller extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
+        $data['link'] = getUri($data['link']);
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box){

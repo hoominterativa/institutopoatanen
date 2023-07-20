@@ -43,32 +43,38 @@
         @if ($sectionGallery)
             <section class="abou04-page__gallery w-100 d-flex flex-column align-items-center">
                 <header class="abou04-page__gallery__header container d-flex flex-column align-items-center">
-                    @if ($sectionGallery->title || $sectionGallery->subtitle)
+                    @if ($sectionGallery->title || $sectionGallery->description)
                         <h2 class="abou04-page__gallery__header__title text-center">{{ $sectionGallery->title }}</h2>
-                        <h3 class="abou04-page__gallery__header__subtitle text-center">{{ $sectionGallery->subtitle }}</h3>
+                        <p class="abou04-page__gallery__header__description text-center">{!! $sectionGallery->description !!}</p>
                         <hr class="abou04-page__gallery__header__line">
                     @endif
                 </header>
 
                 <main class="abou04-page__gallery__main container d-flex flex-column align-items-center">
-                    @if ($galleries->count())
-                        {{-- NOTE: GALERIA PRECISA SER ATIVADA NO PAINEL PARA MOSTRAR IMGS MSM QUE NÃO HAJA TITULO OU BTN --}}
-                        <div
-                            class="abou04-page__gallery__list w-100 d-flex justify-content-start align-items-stretch flex-wrap">
-                            @foreach ($galleries as $gallery)
-                                <div class="abou04-page__gallery__list__item">
-                                    @if ($gallery->path_image)
-                                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt=""
-                                            class="abou04-page__gallery__list__item__image">
-                                        <a href="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox
-                                            class="link-full"></a>
-                                    @endif
-                                    @if ($gallery->title)
-                                        <h4 class="abou04-page__gallery__list__item__title">{{ $gallery->title }}</h4>
-                                    @endif
+                    @if ($categories->count())
+                        @foreach ($categories as $category)
+                            <h4>{{ $category->title }}</h4>
+                            <p>{!! $category->description !!}</p>
+                            <hr class="abou04-page__gallery__header__line">
+                            @if ($category->galleries->count())
+                                {{-- NOTE: A SEÇÃO DA GALERIA PRECISA SER ATIVADA NO PAINEL PARA MOSTRAR IMGS MSM QUE NÃO HAJA TITULO OU BTN --}}
+                                <div class="abou04-page__gallery__list w-100 d-flex justify-content-start align-items-stretch flex-wrap">
+                                    @foreach ($category->galleries as $gallery)
+                                        <div class="abou04-page__gallery__list__item">
+                                            @if ($gallery->path_image)
+                                                <img src="{{ asset('storage/' . $gallery->path_image) }}" alt=""
+                                                    class="abou04-page__gallery__list__item__image">
+                                                <a href="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox
+                                                    class="link-full"></a>
+                                            @endif
+                                            @if ($gallery->title)
+                                                <h4 class="abou04-page__gallery__list__item__title">{{ $gallery->title }}</h4>
+                                            @endif
+                                        </div>
+                                    @endforeach
                                 </div>
-                            @endforeach
-                        </div>
+                            @endif
+                        @endforeach
                     @endif
                     @if ($sectionGallery->link_button)
                         <a href="{{ getUri($sectionGallery->link_button) }}"

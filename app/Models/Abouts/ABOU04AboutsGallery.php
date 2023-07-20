@@ -16,7 +16,7 @@ class ABOU04AboutsGallery extends Model
     }
 
     protected $table = "abou04_abouts_galleries";
-    protected $fillable = ['title', 'path_image', 'active', 'sorting'];
+    protected $fillable = ['title', 'path_image', 'active', 'sorting', 'category_id'];
 
     public function scopeSorting($query)
     {
@@ -26,5 +26,10 @@ class ABOU04AboutsGallery extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(ABOU04AboutsCategory::class, 'category_id');
     }
 }

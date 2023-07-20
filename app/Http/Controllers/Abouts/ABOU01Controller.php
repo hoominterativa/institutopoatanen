@@ -54,12 +54,20 @@ class ABOU01Controller extends Controller
         $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null, 100);
         if($path_image_section_mobile) $data['path_image_section_mobile'] = $path_image_section_mobile;
 
+        $path_image_home_desktop = $helper->optimizeImage($request, 'path_image_home_desktop', $this->path, null, 100);
+        if($path_image_home_desktop) $data['path_image_home_desktop'] = $path_image_home_desktop;
+
+        $path_image_home_mobile = $helper->optimizeImage($request, 'path_image_home_mobile', $this->path, null, 100);
+        if($path_image_home_mobile) $data['path_image_home_mobile'] = $path_image_home_mobile;
+
         if(ABOU01Abouts::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
             Storage::delete($path_image_banner);
             Storage::delete($path_image_section_desktop);
             Storage::delete($path_image_section_mobile);
+            Storage::delete($path_image_home_desktop);
+            Storage::delete($path_image_home_mobile);
             Storage::delete($path_image);
             Storage::delete($path_image_inner_section);
             Session::flash('success', 'Erro ao cadastradar informações');
@@ -123,6 +131,28 @@ class ABOU01Controller extends Controller
             $data['path_image_section_mobile'] = null;
         }
 
+        // path_image_home_desktop
+        $path_image_home_desktop = $helper->optimizeImage($request, 'path_image_home_desktop', $this->path, null, 100);
+        if($path_image_home_desktop){
+            storageDelete($ABOU01Abouts, 'path_image_home_desktop');
+            $data['path_image_home_desktop'] = $path_image_home_desktop;
+        }
+        if($request->delete_path_image_home_desktop && !$path_image_home_desktop){
+            storageDelete($ABOU01Abouts, 'path_image_home_desktop');
+            $data['path_image_home_desktop'] = null;
+        }
+
+        // path_image_home_mobile
+        $path_image_home_mobile = $helper->optimizeImage($request, 'path_image_home_mobile', $this->path, null, 100);
+        if($path_image_home_mobile){
+            storageDelete($ABOU01Abouts, 'path_image_home_mobile');
+            $data['path_image_home_mobile'] = $path_image_home_mobile;
+        }
+        if($request->delete_path_image_home_mobile && !$path_image_home_mobile){
+            storageDelete($ABOU01Abouts, 'path_image_home_mobile');
+            $data['path_image_home_mobile'] = null;
+        }
+
         // path_image
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image){
@@ -142,6 +172,8 @@ class ABOU01Controller extends Controller
             Storage::delete($path_image_inner_section);
             Storage::delete($path_image_section_desktop);
             Storage::delete($path_image_section_mobile);
+            Storage::delete($path_image_home_desktop);
+            Storage::delete($path_image_home_mobile);
             Session::flash('success', 'Erro ao atualizar informações');
         }
         return redirect()->back();
@@ -186,7 +218,19 @@ class ABOU01Controller extends Controller
      */
     public static function section()
     {
-        $about = ABOU01Abouts::with('topics')->first();
+        switch(deviceDetect()){
+            case "mobile":
+            case "tablet":
+                $about = ABOU01Abouts::with('topics')->first();
+                if($about){
+                    $about->path_image_home_desktop = $about->path_image_home_mobile;
+                }
+            break;
+            default:
+                $about = ABOU01Abouts::with('topics')->first();
+            break;
+        }
+
         return view('Client.pages.Abouts.ABOU01.section',[
             'about' => $about
         ]);
