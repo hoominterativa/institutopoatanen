@@ -1,5 +1,5 @@
 @if ($about->title_section || $about->subtitle_section || $about->description_section)
-    <section id="ABOU01" class="abou01 container-fluid" style="background-image: url({{asset('storage/uploads/tmp/bg-section-gray.jpg')}})">
+    <section id="ABOU01" class="abou01 container-fluid" style="background-image: url({{ asset('storage/' . $about->path_image_home_desktop) }});background-color: {{ $about->background_color_home }}">
         <div class="container">
             <h3 class="abou01__container-title">
                 <span class="abou01__title">{{$about->title_section}}</span>

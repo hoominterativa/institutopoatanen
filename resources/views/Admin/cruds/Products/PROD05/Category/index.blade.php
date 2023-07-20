@@ -43,8 +43,8 @@
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
                                     @endif
-                                    @if ($category->featured)
-                                        <span class="badge bg-primary text-white">Destaque</span>
+                                    @if ($category->featured_home)
+                                        <span class="badge bg-primary text-white">Destaque Home</span>
                                     @endif
                                 </td>
                                 <td class="align-middle">
