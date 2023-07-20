@@ -15,6 +15,11 @@
                 </header>
 
                 <div class="container">
+                    <div>
+                        @if ($about->path_image)
+                            <img src="{{asset('storage/'.$about->path_image)}}" class="" width="430" alt="{{$about->title}}">
+                        @endif
+                    </div>
                     <div class="abou01-page__content">
                         <h2 class="abou01-page__content__container">
                             <span class="abou01-page__content__title">{{$about->title}}</span>
