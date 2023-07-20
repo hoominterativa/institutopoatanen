@@ -24,7 +24,7 @@ class ABOU04AboutsSectionGalleryFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'title_button' => $this->faker->text(10),
-            'subtitle' => $this->faker->text(10),
+            'description' => $this->faker->text(100),
             'link_button' => 'www.example.com',
             'target_link_button' => '_blank',
             'active' => 1,

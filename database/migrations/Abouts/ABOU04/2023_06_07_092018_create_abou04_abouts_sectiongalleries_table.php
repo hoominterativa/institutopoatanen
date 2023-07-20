@@ -16,7 +16,7 @@ class CreateAbou04AboutsSectiongalleriesTable extends Migration
         Schema::create('abou04_abouts_sectiongalleries', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
+            $table->text('description')->nullable();
             $table->string('title_button')->nullable();
             $table->string('link_button')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');

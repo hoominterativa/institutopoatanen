@@ -43,9 +43,9 @@
         @if ($sectionGallery)
             <section class="abou04-page__gallery w-100 d-flex flex-column align-items-center">
                 <header class="abou04-page__gallery__header container d-flex flex-column align-items-center">
-                    @if ($sectionGallery->title || $sectionGallery->subtitle)
+                    @if ($sectionGallery->title || $sectionGallery->description)
                         <h2 class="abou04-page__gallery__header__title text-center">{{ $sectionGallery->title }}</h2>
-                        <h3 class="abou04-page__gallery__header__subtitle text-center">{{ $sectionGallery->subtitle }}</h3>
+                        <p class="abou04-page__gallery__header__description text-center">{!! $sectionGallery->description !!}</p>
                         <hr class="abou04-page__gallery__header__line">
                     @endif
                 </header>

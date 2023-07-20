@@ -3448,6 +3448,9 @@ body .owl-dots .owl-dot.active {
 .abou01-page__topic__content:hover {
   transform: scale(1.01);
 }
+.abou01-page__topic .carousel-abou01-topic {
+  gap: 25px 0;
+}
 .abou01-page__topic__item__header {
   margin-bottom: 35px;
 }

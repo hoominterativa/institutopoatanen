@@ -20,8 +20,16 @@
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description', null, [
+                    'class'=>'form-control',
+                    'id'=>'description',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-minlength'=>'20',
+                    'data-parsley-maxlength'=>'250',
+                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
+                ]) !!}
             </div>
 
             <div class="wrapper-links my-2 border px-2 py-3">
