@@ -298,11 +298,12 @@ class ContactFormController extends Controller
 
         foreach ($ContactForms as $ContactForm) {
             $compliance = getCompliance($ContactForm->compliance_id??'0');
+            $socialIds = json_decode($ContactForm->social_id, true);
+
             $socials = null;
-            if($ContactForm->socials_id){
-                $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
+            if ($socialIds && is_array($socialIds)) {
+                $socials = Social::whereIn('id', $socialIds)->get();
             }
-            // dd($socials);
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
                 'compliance' => $compliance,
@@ -341,11 +342,13 @@ class ContactFormController extends Controller
 
         foreach ($ContactForms as $ContactForm) {
             $compliance = getCompliance($ContactForm->compliance_id??'0');
+            $socialIds = json_decode($ContactForm->social_id, true);
+
             $socials = null;
-            if($ContactForm->socials_id){
-                $socials = Social::whereIn('id', json_decode($ContactForm->social_id))->get();
+            if ($socialIds && is_array($socialIds)) {
+                $socials = Social::whereIn('id', $socialIds)->get();
             }
-            // dd($socials);
+
             $view .= view('Client.Components.contactForm',[
                 'contactForm' => $ContactForm,
                 'compliance' => $compliance,

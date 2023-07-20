@@ -51,6 +51,9 @@ class CONT03Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = getUri($data['link']);
+
         $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);
         if ($path_image_center) $data['path_image_center'] = $path_image_center;
 
@@ -59,8 +62,6 @@ class CONT03Controller extends Controller
 
         $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
         if ($path_image_background) $data['path_image_background'] = $path_image_background;
-
-        $data['active'] = $request->active ? 1 : 0;
 
         if (CONT03Contents::create($data)) {
             Session::flash('success', 'Informações cadastradas com sucesso');
@@ -100,6 +101,9 @@ class CONT03Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = getUri($data['link']);
+
         // path_image_center
         $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);
         if ($path_image_center) {
@@ -132,8 +136,6 @@ class CONT03Controller extends Controller
             storageDelete($CONT03Contents, 'path_image_background');
             $data['path_image_background'] = null;
         }
-
-        $data['active'] = $request->active ? 1 : 0;
 
         if ($CONT03Contents->fill($data)->save()) {
             Session::flash('success', 'Informações atualizadas com sucesso');

@@ -56,13 +56,14 @@ class TOPI02Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($data['link']);
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image'] = $path_image_icon;
-
-        $data['active'] = $request->active?1:0;
 
         if(TOPI02Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
@@ -101,6 +102,9 @@ class TOPI02Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active?1:0;
+        $data['link'] = getUri($data['link']);
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($TOPI02Topics, 'path_image');
@@ -120,8 +124,6 @@ class TOPI02Controller extends Controller
             storageDelete($TOPI02Topics, 'path_image_icon');
             $data['path_image_icon'] = null;
         }
-
-        $data['active'] = $request->active?1:0;
 
         if($TOPI02Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');
