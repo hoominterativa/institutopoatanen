@@ -4667,6 +4667,7 @@ body .owl-dots .owl-dot.active {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
   margin-bottom: 0;
+  text-align: center;
 }
 @media (max-width: 575.98px) {
   .cota02__header__title {
@@ -4678,6 +4679,7 @@ body .owl-dots .owl-dot.active {
   font-family: "Montserrat", sans-serif, arial;
   color: #7c7c7c;
   font-weight: 700;
+  text-align: center;
 }
 @media (max-width: 575.98px) {
   .cota02__header__subtitle {
@@ -4694,8 +4696,11 @@ body .owl-dots .owl-dot.active {
   background-position: center;
   background-repeat: no-repeat;
 }
+.cota02__boxForm .justify-content-center {
+  gap: 25px 0;
+}
 .cota02__boxForm .container--boxForm {
-  padding: 68px 0 59px 0;
+  padding: 68px 0 59px 0 !important;
 }
 @media (max-width: 575.98px) {
   .cota02__boxForm .container--boxForm .row {

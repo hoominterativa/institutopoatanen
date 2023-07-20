@@ -15,6 +15,7 @@
                             <h2 class="cota02__header__title d-block">{{ $contact->title_banner }}</h2>
                             <h3 class="cota02__header__subtitle d-block">{{ $contact->subtitle_banner }}
                             </h3>
+                            <hr>
                         @endif
                         <hr class="cota02__header__line mb-0">
                     </div>
