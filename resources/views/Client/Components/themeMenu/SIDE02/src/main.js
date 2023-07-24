@@ -14,15 +14,6 @@ $(function(){
         }
     })
 
-    $('#SIDE02 ul li a').on('click', function(e){
-        e.preventDefault();
-        setTimeout(function(){
-            $('#side02').removeClass('side02--show');
-            $(this).removeClass('active');
-            $('.side02__override').removeClass('side02__override--show');
-            $('body').removeClass('no-scroll');
-        }, 1000)
-    })
     $('.side02__header__button-close').on('click', function(){
         $('#SIDE02').removeClass('side02--show');
         $(this).removeClass('active');
