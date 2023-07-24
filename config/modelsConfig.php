@@ -80,26 +80,6 @@ return [
                 ]
             ],
         ],
-        'Services' => (object) [
-            'SERV04' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Serviços',
-                    'anchor' =>  false,
-                    'linkMenu' => 'serv06.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
-                    'iconPanel' => 'mdi-alpha-s-box-outline'
-                ],
-                'IncludeSections' => (object) [
-                    'Portfolios' => 'PORT02',
-                ]
-            ],
-        ],
         'Portfolios' => (object) [
             'PORT02' => (object)[
                 'ViewHome' => true,
@@ -130,6 +110,26 @@ return [
                     'iconPanel' => ''
                 ],
                 'IncludeSections' => (object) []
+            ],
+        ],
+        'Services' => (object) [
+            'SERV04' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Serviços',
+                    'anchor' =>  false,
+                    'linkMenu' => 'serv06.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-alpha-s-box-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Portfolios' => 'PORT02',
+                ]
             ],
         ],
         'Topics.2' => (object)[
