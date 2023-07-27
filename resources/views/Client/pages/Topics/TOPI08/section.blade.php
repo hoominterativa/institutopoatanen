@@ -8,9 +8,9 @@
                     <h3 class="topi08__header__subtitle">{{ $section->subtitle }}</h3>
                     <hr class="topi08__header__line">
                     <p class="topi08__header__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                        sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                        eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet
+                        <p>
+                            {!! $section->description !!}
+                        </p>
                     </p>
                 @endif
             </header>
