@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\Products\PROD05ProductsTopic;
+use App\Models\Compliances\COMP01Compliances;
 use App\Models\Products\PROD05ProductsGallery;
 use App\Models\Products\PROD05ProductsSection;
 use App\Http\Controllers\Helpers\HelperArchive;
@@ -297,7 +298,7 @@ class PROD05Controller extends Controller
         $category = PROD05ProductsCategory::where('slug', $PROD05ProductsCategory)->first();
         $subcategory = PROD05ProductsSubcategory::where('slug', $PROD05ProductsSubcategory)->first();
 
-        $product = $PROD05Products->where('category_id', $category->id)->where('subcategory_id', $subcategory->id)->first();
+        $product = PROD05Products::where(['category_id' => $category->id,'subcategory_id' => $subcategory->id, 'id' => $PROD05Products->id])->first();
 
         switch (deviceDetect()) {
             case 'mobile':
@@ -310,6 +311,7 @@ class PROD05Controller extends Controller
         $galleryTypes = PROD05ProductsGalleryType::with('galleries')->where('product_id', $product->id)->active()->get();
         $galleriesSection = PROD05ProductsGallerySection::where('product_id', $product->id)->get();
         $topicCategories = PROD05ProductsTopicCategory::with('topics')->where('product_id', $product->id)->active()->get();
+        $compliance = COMP01Compliances::sorting()->first();
 
         return view('Client.pages.Products.PROD05.show', [
             'sections' => $sections,
@@ -320,6 +322,7 @@ class PROD05Controller extends Controller
             'galleryTypes' => $galleryTypes,
             'galleriesSection' => $galleriesSection,
             'topicCategories' => $topicCategories,
+            'compliance' => $compliance
         ]);
     }
 
@@ -342,6 +345,9 @@ class PROD05Controller extends Controller
             $subcategories = $subcategories->join('prod05_products', 'prod05_products_subcategories.id', '=', 'prod05_products.subcategory_id')
                 ->select('prod05_products_subcategories.*', 'prod05_products.title as product_title')
                 ->where('prod05_products.category_id', $PROD05ProductsCategory->id);
+                $subcategories = $subcategories->active()->exists()->sorting()->groupBy('prod05_products.subcategory_id')->get();
+        } else {
+            $subcategories = $subcategories->active()->exists()->sorting()->get();
         }
 
         if($PROD05ProductsSubcategory->exists){
@@ -359,7 +365,6 @@ class PROD05Controller extends Controller
         }
 
         $categories = PROD05ProductsCategory::active()->exists()->sorting()->get();
-        $subcategories = $subcategories->active()->exists()->sorting()->get();
 
         return view('Client.pages.Products.PROD05.page', [
             'sections' => $sections,

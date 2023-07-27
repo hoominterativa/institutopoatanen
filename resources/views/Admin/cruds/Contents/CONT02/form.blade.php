@@ -88,9 +88,9 @@
                         {!! Form::text('title_button', null, ['class' => 'form-control', 'id' => 'title_button']) !!}
                     </div>
                     <div class="col-12 col-sm-8">
-                        {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button', null, ['class' => 'form-control', 'id' => 'targetUrl']) !!}
-                    </div>
+                        {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
+                        {!! Form::url('link_button', (isset($topic) && isset($topic->link_button) ? getUri($topic->link_button) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button', 'Redirecionar para', ['class' => 'form-label']) !!}
                         {!! Form::select('target_link_button', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, [

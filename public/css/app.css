@@ -2088,6 +2088,18 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+#CONT02 {
+  padding: 80px 0 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #CONT02 {
+    padding: 60px 50px 0;
+  }
+}
+
 .cont02 {
   padding-top: 68.54px;
 }

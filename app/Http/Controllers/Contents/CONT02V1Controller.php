@@ -53,6 +53,7 @@ class CONT02V1Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_background_desktop = $helper->optimizeImage($request, 'path_image_background_desktop', $this->path, null, 100);
         if ($path_image_background_desktop) $data['path_image_background_desktop'] = $path_image_background_desktop;
@@ -102,6 +103,7 @@ class CONT02V1Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) {

@@ -80,7 +80,7 @@
                 <div class="col-12 col-lg-2">
                     <a href="http://hoom.com.br" target="_blank" class="d-table ms-auto">
                         <img class="foot02__logo__hoom" width="147"
-                            src="{{ asset('storage/uploads/tmp/logo.png') }}" alt="Hoom Interativa">
+                            src="{{ asset('storage/uploads/tmp/hoom.png') }}" alt="Hoom Interativa">
                     </a>
                 </div>
             </div>

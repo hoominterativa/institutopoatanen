@@ -25,7 +25,7 @@ class ABOU04SectionGalleryController extends Controller
         $data = $request->all();
 
         $data['active'] = $request->active?1:0;
-        $data['link_button'] = getUri($data['link_button']);
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         if(ABOU04AboutsSectionGallery::create($data)){
             Session::flash('success', 'Seção cadastrada com sucesso');
@@ -47,7 +47,7 @@ class ABOU04SectionGalleryController extends Controller
         $data = $request->all();
 
         $data['active'] = $request->active?1:0;
-        $data['link_button'] = getUri($data['link_button']);
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         if($ABOU04AboutsSectionGallery->fill($data)->save()){
             Session::flash('success', 'Seção atualizada com sucesso');

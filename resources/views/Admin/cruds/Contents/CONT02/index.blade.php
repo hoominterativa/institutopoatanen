@@ -56,13 +56,23 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage' . $content->path_image_background_desktop)}})"></div>
+                                                    @if ($content->path_image_background_desktop)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_background_desktop)}})"></div>
+                                                    @endif
+                                                    @if ($content->path_image_background_mobile)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_background_mobile)}})"></div>
+                                                    @endif
+                                                    @if ($content->path_image)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image)}})"></div>
+                                                    @endif
                                                 </td>
                                                 <td class="align-middle">{{$content->title}}</td>
                                                 <td class="align-middle">{{substr($content->description, 0, 50)}}</td>
                                                 <td class="align-middle">{{$content->title_button}}</td>
                                                 <td class="align-middle"><a href="{{$content->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
-                                                <td class="align-middle">{{$content->color}}</td>
+                                                <td class="align-middle">
+                                                    <span class="badge" style="background-color: {{$content->color}}">{{$content->color}}</span>
+                                                </td>
                                                 <td class="align-middle">
                                                     @switch($content->active)
                                                         @case(1) <span class="badge bg-success">Ativo</span> @break
