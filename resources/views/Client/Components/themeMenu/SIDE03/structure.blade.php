@@ -76,11 +76,13 @@
             {{-- END .side03__dropdown --}}
 
             @if ($socials->count())
-                <div class="side03__network d-flex align-items-center justify-content-center">
+                <nav class="side03__network d-flex align-items-center justify-content-center">
                     @foreach ($socials as $social)
-                        <a href="{{$social->link}}" target="_blank" class="side03__cta-network transition" title="{{$social->title}}"><i class="mdi {{$social->icon}}"></i></a>
+                        <a href="{{$social->link}}"  target="_blank" social-link transition" title="{{$social->title}}">
+                            <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
+                        </a>
                     @endforeach
-                </div>
+                </nav>
             @endif
 
             <nav class="side03__privacy">
