@@ -1172,6 +1172,42 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "SERV07": {
+            "path_image": {
+                "width": "582",
+                "height": "547",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "321",
+                "height": "186",
+                "activeCrop": "false"
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "250",
+                    "height": "250",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width": "281",
+                    "height": "163",
+                    "activeCrop": "false"
+                }
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "269",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Slides": {

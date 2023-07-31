@@ -16,7 +16,21 @@ class SERV07Services extends Model
     }
 
     protected $table = "serv07_services";
-    protected $fillable = [];
+    protected $fillable = [
+        'category_id',
+        'slug',
+        'title',
+        'subtitle',
+        'description',
+        'text',
+        'path_image',
+        'path_image_box',
+        'title_button',
+        'link_button',
+        'target_link_button',
+        'active',
+        'sorting',
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +42,8 @@ class SERV07Services extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function category()
+    {
+        return $this->belongsTo(SERV07ServicesCategory::class, 'category_id');
+    }
 }

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV07BannerController;
+use App\Http\Controllers\Services\SERV07SectionController;
+use App\Http\Controllers\Services\SERV07CategoryController;
 
 /**
  * Uncomment the code below
@@ -11,22 +14,29 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Services';
+$model = 'SERV07';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $module = getNameModule($modelConfig, $module, $model);
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    //Category
+    Route::resource($route.'/categorias', SERV07CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'SERV07ServicesCategory']);
+    Route::post($route.'/categoria/delete', [SERV07CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [SERV07CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+
+    //Section
+    Route::resource($route.'/secao', SERV07SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV07ServicesSection']);
+
+    //Banner
+    Route::resource($route.'/banner', SERV07BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SERV07ServicesBanner']);
+});
+// CLIENT
+Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
