@@ -50,7 +50,7 @@ class SLID01Controller extends Controller
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
-        $data['link_button'] = getUri($data['link_button']);
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -104,7 +104,7 @@ class SLID01Controller extends Controller
         $path = 'uploads/Slides/SLID01/images/';
         $helper = new HelperArchive();
 
-        $data['link_button'] = getUri($data['link_button']);
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         // IMAGE DESKTOP
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
