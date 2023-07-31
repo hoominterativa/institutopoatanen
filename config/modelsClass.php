@@ -315,7 +315,6 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV05Controller::class,
                 'model' => App\Models\Services\SERV05Services::class,
                 'seedQty' => 12,
-                // 'routeName' => 'serv05.page.content',
                 'routeName' => 'serv05.show.content',
                 'relationship' => [
                     'category' => [
@@ -329,6 +328,19 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV06Controller::class,
                 'model' => App\Models\Services\SERV06Services::class,
                 'seedQty' => 4,
+            ],
+            'SERV07' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV07Controller::class,
+                'model' => App\Models\Services\SERV07Services::class,
+                'seedQty' => 8,
+                'routeName' => 'serv07.show.content',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV07ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
         ],
         // END SERVICES

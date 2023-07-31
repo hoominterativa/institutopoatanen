@@ -4,17 +4,49 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => '',
-            'themeMenu' => ''
+            'Code' => 'HEAD02',
+            'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => '',
+            'Code' => 'FOOT03',
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-       
+        'Services' => (object) [
+            'SERV07' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Serviços',
+                    'anchor' =>  false,
+                    'linkMenu' => 'serv07.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-alpha-s-box-outline'
+                ],
+                'IncludeSections' => (object) [
+                ]
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[
