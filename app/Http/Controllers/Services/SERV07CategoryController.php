@@ -2,28 +2,19 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV07ServicesCategory;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV07ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV07CategoryController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    protected $path = 'uploads/Services/SERV07/images/';
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +23,11 @@ class SERV07CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $serviceCategories = SERV07ServicesCategory::sorting()->paginate(10);
+        return view("Admin.cruds.Services.SERV07.Category.create",[
+            'serviceCategories' => $serviceCategories,
+            'cropSetting' => getCropImage('Services', 'SERV07')
+        ]);
     }
 
     /**
@@ -44,33 +39,25 @@ class SERV07CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(SERV07ServicesCategory::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if($category = SERV07ServicesCategory::create($data)){
+            Session::flash('success', 'Categoria cadastrada com sucesso');
+            return redirect()->route('admin.serv07.category.edit', ['SERV07ServicesCategory' => $category->id]);
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao cadastradar a categoria');
             return redirect()->back();
         }
     }
@@ -83,7 +70,10 @@ class SERV07CategoryController extends Controller
      */
     public function edit(SERV07ServicesCategory $SERV07ServicesCategory)
     {
-        //
+        return view("Admin.cruds.Services.SERV07.Category.edit",[
+            'category' => $SERV07ServicesCategory,
+            'cropSetting' => getCropImage('Services', 'SERV07')
+        ]);
     }
 
     /**
