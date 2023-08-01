@@ -39,4 +39,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/banner', SERV07BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SERV07ServicesBanner']);
 });
 // CLIENT
-Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
