@@ -2,7 +2,7 @@
 .serv07-page {
     &__header {
         @include backG;
-        padding-top: 150px;
+        padding-top: 40px;
     }
 
     &__title {
@@ -42,7 +42,8 @@
 
 .serv07-categories {
     width: 100%;
-    padding-bottom: 21px;
+    background: black;
+    padding: 80px 0px;
 
     &__list {
         @include Flex();
@@ -63,6 +64,7 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            gap: 10px;
             a {
                 @include Flex;
                 gap: 1rem;
@@ -163,11 +165,18 @@
 }
 
 
-
-
 .serv07-page__section{
     .container--serv07-page__section{
         padding-top: 68.54px !important;
+    }
+    &__row:nth-child(even) {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+
+        .serv07-page__section__description {
+            padding-left: 0;
+            padding-right: 170px;
+          }
     }
     &__image{
         height: 592px;
@@ -215,7 +224,6 @@
         padding: 10px 15px;
         background-color: $bg-soft;
 
-
         &:hover{
             color: $color-white;
             background-color: $bg-black;
@@ -225,7 +233,7 @@
             }
         }
     }
-    @include medium-device-down{
+    @include medium-device-down {
         &__image{
             order: 1;
             width: 100%;
@@ -360,6 +368,164 @@
             }
         }
     }
+}
+
+
+
+.serv07-page__content {
+
+    &__product{
+        padding: 80px 0;
+
+        @include small-device{
+            padding:0 28px !important;
+            margin-top: 51.28px;
+        }
+
+        .header-topic {
+            text-align: center; 
+            
+            .container-title {
+                margin-bottom: 25px;
+    
+                .title {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    font-family: "Ubuntu", sans-serif, arial;
+                    color: #404040;
+                    display: block;
+                }
+    
+                .subtitle {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    font-family: "Ubuntu", sans-serif, arial;
+                    color: #b3b3b3;
+                    display: block;      
+                }
+    
+            }
+
+            .line {
+                background-color: #404040;
+            }
+            .paragraph {
+                font: 1rem "Montserrat", sans-serif, arial;
+                font-weight: 500;
+                width: 100%;
+                margin: 0 auto;
+                margin-bottom: 50px;
+                margin-top: 25px;   
+            }
+        }
+
+        .serv07-page__content--row{
+            gap: 26px 0;
+            @include small-device{
+                margin: 0 auto;
+            }
+        }
+
+        &__item{
+            position: relative;
+            &__image{
+                width: 100%;
+                height: 267.65px;
+                background-color: #000;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &__description{
+                background-color: #7C7C7C;
+                padding: 19px 24px;
+
+                &__encompass{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+
+                    &__icone{
+                        width:22px;
+                        height: auto;
+
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                    &__txt{
+                        width: 80%;
+                        text-align: left;
+
+                        &__title{
+                            font-size: $T5;
+                            color: $color-black;
+                            font-family: $font-paragraph;
+                            font-weight: $weight-700;
+                        }
+                        &__subtitle{
+                            font: $paragraph-min;
+                            color: $color-two;
+                            font-weight: $weight-700;
+                        }
+                    }
+
+                }
+                &__paragraph{
+                    color: $color-two;
+                    font: $paragraph-min;
+                    font-weight: $weight-400;
+                }
+                &__paragraph p{
+                    color: $color-two;
+                    font: $paragraph-min;
+                    font-weight: $weight-400;
+                    margin-bottom: 0;
+                }
+
+                &__buttons{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &__cta{
+                        font: $paragraph;
+                        font-weight: $weight-700;
+                        color: $color-three;
+                        max-width: 180px;
+                        height: auto;
+                        padding: 10px 70px;
+                        background-color: $color-five;
+
+                        @include small-device{
+                            font: $paragraph-mobile;
+                            max-width: 146px;
+                        }
+                        img{
+                            width:18.03px !important;
+                            height: auto !important;
+                            object-fit: contain;
+                        }
+                        &:hover{
+                            color: $color-white;
+                            background-color: $bg-black;
+
+                            .serv07-page__content__product__item__description__buttons__cta__icon{
+                                filter: invert(1) grayscale(1);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    
 }
 
 /* BEGIN STYLE */

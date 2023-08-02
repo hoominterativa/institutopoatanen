@@ -2093,7 +2093,7 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 150px;
+  padding-top: 40px;
 }
 .serv07-page__title {
   font-family: "Ubuntu", sans-serif, arial;
@@ -2131,7 +2131,8 @@ body .owl-dots .owl-dot.active {
 
 .serv07-categories {
   width: 100%;
-  padding-bottom: 21px;
+  background: black;
+  padding: 80px 0px;
 }
 .serv07-categories__list {
   display: flex;
@@ -2156,6 +2157,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 10px;
 }
 .serv07-categories__list__item a {
   display: flex;
@@ -2251,6 +2253,14 @@ body .owl-dots .owl-dot.active {
 
 .serv07-page__section .container--serv07-page__section {
   padding-top: 68.54px !important;
+}
+.serv07-page__section__row:nth-child(even) {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.serv07-page__section__row:nth-child(even) .serv07-page__section__description {
+  padding-left: 0;
+  padding-right: 170px;
 }
 .serv07-page__section__image {
   height: 592px;
@@ -2445,6 +2455,147 @@ body .owl-dots .owl-dot.active {
 #SERV07 .container-box .box-topic .content:hover {
   transform: scale(1.02);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.serv07-page__content__product {
+  padding: 80px 0;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .serv07-page__content__product {
+    padding: 0 28px !important;
+    margin-top: 51.28px;
+  }
+}
+.serv07-page__content__product .header-topic {
+  text-align: center;
+}
+.serv07-page__content__product .header-topic .container-title {
+  margin-bottom: 25px;
+}
+.serv07-page__content__product .header-topic .container-title .title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  display: block;
+}
+.serv07-page__content__product .header-topic .container-title .subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #b3b3b3;
+  display: block;
+}
+.serv07-page__content__product .header-topic .line {
+  background-color: #404040;
+}
+.serv07-page__content__product .header-topic .paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 500;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 25px;
+}
+.serv07-page__content__product .serv07-page__content--row {
+  gap: 26px 0;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .serv07-page__content__product .serv07-page__content--row {
+    margin: 0 auto;
+  }
+}
+.serv07-page__content__product__item {
+  position: relative;
+}
+.serv07-page__content__product__item__image {
+  width: 100%;
+  height: 267.65px;
+  background-color: #000;
+}
+.serv07-page__content__product__item__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.serv07-page__content__product__item__description {
+  background-color: #7C7C7C;
+  padding: 19px 24px;
+}
+.serv07-page__content__product__item__description__encompass {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.serv07-page__content__product__item__description__encompass__icone {
+  width: 22px;
+  height: auto;
+}
+.serv07-page__content__product__item__description__encompass__icone img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.serv07-page__content__product__item__description__encompass__txt {
+  width: 80%;
+  text-align: left;
+}
+.serv07-page__content__product__item__description__encompass__txt__title {
+  font-size: 1.125rem;
+  color: #000;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+.serv07-page__content__product__item__description__encompass__txt__subtitle {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 700;
+}
+.serv07-page__content__product__item__description__paragraph {
+  color: #7c7c7c;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+}
+.serv07-page__content__product__item__description__paragraph p {
+  color: #7c7c7c;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.serv07-page__content__product__item__description__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.serv07-page__content__product__item__description__buttons__cta {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #b3b3b3;
+  max-width: 180px;
+  height: auto;
+  padding: 10px 70px;
+  background-color: #efefef;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .serv07-page__content__product__item__description__buttons__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    max-width: 146px;
+  }
+}
+.serv07-page__content__product__item__description__buttons__cta img {
+  width: 18.03px !important;
+  height: auto !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.serv07-page__content__product__item__description__buttons__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.serv07-page__content__product__item__description__buttons__cta:hover .serv07-page__content__product__item__description__buttons__cta__icon {
+  filter: invert(1) grayscale(1);
 }
 
 /* BEGIN STYLE */
