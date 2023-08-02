@@ -20,6 +20,8 @@
                             <th>Imagem</th>
                             <th>Título/Subtítulo</th>
                             <th>Descrição</th>
+                            <th>Título botão</th>
+                            <th>Link botão</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -39,7 +41,9 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$category->title}} <b>/</b>{{$category->subtitle}}</td>
-                                <td class="align-middle">{!! substr($category->description, 0, 25) !!}</td>
+                                <td class="align-middle">{!! substr($category->description, 0, 25) !!}<b>...</b></td>
+                                <td class="align-middle">{{$category->title_button}}</td>
+                                <td class="align-middle"><a href="{{$category->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                 <td class="align-middle">
                                     @if ($category->active)
                                         <span class="badge bg-success">Ativo</span>

@@ -53,14 +53,6 @@
                                 data-bs-original-title="Cadastro de informações para a seção banner da página principal"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#gallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Galeria
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner da página interna."></i>
-                        </a>
-                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -111,8 +103,8 @@
                                                         </td>
                                                         <td class="align-middle">{{$service->category->title}}</td>
                                                         <td class="align-middle">{{$service->title}} <b>/</b>{{$service->subtitle}}</td>
-                                                        <td class="align-middle">{!! substr($service->description, 0, 25) !!}</td>
-                                                        <td class="align-middle">{!! substr($service->text, 0, 30) !!}</td>
+                                                        <td class="align-middle">{!! substr($service->description, 0, 25) !!}<b>...</b></td>
+                                                        <td class="align-middle">{!! substr($service->text, 0, 30) !!}<b>...</b></td>
                                                         <td class="align-middle">{{$service->title_button}}</td>
                                                         <td class="align-middle"><a href="{{$service->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                         <td class="align-middle">
@@ -137,7 +129,6 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-
                                         {{-- PAGINATION --}}
                                         <div class="mt-3 float-end">
                                             {{$services->links()}}

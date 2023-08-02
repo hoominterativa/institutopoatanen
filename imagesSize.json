@@ -1207,6 +1207,13 @@
                     "height": "775",
                     "activeCrop": "true"
                 }
+            },
+            "SectionCategory":{
+                "path_image": {
+                    "width": "430",
+                    "height": "497",
+                    "activeCrop": "false"
+                }
             }
         }
     },

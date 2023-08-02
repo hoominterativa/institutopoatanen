@@ -82,6 +82,8 @@ class SERV07SectionController extends Controller
         if($SERV07ServicesSection->fill($data)->save()){
             Session::flash('success', 'Seção atualizada com sucesso');
         }else{
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar a seção');
         }
         return redirect()->back();

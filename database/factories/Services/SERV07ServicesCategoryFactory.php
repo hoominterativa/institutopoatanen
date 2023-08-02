@@ -31,6 +31,9 @@ class SERV07ServicesCategoryFactory extends Factory
             'description' => $this->faker->text(150),
             'path_image' => 'uploads/tmp/thumbnail-b.png',
             'path_image_icon' => 'uploads/tmp/favicon.png',
+            'title_button' => $this->faker->text(10),
+            'link_button' => $this->faker->url(),
+            'target_link_button' => '_blank',
             'active' => 1,
             'featured' => rand(0,1)
         ];

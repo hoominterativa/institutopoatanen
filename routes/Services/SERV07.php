@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Services\SERV07SectionController;
 use App\Http\Controllers\Services\SERV07CategoryController;
+use App\Http\Controllers\Services\SERV07SectionCategoryController;
 
 /**
  * Uncomment the code below
@@ -31,11 +32,16 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/delete', [SERV07CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [SERV07CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
+    //Section Category
+    Route::resource($route.'/secao-categorias', SERV07SectionCategoryController::class)->names('admin.'.$routeName.'.section-category')->parameters(['secao-categorias' => 'SERV07ServicesSectionCategory']);
+    Route::post($route.'/secao-categoria/delete', [SERV07SectionCategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.section-category.destroySelected');
+    Route::post($route.'/secao-categoria/sorting', [SERV07SectionCategoryController::class, 'sorting'])->name('admin.'.$routeName.'.section-category.sorting');
+
     //Section
     Route::resource($route.'/secao', SERV07SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV07ServicesSection']);
 
     //Banner
-    Route::resource($route.'/banner', SERV07SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SERV07ServicesBanner']);
+    Route::resource($route.'/banner', SERV07SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['banner' => 'SERV07ServicesSection']);
 });
 // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

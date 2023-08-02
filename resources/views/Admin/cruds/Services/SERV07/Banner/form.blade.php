@@ -1,28 +1,25 @@
 @if ($section)
-    {!! Form::model($section, ['route' => ['admin.serv07.banner.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+    {!! Form::model($section, ['route' => ['admin.serv07.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => 'admin.serv07.banner.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.serv07.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="col-sm-6">
-                    {!! Form::label('title_banner', 'Título', ['class' => 'form-label']) !!}
-                    {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
-                </div>
-                <div class="col-sm-6">
-                    {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                    {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title_banner', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                        {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="col-12">
-        <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background Desktop', ['class' => 'form-label']) !!}
@@ -60,6 +57,12 @@
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
+            </div>
+            <div class="col-12">
+                <div class="mb-3 form-check me-3">
+                    {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}
+                    {!! Form::label('active_banner', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
+                </div>
             </div>
         </div>
     </div>

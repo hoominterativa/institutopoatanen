@@ -20,11 +20,57 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($category, ['route' => ['admin.serv07.category.update', $category->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Services.SERV07.Category.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.serv07.category.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                {!! Form::close() !!}
+
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#editCategory" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Categorias
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Editar os campos da categoria"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sectionCategory" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seções da categoria
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de informações para as seções da categoria"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner da página
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de informações para a seção banner da página principal"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Galeria
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner da página interna."></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="editCategory">
+                        {!! Form::model($category, ['route' => ['admin.serv07.category.update', $category->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                            @include('Admin.cruds.Services.SERV07.Category.form')
+                            {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                            <a href="{{route('admin.serv07.category.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::close() !!}
+                    </div>
+                    <div class="tab-pane" id="sectionCategory">
+                        @include("Admin.cruds.Services.SERV07.SectionCategory.index",[
+                            'sectionsCategory' => $sectionsCategory,
+                            'category' => $category
+                        ])
+                    </div>
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

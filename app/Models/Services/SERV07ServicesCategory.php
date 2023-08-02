@@ -16,7 +16,7 @@ class SERV07ServicesCategory extends Model
     }
 
     protected $table = "serv07_services_categories";
-    protected $fillable = ['title', 'subtitle', 'description', 'slug', 'path_image', 'path_image_icon', 'active', 'sorting', 'featured'];
+    protected $fillable = ['title', 'subtitle', 'description', 'slug', 'path_image', 'path_image_icon', 'active', 'sorting', 'featured', 'title_button', 'link_button', 'target_link_button',];
 
     public function scopeSorting($query)
     {
@@ -46,6 +46,11 @@ class SERV07ServicesCategory extends Model
         return $query->whereExists(function($query){
             $query->select('id')->from('serv07_services')->whereColumn('serv07_services.category_id', 'serv07_services_categories.id');
         });
+    }
+
+    public function section()
+    {
+        return $this->hasMany(SERV07ServicesSectionCategory::class, 'category_id');
     }
 
     // public function getRelationCore()
