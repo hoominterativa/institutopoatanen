@@ -9,6 +9,8 @@ use App\Models\Services\SERV07Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV07ServicesBanner;
+use App\Models\Services\SERV07ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV07ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
@@ -27,10 +29,12 @@ class SERV07Controller extends Controller
         $services = SERV07Services::sorting()->paginate(30);
         $serviceCategories = SERV07ServicesCategory::sorting()->paginate(10);
         $categories = SERV07ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $section = SERV07ServicesSection::first();
         return view('Admin.cruds.Services.SERV07.index',[
             'services' => $services,
             'serviceCategories' => $serviceCategories,
             'categories' => $categories,
+            'section' => $section,
             'cropSetting' => getCropImage('Services', 'SERV07')
         ]);
     }

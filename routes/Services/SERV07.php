@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Services\SERV07BannerController;
 use App\Http\Controllers\Services\SERV07SectionController;
 use App\Http\Controllers\Services\SERV07CategoryController;
 
@@ -36,7 +35,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao', SERV07SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV07ServicesSection']);
 
     //Banner
-    Route::resource($route.'/banner', SERV07BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SERV07ServicesBanner']);
+    Route::resource($route.'/banner', SERV07SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SERV07ServicesBanner']);
 });
 // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

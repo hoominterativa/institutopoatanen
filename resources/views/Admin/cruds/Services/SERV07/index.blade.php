@@ -42,7 +42,15 @@
                             Informações complementares
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de informações para a seção home, banner e tópico"></i>
+                                data-bs-original-title="Cadastro de informações para a seção home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner da página
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de informações para a seção banner da página principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -143,6 +151,12 @@
                         @include("Admin.cruds.Services.SERV07.Category.index",[
                             'categories' => $serviceCategories,
                         ])
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include("Admin.cruds.Services.SERV07.Section.form")
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include("Admin.cruds.Services.SERV07.Banner.form")
                     </div>
                 </div>
                 <!-- end row -->

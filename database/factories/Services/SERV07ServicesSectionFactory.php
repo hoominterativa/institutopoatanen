@@ -22,10 +22,17 @@ class SERV07ServicesSectionFactory extends Factory
     public function definition()
     {
         return [
+            //Section
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
             'description' => $this->faker->text(300),
             'active' => 1,
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'path_image_desktop' => 'uploads/tmp/thumbnail.png',
+            'path_image_mobile' => 'uploads/tmp/logo-for.png',
+            'background_color' => '#FFFFFF',
+            'active_banner' => 1,
         ];
     }
 }

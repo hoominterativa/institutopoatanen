@@ -16,10 +16,20 @@ class SERV07ServicesSection extends Model
     }
 
     protected $table = "serv07_services_sections";
-    protected $fillable = ['title', 'description', 'subtitle', 'active'];
+    protected $fillable = [
+        //Section
+        'title', 'description', 'subtitle', 'active',
+        //Banner
+        'title_banner', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active_banner'
+    ];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
     }
 }

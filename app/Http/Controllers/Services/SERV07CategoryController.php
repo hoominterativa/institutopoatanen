@@ -23,9 +23,7 @@ class SERV07CategoryController extends Controller
      */
     public function create()
     {
-        $serviceCategories = SERV07ServicesCategory::sorting()->paginate(10);
         return view("Admin.cruds.Services.SERV07.Category.create",[
-            'serviceCategories' => $serviceCategories,
             'cropSetting' => getCropImage('Services', 'SERV07')
         ]);
     }
@@ -86,11 +84,11 @@ class SERV07CategoryController extends Controller
     public function update(Request $request, SERV07ServicesCategory $SERV07ServicesCategory)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -101,36 +99,25 @@ class SERV07CategoryController extends Controller
             storageDelete($SERV07ServicesCategory, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SERV07ServicesCategory, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($SERV07ServicesCategory, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV07ServicesCategory, 'path_archive');
-            $data['path_archive'] = null;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($SERV07ServicesCategory, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
-
-        */
 
         if($SERV07ServicesCategory->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao atualizar a categoria');
         }
+        return redirect()->back();
     }
 
     /**
@@ -141,13 +128,13 @@ class SERV07CategoryController extends Controller
      */
     public function destroy(SERV07ServicesCategory $SERV07ServicesCategory)
     {
-        //storageDelete($SERV07ServicesCategory, 'path_image');
-        //storageDelete($SERV07ServicesCategory, 'path_archive');
+        storageDelete($SERV07ServicesCategory, 'path_image');
+        storageDelete($SERV07ServicesCategory, 'path_image_icon');
 
         if($SERV07ServicesCategory->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
+            Session::flash('success', 'Categoria deletada com sucessso');
         }
+        return redirect()->back();
     }
 
     /**
@@ -158,17 +145,15 @@ class SERV07CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $SERV07ServicesCategorys = SERV07ServicesCategory::whereIn('id', $request->deleteAll)->get();
         foreach($SERV07ServicesCategorys as $SERV07ServicesCategory){
+            storageDelete($SERV07ServicesCategory, 'path_image_icon');
             storageDelete($SERV07ServicesCategory, 'path_image');
-            storageDelete($SERV07ServicesCategory, 'path_archive');
         }
-        */
 
         if($deleted = SERV07ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Categorias deletadas com sucessso']);
         }
     }
     /**
@@ -184,51 +169,5 @@ class SERV07CategoryController extends Controller
             SERV07ServicesCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Services\SERV07ServicesCategory  $SERV07ServicesCategory
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SERV07ServicesCategory $SERV07ServicesCategory)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }
