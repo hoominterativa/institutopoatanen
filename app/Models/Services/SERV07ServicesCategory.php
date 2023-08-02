@@ -53,8 +53,13 @@ class SERV07ServicesCategory extends Model
         return $this->hasMany(SERV07ServicesSectionCategory::class, 'category_id');
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function video()
+    {
+        return $this->hasMany(SERV07ServicesVideo::class, 'category_id');
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany(SERV07ServicesVideo::class, 'category_id');
+    }
 }

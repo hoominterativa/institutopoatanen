@@ -20,14 +20,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="normal-editor__content mb-3">
-                    {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
-                    {!! Form::textarea('description', null, [
-                        'class' => 'form-control normal-editor',
-                        'data-height' => 500,
-                        'id' => 'description',
-                    ]) !!}
-                </div>
                 <div class="wrapper-links my-2 border px-2 py-3">
                     <ul class="nav nav-pills navtab-bg nav-justified">
                         <li class="nav-item">
@@ -95,6 +87,24 @@
                         </div>
                     </div>
                 </div> {{-- END ."wrapper-links --}}
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card card-body border" id="tooltip-container">
+                <div class="normal-editor__content mb-3">
+                    {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
+                    {!! Form::textarea('description', null, [
+                        'class' => 'form-control normal-editor',
+                        'data-height' => 500,
+                        'id' => 'description',
+                    ]) !!}
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="mb-3 form-check me-3">
+                    {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                    {!! Form::label('active', 'Ativar exibição do conteúdo', ['class' => 'form-check-label']) !!}
+                </div>
             </div>
         </div>
         <div class="col-12 col-lg-6">

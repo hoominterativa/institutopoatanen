@@ -1214,6 +1214,20 @@
                     "height": "497",
                     "activeCrop": "false"
                 }
+            },
+            "GalleryCategory":{
+                "path_image": {
+                    "width": "275",
+                    "height": "200",
+                    "activeCrop": "false"
+                }
+            },
+            "Video":{
+                "path_image": {
+                    "width": "1166",
+                    "height": "522",
+                    "activeCrop": "false"
+                }
             }
         }
     },

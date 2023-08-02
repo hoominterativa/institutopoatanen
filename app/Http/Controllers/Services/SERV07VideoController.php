@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV07ServicesSectionCategory;
+use App\Models\Services\SERV07ServicesVideo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
-class SERV07SectionCategoryController extends Controller
+class SERV07VideoController extends Controller
 {
     protected $path = 'uploads/Services/SERV07/images/';
 
@@ -27,16 +27,16 @@ class SERV07SectionCategoryController extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-        if(SERV07ServicesSectionCategory::create($data)){
-            Session::flash('success', 'Seção cadastrada com sucesso');
+        if(SERV07ServicesVideo::create($data)){
+            Session::flash('success', 'Vídeo cadastrado com sucesso');
         }else{
             Storage::delete($path_image);
-            Session::flash('error', 'Erro ao cadastradar a seção');
+            Session::flash('error', 'Erro ao cadastradar o vídeo');
         }
         return redirect()->back();
     }
@@ -45,32 +45,32 @@ class SERV07SectionCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Services\SERV07ServicesSectionCategory  $SERV07ServicesSectionCategory
+     * @param  \App\Models\Services\SERV07ServicesVideo  $SERV07ServicesVideo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SERV07ServicesSectionCategory $SERV07ServicesSectionCategory)
+    public function update(Request $request, SERV07ServicesVideo $SERV07ServicesVideo)
     {
         $data = $request->all();
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['link_button'] = isset($data['link_button']) ?getUri($data['link_button']) : null;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($SERV07ServicesSectionCategory, 'path_image');
+            storageDelete($SERV07ServicesVideo, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($SERV07ServicesSectionCategory, 'path_image');
+            storageDelete($SERV07ServicesVideo, 'path_image');
             $data['path_image'] = null;
         }
 
-        if($SERV07ServicesSectionCategory->fill($data)->save()){
-            Session::flash('success', 'Seção atualizada com sucesso');
+        if($SERV07ServicesVideo->fill($data)->save()){
+            Session::flash('success', 'Vídeo atualizado com sucesso');
         }else{
             Storage::delete($path_image);
-            Session::flash('error', 'Erro ao atualizar a seção');
+            Session::flash('error', 'Erro ao atualizar o vídeo');
         }
         return redirect()->back();
     }
@@ -78,15 +78,15 @@ class SERV07SectionCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Services\SERV07ServicesSectionCategory  $SERV07ServicesSectionCategory
+     * @param  \App\Models\Services\SERV07ServicesVideo  $SERV07ServicesVideo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SERV07ServicesSectionCategory $SERV07ServicesSectionCategory)
+    public function destroy(SERV07ServicesVideo $SERV07ServicesVideo)
     {
-        storageDelete($SERV07ServicesSectionCategory, 'path_image');
+        storageDelete($SERV07ServicesVideo, 'path_image');
 
-        if($SERV07ServicesSectionCategory->delete()){
-            Session::flash('success', 'Seção deletada com sucessso');
+        if($SERV07ServicesVideo->delete()){
+            Session::flash('success', 'Vídeo deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -100,13 +100,13 @@ class SERV07SectionCategoryController extends Controller
     public function destroySelected(Request $request)
     {
 
-        $SERV07ServicesSectionCategorys = SERV07ServicesSectionCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($SERV07ServicesSectionCategorys as $SERV07ServicesSectionCategory){
-            storageDelete($SERV07ServicesSectionCategory, 'path_image');
+        $SERV07ServicesVideos = SERV07ServicesVideo::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV07ServicesVideos as $SERV07ServicesVideo){
+            storageDelete($SERV07ServicesVideo, 'path_image');
         }
 
-        if($deleted = SERV07ServicesSectionCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' Seções deletados com sucessso']);
+        if($deleted = SERV07ServicesVideo::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' Vídeos deletados com sucessso']);
         }
     }
     /**
@@ -119,7 +119,7 @@ class SERV07SectionCategoryController extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            SERV07ServicesSectionCategory::where('id', $id)->update(['sorting' => $sorting]);
+            SERV07ServicesVideo::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }

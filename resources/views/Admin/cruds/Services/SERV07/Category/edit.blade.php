@@ -39,19 +39,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Banner da página
+                        <a href="#video" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Galeria de vídeos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de informações para a seção banner da página principal"></i>
+                                data-bs-original-title="Cadastro de galeria de vídeos"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#gallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Galeria
+                        <a href="#galleryCategory" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Galeria de imagens
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner da página interna."></i>
+                                data-bs-original-title="Cadastro de galeria de imagens."></i>
                         </a>
                     </li>
                 </ul>
@@ -67,6 +67,18 @@
                     <div class="tab-pane" id="sectionCategory">
                         @include("Admin.cruds.Services.SERV07.SectionCategory.index",[
                             'sectionsCategory' => $sectionsCategory,
+                            'category' => $category
+                        ])
+                    </div>
+                    <div class="tab-pane" id="video">
+                        @include("Admin.cruds.Services.SERV07.VideoCategory.index",[
+                            'videos' => $videos,
+                            'category' => $category
+                        ])
+                    </div>
+                    <div class="tab-pane" id="galleryCategory">
+                        @include("Admin.cruds.Services.SERV07.GalleryCategory.index",[
+                            'galleriesCategory' => $galleriesCategory,
                             'category' => $category
                         ])
                     </div>

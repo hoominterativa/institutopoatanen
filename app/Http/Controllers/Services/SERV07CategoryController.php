@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV07ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV07ServicesGalleryCategory;
 use App\Models\Services\SERV07ServicesSectionCategory;
+use App\Models\Services\SERV07ServicesVideo;
 
 class SERV07CategoryController extends Controller
 {
@@ -70,10 +72,14 @@ class SERV07CategoryController extends Controller
      */
     public function edit(SERV07ServicesCategory $SERV07ServicesCategory)
     {
-        $sectionsCategory = SERV07ServicesSectionCategory::where('category_id', $SERV07ServicesCategory->id);
+        $sectionsCategory = SERV07ServicesSectionCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
+        $videos = SERV07ServicesVideo::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
+        $galleriesCategory = SERV07ServicesGalleryCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
         return view("Admin.cruds.Services.SERV07.Category.edit",[
             'category' => $SERV07ServicesCategory,
             'sectionsCategory' => $sectionsCategory,
+            'videos' => $videos,
+            'galleriesCategory' => $galleriesCategory,
             'cropSetting' => getCropImage('Services', 'SERV07')
         ]);
     }

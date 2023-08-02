@@ -22,6 +22,7 @@ class SERV07ServicesSectionCategoryFactory extends Factory
     public function definition()
     {
         return [
+            'category_id' => rand(1,4),
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
             'description' => $this->faker->text(700),

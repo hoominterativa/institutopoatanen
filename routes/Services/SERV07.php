@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV07VideoController;
 use App\Http\Controllers\Services\SERV07SectionController;
 use App\Http\Controllers\Services\SERV07CategoryController;
+use App\Http\Controllers\Services\SERV07GalleryCategoryController;
 use App\Http\Controllers\Services\SERV07SectionCategoryController;
 
 /**
@@ -36,6 +38,16 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao-categorias', SERV07SectionCategoryController::class)->names('admin.'.$routeName.'.section-category')->parameters(['secao-categorias' => 'SERV07ServicesSectionCategory']);
     Route::post($route.'/secao-categoria/delete', [SERV07SectionCategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.section-category.destroySelected');
     Route::post($route.'/secao-categoria/sorting', [SERV07SectionCategoryController::class, 'sorting'])->name('admin.'.$routeName.'.section-category.sorting');
+
+    //Video Category
+    Route::resource($route.'/videos', SERV07VideoController::class)->names('admin.'.$routeName.'.video')->parameters(['videos' => 'SERV07ServicesVideo']);
+    Route::post($route.'/video/delete', [SERV07VideoController::class, 'destroySelected'])->name('admin.'.$routeName.'.video.destroySelected');
+    Route::post($route.'/video/sorting', [SERV07VideoController::class, 'sorting'])->name('admin.'.$routeName.'.video.sorting');
+
+    //Gallery Category
+    Route::resource($route.'/galeria-categorias', SERV07GalleryCategoryController::class)->names('admin.'.$routeName.'.gallery-category')->parameters(['galeria-categorias' => 'SERV07ServicesGalleryCategory']);
+    Route::post($route.'/galeria-categoria/delete', [SERV07GalleryCategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery-category.destroySelected');
+    Route::post($route.'/galeria-categoria/sorting', [SERV07GalleryCategoryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery-category.sorting');
 
     //Section
     Route::resource($route.'/secao', SERV07SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV07ServicesSection']);
