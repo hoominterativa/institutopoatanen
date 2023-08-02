@@ -1,3 +1,365 @@
 @import 'variables';
+.serv07-page {
+    &__header {
+        @include backG;
+        padding-top: 150px;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $T1;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: $color-black;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $T1-mobile;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T4;
+        font-weight: 700;
+        line-height: $font-24;
+        margin-bottom: 20px;
+        color: $color-one;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-two;
+        margin: 15px auto 68px auto;
+        opacity: 1;
+    }
+}
+
+.serv07-categories {
+    width: 100%;
+    padding-bottom: 21px;
+
+    &__list {
+        @include Flex();
+        flex-wrap: wrap;
+        gap: 18px;
+        width: 100%;
+        margin-bottom: 0;
+        list-style-type: none;
+        padding-left: 0;
+
+        @include medium-device-down {
+            display: none;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            a {
+                @include Flex;
+                gap: 1rem;
+                padding: 9px 19px;
+                background-color: $color-nine;
+                white-space: nowrap;
+
+                font-size: $T5;
+                font-family: $font-primary;
+                font-weight: 700;
+                color: $color-two;
+
+                &:hover {
+                    background-color: $color-three;
+                    color: $color-black;
+                }
+
+                img {
+                    height: 36px;
+                    width: 36px;
+                    object-fit: contain;
+                    object-position: center;
+                    @include trans($transition: 0.5s);
+                }
+            }
+        }
+    }
+
+    &__dropdown-mobile {
+        display: none;
+        // border-bottom: solid 3px $color-black;
+
+        @include medium-device-down {
+            display: flex;
+        }
+
+        &__item {
+            a,
+            button {
+                @include Flex($justify: start);
+                gap: 1rem;
+                padding: 15px 26px;
+                background-color: $color-nine;
+                white-space: nowrap;
+
+                font-size: $T5-mobile;
+                font-family: $font-primary;
+                font-weight: 700;
+                color: $color-black;
+
+                img {
+                    height: 25px;
+                    width: 25px;
+                    object-fit: contain;
+                    object-position: center;
+                    @include trans($transition: 0.5s);
+                }
+            }
+        }
+
+        .accordion-flush {
+            width: 100%;
+        }
+
+        .accordion-item {
+            margin: 0 auto;
+            color: $color-one !important;
+            font: $paragraph !important;
+
+            li {
+                list-style: none;
+                color: $color-one !important;
+                font: $paragraph !important;
+            }
+        }
+
+        .accordion-button::after {
+            border-left: 8px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 11px solid $color-black;
+            width: auto;
+            height: auto;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            border-left: 8px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 11px solid $color-black;
+            transform: rotate(184deg);
+            width: auto;
+            height: auto;
+        }
+    }
+
+    .accordion-item {
+        background-color: transparent;
+    }
+}
+
+
+
+
+.serv07-page__section{
+    .container--serv07-page__section{
+        padding-top: 68.54px !important;
+    }
+    &__image{
+        height: 592px;
+        width: 429px;
+        border-radius: 0px;
+    }
+    &__description{
+        padding-left: 170.46px;
+        padding-right:0;
+    }
+    &__title{
+        font-size: $T2;
+        color: $color-black;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__subtitle{
+        font-size: $T4;
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-700;
+    }
+    &__line{
+        margin-top: 28.91px;
+        margin-bottom: 39px;
+    }
+    &__paragraph{
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-400;
+    }
+    &__paragraph p{
+        color: $color-one;
+        font-family: $font-paragraph;
+        font-weight: $weight-400;
+        margin-bottom: 0;
+    }
+    &__cta{
+        font: $paragraph-min;
+        font-weight: $weight-700;
+        color: $color-one;
+        display: flex;
+        margin-top: 37px;
+        max-width: 177px;
+        padding: 10px 15px;
+        background-color: $bg-soft;
+
+
+        &:hover{
+            color: $color-white;
+            background-color: $bg-black;
+
+            .serv07-page__section__cta__icon{
+                filter: invert(1) grayscale(1);
+            }
+        }
+    }
+    @include medium-device-down{
+        &__image{
+            order: 1;
+            width: 100%;
+            padding: 0 41.33px;
+            height: 468.14px;
+        }
+        &__description{
+            order: 0;
+            padding: 0 41.33px;
+            margin-bottom: 49.43px;
+        }
+        &__title{
+            font-size: $T2-mobile;
+            margin-bottom: 0;
+        }
+        &__subtitle{
+            font-size: $T4-mobile;
+        }
+        &__line{
+            margin-top: 29px;
+        }
+        &__paragraph{
+            font-family: $font-paragraph;
+        }
+        &__paragraph p{
+            font-family: $font-paragraph;
+        }
+    }
+}
+
+
+#SERV07{
+    padding: 70px 0;
+
+    @include backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat);
+
+    @include small-device{
+        padding: 35px 20px;
+    }
+    .header-topic{
+        text-align: center;
+        .container-title{
+            margin-bottom: 25px;
+            .title{
+                font-size: $T2;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+                color: $color-one;
+                display: block;
+                @include small-device{
+                    font-size:  $T2-mobile;
+                }
+            }
+            .subtitle{
+                font-size: $T4;
+                font-weight: $weight-700;
+                font-family: $font-primary;
+                color: $color-three;
+                display: block;
+                @include small-device{
+                    font-size: $T4-mobile;
+                }
+            }
+        }
+        .paragraph{
+            font: $paragraph;
+            font-weight: $weight-500;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            margin-top: 25px;
+
+            @include small-device{
+                font: 90%;
+                width: $paragraph-mobile;
+            }
+        }
+        .line{
+            background-color: $color-one;
+        }
+    }
+    .container-box {
+        @include small-device{
+            width: 70%;
+        }
+        .owl-stage-outer{
+            @include small-device{
+                overflow: visible;
+            }
+        }
+        .box-topic{
+            padding-right: 0.25rem;
+            padding-left: 0.25rem;
+
+            .content{
+                padding: 0 20px;
+                .container-info{
+                    position: relative;
+                    z-index: 1;
+                    min-height: 320px;
+                    .image{
+                        img{
+                            width: 61px;
+                        }
+                    }
+                    .description{
+                        text-align: center;
+                        .title{
+                            font-size: $T2;
+                            font-family: $font-primary;
+                            color: $color-black;
+                            font-weight: $weight-700;
+                            @include small-device{
+                                font-size: $T2-mobile;
+                            }
+                        }
+                        .paragraph{
+                            font: $paragraph-min;
+                            color: $color-two;
+                            font-weight:$weight-500;
+                            @include small-device{
+                                font: $paragraph-min-mobile;
+                            }
+                        }
+                    }
+                }
+
+                &:hover{
+                    transform: scale(1.02);
+                    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+                }
+            }
+        }
+    }
+}
 
 /* BEGIN STYLE */
