@@ -55,6 +55,27 @@
     </div>
 </div>
 
+<div class="serv07-topo container">
+    <div class="__description">
+        <h2 class="serv07-topo__description d-block">
+            <span class="serv07-topo__description__title d-block">title</span>
+            <span class="serv07-topo__description__subtitle d-block">subtitle</span>
+            <hr class="serv07-topo__description__line">
+        </h2>
+        <div class="serv07-topo__description__paragraph">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, modi?
+            </p>
+        </div>
+    </div>
+    <div class="__cta">
+        <a href="#" class="serv07-topo__cta">
+            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-topo__cta__icon">
+            CTA
+        </a>
+    </div>
+</div>
+
 
 <!-- ABOU02 -->
 <section class="serv07-page__section container-fluid px-0">
