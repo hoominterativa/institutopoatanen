@@ -1,6 +1,7 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.serv07.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
+    {!! Form::hidden('active', $section->active) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.serv07.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -39,7 +40,6 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}

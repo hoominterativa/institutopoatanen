@@ -46,4 +46,9 @@ class SERV07Services extends Model
     {
         return $this->belongsTo(SERV07ServicesCategory::class, 'category_id');
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(SERV07ServicesGallery::class, 'service_id');
+    }
 }

@@ -20,11 +20,40 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($service, ['route' => ['admin.serv07.update', $service->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Services.SERV07.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.serv07.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                {!! Form::close() !!}
+
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#editService" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
+                            {{ getTitleModel($configModelsMain, 'Services', 'SERV07') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Edição do conteúdo principal"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#galleryService" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Galeria de imagens de serviço
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de galeria de imagens"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="editService">
+                        {!! Form::model($service, ['route' => ['admin.serv07.update', $service->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                            @include('Admin.cruds.Services.SERV07.form')
+                            {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                            <a href="{{route('admin.serv07.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::close() !!}
+                    </div>
+                    <div class="tab-pane" id="galleryService">
+                        @include("Admin.cruds.Services.SERV07.GalleryService.index",[
+                            'galleriesService' => $galleriesService,
+                            'service' => $service
+                        ])
+                    </div>
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

@@ -14,6 +14,7 @@ use App\Models\Services\SERV07ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV07ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV07ServicesGalleryService;
 
 class SERV07Controller extends Controller
 {
@@ -75,9 +76,9 @@ class SERV07Controller extends Controller
         if($path_image_box) $data['path_image_box'] = $path_image_box;
 
 
-        if(SERV07Services::create($data)){
+        if($service = SERV07Services::create($data)){
             Session::flash('success', 'Serviço cadastrado com sucesso');
-            return redirect()->route('admin.serv07.index');
+            return redirect()->route('admin.serv07.edit',['SERV07Services' => $service->id]);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_box);
@@ -95,9 +96,11 @@ class SERV07Controller extends Controller
     public function edit(SERV07Services $SERV07Services)
     {
         $categories = SERV07ServicesCategory::sorting()->pluck('title', 'id');
+        $galleriesService = SERV07ServicesGalleryService::where('service_id', $SERV07Services->id)->sorting()->get();
         return view('Admin.cruds.Services.SERV07.edit',[
             'service' => $SERV07Services,
             'categories' => $categories,
+            'galleriesService' => $galleriesService,
             'cropSetting' => getCropImage('Services', 'SERV07')
         ]);
     }
@@ -156,6 +159,14 @@ class SERV07Controller extends Controller
      */
     public function destroy(SERV07Services $SERV07Services)
     {
+        $galleries = SERV07ServicesGalleryService::where('service_id', $SERV07Services->id)->get();
+        if ($galleries){
+            foreach ($galleries as $gallery){
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+        }
+
         storageDelete($SERV07Services, 'path_image');
         storageDelete($SERV07Services, 'path_image_box');
 
@@ -176,6 +187,14 @@ class SERV07Controller extends Controller
 
         $SERV07Servicess = SERV07Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV07Servicess as $SERV07Services){
+            $galleries = SERV07ServicesGalleryService::where('service_id', $SERV07Services->id)->get();
+            if ($galleries){
+                foreach ($galleries as $gallery){
+                    storageDelete($gallery, 'path_image');
+                    $gallery->delete();
+                }
+            }
+            
             storageDelete($SERV07Services, 'path_image');
             storageDelete($SERV07Services, 'path_image_box');
         }

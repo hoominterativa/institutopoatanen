@@ -16,7 +16,12 @@ class SERV07ServicesCategory extends Model
     }
 
     protected $table = "serv07_services_categories";
-    protected $fillable = ['title', 'subtitle', 'description', 'slug', 'path_image', 'path_image_icon', 'active', 'sorting', 'featured', 'title_button', 'link_button', 'target_link_button',];
+    protected $fillable = [
+        //Category main
+        'title', 'subtitle', 'description', 'slug', 'path_image', 'path_image_icon', 'active', 'sorting', 'featured', 'title_button', 'link_button', 'target_link_button',
+        // Additional Category Information
+        'title_topic', 'subtitle_topic', 'description_topic', 'title_service', 'subtitle_service', 'description_service', 'title_banner', 'path_image_desktop', 'path_image_mobile', 'background_color'
+    ];
 
     public function scopeSorting($query)
     {
@@ -60,6 +65,11 @@ class SERV07ServicesCategory extends Model
 
     public function gallery()
     {
-        return $this->hasMany(SERV07ServicesVideo::class, 'category_id');
+        return $this->hasMany(SERV07ServicesGalleryCategory::class, 'category_id');
+    }
+
+    public function topic()
+    {
+        return $this->hasMany(SERV07ServicesTopicCategory::class, 'category_id');
     }
 }

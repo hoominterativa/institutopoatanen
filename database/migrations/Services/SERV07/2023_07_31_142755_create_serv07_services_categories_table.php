@@ -15,6 +15,7 @@ class CreateServ07ServicesCategoriesTable extends Migration
     {
         Schema::create('serv07_services_categories', function (Blueprint $table) {
             $table->id();
+            //Category main
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
@@ -25,6 +26,19 @@ class CreateServ07ServicesCategoriesTable extends Migration
             $table->string('link_button')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
             $table->integer('featured')->default(0);
+
+            //Additional Category Information
+            $table->string('title_topic')->nullable();
+            $table->string('subtitle_topic')->nullable();
+            $table->text('description_topic')->nullable();
+            $table->string('title_service')->nullable();
+            $table->string('subtitle_service')->nullable();
+            $table->text('description_service')->nullable();
+            $table->string('title_banner')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('background_color')->nullable();
+
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

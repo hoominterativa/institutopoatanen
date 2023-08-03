@@ -25,6 +25,7 @@ class SERV07ServicesCategoryFactory extends Factory
         $title = $this->faker->text(10);
         $subtitle = $this->faker->text(8);
         return [
+            //Category main
             "slug" => Str::slug($title.' '.$subtitle),
             'title' => $title,
             'subtitle' => $subtitle,
@@ -35,7 +36,19 @@ class SERV07ServicesCategoryFactory extends Factory
             'link_button' => $this->faker->url(),
             'target_link_button' => '_blank',
             'active' => 1,
-            'featured' => rand(0,1)
+            'featured' => rand(0,1),
+
+            //Additional Category Information
+            'title_topic' => $this->faker->text(10),
+            'subtitle_topic' => $this->faker->text(10),
+            'description_topic' => $this->faker->text(200),
+            'title_service' => $this->faker->text(10),
+            'subtitle_service' => $this->faker->text(10),
+            'description_service' => $this->faker->text(200),
+            'title_banner' => $this->faker->text(10),
+            'path_image_desktop' => 'uploads/tmp/thumbnail-b.png',
+            'path_image_mobile' => 'uploads/tmp/bg-slid-mobile.jpg',
+            'background_color' => '#FFFFFF',
         ];
     }
 }

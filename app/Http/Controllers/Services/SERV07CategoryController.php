@@ -5,15 +5,17 @@ namespace App\Http\Controllers\Services;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Services\SERV07Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV07ServicesVideo;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV07ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV07ServicesTopicCategory;
 use App\Models\Services\SERV07ServicesGalleryCategory;
 use App\Models\Services\SERV07ServicesSectionCategory;
-use App\Models\Services\SERV07ServicesVideo;
 
 class SERV07CategoryController extends Controller
 {
@@ -53,12 +55,21 @@ class SERV07CategoryController extends Controller
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
+        //Banner Show
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+
         if($category = SERV07ServicesCategory::create($data)){
             Session::flash('success', 'Categoria cadastrada com sucesso');
             return redirect()->route('admin.serv07.category.edit', ['SERV07ServicesCategory' => $category->id]);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar a categoria');
             return redirect()->back();
         }
@@ -75,11 +86,13 @@ class SERV07CategoryController extends Controller
         $sectionsCategory = SERV07ServicesSectionCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
         $videos = SERV07ServicesVideo::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
         $galleriesCategory = SERV07ServicesGalleryCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
+        $topicsCategory = SERV07ServicesTopicCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
         return view("Admin.cruds.Services.SERV07.Category.edit",[
             'category' => $SERV07ServicesCategory,
             'sectionsCategory' => $sectionsCategory,
             'videos' => $videos,
             'galleriesCategory' => $galleriesCategory,
+            'topicsCategory' => $topicsCategory,
             'cropSetting' => getCropImage('Services', 'SERV07')
         ]);
     }
@@ -121,11 +134,34 @@ class SERV07CategoryController extends Controller
             $data['path_image_icon'] = null;
         }
 
+        //Banner Show
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($SERV07ServicesCategory, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
+        }
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($SERV07ServicesCategory, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
+        }
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($SERV07ServicesCategory, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($SERV07ServicesCategory, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
+        }
+
         if($SERV07ServicesCategory->fill($data)->save()){
             Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar a categoria');
         }
         return redirect()->back();
@@ -139,13 +175,55 @@ class SERV07CategoryController extends Controller
      */
     public function destroy(SERV07ServicesCategory $SERV07ServicesCategory)
     {
+        // Verificar se existem serviços associadas à categoria
+        if (SERV07Services::where('category_id', $SERV07ServicesCategory->id)->count()) {
+            Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
+            return redirect()->back();
+        }
+
+        $sections = SERV07ServicesSectionCategory::where('category_id', $SERV07ServicesCategory->id)->get();
+        if ($sections){
+            foreach ($sections as $section){
+                storageDelete($section, 'path_image');
+                $section->delete();
+            }
+        }
+
+        $videos = SERV07ServicesVideo::where('category_id', $SERV07ServicesCategory->id)->get();
+        if ($videos){
+            foreach ($videos as $video){
+                storageDelete($video, 'path_image');
+                $video->delete();
+            }
+        }
+
+        $galleries = SERV07ServicesGalleryCategory::where('category_id', $SERV07ServicesCategory->id)->get();
+        if ($galleries){
+            foreach ($galleries as $gallery){
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+        }
+
+        $topics = SERV07ServicesTopicCategory::where('category_id', $SERV07ServicesCategory->id)->get();
+        if ($topics){
+            foreach ($topics as $topic){
+                storageDelete($topic, 'path_image');
+                storageDelete($topic, 'path_image_icon');
+                $topic->delete();
+            }
+        }
+
+        // Excluir a categoria
         storageDelete($SERV07ServicesCategory, 'path_image');
         storageDelete($SERV07ServicesCategory, 'path_image_icon');
+        storageDelete($SERV07ServicesCategory, 'path_image_desktop');
+        storageDelete($SERV07ServicesCategory, 'path_image_mobile');
 
         if($SERV07ServicesCategory->delete()){
-            Session::flash('success', 'Categoria deletada com sucessso');
+            Session::flash('success', 'categoria deletado com sucessso');
+            return redirect()->back();
         }
-        return redirect()->back();
     }
 
     /**
@@ -156,15 +234,61 @@ class SERV07CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
+        $categoryIds = $request->deleteAll;
 
-        $SERV07ServicesCategorys = SERV07ServicesCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($SERV07ServicesCategorys as $SERV07ServicesCategory){
-            storageDelete($SERV07ServicesCategory, 'path_image_icon');
-            storageDelete($SERV07ServicesCategory, 'path_image');
+        // Verificar se existem serviços associadas às categorias
+        $serviceExist = SERV07Services::whereIn('category_id', $categoryIds)->exists();
+        if ($serviceExist) {
+            return Response::json([
+                'status' => 'error',
+                'message' => 'Não é possível excluir as categorias porque existem serviços associadas a elas.'
+            ]);
         }
 
-        if($deleted = SERV07ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' Categorias deletadas com sucessso']);
+        // Excluir as categorias
+        $deletedCategories = SERV07ServicesCategory::whereIn('id', $categoryIds)->get();
+        foreach ($deletedCategories as $category) {
+            $sections = SERV07ServicesSectionCategory::where('category_id', $category->id)->get();
+            if ($sections){
+                foreach ($sections as $section){
+                    storageDelete($section, 'path_image');
+                    $section->delete();
+                }
+            }
+
+            $videos = SERV07ServicesVideo::where('category_id', $category->id)->get();
+            if ($videos){
+                foreach ($videos as $video){
+                    storageDelete($video, 'path_image');
+                    $video->delete();
+                }
+            }
+
+            $galleries = SERV07ServicesGalleryCategory::where('category_id', $category->id)->get();
+            if ($galleries){
+                foreach ($galleries as $gallery){
+                    storageDelete($gallery, 'path_image');
+                    $gallery->delete();
+                }
+            }
+
+            $topics = SERV07ServicesTopicCategory::where('category_id', $category->id)->get();
+            if ($topics){
+                foreach ($topics as $topic){
+                    storageDelete($topic, 'path_image');
+                    storageDelete($topic, 'path_image_icon');
+                    $topic->delete();
+                }
+            }
+
+            storageDelete($category, 'path_image_icon');
+            storageDelete($category, 'path_image_desktop');
+            storageDelete($category, 'path_image_mobile');
+            storageDelete($category, 'path_image');
+        }
+
+        if ($deleted = SERV07ServicesCategory::whereIn('id', $categoryIds)->delete()) {
+            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
         }
     }
     /**
