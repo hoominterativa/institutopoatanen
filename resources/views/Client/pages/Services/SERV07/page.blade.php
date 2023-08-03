@@ -54,7 +54,6 @@
         </div>
     </div>
 </div>
-
 <div class="serv07-topo container">
     <div class="__description">
         <h2 class="serv07-topo__description d-block">
@@ -98,7 +97,7 @@
     
                 <a href="#" target="#" class="serv07-page__section__cta transition justify-content-center align-items-center ms-auto">
                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="serv07-page__section__cta__icon me-3 transition">
-                    Btn
+                    CTA
                 </a>
             </div>
         </div>
@@ -121,8 +120,28 @@
     
                 <a href="#" target="#" class="serv07-page__section__cta transition justify-content-center align-items-center ms-auto">
                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="serv07-page__section__cta__icon me-3 transition">
-                    Btn
+                    CTA
                 </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="serv07__gallery" class="serv07__gallery" style="">
+    <div class="__gallery container">
+        <div class="serv07__gallery__main">
+            <iframe class="serv07__gallery__main__video" width="100%" height="100%" src="{{asset('storage/uploads/tmp/icon-general.svg')}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe class="serv07__gallery__main__video" width="100%" height="100%" src="{{asset('storage/uploads/tmp/icon-general.svg')}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="serv07__gallery__thumbnail">
+            <div class="serv07__gallery__thumbnail__carousel">
+                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
             </div>
         </div>
     </div>
@@ -224,6 +243,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- TEAM01 -->
 <div class="serv07-page__content__product container">

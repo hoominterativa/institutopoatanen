@@ -2321,6 +2321,38 @@ body .owl-dots .owl-dot.active {
   filter: brightness(1) contrast(1) invert(1) grayscale(1);
 }
 
+#serv07__gallery {
+  padding: 80px 0px;
+}
+#serv07__gallery .serv07__gallery__main .serv07__gallery__main__video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #858585;
+}
+#serv07__gallery .serv07__gallery__main .owl-nav {
+  justify-content: space-between;
+  position: relative;
+  top: -450px;
+}
+#serv07__gallery .serv07__gallery__main .owl-dots {
+  display: none;
+}
+#serv07__gallery .serv07__gallery__thumbnail__carousel img {
+  width: 275px;
+  height: 195px;
+  margin: 0 auto;
+}
+#serv07__gallery .serv07__gallery__thumbnail__carousel .owl-dots {
+  display: flex;
+  justify-content: center;
+}
+#serv07__gallery .serv07__gallery__thumbnail__carousel .owl-dots .owl-dot {
+  width: 20px;
+  height: 15px;
+  border-radius: inherit;
+}
+
 .serv07-page__section .container--serv07-page__section {
   padding-top: 68.54px !important;
 }
