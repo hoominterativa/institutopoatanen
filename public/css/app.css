@@ -2090,6 +2090,276 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */ /* BEGIN STYLE */
+.cota02__header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.cota02__header .container-cont02-page__header {
+  padding: 108px 0;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 575.98px) {
+  .cota02__header .container-cont02-page__header {
+    padding: 44px 20px;
+  }
+}
+.cota02__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.73);
+}
+.cota02__header__title {
+  font-size: 3.125rem;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+}
+@media (max-width: 575.98px) {
+  .cota02__header__title {
+    font-size: 1.875rem;
+  }
+}
+.cota02__header__subtitle {
+  font-size: 1.875rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 575.98px) {
+  .cota02__header__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.cota02__header__line {
+  margin-top: 1.25rem;
+  color: #7c7c7c;
+  width: 100%;
+}
+.cota02__boxForm {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cota02__boxForm .justify-content-center {
+  gap: 25px 0;
+}
+.cota02__boxForm .container--boxForm {
+  padding: 68px 0 59px 0 !important;
+}
+@media (max-width: 575.98px) {
+  .cota02__boxForm .container--boxForm .row {
+    margin: 0 auto;
+  }
+}
+.cota02__boxForm__item:last-of-type .cota02__boxForm__item__content::after {
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .cota02__boxForm__item {
+    margin: 0 auto;
+    padding: 0;
+    width: 94%;
+  }
+}
+.cota02__boxForm__item__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 36px;
+}
+.cota02__boxForm__item__content::after {
+  content: "";
+  width: 1px;
+  height: 88%;
+  background: rgba(64, 64, 64, 0.18);
+  display: flex;
+  position: absolute;
+  right: -10px;
+  top: 0;
+}
+.cota02__boxForm__item__content__image {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 14.04px;
+}
+@media (max-width: 991.98px) {
+  .cota02__boxForm__item__content__image {
+    width: 50px;
+    height: 50px;
+  }
+}
+.cota02__boxForm__item__content__image img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cota02__boxForm__item__content__description__title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 5px;
+}
+@media (max-width: 991.98px) {
+  .cota02__boxForm__item__content__description__title {
+    font-size: 1.125rem;
+  }
+}
+.cota02__boxForm__item__content__description__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+}
+.cota02__boxForm__item__content__description__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+  margin-bottom: 0;
+}
+@media (max-width: 991.98px) {
+  .cota02__boxForm__item__content__description__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cota02__form {
+  padding: 78px 0 154.45px 0;
+}
+.cota02__form__header {
+  margin-bottom: 50px;
+}
+.cota02__form__header__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  background: linear-gradient(to right, #404040 14.8%, #7c7c7c 25px);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (max-width: 575.98px) {
+  .cota02__form__header__title {
+    font-size: 1.875rem;
+    background: linear-gradient(to right, #132229 39.8%, #b34423 25px);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.cota02__form__header__line {
+  background: #404040;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  display: block;
+}
+.cota02__form__header__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
+}
+@media (max-width: 991.98px) {
+  .cota02__form__header__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cota02__form .input__item {
+  width: 100%;
+}
+.cota02__form .input__item--select .form-select {
+  margin-bottom: 0 !important;
+  height: 52px;
+  border-radius: 0 !important;
+}
+.cota02__form__inputs__formIput {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+}
+.cota02__form__inputs__formIput .input__item {
+  width: 100%;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+}
+.cota02__form__inputs__formIput .input__item .form-control {
+  height: 52px;
+  border-radius: 0 !important;
+}
+.cota02__form__inputs__compliance {
+  display: flex;
+}
+.cota02__form__inputs__compliance input {
+  border: 1px solid #393939;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.cota02__form__inputs__compliance label {
+  color: #393939;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.cota02__form__inputs__compliance label a {
+  color: #7c7c7c;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+
+.cota02-show__form__item__input:nth-of-type(5) {
+  width: 100% !important;
+}
+
+.cota02-show__form__item__input .input__item--textarea textarea {
+  height: 136px !important;
+}
+
+.cota02-show__form__inputs__formIput__input-submit {
+  height: 31px;
+  width: 165px;
+  background-color: #7c7c7c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #7c7c7c;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #fff;
+}
+.cota02-show__form__inputs__formIput__input-submit:hover {
+  background-color: transparent;
+  color: #7c7c7c;
+}
+
+.cota02-show__form__compliance {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #393939;
+}
+.cota02-show__form__compliance a {
+  color: #7c7c7c;
+  text-decoration: underline;
+}
+
+.form-check-input:checked[type=checkbox] {
+  border: 1px solid #393939;
+}
+
+.form-check-input:checked {
+  background-color: #b34423;
+  border-color: #b34423;
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;
