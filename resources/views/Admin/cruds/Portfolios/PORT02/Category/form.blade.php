@@ -9,7 +9,7 @@
             <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required' => 'required']) !!}
                 </div>
                 <div class="d-flex">
                     <div class="mb-3 form-check me-3">

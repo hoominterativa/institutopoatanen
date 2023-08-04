@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT02Portfolios;
 use App\Models\Portfolios\PORT02PortfoliosCategory;
 
 class PORT02CategoryController extends Controller
@@ -87,6 +88,10 @@ class PORT02CategoryController extends Controller
      */
     public function destroy(PORT02PortfoliosCategory $PORT02PortfoliosCategory)
     {
+        if(PORT02Portfolios::where('category_id', $PORT02PortfoliosCategory->id)->count()){
+            Session::flash('error', 'Não é possível excluir a categoria porque existem portifólios associadas a ela.');
+            return redirect()->back();
+        };
         storageDelete($PORT02PortfoliosCategory, 'path_image_icon');
 
         if($PORT02PortfoliosCategory->delete()){
@@ -103,14 +108,25 @@ class PORT02CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
+        $categoryIds = $request->deleteAll;
 
-        $PORT02PortfoliosCategorys = PORT02PortfoliosCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($PORT02PortfoliosCategorys as $PORT02PortfoliosCategory){
-            storageDelete($PORT02PortfoliosCategory, 'path_image_icon');
+        // Verificar se existem portifolios associadas às categorias
+        $serviceExist = PORT02Portfolios::whereIn('category_id', $categoryIds)->exists();
+        if ($serviceExist) {
+            return Response::json([
+                'status' => 'error',
+                'message' => 'Não é possível excluir as categorias porque existem portifolios associadas a elas.'
+            ]);
         }
 
-        if($deleted = PORT02PortfoliosCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        // Excluir as categorias
+        $deletedCategories = PORT02PortfoliosCategory::whereIn('id', $categoryIds)->get();
+        foreach ($deletedCategories as $category) {
+            storageDelete($category, 'path_image_icon');
+        }
+
+        if ($deleted = PORT02PortfoliosCategory::whereIn('id', $categoryIds)->delete()) {
+            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
         }
     }
     /**

@@ -87,6 +87,7 @@
                                                         <label><input name="btnSelectAll" value="btnDeletePORT02" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
+                                                    <th>Categoria</th>
                                                     <th>Título/Subtítulo</th>
                                                     <th>Texto</th>
                                                     <th>Link do botão</th>
@@ -103,19 +104,14 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$portfolio->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($portfolio->path_image_icon)
+                                                            @if ($portfolio->path_image_icon || $portfolio->path_image_box || $portfolio->path_image_desktop || $portfolio->path_image_mobile)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_icon)}})"></div>
-                                                            @endif
-                                                            @if ($portfolio->path_image_box)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_box)}})"></div>
-                                                            @endif
-                                                            @if ($portfolio->path_image_desktop)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_desktop)}})"></div>
-                                                            @endif
-                                                            @if ($portfolio->path_image_mobile)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_mobile)}})"></div>
                                                             @endif
                                                         </td>
+                                                        <td class="align-middle">{{$portfolio->category->title}}</td>
                                                         @if ($portfolio->title || $portfolio->subtile)
                                                             <td class="align-middle">{{$portfolio->title}} <b>/</b> {{$portfolio->subtitle}}</td>
                                                         @endif
