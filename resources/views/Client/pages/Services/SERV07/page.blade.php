@@ -3,11 +3,11 @@
 {{-- BEGIN Page content --}}
 
 <!-- SERV06 -->
-<header class="serv07-page__header"style="background-image: url(#); background-color: #00000070;">
+<header class="serv07-page__header"style="background-image: url({{ asset('storage/uploads/tmp/bannercopa02.png') }}); background-color: #00000070;">
     <div class="container d-flex flex-column align-items-center">
-        <h1 class="serv07-page__title">Title</h1>
-        <h3 class="serv07-page__subtitle">Subtitle</h3>
-        <hr class="serv07-page__line">
+        <h1 class="serv07-page__title">Titulo do banner</h1>
+        <!-- <h3 class="serv07-page__subtitle">Subtitle</h3>
+        <hr class="serv07-page__line"> -->
     </div>
 </header>
 <div class="serv07-categories">
@@ -57,8 +57,8 @@
 <div class="serv07-topo container">
     <div class="__description">
         <h2 class="serv07-topo__description d-block">
-            <span class="serv07-topo__description__title d-block">title</span>
-            <span class="serv07-topo__description__subtitle d-block">subtitle</span>
+            <span class="serv07-topo__description__subtitle d-block">Subtitulo</span>
+            <span class="serv07-topo__description__title d-block">Título</span>
             <hr class="serv07-topo__description__line">
         </h2>
         <div class="serv07-topo__description__paragraph">
@@ -85,8 +85,8 @@
             </div>
             <div class="col-12 col-md-7 serv07-page__section__description">
                     <h2 class="serv07-page__section__encompass_title d-block">
-                        <span class="serv07-page__section__title d-block">title</span>
-                        <span class="serv07-page__section__subtitle d-block">subtitle</span>
+                        <span class="serv07-page__section__title d-block">Titulo</span>
+                        <span class="serv07-page__section__subtitle d-block">Subtitulo</span>
                         <hr class="serv07-page__section__line">
                     </h2>
                     <div class="serv07-page__section__paragraph">
@@ -108,8 +108,8 @@
             </div>
             <div class="col-12 col-md-7 serv07-page__section__description">
                     <h2 class="serv07-page__section__encompass_title d-block">
-                        <span class="serv07-page__section__title d-block">title</span>
-                        <span class="serv07-page__section__subtitle d-block">subtitle</span>
+                        <span class="serv07-page__section__title d-block">Titulo</span>
+                        <span class="serv07-page__section__subtitle d-block">Subtitulo</span>
                         <hr class="serv07-page__section__line">
                     </h2>
                     <div class="serv07-page__section__paragraph">
@@ -136,12 +136,12 @@
         </div>
         <div class="serv07__gallery__thumbnail">
             <div class="serv07__gallery__thumbnail__carousel">
-                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" data-main-image="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
+                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
             </div>
         </div>
     </div>
@@ -149,12 +149,12 @@
 
 
 <!-- TOPI02 -->
-<section id="SERV07" class="container-fluid" style="background-image: url(#); background-color: #0000007a">
+<section id="SERV07" class="container-fluid" style="background-image: url(#); background-color: #EFEFEF">
     <div class="container">
         <header class="header-topic">
             <h3 class="container-title">
-                <span class="title">title</span>
-                <span class="subtitle">subtitle</span>
+                <span class="title">Titulo</span>
+                <span class="subtitle">Subtitulo</span>
             </h3>
             <hr class="line">
             <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptate!</p>
@@ -163,13 +163,13 @@
             <article class="box-topic col">
                 <div class="content transition">
                     <a href="#" target="">
-                        <img src="#" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                         <div class="container-info d-flex flex-column justify-content-center align-items-center">
                             <figure class="image">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
                             </figure>
                             <div class="description">
-                                <h3 class="title">title</h3>
+                                <h3 class="title">Titulo Topico</h3>
                                 <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
                             </div>
                         </div>
@@ -179,13 +179,13 @@
             <article class="box-topic col">
                 <div class="content transition">
                     <a href="#" target="">
-                        <img src="#" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                         <div class="container-info d-flex flex-column justify-content-center align-items-center">
                             <figure class="image">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
                             </figure>
                             <div class="description">
-                                <h3 class="title">title</h3>
+                                <h3 class="title">Titulo Topico</h3>
                                 <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
                             </div>
                         </div>
@@ -195,13 +195,13 @@
             <article class="box-topic col">
                 <div class="content transition">
                     <a href="#" target="">
-                        <img src="#" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                         <div class="container-info d-flex flex-column justify-content-center align-items-center">
                             <figure class="image">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
                             </figure>
                             <div class="description">
-                                <h3 class="title">title</h3>
+                                <h3 class="title">Titulo Topico</h3>
                                 <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
                             </div>
                         </div>
@@ -211,13 +211,13 @@
             <article class="box-topic col">
                 <div class="content transition">
                     <a href="#" target="">
-                        <img src="#" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                         <div class="container-info d-flex flex-column justify-content-center align-items-center">
                             <figure class="image">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
                             </figure>
                             <div class="description">
-                                <h3 class="title">title</h3>
+                                <h3 class="title">Titulo Topico</h3>
                                 <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
                             </div>
                         </div>
@@ -227,13 +227,13 @@
             <article class="box-topic col">
                 <div class="content transition">
                     <a href="#" target="">
-                        <img src="#" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
                         <div class="container-info d-flex flex-column justify-content-center align-items-center">
                             <figure class="image">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
                             </figure>
                             <div class="description">
-                                <h3 class="title">title</h3>
+                                <h3 class="title">Titulo Topico</h3>
                                 <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
                             </div>
                         </div>
@@ -249,8 +249,8 @@
 <div class="serv07-page__content__product container">
     <header class="header-topic">
         <h3 class="container-title">
-            <span class="title">title</span>
-            <span class="subtitle">subtitle</span>
+            <span class="title">Titulo</span>
+            <span class="subtitle">Subtitulo</span>
         </h3>
         <hr class="line">
         <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptate!</p>
@@ -258,12 +258,12 @@
     <div class="row serv07-page__content--row carousel-serv07-product">
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
@@ -281,12 +281,12 @@
         </article>
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
@@ -304,12 +304,12 @@
         </article>
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
@@ -327,12 +327,12 @@
         </article>
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
@@ -350,12 +350,12 @@
         </article>
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
@@ -373,12 +373,12 @@
         </article>
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
@@ -396,12 +396,12 @@
         </article>
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
@@ -419,12 +419,12 @@
         </article>
         <article class="serv07-page__content__product__item col-md-3">
             <div class="serv07-page__content__product__item__image">
-                <img src="##" class="w-100 h-100" alt="Titulo Topico">
+                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
             </div>
             <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
                 <div class="serv07-page__content__product__item__description__encompass">
                     <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">title</h2>
+                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
                     </div>
                 </div>
                 <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">

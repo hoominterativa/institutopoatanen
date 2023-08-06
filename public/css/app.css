@@ -2093,7 +2093,8 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 40px;
+  padding-top: 150px;
+  height: 269px;
 }
 .serv07-page__title {
   font-family: "Ubuntu", sans-serif, arial;
@@ -2131,7 +2132,7 @@ body .owl-dots .owl-dot.active {
 
 .serv07-categories {
   width: 100%;
-  background: black;
+  background: #CACACA;
   padding: 80px 0px;
 }
 .serv07-categories__list {
@@ -2264,6 +2265,7 @@ body .owl-dots .owl-dot.active {
   font-size: 2.5rem;
   font-weight: 700;
   color: #000;
+  margin-bottom: 20px;
 }
 @media (max-width: 767.98px) {
   .serv07-topo__description__title {
@@ -2275,7 +2277,6 @@ body .owl-dots .owl-dot.active {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5rem;
-  margin-bottom: 20px;
   color: #404040;
 }
 @media (max-width: 767.98px) {
@@ -2339,7 +2340,7 @@ body .owl-dots .owl-dot.active {
   display: none;
 }
 #serv07__gallery .serv07__gallery__thumbnail__carousel img {
-  width: 275px;
+  width: 335px;
   height: 195px;
   margin: 0 auto;
 }
@@ -2534,7 +2535,7 @@ body .owl-dots .owl-dot.active {
   text-align: center;
 }
 #SERV07 .container-box .box-topic .content .container-info .description .title {
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   font-family: "Ubuntu", sans-serif, arial;
   color: #000;
   font-weight: 700;
@@ -2897,6 +2898,276 @@ body .owl-dots .owl-dot.active {
 
 /* FIM SECTION-PAGE */
 /* SHOW-PAGE */
+.serv07-show__banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 440px;
+  text-align: center;
+  position: relative;
+}
+.serv07-show__banner__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 3.125rem;
+  font-weight: 700;
+  color: #000;
+}
+.serv07-show__banner__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #000;
+}
+.serv07-show__banner__line {
+  width: 100%;
+  border-top: 1px solid #000;
+  margin-top: 31px;
+}
+.serv07-show__banner__container {
+  position: relative;
+}
+.serv07-show__contentTitle {
+  background-color: #a09b9b;
+}
+.serv07-show__contentTitle__sideRight {
+  padding-left: 65px;
+  padding-bottom: 10px;
+}
+.serv07-show__contentTitle__container {
+  position: relative;
+  display: table;
+}
+.serv07-show__contentTitle__wrap {
+  margin-top: 125px;
+}
+.serv07-show__contentTitle__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+}
+.serv07-show__contentTitle__subtitle {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
+}
+.serv07-show__contentTitle__line {
+  width: 100%;
+  border-top: 1px solid #000;
+  margin-top: 17px;
+  margin-bottom: 27px;
+}
+.serv07-show__wrapForm {
+  position: absolute;
+  right: 0;
+  top: -60px;
+  display: block;
+  width: 100%;
+  max-width: 290px;
+  border-radius: 10px;
+  background-color: #cacaca;
+  padding: 0 20px;
+  transition: all 0.4s ease;
+}
+.serv07-show__wrapForm--showForm {
+  top: -100%;
+  transition: all 0.4s ease;
+}
+.serv07-show__btnForm {
+  background-color: transparent;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 300;
+  border: 0;
+  width: 100%;
+  margin-bottom: 5px;
+  height: 60px;
+}
+.serv07-show__form {
+  display: none;
+}
+.serv07-show__form .input__item--textarea .form-placeholder .placeholder--custom {
+  top: 8px !important;
+  transform: translate(0, 0) !important;
+}
+.serv07-show__form .input__item--textarea .form-placeholder.focusing .placeholder--custom {
+  top: 0px !important;
+  transform: translate(0) !important;
+}
+.serv07-show__form .input__item--textarea textarea {
+  height: 110px !important;
+}
+.serv07-show__form .input__item--textarea .form-placeholder.focusing textarea {
+  padding-top: 15px;
+}
+.serv07-show__form__submit {
+  width: 100%;
+  background-color: #7c7c7c;
+  color: #fff;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  padding: 5px 0;
+  border: 0;
+  border-radius: 10px;
+  margin-bottom: 27px;
+}
+.serv07-show__info {
+  margin-bottom: 150px;
+}
+.serv07-show__info__gallery {
+  margin-top: -150px;
+  padding-right: 65px;
+}
+.serv07-show__info__gallery__imgMain {
+  width: 100% !important;
+  height: auto !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  margin-bottom: 16px;
+}
+.serv07-show__info__gallery__carousel .owl-dots .owl-dot {
+  border-radius: 0;
+}
+.serv07-show__info__gallery__thumbnail {
+  cursor: pointer;
+  width: 100% !important;
+  height: 267px !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  background-color: #cacaca;
+}
+.serv07-show__info__gallery__options {
+  margin-top: 30px;
+  display: flex;
+  align-items: start;
+  gap: 0 8px;
+}
+.serv07-show__info__gallery__options__item {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 10px;
+}
+.serv07-show__info__gallery__options__item span {
+  width: 38px;
+  height: 38px;
+  display: block;
+  background-color: #efefef;
+}
+.serv07-show__info__gallery__options__item--active {
+  border-color: #000;
+}
+.serv07-show__info__description {
+  padding-left: 65px;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #7c7c7c;
+  padding-top: 25px;
+}
+.serv07-show__info__description__cta {
+  margin-top: 88px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  background-color: #efefef;
+  padding: 5px 50px;
+  display: table;
+  margin-left: auto;
+}
+.serv07-show__galleries {
+  margin-bottom: 88px;
+}
+.serv07-show__galleries__carousel.owl-carousel {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+.serv07-show__galleries__carousel.owl-carousel > * {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+.serv07-show__galleries__carousel .owl-dots .owl-dot {
+  border-radius: 0;
+}
+.serv07-show__details {
+  background-color: #efefef;
+}
+.serv07-show__details__header {
+  padding: 70px 0;
+  text-align: center;
+}
+.serv07-show__details__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+}
+.serv07-show__details__header__subtitle {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
+}
+.serv07-show__details__header__line {
+  width: 100%;
+  border-top: 1px solid #000;
+  margin-top: 17px;
+}
+.serv07-show__details__content__nav-tabs {
+  gap: 0 14px;
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+.serv07-show__details__content__nav-link {
+  border: none !important;
+  font-family: "Ubuntu", sans-serif, arial !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  color: #7c7c7c !important;
+  background-color: #cacaca !important;
+  border-radius: 0 !important;
+  padding: 10px 30px !important;
+}
+.serv07-show__details__content__nav-link.active {
+  color: #000 !important;
+  background-color: #b3b3b3 !important;
+}
+.serv07-show__details__content__tab-content {
+  background-color: #b3b3b3;
+  padding: 70px 0 !important;
+}
+.serv07-show__details__content__accordion-item {
+  background-color: transparent !important;
+  border: none !important;
+}
+.serv07-show__details__content__accordion-button {
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #404040 !important;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+}
+.serv07-show__details__content__accordion-button::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+  margin-right: 8px;
+}
+.serv07-show__details__content__accordion-collapse .accordion-body {
+  padding: 30px 0;
+}
+
 .serv07-show-section__content__product {
   padding: 80px 0;
 }
@@ -3069,7 +3340,8 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 40px;
+  padding-top: 150px;
+  height: 269px;
 }
 .serv07-show-banner__title {
   font-family: "Ubuntu", sans-serif, arial;
