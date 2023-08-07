@@ -2,34 +2,27 @@
 @section('content')
 {{-- BEGIN Page content --}}
 
-<!-- SERV06 -->
-<header class="serv07-page__header"style="background-image: url({{ asset('storage/uploads/tmp/bannercopa02.png') }}); background-color: #00000070;">
-    <div class="container d-flex flex-column align-items-center">
-        <h1 class="serv07-page__title">Titulo do banner</h1>
-        <!-- <h3 class="serv07-page__subtitle">Subtitle</h3>
-        <hr class="serv07-page__line"> -->
-    </div>
-</header>
+@if ($section)
+    <header class="serv07-page__header"style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{$section->background_color}};">
+        <div class="container d-flex flex-column align-items-center">
+            @if ($section->title_banner)
+                <h1 class="serv07-page__title">{{$section->title_banner}}</h1>
+            @endif
+        </div>
+    </header>
+@endif
 <div class="serv07-categories">
     <ul class="serv07-categories__list w-100">
-        <li class="serv07-categories__list__item">
-            <a href="#">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-categories__list__item__icon">
-                Categoria
-            </a>
-            <a href="#">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-categories__list__item__icon">
-                Categoria II
-            </a>
-            <a href="#">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-categories__list__item__icon">
-                Categoria III
-            </a>
-            <a href="#">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-categories__list__item__icon">
-                Categoria IV
-            </a>
-        </li>
+        @foreach ($categories as $category)
+            <li class="serv07-categories__list__item">
+                <a href="{{route('serv07.category.page', ['SERV07ServicesCategory' =>$category->slug])}}">
+                    @if ($category->path_image_icon)
+                        <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv07-categories__list__item__icon">
+                    @endif
+                    {{$category->title}}
+                </a>
+            </li>
+        @endforeach
     </ul>
     <div class="serv07-categories__dropdown-mobile">
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -37,16 +30,22 @@
                 <h2 class="accordion-header serv07-categories__dropdown-mobile__item">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-categories__dropdown-mobile__item__icon">
+                        Categorias
                     </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <ul>
-                            <li class="serv07-categories__dropdown-mobile__item">
-                                <a href="#">
-                                    <img src="#" alt="" class="serv07-categories__dropdown-mobile__item__icon">
-                                </a>
-                            </li>
+                            @foreach ($categories as $category)
+                                <li class="serv07-categories__dropdown-mobile__item">
+                                    <a href="{{route('serv07.category.page', ['SERV07ServicesCategory' =>$category->slug])}}">
+                                        @if ($category->path_image_icon)
+                                            <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv07-categories__dropdown-mobile__item__icon">
+                                        @endif
+                                        {{$category->title}}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -55,392 +54,193 @@
     </div>
 </div>
 <div class="serv07-topo container">
-    <div class="__description">
-        <h2 class="serv07-topo__description d-block">
-            <span class="serv07-topo__description__subtitle d-block">Subtitulo</span>
-            <span class="serv07-topo__description__title d-block">Título</span>
-            <hr class="serv07-topo__description__line">
-        </h2>
-        <div class="serv07-topo__description__paragraph">
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, modi?
-            </p>
+    @if ($categoryGet)
+        <div class="__description">
+            <h2 class="serv07-topo__description d-block">
+                @if ($categoryGet->category->subtitle || $categoryGet->category->title)
+                    <span class="serv07-topo__description__subtitle d-block">{{$categoryGet->category->subtitle}}</span>
+                    <span class="serv07-topo__description__title d-block">{{$categoryGet->category->title}}</span>
+                    <hr class="serv07-topo__description__line">
+                @endif
+            </h2>
+            <div class="serv07-topo__description__paragraph">
+                @if ($categoryGet->category->description)
+                    <p>
+                        {!! $categoryGet->category->description !!}
+                    </p>
+                @endif
+            </div>
         </div>
-    </div>
-    <div class="__cta">
-        <a href="#" class="serv07-topo__cta">
-            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-topo__cta__icon">
-            CTA
-        </a>
-    </div>
+        <div class="__cta">
+            @if ($categoryGet->category->link_button)
+                <a href="{{$categoryGet->category->link_button}}" target="{{$categoryGet->category->target_link_button}}" class="serv07-topo__cta">
+                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-topo__cta__icon">
+                    CTA
+                </a>
+            @endif
+        </div>
+    @endif
 </div>
-
-
-<!-- ABOU02 -->
-<section class="serv07-page__section container-fluid px-0">
-    <div class="container container--serv07-page__section">
-        <div class="row serv07-page__section__row align-items-center">
-            <div class="serv07-page__section__image col-12 col-md-5 m-0">
-                <img class="w-100 h-100" src="{{ asset('storage/uploads/tmp/image-pmg.png') }}"  width="430" alt="Titulo">
-            </div>
-            <div class="col-12 col-md-7 serv07-page__section__description">
-                    <h2 class="serv07-page__section__encompass_title d-block">
-                        <span class="serv07-page__section__title d-block">Titulo</span>
-                        <span class="serv07-page__section__subtitle d-block">Subtitulo</span>
-                        <hr class="serv07-page__section__line">
-                    </h2>
-                    <div class="serv07-page__section__paragraph">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, modi?
-                        </p>
+@if ($sectionCategories->count())
+    <section class="serv07-page__section container-fluid px-0">
+        @foreach ($sectionCategories as $sectionCategory)
+            <div class="container container--serv07-page__section">
+                <div class="row serv07-page__section__row align-items-center">
+                    <div class="serv07-page__section__image col-12 col-md-5 m-0">
+                        @if ($sectionCategory->path_image)
+                            <img class="w-100 h-100" src="{{ asset('storage/' . $sectionCategory->path_image) }}"  width="430" alt="Titulo">
+                        @endif
                     </div>
-    
-                <a href="#" target="#" class="serv07-page__section__cta transition justify-content-center align-items-center ms-auto">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="serv07-page__section__cta__icon me-3 transition">
-                    CTA
-                </a>
-            </div>
-        </div>
-
-        <div class="row serv07-page__section__row align-items-center">
-            <div class="serv07-page__section__image col-12 col-md-5 m-0">
-                <img class="w-100 h-100" src="{{ asset('storage/uploads/tmp/image-pmg.png') }}"  width="430" alt="Titulo">
-            </div>
-            <div class="col-12 col-md-7 serv07-page__section__description">
-                    <h2 class="serv07-page__section__encompass_title d-block">
-                        <span class="serv07-page__section__title d-block">Titulo</span>
-                        <span class="serv07-page__section__subtitle d-block">Subtitulo</span>
-                        <hr class="serv07-page__section__line">
-                    </h2>
-                    <div class="serv07-page__section__paragraph">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, modi?
-                        </p>
+                    <div class="col-12 col-md-7 serv07-page__section__description">
+                        <h2 class="serv07-page__section__encompass_title d-block">
+                            @if ($sectionCategory->title || $sectionCategory->subtitle)
+                                <span class="serv07-page__section__title d-block">{{$sectionCategory->title}}</span>
+                                <span class="serv07-page__section__subtitle d-block">{{ $sectionCategory->subtitle}}</span>
+                                <hr class="serv07-page__section__line">
+                            @endif
+                        </h2>
+                        <div class="serv07-page__section__paragraph">
+                            @if ( $sectionCategory->description)
+                                <p>
+                                    {!! $sectionCategory->description !!}
+                                </p>
+                            @endif
+                        </div>
+                        @if ($sectionCategory->link_button)
+                            <a href="{{$sectionCategory->link_button}}" target="{{$sectionCategory->target_link_button}}" class="serv07-page__section__cta transition justify-content-center align-items-center ms-auto">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="serv07-page__section__cta__icon me-3 transition">
+                                @if ($sectionCategory->title_button)
+                                    {{$sectionCategory->title_button}}
+                                @endif
+                            </a>
+                        @endif
                     </div>
-    
-                <a href="#" target="#" class="serv07-page__section__cta transition justify-content-center align-items-center ms-auto">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="serv07-page__section__cta__icon me-3 transition">
-                    CTA
-                </a>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-
-
+        @endforeach
+    </section>
+@endif
 <section id="serv07__gallery" class="serv07__gallery" style="">
     <div class="__gallery container">
-        <div class="serv07__gallery__main">
-            <iframe class="serv07__gallery__main__video" width="100%" height="100%" src="{{asset('storage/uploads/tmp/icon-general.svg')}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <iframe class="serv07__gallery__main__video" width="100%" height="100%" src="{{asset('storage/uploads/tmp/icon-general.svg')}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <div class="serv07__gallery__thumbnail">
-            <div class="serv07__gallery__thumbnail__carousel">
-                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
-                <img src="{{asset('storage/uploads/tmp/thumbnail.png')}}" data-main-image="{{asset('storage/uploads/tmp/thumbnail.png')}}" width="100%" class="" alt="">
+        @if ($videos->count())
+            <div class="serv07__gallery__main">
+                @foreach ($videos as $video)
+                    <iframe class="serv07__gallery__main__video" width="100%" height="100%" src="{{asset('storage/' . $video->path_image)}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                @endforeach
             </div>
+        @endif
+        <div class="serv07__gallery__thumbnail">
+            @if ($galleries->count(0))
+                <div class="serv07__gallery__thumbnail__carousel">
+                    @foreach ($galleries as $gallery)
+                        <img src="{{asset('storage/' . $gallery->path_image)}}" data-main-image="{{asset('storage/' . $gallery->path_image)}}" width="100%" class="" alt="">
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 </section>
-
-
-<!-- TOPI02 -->
 <section id="SERV07" class="container-fluid" style="background-image: url(#); background-color: #EFEFEF">
     <div class="container">
-        <header class="header-topic">
-            <h3 class="container-title">
-                <span class="title">Titulo</span>
-                <span class="subtitle">Subtitulo</span>
-            </h3>
-            <hr class="line">
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptate!</p>
-        </header>
-        <div class="container-box row carousel-serv07">
-            <article class="box-topic col">
-                <div class="content transition">
-                    <a href="#" target="">
-                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
-                        <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                            <figure class="image">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
-                            </figure>
-                            <div class="description">
-                                <h3 class="title">Titulo Topico</h3>
-                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
-                            </div>
+        @if ($categoryGet)
+            <header class="header-topic">
+                <h3 class="container-title">
+                    @if ($categoryGet->category->title_topic || $categoryGet->category->subtitle_topic)
+                        <span class="title">{{$categoryGet->category->title_topic}}</span>
+                        <span class="subtitle">{{$categoryGet->category->subtitle_topic}}</span>
+                        <hr class="line">
+                    @endif
+                </h3>
+                @if ($categoryGet->category->description_topic)
+                    <p class="paragraph">{!! $categoryGet->category->description_topic !!}</p>
+                @endif
+            </header>
+        @endif
+        @if ($topics->count())
+            <div class="container-box row carousel-serv07">
+                @foreach ($topics as $topic)
+                    <article class="box-topic col">
+                        <div class="content transition">
+                            {{-- <a href="#" target=""> --}}
+                                @if ($topic->path_image)
+                                    <img src="{{ asset('storage/' . $topic->path_image) }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                                @endif
+                                <div class="container-info d-flex flex-column justify-content-center align-items-center">
+                                    <figure class="image">
+                                        @if ($topic->path_image_icon)
+                                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="icon" width="61" alt="">
+                                        @endif
+                                    </figure>
+                                    <div class="description">
+                                        @if ($topic->title)
+                                            <h3 class="title">{{$topic->title}}</h3>
+                                        @endif
+                                        @if ($topic->description)
+                                            <p class="paragraph">{!! $topic->description !!}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            {{-- </a> --}}
                         </div>
-                    </a>
-                </div>
-            </article>
-            <article class="box-topic col">
-                <div class="content transition">
-                    <a href="#" target="">
-                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
-                        <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                            <figure class="image">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
-                            </figure>
-                            <div class="description">
-                                <h3 class="title">Titulo Topico</h3>
-                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-            <article class="box-topic col">
-                <div class="content transition">
-                    <a href="#" target="">
-                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
-                        <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                            <figure class="image">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
-                            </figure>
-                            <div class="description">
-                                <h3 class="title">Titulo Topico</h3>
-                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-            <article class="box-topic col">
-                <div class="content transition">
-                    <a href="#" target="">
-                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
-                        <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                            <figure class="image">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
-                            </figure>
-                            <div class="description">
-                                <h3 class="title">Titulo Topico</h3>
-                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-            <article class="box-topic col">
-                <div class="content transition">
-                    <a href="#" target="">
-                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
-                        <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                            <figure class="image">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="icon" width="61" alt="">
-                            </figure>
-                            <div class="description">
-                                <h3 class="title">Titulo Topico</h3>
-                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aspernatur.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-        </div>
+                    </article>
+                @endforeach
+            </div>
+        @endif
     </div>
 </section>
 
 
 <!-- TEAM01 -->
 <div class="serv07-page__content__product container">
-    <header class="header-topic">
-        <h3 class="container-title">
-            <span class="title">Titulo</span>
-            <span class="subtitle">Subtitulo</span>
-        </h3>
-        <hr class="line">
-        <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptate!</p>
-    </header>
-    <div class="row serv07-page__content--row carousel-serv07-product">
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
+    @if ($categoryGet)
+        <header class="header-topic">
+            <h3 class="container-title">
+                @if ($categoryGet->category->title_service || $categoryGet->category->subtitle_service)
+                    <span class="title">{{$categoryGet->category->title_service}}</span>
+                    <span class="subtitle">{{$categoryGet->category->subtitle_service}}</span>
+                    <hr class="line">
+                @endif
+            </h3>
+            @if ($categoryGet->category->description_topic)
+                <p class="paragraph">{!! $categoryGet->category->description_topic !!}</p>
+            @endif
+        </header>
+    @endif
+    @if ($services->count())
+        <div class="row serv07-page__content--row carousel-serv07-product">
+            @foreach ($services as $service)
+                <article class="serv07-page__content__product__item col-md-3">
+                    <div class="serv07-page__content__product__item__image">
+                        @if ($service->path_image_box)
+                            <img src="{{ asset('storage/' . $service->path_image_box) }}" class="w-100 h-100" alt="Titulo Topico">
+                        @endif
                     </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
+                    <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
+                        <div class="serv07-page__content__product__item__description__encompass">
+                            <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
+                                @if ($service->title)
+                                    <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">{{$service->title}}</h2>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
+                            @if ($service->description)
+                                <p>
+                                    {!! $service->description !!}
+                                </p>
+                            @endif
+                        </div>
+                        <div class="serv07-page__content__product__item__description__buttons">
+                            <a rel="next" href="{{route('serv07.show.content', ['SERV07ServicesCategory' => $category->slug, 'SERV07Services' => $service->slug])}}" class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
+                                CTA
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
-                    </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
-                    </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
-                    </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
-                    </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
-                    </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="serv07-page__content__product__item col-md-3">
-            <div class="serv07-page__content__product__item__image">
-                <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" class="w-100 h-100" alt="Titulo Topico">
-            </div>
-            <div class="serv07-page__content__product__item__description d-flex  flex-column justify-content-end mx-0 w-100 text-center">
-                <div class="serv07-page__content__product__item__description__encompass">
-                    <div class="flex-column serv07-page__content__product__item__description__encompass__txt">
-                        <h2 class="serv07-page__content__product__item__description__encompass__txt__title mx-0 px-0">Titulo Topico</h2>
-                    </div>
-                </div>
-                <div class="serv07-page__content__product__item__description_paragraph text-start px-0 ">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere.
-                    </p>
-                </div>
-                <div class="serv07-page__content__product__item__description__buttons">
-                    <a rel="next" href="#" data-fancybox= "#" data-src="#"  class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </div>
-        </article>
-    </div>
+                </article>
+            @endforeach
+        </div>
+    @endif
 </div>
 
 

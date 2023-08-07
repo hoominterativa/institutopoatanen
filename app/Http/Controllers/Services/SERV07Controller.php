@@ -14,7 +14,11 @@ use App\Models\Services\SERV07ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV07ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV07ServicesGalleryCategory;
 use App\Models\Services\SERV07ServicesGalleryService;
+use App\Models\Services\SERV07ServicesSectionCategory;
+use App\Models\Services\SERV07ServicesTopicCategory;
+use App\Models\Services\SERV07ServicesVideo;
 
 class SERV07Controller extends Controller
 {
@@ -194,7 +198,7 @@ class SERV07Controller extends Controller
                     $gallery->delete();
                 }
             }
-            
+
             storageDelete($SERV07Services, 'path_image');
             storageDelete($SERV07Services, 'path_image_box');
         }
@@ -228,13 +232,23 @@ class SERV07Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV07Services $SERV07Services)
-    public function show()
+    public function show(SERV07Services $SERV07Services, SERV07ServicesCategory $SERV07ServicesCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV07', 'show');
 
+        $services = SERV07Services::where('category_id', $SERV07ServicesCategory->id)
+        ->where('id', '<>', $SERV07Services->id) // Excluir o serviço atual
+        ->active()
+        ->sorting()
+        ->get();
+        $galleries = SERV07ServicesGalleryService::where('service_id', $SERV07Services->id)->sorting()->get();
+
         return view('Client.pages.Services.SERV07.show',[
-            'sections' => $sections
+            'sections' => $sections,
+            'service' => $SERV07Services,
+            'galleries' => $galleries,
+            'services' => $services,
         ]);
     }
 
@@ -244,13 +258,42 @@ class SERV07Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV07ServicesCategory $SERV07ServicesCategory)
     {
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                $section = SERV07ServicesSection::activeBanner()->first();
+                if($section){
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+            break;
+            default:
+                $section = SERV07ServicesSection::activeBanner()->first();
+            break;
+        }
+
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV07', 'page');
 
+        $categories = SERV07ServicesCategory::active()->exists()->sorting()->get();
+        $sectionCategories = SERV07ServicesSectionCategory::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
+        $categoryGet = SERV07ServicesSectionCategory::with('category')->where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->first();
+        $videos = SERV07ServicesVideo::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
+        $galleries = SERV07ServicesGalleryCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
+        $topics = SERV07ServicesTopicCategory::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
+        $services = SERV07Services::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
+
         return view('Client.pages.Services.SERV07.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'section' => $section,
+            'categories' => $categories,
+            'sectionCategories' => $sectionCategories,
+            'categoryGet' => $categoryGet,
+            'videos' => $videos,
+            'galleries' => $galleries,
+            'topics' => $topics,
+            'services' => $services,
         ]);
     }
 
@@ -261,6 +304,13 @@ class SERV07Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV07.section');
+        $section = SERV07ServicesSection::active()->first();
+        $categories = SERV07ServicesCategory::active()->featured()->exists()->sorting()->get();
+        $categoryFirst = SERV07ServicesCategory::active()->featured()->exists()->first();
+        return view('Client.pages.Services.SERV07.section',[
+            'section' => $section,
+            'categoryFirst' => $categoryFirst,
+            'categories' => $categories
+        ]);
     }
 }

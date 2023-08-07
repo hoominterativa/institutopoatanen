@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV07Controller;
 use App\Http\Controllers\Services\SERV07VideoController;
 use App\Http\Controllers\Services\SERV07SectionController;
 use App\Http\Controllers\Services\SERV07CategoryController;
@@ -71,4 +72,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/banner', SERV07SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['banner' => 'SERV07ServicesSection']);
 });
 // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+
+Route::get($route.'/categoria/{SERV07ServicesCategory:slug}', [SERV07Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get($route. '/{SERV07Services:slug}', [SERV07Controller::class, 'show'])->name($routeName.'.show.content');
+
