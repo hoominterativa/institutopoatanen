@@ -232,18 +232,23 @@ class SERV07Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV07Services $SERV07Services)
-    public function show(SERV07Services $SERV07Services, SERV07ServicesCategory $SERV07ServicesCategory)
+    public function show(SERV07Services $SERV07Services, SERV07ServicesCategory $SERV07ServicesCategory, $slug = null)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV07', 'show');
 
-        $services = SERV07Services::where('category_id', $SERV07ServicesCategory->id)
-        ->where('id', '<>', $SERV07Services->id) // Excluir o serviço atual
-        ->active()
-        ->sorting()
-        ->get();
+        // $currentCategory = SERV07ServicesCategory::first();
+
+        // if ($slug){
+        //     $currentCategory = SERV07ServicesCategory::where('serv07_services_categories.slug', $slug)->first();
+        //     dd($currentCategory);
+        //     $services = SERV07Services::where('serv07_services.category_id', $currentCategory->id)->active()->sorting()->get();
+        // }
+
+        $services = SERV07Services::where('id', '!=', $SERV07ServicesCategory->id)->active()->sorting()->get();
         $galleries = SERV07ServicesGalleryService::where('service_id', $SERV07Services->id)->sorting()->get();
 
+        // dd($SERV07ServicesCategory);
         return view('Client.pages.Services.SERV07.show',[
             'sections' => $sections,
             'service' => $SERV07Services,

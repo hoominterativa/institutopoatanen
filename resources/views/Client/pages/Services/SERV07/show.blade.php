@@ -101,7 +101,7 @@
                             @endif
                         </div>
                         <div class="serv07-show-section__content__product__item__description__buttons">
-                            <a rel="next" href="{{route('serv07.show.content', ['SERV07ServicesCategory' => $category->slug, 'SERV07Services' => $service->slug])}}" class="serv07-show-section__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
+                            <a rel="next" href="{{route('serv07.show.content', ['SERV07ServicesCategory' => $service->category->slug, 'SERV07Services' => $service->slug])}}" class="serv07-show-section__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-show-section__content__product__item__description__buttons__cta__icon me-3 transition">
                                 CTA
                             </a>
