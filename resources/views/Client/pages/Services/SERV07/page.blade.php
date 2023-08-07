@@ -126,7 +126,8 @@
             <div class="serv07__gallery__main">
                 @foreach ($videos as $video)
                     <iframe class="serv07__gallery__main__video" width="100%" height="100%" src="{{asset('storage/' . $video->path_image)}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                @endforeach
+                    {{-- {{$video->link}} --}}
+                    @endforeach
             </div>
         @endif
         <div class="serv07__gallery__thumbnail">
