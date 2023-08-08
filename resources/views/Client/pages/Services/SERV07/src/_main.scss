@@ -179,24 +179,24 @@
             font-weight: 700;
             color: $color-black;
             margin-bottom: 20px;
-    
+
             @include medium-device-down {
                 font-size: $T1-mobile;
             }
         }
-    
+
         &__subtitle {
             font-family: $font-primary;
             font-size: $T4;
             font-weight: 700;
             line-height: $font-24;
             color: $color-one;
-    
+
             @include medium-device-down {
                 font-size: $T4-mobile;
             }
         }
-    
+
         &__line {
             width: 50%;
             border-top: 1px solid $color-two;
@@ -232,7 +232,7 @@
         &:hover &__icon {
             filter: brightness(1) contrast(1) invert(1) grayscale(1);
         }
-    }   
+    }
 }
 
 #serv07__gallery {
@@ -270,7 +270,7 @@
                 opacity: 0.8;
             }
         }
-        
+
         .serv07__gallery__main__video {
             width: 100%;
             height: auto;
@@ -288,8 +288,8 @@
     }
 
     .serv07__gallery__thumbnail__carousel {
-        
-        
+
+
         img{
             width: 335px;
             height: 195px;
@@ -535,11 +535,11 @@
         }
 
         .header-topic {
-            text-align: center; 
-            
+            text-align: center;
+
             .container-title {
                 margin-bottom: 25px;
-    
+
                 .title {
                     font-size: 2.5rem;
                     font-weight: 700;
@@ -547,15 +547,15 @@
                     color: #404040;
                     display: block;
                 }
-    
+
                 .subtitle {
                     font-size: 1.25rem;
                     font-weight: 700;
                     font-family: "Ubuntu", sans-serif, arial;
                     color: #b3b3b3;
-                    display: block;      
+                    display: block;
                 }
-    
+
             }
 
             .line {
@@ -567,7 +567,7 @@
                 width: 100%;
                 margin: 0 auto;
                 margin-bottom: 50px;
-                margin-top: 25px;   
+                margin-top: 25px;
             }
         }
 
@@ -694,11 +694,11 @@
         }
 
         .header-topic {
-            text-align: center; 
-            
+            text-align: center;
+
             .container-title {
                 margin-bottom: 25px;
-    
+
                 .title {
                     font-size: 2.5rem;
                     font-weight: 700;
@@ -706,15 +706,15 @@
                     color: #404040;
                     display: block;
                 }
-    
+
                 .subtitle {
                     font-size: 1.25rem;
                     font-weight: 700;
                     font-family: "Ubuntu", sans-serif, arial;
                     color: #b3b3b3;
-                    display: block;      
+                    display: block;
                 }
-    
+
             }
 
             .line {
@@ -727,8 +727,8 @@
                 width: 100%;
                 margin: 0 auto;
                 margin-bottom: 50px;
-                margin-top: 25px; 
-                padding: 0px 50px;  
+                margin-top: 25px;
+                padding: 0px 50px;
             }
         }
 
@@ -742,7 +742,7 @@
                 display: flex !important;
                 justify-content: flex-start;
             }
-        
+
             .owl-dots .owl-dot {
                 border-radius: inherit;
                 width: 22px;
@@ -1215,10 +1215,10 @@
             margin-top: 51.28px;
         }
         .header-topic {
-            
+
             .container-title {
                 margin-bottom: 25px;
-    
+
                 .title {
                     font-size: 2.5rem;
                     font-weight: 700;
@@ -1226,7 +1226,7 @@
                     color: #404040;
                     display: block;
                 }
-    
+
             }
 
             .line {
@@ -1244,7 +1244,7 @@
                 justify-content: center;
                 margin-top: 50px;
             }
-        
+
             .owl-dots .owl-dot {
                 border-radius: inherit;
                 width: 22px;
@@ -1409,13 +1409,22 @@
 /* FIM SHOW-PAGE */
 .serv07-page__content__product__item:hover {
     transform: scale(1.02);
-    transition: 0.5s;   
+    transition: 0.5s;
 }
 .serv07-section__content__product__item:hover {
     transform: scale(1.02);
-    transition: 0.5s; 
+    transition: 0.5s;
 }
 .serv07-show-section__content__product__item:hover {
     transform: scale(1.02);
-    transition: 0.5s; 
+    transition: 0.5s;
+}
+
+.serv07-show__info__gallery__wrap{
+    width: 100%;
+    height: 500px;
+}
+.serv07-show__info__gallery__wrap img{
+    object-fit: cover !important;
+    height: 100% !important;
 }
