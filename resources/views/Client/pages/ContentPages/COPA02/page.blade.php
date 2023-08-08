@@ -56,14 +56,14 @@
                                                     @endif
                                                 </div>
                                                 <div class="copa02-page__assortedBox__boxStandard__description__cta">
-                                                    @if ($content->link_button || $content->target_link_button || $content->path_image_icon || $content->title_button)
-                                                        <a href="{{ getUri($content->link_button) }}"
-                                                            target="{{ $content->target_link_button }}"
-                                                            class="copa02-page__assortedBox__boxStandard__description__cta__link">
-                                                            <img src="{{ asset('storage/' . $content->path_image_icon) }}"
-                                                                alt=""
-                                                                class="copa02-page__assortedBox__boxStandard__description__cta__img">
-                                                            {{ $content->title_button }}
+                                                    @if ($content->link_button)
+                                                        <a href="{{ getUri($content->link_button) }}" arget="{{ $content->target_link_button }}" class="copa02-page__assortedBox__boxStandard__description__cta__link">
+                                                            @if ($content->path_image_icon)
+                                                                <img src="{{ asset('storage/' . $content->path_image_icon) }}" alt="" class="copa02-page__assortedBox__boxStandard__description__cta__img">
+                                                            @endif
+                                                            @if ($content->title_button)
+                                                                {{ $content->title_button }}
+                                                            @endif
                                                         </a>
                                                     @endif
                                                 </div>
