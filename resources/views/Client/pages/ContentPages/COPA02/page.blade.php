@@ -188,19 +188,15 @@
                                             </p>
                                         </div>
                                     @endif
-                                    @if (
-                                        $lastSection->link_button ||
-                                            $lastSection->target_link_button ||
-                                            $lastSection->path_image_icon ||
-                                            $lastSection->title_button)
+                                    @if ($lastSection->link_button)
                                         <div class="copa02-page__boxContent__item__description__cta">
-                                            <a href="{{ getUri($lastSection->link_button) }}"
-                                                target="{{ $lastSection->target_link_button }}"
-                                                class="copa02-page__boxContent__item__description__cta__link">
-                                                <img src="{{ asset('storage/' . $lastSection->path_image_icon) }}"
-                                                    alt=""
-                                                    class="copa02-page__boxContent__item__description__cta__img">
-                                                {{ $lastSection->title_button }}
+                                            <a href="{{ getUri($lastSection->link_button) }}"target="{{ $lastSection->target_link_button }}" class="copa02-page__boxContent__item__description__cta__link">
+                                                @if ($lastSection->path_image_icon)
+                                                    <img src="{{ asset('storage/' . $lastSection->path_image_icon) }}" alt="" class="copa02-page__boxContent__item__description__cta__img">
+                                                @endif
+                                                @if ($lastSection->title_button)
+                                                    {{ $lastSection->title_button }}
+                                                @endif
                                             </a>
                                         </div>
                                     @endif

@@ -39,6 +39,7 @@ class COPA02LastSectionController extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
@@ -92,6 +93,7 @@ class COPA02LastSectionController extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box){
