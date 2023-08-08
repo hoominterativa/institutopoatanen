@@ -1172,6 +1172,92 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "SERV07": {
+            "path_image": {
+                "width": "582",
+                "height": "547",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "321",
+                "height": "186",
+                "activeCrop": "false"
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "250",
+                    "height": "250",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width": "281",
+                    "height": "163",
+                    "activeCrop": "false"
+                },
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "269",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                }
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "269",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "775",
+                    "activeCrop": "true"
+                }
+            },
+            "SectionCategory":{
+                "path_image": {
+                    "width": "430",
+                    "height": "497",
+                    "activeCrop": "false"
+                }
+            },
+            "TopicCategory":{
+                "path_image": {
+                    "width": "430",
+                    "height": "497",
+                    "activeCrop": "false"
+                },
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "GalleryCategory":{
+                "path_image": {
+                    "width": "275",
+                    "height": "200",
+                    "activeCrop": "false"
+                }
+            },
+            "GalleryService":{
+                "path_image": {
+                    "width": "275",
+                    "height": "200",
+                    "activeCrop": "false"
+                }
+            },
+            "Video":{
+                "path_image": {
+                    "width": "1166",
+                    "height": "522",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Slides": {

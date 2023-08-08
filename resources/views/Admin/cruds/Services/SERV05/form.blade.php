@@ -195,7 +195,7 @@
                 <div class="row">
 
                     <div class="mb-3">
-                        {!! Form::label('title_topic_button', 'Título da botão', ['class' => 'form-label']) !!}
+                        {!! Form::label('title_topic_button', 'Título do botão', ['class' => 'form-label']) !!}
                         {!! Form::text('title_topic_button', null, ['class' => 'form-control', 'id' => 'title_topic_button']) !!}
 
                     </div>
