@@ -311,7 +311,7 @@ class SERV07Controller extends Controller
     {
         $section = SERV07ServicesSection::active()->first();
         $categories = SERV07ServicesCategory::active()->featured()->exists()->sorting()->get();
-        $categoryFirst = SERV07ServicesCategory::active()->featured()->exists()->first();
+        $categoryFirst = SERV07ServicesCategory::active()->exists()->first();
         return view('Client.pages.Services.SERV07.section',[
             'section' => $section,
             'categoryFirst' => $categoryFirst,

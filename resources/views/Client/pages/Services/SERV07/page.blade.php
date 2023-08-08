@@ -120,27 +120,40 @@
         @endforeach
     </section>
 @endif
+@if ($videos->count()|| $galleries->count(0))
 <section id="serv07__gallery" class="serv07__gallery" style="">
-    <div class="__gallery container">
+    <div class="serv07__gallery container">
         @if ($videos->count())
             <div class="serv07__gallery__main">
                 @foreach ($videos as $video)
-                    <iframe class="serv07__gallery__main__video" width="100%" height="100%" src="{{asset('storage/' . $video->path_image)}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    {{-- {{$video->link}} --}}
-                    @endforeach
+                <div class="serv07__gallery__main__item">
+                    <a class="link-full"
+                        href="{{ getUri($video->link != '' ? $video->link : asset('storage/' . $video->path_image)) }}"
+                        data-fancybox>
+                    </a>
+                    <img src="{{asset('storage/' . $video->path_image)}}" width="100%" height="100%" alt="Capa do Video">
+                </div>
+                @endforeach
             </div>
         @endif
+        @if ($galleries->count(0))
         <div class="serv07__gallery__thumbnail">
-            @if ($galleries->count(0))
-                <div class="serv07__gallery__thumbnail__carousel">
-                    @foreach ($galleries as $gallery)
-                        <img src="{{asset('storage/' . $gallery->path_image)}}" data-main-image="{{asset('storage/' . $gallery->path_image)}}" width="100%" class="" alt="">
-                    @endforeach
+            <div class="serv07__gallery__thumbnail__carousel">
+                @foreach ($galleries as $gallery)
+                <div class="serv07__gallery__thumbnail">
+                    <a class="link-full"
+                        href="{{asset('storage/' . $gallery->path_image)}}"
+                        data-fancybox>
+                    </a>    
+                    <img src="{{asset('storage/' . $gallery->path_image)}}" data-main-image="{{asset('storage/' . $gallery->path_image)}}" width="100%" class="" alt="">
                 </div>
-            @endif
+                @endforeach
+            </div>
         </div>
+        @endif
     </div>
 </section>
+@endif
 <section id="SERV07" class="container-fluid" style="background-image: url(#); background-color: #EFEFEF">
     <div class="container">
         @if ($categoryGet)
