@@ -176,9 +176,9 @@
                                 <div class="copa02-page__boxContent__item__description col">
                                     @if ($lastSection->title || $lastSection->subtitle)
                                         <h4 class="copa02-page__boxContent__item__description__title">
-                                            {{ $lastSection->subtitle }}</h4>
+                                            {{ $lastSection-> title }}</h4>
                                         <h5 class="copa02-page__boxContent__item__description__subtitle">
-                                            {{ $lastSection->title }}</h5>
+                                            {{ $lastSection->subtitle }}</h5>
                                         <hr class="copa02-page__boxContent__item__description__line" />
                                     @endif
                                     @if ($lastSection->description)
