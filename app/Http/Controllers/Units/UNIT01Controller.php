@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Units\UNIT01UnitsGallery;
+use App\Models\Units\UNIT01UnitsSection;
 
 class UNIT01Controller extends Controller
 {
@@ -25,9 +26,11 @@ class UNIT01Controller extends Controller
     {
         $units = UNIT01Units::sorting()->get();
         $banner = UNIT01UnitsBanner::first();
+        $section = UNIT01UnitsSection::first();
         return view('Admin.cruds.Units.UNIT01.index', [
             'units' => $units,
             'banner' => $banner,
+            'section' => $section,
             'cropSetting' => getCropImage('Units', 'UNIT01')
         ]);
     }
@@ -51,8 +54,8 @@ class UNIT01Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
 
         if(UNIT01Units::create($data)){
             Session::flash('success', 'Unidade cadastrada com sucesso');
@@ -91,8 +94,8 @@ class UNIT01Controller extends Controller
     public function update(Request $request, UNIT01Units $UNIT01Units)
     {
         $data = $request->all();
-
         $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
 
         if($UNIT01Units->fill($data)->save()){
             Session::flash('success', 'Unidade atualizada com sucesso');
@@ -213,5 +216,15 @@ class UNIT01Controller extends Controller
             'units' => $units,
             'banner' => $banner
         ]);
+    }
+
+    /**
+     * Section index resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function section()
+    {
+        return view('Client.pages.Units.UNIT01.section');
     }
 }

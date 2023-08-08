@@ -3,16 +3,16 @@
 namespace Database\Factories\Units;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Units\UNIT01Units;
+use App\Models\Units\UNIT01UnitsSection;
 
-class UNIT01UnitsFactory extends Factory
+class UNIT01UnitsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = UNIT01Units::class;
+    protected $model = UNIT01UnitsSection::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +22,9 @@ class UNIT01UnitsFactory extends Factory
     public function definition()
     {
         return [
-            'title_unit' => $this->faker->text(10),
             'title' => $this->faker->text(10),
-            'description' => $this->faker->text(200),
-            'active' => 1,
-            'featured' => 1,
+            'subtitle' => $this->faker->text(10),
+            'active' => 1
         ];
     }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Units\UNIT01TopicController;
 use App\Http\Controllers\Units\UNIT01BannerController;
 use App\Http\Controllers\Units\UNIT01GalleryController;
+use App\Http\Controllers\Units\UNIT01SectionController;
 
 /**
  * Uncomment the code below
@@ -28,6 +29,7 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/banner', UNIT01BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'UNIT01UnitsBanner']);
+    Route::resource($route.'/secao', UNIT01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'UNIT01UnitsSection']);
 
     Route::resource($route.'/topicos', UNIT01TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'UNIT01UnitsTopic']);
     Route::post($route.'/topico/delete', [UNIT01TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
