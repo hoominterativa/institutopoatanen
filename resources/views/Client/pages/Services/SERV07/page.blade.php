@@ -144,7 +144,7 @@
                     <a class="link-full"
                         href="{{asset('storage/' . $gallery->path_image)}}"
                         data-fancybox>
-                    </a>    
+                    </a>
                     <img src="{{asset('storage/' . $gallery->path_image)}}" data-main-image="{{asset('storage/' . $gallery->path_image)}}" width="100%" class="" alt="">
                 </div>
                 @endforeach
@@ -154,7 +154,7 @@
     </div>
 </section>
 @endif
-<section id="SERV07" class="container-fluid" style="background-image: url(#); background-color: #EFEFEF">
+<section id="SERV07" class="container-fluid" style="background-image: url(#);">
     <div class="container">
         @if ($categoryGet)
             <header class="header-topic">

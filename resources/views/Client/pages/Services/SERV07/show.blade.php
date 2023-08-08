@@ -72,7 +72,7 @@
 <div class="serv07-show-section__content__product container">
     <header class="header-topic">
         <h3 class="container-title">
-            <span class="title">{{$service->category->title}}</span>
+            <span class="title">Serviços</span>
         </h3>
         <hr class="line">
     </header>
