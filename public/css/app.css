@@ -2361,7 +2361,7 @@ body .owl-dots .owl-dot.active {
   position: relative;
   width: 50%;
   height: auto;
-  aspect-ratio: 749/759;
+  /*         aspect-ratio: 749/759; */
 }
 @media (max-width: 767.98px) {
   .cont11__carousel {
