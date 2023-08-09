@@ -286,12 +286,8 @@ class TEAM01Controller extends Controller
     //public function show(TEAM01Teams $TEAM01Teams)
     public function show()
     {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Teams', 'TEAM01', 'show');
 
-        return view('Client.pages.Teams.TEAM01.show',[
-            'sections' => $sections
-        ]);
+        return view('Client.pages.Teams.TEAM01.show');
     }
 
     /**
@@ -317,7 +313,7 @@ class TEAM01Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Teams', 'TEAM01', 'page');
 
         $categories = TEAM01TeamsCategory::active()->exists()->sorting()->get();
-        $sectionTeam = TEAM01TeamsSectionTeam::active()->first();  
+        $sectionTeam = TEAM01TeamsSectionTeam::active()->first();
         $teams = TEAM01Teams::with(['socials' => function ($query) {$query->where('active', 1);}])->active();
 
 
