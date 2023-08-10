@@ -187,7 +187,7 @@ class TOPI08Controller extends Controller
         }
 
         $topics = TOPI08Topics::active()->sorting()->get();
-        return view('Client.Pages.Topics.TOPI08.section', [
+        return view('Client.pages.Topics.TOPI08.section', [
             'topics' => $topics,
             'section' => $section
         ]);
