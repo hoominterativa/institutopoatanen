@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 .serv07-page {
     &__header {
         @include backG;
@@ -43,7 +43,7 @@
 
 .serv07-categories {
     width: 100%;
-    background: #CACACA;
+    background: #cacaca;
     padding: 80px 0px;
 
     &__list {
@@ -182,7 +182,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 50px;
-    &__description  {
+    &__description {
         &__title {
             font-family: $font-primary;
             font-size: $T2;
@@ -248,7 +248,6 @@
 #serv07__gallery {
     padding: 80px 0px;
     .serv07__gallery__main {
-
         &__item {
             width: 100%;
             height: auto;
@@ -298,9 +297,7 @@
     }
 
     .serv07__gallery__thumbnail__carousel {
-
-
-        img{
+        img {
             width: 335px;
             height: 195px;
             margin: 0 auto;
@@ -317,9 +314,8 @@
     }
 }
 
-
-.serv07-page__section{
-    .container--serv07-page__section{
+.serv07-page__section {
+    .container--serv07-page__section {
         padding-top: 68.54px !important;
     }
     &__row:nth-child(even) {
@@ -329,45 +325,45 @@
         .serv07-page__section__description {
             padding-left: 0;
             padding-right: 170px;
-          }
+        }
     }
-    &__image{
+    &__image {
         height: 592px;
         width: 429px;
         border-radius: 0px;
     }
-    &__description{
+    &__description {
         padding-left: 170.46px;
-        padding-right:0;
+        padding-right: 0;
     }
-    &__title{
+    &__title {
         font-size: $T2;
         color: $color-black;
         font-family: $font-paragraph;
         font-weight: $weight-700;
     }
-    &__subtitle{
+    &__subtitle {
         font-size: $T4;
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-700;
     }
-    &__line{
+    &__line {
         margin-top: 28.91px;
         margin-bottom: 39px;
     }
-    &__paragraph{
+    &__paragraph {
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-400;
     }
-    &__paragraph p{
+    &__paragraph p {
         color: $color-one;
         font-family: $font-paragraph;
         font-weight: $weight-400;
         margin-bottom: 0;
     }
-    &__cta{
+    &__cta {
         font: $paragraph-min;
         font-weight: $weight-700;
         color: $color-one;
@@ -377,81 +373,84 @@
         padding: 10px 15px;
         background-color: $bg-soft;
 
-        &:hover{
+        &:hover {
             color: $color-white;
             background-color: $bg-black;
 
-            .serv07-page__section__cta__icon{
+            .serv07-page__section__cta__icon {
                 filter: invert(1) grayscale(1);
             }
         }
     }
     @include medium-device-down {
-        &__image{
+        &__image {
             order: 1;
             width: 100%;
             padding: 0 41.33px;
             height: 468.14px;
         }
-        &__description{
+        &__description {
             order: 0;
             padding: 0 41.33px;
             margin-bottom: 49.43px;
         }
-        &__title{
+        &__title {
             font-size: $T2-mobile;
             margin-bottom: 0;
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $T4-mobile;
         }
-        &__line{
+        &__line {
             margin-top: 29px;
         }
-        &__paragraph{
+        &__paragraph {
             font-family: $font-paragraph;
         }
-        &__paragraph p{
+        &__paragraph p {
             font-family: $font-paragraph;
         }
     }
 }
 
-
-#SERV07{
+#SERV07 {
     padding: 70px 0;
 
-    @include backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat);
+    @include backG(
+        $BackgroundSize: cover,
+        $backgroundPosition: center,
+        $backgroundRepeat: no-repeat
+    );
 
-    @include small-device{
+    @include small-device {
         padding: 35px 20px;
     }
-    .header-topic{
+    .header-topic {
         text-align: center;
-        .container-title{
+        .container-title {
             margin-bottom: 25px;
-            .title{
+            .title {
                 font-size: $T2;
                 font-weight: $weight-700;
                 font-family: $font-primary;
                 color: $color-one;
                 display: block;
-                @include small-device{
-                    font-size:  $T2-mobile;
+                @include small-device {
+                    font-size: $T2-mobile;
                 }
             }
-            .subtitle{
+            .subtitle {
                 font-size: $T4;
                 font-weight: $weight-700;
                 font-family: $font-primary;
                 color: $color-three;
                 display: block;
-                @include small-device{
+                @include small-device {
                     font-size: $T4-mobile;
                 }
             }
         }
-        .paragraph{
+        .paragraph {
             font: $paragraph;
             font-weight: $weight-500;
             width: 100%;
@@ -459,62 +458,62 @@
             margin-bottom: 50px;
             margin-top: 25px;
 
-            @include small-device{
+            @include small-device {
                 font: 90%;
                 width: $paragraph-mobile;
             }
         }
-        .line{
+        .line {
             background-color: $color-one;
         }
     }
     .container-box {
-        @include small-device{
+        @include small-device {
             width: 70%;
         }
-        .owl-stage-outer{
-            @include small-device{
+        .owl-stage-outer {
+            @include small-device {
                 overflow: visible;
             }
         }
-        .box-topic{
+        .box-topic {
             padding-right: 0.25rem;
             padding-left: 0.25rem;
 
-            .content{
+            .content {
                 padding: 0 20px;
-                .container-info{
+                .container-info {
                     position: relative;
                     z-index: 1;
                     min-height: 320px;
-                    .image{
-                        img{
+                    .image {
+                        img {
                             width: 61px;
                         }
                     }
-                    .description{
+                    .description {
                         text-align: center;
-                        .title{
+                        .title {
                             font-size: $T4;
                             font-family: $font-primary;
                             color: $color-black;
                             font-weight: $weight-700;
-                            @include small-device{
+                            @include small-device {
                                 font-size: $T2-mobile;
                             }
                         }
-                        .paragraph{
+                        .paragraph {
                             font: $paragraph-min;
                             color: $color-two;
-                            font-weight:$weight-500;
-                            @include small-device{
+                            font-weight: $weight-500;
+                            @include small-device {
                                 font: $paragraph-min-mobile;
                             }
                         }
                     }
                 }
 
-                &:hover{
+                &:hover {
                     transform: scale(1.02);
                     box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
                 }
@@ -532,15 +531,12 @@
     }
 }
 
-
-
 .serv07-page__content {
-
-    &__product{
+    &__product {
         padding: 80px 0;
 
-        @include small-device{
-            padding:0 28px !important;
+        @include small-device {
+            padding: 0 28px !important;
             margin-top: 51.28px;
         }
 
@@ -565,7 +561,6 @@
                     color: #b3b3b3;
                     display: block;
                 }
-
             }
 
             .line {
@@ -581,81 +576,80 @@
             }
         }
 
-        .serv07-page__content--row{
+        .serv07-page__content--row {
             gap: 26px 0;
-            @include small-device{
+            @include small-device {
                 margin: 0 auto;
             }
         }
 
-        &__item{
+        &__item {
             position: relative;
-            &__image{
+            &__image {
                 width: 100%;
                 height: 267.65px;
                 background-color: #000;
 
-                img{
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
-            &__description{
-                background-color: #7C7C7C;
+            &__description {
+                background-color: #7c7c7c;
                 padding: 19px 24px;
 
-                &__encompass{
+                &__encompass {
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
 
-                    &__icone{
-                        width:22px;
+                    &__icone {
+                        width: 22px;
                         height: auto;
 
-                        img{
+                        img {
                             width: 100%;
                             height: 100%;
                             object-fit: contain;
                         }
                     }
-                    &__txt{
+                    &__txt {
                         width: 80%;
                         text-align: left;
 
-                        &__title{
+                        &__title {
                             font-size: $T5;
                             color: $color-black;
                             font-family: $font-paragraph;
                             font-weight: $weight-700;
                         }
-                        &__subtitle{
+                        &__subtitle {
                             font: $paragraph-min;
                             color: $color-two;
                             font-weight: $weight-700;
                         }
                     }
-
                 }
-                &__paragraph{
+                &__paragraph {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
                 }
-                &__paragraph p{
+                &__paragraph p {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
                     margin-bottom: 0;
                 }
 
-                &__buttons{
+                &__buttons {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
 
-                    &__cta{
+                    &__cta {
                         font: $paragraph;
                         font-weight: $weight-700;
                         color: $color-three;
@@ -664,20 +658,20 @@
                         padding: 10px 70px;
                         background-color: $color-five;
 
-                        @include small-device{
+                        @include small-device {
                             font: $paragraph-mobile;
                             max-width: 146px;
                         }
-                        img{
-                            width:18.03px !important;
+                        img {
+                            width: 18.03px !important;
                             height: auto !important;
                             object-fit: contain;
                         }
-                        &:hover{
+                        &:hover {
                             color: $color-white;
                             background-color: $bg-black;
 
-                            .serv07-page__content__product__item__description__buttons__cta__icon{
+                            .serv07-page__content__product__item__description__buttons__cta__icon {
                                 filter: invert(1) grayscale(1);
                             }
                         }
@@ -687,19 +681,15 @@
         }
     }
 }
-
 /* BEGIN STYLE */
-
-
 
 /* SECTION-PAGE */
 .serv07-section__content {
-
-    &__product{
+    &__product {
         padding: 80px 0;
 
-        @include small-device{
-            padding:0 28px !important;
+        @include small-device {
+            padding: 0 28px !important;
             margin-top: 51.28px;
         }
 
@@ -724,7 +714,6 @@
                     color: #b3b3b3;
                     display: block;
                 }
-
             }
 
             .line {
@@ -742,10 +731,10 @@
             }
         }
 
-        .serv07-section__content--row{
+        .serv07-section__content--row {
             gap: 26px 0;
             margin-top: 35px;
-            @include small-device{
+            @include small-device {
                 margin: 0 auto;
             }
             .owl-dots {
@@ -760,77 +749,76 @@
             }
         }
 
-        &__item{
+        &__item {
             position: relative;
             width: 100%;
             padding-right: 0.25rem;
             padding-left: 0.25rem;
-            &__image{
+            &__image {
                 width: 100%;
                 height: 267.65px;
                 background-color: #000;
 
-                img{
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
-            &__description{
-                background-color: #7C7C7C;
+            &__description {
+                background-color: #7c7c7c;
                 padding: 19px 24px;
 
-                &__encompass{
+                &__encompass {
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
 
-                    &__icone{
-                        width:22px;
+                    &__icone {
+                        width: 22px;
                         height: auto;
 
-                        img{
+                        img {
                             width: 100%;
                             height: 100%;
                             object-fit: contain;
                         }
                     }
-                    &__txt{
+                    &__txt {
                         width: 80%;
                         text-align: left;
 
-                        &__title{
+                        &__title {
                             font-size: $T5;
                             color: $color-black;
                             font-family: $font-paragraph;
                             font-weight: $weight-700;
                         }
-                        &__subtitle{
+                        &__subtitle {
                             font: $paragraph-min;
                             color: $color-two;
                             font-weight: $weight-700;
                         }
                     }
-
                 }
-                &__paragraph{
+                &__paragraph {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
                 }
-                &__paragraph p{
+                &__paragraph p {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
                     margin-bottom: 0;
                 }
 
-                &__buttons{
+                &__buttons {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
 
-                    &__cta{
+                    &__cta {
                         font: $paragraph;
                         font-weight: $weight-700;
                         color: $color-three;
@@ -839,27 +827,26 @@
                         padding: 10px 70px;
                         background-color: $color-five;
 
-                        @include small-device{
+                        @include small-device {
                             font: $paragraph-mobile;
                             max-width: 146px;
                         }
-                        img{
-                            width:18.03px !important;
+                        img {
+                            width: 18.03px !important;
                             height: auto !important;
                             object-fit: contain;
                         }
-                        &:hover{
+                        &:hover {
                             color: $color-white;
                             background-color: $bg-black;
 
-                            .serv07-section__content__product__item__description__buttons__cta__icon{
+                            .serv07-section__content__product__item__description__buttons__cta__icon {
                                 filter: invert(1) grayscale(1);
                             }
                         }
                     }
                 }
             }
-
         }
     }
 
@@ -896,74 +883,77 @@
 }
 /* FIM SECTION-PAGE */
 
-
 /* SHOW-PAGE */
-
-.serv07-show{
-    &__banner{
+.serv07-show {
+    &__banner {
         @include backG;
-        @include Flex($displayFlex:flex, $direction:column, $justify:center, $align:center);
+        @include Flex(
+            $displayFlex: flex,
+            $direction: column,
+            $justify: center,
+            $align: center
+        );
         height: 440px;
         text-align: center;
         position: relative;
 
-        &__title{
+        &__title {
             font-family: $font-primary;
             font-size: $T1;
             font-weight: $weight-700;
             color: $color-black;
         }
 
-        &__subtitle{
+        &__subtitle {
             font-family: $font-primary;
             font-size: $T3;
             font-weight: $weight-700;
             color: $color-black;
         }
 
-        &__line{
+        &__line {
             width: 100%;
             border-top: 1px solid $color-black;
-            margin-top: 31px ;
+            margin-top: 31px;
         }
 
-        &__container{
+        &__container {
             position: relative;
         }
     }
     // END __banner
 
-    &__contentTitle{
+    &__contentTitle {
         background-color: #a09b9b;
 
-        &__sideRight{
+        &__sideRight {
             padding-left: 65px;
             padding-bottom: 10px;
         }
 
-        &__container{
+        &__container {
             position: relative;
             display: table;
         }
 
-        &__wrap{
+        &__wrap {
             margin-top: 125px;
         }
 
-        &__title{
+        &__title {
             font-family: $font-primary;
             font-size: $T2;
             font-weight: $weight-700;
             color: $color-black;
         }
 
-        &__subtitle{
+        &__subtitle {
             font: $paragraph;
             font-weight: $weight-400;
             color: $color-black;
         }
 
-        &__line{
+        &__line {
             width: 100%;
             border-top: 1px solid $color-black;
             margin-top: 17px;
@@ -972,7 +962,7 @@
     }
     // END __contentTitle
 
-    &__wrapForm{
+    &__wrapForm {
         position: absolute;
         right: 0;
         top: -60px;
@@ -984,14 +974,14 @@
         padding: 0 20px;
         @include trans($transition: 0.4s);
 
-        &--showForm{
+        &--showForm {
             top: -100%;
             @include trans($transition: 0.4s);
         }
     }
     // END __wrapForm
 
-    &__btnForm{
+    &__btnForm {
         background-color: transparent;
         font-family: $font-primary;
         font-size: $T5;
@@ -1003,92 +993,92 @@
     }
     // END __btnForm
 
-    &__form{
+    &__form {
         display: none;
         // height: 0;
         // overflow: hidden;
         // @include trans($transition: 0.4s);
 
         .input__item--textarea {
-            .form-placeholder .placeholder--custom{
+            .form-placeholder .placeholder--custom {
                 top: 8px !important;
                 transform: translate(0, 0) !important;
             }
-            .form-placeholder.focusing .placeholder--custom{
+            .form-placeholder.focusing .placeholder--custom {
                 top: 0px !important;
                 transform: translate(0) !important;
             }
-            textarea{
+            textarea {
                 height: 110px !important;
             }
-            .form-placeholder.focusing{
-                textarea{
+            .form-placeholder.focusing {
+                textarea {
                     padding-top: 15px;
                 }
             }
         }
-        &__submit{
+        &__submit {
             width: 100%;
             background-color: $color-two;
             color: $color-white;
             font: $paragraph;
             font-weight: $weight-400;
             padding: 5px 0;
-            border:0;
+            border: 0;
             border-radius: 10px;
             margin-bottom: 27px;
         }
     }
     // END __form
 
-    &__info{
+    &__info {
         margin-bottom: 150px;
-        &__gallery{
+        &__gallery {
             margin-top: -150px;
             padding-right: 65px;
-            &__imgMain{
-                @include Img ($Width:100%, $Height: auto, $ObjectFit: contain);
-                margin-bottom: 16px;;
+            &__imgMain {
+                @include Img($Width: 100%, $Height: auto, $ObjectFit: contain);
+                margin-bottom: 16px;
             }
-            &__carousel{
-                .owl-dots .owl-dot{
+            &__carousel {
+                .owl-dots .owl-dot {
                     border-radius: 0;
                 }
             }
-            &__thumbnail{
+            &__thumbnail {
                 cursor: pointer;
-                @include Img ($Width:100%, $Height: 267px, $ObjectFit: cover);
+                @include Img($Width: 100%, $Height: 267px, $ObjectFit: cover);
                 background-color: $color-four;
             }
-            &__options{
+            &__options {
                 margin-top: 30px;
                 display: flex;
                 align-items: start;
                 gap: 0 8px;
-                &__item{
+                &__item {
                     border-bottom: 2px solid transparent;
                     padding-bottom: 10px;
-                    span{
+                    span {
                         width: 38px;
                         height: 38px;
                         display: block;
                         background-color: $color-five;
                     }
-                    &--active{
+                    &--active {
                         border-color: $color-black;
                     }
                 }
             }
         }
         // END __gallery
-        &__description{
+        &__description {
             padding-left: 65px;
             font: $paragraph-min;
             font-weight: $weight-400;
             color: $color-two;
             padding-top: 25px;
 
-            &__cta{
+            &__cta {
                 margin-top: 88px;
                 font: $paragraph;
                 font-weight: $weight-700;
@@ -1103,15 +1093,15 @@
     }
     // END __info
 
-    &__galleries{
+    &__galleries {
         margin-bottom: 88px;
-        &__carousel{
+        &__carousel {
             &.owl-carousel {
                 margin-right: 0;
                 margin-left: 0;
                 padding-right: 0;
                 padding-left: 0;
-                &>*{
+                & > * {
                     margin-right: 0;
                     margin-left: 0;
                     padding-right: 0;
@@ -1119,7 +1109,7 @@
                 }
             }
             // END .owl-carousel
-            .owl-dots .owl-dot{
+            .owl-dots .owl-dot {
                 border-radius: 0;
             }
         }
@@ -1127,26 +1117,26 @@
     }
     // END __galleries
 
-    &__details{
+    &__details {
         background-color: $color-five;
-        &__header{
+        &__header {
             padding: 70px 0;
             text-align: center;
 
-            &__title{
+            &__title {
                 font-family: $font-primary;
                 font-size: $T2;
                 font-weight: $weight-700;
                 color: $color-black;
             }
 
-            &__subtitle{
+            &__subtitle {
                 font: $paragraph;
                 font-weight: $weight-400;
                 color: $color-black;
             }
 
-            &__line{
+            &__line {
                 width: 100%;
                 border-top: 1px solid $color-black;
                 margin-top: 17px;
@@ -1154,15 +1144,14 @@
         }
         // END __header
 
-        &__content{
-
-            &__nav-tabs{
+        &__content {
+            &__nav-tabs {
                 gap: 0 14px;
                 border: none !important;
                 margin-bottom: 0 !important;
             }
 
-            &__nav-link{
+            &__nav-link {
                 border: none !important;
                 font-family: $font-primary !important;
                 font-size: $T5 !important;
@@ -1171,20 +1160,20 @@
                 background-color: $color-four !important;
                 border-radius: 0 !important;
                 padding: 10px 30px !important;
-                &.active{
+                &.active {
                     color: $color-black !important;
                     background-color: $color-three !important;
                 }
             }
-            &__tab-content{
+            &__tab-content {
                 background-color: $color-three;
                 padding: 70px 0 !important;
             }
-            &__accordion-item{
+            &__accordion-item {
                 background-color: transparent !important;
                 border: none !important;
             }
-            &__accordion-button{
+            &__accordion-button {
                 border-radius: 0 !important;
                 background-color: transparent !important;
                 border: none !important;
@@ -1195,8 +1184,8 @@
                 color: $color-one;
                 box-shadow: none !important;
                 padding-left: 0 !important;
-                &::before{
-                    content: '';
+                &::before {
+                    content: "";
                     display: inline-block;
                     width: 10px;
                     height: 10px;
@@ -1204,8 +1193,8 @@
                     margin-right: 8px;
                 }
             }
-            &__accordion-collapse{
-                .accordion-body{
+            &__accordion-collapse {
+                .accordion-body {
                     padding: 30px 0;
                 }
             }
@@ -1216,16 +1205,14 @@
 }
 
 .serv07-show-section__content {
-
-    &__product{
+    &__product {
         padding: 80px 0;
 
-        @include small-device{
-            padding:0 28px !important;
+        @include small-device {
+            padding: 0 28px !important;
             margin-top: 51.28px;
         }
         .header-topic {
-
             .container-title {
                 margin-bottom: 25px;
 
@@ -1236,7 +1223,6 @@
                     color: #404040;
                     display: block;
                 }
-
             }
 
             .line {
@@ -1245,9 +1231,9 @@
             }
         }
 
-        .serv07-show-section__content--row{
+        .serv07-show-section__content--row {
             gap: 26px 0;
-            @include small-device{
+            @include small-device {
                 margin: 0 auto;
             }
             .owl-dots {
@@ -1262,77 +1248,76 @@
             }
         }
 
-        &__item{
+        &__item {
             position: relative;
             width: 100%;
             padding-right: 0.25rem;
             padding-left: 0.25rem;
-            &__image{
+            &__image {
                 width: 100%;
                 height: 267.65px;
                 background-color: #000;
 
-                img{
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
-            &__description{
-                background-color: #7C7C7C;
+            &__description {
+                background-color: #7c7c7c;
                 padding: 19px 24px;
 
-                &__encompass{
+                &__encompass {
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
 
-                    &__icone{
-                        width:22px;
+                    &__icone {
+                        width: 22px;
                         height: auto;
 
-                        img{
+                        img {
                             width: 100%;
                             height: 100%;
                             object-fit: contain;
                         }
                     }
-                    &__txt{
+                    &__txt {
                         width: 80%;
                         text-align: left;
 
-                        &__title{
+                        &__title {
                             font-size: $T5;
                             color: $color-black;
                             font-family: $font-paragraph;
                             font-weight: $weight-700;
                         }
-                        &__subtitle{
+                        &__subtitle {
                             font: $paragraph-min;
                             color: $color-two;
                             font-weight: $weight-700;
                         }
                     }
-
                 }
-                &__paragraph{
+                &__paragraph {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
                 }
-                &__paragraph p{
+                &__paragraph p {
                     color: $color-two;
                     font: $paragraph-min;
                     font-weight: $weight-400;
                     margin-bottom: 0;
                 }
 
-                &__buttons{
+                &__buttons {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
 
-                    &__cta{
+                    &__cta {
                         font: $paragraph;
                         font-weight: $weight-700;
                         color: $color-three;
@@ -1341,27 +1326,26 @@
                         padding: 10px 70px;
                         background-color: $color-five;
 
-                        @include small-device{
+                        @include small-device {
                             font: $paragraph-mobile;
                             max-width: 146px;
                         }
-                        img{
-                            width:18.03px !important;
+                        img {
+                            width: 18.03px !important;
                             height: auto !important;
                             object-fit: contain;
                         }
-                        &:hover{
+                        &:hover {
                             color: $color-white;
                             background-color: $bg-black;
 
-                            .serv07-show-section__content__product__item__description__buttons__cta__icon{
+                            .serv07-show-section__content__product__item__description__buttons__cta__icon {
                                 filter: invert(1) grayscale(1);
                             }
                         }
                     }
                 }
             }
-
         }
     }
 
@@ -1430,11 +1414,11 @@
     transition: 0.5s;
 }
 
-.serv07-show__info__gallery__wrap{
+.serv07-show__info__gallery__wrap {
     width: 100%;
     height: 500px;
 }
-.serv07-show__info__gallery__wrap img{
+.serv07-show__info__gallery__wrap img {
     object-fit: cover !important;
     height: 100% !important;
 }
