@@ -26,7 +26,7 @@ class SERV07ServicesCategoryFactory extends Factory
         $subtitle = $this->faker->text(8);
         return [
             //Category main
-            "slug" => Str::slug($title.' '.$subtitle),
+            "slug" => Str::slug($title),
             'title' => $title,
             'subtitle' => $subtitle,
             'description' => $this->faker->text(150),

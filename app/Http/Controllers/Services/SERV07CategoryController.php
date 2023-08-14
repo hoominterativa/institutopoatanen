@@ -46,7 +46,7 @@ class SERV07CategoryController extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+        $data['slug'] = Str::slug($request->title);
         $data['link_button'] = isset($data['link_button']) ?getUri($data['link_button']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -111,7 +111,7 @@ class SERV07CategoryController extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+        $data['slug'] = Str::slug($request->title);
         $data['link_button'] = isset($data['link_button']) ?getUri($data['link_button']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
