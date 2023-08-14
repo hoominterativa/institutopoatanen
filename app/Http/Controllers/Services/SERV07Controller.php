@@ -272,13 +272,23 @@ class SERV07Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV07', 'page');
 
-        $categories = SERV07ServicesCategory::active()->exists()->sorting()->get();
+        $categories = SERV07ServicesCategory::exists()->active()->sorting()->get();
+        $services = SERV07Services::active();
+        if($SERV07ServicesCategory->exists){
+            $services = $services->where('category_id', $SERV07ServicesCategory->id);
+            foreach($categories as $category){
+                if($SERV07ServicesCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+        }
+        $services = $services->active()->sorting()->get();
+
         $sectionCategories = SERV07ServicesSectionCategory::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
         $categoryGet = SERV07ServicesSectionCategory::with('category')->where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->first();
         $videos = SERV07ServicesVideo::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
         $galleries = SERV07ServicesGalleryCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
         $topics = SERV07ServicesTopicCategory::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
-        $services = SERV07Services::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
 
         return view('Client.pages.Services.SERV07.page',[
             'sections' => $sections,

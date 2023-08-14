@@ -333,7 +333,7 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV07Controller::class,
                 'model' => App\Models\Services\SERV07Services::class,
                 'seedQty' => 8,
-                'routeName' => 'serv07.show.content',
+                'routeName' => 'serv07.page.content',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Services\SERV07ServicesCategory::class,

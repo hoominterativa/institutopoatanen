@@ -74,5 +74,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 // CLIENT
 
 Route::get($route.'/categoria/{SERV07ServicesCategory:slug}', [SERV07Controller::class, 'page'])->name($routeName.'.category.page');
-Route::get($route. '/{SERV07Services:slug}', [SERV07Controller::class, 'show'])->name($routeName.'.show.content');
+Route::get($route. '/{SERV07Services:slug}', [SERV07Controller::class, 'show'])->name($routeName.'.page.content');
 

@@ -14,7 +14,7 @@
 <div class="serv07-categories">
     <ul class="serv07-categories__list w-100">
         @foreach ($categories as $category)
-            <li class="serv07-categories__list__item">
+            <li class="serv07-categories__list__item {{isset($category->selected) ? 'active':''}}">
                 <a href="{{route('serv07.category.page', ['SERV07ServicesCategory' =>$category->slug])}}">
                     @if ($category->path_image_icon)
                         <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="" class="serv07-categories__list__item__icon">
@@ -175,26 +175,24 @@
                 @foreach ($topics as $topic)
                     <article class="box-topic col">
                         <div class="content transition">
-                            {{-- <a href="#" target=""> --}}
-                                @if ($topic->path_image)
-                                    <img src="{{ asset('storage/' . $topic->path_image) }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
-                                @endif
-                                <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                                    <figure class="image">
-                                        @if ($topic->path_image_icon)
-                                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="icon" width="61" alt="">
-                                        @endif
-                                    </figure>
-                                    <div class="description">
-                                        @if ($topic->title)
-                                            <h3 class="title">{{$topic->title}}</h3>
-                                        @endif
-                                        @if ($topic->description)
-                                            <p class="paragraph">{!! $topic->description !!}</p>
-                                        @endif
-                                    </div>
+                            @if ($topic->path_image)
+                                <img src="{{ asset('storage/' . $topic->path_image) }}" width="100%" height="100%" class="position-absolute top-0 start-0" alt="">
+                            @endif
+                            <div class="container-info d-flex flex-column justify-content-center align-items-center">
+                                <figure class="image">
+                                    @if ($topic->path_image_icon)
+                                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="icon" width="61" alt="">
+                                    @endif
+                                </figure>
+                                <div class="description">
+                                    @if ($topic->title)
+                                        <h3 class="title">{{$topic->title}}</h3>
+                                    @endif
+                                    @if ($topic->description)
+                                        <p class="paragraph">{!! $topic->description !!}</p>
+                                    @endif
                                 </div>
-                            {{-- </a> --}}
+                            </div>
                         </div>
                     </article>
                 @endforeach
@@ -245,7 +243,7 @@
                             @endif
                         </div>
                         <div class="serv07-page__content__product__item__description__buttons">
-                            <a rel="next" href="{{route('serv07.show.content', ['SERV07ServicesCategory' => $category->slug, 'SERV07Services' => $service->slug])}}" class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
+                            <a rel="next" href="{{route('serv07.page.content', ['SERV07Services' => $service->slug])}}" class="serv07-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-page__content__product__item__description__buttons__cta__icon me-3 transition">
                                 CTA
                             </a>

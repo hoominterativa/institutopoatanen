@@ -91,6 +91,16 @@
                     @include trans($transition: 0.5s);
                 }
             }
+            &.active {
+                background: $color-nine;
+
+                a {
+                    color: $color-black;
+                }
+                img {
+                    filter: invert(1) grayscale(1);
+                }
+            }
         }
     }
 
