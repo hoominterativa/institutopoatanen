@@ -62,14 +62,14 @@
                                 data-bs-original-title="Cadastro da seção Tópicos da categoria."></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#infoCategory" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Informações adicionais
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro de informações complementares que serão mostradas em seções específicas."></i>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
 
                 <div class="tab-content">
@@ -104,9 +104,9 @@
                             'category' => $category
                         ])
                     </div>
-                    <div class="tab-pane" id="infoCategory">
+                    {{-- <div class="tab-pane" id="infoCategory">
                         @include("Admin.cruds.Services.SERV07.InformationCategory.form")
-                    </div>
+                    </div> --}}
                 </div>
             </div> <!-- container -->
         </div> <!-- content -->

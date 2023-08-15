@@ -1,4 +1,4 @@
-@if ($category)
+{{-- @if ($category)
     {!! Form::model($category, [
         'route' => ['admin.serv07.category.update', $category->id],
         'class' => 'parsley-validate',
@@ -139,4 +139,4 @@
 </div>
 {!! Form::close() !!}
 
-
+ --}}

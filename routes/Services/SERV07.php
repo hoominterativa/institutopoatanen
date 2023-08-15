@@ -38,7 +38,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/sorting', [SERV07CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
     //Additional Category Information
-    Route::resource($route.'/info-categoria', SERV07CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['info-categoria' => 'SERV07ServicesCategory']);
+    // Route::resource($route.'/info-categoria', SERV07CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['info-categoria' => 'SERV07ServicesCategory']);
 
     //Section Category
     Route::resource($route.'/secao-categorias', SERV07SectionCategoryController::class)->names('admin.'.$routeName.'.section-category')->parameters(['secao-categorias' => 'SERV07ServicesSectionCategory']);
