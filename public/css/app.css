@@ -3029,11 +3029,17 @@ body .owl-dots .owl-dot.active {
 .serv07-section__content__product .serv07-section__content--row {
   gap: 26px 0;
   margin-top: 35px;
+  width: 90%;
+  margin: 0 auto 0 0;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 575.98px) {
   .serv07-section__content__product .serv07-section__content--row {
     margin: 0 auto;
+    width: 290px;
   }
+}
+.serv07-section__content__product .serv07-section__content--row .owl-stage-outer {
+  overflow: visible;
 }
 .serv07-section__content__product .serv07-section__content--row .owl-dots {
   display: flex !important;
@@ -3047,8 +3053,6 @@ body .owl-dots .owl-dot.active {
 .serv07-section__content__product__item {
   position: relative;
   width: 100%;
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
 }
 .serv07-section__content__product__item__image {
   width: 100%;

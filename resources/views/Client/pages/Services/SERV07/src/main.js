@@ -106,7 +106,7 @@ $(function () {
     if ($(window).outerWidth()) {
         $(".carousel-serv07-section-product").addClass("owl-carousel");
         $(".carousel-serv07-section-product").owlCarousel({
-            margin: 0,
+            margin: 22,
             stagePadding: 0,
             smartSpeed: 450,
             dots: true,
