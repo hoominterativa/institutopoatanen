@@ -8,19 +8,18 @@ $(function () {
             dots: true,
             nav: false,
             rewind: true,
-            margin: 22,
             responsive: {
+                // breakpoint from 0 up
                 0: {
                     items: 1,
                 },
-                600: {
-                    items: 2,
+                // breakpoint from 360 up
+                361: {
+                    items: 1,
                 },
-                900: {
-                    items: 3,
-                },
-                1200: {
-                    items: 4,
+                // breakpoint from 768 up
+                800: {
+                    items: 5,
                 },
             },
         });
@@ -114,17 +113,17 @@ $(function () {
             nav: false,
             rewind: true,
             responsive: {
-                // breakpoint from 0 up
                 0: {
                     items: 1,
                 },
-                // breakpoint from 360 up
-                361: {
-                    items: 1,
+                600: {
+                    items: 2,
                 },
-                // breakpoint from 768 up
-                800: {
-                    items: 5,
+                900: {
+                    items: 3,
+                },
+                1200: {
+                    items: 4,
                 },
             },
         });
