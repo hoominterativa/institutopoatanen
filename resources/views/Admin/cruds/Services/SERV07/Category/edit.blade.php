@@ -23,7 +23,7 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#editCategory" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                        <a href="#editCategory" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
                             Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -77,7 +77,7 @@
                         {!! Form::model($category, ['route' => ['admin.serv07.category.update', $category->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
                             @include('Admin.cruds.Services.SERV07.Category.form')
                             {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                            <a href="{{route('admin.serv07.category.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                            <a href="{{route('admin.serv07.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane" id="sectionCategory">

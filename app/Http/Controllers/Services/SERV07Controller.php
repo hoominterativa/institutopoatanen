@@ -71,7 +71,7 @@ class SERV07Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ?getUri($data['link_button']) : null;
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -123,7 +123,7 @@ class SERV07Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ?getUri($data['link_button']) : null;
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
