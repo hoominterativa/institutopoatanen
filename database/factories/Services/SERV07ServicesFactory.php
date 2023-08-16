@@ -26,7 +26,7 @@ class SERV07ServicesFactory extends Factory
         $subtitle = $this->faker->text(10);
         return [
             'category_id' => rand(1,4),
-            'slug' => Str::slug($title. ' ' .$subtitle),
+            'slug' => Str::slug($title),
             'title' => $title,
             'subtitle' => $subtitle,
             'description' => $this->faker->text(100),
