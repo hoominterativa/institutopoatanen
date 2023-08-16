@@ -2630,6 +2630,10 @@ body .owl-dots .owl-dot.active {
 .serv07-page__section .container--serv07-page__section {
   padding-top: 68.54px !important;
 }
+.serv07-page__section .container--serv07-page__section:nth-of-type(even) .row {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
 .serv07-page__section__row:nth-child(even) {
   flex-direction: row-reverse;
   justify-content: flex-end;

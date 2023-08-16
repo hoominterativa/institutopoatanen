@@ -317,6 +317,11 @@
 .serv07-page__section {
     .container--serv07-page__section {
         padding-top: 68.54px !important;
+
+        &:nth-of-type(even) .row {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
     }
     &__row:nth-child(even) {
         flex-direction: row-reverse;
