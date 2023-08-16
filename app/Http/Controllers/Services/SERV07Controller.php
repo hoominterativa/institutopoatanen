@@ -286,6 +286,7 @@ class SERV07Controller extends Controller
 
         $sectionCategories = SERV07ServicesSectionCategory::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
         $categoryGet = SERV07ServicesSectionCategory::with('category')->where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->first();
+        $categoryFirst = SERV07ServicesCategory::where('id', $SERV07ServicesCategory->id)->active()->sorting()->first();
         $videos = SERV07ServicesVideo::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
         $galleries = SERV07ServicesGalleryCategory::where('category_id', $SERV07ServicesCategory->id)->sorting()->get();
         $topics = SERV07ServicesTopicCategory::where('category_id', $SERV07ServicesCategory->id)->active()->sorting()->get();
@@ -300,6 +301,7 @@ class SERV07Controller extends Controller
             'galleries' => $galleries,
             'topics' => $topics,
             'services' => $services,
+            'categoryFirst' => $categoryFirst,
         ]);
     }
 

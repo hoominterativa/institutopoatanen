@@ -54,28 +54,30 @@
     </div>
 </div>
 <div class="serv07-topo container">
-    @if ($categoryGet)
+    @if ($categoryFirst)
         <div class="__description">
             <h2 class="serv07-topo__description d-block">
-                @if ($categoryGet->category->subtitle || $categoryGet->category->title)
-                    <span class="serv07-topo__description__subtitle d-block">{{$categoryGet->category->subtitle}}</span>
-                    <span class="serv07-topo__description__title d-block">{{$categoryGet->category->title}}</span>
+                @if ($categoryFirst->subtitle || $categoryFirst->title)
+                    <span class="serv07-topo__description__subtitle d-block">{{$categoryFirst->subtitle}}</span>
+                    <span class="serv07-topo__description__title d-block">{{$categoryFirst->title}}</span>
                     <hr class="serv07-topo__description__line">
                 @endif
             </h2>
             <div class="serv07-topo__description__paragraph">
-                @if ($categoryGet->category->description)
+                @if ($categoryFirst->description)
                     <p>
-                        {!! $categoryGet->category->description !!}
+                        {!! $categoryFirst->description !!}
                     </p>
                 @endif
             </div>
         </div>
         <div class="__cta">
-            @if ($categoryGet->category->link_button)
-                <a href="{{$categoryGet->category->link_button}}" target="{{$categoryGet->category->target_link_button}}" class="serv07-topo__cta">
+            @if ($categoryFirst->link_button)
+                <a href="{{$categoryFirst->link_button}}" target="{{$categoryFirst->target_link_button}}" class="serv07-topo__cta">
                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv07-topo__cta__icon">
-                    CTA
+                    @if ($categoryFirst->title_button)
+                        {{$categoryFirst->title_button}}
+                    @endif
                 </a>
             @endif
         </div>
