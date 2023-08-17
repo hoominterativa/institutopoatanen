@@ -89,15 +89,15 @@ class PROD02CategoryController extends Controller
     public function destroy(PROD02ProductsCategory $PROD02ProductsCategory)
     {
         // Verificar se existem produtos associadas à categoria
-        if (PROD02Products::where('category_id', $$PROD02ProductsCategory->id)->count()) {
+        if (PROD02Products::where('category_id', $PROD02ProductsCategory->id)->count()) {
             Session::flash('error', 'Não é possível excluir a categoria porque existem produtos associados a ela.');
             return redirect()->back();
             }
 
             // Excluir a categoria
-            storageDelete($$PROD02ProductsCategory, 'path_image');
+            storageDelete($PROD02ProductsCategory, 'path_image');
 
-            if($$PROD02ProductsCategory->delete()){
+            if($PROD02ProductsCategory->delete()){
                 Session::flash('success', 'categoria deletada com sucessso');
                 return redirect()->back();
             }
