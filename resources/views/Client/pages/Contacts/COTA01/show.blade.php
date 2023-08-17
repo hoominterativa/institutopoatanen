@@ -3,15 +3,15 @@
     {{-- BEGIN Page content --}}
     <main id="root">
         <section id="COTA01" class="cota01-show container-fluid px-0">
-            @if ($contact->title_banner || $contact->description_banner)
-                <header class="cota01-show__banner" style="background-image: ur({{asset('storage/'.$contact->path_image_banner)}})">
-                    <div class="container">
+            <header class="cota01-show__banner" style="background-image: url({{asset('storage/'.$contact->path_image_banner)}})">
+                <div class="container">
+                    @if ($contact->title_banner || $contact->description_banner)
                         <h2 class="cota01-show__banner__title">{{$contact->title_banner}}</h2>
                         <p class="cota01-show__banner__paragraph">{{$contact->description_banner}}</p>
-                    </div>
-                </header>
+                    @endif
+                </div>
+            </header>
                 {{-- END .cota01-show__header --}}
-            @endif
             <div class="cota01-show__form-section">
                 <div class="container">
                     @if ($contact->title_section || $contact->description_section)

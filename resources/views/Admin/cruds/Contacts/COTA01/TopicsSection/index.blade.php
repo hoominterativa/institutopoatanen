@@ -111,6 +111,7 @@
                     @method('PUT')
                     <div class="row">
                         <div class="col-12">
+                            <input type="hidden" name="title_page" value="{{$contact->title_page}}">
                             <div class="mb-3">
                                 <div class="container-image-crop">
                                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}

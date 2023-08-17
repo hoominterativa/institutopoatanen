@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#infoBanner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Banner da página
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -66,12 +66,12 @@
                     </div>
                     {{-- END #listFormContact --}}
 
-                    <div class="tab-pane" id="infoBanner">
+                    <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Contacts.COTA01.Banner.form',[
                             'contact' => $contact
                         ])
                     </div>
-                    {{-- END #infoBanner --}}
+                    {{-- END #banner --}}
 
                     <div class="tab-pane" id="topicsForm">
                         @include('Admin.cruds.Contacts.COTA01.TopicsForm.index',[

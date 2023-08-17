@@ -112,8 +112,8 @@ class COTA01Controller extends Controller
      */
     public function edit(COTA01Contacts $COTA01Contacts)
     {
-        $topicsForm = COTA01ContactsTopicForm::sorting()->get();
-        $sectionTopics = COTA01ContactsTopic::sorting()->get();
+        $topicsForm = COTA01ContactsTopicForm::where('contact_id', $COTA01Contacts->id)->sorting()->get();
+        $sectionTopics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id)->sorting()->get();
 
         $configForm = json_decode($COTA01Contacts->inputs_form);
         $compliances = getCompliance(null, 'id', 'title_page');
@@ -221,13 +221,17 @@ class COTA01Controller extends Controller
         storageDelete($COTA01Contacts, 'path_image_section_topic');
 
         $topicsForm = COTA01ContactsTopicForm::where('contact_id', $COTA01Contacts->id)->get();
-        if($topicsForm->count()){
-            $topicsForm->delete();
+        if ($topicsForm->count()) {
+            foreach ($topicsForm as $topicForm) {
+                $topicForm->delete();
+            }
         }
 
         $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id)->get();
         if($topics->count()){
-            $topics->delete();
+            foreach ($topics as $topic){
+                $topic->delete();
+            }
         }
 
         if($COTA01Contacts->delete()){
@@ -250,13 +254,17 @@ class COTA01Controller extends Controller
             storageDelete($COTA01Contacts, 'path_image_section_topic');
 
             $topicsForm = COTA01ContactsTopicForm::where('contact_id', $COTA01Contacts->id)->get();
-            if($topicsForm->count()){
-                $topicsForm->delete();
+            if ($topicsForm->count()) {
+                foreach ($topicsForm as $topicForm) {
+                    $topicForm->delete();
+                }
             }
 
             $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id)->get();
             if($topics->count()){
-                $topics->delete();
+                foreach ($topics as $topic){
+                    $topic->delete();
+                }
             }
 
             if($COTA01Contacts->delete()){
@@ -285,6 +293,30 @@ class COTA01Controller extends Controller
     }
 
     // METHODS CLIENT
+
+    /**
+     * Display a listing of the resourcee.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request, COTA01Contacts $COTA01Contacts)
+    {
+
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA01');
+
+        $compliance = getCompliance($COTA01Contacts->compliance_id??'0');
+        $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id )->sorting()->get();
+
+        return view('Client.pages.Contacts.COTA01.show',[
+            'sections' => $sections,
+            'contact' => $COTA01Contacts,
+            'compliance' => $compliance,
+            'topics' => $topics,
+            'inputs' => $COTA01Contacts ? (json_decode($COTA01Contacts->inputs_form) ?? []) : []
+        ]);
+    }
 
     /**
      * Display the specified resource.
