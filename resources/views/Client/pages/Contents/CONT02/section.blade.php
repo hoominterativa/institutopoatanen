@@ -5,7 +5,7 @@
     @endif
     <div class="container container--cont02 px-0 mx-auto">
         <div class="row px-0 mx-auto d-flex justify-content-between">
-            <div class="cont02__left animation fadeInLeft d-flex col-auto px-0">
+            <div class="cont02__left d-flex col-auto px-0">
                 <div class="cont02__image px-0">
                     @if ($content->path_image)
                     <img src="{{ asset('storage/' . $content->path_image) }}" rel="" loading="lazy" />
