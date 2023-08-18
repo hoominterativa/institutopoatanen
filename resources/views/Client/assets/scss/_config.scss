@@ -715,88 +715,88 @@ body {
 }
 //FIM FORM102
 // INICIO FORM02
-.form02{
+.form02 {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
-    .container--pd{
+    .container--pd {
         padding: 91px 0 45px 0 !important;
 
-        @include medium-device-down{
+        @include medium-device-down {
             padding: 73px 0 45px 0 !important;
             max-width: 83% !important;
         }
     }
-    &__content{
-        &__title{
+    &__content {
+        &__title {
             font-size: $T3;
-            color:$color-black;
+            color: $color-black;
             margin-bottom: 17px;
             font-weight: $weight-700;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T3-mobile;
             }
         }
-        &__paragraph{
-            max-width:592px;
+        &__paragraph {
+            max-width: 592px;
             margin: 0 auto;
-            width:100%;
-            text-align:center;
+            width: 100%;
+            text-align: center;
 
-            @include small-device{
+            @include small-device {
                 width: 100%;
             }
 
-            p{
-                font:$paragraph;
+            p {
+                font: $paragraph;
                 font-weight: $weight-400;
                 color: $color-one;
 
-                @include small-device{
-                    font:$paragraph-min;
+                @include small-device {
+                    font: $paragraph-min;
                 }
             }
         }
 
-        &__form{
+        &__form {
             display: flex;
             margin-top: 48px;
 
-            div{
+            div {
                 padding: 0;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     flex-direction: column;
                 }
             }
         }
-        .input__item{
+        .input__item {
             width: 32.333333%;
 
-            @include medium-device-down{
+            @include medium-device-down {
                 width: 100%;
             }
         }
-        label{
+        label {
             width: auto !important;
         }
-        input{
+        input {
             height: 42px;
             background: $color-white !important;
             border: 0;
             border-radius: 0;
             padding: 0 15px;
 
-            &::placeholder{
+            &::placeholder {
                 background-color: $color-white !important;
             }
         }
 
-        &__cta{
+        &__cta {
             background-color: $color-white;
-            color:$color-one;
+            color: $color-one;
             height: 45px;
             width: 177px;
             padding: 10px;
@@ -805,129 +805,125 @@ body {
             align-items: center;
             margin-top: 16px;
             border: 0;
-            font:$paragraph;
+            font: $paragraph;
             font-weight: $weight-700;
             margin-left: auto;
             transition: 0.5s all ease;
 
-            @include small-device{
+            @include small-device {
                 height: 39px;
                 width: 153px;
                 margin-top: 18px;
             }
 
-            &:hover{
+            &:hover {
                 background-color: $color-black;
-                color:$color-white;
+                color: $color-white;
                 transition: 0.5s all ease;
             }
 
-            img{
+            img {
                 width: 25.16px;
                 height: 25.16px;
                 margin-right: 16.87px;
                 transition: 0.5s all ease;
 
-                @include small-device{
+                @include small-device {
                     width: 21px;
                     height: 21px;
                     margin-right: 14.58px;
                 }
             }
-            &:hover img{
-                filter:invert(1) grayscale(1);
+            &:hover img {
+                filter: invert(1) grayscale(1);
                 transition: 0.5s all ease;
             }
         }
     }
-
 }
-.lifo{
+.lifo {
     max-width: 1225px;
     width: 100%;
-    background-color: #B3B3B3;
+    background-color: #b3b3b3;
     background-position: center;
     background-size: cover;
     padding: 93px;
     padding-bottom: 0;
 
-    @include medium-device-down{
+    @include medium-device-down {
         padding: 38px !important;
         padding-bottom: 38px;
     }
 
-    .row--container{
-        gap:0 73.48px;
+    .row--container {
+        gap: 0 73.48px;
     }
 
-
-    &__boxLeft{
+    &__boxLeft {
         max-width: 443px;
         width: 100%;
 
-
-        &__title{
+        &__title {
             font-size: $T3;
-            color:$color-black;
+            color: $color-black;
             text-transform: uppercase;
             margin-bottom: 3px;
             font-weight: $weight-700;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T3-mobile;
                 margin-bottom: 17px;
             }
         }
-        &__paragraph{
+        &__paragraph {
             width: 499px;
 
-            @include small-device{
+            @include small-device {
                 width: 100%;
             }
 
-            p{
-                font:$paragraph;
+            p {
+                font: $paragraph;
                 font-weight: $weight-400;
                 color: $color-two;
 
-                @include small-device{
-                    font:$paragraph-min;
+                @include small-device {
+                    font: $paragraph-min;
                 }
             }
         }
 
-        &__form{
+        &__form {
             display: flex;
             margin-top: 48px;
             flex-direction: column;
 
-
-            .input__item{
+            .input__item {
                 width: 100%;
                 padding: 0;
             }
         }
-        &__inputs{
+        &__inputs {
             width: 100%;
         }
-        label{
+        label {
             width: auto !important;
         }
-        input{
+        input {
             height: 42px;
             background: $color-white !important;
             border: 0;
             border-radius: 0;
             padding: 0 15px;
 
-            &::placeholder{
+            &::placeholder {
                 background-color: $color-white !important;
             }
         }
 
-        &__cta{
+        &__cta {
             background-color: $color-white;
-            color:$color-one;
+            color: $color-one;
             height: 45px;
             width: 177px;
             padding: 10px;
@@ -936,53 +932,53 @@ body {
             align-items: center;
             margin-top: 16px;
             border: 0;
-            font:$paragraph;
+            font: $paragraph;
             font-weight: $weight-700;
             margin-left: auto;
             transition: 0.5s all ease;
 
-            @include small-device{
+            @include small-device {
                 height: 39px;
                 width: 153px;
                 margin-top: 18px;
             }
 
-            &:hover{
+            &:hover {
                 background-color: $color-black;
-                color:$color-white;
+                color: $color-white;
                 transition: 0.5s all ease;
             }
 
-            img{
+            img {
                 width: 25.16px;
                 height: 25.16px;
                 margin-right: 16.87px;
                 transition: 0.5s all ease;
 
-                @include small-device{
+                @include small-device {
                     width: 21px;
                     height: 21px;
                     margin-right: 14.58px;
                 }
             }
-            &:hover img{
-                filter:invert(1) grayscale(1);
+            &:hover img {
+                filter: invert(1) grayscale(1);
                 transition: 0.5s all ease;
             }
         }
     }
-    &__boxRight{
-        @include small-device-down{
+    &__boxRight {
+        @include small-device-down {
             display: none;
         }
-        &__image{
-        height: 592px;
-        max-width: 451px;
-        width: 100%;
-        background: #ffff;
-        margin-left: auto;
+        &__image {
+            height: 592px;
+            max-width: 451px;
+            width: 100%;
+            background: #ffff;
+            margin-left: auto;
 
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
@@ -1249,12 +1245,11 @@ body {
     font-size: 29px;
 }
 
-
 // BEGIN FORM
 
-.form-placeholder{
+.form-placeholder {
     position: relative;
-    .placeholder--custom{
+    .placeholder--custom {
         font-size: 16px;
         position: absolute;
         top: 50%;
@@ -1265,47 +1260,47 @@ body {
         transform: translate(0, -50%);
         transition: ease all 0.3s;
     }
-    &.select{
-        .placeholder--custom{
+    &.select {
+        .placeholder--custom {
             opacity: 0;
             visibility: hidden;
         }
     }
 
-    &.select{
-        &.focusing{
-            .placeholder--custom{
+    &.select {
+        &.focusing {
+            .placeholder--custom {
                 opacity: 1;
                 visibility: visible;
             }
-            > select{
+            > select {
                 padding-top: 10px;
                 padding-bottom: 0;
             }
         }
     }
 
-    > select{
+    > select {
         transition: ease all 0.3s;
         background-color: #fff !important;
         height: 40px;
     }
 
-    > input{
+    > input {
         transition: ease all 0.3s;
         background-color: #fff !important;
         height: 40px;
     }
 
-    &.focusing{
-        .placeholder--custom{
+    &.focusing {
+        .placeholder--custom {
             font-size: 12px;
             color: #777777;
             top: 0;
             transform: translate(0);
             transition: ease all 0.3s;
         }
-        > input{
+        > input {
             padding-top: 18px;
             height: 40px;
             transition: ease all 0.3s;
@@ -1326,12 +1321,12 @@ body {
     background-position: top center;
     background-repeat: no-repeat;
 
-    &__wrapper-title{
+    &__wrapper-title {
         display: flex;
         flex-direction: column;
         margin-top: -197px;
     }
-    &__title{
+    &__title {
         font-size: 3.75rem;
         color: #000;
         font-family: "Poppins", sans-serif, arial;
@@ -1339,11 +1334,11 @@ body {
         margin-bottom: 10px;
         position: relative;
 
-        @include medium-device-down{
+        @include medium-device-down {
             font-size: 1.85rem;
         }
     }
-    &__subtitle{
+    &__subtitle {
         font-size: 1.75rem;
         color: #000;
         font-family: "Poppins", sans-serif, arial;
@@ -1351,8 +1346,84 @@ body {
         margin-bottom: 10px;
         position: relative;
 
-        @include medium-device-down{
+        @include medium-device-down {
             font-size: 1.25rem;
         }
+    }
+}
+
+// ANIMAÇÃO
+
+.fadeInLeft {
+    transform: translateX(-50%);
+}
+
+.fadeInRight {
+    transform: translateX(50%);
+}
+
+.fadeInTop {
+    transform: translateY(-10%);
+}
+
+.fadeInBottom {
+    transform: translateY(10%);
+}
+
+.blur-5 {
+    filter: blur(5px);
+}
+
+.t-delay-1s {
+    transition-delay: 1s;
+}
+
+.animation {
+    opacity: 0;
+    transition-duration: 1s;
+    transition-property: all;
+}
+
+.animated {
+    opacity: 1;
+    transition-duration: 1s;
+    transition-property: all;
+
+    &.blur-5 {
+        filter: blur(0px);
+    }
+
+    &.fadeInRight,
+    &.fadeInLeft {
+        transform: translateX(0);
+    }
+
+    &.fadeInTop,
+    &.fadeInBottom {
+        transform: translateY(0);
+    }
+}
+
+.delay-group {
+    $transition-delay: 0.1s; // Valor inicial para o delay da transição
+    $transition-delay-increment: 0.1s; // Incremento para cada elemento
+
+    @for $i from 1 through 20 {
+        // Substitui $i pelo número de elementos no grupo
+        &:nth-child(#{$i}) {
+            transition-delay: $transition-delay +
+                ($i * $transition-delay-increment);
+        }
+    }
+}
+
+.hover-image-box {
+    &__target {
+        transition: all 0.4s ease;
+    }
+
+    &:hover &__target {
+        scale: 1.1;
+        transition: all 0.4s ease;
     }
 }
