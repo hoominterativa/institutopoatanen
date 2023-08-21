@@ -1,67 +1,67 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.copa02-page{
-    .row--boxStandard{
-        @include medium-device-down{
+.copa02-page {
+    .row--boxStandard {
+        @include medium-device-down {
             margin: 0 auto;
         }
     }
-    &__assortedBox{
-        &__header{
+    &__assortedBox {
+        &__header {
             text-align: center;
             margin: 0;
             padding-bottom: 0;
-        
-            .container-assortedBox--copa02-page{
+            @include backG;
+
+            .container-assortedBox--copa02-page {
                 padding: 123px 0 59px 0;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     padding: 108px 0 46px 0;
                     width: 90%;
                     margin: 0 auto;
                 }
             }
-            &__mask{
+            &__mask {
                 position: absolute;
-                top:0;
-                left:0;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 background-color: rgb(0 0 0 / 18%);
             }
-            
-        
-            &__encompass{
+
+            &__encompass {
                 z-index: 100;
-                position: relative; 
+                position: relative;
             }
-            &__title{
+            &__title {
                 font-size: $T1;
                 font-family: $font-primary;
                 color: $color-black;
                 font-weight: $weight-700;
                 display: block;
                 margin-bottom: 8px;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font-size: $T1-mobile;
                     font-weight: $weight-700;
                 }
             }
-            &__subtitle{
+            &__subtitle {
                 font-size: $T3;
                 font-family: $font-primary;
                 color: $color-black;
                 font-weight: $weight-700;
                 display: block;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font-size: $T3-mobile;
                     font-weight: $weight-700;
                 }
             }
-            &__line{
+            &__line {
                 background-color: $color-black;
                 margin: 0 auto;
                 margin-top: 10px;
@@ -71,102 +71,100 @@
                 height: 1px;
                 width: 100%;
             }
-        }  
-        &__content{
         }
-        &__boxStandard{
-
-            &__mask{
+        &__content {
+        }
+        &__boxStandard {
+            &__mask {
                 position: absolute;
-                top:0;
-                left:0;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 background-color: rgb(0 0 0 / 18%);
             }
 
-            &:nth-of-type(even) &__image{
+            &:nth-of-type(even) &__image {
                 order: 2;
-                @include medium-device-down{
+                @include medium-device-down {
                     order: inherit;
                 }
             }
-            &:nth-of-type(even) &__description{
+            &:nth-of-type(even) &__description {
                 order: 1;
                 padding-left: 0 !important;
                 padding-right: 64px !important;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     order: inherit;
                     padding-right: 0 !important;
                 }
             }
-            .container--boxStandard{
+            .container--boxStandard {
                 padding: 90px 0 126px 0;
                 z-index: 100;
                 position: relative;
-               
 
-                @include medium-device-down{
+                @include medium-device-down {
                     padding: 97px 0 73px 0;
                     width: 90%;
                     margin: 0 auto;
                 }
             }
-            
-            &__image{
+
+            &__image {
                 height: 473px;
                 max-width: 655px;
                 min-width: 300px;
                 width: 100%;
                 padding: 0;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     height: 245px;
                     max-width: 100%;
                     width: 100%;
                 }
-            
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
-            &__description{
+            &__description {
                 padding-left: 64px !important;
                 padding-right: 0 !important;
 
-                @include medium-device-down{
-                    padding-top:33px ;
-                    padding-left: 0!important;
+                @include medium-device-down {
+                    padding-top: 33px;
+                    padding-left: 0 !important;
                     padding-right: 0 !important;
                 }
-                &__title{
+                &__title {
                     font-size: $T5;
                     font-family: $font-primary;
                     color: $color-black;
                     font-weight: $weight-700;
                     margin-bottom: 0;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font-size: $T5-mobile;
                         font-weight: $weight-700;
                     }
                 }
-                &__subtitle{
+                &__subtitle {
                     font-size: $T2;
                     font-family: $font-primary;
                     color: $color-one;
                     font-weight: $weight-700;
                     margin-bottom: 0;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font-size: $T2-mobile;
                         font-weight: $weight-700;
                     }
                 }
-                &__line{
+                &__line {
                     background-color: $color-one;
                     margin: 0 auto;
                     margin-top: 21px;
@@ -176,42 +174,41 @@
                     border: none;
                     height: 1px;
                     width: 100%;
-
                 }
-                &__paragraph{
+                &__paragraph {
                     font: $paragraph;
                     color: $color-two;
                     font-weight: $weight-400;
                     display: block;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font: $paragraph-mobile;
                         font-weight: $weight-400;
                     }
-    
-                    p{
+
+                    p {
                         font: $paragraph;
                         color: $color-two;
-                        font-weight: $weight-400; 
-                        margin-bottom: 0; 
-    
-                        @include medium-device-down{
+                        font-weight: $weight-400;
+                        margin-bottom: 0;
+
+                        @include medium-device-down {
                             font-size: $paragraph-mobile;
                             font-weight: $weight-400;
                         }
                     }
                 }
-                &__cta{ 
+                &__cta {
                     margin-left: auto;
-                    margin-top:28px;
+                    margin-top: 28px;
                     float: right;
 
-                    @include small-device{
+                    @include small-device {
                         font: $paragraph-mobile;
                         margin-top: 43px;
                     }
 
-                    &__link{
+                    &__link {
                         @include Flex;
                         color: $color-one;
                         background: $color-four;
@@ -220,115 +217,111 @@
                         max-width: 190px;
                         min-width: 177px;
                         height: 45px;
-                        font-family:$font-primary;
+                        font-family: $font-primary;
                         font-weight: $weight-700;
                         display: flex;
                         gap: 0 16.87px;
                         font: $paragraph;
 
-                        @include medium-device-down{
+                        @include medium-device-down {
                             max-width: 159px;
                             min-width: 159px;
                             height: 40px;
                             font: $paragraph-mobile;
-                        } 
+                        }
                     }
-    
-                    &__icon{
+
+                    &__icon {
                         height: 25px;
                         width: 25px;
-                        object-fit:contain;
+                        object-fit: contain;
 
-                        
-                        @include medium-device-down{
+                        @include medium-device-down {
                             height: 22.58px;
                             width: 22.58px;
                         }
                     }
-    
-                    
-    
-                    &:hover &__link{
+
+                    &:hover &__link {
                         color: $color-white;
                         background-color: $bg-black;
-    
-                        .copa02-page__assortedBox__boxStandard__description__cta__img{
+
+                        .copa02-page__assortedBox__boxStandard__description__cta__img {
                             filter: invert(1) grayscale(1);
                         }
                     }
                 }
-                
             }
-        }   
-    } 
+        }
+    }
     // Fim assortedBox
-    &__emphasis{
-        &__mask{
+    &__emphasis {
+        &__mask {
             position: absolute;
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgb(0 0 0 / 18%);
         }
-        &__header{
+        &__header {
             text-align: center;
             margin: 0;
             padding-bottom: 0;
             position: relative;
             z-index: 100;
-        
-            .container-emphasis--copa02-page{
+
+            .container-emphasis--copa02-page {
                 padding: 129px 0 59px 0;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     padding: 60px 0 53px 0;
                     width: 90%;
                     margin: 0 auto;
                 }
             }
-            &__mask{
+            &__mask {
                 position: absolute;
-                top:0;
-                left:0;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 background-color: rgb(0 0 0 / 73%);
             }
-            @include medium-device-down{
+            @include medium-device-down {
                 padding: 54px 0;
             }
-        
-            &__encompass{
+
+            &__encompass {
                 z-index: 100;
-                position: relative; 
+                position: relative;
             }
-            &__title{
+            &__title {
                 font-size: $T2;
                 font-family: $font-primary;
                 color: $color-one;
                 font-weight: $weight-700;
                 display: block;
                 // margin-bottom: 8px;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font-size: $T2-mobile;
                     font-weight: $weight-700;
                 }
             }
-            &__subtitle{
+            &__subtitle {
                 font-size: $T4;
                 font-family: $font-primary;
                 color: $color-three;
                 font-weight: $weight-700;
                 display: block;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font-size: $T3-mobile;
                     font-weight: $weight-700;
                 }
             }
-            &__line{
+            &__line {
                 background-color: $color-one;
                 margin: 0 auto;
                 margin-top: 17.03px;
@@ -340,133 +333,132 @@
                 width: 100%;
                 max-width: 698px;
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph;
                 color: $color-two;
                 font-weight: $weight-400;
                 display: block;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font: $paragraph-mobile;
                     font-weight: $weight-400;
                 }
 
-                p{
+                p {
                     font: $paragraph;
                     color: $color-two;
-                    font-weight: $weight-400; 
-                    margin-bottom: 0; 
+                    font-weight: $weight-400;
+                    margin-bottom: 0;
 
-                    @include medium-device-down{
+                    @include medium-device-down {
                         font: $paragraph-mobile;
                         font-weight: $weight-400;
                     }
                 }
             }
-            
-        }  
+        }
     }
-    &__boxTopic{
-        .container--copa02-page-boxTopic{
+    &__boxTopic {
+        .container--copa02-page-boxTopic {
             padding: 90px 0 126px 0;
             position: relative;
             z-index: 100;
 
-            @include medium-device-down{
+            @include medium-device-down {
                 width: 90%;
                 margin: 0 auto;
                 padding: 71px 0 71.4px 0;
             }
         }
-        .carousel-topics-copa02-page{
+        .carousel-topics-copa02-page {
             display: flex;
             justify-content: center;
             margin-top: 57.65px;
             flex-direction: column;
         }
-        .carousel-topics-copa02-page .owl-dots{
+        .carousel-topics-copa02-page .owl-dots {
             display: flex;
-            gap:0 5px;
+            gap: 0 5px;
             align-items: center;
             justify-content: center;
             margin-top: 55.86px;
         }
-        .carousel-topics-copa02-page .owl-dot{
+        .carousel-topics-copa02-page .owl-dot {
             height: 23px;
             width: 24px;
             background: $color-two;
         }
-        .carousel-topics-copa02-page .owl-dot.active{
+        .carousel-topics-copa02-page .owl-dot.active {
             background: $color-black;
         }
 
-        &__mask{
+        &__mask {
             position: absolute;
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgb(0 0 0 / 18%);
         }
-        &__header{
+        &__header {
             text-align: center;
             margin-bottom: 58px;
 
-            @include medium-device-down{
+            @include medium-device-down {
                 margin-bottom: 47px;
             }
-        
-            .container-emphasis--copa02-page{
+
+            .container-emphasis--copa02-page {
                 padding: 129px 0 59px 0;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     width: 90%;
                     margin: 0 auto;
                     padding: 129px 0 59px 0;
                 }
             }
-            &__mask{
+            &__mask {
                 position: absolute;
-                top:0;
-                left:0;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 background-color: rgb(0 0 0 / 18%);
             }
-            @include medium-device-down{
+            @include medium-device-down {
                 padding: 54px 0;
             }
-        
-            &__encompass{
+
+            &__encompass {
                 z-index: 100;
-                position: relative; 
+                position: relative;
             }
-            &__title{
+            &__title {
                 font-size: $T2;
                 font-family: $font-primary;
                 color: $color-one;
                 font-weight: $weight-700;
                 display: block;
                 margin-bottom: 8px;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font-size: $T2-mobile;
                     font-weight: $weight-700;
                 }
             }
-            &__subtitle{
+            &__subtitle {
                 font-size: $T4;
                 font-family: $font-primary;
                 color: $color-three;
                 font-weight: $weight-700;
                 display: block;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font-size: $T3-mobile;
                     font-weight: $weight-700;
                 }
             }
-            &__line{
+            &__line {
                 background-color: $color-black;
                 margin: 0 auto;
                 margin-top: 17.03px;
@@ -477,7 +469,7 @@
                 height: 1px;
                 width: 100%;
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph;
                 color: $color-two;
                 font-weight: $weight-400;
@@ -485,86 +477,85 @@
                 max-width: 1096px;
                 width: 100%;
                 margin: 0 auto;
-        
-                @include medium-device-down{
+
+                @include medium-device-down {
                     font: $paragraph-mobile;
                     font-weight: $weight-400;
                 }
 
-                p{
+                p {
                     font: $paragraph;
                     font-family: $font-primary;
                     color: $color-two;
-                    font-weight: $weight-400; 
-                    margin-bottom: 0; 
+                    font-weight: $weight-400;
+                    margin-bottom: 0;
 
-                    @include medium-device-down{
+                    @include medium-device-down {
                         font: $paragraph-mobile;
                         font-weight: $weight-400;
                     }
                 }
             }
-           
         }
-        &__content{  
-        } 
-        &__item{
-            &__image{
+        &__content {
+        }
+        &__item {
+            &__image {
                 height: 281.39px;
                 width: 100%;
-            
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
-            &__description{
-                padding:25.68px 20.10px;
+            &__description {
+                padding: 25.68px 20.1px;
                 background-color: $color-four;
 
-                &__title{
+                &__title {
                     font-size: $T4;
                     font-family: $font-primary;
                     color: $color-black;
                     font-weight: $weight-700;
                     margin-bottom: 13.4px;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font-size: $T4-mobile;
                         font-weight: $weight-700;
                     }
                 }
-                &__subtitle{
+                &__subtitle {
                     font-size: $T5;
                     font-family: $font-primary;
                     color: $color-two;
                     font-weight: $weight-700;
                     margin-bottom: 25.68px;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font-size: $T3-mobile;
                         font-weight: $weight-700;
                     }
                 }
-                &__paragraph{
+                &__paragraph {
                     font: $paragraph-min;
                     color: $color-two;
                     font-weight: $weight-400;
                     display: block;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font: $paragraph-min-mobile;
                         font-weight: $weight-400;
                     }
-    
-                    p{
+
+                    p {
                         font: $paragraph-min;
                         color: $color-two;
-                        font-weight: $weight-400; 
-                        margin-bottom: 0; 
-    
-                        @include medium-device-down{
+                        font-weight: $weight-400;
+                        margin-bottom: 0;
+
+                        @include medium-device-down {
                             font-size: $paragraph-min-mobile;
                             font-weight: $weight-400;
                         }
@@ -573,86 +564,86 @@
             }
         }
     }
-    &__boxContent{
-        &__mask{
+    &__boxContent {
+        &__mask {
             position: absolute;
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgb(0 0 0 / 18%);
         }
-        .container--copa02-page-boxContent{
+        .container--copa02-page-boxContent {
             padding: 90px 0 126px 0;
             position: relative;
             z-index: 100;
-            
-            @include medium-device-down{
+
+            @include medium-device-down {
                 width: 90%;
                 margin: 0 auto;
                 padding: 35px 0 80px 0;
             }
         }
-        .row--copa02-page-boxContent{
-            @include medium-device-down{
+        .row--copa02-page-boxContent {
+            @include medium-device-down {
                 margin: 0 auto;
-            }  
+            }
         }
-        &__item{
-            &__image{
+        &__item {
+            &__image {
                 height: 473px;
                 max-width: 655px;
                 min-width: 300px;
                 width: 100%;
                 padding: 0;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     max-width: 100%;
                     min-width: 100%;
                     height: 245px;
                 }
-            
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
-            &__description{
+            &__description {
                 padding-left: 64px !important;
                 padding-right: 0 !important;
 
-                @include medium-device-down{
+                @include medium-device-down {
                     padding-left: 0 !important;
                     padding-right: 0 !important;
                     padding-top: 35px;
                 }
 
-                &__title{
+                &__title {
                     font-size: $T5;
                     font-family: $font-primary;
                     color: $color-black;
                     font-weight: $weight-700;
                     margin-bottom: 0;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font-size: $T5-mobile;
                         font-weight: $weight-700;
                     }
                 }
-                &__subtitle{
+                &__subtitle {
                     font-size: $T2;
                     font-family: $font-primary;
                     color: $color-one;
                     font-weight: $weight-700;
                     margin-bottom: 0;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font-size: $T2-mobile;
                         font-weight: $weight-700;
                     }
                 }
-                &__line{
+                &__line {
                     background-color: $color-black;
                     margin: 0 auto;
                     margin-top: 21px;
@@ -662,42 +653,41 @@
                     border: none;
                     height: 1px;
                     width: 100%;
-
                 }
-                &__paragraph{
+                &__paragraph {
                     font: $paragraph;
                     color: $color-two;
                     font-weight: $weight-400;
                     display: block;
-            
-                    @include medium-device-down{
+
+                    @include medium-device-down {
                         font-size: $paragraph-mobile;
                         font-weight: $weight-400;
                     }
-    
-                    p{
+
+                    p {
                         font: $paragraph;
                         color: $color-two;
-                        font-weight: $weight-400; 
-                        margin-bottom: 0; 
-    
-                        @include medium-device-down{
+                        font-weight: $weight-400;
+                        margin-bottom: 0;
+
+                        @include medium-device-down {
                             font: $paragraph-mobile;
                             font-weight: $weight-400;
                         }
                     }
                 }
-                &__cta{ 
+                &__cta {
                     margin-left: auto;
-                    margin-top:28px;
+                    margin-top: 28px;
                     float: right;
 
-                    @include medium-device-down{
+                    @include medium-device-down {
                         font: $paragraph-mobile;
                         margin-top: 43px;
                     }
 
-                    &__link{
+                    &__link {
                         @include Flex;
                         color: $color-one;
                         background: $color-four;
@@ -706,43 +696,40 @@
                         max-width: 190px;
                         min-width: 177px;
                         height: 45px;
-                        font-family:$font-primary;
+                        font-family: $font-primary;
                         font-weight: $weight-700;
                         display: flex;
                         gap: 0 16.87px;
                         font: $paragraph;
 
-                        @include medium-device-down{
+                        @include medium-device-down {
                             max-width: 159px;
                             min-width: 159px;
                             height: 40px;
                             font: $paragraph-mobile;
-                        } 
+                        }
                     }
-    
-                    &__icon{
+
+                    &__icon {
                         height: 25px;
                         width: 25px;
-                        object-fit:contain;
+                        object-fit: contain;
 
-                        @include medium-device-down{
+                        @include medium-device-down {
                             height: 22.58px;
                             width: 22.58px;
                         }
                     }
-    
-                    
-    
-                    &:hover &__link{
+
+                    &:hover &__link {
                         color: $color-white;
                         background-color: $bg-black;
-    
-                        .copa02-page__boxContent__item__description__cta__img{
+
+                        .copa02-page__boxContent__item__description__cta__img {
                             filter: invert(1) grayscale(1);
                         }
                     }
                 }
-                
             }
         }
     }
