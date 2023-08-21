@@ -4,137 +4,20 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD03',
-            'themeMenu' => 'SIDE03'
+            'Code' => 'HEAD02',
+            'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT04',
+            'Code' => 'FOOT02',
         ]
     ],
 
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Slides' => (object) [
-            'SLID01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Banner',
-                    'iconPanel' => 'mdi-projector-screen'
-                ]
-            ],
-        ],
-        'Topics' => (object) [
-            'TOPI102' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Próximos Eventos',
-                    'anchor' =>  true,
-                    'linkMenu' => '#TOPI102',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Próximos Eventos',
-                    'iconPanel' => 'mdi-book-multiple-outline'
-                ]
-            ],
-        ],
-        'Galleries' => (object) [
-            'GALL02' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Eventos Realizados',
-                    'anchor' =>  true,
-                    'linkMenu' => '#GALL02',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Eventos Realizados',
-                    'iconPanel' => 'mdi-folder-multiple-image'
-                ]
-            ],
-        ], 
-        'Portfolios' => (object) [
-            'PORT101' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Menu',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Menu',
-                    'iconPanel' => ''
-                ],
-            ],
-        ],
+
         'Contents' => (object) [
-            'CONT11' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                'titleMenu' => '',
-                'anchor' => false,
-                'linkMenu' => '',
-                'iconMenu' => '',
-                'titlePanel' => 'Conteúdo',
-                'iconPanel' => 'mdi-table-of-contents'
-                ]
-            ],
-        ],
-        'Blogs' => (object) [
-            'BLOG01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home},featured_page=1{Detaques Página}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Artigos',
-                    'anchor' =>  false,
-                    'linkMenu' => 'blog01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Artigos',
-                    'iconPanel' => ''
-                ],
-                'IncludeSections' => (object) [
-                ]
-            ],
-        ],
-        'Galleries.1' => (object) [
-            'GALL01' => (object)[
+            'CONT12' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -142,14 +25,14 @@ return [
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => '',
-                    'anchor' =>  false,
+                    'anchor' => false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Galeria',
-                    'iconPanel' => 'mdi-folder-multiple-image'
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => 'mdi-table-of-contents'
                 ]
             ],
-        ], 
+        ],
     ],
 
     'ModelsForm' => (object)[

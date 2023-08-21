@@ -1,0 +1,146 @@
+@import "variables";
+
+/* BEGIN STYLE */
+@import "variables";
+
+/* BEGIN STYLE */
+
+.cont12 {
+    &__header {
+        padding: 49px 0 10px 0;
+
+        &__container {
+            @include Flex($direction: column);
+        }
+    }
+    &__title {
+        font-family: $font-primary;
+        font-weight: 700;
+        font-size: $T2;
+        color: $color-black;
+        line-height: normal;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $T2-mobile;
+        }
+    }
+    &__subtitle {
+        font-family: $font-primary;
+        font-weight: 700;
+        font-size: $T4;
+        color: $color-two;
+        line-height: normal;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+        }
+    }
+    &__line {
+        width: 100%;
+        border: 1px solid #000;
+        opacity: 1;
+    }
+
+    &__main {
+        background-color: $color-three;
+        padding: 46px 0 120px 0;
+    }
+    &__list {
+        list-style: none;
+        margin-bottom: 0;
+        @include Flex($justify: flex-start);
+        flex-wrap: wrap;
+        gap: 20px 5%;
+
+        @include medium-device-down {
+            padding: 0 2.5vw !important;
+        }
+
+        &__item {
+            width: 47.5%;
+            border-bottom: 1px solid $color-black;
+            @include Flex($justify: space-between);
+            padding: 17px 0;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            @include small-device-down {
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            &__left {
+                @include Flex($justify: flex-start);
+            }
+
+            &__icon {
+                width: 22px;
+                height: auto;
+                aspect-ratio: 1/1;
+                object-fit: contain;
+                object-position: center;
+                margin-right: 1rem;
+            }
+
+            &__title {
+                font-family: $font-primary;
+                font-weight: 700;
+                font-size: $T4;
+                color: $color-two;
+                line-height: normal;
+                text-align: left;
+                margin-bottom: 0;
+
+                @include medium-device-down {
+                    font-size: $T4-mobile;
+                }
+            }
+
+            &__right {
+                @include Flex($justify: end);
+                gap: 0.5rem;
+                flex-wrap: wrap;
+            }
+
+            &__cta {
+                @include Flex($justify: flex-start);
+                padding: 8px 32px;
+                background-color: $color-white;
+                border: 1px solid $color-white;
+
+                font: $paragraph;
+                font-weight: 700;
+                color: $color-one;
+                white-space: nowrap;
+
+                @include medium-device-down {
+                    font: $paragraph-mobile;
+                    font-weight: 700;
+                }
+
+                &:hover {
+                    border-color: $color-white;
+                    background-color: transparent;
+                    color: $color-white;
+                    transition: ease-out 0.3s;
+                }
+
+                &__icon {
+                    width: 22px;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    object-fit: contain;
+                    object-position: center;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+}
