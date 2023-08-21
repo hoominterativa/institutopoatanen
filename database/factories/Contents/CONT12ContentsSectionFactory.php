@@ -3,16 +3,16 @@
 namespace Database\Factories\Contents;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Contents\CONT12Contents;
+use App\Models\Contents\CONT12ContentsSection;
 
-class CONT12ContentsFactory extends Factory
+class CONT12ContentsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CONT12Contents::class;
+    protected $model = CONT12ContentsSection::class;
 
     /**
      * Define the model's default state.
@@ -23,11 +23,7 @@ class CONT12ContentsFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'path_image_icon' => 'uploads/tmp/favicon.png',
-            'title_button' => $this->faker->text(10),
-            'link_button' => $this->faker->url(),
-            'target_link' => '_blank',
-            'path_archive' => 'uploads/tmp/guerreiro.png',
+            'subtitle' => $this->faker->text(12),
             'active' => 1,
         ];
     }

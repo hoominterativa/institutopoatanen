@@ -733,6 +733,13 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "CONT12": {
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            }
         }
     },
     "ContentPages": {

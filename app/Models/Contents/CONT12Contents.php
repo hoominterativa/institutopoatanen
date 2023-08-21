@@ -16,7 +16,7 @@ class CONT12Contents extends Model
     }
 
     protected $table = "cont12_contents";
-    protected $fillable = [];
+    protected $fillable = ['title', 'path_image_icon', 'title_button', 'link_button', 'target_link', 'path_archive', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class CONT12Contents extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }
