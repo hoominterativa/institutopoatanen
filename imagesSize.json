@@ -1344,7 +1344,7 @@
             "path_image": {
                 "width": "300",
                 "height": "300",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "Section": {
                 "path_image_background": {
@@ -1477,7 +1477,7 @@
             "path_image_desktop": {
                 "width": "1450",
                 "height": "836",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_mobile": {
                 "width": "390",
@@ -1488,7 +1488,7 @@
                 "path_image_desktop": {
                     "width": "318",
                     "height": "484",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
                 "path_image_mobile": {
                     "width": "272",
