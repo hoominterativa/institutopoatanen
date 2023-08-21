@@ -78,7 +78,7 @@
             @if ($socials->count())
                 <nav class="side03__network d-flex align-items-center justify-content-center">
                     @foreach ($socials as $social)
-                        <a href="{{$social->link}}"  target="_blank" social-link transition" title="{{$social->title}}">
+                        <a href="{{$social->link}}"  target="_blank" class="social-link transition" title="{{$social->title}}">
                             <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
                         </a>
                     @endforeach

@@ -226,7 +226,7 @@
                                     'class' => 'col-md-8'
                                 ])
                             @endforeach
-                            <label for="" class="form102-form__form__checkbox-label">
+                            <label for="" class="form102__content__form__checkbox-label">
                                 {!! Form::checkbox('term_accept', 1, null, [
                                     'class' => 'form-check-input me-1',
                                     'id' => 'term_accept',
