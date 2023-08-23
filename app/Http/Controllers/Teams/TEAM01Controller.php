@@ -77,7 +77,7 @@ class TEAM01Controller extends Controller
         }
 
 
-        $teams = TEAM01Teams::with('category')->sorting()->paginate(20);
+        $teams = $teams->with('category')->sorting()->paginate(20);
         $teamsCategories = TEAM01TeamsCategory::sorting()->paginate(20);
         $categories = TEAM01TeamsCategory::exists()->sorting()->pluck('title', 'id');
         $section = TEAM01TeamsSection::first();
