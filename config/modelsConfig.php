@@ -32,7 +32,7 @@ return [
                 ]
             ],
         ],
-        'Slides' => (object) [
+        'Slides.1' => (object) [
             'SLID01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -49,22 +49,24 @@ return [
                 ]
             ],
         ],
-        'CONT10' => (object)[
-            'ViewHome' => true,
-            'ViewListMenu' => false,
-            'ViewListPanel' => true,
-            'ViewListFooter' => false,
-            'Viewer' => 'dropdown', // accepted values, list or dropdown
-            'config' => (object) [
-                'titleMenu' => '',
-                'anchor' =>  false,
-                'linkMenu' => '',
-                'iconMenu' => '',
-                'titlePanel' => 'Conteúdo',
-                'iconPanel' => ''
-            ]
-        ],
         'Contents' => (object) [
+            'CONT10' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
+        'Contents.1' => (object) [
             'CONT09' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
