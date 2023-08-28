@@ -4,17 +4,83 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => '',
-            'themeMenu' => ''
+            'Code' => 'HEAD03',
+            'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => '',
+            'Code' => 'FOOT04',
         ]
     ],
 
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
+        'Slides' => (object) [
+            'SLID02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Slide',
+                    'iconPanel' => 'mdi-animation-outline'
+                ]
+            ],
+        ],
+        'Slides' => (object) [
+            'SLID01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Slide',
+                    'iconPanel' => 'mdi-projector-screen'
+                ]
+            ],
+        ],
+        'CONT10' => (object)[
+            'ViewHome' => true,
+            'ViewListMenu' => false,
+            'ViewListPanel' => true,
+            'ViewListFooter' => false,
+            'Viewer' => 'dropdown', // accepted values, list or dropdown
+            'config' => (object) [
+                'titleMenu' => '',
+                'anchor' =>  false,
+                'linkMenu' => '',
+                'iconMenu' => '',
+                'titlePanel' => 'Conteúdo',
+                'iconPanel' => ''
+            ]
+        ],
+        'Contents' => (object) [
+            'CONT09' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => ''
+                ]
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[
