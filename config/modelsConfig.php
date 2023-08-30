@@ -61,7 +61,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Slide',
+                    'titlePanel' => 'Membros',
                     'iconPanel' => 'mdi-projector-screen'
                 ]
             ],
@@ -78,7 +78,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Galeria',
+                    'titlePanel' => 'Destaque',
                     'iconPanel' => 'mdi-folder-multiple-image'
                 ]
             ],
