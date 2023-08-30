@@ -95,7 +95,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
+                    'titlePanel' => 'Shows',
                     'iconPanel' => ''
                 ]
             ],
