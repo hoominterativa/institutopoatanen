@@ -252,7 +252,7 @@ class COPA02Controller extends Controller
                         if($content) $content->path_image_desktop = $content->path_image_mobile;
                     }
 
-                $pageSections = COPA02ContentPages::active()->sorting()->get();
+                $pageSections = COPA02ContentPagesSection::active()->sorting()->get();
                 foreach($pageSections as $pageSection) {
                     if($pageSection) $pageSection->path_image_desktop = $pageSection->path_image_mobile;
                 }
