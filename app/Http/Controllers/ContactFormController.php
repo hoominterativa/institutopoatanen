@@ -186,6 +186,24 @@ class ContactFormController extends Controller
         $arrayInputs = [];
         $data = $request->all();
 
+        $arrayContents = [];
+
+        foreach ($data['content'] as $name => $value) {
+            $type = $data['type_'.$name];
+
+            if($type=='image'){
+                $value = $helperArchive->optimizeImage($request, $name, $path, null, 100);
+            }
+
+            $content = [
+                $name => [
+                    'value' => $value,
+                    'type' => $type,
+                ]
+            ];
+            $arrayContents = array_merge($arrayContents, $content);
+        }
+
         foreach ($data as $name => $value) {
             $arrayName = explode('_', $name);
             if($arrayName[0] == 'column'){
@@ -207,7 +225,7 @@ class ContactFormController extends Controller
                         'placeholder' => $value,
                         'option' => $option,
                         'type' => $type,
-                        'required' => $required?? false,
+                        'required' => $required,
                     ]
                 ];
                 $arrayInputs = array_merge($arrayInputs, $pushArray);
@@ -230,6 +248,7 @@ class ContactFormController extends Controller
         $ContactForm->model = $request->model;
         $ContactForm->social_id = $social;
         $ContactForm->inputs = $jsonInputs;
+        $ContactForm->content = json_encode($arrayContents);
         $ContactForm->external_structure = $request->external_structure;
         $ContactForm->save();
 
