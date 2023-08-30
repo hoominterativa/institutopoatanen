@@ -725,6 +725,20 @@
                 }
             }
         },
+        "CONT10V2": {
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "900",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "1043",
+                    "activeCrop": "true"
+                }
+            }
+        },
         "CONT11": {
             "Gallery": {
                 "path_image": {

@@ -135,7 +135,7 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane show active" id="topic">
+                    <div class="tab-pane" id="topic">
                         @include('Admin.cruds.Contents.CONT09.Topics.index')
                     </div>
                 </div>

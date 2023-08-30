@@ -11843,12 +11843,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Galleries/GALL01/src/main */ "./resources/views/Client/pages/Galleries/GALL01/src/main.js");
 /* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Contents/CONT09/src/main */ "./resources/views/Client/pages/Contents/CONT09/src/main.js");
-/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _pages_Contents_CONT10V2_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Contents/CONT10V2/src/main */ "./resources/views/Client/pages/Contents/CONT10V2/src/main.js");
+/* harmony import */ var _pages_Contents_CONT10V2_src_main__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT10V2_src_main__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _pages_Topics_TOPI08_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Topics/TOPI08/src/main */ "./resources/views/Client/pages/Topics/TOPI08/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI08_src_main__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI08_src_main__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Contents/CONT09/src/main */ "./resources/views/Client/pages/Contents/CONT09/src/main.js");
+/* harmony import */ var _pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT09_src_main__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -12030,6 +12033,51 @@ if (elementosAnimados.length > 0) {
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contents/CONT10V2/src/main.js":
+/*!********************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT10V2/src/main.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
+  var quantItemAppend = $(element).find('>*').length;
+  var refFor = quantItemAppend / quantItem;
+  for (var i = 1; i <= refFor; i++) {
+    $(element).append('<div class="contItemAppend' + i + ' pd-carrossel"></div>');
+    $(element).find('> *:lt(' + quantItem + ')').addClass('appendItem' + i);
+    $(element).find('.appendItem' + i).appendTo('.contItemAppend' + i + '');
+  }
+  $(element).owlCarousel({
+    loop: false,
+    nav: nav,
+    dots: dots,
+    autoplay: false,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      620: {
+        items: 1
+      },
+      840: {
+        items: quantLamina,
+        margin: 0
+      }
+    }
+  }); // FIM $('.owl-carousel').owlCarousel({
+}
+
+$(function () {
+  carrosselMultItem('.carousel-cont10v2', 6, 1, true, true, true);
+});
 
 /***/ }),
 

@@ -5,16 +5,17 @@ namespace App\Http\Controllers\Contents;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Contents\CONT10Contents;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Contents\CONT10V2Contents;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Contents\CONT10V2ContentsSection;
 use App\Http\Controllers\IncludeSectionsController;
-use App\Models\Contents\CONT10ContentsSection;
 
-class CONT10Controller extends Controller
+class CONT10V2Controller extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -22,12 +23,12 @@ class CONT10Controller extends Controller
      */
     public function index()
     {
-        $contents = CONT10Contents::sorting()->paginate(15);
-        $section = CONT10ContentsSection::first();
-        return view('Admin.cruds.Contents.CONT10.index', [
+        $contents = CONT10V2Contents::sorting()->paginate(15);
+        $section = CONT10V2ContentsSection::first();
+        return view('Admin.cruds.Contents.CONT10V2.index', [
             'contents' => $contents,
             'section' => $section,
-            'cropSetting' => getCropImage('Contents', 'CONT10')
+            'cropSetting' => getCropImage('Contents', 'CONT10V2')
         ]);
     }
 
@@ -38,7 +39,7 @@ class CONT10Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Contents.CONT10.create');
+        return view('Admin.cruds.Contents.CONT10V2.create');
     }
 
     /**
@@ -53,10 +54,11 @@ class CONT10Controller extends Controller
 
         $date['active'] = $request->active ? 1 : 0;
         $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
-        if (CONT10Contents::create($data)) {
+        if (CONT10V2Contents::create($data)) {
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
-            return redirect()->route('admin.cont10.index');
+            return redirect()->route('admin.cont10v2.index');
         } else {
             Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
@@ -66,14 +68,14 @@ class CONT10Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contents\CONT10Contents  $CONT10Contents
+     * @param  \App\Models\Contents\CONT10V2Contents  $CONT10V2Contents
      * @return \Illuminate\Http\Response
      */
-    public function edit(CONT10Contents $CONT10Contents)
+    public function edit(CONT10V2Contents $CONT10V2Contents)
     {
-        $CONT10Contents->date = Carbon::parse($CONT10Contents->date)->format('d/m/Y');
-        return view('Admin.cruds.Contents.CONT10.edit', [
-            'content' => $CONT10Contents
+        $CONT10V2Contents->date = Carbon::parse($CONT10V2Contents->date)->format('d/m/Y');
+        return view('Admin.cruds.Contents.CONT10V2.edit', [
+            'content' => $CONT10V2Contents
         ]);
     }
 
@@ -81,17 +83,18 @@ class CONT10Controller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contents\CONT10Contents  $CONT10Contents
+     * @param  \App\Models\Contents\CONT10V2Contents  $CONT10V2Contents
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CONT10Contents $CONT10Contents)
+    public function update(Request $request, CONT10V2Contents $CONT10V2Contents)
     {
         $data = $request->all();
 
         $date['active'] = $request->active ? 1 : 0;
         $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
-        if ($CONT10Contents->fill($data)->save()) {
+        if ($CONT10V2Contents->fill($data)->save()) {
             Session::flash('success', 'Conteúdo atualizado com sucesso');
         } else {
             Session::flash('error', 'Erro ao atualizar o conteúdo');
@@ -102,13 +105,12 @@ class CONT10Controller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contents\CONT10Contents  $CONT10Contents
+     * @param  \App\Models\Contents\CONT10V2Contents  $CONT10V2Contents
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CONT10Contents $CONT10Contents)
+    public function destroy(CONT10V2Contents $CONT10V2Contents)
     {
-
-        if ($CONT10Contents->delete()) {
+        if ($CONT10V2Contents->delete()) {
             Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
@@ -122,27 +124,27 @@ class CONT10Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-
-        if ($deleted = CONT10Contents::whereIn('id', $request->deleteAll)->delete()) {
+        if ($deleted = CONT10V2Contents::whereIn('id', $request->deleteAll)->delete()) {
             return Response::json(['status' => 'success', 'message' => $deleted . ' Conteúdos deletados com sucessso']);
         }
     }
     /**
-     * Sort record by dragging and dropping
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Sort record by dragging and dropping
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
 
     public function sorting(Request $request)
     {
-        foreach ($request->arrId as $sorting => $id) {
-            CONT10Contents::where('id', $id)->update(['sorting' => $sorting]);
+        foreach($request->arrId as $sorting => $id){
+            CONT10V2Contents::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
 
     // METHODS CLIENT
+
     /**
      * Section index resource.
      *
@@ -153,16 +155,16 @@ class CONT10Controller extends Controller
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = CONT10ContentsSection::active()->first();
+                $section = CONT10V2ContentsSection::active()->first();
                 if($section) $section->path_image_desktop = $section->path_image_mobile;
                 break;
             default:
-                $section = CONT10ContentsSection::active()->first();
+                $section = CONT10V2ContentsSection::active()->first();
                 break;
         }
 
-        $contents = CONT10Contents::active()->sorting()->get();
-        return view('Client.pages.Contents.CONT10.section', [
+        $contents = CONT10V2Contents::active()->sorting()->get();
+        return view('Client.pages.Contents.CONT10V2.section', [
             'contents' => $contents,
             'section' => $section
         ]);

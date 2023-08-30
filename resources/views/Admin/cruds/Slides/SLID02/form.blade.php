@@ -120,7 +120,7 @@
         {{-- end row --}}
     </div>
     {{-- Mobile --}}
-    <div class="tab-pane show active" id="slideMobile">
+    <div class="tab-pane" id="slideMobile">
         <div class="row col-12">
             <div class="col-12 col-lg-6">
                 <div class="card card-body" id="tooltip-container">

@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                     <li class="breadcrumb-item active">
-                                        {{ getTitleModel($configModelsMain, 'Slides', 'SLID02') }}</li>
+                                        {{ getTitleModel($configModelsMain, 'Contents', 'CONT10V2') }}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{ getTitleModel($configModelsMain, 'Slides', 'SLID02') }}</h4>
+                            <h4 class="page-title">{{ getTitleModel($configModelsMain, 'Contents', 'CONT10V2') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -23,24 +23,24 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#slide" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
-                            {{ getTitleModel($configModelsMain, 'Slides', 'SLID02') }}
+                            {{ getTitleModel($configModelsMain, 'Contents', 'CONT10V2') }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#topic" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Tópicos
+                            Seção da página
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Estes tópicos serão exibidos na página com a listagem de todos os serviços"></i>
+                                data-bs-original-title="Cadastro dos tópicos da seção"></i>
                         </a>
                     </li>
                 </ul>
 
                 <div class="tab-content">
-                    <div class="tab-pane show active" id="slide">
+                    <div class="tab-pane show active" id="content">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card">
@@ -48,14 +48,15 @@
                                         <div class="row mb-3">
                                             <div class="col-6">
                                                 <button id="btSubmitDelete"
-                                                    data-route="{{ route('admin.slid02.destroySelected') }}" type="button"
-                                                    class="btn btn-danger btnDeleteSlide" style="display: none;">Deletar
+                                                    data-route="{{ route('admin.cont10v2.destroySelected') }}" type="button"
+                                                    class="btn btn-danger btnDeleteContents" style="display: none;">Deletar
                                                     selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                <a href="{{ route('admin.slid02.create') }}"
+                                                <a href="{{ route('admin.cont10v2.create') }}"
                                                     class="btn btn-success float-end">Adicionar novo <i
-                                                        class="mdi mdi-plus"></i></a>
+                                                        class="mdi mdi-plus"></i>
+                                                </a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
@@ -63,50 +64,50 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        <label><input name="btnSelectAll" value="btnDeleteSlide"
+                                                        <label><input name="btnSelectAll" value="btnDeleteContents"
                                                                 type="checkbox"></label>
                                                     </th>
-                                                    <th width="40px"></th>
-                                                    <th>Link</th>
+                                                    <th>Datas</th>
+                                                    <th>Locais</th>
+                                                    <th>Descrição</th>
+                                                    <th>Links</th>
+                                                    <th>Título do botão</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
                                             </thead>
 
-                                            <tbody data-route="{{ route('admin.slid02.sorting') }}">
-                                                @foreach ($slides as $slide)
-                                                    <tr data-code="{{ $slide->id }}">
+                                            <tbody data-route="{{ route('admin.cont10v2.sorting') }}">
+                                                @foreach ($contents as $content)
+                                                    <tr data-code="{{ $content->id }}">
                                                         <td class="align-middle"><span
                                                                 class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                         <td class="bs-checkbox align-middle">
                                                             <label><input name="btnSelectItem" class="btnSelectItem"
-                                                                    type="checkbox" value="{{ $slide->id }}"></label>
+                                                                    type="checkbox" value="{{ $content->id }}"></label>
                                                         </td>
                                                         <td class="align-middle">
-                                                            <div class="avatar-bg rounded-circle avatar-sm"
-                                                                style="background-image: url({{ asset('storage/' . $slide->path_image_desktop) }})">
-                                                            </div>
+                                                            {{ Carbon\Carbon::parse($content->date)->format('d/m/Y') }}
                                                         </td>
-                                                        <td class="align-middle">{{ $slide->link }}</td>
+                                                        <td class="align-middle">{{ $content->locale }}</td>
+                                                        <td class="align-middle">{!! $content->description !!}</td>
+                                                        <td class="align-middle"><a href="{{ $content->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                        <td class="align-middle">{{ $content->title }}</td>
                                                         <td class="align-middle">
-                                                            @switch($slide->active)
-                                                                @case(1)
-                                                                    <span class="badge bg-success">Ativo</span>
-                                                                @break
-
-                                                                @case(0)
-                                                                    <span class="badge bg-danger">Inativo</span>
-                                                                @break
-                                                            @endswitch
+                                                            @if ($content->active)
+                                                                <span class="badge bg-success">Ativo</span>
+                                                            @else
+                                                                <span class="badge bg-danger">Inativo</span>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <a href="{{ route('admin.slid02.edit', ['SLID02Slides' => $slide->id]) }}"
+                                                                    <a href="{{ route('admin.cont10v2.edit', ['CONT10V2Contents' => $content->id]) }}"
                                                                         class="btn-icon mdi mdi-square-edit-outline"></a>
                                                                 </div>
                                                                 <form
-                                                                    action="{{ route('admin.slid02.destroy', ['SLID02Slides' => $slide->id]) }}"
+                                                                    action="{{ route('admin.cont10v2.destroy', ['CONT10V2Contents' => $content->id]) }}"
                                                                     class="col-4" method="POST">
                                                                     @method('DELETE') @csrf
                                                                     <button type="button"
@@ -119,13 +120,17 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        {{-- PAGINATION --}}
+                                        <div class="mt-3 float-end">
+                                            {{ $contents->links() }}
+                                        </div>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="topic">
-                        @include('Admin.cruds.Slides.SLID02.Topics.index')
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Contents.CONT10V2.Section.form')
                     </div>
                 </div>
                 <!-- end row -->

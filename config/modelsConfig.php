@@ -48,7 +48,7 @@ return [
                     'iconPanel' => 'mdi-folder-multiple-image'
                 ]
             ],
-        ], 
+        ],
         'Slides.1' => (object) [
             'SLID01' => (object)[
                 'ViewHome' => true,
@@ -82,9 +82,9 @@ return [
                     'iconPanel' => 'mdi-folder-multiple-image'
                 ]
             ],
-        ], 
+        ],
         'Contents' => (object) [
-            'CONT10' => (object)[
+            'CONT10V2' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -117,7 +117,7 @@ return [
                 ]
             ],
         ],
-        'Contents' => (object) [
+        'Contents.2' => (object) [
             'CONT09' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -133,7 +133,7 @@ return [
                     'iconPanel' => ''
                 ]
             ],
-        ], 
+        ],
     ],
 
     'ModelsForm' => (object)[
