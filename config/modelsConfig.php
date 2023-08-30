@@ -32,6 +32,23 @@ return [
                 ]
             ],
         ],
+        'Galleries' => (object) [
+            'GALL02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Galeria',
+                    'iconPanel' => 'mdi-folder-multiple-image'
+                ]
+            ],
+        ], 
         'Slides.1' => (object) [
             'SLID01' => (object)[
                 'ViewHome' => true,
@@ -49,6 +66,23 @@ return [
                 ]
             ],
         ],
+        'Galleries.1' => (object) [
+            'GALL01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Galeria',
+                    'iconPanel' => 'mdi-folder-multiple-image'
+                ]
+            ],
+        ], 
         'Contents' => (object) [
             'CONT10' => (object)[
                 'ViewHome' => true,
@@ -66,7 +100,24 @@ return [
                 ]
             ],
         ],
-        'Contents.1' => (object) [
+        'Topics' => (object) [
+            'TOPI08' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Loja',
+                    'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
+        'Contents' => (object) [
             'CONT09' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -78,11 +129,11 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
+                    'titlePanel' => 'Album',
                     'iconPanel' => ''
                 ]
             ],
-        ],
+        ], 
     ],
 
     'ModelsForm' => (object)[
