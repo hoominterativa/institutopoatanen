@@ -344,6 +344,7 @@ class PROD05Controller extends Controller
             $products = $products->where('category_id', $PROD05ProductsCategory->id);
             $subcategories = $subcategories->join('prod05_products', 'prod05_products_subcategories.id', '=', 'prod05_products.subcategory_id')
                 ->select('prod05_products_subcategories.*', 'prod05_products.title as product_title')
+                ->whereNull('prod05_products.deleted_at')
                 ->where('prod05_products.category_id', $PROD05ProductsCategory->id);
                 $subcategories = $subcategories->active()->exists()->sorting()->groupBy('prod05_products.subcategory_id')->get();
         } else {
