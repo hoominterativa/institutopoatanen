@@ -2,7 +2,8 @@
     "Headers": [
         "HEAD01",
         "HEAD02",
-        "HEAD03"
+        "HEAD03",
+        "HEAD05"
     ],
     "Footers": [
         "FOOT03",
@@ -111,5 +112,6 @@
     ],
     "Schedules": [
         "SCHE01"
-    ]
+    ],
+    "HEAD05": []
 }

@@ -1,4 +1,4 @@
-import '../../Core/Headers/HEAD03/src/main';
+import '../../Core/Headers/HEAD05/src/main';
 import '../../Components/themeMenu/SIDE02/src/main';
 import '../../Core/Footers/FOOT04/src/main';
 import '../../pages/Slides/SLID02/src/main';
