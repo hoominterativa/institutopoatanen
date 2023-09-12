@@ -754,6 +754,20 @@
                 "height": "300",
                 "activeCrop": "false"
             }
+        },
+        "CONT13": {
+            "path_image": {
+                "width": "330",
+                "height": "423",
+                "activeCrop": "false"
+            },
+            "Category": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "ContentPages": {

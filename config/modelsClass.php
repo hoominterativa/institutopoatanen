@@ -125,6 +125,18 @@ return [
                 'model' => App\Models\Contents\CONT12Contents::class,
                 'seedQty' => 10,
             ],
+            'CONT13' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT13Controller::class,
+                'model' => App\Models\Contents\CONT13Contents::class,
+                'seedQty' => 28,
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Contents\CONT13ContentsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 7,
+                    ]
+                ]
+            ],
         ],
         // END CONTENTS
 
