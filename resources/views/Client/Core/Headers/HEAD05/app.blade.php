@@ -2,6 +2,14 @@
 <nav class="head05__navigation">
     <div class="container">
         <div class="head05__navigation__info__left">
+            @for ($i = 0; $i < 2; $i++)
+            <a class="head05__navigation__info__left__cta" href="mailto:{{ $generalSetting->email }}" target="_blank">
+                CTA
+                <img class="img" src="{{asset('images/icon.png')}}" alt="Imagem email">
+                {{$generalSetting->email }}
+            </a>
+            @endfor
+
             @if ($generalSetting->email)
             <a class="head05__navigation__info__left__cta" href="mailto:{{ $generalSetting->email }}" target="_blank">
                 <img class="img" src="{{asset('images/icon.png')}}" alt="Imagem email">
