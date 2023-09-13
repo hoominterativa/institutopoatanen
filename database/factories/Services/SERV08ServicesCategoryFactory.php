@@ -1,19 +1,19 @@
 <?php
 
-namespace Database\Factories\Contents;
+namespace Database\Factories\Services;
 
 use Illuminate\Support\Str;
-use App\Models\Contents\CONT13ContentsCategory;
+use App\Models\Services\SERV08ServicesCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CONT13ContentsCategoryFactory extends Factory
+class SERV08ServicesCategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CONT13ContentsCategory::class;
+    protected $model = SERV08ServicesCategory::class;
 
     /**
      * Define the model's default state.
@@ -21,12 +21,14 @@ class CONT13ContentsCategoryFactory extends Factory
      * @return array
      */
     public function definition()
-    {   $title = $this->faker->text(10);
+    {
+        $title = $this->faker->text(10);
         return [
             'slug' => Str::slug($title),
             'title' => $title,
             'path_image' => 'uploads/tmp/favicon.png',
             'active' => 1,
+            'featured' => rand(0,1)
         ];
     }
 }

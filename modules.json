@@ -28,8 +28,7 @@
         "CONT04",
         "CONT11",
         "CONT12",
-        "CONT10V2",
-        "CONT13"
+        "CONT10V2"
     ],
     "Portfolios": [
         "PORT01",
@@ -54,7 +53,8 @@
         "SERV04",
         "SERV05",
         "SERV06",
-        "SERV07"
+        "SERV07",
+        "SERV08"
     ],
     "Abouts": [
         "ABOU01",

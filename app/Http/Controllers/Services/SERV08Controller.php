@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Contents;
+namespace App\Http\Controllers\Services;
 
-use App\Models\Contents\CONT13Contents;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Services\SERV08Services;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV08ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
-use App\Models\Contents\CONT12Contents;
 
-class CONT13Controller extends Controller
+class SERV08Controller extends Controller
 {
-    protected $path = 'uploads/Contents/CONT13/images/';
+    protected $path = 'uploads/Services/SERV08/images/';
 
     /**
      * Display a listing of the resource.
@@ -23,9 +23,13 @@ class CONT13Controller extends Controller
      */
     public function index()
     {
-        $contents = CONT13Contents::sorting()->paginate(32);
-        return view('Admin.cruds.Contents.CONT13.index',[
-            'contents' => $contents,
+        $services = SERV08Services::sorting()->paginate(32);
+        $serviceCategories = SERV08ServicesCategory::sorting()->paginate(10);
+        $categories = SERV08ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Services.SERV08.index', [
+            'services' => $services,
+            'serviceCategories' => $serviceCategories,
+            'categories' => $categories
         ]);
     }
 
@@ -36,7 +40,11 @@ class CONT13Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = SERV08ServicesCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Services.SERV08.create', [
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Services', 'SERV08')
+        ]);
     }
 
     /**
@@ -68,7 +76,7 @@ class CONT13Controller extends Controller
 
         */
 
-        if(CONT13Contents::create($data)){
+        if(SERV08Services::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -82,10 +90,10 @@ class CONT13Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contents\CONT13Contents  $CONT13Contents
+     * @param  \App\Models\Services\SERV08Services  $SERV08Services
      * @return \Illuminate\Http\Response
      */
-    public function edit(CONT13Contents $CONT13Contents)
+    public function edit(SERV08Services $SERV08Services)
     {
         //
     }
@@ -94,10 +102,10 @@ class CONT13Controller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contents\CONT13Contents  $CONT13Contents
+     * @param  \App\Models\Services\SERV08Services  $SERV08Services
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CONT13Contents $CONT13Contents)
+    public function update(Request $request, SERV08Services $SERV08Services)
     {
         $data = $request->all();
 
@@ -108,11 +116,11 @@ class CONT13Controller extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($CONT13Contents, 'path_image');
+            storageDelete($SERV08Services, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($CONT13Contents, 'path_image');
+            storageDelete($SERV08Services, 'path_image');
             $data['path_image'] = null;
         }
         */
@@ -125,18 +133,18 @@ class CONT13Controller extends Controller
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
 
         if($path_archive){
-            storageDelete($CONT13Contents, 'path_archive');
+            storageDelete($SERV08Services, 'path_archive');
             $data['path_archive'] = $path_archive;
         }
 
         if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT13Contents, 'path_archive');
+            storageDelete($SERV08Services, 'path_archive');
             $data['path_archive'] = null;
         }
 
         */
 
-        if($CONT13Contents->fill($data)->save()){
+        if($SERV08Services->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -150,15 +158,15 @@ class CONT13Controller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contents\CONT13Contents  $CONT13Contents
+     * @param  \App\Models\Services\SERV08Services  $SERV08Services
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CONT13Contents $CONT13Contents)
+    public function destroy(SERV08Services $SERV08Services)
     {
-        //storageDelete($CONT13Contents, 'path_image');
-        //storageDelete($CONT13Contents, 'path_archive');
+        //storageDelete($SERV08Services, 'path_image');
+        //storageDelete($SERV08Services, 'path_archive');
 
-        if($CONT13Contents->delete()){
+        if($SERV08Services->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -174,14 +182,14 @@ class CONT13Controller extends Controller
     {
         /* Use the code below to upload image or archive, if not, delete code
 
-        $CONT13Contentss = CONT13Contents::whereIn('id', $request->deleteAll)->get();
-        foreach($CONT13Contentss as $CONT13Contents){
-            storageDelete($CONT13Contents, 'path_image');
-            storageDelete($CONT13Contents, 'path_archive');
+        $SERV08Servicess = SERV08Services::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV08Servicess as $SERV08Services){
+            storageDelete($SERV08Services, 'path_image');
+            storageDelete($SERV08Services, 'path_archive');
         }
         */
 
-        if($deleted = CONT13Contents::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = SERV08Services::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
@@ -195,7 +203,7 @@ class CONT13Controller extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            CONT13Contents::where('id', $id)->update(['sorting' => $sorting]);
+            SERV08Services::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
@@ -206,16 +214,16 @@ class CONT13Controller extends Controller
      * Display the specified resource.
      * Content method
      *
-     * @param  \App\Models\Contents\CONT13Contents  $CONT13Contents
+     * @param  \App\Models\Services\SERV08Services  $SERV08Services
      * @return \Illuminate\Http\Response
      */
-    //public function show(CONT13Contents $CONT13Contents)
+    //public function show(SERV08Services $SERV08Services)
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV08', 'show');
 
-        return view('Client.pages.Module.Model.show',[
+        return view('Client.pages.Services.SERV08.show',[
             'sections' => $sections
         ]);
     }
@@ -229,9 +237,9 @@ class CONT13Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV08', 'page');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Services.SERV08.page',[
             'sections' => $sections
         ]);
     }
@@ -243,6 +251,6 @@ class CONT13Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Services.SERV08.section');
     }
 }

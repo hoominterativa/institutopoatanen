@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Contents;
+namespace App\Http\Controllers\Services;
 
-use App\Models\Contents\CONT13ContentsCategory;
+use App\Models\Services\SERV08ServicesCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
-class CONT13CategoryController extends Controller
+class SERV08CategoryController extends Controller
 {
     protected $path = 'uploads/Module/Code/images/';
 
@@ -64,7 +64,7 @@ class CONT13CategoryController extends Controller
 
         */
 
-        if(CONT13ContentsCategory::create($data)){
+        if(SERV08ServicesCategory::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -78,10 +78,10 @@ class CONT13CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contents\CONT13ContentsCategory  $CONT13ContentsCategory
+     * @param  \App\Models\Services\SERV08ServicesCategory  $SERV08ServicesCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(CONT13ContentsCategory $CONT13ContentsCategory)
+    public function edit(SERV08ServicesCategory $SERV08ServicesCategory)
     {
         //
     }
@@ -90,10 +90,10 @@ class CONT13CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contents\CONT13ContentsCategory  $CONT13ContentsCategory
+     * @param  \App\Models\Services\SERV08ServicesCategory  $SERV08ServicesCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CONT13ContentsCategory $CONT13ContentsCategory)
+    public function update(Request $request, SERV08ServicesCategory $SERV08ServicesCategory)
     {
         $data = $request->all();
 
@@ -104,11 +104,11 @@ class CONT13CategoryController extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($CONT13ContentsCategory, 'path_image');
+            storageDelete($SERV08ServicesCategory, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($CONT13ContentsCategory, 'path_image');
+            storageDelete($SERV08ServicesCategory, 'path_image');
             $data['path_image'] = null;
         }
         */
@@ -121,18 +121,18 @@ class CONT13CategoryController extends Controller
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
 
         if($path_archive){
-            storageDelete($CONT13ContentsCategory, 'path_archive');
+            storageDelete($SERV08ServicesCategory, 'path_archive');
             $data['path_archive'] = $path_archive;
         }
 
         if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT13ContentsCategory, 'path_archive');
+            storageDelete($SERV08ServicesCategory, 'path_archive');
             $data['path_archive'] = null;
         }
 
         */
 
-        if($CONT13ContentsCategory->fill($data)->save()){
+        if($SERV08ServicesCategory->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -146,15 +146,15 @@ class CONT13CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contents\CONT13ContentsCategory  $CONT13ContentsCategory
+     * @param  \App\Models\Services\SERV08ServicesCategory  $SERV08ServicesCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CONT13ContentsCategory $CONT13ContentsCategory)
+    public function destroy(SERV08ServicesCategory $SERV08ServicesCategory)
     {
-        //storageDelete($CONT13ContentsCategory, 'path_image');
-        //storageDelete($CONT13ContentsCategory, 'path_archive');
+        //storageDelete($SERV08ServicesCategory, 'path_image');
+        //storageDelete($SERV08ServicesCategory, 'path_archive');
 
-        if($CONT13ContentsCategory->delete()){
+        if($SERV08ServicesCategory->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -170,14 +170,14 @@ class CONT13CategoryController extends Controller
     {
         /* Use the code below to upload image or archive, if not, delete code
 
-        $CONT13ContentsCategorys = CONT13ContentsCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($CONT13ContentsCategorys as $CONT13ContentsCategory){
-            storageDelete($CONT13ContentsCategory, 'path_image');
-            storageDelete($CONT13ContentsCategory, 'path_archive');
+        $SERV08ServicesCategorys = SERV08ServicesCategory::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV08ServicesCategorys as $SERV08ServicesCategory){
+            storageDelete($SERV08ServicesCategory, 'path_image');
+            storageDelete($SERV08ServicesCategory, 'path_archive');
         }
         */
 
-        if($deleted = CONT13ContentsCategory::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = SERV08ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
@@ -191,7 +191,7 @@ class CONT13CategoryController extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            CONT13ContentsCategory::where('id', $id)->update(['sorting' => $sorting]);
+            SERV08ServicesCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
@@ -202,10 +202,10 @@ class CONT13CategoryController extends Controller
      * Display the specified resource.
      * Content method
      *
-     * @param  \App\Models\Contents\CONT13ContentsCategory  $CONT13ContentsCategory
+     * @param  \App\Models\Services\SERV08ServicesCategory  $SERV08ServicesCategory
      * @return \Illuminate\Http\Response
      */
-    //public function show(CONT13ContentsCategory $CONT13ContentsCategory)
+    //public function show(SERV08ServicesCategory $SERV08ServicesCategory)
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
