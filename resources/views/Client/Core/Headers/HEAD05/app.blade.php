@@ -1,32 +1,34 @@
-<nav class="HEADE05__info ">
+<!-- INICIO HEADER NAVIGATION -->
+<nav class="head05__navigation">
     <div class="container">
-        <div class="HEADE05__info__left">
+        <div class="head05__navigation__info__left">
             @if ($generalSetting->email)
-                <a class="info-contato" href="mailto:{{ $generalSetting->email }}" target="_blank">
-                    <img class="img" src="{{asset('images/contato.png')}}" alt="Imagem email">
-                    {{$generalSetting->email }}
-                </a>
+            <a class="head05__navigation__info__left__cta" href="mailto:{{ $generalSetting->email }}" target="_blank">
+                <img class="img" src="{{asset('images/icon.png')}}" alt="Imagem email">
+                {{$generalSetting->email }}
+            </a>
             @endif
             @if ($generalSetting->phone)
-                <a class="info-contato" href="{{ $generalSetting->phone }}" target="_blank">
-                    <img class="img" src="{{asset('images/telefone.png')}}" alt="Imagem Contato">
-                    {{$generalSetting->phone }}
-                </a>
+            <a class="head05__navigation__info__left__cta" href="{{ $generalSetting->phone }}" target="_blank">
+                <img class="img" src="{{asset('images/icon.png')}}" alt="Imagem Contato">
+                {{$generalSetting->phone }}
+            </a>
             @endif
             @if ($generalSetting->whatsapp)
-                <a class="info-contato" href="https://api.whatsapp.com/send?phone=55{{ Str::slug($generalSetting->whatsapp, '') }}" target="_blank">
-                    <img class="img" src="{{asset('images/telefone.png')}}" alt="Imagem whatsapp">
-                    {{$generalSetting->whatsapp }}
-                </a>
+            <a class="head05__navigation__info__left__cta" href="https://api.whatsapp.com/send?phone=55{{ Str::slug($generalSetting->whatsapp, '') }}" target="_blank">
+                <img class="img" src="{{asset('images/icon.png')}}" alt="Imagem whatsapp">
+                {{$generalSetting->whatsapp }}
+            </a>
             @endif
         </div>
         @if ($socials -> count())
-        <div class="HEADE05__info__right">
-            <ul class="info__midia-social">
+        <div class="head05__navigation__info__right">
+            <ul class="head05__navigation__info__right__social">
+                <h3 class="head05__navigation__info__right__social__titulo">Redes Sociais:</h3>
                 @foreach ($socials as $social)
-                <li class="midia-social__icon">
-                    <a class="link-full" href="{{$social -> link}}"></a>
-                    <img class="img" src="{{asset('storage/'.$social -> path_image_icon)}}" alt="{{$social -> title}}">
+                <li class="head05__navigation__info__right__social__icon">
+                    <a class="head05__navigation__info__right__social__cta" href="{{$social -> link}}"></a>
+                    <img class="head05__navigation__info__right__social__img" src="{{asset('storage/'.$social -> path_image_icon)}}" alt="{{$social -> title}}">
                 </li>
                 @endforeach
             </ul>
@@ -34,7 +36,10 @@
         @endif
     </div>
 </nav>
-<div id="HEAD05" class="container-fluid">
+<!-- FIM HEADER05-NAVIGATION -->
+
+
+<div id="HEAD05" class="head05 container-fluid">
 
     <div class="container">
         <div class="container-header d-flex align-items-center justify-content-between">

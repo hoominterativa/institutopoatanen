@@ -1,6 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=bcde8ed1936449443dd3766edacae9ae",
+    "/js/app.js": "/js/app.js?id=a3cb59302e046f30d33eb44b5d0677c4",
     "/css/libraries.css": "/css/libraries.css?id=95e5dbd4c6d99a7d3aa129e232543a4b",
+    "/css/app.css": "/css/app.css?id=c242a7012e36d8f3129cd3be373d63a1",
     "/css/icons.css": "/css/icons.css?id=c8af191f940a1d267d3ee0b9756ce9c7",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
@@ -254,6 +255,7 @@
     "/images/arrow-faq.png": "/images/arrow-faq.png?id=b6f6fe7a72d510f05fb6e660280c6eba",
     "/images/bell-icon.png": "/images/bell-icon.png?id=97e2473b8ff369c3c6272998907f8a92",
     "/images/facebook.png": "/images/facebook.png?id=1aab8bbf90ebdecd9a2d957d4c2504af",
+    "/images/icon.png": "/images/icon.png?id=64c89a8c37cbce4bd3093b1c468a4c6d",
     "/images/instagram.png": "/images/instagram.png?id=381b83763091d7ccc284de27a366a49f",
     "/images/linkedin.png": "/images/linkedin.png?id=b4535d4d50deed32111a7616dd570ca9",
     "/images/logo-menu-sidebar.svg": "/images/logo-menu-sidebar.svg?id=e071ff0ddda03e1d85602a6ee6daee6d",
