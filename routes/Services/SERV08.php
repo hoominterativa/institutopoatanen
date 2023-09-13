@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV08Controller;
 
 /**
  * Uncomment the code below
@@ -29,4 +30,4 @@ use Illuminate\Support\Facades\Route;
 //     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 // });
 // // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{SERV08ServicesCategory:slug}', [SERV08Controller::class, 'page'])->name($routeName.'.category.page');

@@ -356,7 +356,7 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV08Controller::class,
                 'model' => App\Models\Services\SERV08Services::class,
                 'seedQty' => 28,
-                'routeName' => 'serv08.page.content',
+                'routeName' => 'serv08.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Services\SERV08ServicesCategory::class,

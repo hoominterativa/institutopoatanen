@@ -17,8 +17,8 @@ class SERV08Services extends Model
 
     protected $table = "serv08_services";
     protected $fillable = [
-        'category_id', 'title', 'subtitle', 'description', 'title_price', 'price', 'title_button',
-        'link_button', 'target_link', 'title_featured_service', 'color_featured_service', 'featured_service', 'path_image',
+        'category_id', 'title', 'subtitle', 'description', 'title_price', 'price',
+        'title_featured_service', 'color_featured_service', 'featured_service', 'path_image',
         'active', 'sorting', 'slug', 'featured', 'text',
     ];
 

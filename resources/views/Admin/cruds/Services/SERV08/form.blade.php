@@ -68,12 +68,12 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col-sm-6">
-                            {!! Form::label('title_featured', 'Título do destaque', ['class' => 'form-label']) !!}
-                            {!! Form::text('title_featured', null, ['class' => 'form-control', 'placeholder'=> 'Promoção', 'id' => 'title_featured']) !!}
+                            {!! Form::label('title_featured_service', 'Título do destaque', ['class' => 'form-label']) !!}
+                            {!! Form::text('title_featured_service', null, ['class' => 'form-control', 'placeholder'=> 'Promoção', 'id' => 'title_featured_service']) !!}
                         </div>
                         <div class="col-sm-6">
-                            {!! Form::label('color', 'Cor do destaque', ['class'=>'form-label']) !!}
-                            {!! Form::text('color', '#e5e502', [
+                            {!! Form::label('color_featured_service', 'Cor do destaque', ['class'=>'form-label']) !!}
+                            {!! Form::text('color_featured_service', null, [
                                 'class'=>'form-control colorpicker-default',
                                 'id'=>'colorpicker-default',
                             ])!!}

@@ -23,9 +23,6 @@ class CreateServ08ServicesTable extends Migration
             $table->text('text')->nullable();
             $table->string('title_price')->nullable();
             $table->decimal('price', 8, 2)->nullable();
-            $table->string('title_button')->nullable();
-            $table->text('link_button')->nullable();
-            $table->enum('target_link', ['_self', '_blank'])->default('_self');
             $table->string('title_featured_service')->nullable();
             $table->string('color_featured_service')->nullable();
             $table->integer('featured_service')->default(0);

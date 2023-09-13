@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Services;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Services\SERV08Services;
@@ -56,33 +57,22 @@ class SERV08Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        $data['featured'] = $request->featured ? 1 : 0;
+        $data['featured_service'] = $request->featured_service ? 1 : 0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(SERV08Services::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço cadastrado com sucesso');
+            return redirect()->route('admin.serv08.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
     }
@@ -95,7 +85,12 @@ class SERV08Controller extends Controller
      */
     public function edit(SERV08Services $SERV08Services)
     {
-        //
+        $categories = SERV08ServicesCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Services.SERV08.edit', [
+            'service' => $SERV08Services,
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Services', 'SERV08')
+        ]);
     }
 
     /**
@@ -108,11 +103,12 @@ class SERV08Controller extends Controller
     public function update(Request $request, SERV08Services $SERV08Services)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        $data['featured'] = $request->featured ? 1 : 0;
+        $data['featured_service'] = $request->featured_service ? 1 : 0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -123,36 +119,14 @@ class SERV08Controller extends Controller
             storageDelete($SERV08Services, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SERV08Services, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV08Services, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($SERV08Services->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar o serviço');
         }
+        return redirect()->back();
     }
 
     /**
@@ -163,11 +137,10 @@ class SERV08Controller extends Controller
      */
     public function destroy(SERV08Services $SERV08Services)
     {
-        //storageDelete($SERV08Services, 'path_image');
-        //storageDelete($SERV08Services, 'path_archive');
+        storageDelete($SERV08Services, 'path_image');
 
         if($SERV08Services->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Serviço deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -180,17 +153,13 @@ class SERV08Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $SERV08Servicess = SERV08Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV08Servicess as $SERV08Services){
             storageDelete($SERV08Services, 'path_image');
-            storageDelete($SERV08Services, 'path_archive');
         }
-        */
 
         if($deleted = SERV08Services::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Serviços deletados com sucessso']);
         }
     }
     /**
