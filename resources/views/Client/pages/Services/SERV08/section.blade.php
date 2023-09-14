@@ -20,6 +20,7 @@
         </header>
         <main class="serv08__main w-100 d-flex flex-column align-items-stretch">
             <div class="serv08__carousel owl-carousel">
+
                 <article class="serv08__carousel__item serv08-box" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
                     <div class="serv08-box__promotion">
                         <h4 class="serv08-box__promotion__titulo">Promoção</h4>
@@ -38,20 +39,20 @@
                                         @endfor
                                 </ul>
                             </div>
-
                         </div>
                         <div class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
                             <h4 class="serv08-box__top__subtitle">subtítulo</h4>
                             <h3 class="serv08-box__top__title"><span>R$</span> 00,00</h3>
                         </div>
-                        <a href="" class="serv08-box__cta">
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
-                            CTA
-                        </a>
                     </div>
+                    <a rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08">
+                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
+                        CTA
+                    </a>
                 </article>
+
             </div>
-            <a href="" class="serv08__cta">
+            <a href="{{route('serv08.page')}}" class="serv08__cta">
                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08__cta__icon">
                 CTA
             </a>

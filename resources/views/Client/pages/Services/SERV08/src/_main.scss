@@ -110,6 +110,7 @@
         &:hover {
             background-color: $color-one;
             color: $color-five;
+            transition: ease 1s;
         }
 
         &__icon {
@@ -338,6 +339,9 @@
                 @include medium-device-down {
                     font-size: $T5-mobile;
                 }
+                @include small-device-down {
+                    text-align: center;
+                }
             }
             &__list {
                 list-style: none;
@@ -476,3 +480,223 @@
         }
     }
 }
+
+// SERVE PAGE
+
+.serv08-page {
+    overflow: hidden;
+    &__main {
+        padding: 29px 0 50px 0;
+        width: 100%;
+
+        .container {
+            @include medium-device-down {
+                max-width: 95% !important;
+            }
+        }
+
+        .serv08-categories {
+            margin-bottom: 56px;
+
+            &__list {
+                margin-bottom: 0;
+            }
+        }
+
+        &__list {
+            @include Flex($align: start, $justify: start);
+            flex-wrap: wrap;
+            gap: 44px 12px;
+            padding-bottom: 40px;
+            width: 100%;
+        }
+    }
+
+    &__pagination {
+        padding-left: 0;
+        width: 100%;
+        gap: 9px;
+        list-style-type: none;
+        margin-top: 22px;
+
+        &__item {
+            height: 38px;
+            width: 38px;
+
+            a {
+                @include Flex;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+                font: $paragraph-min;
+                color: $color-nine;
+                background-color: $color-one;
+                font-weight: 500;
+
+                @include medium-device-down {
+                    font: $paragraph-min-mobile;
+                }
+
+                &:hover {
+                    background-color: $color-nine;
+                    color: $color-one;
+                }
+            }
+        }
+    }
+
+    // &__pagination {
+    //     margin-top: 52px;
+
+    //     ul {
+    //         gap: 0 3.52px;
+    //         display: flex;
+
+    //         li {
+    //             display: flex;
+
+    //             &.active .page-link,
+    //             &:hover .page-link {
+    //                 background: $color-black;
+    //                 @include trans;
+    //             }
+    //             .page-link {
+    //                 cursor: pointer;
+    //                 display: flex;
+    //                 background: #7c7c7c;
+    //                 font: $paragraph;
+    //                 font-weight: $weight-400;
+    //                 border: 0;
+    //                 color: $color-white;
+    //                 border-radius: 0 !important;
+    //                 width: 33.4px;
+    //                 height: 21px;
+    //                 display: flex;
+    //                 align-items: center;
+    //                 justify-content: center;
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+// banner com carousel que se repete na page e na show
+.serv08-banner-carousel {
+    &__item {
+        @include backG;
+        padding: 150px 0 53px 0;
+
+        .container {
+            @include medium-device-down {
+                max-width: 95% !important;
+            }
+        }
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $T1;
+        font-weight: 700;
+        color: $color-black;
+
+        @include medium-device-down {
+            font-size: $T1-mobile;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T3;
+        font-weight: 700;
+        color: $color-black;
+        margin-bottom: 0px;
+
+        @include medium-device-down {
+            font-size: $T3-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-black;
+        margin: 31px auto 60px auto;
+        opacity: 1;
+    }
+
+    .owl-dots {
+        position: absolute;
+        bottom: 36px;
+        width: 100%;
+        left: 0;
+
+        .owl-dot {
+            border-radius: 0;
+        }
+    }
+}
+
+// topo da page que se repete na show
+.serv08-top {
+    background-color: $color-four;
+    padding: 87px 0 58px 0;
+
+    @include medium-device-down {
+        padding: 68px 0 20px 0;
+    }
+
+    .container {
+        @include medium-device-down {
+            max-width: 95% !important;
+        }
+    }
+    &__title {
+        font-family: $font-primary;
+        font-size: $T2;
+        font-weight: 700;
+        color: $color-black;
+
+        @include medium-device-down {
+            font-size: $T2-mobile;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $T4;
+        font-weight: 700;
+        color: $color-black;
+        margin-bottom: 0px;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: 1px solid $color-black;
+        margin: 10px auto 35px auto;
+        opacity: 1;
+    }
+
+    &__desc {
+        width: 100%;
+        max-width: 890px;
+
+        font: $paragraph;
+        color: $color-two;
+        text-align: center;
+
+        @include medium-device-down {
+            font: $paragraph-mobile;
+        }
+
+        p {
+            font: $paragraph-min;
+            color: $color-two;
+            text-align: center;
+            margin-bottom: 38px;
+        }
+    }
+}
+//  FIM SERV PAGE
