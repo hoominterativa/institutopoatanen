@@ -9,6 +9,8 @@ use App\Models\Services\SERV08Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Models\Services\SERV08ServicesContact;
+use App\Models\Services\SERV08ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV08ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
@@ -27,10 +29,22 @@ class SERV08Controller extends Controller
         $services = SERV08Services::sorting()->paginate(32);
         $serviceCategories = SERV08ServicesCategory::sorting()->paginate(10);
         $categories = SERV08ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $section = SERV08ServicesSection::first();
+        $compliances = getCompliance(null, 'id', 'title_page');
+        $contact = SERV08ServicesContact::first();
+        $configForm = null;
+        if ($contact) {
+            $configForm = $contact->inputs_form ? json_decode($contact->inputs_form) : [];
+        }
         return view('Admin.cruds.Services.SERV08.index', [
             'services' => $services,
             'serviceCategories' => $serviceCategories,
-            'categories' => $categories
+            'categories' => $categories,
+            'section' => $section,
+            'compliances' => $compliances,
+            'contact' => $contact,
+            'configForm' => !is_array($configForm)?$configForm:null,
+            'cropSetting' => getCropImage('Services', 'SERV08')
         ]);
     }
 

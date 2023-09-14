@@ -53,6 +53,22 @@
                                 data-bs-original-title="Cadastro de informações para a seção banner da página principal"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Conteúdo complementar
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de informações para a seção conteúdo que será apresentada acima dos campos das categorias na página principal"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Informações de contato
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações de contato que será apresentada no ligthbox"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -150,11 +166,27 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    {{-- <div class="tab-pane" id="category">
+                    <div class="tab-pane" id="category">
                         @include("Admin.cruds.Services.SERV08.Category.index",[
                             'categories' => $serviceCategories,
                         ])
-                    </div> --}}
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include("Admin.cruds.Services.SERV08.Section.form")
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include("Admin.cruds.Services.SERV08.Banner.form")
+                    </div>
+                    <div class="tab-pane" id="content">
+                        @include("Admin.cruds.Services.SERV08.Content.form")
+                    </div>
+                    <div class="tab-pane" id="contact">
+                        @include('Admin.cruds.Services.SERV08.Contact.form', [
+                            'contact' => $contact,
+                            'configForm' => $configForm,
+                            'compliances' => $compliances
+                        ])
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->

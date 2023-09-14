@@ -2,38 +2,20 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV08ServicesCategory;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Services\SERV08ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV08Services;
 
 class SERV08CategoryController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Services/SERV08/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +26,22 @@ class SERV08CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(SERV08ServicesCategory::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar a categoria');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Services\SERV08ServicesCategory  $SERV08ServicesCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SERV08ServicesCategory $SERV08ServicesCategory)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,11 +54,11 @@ class SERV08CategoryController extends Controller
     public function update(Request $request, SERV08ServicesCategory $SERV08ServicesCategory)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +69,14 @@ class SERV08CategoryController extends Controller
             storageDelete($SERV08ServicesCategory, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SERV08ServicesCategory, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV08ServicesCategory, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($SERV08ServicesCategory->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a categoria');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +87,16 @@ class SERV08CategoryController extends Controller
      */
     public function destroy(SERV08ServicesCategory $SERV08ServicesCategory)
     {
-        //storageDelete($SERV08ServicesCategory, 'path_image');
-        //storageDelete($SERV08ServicesCategory, 'path_archive');
+        // Verificar se existem serviços associadas à categoria
+        if(SERV08Services::where('category_id', $SERV08ServicesCategory->id)->count()){
+            Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
+            return redirect()->back();
+        }
+
+        storageDelete($SERV08ServicesCategory, 'path_image');
 
         if($SERV08ServicesCategory->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Categoria deletada com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +109,25 @@ class SERV08CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
+        $categoryIds = $request->deleteAll;
 
-        $SERV08ServicesCategorys = SERV08ServicesCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($SERV08ServicesCategorys as $SERV08ServicesCategory){
-            storageDelete($SERV08ServicesCategory, 'path_image');
-            storageDelete($SERV08ServicesCategory, 'path_archive');
+        // Verificar se existem serviços associadas às categorias
+        $serviceExist = SERV08Services::whereIn('category_id', $categoryIds)->exists();
+        if ($serviceExist) {
+            return Response::json([
+                'status' => 'error',
+                'message' => 'Não é possível excluir as categorias porque existem serviços associadas a elas.'
+            ]);
         }
-        */
 
-        if($deleted = SERV08ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        // Excluir as categorias
+        $deletedCategories = SERV08ServicesCategory::whereIn('id', $categoryIds)->get();
+        foreach ($deletedCategories as $category) {
+            storageDelete($category, 'path_image');
+        }
+
+        if ($deleted = SERV08ServicesCategory::whereIn('id', $categoryIds)->delete()) {
+            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
         }
     }
     /**
@@ -194,51 +143,5 @@ class SERV08CategoryController extends Controller
             SERV08ServicesCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Services\SERV08ServicesCategory  $SERV08ServicesCategory
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SERV08ServicesCategory $SERV08ServicesCategory)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

@@ -1292,6 +1292,18 @@
                     "height": "300",
                     "activeCrop": "false"
                 }
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "269",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "1500",
+                    "height": "269",
+                    "activeCrop": "true"
+                }
             }
         }
     },
