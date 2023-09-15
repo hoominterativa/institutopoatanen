@@ -57,7 +57,7 @@ class BRAN01Controller extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
@@ -104,7 +104,7 @@ class BRAN01Controller extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box){
@@ -240,7 +240,7 @@ class BRAN01Controller extends Controller
             break;
         }
 
-        $brands = BRAN01Brands::active()->sorting()->get();
+        $brands = BRAN01Brands::active()->featured()->sorting()->get();
         return view('Client.pages.Brands.BRAN01.section', [
             'section' => $section,
             'brands' => $brands,
