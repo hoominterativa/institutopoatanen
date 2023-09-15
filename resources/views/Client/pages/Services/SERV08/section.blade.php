@@ -41,11 +41,12 @@
                             </div>
                         </div>
                         <div class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
-                            <h4 class="serv08-box__top__subtitle">subtítulo</h4>
+                            <h4 class="serv08-box__top__subtitlee">subtítulo</h4>
                             <h3 class="serv08-box__top__title"><span>R$</span> 00,00</h3>
                         </div>
                     </div>
-                    <a rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08">
+                    @include('Client.pages.Services.SERV08.show')
+                    <a rel="next" class="serv08-box__cta" href="#lightbox-serv08" data-fancybox="" data-src="#lightbox-serv08">
                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                         CTA
                     </a>

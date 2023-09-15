@@ -2386,19 +2386,28 @@ body .owl-dots .owl-dot.active {
   font: 0.875rem "Montserrat", sans-serif, arial;
   color: #7c7c7c;
 }
-.serv08-box__top__subtitle {
+.serv08-box__top__subtitlee {
   font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 400;
   color: #7c7c7c;
   margin-bottom: 0;
   text-align: center;
+  display: flex;
+  gap: 18px;
+}
+.serv08-box__top__subtitlee::after {
+  content: "";
+  width: 2px;
+  height: 14px;
+  background-color: #000;
+  opacity: 70%;
 }
 @media (max-width: 767.98px) {
-  .serv08-box__top__subtitle {
+  .serv08-box__top__subtitlee {
     font-size: 0.813rem "Montserrat", sans-serif, arial;
   }
 }
-.serv08-box__top__subtitle:hover {
+.serv08-box__top__subtitlee:hover {
   transition: ease 1s;
   color: #000;
 }
@@ -2587,6 +2596,9 @@ body .owl-dots .owl-dot.active {
   font-weight: 700;
   color: #000;
   margin-bottom: 0px;
+  display: flex;
+  gap: 0 19px;
+  align-items: center;
 }
 @media (max-width: 767.98px) {
   .serv08-top__subtitle {
@@ -2616,6 +2628,227 @@ body .owl-dots .owl-dot.active {
   color: #7c7c7c;
   text-align: center;
   margin-bottom: 38px;
+}
+
+.serv08-box .lightbox-serv08 {
+  display: none;
+}
+
+.lightbox-serv08 {
+  padding: 0;
+}
+.lightbox-serv08 .is-close {
+  width: 50px;
+  top: 0 !important;
+}
+.lightbox-serv08__promotion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #efefef;
+  padding: 4px 10px;
+}
+.lightbox-serv08__promotion:hover {
+  color: #000;
+  background-color: #b3b3b3;
+  transition: ease 1s;
+  border-color: #b3b3b3;
+}
+.lightbox-serv08__promotion__titulo {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #7c7c7c;
+  text-align: start;
+  line-height: 19px;
+  margin-bottom: 0;
+}
+@media (max-width: 991.98px) {
+  .lightbox-serv08__content {
+    flex-direction: column;
+  }
+}
+.lightbox-serv08__content__left {
+  padding: 0;
+  width: 50%;
+}
+@media (max-width: 991.98px) {
+  .lightbox-serv08__content__left {
+    width: 100%;
+  }
+}
+.lightbox-serv08__content__left__article {
+  position: relative;
+  padding: 62px 68px;
+}
+.lightbox-serv08__content__right {
+  width: 50%;
+  padding: 62px 68px;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 991.98px) {
+  .lightbox-serv08__content__right {
+    width: 100%;
+  }
+}
+.lightbox-serv08__content__right__titulo {
+  font-size: 2rem;
+  color: #000;
+}
+.lightbox-serv08__content__right__descricao p {
+  font-size: 1.125rem;
+  color: #000;
+}
+.lightbox-serv08__content__right__form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+}
+.lightbox-serv08__content__right__form .form-placeholder > input {
+  width: 100%;
+  padding-left: 15px;
+}
+.lightbox-serv08__content__right .input__item--checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.lightbox-serv08__top {
+  flex-direction: column;
+  align-items: flex-start !important;
+}
+.lightbox-serv08__top__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  text-align: start;
+  line-height: 34.47px;
+  margin-bottom: 11px;
+}
+.lightbox-serv08__top__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000;
+  text-align: start;
+  line-height: 22.98px;
+}
+.lightbox-serv08__top__line {
+  background-color: #000000;
+  opacity: 70%;
+  width: 252px;
+}
+.lightbox-serv08__top__center__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #000;
+  text-align: start;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  margin-bottom: 0;
+}
+.lightbox-serv08__top__center__list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+}
+.lightbox-serv08__top__center__list__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0 5px;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 0;
+  text-align: start;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+}
+.lightbox-serv08__top__center__list__item span img {
+  width: 15px !important;
+  height: 15px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.lightbox-serv08__top__right {
+  flex-direction: row !important;
+  gap: 16px;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 50px 0 12px 0;
+  white-space: nowrap;
+  background-color: #efefef;
+  padding: 17px 22px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+  word-wrap: break-word;
+  text-align: center;
+}
+.lightbox-serv08__top__right:hover {
+  background-color: #b3b3b3;
+  border-color: #b3b3b3;
+  color: #efefef;
+  transition: ease 1s;
+}
+.lightbox-serv08__top__right__subtitle {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #7c7c7c;
+  margin-bottom: 0;
+  text-align: center;
+  display: flex;
+  gap: 0 19px;
+  align-items: center;
+}
+.lightbox-serv08__top__right__subtitle::after {
+  content: "";
+  width: 2px;
+  height: 14px;
+  background-color: #000;
+  opacity: 70%;
+}
+.lightbox-serv08__top__right__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0;
+  text-align: center;
+}
+.lightbox-serv08__top__right__title span {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+}
+
+.lightbox-serv08__content__right__form__check__titulo {
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.lightbox-serv08__cta {
+  white-space: nowrap;
+  background-color: #efefef;
+  padding: 15px 40px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  align-self: flex-end;
+  margin-top: 15px;
 }
 
 /* BEGIN STYLE */

@@ -84,13 +84,15 @@
                                 </ul>
                             </div>
                             <div class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
-                                <h4 class="serv08-box__top__subtitle">subtítulo</h4>
+                                <h4 class="serv08-box__top__subtitlee">subtítulo</h4>
                                 <h3 class="serv08-box__top__title"><span>R$</span>00,00</h3>
                             </div>
                         </div>
-                        <p class="serv08-box__desc">
-                        </p>
-                        <a rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08">
+                        <div class="serv08-box__desc">
+                            <p></p>
+                        </div>
+                        @include('Client.pages.Services.SERV08.show')
+                        <a rel="next" class="serv08-box__cta" href="#lightbox-serv08" data-fancybox="" data-src="#lightbox-serv08">
                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                             CTA
                         </a>
@@ -100,14 +102,13 @@
 
             </div>
             <ul class="serv08-page__pagination w-100 d-flex flex-row align-items-center justify-content-center">
-                @for ($i = 1; $i < 4; $i++)
-                <li class="serv08-page__pagination__item">
+                @for ($i = 1; $i < 4; $i++) <li class="serv08-page__pagination__item">
                     <a href="#">01</a>
-                </li>
-                @endfor
+                    </li>
+                    @endfor
             </ul>
             <nav aria-label="..." class="serv08-page__pagination">
-            
+
             </nav>
         </div>
     </main>

@@ -275,6 +275,7 @@
     @include small-device-down {
         width: 100%;
     }
+
     &__promotion {
         position: absolute;
         top: 0;
@@ -419,12 +420,22 @@
             }
         }
 
-        &__subtitle {
+        &__subtitlee {
             font: $paragraph-min;
             font-weight: 400;
             color: $color-two;
             margin-bottom: 0;
             text-align: center;
+            display: flex;
+            gap: 18px;
+
+            &::after {
+                content: "";
+                width: 2px;
+                height: 14px;
+                background-color: $color-black;
+                opacity: 70%;
+            }
 
             @include medium-device-down {
                 font-size: $paragraph-min-mobile;
@@ -667,6 +678,10 @@
         color: $color-black;
         margin-bottom: 0px;
 
+        display: flex;
+        gap: 0 19px;
+        align-items: center;
+
         @include medium-device-down {
             font-size: $T4-mobile;
         }
@@ -700,3 +715,246 @@
     }
 }
 //  FIM SERV PAGE
+
+// INICIO LIGHT-BOX
+.serv08-box {
+    .lightbox-serv08 {
+        display: none;
+    }
+}
+.lightbox-serv08 {
+    padding: 0;
+
+    .is-close {
+        width: 50px;
+        top: 0 !important;
+    }
+    &__promotion {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #efefef;
+        padding: 4px 10px;
+
+        &:hover {
+            color: #000;
+            background-color: #b3b3b3;
+            transition: ease 1s;
+            border-color: #b3b3b3;
+        }
+
+        &__titulo {
+            font-family: "Ubuntu", sans-serif, arial;
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: #7c7c7c;
+            text-align: start;
+            line-height: 19px;
+            margin-bottom: 0;
+        }
+    }
+    &__content {
+        @include large-device-down {
+            flex-direction: column;
+        }
+        &__left {
+            padding: 0;
+            width: 50%;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__article {
+                position: relative;
+                padding: 62px 68px;
+            }
+        }
+
+        &__right {
+            width: 50%;
+            padding: 62px 68px;
+            display: flex;
+            flex-direction: column;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__titulo {
+                font-size: 2rem;
+                color: $color-black;
+            }
+            &__descricao {
+                p {
+                    font-size: $T4-mobile;
+                    color: $color-black;
+                }
+            }
+            &__form {
+                display: flex;
+                flex-direction: column;
+                gap: 8px 0;
+
+                .form-placeholder > input {
+                    width: 100%;
+                    padding-left: 15px;
+                }
+            }
+            .input__item--checkbox {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                margin-top: 12px;
+            }
+        }
+    }
+    &__top {
+        flex-direction: column;
+        align-items: flex-start !important;
+
+        &__title {
+            font-family: $font-primary;
+            font-size: 2rem;
+            font-weight: 700;
+            color: $color-black;
+            text-align: start;
+            line-height: 34.47px;
+            margin-bottom: 11px;
+        }
+        &__subtitle {
+            font-family: $font-primary;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: $color-black;
+            text-align: start;
+            line-height: 22.98px;
+        }
+        &__line {
+            background-color: #000000;
+            opacity: 70%;
+            width: 252px;
+        }
+
+        &__center {
+            &__title {
+                font-family: "Ubuntu", sans-serif, arial;
+                font-size: 1.125rem;
+                font-weight: 400;
+                color: #000;
+                text-align: start;
+                line-height: 19px;
+                letter-spacing: 0.2px;
+                margin-bottom: 0;
+            }
+            &__list {
+                list-style: none;
+                padding-left: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 10px 0;
+
+                &__item {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 0 5px;
+                    font-family: "Ubuntu", sans-serif, arial;
+                    font-size: 1.125rem;
+                    font-weight: 400;
+                    color: #000;
+                    margin-bottom: 0;
+                    text-align: start;
+                    line-height: 19px;
+                    letter-spacing: 0.2px;
+
+                    span {
+                        img {
+                            width: 15px !important;
+                            height: 15px;
+                            -o-object-fit: contain;
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+        }
+        &__right {
+            flex-direction: row !important;
+            gap: 16px;
+            justify-content: center !important;
+            align-items: center !important;
+
+            margin: 50px 0 12px 0;
+            white-space: nowrap;
+            background-color: #efefef;
+            padding: 17px 22px;
+            font: 1rem "Montserrat", sans-serif, arial;
+            font-weight: 700;
+            color: #404040;
+            word-wrap: break-word;
+            text-align: center;
+
+            &:hover {
+                background-color: #b3b3b3;
+                border-color: #b3b3b3;
+                color: #efefef;
+                transition: ease 1s;
+            }
+
+            &__subtitle {
+                font: 0.875rem "Montserrat", sans-serif, arial;
+                font-weight: 400;
+                color: #7c7c7c;
+                margin-bottom: 0;
+                text-align: center;
+                display: flex;
+                gap: 0 19px;
+                align-items: center;
+
+                &::after {
+                    content: "";
+                    width: 2px;
+                    height: 14px;
+                    background-color: $color-black;
+                    opacity: 70%;
+                }
+            }
+            &__title {
+                font-family: "Ubuntu", sans-serif, arial;
+                font-size: 1.125rem;
+                font-weight: 700;
+                color: #000;
+                margin-bottom: 0;
+                text-align: center;
+
+                span {
+                    font: 0.875rem "Montserrat", sans-serif, arial;
+                    color: #7c7c7c;
+                }
+            }
+        }
+    }
+}
+
+.lightbox-serv08__content__right__form__check__titulo {
+    font-size: 1rem;
+    font-family: $font-paragraph;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 0;
+}
+.lightbox-serv08__cta {
+    white-space: nowrap;
+    background-color: #efefef;
+    padding: 15px 40px;
+    font: 1rem "Montserrat", sans-serif, arial;
+    font-weight: 700;
+    color: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    align-self: flex-end;
+    margin-top: 15px;
+}
+// FIM LIGHT-BOX
