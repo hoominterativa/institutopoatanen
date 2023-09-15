@@ -45,7 +45,7 @@
     <main class="serv08-page__main">
         <div class="container d-flex flex-column align-items-center">
             <div class="serv08-page__main__list">
-                @for ($i = 0; $i < 50; $i++) <article class="serv08-box" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
+                @for ($i = 0; $i < 10; $i++) <article class="serv08-box" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
                     <div class="serv08-box__promotion">
                         <h4 class="serv08-box__promotion__titulo">Promoção</h4>
                     </div>
@@ -112,6 +112,7 @@
         </div>
     </main>
 </section>
+
 
 {{-- Finish Content page Here --}}
 @foreach ($sections as $section)
