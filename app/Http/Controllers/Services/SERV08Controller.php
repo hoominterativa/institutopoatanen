@@ -234,6 +234,13 @@ class SERV08Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV08.section');
+        $section = SERV08ServicesSection::active()->first();
+        $categories = SERV08ServicesCategory::active()->featured()->sorting()->get();
+        $services = SERV08Services::active()->featured()->sorting()->get();
+        return view('Client.pages.Services.SERV08.section',[
+            'section' => $section,
+            'categories' => $categories,
+            'services' => $services,
+        ]);
     }
 }

@@ -12042,7 +12042,7 @@ $(".serv08__carousel").owlCarousel({
 });
 $(".serv08__categories").owlCarousel({
   smartSpeed: 450,
-  loop: true,
+  loop: false,
   dots: false,
   autoplay: true,
   nav: false,
