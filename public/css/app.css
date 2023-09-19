@@ -2121,7 +2121,7 @@ body .owl-dots .owl-dot.active {
 @media (max-width: 767.98px) {
   .serv08__carousel .owl-nav {
     display: flex !important;
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 .serv08__carousel .owl-dots {
@@ -2168,6 +2168,12 @@ body .owl-dots .owl-dot.active {
   background-color: #404040;
   color: #efefef;
   transition: ease 1s;
+}
+@media (max-width: 767.98px) {
+  .serv08__cta {
+    align-self: center;
+    margin-top: 25px;
+  }
 }
 .serv08__cta__icon {
   height: 25px;

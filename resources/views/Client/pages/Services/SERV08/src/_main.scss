@@ -73,7 +73,7 @@
         .owl-nav {
             @include medium-device-down {
                 display: flex !important;
-                justify-content: flex-start;
+                justify-content: center;
             }
         }
         .owl-dots {
@@ -122,6 +122,11 @@
             background-color: $color-one;
             color: $color-five;
             transition: ease 1s;
+        }
+
+        @include medium-device-down {
+            align-self: center;
+            margin-top: 25px;
         }
 
         &__icon {
