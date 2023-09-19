@@ -32,9 +32,8 @@
                     @foreach ($services as $service)
                         <article class="serv08__carousel__item serv08-box" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
                             <div class="serv08-box__promotion">
-                                {{-- @if ($service->title_featured_service)
-                                    <h4 class="serv08-box__promotion__titulo">{{$title_featured_service}}</h4>
-                                @endif --}}
+                                    <h4 class="serv08-box__promotion__titulo">Promoção</h4>
+                                    {{-- $service->color_featured_service --}}
                             </div>
                             <div class="serv08-box__content w-100 d-flex flex-column align-items-stretch">
                                 <div class="serv08-box__top w-100 d-flex align-items-center justify-content-between">
@@ -44,9 +43,6 @@
                                         <hr class="serv08-box__line">
                                     </div>
                                     <div class="serv08-box__top__center d-flex flex-column align-items-start justify-content-start ">
-                                        {{-- <h3 class="serv08-box__top__center__title">
-                                            {!! $service->description !!}
-                                        </h3> --}}
                                         <ul class="serv08-box__top__center__list">
                                            <p class="serv08-box__top__center__list__item">
                                                 {!! $service->description !!}
