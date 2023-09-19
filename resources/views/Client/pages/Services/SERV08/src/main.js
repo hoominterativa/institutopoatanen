@@ -1,6 +1,6 @@
 $(".serv08__carousel").owlCarousel({
     smartSpeed: 450,
-    loop: true,
+    loop: false,
     dots: true,
     nav: false,
     rewind: true,
@@ -28,7 +28,7 @@ $(".serv08__categories").owlCarousel({
     smartSpeed: 450,
     loop: false,
     dots: false,
-    autoplay: true,
+    autoplay: false,
     nav: false,
     rewind: true,
     autoHeight: true,

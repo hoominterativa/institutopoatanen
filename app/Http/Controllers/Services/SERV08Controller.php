@@ -245,7 +245,7 @@ class SERV08Controller extends Controller
                 }
             }
         }
-        $services = $services->active()->sorting()->paginate(4);
+        $services = $services->active()->sorting()->paginate(16);
 
         $contact = SERV08ServicesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');

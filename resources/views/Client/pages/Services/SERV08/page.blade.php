@@ -50,9 +50,11 @@
                 <div class="serv08-page__main__list">
                     @foreach ($services as $service)
                         <article class="serv08-box" style="background-image: url({{ asset('storage/' .$service->path_image) }}); background-color: #ffffff;">
-                            <div class="serv08-box__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
-                                <h4 class="serv08-box__promotion__titulo">Promoção</h4>
-                            </div>
+                            @if ($service->featured_service == 1)
+                                <div class="serv08-box__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
+                                    <h4 class="serv08-box__promotion__titulo">{{$service->title_featured_service}}</h4>
+                                </div>
+                            @endif
                             <div class="serv08-box__content w-100 d-flex flex-column align-items-stretch">
                                 <div class="serv08-box__top w-100 d-flex align-items-center justify-content-between">
                                     <div class="serv08-box__top__left d-flex flex-column align-items-start justify-content-start ">
@@ -61,14 +63,13 @@
                                         <hr class="serv08-box__line">
                                     </div>
                                     <div class="serv08-box__top__center d-flex flex-column align-items-start justify-content-start ">
-                                        <h3 class="serv08-box__top__center__title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur veritatis qui error odi.</h3>
                                         <div class="serv08-box__top__center__list">
                                             <p class="serv08-box__top__center__list__item">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.
+                                                {!! $service->description !!}
                                             </p>
                                         </div>
                                     </div>
-                                    <div style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
+                                    <div style="background-color: {{$service->featured_service == 1 ? $service->color_featured_service : ''}}; border-color: {{$service->featured_service == 1 ? $service->color_featured_service : ''}};" class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
                                         <h4 class="serv08-box__top__subtitlee">{{$service->title_price}}</h4>
                                         <h3 class="serv08-box__top__title"><span>R$ </span>{{$service->price}}</h3>
                                     </div>
@@ -81,7 +82,7 @@
                                     'compliance' => $compliance,
                                     'inputs'=>$inputs,
                                 ])
-                                <a style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08-{{$service->id}}">
+                                <a style="background-color: {{$service->featured_service == 1 ? $service->color_featured_service : ''}}; border-color: {{$service->featured_service == 1 ? $service->color_featured_service : ''}};" rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08-{{$service->id}}">
                                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                                     CTA
                                 </a>

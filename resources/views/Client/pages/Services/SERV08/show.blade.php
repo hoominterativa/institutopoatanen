@@ -2,9 +2,11 @@
     <div class="row px-0 mx-0 lightbox-serv08__content">
         <div class="lightbox-serv08__content__left">
             <article class="lightbox-serv08__content__left__article" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
-                <div class="lightbox-serv08__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
-                    <h4 class="lightbox-serv08__promotion__titulo">Promoção</h4>
-                </div>
+                @if ($service->featured_service == 1)
+                    <div class="lightbox-serv08__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
+                        <h4 class="lightbox-serv08__promotion__titulo">{{$service->title_featured_service}}</h4>
+                    </div>
+                @endif
                 <div class="lightbox-serv08__content w-100 d-flex flex-column align-items-stretch">
                     <div class="lightbox-serv08__top w-100 d-flex align-items-center justify-content-between">
                         <div class="lightbox-serv08__top__left d-flex flex-column align-items-start justify-content-start ">
@@ -13,15 +15,12 @@
                             <hr class="lightbox-serv08__top__line">
                         </div>
                         <div class="lightbox-serv08__top__center d-flex flex-column align-items-start justify-content-start ">
-                            <h3 class="lightbox-serv08__top__center__title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur veritatis qui error odi.</h3>
                             <div class="lightbox-serv08__top__center__list">
-                                @for ($i = 0; $i < 7; $i++) 
-                                <p class="lightbox-serv08__top__center__list__item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.</p>
-                                @endfor
+                                <p class="lightbox-serv08__top__center__list__item">{!! $service->text !!}</p>
                             </div>
                         </div>
                     </div>
-                    <div style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
+                    <div style="background-color: {{ $service->featured_service == 1 ? $service->color_featured_service : ''}}; border-color: {{$service->featured_service == 1 ? $service->color_featured_service : ''}};" class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
                         <h4 class="lightbox-serv08__top__right__subtitle">{{$service->title_price}}</h4>
                         <h3 class="lightbox-serv08__top__right__title"><span>R$</span> {{$service->price}}</h3>
                     </div>
