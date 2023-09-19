@@ -73,6 +73,7 @@
         .owl-nav {
             @include medium-device-down {
                 display: flex !important;
+                justify-content: flex-start;
             }
         }
         .owl-dots {

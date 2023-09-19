@@ -2121,6 +2121,7 @@ body .owl-dots .owl-dot.active {
 @media (max-width: 767.98px) {
   .serv08__carousel .owl-nav {
     display: flex !important;
+    justify-content: flex-start;
   }
 }
 .serv08__carousel .owl-dots {
