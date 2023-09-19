@@ -14,10 +14,11 @@
                         </div>
                         <div class="lightbox-serv08__top__center d-flex flex-column align-items-start justify-content-start ">
                             <h3 class="lightbox-serv08__top__center__title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur veritatis qui error odi.</h3>
-                            <ul class="lightbox-serv08__top__center__list">
-                                @for ($i = 0; $i < 7; $i++) <li class="lightbox-serv08__top__center__list__item"><span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.</li>
-                                    @endfor
-                            </ul>
+                            <div class="lightbox-serv08__top__center__list">
+                                @for ($i = 0; $i < 7; $i++) 
+                                <p class="lightbox-serv08__top__center__list__item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.</p>
+                                @endfor
+                            </div>
                         </div>
                     </div>
                     <div style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
