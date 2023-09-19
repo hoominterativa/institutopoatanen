@@ -5,17 +5,15 @@
 <section class="serv08-page">
     <header class="serv08-page__header w-100">
         <div class="serv08-banner-carousel owl-carousel w-100">
-
-            <div class="serv08-banner-carousel__item" style="background-image: url({{ asset('images/banner.png') }});  background-color: #ffffff;">
-                <div class="container d-flex flex-column align-items-center justify-content-center">
-
-                    <h3 class="serv08-banner-carousel__title text-center">Titulo do banner</h3>
-                    <h4 class="serv08-banner-carousel__subtitle text-center">Subtítulo</h4>
-                    <hr class="serv08-banner-carousel__line">
-
+            @if ($section)
+                <div class="serv08-banner-carousel__item" style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});  background-color: {{$section->background_color}};">
+                    <div class="container d-flex flex-column align-items-center justify-content-center">
+                        <h3 class="serv08-banner-carousel__title text-center">{{$section->title_banner}}</h3>
+                        <h4 class="serv08-banner-carousel__subtitle text-center">{{$section->subtitle_banner}}</h4>
+                        <hr class="serv08-banner-carousel__line">
+                    </div>
                 </div>
-            </div>
-
+            @endif
         </div>
         <div class="serv08-top w-100">
             <div class="container d-flex flex-column align-items-center justify-content-center">
@@ -96,7 +94,7 @@
                             'compliance' => $compliance,
                             'inputs'=>$inputs,
                         ])
-                        <a rel="next" class="serv08-box__cta" href="#lightbox-serv08" data-fancybox="" data-src="#lightbox-serv08">
+                        <a rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08-{{$service->id}}">
                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                             CTA
                         </a>

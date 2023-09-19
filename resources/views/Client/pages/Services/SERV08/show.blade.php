@@ -1,4 +1,4 @@
-<div id="lightbox-serv08-" class="lightbox-serv08 row">
+<div id="lightbox-serv08-{{$service->id}}" class="lightbox-serv08 row">
     <div class="row px-0 mx-0 lightbox-serv08__content">
         <div class="lightbox-serv08__content__left">
             <article class="lightbox-serv08__content__left__article" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
@@ -41,7 +41,7 @@
                     'files' => true,
                     'class' => 'send_form_ajax sche01-form__form d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
                 ]) !!}
-                <div class="serv08-form__form__inputs d-flex flex-column w-100 align-items-stretch">
+                <div class="sche01-form__form__inputs d-flex flex-column w-100 align-items-stretch">
                     <input type="hidden" name="target_lead" value="{{$contact->title}}">
                     <input type="hidden" name="target_send" value="{{ base64_encode($contact->email) }}">
 
@@ -55,7 +55,7 @@
                             'class' => 'col-md-8',
                         ])
                     @endforeach
-                    <label for="" class="serv08-form__form__checkbox-label">
+                    <label for="" class="sche01-form__form__checkbox-label">
                         {!! Form::checkbox('term_accept', 1, null, [
                             'class' => 'form-check-input me-1',
                             'id' => 'term_accept',

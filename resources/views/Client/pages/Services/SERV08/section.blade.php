@@ -60,7 +60,7 @@
                                 'compliance' => $compliance,
                                 'inputs'=>$inputs,
                             ])
-                            <a rel="next" class="serv08-box__cta" href="#lightbox-serv08-" data-fancybox="" data-src="#lightbox-serv08">
+                            <a rel="next" class="serv08-box__cta" href="" data-fancybox data-src="#lightbox-serv08-{{$service->id}}">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                                 CTA
                             </a>
