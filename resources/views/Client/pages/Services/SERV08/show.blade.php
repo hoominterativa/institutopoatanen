@@ -14,10 +14,10 @@
                         </div>
                         <div class="lightbox-serv08__top__center d-flex flex-column align-items-start justify-content-start ">
                             <h3 class="lightbox-serv08__top__center__title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur veritatis qui error odi.</h3>
-                            <div class="lightbox-serv08__top__center__list">
-                                @for ($i = 0; $i < 7; $i++) <p class="lightbox-serv08__top__center__list__item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.</p>
+                            <ul class="lightbox-serv08__top__center__list">
+                                @for ($i = 0; $i < 7; $i++) <li class="lightbox-serv08__top__center__list__item"><span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.</li>
                                     @endfor
-                            </div>
+                            </ul>
                         </div>
                     </div>
                     <div class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
@@ -41,7 +41,7 @@
                     'files' => true,
                     'class' => 'send_form_ajax sche01-form__form d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
                 ]) !!}
-                <div class="sche01-form__form__inputs d-flex flex-column w-100 align-items-stretch">
+                <div class="serv08-form__form__inputs d-flex flex-column w-100 align-items-stretch">
                     <input type="hidden" name="target_lead" value="{{$contact->title}}">
                     <input type="hidden" name="target_send" value="{{ base64_encode($contact->email) }}">
 
@@ -55,7 +55,7 @@
                             'class' => 'col-md-8',
                         ])
                     @endforeach
-                    <label for="" class="sche01-form__form__checkbox-label">
+                    <label for="" class="serv08-form__form__checkbox-label">
                         {!! Form::checkbox('term_accept', 1, null, [
                             'class' => 'form-check-input me-1',
                             'id' => 'term_accept',
