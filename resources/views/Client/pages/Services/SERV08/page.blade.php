@@ -72,7 +72,11 @@
                         <div class="serv08-box__desc">
                             <p></p>
                         </div>
-                        @include('Client.pages.Services.SERV08.show')
+                        @include('Client.pages.Services.SERV08.show',[
+                            'service'=>$service,
+                            'compliance' => $compliance,
+                            'inputs'=>$inputs,
+                        ])
                         <a rel="next" class="serv08-box__cta" href="#lightbox-serv08" data-fancybox="" data-src="#lightbox-serv08">
                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                             CTA

@@ -105,8 +105,7 @@
                                 'route' => 'lead.store',
                                 'method' => 'post',
                                 'files' => true,
-                                'class' =>
-                                    'send_form_ajax sche01-form__form d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
+                                'class' => 'send_form_ajax sche01-form__form d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
                             ]) !!}
                             <div class="sche01-form__form__inputs d-flex flex-column w-100 align-items-stretch">
                                 <input type="hidden" name="target_lead" value="{{$contact->title}}">

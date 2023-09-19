@@ -222,8 +222,14 @@ class SERV08Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV08', 'page');
 
+        $contact = SERV08ServicesContact::active()->first();
+        $compliance = getCompliance($contact->compliance_id??'0');
+
         return view('Client.pages.Services.SERV08.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'compliance' => $compliance,
+            'contact' => $contact,
+            'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
         ]);
     }
 
@@ -238,11 +244,16 @@ class SERV08Controller extends Controller
         $categories = SERV08ServicesCategory::active()->featured()->exists()->sorting()->get();
         $categoryFirst = SERV08ServicesCategory::active()->exists()->first();
         $services = SERV08Services::active()->featured()->sorting()->get();
+        $contact = SERV08ServicesContact::active()->first();
+        $compliance = getCompliance($contact->compliance_id??'0');
         return view('Client.pages.Services.SERV08.section',[
             'section' => $section,
             'categories' => $categories,
             'categoryFirst' => $categoryFirst,
             'services' => $services,
+            'compliance' => $compliance,
+            'contact' => $contact,
+            'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
         ]);
     }
 }
