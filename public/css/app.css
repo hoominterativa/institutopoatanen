@@ -1285,8 +1285,10 @@ body .owl-dots .owl-dot.active {
 }
 .form-placeholder > input {
   transition: ease all 0.3s;
-  background-color: #fff !important;
+  background-color: transparent !important;
   height: 40px;
+  position: relative;
+  z-index: 2;
 }
 .form-placeholder.focusing .placeholder--custom {
   font-size: 12px;
@@ -2680,6 +2682,7 @@ body .owl-dots .owl-dot.active {
 .lightbox-serv08__content__left__article {
   position: relative;
   padding: 62px 68px;
+  height: 100%;
 }
 .lightbox-serv08__content__right {
   width: 50%;
