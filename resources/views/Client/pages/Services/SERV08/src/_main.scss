@@ -69,9 +69,19 @@
         @include medium-device-down {
             padding: 0 29px;
         }
+
+        .owl-nav {
+            @include medium-device-down {
+                display: flex !important;
+            }
+        }
         .owl-dots {
             display: flex !important;
             margin-top: 53px;
+
+            @include medium-device-down {
+                display: none !important;
+            }
         }
         .owl-height {
             padding-bottom: 20px;
@@ -150,6 +160,11 @@
             overflow: visible;
         }
 
+        .owl-nav {
+            @include medium-device-down {
+                display: flex !important;
+            }
+        }
         &__item {
             a {
                 @include Flex;
@@ -295,7 +310,7 @@
             font-family: $font-primary;
             font-size: $T5;
             font-weight: 400;
-            color: #7c7c7c;
+            color: $color-white;
             text-align: start;
             line-height: 19px;
 
@@ -407,7 +422,7 @@
             font-family: $font-primary;
             font-size: $T5;
             font-weight: 700;
-            color: $color-black;
+            color: $color-white;
             margin-bottom: 0;
             text-align: center;
 
@@ -424,7 +439,7 @@
         &__subtitlee {
             font: $paragraph-min;
             font-weight: 400;
-            color: $color-two;
+            color: $color-white;
             margin-bottom: 0;
             text-align: center;
             display: flex;
@@ -498,7 +513,7 @@
 .serv08-page {
     overflow: hidden;
     &__main {
-        padding: 29px 0 50px 0;
+        padding: 113px 0 50px 0;
         width: 100%;
 
         .container {
@@ -661,6 +676,7 @@
 
         @include medium-device-down {
             max-width: 95% !important;
+            align-items: center !important;
         }
     }
     &__title {

@@ -2118,9 +2118,19 @@ body .owl-dots .owl-dot.active {
     padding: 0 29px;
   }
 }
+@media (max-width: 767.98px) {
+  .serv08__carousel .owl-nav {
+    display: flex !important;
+  }
+}
 .serv08__carousel .owl-dots {
   display: flex !important;
   margin-top: 53px;
+}
+@media (max-width: 767.98px) {
+  .serv08__carousel .owl-dots {
+    display: none !important;
+  }
 }
 .serv08__carousel .owl-height {
   padding-bottom: 20px;
@@ -2192,6 +2202,11 @@ body .owl-dots .owl-dot.active {
 }
 .serv08-categories__list .owl-stage-outer {
   overflow: visible;
+}
+@media (max-width: 767.98px) {
+  .serv08-categories__list .owl-nav {
+    display: flex !important;
+  }
 }
 .serv08-categories__list__item a {
   display: flex;
@@ -2275,7 +2290,7 @@ body .owl-dots .owl-dot.active {
   font-family: "Ubuntu", sans-serif, arial;
   font-size: 1.125rem;
   font-weight: 400;
-  color: #7c7c7c;
+  color: #fff;
   text-align: start;
   line-height: 19px;
   margin-bottom: 0;
@@ -2376,7 +2391,7 @@ body .owl-dots .owl-dot.active {
   font-family: "Ubuntu", sans-serif, arial;
   font-size: 1.125rem;
   font-weight: 700;
-  color: #000;
+  color: #fff;
   margin-bottom: 0;
   text-align: center;
 }
@@ -2392,7 +2407,7 @@ body .owl-dots .owl-dot.active {
 .serv08-box__top__subtitlee {
   font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 400;
-  color: #7c7c7c;
+  color: #fff;
   margin-bottom: 0;
   text-align: center;
   display: flex;
@@ -2460,7 +2475,7 @@ body .owl-dots .owl-dot.active {
   overflow: hidden;
 }
 .serv08-page__main {
-  padding: 29px 0 50px 0;
+  padding: 113px 0 50px 0;
   width: 100%;
 }
 @media (max-width: 767.98px) {
@@ -2583,6 +2598,7 @@ body .owl-dots .owl-dot.active {
 @media (max-width: 767.98px) {
   .serv08-top .container {
     max-width: 95% !important;
+    align-items: center !important;
   }
 }
 .serv08-top__title {

@@ -60,7 +60,7 @@
                                 'compliance' => $compliance,
                                 'inputs'=>$inputs,
                             ])
-                            <a style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}}; rel="next" class="serv08-box__cta" href="" data-fancybox data-src="#lightbox-serv08-{{$service->id}}">
+                            <a style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}}; rel="next" class="serv08-box__cta" href="" data-fancybox data-src="#lightbox-serv08-{{$service->id}}">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                                 CTA
                             </a>
