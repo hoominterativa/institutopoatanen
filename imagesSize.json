@@ -1279,6 +1279,32 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "SERV08": {
+            "path_image": {
+                "width": "330",
+                "height": "423",
+                "activeCrop": "false"
+            },
+            "Category": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "269",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "1500",
+                    "height": "269",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Slides": {
