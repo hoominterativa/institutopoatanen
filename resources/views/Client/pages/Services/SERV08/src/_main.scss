@@ -181,6 +181,7 @@
 
                 a {
                     color: $color-white;
+                    background-color: #000000;
                 }
                 img {
                     filter: invert(1) grayscale(1);
@@ -656,6 +657,8 @@
     }
 
     .container {
+        align-items: flex-start !important;
+
         @include medium-device-down {
             max-width: 95% !important;
         }

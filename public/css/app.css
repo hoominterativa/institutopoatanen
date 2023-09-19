@@ -2225,6 +2225,7 @@ body .owl-dots .owl-dot.active {
 }
 .serv08-categories__list__item.active a {
   color: #fff;
+  background-color: #000000;
 }
 .serv08-categories__list__item.active img {
   filter: invert(1) grayscale(1);
@@ -2575,6 +2576,9 @@ body .owl-dots .owl-dot.active {
   .serv08-top {
     padding: 68px 0 20px 0;
   }
+}
+.serv08-top .container {
+  align-items: flex-start !important;
 }
 @media (max-width: 767.98px) {
   .serv08-top .container {

@@ -13,7 +13,7 @@
                 <div class="serv08-categories">
                     <ul class="serv08-categories__list w-100 serv08__categories owl-carousel">
                         @foreach ($categories as $category)
-                            <li class="serv08-categories__list__item">
+                            <li class="serv08-categories__list__item" >
                                 <a href="{{route('serv08.category.page', ['SERV08ServicesCategory' => $category->slug])}}">
                                     @if ($category->path_image)
                                         <img src="{{ asset('storage/' . $category->path_image) }}" alt="Icone categoria" class="serv08-categories__list__item__icon">
@@ -31,7 +31,7 @@
                 <div class="serv08__carousel owl-carousel">
                     @foreach ($services as $service)
                         <article class="serv08__carousel__item serv08-box" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
-                            <div class="serv08-box__promotion  "style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
+                            <div class="serv08-box__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
                                     <h4 class="serv08-box__promotion__titulo">Promoção</h4>
                                     {{-- $service->color_featured_service --}}
                             </div>
