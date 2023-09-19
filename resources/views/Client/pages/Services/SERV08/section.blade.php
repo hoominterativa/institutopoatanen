@@ -44,18 +44,19 @@
                                         <hr class="serv08-box__line">
                                     </div>
                                     <div class="serv08-box__top__center d-flex flex-column align-items-start justify-content-start ">
-                                        <h3 class="serv08-box__top__center__title">
+                                        {{-- <h3 class="serv08-box__top__center__title">
                                             {!! $service->description !!}
-                                        </h3>
+                                        </h3> --}}
                                         <ul class="serv08-box__top__center__list">
-                                            @for ($i = 0; $i < 4; $i++) <li class="serv08-box__top__center__list__item"><span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.</li>
-                                                @endfor
+                                           <p class="serv08-box__top__center__list__item">
+                                                {!! $service->description !!}
+                                            </p>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
-                                    <h4 class="serv08-box__top__subtitlee">subtítulo</h4>
-                                    <h3 class="serv08-box__top__title"><span>R$</span> 00,00</h3>
+                                    <h4 class="serv08-box__top__subtitlee">{{$service->title_price}}</h4>
+                                    <h3 class="serv08-box__top__title"><span>R$</span> {{$service->price}}</h3>
                                 </div>
                             </div>
                             @include('Client.pages.Services.SERV08.show')
@@ -66,9 +67,9 @@
                         </article>
                     @endforeach
                 </div>
-                <a href="{{route('serv08.page')}}" class="serv08__cta">
+                <a href="{{route('serv08.category.page', ['SERV08ServicesCategory' => $categoryFirst->slug])}}" class="serv08__cta">
                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08__cta__icon">
-                    CTA
+                    Ver mais
                 </a>
             </main>
         @endif

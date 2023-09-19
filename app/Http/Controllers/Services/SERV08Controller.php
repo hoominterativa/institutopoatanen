@@ -235,11 +235,13 @@ class SERV08Controller extends Controller
     public static function section()
     {
         $section = SERV08ServicesSection::active()->first();
-        $categories = SERV08ServicesCategory::active()->featured()->sorting()->get();
+        $categories = SERV08ServicesCategory::active()->featured()->exists()->sorting()->get();
+        $categoryFirst = SERV08ServicesCategory::active()->exists()->first();
         $services = SERV08Services::active()->featured()->sorting()->get();
         return view('Client.pages.Services.SERV08.section',[
             'section' => $section,
             'categories' => $categories,
+            'categoryFirst' => $categoryFirst,
             'services' => $services,
         ]);
     }
