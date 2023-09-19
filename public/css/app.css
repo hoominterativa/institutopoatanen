@@ -2849,6 +2849,7 @@ body .owl-dots .owl-dot.active {
   gap: 15px;
   align-self: flex-end;
   margin-top: 15px;
+  border: 1px solid transparent;
 }
 
 /* BEGIN STYLE */
