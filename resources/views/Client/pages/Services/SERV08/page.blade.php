@@ -50,7 +50,7 @@
                 <div class="serv08-page__main__list">
                     @foreach ($services as $service)
                         <article class="serv08-box" style="background-image: url({{ asset('storage/' .$service->path_image) }}); background-color: #ffffff;">
-                            <div class="serv08-box__promotion">
+                            <div class="serv08-box__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
                                 <h4 class="serv08-box__promotion__titulo">Promoção</h4>
                             </div>
                             <div class="serv08-box__content w-100 d-flex flex-column align-items-stretch">
@@ -68,7 +68,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
+                                    <div style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
                                         <h4 class="serv08-box__top__subtitlee">{{$service->title_price}}</h4>
                                         <h3 class="serv08-box__top__title"><span>R$ </span>{{$service->price}}</h3>
                                     </div>
@@ -81,7 +81,7 @@
                                     'compliance' => $compliance,
                                     'inputs'=>$inputs,
                                 ])
-                                <a rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08-{{$service->id}}">
+                                <a style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" rel="next" class="serv08-box__cta" href="" data-fancybox="" data-src="#lightbox-serv08-{{$service->id}}">
                                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                                     CTA
                                 </a>
