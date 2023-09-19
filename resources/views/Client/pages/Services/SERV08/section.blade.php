@@ -55,8 +55,12 @@
                                     <h3 class="serv08-box__top__title"><span>R$</span> {{$service->price}}</h3>
                                 </div>
                             </div>
-                            @include('Client.pages.Services.SERV08.show')
-                            <a rel="next" class="serv08-box__cta" href="#lightbox-serv08" data-fancybox="" data-src="#lightbox-serv08">
+                            @include('Client.pages.Services.SERV08.show',[
+                                'service'=>$service,
+                                'compliance' => $compliance,
+                                'inputs'=>$inputs,
+                            ])
+                            <a rel="next" class="serv08-box__cta" href="#lightbox-serv08-" data-fancybox="" data-src="#lightbox-serv08">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv08-box__cta__icon">
                                 CTA
                             </a>
