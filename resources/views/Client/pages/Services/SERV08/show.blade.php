@@ -2,7 +2,7 @@
     <div class="row px-0 mx-0 lightbox-serv08__content">
         <div class="lightbox-serv08__content__left">
             <article class="lightbox-serv08__content__left__article" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
-                <div class="lightbox-serv08__promotion">
+                <div class="lightbox-serv08__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
                     <h4 class="lightbox-serv08__promotion__titulo">Promoção</h4>
                 </div>
                 <div class="lightbox-serv08__content w-100 d-flex flex-column align-items-stretch">
@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
+                    <div style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
                         <h4 class="lightbox-serv08__top__right__subtitle">{{$service->title_price}}</h4>
                         <h3 class="lightbox-serv08__top__right__title"><span>R$</span> {{$service->price}}</h3>
                     </div>
