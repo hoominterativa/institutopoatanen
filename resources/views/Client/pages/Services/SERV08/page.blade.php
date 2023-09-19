@@ -56,30 +56,11 @@
                             </div>
                             <div class="serv08-box__top__center d-flex flex-column align-items-start justify-content-start ">
                                 <h3 class="serv08-box__top__center__title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur veritatis qui error odi.</h3>
-                                <ul class="serv08-box__top__center__list">
-
-                                    <li class="serv08-box__top__center__list__item">
-                                        <span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>
+                                <div class="serv08-box__top__center__list">
+                                    <p class="serv08-box__top__center__list__item">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.
-                                    </li>
-                                    <li class="serv08-box__top__center__list__item">
-                                        <span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.
-                                    </li>
-                                    <li class="serv08-box__top__center__list__item">
-                                        <span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.
-                                    </li>
-                                    <li class="serv08-box__top__center__list__item">
-                                        <span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.
-                                    </li>
-                                    <li class="serv08-box__top__center__list__item">
-                                        <span><img src="{{ asset('images/cta.png') }}" alt="Icone check"></span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veritatis.
-                                    </li>
-
-                                </ul>
+                                    </p>
+                                </div>
                             </div>
                             <div class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
                                 <h4 class="serv08-box__top__subtitlee">subtítulo</h4>
