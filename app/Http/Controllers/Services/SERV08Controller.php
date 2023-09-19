@@ -217,10 +217,35 @@ class SERV08Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV08ServicesCategory $SERV08ServicesCategory, SERV08Services $SERV08Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV08', 'page');
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = SERV08ServicesSection::active()->first();
+                if ($section) {
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+            break;
+            default:
+                $section = SERV08ServicesSection::active()->first();
+            break;
+        }
+        $categories = SERV08ServicesCategory::active()->exists()->sorting()->get();
+        $services = SERV08Services::active();
+        if($SERV08ServicesCategory->exists){
+            $services = $services->where('category_id', $SERV08ServicesCategory->id);
+
+            foreach ($categories as $category) {
+                if($SERV08ServicesCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+        }
+        $services = $services->active()->sorting()->paginate(4);
 
         $contact = SERV08ServicesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
@@ -230,6 +255,9 @@ class SERV08Controller extends Controller
             'compliance' => $compliance,
             'contact' => $contact,
             'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
+            'section' => $section,
+            'categories' => $categories,
+            'services' => $services,
         ]);
     }
 
