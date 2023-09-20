@@ -11,20 +11,33 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">{{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.abou05.index')}}">{{ getTitleModel($configModelsMain, 'Abouts', 'ABOU05')}}</a></li>
+                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU05')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</h4>
+                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU05')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Module.CODE.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                {!! Form::close() !!}
+
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#about" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link active d-flex align-items-center">
+                            {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU05') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações do conteúdo principal"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="about">
+                        @include('Admin.cruds.Abouts.ABOU05.form')
+                    </div>
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

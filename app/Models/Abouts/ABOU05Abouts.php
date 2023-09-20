@@ -16,20 +16,5 @@ class ABOU05Abouts extends Model
     }
 
     protected $table = "abou05_abouts";
-    protected $fillable = [];
-
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    protected $fillable = ['title', 'subtitle', 'text'];
 }

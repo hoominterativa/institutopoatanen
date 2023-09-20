@@ -1,0 +1,46 @@
+<?php
+
+namespace Database\Factories\Abouts;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Abouts\ABOU05AboutsSection;
+
+class ABOU05AboutsSectionFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = ABOU05AboutsSection::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            //Section
+            'title_section' => $this->faker->text(10),
+            'subtitle_section' => $this->faker->text(10),
+            'description_section' => $this->faker->text(500),
+            'path_image_desktop_section' => 'uploads/tmp/secaobox.png',
+            'path_image_mobile_section' => 'uploads/tmp/image-box.jpg',
+            'background_color_section' => '#FFFFFF',
+            'active_section' => 1,
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'path_image_desktop_banner' => 'uploads/tmp/secaobox.png',
+            'path_image_mobile_banner' => 'uploads/tmp/image-box.jpg',
+            'background_color_banner' => '#FFFFFF',
+            'active_banner' => 1,
+            //Section Content
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'active_content' => 1,
+        ];
+    }
+}

@@ -133,6 +133,20 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "ABOU05": {
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "true"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "290",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Blogs": {

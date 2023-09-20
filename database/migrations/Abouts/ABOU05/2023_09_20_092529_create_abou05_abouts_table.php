@@ -15,7 +15,9 @@ class CreateAbou05AboutsTable extends Migration
     {
         Schema::create('abou05_abouts', function (Blueprint $table) {
             $table->id();
-            $table->integer('sorting')->default(0);
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('text')->nullable();
             $table->timestamps();
         });
     }

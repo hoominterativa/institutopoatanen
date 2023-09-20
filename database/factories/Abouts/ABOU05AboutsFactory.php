@@ -22,9 +22,9 @@ class ABOU05AboutsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
+            'text' => $this->faker->text(999),
         ];
     }
 }

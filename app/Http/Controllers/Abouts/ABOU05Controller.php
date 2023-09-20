@@ -13,7 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class ABOU05Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Abouts/ABOU05/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,17 +22,11 @@ class ABOU05Controller extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $about = ABOU05Abouts::first();
+        return view('Admin.cruds.Abouts.ABOU05.edit', [
+            'about' => $about,
+            'cropSetting' => getCropImage('Abouts', 'ABOU05')
+        ]);
     }
 
     /**
@@ -45,45 +39,12 @@ class ABOU05Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(ABOU05Abouts::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao cadastradar as informações');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Abouts\ABOU05Abouts  $ABOU05Abouts
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ABOU05Abouts $ABOU05Abouts)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -97,103 +58,12 @@ class ABOU05Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($ABOU05Abouts, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($ABOU05Abouts, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($ABOU05Abouts, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($ABOU05Abouts, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
-
         if($ABOU05Abouts->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar as informações');
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Abouts\ABOU05Abouts  $ABOU05Abouts
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ABOU05Abouts $ABOU05Abouts)
-    {
-        //storageDelete($ABOU05Abouts, 'path_image');
-        //storageDelete($ABOU05Abouts, 'path_archive');
-
-        if($ABOU05Abouts->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $ABOU05Aboutss = ABOU05Abouts::whereIn('id', $request->deleteAll)->get();
-        foreach($ABOU05Aboutss as $ABOU05Abouts){
-            storageDelete($ABOU05Abouts, 'path_image');
-            storageDelete($ABOU05Abouts, 'path_archive');
-        }
-        */
-
-        if($deleted = ABOU05Abouts::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            ABOU05Abouts::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
+        return redirect()->back();
     }
 
     // METHODS CLIENT
