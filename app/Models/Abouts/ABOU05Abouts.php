@@ -2,7 +2,7 @@
 
 namespace App\Models\Abouts;
 
-use Database\Factories\ABOU05AboutsFactory;
+use Database\Factories\Abouts\ABOU05AboutsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
