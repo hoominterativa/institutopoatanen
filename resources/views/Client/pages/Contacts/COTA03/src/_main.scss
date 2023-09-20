@@ -1,0 +1,393 @@
+@import "variables";
+
+/* BEGIN STYLE */
+.cota03{
+    &__header {
+        @include backG;
+        position: relative;
+        height: 320px;
+
+        .container--cota03-page-header {
+            height: 100%;
+            position: relative;
+            z-index: 100;
+            @include Flex($direction: column);
+
+            @include small-device-down {
+                padding: 44px 20px;
+                max-width: 90% !important;
+            }
+        }
+        &__mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0 0 0 / 73%);
+        }
+        &__title {
+            font-size: $T1;
+            color: $color-black;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            margin-bottom: 0;
+            text-align: center;
+
+            @include small-device-down {
+                font-size: $T2-mobile;
+            }
+        }
+        &__subtitle {
+            font-size: $T3;
+            font-family: $font-paragraph;
+            color: $color-two;
+            font-weight: $weight-700;
+            text-align: center;
+
+            @include small-device-down {
+                font-size: $T3-mobile;
+            }
+        }
+        &__line {
+            margin-top: 1.25rem;
+            color: $color-two;
+            width: 100%;
+        }
+    }
+    &__boxForm {
+
+        .justify-content-center{
+            gap: 25px 0;
+        }
+        @include backG;
+
+        .container--boxForm {
+            padding: 4.28rem 0 0 0 !important;
+
+            .row {
+                @include small-device-down {
+                    margin: 0 auto;
+                }
+            }
+        }
+        &__item {
+            &:last-of-type &__content::after {
+                display: none;
+            }
+
+            @include medium-device-down {
+                margin: 0 auto;
+                padding: 0;
+                width: 90%;
+            }
+
+            &__content {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 80%;
+                margin: 0 auto;
+
+                @include medium-device-down{
+                    flex-direction: column-reverse;
+                    width: 100%;
+                }
+
+                &__image {
+                    width: 26.81788rem;
+                    height: 32.99488rem;
+
+                    @include medium-device-down {
+                      margin-top: 3.71rem;
+                    }
+                    
+                    @include small-device-down{
+                        width: 15.966rem;
+                        height: 21.89744rem;
+                    }
+
+                    img {
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                }
+
+                &__description {
+                    padding-left: 10.65rem;
+                    width: 65%;
+                    padding-top: 56px;
+
+                    @include large-device-down{
+                        padding-left: 2.65rem;
+                    }
+
+                    @include medium-device-down{
+                        width: 100%;
+                        padding-left: 0;
+                        padding-top: 0;
+                    }
+                    &__title {
+                        font-size: $T2;
+                        font-weight: $weight-700;
+                        color: $color-black;
+                        font-family: $font-primary;
+                        margin-bottom: 0.4rem;
+
+                        @include large-device-down {
+                            font-size: $T2-mobile;
+                        }
+                    }
+                    &__subtitle {
+                        font-size: $T4;
+                        font-weight: $weight-700;
+                        color: $color-one;
+                        font-family: $font-primary;
+                        margin-bottom: 0;
+
+                        @include large-device-down {
+                            font-size: $T4-mobile;
+                        }
+                    }
+                    &__line{
+                        margin: 1.44rem 0;
+                    }
+                    &__paragraph {
+                        font: $paragraph;
+                        font-family: $font-primary;
+                        font-weight: $weight-400;
+                        color: $color-one;
+
+                        p {
+                            font: $paragraph;
+                            font-family: $font-primary;
+                            font-weight: $weight-400;
+                            color: $color-one;
+                            margin-bottom: 0;
+
+                            @include large-device-down {
+                                font: $paragraph-mobile;
+                            }
+                        }
+                    }
+
+                    &__cta{
+                        font: $paragraph;
+                        font-weight: $weight-700;
+                        color: $color-three;
+                        max-width: 11.0625rem;
+                        height: 2.8125rem;
+                        padding: 4px 50px;
+                        background-color: $color-five;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-left: auto;
+                        margin-top: 29.56px;
+
+                        @include small-device{
+                            font: $paragraph-mobile;
+                            max-width: 146px;
+                        }
+                        img{
+                            width:18.03px !important;
+                            height: auto !important;
+                            object-fit: contain;
+                        }
+                        &:hover{
+                            color: $color-white;
+                            background-color: $bg-black;
+
+                            .cota03__boxForm__item__content__description__cta__icon{
+                                filter: invert(1) grayscale(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__form {
+        padding: 4.5rem 0 7.5rem 0;
+        background-color: $color-three;
+        @include medium-device-down{
+            padding: 4.19rem 0 4.13rem 0; 
+        }
+        &__footer{
+            @include medium-device-down{
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
+        }
+
+        & > .container{
+            @include medium-device-down{
+                max-width: 90% !important;
+            }
+            
+        }
+        &__header {
+            margin-bottom: 50px;
+
+            &__title {
+                font-size: $T2;
+                color: $color-one;
+                font-family: $font-primary;
+                font-weight: $weight-700; 
+            }
+            &__line {
+                background: $color-one;
+                display: flex;
+                margin-top: 15px;
+                margin-bottom: 18px;
+                display: block;
+            }
+            &__paragraph {
+                width: 100%;
+                max-width: 50.1875rem;
+
+                p {
+                    font: $paragraph;
+                    font-weight: $weight-400;
+                    color: $color-black;
+
+                    @include large-device-down {
+                        font: $paragraph-mobile;
+                    }
+                }
+            }
+        }
+        &__items{
+
+        }
+        &__inputs {
+            width: 80%;
+            margin: 0 auto;
+
+            @include medium-device-down{
+                width: 100%;
+            }
+
+            & > .row{
+                margin: 0 auto;
+            }
+
+            &__input {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                
+
+                .input__item{
+                    width: 49%;
+
+                    @include medium-device-down{
+                        width: 100%;
+                    }
+
+                    label{
+                        color: $color-black !important;
+                        background: transparent;
+                        z-index: 100;
+                    }
+                   input{
+                    width: 100%;
+                    transition: ease all 0.3s;
+                    background-color: #fff !important;
+                    height: 40px;
+                    position: relative;
+                    z-index: 2;
+                    border-radius: 0 !important;
+                   }
+                }
+            }
+                
+            &__compliance {
+                display: flex;
+
+                input {
+                    border: 1px solid #393939;
+                    font: $paragraph-min;
+                }
+                label {
+                    color: #393939;
+                    font: $paragraph-min;
+
+                    a {
+                        color: #7c7c7c;
+                        font: $paragraph-min;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cota03__form__item__input:nth-of-type(5) {
+    width: 100% !important;
+}
+.cota03__form__item__input .input__item--textarea textarea {
+    height: 136px !important;
+}
+.cota03__form__inputs__formIput__input-submit {
+
+    font: $paragraph;
+    font-weight: $weight-700;
+    color: $color-three;
+    max-width: 11.0625rem;
+    height: 2.8125rem;
+    padding: 4px 50px;
+    background-color: $color-five;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-top: 29.56px;
+    border: 1px solid $color-five;
+    color: $color-two;
+    gap: 0 1.05rem;
+
+    @include small-device{
+        font: $paragraph-mobile;
+        max-width: 146px;
+    }
+    img{
+        width:18.03px !important;
+        height: auto !important;
+        object-fit: contain;
+    }
+    &:hover{
+        color: $color-white;
+        background-color: $bg-black;
+        border-color: $bg-black;
+
+        img{
+            filter: invert(1) grayscale(1);
+        }
+    }
+                  
+}
+.cota03__form__compliance {
+    font: $paragraph-min;
+    font-weight: $weight-400;
+    color: $color-ten;
+
+    @include medium-device-down{
+        font: 0.675rem "Montserrat", sans-serif, arial;
+        text-align: left !important;
+    }
+
+    a {
+        color: $color-two;
+        text-decoration: underline;
+    }
+}
+.form-check-input:checked[type="checkbox"] {
+    border: 1px solid #393939;
+}
+.form-check-input:checked {
+    background-color: $color-black;
+    border-color: $color-black;
+}
