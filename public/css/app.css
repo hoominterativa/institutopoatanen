@@ -2150,9 +2150,6 @@ body .owl-dots .owl-dot.active {
   margin-top: 5px;
 }
 @media (max-width: 767.98px) {
-  .abou05-page__content {
-    padding: 0 !important;
-  }
   .abou05-page .container--abou05-page {
     padding: 46px 0 81px 0 !important;
   }
@@ -2179,8 +2176,25 @@ body .owl-dots .owl-dot.active {
 }
 .abou05-page__section .container--abou05-page__section {
   padding-top: 68.54px !important;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
 }
-.abou05-page__section__encompass__title {
+.abou05-page__section__box {
+  display: flex;
+  padding-top: 4.25rem;
+  background-color: #cacaca;
+}
+.abou05-page__section__box > .container {
+  max-width: 90% !important;
+}
+.abou05-page__section__box:nth-of-type(even) {
+  background-color: #efefef;
+}
+.abou05-page__section__box__encompass {
+  margin-bottom: 5rem;
+}
+.abou05-page__section__box__encompass__title {
   font-size: 3.125rem;
   font-family: "Montserrat", sans-serif, arial;
   color: #000;
@@ -2188,30 +2202,38 @@ body .owl-dots .owl-dot.active {
   font-weight: 700;
 }
 @media (max-width: 767.98px) {
-  .abou05-page__section__encompass__title {
+  .abou05-page__section__box__encompass__title {
     font-size: 1.875rem;
     margin-bottom: 0;
   }
 }
-.abou05-page__section__encompass__subtitle {
+.abou05-page__section__box__encompass__subtitle {
   font-size: 1.25rem;
   color: #7c7c7c;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
 @media (max-width: 767.98px) {
-  .abou05-page__section__encompass__subtitle {
+  .abou05-page__section__box__encompass__subtitle {
     font-size: 1.125rem;
   }
 }
-.abou05-page__section__encompass__line {
+.abou05-page__section__box__encompass__line {
   width: 100%;
   margin-top: 28.81px;
 }
 @media (max-width: 767.98px) {
-  .abou05-page__section__encompass__line {
+  .abou05-page__section__box__encompass__line {
     margin-top: 25px;
     margin-bottom: 21px;
+  }
+}
+.abou05-page__section__box:nth-of-type(even) .abou05-page__section__box__content {
+  flex-direction: row-reverse;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__content {
+    flex-direction: column-reverse !important;
   }
 }
 .abou05-page__section__box__image {
@@ -2221,21 +2243,27 @@ body .owl-dots .owl-dot.active {
 }
 @media (max-width: 767.98px) {
   .abou05-page__section__box__image {
-    order: 1;
+    margin: 0 auto;
+    max-width: 26.875rem;
     width: 100%;
-    padding: 0 41.33px;
-    height: 468.14px;
+    height: 24.0625rem;
   }
+}
+.abou05-page__section__box:nth-of-type(even) .abou05-page__section__box__content .abou05-page__section__box__description {
+  padding-left: 0;
+  padding-right: 170.46px;
 }
 .abou05-page__section__box__description {
   padding-left: 170.46px;
   padding-right: 0;
+  width: 64%;
 }
 @media (max-width: 767.98px) {
   .abou05-page__section__box__description {
     order: 0;
-    padding: 0 41.33px;
+    padding: 0 !important;
     margin-bottom: 49.43px;
+    width: 100%;
   }
 }
 .abou05-page__section__box__description__encompass__title {
@@ -2289,7 +2317,7 @@ body .owl-dots .owl-dot.active {
 .abou05-page__section__box__description__cta {
   font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 700;
-  color: #404040;
+  color: #000;
   display: flex;
   margin-top: 37px;
   max-width: 177px;
@@ -2302,6 +2330,15 @@ body .owl-dots .owl-dot.active {
 }
 .abou05-page__section__box__description__cta:hover .abou05-page__section__cta__icon {
   filter: invert(1) grayscale(1);
+}
+
+.abou05-page__section__box:nth-of-type(odd) .abou05-page__section__box__description__cta {
+  background-color: #efefef;
+  color: #000;
+}
+.abou05-page__section__box:nth-of-type(odd) .abou05-page__section__box__description__cta:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .lightbox-abou05 {
