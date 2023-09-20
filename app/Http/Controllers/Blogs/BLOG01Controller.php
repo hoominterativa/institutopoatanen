@@ -320,7 +320,7 @@ class BLOG01Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request, BLOG01BlogsCategory $BLOG01Category)
+    public function page(Request $request, BLOG01BlogsCategory $BLOG01BlogsCategory)
     {
         switch (deviceDetect()) {
             case 'mobile':
@@ -344,16 +344,16 @@ class BLOG01Controller extends Controller
         $blogFeaturedValidate = BLOG01Blogs::with('category')->featuredPage();
         $blogs = BLOG01Blogs::with('category');
 
-        if ($BLOG01Category->exists) {
+        if ($BLOG01BlogsCategory->exists) {
             foreach ($categories as $category) {
-                if ($BLOG01Category->id == $category->id) {
+                if ($BLOG01BlogsCategory->id == $category->id) {
                     $category->selected = true;
                 }
             }
 
-            $blogsFeatured = $blogsFeatured->where('category_id', $BLOG01Category->id);
-            $blogFeaturedValidate = $blogFeaturedValidate->where('category_id', $BLOG01Category->id);
-            $blogs = $blogs->where('category_id', $BLOG01Category->id);
+            $blogsFeatured = $blogsFeatured->where('category_id', $BLOG01BlogsCategory->id);
+            $blogFeaturedValidate = $blogFeaturedValidate->where('category_id', $BLOG01BlogsCategory->id);
+            $blogs = $blogs->where('category_id', $BLOG01BlogsCategory->id);
         }
 
         $blogsFeatured = $blogsFeatured->sorting()->get();

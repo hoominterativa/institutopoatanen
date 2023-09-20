@@ -267,39 +267,53 @@ class PORT02Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT02', 'page');
 
-        switch(deviceDetect()) {
+        $categories = PORT02PortfoliosCategory::active()->exists()->sorting()->get();
+        $portfolios = PORT02Portfolios::with('galleries')->active();
+
+        if ($PORT02PortfoliosCategory->exists) {
+            $portfolios = $portfolios->where('category_id', $PORT02PortfoliosCategory->id);
+            foreach($categories as $category) {
+                if ($PORT02PortfoliosCategory->id == $category->id) {
+                    $category->selected = true;
+                }
+            }
+        }
+
+        switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $portfolios = PORT02Portfolios::with('galleries')->active();
-                foreach ($portfolios as $portfolio) {
-                    if($portfolio) {
-                        $portfolio->path_image_desktop = $portfolio->path_image_mobile;
+                $portfolios = $portfolios->sorting()->paginate(16);
+
+                if ($portfolios) {
+                    foreach ($portfolios as $portfolio) {
+                        if ($portfolio->path_image_mobile) {
+                            $portfolio->path_image_desktop = $portfolio->path_image_mobile;
+                        }
                     }
                 }
                 $section = PORT02PortfoliosSection::active()->first();
-                if($section){
-                    $section->path_image_desktop = $section->path_image_mobile;
+
+                if ($section) {
+                    if ($section->path_image_mobile) {
+                        $section->path_image_desktop = $section->path_image_mobile;
+                    }
                 }
                 $banner = PORT02PortfoliosBanner::active()->first();
-                if($banner){
-                    $banner->path_image_desktop = $banner->path_image_mobile;
+
+                if ($banner) {
+                    if ($banner->path_image_mobile) {
+                        $banner->path_image_desktop = $banner->path_image_mobile;
+                    }
                 }
             break;
             default:
-                $portfolios = PORT02Portfolios::with('galleries')->active();
+                $portfolios = $portfolios->sorting()->paginate(3);
                 $banner = PORT02PortfoliosBanner::active()->first();
                 $section = PORT02PortfoliosSection::active()->first();
             break;
         }
 
-        if($PORT02PortfoliosCategory->exists){
-            $portfolios = $portfolios->where('category_id', $PORT02PortfoliosCategory->id);
-        }
-
-        $portfolios = $portfolios->sorting()->paginate(10);
-        $categories = PORT02PortfoliosCategory::active()->exists()->sorting()->get();
-
-        return view('Client.pages.Portfolios.PORT02.page',[
+        return view('Client.pages.Portfolios.PORT02.page', [
             'sections' => $sections,
             "portfolios" => $portfolios,
             "categories" => $categories,

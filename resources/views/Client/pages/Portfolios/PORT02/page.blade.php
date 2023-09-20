@@ -20,7 +20,7 @@
                 <nav class="port02-page__categories">
                     <div class="port02-page__categories__carousel">
                         @foreach ($categories as $category)
-                            <a href="{{route('port02.category.page',['PORT02PortfoliosCategory' => $category->slug])}}" class="port02-page__categories__link">
+                            <a href="{{route('port02.category.page',['PORT02PortfoliosCategory' => $category->slug])}}" class="port02-page__categories__link {{ isset($category->selected) ? 'active' : '' }}">
                                 <div class="port02-page__categories__item">
                                     <img src="{{asset('storage/'.$category->path_image_icon)}}" width="62" alt="{{$category->title}}" class="port02-page__categories__item__icon">
                                     <h2 class="port02-page__categories__item__title">{{$category->title}}</h2>

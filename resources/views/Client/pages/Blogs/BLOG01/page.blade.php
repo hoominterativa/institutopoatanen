@@ -14,7 +14,7 @@
                             class="blog01-page__header__category blog01-page__header__category__carousel d-flex justify-content-center">
                             @foreach ($categories as $category)
                                 <a href="{{ route('blog01.category.page', ['BLOG01BlogsCategory' => $category->slug]) }}"
-                                    class="blog01-page__header__category__item {{ isset($category->selected) ? 'blog01-page__header__category__item--active' : '' }}">{{ $category->title }}</a>
+                                    class="blog01-page__header__category__item {{ isset($category->selected) ? 'active' : '' }}">{{ $category->title }}</a>
                             @endforeach
                         </nav>
                     </div>

@@ -209,7 +209,7 @@ class TOPI06Controller extends Controller
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $topics = TOPI06Topics::active()->get();
+                $topics = TOPI06Topics::active()->sorting()->get();
                 if($topics) {
                     foreach ($topics as $topic) {
                         $topic->path_image_desktop = $topic->path_image_mobile;
@@ -217,11 +217,10 @@ class TOPI06Controller extends Controller
                 }
                 break;
             default:
-                $topics = TOPI06Topics::active()->get();
+            $topics = TOPI06Topics::active()->sorting()->get();
                 break;
         }
 
-        $topics = TOPI06Topics::active()->sorting()->get();
         return view('Client.pages.Topics.TOPI06.section',[
             'topics' => $topics
         ]);
