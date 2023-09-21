@@ -118,8 +118,6 @@ class ABOU05Controller extends Controller
 
         $about = ABOU05Abouts::first();
         $contents = ABOU05AboutsContent::with('socials')->active()->sorting()->get();
-        $socials = ABOU05AboutsSocial::where('content_id', $ABOU05AboutsContent->id)->active()->sorting()->get();
-        // dd($contents);
         return view('Client.pages.Abouts.ABOU05.page',[
             'sections' => $sections,
             'section' => $section,
