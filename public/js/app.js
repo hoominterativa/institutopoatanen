@@ -12489,7 +12489,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap base-component.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap base-component.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12510,7 +12510,7 @@ $(function () {
    * Constants
    */
 
-  const VERSION = '5.3.1';
+  const VERSION = '5.3.0';
 
   /**
    * Class definition
@@ -12582,7 +12582,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap collapse.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap collapse.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12840,7 +12840,7 @@ $(function () {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap data.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap data.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -12912,7 +12912,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap event-handler.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap event-handler.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13158,7 +13158,7 @@ $(function () {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap manipulator.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap manipulator.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13239,7 +13239,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap selector-engine.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap selector-engine.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13352,7 +13352,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap dropdown.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap dropdown.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13763,7 +13763,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap tab.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap tab.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -13798,8 +13798,6 @@ $(function () {
   const ARROW_RIGHT_KEY = 'ArrowRight';
   const ARROW_UP_KEY = 'ArrowUp';
   const ARROW_DOWN_KEY = 'ArrowDown';
-  const HOME_KEY = 'Home';
-  const END_KEY = 'End';
   const CLASS_NAME_ACTIVE = 'active';
   const CLASS_NAME_FADE = 'fade';
   const CLASS_NAME_SHOW = 'show';
@@ -13906,19 +13904,13 @@ $(function () {
       this._queueCallback(complete, element, element.classList.contains(CLASS_NAME_FADE));
     }
     _keydown(event) {
-      if (![ARROW_LEFT_KEY, ARROW_RIGHT_KEY, ARROW_UP_KEY, ARROW_DOWN_KEY, HOME_KEY, END_KEY].includes(event.key)) {
+      if (![ARROW_LEFT_KEY, ARROW_RIGHT_KEY, ARROW_UP_KEY, ARROW_DOWN_KEY].includes(event.key)) {
         return;
       }
       event.stopPropagation(); // stopPropagation/preventDefault both added to support up/down keys without scrolling the page
       event.preventDefault();
-      const children = this._getChildren().filter(element => !index_js.isDisabled(element));
-      let nextActiveElement;
-      if ([HOME_KEY, END_KEY].includes(event.key)) {
-        nextActiveElement = children[event.key === HOME_KEY ? 0 : children.length - 1];
-      } else {
-        const isNext = [ARROW_RIGHT_KEY, ARROW_DOWN_KEY].includes(event.key);
-        nextActiveElement = index_js.getNextActiveElement(children, event.target, isNext, true);
-      }
+      const isNext = [ARROW_RIGHT_KEY, ARROW_DOWN_KEY].includes(event.key);
+      const nextActiveElement = index_js.getNextActiveElement(this._getChildren().filter(element => !index_js.isDisabled(element)), event.target, isNext, true);
       if (nextActiveElement) {
         nextActiveElement.focus({
           preventScroll: true
@@ -14057,7 +14049,7 @@ $(function () {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap config.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap config.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -14135,7 +14127,7 @@ $(function () {
 
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /*!
-  * Bootstrap index.js v5.3.1 (https://getbootstrap.com/)
+  * Bootstrap index.js v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
