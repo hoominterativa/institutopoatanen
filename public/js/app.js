@@ -11701,34 +11701,35 @@ $(document).ready(function () {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(function () {
-  $('body').append('<div class="side02__override trasition"></div>');
-  $('[data-plugin=sidebar]').on('click', function () {
-    if ($('#SIDE02').hasClass('side02--show')) {
-      $('#SIDE02').removeClass('side02--show');
-      $(this).removeClass('active');
-      $('.side02__override').removeClass('side02__override--show');
-      $('body').removeClass('no-scroll');
+  $("body").append('<div class="side02__override trasition"></div>');
+  $("[data-plugin=sidebar]").on("click", function () {
+    if ($("#SIDE02").hasClass("side02--show")) {
+      $("#SIDE02").removeClass("side02--show");
+      $(this).removeClass("active");
+      $(".side02__override").removeClass("side02__override--show");
+      $("body").removeClass("no-scroll");
     } else {
-      $('#SIDE02').addClass('side02--show');
-      $(this).addClass('active');
-      $('.side02__override').addClass('side02__override--show');
-      $('body').addClass('no-scroll');
+      $("#SIDE02").addClass("side02--show");
+      $(this).addClass("active");
+      $(".side02__override").addClass("side02__override--show");
+      $("body").addClass("no-scroll");
     }
   });
-  $('#SIDE02 ul li a').on('click', function (e) {
-    e.preventDefault();
-    setTimeout(function () {
-      $('#side02').removeClass('side02--show');
-      $(this).removeClass('active');
-      $('.side02__override').removeClass('side02__override--show');
-      $('body').removeClass('no-scroll');
-    }, 1000);
-  });
-  $('.side02__header__button-close').on('click', function () {
-    $('#SIDE02').removeClass('side02--show');
-    $(this).removeClass('active');
-    $('.side02__override').removeClass('side02__override--show');
-    $('body').removeClass('no-scroll');
+
+  // $('#SIDE02 ul li a').on('click', function(e){
+  //     e.preventDefault();
+  //     setTimeout(function(){
+  //         $('#side02').removeClass('side02--show');
+  //         $(this).removeClass('active');
+  //         $('.side02__override').removeClass('side02__override--show');
+  //         $('body').removeClass('no-scroll');
+  //     }, 1000)
+  // })
+  $(".side02__header__button-close").on("click", function () {
+    $("#SIDE02").removeClass("side02--show");
+    $(this).removeClass("active");
+    $(".side02__override").removeClass("side02__override--show");
+    $("body").removeClass("no-scroll");
   });
 });
 
@@ -11836,8 +11837,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Contents/CONT02/src/main */ "./resources/views/Client/pages/Contents/CONT02/src/main.js");
-/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Products/PROD02/src/main */ "./resources/views/Client/pages/Products/PROD02/src/main.js");
 /* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _pages_Contents_CONT03_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Contents/CONT03/src/main */ "./resources/views/Client/pages/Contents/CONT03/src/main.js");
@@ -11850,15 +11851,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Topics/TOPI02/src/main */ "./resources/views/Client/pages/Topics/TOPI02/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
-/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Frequently/FREQ01/src/main */ "./resources/views/Client/pages/Frequently/FREQ01/src/main.js");
-/* harmony import */ var _pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_14__);
-
+/* harmony import */ var _pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Frequently/FREQ01/src/main */ "./resources/views/Client/pages/Frequently/FREQ01/src/main.js");
+/* harmony import */ var _pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__);
 
 
 
@@ -11885,40 +11883,40 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 function resizeHeightSlide() {
   // mw500=700
-  if ($('[data-slide-height]').length) {
-    var heightSlide = $('[data-slide-height]').data('slide-height'),
+  if ($("[data-slide-height]").length) {
+    var heightSlide = $("[data-slide-height]").data("slide-height"),
       heightWindow = $(window).outerHeight();
     if (!Number.isInteger(heightSlide)) {
-      if (heightSlide.split(',')[0] == 'auto') {
-        slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
-        $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+      if (heightSlide.split(",")[0] == "auto") {
+        slideHeight = heightSlide == "auto" ? heightWindow : heightSlide + "px";
+        $("[data-slide-height]").find(".container-slide").css("height", slideHeight);
       } else {
-        $.each(heightSlide.split(','), function (index, value) {
-          var maxWidth = value.split('=')[0].replace('mw', ''),
+        $.each(heightSlide.split(","), function (index, value) {
+          var maxWidth = value.split("=")[0].replace("mw", ""),
             widthWindow = $(window).outerWidth();
-          height = value.split('=')[1], slideHeight = height == 'auto' ? heightWindow : height + 'px';
+          height = value.split("=")[1], slideHeight = height == "auto" ? heightWindow : height + "px";
           if (widthWindow <= maxWidth) {
-            $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+            $("[data-slide-height]").find(".container-slide").css("height", slideHeight);
           }
         });
       }
     } else {
-      slideHeight = heightSlide == 'auto' ? heightWindow : heightSlide + 'px';
-      $('[data-slide-height]').find('.container-slide').css('height', slideHeight);
+      slideHeight = heightSlide == "auto" ? heightWindow : heightSlide + "px";
+      $("[data-slide-height]").find(".container-slide").css("height", slideHeight);
     }
   }
 }
 function insertImageMobile() {
   // INCLUDE IMAGE MOBILE
   if ($(window).outerWidth() <= 800) {
-    $.each($('[data-image-mobile]'), function (index, value) {
-      var imageMobile = $(this).data('image-mobile');
+    $.each($("[data-image-mobile]"), function (index, value) {
+      var imageMobile = $(this).data("image-mobile");
       switch (value.localName) {
-        case 'img':
-          $(this).attr('src', imageMobile);
+        case "img":
+          $(this).attr("src", imageMobile);
           break;
         default:
-          $(this).css('backgound', "url(".concat(imageMobile, ")"));
+          $(this).css("backgound", "url(".concat(imageMobile, ")"));
           break;
       }
     });
@@ -11926,72 +11924,104 @@ function insertImageMobile() {
 }
 $(function () {
   // SET HEADER FLOATING
-  var ff = $('.fixed-floating'),
-    hf = ff.find('.header-floating'),
-    minScrolling = ff.data('min-scrolling');
-  $(window).on('scroll', function () {
-    if ($(this).scrollTop() >= minScrolling && !hf.hasClass('floating')) {
-      hf.stop().addClass('floating');
-    } else if ($(this).scrollTop() < minScrolling - 10 && hf.hasClass('floating')) {
-      hf.stop().removeClass('floating');
+  var ff = $(".fixed-floating"),
+    hf = ff.find(".header-floating"),
+    minScrolling = ff.data("min-scrolling");
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() >= minScrolling && !hf.hasClass("floating")) {
+      hf.stop().addClass("floating");
+    } else if ($(this).scrollTop() < minScrolling - 10 && hf.hasClass("floating")) {
+      hf.stop().removeClass("floating");
     }
   });
 
   // SETTINGS SLIDE
   insertImageMobile();
   resizeHeightSlide();
-  $(window).on('resize', function () {
+  $(window).on("resize", function () {
     resizeHeightSlide();
     insertImageMobile();
   });
-  $('form input:not(input[type=hidden], input[type=checkbox], input[type=radio]), form textarea').each(function (elem) {
+  $("form input:not(input[type=hidden], input[type=checkbox], input[type=radio]), form textarea").each(function (elem) {
     var that = $(this),
-      placeholder = that.attr('placeholder'),
-      name = that.attr('name'),
+      placeholder = that.attr("placeholder"),
+      name = that.attr("name"),
       typeElem = that[0].localName;
     if (placeholder) {
-      if (typeElem == 'select') {
-        placeholder = that.find('option').first().text();
-        that.find('option').first().text('');
+      if (typeElem == "select") {
+        placeholder = that.find("option").first().text();
+        that.find("option").first().text("");
       }
       that.parent().append("\n                <div class=\"form-placeholder\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n            "));
-      that.parent().find('.form-placeholder').append(that);
-      that.removeAttr('placeholder');
-      that.attr('id', name);
+      that.parent().find(".form-placeholder").append(that);
+      that.removeAttr("placeholder");
+      that.attr("id", name);
       var formPlaceholder = that.parent(),
-        placeholderCustom = formPlaceholder.find('.placeholder--custom');
-      placeholderCustom.on('click', function () {
-        that.trigger('focus');
+        placeholderCustom = formPlaceholder.find(".placeholder--custom");
+      placeholderCustom.on("click", function () {
+        that.trigger("focus");
       });
-      that.on('focus', function () {
-        formPlaceholder.addClass('focusing');
+      that.on("focus", function () {
+        formPlaceholder.addClass("focusing");
       });
-      that.on('focusout', function () {
-        if ($(this).val() == '') {
-          formPlaceholder.removeClass('focusing');
+      that.on("focusout", function () {
+        if ($(this).val() == "") {
+          formPlaceholder.removeClass("focusing");
         }
       });
     }
   });
-  $('form select').each(function (elem) {
+  $("form select").each(function (elem) {
     var that = $(this),
-      placeholder = that.find('option').first().text(),
-      name = that.attr('name');
+      placeholder = that.find("option").first().text(),
+      name = that.attr("name");
     that.parent().append("\n            <div class=\"form-placeholder select\"><label for=\"".concat(name, "\" class=\"placeholder--custom\">").concat(placeholder, "</label></div>\n        "));
-    that.parent().find('.form-placeholder').append(that);
-    that.removeAttr('placeholder');
-    that.attr('id', name);
+    that.parent().find(".form-placeholder").append(that);
+    that.removeAttr("placeholder");
+    that.attr("id", name);
     var formPlaceholder = that.parent();
-    that.on('change', function () {
+    that.on("change", function () {
       var thisValue = $(this).val();
-      if (thisValue != '') {
-        formPlaceholder.addClass('focusing');
+      if (thisValue != "") {
+        formPlaceholder.addClass("focusing");
       } else {
-        formPlaceholder.removeClass('focusing');
+        formPlaceholder.removeClass("focusing");
       }
     });
   });
 });
+
+// Verifica se há elementos com a classe .animation no documento
+var elementosAnimados = document.querySelectorAll(".animation");
+if (elementosAnimados.length > 0) {
+  // Função para tratar o callback da interseção
+  var handleIntersection = function handleIntersection(entradas, observador) {
+    entradas.forEach(function (entrada) {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add("animated"); // Adiciona a classe .animated
+        observador.unobserve(entrada.target); // Para de observar o elemento após adicionar a classe
+      }
+      // else {
+      //     entrada.target.classList.remove("animated"); // Remove a classe .animated
+      // }
+    });
+  };
+
+  // Opções do Intersection Observer
+  var opcoes = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.05
+  };
+
+  // Cria uma nova instância do Intersection Observer
+  var observador = new IntersectionObserver(handleIntersection, opcoes);
+
+  // Observa cada elemento animado
+  elementosAnimados.forEach(function (elemento) {
+    observador.observe(elemento);
+  });
+}
 
 /***/ }),
 
@@ -12127,16 +12157,6 @@ $(function () {
 /***/ "./resources/views/Client/pages/Contacts/COTA02/src/main.js":
 /*!******************************************************************!*\
   !*** ./resources/views/Client/pages/Contacts/COTA02/src/main.js ***!
-  \******************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Contents/CONT02/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT02/src/main.js ***!
   \******************************************************************/
 /***/ (() => {
 
