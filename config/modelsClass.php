@@ -19,6 +19,11 @@ return [
                 'model' => App\Models\Abouts\ABOU04Abouts::class,
                 'seedQty' => 1,
             ],
+            'ABOU05' => (object)[
+                'controller' => App\Http\Controllers\Abouts\ABOU05Controller::class,
+                'model' => App\Models\Abouts\ABOU05Abouts::class,
+                'seedQty' => 1,
+            ],
         ],
         // END ABOUTS
 

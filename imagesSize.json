@@ -133,6 +133,49 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "ABOU05": {
+            "Section": {
+                "path_image_desktop_section": {
+                    "width": "1500",
+                    "height": "386",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_section": {
+                    "width": "390",
+                    "height": "519",
+                    "activeCrop": "true"
+                },
+                "path_image_desktop_banner": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "390",
+                    "height": "290",
+                    "activeCrop": "true"
+                }
+            },
+            "Content": {
+                "path_image": {
+                    "width": "429",
+                    "height": "591",
+                    "activeCrop": "false"
+                },
+                "path_image_inner": {
+                    "width": "612",
+                    "height": "615",
+                    "activeCrop": "false"
+                }
+            },
+            "Social": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Blogs": {

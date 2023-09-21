@@ -35,7 +35,7 @@
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$category->id}}"></label>
                                 </td>
                                 <td class="align-middle avatar-group">
-                                    @if ($category->path_image || $category->path_image_box)
+                                    @if ($category->path_image || $category->path_image_icon)
                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $category->path_image)}})"></div>
                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $category->path_image_icon)}})"></div>
                                     @endif
