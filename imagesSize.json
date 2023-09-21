@@ -136,12 +136,22 @@
         },
         "ABOU05": {
             "Section": {
-                "path_image_desktop": {
+                "path_image_desktop_section": {
                     "width": "1500",
-                    "height": "352",
+                    "height": "386",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_section": {
+                    "width": "390",
+                    "height": "519",
                     "activeCrop": "true"
                 },
-                "path_image_mobile": {
+                "path_image_desktop_banner": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "290",
                     "activeCrop": "true"

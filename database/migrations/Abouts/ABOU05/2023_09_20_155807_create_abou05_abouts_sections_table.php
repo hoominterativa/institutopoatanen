@@ -18,7 +18,7 @@ class CreateAbou05AboutsSectionsTable extends Migration
             //Section
             $table->string('title_section')->nullable();
             $table->string('subtitle_section')->nullable();
-            $table->string('description_section')->nullable();
+            $table->text('description_section')->nullable();
             $table->string('path_image_desktop_section')->nullable();
             $table->string('path_image_mobile_section')->nullable();
             $table->string('background_color_section')->nullable();

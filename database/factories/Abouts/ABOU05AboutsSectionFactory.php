@@ -38,8 +38,8 @@ class ABOU05AboutsSectionFactory extends Factory
             'background_color_banner' => '#FFFFFF',
             'active_banner' => 1,
             //Section Content
-            'title_banner' => $this->faker->text(10),
-            'subtitle_banner' => $this->faker->text(10),
+            'title_content' => $this->faker->text(10),
+            'subtitle_content' => $this->faker->text(10),
             'active_content' => 1,
         ];
     }

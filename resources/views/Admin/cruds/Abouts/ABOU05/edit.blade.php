@@ -31,11 +31,47 @@
                                 data-bs-original-title="Informações do conteúdo principal"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Informações para home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será apresentada na home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será apresentada no banner da página interna"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sectionContent" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Seção do conteúdo
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será apresentada como complemento para a seção conteúdo da página interna"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
                     <div class="tab-pane show active" id="about">
                         @include('Admin.cruds.Abouts.ABOU05.form')
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Abouts.ABOU05.Section.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Abouts.ABOU05.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="sectionContent">
+                        @include('Admin.cruds.Abouts.ABOU05.SectionContent.form')
                     </div>
                 </div>
             </div> <!-- container -->
