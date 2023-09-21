@@ -59,15 +59,15 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Produtos',
+                    'titleMenu' => 'Projects',
                     'anchor' =>  false,
                     'linkMenu' => 'prod05.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Produtos',
+                    'titlePanel' => 'Projects',
                     'iconPanel' => 'mdi-shopping-outline'
                 ],
                 'IncludeSections' => (object) [
-                    'Products' => ['PROD05'],
+                    'Products' => ['PROD05','show'],
                 ]
             ],
         ],

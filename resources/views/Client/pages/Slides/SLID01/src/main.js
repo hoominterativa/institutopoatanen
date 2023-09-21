@@ -12,4 +12,7 @@ $(function(){
         nav:false,
         dotsContainer: "#dotsSlideCustom"
     });
+
+    $('.SLID01').css('height', $(window).outerHeight());
+    $('.SLID01 .container-slide').css('height', $(window).outerHeight());
 })
