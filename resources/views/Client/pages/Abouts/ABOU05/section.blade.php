@@ -1,4 +1,4 @@
-<section id="ABOU05" class="abou05 container-fluid" style="background-image: url();background-color: #000;">
+<section id="ABOU05" class="abou05 container-fluid" style="background-image: url({{asset('storage/uploads/tmp/bg-banner-inner.jpg')}});background-color:;">
     <div class="container">
         <h3 class="abou05__container-title">
             <span class="abou05__title">asdasdasdasd</span>
