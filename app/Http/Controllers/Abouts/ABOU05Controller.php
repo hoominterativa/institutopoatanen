@@ -12,6 +12,7 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Abouts\ABOU05AboutsContent;
 use App\Models\Abouts\ABOU05AboutsSection;
+use App\Models\Abouts\ABOU05AboutsSocial;
 
 class ABOU05Controller extends Controller
 {
@@ -98,13 +99,33 @@ class ABOU05Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, ABOU05AboutsContent $ABOU05AboutsContent)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU05', 'page');
 
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = ABOU05AboutsSection::activeSection()->first();
+                if($section)
+                    $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+                break;
+            default:
+                $section = ABOU05AboutsSection::activeSection()->first();
+                break;
+        }
+
+        $about = ABOU05Abouts::first();
+        $contents = ABOU05AboutsContent::with('socials')->active()->sorting()->get();
+        $socials = ABOU05AboutsSocial::where('content_id', $ABOU05AboutsContent->id)->active()->sorting()->get();
+        // dd($contents);
         return view('Client.pages.Abouts.ABOU05.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'section' => $section,
+            'about' => $about,
+            'contents' => $contents,
+            'socials' => $socials
         ]);
     }
 
@@ -115,6 +136,20 @@ class ABOU05Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Abouts.ABOU05.section');
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section = ABOU05AboutsSection::activeSection()->first();
+                if($section)
+                    $section->path_image_desktop_section = $section->path_image_mobile_section;
+                break;
+            default:
+                $section = ABOU05AboutsSection::activeSection()->first();
+                break;
+        }
+
+        return view('Client.pages.Abouts.ABOU05.section',[
+            'section' => $section,
+        ]);
     }
 }
