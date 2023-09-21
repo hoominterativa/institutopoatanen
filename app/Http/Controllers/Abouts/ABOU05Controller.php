@@ -123,7 +123,6 @@ class ABOU05Controller extends Controller
             'section' => $section,
             'about' => $about,
             'contents' => $contents,
-            'socials' => $socials
         ]);
     }
 
