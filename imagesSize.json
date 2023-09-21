@@ -156,6 +156,25 @@
                     "height": "290",
                     "activeCrop": "true"
                 }
+            },
+            "Content": {
+                "path_image": {
+                    "width": "429",
+                    "height": "591",
+                    "activeCrop": "false"
+                },
+                "path_image_inner": {
+                    "width": "612",
+                    "height": "615",
+                    "activeCrop": "false"
+                }
+            },
+            "Social": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
             }
         }
     },

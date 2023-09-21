@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Abouts\ABOU05AboutsContent;
 use App\Models\Abouts\ABOU05AboutsSection;
 
 class ABOU05Controller extends Controller
@@ -25,9 +26,11 @@ class ABOU05Controller extends Controller
     {
         $about = ABOU05Abouts::first();
         $section = ABOU05AboutsSection::first();
+        $contents = ABOU05AboutsContent::sorting()->get();
         return view('Admin.cruds.Abouts.ABOU05.edit', [
             'about' => $about,
             'section' => $section,
+            'contents' => $contents,
             'cropSetting' => getCropImage('Abouts', 'ABOU05')
         ]);
     }

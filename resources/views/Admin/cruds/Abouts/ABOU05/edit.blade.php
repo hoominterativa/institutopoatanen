@@ -52,10 +52,19 @@
                     <li class="nav-item">
                         <a href="#sectionContent" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Seção do conteúdo
+                            Informações adicionais do conteúdo
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será apresentada como complemento para a seção conteúdo da página interna"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Conteúdo
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de informações para a seção conteúdo da página interna"></i>
                         </a>
                     </li>
                 </ul>
@@ -72,6 +81,9 @@
                     </div>
                     <div class="tab-pane" id="sectionContent">
                         @include('Admin.cruds.Abouts.ABOU05.SectionContent.form')
+                    </div>
+                    <div class="tab-pane" id="content">
+                        @include('Admin.cruds.Abouts.ABOU05.Content.index')
                     </div>
                 </div>
             </div> <!-- container -->
