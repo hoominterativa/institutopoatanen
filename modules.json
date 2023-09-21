@@ -2,7 +2,8 @@
     "Headers": [
         "HEAD01",
         "HEAD02",
-        "HEAD03"
+        "HEAD03",
+        "HEAD05"
     ],
     "Footers": [
         "FOOT03",
@@ -26,7 +27,9 @@
         "CONT05",
         "CONT02V1",
         "CONT04",
-        "CONT11"
+        "CONT11",
+        "CONT12",
+        "CONT10V2"
     ],
     "Portfolios": [
         "PORT01",
@@ -50,7 +53,8 @@
         "SERV01",
         "SERV04",
         "SERV05",
-        "SERV06"
+        "SERV06",
+        "SERV07"
     ],
     "Abouts": [
         "ABOU01",
@@ -108,5 +112,6 @@
     ],
     "Schedules": [
         "SCHE01"
-    ]
+    ],
+    "HEAD05": []
 }

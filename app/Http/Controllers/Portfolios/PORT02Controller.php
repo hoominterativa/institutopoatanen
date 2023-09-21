@@ -267,34 +267,37 @@ class PORT02Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT02', 'page');
 
-        $categories = PORT02PortfoliosCategory::active()->exists()->sorting()->get();
-        $portfolios = PORT02Portfolios::with('galleries')->active();
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $portfolios = PORT02Portfolios::with('galleries')->active();
+                foreach ($portfolios as $portfolio) {
+                    if($portfolio) {
+                        $portfolio->path_image_desktop = $portfolio->path_image_mobile;
+                    }
+                }
+                $section = PORT02PortfoliosSection::active()->first();
+                if($section){
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+                $banner = PORT02PortfoliosBanner::active()->first();
+                if($banner){
+                    $banner->path_image_desktop = $banner->path_image_mobile;
+                }
+            break;
+            default:
+                $portfolios = PORT02Portfolios::with('galleries')->active();
+                $banner = PORT02PortfoliosBanner::active()->first();
+                $section = PORT02PortfoliosSection::active()->first();
+            break;
+        }
 
         if($PORT02PortfoliosCategory->exists){
             $portfolios = $portfolios->where('category_id', $PORT02PortfoliosCategory->id);
         }
 
-        $portfolios = $portfolios->sorting()->paginate(3);
-
-        $banner = PORT02PortfoliosBanner::active()->first();
-        $section = PORT02PortfoliosSection::active()->first();
-
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                foreach ($portfolios as $portfolio) {
-                    if($portfolio->path_image_mobile){
-                        $portfolio->path_image_desktop = $portfolio->path_image_mobile;
-                    }
-                }
-                if($section->path_image_mobile){
-                    $section->path_image_desktop = $section->path_image_mobile;
-                }
-                if($banner->path_image_mobile){
-                    $banner->path_image_desktop = $banner->path_image_mobile;
-                }
-            break;
-        }
+        $portfolios = $portfolios->sorting()->paginate(10);
+        $categories = PORT02PortfoliosCategory::active()->exists()->sorting()->get();
 
         return view('Client.pages.Portfolios.PORT02.page',[
             'sections' => $sections,
@@ -312,23 +315,27 @@ class PORT02Controller extends Controller
      */
     public static function section()
     {
-        $portfolios = PORT02Portfolios::with('galleries')->active()->featured()->sorting()->get();
-        $categories = PORT02PortfoliosCategory::active()->exists()->featured()->sorting()->get();
-        $section = PORT02PortfoliosBannerHome::active()->first();
-
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
+                $portfolios = PORT02Portfolios::with('galleries')->active()->featured()->sorting()->get();
                 foreach ($portfolios as $portfolio) {
-                    if($portfolio->path_image_mobile){
+                    if($portfolio){
                         $portfolio->path_image_desktop = $portfolio->path_image_mobile;
                     }
                 }
-                if($section->path_image_mobile){
+                $section = PORT02PortfoliosBannerHome::active()->first();
+                if($section){
                     $section->path_image_desktop = $section->path_image_mobile;
                 }
             break;
+            default:
+                $portfolios = PORT02Portfolios::with('galleries')->active()->featured()->sorting()->get();
+                $section = PORT02PortfoliosBannerHome::active()->first();
+            break;
         }
+
+        $categories = PORT02PortfoliosCategory::active()->exists()->featured()->sorting()->get();
 
         return view('Client.pages.Portfolios.PORT02.section',[
             "portfolios" => $portfolios,

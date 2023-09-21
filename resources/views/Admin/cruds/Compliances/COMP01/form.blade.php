@@ -14,33 +14,6 @@
                 </div>
                 {!! Form::text('title_page', null, ['class'=>'form-control', 'id'=>'title_page', 'required'=>'required']) !!}
             </div>
-            <div class="mb-2 form-check d-flex align-items-center">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input me-1', 'id'=>'active']) !!}
-                <div class="d-flex align-items-center">
-                    {!! Form::label('active', 'Ativar exibição da página', ['class'=>'form-check-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Não selecionar esta opção desativará a exibição da página no site"></i>
-                </div>
-            </div>
-            <div class="mb-2 form-check d-flex align-items-center">
-                {!! Form::checkbox('show_header', '1', null, ['class'=>'form-check-input me-1', 'id'=>'show_header']) !!}
-                <div class="d-flex align-items-center">
-                    {!! Form::label('show_header', 'Ativar exibição no Topo do site', ['class'=>'form-check-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Selecionar esta opção ativará a exibição de um link no menu do topo e sidebar no site."></i>
-                </div>
-            </div>
-            <div class="form-check d-flex align-items-center">
-                {!! Form::checkbox('show_footer', '1', null, ['class'=>'form-check-input me-1', 'id'=>'show_footer']) !!}
-                <div class="d-flex align-items-center">
-                    {!! Form::label('show_footer', 'Ativar exibição no Rodapé do site', ['class'=>'form-check-label mb-0']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Selecionar esta opção ativará a exibição de um link no menu do rdapé no site."></i>
-                </div>
-            </div>
         </div>
         {{-- end card-body --}}
     </div>

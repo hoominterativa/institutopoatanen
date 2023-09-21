@@ -46,6 +46,18 @@
             border-top: 1px solid $color-one;
             margin-bottom: 49px;
         }
+
+        &__desc {
+            font: $paragraph;
+            font-weight: 400;
+            color: $color-two;
+            width: 100%;
+            text-align: left;
+
+            @include medium-device-down {
+                font: $paragraph-mobile;
+            }
+        }
     }
 
     &__item {

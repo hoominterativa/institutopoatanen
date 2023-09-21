@@ -61,7 +61,7 @@
                                     </a>
                                 </div>
                             </div>
-                            @include('Client.pages.teams.TEAM01.show', [
+                            @include('Client.Pages.teams.TEAM01.show', [
                                 'team' => $team
                             ])
                         </article>

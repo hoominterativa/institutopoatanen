@@ -64,6 +64,16 @@
                                                 'class' => 'col-md-8'
                                             ])
                                         @endforeach
+                                        <label for="" class="form02-form__form__checkbox-label">
+                                            {!! Form::checkbox('term_accept', 1, null, [
+                                                'class' => 'form-check-input me-1',
+                                                'id' => 'term_accept',
+                                                'required' => true,
+                                            ]) !!}
+                                            {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                                            <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                                class="">Política de Privacidade</a>
+                                        </label>
                                     </div>
                                     <button type="submit" class="lifo__boxRight__cta">
                                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
@@ -127,6 +137,16 @@
                                     'class' => 'col-md-8'
                                 ])
                             @endforeach
+                            <label for="" class="form03-form__form__checkbox-label">
+                                {!! Form::checkbox('term_accept', 1, null, [
+                                    'class' => 'form-check-input me-1',
+                                    'id' => 'term_accept',
+                                    'required' => true,
+                                ]) !!}
+                                {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                    class="">Política de Privacidade</a>
+                            </label>
                         </div>
                         <button type="submit" class="form03__boxRight__cta">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
@@ -164,6 +184,16 @@
                                     'type' => $input->type
                                 ])
                             @endforeach
+                            <label for="" class="form101-form__form__checkbox-label">
+                                {!! Form::checkbox('term_accept', 1, null, [
+                                    'class' => 'form-check-input me-1',
+                                    'id' => 'term_accept',
+                                    'required' => true,
+                                ]) !!}
+                                {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                    class="">Política de Privacidade</a>
+                            </label>
                             <button type="submit" class="form101__content__cta">
                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
                                 CTA
@@ -196,6 +226,16 @@
                                     'class' => 'col-md-8'
                                 ])
                             @endforeach
+                            <label for="" class="form102__content__form__checkbox-label">
+                                {!! Form::checkbox('term_accept', 1, null, [
+                                    'class' => 'form-check-input me-1',
+                                    'id' => 'term_accept',
+                                    'required' => true,
+                                ]) !!}
+                                {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                    class="">Política de Privacidade</a>
+                            </label>
                         </div>
                         <button type="submit" class="form102__content__cta">
                             <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">

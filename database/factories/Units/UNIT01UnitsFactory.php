@@ -26,6 +26,7 @@ class UNIT01UnitsFactory extends Factory
             'title' => $this->faker->text(10),
             'description' => $this->faker->text(200),
             'active' => 1,
+            'featured' => 1,
         ];
     }
 }

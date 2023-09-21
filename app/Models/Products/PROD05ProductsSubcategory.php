@@ -37,7 +37,7 @@ class PROD05ProductsSubcategory extends Model
     public function scopeExists($query)
     {
         return $query->whereExists(function($query){
-            $query->select('prod05_products_subcategories.id')->from('prod05_products')->whereColumn('prod05_products.subcategory_id', 'prod05_products_subcategories.id');
+            $query->select('prod05_products_subcategories.id')->from('prod05_products')->whereColumn('prod05_products.subcategory_id', 'prod05_products_subcategories.id')->whereNull('prod05_products.deleted_at');
         });
     }
 

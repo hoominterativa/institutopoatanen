@@ -17,7 +17,7 @@ class UNIT01Units extends Model
     }
 
     protected $table = "unit01_units";
-    protected $fillable = ['title_unit', 'title', 'description', 'active', 'sorting'];
+    protected $fillable = ['title_unit', 'title', 'description', 'featured', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,6 +27,11 @@ class UNIT01Units extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
     }
 
     public function topics()

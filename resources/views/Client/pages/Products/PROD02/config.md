@@ -30,7 +30,6 @@
             'iconPanel' => 'mdi-shopping-outline'
         ],
         'IncludeSections' => (object) [
-            'Feedbacks' => 'FEED01',
         ]
     ],
 ],

@@ -124,7 +124,7 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane show active" id="topic">
+                    <div class="tab-pane" id="topic">
                         @include('Admin.cruds.Slides.SLID02.Topics.index')
                     </div>
                 </div>

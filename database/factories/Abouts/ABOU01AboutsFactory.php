@@ -36,9 +36,12 @@ class ABOU01AboutsFactory extends Factory
             "path_image_inner_section" => "uploads/tmp/image-pmg.png",
             "path_image_section_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
             "path_image_section_mobile" => "uploads/tmp/image-box-white.jpg",
+            "path_image_home_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
+            "path_image_home_mobile" => "uploads/tmp/image-box-white.jpg",
             "path_image" => "uploads/tmp/image-pmg.png",
             "text_inner_section" => $this->faker->text(250),
             "background_color" => '#FFFFFF',
+            "background_color_home" => '#FFFFFF',
         ];
     }
 }

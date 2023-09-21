@@ -230,7 +230,7 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane show active" id="featuredtopic">
+                    <div class="tab-pane" id="featuredtopic">
                         @include('Admin.cruds.Topics.TOPI102.FeaturedTopics.index')
                     </div>
                 </div>

@@ -22,7 +22,7 @@ class CONT10ContentsFactory extends Factory
     public function definition()
     {
         return [
-            'date' => date('Y-m-d'),
+            'date' => $this->faker->date('Y-m-d'),
             'title' => $this->faker->text(10),
             'locale' => 'Salvador-BA',
             'link' => 'http://lorempixel.com',

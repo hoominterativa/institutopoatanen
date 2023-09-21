@@ -1,5 +1,6 @@
 <div class="row col-12">
     <div class="col-12">
+        <input type="hidden" name="title_form" value="{{ isset($contact->title_page) ?? null }}">
         <div class="card card-body" id="tooltip-container">
             <div class="row">
                 <div class="col-12 col-lg-6">

@@ -87,7 +87,7 @@ class SERV05CategoryController extends Controller
      */
     public function destroy(SERV05ServicesCategory $SERV05ServicesCategory)
     {
-        // Verificar se existem unidades associadas à categoria
+        // Verificar se existem serviços associadas à categoria
         if (SERV05Services::where('category_id', $SERV05ServicesCategory->id)->count()) {
             Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
             return redirect()->back();

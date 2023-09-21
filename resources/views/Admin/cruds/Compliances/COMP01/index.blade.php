@@ -43,7 +43,6 @@
                                             <th>Título da Página</th>
                                             <th>Título Banner</th>
                                             <th width="120px" class="text-center">Link da página</th>
-                                            <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
                                     </thead>
@@ -64,19 +63,6 @@
                                                 <td class="align-middle">{{$compliance->title_banner}}</td>
                                                 <td class="align-middle text-center">
                                                     <a href="{{route('comp01.show',['COMP01Compliances' => $compliance->slug])}}" target="_blank" class="mdi mdi-link-variant font-22"></a>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="d-flex align-items-center">
-                                                        @if ($compliance->active)
-                                                            <span class="badge bg-success me-2">Ativo</span>
-                                                        @else
-                                                            <span class="badge bg-danger me-2">Inativo</span>
-                                                        @endif
-
-                                                        @if ($compliance->show_footer)
-                                                            <span class="badge bg-warning me-2">Exibindo no rodapé do site</span>
-                                                        @endif
-                                                    </div>
                                                 </td>
                                                 <td class="align-middle">
                                                     <div class="row">

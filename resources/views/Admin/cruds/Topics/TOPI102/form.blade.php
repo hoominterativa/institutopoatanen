@@ -6,17 +6,16 @@
                         {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                         {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
                     </div>
-                    <div class="mb-3">
-                        {!! Form::label('text', 'Descrição', ['class' => 'form-label']) !!}
-                        {!! Form::textarea('text', null, [
-                            'class' => 'form-control',
-                            'id' => 'text',
-                            'data-parsley-trigger' => 'keyup',
-                            'data-parsley-minlength' => '20',
-                            'data-parsley-maxlength' => '200',
-                            'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                            'data-parsley-validation-threshold' => '10',
-                        ]) !!}
+                    
+                    <div class="col-12">
+                        <div class="normal-editor__content mb-3">
+                            {!! Form::label('text', 'Descrição', ['class'=>'form-label']) !!}
+                            <small class="ms-1"><b>Recomendamos salvar de tempo em tempo caso a matéria seja extensa</b></small>
+                            {!! Form::textarea('text', null, [
+                                'class'=>'form-control normal-editor',
+                                'id'=>'text',
+                            ]) !!}
+                        </div>
                     </div>
                     <div class="mb-3 form-check">
                         {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}

@@ -19,22 +19,24 @@
                     </div>
                 </div>
                 {{-- END .bran01__encompass --}}
-                <div class="bran01__content row mx-auto px-0">
-                    @foreach ($brands as $brand)
-                        @if ($brand->featured)
+                @if ($brands->count())
+                    <div class="bran01__content row mx-auto px-0">
+                        @foreach ($brands as $brand)
                             <div class="bran01__box col-sm-3">
                                 <div class="bran01__box__content position-relative"
                                     style="background-image:url({{ asset('storage/' . $brand->path_image_box) }}); background-size:cover;background-repeat:no-repeat; background-position:center;">
-                                    <a <a href="{{getUri($brand->link?? '#')}}" target="{{ ($brand->link?$brand->target_link : '_self') }}" class="link-full"></a>
+                                    <a href="{{getUri($brand->link?? '#')}}" target="{{ ($brand->link?$brand->target_link : '_self') }}" @if (!$brand->link) style="cursor: default;" @endif class="link-full"></a>
                                     <div class="bran01__box__image">
-                                        <img src="{{ asset('storage/' . $brand->path_image_icon) }}" alt="Logo" loading="lazy">
+                                        @if ($brand->path_image_icon)
+                                            <img src="{{ asset('storage/' . $brand->path_image_icon) }}" alt="Logo" loading="lazy">
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                        @endif
-                        {{-- END .bran01__box --}}
-                    @endforeach
-                </div>
+                            {{-- END .bran01__box --}}
+                        @endforeach
+                    </div>
+                @endif
                 {{-- END .bran01__content --}}
             </div>
             <!-- <a rel="next" href="{{ route('bran01.page') }}"

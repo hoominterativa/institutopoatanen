@@ -16,7 +16,7 @@ class ABOU04AboutsSectionGallery extends Model
     }
 
     protected $table = "abou04_abouts_sectiongalleries";
-    protected $fillable = ['title', 'subtitle', 'title_button', 'link_button', 'target_link_button', 'active'];
+    protected $fillable = ['title', 'description', 'title_button', 'link_button', 'target_link_button', 'active'];
 
     public function scopeActive($query)
     {

@@ -56,14 +56,14 @@
                                                     @endif
                                                 </div>
                                                 <div class="copa02-page__assortedBox__boxStandard__description__cta">
-                                                    @if ($content->link_button || $content->target_link_button || $content->path_image_icon || $content->title_button)
-                                                        <a href="{{ getUri($content->link_button) }}"
-                                                            target="{{ $content->target_link_button }}"
-                                                            class="copa02-page__assortedBox__boxStandard__description__cta__link">
-                                                            <img src="{{ asset('storage/' . $content->path_image_icon) }}"
-                                                                alt=""
-                                                                class="copa02-page__assortedBox__boxStandard__description__cta__img">
-                                                            {{ $content->title_button }}
+                                                    @if ($content->link_button)
+                                                        <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}" class="copa02-page__assortedBox__boxStandard__description__cta__link">
+                                                            @if ($content->path_image_icon)
+                                                                <img src="{{ asset('storage/' . $content->path_image_icon) }}" alt="" class="copa02-page__assortedBox__boxStandard__description__cta__img">
+                                                            @endif
+                                                            @if ($content->title_button)
+                                                                {{ $content->title_button }}
+                                                            @endif
                                                         </a>
                                                     @endif
                                                 </div>
@@ -88,10 +88,9 @@
                             @if ($pageSection->title || $pageSection->subtitle)
                                 <h3 class="copa02-page__emphasis__container">
                                     <span class="copa02-page__emphasis__header__title">{{ $pageSection->title }}</span>
-                                    <span
-                                        class="copa02-page__emphasis__headers__subtitle">{{ $pageSection->subtitle }}</span>
+                                    <span class="copa02-page__emphasis__headers__subtitle">{{ $pageSection->subtitle }}</span>
                                 </h3>
-                                <hr class="copa02-page__emphasis__header__line" />
+                                <hr class="copa02-page__emphasis__header__line"/>
                             @endif
                             @if ($pageSection->description)
                                 <div class="copa02-page__emphasis__header__paragraph">
@@ -114,10 +113,8 @@
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 @if ($sectionTopic->title || $sectionTopic->subtitle)
                                     <h3 class="copa02-page__boxTopic__header__encompass">
-                                        <span
-                                            class="copa02-page__boxTopic__header__title">{{ $sectionTopic->title }}</span>
-                                        <span
-                                            class="copa02-page__boxTopic__header__subtitle">{{ $sectionTopic->subtitle }}</span>
+                                        <span class="copa02-page__boxTopic__header__title">{{ $sectionTopic->title }}</span>
+                                        <span class="copa02-page__boxTopic__header__subtitle">{{ $sectionTopic->subtitle }}</span>
                                     </h3>
                                     <hr class="copa02-page__boxTopic__header__line" />
                                 @endif
@@ -176,9 +173,9 @@
                                 <div class="copa02-page__boxContent__item__description col">
                                     @if ($lastSection->title || $lastSection->subtitle)
                                         <h4 class="copa02-page__boxContent__item__description__title">
-                                            {{ $lastSection->subtitle }}</h4>
+                                            {{ $lastSection->title }}</h4>
                                         <h5 class="copa02-page__boxContent__item__description__subtitle">
-                                            {{ $lastSection->title }}</h5>
+                                            {{ $lastSection->subtitle }}</h5>
                                         <hr class="copa02-page__boxContent__item__description__line" />
                                     @endif
                                     @if ($lastSection->description)
@@ -188,19 +185,15 @@
                                             </p>
                                         </div>
                                     @endif
-                                    @if (
-                                        $lastSection->link_button ||
-                                            $lastSection->target_link_button ||
-                                            $lastSection->path_image_icon ||
-                                            $lastSection->title_button)
+                                    @if ($lastSection->link_button)
                                         <div class="copa02-page__boxContent__item__description__cta">
-                                            <a href="{{ getUri($lastSection->link_button) }}"
-                                                target="{{ $lastSection->target_link_button }}"
-                                                class="copa02-page__boxContent__item__description__cta__link">
-                                                <img src="{{ asset('storage/' . $lastSection->path_image_icon) }}"
-                                                    alt=""
-                                                    class="copa02-page__boxContent__item__description__cta__img">
-                                                {{ $lastSection->title_button }}
+                                            <a href="{{ getUri($lastSection->link_button) }}"target="{{ $lastSection->target_link_button }}" class="copa02-page__boxContent__item__description__cta__link">
+                                                @if ($lastSection->path_image_icon)
+                                                    <img src="{{ asset('storage/' . $lastSection->path_image_icon) }}" alt="" class="copa02-page__boxContent__item__description__cta__img">
+                                                @endif
+                                                @if ($lastSection->title_button)
+                                                    {{ $lastSection->title_button }}
+                                                @endif
                                             </a>
                                         </div>
                                     @endif

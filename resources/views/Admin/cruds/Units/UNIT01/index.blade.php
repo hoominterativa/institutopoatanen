@@ -33,6 +33,13 @@
                             data-bs-original-title="Informações para o banner da página."></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seção home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Informações adicionais que serão mostradas na página home."></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -77,7 +84,10 @@
                                                                 <span class="badge bg-success">Ativo</span>
                                                             @else
                                                                 <span class="badge bg-danger">Inativo</span>
-                                                            @endif                                                                                                        
+                                                            @endif
+                                                            @if ($unit->featured)
+                                                                <span class="badge bg-primary text-white">Destaque</span>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">
@@ -99,7 +109,8 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                        @include('Admin.cruds.Units.UNIT01.Banner.form')                    
+                        @include('Admin.cruds.Units.UNIT01.Banner.form')
+                        @include('Admin.cruds.Units.UNIT01.Section.form')
                 </div>
                 <!-- end row -->
             </div> <!-- container -->

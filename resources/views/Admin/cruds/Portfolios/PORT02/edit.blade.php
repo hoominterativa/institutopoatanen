@@ -48,7 +48,7 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
-                    <div class="tab-pane show active" id="galleries">
+                    <div class="tab-pane" id="galleries">
                         @include('Admin.cruds.Portfolios.PORT02.Galleries.index', [
                             'portfolio' => $portfolio,
                             'galleries' => $galleries,

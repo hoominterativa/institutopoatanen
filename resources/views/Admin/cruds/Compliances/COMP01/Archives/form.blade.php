@@ -30,6 +30,9 @@
 
         </div>
         <div class="col-12 col-lg-6">
+            <div class="alert alert-warning">
+                <p class="mb-0">O campo de link abaixo só deverá ser preenchido caso não exista um arquivo.</p>
+            </div>
             <div class="mb-3">
                 {!! Form::label('file', 'Arquivo', ['class'=>'form-label']) !!}
                 {!! Form::file('path_archive', [

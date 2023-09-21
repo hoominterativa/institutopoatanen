@@ -271,7 +271,7 @@ class CoreController extends Controller
                     "slug" => Str::slug($page->title),
                     "anchor" => true,
                     "link" => $page->link,
-                    "target_link" => $page->link,
+                    "target_link" => $page->target_link,
                     "dropdown" => $listDropdown,
                 ];
             }

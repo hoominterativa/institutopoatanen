@@ -32,7 +32,6 @@
                 {!! Form::textarea('description', null, [
                     'class' => 'form-control',
                     'id' => 'description',
-                    'required' => 'required',
                     'data-parsley-trigger' => 'keyup',
                     'data-parsley-minlength' => '20',
                     'data-parsley-maxlength' => '900',

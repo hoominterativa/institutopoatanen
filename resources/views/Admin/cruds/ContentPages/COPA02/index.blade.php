@@ -239,13 +239,13 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane show active" id="sections">
+                    <div class="tab-pane" id="sections">
                         @include('Admin.cruds.ContentPages.COPA02.Section.index')
                     </div>
-                    <div class="tab-pane show active" id="topics">
+                    <div class="tab-pane" id="topics">
                         @include('Admin.cruds.ContentPages.COPA02.Topics.index')
                     </div>
-                    <div class="tab-pane show active" id="lastSections">
+                    <div class="tab-pane" id="lastSections">
                         @include('Admin.cruds.ContentPages.COPA02.LastSection.index')
                     </div>
                 </div>

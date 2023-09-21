@@ -29,5 +29,3 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao', CONT10SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'CONT10ContentsSection']);
     Route::post($route.'/secao/delete', [CONT10SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

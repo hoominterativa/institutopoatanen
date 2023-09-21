@@ -1,6 +1,16 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+#CONT02{
+    padding: 80px 0 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include small-device{
+        padding: 60px 50px 0;
+    }
+}
 .cont02{
     padding-top:68.54px;
     @include large-device-down{
@@ -65,7 +75,7 @@
     &__description{
 
     }
-   
+
     &__title{
         font-size: $T2;
         color: $color-black;
@@ -74,7 +84,7 @@
         margin-bottom: 21px;
 
         @include small-device-down{
-            font-size: $T2-mobile; 
+            font-size: $T2-mobile;
         }
     }
     &__subtitle{
@@ -84,7 +94,7 @@
         font-weight: $weight-700;
 
         @include small-device-down{
-            font-size: $T4-mobile; 
+            font-size: $T4-mobile;
         }
     }
     &__line{
@@ -96,7 +106,7 @@
         font: $paragraph;
 
         @include small-device-down{
-            font-size: $paragraph-mobile; 
+            font-size: $paragraph-mobile;
         }
     }
     &__paragraph p{
@@ -105,7 +115,7 @@
         font: $paragraph;
 
         @include small-device-down{
-            font-size: $paragraph-mobile; 
+            font-size: $paragraph-mobile;
         }
         margin-bottom: 0;
     }
@@ -121,7 +131,7 @@
 
         &:hover{
             color: $color-white;
-            background-color: $bg-black; 
+            background-color: $bg-black;
         }
         &:hover img{
             filter: invert(1) grayscale(1);

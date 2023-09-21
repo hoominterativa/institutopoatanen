@@ -19,6 +19,7 @@ class CreateUnit01UnitsTable extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->integer('active')->default(0);
+            $table->integer('featured')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

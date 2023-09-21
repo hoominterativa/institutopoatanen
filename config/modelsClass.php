@@ -110,10 +110,20 @@ return [
                 'model' => App\Models\Contents\CONT10Contents::class,
                 'seedQty' => 15,
             ],
+            'CONT10V2' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT10V2Controller::class,
+                'model' => App\Models\Contents\CONT10V2Contents::class,
+                'seedQty' => 15,
+            ],
             'CONT11' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT11Controller::class,
                 'model' => App\Models\Contents\CONT11Contents::class,
                 'seedQty' => 1,
+            ],
+            'CONT12' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT12Controller::class,
+                'model' => App\Models\Contents\CONT12Contents::class,
+                'seedQty' => 10,
             ],
         ],
         // END CONTENTS
@@ -315,7 +325,6 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV05Controller::class,
                 'model' => App\Models\Services\SERV05Services::class,
                 'seedQty' => 12,
-                // 'routeName' => 'serv05.page.content',
                 'routeName' => 'serv05.show.content',
                 'relationship' => [
                     'category' => [
@@ -329,6 +338,32 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV06Controller::class,
                 'model' => App\Models\Services\SERV06Services::class,
                 'seedQty' => 4,
+            ],
+            'SERV07' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV07Controller::class,
+                'model' => App\Models\Services\SERV07Services::class,
+                'seedQty' => 8,
+                'routeName' => 'serv07.page.content',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV07ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
+            ],
+            'SERV08' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV08Controller::class,
+                'model' => App\Models\Services\SERV08Services::class,
+                'seedQty' => 28,
+                'routeName' => 'serv08.category.page',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV08ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 7,
+                    ]
+                ]
             ],
         ],
         // END SERVICES

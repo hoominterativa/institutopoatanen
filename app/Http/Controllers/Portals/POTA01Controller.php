@@ -94,7 +94,7 @@ class POTA01Controller extends Controller
             $portals = $portals->where('featured_page', 1);
         }
 
-        $portals = POTA01Portals::with('category')->sorting()->orderBy('publishing', 'DESC')->paginate('32');
+        $portals = $portals->with('category')->sorting()->orderBy('publishing', 'DESC')->paginate('32');
         $categories = POTA01PortalsCategory::exists()->sorting()->pluck('title', 'id');
         $portalCategories = POTA01PortalsCategory::sorting()->get();
         $section = POTA01PortalsSection::first();
@@ -110,7 +110,7 @@ class POTA01Controller extends Controller
     public function clearFilter()
     {
         Session::forget('filter');
-        return redirect()->back();
+        return redirect()->route('admin.pota01.index');
     }
 
     /**
@@ -481,7 +481,7 @@ class POTA01Controller extends Controller
         return view('Client.pages.Portals.POTA01.home',[
             'portalsFeatureHome' => $portalsFeatureHome,
             'portals' => $portals,
-            'categoryVideo' => $categoryVideo?$categoryVideo->category:null,
+            'categoryVideo' => $categoryVideo ? $categoryVideo->category : [],
             'portalsVideoFeatured' => $portalsVideoFeatured,
             'portalsVideo' => $portalsVideo,
             'categories' => $categories,

@@ -52,7 +52,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
+                        {!! Form::label('inputImage', 'Background mobile', ['class' => 'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas
                             {{ $cropSetting->Banner->path_image_mobile->width }}x{{ $cropSetting->Banner->path_image_mobile->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">

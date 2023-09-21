@@ -2,7 +2,7 @@
 
 'Units' => (object) [
     'UNIT01' => (object)[
-        'ViewHome' => false,
+        'ViewHome' => true,
         'ViewListMenu' => true,
         'ViewListPanel' => true,
         'ViewListFooter' => true,

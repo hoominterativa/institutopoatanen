@@ -84,7 +84,7 @@ class BLOG03Controller extends Controller
             $blogs = $blogs->where('featured', 1);
         }
 
-        $blogs = BLOG03Blogs::with('category')->sorting()->paginate('32');
+        $blogs = $blogs->with('category')->sorting()->paginate('32');
         $categories = BLOG03BlogsCategory::exists()->sorting()->pluck('title', 'id');
         $blogCategories = BLOG03BlogsCategory::sorting()->get();
         $section = BLOG03BlogsSection::first();

@@ -24,7 +24,7 @@
                         <hr class="serv05-top__line">
                         <div class="serv05-top__desc">
                             <p>
-                                {!! $section->description !!}
+                                {!! $section->description_about!!}
                             </p>
                         </div>
                     @endif
@@ -86,7 +86,9 @@
                 <div class="serv05-page__main__list">
                     @foreach ($services as $service)
                         <article class="serv05-box" style="background-image: url({{ asset('storage/' . $service->path_image) }}); background-color: #ffffff;">
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv05-box__icon">
+                            @if ($service->path_image_icon)
+                                <img src="{{ asset('storage/' . $service->path_image_icon) }}" alt="" class="serv05-box__icon">
+                            @endif
                             <div class="serv05-box__content w-100 d-flex flex-column align-items-stretch">
                                 <div class="serv05-box__top w-100 d-flex align-items-center justify-content-between">
                                     <div class="serv05-box__top__left d-flex flex-column align-items-start justify-content-start ">

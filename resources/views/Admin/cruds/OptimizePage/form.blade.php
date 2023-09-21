@@ -1,4 +1,3 @@
-<input type="hidden" name="_previous" value="{{url()->previous()}}">
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">

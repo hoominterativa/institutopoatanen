@@ -1,13 +1,34 @@
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
-                {!! Form::label(null, 'E-mail destinatário', ['class'=>'form-label']) !!}
-                {!! Form::email('email', null, [
-                    'class'=>'form-control',
-                    'required'=>true,
-                    'parsley-type'=>'email',
-                ]) !!}
+            <div class="row">
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="d-flex align-items-center mb-1">
+                        {!! Form::label('compliance_id', 'Termos do formulário', ['class'=>'form-label mb-0']) !!}
+                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Escolha qual compliance será exigido de aceite no formulário. Caso não aparecça nenhuma opção abaixo você deverá cadastrar na área de Conpliance."></i>
+                    </div>
+                    {!! Form::select('compliance_id', $compliances, null, [
+                        'class'=>'form-select',
+                        'id'=>'compliance_id',
+                        'required'=>'required',
+                        'placeholder' => '--'
+                    ]) !!}
+                </div>
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="d-flex align-items-center mb-1">
+                        {!! Form::label(null, 'E-mail destinatário', ['class'=>'form-label']) !!}
+                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Insira um email destinatário para o recebimentos dos leads deste formulário"></i>
+                    </div>
+                        {!! Form::email('email', null, [
+                        'class'=>'form-control',
+                        'required'=>true,
+                        'parsley-type'=>'email',
+                        ]) !!}
+                </div>
             </div>
             <h5 class="mb-3">Modelos de formulários <small class="text-warning ms-3">Selecione um modelo abaixo para que a seção de cadastro de conteúdo apareça.</small></h5>
             <div id="ModelsFormSelect" class="mb-4">

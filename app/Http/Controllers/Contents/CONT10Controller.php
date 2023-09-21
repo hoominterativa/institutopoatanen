@@ -50,7 +50,6 @@ class CONT10Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
 
         $date['active'] = $request->active ? 1 : 0;
         $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
@@ -88,7 +87,6 @@ class CONT10Controller extends Controller
     public function update(Request $request, CONT10Contents $CONT10Contents)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
 
         $date['active'] = $request->active ? 1 : 0;
         $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');

@@ -31,7 +31,9 @@
     @if ($socials->count())
         <div class="link-flutuante">
             @foreach ($socials as $social)
-                <a href="{{$social->link}}"><i class="mdi {{$social->icon}}"></i></a>
+                <a href="{{$social->link}}"  target="_blank" class="social-link transition" title="{{$social->title}}">
+                    <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
+                </a>
             @endforeach
         </div>
     @endif

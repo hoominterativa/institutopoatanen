@@ -26,7 +26,7 @@
                     <div class="carousel-show-port101 owl-carousel">
                         @foreach ($portfolio->galleries as $gallery)
                             <div class="item" data-hash="foto-{{ $gallery->id }}">
-                                <a href="{{ getUri($gallery->link_video != '' ? $gallery->link_video) : asset('storage/' . $gallery->path_image) }}"
+                                <a href="{{ $gallery->link_video != '' ? getUri($gallery->link_video) : asset('storage/' . $gallery->path_image) }}"
                                     data-fancybox>
                                     <img src="{{ asset('storage/' . $gallery->path_image) }}" class="h-100 w-100"
                                         alt="Subtitulo">
