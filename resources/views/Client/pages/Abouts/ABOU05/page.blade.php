@@ -41,45 +41,47 @@
                 <div class="container container--abou05-page__section">
                     <div class="row abou05-page__section__row align-items-center">
                         <div class="abou05-page__section__box d-flex flex-column">
-                            <div class="container">
-                                <div class="abou05-page__section__box__encompass">
+                            <div class="abou05-page__section__box__encompass">
+                                <div class="container">
                                     @if ($section)
                                         <h4 class="abou05-page__section__box__encompass__title">{{$section->title_content}}</h4>
                                         <h5 class="abou05-page__section__box__encompass__subtitle">{{$section->subtitle_content}}</h5>
                                         <hr class="abou05-page__section__box__encompass__line">
                                     @endif
                                 </div>
-                                @foreach($contents as $content)
-                                    <div class="abou05-page__section__box__content w-100 d-flex justify-content-center">
-                                        <div class="abou05-page__section__box__image">
-                                            @if ($content->path_image)
-                                                <img class="w-100 h-100" src="{{asset('storage/' . $content->path_image)}}"  width="430" alt="Titulo">
-                                            @endif
-                                        </div>
-                                        <div class="abou05-page__section__box__description">
-                                                <h2 class="abou05-page__section__box__description__encompass d-block">
-                                                    @if ($content->title || $content->subtitle)
-                                                        <span class="abou05-page__section__box__description__encompass__title d-block">{{$content->title}}</span>
-                                                        <span class="abou05-page__section__box__description__encompass__subtitle d-block">{{$content->subtitle}}</span>
-                                                        <hr class="abou05-page__section__box__description__encompass__line">
-                                                    @endif
-                                                </h2>
-                                                <div class="abou05-page__section__box__description__paragraph">
-                                                    <p>
-                                                        {!! $content->text !!}
-                                                    </p>
-                                                </div>
-                                                <a href="#lightbox-abou05-{{$content->id}}" data-fancybox class="abou05-page__section__box__description__cta transition justify-content-center align-items-center ms-auto">
-                                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou05-page__section__cta__icon me-3 transition">
-                                                    CTA
-                                                </a>
-                                        </div>
-                                    </div>
-                                    @include('Client.pages.Abouts.ABOU05.show',[
-                                        'content' => $content,
-                                    ])
-                                @endforeach
                             </div>
+                            @foreach($contents as $content)
+                                <div class="abou05-page__section__box__content w-100 d-flex justify-content-center">
+                                    <div class="container px-0 d-flex justify-content-between">
+                                    <div class="abou05-page__section__box__image">
+                                        @if ($content->path_image)
+                                            <img class="w-100 h-100" src="{{asset('storage/' . $content->path_image)}}"  width="430" alt="Titulo">
+                                        @endif
+                                    </div>
+                                    <div class="abou05-page__section__box__description">
+                                            <h2 class="abou05-page__section__box__description__encompass d-block">
+                                                @if ($content->title || $content->subtitle)
+                                                    <span class="abou05-page__section__box__description__encompass__title d-block">{{$content->title}}</span>
+                                                    <span class="abou05-page__section__box__description__encompass__subtitle d-block">{{$content->subtitle}}</span>
+                                                    <hr class="abou05-page__section__box__description__encompass__line">
+                                                @endif
+                                            </h2>
+                                            <div class="abou05-page__section__box__description__paragraph">
+                                                <p>
+                                                    {!! $content->text !!}
+                                                </p>
+                                            </div>
+                                            <a href="#lightbox-abou05-{{$content->id}}" data-fancybox class="abou05-page__section__box__description__cta transition justify-content-center align-items-center ms-auto">
+                                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou05-page__section__cta__icon me-3 transition">
+                                                CTA
+                                            </a>
+                                    </div>
+                                        @include('Client.pages.Abouts.ABOU05.show',[
+                                            'content' => $content,
+                                        ])
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                         {{-- END .abou05-page__section__box --}}
                     </div>

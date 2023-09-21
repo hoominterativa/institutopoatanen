@@ -232,20 +232,12 @@
             }
           
             &__box{
-                display: flex;
-                padding-top:4.25rem;
-                background-color: $color-four;
-
-                & > .container {
-                    max-width: 90% !important;
-                }
-                &:nth-of-type(even){
-                    background-color: $color-five;
-                }
-
                 &__encompass{
                     margin-bottom: 5rem;
 
+                    & > .container {
+                        max-width: 90% !important;
+                    }
                     &__title{
                         font-size: $T1;
                         font-family: $font-paragraph;
@@ -278,13 +270,26 @@
                     }
                 }
 
-                &:nth-of-type(even) &__content{
-                    flex-direction: row-reverse;
-                }
-                &__content{
+                & &__content > .container {
+                    max-width: 90% !important;
+                    padding-top:4.25rem !important;
+
                     @include medium-device-down{
                         flex-direction: column-reverse !important;
                     }
+                }
+                & &__content:nth-of-type(even){
+                    background-color: $color-five;
+                }
+                & &__content:nth-of-type(even) > .container{
+                    flex-direction: row-reverse;
+
+                   
+                }
+                &__content{
+                    background-color: $color-four;
+                    display: flex;
+
                 }
 
                 &__image{
@@ -299,11 +304,9 @@
                         height: 24.0625rem;
                     }
                 }
-                &:nth-of-type(even) &__content &__description{
+                & &__content:nth-of-type(even) &__description{
                     padding-left: 0;
                     padding-right:170.46px;
-
-
                 }
 
                
@@ -395,7 +398,7 @@
     
 }
 
-.abou05-page__section__box:nth-of-type(odd) .abou05-page__section__box__description__cta{
+.abou05-page__section__box__content:nth-of-type(odd) .abou05-page__section__box__description__cta{
     background-color: $color-five;
     color: $color-black;
     

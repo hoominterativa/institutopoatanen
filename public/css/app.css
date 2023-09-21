@@ -2234,19 +2234,11 @@ body .owl-dots .owl-dot.active {
   padding-left: 0;
   padding-right: 0;
 }
-.abou05-page__section__box {
-  display: flex;
-  padding-top: 4.25rem;
-  background-color: #cacaca;
-}
-.abou05-page__section__box > .container {
-  max-width: 90% !important;
-}
-.abou05-page__section__box:nth-of-type(even) {
-  background-color: #efefef;
-}
 .abou05-page__section__box__encompass {
   margin-bottom: 5rem;
+}
+.abou05-page__section__box__encompass > .container {
+  max-width: 90% !important;
 }
 .abou05-page__section__box__encompass__title {
   font-size: 3.125rem;
@@ -2282,13 +2274,24 @@ body .owl-dots .owl-dot.active {
     margin-bottom: 21px;
   }
 }
-.abou05-page__section__box:nth-of-type(even) .abou05-page__section__box__content {
-  flex-direction: row-reverse;
+.abou05-page__section__box .abou05-page__section__box__content > .container {
+  max-width: 90% !important;
+  padding-top: 4.25rem !important;
 }
 @media (max-width: 767.98px) {
-  .abou05-page__section__box__content {
+  .abou05-page__section__box .abou05-page__section__box__content > .container {
     flex-direction: column-reverse !important;
   }
+}
+.abou05-page__section__box .abou05-page__section__box__content:nth-of-type(even) {
+  background-color: #efefef;
+}
+.abou05-page__section__box .abou05-page__section__box__content:nth-of-type(even) > .container {
+  flex-direction: row-reverse;
+}
+.abou05-page__section__box__content {
+  background-color: #cacaca;
+  display: flex;
 }
 .abou05-page__section__box__image {
   height: 592px;
@@ -2303,7 +2306,7 @@ body .owl-dots .owl-dot.active {
     height: 24.0625rem;
   }
 }
-.abou05-page__section__box:nth-of-type(even) .abou05-page__section__box__content .abou05-page__section__box__description {
+.abou05-page__section__box .abou05-page__section__box__content:nth-of-type(even) .abou05-page__section__box__description {
   padding-left: 0;
   padding-right: 170.46px;
 }
@@ -2386,11 +2389,11 @@ body .owl-dots .owl-dot.active {
   filter: invert(1) grayscale(1);
 }
 
-.abou05-page__section__box:nth-of-type(odd) .abou05-page__section__box__description__cta {
+.abou05-page__section__box__content:nth-of-type(odd) .abou05-page__section__box__description__cta {
   background-color: #efefef;
   color: #000;
 }
-.abou05-page__section__box:nth-of-type(odd) .abou05-page__section__box__description__cta:hover {
+.abou05-page__section__box__content:nth-of-type(odd) .abou05-page__section__box__description__cta:hover {
   background-color: #000;
   color: #fff;
 }
