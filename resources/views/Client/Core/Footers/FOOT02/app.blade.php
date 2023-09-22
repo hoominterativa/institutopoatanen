@@ -61,10 +61,13 @@
         <div class="container foot02__copyright-section__container">
             <div class="row">
                 <nav class="foot02__copyright-section__compliances col-12 col-lg-9 d-flex align-items-center">
-                    @if ($linksCtaFooter->count())
-                    @foreach ($linksCtaFooter as $linkCtaHeader)
-                    <a href="{{ $linkCtaHeader->link }}" target="{{ $linkCtaHeader->link_target }}" class="foot02__copyright-section__compliances__item">{{ $linkCtaHeader->title }}</a>
+                    @foreach (getCompliance() as $compliance)
+                        <li class=""><a href="{{$compliance->link}}" class="foot02__copyright-section__compliances__item">{{$compliance->title_page}}</a></li>
                     @endforeach
+                    @if ($linksCtaFooter->count())
+                        @foreach ($linksCtaFooter as $linkCtaHeader)
+                            <a href="{{ $linkCtaHeader->link }}" target="{{ $linkCtaHeader->link_target }}" class="foot02__copyright-section__compliances__item">{{ $linkCtaHeader->title }}</a>
+                        @endforeach
                     @endif
                 </nav>
                 <div class="col-12 col-lg-2">
