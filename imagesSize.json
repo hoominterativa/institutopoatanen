@@ -956,6 +956,27 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "COTA03":{
+            "InfoBanner": {
+                "path_image_banner_desktop": {
+                    "width":"1500",
+                    "height":"352",
+                    "activeCrop": "false"
+                },
+                "path_image_banner_mobile": {
+                    "width":"390",
+                    "height":"340",
+                    "activeCrop": "true"
+                }
+            },
+            "Content": {
+                "path_image_content": {
+                    "width":"429",
+                    "height":"591",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
 
