@@ -32,6 +32,7 @@ class COTA03ContactsFactory extends Factory
             'background_color_banner' => '#FFFFFF',
 
             'title_content' => $this->faker->text(10),
+            'subtitle_content' => $this->faker->text(10),
             'title_button_content' => $this->faker->text(10),
             'link_button_content' => $this->faker->url(),
             'target_link_button_content' => '_blank',

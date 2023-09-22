@@ -26,6 +26,7 @@ class CreateCota03ContactsTable extends Migration
             $table->string('background_color_banner')->nullable();
 
             $table->string('title_content')->nullable();
+            $table->string('subtitle_content')->nullable();
             $table->text('description_content')->nullable();
             $table->string('title_button_content')->nullable();
             $table->text('link_button_content')->nullable();
@@ -41,6 +42,7 @@ class CreateCota03ContactsTable extends Migration
             $table->string('email_form')->nullable();
 
             $table->integer('active')->default(0);
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
