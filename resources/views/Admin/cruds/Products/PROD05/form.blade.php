@@ -94,16 +94,11 @@
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-            <div class="mb-3">
-                {!! Form::label('description', 'Breve Descrição', ['class'=>'form-label']) !!}
+            <div class="normal-editor__content mb-3">
+                {!! Form::label('normal-editor', 'Breve Descrição', ['class'=>'form-label']) !!}
                 {!! Form::textarea('description', null, [
-                    'class'=>'form-control',
-                    'id'=>'description',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'10',
-                    'data-parsley-maxlength'=>'500',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 10 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
+                    'class'=>'form-control normal-editor',
+                    'id'=>'normal-editor',
                 ]) !!}
             </div>
             <div class="d-flex">
