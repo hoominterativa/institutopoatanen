@@ -9,18 +9,16 @@
                 {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
                 {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
             </div>
+        
             <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                {!! Form::textarea('description', null, [
-                    'class'=>'form-control',
-                    'id'=>'description',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'800',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
-                ]) !!}
-            </div>
+                <div class="complete-editor__content mb-3">
+                    {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
+                    {!! Form::textarea('description', null, [
+                        'class'=>'form-control complete-editor',
+                        'id'=>'complete-editor',
+                    ]) !!}
+                </div>
+            </div> 
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
                     <li class="nav-item">

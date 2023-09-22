@@ -2,6 +2,7 @@ import '../../Core/Headers/HEAD03/src/main';
 import '../../Components/themeMenu/SIDE03/src/main';
 import '../../Core/Footers/FOOT02/src/main';
 import '../../pages/Slides/SLID01/src/main';
+import '../../pages/Abouts/ABOU05/src/main';
 import '../../pages/Products/PROD05/src/main';
 import '../../pages/Teams/TEAM01/src/main';
 import '../../pages/Brands/BRAN01/src/main';
