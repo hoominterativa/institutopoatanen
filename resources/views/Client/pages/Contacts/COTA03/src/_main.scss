@@ -281,11 +281,7 @@
                 
 
                 .input__item{
-                    width: 49%;
-
-                    @include medium-device-down{
-                        width: 100%;
-                    }
+                    width: 100%;
 
                     label{
                         color: $color-black !important;

@@ -2290,12 +2290,7 @@ body .owl-dots .owl-dot.active {
   justify-content: space-between;
 }
 .cota03__form__inputs__input .input__item {
-  width: 49%;
-}
-@media (max-width: 767.98px) {
-  .cota03__form__inputs__input .input__item {
-    width: 100%;
-  }
+  width: 100%;
 }
 .cota03__form__inputs__input .input__item label {
   color: #000 !important;
