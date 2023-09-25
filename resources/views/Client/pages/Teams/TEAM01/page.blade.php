@@ -102,7 +102,9 @@
                                 <div class="team01-page__content__product__item__description__buttons">
                                     <a rel="next" href="#" data-fancybox= "{{$team->slug}}" data-src="#lightbox-team01-{{$team->slug}}"  class="team01-page__content__product__item__description__buttons__cta transition d-flex justify-content-center align-items-center mx-auto">
                                         <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="team01-page__content__product__item__description__buttons__cta__icon me-3 transition">
-                                        CTA
+                                        @if ($team->title_button)
+                                            {{$team->title_button}}
+                                        @endif
                                     </a>
                                 </div>
                             </div>

@@ -17,7 +17,7 @@
         </div>
         {{-- END .side02__header --}}
 
-        <img src="{{ asset('storage/' . $generalSetting->path_logo_header_dark) }}" class="side02__logo" width="202"
+        <img src="{{ asset('storage/' . $generalSetting->path_logo_header_light) }}" class="side02__logo" width="202"
             alt="{{ env('APP_NAME') }}">
 
         <nav class="side02__navigation">
