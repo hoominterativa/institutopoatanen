@@ -90,14 +90,14 @@ return [
         'Topics.1' => (object)[
             'TOPI102' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'anchor' =>  true,
+                    'linkMenu' => '#TOPI02',
                     'iconMenu' => '',
                     'titlePanel' => 'Serviços',
                     'iconPanel' => ''
@@ -121,7 +121,6 @@ return [
                 ],
             ],
         ],
-
         'Galleries.1' => (object) [
             'GALL03' => (object)[
                 'ViewHome' => true,

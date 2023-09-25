@@ -21,7 +21,6 @@
 'titlePanel' => 'Pagina em branco',
 'iconPanel' => 'mdi-contacts'
 ],
-'IncludeSections' => (object) [
-]
+'IncludeSections' => (object) []
 ],
 ],
