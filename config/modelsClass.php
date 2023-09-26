@@ -27,6 +27,14 @@ return [
         ],
         // END ABOUTS
 
+        'BlankPages' => (object)[
+            'BAPA01' => (object)[
+                'controller' => App\Http\Controllers\BlankPages\BAPA01Controller::class,
+                'model' => App\Models\BlankPages\BAPA01BlankPages::class,
+                'seedQty' => 1,
+            ],
+        ],
+
         'Blogs' => (object)[
             'BLOG01' => (object)[
                 'controller' => App\Http\Controllers\Blogs\BLOG01Controller::class,
