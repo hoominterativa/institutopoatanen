@@ -27,7 +27,8 @@
                 @if ($topics->count())
                     <div class="topi102__content px-0 w-100 flex-column carousel-topi102 owl-carousel">
                         @foreach ($topics as $topic)
-                            <article class="topi102__content__box w-100">
+                            <article data-fancybox data-src="#lightbox-topi102-{{ $topic->id }}"
+                                class="topi102__content__box w-100">
                                 <figure class="topi102__content__box__image w-100 h-100  mb-0">
                                     <img src="{{ asset('storage/' . $topic->path_image_desktop) }}" class="w-100 h-100"
                                         alt="Image Título Tópico">
@@ -40,7 +41,9 @@
                                         </p>
                                     </div>
                                 </div>
+                                @include('Client.pages.Topics.TOPI102.show', ['topic' => $topic]);
                             </article>
+
                             {{-- END topi102__content__box --}}
                         @endforeach
                     </div>
