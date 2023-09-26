@@ -3582,7 +3582,7 @@ body .owl-dots .owl-dot.active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #CACACA;
+  background: #cacaca;
   padding: 13px 38px;
 }
 @media (max-width: 767.98px) {
@@ -3662,13 +3662,42 @@ body .owl-dots .owl-dot.active {
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 0;
 }
 @media (max-width: 767.98px) {
   .topi102__content__box__description__paragraph p {
     font: 0.875rem "Montserrat", sans-serif, arial;
   }
+}
+
+.topi102-show {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.topi102-show__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: 45%;
+}
+.topi102-show__title {
+  font-family: "Ubuntu", sans-serif, arial;
+}
+.topi102-show__image {
+  width: 50%;
+  height: auto;
+  aspect-ratio: 682/583;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 /* BEGIN STYLE */

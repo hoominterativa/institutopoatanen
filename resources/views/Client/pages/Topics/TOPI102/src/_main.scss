@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
 .topi102 {
@@ -6,7 +6,6 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    
     .carousel-topi102 .owl-nav {
         display: flex !important;
         gap: 0 18px;
@@ -109,7 +108,7 @@
                 list-style: none;
 
                 @include Flex($direction: column);
-                background: #CACACA;
+                background: #cacaca;
                 padding: 13px 38px;
 
                 .title {
@@ -146,7 +145,7 @@
                 width: 85% !important;
             }
 
-            height:484px;
+            height: 484px;
 
             &__image {
                 width: 100% !important;
@@ -181,12 +180,11 @@
                     //     width: 49%;
                     // }
 
-
                     p {
                         font-family: $font-primary;
                         font-weight: $weight-400;
                         font: $paragraph;
-                        color: #FFFFFF;
+                        color: #ffffff;
                         margin-bottom: 0;
 
                         @include medium-device-down {
@@ -196,5 +194,31 @@
                 }
             }
         }
+    }
+}
+
+.topi102-show {
+    @include backG;
+    @include Flex($align: stretch, $justify: space-between);
+
+    &__left {
+        @include Flex($direction: column, $align: stretch, $justify: start);
+        width: 45%;
+    }
+
+    &__title {
+        font-family: $font-primary;
+    }
+
+    &__subtitle {
+    }
+
+    &__image {
+        width: 50%;
+        height: auto;
+        aspect-ratio: 682/583;
+
+        object-fit: cover;
+        object-position: center;
     }
 }

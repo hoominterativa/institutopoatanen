@@ -41,6 +41,7 @@
                                         </p>
                                     </div>
                                 </div>
+
                                 @include('Client.pages.Topics.TOPI102.show', ['topic' => $topic]);
                             </article>
 
