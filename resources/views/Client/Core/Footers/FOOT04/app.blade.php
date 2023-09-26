@@ -1,24 +1,44 @@
 <div class="foot04 container-fluid px-0 position-relative" style="background-color:#EFEFEF;" >
     <div class="row row--pd d-flex justify-content-center">
         <div class="foot04__content d-flex justify-content-center align-items-center row mx-auto pd-0">
-            <div class="foot04__content__boxUnit col px-0 d-flex">
-                <div class="foot04__content__boxUnit__icone">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Logo">
+            @if ($generalSetting->phone || $generalSetting->whatsapp)
+                <div class="foot04__content__boxUnit col px-0 d-flex">
+                    <div class="foot04__content__boxUnit__icone">
+                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Logo">
+                    </div>
+                    <div class="foot04__content__boxUnit__description">
+                        <h4 class="foot04__content__boxUnit__description__title">Contato</h4>
+                        <a href="tel:{{ $generalSetting->phone }}" class="" style="margin: inherit;">{{ $generalSetting->phone }} </a> <span></span>
+                        <a href="https://api.whatsapp.com/send?phone=55{{ Str::slug($generalSetting->whatsapp, '') }}" target="_blank" class="" style="margin: inherit;">{{ $generalSetting->whatsapp }}</a>
+                    </div>
                 </div>
-                <div class="foot04__content__boxUnit__description">
-                    <h4 class="foot04__content__boxUnit__description__title">Unidade</h4>
-                    <p>Horários</p>
+            @endif
+            @if ($generalSetting->email)
+                <div class="foot04__content__boxUnit col px-0 d-flex">
+                    <div class="foot04__content__boxUnit__icone">
+                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Logo">
+                    </div>
+                    <div class="foot04__content__boxUnit__description">
+                        <h4 class="foot04__content__boxUnit__description__title">Email</h4>
+                        <a href="mailto:{{ $generalSetting->email }}" class="">
+                            {{ $generalSetting->email }}
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="foot04__content__boxUnit col px-0 d-flex">
-                <div class="foot04__content__boxUnit__icone">
-                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Logo">
+            @endif
+            @if ($generalSetting->address)
+                <div class="foot04__content__boxUnit col px-0 d-flex">
+                    <div class="foot04__content__boxUnit__icone">
+                        <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Logo">
+                    </div>
+                    <div class="foot04__content__boxUnit__description">
+                        <h4 class="foot04__content__boxUnit__description__title">Endereço</h4>
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($generalSetting->address) }}" target="_blank" class="">
+                            {{ $generalSetting->address }}
+                        </a>
+                    </div>
                 </div>
-                <div class="foot04__content__boxUnit__description">
-                    <h4 class="foot04__content__boxUnit__description__title">Unidade</h4>
-                    <p><a>Horários</a></p>
-                </div>
-            </div>
+            @endif
         </div>
         <div class="foot04__content__logo d-flex justify-content-center">
             <a href="{{route('home')}}" rel="next">
