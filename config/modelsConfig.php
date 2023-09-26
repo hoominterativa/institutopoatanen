@@ -17,7 +17,8 @@ return [
     'InsertModelsMain' => (object) [
         'Slides' => (object) [
             'SLID01' => (object)[
-                'ViewHome' => true,
+                // TODO: mostrar depois;
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -29,6 +30,22 @@ return [
                     'iconMenu' => '',
                     'titlePanel' => 'Slide',
                     'iconPanel' => 'mdi-projector-screen'
+                ]
+            ],
+            'SLID03' => (object)[
+                // TODO: ESCONDER DA HOME E COLOCAR NA PG INTERNA;
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Banner Seja Premium',
+                    'iconPanel' => ''
                 ]
             ],
         ],
@@ -86,6 +103,22 @@ return [
                     'iconPanel' => 'mdi-text-box'
                 ]
             ],
+            'CONT11' => (object)[
+                // TODO: TIRAR DA INDEX E DEIXAR SÓ NA BAPA01
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' => false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Destaques Premium',
+                    'iconPanel' => 'mdi-table-of-contents'
+                ]
+            ],
         ],
         'Topics.1' => (object)[
             'TOPI102' => (object)[
@@ -95,7 +128,7 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Serviços',
                     'anchor' =>  true,
                     'linkMenu' => '#TOPI02',
                     'iconMenu' => '',
@@ -113,8 +146,8 @@ return [
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => 'Eventos',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'anchor' =>  true,
+                    'linkMenu' => '#PORT101',
                     'iconMenu' => '',
                     'titlePanel' => 'Eventos',
                     'iconPanel' => ''
@@ -212,7 +245,7 @@ return [
         ],
         'Blogs' => (object) [
             'BLOG01' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => true,
@@ -271,6 +304,24 @@ return [
                 'IncludeSections' => (object) [
                     'Topics.2' => 'TOPI03',
                     'Galleries.2' => 'GALL01',
+                ]
+            ],
+        ],
+        'Topics.3' => (object) [
+            // TODO: TIRAR DA INDEX E DEIXAR SÓ NA BAPA01
+            'TOPI01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Benefícios Premium',
+                    'iconPanel' => 'mdi-book-multiple-outline'
                 ]
             ],
         ],
