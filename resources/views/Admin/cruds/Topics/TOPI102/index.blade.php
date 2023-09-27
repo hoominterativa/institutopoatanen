@@ -164,12 +164,16 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        <label><input name="btnSelectAll" value="btnDeleteSlide"
-                                                                type="checkbox"></label>
+                                                        <label>
+                                                            <input name="btnSelectAll" value="btnDeleteSlide" type="checkbox">
+                                                        </label>
                                                     </th>
                                                     <th>Imagem</th>
-                                                    <th>Título</th>
+                                                    <th>Título/Subtítulo</th>
+                                                    <th>Descrição</th>
                                                     <th>Texto</th>
+                                                    <th>Título botão</th>
+                                                    <th>Link botão</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -177,19 +181,28 @@
                                             <tbody data-route="{{ route('admin.topi102.sorting') }}">
                                                 @foreach ($topics as $topic)
                                                     <tr data-code="{{ $topic->id }}">
-                                                        <td class="align-middle"><span
-                                                                class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                                        <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                         <td class="bs-checkbox align-middle">
-                                                            <label><input name="btnSelectItem" class="btnSelectItem"
-                                                                    type="checkbox" value="{{ $topic->id }}"></label>
+                                                            <label>
+                                                                <input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{ $topic->id }}">
+                                                            </label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                                style="background-image: url({{ asset('storage/' . $topic->path_image_desktop) }})">
-                                                            </div>
+                                                            @if ($topic->path_image_background_lightbox || $topic->path_image_box || $topic->path_image_lightbox)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $topic->path_image_box) }})"></div>
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $topic->path_image_background_lightbox) }})"></div>
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $topic->path_image_lightbox) }})"></div>
+                                                            @endif
                                                         </td>
-                                                        <td class="align-middle">{{ $topic->title }}</td>
-                                                        <td class="align-middle">{{ Str::limit($topic->text, 30) }}</td>
+                                                        <td class="align-middle">{{ $topic->title }} <b>/</b> {{$topic->subtitle}}</td>
+                                                        <td class="align-middle">{!! Str::limit($topic->description, 30) !!}</td>
+                                                        <td class="align-middle">{!! Str::limit($topic->text, 30) !!}</td>
+                                                        <td class="align-middle">{{ $topic->title_button }}</td>
+                                                        <td class="align-middle">
+                                                            @if ($topic->link_button)
+                                                                <a href="{{$topic->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                            @endif
+                                                        </td>
                                                         <td class="align-middle">
                                                             @switch($topic->active)
                                                                 @case(1)

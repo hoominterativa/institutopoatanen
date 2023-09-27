@@ -1564,14 +1564,19 @@
             }
         },
         "TOPI102": {
-            "path_image_desktop": {
+            "path_image_box": {
                 "width": "1450",
                 "height": "836",
+                "activeCrop": "true"
+            },
+            "path_image_background_lightbox": {
+                "width": "1511",
+                "height": "798",
                 "activeCrop": "false"
             },
-            "path_image_mobile": {
-                "width": "390",
-                "height": "836",
+            "path_image_lightbox": {
+                "width": "682",
+                "height": "543",
                 "activeCrop": "true"
             },
             "Section": {
