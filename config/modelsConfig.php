@@ -32,7 +32,7 @@ return [
                 ]
             ],
             'SLID03' => (object)[
-                'ViewHome' => false,
+                'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -128,7 +128,7 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Serviços',
                     'anchor' =>  true,
-                    'linkMenu' => '#TOPI02',
+                    'linkMenu' => '#TOPI102',
                     'iconMenu' => '',
                     'titlePanel' => 'Serviços',
                     'iconPanel' => ''
@@ -138,7 +138,7 @@ return [
         'Portfolios' => (object) [
             'PORT101' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
@@ -326,8 +326,8 @@ return [
         'BlankPages' => (object) [
             'BAPA01' => (object)[
                 'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [

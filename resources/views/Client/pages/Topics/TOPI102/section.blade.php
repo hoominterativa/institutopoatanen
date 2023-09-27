@@ -31,9 +31,11 @@
                                 class="topi102__content__box w-100">
                                 <figure class="topi102__content__box__image w-100 h-100  mb-0">
                                     @if ($topic->path_image_box)
-                                        <img src="{{ asset('storage/' . $topic->path_image_box) }}" class="w-100 h-100" alt="{{$topic->title}}">
+                                        <img src="{{ asset('storage/' . $topic->path_image_box) }}" class="w-100 h-100"
+                                            alt="{{ $topic->title }}">
                                     @endif
                                 </figure>
+
                                 <div class="topi102__content__box__description text-center w-100">
                                     <h2 class="topi102__content__box__description__title">{{ $topic->title }}</h2>
                                     <div class="topi102__content__box__description__paragraph">
@@ -42,6 +44,7 @@
                                         </p>
                                     </div>
                                 </div>
+
                                 @include('Client.pages.Topics.TOPI102.show', ['topic' => $topic]);
                             </article>
                             {{-- END topi102__content__box --}}

@@ -1820,38 +1820,40 @@ body .owl-dots .owl-dot.active {
 }
 .foot04__content {
   flex-direction: row;
-  gap: 0 50px;
+  padding: 0 2.5vw;
+  gap: 24px 50px;
+  margin-bottom: 140px;
 }
 @media (max-width: 575.98px) {
   .foot04__content {
-    gap: 20px 0;
+    gap: 38px 0;
     flex-direction: column;
+    align-items: center;
   }
 }
 .foot04__content__boxUnit {
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: 140px;
-  max-width: 169px;
+  max-width: 260px;
 }
 @media (max-width: 575.98px) {
   .foot04__content__boxUnit {
     width: 100%;
-    max-width: inherit;
-    margin-bottom: 38.36px;
-  }
-  .foot04__content__boxUnit:last-of-type {
-    margin-bottom: 0;
+    max-width: 180px;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .foot04__content__boxUnit__icone {
-  margin-right: 20.42px;
-  width: 58.48px;
+  margin-right: 20px;
+  width: 58px;
   height: auto;
 }
 @media (max-width: 575.98px) {
   .foot04__content__boxUnit__icone {
-    width: 30.48px;
+    width: 30px;
+    margin-bottom: 12px;
+    margin-right: 0;
   }
 }
 .foot04__content__boxUnit__icone img {
@@ -1859,6 +1861,15 @@ body .owl-dots .owl-dot.active {
   height: 100% !important;
   -o-object-fit: contain !important;
      object-fit: contain !important;
+}
+.foot04__content__boxUnit__description {
+  width: calc(100% - 78px);
+}
+@media (max-width: 575.98px) {
+  .foot04__content__boxUnit__description {
+    width: 100%;
+    text-align: center;
+  }
 }
 .foot04__content__boxUnit__description__title {
   font-size: 1.25rem;
@@ -1871,9 +1882,9 @@ body .owl-dots .owl-dot.active {
     font-size: 1.125rem;
   }
 }
-.foot04__content__boxUnit__description p {
+.foot04__content__boxUnit__description p,
+.foot04__content__boxUnit__description a {
   font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700 !important;
   font-family: "Ubuntu", sans-serif, arial;
   margin-bottom: 0;
   font-style: normal;
@@ -1903,7 +1914,7 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 0;
 }
 .foot04__credits {
-  background: #7C7C7C;
+  background: #7c7c7c;
   height: 106px;
 }
 @media (max-width: 575.98px) {
@@ -1999,7 +2010,7 @@ body .owl-dots .owl-dot.active {
      object-fit: cover;
 }
 #SLID01 .content-slide {
-  height: 100%;
+  height: 100vh;
   position: relative;
 }
 #SLID01 .content-slide .img-floating-png {
