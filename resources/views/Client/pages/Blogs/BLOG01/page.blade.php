@@ -47,7 +47,7 @@
                                         </a>
                                         <span class="blog01-page__boxs__featured__item__date-publish">
                                             Data: <span itemprop="datePublished" content="{{ $blogFeatured->publishing }}"
-                                                class="blog01-page__boxs__featured__item__date">{{ Carbon\Carbon::parse($blogFeatured->publishing)->formatLocalized('%d de %B de %Y') }}</span>
+                                                class="blog01-page__boxs__featured__item__date">{{ dateFormat($blogFeatured->publishing, 'd', 'M', 'Y', '') }}</span>
                                         </span>
                                         <p itemprop="articleBody" class="blog01-page__boxs__featured__item__paragraph">
                                             {{ $blogFeatured->description }}</p>

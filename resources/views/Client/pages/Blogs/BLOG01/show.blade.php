@@ -32,7 +32,7 @@
                                             </figure>
                                             <div class="blog01-show__boxs__item__description">
                                                 <span class="blog01-show__boxs__item__date-publish">
-                                                    Data: <span itemprop="datePublished" content="{{$blogRelated->publishing}}" class="blog01-show__boxs__item__date">{{Carbon\Carbon::parse($blogRelated->publishing)->formatLocalized('%d de %B de %Y')}}</span>
+                                                    Data: <span itemprop="datePublished" content="{{$blogRelated->publishing}}" class="blog01-show__boxs__item__date">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</span>
                                                 </span>
                                                 <h3 itemprop="name" class="blog01-show__boxs__item__title">{{$blogRelated->title}}</h3>
                                                 <div class="d-flex align-items-center justify-content-between">
