@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link', 'Redirecionar para', ['class'=>'form-label']) !!}
-                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
+                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link']) !!}
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
