@@ -17,8 +17,7 @@ return [
     'InsertModelsMain' => (object) [
         'Slides' => (object) [
             'SLID01' => (object)[
-                // TODO: mostrar depois;
-                'ViewHome' => false,
+                'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -33,8 +32,7 @@ return [
                 ]
             ],
             'SLID03' => (object)[
-                // TODO: ESCONDER DA HOME E COLOCAR NA PG INTERNA;
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -105,7 +103,7 @@ return [
             ],
             'CONT11' => (object)[
                 // TODO: TIRAR DA INDEX E DEIXAR SÓ NA BAPA01
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -310,7 +308,7 @@ return [
         'Topics.3' => (object) [
             // TODO: TIRAR DA INDEX E DEIXAR SÓ NA BAPA01
             'TOPI01' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -333,14 +331,20 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => 'Pagina em branco',
+                    'titleMenu' => 'Premium',
                     'anchor' => false,
                     'linkMenu' => 'bapa01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Pagina em branco',
+                    'titlePanel' => 'Premium',
                     'iconPanel' => 'mdi-contacts'
                 ],
                 'IncludeSections' => (object) [
+                    'Slides' => 'SLID03',
+                    'Contents' => 'CONT11',
+                    'Contents.1' => 'CONT02V1',
+                    'Contents' => 'CONT06',
+                    'Topics.3' => 'TOPI01',
+                    'Feedbacks' => 'FEED01',
                     'Topics.2' => 'TOPI03',
                     'Galleries.2' => 'GALL01',
                 ]
