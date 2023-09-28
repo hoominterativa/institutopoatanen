@@ -32,7 +32,7 @@ return [
                 ]
             ],
             'SLID03' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
