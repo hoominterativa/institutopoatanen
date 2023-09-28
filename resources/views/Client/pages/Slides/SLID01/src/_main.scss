@@ -4,6 +4,9 @@
 #SLID01 {
     position: relative;
 
+    // .slid01 {
+    // }
+
     .img-background-slide {
         position: absolute;
         top: 0;
@@ -16,7 +19,7 @@
     }
 
     .content-slide {
-        height: 100%;
+        height: 100vh;
         position: relative;
 
         .img-floating-png {

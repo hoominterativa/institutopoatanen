@@ -1,6 +1,6 @@
 @if ($slides->count())
-    <section id="SLID01" class="container-fluid p-0" data-slide-height="780">
-        <div class="SLID01 owl-carousel">
+    <section id="SLID01" class="container-fluid p-0">
+        <div class="slid01 owl-carousel">
             @foreach ($slides as $slide)
                 <div class="container-slide container-fluid">
                     @if ($slide->title_button == '' && $slide->link_button)

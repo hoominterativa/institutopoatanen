@@ -1,39 +1,52 @@
-@import 'variables';
-@mixin Flex($displayFlex:flex, $direction:row, $justify:center, $align:center) {
-    display:$displayFlex;
+@import "variables";
+@mixin Flex(
+    $displayFlex: flex,
+    $direction: row,
+    $justify: center,
+    $align: center
+) {
+    display: $displayFlex;
     flex-direction: $direction;
-    justify-content:$justify;
+    justify-content: $justify;
     align-items: $align;
 }
-@mixin Img ($Width:100%, $Height: 100%, $ObjectFit: contain){
+@mixin Img($Width: 100%, $Height: 100%, $ObjectFit: contain) {
     width: $Width !important;
     height: $Height !important;
     object-fit: $ObjectFit !important;
 }
 
-@mixin backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat){
+@mixin backG(
+    $BackgroundSize: cover,
+    $backgroundPosition: center,
+    $backgroundRepeat: no-repeat
+) {
     background-size: $BackgroundSize;
     background-position: $backgroundPosition;
     background-repeat: $backgroundRepeat;
 }
-@mixin hoverScale($transition: 0.5s, $scale:1.01,$z-index:100){
-	-moz-transform: scale($scale);
-	-webkit-transform: scale($scale);
-	-o-transform: scale($scale);
-	-ms-transform: scale($scale);
-	transform: scale($scale);
-	z-index: $z-index;
-	transition: all $transition ease;
-}
-@mixin trans($transition: 0.5s){
+@mixin hoverScale($transition: 0.5s, $scale: 1.01, $z-index: 100) {
+    -moz-transform: scale($scale);
+    -webkit-transform: scale($scale);
+    -o-transform: scale($scale);
+    -ms-transform: scale($scale);
+    transform: scale($scale);
+    z-index: $z-index;
     transition: all $transition ease;
 }
-@mixin hoverButton($background-color: transparent, $color:#35444A, $transition: 0.5s ){
-        background-color: $background-color;
-        color:$color;
-        transition: all $transition ease;
+@mixin trans($transition: 0.5s) {
+    transition: all $transition ease;
 }
-@mixin Pos ($Position: absolute, $Top:0, $Bottom: 0, $Left: 0, $Right:0 ){
+@mixin hoverButton(
+    $background-color: transparent,
+    $color: #35444a,
+    $transition: 0.5s
+) {
+    background-color: $background-color;
+    color: $color;
+    transition: all $transition ease;
+}
+@mixin Pos($Position: absolute, $Top: 0, $Bottom: 0, $Left: 0, $Right: 0) {
     position: $Position;
     top: $Top;
     bottom: $Bottom;
@@ -42,18 +55,18 @@
 }
 /* BEGIN STYLE */
 // Início-port101
-.port101{
-    .carousel-port101 .owl-nav{
+.port101 {
+    .carousel-port101 .owl-nav {
         display: flex !important;
         gap: 0 18px;
         justify-content: center;
-        margin-top:109px;
+        margin-top: 109px;
         @include medium-device-down {
             margin-top: 73px;
         }
     }
     .carousel-port101 .owl-nav .owl-prev,
-    .carousel-port101 .owl-nav .owl-next{
+    .carousel-port101 .owl-nav .owl-next {
         height: 29px;
         width: 29px;
         border-radius: 100%;
@@ -62,116 +75,114 @@
         border: none;
     }
     .carousel-port101 .owl-nav .owl-prev span,
-    .carousel-port101 .owl-nav .owl-next span{
-        color:#fff;
+    .carousel-port101 .owl-nav .owl-next span {
+        color: #fff;
         font-size: 32px;
         height: 32px;
     }
-    .container--pd{
-        padding: 84px 0  92px 0 !important;
+    .container--pd {
+        padding: 84px 0 92px 0 !important;
         @include medium-device-down {
-            max-width:none !important;
-            padding: 57px 0  77px 0 !important;
+            max-width: none !important;
+            padding: 57px 0 77px 0 !important;
         }
     }
-    &__emcompass{
-        margin-bottom:97px;
+    &__emcompass {
+        margin-bottom: 97px;
 
-        &__title{
+        &__title {
             font-size: $T2;
             font-family: $font-primary;
             color: $color-black;
             font-weight: $weight-700;
             @include medium-device-down {
-                font:$T2-mobile;
+                font: $T2-mobile;
             }
         }
-        &__subtitle{
+        &__subtitle {
             font-size: $T4;
             color: $color-two;
             font-family: $font-primary;
             font-weight: $weight-700;
-            margin-bottom:0;
+            margin-bottom: 0;
 
             @include medium-device-down {
-                font:$T4-mobile;
+                font: $T4-mobile;
             }
         }
-        &__line{
+        &__line {
             width: 100%;
             margin-top: 18px;
-            margin-bottom:0;
+            margin-bottom: 0;
         }
     }
-    &__content{
+    &__content {
         @include medium-device-down {
             padding-left: 22px !important;
         }
-        &__box{
+        &__box {
             display: flex;
             align-items: center;
             flex-direction: column;
             justify-content: center;
             height: 399px;
-            position:relative;
+            position: relative;
 
             @include medium-device-down {
                 width: 88% !important;
             }
-            @include small-device-down{
+            @include small-device-down {
                 width: 83% !important;
             }
 
-            a{
+            a {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
                 height: 100%;
             }
-            &__image{
-                @include Img ($ObjectFit: cover);
-                img{
-                    @include Img ($ObjectFit: cover);
+            &__image {
+                @include Img($ObjectFit: cover);
+                img {
+                    @include Img($ObjectFit: cover);
                 }
             }
-            &__description{
+            &__description {
                 display: flex;
                 align-items: flex-start;
                 flex-direction: column;
                 justify-content: flex-end;
                 @include Pos;
-                width:100%;
-                height:100%;
-                padding:54px 50px;
-                @include small-device-down{
-                    padding:29px 34px;
+                width: 100%;
+                height: 100%;
+                padding: 54px 50px;
+                @include small-device-down {
+                    padding: 29px 34px;
                 }
 
-                &__title{
+                &__title {
                     font-size: $T3-mobile;
                     font-family: $font-primary;
                     color: $color-black;
                     font-weight: $weight-700;
-                    margin-bottom:6px;
-
-
+                    margin-bottom: 6px;
                 }
-                &__paragraph{
-                    font:$paragraph-min;
-                    color:$color-black;
+                &__paragraph {
+                    font: $paragraph-min;
+                    color: $color-black;
                     font-weight: $weight-400;
                     @include medium-device-down {
-                        font:$paragraph-min-mobile;
+                        font: $paragraph-min-mobile;
                     }
                 }
-                &__paragraph p{
-                    font:$paragraph-min;
-                    color:$color-black;
+                &__paragraph p {
+                    font: $paragraph-min;
+                    color: $color-black;
                     font-weight: $weight-400;
                     margin-bottom: 0;
 
                     @include medium-device-down {
-                        font:$paragraph-min-mobile;
+                        font: $paragraph-min-mobile;
                     }
                 }
             }
@@ -181,107 +192,106 @@
 // Fim-port101
 
 //Inicio-lightbox-port101
-.lightbox-port101{
-    display:none;
-    width:100%;
-    height:100vw;
-    padding:0;
+.lightbox-port101 {
+    display: none;
+    width: 100%;
+    height: 100vw;
+    padding: 0;
 
-    @include small-device-down{
-        height:100%;
+    @include small-device-down {
+        height: 100%;
     }
 
-    &__description{
-            padding-top: 73px !important;
-            padding-left: 76px !important;
-            padding-bottom: 84px !important;
-            padding-right: 124px !important;
+    &__description {
+        padding-top: 73px !important;
+        padding-left: 76px !important;
+        padding-bottom: 84px !important;
+        padding-right: 124px !important;
 
-            @include small-device-down{
-                padding-left: 37px !important;
-                padding-right: 37px !important;
-                padding-bottom: 0 !important;
+        @include small-device-down {
+            padding-left: 37px !important;
+            padding-right: 37px !important;
+            padding-bottom: 0 !important;
+        }
+
+        &__title {
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            font-size: $T2;
+            @include small-device-down {
+                font-size: $T2-mobile;
+                text-align: center;
+            }
+        }
+        &__subtitle {
+            font-family: $font-primary;
+            font-weight: $weight-400;
+            font-size: $T4;
+            color: #7c7c7c;
+            @include small-device-down {
+                font-size: $T4-mobile;
+                text-align: center;
+            }
+        }
+        &__paragraph {
+            p {
+                margin-bottom: 0;
+            }
+        }
+        &__cta {
+            @include Flex;
+            color: #7c7c7c;
+            background: #ffffff;
+            width: 100%;
+            max-width: 177px;
+            height: 45px;
+            font-family: $font-primary;
+            font-weight: $weight-700;
+            margin-top: 28px;
+
+            &__icon {
+                height: 25px;
+                width: 25px;
+                object-fit: contain;
             }
 
-            &__title{
-                font-family:$font-primary;
-                font-weight: $weight-700;
-                font-size:$T2;
-                @include small-device-down{
-                    font-size:$T2-mobile;
-                    text-align:center;
-                }
+            @include small-device {
+                font: $paragraph-mobile;
+                margin-top: 39px;
+                width: 147px;
             }
-            &__subtitle{
-                font-family:$font-primary;
-                font-weight: $weight-400;
-                font-size:$T4;
-                color:#7C7C7C;
-                @include small-device-down{
-                    font-size:$T4-mobile;
-                    text-align:center;
-                }
 
-            }
-            &__paragraph{
+            &:hover {
+                color: $color-white;
+                background-color: $bg-black;
 
-                p{
-                    margin-bottom:0;
-                }
-            }
-            &__cta{
-                @include Flex;
-                color: #7C7C7C;
-                background: #FFFFFF;
-                width: 100%;
-                max-width: 177px;
-                height: 45px;
-                font-family:$font-primary;
-                font-weight: $weight-700;
-                margin-top:28px;
-
-                &__icon{
-                    height: 25px;
-                    width: 25px;
-                    object-fit:contain;
-                }
-
-                @include small-device{
-                    font: $paragraph-mobile;
-                    margin-top: 39px;
-                    width: 147px;
-                }
-
-                &:hover{
-                    color: $color-white;
-                    background-color: $bg-black;
-
-                    .lightbox-port101__description__cta__icon{
-                        filter: invert(1) grayscale(1);
-                    }
+                .lightbox-port101__description__cta__icon {
+                    filter: invert(1) grayscale(1);
                 }
             }
         }
+    }
 
-    &__content{
-        display:flex;
-        flex-direction:row;
-        width:100%;
+    &__content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
         min-height: 100vh;
         height: 100%;
+        background-color: $color-five;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         padding: 0;
 
-        @include small-device-down{
-            height:auto;
+        @include small-device-down {
+            height: auto;
         }
     }
-    &__galery{
+    &__galery {
         padding-top: 73px !important;
         padding-right: 83px !important;
-        @include small-device-down{
+        @include small-device-down {
             margin: 0 auto;
             padding-top: 73px !important;
             padding-bottom: 73px !important;
@@ -291,27 +301,27 @@
             display: flex;
             flex-direction: column;
         }
-        .item{
-          width:100%;
-          height:407px;
+        .item {
+            width: 100%;
+            height: 407px;
 
-          @include small-device-down{
-            height:189px;
-          }
+            @include small-device-down {
+                height: 189px;
+            }
         }
-        .carousel-show-port101-nav{
+        .carousel-show-port101-nav {
             @include Flex;
-            a{
-                width:100%;
-                height:144px;
-                display:flex;
+            a {
+                width: 100%;
+                height: 144px;
+                display: flex;
 
-                @include small-device-down{
+                @include small-device-down {
                     height: 67px;
                 }
             }
         }
-        .carousel-show-port101-nav .owl-dots{
+        .carousel-show-port101-nav .owl-dots {
             display: none !important;
         }
         .carousel-show-port101-nav .owl-nav {
@@ -322,27 +332,26 @@
             top: 50%;
             width: 100%;
 
-            @include small-device-down{
-
+            @include small-device-down {
             }
-          }
+        }
 
-          .carousel-show-port101-nav .owl-nav .owl-prev{
+        .carousel-show-port101-nav .owl-nav .owl-prev {
             left: -52px;
 
-            @include small-device-down{
+            @include small-device-down {
                 left: -27px;
             }
-          }
-          .carousel-show-port101-nav .owl-nav .owl-next{
+        }
+        .carousel-show-port101-nav .owl-nav .owl-next {
             right: -52px;
 
-            @include small-device-down{
+            @include small-device-down {
                 right: -27px;
             }
-          }
-          .carousel-show-port101-nav .owl-nav .owl-prev,
-          .carousel-show-port101-nav .owl-nav .owl-next {
+        }
+        .carousel-show-port101-nav .owl-nav .owl-prev,
+        .carousel-show-port101-nav .owl-nav .owl-next {
             height: 29px;
             width: 29px;
             border-radius: 100%;
@@ -354,26 +363,24 @@
             border: none;
             position: absolute;
 
-            @include small-device-down{
+            @include small-device-down {
                 width: 20.49px;
                 height: 20.49px;
             }
-          }
-          .carousel-show-port101-nav .owl-nav .owl-prev span,
-          .carousel-show-port101-nav .owl-nav .owl-next span {
+        }
+        .carousel-show-port101-nav .owl-nav .owl-prev span,
+        .carousel-show-port101-nav .owl-nav .owl-next span {
             color: #fff;
             font-size: 32px;
             height: 32px;
 
-            @include small-device-down{
+            @include small-device-down {
                 font-size: 15px;
                 height: 26px;
             }
-          }
+        }
     }
-
 }
-
 
 .modal {
     display: none;
@@ -390,7 +397,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 .modal__btn--close {
     position: absolute;

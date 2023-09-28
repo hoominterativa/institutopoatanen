@@ -4,8 +4,8 @@
         <div class="container container--pd">
             @if ($sections->title || $sections->subtitle)
                 <header class="port101__emcompass text-center">
-                    <h4 class="port101__emcompass__title">{{ $sections->title }}</h4>
-                    <h5 class="port101__emcompass__subtitle">{{ $sections->subtitle }}</h5>
+                    <h2 class="port101__emcompass__title">{{ $sections->title }}</h2>
+                    <h3 class="port101__emcompass__subtitle">{{ $sections->subtitle }}</h3>
                     <hr class="port101__emcompass__line" />
                 </header>
             @endif

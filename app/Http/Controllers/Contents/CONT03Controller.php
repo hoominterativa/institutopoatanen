@@ -52,7 +52,7 @@ class CONT03Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);
         if ($path_image_center) $data['path_image_center'] = $path_image_center;
@@ -102,7 +102,7 @@ class CONT03Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         // path_image_center
         $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);

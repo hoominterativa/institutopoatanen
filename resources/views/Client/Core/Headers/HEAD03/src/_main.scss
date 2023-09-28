@@ -49,12 +49,6 @@
                         }
                     }
                 }
-                @include small-device {
-                    display: block;
-                }
-                @include large-device {
-                    display: block;
-                }
             }
         }
     }

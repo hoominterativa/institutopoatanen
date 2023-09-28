@@ -165,7 +165,7 @@ if (elementosAnimados.length > 0) {
     const opcoes = {
         root: null,
         rootMargin: "0px",
-        threshold: 0.05,
+        threshold: 0.01,
     };
 
     // Cria uma nova instância do Intersection Observer
