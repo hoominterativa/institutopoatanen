@@ -27,7 +27,9 @@
                 <a href="{{getUri($brand->link?? '#')}}" target="_blank" class="link-full" @if (!$brand->link) style="cursor: default;" @endif></a>
                 <div style="background-image:url({{ asset('storage/' . $brand->path_image) }});">
                     <div>
-                        <img src="{{ asset('storage/' . $brand->path_image_icon) }}" alt="Logo" loading="lazy">
+                        @if ($brand->path_image_icon)
+                            <img src="{{ asset('storage/' . $brand->path_image_icon) }}" alt="Logo" loading="lazy">
+                        @endif
                     </div>
                 </div>
             </div>
