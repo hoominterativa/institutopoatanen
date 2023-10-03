@@ -246,7 +246,7 @@
                             <li>
                                 <a nofollow href="{{route('admin.contact.index')}}">
                                     <i class="mdi-handshake-outline mdi"></i>
-                                    <span> Oprtunidades </span>
+                                    <span> Oportunidades </span>
                                 </a>
                             </li>
 

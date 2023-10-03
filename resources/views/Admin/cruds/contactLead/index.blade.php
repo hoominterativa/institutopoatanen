@@ -13,10 +13,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Oprtunidades</li>
+                                    <li class="breadcrumb-item active">Oportunidades</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Oprtunidades</h4>
+                            <h4 class="page-title">Oportunidades</h4>
                         </div>
                     </div>
                 </div>
@@ -116,19 +116,21 @@
                                                             @php
                                                                 $i=0;
                                                             @endphp
-                                                            @foreach ($contactLeadUpcoming->json as $key => $informations)
-                                                                @if (isset($informations->type))
-                                                                    @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                        @if ($i<=3)
-                                                                            <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
+                                                            @if (is_array($contactLeadUpcoming->json) || is_object($contactLeadUpcoming->json))
+                                                                @foreach ($contactLeadUpcoming->json as $key => $informations)
+                                                                    @if (isset($informations->type))
+                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                            @if ($i<=3)
+                                                                                <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
+                                                                            @endif
+                                                                            @php
+                                                                                $i++;
+                                                                            @endphp
                                                                         @endif
-                                                                        @php
-                                                                            $i++;
-                                                                        @endphp
                                                                     @endif
-                                                                @endif
-                                                            @endforeach
-                                                        </>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
                                                         <div class="clearfix"></div>
                                                         <div class="row">
                                                             <div class="col">
@@ -159,50 +161,56 @@
                                                                                                 <span class="badge font-14 mb-2 bg-soft-warning text-dark p-1">{{$contactLeadUpcoming->target_lead}}</span>
                                                                                             </p>
                                                                                             <p class="mb-1"><b>Data da Solicitação:</b> {{Carbon\Carbon::parse($contactLeadUpcoming->created_at)->format('d/m/Y H:i')}}</p>
-                                                                                            @foreach ($contactLeadUpcoming->json as $key => $informations)
-                                                                                                @if (isset($informations->type))
-                                                                                                    @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                                                        <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                            @if (is_array($contactLeadUpcoming->json) || is_object($contactLeadUpcoming->json))
+                                                                                                @foreach ($contactLeadUpcoming->json as $key => $informations)
+                                                                                                    @if (isset($informations->type))
+                                                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                                                            <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                                        @endif
                                                                                                     @endif
-                                                                                                @endif
-                                                                                            @endforeach
+                                                                                                @endforeach
+                                                                                            @endif
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadUpcoming->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('email')
-                                                                                                        <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('phone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('cellphone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('file')
-                                                                                                        <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadUpcoming->json) || is_object($contactLeadUpcoming->json))
+                                                                                            @foreach ($contactLeadUpcoming->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('email')
+                                                                                                            <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('phone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('cellphone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('file')
+                                                                                                            <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadUpcoming->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('checkbox')
-                                                                                                        <h5 class="mb-1">{{$key}}</h5>
-                                                                                                        <ul>
-                                                                                                            @foreach ($informations->value as $item)
-                                                                                                                <li><p class="mb-0">{{$item}}</p></li>
-                                                                                                            @endforeach
-                                                                                                        </ul>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadUpcoming->json) || is_object($contactLeadUpcoming->json))
+                                                                                            @foreach ($contactLeadUpcoming->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('checkbox')
+                                                                                                            <h5 class="mb-1">{{$key}}</h5>
+                                                                                                            <ul>
+                                                                                                                @foreach ($informations->value as $item)
+                                                                                                                    <li><p class="mb-0">{{$item}}</p></li>
+                                                                                                                @endforeach
+                                                                                                            </ul>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="text-center mt-3 mt-sm-0">
@@ -228,20 +236,22 @@
                                                                             </div>
                                                                         </div> <!-- end card-->
 
-                                                                        @if ($contactLeadUpcoming->json->additionals)
+                                                                        @if ($contactLeadUpcoming->json->additionals ?? null)
                                                                             <div class="card mb-2">
                                                                                 <div class="card-body">
                                                                                     <h5 class="text-warning mt-0">Informações Adicionais</h5>
                                                                                     <div class="row">
-                                                                                        @foreach ($contactLeadUpcoming->json->additionals as $additional)
-                                                                                            <div class="col-12 col-md-3">
-                                                                                                <div class="bg-light p-2 mb-2" style="border-radius: 5px;">
-                                                                                                    @foreach ($additional as $key => $value)
-                                                                                                        <p class="mb-1"><b>{{$key}}:</b> {{$value}}</p>
-                                                                                                    @endforeach
+                                                                                        @if (is_array($contactLeadUpcoming->json) || is_object($contactLeadUpcoming->json))
+                                                                                            @foreach ($contactLeadUpcoming->json->additionals as $additional)
+                                                                                                <div class="col-12 col-md-3">
+                                                                                                    <div class="bg-light p-2 mb-2" style="border-radius: 5px;">
+                                                                                                        @foreach ($additional as $key => $value)
+                                                                                                            <p class="mb-1"><b>{{$key}}:</b> {{$value}}</p>
+                                                                                                        @endforeach
+                                                                                                    </div>
                                                                                                 </div>
-                                                                                            </div>
-                                                                                        @endforeach
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     {{-- END .row --}}
                                                                                 </div>
@@ -279,19 +289,21 @@
                                                             @php
                                                                 $i=0;
                                                             @endphp
-                                                            @foreach ($contactLeadInProcess->json as $key => $informations)
-                                                                @if (isset($informations->type))
-                                                                    @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                        @if ($i<=3)
-                                                                            <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
-                                                                            @php
-                                                                                $i++;
-                                                                            @endphp
+                                                            @if (is_array($contactLeadInProcess->json) || is_object($contactLeadInProcess->json))
+                                                                @foreach ($contactLeadInProcess->json as $key => $informations)
+                                                                    @if (isset($informations->type))
+                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                            @if ($i<=3)
+                                                                                <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
+                                                                                @php
+                                                                                    $i++;
+                                                                                @endphp
+                                                                            @endif
                                                                         @endif
                                                                     @endif
-                                                                @endif
-                                                            @endforeach
-                                                        </>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
                                                         <div class="clearfix"></div>
                                                         <div class="row">
                                                             <div class="col">
@@ -323,51 +335,57 @@
                                                                                                     <span class="badge font-14 mb-2 bg-soft-warning text-dark p-1">{{$contactLeadInProcess->target_lead}}</span>
                                                                                                 </p>
                                                                                                 <p class="mb-1"><b>Data da Solicitação:</b> {{Carbon\Carbon::parse($contactLeadInProcess->created_at)->format('d/m/Y H:i')}}</p>
-                                                                                                @foreach ($contactLeadInProcess->json as $key => $informations)
-                                                                                                    @if (isset($informations->type))
-                                                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                                                            <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                                @if (is_array($contactLeadInProcess->json) || is_object($contactLeadInProcess->json))
+                                                                                                    @foreach ($contactLeadInProcess->json as $key => $informations)
+                                                                                                        @if (isset($informations->type))
+                                                                                                            @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                                                                <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                                            @endif
                                                                                                         @endif
-                                                                                                    @endif
-                                                                                                @endforeach
+                                                                                                    @endforeach
+                                                                                                @endif
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadInProcess->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('email')
-                                                                                                        <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('phone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('cellphone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('file')
-                                                                                                        <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadInProcess->json) || is_object($contactLeadInProcess->json))
+                                                                                            @foreach ($contactLeadInProcess->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('email')
+                                                                                                            <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('phone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('cellphone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('file')
+                                                                                                            <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadInProcess->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('checkbox')
-                                                                                                        <h5 class="mb-1">{{$key}}</h5>
-                                                                                                        <ul>
-                                                                                                            @foreach ($informations->value as $item)
-                                                                                                                <li><p class="mb-0">{{$item}}</p></li>
-                                                                                                            @endforeach
-                                                                                                        </ul>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadInProcess->json) || is_object($contactLeadInProcess->json))
+                                                                                            @foreach ($contactLeadInProcess->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('checkbox')
+                                                                                                            <h5 class="mb-1">{{$key}}</h5>
+                                                                                                            <ul>
+                                                                                                                @foreach ($informations->value as $item)
+                                                                                                                    <li><p class="mb-0">{{$item}}</p></li>
+                                                                                                                @endforeach
+                                                                                                            </ul>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="text-center mt-3 mt-sm-0">
@@ -422,18 +440,20 @@
                                                             @php
                                                                 $i=0;
                                                             @endphp
-                                                            @foreach ($contactLeadCompleted->json as $key => $informations)
-                                                                @if (isset($informations->type))
-                                                                    @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                        @if ($i<=3)
-                                                                            <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
-                                                                            @php
-                                                                                $i++;
-                                                                            @endphp
+                                                            @if (is_array($contactLeadCompleted->json) || is_object($contactLeadCompleted->json))
+                                                                @foreach ($contactLeadCompleted->json as $key => $informations)
+                                                                    @if (isset($informations->type))
+                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                            @if ($i<=3)
+                                                                                <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
+                                                                                @php
+                                                                                    $i++;
+                                                                                @endphp
+                                                                            @endif
                                                                         @endif
                                                                     @endif
-                                                                @endif
-                                                            @endforeach
+                                                                @endforeach
+                                                            @endif
                                                         </div>
                                                         <div class="clearfix"></div>
                                                         <div class="row">
@@ -466,51 +486,57 @@
                                                                                                     <span class="badge font-14 mb-2 bg-soft-warning text-dark p-1">{{$contactLeadCompleted->target_lead}}</span>
                                                                                                 </p>
                                                                                                 <p class="mb-1"><b>Data da Solicitação:</b> {{Carbon\Carbon::parse($contactLeadCompleted->created_at)->format('d/m/Y H:i')}}</p>
-                                                                                                @foreach ($contactLeadCompleted->json as $key => $informations)
-                                                                                                    @if (isset($informations->type))
-                                                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                                                            <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                                @if (is_array($contactLeadCompleted->json) || is_object($contactLeadCompleted->json))
+                                                                                                    @foreach ($contactLeadCompleted->json as $key => $informations)
+                                                                                                        @if (isset($informations->type))
+                                                                                                            @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                                                                <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                                            @endif
                                                                                                         @endif
-                                                                                                    @endif
-                                                                                                @endforeach
+                                                                                                    @endforeach
+                                                                                                @endif
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadCompleted->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('email')
-                                                                                                        <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('phone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('cellphone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('file')
-                                                                                                        <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadCompleted->json) || is_object($contactLeadCompleted->json))
+                                                                                            @foreach ($contactLeadCompleted->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('email')
+                                                                                                            <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('phone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('cellphone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('file')
+                                                                                                            <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadCompleted->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('checkbox')
-                                                                                                        <h5 class="mb-1">{{$key}}</h5>
-                                                                                                        <ul>
-                                                                                                            @foreach ($informations->value as $item)
-                                                                                                                <li><p class="mb-0">{{$item}}</p></li>
-                                                                                                            @endforeach
-                                                                                                        </ul>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadCompleted->json) || is_object($contactLeadCompleted->json))
+                                                                                            @foreach ($contactLeadCompleted->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('checkbox')
+                                                                                                            <h5 class="mb-1">{{$key}}</h5>
+                                                                                                            <ul>
+                                                                                                                @foreach ($informations->value as $item)
+                                                                                                                    <li><p class="mb-0">{{$item}}</p></li>
+                                                                                                                @endforeach
+                                                                                                            </ul>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="text-center mt-3 mt-sm-0">
@@ -565,18 +591,20 @@
                                                             @php
                                                                 $i=0;
                                                             @endphp
-                                                            @foreach ($contactLeadLost->json as $key => $informations)
-                                                                @if (isset($informations->type))
-                                                                    @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                        @if ($i<=3)
-                                                                            <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
-                                                                            @php
-                                                                                $i++;
-                                                                            @endphp
+                                                            @if (is_array($contactLeadLost->json) || is_object($contactLeadLost->json))
+                                                                @foreach ($contactLeadLost->json as $key => $informations)
+                                                                    @if (isset($informations->type))
+                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                            @if ($i<=3)
+                                                                                <p class="mb-1"><b>{{$key}}:</b> {{substr($informations->value,0,55)}}</p>
+                                                                                @php
+                                                                                    $i++;
+                                                                                @endphp
+                                                                            @endif
                                                                         @endif
                                                                     @endif
-                                                                @endif
-                                                            @endforeach
+                                                                @endforeach
+                                                            @endif
                                                         </div>
                                                         <div class="clearfix"></div>
                                                         <div class="row">
@@ -609,51 +637,57 @@
                                                                                                     <span class="badge font-14 mb-2 bg-soft-warning text-dark p-1">{{$contactLeadLost->target_lead}}</span>
                                                                                                 </p>
                                                                                                 <p class="mb-1"><b>Data da Solicitação:</b> {{Carbon\Carbon::parse($contactLeadLost->created_at)->format('d/m/Y H:i')}}</p>
-                                                                                                @foreach ($contactLeadLost->json as $key => $informations)
-                                                                                                    @if (isset($informations->type))
-                                                                                                        @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
-                                                                                                            <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                                @if (is_array($contactLeadLost->json) || is_object($contactLeadLost->json))
+                                                                                                    @foreach ($contactLeadLost->json as $key => $informations)
+                                                                                                        @if (isset($informations->type))
+                                                                                                            @if ($informations->type <> 'email' && $informations->type <> 'phone' && $informations->type <> 'cellphone' && $informations->type <> 'checkbox' && $informations->type <> 'file')
+                                                                                                                <p class="mb-1"><b>{{$key}}:</b> {{$informations->value}}</p>
+                                                                                                            @endif
                                                                                                         @endif
-                                                                                                    @endif
-                                                                                                @endforeach
+                                                                                                    @endforeach
+                                                                                                @endif
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadLost->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('email')
-                                                                                                        <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('phone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('cellphone')
-                                                                                                        <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
-                                                                                                    @break
-                                                                                                    @case('file')
-                                                                                                        <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadLost->json) || is_object($contactLeadLost->json))
+                                                                                            @foreach ($contactLeadLost->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('email')
+                                                                                                            <p class="mb-1 mt-3 mt-sm-0"><a href="mailto:{{$informations->value}}"><i class="mdi mdi-email me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('phone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-phone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('cellphone')
+                                                                                                            <p class="mb-1"><a href="tel:{{$informations->value}}"><i class="mdi mdi-cellphone me-2 font-18"></i> {{$informations->value}}</a></p>
+                                                                                                        @break
+                                                                                                        @case('file')
+                                                                                                            <p class="mb-0"><a href="{{asset('storage/'.$informations->value)}}" download=""><i class="mdi mdi-attachment me-2 font-18"></i> Baixar Anexo</a></p>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-3">
-                                                                                        @foreach ($contactLeadLost->json as $key => $informations)
-                                                                                            @if (isset($informations->type))
-                                                                                                @switch($informations->type)
-                                                                                                    @case('checkbox')
-                                                                                                        <h5 class="mb-1">{{$key}}</h5>
-                                                                                                        <ul>
-                                                                                                            @foreach ($informations->value as $item)
-                                                                                                                <li><p class="mb-0">{{$item}}</p></li>
-                                                                                                            @endforeach
-                                                                                                        </ul>
-                                                                                                    @break
-                                                                                                @endswitch
-                                                                                            @endif
-                                                                                        @endforeach
+                                                                                        @if (is_array($contactLeadLost->json) || is_object($contactLeadLost->json))
+                                                                                            @foreach ($contactLeadLost->json as $key => $informations)
+                                                                                                @if (isset($informations->type))
+                                                                                                    @switch($informations->type)
+                                                                                                        @case('checkbox')
+                                                                                                            <h5 class="mb-1">{{$key}}</h5>
+                                                                                                            <ul>
+                                                                                                                @foreach ($informations->value as $item)
+                                                                                                                    <li><p class="mb-0">{{$item}}</p></li>
+                                                                                                                @endforeach
+                                                                                                            </ul>
+                                                                                                        @break
+                                                                                                    @endswitch
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        @endif
                                                                                     </div>
                                                                                     <div class="col-sm-2">
                                                                                         <div class="text-center mt-3 mt-sm-0">
