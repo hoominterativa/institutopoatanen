@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Brands\BRAN01SectionController;
+use App\Http\Controllers\Brands\BRAN04SectionController;
 
 /**
  * Uncomment the code below
@@ -13,7 +13,7 @@ use App\Http\Controllers\Brands\BRAN01SectionController;
  */
 
 $module = 'Brands';
-$model = 'BRAN01';
+$model = 'BRAN04';
 
 $class = config('modelsConfig.Class');
 $modelConfig = config('modelsConfig.InsertModelsMain');
@@ -25,6 +25,5 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', BRAN01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'BRAN01BrandsSection']);
-    Route::post($route.'/secao/delete', [BRAN01SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
+    Route::resource($route.'/secao', BRAN04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'BRAN04BrandsSection']);
 });
