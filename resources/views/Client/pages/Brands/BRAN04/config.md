@@ -3,14 +3,14 @@
 'Brands' => (object) [
     'BRAN04' => (object)[
         'ViewHome' => true,
-        'ViewListMenu' => true,
+        'ViewListMenu' => false,
         'ViewListPanel' => true,
         'ViewListFooter' => false,
         'Viewer' => 'dropdown', // accepted values, list or dropdown
         'config' => (object) [
             'titleMenu' => 'Marcas',
             'anchor' =>  false,
-            'linkMenu' => 'bran04.page',
+            'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Marcas',
             'iconPanel' => 'mdi-google-my-business'

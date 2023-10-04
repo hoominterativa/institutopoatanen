@@ -187,21 +187,16 @@ class BRAN04Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display a listing of the resourcee.
+     * Section index resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public static function section()
     {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN04', 'page');
-
         $brands = BRAN04Brands::active()->sorting()->get();
         $section = BRAN04BrandsSection::active()->first();
 
-        return view('Client.pages.Brands.BRAN04.page',[
-            'sections' => $sections,
+        return view('Client.pages.Brands.BRAN04.section',[
             'section' => $section,
             'brands' => $brands
         ]);
