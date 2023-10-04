@@ -2008,6 +2008,109 @@ body .owl-dots .owl-dot.active {
 
 /* BEGIN STYLE */
 /* BEGIN STYLE */
+.bran04 .container--bran04 {
+  padding: 39px 0 60.16px 0 !important;
+}
+@media (max-width: 767.98px) {
+  .bran04 .container--bran04 {
+    padding: 37px 37px 58.16px 37px !important;
+  }
+}
+.bran04__encompass {
+  z-index: 100;
+  position: relative;
+}
+.bran04__encompass__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .bran04__encompass__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 7px;
+  }
+}
+.bran04__encompass__subtitle {
+  font-size: 1.25rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #404040;
+  font-weight: 700;
+  margin-bottom: 22.03px;
+}
+@media (max-width: 767.98px) {
+  .bran04__encompass__subtitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+.bran04__encompass__line {
+  margin: 24.99px 0 30px 0;
+}
+@media (max-width: 767.98px) {
+  .bran04__encompass__line {
+    margin: 23px 0;
+  }
+}
+.bran04__encompass__paragraph {
+  color: #404040;
+  font-weight: 400;
+  font: 1rem "Montserrat", sans-serif, arial;
+  max-width: 890px;
+  width: 100%;
+}
+@media (max-width: 767.98px) {
+  .bran04__encompass__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.bran04__encompass__paragraph p {
+  color: #404040;
+  font-weight: 400;
+  font: 1rem "Montserrat", sans-serif, arial;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .bran04__encompass__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.bran04__content {
+  margin-top: 58.01px;
+  display: flex;
+  gap: 21.44px 0;
+}
+@media (max-width: 767.98px) {
+  .bran04__content {
+    margin-top: 48px;
+  }
+}
+.bran04__content__box {
+  height: 136.84px;
+}
+.bran04__content__box__image {
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bran04__content__box__image img {
+  width: 62.29px;
+  height: 62.29px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;
