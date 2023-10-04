@@ -24,7 +24,7 @@
         'config' => (object) [
             'titleMenu' => 'Serviços',
             'anchor' =>  false,
-            'linkMenu' => 'serv07.page',
+            'linkMenu' => 'serv08.page',
             'iconMenu' => '',
             'titlePanel' => 'Serviços',
             'iconPanel' => 'mdi-alpha-s-box-outline'

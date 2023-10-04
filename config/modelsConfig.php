@@ -61,7 +61,7 @@ return [
                     'iconPanel' => 'mdi-shopping-outline'
                 ],
                 'IncludeSections' => (object) [
-                    
+
                 ]
             ],
         ],
@@ -81,7 +81,7 @@ return [
                     'iconPanel' => 'mdi-text-box'
                 ]
             ],
-        ],   
+        ],
         'Services' => (object) [
             'SERV08' => (object)[
                 'ViewHome' => true,
@@ -106,7 +106,7 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Serviços',
                     'anchor' =>  false,
-                    'linkMenu' => 'serv07.page',
+                    'linkMenu' => 'serv08.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Serviços',
                     'iconPanel' => 'mdi-alpha-s-box-outline'
@@ -188,7 +188,7 @@ return [
                 ]
             ],
         ],
-        
+
         'Contents.1' => (object) [
             'CONT05' => (object)[
                 'ViewHome' => true,
