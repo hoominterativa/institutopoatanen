@@ -176,6 +176,11 @@ return [
                 'model' => App\Models\Contacts\COTA03Contacts::class,
                 'seedQty' => 1,
             ],
+            'COTA04' => (object)[
+                'controller' => App\Http\Controllers\Contacts\COTA04Controller::class,
+                'model' => App\Models\Contacts\COTA04Contacts::class,
+                'seedQty' => 1,
+            ],
         ],
         // END CONTACTS
 

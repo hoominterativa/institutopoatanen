@@ -1,10 +1,11 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/libraries.css": "/css/libraries.css",
-    "/css/icons.css": "/css/icons.css",
+    "/js/app.js": "/js/app.js?id=b77ff258598e1a03c7e14a4d378aeda1",
+    "/css/libraries.css": "/css/libraries.css?id=2a70fd1c68fc31c29475c03a4b6988ab",
+    "/css/app.css": "/css/app.css?id=616cf295aafb8e6eab353377be68773b",
+    "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
-    "/Admin/assets/js/custom.js": "/Admin/assets/js/custom.js?id=ebff179051bda97acf772bf80f89382e",
+    "/Admin/assets/js/custom.js": "/Admin/assets/js/custom.js?id=cfbef507ba67bbfb64a6f5437445ce91",
     "/Admin/assets/js/ajax.js": "/Admin/assets/js/ajax.js?id=dc61bfcede520487b2d3929fe325b909",
     "/Admin/assets/libs/parsley.min.js": "/Admin/assets/libs/parsley.min.js?id=fcfe6ae30a25b06f0c24394f88e39f9a",
     "/Admin/assets/libs/fancybox.js": "/Admin/assets/libs/fancybox.js?id=0ce18f9ca64e6fdcac07ec7e97dac4c7",
@@ -443,6 +444,5 @@
     "/Admin/assets/libs/i18n/ur.js": "/Admin/assets/libs/i18n/ur.js?id=3cc894ecacb70594c1df9552064c8d97",
     "/Admin/assets/libs/i18n/zh_cn.extra.js": "/Admin/assets/libs/i18n/zh_cn.extra.js?id=e5d635d10d14819a7ffc950fe9f3077a",
     "/Admin/assets/libs/i18n/zh_cn.js": "/Admin/assets/libs/i18n/zh_cn.js?id=3b26d4d158a3f6e8a7702cdcee0d0452",
-    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf",
-    "/css/app.css": "/css/app.css"
+    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf"
 }
