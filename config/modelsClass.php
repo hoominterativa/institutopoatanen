@@ -70,6 +70,11 @@ return [
                 'model' => App\Models\Brands\BRAN01Brands::class,
                 'seedQty' => 4,
             ],
+            'BRAN04' => (object)[
+                'controller' => App\Http\Controllers\Brands\BRAN04Controller::class,
+                'model' => App\Models\Brands\BRAN04Brands::class,
+                'seedQty' => 12,
+            ],
         ],
         // END BRANDS
         'Contents' => (object)[
@@ -169,6 +174,11 @@ return [
             'COTA03' => (object)[
                 'controller' => App\Http\Controllers\Contacts\COTA03Controller::class,
                 'model' => App\Models\Contacts\COTA03Contacts::class,
+                'seedQty' => 1,
+            ],
+            'COTA04' => (object)[
+                'controller' => App\Http\Controllers\Contacts\COTA04Controller::class,
+                'model' => App\Models\Contacts\COTA04Contacts::class,
                 'seedQty' => 1,
             ],
         ],

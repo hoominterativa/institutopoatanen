@@ -78,7 +78,8 @@
     "Contacts": [
         "COTA01",
         "COTA02",
-        "COTA03"
+        "COTA03",
+        "COTA04"
     ],
     "Compliances": [
         "COMP01"
@@ -91,7 +92,8 @@
         "COPA02"
     ],
     "Brands": [
-        "BRAN01"
+        "BRAN01",
+        "BRAN04"
     ],
     "Feedbacks": [
         "FEED03",

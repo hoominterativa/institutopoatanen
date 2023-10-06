@@ -1,4 +1,55 @@
 @switch($model)
+    @case('FORM01')
+    <section class="form01 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
+        <div class="container container--pd ">
+            <div class="row mx-auto px-0 d-flex justify-content-between align-items-center">
+                <div class="form01__boxLeft col-sm-7">
+                    <div class="form01__boxLeft__content">
+                        <h4 class="form01__boxLeft__content__title">{{$content->title->value}}</h4>
+                        <div class="form01__boxLeft__content__paragraph">
+                            <p>
+                                {{$content->description->value}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-100 px-0">
+                        {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form01__boxLeft__form form-contact parsley-validate d-flex row mx-0']) !!}
+                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
+                            @foreach ($inputs as $name => $input)
+                                @include('Client.Components.inputs', [
+                                    'name' => $name,
+                                    'options' => $input->option,
+                                    'placeholder' => $input->placeholder,
+                                    'required' => $input->required??false,
+                                    'type' => $input->type
+                                ])
+                            @endforeach
+                            <label for="" class="form01__boxLeft__form__checkbox-label">
+                                {!! Form::checkbox('term_accept', 1, null, [
+                                    'class' => 'form-check-input me-1',
+                                    'id' => 'term_accept',
+                                    'required' => true,
+                                ]) !!}
+                                {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank" class="">Política de Privacidade</a>
+                            </label>
+                            <button type="submit" class="form01__boxLeft__form__cta">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                                CTA
+                            </button>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+                <div class="form01__boxRight col-sm-5 d-flex justify-content-center align-items-end px-0">
+                    <div class="form01__boxRight__image">
+                        <img src="{{asset('storage/'.$content->path_image->value)}}" alt="Imagem form">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @break
     @case('FORM02')
         <section class="form02 container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-slide.jpg')}})">
             <div class="container container--pd">

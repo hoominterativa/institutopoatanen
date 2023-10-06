@@ -46,12 +46,19 @@ $(function() {
 
     // Manipula o evento "blur" (perda de foco) em campos de entrada de URL
     $('input[type="url"]').on('blur', function() {
-        var val = $(this).val();
+        var val = $(this).val().trim(); // Remove espaços em branco do início e do fim
 
-        // Verifica se o valor do campo não começa com 'http://' ou 'https://'
-        if (val && !val.startsWith('http://') && !val.startsWith('https://')) {
-            // Adiciona 'https://' automaticamente ao valor do campo
-            $(this).val('https://' + val);
+        // Verifica se o valor do campo não começa com 'https://'
+        if (val && !val.startsWith('https://')) {
+            // Substitui 'http://' por 'https://'
+            if (val.startsWith('http://')) {
+                val = val.replace('http://', 'https://');
+            } else {
+                // Se não começar com 'http://', adiciona 'https://'
+                val = 'https://' + val;
+            }
+            // Define o novo valor do campo
+            $(this).val(val);
         }
     });
 

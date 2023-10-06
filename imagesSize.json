@@ -267,6 +267,18 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "BRAN04": {
+            "path_image": {
+                "width": "322",
+                "height": "137",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            }
         }
     },
     "Galleries": {
@@ -1872,6 +1884,13 @@
         }
     },
     "ModelsForm": {
+        "FORM01": {
+            "path_image": {
+                "width": "455",
+                "height": "625",
+                "activeCrop": "false"
+            }
+        },
         "FORM02": {
             "path_image_inner": {
                 "width": "455",
