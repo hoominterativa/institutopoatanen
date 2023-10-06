@@ -30,11 +30,13 @@
             <main class="serv08__main w-100 d-flex flex-column align-items-stretch">
                 <div class="serv08__carousel owl-carousel">
                     @foreach ($services as $service)
-                        <article class="serv08__carousel__item serv08-box" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
+                        <article class="serv08__carousel__item serv08-box" style="background-image: url({{ asset('storage/' . $service->path_image) }}); background-color: #ffffff;">
+                           @if($service->title_featured_service)
                             <div class="serv08-box__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
-                                    <h4 class="serv08-box__promotion__titulo">Promoção</h4>
+                                    <h4 class="serv08-box__promotion__titulo">{{$service->title_featured_service}}</h4>
                                     {{-- $service->color_featured_service --}}
                             </div>
+                            @endif
                             <div class="serv08-box__content w-100 d-flex flex-column align-items-stretch">
                                 <div class="serv08-box__top w-100 d-flex align-items-center justify-content-between">
                                     <div class="serv08-box__top__left d-flex flex-column align-items-start justify-content-start ">
