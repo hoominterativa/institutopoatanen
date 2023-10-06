@@ -11,7 +11,13 @@
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title_banner',
-                    'relation' => ''
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
                 ],
                 'config' => (object) [
                     'titleMenu' => 'Contato',

@@ -180,6 +180,14 @@ return [
                 'controller' => App\Http\Controllers\Contacts\COTA04Controller::class,
                 'model' => App\Models\Contacts\COTA04Contacts::class,
                 'seedQty' => 1,
+                'routeName' => '',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Contacts\COTA04ContactsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
         ],
         // END CONTACTS
