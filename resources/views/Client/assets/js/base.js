@@ -7,7 +7,7 @@ import '../../pages/Contents/CONT06/src/main';
 import '../../pages/Services/SERV08/src/main';
 import '../../pages/Brands/BRAN01/src/main';
 import '../../pages/Blogs/BLOG01/src/main';
+import '../../pages/Contents/CONT02/src/main';
 import '../../pages/Abouts/ABOU01/src/main';
-import '../../pages/Contents/CONT05/src/main';
 import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Compliances/COMP01/src/main';

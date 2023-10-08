@@ -167,7 +167,26 @@ return [
                 ]
             ],
         ],
-
+          'Contents.1' => (object) [
+            'CONT02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contents',
+                    'iconPanel' => 'mdi-folder-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Products' => 'PROD02'
+                ]
+            ],
+        ],
         'Abouts' => (object) [
             'ABOU01' => (object)[
                 'ViewHome' => true,
@@ -189,23 +208,6 @@ return [
             ],
         ],
 
-        'Contents.1' => (object) [
-            'CONT05' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Contents',
-                    'iconPanel' => 'mdi-folder-outline'
-                ]
-            ],
-        ],
         'Contacts' => (object) [
             'COTA02' => (object)[
                 'ViewHome' => false,
