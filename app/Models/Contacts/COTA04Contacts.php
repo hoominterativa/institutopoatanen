@@ -17,15 +17,9 @@ class COTA04Contacts extends Model
 
     protected $table = "cota04_contacts";
     protected $fillable = [
-        //geral
-        'slug', 'compliance_id', 'active', 'sorting', 'category_id',
-        //banner
+        'slug', 'compliance_id', 'active', 'sorting',
         'title_banner','subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner',
-        //content
-        'title_content', 'subtitle_content', 'description_content', 'path_image_content',
-        //form
-        'title_form', 'description_form', 'title_button_form', 'inputs_form', 'email_form', 'title_compliance', 'subtitle_compliance', 'path_image_compliance_icon',
-
+        'title_content', 'subtitle_content', 'description_content', 'path_image_content', 'title_button_form', 'email_form', 'title_compliance', 'subtitle_compliance',
     ];
 
     public function scopeSorting($query)
@@ -38,7 +32,7 @@ class COTA04Contacts extends Model
         return $query->where('active', 1);
     }
 
-    public function categories(){
-        return $this->belongsTo(COTA04ContactsCategory::class, 'category_id');
+    public function sections(){
+        return $this->hasMany(COTA04ContactsSection::class, 'contact_id');
     }
 }

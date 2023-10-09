@@ -3,6 +3,7 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => ['admin.cota04.category.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    <input type="hidden" name="section_id" value="{{$section->id}}">
 @endif
     <div class="row">
         <div class="col-12">

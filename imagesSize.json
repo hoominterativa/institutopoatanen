@@ -991,29 +991,20 @@
             }
         },
         "COTA04":{
-            "path_image_compliance_icon": {
-                "width":"300",
-                "height":"300",
+            "path_image_banner_desktop": {
+                "width":"1500",
+                "height":"352",
                 "activeCrop": "false"
             },
-            "InfoBanner": {
-                "path_image_banner_desktop": {
-                    "width":"1500",
-                    "height":"352",
-                    "activeCrop": "false"
-                },
-                "path_image_banner_mobile": {
-                    "width":"390",
-                    "height":"340",
-                    "activeCrop": "true"
-                }
+            "path_image_banner_mobile": {
+                "width":"390",
+                "height":"340",
+                "activeCrop": "true"
             },
-            "Content": {
-                "path_image_content": {
-                    "width":"429",
-                    "height":"591",
-                    "activeCrop": "false"
-                }
+            "path_image_content": {
+                "width":"429",
+                "height":"591",
+                "activeCrop": "false"
             },
             "Category": {
                 "path_image": {

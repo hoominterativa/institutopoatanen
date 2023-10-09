@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Contacts\COTA04ContactsCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contacts\COTA04ContactsForm;
 
 class COTA04CategoryController extends Controller
 {
@@ -86,7 +87,7 @@ class COTA04CategoryController extends Controller
     public function destroy(COTA04ContactsCategory $COTA04ContactsCategory)
     {
          // Verificar se existem formulários associadas à categoria
-         if(COTA04Contacts::where('category_id', $COTA04ContactsCategory->id)->count()){
+         if(COTA04ContactsForm::where('category_id', $COTA04ContactsCategory->id)->count()){
             Session::flash('error', 'Não é possível excluir a categoria porque existem formulários associadas a ela.');
             return redirect()->back();
         }
@@ -110,7 +111,7 @@ class COTA04CategoryController extends Controller
         $categoryIds = $request->deleteAll;
 
         // Verificar se existem formulários associadas às categorias
-        $serviceExist = COTA04Contacts::whereIn('category_id', $categoryIds)->exists();
+        $serviceExist = COTA04ContactsForm::whereIn('category_id', $categoryIds)->exists();
         if ($serviceExist) {
             return Response::json([
                 'status' => 'error',

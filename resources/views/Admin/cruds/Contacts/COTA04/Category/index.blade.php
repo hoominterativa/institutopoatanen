@@ -94,7 +94,7 @@
 
             <div class="modal-body p-3 pt-0 pb-3">
                 @include('Admin.cruds.Contacts.COTA04.Category.form',[
-                    'category' => null
+                    'category' => null,
                 ])
             </div>
         </div>

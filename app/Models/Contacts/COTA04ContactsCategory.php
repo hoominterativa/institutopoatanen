@@ -16,7 +16,7 @@ class COTA04ContactsCategory extends Model
     }
 
     protected $table = "cota04_contacts_categories";
-    protected $fillable = ['slug', 'title', 'path_image', 'active', 'sorting'];
+    protected $fillable = ['section_id','slug', 'title', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -30,7 +30,11 @@ class COTA04ContactsCategory extends Model
 
     public function scopeExists($query){
         return $query->whereExists(function($query){
-            $query->select('id')->from('cota04_contacts')->whereColumn('cota04_contacts.category_id', 'cota04_contacts_categories.id');
+            $query->select('id')->from('cota04_contacts_forms')->whereColumn('cota04_contacts_forms.category_id', 'cota04_contacts_categories.id');
         });
+    }
+
+    public function sections(){
+        return $this->belongsTo(COTA04ContactsSection::class, 'section_id');
     }
 }
