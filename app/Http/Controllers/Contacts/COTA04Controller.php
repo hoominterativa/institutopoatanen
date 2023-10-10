@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Contacts\COTA04ContactsCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contacts\COTA04ContactsForm;
 use App\Models\Contacts\COTA04ContactsSection;
 
 class COTA04Controller extends Controller
@@ -166,6 +167,13 @@ class COTA04Controller extends Controller
         $sections = COTA04ContactsSection::where('contact_id', $COTA04Contacts->id)->get();
         if($sections) {
             foreach($sections as $section){
+                foreach($section->forms as $form){
+                    $form->delete();
+                }
+                foreach($section->categories as $category){
+                    storageDelete($category, 'path_image');
+                    $category->delete();
+                }
                 $section->delete();
             }
         }
@@ -193,6 +201,13 @@ class COTA04Controller extends Controller
             $sections = COTA04ContactsSection::where('contact_id', $COTA04Contacts->id)->get();
             if($sections) {
                 foreach($sections as $section){
+                    foreach($section->forms as $form){
+                        $form->delete();
+                    }
+                    foreach($section->categories as $category){
+                        storageDelete($category, 'path_image');
+                        $category->delete();
+                    }
                     $section->delete();
                 }
             }
@@ -231,13 +246,30 @@ class COTA04Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(COTA04Contacts $COTA04Contacts)
-    public function show()
+    public function show(COTA04Contacts $COTA04Contacts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA04', 'show');
 
-        return view('Client.pages.Contacts.COTA04.show',[
-            'sections' => $sections
+        $contact = COTA04Contacts::active()->sorting()->first();
+        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1);}, 'forms' => function($query){$query->where('active', 1);}] )
+            ->where('contact_id', $contact->id)->active()->sorting()->get();
+
+        $compliance = getCompliance($contact->compliance_id??'0');
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                if ($COTA04Contacts->path_image_banner_mobile != ''){
+                    $COTA04Contacts->path_image_banner_desktop = $COTA04Contacts->path_image_banner_mobile;
+                }
+                break;
+        }
+
+        return view('Client.pages.Contacts.COTA04.page',[
+            'sections' => $sections,
+            'contact' => $contact,
+            'compliance' => $compliance,
+            'sectionss' =>$sectionss,
         ]);
     }
 
@@ -247,13 +279,30 @@ class COTA04Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, COTA04Contacts $COTA04Contacts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA04', 'page');
 
+        $contact = COTA04Contacts::active()->sorting()->first();
+        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1);}, 'forms' => function($query){$query->where('active', 1);}] )
+            ->where('contact_id', $contact->id)->active()->sorting()->get();
+
+        $compliance = getCompliance($contact->compliance_id??'0');
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                if ($contact->path_image_banner_mobile != ''){
+                    $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
+                }
+                break;
+        }
+
         return view('Client.pages.Contacts.COTA04.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'contact' => $contact,
+            'compliance' => $compliance,
+            'sectionss' =>$sectionss,
         ]);
     }
 }

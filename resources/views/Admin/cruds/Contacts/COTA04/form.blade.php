@@ -60,11 +60,11 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Form::label('title_compliance', 'Título compliance', ['class' => 'form-label']) !!}
+                        {!! Form::label('title_compliance', 'Título seção compliance', ['class' => 'form-label']) !!}
                         {!! Form::text('title_compliance', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title_compliance']) !!}
                     </div>
                     <div class="col-sm-6">
-                        {!! Form::label('subtitle_compliance', 'Subtítulo compliance', ['class' => 'form-label']) !!}
+                        {!! Form::label('subtitle_compliance', 'Subtítulo seção compliance', ['class' => 'form-label']) !!}
                         {!! Form::text('subtitle_compliance', null, ['class' => 'form-control', 'id' => 'subtitle_compliance']) !!}
                     </div>
                 </div>

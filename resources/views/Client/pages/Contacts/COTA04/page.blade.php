@@ -1,18 +1,20 @@
 @extends('Client.Core.client')
 @section('content')
     {{-- BEGIN Page content --}}
-
+    @if ($contact)
         <section id="cota04" class="cota04">
             <div class="container-fluid px-0">
                 <header class="cota04__header d-flex flex-column align-items-center justify-content-center"
-                    style="background-image: url({{ asset('uploads/tmp/') }}); background-color: ;">
-                
-                    <div class="cota04__header__mask"></div>
-    
+                    style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }}); background-color: {{ $contact->background_color_banner }};">
+                    @if ($contact->path_image_banner_desktop)
+                        <div class="cota04__header__mask"></div>
+                    @endif
                     <div class="container container--cota04-page-header">
-                        <h2 class="cota04__header__title d-block">Titulo Pagina</h2>
-                        <h3 class="cota04__header__subtitle d-block">Subtítulo</h3>
-                        <hr class="cota04__header__line mb-0">
+                        @if ($contact->title_banner || $contact->subtitle_banner)
+                            <h2 class="cota04__header__title d-block">{{$contact->title_banner}}</h2>
+                            <h3 class="cota04__header__subtitle d-block">{{$contact->subtitle_banner}}</h3>
+                            <hr class="cota04__header__line mb-0">
+                        @endif
                     </div>
                 </header>
                 {{-- fim-cota04__boxForm --}}
@@ -20,58 +22,58 @@
                     style="background-image: url({{ asset('storage/uploads/tmp/bg-slide.png') }}); background-color: ;">
                     <div class="container container--boxForm">
                         <div class="row justify-content-center">
-                                <div class="cota04__boxForm__item">
-                                    <div class="cota04__boxForm__item__content">
+                            <div class="cota04__boxForm__item">
+                                <div class="cota04__boxForm__item__content">
+                                    @if ($contact->path_image_content)
                                         <div class="cota04__boxForm__item__content__image mx-auto">
-                                            <img src="{{ asset('storage/uploads/tmp/image-pmg.png') }}" class="w-100 h-100" alt="Imagem Perfil">
+                                            <img src="{{ asset('storage/' . $contact->path_image_content) }}" class="w-100 h-100" alt="Imagem Perfil">
                                         </div>
-                                        <div class="cota04__boxForm__item__content__description">
-                                            <h2 class="cota04__boxForm__item__content__description__title">Titulo</h2>
-                                            <h3 class="cota04__boxForm__item__content__description__subtitle">Subtitulo</h3>
+                                    @endif
+                                    <div class="cota04__boxForm__item__content__description">
+                                        @if ($contact->title_content || $contact->subtitle_content)
+                                            <h2 class="cota04__boxForm__item__content__description__title">{{$contact->title_content}}</h2>
+                                            <h3 class="cota04__boxForm__item__content__description__subtitle">{{$contact->subtitle_content}}</h3>
                                             <hr class="cota04__boxForm__item__content__description__line">
+                                        @endif
+                                        @if ($contact->description_content)
                                             <div class="cota04__boxForm__item__content__description__paragraph">
                                                 <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. 
+                                                    {!! $contact->description_content !!}
                                                 </p>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {{-- fim-cota04__boxForm --}}
                 {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax  parsley-validate d-table w-100']) !!}
-                    <div class="cota04__form box"
-                        style="background-image: url({{ asset('storage/uploads/tmp/') }}); background-color: ;">
+                @foreach ($sectionss as $section)
+                    <div class="cota04__form box" style="background-image: url({{ asset('storage/uploads/tmp/') }}); background-color: ;">
                         <div class="container">
                             <div class="cota04__form__header">
-                                <h2 class="cota04__form__header__title">Form Completo</h2>
-                                <hr class="cota04__form__header__line">
+                                @if ($section->title)
+                                    <h2 class="cota04__form__header__title">{{$section->title}}</h2>
+                                    <hr class="cota04__form__header__line">
+                                @endif
                                 <div class="cota04__form__header__paragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur adipiscing elit. Cras vel tortor</p>
+                                    <p>{!! $section->description !!}</p>
                                 </div>
                             </div>
                             <div class="cota04__form__category">
                                 <ul class="nav">
-                                    <li>
-                                        <button class="tab" data-tab="tab1">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                            Categoria
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="tab" data-tab="tab2">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                            Categoria
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="tab" data-tab="tab3">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                            Categoria
-                                        </button>
-                                    </li>
+                                    @foreach ($section->categories as $category)
+                                        <li>
+                                            <button class="tab" data-tab="tab{{$category->id}}">
+                                                @if ($category->path_image)
+                                                    <img src="{{asset('storage/' . $category->path_image)}}" alt="" class="me-3 transition">
+                                                @endif
+                                                {{$category->title}}
+                                            </button>
+                                        </li>
+                                    @endforeach
                                 </ul>
 
                                 <div class="cota04__form__dropdown">
@@ -89,24 +91,14 @@
                                                 data-bs-parent="#accordionFlushExample">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li>
-                                                            <button class="tab" data-tab="tab1">
-                                                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                                                Categoria
-                                                            </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="tab" data-tab="tab2">
-                                                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                                                Categoria
-                                                            </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="tab" data-tab="tab3">
-                                                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                                                Categoria
-                                                            </button>
-                                                        </li>
+                                                        @foreach ($section->categories as $category)
+                                                            <li>
+                                                                <button class="tab" data-tab="tab{{$category->id}}">
+                                                                    <img src="{{asset('storage/' . $category->path_image)}}" alt="" class="me-3 transition">
+                                                                    {{$category->title}}
+                                                                </button>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>
@@ -115,317 +107,55 @@
                                 </div>
                             </div>
                             <div class="cota04__form__engInputs">
-                                <div class="cota04__form__inputs tab-content tab1">
-                                
-                                    <div class="row">            
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'Nome',
-                                            'options' => '',
-                                            'placeholder' => 'Nome',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'Telefone',
-                                            'options' => '',
-                                            'placeholder' => 'Telefone',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'Celular',
-                                            'options' => '',
-                                            'placeholder' => 'Celular',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                    </div>
-                                </div>
-                                {{-- fim-cota04__form__inputs --}}
-                                <div class="cota04__form__inputs tab-content tab2">
-                                
-                                    <div class="row">            
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                    </div>
-                                </div>
-                                {{-- fim-cota04__form__inputs --}}
-                                <div class="cota04__form__inputs tab-content tab3">
-                                
-                                    <div class="row">            
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                    </div>
-                                </div>
-                                {{-- fim-cota04__form__inputs --}}
-                            </div>
-                            {{-- cota04__form__engInputs --}}
-                        </div>
-                    </div>
-                    {{-- fim-cota04__form --}}
-                    <div class="cota04__form box"
-                        style="background-image: url({{ asset('storage/uploads/tmp/') }}); background-color: ;">
-                        <div class="container">
-                            <div class="cota04__form__header">
-                                <h2 class="cota04__form__header__title">Form Completo</h2>
-                                <hr class="cota04__form__header__line">
-                                <div class="cota04__form__header__paragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non liberolor sit amet, consectetur adipiscing elit. Cras vel tortor</p>
-                                </div>
-                            </div>
-                            <div class="cota04__form__category">
-                                <ul class="nav">
-                                    <li>
-                                        <button class="tab" data-tab="tab1">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                            Categoria
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="tab" data-tab="tab2">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                            Categoria
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="tab" data-tab="tab3">
-                                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                            Categoria
-                                        </button>
-                                    </li>
-                                </ul>
-
-                                <div class="cota04__form__dropdown">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapse-2" aria-expanded="false"
-                                                    aria-controls="flush-collapseOne">
-                                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="prod05-categories__dropdown-mobile__item__icon">
-                                                    Categorias
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapse-2" class="accordion-collapse collapse"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
-                                                    <ul>
-                                                        <li>
-                                                            <button class="tab" data-tab="tab1">
-                                                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                                                Categoria
-                                                            </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="tab" data-tab="tab2">
-                                                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                                                Categoria
-                                                            </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="tab" data-tab="tab3">
-                                                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="me-3 transition">
-                                                                Categoria
-                                                            </button>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                @foreach ($section->forms as $form)
+                                {{-- {{dd($form)}} --}}
+                                    <div class="cota04__form__inputs tab-content tab{{$form->category_id}}">
+                                        <div class="row">
+                                            {{-- @foreach ($form as  = json_decode($form->inputs_form)) --}}
+                                            @foreach (json_decode($form->inputs_form) as $name => $input)
+                                                @include('Client.Components.inputs', [
+                                                    'name' => $name,
+                                                    'options' => $input->option,
+                                                    'placeholder' => $input->placeholder,
+                                                    'type' => $input->type,
+                                                    'required' => isset($input->required) ? $input->required : false,
+                                                ])
+                                            @endforeach
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="cota04__form__engInputs">
-                                <div class="cota04__form__inputs tab-content tab1">
-                                
-                                    <div class="row">            
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'Nome',
-                                            'options' => '',
-                                            'placeholder' => 'Nome',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'Telefone',
-                                            'options' => '',
-                                            'placeholder' => 'Telefone',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'Celular',
-                                            'options' => '',
-                                            'placeholder' => 'Celular',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                    </div>
-                                </div>
-                                {{-- fim-cota04__form__inputs --}}
-                                <div class="cota04__form__inputs tab-content tab2">
-                                
-                                    <div class="row">            
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                    </div>
-                                </div>
-                                {{-- fim-cota04__form__inputs --}}
-                                <div class="cota04__form__inputs tab-content tab3">
-                                
-                                    <div class="row">            
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'email',
-                                            'options' => '',
-                                            'placeholder' => 'E-mail',
-                                            'type' => 'text',
-                                            'required' => 'false',
-                                        ])
-                                    </div>
-                                </div>
+                                @endforeach
                                 {{-- fim-cota04__form__inputs --}}
                             </div>
                             {{-- cota04__form__engInputs --}}
                         </div>
                     </div>
-                    {{-- fim-cota04__form --}}
-                    <div class="cota04__form__action">
-                        <div class="cota04__form__action__content">
-                            <div class="cota04__form__action__boxAction d-flex align-items-center">
-                                <div class="cota04__form__action__boxAction__image">
-                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="transition">
-                                </div>
-                                <div class="cota04__form__action__boxAction__description">
-                                    <h4 class="cota04__form__action__boxAction__description__title">Titulo</h4>
-                                    <h5 class="cota04__form__action__boxAction__description__subtitle">Subtitulo</h5>
-                                </div>
-                            </div>
-                            <div class="cota04__form__compliance form-check d-flex align-items-center">
-                                {!! Form::checkbox('term_accept', 1, null, ['class' => 'form-check-input me-1', 'id' => 'term_accept', 'required' => true]) !!}
-                                {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                <a href="#" target="_blank" class="cota04__form__compliance__link ms-1">Política de Privacidade</a>
-                            </div>
-                            <button type="submit" class="cota04__form__inputs__formIput__input-submit ms-auto">
+                @endforeach
+                {{-- fim-cota04__form --}}
+                <div class="cota04__form__action">
+                    <div class="cota04__form__action__content">
+                        <div class="cota04__form__action__boxAction d-flex align-items-center">
+                            <div class="cota04__form__action__boxAction__image">
                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="transition">
-                                CTA
-                            </button>
+                            </div>
+                            <div class="cota04__form__action__boxAction__description">
+                                @if ($contact->title_compliance || $contact->subtitle_compliance)
+                                    <h4 class="cota04__form__action__boxAction__description__title">{{$contact->title_compliance}}</h4>
+                                    <h5 class="cota04__form__action__boxAction__description__subtitle">{{$contact->subtitle_compliance}}</h5>
+                                @endif
+                            </div>
                         </div>
-                        
+                        <div class="cota04__form__compliance form-check d-flex align-items-center">
+                            {!! Form::checkbox('term_accept', 1, null, ['class' => 'form-check-input me-1', 'id' => 'term_accept', 'required' => true]) !!}
+                            {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                            <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank" class="cota04__form__compliance__link ms-1">Política de Privacidade</a>
+                        </div>
+                        <button type="submit" class="cota04__form__inputs__formIput__input-submit ms-auto">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="transition">
+                            {{ $contact->title_button_form }}
+                        </button>
                     </div>
-                    {{-- fim-cota04__form__action --}}
+                </div>
+                {{-- fim-cota04__form__action --}}
                 {!! Form::close() !!}
                 {{-- fim-form --}}
             </div>
@@ -434,4 +164,6 @@
         @foreach ($sections as $section)
             {!! $section !!}
         @endforeach
+    @endif
 @endsection
+
