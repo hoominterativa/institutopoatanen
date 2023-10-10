@@ -46,7 +46,9 @@ return [
                     'titlePanel' => 'Sobre',
                     'iconPanel' => 'mdi-information-variant'
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [
+                    'Topics.2' => 'TOPI03'
+                ]
             ],
         ],
         'Topics.1' => (object) [
@@ -63,6 +65,40 @@ return [
                     'iconMenu' => '',
                     'titlePanel' => 'Tópicos Home',
                     'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
+        'Products' => (object) [
+            'PROD02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' => (object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Serviços',
+                    'anchor' =>  false,
+                    'linkMenu' => 'prod02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-shopping-outline'
+                ],
+                'IncludeSections' => (object) [
+                    'Topics.2' => 'TOPI03'
                 ]
             ],
         ],
@@ -106,7 +142,7 @@ return [
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
@@ -123,7 +159,7 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Artigos',
+                    'titleMenu' => 'Blog',
                     'anchor' =>  false,
                     'linkMenu' => 'blog01.page',
                     'iconMenu' => '',
