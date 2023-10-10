@@ -55,6 +55,7 @@ class COTA04FormController extends Controller
         $jsonInputs = json_encode($arrayInputs);
 
         $data['inputs_form'] = $jsonInputs;
+        $data['active'] = $request->active?1:0;
 
         if(COTA04ContactsForm::create($data)){
             Session::flash('success', 'Formulário cadastrado com sucesso');
@@ -110,6 +111,8 @@ class COTA04FormController extends Controller
             $jsonInputs = json_encode($arrayInputs);
             $data['inputs_form'] = $jsonInputs;
         }
+
+        $data['active'] = $request->active?1:0;
 
         if($COTA04ContactsForm->fill($data)->save()){
             Session::flash('success', 'Formulário atualizado com sucesso');

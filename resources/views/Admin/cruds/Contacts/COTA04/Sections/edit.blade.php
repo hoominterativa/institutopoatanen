@@ -40,6 +40,14 @@
                                 data-bs-original-title="Cadastro de categoria"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#form" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Formulários
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos formulários"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -53,6 +61,13 @@
                     <div class="tab-pane" id="category">
                         @include('Admin.cruds.Contacts.COTA04.Category.index',[
                             'categories' => $serviceCategories,
+                        ]);
+                    </div>
+                    <div class="tab-pane" id="form">
+                        @include('Admin.cruds.Contacts.COTA04.Form.index',[
+                            'forms' => $forms,
+                            // 'configForm' => $configForm,
+                            'categories' => $categories
                         ]);
                     </div>
                 </div> <!-- container -->

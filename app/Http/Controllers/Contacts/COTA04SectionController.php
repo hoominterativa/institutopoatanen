@@ -63,14 +63,21 @@ class COTA04SectionController extends Controller
     {
         $contact = COTA04Contacts::find($COTA04ContactsSection->contact_id);
         $serviceCategories = COTA04ContactsCategory::where('section_id', $COTA04ContactsSection->id)->sorting()->get();
-        $categories = COTA04ContactsCategory::exists()->sorting()->pluck('title', 'id');
-        $forms = COTA04ContactsForm::sorting()->get();
+        $categories = COTA04ContactsCategory::sorting()->pluck('title', 'id');
+        $forms = COTA04ContactsForm::active()->sorting()->get();
+        $configForm = null;
+        if (isset($forms->inputs_form)) {
+            $configForm = $forms->inputs_form ? json_decode($forms->inputs_form) : [];
+        }
+        // dd($configForm);
+        // dd($serviceCategories);
         return view('Admin.cruds.Contacts.COTA04.Sections.edit',[
             'section' => $COTA04ContactsSection,
             'contact' => $contact,
             'serviceCategories' => $serviceCategories,
             'categories' => $categories,
             'forms' => $forms,
+            'configForm' => !is_array($configForm)?$configForm:null,
             'cropSetting' => getCropImage('Contacts', 'COTA04'),
         ]);
     }
