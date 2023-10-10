@@ -15,7 +15,8 @@ class CreateCota04ContactsFormsTable extends Migration
     {
         Schema::create('cota04_contacts_forms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('cota04_contacts_categories')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained('cota04_contacts_categories');
+            $table->foreignId('section_id')->constrained('cota04_contacts_sections');
             $table->text('inputs_form')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);

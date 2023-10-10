@@ -37,4 +37,8 @@ class COTA04ContactsCategory extends Model
     public function sections(){
         return $this->belongsTo(COTA04ContactsSection::class, 'section_id');
     }
+
+    public function forms(){
+        return $this->hasMany(COTA04ContactsForm::class, 'category_id');
+    }
 }

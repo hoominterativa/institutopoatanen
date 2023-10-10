@@ -3,6 +3,7 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => 'admin.cota04.form.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    <input type="hidden" name="section_id" value="{{$section->id}}">
 @endif
 <div class="row col-12">
     <div class="col-12">
@@ -15,7 +16,6 @@
                 {!! Form::select('category_id', $categories, null, [
                     'class'=>'form-select',
                     'id'=>'heard',
-                    'required'=>'required',
                     'placeholder' => 'Informe a categoria do serviço'
                 ]) !!}
             </div>
@@ -79,8 +79,8 @@
             </div>
 
             <div class="row container-inputs-contact">
-                @if (isset($configForm))
-                    @foreach ($configForm as $key => $value)
+                @if (isset($form))
+                    @foreach ($form->inputs_form as $key => $value)
                         <div class="container-type-input col-12 col-lg-6 p-1">
                             <div class="border p-2">
                                 <div class="d-flex align-items-center">

@@ -5,10 +5,11 @@ namespace App\Models\Contacts;
 use Database\Factories\Contacts\COTA04ContactsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class COTA04Contacts extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     protected static function newFactory()
     {

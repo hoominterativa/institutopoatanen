@@ -33,6 +33,7 @@ class CreateCota04ContactsTable extends Migration
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

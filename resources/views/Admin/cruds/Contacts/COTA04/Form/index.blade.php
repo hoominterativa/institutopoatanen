@@ -30,7 +30,7 @@
                                 <td class="bs-checkbox align-middle">
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$form->id}}"></label>
                                 </td>
-                                <td class="align-middle">{{$form->categories->title}}</td>
+                                <td class="align-middle">{{$form->categories->title ?? '--'}}</td>
                                 <td class="align-middle">
                                     @if ($form->active)
                                         <span class="badge bg-success">Ativo</span>
@@ -59,6 +59,7 @@
                                                     <div class="modal-body p-3 pt-0 pb-3">
                                                         @include('Admin.cruds.Contacts.COTA04.Form.form',[
                                                             'form' => $form,
+                                                            'section' => $section
                                                         ])
                                                     </div>
                                                 </div>
@@ -89,6 +90,7 @@
             <div class="modal-body p-3 pt-0 pb-3">
                 @include('Admin.cruds.Contacts.COTA04.Form.form',[
                     'form' => null,
+                    'section' => $section,
                 ])
             </div>
         </div>

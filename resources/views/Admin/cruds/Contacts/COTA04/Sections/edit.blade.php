@@ -65,9 +65,9 @@
                     </div>
                     <div class="tab-pane" id="form">
                         @include('Admin.cruds.Contacts.COTA04.Form.index',[
+                            'categories' => $categories,
                             'forms' => $forms,
-                            // 'configForm' => $configForm,
-                            'categories' => $categories
+                            'section' => $section
                         ]);
                     </div>
                 </div> <!-- container -->

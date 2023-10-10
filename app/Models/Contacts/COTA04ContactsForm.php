@@ -16,7 +16,7 @@ class COTA04ContactsForm extends Model
     }
 
     protected $table = "cota04_contacts_forms";
-    protected $fillable = ['inputs_form', 'category_id', 'active', 'sorting'];
+    protected $fillable = ['section_id', 'inputs_form', 'category_id', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
