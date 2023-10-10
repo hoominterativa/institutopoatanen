@@ -108,10 +108,8 @@
                             </div>
                             <div class="cota04__form__engInputs">
                                 @foreach ($section->forms as $form)
-                                {{-- {{dd($form)}} --}}
                                     <div class="cota04__form__inputs tab-content tab{{$form->category_id}}">
                                         <div class="row">
-                                            {{-- @foreach ($form as  = json_decode($form->inputs_form)) --}}
                                             @foreach (json_decode($form->inputs_form) as $name => $input)
                                                 @include('Client.Components.inputs', [
                                                     'name' => $name,
