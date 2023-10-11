@@ -9,7 +9,7 @@
                             <span class="cont03__content__subtitle">{{$content->subtitle}}</span>
                         </h2>
                         <hr class="cont03__content__line">
-                        <p class="cont03__content__paragraph">{{$content->description}}</p>
+                        <div class="cont03__content__paragraph">{!! $content->description !!}</div>
                         @if ($content->link)
                             <a href="{{getUri($content->link)}}" target="{{$content->target_link}}" class="cont03__content__cta d-flex justify-content-center align-items-center transition">
                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="cont03__content__cta__icon transition me-3" width="25" alt="">
