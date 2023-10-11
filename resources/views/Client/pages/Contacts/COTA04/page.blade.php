@@ -109,6 +109,8 @@
                             <div class="cota04__form__engInputs">
                                 @foreach ($section->forms as $form)
                                     <div class="cota04__form__inputs tab-content tab{{$form->category_id}}">
+                                        <input type="hidden" name="target_lead" value="{{ $form->title_page }}">
+                                        <input type="hidden" name="target_send" value="{{ base64_encode($form->email_form) }}">
                                         <div class="row">
                                             @foreach (json_decode($form->inputs_form) as $name => $input)
                                                 @include('Client.Components.inputs', [

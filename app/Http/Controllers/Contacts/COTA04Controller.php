@@ -250,12 +250,10 @@ class COTA04Controller extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA04', 'show');
+        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1)->exists();}, 'forms' => function($query){$query->where('active', 1);}] )
+            ->where('contact_id', $COTA04Contacts->id)->active()->sorting()->get();
 
-        $contact = COTA04Contacts::active()->sorting()->first();
-        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1);}, 'forms' => function($query){$query->where('active', 1);}] )
-            ->where('contact_id', $contact->id)->active()->sorting()->get();
-
-        $compliance = getCompliance($contact->compliance_id??'0');
+        $compliance = getCompliance($COTA04Contacts->compliance_id??'0');
         switch(deviceDetect()){
             case 'mobile':
             case 'tablet':
@@ -267,7 +265,7 @@ class COTA04Controller extends Controller
 
         return view('Client.pages.Contacts.COTA04.page',[
             'sections' => $sections,
-            'contact' => $contact,
+            'contact' => $COTA04Contacts,
             'compliance' => $compliance,
             'sectionss' =>$sectionss,
         ]);
@@ -285,7 +283,7 @@ class COTA04Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA04', 'page');
 
         $contact = COTA04Contacts::active()->sorting()->first();
-        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1);}, 'forms' => function($query){$query->where('active', 1);}] )
+        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1)->exists();}, 'forms' => function($query){$query->where('active', 1);}] )
             ->where('contact_id', $contact->id)->active()->sorting()->get();
 
         $compliance = getCompliance($contact->compliance_id??'0');
