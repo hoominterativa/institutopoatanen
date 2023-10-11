@@ -11,4 +11,5 @@ import '../../pages/Contents/CONT02/src/main';
 import '../../pages/Topics/TOPI01/src/main';
 import '../../pages/Abouts/ABOU01/src/main';
 import '../../pages/Contacts/COTA02/src/main';
+import '../../pages/Contacts/COTA04/src/main';
 import '../../pages/Compliances/COMP01/src/main';

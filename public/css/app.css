@@ -5831,6 +5831,537 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.cota04__header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 320px;
+}
+.cota04__header .container--cota04-page-header {
+  height: 100%;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 575.98px) {
+  .cota04__header .container--cota04-page-header {
+    padding: 44px 20px;
+    max-width: 90% !important;
+  }
+}
+.cota04__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.73);
+}
+.cota04__header__title {
+  font-size: 3.125rem;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+}
+@media (max-width: 575.98px) {
+  .cota04__header__title {
+    font-size: 1.875rem;
+  }
+}
+.cota04__header__subtitle {
+  font-size: 1.875rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 575.98px) {
+  .cota04__header__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.cota04__header__line {
+  margin-top: 1.25rem;
+  color: #7c7c7c;
+  width: 100%;
+}
+.cota04__boxForm {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cota04__boxForm .container--boxForm {
+  padding: 4.28rem 0 0 0 !important;
+}
+@media (max-width: 575.98px) {
+  .cota04__boxForm .container--boxForm .row {
+    margin: 0 auto;
+  }
+}
+.cota04__boxForm__item:last-of-type .cota04__boxForm__item__content::after {
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item {
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+  }
+}
+.cota04__boxForm__item__content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item__content {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+}
+.cota04__boxForm__item__content__image {
+  width: 26.81788rem;
+  height: 32.99488rem;
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item__content__image {
+    margin-top: 3.71rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .cota04__boxForm__item__content__image {
+    width: 15.966rem;
+    height: 21.89744rem;
+  }
+}
+.cota04__boxForm__item__content__image img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cota04__boxForm__item__content__description {
+  padding-left: 10.65rem;
+  width: 65%;
+  padding-top: 56px;
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item__content__description {
+    padding-left: 2.65rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item__content__description {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 0;
+  }
+}
+.cota04__boxForm__item__content__description__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 0.4rem;
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item__content__description__title {
+    font-size: 1.875rem;
+  }
+}
+.cota04__boxForm__item__content__description__subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item__content__description__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.cota04__boxForm__item__content__description__line {
+  margin: 1.44rem 0;
+}
+.cota04__boxForm__item__content__description__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+}
+.cota04__boxForm__item__content__description__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .cota04__boxForm__item__content__description__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cota04__form {
+  padding: 4.5rem 0 6.94rem 0;
+  background-color: #B3B3B3;
+}
+.cota04__form:nth-of-type(even) {
+  background-color: #CACACA;
+}
+@media (max-width: 767.98px) {
+  .cota04__form {
+    padding: 4.19rem 0 4.13rem 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .cota04__form__footer {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}
+.cota04__form > .container {
+  max-width: 82% !important;
+}
+@media (max-width: 767.98px) {
+  .cota04__form > .container {
+    max-width: 90% !important;
+  }
+}
+.cota04__form__header {
+  margin-bottom: 50px;
+}
+.cota04__form__header__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__header__title {
+    font-size: 1.875rem;
+  }
+}
+.cota04__form__header__line {
+  background: #404040;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  display: block;
+}
+.cota04__form__header__paragraph {
+  width: 100%;
+  max-width: 50.1875rem;
+}
+.cota04__form__header__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__header__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cota04__form:nth-of-type(even) .cota04__form__category ul li button {
+  background-color: #EFEFEF;
+}
+.cota04__form:nth-of-type(even) .cota04__form__category ul li button.active {
+  background-color: #B3B3B3;
+}
+.cota04__form__category {
+  margin-bottom: 1.44rem;
+}
+.cota04__form__category .nav {
+  list-style: none;
+  display: flex;
+  align-items: end;
+  padding: 0;
+  gap: 0 0.88rem;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__category .nav {
+    display: none;
+  }
+}
+.cota04__form__category .nav li button {
+  border: none !important;
+  padding: 0.4rem 1.37rem;
+  background: #CACACA;
+}
+.cota04__form__category .nav li button:hover, .cota04__form__category .nav li button.active {
+  background: #fff;
+}
+.cota04__form__category .nav li button img {
+  margin-right: 0.5rem;
+  width: 26px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (max-width: 575.98px) {
+  .cota04__form__category .nav li button img {
+    margin: 0 auto !important;
+  }
+}
+.cota04__form__dropdown {
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__dropdown {
+    display: flex;
+  }
+}
+.cota04__form__dropdown .accordion {
+  width: 100%;
+}
+.cota04__form__dropdown .accordion-header button img {
+  width: 26px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cota04__form__dropdown .accordion-button {
+  justify-content: center;
+  display: flex;
+  gap: 0 2.5rem;
+  padding: 7px 5px;
+}
+.cota04__form__dropdown .accordion-button::after {
+  margin-left: inherit;
+}
+.cota04__form__dropdown ul {
+  list-style: none;
+  display: flex;
+  align-items: end;
+  padding: 0;
+  gap: 0 0.88rem;
+  margin-bottom: 0;
+}
+.cota04__form__dropdown ul li button {
+  border: none !important;
+  padding: 0.4rem 1.37rem;
+  background: #fff !important;
+}
+.cota04__form__dropdown ul li button:hover, .cota04__form__dropdown ul li button.active {
+  background: #CACACA !important;
+}
+.cota04__form__dropdown ul li button img {
+  margin-right: 0.5rem;
+  width: 26px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (max-width: 575.98px) {
+  .cota04__form__dropdown ul li button img {
+    margin: 0 auto !important;
+  }
+}
+.cota04__form__inputs.active-tab {
+  display: flex;
+  transition: ease all 0.5s;
+}
+.cota04__form__inputs {
+  display: none;
+  transition: ease all 0.5s;
+}
+.cota04__form__inputs > .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cota04__form__inputs .input__item {
+  width: 50%;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__inputs .input__item {
+    width: 100%;
+  }
+}
+.cota04__form__inputs .input__item label {
+  color: #000 !important;
+  background: transparent;
+  z-index: 100;
+}
+.cota04__form__inputs .input__item input {
+  width: 100%;
+  transition: ease all 0.3s;
+  background-color: #fff !important;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+  border-radius: 0 !important;
+}
+.cota04__form__inputs__compliance {
+  display: flex;
+}
+.cota04__form__inputs__compliance input {
+  border: 1px solid #393939;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.cota04__form__inputs__compliance label {
+  color: #393939;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.cota04__form__inputs__compliance label a {
+  color: #7c7c7c;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.cota04__form__action {
+  background: #EFEFEF;
+  padding: 4.63rem 0;
+}
+.cota04__form__action__content {
+  width: 80%;
+  max-width: 62.25rem;
+  margin: 0 auto;
+  padding: 2rem 2.19rem;
+  background: #D9D9D9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__action__content {
+    flex-direction: column;
+  }
+}
+.cota04__form__action__boxAction {
+  margin-right: 3.81rem;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__action__boxAction {
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 1.75rem;
+  }
+}
+.cota04__form__action__boxAction__image {
+  width: 3.0625rem;
+  height: 3.0625rem;
+  margin-right: 0.81rem;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__action__boxAction__image {
+    margin: 0 auto;
+    margin-bottom: 1.37rem;
+  }
+}
+.cota04__form__action__boxAction__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cota04__form__action__boxAction__description__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 0.06rem;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__action__boxAction__description__title {
+    font-size: 1.875rem;
+  }
+}
+.cota04__form__action__boxAction__description__subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__action__boxAction__description__subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+.cota04__form__item__input:nth-of-type(5) {
+  width: 100% !important;
+}
+
+.cota04__form__item__input .input__item--textarea textarea {
+  height: 136px !important;
+}
+
+.cota04__form__inputs__formIput__input-submit {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #b3b3b3;
+  max-width: 11.0625rem;
+  height: 2.8125rem;
+  padding: 4px 50px;
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  border: 1px solid #efefef;
+  color: #7c7c7c;
+  gap: 0 1.05rem;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__inputs__formIput__input-submit {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    max-width: 146px;
+    margin: 0 !important;
+    margin-top: 1.45rem !important;
+  }
+}
+.cota04__form__inputs__formIput__input-submit img {
+  width: 18.03px !important;
+  height: auto !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cota04__form__inputs__formIput__input-submit:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+.cota04__form__inputs__formIput__input-submit:hover img {
+  filter: invert(1) grayscale(1);
+}
+
+.cota04__form__compliance {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #393939;
+  padding: 0;
+}
+@media (max-width: 767.98px) {
+  .cota04__form__compliance {
+    font: 0.675rem "Montserrat", sans-serif, arial;
+    text-align: left !important;
+  }
+}
+.cota04__form__compliance a {
+  color: #7c7c7c;
+  text-decoration: underline;
+}
+
+.form-check-input:checked[type=checkbox] {
+  border: 1px solid #393939;
+}
+
+.form-check-input:checked {
+  background-color: #000;
+  border-color: #000;
+}
+
+/* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
   background-color: #EFEFEF;

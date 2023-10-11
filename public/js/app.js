@@ -11869,8 +11869,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
 /* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Contacts/COTA04/src/main */ "./resources/views/Client/pages/Contacts/COTA04/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_14__);
+
 
 
 
@@ -12185,6 +12188,42 @@ $(function () {
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contacts/COTA04/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contacts/COTA04/src/main.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(".box").each(function () {
+  // Encontre elementos de guia e conteúdo dentro da caixa atual
+  var $box = $(this);
+  var $tabs = $box.find(".tab");
+  var $tabContents = $box.find(".tab-content");
+  $tabs.on('click', function (event) {
+    event.preventDefault(); // Impede o comportamento padrão de rolagem
+
+    var tabClass = $(this).data("tab");
+
+    // Esconder todo o conteúdo da aba na caixa atual
+    $tabContents.removeClass("active-tab");
+
+    // Exibir apenas o conteúdo da aba selecionada na caixa atual
+    $box.find("." + tabClass).addClass("active-tab");
+
+    // Remover a classe 'active' de todas as abas na caixa atual
+    $tabs.removeClass("active");
+
+    // Adicionar a classe 'active' à aba selecionada na caixa atual
+    $(this).addClass("active");
+  });
+
+  // Ativar a primeira aba por padrão na caixa atual
+  $tabs.first().trigger("click");
+});
 
 /***/ }),
 
