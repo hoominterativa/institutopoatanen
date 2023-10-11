@@ -77,6 +77,7 @@ class SERV08Controller extends Controller
         $data['featured'] = $request->featured ? 1 : 0;
         $data['featured_service'] = $request->featured_service ? 1 : 0;
         $data['slug'] = Str::slug($request->title);
+        $data['price'] = str_replace(',', '.', $request->price);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -123,6 +124,7 @@ class SERV08Controller extends Controller
         $data['featured'] = $request->featured ? 1 : 0;
         $data['featured_service'] = $request->featured_service ? 1 : 0;
         $data['slug'] = Str::slug($request->title);
+        $data['price'] = str_replace(',', '.', $request->price);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){

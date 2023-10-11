@@ -123,7 +123,7 @@
                                                         <td class="align-middle">{!! substr($service->description, 0, 20) !!}<b>...</b></td>
                                                         <td class="align-middle">{!! substr($service->text, 0, 20) !!}<b>...</b></td>
                                                         <td class="align-middle">{{$service->title_price}}</td>
-                                                        <td class="align-middle"><b>R$</b> {{$service->price}}</td>
+                                                        <td class="align-middle"><b>R$</b>{{str_replace('.', ',', $service->price)}}</td>
                                                         <td class="align-middle">{{$service->title_featured_service}}</td>
                                                         <td class="align-middle">
                                                             <span class="badge" style="background-color: {{$service->color_featured_service}}">{{$service->color_featured_service}}</span>

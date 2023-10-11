@@ -85,7 +85,8 @@
                                         <h3 itemprop="name" class="blog01-page__boxs__item__title">{{ $blog->title }}</h3>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <p itemprop="articleBody" class="blog01-page__boxs__item__paragraph">
-                                                {{ $blog->description }}</p>
+                                                {!! $blog->description !!}
+                                            </p>
                                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="34"
                                                 class="blog01-page__boxs__item__icon ms-3" alt="{{ $blog->title }}" />
                                         </div>
