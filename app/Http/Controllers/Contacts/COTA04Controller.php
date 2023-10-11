@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers\Contacts;
 
-use App\Models\Contacts\COTA04Contacts;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Contacts\COTA04Contacts;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Contacts\COTA04ContactsCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contacts\COTA04ContactsForm;
+use App\Models\Contacts\COTA04ContactsSection;
 
 class COTA04Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Contacts/COTA04/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +26,10 @@ class COTA04Controller extends Controller
      */
     public function index()
     {
-        //
+        $contacts = COTA04Contacts::sorting()->get();
+        return view('Admin.cruds.Contacts.COTA04.index',[
+            'contacts' => $contacts,
+        ]);
     }
 
     /**
@@ -32,7 +39,11 @@ class COTA04Controller extends Controller
      */
     public function create()
     {
-        //
+        $compliances = getCompliance(null, 'id', 'title_page');
+        return view('Admin.cruds.Contacts.COTA04.create', [
+            'compliances' => $compliances,
+            'cropSetting' => getCropImage('Contacts', 'COTA04')
+        ]);
     }
 
     /**
@@ -44,32 +55,27 @@ class COTA04Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+        $data['slug'] = Str::slug($request->title_banner);
+        $data['active'] = $request->active?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
+        if($path_image_banner_desktop) $data['path_image_banner_desktop'] = $path_image_banner_desktop;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null,100);
+        if($path_image_banner_mobile) $data['path_image_banner_mobile'] = $path_image_banner_mobile;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null,100);
+        if($path_image_content) $data['path_image_content'] = $path_image_content;
 
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(COTA04Contacts::create($data)){
+        if($contact = COTA04Contacts::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.cota04.edit', ['COTA04Contacts' => $contact->id]);
+
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_banner_desktop);
+            Storage::delete($path_image_banner_mobile);
+            Storage::delete($path_image_content);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -83,7 +89,14 @@ class COTA04Controller extends Controller
      */
     public function edit(COTA04Contacts $COTA04Contacts)
     {
-        //
+        $compliances = getCompliance(null, 'id', 'title_page');
+        $sections = COTA04ContactsSection::where('contact_id', $COTA04Contacts->id)->sorting()->get();
+        return view('Admin.cruds.Contacts.COTA04.edit', [
+            'contact' => $COTA04Contacts,
+            'compliances' => $compliances,
+            'cropSetting' => getCropImage('Contacts', 'COTA04'),
+            'sections' => $sections,
+        ]);
     }
 
     /**
@@ -96,51 +109,51 @@ class COTA04Controller extends Controller
     public function update(Request $request, COTA04Contacts $COTA04Contacts)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($COTA04Contacts, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active?1:0;
+
+        $data['slug'] = Str::slug($request->title_banner);
+
+        $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
+        if($path_image_banner_desktop){
+            storageDelete($COTA04Contacts, 'path_image_banner_desktop');
+            $data['path_image_banner_desktop'] = $path_image_banner_desktop;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($COTA04Contacts, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($COTA04Contacts, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_banner_desktop && !$path_image_banner_desktop){
+            storageDelete($COTA04Contacts, 'path_image_banner_desktop');
+            $data['path_image_banner_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($COTA04Contacts, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null,100);
+        if($path_image_banner_mobile){
+            storageDelete($COTA04Contacts, 'path_image_banner_mobile');
+            $data['path_image_banner_mobile'] = $path_image_banner_mobile;
+        }
+        if($request->delete_path_image_banner_mobile && !$path_image_banner_mobile){
+            storageDelete($COTA04Contacts, 'path_image_banner_mobile');
+            $data['path_image_banner_mobile'] = null;
         }
 
-        */
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null,100);
+        if($path_image_content){
+            storageDelete($COTA04Contacts, 'path_image_content');
+            $data['path_image_content'] = $path_image_content;
+        }
+        if($request->delete_path_image_content && !$path_image_content){
+            storageDelete($COTA04Contacts, 'path_image_content');
+            $data['path_image_content'] = null;
+        }
 
         if($COTA04Contacts->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_banner_desktop);
+            Storage::delete($path_image_banner_mobile);
+            Storage::delete($path_image_content);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,8 +164,23 @@ class COTA04Controller extends Controller
      */
     public function destroy(COTA04Contacts $COTA04Contacts)
     {
-        //storageDelete($COTA04Contacts, 'path_image');
-        //storageDelete($COTA04Contacts, 'path_archive');
+        $sections = COTA04ContactsSection::where('contact_id', $COTA04Contacts->id)->get();
+        if($sections) {
+            foreach($sections as $section){
+                foreach($section->forms as $form){
+                    $form->delete();
+                }
+                foreach($section->categories as $category){
+                    storageDelete($category, 'path_image');
+                    $category->delete();
+                }
+                $section->delete();
+            }
+        }
+
+        storageDelete($COTA04Contacts, 'path_image_banner_desktop');
+        storageDelete($COTA04Contacts, 'path_image_banner_mobile');
+        storageDelete($COTA04Contacts, 'path_image_content');
 
         if($COTA04Contacts->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -168,14 +196,26 @@ class COTA04Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
         $COTA04Contactss = COTA04Contacts::whereIn('id', $request->deleteAll)->get();
         foreach($COTA04Contactss as $COTA04Contacts){
-            storageDelete($COTA04Contacts, 'path_image');
-            storageDelete($COTA04Contacts, 'path_archive');
+            $sections = COTA04ContactsSection::where('contact_id', $COTA04Contacts->id)->get();
+            if($sections) {
+                foreach($sections as $section){
+                    foreach($section->forms as $form){
+                        $form->delete();
+                    }
+                    foreach($section->categories as $category){
+                        storageDelete($category, 'path_image');
+                        $category->delete();
+                    }
+                    $section->delete();
+                }
+            }
+
+            storageDelete($COTA04Contacts, 'path_image_banner_desktop');
+            storageDelete($COTA04Contacts, 'path_image_banner_mobile');
+            storageDelete($COTA04Contacts, 'path_image_content');
         }
-        */
 
         if($deleted = COTA04Contacts::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -206,13 +246,28 @@ class COTA04Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(COTA04Contacts $COTA04Contacts)
-    public function show()
+    public function show(COTA04Contacts $COTA04Contacts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA04', 'show');
+        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1)->exists();}, 'forms' => function($query){$query->where('active', 1);}] )
+            ->where('contact_id', $COTA04Contacts->id)->active()->sorting()->get();
 
-        return view('Client.pages.Contacts.COTA04.show',[
-            'sections' => $sections
+        $compliance = getCompliance($COTA04Contacts->compliance_id??'0');
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                if ($COTA04Contacts->path_image_banner_mobile != ''){
+                    $COTA04Contacts->path_image_banner_desktop = $COTA04Contacts->path_image_banner_mobile;
+                }
+                break;
+        }
+
+        return view('Client.pages.Contacts.COTA04.page',[
+            'sections' => $sections,
+            'contact' => $COTA04Contacts,
+            'compliance' => $compliance,
+            'sectionss' =>$sectionss,
         ]);
     }
 
@@ -222,23 +277,30 @@ class COTA04Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, COTA04Contacts $COTA04Contacts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA04', 'page');
 
-        return view('Client.pages.Contacts.COTA04.page',[
-            'sections' => $sections
-        ]);
-    }
+        $contact = COTA04Contacts::active()->sorting()->first();
+        $sectionss = COTA04ContactsSection::with(['categories' => function($query){$query->where('active', 1)->exists();}, 'forms' => function($query){$query->where('active', 1);}] )
+            ->where('contact_id', $contact->id)->active()->sorting()->get();
 
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
+        $compliance = getCompliance($contact->compliance_id??'0');
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                if ($contact->path_image_banner_mobile != ''){
+                    $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
+                }
+                break;
+        }
+
+        return view('Client.pages.Contacts.COTA04.page',[
+            'sections' => $sections,
+            'contact' => $contact,
+            'compliance' => $compliance,
+            'sectionss' =>$sectionss,
+        ]);
     }
 }

@@ -5,10 +5,11 @@ namespace App\Models\Contacts;
 use Database\Factories\Contacts\COTA04ContactsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class COTA04Contacts extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     protected static function newFactory()
     {
@@ -16,7 +17,11 @@ class COTA04Contacts extends Model
     }
 
     protected $table = "cota04_contacts";
-    protected $fillable = [];
+    protected $fillable = [
+        'slug', 'compliance_id', 'active', 'sorting',
+        'title_banner','subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner',
+        'title_content', 'subtitle_content', 'description_content', 'path_image_content', 'title_button_form', 'email_form', 'title_compliance', 'subtitle_compliance',
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +33,7 @@ class COTA04Contacts extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function sections(){
+        return $this->hasMany(COTA04ContactsSection::class, 'contact_id');
+    }
 }
