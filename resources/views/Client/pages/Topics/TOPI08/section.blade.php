@@ -31,12 +31,8 @@
                                         <p>{!! $topic->description !!}</p>
                                     @endif
                                     @if ($topic->link_button)
-                                        <a href="{{ getUri($topic->link_button) }}"
-                                            target="{{ $topic->target_link_button }}"
-                                            @if (!$topic->link_button) style="cursor: default;" @endif
-                                            class="topi08__item__cta">
-                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                                alt="Ícone do botão" class="topi08__item__cta__icon">
+                                        <a href="{{ getUri($topic->link_button) }}" target="{{ $topic->target_link_button }}" @if (!$topic->link_button) style="cursor: default;" @endif class="topi08__item__cta">
+                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone do botão" class="topi08__item__cta__icon">
                                             @if ($topic->title_button)
                                                 {{ $topic->title_button }}
                                             @endif

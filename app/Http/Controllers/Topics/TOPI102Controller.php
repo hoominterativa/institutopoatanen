@@ -214,19 +214,17 @@ class TOPI102Controller extends Controller
      */
     public static function section()
     {
+        $topics = TOPI102Topics::active()->sorting()->get();
+        $featuredtopics = TOPI102TopicsFeaturedTopics::active()->sorting()->get();
+        $sections = TOPI102TopicsSection::active()->first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $sections = TOPI102TopicsSection::where('path_image_mobile', '!=', '')->active()->first();
                 if ($sections) $sections->path_image_desktop = $sections->path_image_mobile;
-                break;
-            default:
-                $sections = TOPI102TopicsSection::active()->first();
                 break;
         }
 
-        $topics = TOPI102Topics::active()->sorting()->get();
-        $featuredtopics = TOPI102TopicsFeaturedTopics::active()->sorting()->get();
+
         return view('Client.pages.Topics.TOPI102.section', compact('topics', 'featuredtopics', 'sections'));
     }
 

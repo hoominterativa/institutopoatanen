@@ -27,15 +27,14 @@
                             <a itemprop="url"
                                 href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}">
                                 <figure class="blog01__boxs__item__image">
-                                    <img itemprop="image" src="{{ asset('storage/' . $blog->path_image_thumbnail) }}"
-                                        class="blog01__boxs__item__image__img" width="100%"
-                                        alt="{{ $blog->title }}" />
+                                    <img itemprop="image" src="{{ asset('storage/' . $blog->path_image_thumbnail) }}" class="blog01__boxs__item__image__img" width="100%" alt="{{ $blog->title }}" />
                                 </figure>
-                                <div
-                                    class="blog01__boxs__item__description d-flex align-items-center justify-content-between">
+                                <div class="blog01__boxs__item__description d-flex align-items-center justify-content-between">
                                     <h2 itemprop="name" class="blog01__boxs__item__title">{{ $blog->title }}</h2>
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="34"
-                                        class="blog01__boxs__item__icon" alt="{{ $blog->title }}" />
+                                    <p itemprop="articleBody" class="">
+                                        {!! $blog->description !!}
+                                    </p>
+                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="34" class="blog01__boxs__item__icon" alt="{{ $blog->title }}" />
                                 </div>
                             </a>
                         </div>

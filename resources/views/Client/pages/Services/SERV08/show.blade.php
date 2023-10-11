@@ -22,7 +22,7 @@
                     </div>
                     <div style="background-color: {{ $service->featured_service == 1 ? $service->color_featured_service : ''}}; border-color: {{$service->featured_service == 1 ? $service->color_featured_service : ''}};" class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
                         <h4 class="lightbox-serv08__top__right__subtitle">{{$service->title_price}}</h4>
-                        <h3 class="lightbox-serv08__top__right__title"><span>R$</span> {{$service->price}}</h3>
+                        <h3 class="lightbox-serv08__top__right__title"><span>R$</span>{{str_replace('.', ',', $service->price)}}</h3>
                     </div>
                 </div>
             </article>

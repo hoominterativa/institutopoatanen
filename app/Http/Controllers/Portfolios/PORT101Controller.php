@@ -226,22 +226,18 @@ class PORT101Controller extends Controller
      */
     public static function section()
     {
+        $sections = PORT101PortfoliosSection::active()->first();
+        $portfolios = PORT101Portfolios::with('galleries')->sorting()->active()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $sections = PORT101PortfoliosSection::where('path_image_mobile','!=', '')->active()->first();
-                $portfolios = PORT101Portfolios::with('galleries')->where('path_image_mobile','!=', '')->sorting()->active()->get();
-                    $sections->path_image_desktop = $sections->path_image_mobile;
-                    foreach($portfolios as $portfolio) {
-                        if($portfolio) $portfolio->path_image_desktop = $portfolio->path_image_mobile;
-                    }
-            break;
-            default:
-                $sections = PORT101PortfoliosSection::active()->first();
-                $portfolios = PORT101Portfolios::with('galleries')->sorting()->active()->get();
+                if($sections) $sections->path_image_desktop = $sections->path_image_mobile;
+
+                foreach($portfolios as $portfolio) {
+                    if($portfolio) $portfolio->path_image_desktop = $portfolio->path_image_mobile;
+                }
             break;
         }
-
 
         return view('Client.pages.Portfolios.PORT101.section', [
             'portfolios' => $portfolios,

@@ -24,8 +24,8 @@ class PORT101PortfoliosSectionFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(12),
-            'path_image_desktop' => 'uploads/temp/image_temporary.png',
-            'path_image_mobile' => 'uploads/temp/image_temporary.png',
+            'path_image_desktop' => 'uploads/tmp/image_temporary.png',
+            'path_image_mobile' => 'uploads/tmp/image_temporary.png',
             'active' => 1,
         ];
     }
