@@ -3361,6 +3361,12 @@ body .owl-dots .owl-dot.active {
 .blog01-show__item__description ol {
   margin: 20px 0;
 }
+.blog01-show__item__share {
+  background-color: #000;
+  color: white;
+  border-radius: 24px;
+  padding: 4px 8px;
+}
 @media (max-width: 767.98px) {
   .blog01-show__related {
     margin-top: 80px;
