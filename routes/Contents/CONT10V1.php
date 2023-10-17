@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Contents\CONT10V2SectionController;
 
 /**
  * Uncomment the code below
@@ -13,7 +12,7 @@ use App\Http\Controllers\Contents\CONT10V2SectionController;
  */
 
  $module = 'Contents';
- $model = 'CONT10V2';
+ $model = 'CONT10V1';
 
  $class = config('modelsConfig.Class');
  $modelConfig = config('modelsConfig.InsertModelsMain');
@@ -25,5 +24,5 @@ use App\Http\Controllers\Contents\CONT10V2SectionController;
 
  // ADMIN
  Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-     Route::resource($route.'/secao', CONT10V2SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'CONT10V2ContentsSection']);
+     Route::resource($route.'/secao', CONT10V1SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'CONT10V1ContentsSection']);
  });

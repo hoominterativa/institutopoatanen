@@ -13,7 +13,25 @@ return [
     ],
 
     // Configure existing modules and templates site-wide/system
-    'InsertModelsMain' => (object) [],
+    'InsertModelsMain' => (object) [
+        'Contents' => (object) [
+            'CONT10V1' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => 'mdi-table-of-contents'
+                ]
+            ],
+        ]
+    ],
 
     'ModelsForm' => (object)[
         'FORM01' => (object) [
