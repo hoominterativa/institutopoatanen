@@ -44,6 +44,7 @@ class SCHE02SchedulesFactory extends Factory
             'event_locale' => $this->faker->randomElement($event_locale),
             'event_date' => $this->faker->date('Y-m-d'),
             'informations' => $this->faker->text(350),
+            'event_title' => $this->faker->text(15),
             'title_button_one' => $this->faker->text(10),
             'link_button_one' => $this->faker->url(),
             'target_link_button_one' => $this->faker->randomElement(['_self', '_blank']),

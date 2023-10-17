@@ -30,8 +30,8 @@ if(!function_exists('dateFormat'))
      */
     function dateFormat($date, $day = 'd', $month = 'm', $year = 'Y', $split = '/'){
         $dayWeek = date("N", strtotime($date));
-        $arrayDay = ['1' => 'Segunda Feira', '2' => 'Terça Feira', '3' => 'Quarta Feira', '4' => 'Quinta Feira', '5' => 'Sexta Feira', '6' => 'Sábado', '7' => 'Domíngo'];
-        $arrayMonth = ['01' => 'Janeiro', '02' => 'Fevereiero', '03' => 'Março', '04' => 'Abril', '05' => 'Maio', '06' => 'Junho', '07' => 'Julho', '08' => 'Agosto', '09' => 'Setembro', '10' => 'Outubro', '11' => 'Novembro', '12' => 'Dezembro'];
+        $arrayDay = ['1' => 'Segunda-Feira', '2' => 'Terça-Feira', '3' => 'Quarta-Feira', '4' => 'Quinta-Feira', '5' => 'Sexta-Feira', '6' => 'Sábado', '7' => 'Domingo'];
+        $arrayMonth = ['01' => 'Janeiro', '02' => 'Fevereiro', '03' => 'Março', '04' => 'Abril', '05' => 'Maio', '06' => 'Junho', '07' => 'Julho', '08' => 'Agosto', '09' => 'Setembro', '10' => 'Outubro', '11' => 'Novembro', '12' => 'Dezembro'];
 
         $dayN = ($day === 'D'?$arrayDay[$dayWeek]:Carbon::parse($date)->format('d'));
         $monthN = ($month === 'M'?$arrayMonth[Carbon::parse($date)->format('m')]:Carbon::parse($date)->format('m'));

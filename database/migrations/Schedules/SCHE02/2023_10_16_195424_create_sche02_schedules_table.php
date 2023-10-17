@@ -16,6 +16,7 @@ class CreateSche02SchedulesTable extends Migration
         Schema::create('sche02_schedules', function (Blueprint $table) {
             $table->id();
             $table->string('event_locale')->nullable();
+            $table->string('event_title')->nullable();
             $table->date('event_date')->nullable();
             $table->text('informations')->nullable();
             $table->string('title_button_one')->nullable();

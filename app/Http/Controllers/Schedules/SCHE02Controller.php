@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\Schedules\SCHE02Schedules;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Schedules\SCHE02SchedulesSection;
 
 class SCHE02Controller extends Controller
 {
@@ -24,8 +25,10 @@ class SCHE02Controller extends Controller
     public function index()
     {
         $schedules = SCHE02Schedules::sorting()->paginate(30);
+        $section = SCHE02SchedulesSection::first();
         return view('Admin.cruds.Schedules.SCHE02.index',[
             'schedules' => $schedules,
+            'section' => $section,
             'cropSetting' => getCropImage('Schedules', 'SCHE02')
         ]);
     }
@@ -196,6 +199,19 @@ class SCHE02Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Schedules.SCHE02.section');
+        $section = SCHE02SchedulesSection::first();
+        $schedules = SCHE02Schedules::active()->featured()->sorting()->get();
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section) {
+                    $section->path_image_desktop_section = $section->path_image_mobile_section;
+                }
+            break;
+        }
+        return view('Client.pages.Schedules.SCHE02.section', [
+            'schedules' => $schedules,
+            'section' => $section
+        ]);
     }
 }

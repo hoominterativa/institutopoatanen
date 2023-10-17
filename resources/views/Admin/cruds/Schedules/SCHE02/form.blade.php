@@ -2,6 +2,10 @@
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
+                {!! Form::label('event_title', 'Nome do evento', ['class' => 'form-label']) !!}
+                {!! Form::text('event_title', null, ['class' => 'form-control', 'id' => 'event_title']) !!}
+            </div>
+            <div class="mb-3">
                 <div class="row">
                     <div class="col-12 col-sm-6">
                         {!! Form::label(null, 'Data do evento', ['class'=>'form-label']) !!}
@@ -30,22 +34,18 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
-                {!! Form::label('informations', 'Informações', ['class'=>'form-label']) !!}
-                <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-original-title="Informações referentes de cada evento em específico"></i>
-                {!! Form::textarea('informations', null, [
-                    'class'=>'form-control',
-                    'id'=>'message',
-                    'rows'=>'7',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'900',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
-                    'placeholder'=>'Exemplo: Local do evento',
-                ]) !!}
+            <div class="col-12">
+                <div class="normal-editor__content mb-3">
+                    {!! Form::label('informations', 'Informações', ['class'=>'form-label']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Informações referentes de cada evento em específico"></i>
+                    {!! Form::textarea('informations', null, [
+                        'class'=>'form-control normal-editor',
+                        'data-height'=>500,
+                        'id'=>'informations',
+                    ]) !!}
+                </div>
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">

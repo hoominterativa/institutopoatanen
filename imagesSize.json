@@ -1704,6 +1704,11 @@
                     "width": "390",
                     "height": "321",
                     "activeCrop": "true"
+                },
+                "path_image_banner": {
+                    "width": "274",
+                    "height": "92",
+                    "activeCrop": "false"
                 }
             },
             "Section": {
@@ -1716,6 +1721,11 @@
                     "width": "390",
                     "height": "321",
                     "activeCrop": "true"
+                },
+                "path_image_section": {
+                    "width": "551",
+                    "height": "757",
+                    "activeCrop": "false"
                 }
             }
         }
