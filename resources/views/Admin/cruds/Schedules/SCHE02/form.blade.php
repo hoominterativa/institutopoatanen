@@ -5,6 +5,10 @@
                 <div class="row">
                     <div class="col-12 col-sm-6">
                         {!! Form::label(null, 'Data do evento', ['class'=>'form-label']) !!}
+                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Informe a data do evento">
+                        </i>
                         {!! Form::text('event_date', null, [
                                 'class'=>'form-control',
                                 'required'=>'required',
