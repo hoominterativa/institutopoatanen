@@ -1692,6 +1692,32 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "SCHE02": {
+            "Banner": {
+                "path_image_desktop_banner": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                }
+            },
+            "Section": {
+                "path_image_desktop_section": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_section": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
 
