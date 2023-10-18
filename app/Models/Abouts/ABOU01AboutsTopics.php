@@ -21,21 +21,10 @@ class ABOU01AboutsTopics extends Model
         "description",
         "path_image_icon",
         "sorting",
-        "about_id",
     ];
 
     public function scopeSorting($query)
     {
         return $query->orderBy('sorting', 'ASC');
     }
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

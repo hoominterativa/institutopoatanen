@@ -6,35 +6,62 @@
                 "height": "550",
                 "activeCrop": "false"
             },
-            "path_image_section_desktop": {
+            "path_image_desktop": {
                 "width": "1500",
                 "height": "622",
                 "activeCrop": "false"
             },
-            "path_image_section_mobile": {
+            "path_image_mobile": {
                 "width": "410",
-                "height": "546",
+                "height": "800",
                 "activeCrop": "true"
             },
-            "path_image_home_desktop": {
-                "width": "1500",
-                "height": "622",
-                "activeCrop": "false"
-            },
-            "path_image_home_mobile": {
-                "width": "410",
-                "height": "546",
-                "activeCrop": "true"
-            },
-            "path_image_banner": {
-                "width": "1450",
-                "height": "400",
-                "activeCrop": "false"
-            },
-            "path_image_inner_section": {
-                "width": "550",
-                "height": "550",
-                "activeCrop": "false"
+            "Section": {
+                "path_image_banner_desktop": {
+                    "width": "1450",
+                    "height": "400",
+                    "activeCrop": "false"
+                },
+                "path_image_banner_mobile": {
+                    "width": "550",
+                    "height": "550",
+                    "activeCrop": "false"
+                },
+                "path_image_content_desktop": {
+                    "width": "550",
+                    "height": "550",
+                    "activeCrop": "false"
+                },
+                "path_image_content_mobile": {
+                    "width": "410",
+                    "height": "800",
+                    "activeCrop": "true"
+                },
+                "path_image_section_desktop": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "false"
+                },
+                "path_image_section_mobile": {
+                    "width": "410",
+                    "height": "546",
+                    "activeCrop": "true"
+                },
+                "path_image_topic_desktop": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "false"
+                },
+                "path_image_topic_mobile": {
+                    "width": "410",
+                    "height": "546",
+                    "activeCrop": "true"
+                },
+                "path_image_content": {
+                    "width": "410",
+                    "height": "546",
+                    "activeCrop": "false"
+                }
             },
             "Topic": {
                 "path_image_icon": {

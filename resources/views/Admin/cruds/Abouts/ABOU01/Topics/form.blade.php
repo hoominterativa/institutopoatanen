@@ -3,11 +3,10 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => ['admin.abou01.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
-    <input type="hidden" name="about_id" value="{{$about->id}}">
 @endif
     <div class="row col-12">
-        <div class="col-12 col-lg-6">
-            <div class="card card-body" id="tooltip-container">
+        <div class="col-12 col-lg-6 ">
+            <div class="card card-body wrapper-links my-2 border px-2 py-3" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
                     {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
@@ -23,7 +22,7 @@
             {{-- end card-body --}}
         </div>
         <div class="col-12 col-lg-6">
-            <div class="card card-body" id="tooltip-container">
+            <div class="card card-body wrapper-links my-2 border px-2 py-3" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}

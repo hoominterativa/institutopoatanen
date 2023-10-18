@@ -19,7 +19,6 @@ class CreateAbou01AboutsTopicsTable extends Migration
             $table->text('description')->nullable();
             $table->string('path_image_icon')->nullable();
             $table->integer('sorting')->default(0);
-            $table->foreignId('about_id')->nullable()->constrained('abou01_abouts');
             $table->timestamps();
         });
     }

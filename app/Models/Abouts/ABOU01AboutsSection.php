@@ -17,18 +17,33 @@ class ABOU01AboutsSection extends Model
 
     protected $table = "abou01_abouts_sections";
     protected $fillable = [
+        //Section home
         "title_section",
         "subtitle_section",
         "description_section",
-        "title_banner",
-        "subtitle_banner",
-        "path_image_banner",
-        "title_inner_section",
-        "subtitle_inner_section",
-        "path_image_inner_section",
         "path_image_section_desktop",
         "path_image_section_mobile",
-        "text_inner_section",
-        "background_color",
+        "background_color_section",
+        //Banner
+        "title_banner",
+        "subtitle_banner",
+        "path_image_banner_desktop",
+        "path_image_banner_mobile",
+        "background_color_banner",
+        //Section topic
+        "path_image_topic_desktop",
+        "path_image_topic_mobile",
+        "background_color_topic",
+        //Content
+        "title_content",
+        "subtitle_content",
+        "text_content",
+        "background_color_content",
+        "path_image_content_desktop",
+        "path_image_content_mobile",
+        "path_image_content",
+        "title_button_content",
+        "link_button_content",
+        "target_link_button_content"
     ];
 }

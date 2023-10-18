@@ -13,28 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class ABOU01SectionController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    protected $path = 'uploads/Abouts/ABOU01/images/';
     /**
      * Store a newly created resource in storage.
      *
@@ -44,46 +23,54 @@ class ABOU01SectionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $data['link_button_content'] = isset($data['link_button_content']) ? getUri($data['link_button_content']) : null;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null, 100);
+        if($path_image_banner_desktop) $data['path_image_banner_desktop'] = $path_image_banner_desktop;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null, 100);
+        if($path_image_banner_mobile) $data['path_image_banner_mobile'] = $path_image_banner_mobile;
 
-        $helper = new HelperArchive();
+        $path_image_content_desktop = $helper->optimizeImage($request, 'path_image_content_desktop', $this->path, null, 100);
+        if($path_image_content_desktop) $data['path_image_content_desktop'] = $path_image_content_desktop;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
+        $path_image_content_mobile = $helper->optimizeImage($request, 'path_image_content_mobile', $this->path, null, 100);
+        if($path_image_content_mobile) $data['path_image_content_mobile'] = $path_image_content_mobile;
 
-        if($path_archive) $data['path_archive'] = $path_archive;
+        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null, 100);
+        if($path_image_section_desktop) $data['path_image_section_desktop'] = $path_image_section_desktop;
 
-        */
+        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null, 100);
+        if($path_image_section_mobile) $data['path_image_section_mobile'] = $path_image_section_mobile;
+
+        $path_image_topic_desktop = $helper->optimizeImage($request, 'path_image_topic_desktop', $this->path, null, 100);
+        if($path_image_topic_desktop) $data['path_image_topic_desktop'] = $path_image_topic_desktop;
+
+        $path_image_topic_mobile = $helper->optimizeImage($request, 'path_image_topic_mobile', $this->path, null, 100);
+        if($path_image_topic_mobile) $data['path_image_topic_mobile'] = $path_image_topic_mobile;
+
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null, 100);
+        if($path_image_content) $data['path_image_content'] = $path_image_content;
+
+
 
         if(ABOU01AboutsSection::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_banner_desktop);
+            Storage::delete($path_image_banner_mobile);
+            Storage::delete($path_image_section_desktop);
+            Storage::delete($path_image_section_mobile);
+            Storage::delete($path_image_topic_desktop);
+            Storage::delete($path_image_topic_mobile);
+            Storage::delete($path_image_content_desktop);
+            Storage::delete($path_image_content_mobile);
+            Storage::delete($path_image_content);
             Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Abouts\ABOU01AboutsSection  $ABOU01AboutsSection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ABOU01AboutsSection $ABOU01AboutsSection)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,149 +83,114 @@ class ABOU01SectionController extends Controller
     public function update(Request $request, ABOU01AboutsSection $ABOU01AboutsSection)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($ABOU01AboutsSection, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['link_button_content'] = isset($data['link_button_content']) ? getUri($data['link_button_content']) : null;
+
+        $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null, 100);
+        if($path_image_banner_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_banner_desktop');
+            $data['path_image_banner_desktop'] = $path_image_banner_desktop;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($ABOU01AboutsSection, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($ABOU01AboutsSection, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_banner_desktop && !$path_image_banner_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_banner_desktop');
+            $data['path_image_banner_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($ABOU01AboutsSection, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null, 100);
+        if($path_image_banner_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_banner_mobile');
+            $data['path_image_banner_mobile'] = $path_image_banner_mobile;
+        }
+        if($request->delete_path_image_banner_mobile && !$path_image_banner_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_banner_mobile');
+            $data['path_image_banner_mobile'] = null;
         }
 
-        */
+        $path_image_content_desktop = $helper->optimizeImage($request, 'path_image_content_desktop', $this->path, null, 100);
+        if($path_image_content_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_content_desktop');
+            $data['path_image_content_desktop'] = $path_image_content_desktop;
+        }
+        if($request->delete_path_image_content_desktop && !$path_image_content_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_content_desktop');
+            $data['path_image_content_desktop'] = null;
+        }
+
+        $path_image_content_mobile = $helper->optimizeImage($request, 'path_image_content_mobile', $this->path, null, 100);
+        if($path_image_content_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_content_mobile');
+            $data['path_image_content_mobile'] = $path_image_content_mobile;
+        }
+        if($request->delete_path_image_content_mobile && !$path_image_content_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_content_mobile');
+            $data['path_image_content_mobile'] = null;
+        }
+
+        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null, 100);
+        if($path_image_section_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_section_desktop');
+            $data['path_image_section_desktop'] = $path_image_section_desktop;
+        }
+        if($request->delete_path_image_section_desktop && !$path_image_section_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_section_desktop');
+            $data['path_image_section_desktop'] = null;
+        }
+
+        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null, 100);
+        if($path_image_section_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_section_mobile');
+            $data['path_image_section_mobile'] = $path_image_section_mobile;
+        }
+        if($request->delete_path_image_section_mobile && !$path_image_section_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_section_mobile');
+            $data['path_image_section_mobile'] = null;
+        }
+
+        $path_image_topic_desktop = $helper->optimizeImage($request, 'path_image_topic_desktop', $this->path, null, 100);
+        if($path_image_topic_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_topic_desktop');
+            $data['path_image_topic_desktop'] = $path_image_topic_desktop;
+        }
+        if($request->delete_path_image_topic_desktop && !$path_image_topic_desktop){
+            storageDelete($ABOU01AboutsSection, 'path_image_topic_desktop');
+            $data['path_image_topic_desktop'] = null;
+        }
+
+        $path_image_topic_mobile = $helper->optimizeImage($request, 'path_image_topic_mobile', $this->path, null, 100);
+        if($path_image_topic_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_topic_mobile');
+            $data['path_image_topic_mobile'] = $path_image_topic_mobile;
+        }
+        if($request->delete_path_image_topic_mobile && !$path_image_topic_mobile){
+            storageDelete($ABOU01AboutsSection, 'path_image_topic_mobile');
+            $data['path_image_topic_mobile'] = null;
+        }
+
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null, 100);
+        if($path_image_content){
+            storageDelete($ABOU01AboutsSection, 'path_image_content');
+            $data['path_image_content'] = $path_image_content;
+        }
+        if($request->delete_path_image_content && !$path_image_content){
+            storageDelete($ABOU01AboutsSection, 'path_image_content');
+            $data['path_image_content'] = null;
+        }
 
         if($ABOU01AboutsSection->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image_banner_desktop);
+            Storage::delete($path_image_banner_mobile);
+            Storage::delete($path_image_section_desktop);
+            Storage::delete($path_image_section_mobile);
+            Storage::delete($path_image_topic_desktop);
+            Storage::delete($path_image_topic_mobile);
+            Storage::delete($path_image_content_desktop);
+            Storage::delete($path_image_content_mobile);
+            Storage::delete($path_image_content);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Abouts\ABOU01AboutsSection  $ABOU01AboutsSection
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ABOU01AboutsSection $ABOU01AboutsSection)
-    {
-        //storageDelete($ABOU01AboutsSection, 'path_image');
-        //storageDelete($ABOU01AboutsSection, 'path_archive');
-
-        if($ABOU01AboutsSection->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $ABOU01AboutsSections = ABOU01AboutsSection::whereIn('id', $request->deleteAll)->get();
-        foreach($ABOU01AboutsSections as $ABOU01AboutsSection){
-            storageDelete($ABOU01AboutsSection, 'path_image');
-            storageDelete($ABOU01AboutsSection, 'path_archive');
-        }
-        */
-
-        if($deleted = ABOU01AboutsSection::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            ABOU01AboutsSection::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Abouts\ABOU01AboutsSection  $ABOU01AboutsSection
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(ABOU01AboutsSection $ABOU01AboutsSection)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
+        return redirect()->back();
     }
 }

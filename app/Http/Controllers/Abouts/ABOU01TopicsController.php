@@ -81,7 +81,7 @@ class ABOU01TopicsController extends Controller
         storageDelete($ABOU01AboutsTopics, 'path_image_icon');
 
         if($ABOU01AboutsTopics->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -100,7 +100,7 @@ class ABOU01TopicsController extends Controller
         }
 
         if($deleted = ABOU01AboutsTopics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos deletados com sucessso']);
         }
     }
     /**

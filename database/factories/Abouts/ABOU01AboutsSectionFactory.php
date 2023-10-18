@@ -22,19 +22,34 @@ class ABOU01AboutsSectionFactory extends Factory
     public function definition()
     {
         return [
-            "title_section" => "Titulo",
-            "subtitle_section" => "Subtítulo",
+            //Section Home
+            "title_section" => $this->faker->text(10),
+            "subtitle_section" => $this->faker->text(10),
             "description_section" => $this->faker->text(550),
-            "title_banner" => "Titulo do banner",
-            "subtitle_banner" => "SUBTITULO",
-            "path_image_banner" => "uploads/tmp/bg-banner-inner.jpg",
-            "title_inner_section" => "Titulo",
-            "subtitle_inner_section" => "Subtitulo",
-            "path_image_inner_section" => "uploads/tmp/image-pmg.png",
             "path_image_section_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
             "path_image_section_mobile" => "uploads/tmp/image-box-white.jpg",
-            "text_inner_section" => $this->faker->text(250),
-            "background_color" => '#FFFFFF',
+            "background_color_section" => '#FFFFFF',
+            // Banner
+            "title_banner" => $this->faker->text(10),
+            "subtitle_banner" => $this->faker->text(10),
+            "path_image_banner_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
+            "path_image_banner_mobile" => "uploads/tmp/image-box-white.jpg",
+            "background_color_banner" => '#FFFFFF',
+            // Section Topic
+            "path_image_topic_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
+            "path_image_topic_mobile" => "uploads/tmp/image-box-white.jpg",
+            "background_color_topic" => '#FFFFFF',
+            //Content
+            "title_content" => $this->faker->text(10),
+            "subtitle_content" => $this->faker->text(10),
+            "text_content" => $this->faker->text(700),
+            "title_button_content" => $this->faker->text(6),
+            "link_button_content" => $this->faker->url(),
+            "target_link_button_content" => ('_blank'),
+            "path_image_content" => "uploads/tmp/image-pmg.png",
+            "path_image_content_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
+            "path_image_content_mobile" => "uploads/tmp/image-box-white.jpg",
+            "background_color_content" => '#FFFFFF',
         ];
     }
 }
