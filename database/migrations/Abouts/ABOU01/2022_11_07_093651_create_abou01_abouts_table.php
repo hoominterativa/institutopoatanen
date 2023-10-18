@@ -15,32 +15,13 @@ class CreateAbou01AboutsTable extends Migration
     {
         Schema::create('abou01_abouts', function (Blueprint $table) {
             $table->id();
-
-            $table->string('title_section')->nullable();
-            $table->string('subtitle_section')->nullable();
-            $table->text('description_section')->nullable();
-
-            $table->string('title_banner')->nullable();
-            $table->string('subtitle_banner')->nullable();
-            $table->string('path_image_banner')->nullable();
-
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('text')->nullable();
-
-            $table->string('title_inner_section')->nullable();
-            $table->string('subtitle_inner_section')->nullable();
-            $table->string('path_image_inner_section')->nullable();
-            $table->text('text_inner_section')->nullable();
-            $table->string('path_image_section_desktop')->nullable();
-            $table->string('path_image_section_mobile')->nullable();
             $table->string('path_image')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
             $table->string('background_color')->nullable();
-
-            $table->string('path_image_home_desktop')->nullable();
-            $table->string('path_image_home_mobile')->nullable();
-            $table->string('background_color_home')->nullable();
-
             $table->timestamps();
         });
     }

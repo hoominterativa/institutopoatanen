@@ -22,26 +22,13 @@ class ABOU01AboutsFactory extends Factory
     public function definition()
     {
         return [
-            "title_section" => "Titulo",
-            "subtitle_section" => "Subtítulo",
-            "description_section" => $this->faker->text(550),
-            "title_banner" => "Titulo do banner",
-            "subtitle_banner" => "SUBTITULO",
-            "path_image_banner" => "uploads/tmp/bg-banner-inner.jpg",
-            "title" => "Titulo",
-            "subtitle" => "Subtitulo",
+            "title" => $this->faker->text(10),
+            "subtitle" => $this->faker->text(10),
             "text" => $this->faker->paragraph(3),
-            "title_inner_section" => "Titulo",
-            "subtitle_inner_section" => "Subtitulo",
-            "path_image_inner_section" => "uploads/tmp/image-pmg.png",
-            "path_image_section_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
-            "path_image_section_mobile" => "uploads/tmp/image-box-white.jpg",
-            "path_image_home_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
-            "path_image_home_mobile" => "uploads/tmp/image-box-white.jpg",
+            "path_image_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
+            "path_image_mobile" => "uploads/tmp/image-box-white.jpg",
             "path_image" => "uploads/tmp/image-pmg.png",
-            "text_inner_section" => $this->faker->text(250),
             "background_color" => '#FFFFFF',
-            "background_color_home" => '#FFFFFF',
         ];
     }
 }

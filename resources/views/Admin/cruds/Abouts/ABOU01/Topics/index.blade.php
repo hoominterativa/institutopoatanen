@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-6">
-                            <button id="btSubmitDelete" data-route="{{route('admin.abou01.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteAboutTopics" style="display: none;">Deletar selecionados</button>
+                            <button id="btSubmitDelete" data-route="{{route('admin.abou01.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar selecionados</button>
                         </div>
                         <div class="col-6">
                             <a href="javascript:void(0)" data-bs-target="#modal-topic-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
@@ -17,15 +17,13 @@
                             <tr>
                                 <th width="50px"></th>
                                 <th width="30px" class="bs-checkbox">
-                                    {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                    <label><input name="btnSelectAll" value="btnDeleteAboutTopics" type="checkbox"></label>
+                                    <label><input name="btnSelectAll" value="btnDeleteTopics" type="checkbox"></label>
                                 </th>
-                                <th width="50px"></th>
+                                <th width="50px">Imagem</th>
                                 <th>Título</th>
                                 <th width="90px">Ações</th>
                             </tr>
                         </thead>
-
                         <tbody data-route="{{route('admin.abou01.topic.sorting')}}">
                             @foreach ($topics as $topic)
                                 <tr data-code="{{$topic->id}}">
@@ -60,7 +58,6 @@
 
                                                         <div class="modal-body p-3 pt-0 pb-3">
                                                             @include('Admin.cruds.Abouts.ABOU01.Topics.form',[
-                                                                'about' => $about,
                                                                 'topic' => $topic
                                                             ])
                                                         </div>
@@ -92,7 +89,6 @@
 
             <div class="modal-body p-3 pt-0 pb-3">
                 @include('Admin.cruds.Abouts.ABOU01.Topics.form',[
-                    'about' => $about,
                     'topic' => null
                 ])
             </div>

@@ -22,33 +22,44 @@
                 <!-- end page title -->
                 <ul class="mb-3 nav nav-tabs">
                     <li class="nav-item">
-                        <a href="#formAbout" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Informações da Página</a>
+                        <a href="#about" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Informações da Página</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#formAboutSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#formBannerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Banner</a>
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Banner da página Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#formSectionInnerAbout" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção Página</a>
+                        <a href="#topics" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Tópicos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#formSectionTopics" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção Tópicos</a>
+                        <a href="#sectionTopics" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção Tópicos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#aboutTopicsList" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Tópicos</a>
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="false" class="nav-link">Seção conteúdo</a>
                     </li>
                 </ul>
                 <div class="tab-content">
-                    @include('Admin.cruds.Abouts.ABOU01.form')
-                    <div class="tab-pane" id="aboutTopicsList">
-                        @if ($about)
+                    <div class="tab-pane show active" id="about">
+                        @include('Admin.cruds.Abouts.ABOU01.form')
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Abouts.ABOU01.Section.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Abouts.ABOU01.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="topics">
                             @include('Admin.cruds.Abouts.ABOU01.Topics.index',[
-                                'about' => $about,
-                                'topics' => $about->topics
+                                'topics' => $topics
                             ])
-                        @endif
+                    </div>
+                    <div class="tab-pane" id="sectionTopics">
+                        @include('Admin.cruds.Abouts.ABOU01.SectionTopics.form')
+                    </div>
+                    <div class="tab-pane" id="content">
+                        @include('Admin.cruds.Abouts.ABOU01.Content.form')
                     </div>
                 </div>
             </div> <!-- container -->
