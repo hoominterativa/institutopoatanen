@@ -26,7 +26,7 @@
                                                 {{ Carbon\Carbon::parse($content->date)->formatLocalized('%d') }}
                                             </span>
                                             <span>
-                                                {{ Carbon\Carbon::parse($content->date)->formatLocalized('%m') }}
+                                                {{ Carbon\Carbon::parse($content->date)->formatLocalized('%b') }}
                                             </span>
                                         </div>
                                     @endif

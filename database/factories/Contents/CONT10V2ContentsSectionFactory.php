@@ -25,7 +25,7 @@ class CONT10V2ContentsSectionFactory extends Factory
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(15),
             'path_image_desktop' => 'uploads/tmp/image-box-white.jpg',
-            'path_image_mobile' => 'uploads/tmp/bg-slid-mobile.jpg',
+            'path_image_mobile' => 'uploads/tmp/image-box-white.jpg',
             'background_color' => '#FFFFFF',
             'active' => 1
         ];

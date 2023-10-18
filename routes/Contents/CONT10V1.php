@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Contents\CONT10V1SectionController;
 
 /**
  * Uncomment the code below

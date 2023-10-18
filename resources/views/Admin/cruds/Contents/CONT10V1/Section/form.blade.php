@@ -22,14 +22,12 @@
                     {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
                 </div>
                 {{-- Color Picker --}}
-                <div class="card card-body" id="tooltip-container">
-                    <div class="mb-3">
-                        {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                        {!! Form::text('background_color', null, [
-                            'class' => 'form-control colorpicker-default',
-                            'id' => 'background_color',
-                        ]) !!}
-                    </div>
+                <div class="mb-3">
+                    {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                    {!! Form::text('background_color', null, [
+                        'class' => 'form-control colorpicker-default',
+                        'id' => 'background_color',
+                    ]) !!}
                 </div>
             </div>
         </div>
@@ -75,9 +73,9 @@
                                 'data-min-height' => $cropSetting->Section->path_image_mobile->height, // px
                                 'data-box-height' => '170', // Input height in the form
                                 'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file' => isset($secion)
-                                    ? ($secion->path_image_mobile != ''
-                                        ? url('storage/' . $secion->path_image_mobile)
+                                'data-default-file' => isset($section)
+                                    ? ($section->path_image_mobile != ''
+                                        ? url('storage/' . $section->path_image_mobile)
                                         : '')
                                     : '',
                             ]) !!}

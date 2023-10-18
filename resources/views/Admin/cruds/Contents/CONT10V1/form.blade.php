@@ -2,25 +2,30 @@
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label(null, 'Data do evento', ['class' => 'form-label']) !!}
-                {!! Form::text('date', null, [
-                    'class' => 'form-control',
-                    'required' => 'required',
-                    'data-provide' => 'datepicker',
-                    'data-date-autoclose' => 'true',
-                    'data-date-format' => 'dd/mm/yyyy',
-                    'data-date-language' => 'pt-BR',
-                    'required' => 'required',
-                ]) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('locale', 'Local do evento', ['class' => 'form-label']) !!}
-                {!! Form::text('locale', null, [
-                    'class' => 'form-control',
-                    'id' => 'locale',
-                    'placeholder' => 'Salvador-BA',
-                    'required' => 'required',
-                ]) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label(null, 'Data do evento', ['class' => 'form-label']) !!}
+                        {!! Form::text('date', null, [
+                            'class' => 'form-control',
+                            'required' => 'required',
+                            'data-provide' => 'datepicker',
+                            'data-date-autoclose' => 'true',
+                            'data-date-format' => 'dd/mm/yyyy',
+                            'data-date-language' => 'pt-BR',
+                            'required' => 'required',
+                            'data-date-start-date'=>'0d', // Isso permite datas a partir do dia atual (0d)
+                        ]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('locale', 'Local do evento', ['class' => 'form-label']) !!}
+                        {!! Form::text('locale', null, [
+                            'class' => 'form-control',
+                            'id' => 'locale',
+                            'placeholder' => 'Salvador-BA',
+                            'required' => 'required',
+                        ]) !!}
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
