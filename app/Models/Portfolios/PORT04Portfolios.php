@@ -17,7 +17,7 @@ class PORT04Portfolios extends Model
 
     protected $table = "port04_portfolios";
     protected $fillable = [
-       'category_id', 'slug', 'title', 'subtitle', 'text', 'path_image', 'title_box', 'description_box', 'path_image_box', 'path_image_icon_box', 'active', 'featured', 'sorting'
+       'category_id', 'slug', 'title', 'description', 'path_image', 'path_image_icon', 'active', 'featured', 'sorting'
     ];
 
     public function scopeSorting($query)

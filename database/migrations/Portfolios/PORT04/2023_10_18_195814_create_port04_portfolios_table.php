@@ -18,13 +18,9 @@ class CreatePort04PortfoliosTable extends Migration
             $table->foreignId('category_id')->constrained('port04_portfolios_categories');
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->text('text')->nullable();
+            $table->text('description')->nullable();
             $table->string('path_image')->nullable();
-            $table->string('title_box')->nullable();
-            $table->text('description_box')->nullable();
-            $table->string('path_image_box')->nullable();
-            $table->string('path_image_icon_box')->nullable();
+            $table->string('path_image_icon')->nullable();
             $table->integer('active')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('sorting')->default(0);

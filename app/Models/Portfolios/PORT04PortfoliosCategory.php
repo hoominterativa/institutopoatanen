@@ -29,4 +29,12 @@ class PORT04PortfoliosCategory extends Model
     {
         return $query->where('active', 1);
     }
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('port04_portfolios')->whereColumn('port04_portfolios.category_id', 'port04_portfolios_categories.id');
+        });
+    }
+
 }

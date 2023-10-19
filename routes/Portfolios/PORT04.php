@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Portfolios\PORT04Controller;
+use App\Http\Controllers\Portfolios\PORT04SectionController;
+use App\Http\Controllers\Portfolios\PORT04CategoryController;
 
 /**
  * Uncomment the code below
@@ -11,22 +14,27 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Portfolios';
+$model = 'PORT04';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $module = getNameModule($modelConfig, $module, $model);
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/secao', PORT04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'PORT02PortfoliosSection']);
+    Route::resource($route.'/banner', PORT04SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'PORT02PortfoliosSection']);
+    Route::resource($route.'/conteudo', PORT04SectionController::class)->names('admin.'.$routeName.'.content')->parameters(['conteudo' => 'PORT02PortfoliosSection']);
+
+    Route::resource($route.'/categorias', PORT04CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT04PortfoliosCategory']);
+    Route::post($route.'/categoria/delete', [PORT04CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [PORT04CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+});
+
+// CLIENT
+Route::get($route.'/categoria/{PORT04PortfoliosCategory:slug}', [PORT04Controller::class, 'page'])->name($routeName.'.category.page');

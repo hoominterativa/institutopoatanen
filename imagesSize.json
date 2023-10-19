@@ -472,6 +472,44 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "PORT04": {
+            "path_image": {
+                "width": "416",
+                "height": "375",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "300",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "400",
+                    "height": "286",
+                    "activeCrop": "true"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "685",
+                    "height": "407",
+                    "activeCrop": "false"
+                }
+            },
+            "Category": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
 

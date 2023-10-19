@@ -2,38 +2,20 @@
 
 namespace App\Http\Controllers\Portfolios;
 
-use App\Models\Portfolios\PORT04PortfoliosCategory;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Portfolios\PORT04Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT04PortfoliosCategory;
 
 class PORT04CategoryController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Portfolios/PORT04/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +26,21 @@ class PORT04CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(PORT04PortfoliosCategory::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria cadastrada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar a categoria');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolios\PORT04PortfoliosCategory  $PORT04PortfoliosCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PORT04PortfoliosCategory $PORT04PortfoliosCategory)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,11 +53,10 @@ class PORT04CategoryController extends Controller
     public function update(Request $request, PORT04PortfoliosCategory $PORT04PortfoliosCategory)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +67,14 @@ class PORT04CategoryController extends Controller
             storageDelete($PORT04PortfoliosCategory, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($PORT04PortfoliosCategory, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PORT04PortfoliosCategory, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($PORT04PortfoliosCategory->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a categoria');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,8 +85,11 @@ class PORT04CategoryController extends Controller
      */
     public function destroy(PORT04PortfoliosCategory $PORT04PortfoliosCategory)
     {
-        //storageDelete($PORT04PortfoliosCategory, 'path_image');
-        //storageDelete($PORT04PortfoliosCategory, 'path_archive');
+        if(PORT04Portfolios::where('category_id', $PORT04PortfoliosCategory->id)->count()){
+            Session::flash('error', 'Não é possível excluir a categoria porque existem portifólios associadas a ela.');
+            return redirect()->back();
+        };
+        storageDelete($PORT04PortfoliosCategory, 'path_image');
 
         if($PORT04PortfoliosCategory->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -168,17 +105,25 @@ class PORT04CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
+        $categoryIds = $request->deleteAll;
 
-        $PORT04PortfoliosCategorys = PORT04PortfoliosCategory::whereIn('id', $request->deleteAll)->get();
-        foreach($PORT04PortfoliosCategorys as $PORT04PortfoliosCategory){
-            storageDelete($PORT04PortfoliosCategory, 'path_image');
-            storageDelete($PORT04PortfoliosCategory, 'path_archive');
+        // Verificar se existem portifolios associadas às categorias
+        $serviceExist = PORT04Portfolios::whereIn('category_id', $categoryIds)->exists();
+        if ($serviceExist) {
+            return Response::json([
+                'status' => 'error',
+                'message' => 'Não é possível excluir as categorias porque existem portifolios associadas a elas.'
+            ]);
         }
-        */
 
-        if($deleted = PORT04PortfoliosCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        // Excluir as categorias
+        $deletedCategories = PORT04PortfoliosCategory::whereIn('id', $categoryIds)->get();
+        foreach ($deletedCategories as $category) {
+            storageDelete($category, 'path_image_icon');
+        }
+
+        if ($deleted = PORT04PortfoliosCategory::whereIn('id', $categoryIds)->delete()) {
+            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
         }
     }
     /**
@@ -194,51 +139,5 @@ class PORT04CategoryController extends Controller
             PORT04PortfoliosCategory::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portfolios\PORT04PortfoliosCategory  $PORT04PortfoliosCategory
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PORT04PortfoliosCategory $PORT04PortfoliosCategory)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

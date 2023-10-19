@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers\Portfolios;
 
-use App\Models\Portfolios\PORT04Portfolios;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Portfolios\PORT04Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Portfolios\PORT04PortfoliosSection;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\PORT04PortfoliosCategory;
 
 class PORT04Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Portfolios/PORT04/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +25,17 @@ class PORT04Controller extends Controller
      */
     public function index()
     {
-        //
+        $portfolios = PORT04Portfolios::sorting()->get();
+        $portfolioCategories = PORT04PortfoliosCategory::sorting()->get();
+        $categories = PORT04PortfoliosCategory::exists()->sorting()->pluck('title', 'id');
+        $section = PORT04PortfoliosSection::first();
+        return view('Admin.cruds.Portfolios.PORT04.index',[
+            'portfolios' => $portfolios,
+            'portfolioCategories' => $portfolioCategories,
+            'categories' => $categories,
+            'section' => $section,
+            'cropSetting' => getCropImage('Portfolios', 'PORT04')
+        ]);
     }
 
     /**
@@ -32,7 +45,11 @@ class PORT04Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = PORT04PortfoliosCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Portfolios.PORT04.create', [
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Portfolios', 'PORT04')
+        ]);
     }
 
     /**
@@ -44,33 +61,25 @@ class PORT04Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(PORT04Portfolios::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if($portfolios = PORT04Portfolios::create($data)){
+            Session::flash('success', 'Portfólio cadastrado com sucesso');
+            return redirect()->route('admin.port04.edit', ['PORT04Portfolios' => $portfolios->id ]);
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o portfólio');
             return redirect()->back();
         }
     }
@@ -83,7 +92,13 @@ class PORT04Controller extends Controller
      */
     public function edit(PORT04Portfolios $PORT04Portfolios)
     {
-        //
+        $categories = PORT04PortfoliosCategory::sorting()->pluck('title', 'id');
+
+        return view('Admin.cruds.Portfolios.PORT02.edit', [
+            'portfolio' => $PORT04Portfolios,
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Portfolios', 'PORT04')
+        ]);
     }
 
     /**
@@ -96,11 +111,11 @@ class PORT04Controller extends Controller
     public function update(Request $request, PORT04Portfolios $PORT04Portfolios)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['slug'] = Str::slug($data['title']);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +126,25 @@ class PORT04Controller extends Controller
             storageDelete($PORT04Portfolios, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($PORT04Portfolios, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($PORT04Portfolios, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
         }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PORT04Portfolios, 'path_archive');
-            $data['path_archive'] = null;
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($PORT04Portfolios, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
-
-        */
 
         if($PORT04Portfolios->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Portfólio atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Session::flash('error', 'Erro ao atualizar o portfólio');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +155,11 @@ class PORT04Controller extends Controller
      */
     public function destroy(PORT04Portfolios $PORT04Portfolios)
     {
-        //storageDelete($PORT04Portfolios, 'path_image');
-        //storageDelete($PORT04Portfolios, 'path_archive');
+        storageDelete($PORT04Portfolios, 'path_image');
+        storageDelete($PORT04Portfolios, 'path_image_icon');
 
         if($PORT04Portfolios->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Portfólio deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +172,15 @@ class PORT04Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $PORT04Portfolioss = PORT04Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT04Portfolioss as $PORT04Portfolios){
             storageDelete($PORT04Portfolios, 'path_image');
-            storageDelete($PORT04Portfolios, 'path_archive');
+            storageDelete($PORT04Portfolios, 'path_image_icon');
         }
-        */
 
         if($deleted = PORT04Portfolios::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Portfólios deletados com sucessso']);
         }
     }
     /**
@@ -209,9 +211,9 @@ class PORT04Controller extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT04', 'show');
 
-        return view('Client.pages.Module.Model.show',[
+        return view('Client.pages.Portfolios.PORT04.show',[
             'sections' => $sections
         ]);
     }
@@ -225,9 +227,9 @@ class PORT04Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT04', 'page');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Portfolios.PORT04.page',[
             'sections' => $sections
         ]);
     }
@@ -239,6 +241,6 @@ class PORT04Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Portfolios.PORT04.section');
     }
 }
