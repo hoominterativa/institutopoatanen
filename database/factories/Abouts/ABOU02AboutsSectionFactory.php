@@ -22,10 +22,30 @@ class ABOU02AboutsSectionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'subtitle' => $this->faker->text(10),
-            'description' => $this->faker->text(250),
-            'active' => 1,
+            //Section Home
+            'title_section' => $this->faker->text(10),
+            'subtitle_section' => $this->faker->text(10),
+            'description_section' => $this->faker->text(250),
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(12),
+            'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile_banner' => 'uploads/tmp/port01_path_image_box.png',
+            'background_color_banner' => '#FFFFFF',
+            //Section topics
+            'title_topics' => $this->faker->text(10),
+            'subtitle_topics' => $this->faker->text(12),
+            //Content
+            'title_content' => $this->faker->text(10),
+            'subtitle_content' => $this->faker->text(10),
+            'description_content' => $this->faker->text(200),
+            'title_button_content' => $this->faker->text(12),
+            'link_button_content' => $this->faker->url(),
+            'target_link_button_content' => '_blank',
+            'path_image_content' => 'uploads/tmp/image-pmg.png',
+            'path_image_desktop_content' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile_content' => 'uploads/tmp/port01_path_image_box.png',
+            'background_color_content' => '#FFFFFF',
         ];
     }
 }

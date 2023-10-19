@@ -13,7 +13,7 @@
             'linkMenu' => 'abou02.page',
             'iconMenu' => '',
             'titlePanel' => 'Sobre',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-information-variant'
         ],
         'IncludeSections' => (object) [
         ]

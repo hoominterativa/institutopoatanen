@@ -14,10 +14,10 @@ use App\Models\Abouts\ABOU02AboutsSectionTopic;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Abouts\ABOU02AboutsLastSection;
 use App\Models\Abouts\ABOU02AboutsSection;
+use App\Models\Abouts\ABOU02AboutsTopic;
 
 class ABOU02Controller extends Controller
 {
-    protected $path = 'uploads/Abouts/ABOU02/images/';
 
     /**
      * Display a listing of the resource.
@@ -26,17 +26,13 @@ class ABOU02Controller extends Controller
      */
     public function index()
     {
-        $about = ABOU02Abouts::with('topics')->first();
-        $banner = ABOU02AboutsBanner::first();
-        $sectionTopic = ABOU02AboutsSectionTopic::first();
-        $lastSection = ABOU02AboutsLastSection::first();
+        $about = ABOU02Abouts::first();
+        $topics = ABOU02AboutsTopic::sorting()->get();
         $section = ABOU02AboutsSection::first();
         return view('Admin.cruds.Abouts.ABOU02.edit', [
             'about' => $about,
-            'banner' => $banner,
-            'sectionTopic' => $sectionTopic,
-            'lastSection' => $lastSection,
             'section' => $section,
+            'topics' => $topics,
             'cropSetting' => getCropImage('Abouts', 'ABOU02')
         ]);
     }
@@ -81,20 +77,6 @@ class ABOU02Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Abouts\ABOU02Abouts  $ABOU02Abouts
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(ABOU02Abouts $ABOU02Abouts)
-    public function show()
-    {
-        //
-        return view('Client.pages.Abouts.ABOU02.show');
-    }
-
-    /**
      * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -102,31 +84,27 @@ class ABOU02Controller extends Controller
      */
     public function page(Request $request)
     {
+        $section = ABOU02AboutsSection::first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $banner = ABOU02AboutsBanner::active()->first();
-                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
-                break;
-            default:
-                $banner = ABOU02AboutsBanner::active()->first();
-                break;
+                if($section)
+                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
+                $section->path_image_desktop_content = $section->path_image_mobile_content;
+            break;
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU02');
 
-        $about = ABOU02Abouts::with(['topics' => function ($query) {$query->where('active', 1);}])->first();
-
-        $sectionTopic = ABOU02AboutsSectionTopic::active()->first();
-        $lastSection = ABOU02AboutsLastSection::active()->first();
+        $about = ABOU02Abouts::first();
+        $topics = ABOU02AboutsTopic::active()->sorting()->get();
 
         return view('Client.pages.Abouts.ABOU02.page',[
             'sections' => $sections,
-            'banner' => $banner,
             'about' => $about,
-            'sectionTopic' => $sectionTopic,
-            'lastSection' => $lastSection,
+            'topics' => $topics,
+            'section' => $section
         ]);
     }
 
@@ -137,12 +115,12 @@ class ABOU02Controller extends Controller
      */
     public static function section()
     {
-        $about = ABOU02Abouts::with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->first();
-        $section = ABOU02AboutsSection::active()->first();
+        $topics = ABOU02AboutsTopic::active()->featured()->sorting()->get();
+        $section = ABOU02AboutsSection::first();
 
         return view('Client.pages.Abouts.ABOU02.section', [
             'section' => $section,
-            'about' => $about,
+            'topics' => $topics
         ]);
     }
 }

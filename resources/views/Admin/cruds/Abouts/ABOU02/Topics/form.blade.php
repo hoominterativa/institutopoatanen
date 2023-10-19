@@ -9,16 +9,12 @@
         <div class="col-12 col-lg-6">
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
-                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                    {!! Form::label('title_box', 'Título do box', ['class'=>'form-label']) !!}
+                    {!! Form::text('title_box', null, ['class'=>'form-control', 'id'=>'title_box']) !!}
                 </div>
                 <div class="mb-3">
-                    {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
-                </div>
-                <div class="mb-3">
-                    {!! Form::label('message', 'Descrição', ['class'=>'form-label']) !!}
-                    {!! Form::textarea('description', null, [
+                    {!! Form::label('message', 'Descrição do box', ['class'=>'form-label']) !!}
+                    {!! Form::textarea('description_box', null, [
                         'class'=>'form-control',
                         'id'=>'message',
                         'data-parsley-trigger'=>'keyup',
@@ -28,6 +24,37 @@
                         'data-parsley-validation-threshold'=>'10',
                     ]) !!}
                 </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {!! Form::label('title', 'Título Interno', ['class'=>'form-label']) !!}
+                            {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                        </div>
+                        <div class="col-sm-6">
+                            {!! Form::label('subtitle', 'Subtítulo Interno', ['class'=>'form-label']) !!}
+                            {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="basic-editor__content mb-3">
+                        {!! Form::label('basic-editor', 'Texto Interno', ['class'=>'form-label']) !!}
+                        {!! Form::textarea('text', null, [
+                            'class'=>'form-control basic-editor',
+                            'id'=>'basic-editor',
+                        ]) !!}
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="mb-3 form-check me-3">
+                        {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                        {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+                    </div>
+                    <div class="mb-3 form-check me-3">
+                        {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
+                        {!! Form::label('featured', 'Destacar na home?', ['class' => 'form-check-label']) !!}
+                    </div>
+                </div>
             </div>
             {{-- end card-body --}}
         </div>
@@ -36,7 +63,25 @@
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem do box', ['class'=>'form-label']) !!}
+                        {!! Form::label('inputImage', 'Background do box', ['class'=>'form-label']) !!}
+                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Topic->path_image_box->width}}x{{$cropSetting->Topic->path_image_box->height}}px!</small>
+                        <label class="area-input-image-crop" for="inputImage">
+                            {!! Form::file('path_image_box', [
+                                'id'=>'inputImage',
+                                'class'=>'inputImage',
+                                'data-status'=>$cropSetting->Topic->path_image_box->activeCrop, // px
+                                'data-min-width'=>$cropSetting->Topic->path_image_box->width, // px
+                                'data-min-height'=>$cropSetting->Topic->path_image_box->height, // px
+                                'data-box-height'=>'225', // Input height in the form
+                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                'data-default-file'=> isset($topic)?($topic->path_image_box<>''?url('storage/'.$topic->path_image_box):''):'',
+                            ]) !!}
+                        </label>
+                    </div><!-- END container image crop -->
+                </div>
+                <div class="mb-3">
+                    <div class="container-image-crop">
+                        {!! Form::label('inputImage', 'Imagem interna', ['class'=>'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Topic->path_image->width}}x{{$cropSetting->Topic->path_image->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image', [
@@ -56,28 +101,6 @@
             {{-- end card-body --}}
         </div>
         {{-- end card --}}
-        <div class="col-12">
-            <div class="card card-body border" id="tooltip-container">
-                <div class="basic-editor__content mb-3">
-                    {!! Form::label('basic-editor', 'Texto', ['class'=>'form-label']) !!}
-                    {!! Form::textarea('text', null, [
-                        'class'=>'form-control basic-editor',
-                        'id'=>'basic-editor',
-                    ]) !!}
-                </div>
-
-            </div>
-        </div>
-        <div class="d-flex">
-            <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
-                {!! Form::label('featured', 'Destacar na home', ['class' => 'form-check-label']) !!}
-            </div>
-            <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
-        </div>
     </div>
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
         {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}

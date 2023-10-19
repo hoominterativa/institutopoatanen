@@ -15,10 +15,30 @@ class CreateAbou02AboutsSectionsTable extends Migration
     {
         Schema::create('abou02_abouts_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->text('description')->nullable();
-            $table->integer('active')->default(0);
+            //Section
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->text('description_section')->nullable();
+            //Banner
+            $table->string('title_banner')->nullable();
+            $table->string('subtitle_banner')->nullable();
+            $table->string('path_image_desktop_banner')->nullable();
+            $table->string('path_image_mobile_banner')->nullable();
+            $table->string('background_color_banner')->nullable();
+            //Section topics
+            $table->string('title_topics')->nullable();
+            $table->string('subtitle_topics')->nullable();
+            //Content
+            $table->string('title_content')->nullable();
+            $table->string('subtitle_content')->nullable();
+            $table->text('description_content')->nullable();
+            $table->string('title_button_content')->nullable();
+            $table->string('link_button_content')->nullable();
+            $table->enum('target_link_button_content', ['_self', '_blank'])->default('_self');
+            $table->string('path_image_content')->nullable();
+            $table->string('path_image_desktop_content')->nullable();
+            $table->string('path_image_mobile_content')->nullable();
+            $table->string('background_color_content')->nullable();
             $table->timestamps();
         });
     }

@@ -3,10 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Abouts\ABOU02TopicController;
-use App\Http\Controllers\Abouts\ABOU02BannerController;
 use App\Http\Controllers\Abouts\ABOU02SectionController;
-use App\Http\Controllers\Abouts\ABOU02LastSectionController;
-use App\Http\Controllers\Abouts\ABOU02SectionTopicController;
 
 /**
  * Uncomment the code below
@@ -29,18 +26,14 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/banner', ABOU02BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'ABOU02AboutsBanner']);
 
     Route::resource($route.'/topicos', ABOU02TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'ABOU02AboutsTopic']);
     Route::post($route.'/topico/delete', [ABOU02TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [ABOU02TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
 
-    Route::resource($route.'/secaotopico', ABOU02SectionTopicController::class)->names('admin.'.$routeName.'.section.topic')->parameters(['secaotopico' => 'ABOU02AboutsSectionTopic']);
-
-    Route::resource($route.'/ultimasecao', ABOU02LastSectionController::class)->names('admin.'.$routeName.'.last.section')->parameters(['ultimasecao' => 'ABOU02AboutsLastSection']);
-
+    Route::resource($route.'/secao-topicos', ABOU02SectionController::class)->names('admin.'.$routeName.'.section-topics')->parameters(['secao-topicos' => 'ABOU02AboutsSection']);
+    Route::resource($route.'/banner', ABOU02SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'ABOU02AboutsSection']);
+    Route::resource($route.'/conteudo', ABOU02SectionController::class)->names('admin.'.$routeName.'.content')->parameters(['conteudo' => 'ABOU02AboutsSection']);
     Route::resource($route.'/secao', ABOU02SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'ABOU02AboutsSection']);
 
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

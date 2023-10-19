@@ -32,10 +32,14 @@ class ABOU02TopicController extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
+
         if(ABOU02AboutsTopic::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Session::flash('error', 'Erro ao cadastradar o tópico');
         }
         return redirect()->back();
@@ -56,6 +60,16 @@ class ABOU02TopicController extends Controller
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
 
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box){
+            storageDelete($ABOU02AboutsTopic, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
+        }
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($ABOU02AboutsTopic, 'path_image_box');
+            $data['path_image_box'] = null;
+        }
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($ABOU02AboutsTopic, 'path_image');
@@ -70,6 +84,7 @@ class ABOU02TopicController extends Controller
             Session::flash('success', 'Tópico atualizado com sucesso');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Session::flash('error', 'Erro ao atualizar a tópico');
         }
         return redirect()->back();
@@ -84,6 +99,7 @@ class ABOU02TopicController extends Controller
     public function destroy(ABOU02AboutsTopic $ABOU02AboutsTopic)
     {
         storageDelete($ABOU02AboutsTopic, 'path_image');
+        storageDelete($ABOU02AboutsTopic, 'path_image_box');
 
         if($ABOU02AboutsTopic->delete()){
             Session::flash('success', 'Tópico deletado com sucessso');
@@ -103,6 +119,7 @@ class ABOU02TopicController extends Controller
         $ABOU02AboutsTopics = ABOU02AboutsTopic::whereIn('id', $request->deleteAll)->get();
         foreach($ABOU02AboutsTopics as $ABOU02AboutsTopic){
             storageDelete($ABOU02AboutsTopic, 'path_image');
+            storageDelete($ABOU02AboutsTopic, 'path_image_box');
         }
 
         if($deleted = ABOU02AboutsTopic::whereIn('id', $request->deleteAll)->delete()){

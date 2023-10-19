@@ -33,6 +33,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Informações para home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será apresentada na home, junto com os tópicos em destaque"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Banner
@@ -51,21 +60,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#lastSection" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#sectionTopics" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Seção adicional
+                            Seção adicional tópicos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esta seção será apresentada abaixo da seção Tópicos"></i>
+                                data-bs-original-title="Cadastro de informações complementares, que serão apresentadas junto com tópicos na página"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Informações para home
+                            Conteúdo
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esta seção será apresentada na home, junto com os tópicos em destaque"></i>
+                                data-bs-original-title="Esta seção será apresentada abaixo da seção Tópicos"></i>
                         </a>
                     </li>
                 </ul>
@@ -74,22 +83,22 @@
                     <div class="tab-pane show active" id="about">
                         @include('Admin.cruds.Abouts.ABOU02.form')
                     </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Abouts.ABOU02.Section.form')
+                    </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Abouts.ABOU02.Banner.form')
                     </div>
                     <div class="tab-pane" id="topics">
-                        @if ($about)
-                            @include('Admin.cruds.Abouts.ABOU02.Topics.index', [
-                                'about' => $about,
-                                'topics' => $about->topics,
-                            ])
-                        @endif
+                        @include('Admin.cruds.Abouts.ABOU02.Topics.index', [
+                            'topics' => $topics,
+                        ])
                     </div>
-                    <div class="tab-pane" id="lastSection">
-                        @include('Admin.cruds.Abouts.ABOU02.LastSection.form')
+                    <div class="tab-pane" id="sectionTopics">
+                        @include('Admin.cruds.Abouts.ABOU02.SectionTopics.form')
                     </div>
-                    <div class="tab-pane" id="section">
-                        @include('Admin.cruds.Abouts.ABOU02.Section.form')
+                    <div class="tab-pane" id="content">
+                        @include('Admin.cruds.Abouts.ABOU02.Content.form')
                     </div>
                 </div>
             </div>

@@ -16,7 +16,9 @@ class ABOU02AboutsTopic extends Model
     }
 
     protected $table = "abou02_abouts_topics";
-    protected $fillable = ['title', 'subtitle', 'description', 'text', 'path_image', 'active', 'sorting', 'about_id', 'featured'];
+    protected $fillable = [
+        'title_box', 'description_box', 'path_image_box',
+        'title', 'subtitle', 'path_image', 'text', 'active', 'sorting', 'featured'];
 
     public function scopeSorting($query)
     {

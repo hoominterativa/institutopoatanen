@@ -3,13 +3,13 @@
 {{-- BEGIN Page content --}}
 <div id="ABOU02" class="abou02-page">
     <section class="container-fluid px-0">
-        @if ($banner)
-            <header class="abou02-page__header" style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{ $banner->background_color }};">
+        @if ($section)
+            <header class="abou02-page__header" style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
                 <div class="abou02-page__header__mask"></div>
-                @if ($banner->title || $banner->subtitle)
+                @if ($section->title_banner || $section->subtitle_banner)
                     <h2 class="container container--abou02-header d-block text-center">
-                        <span class="abou02-page__header__title d-block">{{$banner->title}}</span>
-                        <span class="abou02-page__header__subtitle d-block text-uppercase">{{$banner->subtitle}}</span>
+                        <span class="abou02-page__header__title d-block">{{$section->title_banner}}</span>
+                        <span class="abou02-page__header__subtitle d-block text-uppercase">{{$section->subtitle_banner}}</span>
                         <hr class="abou02-page__header__line mb-0">
                     </h2>
                 @endif
@@ -39,14 +39,14 @@
         @endif
     </section>
     {{-- END .abou02-page__content --}}
-    @if ($about->topics)
+    @if ($topics->count())
         <section class="abou02-page__topic container-fluid px-0" style="background-image: url({{asset('storage/uploads/tmp/bg-section-dark-gray.jpg')}})">
             <div class="container container--abou02-page__topic">
-                @if ($sectionTopic)
+                @if ($section)
                     <h2 class="abou02-page__topic__encompass d-block text-center">
-                        @if ($sectionTopic->title || $sectionTopic->subtitle)
-                            <span class="abou02-page__topic__encompass__title d-block">{{$sectionTopic->title}}</span>
-                            <span class="abou02-page__topic__encompass__subtitle mb-0 d-block">{{$sectionTopic->subtitle}}</span>
+                        @if ($section->title_topics || $section->subtitle_topics)
+                            <span class="abou02-page__topic__encompass__title d-block">{{$section->title_topics}}</span>
+                            <span class="abou02-page__topic__encompass__subtitle mb-0 d-block">{{$section->subtitle_topics}}</span>
                             <hr class="abou02-page__topic__encompass__line">
                         @endif
                     </h2>
@@ -54,25 +54,25 @@
                 {{-- END .abou02-page__topic__encompass --}}
                 <div class="abou02-page__topic__content">
                     <div class="carousel-abou02-topic owl-carousel">
-                        @foreach ($about->topics as $topic )
+                        @foreach ($topics as $topic )
                             <article class="abou02-page__topic__item w-100">
-                                <a rel="next" href="" data-fancybox="{{$topic->title}}" data-src="#lightbox-abou02-1-{{$topic->id}}">
+                                <a rel="next" href="" data-fancybox="{{$topic->title}}" data-src="#lightbox-abou02-{{$topic->id}}">
                                     <div class="abou02-page__topic__item_content transition w-100 h-100">
                                         <div class="abou02-page__topic__header position-relative w-100 h-100">
-                                            @if ($topic->path_image)
+                                            @if ($topic->path_image_box)
                                                 <div class="abou02-page__topic__image w-100 h-100">
-                                                    <img src="{{asset('storage/' . $topic->path_image)}}" class="w-100 h-100" alt="Titulo Topico">
+                                                    <img src="{{asset('storage/' . $topic->path_image_box)}}" class="w-100 h-100" alt="Titulo Topico">
                                                 </div>
                                             @endif
                                             <div class="abou02-page__topic__description text-center flex-column w-100 h-100 position-absolute d-flex justify-content-end align-items-center">
-                                                @if ($topic->title)
-                                                    <h3 class="abou02-page__topic__title">{{$topic->title}}</h3>
+                                                @if ($topic->title_box)
+                                                    <h3 class="abou02-page__topic__title">{{$topic->title_box}}</h3>
                                                 @endif
-                                                <div class="abou02-page__topic__paragraph">
-                                                    @if ($topic->description)
-                                                        <p>{!! $topic->description !!}</p>
-                                                    @endif
-                                                </div>
+                                                @if ($topic->description_box)
+                                                    <div class="abou02-page__topic__paragraph">
+                                                        <p>{!! $topic->description_box !!}</p>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                         @include('Client.pages.Abouts.ABOU02.show', [
@@ -90,37 +90,37 @@
         </section>
     @endif
     {{-- END .abou02-page__topic --}}
-    @if ($lastSection)
+    @if ($section)
         <section class="abou02-page__section container-fluid px-0">
             <div class="container container--abou02-page__section">
                 <div class="row abou02-page__section__row align-items-center">
-                    @if ($lastSection->path_image)
+                    @if ($section->path_image_content)
                         <div class="abou02-page__section__image col-12 col-md-5 m-0">
-                            <img class="w-100 h-100" src="{{asset('storage/' . $lastSection->path_image)}}"  width="430" alt="Titulo">
+                            <img class="w-100 h-100" src="{{asset('storage/' . $section->path_image_content)}}"  width="430" alt="Titulo">
                         </div>
                     @endif
                     <div class="col-12 col-md-7 abou02-page__section__description">
-                        @if ($lastSection->title||$lastSection->subtitle)
+                        @if ($section->title_content||$section->subtitle_content)
                             <h2 class="abou02-page__section__encompass_title d-block">
-                                <span class="abou02-page__section__title d-block">{{$lastSection->title}}</span>
-                                <span class="abou02-page__section__subtitle d-block">{{$lastSection->subtitle}}</span>
+                                <span class="abou02-page__section__title d-block">{{$section->title_content}}</span>
+                                <span class="abou02-page__section__subtitle d-block">{{$section->subtitle_content}}</span>
                                 <hr class="abou02-page__section__line">
                             </h2>
                         @endif
-                        @if ($lastSection->description)
+                        @if ($section->description_content)
                             <div class="abou02-page__section__paragraph">
                                 <p>
-                                    {!! $lastSection->description !!}
+                                    {!! $section->description_content !!}
                                 </p>
                             </div>
                         @endif
-                        @if ($lastSection->link_button || $lastSection->title_button)
-                        <a href="{{ $lastSection->link_button ? getUri($lastSection->link_button) : 'javascript:void(0)' }}" target="{{ $lastSection->target_link_button }}" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02-page__section__cta__icon me-3 transition">
-                            @if ($lastSection->title_button)
-                                {{$lastSection->title_button}}
-                            @endif
-                        </a>
+                        @if ($section->link_button_content)
+                            <a href="{{ $section->link_button_content ? getUri($section->link_button_content) : 'javascript:void(0)' }}" target="{{ $section->target_link_button_content }}" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
+                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02-page__section__cta__icon me-3 transition">
+                                @if ($section->title_button_content)
+                                    {{$section->title_button_content}}
+                                @endif
+                            </a>
                         @endif
                     </div>
                 </div>

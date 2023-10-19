@@ -10,12 +10,7 @@
                         </div>
                         <div class="col-6">
                             <a href="javascript:void(0)" data-bs-target="#modal-topic-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                            <button class="btn btn-warning float-end me-2" type="button" data-bs-toggle="collapse" data-bs-target="#sectionTopic" aria-expanded="false" aria-controls="collapseExample"> Informações adicionais </button>
                         </div>
-                    </div>
-
-                    <div class="collapse bg-light p-3 mb-3" id="sectionTopic">
-                        @include('Admin.cruds.Abouts.ABOU02.SectionTopic.form')
                     </div>
 
                     <table class="table table-bordered table-sortable">
@@ -42,8 +37,9 @@
                                         <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                     </td>
                                     <td class="align-middle avatar-group">
-                                        @if ($topic->path_image)
+                                        @if ($topic->path_image || $topic->path_image_box)
                                             <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$topic->path_image)}})"></div>
+                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$topic->path_image_box)}})"></div>
                                         @endif
                                     </td>
                                     <td class="align-middle">{{$topic->title}} <b>/</b> {{$topic->subtitle}}</td>
@@ -71,7 +67,7 @@
 
                                             {{-- BEGIN MODAL TOPIC UPDATE --}}
                                             <div id="modal-topic-update-{{$topic->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog" style="max-width: 900px;">
+                                                <div class="modal-dialog" style="max-width: 1100px;">
                                                     <div class="modal-content">
                                                         <div class="modal-header p-3 pt-2 pb-2">
                                                             <h4 class="page-title">Atualizar Tópicos</h4>
@@ -80,7 +76,6 @@
 
                                                         <div class="modal-body p-3 pt-0 pb-3">
                                                             @include('Admin.cruds.Abouts.ABOU02.Topics.form',[
-                                                                'about' => $about,
                                                                 'topic' => $topic
                                                             ])
                                                         </div>
@@ -104,7 +99,7 @@
 
 {{-- BEGIN MODAL TOPIC CREATE --}}
 <div id="modal-topic-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 900px;">
+    <div class="modal-dialog" style="max-width: 1100px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
                 <h4 class="page-title">Cadastrar Tópicos</h4>
@@ -113,7 +108,6 @@
 
             <div class="modal-body p-3 pt-0 pb-3">
                 @include('Admin.cruds.Abouts.ABOU02.Topics.form',[
-                    'about' => $about,
                     'topic' => null
                 ])
             </div>

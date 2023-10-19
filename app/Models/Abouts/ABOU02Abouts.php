@@ -18,9 +18,4 @@ class ABOU02Abouts extends Model
     protected $table = "abou02_abouts";
     protected $fillable = ['title', 'subtitle', 'text'];
 
-    public function topics()
-    {
-        return $this->hasMany(ABOU02AboutsTopic::class, 'about_id')->sorting();
-    }
-
 }

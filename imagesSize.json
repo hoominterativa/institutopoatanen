@@ -72,29 +72,43 @@
             }
         },
         "ABOU02": {
-            "Banner": {
-                "path_image_desktop": {
+            "Section": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "352",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "290",
                     "activeCrop": "true"
+                },
+                "path_image_desktop_content": {
+                    "width": "1500",
+                    "height": "645",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_content": {
+                    "width": "390",
+                    "height": "971",
+                    "activeCrop": "true"
+                },
+                "path_image_content": {
+                    "width": "430",
+                    "height": "593",
+                    "activeCrop": "false"
                 }
+
             },
             "Topic": {
                 "path_image": {
                     "width": "676",
                     "height": "669",
                     "activeCrop": "false"
-                }
-            },
-            "LastSection": {
-                "path_image": {
-                    "width": "430",
-                    "height": "592",
+                },
+                "path_image_box": {
+                    "width": "327",
+                    "height": "447",
                     "activeCrop": "false"
                 }
             }
