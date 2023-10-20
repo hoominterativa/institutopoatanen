@@ -1747,6 +1747,42 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "SCHE02": {
+            "Banner": {
+                "path_image_desktop_banner": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                },
+                "path_image_banner": {
+                    "width": "274",
+                    "height": "92",
+                    "activeCrop": "false"
+                }
+            },
+            "Section": {
+                "path_image_desktop_section": {
+                    "width": "1500",
+                    "height": "270",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_section": {
+                    "width": "390",
+                    "height": "321",
+                    "activeCrop": "true"
+                },
+                "path_image_section": {
+                    "width": "551",
+                    "height": "757",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
 

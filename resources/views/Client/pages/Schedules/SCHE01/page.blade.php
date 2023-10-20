@@ -32,8 +32,7 @@
                             @foreach ($schedules as $schedule)
                                 <article class="sche01-page__cont__item d-flex flex-column">
                                     <header class="sche01-page__cont__item__header w-100 d-flex flex-row">
-                                        <div
-                                            class="sche01-page__cont__item__date d-flex flex-column align-items-center justify-content-center">
+                                        <div class="sche01-page__cont__item__date d-flex flex-column align-items-center justify-content-center">
                                             <span class="sche01-page__cont__item__day">{{Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%d')}}</span>
                                             <span class="sche01-page__cont__item__month">{{Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%B')}}</span>
                                             <span class="sche01-page__cont__item__year">{{Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%Y')}}</span>
