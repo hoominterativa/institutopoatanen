@@ -3,12 +3,9 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Abouts\ABOU04TopicController;
-use App\Http\Controllers\Abouts\ABOU04BannerController;
 use App\Http\Controllers\Abouts\ABOU04GalleryController;
 use App\Http\Controllers\Abouts\ABOU04SectionController;
 use App\Http\Controllers\Abouts\ABOU04CategoryController;
-use App\Http\Controllers\Abouts\ABOU04SectionTopicController;
-use App\Http\Controllers\Abouts\ABOU04SectionGalleryController;
 
 /**
  * Uncomment the code below
@@ -32,11 +29,10 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
 
-    Route::resource($route.'/banner', ABOU04BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'ABOU04AboutsBanner']);
-
+    Route::resource($route.'/banner', ABOU04SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'ABOU04AboutsSection']);
+    Route::resource($route.'/secao-topicos', ABOU04SectionController::class)->names('admin.'.$routeName.'.section-topics')->parameters(['secao-topicos' => 'ABOU04AboutsSection']);
     Route::resource($route.'/secao', ABOU04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'ABOU04AboutsSection']);
-
-    Route::resource($route.'/secaogaleria', ABOU04SectionGalleryController::class)->names('admin.'.$routeName.'.sectionGallery')->parameters(['secaogaleria' => 'ABOU04AboutsSectionGallery']);
+    Route::resource($route.'/secao-galerias', ABOU04SectionController::class)->names('admin.'.$routeName.'.section-gallery')->parameters(['secao-galerias' => 'ABOU04AboutsSection']);
 
     Route::resource($route.'/galeria', ABOU04GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'ABOU04AboutsGallery']);
     Route::post($route.'/galeria/delete', [ABOU04GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
@@ -50,7 +46,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/delete', [ABOU04CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [ABOU04CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
-    Route::resource($route.'/secaotopico', ABOU04SectionTopicController::class)->names('admin.'.$routeName.'.sectionTopic')->parameters(['secaotopico' => 'ABOU04AboutsSectionTopic']);
+
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

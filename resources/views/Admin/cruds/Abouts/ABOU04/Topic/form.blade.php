@@ -5,7 +5,7 @@
     {!! Form::model(null, ['route' => ['admin.abou04.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
 @endif
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-lg-6">
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
@@ -17,12 +17,21 @@
                         'class'=>'form-control',
                         'id'=>'description',
                         'data-parsley-trigger'=>'keyup',
-                        'data-parsley-minlength'=>'20',
                         'data-parsley-maxlength'=>'900',
                         'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                         'data-parsley-validation-threshold'=>'10',
                     ]) !!}
                 </div>
+            </div>
+            <div class="d-flex">
+                <div class="form-check me-3">
+                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                    {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Imagem do ícone', ['class' => 'form-label']) !!}
@@ -45,12 +54,6 @@
                             ]) !!}
                         </label>
                     </div><!-- END container image crop -->
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="form-check me-3">
-                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                    {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
                 </div>
             </div>
             {{-- end card-body --}}

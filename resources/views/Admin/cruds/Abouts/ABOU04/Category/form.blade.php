@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3 form-check me-3">
                 {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
+                {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
             </div>
         </div>
     </div>

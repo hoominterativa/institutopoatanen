@@ -9,7 +9,6 @@
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)" data-bs-target="#modal-gallery-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                        <a href="javascript:void(0)" data-bs-target="#modal-sectionGallery-create" data-bs-toggle="modal" class="btn btn-warning float-end me-2">Informações adicionais <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -109,23 +108,4 @@
     </div>
 </div>
 {{-- END MODAL GALLERIES CREATE --}}
-
-{{-- BEGIN MODAL SECTION CREATE --}}
-<div id="modal-sectionGallery-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 900px;">
-        <div class="modal-content">
-            <div class="modal-header p-3 pt-2 pb-2">
-                <h4 class="page-title">Cadastrar Informações</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Abouts.ABOU04.Gallery.Section.form', [
-                    'sectionGallery' => $sectionGallery?? null,
-                ])
-            </div>
-        </div>
-    </div>
-</div>
-{{-- END MODAL SECTION CREATE --}}
 

@@ -26,28 +26,47 @@ class ABOU04SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['link_button_galleries'] = isset($data['link_button_galleries']) ? getUri($data['link_button_galleries']) : null;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        //Section
+        $path_image_section = $helper->optimizeImage($request, 'path_image_section', $this->path, null,100);
+        if($path_image_section) $data['path_image_section'] = $path_image_section;
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
+        $path_image_desktop_section = $helper->optimizeImage($request, 'path_image_desktop_section', $this->path, null,100);
+        if($path_image_desktop_section) $data['path_image_desktop_section'] = $path_image_desktop_section;
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+        $path_image_mobile_section = $helper->optimizeImage($request, 'path_image_mobile_section', $this->path, null,100);
+        if($path_image_mobile_section) $data['path_image_mobile_section'] = $path_image_mobile_section;
+
+        //Banner
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+
+        // Section topics
+        $path_image_desktop_topics = $helper->optimizeImage($request, 'path_image_desktop_topics', $this->path, null,100);
+        if($path_image_desktop_topics) $data['path_image_desktop_topics'] = $path_image_desktop_topics;
+
+        $path_image_mobile_topics = $helper->optimizeImage($request, 'path_image_mobile_topics', $this->path, null,100);
+        if($path_image_mobile_topics) $data['path_image_mobile_topics'] = $path_image_mobile_topics;
 
 
 
         if(ABOU04AboutsSection::create($data)){
             Session::flash('success', 'Seção cadastrada com sucesso');
         }else{
-            Storage::delete($path_image);
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_section);
+            Storage::delete($path_image_desktop_section);
+            Storage::delete($path_image_mobile_section);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Storage::delete($path_image_desktop_topics);
+            Storage::delete($path_image_mobile_topics);
             Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -62,44 +81,90 @@ class ABOU04SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['link_button_galleries'] = isset($data['link_button_galleries']) ? getUri($data['link_button_galleries']) : null;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($ABOU04AboutsSection, 'path_image');
-            $data['path_image'] = $path_image;
+        //Section
+        $path_image_section = $helper->optimizeImage($request, 'path_image_section', $this->path, null,100);
+        if($path_image_section){
+            storageDelete($ABOU04AboutsSection, 'path_image_section');
+            $data['path_image_section'] = $path_image_section;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($ABOU04AboutsSection, 'path_image');
-            $data['path_image'] = null;
-        }
-
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop){
-            storageDelete($ABOU04AboutsSection, 'path_image_desktop');
-            $data['path_image_desktop'] = $path_image_desktop;
-        }
-        if($request->delete_path_image_desktop && !$path_image_desktop){
-            storageDelete($ABOU04AboutsSection, 'path_image_desktop');
-            $data['path_image_desktop'] = null;
+        if($request->delete_path_image_section && !$path_image_section){
+            storageDelete($ABOU04AboutsSection, 'path_image_section');
+            $data['path_image_section'] = null;
         }
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile){
-            storageDelete($ABOU04AboutsSection, 'path_image_mobile');
-            $data['path_image_mobile'] = $path_image_mobile;
+        $path_image_desktop_section = $helper->optimizeImage($request, 'path_image_desktop_section', $this->path, null,100);
+        if($path_image_desktop_section){
+            storageDelete($ABOU04AboutsSection, 'path_image_desktop_section');
+            $data['path_image_desktop_section'] = $path_image_desktop_section;
         }
-        if($request->delete_path_image_mobile && !$path_image_mobile){
-            storageDelete($ABOU04AboutsSection, 'path_image_mobile');
-            $data['path_image_mobile'] = null;
+        if($request->delete_path_image_desktop_section && !$path_image_desktop_section){
+            storageDelete($ABOU04AboutsSection, 'path_image_desktop_section');
+            $data['path_image_desktop_section'] = null;
+        }
+
+        $path_image_mobile_section = $helper->optimizeImage($request, 'path_image_mobile_section', $this->path, null,100);
+        if($path_image_mobile_section){
+            storageDelete($ABOU04AboutsSection, 'path_image_mobile_section');
+            $data['path_image_mobile_section'] = $path_image_mobile_section;
+        }
+        if($request->delete_path_image_mobile_section && !$path_image_mobile_section){
+            storageDelete($ABOU04AboutsSection, 'path_image_mobile_section');
+            $data['path_image_mobile_section'] = null;
+        }
+        //Banner
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($ABOU04AboutsSection, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($ABOU04AboutsSection, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($ABOU04AboutsSection, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($ABOU04AboutsSection, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
+
+        //Section Topics
+        $path_image_desktop_topics = $helper->optimizeImage($request, 'path_image_desktop_topics', $this->path, null,100);
+        if($path_image_desktop_topics){
+            storageDelete($ABOU04AboutsSection, 'path_image_desktop_topics');
+            $data['path_image_desktop_topics'] = $path_image_desktop_topics;
+        }
+        if($request->delete_path_image_desktop_topics && !$path_image_desktop_topics){
+            storageDelete($ABOU04AboutsSection, 'path_image_desktop_topics');
+            $data['path_image_desktop_topics'] = null;
+        }
+
+        $path_image_mobile_topics = $helper->optimizeImage($request, 'path_image_mobile_topics', $this->path, null,100);
+        if($path_image_mobile_topics){
+            storageDelete($ABOU04AboutsSection, 'path_image_mobile_topics');
+            $data['path_image_mobile_topics'] = $path_image_mobile_topics;
+        }
+        if($request->delete_path_image_mobile_topics && !$path_image_mobile_topics){
+            storageDelete($ABOU04AboutsSection, 'path_image_mobile_topics');
+            $data['path_image_mobile_topics'] = null;
         }
 
         if($ABOU04AboutsSection->fill($data)->save()){
             Session::flash('success', 'Seção atualizada com sucesso');
         }else{
-            Storage::delete($path_image);
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_section);
+            Storage::delete($path_image_desktop_section);
+            Storage::delete($path_image_mobile_section);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Storage::delete($path_image_desktop_topics);
+            Storage::delete($path_image_mobile_topics);
             Session::flash('error', 'Erro ao atualizar a seção');
         }
         return redirect()->back();

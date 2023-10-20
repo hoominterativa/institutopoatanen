@@ -22,14 +22,30 @@ class ABOU04AboutsSectionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'subtitle' => $this->faker->text(10),
-            'description' => $this->faker->text(300),
-            'path_image' => 'uploads/tmp/image-pmg.png',
-            'path_image_desktop' => 'uploads/tmp/port01_path_image_section.jpg',
-            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#FFFFFF',
-            'active' => 1,
+            //Section
+            'title_section' => $this->faker->text(10),
+            'subtitle_section' => $this->faker->text(10),
+            'description_section' => $this->faker->text(300),
+            'path_image_section' => 'uploads/tmp/image-pmg.png',
+            'path_image_desktop_section' => 'uploads/tmp/port01_path_image_section.jpg',
+            'path_image_mobile_section' => 'uploads/tmp/port01_path_image_box.png',
+            'background_color_section' => '#FFFFFF',
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile_banner' => 'uploads/tmp/gall01_image2.png',
+            'background_color_banner' => '#FFFFFF',
+            //Section Galleries
+            'title_galleries' => $this->faker->text(10),
+            'title_button_galleries' => $this->faker->text(10),
+            'description_galleries' => $this->faker->text(100),
+            'link_button_galleries' => $this->faker->url(),
+            'target_link_button_galleries' => '_blank',
+            //Section Topics
+            'path_image_desktop_topics' => 'uploads/tmp/gall01_image2.png',
+            'path_image_mobile_topics' => 'uploads/tmp/gall01_image1.png',
+            'background_color_topics' => '#FFFFFF',
         ];
     }
 }

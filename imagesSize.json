@@ -119,18 +119,6 @@
                 "height": "600",
                 "activeCrop": "false"
             },
-            "Banner": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "352",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "290",
-                    "activeCrop": "true"
-                }
-            },
             "Galleries": {
                 "path_image": {
                     "width": "300",
@@ -145,32 +133,40 @@
                     "activeCrop": "false"
                 }
             },
-            "SectionTopic": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "622",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
-                    "width": "1500",
-                    "height": "622",
-                    "activeCrop": "true"
-                }
-            },
             "Section": {
-                "path_image": {
+                "path_image_section": {
                     "width": "430",
                     "height": "592",
                     "activeCrop": "false"
                 },
-                "path_image_desktop": {
+                "path_image_desktop_section": {
                     "width": "1500",
                     "height": "622",
                     "activeCrop": "false"
                 },
-                "path_image_mobile": {
+                "path_image_mobile_section": {
                     "width": "1500",
                     "height": "622",
+                    "activeCrop": "true"
+                },
+                "path_image_desktop_topics": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_topics": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "true"
+                },
+                "path_image_desktop_banner": {
+                    "width": "1500",
+                    "height": "352",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "390",
+                    "height": "290",
                     "activeCrop": "true"
                 }
             }

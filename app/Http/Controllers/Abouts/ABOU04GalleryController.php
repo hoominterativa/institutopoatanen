@@ -26,8 +26,6 @@ class ABOU04GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
-
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
@@ -52,8 +50,6 @@ class ABOU04GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
-
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($ABOU04AboutsGallery, 'path_image');
@@ -65,7 +61,7 @@ class ABOU04GalleryController extends Controller
         }
 
         if($ABOU04AboutsGallery->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
+            Session::flash('success', 'Imagem atualizada com sucesso');
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar a imagem');

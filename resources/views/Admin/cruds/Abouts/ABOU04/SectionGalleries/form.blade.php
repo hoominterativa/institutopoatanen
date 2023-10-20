@@ -1,32 +1,24 @@
-@if ($sectionGallery)
-    {!! Form::model($sectionGallery, [
-        'route' => ['admin.abou04.sectionGallery.update', $sectionGallery->id],
-        'class' => 'parsley-validate',
-        'files' => true,
-    ]) !!}
+@if ($section)
+    {!! Form::model($section, ['route' => ['admin.abou04.section-gallery.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => 'admin.abou04.sectionGallery.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.abou04.section-gallery.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            <div class="alert alert-warning">
-                <p class="mb-0">Informações complementares para a seção galeria.</p>
+            <div class="mb-3">
+                {!! Form::label('title_galleries', 'Título', ['class'=>'form-label']) !!}
+                {!! Form::text('title_galleries', null, ['class'=>'form-control', 'id'=>'title_galleries']) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                {!! Form::textarea('description', null, [
+                {!! Form::label('description_galleries', 'Descrição', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description_galleries', null, [
                     'class'=>'form-control',
-                    'id'=>'description',
+                    'id'=>'description_galleries',
                     'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'250',
+                    'data-parsley-maxlength'=>'800',
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
@@ -84,33 +76,26 @@
                 </div> {{-- END .tab-content --}}
                 <div class="row">
                     <div class="mb-3">
-                        {!! Form::label('title_button', 'Título da botão', ['class' => 'form-label']) !!}
-                        {!! Form::text('title_button', null, ['class' => 'form-control', 'id' => 'title_button']) !!}
+                        {!! Form::label('title_button_galleries', 'Título da botão', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_button_galleries', null, ['class' => 'form-control', 'id' => 'title_button_galleries']) !!}
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button', (isset($sectionGallery) && isset($sectionGallery->link_button) ? getUri($sectionGallery->link_button) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button_galleries', (isset($section) && isset($section->link_button_galleries) ? getUri($section->link_button_galleries) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                      </div>
                     <div class="col-12 col-sm-4">
-                        {!! Form::label('target_link_button', 'Redirecionar para', ['class' => 'form-label']) !!}
-                        {!! Form::select('target_link_button', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, [
+                        {!! Form::label('target_link_button_galleries', 'Redirecionar para', ['class' => 'form-label']) !!}
+                        {!! Form::select('target_link_button_galleries', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, [
                             'class' => 'form-select',
-                            'id' => 'target_link_button',
+                            'id' => 'target_link_button_galleries',
                         ]) !!}
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
         </div>
         {{-- end card-body --}}
     </div>
 </div>
-
-<div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
-    {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
-</div>
+{!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+<a href="{{route('admin.dashboard')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
 {!! Form::close() !!}

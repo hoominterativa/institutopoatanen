@@ -30,26 +30,20 @@ class ABOU04Controller extends Controller
     public function index()
     {
         $about = ABOU04Abouts::first();
-        $banner = ABOU04AboutsBanner::first();
         $section = ABOU04AboutsSection::first();
         $galleries = ABOU04AboutsGallery::with('category')->sorting()->get();
         $categories = ABOU04AboutsCategory::exists()->sorting()->pluck('title', 'id');
         $categoryCreate = ABOU04AboutsCategory::sorting()->pluck('title', 'id');
         $galleryCategories = ABOU04AboutsCategory::sorting()->get();
-        $sectionGallery = ABOU04AboutsSectionGallery::first();
         $topics = ABOU04AboutsTopic::sorting()->get();
-        $sectionTopic = ABOU04AboutsSectionTopic::first();
         return view('Admin.cruds.Abouts.ABOU04.edit', [
             'about' => $about,
-            'banner' => $banner,
             'section' => $section,
             'galleries' => $galleries,
             'categories' => $categories,
             'galleryCategories' => $galleryCategories,
             'categoryCreate' => $categoryCreate,
-            'sectionGallery' => $sectionGallery,
             'topics' => $topics,
-            'sectionTopic' => $sectionTopic,
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }
@@ -136,18 +130,15 @@ class ABOU04Controller extends Controller
      */
     public function page(Request $request, ABOU04AboutsCategory $ABOU04AboutsCategory)
     {
+        $section = ABOU04AboutsSection::first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $banner = ABOU04AboutsBanner::active()->first();
-                if ($banner) {$banner->path_image_desktop = $banner->path_image_mobile;}
-                $sectionTopic = ABOU04AboutsSectionTopic::active()->first();
-                if ($sectionTopic) {$sectionTopic->path_image_desktop = $sectionTopic->path_image_mobile;}
+                if ($section)
+                $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+                $section->path_image_desktop_topics = $section->path_image_mobile_topics;
             break;
-            default:
-                $banner = ABOU04AboutsBanner::active()->first();
-                $sectionTopic = ABOU04AboutsSectionTopic::active()->first();
-            break;
+
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
@@ -155,17 +146,14 @@ class ABOU04Controller extends Controller
 
         $about = ABOU04Abouts::first();
         $categories = ABOU04AboutsCategory::with(['galleries' => function ($query) {$query->where('active', 1);}])->exists()->active()->sorting()->get();
-        $sectionGallery = ABOU04AboutsSectionGallery::active()->first();
         $topics = ABOU04AboutsTopic::active()->sorting()->get();
 
         return view('Client.pages.Abouts.ABOU04.page',[
             'sections' => $sections,
-            'banner' => $banner,
             'about' => $about,
             'categories' => $categories,
-            'sectionGallery' => $sectionGallery,
             'topics' => $topics,
-            'sectionTopic' => $sectionTopic,
+            'section' => $section
 
         ]);
     }
@@ -177,14 +165,12 @@ class ABOU04Controller extends Controller
      */
     public static function section()
     {
+        $section = ABOU04AboutsSection::first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = ABOU04AboutsSection::active()->first();
-                if ($section) {$section->path_image_desktop = $section->path_image_mobile;}
-            break;
-            default:
-                $section = ABOU04AboutsSection::active()->first();
+                if ($section)
+                $section->path_image_desktop_section = $section->path_image_mobile_section;
             break;
         }
         return view('Client.pages.Abouts.ABOU04.section', [

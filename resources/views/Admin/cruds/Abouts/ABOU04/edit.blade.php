@@ -31,15 +31,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Banner
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações para o banner da página"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#categories" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Categorias
@@ -58,6 +49,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#sectionGalleries" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Seção da galeria
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção adcional que será apresentada junto com a galeria"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#topics" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Tópicos
@@ -67,33 +67,57 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#sectionTopics" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Seção dos tópicos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção adcional que será apresentada junto com os tópicos"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Informações para home
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esta seção será apresentada na home, junto com os tópicos em destaque"></i>
+                                data-bs-original-title="Esta seção será apresentada na home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações para o banner da página"></i>
                         </a>
                     </li>
                 </ul>
 
                 <div class="tab-content">
+                    <div class="tab-pane show active" id="about">
+                        @include('Admin.cruds.Abouts.ABOU04.form')
+                    </div>
                     <div class="tab-pane" id="categories">
                         @include('Admin.cruds.Abouts.ABOU04.Category.index',[
                             'categories' => $galleryCategories
                         ])
                     </div>
-                    <div class="tab-pane show active" id="about">
-                        @include('Admin.cruds.Abouts.ABOU04.form')
-                    </div>
-                    <div class="tab-pane" id="banner">
-                        @include('Admin.cruds.Abouts.ABOU04.Banner.form')
-                    </div>
                     <div class="tab-pane" id="gallery">
                         @include('Admin.cruds.Abouts.ABOU04.Gallery.index')
                     </div>
+                    <div class="tab-pane" id="sectionGalleries">
+                        @include('Admin.cruds.Abouts.ABOU04.SectionGalleries.form')
+                    </div>
                     <div class="tab-pane" id="topics">
                         @include('Admin.cruds.Abouts.ABOU04.Topic.index')
+                    </div>
+                    <div class="tab-pane" id="sectionTopics">
+                        @include('Admin.cruds.Abouts.ABOU04.SectionTopics.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Abouts.ABOU04.Banner.form')
                     </div>
                     <div class="tab-pane" id="section">
                         @include('Admin.cruds.Abouts.ABOU04.Section.form')

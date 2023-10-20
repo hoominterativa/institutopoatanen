@@ -15,14 +15,30 @@ class CreateAbou04AboutsSectionsTable extends Migration
     {
         Schema::create('abou04_abouts_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->string('description')->nullable();
-            $table->string('path_image')->nullable();
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
-            $table->integer('active')->default(0);
+            //Section
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->string('description_section')->nullable();
+            $table->string('path_image_section')->nullable();
+            $table->string('path_image_desktop_section')->nullable();
+            $table->string('path_image_mobile_section')->nullable();
+            $table->string('background_color_section')->nullable();
+            //Banner
+            $table->string('title_banner')->nullable();
+            $table->string('subtitle_banner')->nullable();
+            $table->string('path_image_desktop_banner')->nullable();
+            $table->string('path_image_mobile_banner')->nullable();
+            $table->string('background_color_banner')->nullable();
+            //Section Galleries
+            $table->string('title_galleries')->nullable();
+            $table->text('description_galleries')->nullable();
+            $table->string('title_button_galleries')->nullable();
+            $table->string('link_button_galleries')->nullable();
+            $table->enum('target_link_button_galleries', ['_self', '_blank'])->default('_self');
+            //Section Topics
+            $table->string('path_image_desktop_topics')->nullable();
+            $table->string('path_image_mobile_topics')->nullable();
+            $table->string('background_color_topics')->nullable();
             $table->timestamps();
         });
     }

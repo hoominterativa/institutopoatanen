@@ -41,7 +41,6 @@
                                                     <label><input name="btnSelectAll" value="btnDeleteForm" type="checkbox"></label>
                                                 </th>
                                                 <th width="150px">E-mail Destinatário</th>
-                                                <th width="150px">Título</th>
                                                 <th width="150px">Página</th>
                                                 <th width="150px">Posição</th>
                                                 <th width="150px">Modelo</th>
@@ -56,7 +55,6 @@
                                                         <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$contactForm->id}}"></label>
                                                     </td>
                                                     <td>{{$contactForm->email}}</td>
-                                                    <td>{{$contactForm->section_title}}</td>
                                                     <td>{{$contactForm->page}}</td>
                                                     <td>
                                                         @switch($contactForm->position)

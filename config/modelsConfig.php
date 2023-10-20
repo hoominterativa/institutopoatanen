@@ -14,7 +14,25 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        
+        'Abouts' => (object) [
+            'ABOU04' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                    'config' => (object) [
+                    'titleMenu' => 'Sobre',
+                    'anchor' => false,
+                    'linkMenu' => 'abou04.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre',
+                    'iconPanel' => 'mdi-information'
+                    ],
+                'IncludeSections' => (object) [
+                ],
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[
@@ -23,7 +41,7 @@ return [
             'config' => (object) [
                 'title' => (object) ['name' => 'Título Seção', 'type' => 'text'],
                 'description' => (object) ['name' => 'Descrição Seção',  'type' => 'textarea'],
-                'path_image' => (object) ['name' => 'Imagem',  'type' => 'image'],
+                'path_image_content' => (object) ['name' => 'Imagem',  'type' => 'image'],
             ],
         ],
         'FORM02' => (object) [
