@@ -1,3 +1,157 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.sche02{
+   
+    &__main{
+        padding-top: 3.06rem;
+
+        &__box{
+            &__left{
+                &__header{
+                    &__title{
+                        color: $color-black;
+                        font-weight: $weight-700;
+                        font-size: $T1;
+                        font-family: $font-primary;
+                        line-height: 140%; /* 4.375rem */
+                        letter-spacing: 0.0125rem;
+                        margin-bottom: 1.56rem;
+
+                        @include medium-device-down{
+                            font-size: $T1-mobile;
+                        }
+                    }
+                    &__subtitle{
+                        font-size: $T4;
+                        font-weight: $weight-700;
+                        font-family: $font-primary;
+                        line-height: normal;
+                        margin-bottom: 1rem;
+
+                        @include medium-device-down{
+                            font-size: $T4-mobile;
+                        }
+                    }
+                    &_hr{
+                        background-color: $color-black;
+                    }
+                }
+                &__engDropdown{
+                    display: flex;
+
+                    &__dropdown{
+                        display: flex;
+
+                        &__aba{
+                            display: flex;
+                            justify-content: space-between;
+
+                            &__leftAba{
+                                width: 8.5625rem;
+                                min-height: 7.0625rem;
+                                background-color: #fff;
+                            }
+                            &__rightAba{
+                                width: 90%;
+                                min-height: 7.0625rem;
+                                background-color: #fff;
+                            }
+                        }
+                    }
+                }
+
+
+                &__btnEmphasis{
+                    margin-top:29px;
+                    margin-left: auto;
+            
+                    @include medium-device-down{
+                        margin: 0 auto;
+                        margin-top: 39px;
+                        transform: translate(-36%, 0);
+                    }
+                    a{
+                        @include Flex;
+                        color: $color-eight;
+                        background: $color-seven;
+                        width: 100%;
+                        max-width: 203px;
+                        min-width: 177px;
+                        height: 45px;
+                        font-family:$font-primary;
+                        font-weight: $weight-700;
+                        gap:0 14.58px;
+            
+                       @include medium-device-down{
+                            font: $paragraph-mobile;
+                            width: 147px;
+                        }
+            
+                        img{
+                            height: 25px !important;
+                            width: 25px !important;
+                            object-fit:contain;
+                        }
+            
+                        &:hover{
+                            color: $color-white;
+                            background-color: $color-black;
+            
+                            img{
+                                filter: invert(1) grayscale(1);
+                            }
+                        }
+            
+                    }
+            
+            
+                }
+            }
+            &__right{
+                &__image{
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+// FIM-SECTION
+.lipa{
+    &__banner{
+        &__close{
+
+        }
+        &__mask{
+    
+        }
+        &__left{
+            &__title{
+    
+            }
+            &__subtitle{
+                
+            }
+        }
+        &__right{
+            &__logo{
+                img{
+    
+                }
+            }
+        }
+    }
+    &__calendar{
+        
+    }
+}
+//FIM-PAGE
+.lish{
+
+}
+//FIM-SHOW
