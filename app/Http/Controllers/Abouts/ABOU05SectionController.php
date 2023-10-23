@@ -26,10 +26,6 @@ class ABOU05SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active_section'] = $request->active_section?1:0;
-        $data['active_banner'] = $request->active_banner?1:0;
-        $data['active_content'] = $request->active_content?1:0;
-
         //Section
         $path_image_desktop_section = $helper->optimizeImage($request, 'path_image_desktop_section', $this->path, null,100);
         if($path_image_desktop_section) $data['path_image_desktop_section'] = $path_image_desktop_section;
@@ -67,10 +63,6 @@ class ABOU05SectionController extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
-
-        $data['active_section'] = $request->active_section?1:0;
-        $data['active_banner'] = $request->active_banner?1:0;
-        $data['active_content'] = $request->active_content?1:0;
 
         //Section
         $path_image_desktop_section = $helper->optimizeImage($request, 'path_image_desktop_section', $this->path, null,100);

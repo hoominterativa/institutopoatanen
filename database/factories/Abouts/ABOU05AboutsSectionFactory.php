@@ -29,18 +29,15 @@ class ABOU05AboutsSectionFactory extends Factory
             'path_image_desktop_section' => 'uploads/tmp/box-branco.png',
             'path_image_mobile_section' => 'uploads/tmp/thumbnail.png',
             'background_color_section' => '#FFFFFF',
-            'active_section' => 1,
             //Banner
             'title_banner' => $this->faker->text(10),
             'subtitle_banner' => $this->faker->text(10),
             'path_image_desktop_banner' => 'uploads/tmp/box-branco.png',
             'path_image_mobile_banner' => 'uploads/tmp/thumbnail.png',
             'background_color_banner' => '#FFFFFF',
-            'active_banner' => 1,
             //Section Content
             'title_content' => $this->faker->text(10),
             'subtitle_content' => $this->faker->text(10),
-            'active_content' => 1,
         ];
     }
 }

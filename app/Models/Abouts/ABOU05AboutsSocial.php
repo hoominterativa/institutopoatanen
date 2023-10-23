@@ -27,8 +27,4 @@ class ABOU05AboutsSocial extends Model
     {
         return $query->where('active', 1);
     }
-
-    public function content(){
-        return $this->belongsTo(ABOU05AboutsContent::class,'content_id');
-    }
 }

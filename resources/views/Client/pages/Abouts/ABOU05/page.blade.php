@@ -8,11 +8,13 @@
                 <header class="abou05-page__header"
                 style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{$section->background_color_banner}};">
                     <div class="container container--abou05-header d-flex flex-column justify-content-center align-items-center">
-                        <h3 class="abou05-page__header__container d-flex flex-column justify-content-center align-items-center">
-                            <span class="abou05-page__header__title">{{$section->title_banner}}</span>
-                            <span class="abou05-page__header__subtitle">{{$section->subtitle_banner}}</span>
-                        </h3>
-                        <hr class="abou05-page__header__line">
+                        @if ($section->title_banner || $section->subtitle_banner)
+                            <h3 class="abou05-page__header__container d-flex flex-column justify-content-center align-items-center">
+                                <span class="abou05-page__header__title">{{$section->title_banner}}</span>
+                                <span class="abou05-page__header__subtitle">{{$section->subtitle_banner}}</span>
+                            </h3>
+                            <hr class="abou05-page__header__line">
+                        @endif
                     </div>
                 </header>
             @endif
@@ -26,11 +28,13 @@
                             </h2>
                             <hr class="abou05-page__content__line">
                         @endif
-                        <div class="abou05-page__content__paragraph">
-                            <p>
-                                {!! $about->text !!}
-                            </p>
-                        </div>
+                        @if ($about->text)
+                            <div class="abou05-page__content__paragraph">
+                                <p>
+                                    {!! $about->text !!}
+                                </p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endif
@@ -59,18 +63,20 @@
                                         @endif
                                     </div>
                                     <div class="abou05-page__section__box__description">
-                                            <h2 class="abou05-page__section__box__description__encompass d-block">
-                                                @if ($content->title || $content->subtitle)
+                                            @if ($content->title || $content->subtitle)
+                                                <h2 class="abou05-page__section__box__description__encompass d-block">
                                                     <span class="abou05-page__section__box__description__encompass__title d-block">{{$content->title}}</span>
                                                     <span class="abou05-page__section__box__description__encompass__subtitle d-block">{{$content->subtitle}}</span>
                                                     <hr class="abou05-page__section__box__description__encompass__line">
-                                                @endif
-                                            </h2>
-                                            <div class="abou05-page__section__box__description__paragraph">
-                                                <p>
-                                                    {!! $content->text !!}
-                                                </p>
-                                            </div>
+                                                </h2>
+                                            @endif
+                                            @if ($content->text)
+                                                <div class="abou05-page__section__box__description__paragraph">
+                                                    <p>
+                                                        {!! $content->text !!}
+                                                    </p>
+                                                </div>
+                                            @endif
                                             <a href="#lightbox-abou05-{{$content->id}}" data-fancybox class="abou05-page__section__box__description__cta transition justify-content-center align-items-center ms-auto">
                                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou05-page__section__cta__icon me-3 transition">
                                                 CTA

@@ -1,8 +1,6 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.abou05.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
-    {!! Form::hidden('active_banner', $section->active_banner) !!}
-    {!! Form::hidden('active_content', $section->active_content) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou04.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -10,14 +8,16 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('title_section', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title_section', null, ['class'=>'form-control', 'id'=>'title_section']) !!}
-                </div>
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('subtitle_section', 'Subtítulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle_section', null, ['class'=>'form-control', 'id'=>'subtitle_section']) !!}
+            <div class="mb-3">
+                <div class="row">
+                    <div class="mb-3 col-12 col-lg-6">
+                        {!! Form::label('title_section', 'Título', ['class'=>'form-label']) !!}
+                        {!! Form::text('title_section', null, ['class'=>'form-control', 'id'=>'title_section']) !!}
+                    </div>
+                    <div class="mb-3 col-12 col-lg-6">
+                        {!! Form::label('subtitle_section', 'Subtítulo', ['class'=>'form-label']) !!}
+                        {!! Form::text('subtitle_section', null, ['class'=>'form-control', 'id'=>'subtitle_section']) !!}
+                    </div>
                 </div>
             </div>
             <div class="normal-editor__content mb-3">
@@ -34,10 +34,6 @@
                     'class' => 'form-control colorpicker-default',
                     'id' => 'background_color_section',
                 ]) !!}
-            </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active_section', '1', null, ['class' => 'form-check-input', 'id' => 'active_section']) !!}
-                {!! Form::label('active_section', 'Ativar exibição da seção?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}

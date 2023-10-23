@@ -1,8 +1,6 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.abou05.banner.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
-    {!! Form::hidden('active_section', $section->active_section) !!}
-    {!! Form::hidden('active_content', $section->active_content) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou05.banner.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -10,14 +8,16 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('title_banner', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title_banner', null, ['class'=>'form-control', 'id'=>'title_banner']) !!}
-                </div>
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('subtitle_banner', 'Subtítulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle_banner', null, ['class'=>'form-control', 'id'=>'subtitle_banner']) !!}
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title_banner', 'Título', ['class'=>'form-label']) !!}
+                        {!! Form::text('title_banner', null, ['class'=>'form-control', 'id'=>'title_banner']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle_banner', 'Subtítulo', ['class'=>'form-label']) !!}
+                        {!! Form::text('subtitle_banner', null, ['class'=>'form-control', 'id'=>'subtitle_banner']) !!}
+                    </div>
                 </div>
             </div>
             {{-- Color Picker --}}
@@ -27,10 +27,6 @@
                     'class' => 'form-control colorpicker-default',
                     'id' => 'background_color_banner',
                 ]) !!}
-            </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}
-                {!! Form::label('active_banner', 'Ativar exibição da banner?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}

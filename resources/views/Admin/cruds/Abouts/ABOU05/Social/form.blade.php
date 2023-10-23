@@ -6,12 +6,20 @@
     <input type="hidden" name="content_id" value="{{ $content->id }}">
 @endif
     <div class="row">
-        <div class="col-12 border">
-            <div class="card card-body" id="tooltip-container">
+        <div class="col-12 col-lg-6">
+            <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
                     {!! Form::url('link', (isset($social) && isset($social->link) ? getUri($social->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                 </div>
+            </div>
+            <div class="mb-3 form-check">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Ativar exibição?', ['class'=>'form-check-label']) !!}
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Ícone', ['class' => 'form-label']) !!}
@@ -34,10 +42,6 @@
                             ]) !!}
                         </label>
                     </div><!-- END container image crop -->
-                </div>
-                <div class="mb-3 form-check">
-                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                    {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
                 </div>
             </div>
         </div>

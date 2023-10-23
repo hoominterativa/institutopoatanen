@@ -104,20 +104,18 @@ class ABOU05Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU05', 'page');
 
+        $section = ABOU05AboutsSection::first();
+        $about = ABOU05Abouts::first();
+        $contents = ABOU05AboutsContent::with(['socials' => function ($query) {$query->where('active', 1);}])->active()->sorting()->get();
+
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = ABOU05AboutsSection::activeSection()->first();
                 if($section)
                     $section->path_image_desktop_banner = $section->path_image_mobile_banner;
-                break;
-            default:
-                $section = ABOU05AboutsSection::activeSection()->first();
-                break;
+            break;
         }
 
-        $about = ABOU05Abouts::first();
-        $contents = ABOU05AboutsContent::with('socials')->active()->sorting()->get();
         return view('Client.pages.Abouts.ABOU05.page',[
             'sections' => $sections,
             'section' => $section,
@@ -133,16 +131,13 @@ class ABOU05Controller extends Controller
      */
     public static function section()
     {
+        $section = ABOU05AboutsSection::first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = ABOU05AboutsSection::activeSection()->first();
                 if($section)
                     $section->path_image_desktop_section = $section->path_image_mobile_section;
-                break;
-            default:
-                $section = ABOU05AboutsSection::activeSection()->first();
-                break;
+            break;
         }
 
         return view('Client.pages.Abouts.ABOU05.section',[

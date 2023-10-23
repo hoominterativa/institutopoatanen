@@ -2321,436 +2321,544 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.abou04 {
-  background-size: cover;
+.abou05 {
+  text-align: center;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 68px;
+  background-size: cover;
 }
-.abou04__main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
+.abou05 > .container {
+  padding: 80px 0;
 }
-@media (max-width: 575.98px) {
-  .abou04__main {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: end;
+@media (max-width: 767.98px) {
+  .abou05 > .container {
+    padding: 40px 0;
   }
 }
-.abou04__image {
-  width: 34%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center bottom;
-     object-position: center bottom;
-}
-@media (max-width: 575.98px) {
-  .abou04__image {
-    width: 100%;
-    margin-top: 59px;
-  }
-}
-.abou04__content {
-  width: 52%;
-}
-@media (max-width: 575.98px) {
-  .abou04__content {
-    width: 100%;
-  }
-}
-.abou04__title {
-  font-family: "Ubuntu", sans-serif, arial;
+.abou05__title {
   font-size: 2.5rem;
-  font-weight: 700;
-  color: #000;
-  text-align: left;
-}
-@media (max-width: 767.98px) {
-  .abou04__title {
-    font-size: 1.875rem;
-    text-align: center;
-  }
-}
-.abou04__subtitle {
   font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
   color: #404040;
-  text-align: left;
-  margin-bottom: 39px;
+  display: block;
 }
-@media (max-width: 767.98px) {
-  .abou04__subtitle {
-    font-size: 1.125rem;
-    text-align: center;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .abou05__title {
+    font-size: 1.875rem;
   }
 }
-.abou04__line {
-  width: 100%;
-  border-top: 1px solid #7c7c7c;
-  margin: 0 0 34px 0;
-  opacity: 1;
+.abou05__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  display: block;
 }
-.abou04__cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  align-self: end;
-  white-space: nowrap;
-  background-color: #fff;
-  padding: 10px 40px;
-  margin-top: 25px;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .abou05__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.abou05__line {
+  width: 100%;
+  background-color: #404040;
+  margin: 30px 0;
+}
+.abou05__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 500;
+  padding: 0 30px;
+  color: #404040;
+  line-height: 25px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .abou05__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.abou05__cta {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
-  color: #404040;
+  color: #000;
+  display: block;
+  margin: 30px auto 0;
+  max-width: 177px;
+  padding: 10px 15px;
+  background-color: #cacaca;
 }
-.abou04__cta:hover {
-  background-color: #404040;
+.abou05__cta:hover {
   color: #fff;
+  background-color: #000;
 }
-.abou04__cta__icon {
-  height: 25px;
-  width: 25px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-  transition: all 0.5s ease;
+.abou05__cta:hover .abou05__cta__icon {
+  filter: invert(1) grayscale(1);
 }
-.abou04__cta:hover .abou04__cta__icon {
-  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .abou05__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
 }
 
-.abou04-page {
-  width: 100%;
-}
-.abou04-page__banner {
+.abou05-page__header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 112px 0 92px 0;
-}
-.abou04-page__banner__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 3.125rem;
-  font-weight: 700;
-  line-height: 2.875rem;
-  color: #000;
-  text-align: center;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__banner__title {
-    font-size: 2.5rem;
-  }
-}
-.abou04-page__banner__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.315rem;
-  color: #7c7c7c;
-  text-align: center;
-  margin-bottom: 28px;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__banner__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou04-page__banner__line {
-  width: 95%;
-  max-width: 610px;
-  border-top: 1px solid #000;
-  margin: 0 auto;
-  opacity: 1;
-}
-.abou04-page__cont {
-  padding-top: 48px;
-}
-.abou04-page__cont__main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-}
-@media (max-width: 575.98px) {
-  .abou04-page__cont__main {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: end;
-  }
-}
-.abou04-page__cont__image {
-  width: 34%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center bottom;
-     object-position: center bottom;
-}
-@media (max-width: 575.98px) {
-  .abou04-page__cont__image {
-    width: 100%;
-    margin-top: 59px;
-  }
-}
-.abou04-page__cont__content {
-  width: 52%;
-}
-@media (max-width: 575.98px) {
-  .abou04-page__cont__content {
-    width: 100%;
-  }
-}
-.abou04-page__cont__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000;
-  text-align: left;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__cont__title {
-    font-size: 1.875rem;
-    text-align: center;
-  }
-}
-.abou04-page__cont__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #404040;
-  text-align: left;
-  margin-bottom: 39px;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__cont__subtitle {
-    font-size: 1.125rem;
-    text-align: center;
-  }
-}
-.abou04-page__cont__line {
-  width: 100%;
-  border-top: 1px solid #7c7c7c;
-  margin: 0 0 34px 0;
-  opacity: 1;
-}
-.abou04-page__gallery {
-  padding: 70px 0;
-  background-color: #cacaca;
-}
-.abou04-page__gallery__header {
-  margin-bottom: 70px;
-}
-.abou04-page__gallery__header__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #404040;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__gallery__header__title {
-    font-size: 1.875rem;
-  }
-}
-.abou04-page__gallery__header__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #404040;
-  margin-bottom: 39px;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__gallery__header__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou04-page__gallery__header__line {
-  width: 100%;
-  border-top: 1px solid #7c7c7c;
-  margin: 0 auto;
-  opacity: 1;
-}
-.abou04-page__gallery__list {
-  gap: 15px 11px;
-}
-.abou04-page__gallery__list__item {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: end;
-  width: calc(25% - 9px);
-  height: auto;
-  aspect-ratio: 319/288;
+  height: 352px;
   position: relative;
-  padding: 33px;
-  overflow: hidden;
 }
-@media (max-width: 991.98px) {
-  .abou04-page__gallery__list__item {
-    width: calc(33% - 5px);
-  }
-}
-@media (max-width: 767.98px) {
-  .abou04-page__gallery__list__item {
-    width: calc(50% - 5.5px);
-  }
-}
-@media (max-width: 575.98px) {
-  .abou04-page__gallery__list__item {
-    width: 100%;
-  }
-}
-.abou04-page__gallery__list__item__image {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
+.abou05-page__header .container--abou05-header {
   height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-.abou04-page__gallery__list__item__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #404040;
+  z-index: 100;
   position: relative;
-  z-index: 5;
+}
+.abou05-page__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.73);
+}
+.abou05-page__header__title {
+  font-size: 3.125rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #000;
+  margin-bottom: 25px;
+  font-weight: 700;
 }
 @media (max-width: 767.98px) {
-  .abou04-page__gallery__list__item__title {
+  .abou05-page__header__title {
+    font-size: 1.875rem;
+    margin-bottom: 0;
+  }
+}
+.abou05-page__header__subtitle {
+  font-size: 1.25rem;
+  color: #7c7c7c;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__header__subtitle {
     font-size: 1.125rem;
   }
 }
-.abou04-page__gallery__list__item__title::before {
-  content: "";
-  height: 25px;
-  width: 27px;
-  position: absolute;
-  left: -33px;
-  top: 0;
-  background-color: #404040;
+.abou05-page__header__line {
+  width: 100%;
+  margin-top: 28.81px;
 }
-.abou04-page__gallery__list__item__title::after {
-  content: "";
-  height: 1px;
-  width: 95px;
-  position: absolute;
-  left: -7px;
-  top: 24px;
-  background-color: #404040;
-}
-.abou04-page__gallery__cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  white-space: nowrap;
-  background-color: #b3b3b3;
-  padding: 10px 40px;
-  margin-top: 55px;
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-}
-.abou04-page__gallery__cta:hover {
-  background-color: #404040;
-  color: #b3b3b3;
-}
-.abou04-page__gallery__cta__icon {
-  height: 25px;
-  width: 25px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-  transition: all 0.5s ease;
-}
-.abou04-page__gallery__cta:hover .abou04-page__gallery__cta__icon {
-  filter: brightness(1) contrast(1) invert(1) grayscale(1);
-}
-.abou04-page__topics {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 125px 0;
-}
-.abou04-page__topics__list {
-  gap: 27px;
-}
-.abou04-page__topics__item {
-  gap: 27px;
-  width: calc(33% - 15px);
-  padding: 55px 30px 45px 30px;
-  background-color: #cacaca;
-}
-@media (max-width: 991.98px) {
-  .abou04-page__topics__item {
-    width: calc(50% - 15px);
+@media (max-width: 767.98px) {
+  .abou05-page__header__line {
+    margin-top: 25px;
+    margin-bottom: 21px;
   }
 }
-@media (max-width: 991.98px) {
-  .abou04-page__topics__item {
+.abou05-page__content {
+  padding: 51px 0 118px !important;
+  width: 71%;
+  text-align: center;
+  margin: 0 auto;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__content {
+    padding: 46px 0 81px !important;
     width: 100%;
   }
 }
-.abou04-page__topics__item__header {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
+.abou05-page__content__subtitle {
+  font-size: 1.25rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  margin-bottom: 1px;
+}
+.abou05-page__content__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+.abou05-page__content__line {
   width: 100%;
-  gap: 19px;
+  margin-top: 20.99px;
+  margin-bottom: 30.01px;
 }
-.abou04-page__topics__item__icon {
-  width: 32px;
-  height: auto;
-  aspect-ratio: 1/1;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-fit: center;
-     object-fit: center;
+.abou05-page__content__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #404040;
+  font-weight: 400;
 }
-.abou04-page__topics__item__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.875rem;
+.abou05-page__content__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #404040;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.abou05-page__content__paragraph ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  gap: 20px 0;
+}
+.abou05-page__content__paragraph ul li {
+  display: flex;
+  width: 50%;
+  min-width: 300px;
+  text-align: left;
+  align-items: flex-start;
+}
+.abou05-page__content__paragraph ul li:before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: flex;
+  background: #404040;
+  border-radius: 100%;
+  margin-right: 8px;
+  flex: none;
+  margin-top: 5px;
+}
+@media (max-width: 767.98px) {
+  .abou05-page .container--abou05-page {
+    padding: 46px 0 81px 0 !important;
+  }
+  .abou05-page__content_container {
+    margin-bottom: 0;
+  }
+  .abou05-page__content__subtitle {
+    font-size: 1.125rem;
+  }
+  .abou05-page__content__title {
+    font-size: 1.875rem;
+  }
+  .abou05-page__content__line {
+    margin-top: 25px;
+    margin-bottom: 21px;
+  }
+  .abou05-page__content__paragraph {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+    padding: 0 30px;
+  }
+  .abou05-page__content__paragraph p {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
+.abou05-page__section .container--abou05-page__section {
+  padding-top: 68.54px !important;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.abou05-page__section__box__encompass {
+  margin-bottom: 5rem;
+}
+.abou05-page__section__box__encompass > .container {
+  max-width: 90% !important;
+}
+.abou05-page__section__box__encompass__title {
+  font-size: 3.125rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #000;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__encompass__title {
+    font-size: 1.875rem;
+    margin-bottom: 0;
+  }
+}
+.abou05-page__section__box__encompass__subtitle {
+  font-size: 1.25rem;
+  color: #7c7c7c;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__encompass__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.abou05-page__section__box__encompass__line {
+  width: 100%;
+  margin-top: 28.81px;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__encompass__line {
+    margin-top: 25px;
+    margin-bottom: 21px;
+  }
+}
+.abou05-page__section__box .abou05-page__section__box__content > .container {
+  max-width: 90% !important;
+  padding-top: 4.25rem !important;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box .abou05-page__section__box__content > .container {
+    flex-direction: column-reverse !important;
+  }
+}
+.abou05-page__section__box .abou05-page__section__box__content:nth-of-type(even) {
+  background-color: #efefef;
+}
+.abou05-page__section__box .abou05-page__section__box__content:nth-of-type(even) > .container {
+  flex-direction: row-reverse;
+}
+.abou05-page__section__box__content {
+  background-color: #cacaca;
+  display: flex;
+}
+.abou05-page__section__box__image {
+  height: 592px;
+  width: 429px;
+  border-radius: 0px;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__image {
+    margin: 0 auto;
+    max-width: 26.875rem;
+    width: 100%;
+    height: 24.0625rem;
+  }
+}
+.abou05-page__section__box .abou05-page__section__box__content:nth-of-type(even) .abou05-page__section__box__description {
+  padding-left: 0;
+  padding-right: 170.46px;
+}
+.abou05-page__section__box__description {
+  padding-left: 170.46px;
+  padding-right: 0;
+  width: 64%;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__description {
+    order: 0;
+    padding: 0 !important;
+    margin-bottom: 49.43px;
+    width: 100%;
+  }
+}
+.abou05-page__section__box__description__encompass__title {
+  font-size: 2.5rem;
+  color: #000;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__description__encompass__title {
+    font-size: 1.875rem;
+    margin-bottom: 0;
+  }
+}
+.abou05-page__section__box__description__encompass__subtitle {
+  font-size: 1.25rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__description__encompass__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.abou05-page__section__box__description__encompass__line {
+  margin-top: 28.91px;
+  margin-bottom: 39px;
+}
+.abou05-page__section__box__description__paragraph {
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 400;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__description__paragraph {
+    font-family: "Montserrat", sans-serif, arial;
+  }
+}
+.abou05-page__section__box__description__paragraph p {
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .abou05-page__section__box__description__paragraph p {
+    font-family: "Montserrat", sans-serif, arial;
+  }
+}
+.abou05-page__section__box__description__cta {
+  font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   color: #000;
+  display: flex;
+  margin-top: 37px;
+  max-width: 177px;
+  padding: 10px 15px;
+  background-color: #cacaca;
+}
+.abou05-page__section__box__description__cta:hover {
+  color: #fff;
+  background-color: #000;
+}
+.abou05-page__section__box__description__cta:hover .abou05-page__section__cta__icon {
+  filter: invert(1) grayscale(1);
+}
+
+.abou05-page__section__box__content:nth-of-type(odd) .abou05-page__section__box__description__cta {
+  background-color: #efefef;
+  color: #000;
+}
+.abou05-page__section__box__content:nth-of-type(odd) .abou05-page__section__box__description__cta:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.lightbox-abou05 {
+  width: 100%;
+  display: none;
+  padding: 0;
+  padding-top: 170x;
+}
+.lightbox-abou05__content__carrossel {
+  position: relative;
+}
+.lightbox-abou05__description {
+  position: relative;
+  padding: 37px 71px 84px 54px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lightbox-abou05__description {
+    padding: 30px 35px;
+  }
+}
+.lightbox-abou05__encompass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lightbox-abou05__navigation {
+  align-self: end;
+  gap: 0 14px;
+  display: flex;
+}
+.lightbox-abou05__navigation a {
+  color: #404040;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+}
+.lightbox-abou05__navigation img {
+  width: 18px;
+  height: 18px;
+}
+.lightbox-abou05__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .lightbox-abou05__title {
+    font-size: 1.875rem;
+    text-align: left;
+  }
+}
+.lightbox-abou05__subtitle {
+  font-size: 1.25rem;
+  color: #404040;
+  font-family: "Montserrat", sans-serif, arial;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .lightbox-abou05__subtitle {
+    font-size: 1.125rem;
+    text-align: left;
+  }
+}
+.lightbox-abou05__line {
+  margin-top: 14px;
+  margin-bottom: 37px;
+}
+.lightbox-abou05__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #404040;
+  font-weight: 400;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lightbox-abou05__paragraph {
+    text-align: left;
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
+.lightbox-abou05__paragraph ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  gap: 20px 0;
+}
+.lightbox-abou05__paragraph ul li {
+  display: flex;
+  width: 50%;
+  min-width: 300px;
   text-align: left;
+  align-items: flex-start;
 }
-@media (max-width: 767.98px) {
-  .abou04-page__topics__item__title {
-    font-size: 1.563rem;
+.lightbox-abou05__paragraph ul li:before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: flex;
+  background: #404040;
+  border-radius: 100%;
+  margin-right: 8px;
+  flex: none;
+  margin-top: 5px;
+}
+.lightbox-abou05__cta {
+  margin-top: 74px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #b3b3b3;
+  max-width: 177px;
+  height: 56px;
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lightbox-abou05__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 64px;
   }
 }
-.abou04-page__topics__item__desc {
-  width: 100%;
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
+.lightbox-abou05__cta:hover {
+  color: #fff;
+  background-color: #000;
 }
-@media (max-width: 767.98px) {
-  .abou04-page__topics__item__desc {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
+.lightbox-abou05__cta:hover .lightbox-abou05__cta__icon {
+  filter: invert(1) grayscale(1);
 }
-.abou04-page__topics__item__desc p {
-  width: 100%;
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
+.lightbox-abou05 .carousel__button.is-close {
+  right: 17px;
+  top: 17px;
+  left: inherit;
+  width: 31px;
+  height: 31px;
+  background: #000000;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 11px;
 }
-@media (max-width: 767.98px) {
-  .abou04-page__topics__item__desc p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
+.lightbox-abou05 .fancybox__backdrop {
+  background: #404040 !important;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lightbox-abou05 {
+    text-align: center;
   }
 }
 
