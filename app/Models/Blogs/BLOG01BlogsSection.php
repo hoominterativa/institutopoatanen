@@ -17,15 +17,11 @@ class BLOG01BlogsSection extends Model
 
     protected $table = "blog01_blogs_sections";
     protected $fillable = [
-        "title",
-        "subtitle",
-        "description",
-        "active",
+        //Section
+        "title_section", "subtitle_section", "description_section",
+        //Banner
+        'title_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner',
+        //General
         "sorting",
     ];
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
 }

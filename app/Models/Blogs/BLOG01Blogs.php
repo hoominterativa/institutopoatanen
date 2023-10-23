@@ -24,6 +24,7 @@ class BLOG01Blogs extends Model
         "description",
         "text",
         "path_image_thumbnail",
+        "path_image_icon",
         "path_image",
         "active",
         "featured_home",

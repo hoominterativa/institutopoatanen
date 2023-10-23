@@ -222,18 +222,23 @@
                 "height": "420",
                 "activeCrop": "false"
             },
+            "path_image_icon": {
+                "width": "200",
+                "height": "200",
+                "activeCrop": "false"
+            },
             "path_image": {
                 "width": "600",
                 "height": "600",
                 "activeCrop": "false"
             },
             "Banner":{
-                "path_image_desktop": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "352",
                     "activeCrop": "false"
                 },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "352",
                     "activeCrop": "true"

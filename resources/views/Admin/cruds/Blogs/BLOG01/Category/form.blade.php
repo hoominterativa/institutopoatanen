@@ -11,8 +11,8 @@
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
             </div>
             <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeCategory']) !!}
-                {!! Form::label('activeCategory', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
             </div>
         </div>
     </div>

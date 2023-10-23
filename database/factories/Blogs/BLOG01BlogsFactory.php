@@ -28,6 +28,7 @@ class BLOG01BlogsFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'path_image_thumbnail' => 'uploads/tmp/inner-image.jpg',
+            'path_image_icon' => 'uploads/tmp/favicon.png',
             'path_image' => 'uploads/tmp/image-box.jpg',
             'publishing' => date('Y-m-d'),
             'description' => $this->faker->text(60),

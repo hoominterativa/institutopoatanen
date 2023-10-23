@@ -4,41 +4,36 @@
 @else
     {!! Form::model(null, ['route' => ['admin.blog01.section.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
 @endif
-    <div class="row">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 col-lg-6">
-                    <div class="mb-3">
-                        {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+<div class="row col-12">
+    <div class="col-12">
+        <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title_section', 'Título', ['class'=>'form-label']) !!}
+                        {!! Form::text('title_section', null, ['class'=>'form-control', 'id'=>'title_section']) !!}
                     </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="mb-3">
-                        {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                        {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle_section', 'Subtítulo', ['class'=>'form-label']) !!}
+                        {!! Form::text('subtitle_section', null, ['class'=>'form-control', 'id'=>'subtitle_section']) !!}
                     </div>
                 </div>
             </div>
             <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                {!! Form::textarea('description', null, [
+                {!! Form::label('description_section', 'Descrição', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description_section', null, [
                     'class'=>'form-control',
-                    'id'=>'description',
+                    'id'=>'description_section',
                     'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'250',
+                    'data-parsley-maxlength'=>'800',
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
             </div>
-            <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'activeSection']) !!}
-                {!! Form::label('activeSection', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
-            </div>
         </div>
+        {{-- end card-body --}}
     </div>
-    <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
-    </div>
+</div>
+{!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+<a href="{{route('admin.dashboard')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
 {!! Form::close() !!}

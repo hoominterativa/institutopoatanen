@@ -19,22 +19,46 @@
                     </div>
                 </div>
                 <!-- end row -->
-                <ul class="mb-0 nav nav-tabs">
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#listArticles" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">Artigos do Blog</a>
+                        <a href="#blogs" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link active d-flex align-items-center">
+                            {{getTitleModel($configModelsMain, 'Blogs', 'BLOG01')}}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações do conteúdo principal"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#listArticleCategories" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Categorias</a>
+                        <a href="#categories" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Categorias
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre as categorias para as galerias"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#listArticleSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para Home</a>
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Informações para home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será apresentada na home"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#listArticleBanner" data-bs-toggle="tab" aria-expanded="true" class="nav-link">Informações para o Banner</a>
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações para o banner da página"></i>
+                        </a>
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane show active" id="listArticles">
+                    <div class="tab-pane show active" id="blogs">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card">
@@ -76,11 +100,10 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$blog->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($blog->path_image)
+                                                            @if ($blog->path_image || $blog->path_image_thumbnail || $blog->path_image_icon)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$blog->path_image)}})"></div>
-                                                            @endif
-                                                            @if ($blog->path_image_thumbnail)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$blog->path_image_thumbnail)}})"></div>
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$blog->path_image_icon)}})"></div>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle"><b>{{$blog->category->title}}</b></td>
@@ -126,28 +149,16 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="listArticleCategories">
+                    <div class="tab-pane" id="categories">
                         @include('Admin.cruds.Blogs.BLOG01.Category.index',[
                             'categories' => $blogCategories
                         ])
                     </div>
-                    <div class="tab-pane" id="listArticleSection">
-                        <div class="card">
-                            <div class="card-body">
-                                @include('Admin.cruds.Blogs.BLOG01.Section.form',[
-                                    'section' => $section
-                                ])
-                            </div>
-                        </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Blogs.BLOG01.Section.form')
                     </div>
-                    <div class="tab-pane" id="listArticleBanner">
-                        <div class="card">
-                            <div class="card-body">
-                                @include('Admin.cruds.Blogs.BLOG01.Banner.form',[
-                                    'banner' => $banner
-                                ])
-                            </div>
-                        </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Blogs.BLOG01.Banner.form')
                     </div>
                 </div>
                 <!-- end row -->

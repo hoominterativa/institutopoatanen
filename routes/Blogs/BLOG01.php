@@ -3,7 +3,6 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Blogs\BLOG01Controller;
-use App\Http\Controllers\Blogs\BLOG01BannerController;
 use App\Http\Controllers\Blogs\BLOG01SectionController;
 use App\Http\Controllers\Blogs\BLOG01CategoryController;
 
@@ -35,7 +34,7 @@ Route::prefix('painel/')->middleware('auth')->group(function () use (&$route, $r
     Route::get('clearFilter/'.$route, [BLOG01Controller::class, 'clearFilter'])->name('admin.'.$routeName.'.clearFilter');
 
     Route::resource($route.'/secao', BLOG01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'BLOG01BlogsSection']);
-    Route::resource($route.'/banner', BLOG01BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'BLOG01BlogsBanner']);
+    Route::resource($route.'/banner', BLOG01SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'BLOG01BlogsSection']);
 });
 
 //CLIENT

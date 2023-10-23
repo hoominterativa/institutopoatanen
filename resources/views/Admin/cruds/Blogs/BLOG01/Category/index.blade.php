@@ -49,7 +49,7 @@
                                         </form>
                                         {{-- BEGIN MODAL CATEGORY UPDATE --}}
                                         <div id="modal-category-update-{{$category->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 1100px;">
+                                            <div class="modal-dialog" style="max-width: 900px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
                                                         <h4 class="page-title">Editar Categoria</h4>
@@ -79,7 +79,7 @@
 
 {{-- BEGIN MODAL CATEGORY CREATE --}}
 <div id="modal-category-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 1100px;">
+    <div class="modal-dialog" style="max-width: 900px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
                 <h4 class="page-title">Cadastrar Categoria</h4>

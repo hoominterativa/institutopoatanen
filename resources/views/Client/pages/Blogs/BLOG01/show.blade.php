@@ -11,9 +11,11 @@
                                 Data: <span itemprop="datePublished" content="{{$blog->publishing}}" class="blog01-show__item__date">{{Carbon\Carbon::parse($blog->publishing)->formatLocalized('%d de %B de %Y')}}</span>
                             </span>
                             <p itemprop="articleSection" class="blog01-show__item__paragraph">{{$blog->description}}</p>
-                            <figure class="blog01-show__item__image">
-                                <img itemprop="image" src="{{asset('storage/'.$blog->path_image)}}" width="100%" alt="{{$blog->title}}" class="blog01-show__item__img"/>
-                            </figure>
+                            @if ($blog->path_image)
+                                <figure class="blog01-show__item__image">
+                                    <img itemprop="image" src="{{asset('storage/'.$blog->path_image)}}" width="100%" alt="{{$blog->title}}" class="blog01-show__item__img"/>
+                                </figure>
+                            @endif
                             <div itemprop="articleBody" class="ck-content blog01-show__item__description">
                                 {!!$blog->text!!}
                             </div>
@@ -38,8 +40,10 @@
                                                 </span>
                                                 <h3 itemprop="name" class="blog01-show__boxs__item__title">{{$blogRelated->title}}</h3>
                                                 <div class="d-flex align-items-center justify-content-between">
-                                                    <p itemprop="articleBody" class="blog01-show__boxs__item__paragraph">{{$blogRelated->description}}</p>
-                                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="34" class="blog01-show__boxs__item__icon ms-3" alt="{{$blogRelated->title}}"/>
+                                                    <p itemprop="articleBody" class="blog01-show__boxs__item__paragraph">{!! $blogRelated->description !!}</p>
+                                                    @if ($blogRelated->path_image_icon)
+                                                        <img src="{{asset('storage/' . $blogRelated->path_image_icon)}}" width="34" class="blog01-show__boxs__item__icon ms-3" alt="{{$blogRelated->title}}"/>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </a>

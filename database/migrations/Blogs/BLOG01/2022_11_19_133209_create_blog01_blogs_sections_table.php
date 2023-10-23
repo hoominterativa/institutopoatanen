@@ -15,11 +15,15 @@ class CreateBlog01BlogsSectionsTable extends Migration
     {
         Schema::create('blog01_blogs_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->text('description')->nullable();
-            $table->integer('active')->default(0);
-            $table->integer('sorting')->default(0);
+            //Section
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->text('description_section')->nullable();
+            //Banner
+            $table->string('title_banner')->nullable();
+            $table->string('path_image_desktop_banner')->nullable();
+            $table->string('path_image_mobile_banner')->nullable();
+            $table->string('background_color_banner')->nullable();
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@
             'linkMenu' => 'blog01.page',
             'iconMenu' => '',
             'titlePanel' => 'Artigos',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-blogger'
         ],
         'IncludeSections' => (object) [
         ]
