@@ -46,4 +46,24 @@ class ABOU01AboutsSection extends Model
         "link_button_content",
         "target_link_button_content"
     ];
+
+    function scopeActiveSection($query)
+    {
+        return $query->where('active_section', 1);
+    }
+
+    function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
+    }
+
+    function scopeActiveTopic($query)
+    {
+        return $query->where('active_topic', 1);
+    }
+
+    function scopeActiveContent($query)
+    {
+        return $query->where('active_content', 1);
+    }
 }

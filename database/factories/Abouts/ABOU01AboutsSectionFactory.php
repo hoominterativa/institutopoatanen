@@ -29,16 +29,19 @@ class ABOU01AboutsSectionFactory extends Factory
             "path_image_section_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
             "path_image_section_mobile" => "uploads/tmp/image-box-white.jpg",
             "background_color_section" => '#FFFFFF',
+            'active_section' => 1,
             // Banner
             "title_banner" => $this->faker->text(10),
             "subtitle_banner" => $this->faker->text(10),
             "path_image_banner_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
             "path_image_banner_mobile" => "uploads/tmp/image-box-white.jpg",
             "background_color_banner" => '#FFFFFF',
+            'active_banner' => 1,
             // Section Topic
             "path_image_topic_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
             "path_image_topic_mobile" => "uploads/tmp/image-box-white.jpg",
             "background_color_topic" => '#FFFFFF',
+            'active_topic' => 1,
             //Content
             "title_content" => $this->faker->text(10),
             "subtitle_content" => $this->faker->text(10),
@@ -50,6 +53,7 @@ class ABOU01AboutsSectionFactory extends Factory
             "path_image_content_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
             "path_image_content_mobile" => "uploads/tmp/image-box-white.jpg",
             "background_color_content" => '#FFFFFF',
+            'active_content' => 1,
         ];
     }
 }

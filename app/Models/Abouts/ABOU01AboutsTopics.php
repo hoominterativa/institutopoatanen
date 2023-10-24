@@ -27,4 +27,9 @@ class ABOU01AboutsTopics extends Model
     {
         return $query->orderBy('sorting', 'ASC');
     }
+
+    function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
 }

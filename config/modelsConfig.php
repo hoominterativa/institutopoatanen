@@ -14,8 +14,78 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
+        'Abouts' => (object) [
+            'ABOU01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown',
+                'config' => (object) [
+                    'titleMenu' => 'Sobre1',
+                    'anchor' =>  false,
+                    'linkMenu' => 'abou01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre1',
+                    'iconPanel' => 'mdi-information-variant'
+                ],
+                'IncludeSections' => (object) [
+                ]
+            ],
+            'ABOU02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Sobre2',
+                    'anchor' =>  false,
+                    'linkMenu' => 'abou02.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre2',
+                    'iconPanel' => 'mdi-information-variant'
+                ],
+                'IncludeSections' => (object) [
+                ]
+            ],
+            'ABOU04' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                    'config' => (object) [
+                    'titleMenu' => 'Sobre4',
+                    'anchor' => false,
+                    'linkMenu' => 'abou04.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre4',
+                    'iconPanel' => 'mdi-information'
+                    ],
+                'IncludeSections' => (object) [
+                ],
+            ],
+            'ABOU05' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                    'config' => (object) [
+                    'titleMenu' => 'Sobre5',
+                    'anchor' => false,
+                    'linkMenu' => 'abou05.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Sobre5',
+                    'iconPanel' => 'mdi-information'
+                    ],
+                'IncludeSections' => (object) [
+                ],
+            ],
+        ],
         'Blogs' => (object) [
-            'BLOG01' => (object)[
+            'BLOG03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -38,7 +108,7 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Artigos',
                     'anchor' =>  false,
-                    'linkMenu' => 'blog01.page',
+                    'linkMenu' => 'blog03.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Artigos',
                     'iconPanel' => 'mdi-blogger'

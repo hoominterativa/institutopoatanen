@@ -18,6 +18,7 @@ class CreateAbou01AboutsTopicsTable extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('path_image_icon')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

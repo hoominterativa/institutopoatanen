@@ -25,6 +25,10 @@ class ABOU01SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active_section'] = $request->active_section?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_topic'] = $request->active_topic?1:0;
+        $data['active_content'] = $request->active_content?1:0;
         $data['link_button_content'] = isset($data['link_button_content']) ? getUri($data['link_button_content']) : null;
 
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null, 100);
@@ -85,6 +89,10 @@ class ABOU01SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active_section'] = $request->active_section?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_topic'] = $request->active_topic?1:0;
+        $data['active_content'] = $request->active_content?1:0;
         $data['link_button_content'] = isset($data['link_button_content']) ? getUri($data['link_button_content']) : null;
 
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null, 100);
