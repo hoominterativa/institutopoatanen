@@ -1,6 +1,9 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.abou04.section-gallery.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
+    {!! Form::hidden('active_topics', $section->active_topics) !!}
+    {!! Form::hidden('active_section', $section->active_section) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou04.section-gallery.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -94,6 +97,12 @@
             </div> {{-- END .wrapper-links --}}
         </div>
         {{-- end card-body --}}
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active_galleries', '1', null, ['class' => 'form-check-input', 'id' => 'active_galleries']) !!}
+                {!! Form::label('active_galleries', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
     </div>
 </div>
 {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}

@@ -136,7 +136,7 @@ class ABOU01Controller extends Controller
 
         $about = ABOU01Abouts::first();
         $section = ABOU01AboutsSection::first();
-        $topics = ABOU01AboutsTopics::sorting()->get();
+        $topics = ABOU01AboutsTopics::active()->sorting()->get();
 
         switch (deviceDetect()) {
             case "mobile":
@@ -163,7 +163,7 @@ class ABOU01Controller extends Controller
      */
     public static function section()
     {
-        $section = ABOU01AboutsSection::first();
+        $section = ABOU01AboutsSection::activeSection()->first();
         switch(deviceDetect()){
             case "mobile":
             case "tablet":

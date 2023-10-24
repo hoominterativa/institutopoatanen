@@ -1,5 +1,8 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.abou01.section.update', $section->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+    {!! Form::hidden('active_topic', $section->active_topic) !!}
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
+    {!! Form::hidden('active_content', $section->active_content) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou01.section.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
 @endif
@@ -32,6 +35,12 @@
             <div class="mb-3">
                 {!! Form::label('background_color_section', 'Cor do background', ['class' => 'form-label']) !!}
                 {!! Form::text('background_color_section', null, [ 'class' => 'form-control colorpicker-default','id' => 'background_color_section',]) !!}
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active_section', '1', null, ['class' => 'form-check-input', 'id' => 'active_section']) !!}
+                {!! Form::label('active_section', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}

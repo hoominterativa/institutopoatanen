@@ -4,7 +4,7 @@
 <main id="root">
     <div id="abou05-page" class="abou05-page">
         <section class="container-fluid px-0">
-            @if ($section)
+            @if ($section->active_banner)
                 <header class="abou05-page__header"
                 style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{$section->background_color_banner}};">
                     <div class="container container--abou05-header d-flex flex-column justify-content-center align-items-center">
@@ -47,7 +47,7 @@
                         <div class="abou05-page__section__box d-flex flex-column">
                             <div class="abou05-page__section__box__encompass">
                                 <div class="container">
-                                    @if ($section)
+                                    @if ($section->active_content)
                                         <h4 class="abou05-page__section__box__encompass__title">{{$section->title_content}}</h4>
                                         <h5 class="abou05-page__section__box__encompass__subtitle">{{$section->subtitle_content}}</h5>
                                         <hr class="abou05-page__section__box__encompass__line">

@@ -165,7 +165,7 @@ class ABOU04Controller extends Controller
      */
     public static function section()
     {
-        $section = ABOU04AboutsSection::first();
+        $section = ABOU04AboutsSection::activeSection()->first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':

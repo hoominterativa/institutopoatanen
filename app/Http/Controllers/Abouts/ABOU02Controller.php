@@ -116,7 +116,7 @@ class ABOU02Controller extends Controller
     public static function section()
     {
         $topics = ABOU02AboutsTopic::active()->featured()->sorting()->get();
-        $section = ABOU02AboutsSection::first();
+        $section = ABOU02AboutsSection::activeSection()->first();
 
         return view('Client.pages.Abouts.ABOU02.section', [
             'section' => $section,

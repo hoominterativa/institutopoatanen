@@ -1,7 +1,10 @@
 @if ($section)
-{!! Form::model($section, ['route' => ['admin.abou01.content.update', $section->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+    {!! Form::model($section, ['route' => ['admin.abou01.content.update', $section->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+    {!! Form::hidden('active_section', $section->active_section) !!}
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
+    {!! Form::hidden('active_topic', $section->active_topic) !!}
 @else
-{!! Form::model(null, ['route' => 'admin.abou01.content.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+    {!! Form::model(null, ['route' => 'admin.abou01.content.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
 @endif
 <div class="row col-12">
     <div class="col-12 col-lg-6">
@@ -97,6 +100,12 @@
             </div> {{-- END .wrapper-links --}}
         </div>
         {{-- end card-body --}}
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active_content', '1', null, ['class' => 'form-check-input', 'id' => 'active_content']) !!}
+                {!! Form::label('active_content', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
     </div>
     {{-- end card --}}
     <div class="col-12 col-lg-6">

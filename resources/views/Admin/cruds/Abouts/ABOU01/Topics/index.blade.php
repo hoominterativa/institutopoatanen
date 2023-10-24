@@ -21,6 +21,7 @@
                                 </th>
                                 <th width="50px">Imagem</th>
                                 <th>Título</th>
+                                <th width="100px">Status</th>
                                 <th width="90px">Ações</th>
                             </tr>
                         </thead>
@@ -37,6 +38,13 @@
                                         @endif
                                     </td>
                                     <td class="align-middle">{{$topic->title}}</td>
+                                    <td class="align-middle">
+                                        @if ($topic->active)
+                                            <span class="badge bg-success">Ativo</span>
+                                        @else
+                                            <span class="badge bg-danger">Inativo</span>
+                                        @endif
+                                    </td>
                                     <td class="align-middle">
                                         <div class="row">
                                             <div class="col-4">

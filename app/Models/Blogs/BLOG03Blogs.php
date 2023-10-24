@@ -24,6 +24,7 @@ class BLOG03Blogs extends Model
         "description",
         "text",
         "path_image",
+        "path_image_box",
         "active",
         "featured",
         "sorting",

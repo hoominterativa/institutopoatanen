@@ -1,6 +1,7 @@
 @if (isset($section))
     {!! Form::model($section, ['route' => ['admin.blog01.section.update', $section->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
 @else
     {!! Form::model(null, ['route' => ['admin.blog01.section.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
 @endif
@@ -32,6 +33,12 @@
             </div>
         </div>
         {{-- end card-body --}}
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active_section', '1', null, ['class' => 'form-check-input', 'id' => 'active_section']) !!}
+                {!! Form::label('active_section', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
     </div>
 </div>
 {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}

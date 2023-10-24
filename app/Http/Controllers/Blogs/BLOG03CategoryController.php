@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Blogs;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Blogs\BLOG03Blogs;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -65,22 +66,15 @@ class BLOG03CategoryController extends Controller
      */
     public function destroy(BLOG03BlogsCategory $BLOG03BlogsCategory)
     {
-        $categoryWithProducts = BLOG03BlogsCategory::join('blog03_blogs', 'blog03_blogs.category_id', '=', 'blog03_blogs_categories.id')
-        ->where('blog03_blogs_categories.id', $BLOG03BlogsCategory->id)
-        ->select('blog03_blogs_categories.*', 'blog03_blogs.id as blog_id')
-        ->first();
+        if(BLOG03Blogs::where('category_id', $BLOG03BlogsCategory->id)->count()){
+            Session::flash('error', 'Não é possível excluir a categoria porque existem artigos associadas a ela.');
+            return redirect()->back();
+        }
 
-    // verifica se existem blogs atrelados à categoria
-    if ($categoryWithProducts) {
-        Session::flash('error', 'Não é possível excluir esta categoria porque existem blogs atrelados a ela.');
-        return redirect()->back();
-    } else {
-        // não há blogs atrelados à categoria, pode ser excluída
-        if ($BLOG03BlogsCategory->delete()) {
+        if($BLOG03BlogsCategory->delete()){
             Session::flash('success', 'Categoria deletada com sucessso');
             return redirect()->back();
         }
-    }
     }
 
     /**
@@ -91,8 +85,19 @@ class BLOG03CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        if($deleted = BLOG03BlogsCategory::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        $categoryIds = $request->deleteAll;
+
+        // Verificar se existem galerias associadas às categorias
+        $serviceExist = BLOG03Blogs::whereIn('category_id', $categoryIds)->exists();
+        if ($serviceExist) {
+            return Response::json([
+                'status' => 'error',
+                'message' => 'Não é possível excluir as categorias porque existem artigos associadas a elas.'
+            ]);
+        }
+
+        if ($deleted = BLOG03BlogsCategory::whereIn('id', $categoryIds)->delete()) {
+            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
         }
     }
 

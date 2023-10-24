@@ -28,6 +28,7 @@ class BLOG03BlogsFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'path_image' => 'uploads/tmp/image-box.jpg',
+            'path_image_box' => 'uploads/tmp/slid01_path_image_desktop.png',
             'publishing' => date('Y-m-d'),
             'description' => $this->faker->text(60),
             'text' => $this->faker->paragraph(3),

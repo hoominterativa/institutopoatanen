@@ -20,6 +20,7 @@ class ABOU01AboutsTopics extends Model
         "title",
         "description",
         "path_image_icon",
+        "active",
         "sorting",
     ];
 

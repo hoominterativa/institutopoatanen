@@ -26,6 +26,10 @@ class ABOU02SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active_section'] = $request->active_section?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_topic'] = $request->active_topic?1:0;
+        $data['active_content'] = $request->active_content?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         //Banner
@@ -70,6 +74,10 @@ class ABOU02SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active_section'] = $request->active_section?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_topic'] = $request->active_topic?1:0;
+        $data['active_content'] = $request->active_content?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         //Banner

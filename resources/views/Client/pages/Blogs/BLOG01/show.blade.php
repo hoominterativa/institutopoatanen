@@ -8,7 +8,7 @@
                         <article itemscope itemtype="http://schema.org/Article" class="blog01-show__item">
                             <h1 itemprop="name" class="blog01-show__item__title">{{$blog->title}}</h1>
                             <span class="blog01-show__item__published">
-                                Data: <span itemprop="datePublished" content="{{$blog->publishing}}" class="blog01-show__item__date">{{Carbon\Carbon::parse($blog->publishing)->formatLocalized('%d de %B de %Y')}}</span>
+                                Data: <span itemprop="datePublished" content="{{$blog->publishing}}" class="blog01-show__item__date">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</span>
                             </span>
                             <p itemprop="articleSection" class="blog01-show__item__paragraph">{{$blog->description}}</p>
                             @if ($blog->path_image)
@@ -36,7 +36,7 @@
                                             </figure>
                                             <div class="blog01-show__boxs__item__description">
                                                 <span class="blog01-show__boxs__item__date-publish">
-                                                    Data: <span itemprop="datePublished" content="{{$blogRelated->publishing}}" class="blog01-show__boxs__item__date">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</span>
+                                                    Data: <span itemprop="datePublished" content="{{$blogRelated->publishing}}" class="blog01-show__boxs__item__date">{{ dateFormat($blogRelated->publishing, 'd', 'M', 'Y', '') }}</span>
                                                 </span>
                                                 <h3 itemprop="name" class="blog01-show__boxs__item__title">{{$blogRelated->title}}</h3>
                                                 <div class="d-flex align-items-center justify-content-between">
@@ -96,7 +96,6 @@
                 const title = "{{$blog->title}}" ; // Incorporar o título do artigo
                 const description = "{{$blog->description}}"; // Incorporar o a descrição do artigo
                 const url = "{{url()->current() }}"  // Incorporar a URL do artigo
-
 
                 const shareData = {
                     title: title,

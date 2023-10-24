@@ -19,11 +19,13 @@ class CreateBlog01BlogsSectionsTable extends Migration
             $table->string('title_section')->nullable();
             $table->string('subtitle_section')->nullable();
             $table->text('description_section')->nullable();
+            $table->integer('active_section')->default(0);
             //Banner
             $table->string('title_banner')->nullable();
             $table->string('path_image_desktop_banner')->nullable();
             $table->string('path_image_mobile_banner')->nullable();
             $table->string('background_color_banner')->nullable();
+            $table->integer('active_banner')->default(0);
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
 @section('content')
     {{-- BEGIN Page content --}}
     <div class="abou04-page" id="abou04-page">
-        @if ($section)
+        @if ($section->active_banner)
             <section class="abou04-page__banner w-100"
                 style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
                 <header
@@ -40,7 +40,7 @@
         @endif
         @if ($categories->count())
             <section class="abou04-page__gallery w-100 d-flex flex-column align-items-center">
-                @if ($section)
+                @if ($section->active_galleries)
                     <header class="abou04-page__gallery__header container d-flex flex-column align-items-center">
                         @if ($section->title_galleries || $section->description_galleries)
                             <h2 class="abou04-page__gallery__header__title text-center">{{ $section->title_galleries }}</h2>
@@ -71,7 +71,7 @@
                             </div>
                         @endif
                     @endforeach
-                    @if ($section->link_button_galleries)
+                    @if ($section->link_button_galleries && $section->active_galleries)
                         <a href="{{ getUri($section->link_button_galleries) }}" target="{{ $section->target_link_button_galleries }}" class="abou04-page__gallery__cta">
                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone" class="abou04-page__gallery__cta__icon">
                             @if ($section->title_button_galleries)

@@ -5,7 +5,7 @@
         <main id="root">
             <div id="ABOU01" class="abou01-page">
                 <section class="container-fluid px-0">
-                    @if ($section)
+                    @if ($section->active_banner)
                         <header class="abou01-page__header" style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }});background-color: {{ $section->background_color_banner }}">
                             <div class="container d-flex flex-column justify-content-center align-items-center">
                                 @if ($section->title_banner || $section->subtitle_banner)
@@ -69,7 +69,7 @@
                     </section>
                 @endif
                 {{-- END .abou01-page__topic --}}
-                @if ($section)
+                @if ($section->active_content)
                     <section class="abou01-page__section container-fluid" style="background-image: url({{asset('storage/' . $section->path_image_content_desktop)}}); background-color: {{$section->background_color_content}};">
                         <div class="container">
                             <div class="row abou01-page__section__row align-items-center">

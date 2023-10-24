@@ -16,10 +16,20 @@ class BLOG03BlogsSection extends Model
     }
 
     protected $table = "blog03_blogs_sections";
-    protected $fillable = ['title', 'subtitle', 'description', 'active'];
+    protected $fillable = [
+        //Section
+        'title_section', 'subtitle_section', 'description_section', 'active_section',
+        //Banner
+        'title_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner'
+    ];
 
-    public function scopeActive($query)
+    public function scopeActiveSection($query)
     {
-        return $query->where('active', 1);
+        return $query->where('active_section', 1);
+    }
+
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
     }
 }

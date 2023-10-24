@@ -7,7 +7,6 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Blogs\BLOG03Blogs;
 use App\Http\Controllers\Controller;
-use App\Models\Blogs\BLOG03BlogsBanner;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Blogs\BLOG03BlogsSection;
@@ -31,14 +30,12 @@ class BLOG03Controller extends Controller
         $categories = BLOG03BlogsCategory::exists()->sorting()->pluck('title', 'id');
         $blogCategories = BLOG03BlogsCategory::sorting()->get();
         $section = BLOG03BlogsSection::first();
-        $banner = BLOG03BlogsBanner::first();
 
         return view('Admin.cruds.Blogs.BLOG03.index',[
             'blogs' => $blogs,
             'categories' => $categories,
             'blogCategories' => $blogCategories,
             'section' => $section,
-            'banner' => $banner,
             'cropSetting' => getCropImage('Blogs', 'BLOG03')
         ]);
     }
@@ -88,14 +85,12 @@ class BLOG03Controller extends Controller
         $categories = BLOG03BlogsCategory::exists()->sorting()->pluck('title', 'id');
         $blogCategories = BLOG03BlogsCategory::sorting()->get();
         $section = BLOG03BlogsSection::first();
-        $banner = BLOG03BlogsBanner::first();
 
         return view('Admin.cruds.Blogs.BLOG01.index',[
             'blogs' => $blogs,
             'categories' => $categories,
             'blogCategories' => $blogCategories,
             'section' => $section,
-            'banner' => $banner
         ]);
     }
 
@@ -138,11 +133,15 @@ class BLOG03Controller extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
+
         if(BLOG03Blogs::create($data)){
             Session::flash('success', 'Blog cadastrado com sucesso');
             return redirect()->route('admin.blog03.index');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Session::flash('error', 'Erro ao cadastradar o blog');
             return redirect()->back();
         }
@@ -192,10 +191,21 @@ class BLOG03Controller extends Controller
             $data['path_image'] = null;
         }
 
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box){
+            storageDelete($BLOG03Blogs, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
+        }
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($BLOG03Blogs, 'path_image_box');
+            $data['path_image_box'] = null;
+        }
+
         if($BLOG03Blogs->fill($data)->save()){
             Session::flash('success', 'Blog atualizado com sucesso');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Session::flash('error', 'Erro ao atualizar o blog');
         }
         return redirect()->back();
@@ -210,6 +220,7 @@ class BLOG03Controller extends Controller
     public function destroy(BLOG03Blogs $BLOG03Blogs)
     {
         storageDelete($BLOG03Blogs, 'path_image');
+        storageDelete($BLOG03Blogs, 'path_image_box');
 
         if($BLOG03Blogs->delete()){
             Session::flash('success', 'Blog deletado com sucessso');
@@ -228,6 +239,7 @@ class BLOG03Controller extends Controller
         $BLOG03Blogss = BLOG03Blogs::whereIn('id', $request->deleteAll)->get();
         foreach($BLOG03Blogss as $BLOG03Blogs){
             storageDelete($BLOG03Blogs, 'path_image');
+            storageDelete($BLOG03Blogs, 'path_image_box');
         }
 
         if($deleted = BLOG03Blogs::whereIn('id', $request->deleteAll)->delete()){
@@ -312,15 +324,22 @@ class BLOG03Controller extends Controller
         }
 
         $blogs = $blogs->sorting()->paginate(9);
+        $section = BLOG03BlogsSection::activeBanner()->first();
 
-        $banner = BLOG03BlogsBanner::active()->first();
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section)
+                    $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+            break;
+        }
 
         return view('Client.pages.Blogs.BLOG03.page',[
             'sections' => $sections,
             'categories' => $categories,
             'blogs' => $blogs,
-            'banner' => $banner,
-            'buscar' => $search
+            'buscar' => $search,
+            'section' => $section
         ]);
     }
 
@@ -332,7 +351,7 @@ class BLOG03Controller extends Controller
     public static function section()
     {
         $blogs = BLOG03Blogs::with('category')->active()->featured()->sorting()->get();
-        $section = BLOG03BlogsSection::first();
+        $section = BLOG03BlogsSection::activeSection()->first();
 
         $category = BLOG03BlogsCategory::first();
 

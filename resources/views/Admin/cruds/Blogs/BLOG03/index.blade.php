@@ -35,7 +35,7 @@
                             {{getTitleModel($configModelsMain, 'Blogs', 'BLOG03')}}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro dos blogs"></i>
+                                data-bs-original-title="Cadastro dos artigos"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -43,7 +43,7 @@
                             Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Este banner será exibido na página blog"></i>
+                                data-bs-original-title="Este banner será exibido na página artigo, caso esteja ativo"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -99,8 +99,9 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$blog->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($blog->path_image)
+                                                            @if ($blog->path_image || $blog->path_image_box)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' .$blog->path_image)}})"></div>
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' .$blog->path_image_box)}})"></div>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">{{$blog->category->title}}</td>
@@ -147,22 +148,10 @@
                         ])
                     </div>
                     <div class="tab-pane" id="section">
-                        <div class="card">
-                            <div class="card-body">
-                                @include('Admin.cruds.Blogs.BLOG03.Section.form',[
-                                    'section' => $section
-                                ])
-                            </div>
-                        </div>
+                        @include('Admin.cruds.Blogs.BLOG03.Section.form')
                     </div>
                     <div class="tab-pane" id="banner">
-                        <div class="card">
-                            <div class="card-body">
-                                @include('Admin.cruds.Blogs.BLOG03.Banner.form',[
-                                    'banner' => $banner
-                                ])
-                            </div>
-                        </div>
+                        @include('Admin.cruds.Blogs.BLOG03.Banner.form')
                     </div>
                 </div>
                 <!-- end row -->

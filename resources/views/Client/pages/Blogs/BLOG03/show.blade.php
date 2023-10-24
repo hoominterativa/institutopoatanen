@@ -9,12 +9,16 @@
                     <article itemscope itemtype="http://schema.org/Article" class="blog03-show__item">
                         <h1 itemprop="name" class="blog03-show__item__title">{{$blog->title}}</h1>
                         <span class="blog03-show__item__published">
-                            Publicado em: <span itemprop="datePublished" content="{{$blog->publishing}}" class="blog03-show__item__date">{{ Carbon\Carbon::parse($blog->publishing)->format('d/m/Y')}}</span>
+                            Publicado em: <span itemprop="datePublished" content="{{$blog->publishing}}" class="blog03-show__item__date">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</span>
                         </span>
-                        <p itemprop="articleSection" class="blog03-show__item__paragraph">{!! $blog->description !!} </p>
-                        <figure class="blog03-show__item__image">
-                            <img itemprop="image" src="{{asset('storage/' .$blog->path_image)}}" width="100%" alt="{{$blog->title}}" class="blog03-show__item__img"/>
-                        </figure>
+                        <p itemprop="articleSection" class="blog03-show__item__paragraph">
+                            {!! $blog->description !!}
+                        </p>
+                        @if ($blog->path_image)
+                            <figure class="blog03-show__item__image">
+                                <img itemprop="image" src="{{asset('storage/' .$blog->path_image)}}" width="100%" alt="{{$blog->title}}" class="blog03-show__item__img"/>
+                            </figure>
+                        @endif
                         <div itemprop="articleBody" class="ck-content blog03-show__item__description">
                             <p>
                                 {!!$blog->text!!}
@@ -35,11 +39,11 @@
                                         </figure>
                                         <div class="blog03-show__boxs__item__description">
                                             <span class="blog03-show__boxs__item__date-publish">
-                                                Publicado em: <span itemprop="datePublished" content="{{$blog->publishing}}" class="blog03-show__item__date">{{ Carbon\Carbon::parse($blog->publishing)->format('d/m/Y')}}</span>
+                                                Publicado em: <span itemprop="datePublished" content="{{$blogRelated->publishing}}" class="blog03-show__item__date">{{ dateFormat($blogRelated->publishing, 'd', 'M', 'Y', '') }}</span>
                                             </span>
                                             <h3 itemprop="name" class="blog03-show__boxs__item__title">{{$blogRelated->title}}</h3>
                                             <div class="d-flex align-items-center justify-content-between">
-                                                <p itemprop="articleBody" class="blog03-show__boxs__item__paragraph">{!! $blog->description !!}</p>
+                                                <p itemprop="articleBody" class="blog03-show__boxs__item__paragraph">{!! $blogRelated->description !!}</p>
                                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="34" class="blog03-show__boxs__item__icon ms-3" alt="titulo dos blogs"/>
                                             </div>
                                         </div>
@@ -62,3 +66,56 @@
     {!!$section!!}
 @endforeach
 @endsection
+
+@section('tagSeo')
+    <title>{{$blog->title}}</title>
+    <meta name="title" content="{{$blog->title}}">
+    <meta name="description" content="{{ $blog->description }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="og:title" content="{{$blog->title}}">
+    <meta property="og:description" content="{{$blog->description}}">
+    <meta property="og:image" content="{{asset('storage/'.$blog->path_image_thumbnail)}}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{url()->current()}}">
+    <meta property="twitter:title" content="{{$blog->title}}">
+    <meta property="twitter:description" content="{{substr($blog->description, 0 , 130)}}">
+    <meta property="twitter:image" content="{{asset('storage/'.$blog->path_image_thumbnail)}}">
+@endsection
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const shareButton = document.getElementById("shareButton");
+
+        shareButton.addEventListener("click", function() {
+            // Verifique se a API do Web Share está disponível no navegador
+            if (navigator.share) {
+                // Dados para compartilhar
+                const title = "{{$blog->title}}" ; // Incorporar o título do artigo
+                const description = "{{$blog->description}}"; // Incorporar o a descrição do artigo
+                const url = "{{url()->current() }}"  // Incorporar a URL do artigo
+
+                const shareData = {
+                    title: title,
+                    text: description,
+                    url: url
+                };
+
+                // Chame a API do Web Share para abrir a janela de compartilhamento
+                navigator.share(shareData)
+                    .then(() => {
+                        console.log('Artigo compartilhado com sucesso!');
+                    })
+                    .catch((error) => {
+                        console.error('Erro ao compartilhar o artigo:', error);
+                    });
+            } else {
+                alert('Este navegador não suporta compartilhamento direto. Você pode copiar o link e compartilhá-lo manualmente.');
+            }
+        });
+    });
+</script>

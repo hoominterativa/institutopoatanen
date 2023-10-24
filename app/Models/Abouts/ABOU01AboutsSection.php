@@ -24,16 +24,19 @@ class ABOU01AboutsSection extends Model
         "path_image_section_desktop",
         "path_image_section_mobile",
         "background_color_section",
+        "active_section",
         //Banner
         "title_banner",
         "subtitle_banner",
         "path_image_banner_desktop",
         "path_image_banner_mobile",
         "background_color_banner",
+        "active_banner",
         //Section topic
         "path_image_topic_desktop",
         "path_image_topic_mobile",
         "background_color_topic",
+        "active_topic",
         //Content
         "title_content",
         "subtitle_content",
@@ -44,7 +47,8 @@ class ABOU01AboutsSection extends Model
         "path_image_content",
         "title_button_content",
         "link_button_content",
-        "target_link_button_content"
+        "target_link_button_content",
+        "active_content",
     ];
 
     function scopeActiveSection($query)

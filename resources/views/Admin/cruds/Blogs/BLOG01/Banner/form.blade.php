@@ -1,6 +1,7 @@
 @if ($section)
     {!! Form::model($section, [ 'route' => ['admin.blog01.banner.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
+    {!! Form::hidden('active_section', $section->active_section) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.blog01.banner.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -21,6 +22,12 @@
             </div>
         </div>
         {{-- end card-body --}}
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}
+                {!! Form::label('active_banner', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
     </div>
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">

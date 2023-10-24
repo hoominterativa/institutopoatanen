@@ -22,15 +22,18 @@ class CreateAbou05AboutsSectionsTable extends Migration
             $table->string('path_image_desktop_section')->nullable();
             $table->string('path_image_mobile_section')->nullable();
             $table->string('background_color_section')->nullable();
+            $table->integer('active_section')->default(0);
             //Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
             $table->string('path_image_desktop_banner')->nullable();
             $table->string('path_image_mobile_banner')->nullable();
             $table->string('background_color_banner')->nullable();
+            $table->integer('active_banner')->default(0);
             //Section Content
             $table->string('title_content')->nullable();
             $table->string('subtitle_content')->nullable();
+            $table->integer('active_content')->default(0);
             $table->timestamps();
         });
     }

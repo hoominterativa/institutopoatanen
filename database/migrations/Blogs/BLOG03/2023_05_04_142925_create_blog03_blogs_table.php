@@ -22,6 +22,7 @@ class CreateBlog03BlogsTable extends Migration
             $table->text('description')->nullable();
             $table->longText('text')->nullable();
             $table->string('path_image')->nullable();
+            $table->string('path_image_box')->nullable();
             $table->integer('active')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('sorting')->default(0);

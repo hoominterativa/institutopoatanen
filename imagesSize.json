@@ -247,17 +247,22 @@
         },
         "BLOG03": {
             "path_image": {
+                "width": "941",
+                "height": "600",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
                 "width": "600",
                 "height": "600",
                 "activeCrop": "false"
             },
             "Banner":{
-                "path_image_desktop": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "308",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "308",
                     "activeCrop": "true"

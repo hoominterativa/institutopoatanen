@@ -1,10 +1,9 @@
 @if ($section)
-    {!! Form::model($section, [
-        'route' => ['admin.abou02.banner.update', $section->id],
-        'class' => 'parsley-validate',
-        'files' => true,
-    ]) !!}
+    {!! Form::model($section, ['route' => ['admin.abou02.banner.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
+    {!! Form::hidden('active_topic', $section->active_topic) !!}
+    {!! Form::hidden('active_content', $section->active_content) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou02.banner.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -33,6 +32,12 @@
             </div>
         </div>
         {{-- end card-body --}}
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}
+                {!! Form::label('active_banner', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
     </div>
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">

@@ -2,12 +2,12 @@
 @section('content')
 {{-- BEGIN Page content --}}
 <section id="BLOG03" class="blog03-page container-fluid px-0">
-    @if ($banner)
-        <header class="blog03-page__header bg-light" style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{ $banner->background_color }};">
+    @if ($section)
+        <header class="blog03-page__header bg-light" style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
             <div class="blog03-page__header__mask"></div>
             <div class="container container--header d-flex flex-column justify-content-center h-100">
-                @if ($banner->title)
-                    <h1 class="blog03-page__header__title">{{$banner->title}}</h1>
+                @if ($section->title_banner)
+                    <h1 class="blog03-page__header__title">{{$section->title_banner}}</h1>
                 @endif
             </div>
         </header>
@@ -36,9 +36,11 @@
                     <article class="blog03-page__boxs__item col-sm-6">
                         <div itemscope itemtype="http://schema.org/Article" class="blog03-page__boxs__item__content transition">
                             <a itemprop="url" href="{{route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug])}}" class="link-full"></a>
-                            <figure class="blog03-page__boxs__item__image">
-                                <img itemprop="image" src="{{asset('storage/' . $blog->path_image)}}" class="blog03-page__boxs__item__image__img" width="100%" alt="{{$blog->title}}"/>
-                            </figure>
+                            @if ($blog->path_image_box)
+                                <figure class="blog03-page__boxs__item__image">
+                                    <img itemprop="image" src="{{asset('storage/' . $blog->path_image_box)}}" class="blog03-page__boxs__item__image__img" width="100%" alt="{{$blog->title}}"/>
+                                </figure>
+                            @endif
                             <div class="blog03-page__boxs__item__description">
                                 <div class="blog03-page__boxs__item__buttons">
                                     @if ($blog->title)

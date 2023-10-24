@@ -359,7 +359,7 @@ class BLOG01Controller extends Controller
         $blogsFeatured = $blogsFeatured->sorting()->get();
         $blogFeaturedValidate = $blogFeaturedValidate->pluck('id');
         $blogs = $blogs->whereNotIn('id', $blogFeaturedValidate)->sorting()->paginate('32');
-        $section = BLOG01BlogsSection::first();
+        $section = BLOG01BlogsSection::activeBanner()->first();
 
         switch (deviceDetect()) {
             case 'mobile':
@@ -386,8 +386,7 @@ class BLOG01Controller extends Controller
     public static function section()
     {
         $blogs = BLOG01Blogs::with('category')->featuredHome()->sorting()->get();
-        $section = BLOG01BlogsSection::first();
-
+        $section = BLOG01BlogsSection::activeSection()->first();
         $category = BLOG01BlogsCategory::first();
 
         return view('Client.pages.Blogs.BLOG01.section', [
