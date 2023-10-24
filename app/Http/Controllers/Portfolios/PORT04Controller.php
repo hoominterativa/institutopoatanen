@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\Portfolios\PORT04Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Portfolios\PORT04PortfoliosTopic;
+use App\Models\Portfolios\PORT04PortfoliosGallery;
 use App\Models\Portfolios\PORT04PortfoliosSection;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Portfolios\PORT04PortfoliosCategory;
+use App\Models\Portfolios\PORT04PortfoliosAdditionalTopic;
 
 class PORT04Controller extends Controller
 {
@@ -63,15 +66,30 @@ class PORT04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
         $data['slug'] = Str::slug($data['title']);
+        $data['active'] = $request->active?1:0;
+        $data['active_banner'] = $request->active?1:0;
+        $data['active_content'] = $request->active?1:0;
+        $data['active_section'] = $request->active?1:0;
 
+        //Portfolio
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+
+        //Banner
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+
+        //Content
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null,100);
+        if($path_image_content) $data['path_image_content'] = $path_image_content;
 
         if($portfolios = PORT04Portfolios::create($data)){
             Session::flash('success', 'Portfólio cadastrado com sucesso');
@@ -79,6 +97,9 @@ class PORT04Controller extends Controller
         }else{
             Storage::delete($path_image_icon);
             Storage::delete($path_image);
+            Storage::delete($path_image_content);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao cadastradar o portfólio');
             return redirect()->back();
         }
@@ -113,10 +134,14 @@ class PORT04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
         $data['slug'] = Str::slug($data['title']);
+        $data['active'] = $request->active?1:0;
+        $data['active_banner'] = $request->active?1:0;
+        $data['active_content'] = $request->active?1:0;
+        $data['active_section'] = $request->active?1:0;
 
+        //Portfolio
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($PORT04Portfolios, 'path_image');
@@ -137,11 +162,46 @@ class PORT04Controller extends Controller
             $data['path_image_icon'] = null;
         }
 
+        //Banner
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($PORT04Portfolios, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($PORT04Portfolios, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($PORT04Portfolios, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($PORT04Portfolios, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
+
+        //Content
+        $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null,100);
+        if($path_image_content){
+            storageDelete($PORT04Portfolios, 'path_image_content');
+            $data['path_image_content'] = $path_image_content;
+        }
+        if($request->delete_path_image_content && !$path_image_content){
+            storageDelete($PORT04Portfolios, 'path_image_content');
+            $data['path_image_content'] = null;
+        }
+
         if($PORT04Portfolios->fill($data)->save()){
             Session::flash('success', 'Portfólio atualizado com sucesso');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Storage::delete($path_image_content);
             Session::flash('error', 'Erro ao atualizar o portfólio');
         }
         return redirect()->back();
@@ -155,8 +215,35 @@ class PORT04Controller extends Controller
      */
     public function destroy(PORT04Portfolios $PORT04Portfolios)
     {
+        $galleries = PORT04PortfoliosGallery::where('portfolio_id', $PORT04Portfolios->id)->get();
+        if($galleries->count()) {
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+        }
+
+        $additionalTopics = PORT04PortfoliosAdditionalTopic::where('portfolio_id', $PORT04Portfolios->id)->get();
+        if($additionalTopics->count()) {
+            foreach ($additionalTopics as $additionalTopic) {
+                storageDelete($additionalTopic, 'path_image_icon');
+                $additionalTopic->delete();
+            }
+        }
+
+        $topics = PORT04PortfoliosTopic::where('portfolio_id', $PORT04Portfolios->id)->get();
+        if($topics->count()) {
+            foreach ($topics as $topic) {
+                storageDelete($topic, 'path_image_icon');
+                $topic->delete();
+            }
+        }
+
         storageDelete($PORT04Portfolios, 'path_image');
         storageDelete($PORT04Portfolios, 'path_image_icon');
+        storageDelete($PORT04Portfolios, 'path_image_content');
+        storageDelete($PORT04Portfolios, 'path_image_desktop_banner');
+        storageDelete($PORT04Portfolios, 'path_image_mobile_banner');
 
         if($PORT04Portfolios->delete()){
             Session::flash('success', 'Portfólio deletado com sucessso');
@@ -175,8 +262,36 @@ class PORT04Controller extends Controller
 
         $PORT04Portfolioss = PORT04Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT04Portfolioss as $PORT04Portfolios){
+
+            $galleries = PORT04PortfoliosGallery::where('portfolio_id', $PORT04Portfolios->id)->get();
+            if($galleries->count()) {
+                foreach ($galleries as $gallery) {
+                    storageDelete($gallery, 'path_image');
+                    $gallery->delete();
+                }
+            }
+
+            $additionalTopics = PORT04PortfoliosAdditionalTopic::where('portfolio_id', $PORT04Portfolios->id)->get();
+            if($additionalTopics->count()) {
+                foreach ($additionalTopics as $additionalTopic) {
+                    storageDelete($additionalTopic, 'path_image_icon');
+                    $additionalTopic->delete();
+                }
+            }
+
+            $topics = PORT04PortfoliosTopic::where('portfolio_id', $PORT04Portfolios->id)->get();
+            if($topics->count()) {
+                foreach ($topics as $topic) {
+                    storageDelete($topic, 'path_image_icon');
+                    $topic->delete();
+                }
+            }
+
             storageDelete($PORT04Portfolios, 'path_image');
             storageDelete($PORT04Portfolios, 'path_image_icon');
+            storageDelete($PORT04Portfolios, 'path_image_content');
+            storageDelete($PORT04Portfolios, 'path_image_desktop_banner');
+            storageDelete($PORT04Portfolios, 'path_image_mobile_banner');
         }
 
         if($deleted = PORT04Portfolios::whereIn('id', $request->deleteAll)->delete()){

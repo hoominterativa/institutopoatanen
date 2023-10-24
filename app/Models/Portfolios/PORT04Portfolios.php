@@ -17,7 +17,16 @@ class PORT04Portfolios extends Model
 
     protected $table = "port04_portfolios";
     protected $fillable = [
-       'category_id', 'slug', 'title', 'description', 'path_image', 'path_image_icon', 'active', 'featured', 'sorting'
+        //Portfolio
+       'category_id', 'slug', 'title', 'description', 'path_image', 'path_image_icon', 'active', 'featured',
+       //Internal Banner
+       'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
+       //Internal Content
+       'title_content', 'subtitle_content', 'description_content', 'path_image_content', 'active_content',
+       //Internal Section
+       'title_section', 'subtitle_section', 'description_section', 'active_section',
+       //General
+        'sorting'
     ];
 
     public function scopeSorting($query)
@@ -33,5 +42,20 @@ class PORT04Portfolios extends Model
     public function scopeFeatured($query)
     {
         return $query->where('featured', 1);
+    }
+
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
+    }
+
+    public function scopeActiveContent($query)
+    {
+        return $query->where('active_content', 1);
+    }
+
+    public function scopeActiveSection($query)
+    {
+        return $query->where('active_section', 1);
     }
 }

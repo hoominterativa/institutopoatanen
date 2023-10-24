@@ -26,16 +26,19 @@ class PORT04PortfoliosSectionFactory extends Factory
             'title_section' => $this->faker->text(10),
             'subtitle_section' => $this->faker->text(10),
             'text_section' => $this->faker->text(400),
+            'active_section' => 1,
             //Banner
             'title_banner' => $this->faker->text(10),
             'subtitle_banner' => $this->faker->text(10),
             'path_image_desktop_banner' => 'uploads/tmp/retangle.png',
             'path_image_mobile_banner' => 'uploads/tmp/port01_path_image_box.png',
             'background_color_banner' => '#FFFFFF',
+            'active_banner' => 1,
             //Content
             'title_content' => $this->faker->text(10),
             'subtitle_content' => $this->faker->text(10),
             'text_content' => $this->faker->text(400),
+            'active_content' => 1,
         ];
     }
 }
