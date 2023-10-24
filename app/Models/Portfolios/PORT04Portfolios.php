@@ -58,4 +58,24 @@ class PORT04Portfolios extends Model
     {
         return $query->where('active_section', 1);
     }
+
+    public function additionalTopics()
+    {
+        return $this->hasMany(PORT04PortfoliosAdditionalTopic::class, 'portfolio_id');
+    }
+
+    public function topics()
+    {
+        return $this->hasMany(PORT04PortfoliosTopic::class, 'portfolio_id');
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(PORT04PortfoliosGallery::class, 'portfolio_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsTo(PORT04PortfoliosCategory::class, 'category_id');
+    }
 }
