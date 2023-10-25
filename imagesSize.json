@@ -283,34 +283,14 @@
                 "activeCrop": "false"
             },
             "Section": {
-                "path_image_banner_desktop": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "218",
                     "activeCrop": "false"
                 },
-                "path_image_banner_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "230",
-                    "activeCrop": "true"
-                },
-                "path_image_section_desktop": {
-                    "width": "1500",
-                    "height": "1235",
-                    "activeCrop": "false"
-                },
-                "path_image_section_mobile": {
-                    "width": "390",
-                    "height": "218",
-                    "activeCrop": "true"
-                },
-                "path_image_home_desktop": {
-                    "width": "1500",
-                    "height": "460",
-                    "activeCrop": "true"
-                },
-                "path_image_home_mobile": {
-                    "width": "390",
-                    "height": "525",
                     "activeCrop": "true"
                 }
             }

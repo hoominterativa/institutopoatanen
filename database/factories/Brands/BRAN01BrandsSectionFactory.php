@@ -22,9 +22,23 @@ class BRAN01BrandsSectionFactory extends Factory
     public function definition()
     {
         return [
-            // 'title' => $this->faker->text(10),
-            // 'path_image' => 'uploads/temp/image_temporary.png',
-            'active_home' => 1,
+            //Section
+            'title_section' => $this->faker->text(10),
+            'subtitle_section' => $this->faker->text(10),
+            'description_section' => $this->faker->text(500),
+            'active_section' => 1,
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'path_image_desktop_banner' => 'uploads/tmp/port01_path_image_right.jpg',
+            'path_image_mobile_banner' => 'uploads/tmp/port01_path_image_box.png',
+            'background_color_banner' => '#FFFFFF',
+            'active_banner' => 1,
+            //Content
+            'title_content' => $this->faker->text(10),
+            'subtitle_content' => $this->faker->text(10),
+            'description_content' => $this->faker->text(500),
+            'active_content' => 1,
         ];
     }
 }

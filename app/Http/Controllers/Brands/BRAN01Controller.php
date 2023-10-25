@@ -23,7 +23,7 @@ class BRAN01Controller extends Controller
      */
     public function index()
     {
-        $brands = BRAN01Brands::sorting()->paginate();
+        $brands = BRAN01Brands::sorting()->paginate(32);
         $section = BRAN01BrandsSection::first();
         return view('Admin.cruds.Brands.BRAN01.index', [
             'brands' => $brands,
@@ -55,9 +55,9 @@ class BRAN01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active ? 1 : 0;
-        $data['featured'] = $request->featured ? 1 : 0;
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
+        $data['link'] = isset($data['link'])? getUri($data['link']) : null;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
@@ -129,13 +129,12 @@ class BRAN01Controller extends Controller
 
         if($BRAN01Brands->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.bran01.index');
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -199,21 +198,17 @@ class BRAN01Controller extends Controller
      */
     public function page(Request $request)
     {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN01');
+
+        $section = BRAN01BrandsSection::first();
+        $brands = BRAN01Brands::active()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = BRAN01BrandsSection::first();
                 if($section) $section->path_image_banner_desktop = $section->path_image_banner_mobile;
             break;
-            default:
-            $section = BRAN01BrandsSection::first();
-            break;
         }
-
-        $brands = BRAN01Brands::active()->sorting()->get();
-
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN01');
 
         return view('Client.pages.Brands.BRAN01.page',[
             'sections' => $sections,
@@ -229,18 +224,15 @@ class BRAN01Controller extends Controller
      */
     public static function section()
     {
+        $section = BRAN01BrandsSection::activeSection()->first();
+        $brands = BRAN01Brands::active()->featured()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = BRAN01BrandsSection::first();
                 if($section) $section->path_image_home_desktop = $section->path_image_home_mobile;
-            break;
-            default:
-            $section = BRAN01BrandsSection::first();
             break;
         }
 
-        $brands = BRAN01Brands::active()->featured()->sorting()->get();
         return view('Client.pages.Brands.BRAN01.section', [
             'section' => $section,
             'brands' => $brands,

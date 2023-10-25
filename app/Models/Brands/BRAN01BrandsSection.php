@@ -17,23 +17,16 @@ class BRAN01BrandsSection extends Model
 
     protected $table = "bran01_brands_sections";
     protected $fillable = [
-        'title_banner', 'subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner', 'active_banner',
+        //Section
         'title_section', 'subtitle_section', 'active_section', 'description_section',
-        'title_home', 'subtitle_home', 'path_image_home_desktop', 'path_image_home_mobile', 'background_color_home', 'active_home', 'description_home',
+        //Banner
+        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
+        //Content
+        'title_content', 'subtitle_content', 'active_content', 'description_content',
     ];
 
-    public function scopeSorting($query)
+    public function scopeActiveSection($query)
     {
-        return $query->orderBy('sorting', 'ASC');
+        return $query->where('active_section', 1);
     }
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

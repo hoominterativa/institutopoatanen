@@ -15,26 +15,23 @@ class CreateBran01BrandsSectionsTable extends Migration
     {
         Schema::create('bran01_brands_sections', function (Blueprint $table) {
             $table->id();
+            //Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
-            $table->string('path_image_banner_desktop')->nullable();
-            $table->string('path_image_banner_mobile')->nullable();
+            $table->string('path_image_desktop_banner')->nullable();
+            $table->string('path_image_mobile_banner')->nullable();
             $table->string('background_color_banner')->nullable();
             $table->integer('active_banner')->default(0);
-
+            //Section
             $table->string('title_section')->nullable();
             $table->string('subtitle_section')->nullable();
             $table->text('description_section')->nullable();
             $table->integer('active_section')->default(0);
-
-            $table->string('title_home')->nullable();
-            $table->string('subtitle_home')->nullable();
-            $table->text('description_home')->nullable();
-            $table->string('path_image_home_desktop')->nullable();
-            $table->string('path_image_home_mobile')->nullable();
-            $table->string('background_color_home')->nullable();
-            $table->integer('active_home')->default(0);
-
+            //Content
+            $table->string('title_content')->nullable();
+            $table->string('subtitle_content')->nullable();
+            $table->text('description_content')->nullable();
+            $table->integer('active_content')->default(0);
             $table->timestamps();
         });
     }

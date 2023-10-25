@@ -22,12 +22,12 @@ class BRAN01BrandsFactory extends Factory
     public function definition()
     {
         return [
-            'path_image_box' => 'uploads/tmp/image-box-white.jpg',
-            'path_image_icon' => 'uploads/tmp/logo.svg',
-            'link' => 'https://www.lipsum.com/',
+            'path_image_box' => 'uploads/tmp/port01_path_image_right.jpg',
+            'path_image_icon' => 'uploads/tmp/favicon.png',
+            'link' => $this->faker->url(),
             'target_link' => '_blank',
             'active' => 1,
-            'featured' => 1,
+            'featured' => rand(0,1),
         ];
     }
 }

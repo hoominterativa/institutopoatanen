@@ -1,25 +1,26 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="col-12">
-                    {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
-                    {!! Form::url('link', (isset($brand) && isset($brand->link) ?getUri($brand->link):null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
-                </div>
-                <div class="d-flex mt-3">
-                    <div class="form-check me-3">
-                        {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                        {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
-                    </div>
-                    <div class="form-check me-3">
-                        {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
-                        {!! Form::label('featured', 'Destacar na home', ['class'=>'form-check-label']) !!}
-                    </div>
-                </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
+                {!! Form::url('link', (isset($brand) && isset($brand->link) ?getUri($brand->link):null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label('target_link', 'Redirecionar para', ['class' => 'form-label']) !!}
+                {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class' => 'form-select','id' => 'target_link',]) !!}
             </div>
         </div>
-
         {{-- end card-body --}}
+        <div class="d-flex mt-3">
+            <div class="form-check me-3">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
+            </div>
+            <div class="form-check me-3">
+                {!! Form::checkbox('featured', '1', null, ['class'=>'form-check-input', 'id'=>'featured']) !!}
+                {!! Form::label('featured', 'Destacar na home?', ['class'=>'form-check-label']) !!}
+            </div>
+        </div>
     </div>
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
@@ -46,7 +47,6 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
@@ -73,6 +73,5 @@
         </div>
         {{-- end card-body --}}
     </div>
-
 </div>
 {{-- end row --}}

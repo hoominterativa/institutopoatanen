@@ -26,5 +26,4 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/secao', BRAN01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'BRAN01BrandsSection']);
-    Route::post($route.'/secao/delete', [BRAN01SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 });
