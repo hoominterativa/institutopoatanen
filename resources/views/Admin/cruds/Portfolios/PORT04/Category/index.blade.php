@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{route('admin.port02.category.destroySelected')}}" type="button" class="btn btn-danger btnDeleteCategory" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{route('admin.port04.category.destroySelected')}}" type="button" class="btn btn-danger btnDeleteCategory" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)"  data-bs-target="#modal-category-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
@@ -24,7 +24,7 @@
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{route('admin.port02.category.sorting')}}">
+                    <tbody data-route="{{route('admin.port04.category.sorting')}}">
                         @foreach ($categories as $category)
                             <tr data-code="{{$category->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -32,8 +32,8 @@
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$category->id}}"></label>
                                 </td>
                                 <td class="align-middle avatar-group">
-                                    @if ($category->path_image_icon)
-                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $category->path_image_icon)}})"></div>
+                                    @if ($category->path_image)
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $category->path_image)}})"></div>
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$category->title}}</td>
@@ -49,13 +49,13 @@
                                         <div class="col-4">
                                             <a href="javascript:void(0)" data-bs-target="#modal-category-update-{{$category->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.port02.category.destroy',['PORT02PortfoliosCategory' => $category->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.port04.category.destroy',['PORT04PortfoliosCategory' => $category->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
                                         {{-- BEGIN MODAL CATEGORY UPDATE --}}
                                         <div id="modal-category-update-{{$category->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 1100px;">
+                                            <div class="modal-dialog" style="max-width: 900px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
                                                         <h4 class="page-title">Editar Categoria</h4>
@@ -63,7 +63,7 @@
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.Portfolios.PORT02.Category.form',[
+                                                        @include('Admin.cruds.Portfolios.PORT04.Category.form',[
                                                             'category' => $category
                                                         ])
                                                     </div>
@@ -85,7 +85,7 @@
 
 {{-- BEGIN MODAL CATEGORY CREATE --}}
 <div id="modal-category-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 1100px;">
+    <div class="modal-dialog" style="max-width: 900px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
                 <h4 class="page-title">Cadastrar Categoria</h4>
@@ -93,7 +93,7 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Portfolios.PORT02.Category.form',[
+                @include('Admin.cruds.Portfolios.PORT04.Category.form',[
                     'category' => null
                 ])
             </div>

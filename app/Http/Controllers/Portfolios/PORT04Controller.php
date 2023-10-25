@@ -115,7 +115,7 @@ class PORT04Controller extends Controller
     {
         $categories = PORT04PortfoliosCategory::sorting()->pluck('title', 'id');
 
-        return view('Admin.cruds.Portfolios.PORT02.edit', [
+        return view('Admin.cruds.Portfolios.PORT04.edit', [
             'portfolio' => $PORT04Portfolios,
             'categories' => $categories,
             'cropSetting' => getCropImage('Portfolios', 'PORT04')

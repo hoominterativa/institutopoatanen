@@ -533,7 +533,7 @@
                 }
             },
             "Category": {
-                "path_image_icon": {
+                "path_image": {
                     "width": "300",
                     "height": "300",
                     "activeCrop": "false"
