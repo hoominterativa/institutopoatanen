@@ -43,5 +43,7 @@
             "socials" => $socials,
         ])
     @endif
+
+    
 </body>
 </html>

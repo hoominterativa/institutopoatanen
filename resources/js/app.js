@@ -14,6 +14,15 @@ import { Tab } from "bootstrap/js/dist/tab.js";
 import { Toast } from "jquery-toast-plugin/dist/jquery.toast.min.js";
 import "./audioplayer";
 
+// FULL CALENDAR
+
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+
+
+
 import { FormValidate } from "../views/Admin/assets/js/pages/form-validation.init.js";
 import { FormMask } from "../views/Admin/assets/js/pages/form-masks.init.js";
 import { base } from "../views/Client/assets/js/base";

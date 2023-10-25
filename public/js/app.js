@@ -11480,6 +11480,13 @@ window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODU
 
 
 
+// FULL CALENDAR
+
+
+
+
+
+
 
 
 
@@ -12026,14 +12033,26 @@ if (elementosAnimados.length > 0) {
 /*!*******************************************************************!*\
   !*** ./resources/views/Client/pages/Schedules/SCHE02/src/main.js ***!
   \*******************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-document.addEventListener('DOMContentLoaded', function () {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth'
-  });
-  calendar.render();
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.lish__topo__close').on('click', function () {
+  setTimeout(function () {
+    $('.lish').css("display", "none");
+    $('#ligtbox-sche02-page').css("display", "flex");
+  }, 300);
+});
+$('.lipa__banner__close').on('click', function () {
+  setTimeout(function () {
+    $('.fancybox__content>.carousel__button.is-close').trigger("click");
+  }, 300);
+});
+$('.lish__topoengPrev__prev').on('click', function () {
+  setTimeout(function () {
+    $('.lish').css("display", "none");
+    $('#ligtbox-sche02-page').css("display", "flex");
+    // $('.is-close').on('click');
+  }, 300);
 });
 
 /***/ }),
