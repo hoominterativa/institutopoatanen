@@ -83,13 +83,19 @@
                                 border-bottom: 10px solid transparent;
                                 border-left: 14px solid #404040;
                                 right: 62px;
+
+
+                                @include small-device-down{
+                                    right: 18px;
+                                }
                             }
-                            &:not(.collapsed)::after{
-                                border-right: 10px solid transparent;
-                                border-left: 10px solid transparent;
-                                border-top: 14px solid #404040;
-                                border-bottom: inherit;
-                            }
+
+                            // &:not(.collapsed)::after{
+                            //     border-right: 10px solid transparent;
+                            //     border-left: 10px solid transparent;
+                            //     border-top: 14px solid #404040;
+                            //     border-bottom: inherit;
+                            // }
 
                             &__leftAba{
                                 width: 8.5625rem;
@@ -132,6 +138,11 @@
                                 justify-content: center;
                                 padding: 1.5rem 2.37rem;
 
+                                @include medium-device-down{
+                                    min-height: 7.3rem;
+                                    padding: 1.6rem 0.97rem;
+                                }
+
                                 &__title{
                                     margin-bottom: 0;
                                     font-size: $T4;
@@ -163,6 +174,11 @@
                             padding: 2rem 2.56rem !important;
                             border: 1px solid rgb(64 64 64 / 60%);
 
+
+                            @include medium-device-down{
+                                padding: 1rem 0.96rem !important;
+                            }
+
                             &__paragraph{
                                 p{
                                     line-height: 170%; /* 1.7rem */
@@ -179,6 +195,11 @@
                                 margin-right: -36px;
                                 margin-bottom: -32px;
                                 justify-content: flex-end;
+
+                                @include medium-device-down{
+                                    margin-right: 0;
+                                    margin-bottom: 0;
+                                }
 
                                 &__cta{
                                     @include Flex;
@@ -437,14 +458,22 @@
 }
 
 //calendario
+//calendario
 .fc-toolbar h2{
     font-size: 15px !important;
     border: 1px solid $color-black !important;
     color: $color-black;
     font-family: $font-primary;
     padding: 0.7rem 2rem !important;
+
+    @include small-device-down{
+        padding: 0.5rem 1rem !important;
+    }
 }
 
+.fc-title{
+    display: none !important;
+}
 .fc-day-grid-event {
     background-color: transparent !important;
     border: 0 !important;
@@ -498,6 +527,12 @@
     display: flex;
     align-items: center !important;
     justify-content: center !important;
+
+    @include small-device-down{
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+        padding: 0 !important;
+    }
 }
 .fc-left{
     position: absolute;
@@ -510,8 +545,14 @@
 }
 .fc-day-top{
     padding: 0 0.4rem !important;
+    
 }
-
+.fc-button .fc-icon {
+    @include small-device-down{
+        vertical-align: middle;
+        font-size: 0.8em;
+    }
+}
 //FIM-PAGE
 .lish{
     display: none;
@@ -537,6 +578,10 @@
         width: 100%;
         height: 100%;    
         padding: 3.19rem 4.56rem;
+
+        @include small-device-down{
+            padding: 2.94rem 1.2rem;
+        }
     }
     &__topo{
         display: flex;
@@ -556,6 +601,10 @@
             margin-right: 2rem;
             background: transparent;
             border: none;
+
+            @include small-device-down{
+                margin-right: 0rem;
+            }
         }
     }
 
@@ -583,7 +632,7 @@
 
             
             @include medium-device-down{
-                font-size: $T3-mobile;
+                font-size: 1.875rem;
             }
         }
     }
@@ -600,6 +649,11 @@
                 border-bottom: 1px solid rgb(64 64 64 / 20%);
                 padding-bottom: 25px;
 
+                @include small-device-down{
+                    padding-bottom: 1rem;
+                    margin-bottom: 2.06rem;
+                }
+
                
 
                 
@@ -607,18 +661,13 @@
                     position: absolute;
                     width: 0;
                     height: 0;
-                    border-top: 12px solid transparent;
-                    border-bottom: 10px solid transparent;
-                    border-left: 14px solid #404040;
+                    border-right: 8px solid transparent;
+                    border-left: 8px solid transparent;
+                    border-top: 14px solid $color-one;
                     right: 28px;
                     bottom: 25px;
                 }
-                &:not(.collapsed)::after{
-                    border-right: 10px solid transparent;
-                    border-left: 10px solid transparent;
-                    border-top: 14px solid #404040;
-                    border-bottom: inherit;
-                }
+                
 
                 &__left{
                     display: flex;
@@ -640,6 +689,11 @@
                         left: 0;
                         width: 0.4375rem;
                         height: 0.4375rem;
+
+                        @include small-device-down{
+                            width: 0.4375rem;
+                            height: 0.4375rem;
+                        }
                     }
                     &__title{
                         color: $color-black;
@@ -651,8 +705,8 @@
                         letter-spacing: 0.0125rem;
                         margin-bottom: 0;
 
-                        @include medium-device-down{
-                            font-size: $T1-mobile;
+                        @include small-device-down{
+                            font-size: 0.8125rem;
                         }
                     }
                     &__subtitle{
@@ -665,8 +719,8 @@
                         line-height: 1.375rem;
                         margin-bottom: 0;
 
-                        @include medium-device-down{
-                            font-size: $T4-mobile;
+                        @include small-device-down{
+                            font-size: 0.9375rem;
                         }
                     }
                 }
@@ -693,6 +747,10 @@
                     margin-right: -36px;
                     justify-content: flex-end;
 
+                    @include small-device-down{
+                        margin-right: 0;
+                    }
+
                     &__btn{
                         @include Flex;
                         color: $color-eight;
@@ -705,9 +763,10 @@
                         gap:0 14.58px;
                         margin-top:5rem;
                 
-                        @include medium-device-down{
+                        @include small-device-down{
                             font: $paragraph-mobile;
                             width: 147px;
+                            font-weight: 700;
                         }
             
                         img{
