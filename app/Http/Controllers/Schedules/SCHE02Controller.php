@@ -200,16 +200,19 @@ class SCHE02Controller extends Controller
     public static function section()
     {
         $section = SCHE02SchedulesSection::first();
-        $schedules = SCHE02Schedules::active()->featured()->sorting()->get();
+        $schedulesFeatured = SCHE02Schedules::active()->featured()->sorting()->get();
+        $schedules = SCHE02Schedules::active()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
                 if ($section) {
                     $section->path_image_desktop_section = $section->path_image_mobile_section;
+                    $section->path_image_desktop_banner = $section->path_image_mobile_banner;
                 }
             break;
         }
         return view('Client.pages.Schedules.SCHE02.section', [
+            'schedulesFeatured' => $schedulesFeatured,
             'schedules' => $schedules,
             'section' => $section
         ]);

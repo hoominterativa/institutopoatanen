@@ -23,47 +23,47 @@
                                 </div>
                             </header>
                             <div class="sche02__main__box__left__engDropdown">
-                                @foreach ($schedules as $schedule)
+                                @foreach ($schedulesFeatured as $scheduleFeatured)
                                     <div class="sche02__left__engDropdown__dropdown">
-                                        
-                                        <button class="sche02__main__box__left__engDropdown__dropdown__aba d-flex justify-content-between accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#schedule-{{ $schedule->id }}" aria-expanded="false" aria-controls="collapseTwo">
+
+                                        <button class="sche02__main__box__left__engDropdown__dropdown__aba d-flex justify-content-between accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#schedule-{{ $scheduleFeatured->id }}" aria-expanded="false" aria-controls="collapseTwo">
                                             <div class="sche02__main__box__left__engDropdown__dropdown__aba__leftAba">
-                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__leftAba__title">{{Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%d')}}</span>
-                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__leftAba__subtitle">{{Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%b')}}</span>
+                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__leftAba__title">{{Carbon\Carbon::parse($scheduleFeatured->event_date)->formatLocalized('%d')}}</span>
+                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__leftAba__subtitle">{{Carbon\Carbon::parse($scheduleFeatured->event_date)->formatLocalized('%b')}}</span>
                                             </div>
                                             <div class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba">
-                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba__title">{{ucfirst(Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%A'))}}</span>
-                                                <h3 class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba__subtitle">{{$schedule->event_locale}}</h3>
+                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba__title">{{ucfirst(Carbon\Carbon::parse($scheduleFeatured->event_date)->formatLocalized('%A'))}}</span>
+                                                <h3 class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba__subtitle">{{$scheduleFeatured->event_locale}}</h3>
                                             </div>
                                         </button>
                                         {{-- fim-sche02__left__dropdown__aba --}}
-        
-                                        <div id="schedule-{{ $schedule->id }}" class="sche02__main__box__left__engDropdown__dropdown__description accordion-collapse collapse" data-bs-parent="#schedule-{{ $schedule->id }}">
+
+                                        <div id="schedule-{{ $scheduleFeatured->id }}" class="sche02__main__box__left__engDropdown__dropdown__description accordion-collapse collapse" data-bs-parent="#schedule-{{ $scheduleFeatured->id }}">
                                             <div class="sche02__main__box__left__engDropdown__dropdown__description__paragraph">
-                                                {!! $schedule->informations !!}
+                                                {!! $scheduleFeatured->informations !!}
                                             </div>
                                             <div class="sche02__main__box__left__engDropdown__dropdown__description__engButton">
-                                                @if ($schedule->link_button_one)
-                                                    <a href="{{getUri($schedule->link_button_one)}}" target="{{$schedule->target_link_button_one}}" class="sche02__main__box__left__engDropdown__dropdown__description__engButton__cta">
+                                                @if ($scheduleFeatured->link_button_one)
+                                                    <a href="{{getUri($scheduleFeatured->link_button_one)}}" target="{{$scheduleFeatured->target_link_button_one}}" class="sche02__main__box__left__engDropdown__dropdown__description__engButton__cta">
                                                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}">
-                                                        @if ($schedule->title_button_one)
-                                                            {{$schedule->title_button_one}}
+                                                        @if ($scheduleFeatured->title_button_one)
+                                                            {{$scheduleFeatured->title_button_one}}
                                                         @endif
                                                     </a>
                                                 @endif
-                                                @if ($schedule->link_button_two)
-                                                    <a href="{{getUri($schedule->link_button_two)}}" target="_blank" class="sche02__main__box__left__engDropdown__dropdown__description__engButton__cta">
+                                                @if ($scheduleFeatured->link_button_two)
+                                                    <a href="{{getUri($scheduleFeatured->link_button_two)}}" target="_blank" class="sche02__main__box__left__engDropdown__dropdown__description__engButton__cta">
                                                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}">
-                                                        @if ($schedule->title_button_two)
-                                                            {{$schedule->title_button_two}}
+                                                        @if ($scheduleFeatured->title_button_two)
+                                                            {{$scheduleFeatured->title_button_two}}
                                                         @endif
                                                     </a>
                                                 @endif
                                             </div>
-                                            
+
                                         </div>
                                         {{-- fim-sche02__left__dropdown__description --}}
-                                        
+
                                     </div>
                                 @endforeach
                             </div>
@@ -74,7 +74,8 @@
                                 </a>
                             </div>
                             @include('Client.pages.Schedules.SCHE02.page', [
-                                'schedules' => $schedules
+                                'schedules' => $schedules,
+                                'section' => $section
                             ])
                         </div>
                         <div class="sche02__main__box__right col-sm-5 d-flex align-items-end">
