@@ -16,7 +16,7 @@ class BRAN04Brands extends Model
     }
 
     protected $table = "bran04_brands";
-    protected $fillable = ['path_image', 'path_image_icon', 'link', 'active', 'sorting'];
+    protected $fillable = ['path_image', 'path_image_icon', 'link', 'target_link', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

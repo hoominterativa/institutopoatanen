@@ -18,6 +18,7 @@ class CreateBran04BrandsTable extends Migration
             $table->string('path_image')->nullable();
             $table->string('path_image_icon')->nullable();
             $table->text('link')->nullable();
+            $table->enum('target_link', ['_self', '_blank'])->default('_blank');
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

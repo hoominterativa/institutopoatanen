@@ -2321,50 +2321,33 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.bran01 {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.bran01__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
-}
-.bran01 .container--bran01 {
+/* BEGIN STYLE */
+.bran04 .container--bran04 {
   padding: 39px 0 60.16px 0 !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
 }
 @media (max-width: 767.98px) {
-  .bran01 .container--bran01 {
+  .bran04 .container--bran04 {
     padding: 37px 37px 58.16px 37px !important;
   }
 }
-.bran01__encompass {
+.bran04__encompass {
   z-index: 100;
   position: relative;
 }
-.bran01__encompass__title {
+.bran04__encompass__title {
   font-size: 2.5rem;
   color: #404040;
   font-family: "Montserrat", sans-serif, arial;
   font-weight: 700;
 }
 @media (max-width: 767.98px) {
-  .bran01__encompass__title {
+  .bran04__encompass__title {
     font-size: 1.875rem;
     font-weight: 700;
     margin-bottom: 7px;
   }
 }
-.bran01__encompass__subtitle {
+.bran04__encompass__subtitle {
   font-size: 1.25rem;
   font-family: "Montserrat", sans-serif, arial;
   color: #404040;
@@ -2372,20 +2355,20 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 22.03px;
 }
 @media (max-width: 767.98px) {
-  .bran01__encompass__subtitle {
+  .bran04__encompass__subtitle {
     font-size: 1.125rem;
     font-weight: 700;
   }
 }
-.bran01__encompass__line {
+.bran04__encompass__line {
   margin: 24.99px 0 30px 0;
 }
 @media (max-width: 767.98px) {
-  .bran01__encompass__line {
+  .bran04__encompass__line {
     margin: 23px 0;
   }
 }
-.bran01__encompass__paragraph {
+.bran04__encompass__paragraph {
   color: #404040;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
@@ -2393,267 +2376,50 @@ body .owl-dots .owl-dot.active {
   width: 100%;
 }
 @media (max-width: 767.98px) {
-  .bran01__encompass__paragraph {
+  .bran04__encompass__paragraph {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
   }
 }
-.bran01__encompass__paragraph p {
+.bran04__encompass__paragraph p {
   color: #404040;
   font-weight: 400;
   font: 1rem "Montserrat", sans-serif, arial;
   margin-bottom: 0;
 }
 @media (max-width: 767.98px) {
-  .bran01__encompass__paragraph p {
+  .bran04__encompass__paragraph p {
     font: 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
   }
 }
-.bran01__content {
+.bran04__content {
   margin-top: 58.01px;
   display: flex;
   gap: 21.44px 0;
 }
 @media (max-width: 767.98px) {
-  .bran01__content {
+  .bran04__content {
     margin-top: 48px;
   }
 }
-.bran01__box__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.bran04__content__box {
   height: 136.84px;
-  background-color: #efefef;
 }
-.bran01__box__image {
-  width: 62.29px;
-  height: 62.29px;
-}
-.bran01__box__image img {
+.bran04__content__box__image {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.bran01__cta {
+  background-color: #efefef;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  color: #000;
-  background: #efefef;
-  width: 100%;
-  max-width: 177px;
-  height: 45px;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  margin-top: 24px;
-  align-self: center;
-}
-@media (max-width: 575.98px) {
-  .bran01__cta {
-    margin-top: -32px;
-    z-index: 100;
-    position: relative;
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 700;
-    margin-top: -34px;
-    width: 147px;
-    width: 147px;
-  }
-}
-.bran01__cta__icon {
-  height: 25px !important;
-  width: 25px !important;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.bran01__cta:hover {
-  color: #fff;
-  background-color: #000;
-}
-.bran01__cta:hover .bran01__cta__icon {
-  filter: invert(1) grayscale(1);
-}
-
-.bran01-page__header {
-  background-size: cover;
+  justify-content: center;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
+  background-size: cover;
 }
-.bran01-page__header__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
-}
-.bran01-page__header .container--bran01-page {
-  padding: 51px 0 46px 0;
-  z-index: 100;
-  position: relative;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__header .container--bran01-page {
-    padding: 37px 34px 58.16px 34px;
-  }
-}
-.bran01-page__header__title {
-  font-size: 3.125rem;
-  color: #404040;
-  font-family: "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__header__title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0px;
-  }
-}
-.bran01-page__header__subtitle {
-  font-size: 1.875rem;
-  font-family: "Montserrat", sans-serif, arial;
-  color: #b3b3b3;
-  font-weight: 700;
-  margin-bottom: 22.03px;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__header__subtitle {
-    font-size: 1.563rem;
-    font-weight: 700;
-  }
-}
-.bran01-page__header__line {
-  margin-top: 25px;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__header__line {
-    margin: 23px 0;
-  }
-}
-.bran01-page__header__paragraph {
-  color: #404040;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  max-width: 890px;
-  width: 100%;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__header__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.bran01-page__header__paragraph p {
-  color: #404040;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__header__paragraph p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.bran01-page__encompass__title {
-  font-size: 2.5rem;
-  color: #404040;
-  font-family: "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__encompass__title {
-    font-size: 1.875rem;
-    font-weight: 700;
-  }
-}
-.bran01-page__encompass__subtitle {
-  font-size: 1.25rem;
-  font-family: "Montserrat", sans-serif, arial;
-  color: #b3b3b3;
-  font-weight: 700;
-  margin-bottom: 22.03px;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__encompass__subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
-  }
-}
-.bran01-page__encompass__line {
-  margin: 24.99px 0 30px 0;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__encompass__line {
-    margin: 23px 0;
-  }
-}
-.bran01-page__encompass__paragraph {
-  color: #7c7c7c;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  max-width: 890px;
-  width: 100%;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__encompass__paragraph {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.bran01-page__encompass__paragraph p {
-  color: #7c7c7c;
-  font-weight: 400;
-  font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .bran01-page__encompass__paragraph p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.bran01-page .row--bran01-page {
-  margin-top: 58.01px;
-  display: flex;
-  gap: 21.44px 0;
-}
-.bran01-page .container--bran01-page__main {
-  padding: 47px 0 123.16px 0;
-}
-@media (max-width: 767.98px) {
-  .bran01-page .container--bran01-page__main {
-    padding: 47px 34px 123.16px 34px;
-  }
-}
-@media (max-width: 575.98px) {
-  .bran01-page__box {
-    padding: 0 !important;
-  }
-}
-.bran01-page__box__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 136.84px;
-  background-color: #efefef;
-  width: 100%;
-}
-.bran01-page__box__image {
+.bran04__content__box__image img {
   width: 62.29px;
   height: 62.29px;
-}
-.bran01-page__box__image img {
-  width: 100%;
-  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }

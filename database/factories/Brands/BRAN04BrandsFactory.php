@@ -25,6 +25,7 @@ class BRAN04BrandsFactory extends Factory
             'path_image' => 'uploads/tmp/thumbnail-b.png',
             'path_image_icon' => 'uploads/tmp/favicon.png',
             'link' => $this->faker->url(),
+            'target_link' => '_blank',
             'active' => 1,
         ];
     }

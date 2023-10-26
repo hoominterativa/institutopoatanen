@@ -3,7 +3,9 @@
 {{-- BEGIN Page content --}}
 
 {{-- Finish Content page Here --}}
-@foreach ($sections as $section)
+<main id="root">
+    @foreach ($sections as $section)
     {!!$section!!}
-@endforeach
+    @endforeach
+</main>
 @endsection
