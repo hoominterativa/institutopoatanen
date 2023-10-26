@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portfolios\PORT04Controller;
 use App\Http\Controllers\Portfolios\PORT04TopicController;
+use App\Http\Controllers\Portfolios\PORT04GalleryController;
 use App\Http\Controllers\Portfolios\PORT04SectionController;
 use App\Http\Controllers\Portfolios\PORT04CategoryController;
 use App\Http\Controllers\Portfolios\PORT04AdditionalTopicController;
@@ -42,6 +43,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicos', PORT04TopicController::class)->names('admin.'.$routeName.'.topics')->parameters(['topicos' => 'PORT04PortfoliosTopic']);
     Route::post($route.'/topicos/delete', [PORT04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topics.destroySelected');
     Route::post($route.'/topicos/sorting', [PORT04TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topics.sorting');
+
+    Route::resource($route.'/galeria', PORT04GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'PORT04PortfoliosGallery']);
+    Route::post($route.'/galeria/delete', [PORT04GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [PORT04GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });
 
 // CLIENT

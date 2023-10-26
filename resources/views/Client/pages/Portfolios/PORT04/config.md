@@ -27,7 +27,7 @@
             'linkMenu' => 'port04.page',
             'iconMenu' => '',
             'titlePanel' => 'Portifólio',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-alpha-p-box'
         ],
         'IncludeSections' => (object) []
     ],

@@ -43,6 +43,7 @@ class PORT04PortfoliosFactory extends Factory
             //Internal Content
             'title_content' => $this->faker->text(10),
             'subtitle_content' => $this->faker->text(10),
+            'text_content' => $this->faker->text(900),
             'path_image_content' => 'uploads/tmp/png-slide.png',
             'active_content' => 1,
             //Internal Section

@@ -22,7 +22,7 @@ class PORT04Portfolios extends Model
        //Internal Banner
        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
        //Internal Content
-       'title_content', 'subtitle_content', 'description_content', 'path_image_content', 'active_content',
+       'title_content', 'subtitle_content', 'text_content', 'path_image_content', 'active_content',
        //Internal Section
        'title_section', 'subtitle_section', 'description_section', 'active_section',
        //General
