@@ -54,19 +54,22 @@ class COMP01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null, 100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null, 100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+
 
         $data['slug'] = Str::slug($request->title_page);
         $data['active'] = $request->active?1:0;
-        $data['show_footer'] = $request->show_footer?1:0;
-        $data['show_header'] = $request->show_header?1:0;
 
         if($compliance = COMP01Compliances::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
             return redirect()->route('admin.comp01.edit', ['COMP01Compliances' => $compliance]);
         }else{
-            Storage::delete($path_image_banner);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('success', 'Erro ao cadastradar informações');
             return redirect()->back();
         }
@@ -100,25 +103,34 @@ class COMP01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner){
-            storageDelete($COMP01Compliances, 'path_image_banner');
-            $data['path_image_banner'] = $path_image_banner;
-        }
-        if($request->delete_path_image_banner && !$path_image_banner){
-            storageDelete($COMP01Compliances, 'path_image_banner');
-            $data['path_image_banner'] = null;
-        }
-
         $data['slug'] = Str::slug($request->title_page);
         $data['active'] = $request->active?1:0;
-        $data['show_footer'] = $request->show_footer?1:0;
-        $data['show_header'] = $request->show_header?1:0;
+
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null, 100);
+        if($path_image_desktop_banner){
+            storageDelete($COMP01Compliances, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($COMP01Compliances, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null, 100);
+        if($path_image_mobile_banner){
+            storageDelete($COMP01Compliances, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($COMP01Compliances, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
 
         if($COMP01Compliances->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            Storage::delete($path_image_banner);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao atualizar informações');
         }
         return redirect()->back();
@@ -143,7 +155,8 @@ class COMP01Controller extends Controller
             $section->delete();
         }
 
-        storageDelete($COMP01Compliances, 'path_image_banner');
+        storageDelete($COMP01Compliances, 'path_image_desktop_banner');
+        storageDelete($COMP01Compliances, 'path_image_mobile_banner');
 
         if($COMP01Compliances->delete()){
             Session::flash('success', 'Página deletada com sucessso');
@@ -172,7 +185,8 @@ class COMP01Controller extends Controller
                 $section->delete();
             }
 
-            storageDelete($COMP01Compliances, 'path_image_banner');
+            storageDelete($COMP01Compliances, 'path_image_desktop_banner');
+            storageDelete($COMP01Compliances, 'path_image_mobile_banner');
         }
 
         if($deleted = COMP01Compliances::whereIn('id', $request->deleteAll)->delete()){
@@ -205,9 +219,19 @@ class COMP01Controller extends Controller
      */
     public function show(COMP01Compliances $COMP01Compliances)
     {
+        $compliance = $COMP01Compliances;
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($compliance)
+                $compliance->path_image_desktop_banner = $compliance->path_imagemobile_banner;
+            break;
+
+        }
+
         $sections = COMP01CompliancesSection::with('archives')->where('compliance_id', $COMP01Compliances->id)->sorting()->get();
         return view('Client.pages.Compliances.COMP01.show',[
-            'compliance' => $COMP01Compliances,
+            'compliance' => $compliance,
             'sections' => $sections
         ]);
     }

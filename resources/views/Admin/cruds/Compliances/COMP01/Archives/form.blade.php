@@ -7,40 +7,40 @@
     <input type="hidden" name="section_id" value="{{$section->id}}">
     <div class="row">
         <div class="col-12 col-lg-6">
-            <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required'=>true]) !!}
-            </div>
-            <div class="alert alert-warning">
-                <p class="mb-0">O campo de link abaixo só deverá ser preenchido caso não exista um arquivo.</p>
-            </div>
-            <div class="row">
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('link', 'Link', ['class'=>'form-label']) !!}
-                    {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'link']) !!}
+            <div class="card card-body border" id="tooltip-container">
+                <div class="alert alert-warning">
+                    <p class="mb-0">O campo de link abaixo só deverá ser preenchido caso não exista um arquivo.</p>
                 </div>
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('link_target', 'Abrir link em', ['class'=>'form-label']) !!}
-                    {!! Form::select('link_target', ['_self' => 'Mesma aba', '_blank' => 'Nova aba'], null, [
-                        'class'=>'form-select',
-                        'id'=>'link_target'
-                    ]) !!}
+                <div class="row">
+                    <div class="mb-3 col-12 col-lg-6">
+                        {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
+                        {!! Form::url('link', (isset($archive) && isset($archive->link) ? getUri($archive->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                    </div>
+                    <div class="mb-3 col-12 col-lg-6">
+                        {!! Form::label('link_target', 'Abrir link em:', ['class'=>'form-label']) !!}
+                        {!! Form::select('link_target', ['_self' => 'Mesma aba', '_blank' => 'Nova aba'], null, ['class'=>'form-select','id'=>'link_target']) !!}
+                    </div>
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required'=>true]) !!}
                 </div>
             </div>
-
         </div>
         <div class="col-12 col-lg-6">
-            <div class="alert alert-warning">
-                <p class="mb-0">O campo de link abaixo só deverá ser preenchido caso não exista um arquivo.</p>
-            </div>
-            <div class="mb-3">
-                {!! Form::label('file', 'Arquivo', ['class'=>'form-label']) !!}
-                {!! Form::file('path_archive', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'180',
-                    'data-max-file-size-preview'=>'2M',
-                    'data-default-file'=> isset($archive)?($archive->path_archive<>''?url('storage/'.$archive->path_archive):''):'',
-                ]) !!}
+            <div class="card card-body border" id="tooltip-container">
+                <div class="alert alert-warning">
+                    <p class="mb-0">O campo de arquivo abaixo só deverá ser preenchido caso não exista um link.</p>
+                </div>
+                <div class="mb-3">
+                    {!! Form::label('file', 'Arquivo', ['class'=>'form-label']) !!}
+                    {!! Form::file('path_archive', [
+                        'data-plugins'=>'dropify',
+                        'data-height'=>'180',
+                        'data-max-file-size-preview'=>'2M',
+                        'data-default-file'=> isset($archive)?($archive->path_archive<>''?url('storage/'.$archive->path_archive):''):'',
+                    ]) !!}
+                </div>
             </div>
         </div>
     </div>

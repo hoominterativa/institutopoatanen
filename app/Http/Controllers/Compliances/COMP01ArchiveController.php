@@ -26,6 +26,8 @@ class COMP01ArchiveController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
         if($path_archive) $data['path_archive'] = $path_archive;
 
@@ -35,7 +37,7 @@ class COMP01ArchiveController extends Controller
             Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar arquivo');
         }
-        Session::flash('reopenModal', ['modal-archive-create-'.$request->section_id, 'modal-section-update-'.$request->section_id]);
+        Session::flash('reopenModal', ['modal-section-update-'.$request->section_id, 'modal-archive-create-'.$request->section_id]);
         return redirect()->back();
     }
 
@@ -50,6 +52,8 @@ class COMP01ArchiveController extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
         if($path_archive){
@@ -68,7 +72,7 @@ class COMP01ArchiveController extends Controller
             Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar arquivo');
         }
-        Session::flash('reopenModal', ['modal-archive-create-'.$request->section_id, 'modal-section-update-'.$request->section_id]);
+        Session::flash('reopenModal', ['modal-section-update-'.$request->section_id, 'modal-archive-update-'.$request->section_id ]);
         return redirect()->back();
     }
 

@@ -1,4 +1,4 @@
-  'Blogs' => (object) [
+'Blogs' => (object) [
     'BLOG03' => (object)[
         'ViewHome' => true,
         'ViewListMenu' => true,

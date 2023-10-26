@@ -17,14 +17,14 @@ class COMP01Compliances extends Model
 
     protected $table = "comp01_compliances";
     protected $fillable = [
-        "title_page",
         "slug",
+        "title_page",
         "title_banner",
-        "path_image_banner",
+        "path_image_desktop_banner",
+        "path_image_mobile_banner",
+        "background_color_banner",
         "active",
-        "show_footer",
-        "sorting   ",
-        "text",
+        "sorting",
     ];
 
     public function scopeSorting($query)

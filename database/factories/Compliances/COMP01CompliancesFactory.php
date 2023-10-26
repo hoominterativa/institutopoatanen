@@ -24,14 +24,13 @@ class COMP01CompliancesFactory extends Factory
     {
         $titlePage = $this->faker->text(25);
         return [
-            "title_page" => $titlePage,
             "slug" => Str::slug($titlePage),
+            "title_page" => $titlePage,
             "title_banner" => $this->faker->text(25),
-            "text" => $this->faker->text(1500),
-            "path_image_banner" => 'uploads/tmp/bg-banner-inner.jpg',
+            "path_image_desktop_banner" => 'uploads/tmp/bg-section-dark-gray.jpg',
+            "path_image_mobile_banner" => 'uploads/tmp/port01_path_image_left.jpg',
+            "background_color_banner" => '#EEE',
             "active" => 1,
-            "show_footer" => 1,
-            "show_header" => 1,
         ];
     }
 }

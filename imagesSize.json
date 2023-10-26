@@ -636,6 +636,16 @@
     },
     "Compliances": {
         "COMP01": {
+            "path_image_desktop_banner": {
+                "width":"1500",
+                "height":"352",
+                "activeCrop": "false"
+            },
+            "path_image_mobile_banner": {
+                "width":"390",
+                "height":"340",
+                "activeCrop": "true"
+            },
             "Section": {
                 "path_image_icon": {
                     "width": "300",

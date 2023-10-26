@@ -22,8 +22,11 @@ class COMP01CompliancesSectionFactory extends Factory
     public function definition()
     {
         return [
-            // 'title' => $this->faker->text(10),
-            // 'path_image' => 'uploads/temp/image_temporary.png',
+            'compliance_id' => 1,
+            'title' => $this->faker->text(10),
+            'subtitle' => $this->faker->text(10),
+            'text' => $this->faker->paragraphs(3),
+            'path_image_icon' => 'uploads/tep/favicon.png',
             'active' => 1,
         ];
     }
