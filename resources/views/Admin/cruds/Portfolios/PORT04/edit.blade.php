@@ -20,11 +20,64 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($portfolio, ['route' => ['admin.port04.update', $portfolio->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Portfolios.PORT04.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.port04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                {!! Form::close() !!}
+
+                <ul class="mb-0 nav nav-tabs" id="tooltip-container">
+                    <li class="nav-item">
+                        <a href="#editPortfolios" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
+                            {{getTitleModel($configModelsMain, 'Portfolios', 'PORT04')}}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Edição do conteúdo principal"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#additionalTopics" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Tópicos adicionais
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de tópicos adicionais"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#topics" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Tópicos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos tópicos"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner da página
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esse banner será exibido na página de portifólios"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="editPortfolios">
+                        {!! Form::model($portfolio, ['route' => ['admin.port04.update', $portfolio->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                            @include('Admin.cruds.Portfolios.PORT04.form')
+                            {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                            <a href="{{route('admin.port04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::close() !!}
+                    </div>
+                    <div class="tab-pane" id="additionalTopics">
+                        @include('Admin.cruds.Portfolios.PORT04.AdditionalTopics.index',[
+                            'additionalTopics' => $additionalTopics,
+                            'portfolio' => $portfolio
+                        ])
+                    </div>
+                    <div class="tab-pane" id="topics">
+                        @include('Admin.cruds.Portfolios.PORT04.Topics.index',[
+                            'topics' => $topics,
+                            'portfolio' => $portfolio
+                        ])
+                    </div>
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

@@ -69,9 +69,9 @@ class PORT04Controller extends Controller
         $data['featured'] = $request->featured?1:0;
         $data['slug'] = Str::slug($data['title']);
         $data['active'] = $request->active?1:0;
-        $data['active_banner'] = $request->active?1:0;
-        $data['active_content'] = $request->active?1:0;
-        $data['active_section'] = $request->active?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_content'] = $request->active_content?1:0;
+        $data['active_section'] = $request->active_section?1:0;
 
         //Portfolio
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -114,10 +114,16 @@ class PORT04Controller extends Controller
     public function edit(PORT04Portfolios $PORT04Portfolios)
     {
         $categories = PORT04PortfoliosCategory::sorting()->pluck('title', 'id');
+        $galleries = PORT04PortfoliosGallery::where('portfolio_id', $PORT04Portfolios->id)->get();
+        $additionalTopics = PORT04PortfoliosAdditionalTopic::where('portfolio_id', $PORT04Portfolios->id)->get();
+        $topics = PORT04PortfoliosTopic::where('portfolio_id', $PORT04Portfolios->id)->get();
 
         return view('Admin.cruds.Portfolios.PORT04.edit', [
             'portfolio' => $PORT04Portfolios,
             'categories' => $categories,
+            'galleries' => $galleries,
+            'additionalTopics' => $additionalTopics,
+            'topics' => $topics,
             'cropSetting' => getCropImage('Portfolios', 'PORT04')
         ]);
     }
@@ -137,9 +143,9 @@ class PORT04Controller extends Controller
         $data['featured'] = $request->featured?1:0;
         $data['slug'] = Str::slug($data['title']);
         $data['active'] = $request->active?1:0;
-        $data['active_banner'] = $request->active?1:0;
-        $data['active_content'] = $request->active?1:0;
-        $data['active_section'] = $request->active?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_content'] = $request->active_content?1:0;
+        $data['active_section'] = $request->active_section?1:0;
 
         //Portfolio
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);

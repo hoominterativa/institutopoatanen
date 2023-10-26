@@ -1,6 +1,8 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.port04.section.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
+    {!! Form::hidden('active_content', $section->active_content) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.port04.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -30,7 +32,6 @@
                     ]) !!}
                 </div>
             </div>
-
         </div>
         {{-- end card-body --}}
         <div class="mb-3 form-check">

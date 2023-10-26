@@ -1,8 +1,10 @@
 @if ($section)
-    {!! Form::model($section, ['route' => ['admin.port04.content.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
+    {!! Form::model($section, ['route' => ['admin.port04.section.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
+    {!! Form::hidden('active_section', $section->active_section) !!}
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
 @else
-    {!! Form::model(null, ['route' => 'admin.port04.content.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.port04.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 <div class="row col-12">
     <div class="col-12">
@@ -11,7 +13,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Form::label('title_content', 'Título', ['class' => 'form-label']) !!}
-                        {!! Form::text('title_content', null, ['class' => 'form-control', 'id' => 'title_content']) !!}
+                        {!! Form::text('title_content', null, ['class' => 'form-control', 'id' => 'title_content',]) !!}
                     </div>
                     <div class="col-sm-6">
                         {!! Form::label('subtitle_content', 'Subtítulo', ['class' => 'form-label']) !!}

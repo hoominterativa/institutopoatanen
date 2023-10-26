@@ -26,9 +26,9 @@ class PORT04SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active_banner'] = $request->active?1:0;
-        $data['active_content'] = $request->active?1:0;
-        $data['active_section'] = $request->active?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_content'] = $request->active_content?1:0;
+        $data['active_section'] = $request->active_section?1:0;
 
         $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
         if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
@@ -58,9 +58,9 @@ class PORT04SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active_banner'] = $request->active?1:0;
-        $data['active_content'] = $request->active?1:0;
-        $data['active_section'] = $request->active?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_content'] = $request->active_content?1:0;
+        $data['active_section'] = $request->active_section?1:0;
 
         $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
         if($path_image_desktop_banner){

@@ -3,8 +3,10 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portfolios\PORT04Controller;
+use App\Http\Controllers\Portfolios\PORT04TopicController;
 use App\Http\Controllers\Portfolios\PORT04SectionController;
 use App\Http\Controllers\Portfolios\PORT04CategoryController;
+use App\Http\Controllers\Portfolios\PORT04AdditionalTopicController;
 
 /**
  * Uncomment the code below
@@ -27,13 +29,19 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', PORT04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'PORT02PortfoliosSection']);
-    Route::resource($route.'/banner', PORT04SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'PORT02PortfoliosSection']);
-    Route::resource($route.'/conteudo', PORT04SectionController::class)->names('admin.'.$routeName.'.content')->parameters(['conteudo' => 'PORT02PortfoliosSection']);
+    Route::resource($route.'/secao', PORT04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'PORT04PortfoliosSection']);
 
     Route::resource($route.'/categorias', PORT04CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT04PortfoliosCategory']);
     Route::post($route.'/categoria/delete', [PORT04CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [PORT04CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+
+    Route::resource($route.'/topicos-adicionais', PORT04AdditionalTopicController::class)->names('admin.'.$routeName.'.additional-topics')->parameters(['topicos-adicionais' => 'PORT04PortfoliosAdditionalTopic']);
+    Route::post($route.'/topicos-adicionais/delete', [PORT04AdditionalTopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.additional-topics.destroySelected');
+    Route::post($route.'/topicos-adicionais/sorting', [PORT04AdditionalTopicController::class, 'sorting'])->name('admin.'.$routeName.'.additional-topics.sorting');
+
+    Route::resource($route.'/topicos', PORT04TopicController::class)->names('admin.'.$routeName.'.topics')->parameters(['topicos' => 'PORT04PortfoliosTopic']);
+    Route::post($route.'/topicos/delete', [PORT04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topics.destroySelected');
+    Route::post($route.'/topicos/sorting', [PORT04TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topics.sorting');
 });
 
 // CLIENT
