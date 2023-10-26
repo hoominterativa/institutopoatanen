@@ -8,6 +8,15 @@
 
 <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.css" rel="stylesheet"/>
 
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+
+
+
 <section id="ligtbox-sche02-page" class="lipa">
     <header class="lipa__banner" style="background-image:url({{asset('storage/uploads/tmp/bg-banner-inner.png')}}); background-color:;">
         <button  class="lipa__banner__close">
@@ -49,7 +58,7 @@
                 //     right: 'timeGridWeek,timeGridDay'
                 // },
                 // defaultView: 'dayGridMonth',
-                contentHeight: 'auto',
+                // contentHeight: 'auto',
 
                 events: [
                     @foreach ($schedules as $schedule)
@@ -62,6 +71,9 @@
                 
                 dateClick: function(info) {
                     document.getElementById('ligtbox-SCHE02-show').style.display = 'flex';
+                    document.getElementById('ligtbox-sche02-page').style.overflow = 'hidden';
+                    
+
                     // let eventos = info;
                     // console.log(eventos);
                 },

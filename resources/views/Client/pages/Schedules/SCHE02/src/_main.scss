@@ -485,8 +485,12 @@
     background-color: transparent !important;
     border: 1px solid $color-black !important;
     padding: 0 5px;
+    margin-bottom: 0.1rem;
+    border-radius: 8px !important;
 }
-
+// .fc-day-grid-event .fc-content:last-of-type{
+//     margin-bottom: 0;
+// }
 .fc-day-grid-event .fc-content span{
     color:$color-black;
     font-family: $font-primary;
@@ -494,7 +498,25 @@
     font-style: normal;
     font-weight: $weight-400;
     line-height: normal;
+    display: flex !important;
 }
+.fc-today .fc-day-number{
+    background-color: #000 !important;
+    color: #fff;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+.fc-unthemed td.fc-today{
+    background: transparent !important;
+}
+
 .fc-day-number{
     // background-color: $color-black !important;
      color: $color-black;
@@ -555,7 +577,6 @@
 }
 //FIM-PAGE
 .lish{
-    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -564,6 +585,20 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background: #fff;
+    // padding: 3.19rem 4.56rem;
+    display: none;
+
+    @include small-device-down{
+        padding: 2.94rem 1.2rem;
+    }
+
+    .container--lish{
+        height: auto;
+        width: 100%;
+        max-width: inherit !important;
+        overflow-y: auto;
+    }
 
     &__bg-dark{
         width: 100%;
@@ -573,15 +608,12 @@
     }
 
     &__contentBox{
-        background-color: #fff;
         z-index: 100;
         width: 100%;
-        height: 100%;    
+        height: 100%;
         padding: 3.19rem 4.56rem;
-
-        @include small-device-down{
-            padding: 2.94rem 1.2rem;
-        }
+        overflow-y: auto;
+       
     }
     &__topo{
         display: flex;

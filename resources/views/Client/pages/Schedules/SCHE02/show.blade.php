@@ -1,8 +1,8 @@
 
 <section id="ligtbox-SCHE02-show" class="lish">
-    <div class="lish__bg-dark"></div>
+    {{-- <div class="lish__bg-dark"></div> --}}
     <div class="lish__contentBox">
-        <div class="container">
+        <div class="container-fluid px-0 container--lish">
             <header class="lish__topo">
                 <div class="lish__topoengPrev">
                     <button class="lish__topoengPrev__prev">  
