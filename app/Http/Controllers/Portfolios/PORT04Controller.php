@@ -362,6 +362,11 @@ class PORT04Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Portfolios.PORT04.section');
+        $section = PORT04PortfoliosSection::activeSection()->first();
+        $portfolios = PORT04Portfolios::with('category')->active()->featured()->get();
+        return view('Client.pages.Portfolios.PORT04.section', [
+            'section' => $section,
+            'portfolios' => $portfolios
+        ]);
     }
 }

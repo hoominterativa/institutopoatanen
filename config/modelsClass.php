@@ -262,7 +262,7 @@ return [
                 'controller' => App\Http\Controllers\Portfolios\PORT04Controller::class,
                 'model' => App\Models\Portfolios\PORT04Portfolios::class,
                 'seedQty' => 6,
-                'routeName' => 'port02.category.page',
+                'routeName' => 'port04.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Portfolios\PORT04PortfoliosCategory::class,

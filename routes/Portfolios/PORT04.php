@@ -51,3 +51,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
 // CLIENT
 Route::get($route.'/categoria/{PORT04PortfoliosCategory:slug}', [PORT04Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get('categoria/{PORT04PortfoliosCategory:slug}/'.$route.'/{PORT04Portfolios:slug}', [PORT04Controller::class, 'show'])->name($routeName.'.page.content');

@@ -108,7 +108,7 @@
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $portfolio->path_image_icon)}})"></div>
                                                             @endif
                                                         </td>
-                                                        <td class="align-middle">{{$portfolio->categories->title}}</td>
+                                                        <td class="align-middle">{{$portfolio->category->title}}</td>
                                                         <td class="align-middle">{{$portfolio->title}}</td>
                                                         <td class="align-middle">{!! substr($portfolio->description, 0, 30) !!}</td>
                                                         <td class="align-middle">

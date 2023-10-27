@@ -74,7 +74,7 @@ class PORT04Portfolios extends Model
         return $this->hasMany(PORT04PortfoliosGallery::class, 'portfolio_id');
     }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(PORT04PortfoliosCategory::class, 'category_id');
     }
