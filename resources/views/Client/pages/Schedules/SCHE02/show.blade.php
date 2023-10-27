@@ -1,4 +1,3 @@
-
 <section id="ligtbox-SCHE02-show" class="lish">
     {{-- <div class="lish__bg-dark"></div> --}}
     <div class="lish__contentBox">
@@ -40,7 +39,7 @@
                                     </a>
                                 @endif
                                 @if ($schedule->link_button_two)
-                                    <a href="{{getUri($schedule->link_button_two)}}" target="_blank" class="lish__content__box__bottom__buttons__btn">
+                                    <a href="{{getUri($schedule->link_button_two)}}" target="{{$schedule->target_link_button_two}}" class="lish__content__box__bottom__buttons__btn">
                                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}">
                                         @if ($schedule->title_button_two)
                                             {{$schedule->title_button_two}}

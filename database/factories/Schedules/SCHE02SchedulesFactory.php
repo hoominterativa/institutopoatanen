@@ -50,6 +50,7 @@ class SCHE02SchedulesFactory extends Factory
             'target_link_button_one' => $this->faker->randomElement(['_self', '_blank']),
             'title_button_two' => $this->faker->text(10),
             'link_button_two' => $this->faker->url(),
+            'target_link_button_two' => $this->faker->randomElement(['_self', '_blank']),
             'active' => 1,
             'featured' => 1,
         ];

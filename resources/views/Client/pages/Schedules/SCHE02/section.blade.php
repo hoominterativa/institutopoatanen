@@ -52,7 +52,7 @@
                                                     </a>
                                                 @endif
                                                 @if ($scheduleFeatured->link_button_two)
-                                                    <a href="{{getUri($scheduleFeatured->link_button_two)}}" target="_blank" class="sche02__main__box__left__engDropdown__dropdown__description__engButton__cta">
+                                                    <a href="{{getUri($scheduleFeatured->link_button_two)}}" target="{{$scheduleFeatured->target_link_button_two}}" class="sche02__main__box__left__engDropdown__dropdown__description__engButton__cta">
                                                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}">
                                                         @if ($scheduleFeatured->title_button_two)
                                                             {{$scheduleFeatured->title_button_two}}

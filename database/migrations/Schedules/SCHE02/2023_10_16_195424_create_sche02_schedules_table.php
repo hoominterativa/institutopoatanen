@@ -24,6 +24,7 @@ class CreateSche02SchedulesTable extends Migration
             $table->enum('target_link_button_one', ['_self', '_blank'])->default('_self');
             $table->string('title_button_two')->nullable();
             $table->string('link_button_two')->nullable();
+            $table->enum('target_link_button_two', ['_self', '_blank'])->default('_self');
             $table->integer('active')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('sorting')->default(0);
