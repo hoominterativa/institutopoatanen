@@ -15,19 +15,20 @@
         @if ($portfolios->count())
             @foreach ($portfolios as $portfolio)
                 <article>
-                    <img src="{{ asset('storage/' . $portfolio->path_image) }}" alt="Imagem do portfólio">
-                    <a href="{{ route('port04.page.content', ['PORT04PortfoliosCategory' => $portfolio->category->slug, 'PORT04Portfolios' => $portfolio->slug] ) }}" class="link-full"></a>
-                    <div>
-                        @if ($portfolio->title)
-                            <h4>{{$portfolio->title}}</h4>
-                        @endif
-                        @if ($portfolio->description)
-                            <p>
-                                {!! $portfolio->description !!}
-                            </p>
-                        @endif
-                    </div>
-                    <img src="{{ asset('storage/' . $portfolio->path_image_icon) }}" alt="Ícone do portfólio">
+                    <a href="{{ route('port04.page.content', ['PORT04PortfoliosCategory' => $portfolio->category->slug, 'PORT04Portfolios' => $portfolio->slug] ) }}">
+                        <img src="{{ asset('storage/' . $portfolio->path_image) }}" alt="Imagem do portfólio">
+                        <div>
+                            @if ($portfolio->title)
+                                <h4>{{$portfolio->title}}</h4>
+                            @endif
+                            @if ($portfolio->description)
+                                <p>
+                                    {!! $portfolio->description !!}
+                                </p>
+                            @endif
+                        </div>
+                        <img src="{{ asset('storage/' . $portfolio->path_image_icon) }}" alt="Ícone do portfólio">
+                    </a>
                 </article>
             @endforeach
             <a href="{{ route('port04.page') }}">

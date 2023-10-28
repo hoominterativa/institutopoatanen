@@ -329,13 +329,33 @@ class PORT04Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(PORT04Portfolios $PORT04Portfolios)
-    public function show()
+    public function show( $PORT04PortfoliosCategory, PORT04Portfolios $PORT04Portfolios )
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT04', 'show');
 
+        $category = PORT04PortfoliosCategory::where('slug', $PORT04PortfoliosCategory)->first();
+        $portfolio = PORT04Portfolios::where(['category_id' => $category->id, 'id' => $PORT04Portfolios->id])->first();
+        $additionalTopics = PORT04PortfoliosAdditionalTopic::where('portfolio_id', $portfolio->id)->get();
+        $topics = PORT04PortfoliosTopic::where('portfolio_id', $portfolio->id)->get();
+        $galleries = PORT04PortfoliosGallery::where('portfolio_id', $portfolio->id)->get();
+
+        $relationships = PORT04Portfolios::where('category_id', $PORT04Portfolios->category_id)->whereNotIn('id', [$PORT04Portfolios->id])->active()->sorting()->get();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($portfolio) $portfolio->path_image_desktop_banner = $portfolio->path_image_mobile_banner;
+            break;
+        }
+
         return view('Client.pages.Portfolios.PORT04.show',[
-            'sections' => $sections
+            'sections' => $sections,
+            'portfolio' => $portfolio,
+            'additionalTopics' => $additionalTopics,
+            'topics' => $topics,
+            'galleries' => $galleries,
+            'relationships' => $relationships
         ]);
     }
 
@@ -345,13 +365,39 @@ class PORT04Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, PORT04PortfoliosCategory $PORT04PortfoliosCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT04', 'page');
 
+        $categories = PORT04PortfoliosCategory::active()->exists()->sorting()->get();
+        $portfolios = PORT04Portfolios::active();
+        if($PORT04PortfoliosCategory->exists){
+            $portfolios = $portfolios->where('category_id', $PORT04PortfoliosCategory->id);
+
+            foreach ($categories as $category) {
+                if($PORT04PortfoliosCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+        }
+
+        $portfolios = $portfolios->active()->sorting()->get();
+        $section = PORT04PortfoliosSection::first();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section) $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+            break;
+        }
+
+
         return view('Client.pages.Portfolios.PORT04.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'categories' => $categories,
+            'portfolios' => $portfolios,
+            'section' => $section
         ]);
     }
 
@@ -363,7 +409,7 @@ class PORT04Controller extends Controller
     public static function section()
     {
         $section = PORT04PortfoliosSection::activeSection()->first();
-        $portfolios = PORT04Portfolios::with('category')->active()->featured()->get();
+        $portfolios = PORT04Portfolios::with('category')->active()->featured()->sorting()->get();
         return view('Client.pages.Portfolios.PORT04.section', [
             'section' => $section,
             'portfolios' => $portfolios
