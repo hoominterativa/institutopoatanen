@@ -236,7 +236,6 @@ return [
                 'controller' => App\Http\Controllers\Portfolios\PORT01Controller::class,
                 'model' => App\Models\Portfolios\PORT01Portfolios::class,
                 'seedQty' => 10,
-                // 'routeName' => 'port01.page.content',
                 'routeName' => 'port01.category.page',
                 'relationship' => [
                     'category' => [
@@ -255,13 +254,25 @@ return [
                 'controller' => App\Http\Controllers\Portfolios\PORT02Controller::class,
                 'model' => App\Models\Portfolios\PORT02Portfolios::class,
                 'seedQty' => 4,
-                // 'routeName' => 'port02.page.content',
                 'routeName' => 'port02.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Portfolios\PORT02PortfoliosCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 4,
+                    ]
+                ]
+            ],
+            'PORT04' => (object)[
+                'controller' => App\Http\Controllers\Portfolios\PORT04Controller::class,
+                'model' => App\Models\Portfolios\PORT04Portfolios::class,
+                'seedQty' => 6,
+                'routeName' => 'port04.category.page',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Portfolios\PORT04PortfoliosCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
                     ]
                 ]
             ],
