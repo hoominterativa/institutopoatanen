@@ -1,3 +1,171 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
+/* SECTION */
+
+.port04 {
+    padding: 72px 0;
+
+    &__header {
+        &__title {
+            font-family: $font-primary;
+            font-size: $T2;
+            color: $color-one;
+            font-weight: $weight-700;
+
+            text-align: center;
+
+            @include medium-device-down {
+                font-size: $T2-mobile;
+                font-weight: $weight-700;
+            }
+        }
+        &__subtitle {
+            font-family: $font-primary;
+            font-size: $T4;
+            color: $color-one;
+            font-weight: $weight-700;
+
+            text-align: center;
+
+            @include medium-device-down {
+                font-size: $T4-mobile;
+                font-weight: $weight-700;
+            }
+        }
+
+        &__line {
+            margin-top: 28px;
+            margin-bottom: 32px;
+        }
+        &__description {
+            max-width: 1122px;
+
+            font-family: $font-secondary;
+            font-size: $P1;
+            color: $color-ten;
+            font-weight: $weight-400;
+
+            text-align: center;
+            line-height: 170%;
+            letter-spacing: 0.2px;
+
+            p {
+                font: inherit;
+                color: inherit;
+                font-weight: inherit;
+            }
+
+            @include medium-device-down {
+                font-size: $P1-mobile;
+                font-weight: $weight-400;
+            }
+        }
+    }
+
+    &__portfolios {
+        gap: 24px; /* ESPAÇAMENTO ENTRE O CARROSSEL E O BOTÃO CTA */
+
+        @include medium-device-down {
+            width: 90%;
+            margin: 0 auto;
+        }
+        &__carousel {
+            .owl-stage-outer {
+                overflow: visible;
+
+                .owl-stage {
+                    display: flex;
+                }
+            }
+
+            // Conforme layout, o nav está como false no js. Dessa forma, é necessário colocar o true e false nos dots e não usar display: flex !important para mostrá-lo
+            .owl-nav {
+            }
+
+            .owl-dots {
+                justify-content: start;
+
+                .owl-dot {
+                }
+                .owl-dot.active,
+                .owl-dot.hover {
+                }
+            }
+        }
+
+        /*
+        A LARGURA DOS ITENS DO CARROSSEL SERÃO DADAS COM O WIDTH NA CLASSE ABAIXO. DESSA FORMA NÃO É NECESSÁRIO UTILIZAR O !IMPORTANT PARA DETERMINAR OS VALORES DESTES.
+
+        PARA SMALL-DEVICE-DOWN (0-576px), O AUTOWIDTH ESTÁ COMO FALSE, OU SEJA, O 1 ITEM OCUPARÁ 100% DO WIDTH DO ELEMENTO PAI
+
+        */
+        &__item {
+            position: relative;
+            @include Flex($justify: start, $align: end);
+
+            width: 327px;
+            height: 100%;
+
+            @include small-device-down {
+                width: 100%;
+            }
+
+            &__image {
+                width: 100%;
+            }
+            &__container {
+                position: absolute;
+                width: 100%;
+                padding: 0 32px 40px;
+
+                @include Flex();
+
+                &__header {
+                    @include Flex($direction: column, $align: start);
+                    &__title {
+                        font-family: $font-primary;
+                        font-size: $T5;
+                        font-weight: $weight-700;
+                        color: $color-black;
+                    }
+
+                    &__description {
+                        font-family: $font-secondary;
+                        font: $paragraph-min;
+                        color: $color-two;
+
+                        letter-spacing: 0.2px;
+                        line-height: 140%;
+
+                    }
+                }
+                &__icon {
+                    width: 33px !important; /* !important aqui por conta do owl caroussel */
+                    height: 33px;
+                }
+            }
+        }
+
+        &__cta {
+            width: 177px;
+            height: 48px;
+
+            background-color: $color-four;
+
+            padding: 8px 48px;
+
+            @include Flex($justify: space-between);
+            align-self: flex-end;
+
+            &:hover,
+            &:focus {
+                background-color: $color-one;
+                color: $color-white;
+                img {
+                    filter: brightness(1) contrast(1) invert(1) grayscale(1);
+                }
+            }
+        }
+    }
+}
