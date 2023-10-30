@@ -166,14 +166,26 @@ class SCHE02Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SCHE02Schedules $SCHE02Schedules)
-    public function show()
+    public function show(Request $request)
     {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Schedules', 'SCHE02', 'show');
+        $schedules = SCHE02Schedules::where('event_date', $request->date)->get();
 
-        return view('Client.pages.Schedules.SCHE02.show',[
-            'sections' => $sections
-        ]);
+        $dateEvent = $request->date;
+
+        $html = view('Client.pages.Schedules.SCHE02.show',[
+            'schedules' => $schedules,
+            'dateEvent' => $dateEvent
+        ])->render();
+        if ($schedules->count()) {
+            return Response::json([
+                'status' => 'success',
+                'html' => $html
+            ]);
+        } else {
+            return Response::json([
+                'status' => 'error',
+            ]);
+        }
     }
 
     /**
@@ -202,6 +214,7 @@ class SCHE02Controller extends Controller
         $section = SCHE02SchedulesSection::first();
         $schedulesFeatured = SCHE02Schedules::active()->featured()->sorting()->get();
         $schedules = SCHE02Schedules::active()->sorting()->get();
+
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':

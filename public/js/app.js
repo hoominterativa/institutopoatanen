@@ -12088,7 +12088,7 @@ $(function () {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$('.lish__topo__close').on('click', function () {
+$('body').on('click', '.lish__topo__close', function () {
   setTimeout(function () {
     $('.lish').css("display", "none");
     $('#ligtbox-sche02-page').css("display", "flex");
