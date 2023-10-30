@@ -18,7 +18,7 @@ class SCHE02Schedules extends Model
     protected $table = "sche02_schedules";
     protected $fillable = [
         'event_locale', 'event_date', 'event_title', 'informations', 'title_button_one', 'link_button_one', 'target_link_button_one',
-        'title_button_two', 'link_button_two', 'active', 'featured', 'sorting'
+        'title_button_two', 'link_button_two', 'target_link_button_two', 'active', 'featured', 'sorting'
     ];
 
     public function scopeSorting($query)
