@@ -14,12 +14,12 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Blogs' => (object) [
-            'BLOG03' => (object)[
+        'Portfolios' => (object) [
+            'PORT04' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
@@ -36,16 +36,17 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Artigos',
+                    'titleMenu' => 'Portifólio',
                     'anchor' =>  false,
-                    'linkMenu' => 'blog03.page',
+                    'linkMenu' => 'port04.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Artigos',
-                    'iconPanel' => 'mdi-blogger'
+                    'titlePanel' => 'Portifólio',
+                    'iconPanel' => 'mdi-alpha-p-box'
                 ],
                 'IncludeSections' => (object) []
             ],
         ],
+
     ],
 
     'ModelsForm' => (object)[

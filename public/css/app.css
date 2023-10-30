@@ -213,7 +213,7 @@ a {
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 1400px !important;
+    max-width: 1100px !important;
   }
 }
 @media (min-width: 1400px) {
@@ -223,7 +223,7 @@ a {
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 1400px !important;
+    max-width: 1100px !important;
   }
 }
 .btn-icon {
