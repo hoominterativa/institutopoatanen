@@ -6,9 +6,9 @@
                 <h2 class="port04__header__title">{{ $section->title_section }}</h2>
                 <hr class="port04__header__line">
             @endif
-            @if ($section->description_section)
+            @if ($section->text_section)
                 <p class="port04__header__description">
-                    {!! $section->description_section !!}
+                    {!! $section->text_section !!}
                 </p>
             @endif
         </header>
