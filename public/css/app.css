@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
-@charset "UTF-8";
 body {
   overflow-x: hidden;
   width: 100%;
@@ -2322,151 +2321,476 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-/* SECTION */
-.port04 {
-  padding: 72px 0;
+.gall03 {
+  padding: 47px 0;
+  background-color: #efefef;
 }
-.port04__header__title {
-  font-family: "Ubuntu", sans-serif, arial;
+.gall03__header__title {
   font-size: 2.5rem;
-  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
-  text-align: center;
+  color: #000;
 }
 @media (max-width: 767.98px) {
-  .port04__header__title {
+  .gall03__header__title {
     font-size: 1.875rem;
-    font-weight: 700;
   }
 }
-.port04__header__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
+.gall03__header__subtitle {
   font-size: 1.25rem;
-  color: #404040;
-  font-weight: 700;
-  text-align: center;
-}
-@media (max-width: 767.98px) {
-  .port04__header__subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
-  }
-}
-.port04__header__line {
-  margin-top: 28px;
-  margin-bottom: 32px;
-}
-.port04__header__description {
-  max-width: 1122px;
   font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1rem;
-  color: #393939;
-  font-weight: 400;
-  text-align: center;
-  line-height: 170%;
-  letter-spacing: 0.2px;
-}
-.port04__header__description p {
-  font: inherit;
-  color: inherit;
-  font-weight: inherit;
+  font-weight: 700;
+  color: #cacaca;
 }
 @media (max-width: 767.98px) {
-  .port04__header__description {
-    font-size: 0.938rem;
-    font-weight: 400;
+  .gall03__header__subtitle {
+    font-size: 1.125rem;
   }
 }
-.port04__portfolios {
-  gap: 24px; /* ESPAÇAMENTO ENTRE O CARROSSEL E O BOTÃO CTA */
-  /*
-  A LARGURA DOS ITENS DO CARROSSEL SERÃO DADAS COM O WIDTH NA CLASSE ABAIXO. DESSA FORMA NÃO É NECESSÁRIO UTILIZAR O !IMPORTANT PARA DETERMINAR OS VALORES DESTES.
-
-  PARA SMALL-DEVICE-DOWN (0-576px), O AUTOWIDTH ESTÁ COMO FALSE, OU SEJA, O 1 ITEM OCUPARÁ 100% DO WIDTH DO ELEMENTO PAI
-
-  */
+.gall03__header__line {
+  width: 100%;
+  border-top: solid 1px #404040;
+  margin: 0.75rem 0 3rem 0;
+  opacity: 1;
 }
-@media (max-width: 767.98px) {
-  .port04__portfolios {
-    width: 90%;
-    margin: 0 auto;
-  }
+.gall03__carousel {
+  max-width: 1366px;
 }
-.port04__portfolios__carousel .owl-stage-outer {
-  overflow: visible;
-}
-.port04__portfolios__carousel .owl-stage-outer .owl-stage {
-  display: flex;
-}
-.port04__portfolios__carousel .owl-dots {
-  justify-content: start;
-}
-.port04__portfolios__item {
-  position: relative;
+.gall03__carousel__item {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: end;
-  width: 327px;
-  height: 100%;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 319/437;
+  position: relative;
+  padding: 33px;
+  overflow: hidden;
 }
-@media (max-width: 575.98px) {
-  .port04__portfolios__item {
-    width: 100%;
+.gall03__carousel__item img {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.gall03__carousel__item__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  position: relative;
+  z-index: 5;
+}
+@media (max-width: 767.98px) {
+  .gall03__carousel__item__title {
+    font-size: 1.125rem;
   }
 }
-.port04__portfolios__item__image {
-  width: 100%;
-}
-.port04__portfolios__item__container {
+.gall03__carousel__item__title::before {
+  content: "";
+  height: 25px;
+  width: 27px;
   position: absolute;
-  width: 100%;
-  padding: 0 32px 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  left: -33px;
+  top: 0;
+  background-color: #404040;
 }
-.port04__portfolios__item__container__header {
+.gall03__carousel__item__title::after {
+  content: "";
+  height: 1px;
+  width: 95px;
+  position: absolute;
+  left: -7px;
+  top: 24px;
+  background-color: #404040;
+}
+.gall03 .owl-nav {
+  margin-left: -20%;
+}
+@media (min-width: 1400px) {
+  .gall03 .owl-nav {
+    margin-left: -5%;
+  }
+}
+@media (max-width: 1199.98px) {
+  .gall03 .owl-nav {
+    margin-left: -10%;
+  }
+}
+@media (max-width: 767.98px) {
+  .gall03 .owl-nav {
+    margin-left: -32%;
+  }
+}
+@media (max-width: 575.98px) {
+  .gall03 .owl-nav {
+    margin-left: -3%;
+  }
+}
+
+/* lightbox */
+.lightbox-gall03 {
+  display: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.lightbox-gall03 .carousel__button.is-close {
+  top: 37px !important;
+  right: 37px;
+  width: 31px;
+  height: 31px;
+  border-radius: 5px;
+  background-color: #000;
+}
+.lightbox-gall03__content {
+  display: flex;
+  flex-direction: column;
+}
+.lightbox-gall03 .container {
+  height: 100%;
+  padding: 78px 0;
+}
+.lightbox-gall03__title {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__title {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+}
+.lightbox-gall03__subtitle {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+}
+.lightbox-gall03__top {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
 }
-.port04__portfolios__item__container__header__title {
+@media (max-width: 767.98px) {
+  .lightbox-gall03__top {
+    align-items: center;
+  }
+}
+.lightbox-gall03__top__description {
+  margin-bottom: 20px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__top__description {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+.lightbox-gall03__top__description__title {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__top__description__title {
+    font-size: 1.875rem;
+  }
+}
+.lightbox-gall03__top__description__subtitle {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__top__description__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.lightbox-gall03__bottom {
+  margin-top: 20px;
+}
+.lightbox-gall03__bottom__main {
+  position: relative;
+  height: 407px;
+  width: 100%;
+  display: block;
+  margin-bottom: 25px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__bottom__main {
+    width: 95%;
+    margin: 0 auto 25px auto;
+  }
+}
+.lightbox-gall03__bottom__main__iframe, .lightbox-gall03__bottom__main__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.lightbox-gall03__bottom__main__iframe {
+  display: block;
+}
+.lightbox-gall03__bottom__main__legend {
+  color: #000;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  position: absolute;
+  bottom: 27px;
+  left: 27px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__bottom__main__legend {
+    font-size: 0.875rem "Montserrat", sans-serif, arial;
+    bottom: 14px;
+    left: 23px;
+  }
+}
+.lightbox-gall03__bottom__thumbnail__carousel {
+  margin: 0 auto;
+}
+.lightbox-gall03__bottom__thumbnail__item {
+  width: 55px;
+  height: 55px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall03__bottom__thumbnail__item {
+    height: 47px;
+  }
+}
+.lightbox-gall03 .owl-carousel .owl-item {
+  height: 68px !important;
+  width: 68px !important;
+  aspect-ratio: 1/1;
+}
+.lightbox-gall03 .owl-carousel .owl-item img {
+  height: 100% !important;
+  width: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav {
+  display: flex !important;
+  z-index: 100;
+}
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev,
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next {
+  height: 21px;
+  width: 21px;
+  border-radius: 100%;
+  background-color: #7c7c7c !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #7c7c7c !important;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+}
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev {
+  left: 0;
+  margin-left: -36px;
+}
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next {
+  right: 0;
+  margin-right: -36px;
+}
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev span,
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next span {
+  color: #fff;
+  font-size: 22px;
+  height: 28px;
+  display: block;
+}
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev:hover,
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next:hover {
+  background: transparent !important;
+}
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev:hover span,
+.lightbox-gall03 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next:hover span {
+  color: #7c7c7c !important;
+}
+
+.fancybox__backdrop {
+  background-color: #404040 !important;
+}
+
+.fancybox__slide {
+  padding: 0 !important;
+}
+
+/* pg interna */
+.gall03-page__header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 84px 0 60px 0;
+}
+.gall03-page__header__title {
+  font-size: 2.5rem;
   font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.125rem;
   font-weight: 700;
   color: #000;
 }
-.port04__portfolios__item__container__header__description {
+@media (max-width: 767.98px) {
+  .gall03-page__header__title {
+    font-size: 1.875rem;
+  }
+}
+.gall03-page__header__subtitle {
+  font-size: 1.25rem;
   font-family: "Ubuntu", sans-serif, arial;
-  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
   color: #7c7c7c;
-  letter-spacing: 0.2px;
-  line-height: 140%;
 }
-.port04__portfolios__item__container__icon {
-  width: 33px !important; /* !important aqui por conta do owl caroussel */
-  height: 33px;
+@media (max-width: 767.98px) {
+  .gall03-page__header__subtitle {
+    font-size: 1.125rem;
+  }
 }
-.port04__portfolios__cta {
-  width: 177px;
-  height: 48px;
-  background-color: #cacaca;
-  padding: 8px 48px;
+.gall03-page__header__line {
+  width: 100%;
+  border-top: solid 1px #404040;
+  margin-top: 18px;
+  opacity: 1;
+}
+.gall03-page__main {
+  padding: 47px 0 100px 0;
+}
+.gall03-page__main__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+}
+@media (max-width: 767.98px) {
+  .gall03-page__main__title {
+    font-size: 1.875rem;
+  }
+}
+.gall03-page__main__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #7c7c7c;
+}
+@media (max-width: 767.98px) {
+  .gall03-page__main__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.gall03-page__main__line {
+  width: 100%;
+  border-top: solid 1px #404040;
+  margin-top: 18px;
+  opacity: 1;
+}
+.gall03-page__main__list {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  align-self: flex-end;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 17px;
+  width: 100%;
+  max-width: 95vw;
+  margin: 0 auto;
 }
-.port04__portfolios__cta:hover, .port04__portfolios__cta:focus {
+.gall03-page__main__list__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  height: auto;
+  width: calc(25% - 13px);
+  aspect-ratio: 319/437;
+  position: relative;
+  padding: 33px;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .gall03-page__main__list__item {
+    width: calc(33% - 9px);
+  }
+}
+@media (max-width: 767.98px) {
+  .gall03-page__main__list__item {
+    width: calc(50% - 9px);
+  }
+}
+@media (max-width: 575.98px) {
+  .gall03-page__main__list__item {
+    width: 100%;
+  }
+}
+.gall03-page__main__list__item img {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.gall03-page__main__list__item__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  position: relative;
+  z-index: 5;
+}
+@media (max-width: 767.98px) {
+  .gall03-page__main__list__item__title {
+    font-size: 1.125rem;
+  }
+}
+.gall03-page__main__list__item__title::before {
+  content: "";
+  height: 25px;
+  width: 27px;
+  position: absolute;
+  left: -33px;
+  top: 0;
   background-color: #404040;
-  color: #fff;
 }
-.port04__portfolios__cta:hover img, .port04__portfolios__cta:focus img {
-  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+.gall03-page__main__list__item__title::after {
+  content: "";
+  height: 1px;
+  width: 95px;
+  position: absolute;
+  left: -7px;
+  top: 24px;
+  background-color: #404040;
 }
 
 /* BEGIN STYLE */

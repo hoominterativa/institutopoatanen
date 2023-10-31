@@ -29,8 +29,8 @@ class BLOG03BlogsSectionFactory extends Factory
             'active_section' => 1,
             //Banner
             'title_banner' => $this->faker->text(10),
-            'path_image_desktop_banner' => 'uploads/temp/image_temporary.png',
-            'path_image_mobile_banner' => 'uploads/temp/image_temporary.png',
+            'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile_banner' => 'uploads/tmp/image-box.jpg',
             'background_color_banner' => '#FFFFFF',
             'active_banner' => 1,
         ];

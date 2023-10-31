@@ -24,8 +24,6 @@ class PORT04GalleryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        $data = $request->all();
         $helper = new HelperArchive();
 
         $path_image =  $helper->uploadMultipleImage($request, 'path_image', $this->path, null,100);

@@ -1,32 +1,42 @@
-@if ($banner)
-    {!! Form::model($banner, [
-        'route' => ['admin.gall03.banner.update', $banner->id],
-        'class' => 'parsley-validate',
-        'files' => true,
-    ]) !!}
+@if ($section)
+    {!! Form::model($section, ['route' => ['admin.gall03.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true, ]) !!}
     @method('PUT')
+    {!! Form::hidden('active_section', $section->active_section) !!}
+    {!! Form::hidden('active_content', $section->active_content) !!}
 @else
-    {!! Form::model(null, ['route' => 'admin.gall03.banner.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.gall03.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título do banner', ['class' => 'form-label']) !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title_banner', 'Título da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle_banner', 'Subtítulo da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle_banner', null, ['class' => 'form-control', 'id' => 'subtitle_banner']) !!}
+                    </div>
+                </div>
             </div>
+            {{-- Color Picker --}}
             <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo do banner', ['class' => 'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
-            </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
+                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                {!! Form::text('background_color', null, [
+                    'class' => 'form-control colorpicker-default',
+                    'id' => 'background_color',
+                ]) !!}
             </div>
         </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}
+            {!! Form::label('active_banner', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+        </div>
     </div>
-
+    
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
@@ -43,9 +53,9 @@
                             'data-min-height' => $cropSetting->Banner->path_image_desktop->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($banner)
-                                ? ($banner->path_image_desktop != ''
-                                    ? url('storage/' . $banner->path_image_desktop)
+                            'data-default-file' => isset($section)
+                                ? ($section->path_image_desktop != ''
+                                    ? url('storage/' . $section->path_image_desktop)
                                     : '')
                                 : '',
                         ]) !!}
@@ -66,9 +76,9 @@
                             'data-min-height' => $cropSetting->Banner->path_image_mobile->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($banner)
-                                ? ($banner->path_image_mobile != ''
-                                    ? url('storage/' . $banner->path_image_mobile)
+                            'data-default-file' => isset($section)
+                                ? ($section->path_image_mobile != ''
+                                    ? url('storage/' . $section->path_image_mobile)
                                     : '')
                                 : '',
                         ]) !!}
@@ -76,23 +86,9 @@
                 </div><!-- END container image crop -->
             </div>
         </div>
-        {{-- Color Picker --}}
-        <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
-                ]) !!}
-            </div>
-        </div>
     </div>
-
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-        {!! Form::button('Salvar', [
-            'class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0',
-            'type' => 'submit',
-        ]) !!}
+        {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0', 'type' => 'submit', ]) !!}
     </div>
 </div>
 {!! Form::close() !!}

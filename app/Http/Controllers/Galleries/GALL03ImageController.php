@@ -26,47 +26,14 @@ class GALL03ImageController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image =  $helper->uploadMultipleImage($request, 'path_image', $this->path, null,100);
 
-        if(GALL03GalleriesImage::create($data)){
-            Session::flash('success', 'Imagem cadastrada com sucesso');
-        }else{
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao cadastradar a imagem');
-        }
-        return redirect()->back();
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Galleries\GALL03GalleriesImage  $GALL03GalleriesImage
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, GALL03GalleriesImage $GALL03GalleriesImage)
-    {
-        $data = $request->all();
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($GALL03GalleriesImage, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($GALL03GalleriesImage, 'path_image');
-            $data['path_image'] = null;
+        foreach ($path_image as $image) {
+            $data['path_image'] = $image;
+            GALL03GalleriesImage::create($data);
         }
 
-        if($GALL03GalleriesImage->fill($data)->save()){
-            Session::flash('success', 'Imagem atualizada com sucesso');
-        }else{
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao atualizar a imagem');
-        }
-        return redirect()->back();
+        return Response::json(['status' => 'success', 'countUploads' => COUNT($path_image)]);
     }
 
     /**

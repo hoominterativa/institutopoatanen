@@ -30,11 +30,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sectionGallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                        <a href="#content" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
                             Informações da seção interna
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações complementares que serão exibidas na página, caso esteja ativa"></i>
+                                data-bs-original-title="Informações complementares que serão exibidas na página, acima das galerias."></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -42,15 +42,15 @@
                             Informações do banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações complementares que serão exibidas no banner da página interna, caso esteja ativa"></i>
+                                data-bs-original-title="Informações complementares que serão exibidas no banner da página interna."></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
-                            Informações da seção
+                            Informações da seção home
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações complementares que serão exibidas na home, caso esteja ativa"></i>
+                                data-bs-original-title="Informações complementares que serão exibidas na home."></i>
                         </a>
                     </li>
                 </ul>
@@ -132,8 +132,8 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="sectionGallery">
-                        @include('Admin.cruds.Galleries.GALL03.SectionGallery.form')
+                    <div class="tab-pane" id="content">
+                        @include('Admin.cruds.Galleries.GALL03.Content.form')
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Galleries.GALL03.Banner.form')

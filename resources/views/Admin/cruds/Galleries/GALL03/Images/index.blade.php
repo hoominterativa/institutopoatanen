@@ -5,7 +5,7 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <button id="btSubmitDelete"
-                            data-route="{{ route('admin.gall03.image.destroySelected') }}" type="button" class="btn btn-danger btDeleteImages" style="display: none;">Deletar selecionados</button>
+                            data-route="{{ route('admin.gall03.image.destroySelected') }}" type="button" class="btn btn-danger btnDeleteImages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)" data-bs-target="#modal-image-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
@@ -16,7 +16,7 @@
                         <tr>
                             <th width="50px"></th>
                             <th width="30px" class="bs-checkbox">
-                                <label><input name="btnSelectAll" value="btDeleteImages" type="checkbox"></label>
+                                <label><input name="btnSelectAll" value="btnDeleteImages" type="checkbox"></label>
                             </th>
                             <th>Imagem</th>
                             <th width="90px">Ações</th>
@@ -32,39 +32,15 @@
                                 </td>
                                 <td class="align-middle avatar-group">
                                     @if ($image->path_image)
-                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $image->path_image) }})">
-                                        </div>
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $image->path_image) }})"></div>
                                     @endif
                                 </td>
                                 <td class="align-middle">
                                     <div class="row">
-                                        <div class="col-4">
-                                            <a href="javascript:void(0)" data-bs-target="#modal-image-update-{{ $image->id }}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                        </div>
                                         <form action="{{ route('admin.gall03.image.destroy', ['GALL03GalleriesImage' => $image->id]) }}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
-                                        {{-- BEGIN MODAL IMAGES UPDATE --}}
-                                        <div id="modal-image-update-{{ $image->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 900px;">
-                                                <div class="modal-content">
-                                                    <div class="modal-header p-3 pt-2 pb-2">
-                                                        <h4 class="page-title">Atualizar Imagens</h4>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include(
-                                                            'Admin.cruds.Galleries.GALL03.Images.form',
-                                                            [
-                                                                'image' => $image,
-                                                            ]
-                                                        )
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- END MODAL IMAGES UPDATE --}}
                                     </div>
                                 </td>
                             </tr>

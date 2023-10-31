@@ -2,7 +2,7 @@
     {!! Form::model($section, ['route' => ['admin.gall03.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true, ]) !!}
     @method('PUT')
     {!! Form::hidden('active_banner', $section->active_banner) !!}
-    {!! Form::hidden('active_content', $section->active_content) !!}
+    {!! Form::hidden('active_section', $section->active_section) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.gall03.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -13,19 +13,19 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Form::label('title_section', 'Título da seção', ['class' => 'form-label']) !!}
-                        {!! Form::text('title_section', null, ['class' => 'form-control', 'id' => 'title_section']) !!}
+                        {!! Form::label('title_content', 'Título da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_content', null, ['class' => 'form-control', 'id' => 'title_content']) !!}
                     </div>
                     <div class="col-sm-6">
-                        {!! Form::label('subtitle_section', 'Subtítulo da seção', ['class' => 'form-label']) !!}
-                        {!! Form::text('subtitle_section', null, ['class' => 'form-control', 'id' => 'subtitle_section']) !!}
+                        {!! Form::label('subtitle_content', 'Subtítulo da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle_content', null, ['class' => 'form-control', 'id' => 'subtitle_content']) !!}
                     </div>
                 </div>
             </div>
         </div>
         <div class="mb-3 form-check">
-            {!! Form::checkbox('active_section', '1', null, ['class' => 'form-check-input', 'id' => 'active_section']) !!}
-            {!! Form::label('active_section', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+            {!! Form::checkbox('active_content', '1', null, ['class' => 'form-check-input', 'id' => 'active_content']) !!}
+            {!! Form::label('active_content', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
     </div>
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">

@@ -43,7 +43,7 @@
                 </div>
                 <div class="form01__boxRight col-sm-5 d-flex justify-content-center align-items-end px-0">
                     <div class="form01__boxRight__image">
-                        <img src="{{asset('storage/'.$content->path_image->value)}}" alt="Imagem form">
+                        <img src="{{asset('storage/'.$content->path_image_content->value)}}" alt="Imagem form">
                     </div>
                 </div>
             </div>

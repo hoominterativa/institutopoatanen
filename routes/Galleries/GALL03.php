@@ -28,15 +28,9 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-
-    Route::resource($route.'/secaogaleria', GALL03SectionGalleryController::class)->names('admin.'.$routeName.'.sectionGallery')->parameters(['secaogaleria' => 'GALL03GalleriesSectionGallery']);
     Route::resource($route.'/secao', GALL03SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'GALL03GalleriesSection']);
-
-    Route::resource($route.'/banner', GALL03BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'GALL03GalleriesBanner']);
 
     Route::resource($route.'/imagens', GALL03ImageController::class)->names('admin.'.$routeName.'.image')->parameters(['imagens' => 'GALL03GalleriesImage']);
     Route::post($route.'/imagem/delete', [GALL03ImageController::class, 'destroySelected'])->name('admin.'.$routeName.'.image.destroySelected');
     Route::post($route.'/imagem/sorting', [GALL03ImageController::class, 'sorting'])->name('admin.'.$routeName.'.image.sorting');
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

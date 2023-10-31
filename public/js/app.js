@@ -11856,8 +11856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT05/src/main */ "./resources/views/Client/Core/Footers/FOOT05/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Portfolios_PORT04_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Portfolios/PORT04/src/main */ "./resources/views/Client/pages/Portfolios/PORT04/src/main.js");
-/* harmony import */ var _pages_Portfolios_PORT04_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Portfolios_PORT04_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Galleries/GALL03/src/main */ "./resources/views/Client/pages/Galleries/GALL03/src/main.js");
+/* harmony import */ var _pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL03_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12029,38 +12029,86 @@ if (elementosAnimados.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Portfolios/PORT04/src/main.js":
-/*!********************************************************************!*\
-  !*** ./resources/views/Client/pages/Portfolios/PORT04/src/main.js ***!
-  \********************************************************************/
+/***/ "./resources/views/Client/pages/Galleries/GALL03/src/main.js":
+/*!*******************************************************************!*\
+  !*** ./resources/views/Client/pages/Galleries/GALL03/src/main.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-var owlProtfolios = $('.port04__portfolios__carousel');
-owlProtfolios.addClass('owl-carousel');
-owlProtfolios.owlCarousel({
-  loop: false,
-  nav: false,
-  dots: true,
-  margin: 24,
-  rewind: true,
-  autoWidth: true,
-  autoHeight: true,
-  responsive: {
-    0: {
-      items: 1,
-      autoWidth: false
-    },
-    575.98: {
-      items: 2
-    },
-    960: {
-      items: 4
-    },
-    2000: {
-      items: 5
+$(function () {
+  $(".gall03__carousel").owlCarousel({
+    smartSpeed: 450,
+    loop: false,
+    dots: false,
+    nav: true,
+    margin: 17,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 1,
+        margin: 0
+      },
+      480: {
+        items: 2
+        // margin: -150,
+      },
+
+      801: {
+        items: 3
+        // margin: 0,
+      },
+
+      992: {
+        items: 4
+      }
     }
+  });
+  $(".gall03__carousel").css("width", $(window).outerWidth());
+  var owlGallery = $(".lightbox-gall03__bottom__thumbnail__carousel");
+  $(".lightbox-gall03__bottom__thumbnail__carousel").css("width", $(window).outerWidth() / 2 - 260);
+  if ($(window).outerWidth() <= 768) {
+    $(".lightbox-gall03__bottom__thumbnail__carousel").css("width", $(window).outerWidth() - 107);
   }
+  owlGallery.addClass("owl-carousel");
+  owlGallery.owlCarousel({
+    loop: false,
+    nav: true,
+    dots: false,
+    margin: 3,
+    rewind: true,
+    URLhashListener: true,
+    responsive: {
+      0: {
+        items: 5
+      },
+      500: {
+        items: 5
+      },
+      960: {
+        items: 6
+      },
+      2000: {
+        items: 6
+      }
+    }
+  });
+  $("[data-main-image]").on("click", function () {
+    var mainImageSrc = $(this).data("main-image");
+    var name = $(this).data("main-title");
+    console.log(name);
+    var $container = $(this).closest(".lightbox-gall03");
+    if ($(this).hasClass("lightbox-gall03__bottom__thumbnail__item--video")) {
+      $container.find(".lightbox-gall03__bottom__main__iframe").attr("src", mainImageSrc).fadeIn("fast");
+      $container.find(".lightbox-gall03__bottom__main__item").fadeOut("slow");
+      $container.find(".lightbox-gall03__bottom__main__legend").text(name);
+    } else {
+      $container.find(".lightbox-gall03__bottom__main__item").attr("src", mainImageSrc).fadeIn("fast");
+      $container.find(".lightbox-gall03__bottom__main__iframe").fadeOut("fast");
+      $container.find(".lightbox-gall03__bottom__main__legend").text(name);
+    }
+  });
 });
 
 /***/ }),

@@ -15,9 +15,21 @@ class CreateGall03GalleriesSectionsTable extends Migration
     {
         Schema::create('gall03_galleries_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->integer('active')->default(0);
+            //Section Home
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->integer('active_section')->default(0);
+            //Banner
+            $table->string('title_banner')->nullable();
+            $table->string('subtitle_banner')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('background_color')->nullable();
+            $table->integer('active_banner')->default(0);
+            //Section Content
+            $table->string('title_content')->nullable();
+            $table->string('subtitle_content')->nullable();
+            $table->integer('active_content')->default(0);
             $table->timestamps();
         });
     }

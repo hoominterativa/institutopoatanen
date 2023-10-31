@@ -67,20 +67,16 @@ $(function () {
         let name = $(this).data("main-title");
         console.log(name);
 
-        if (
-            $(this).hasClass("lightbox-gall03__bottom__thumbnail__item--video")
-        ) {
-            $(".lightbox-gall03__bottom__main__iframe")
-                .attr("src", mainImageSrc)
-                .fadeIn("fast");
-            $(".lightbox-gall03__bottom__main__item").fadeOut("slow");
-            $(".lightbox-gall03__bottom__main__legend").text(name);
+        const $container = $(this).closest(".lightbox-gall03");
+
+        if ($(this).hasClass("lightbox-gall03__bottom__thumbnail__item--video")) {
+          $container.find(".lightbox-gall03__bottom__main__iframe").attr("src", mainImageSrc).fadeIn("fast");
+          $container.find(".lightbox-gall03__bottom__main__item").fadeOut("slow");
+          $container.find(".lightbox-gall03__bottom__main__legend").text(name);
         } else {
-            $(".lightbox-gall03__bottom__main__item")
-                .attr("src", mainImageSrc)
-                .fadeIn("fast");
-            $(".lightbox-gall03__bottom__main__iframe").fadeOut("fast");
-            $(".lightbox-gall03__bottom__main__legend").text(name);
+          $container.find(".lightbox-gall03__bottom__main__item").attr("src", mainImageSrc).fadeIn("fast");
+          $container.find(".lightbox-gall03__bottom__main__iframe").fadeOut("fast");
+          $container.find(".lightbox-gall03__bottom__main__legend").text(name);
         }
     });
 });
