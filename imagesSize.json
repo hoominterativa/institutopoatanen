@@ -2063,7 +2063,7 @@
     },
     "ModelsForm": {
         "FORM01": {
-            "path_image": {
+            "path_image_content": {
                 "width": "455",
                 "height": "625",
                 "activeCrop": "false"
