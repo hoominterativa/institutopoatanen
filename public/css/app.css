@@ -2358,7 +2358,7 @@ body .owl-dots .owl-dot.active {
 }
 .port04__header__description {
   max-width: 1122px;
-  font-family: "Ubuntu", sans-serif, arial;
+  font-family: "Montserrat", sans-serif, arial;
   font-size: 1rem;
   color: #393939;
   font-weight: 400;
@@ -2380,10 +2380,11 @@ body .owl-dots .owl-dot.active {
 .port04__portfolios {
   gap: 24px; /* ESPAÇAMENTO ENTRE O CARROSSEL E O BOTÃO CTA */
   /*
-  A LARGURA DOS ITENS DO CARROSSEL SERÃO DADAS COM O WIDTH NA CLASSE ABAIXO. DESSA FORMA NÃO É NECESSÁRIO UTILIZAR O !IMPORTANT PARA DETERMINAR OS VALORES DESTES.
+  1. A LARGURA DOS ITENS DO CARROSSEL SERÃO DADAS COM O WIDTH NA CLASSE ABAIXO. DESSA FORMA NÃO É NECESSÁRIO UTILIZAR O !IMPORTANT PARA DETERMINAR OS VALORES DESTES.
 
-  PARA SMALL-DEVICE-DOWN (0-576px), O AUTOWIDTH ESTÁ COMO FALSE, OU SEJA, O 1 ITEM OCUPARÁ 100% DO WIDTH DO ELEMENTO PAI
+  2.PARA SMALL-DEVICE-DOWN (0-576px), O AUTOWIDTH ESTÁ COMO FALSE, OU SEJA, O 1 ITEM OCUPARÁ 100% DO WIDTH DO ELEMENTO PAI
 
+  3. BASTA ESTILIZAR A CLASSE ABAIXO, COPIAR E COLAR TODO O ESTILO EM PROD04-PAGE, POIS AMBAS POSSUEM A MESMA ESTRUTURA INTERNA
   */
 }
 @media (max-width: 767.98px) {
@@ -2469,6 +2470,187 @@ body .owl-dots .owl-dot.active {
   filter: brightness(1) contrast(1) invert(1) grayscale(1);
 }
 
+/* END SECTION */
+/* PAGE */
+.port04-page__banner__container {
+  height: 280px;
+}
+.port04-page__banner__image {
+  height: 100%;
+  padding-top: 100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.port04-page__banner__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 3.125rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #404040;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .port04-page__banner__header__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+}
+.port04-page__banner__header__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .port04-page__banner__header__subtitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+.port04-page__banner__header__line {
+  margin: 24px 0 64px;
+}
+.port04-page__portfolio {
+  padding: 54px 0 80px;
+  background-color: #efefef;
+}
+.port04-page__portfolio__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #404040;
+  text-align: center;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .port04-page__portfolio__header__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+}
+.port04-page__portfolio__header__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #404040;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .port04-page__portfolio__header__subtitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+.port04-page__portfolio__header__line {
+  margin: 24px 32px;
+}
+.port04-page__portfolio__header__description {
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 1rem;
+  color: #393939;
+  font-weight: 400;
+  text-align: center;
+  line-height: 170%;
+  letter-spacing: 0.2px;
+}
+.port04-page__portfolio__header__description p {
+  font: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+.port04-page__portfolio__categories {
+  margin: 56px 0 48px;
+}
+.port04-page__portfolio__categories__list__carousel {
+  display: flex !important;
+  justify-content: center;
+}
+.port04-page__portfolio__categories__list__item {
+  padding: 16px 24px;
+  background: #cacaca;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #7c7c7c;
+  list-style: none;
+}
+.port04-page__portfolio__categories__list__item.active, .port04-page__portfolio__categories__list__item:hover {
+  background-color: #404040;
+  color: #fff;
+}
+.port04-page__portfolio__categories__list__item.active img, .port04-page__portfolio__categories__list__item:hover img {
+  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+}
+.port04-page__portfolio__categories__list__item a {
+  font: inherit;
+  color: inherit;
+  text-decoration: inherit;
+}
+.port04-page__portfolio__categories__list__item__icon {
+  margin-right: 8px;
+  width: 32px !important;
+  height: 32px;
+}
+.port04-page__portfolio__content__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  width: 327px;
+  height: 100%;
+}
+@media (max-width: 575.98px) {
+  .port04-page__portfolio__content__item {
+    width: 100%;
+  }
+}
+.port04-page__portfolio__content__item__image {
+  width: 100%;
+}
+.port04-page__portfolio__content__item__container {
+  position: absolute;
+  width: 100%;
+  padding: 0 32px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.port04-page__portfolio__content__item__container__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.port04-page__portfolio__content__item__container__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000;
+}
+.port04-page__portfolio__content__item__container__header__description {
+  font-family: "Ubuntu", sans-serif, arial;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  letter-spacing: 0.2px;
+  line-height: 140%;
+}
+.port04-page__portfolio__content__item__container__icon {
+  width: 33px !important; /* !important aqui por conta do owl caroussel */
+  height: 33px;
+}
+.port04-page__portfolio__content__carousel .owl-stage-outer {
+  overflow: visible;
+}
+.port04-page__portfolio__content__carousel .owl-dots {
+  margin-top: 56px;
+  justify-content: start;
+}
+/* END PAGE */
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
