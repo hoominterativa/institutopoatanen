@@ -216,7 +216,7 @@ return [
             'GALL01' => (object)[
                 'controller' => App\Http\Controllers\Galleries\GALL01Controller::class,
                 'model' => App\Models\Galleries\GALL01Galleries::class,
-                'seedQty' => 1,
+                'seedQty' => 10,
             ],
             'GALL02' => (object)[
                 'controller' => App\Http\Controllers\Galleries\GALL02Controller::class,

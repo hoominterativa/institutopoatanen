@@ -314,8 +314,7 @@ class TEAM01Controller extends Controller
 
         $categories = TEAM01TeamsCategory::active()->exists()->sorting()->get();
         $sectionTeam = TEAM01TeamsSectionTeam::active()->first();
-        $teams = TEAM01Teams::with(['socials' => function ($query) {$query->where('active', 1);}])->active();
-
+        $teams = TEAM01Teams::with(['socials' => function ($query) {$query->where('active', 1)->orderBy('sorting');}])->active();
 
         if($TEAM01TeamsCategory->exists){
             $teams = $teams->where('category_id', $TEAM01TeamsCategory->id);

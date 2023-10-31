@@ -16,20 +16,10 @@ class GALL01Galleries extends Model
     }
 
     protected $table = "gall01_galleries";
-    protected $fillable = ['path_image', 'active', 'sorting'];
+    protected $fillable = ['path_image', 'sorting'];
 
     public function scopeSorting($query)
     {
         return $query->orderBy('sorting', 'ASC');
     }
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

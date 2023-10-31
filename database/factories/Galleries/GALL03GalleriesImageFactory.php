@@ -22,8 +22,8 @@ class GALL03GalleriesImageFactory extends Factory
     public function definition()
     {
         return [
-            'gallery_id' => rand(1, 4),
-            'path_image' => 'uploads/tmp/image-box.jpg',
+            // 'gallery_id' => rand(1, 4),
+            // 'path_image' => 'uploads/tmp/image-box.jpg',
         ];
     }
 }

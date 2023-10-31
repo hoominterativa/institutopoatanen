@@ -106,7 +106,7 @@ class ABOU05Controller extends Controller
 
         $section = ABOU05AboutsSection::first();
         $about = ABOU05Abouts::first();
-        $contents = ABOU05AboutsContent::with(['socials' => function ($query) {$query->where('active', 1);}])->active()->sorting()->get();
+        $contents = ABOU05AboutsContent::with(['socials' => function ($query) {$query->where('active', 1)->orderBy('sorting');}])->active()->sorting()->get();
 
         switch (deviceDetect()) {
             case 'mobile':

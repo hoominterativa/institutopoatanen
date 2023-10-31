@@ -23,10 +23,10 @@ class GALL01Controller extends Controller
      */
     public function index()
     {
-        $galleries = GALL01Galleries::sorting()->paginate(15);
+        $images = GALL01Galleries::sorting()->paginate(15);
 
         return view('Admin.cruds.Galleries.GALL01.index', [
-            'galleries' => $galleries
+            'images' => $images
         ]);
     }
 
@@ -37,9 +37,7 @@ class GALL01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Galleries.GALL01.create', [
-            'cropSetting' => getCropImage('Galleries', 'GALL01')
-        ]);
+        return view('Admin.cruds.Galleries.GALL01.create');
     }
 
     /**
@@ -53,67 +51,14 @@ class GALL01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $path_image =  $helper->uploadMultipleImage($request, 'path_image', $this->path, null,100);
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
-        if($path_image) $data['path_image'] = $path_image;
-
-        if(GALL01Galleries::create($data)){
-            Session::flash('success', 'Imagem cadastrado com sucesso');
-            return redirect()->route('admin.gall01.index');
-        }else{
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao cadastradar a imagem');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Galleries\GALL01Galleries  $GALL01Galleries
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(GALL01Galleries $GALL01Galleries)
-    {
-        return view('Admin.cruds.Galleries.GALL01.edit', [
-            'gallery' => $GALL01Galleries,
-            'cropSetting' => getCropImage('Galleries', 'GALL01')
-        ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Galleries\GALL01Galleries  $GALL01Galleries
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, GALL01Galleries $GALL01Galleries)
-    {
-        $data = $request->all();
-        $helper = new HelperArchive();
-
-        $data['active'] = $request->active?1:0;
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
-        if($path_image){
-            storageDelete($GALL01Galleries, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($GALL01Galleries, 'path_image');
-            $data['path_image'] = null;
+        foreach ($path_image as $image) {
+            $data['path_image'] = $image;
+            GALL01Galleries::create($data);
         }
 
-        if($GALL01Galleries->fill($data)->save()){
-            Session::flash('success', 'Imagem atualizada com sucesso');
-            return redirect()->route('admin.gall01.index');
-        }else{
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao atualizar a imagem');
-            return redirect()->back();
-        }
+        return Response::json(['status' => 'success', 'countUploads' => COUNT($path_image)]);
     }
 
     /**
@@ -174,10 +119,10 @@ class GALL01Controller extends Controller
      */
     public static function section()
     {
-        $galleries = GALL01Galleries::active()->sorting()->get();
+        $images = GALL01Galleries::sorting()->get();
 
         return view('Client.pages.Galleries.GALL01.section', [
-            'galleries' => $galleries
+            'images' => $images
         ]);
     }
 }

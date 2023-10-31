@@ -14,25 +14,7 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Galleries' => (object) [
-            'GALL03' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Galeria',
-                    'anchor' =>  false,
-                    'linkMenu' => 'gall03.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Galeria',
-                    'iconPanel' => 'mdi-folder-multiple-image'
-                ],
-                'IncludeSections' => (object) [
-                ],
-            ],
-        ],
+        
     ],
 
     'ModelsForm' => (object)[

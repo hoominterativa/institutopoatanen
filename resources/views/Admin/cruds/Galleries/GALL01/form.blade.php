@@ -1,33 +1,22 @@
-
-<div class="row col-12">
-    <div class="col-12">
-        <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagens', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-status'=>$cropSetting->path_image->activeCrop, // px
-                            'data-min-width'=>$cropSetting->path_image->width, // px
-                            'data-min-height'=>$cropSetting->path_image->height, // px
-                            'data-box-height'=>'180', // Input height in the form
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($gallery)?($gallery->path_image<>''?url('storage/'.$gallery->path_image):''):'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="d-flex">
-                <div class="mb-3 form-check me-3">
-                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                    {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
+{!! Form::model(null, ['route' => ['admin.gall01.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-body border" id="tooltip-container">
+                <div class="alert alert-warning mb-3">
+                    <p class="mb-0">Selecione as imagens que deseja subir e aguarde até que a mensagem de aviso seja exibida e a página seja recarregada.</p>
+                </div>
+                <div class="mb-3">
+                    <div class="uploadMultipleImage">
+                        <label for="path_image" class="content-message">
+                            {!! Form::file('path_image[]', [ 'id' => 'path_image', 'multiple' => 'multiple', 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff', 'class' => 'inputGetImage']) !!}
+                            <i class="mdi mdi-cloud-upload-outline mdi-36px"></i>
+                            <h4 class="title">Solte as imagens aqui ou clique para fazer upload.</h4>
+                            <span class="text-muted font-13">Carregar imagens com no máximo <strong>2mb</strong></span>
+                        </label>
+                        <div id="containerMultipleImages" class="mt-3"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        {{-- end card-body --}}
     </div>
-</div>
-{{-- end row --}}
+{!! Form::close() !!}

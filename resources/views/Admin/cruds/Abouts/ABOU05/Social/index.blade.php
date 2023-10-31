@@ -37,7 +37,11 @@
                                         </div>
                                     @endif
                                 </td>
-                                <td class="align-middle"><a href="{{ $social->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                <td class="align-middle">
+                                    @if ($social->link )
+                                        <a href="{{ $social->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                    @endif
+                                </td>
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
