@@ -47,6 +47,28 @@ if(!function_exists('dateFormat'))
     }
 }
 
+if(!function_exists('extenso')) {
+    function extenso($date) {
+        $diasDaSemana = [
+            'Sun' => 'Domingo',
+            'Mon' => 'Segunda-feira',
+            'Tue' => 'Terça-feira',
+            'Wed' => 'Quarta-feira',
+            'Thu' => 'Quinta-feira',
+            'Fri' => 'Sexta-feira',
+            'Sat' => 'Sábado',
+        ];
+
+        $dia = date('D', $date);
+
+        if (array_key_exists($dia, $diasDaSemana)) {
+            return $diasDaSemana[$dia];
+        }
+
+        return 'Dia não encontrado';
+    }
+}
+
 if(!function_exists('storageDelete'))
 {
     /**

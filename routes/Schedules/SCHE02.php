@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Models\Schedules\SCHE02Schedules;
+use App\Http\Controllers\Schedules\SCHE02Controller;
 use App\Http\Controllers\Schedules\SCHE02SectionController;
 
 /**
@@ -28,5 +30,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao', SCHE02SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SCHE02SchedulesSection']);
     Route::resource($route.'/banner', SCHE02SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SCHE02SchedulesSection']);
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// CLIENT
+Route::post('/SCHE02/getEvents', [SCHE02Controller::class, 'show'])->name($routeName.'.getEvents');
