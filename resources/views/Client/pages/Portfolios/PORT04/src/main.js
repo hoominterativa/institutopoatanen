@@ -146,11 +146,10 @@ owlCaterories.owlCarousel({
     dots:true,
     margin:24,
     rewind:true,
-    autoWidth: true,
+    autoWidth: false,
     responsive:{
         0:{
             items:1,
-            autoWidth: false
         },
         576.98:{
             items: 2,
@@ -172,5 +171,35 @@ owlCaterories.owlCarousel({
 })
 /* END GALLERY */
 
+/* BEGIN RELATED-ITEMS */
+var owlProtfolios = $('.port04-show__related-items__carousel');
+owlProtfolios.addClass('owl-carousel')
+owlProtfolios.owlCarousel({
+    loop:false,
+    nav:false,
+    dots:true,
+    margin:24,
+    rewind:true,
+    autoWidth: true,
+    autoHeight: true,
+    responsive:{
+        0:{
+            items:1,
+            autoWidth: false
+        },
+        575.98:{
+            items:2
+        },
+        960:{
+            items:4,
+
+        },
+        2000:{
+            items:5,
+
+        }
+    }
+});
+/* END RELATED-ITEMS */
 
 /* END SHOW */

@@ -109,14 +109,14 @@
                     </div>
                 @endif
                 @if ($galleries->count())
-                    <div class="port04-show__content__gallery">
+                    <div class="port04-show__content__gallery container">
                         <div class="port04-show__content__gallery__carousel">
                             @foreach ($galleries as $gallery)
-                            <div class="port04-show__content__gallery__carousel__item">
+                            <div class="port04-show__content__gallery__item">
                                 @if ($gallery->path_image)
-                                <div class="port04-show__content__gallery__carousel__item__image">
+                                <div class="port04-show__content__gallery__item__image">
                                     <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem"
-                                        class="port04-show__content__gallery__carousel__item__image__img">
+                                        class="port04-show__content__gallery__item__image__img">
                                 </div>
                             @endif
                             </div>
@@ -129,48 +129,55 @@
             </main>
 
             @if ($relationships->count())
-                <section>
+                <section class="port04-show__related-items">
                     @if ($portfolio->active_section)
-                        <header>
-                            <div class="">
+                        <header class="port04-show__related-items__header container">
                                 @if ($portfolio->title_section || $portfolio->subtitle_section)
-                                    <h4 class="">{{ $portfolio->subtitle_section }}</h4>
-                                    <h3 class="">{{ $portfolio->title_section }}</h3>
-                                    <hr class="">
+                                    <h4 class="port04-show__related-items__header__subtitle">{{ $portfolio->subtitle_section }}</h4>
+                                    <h3 class="port04-show__related-items__header__title">{{ $portfolio->title_section }}</h3>
+                                    <hr class="port04-show__related-items__header__line">
                                 @endif
                                 @if ($portfolio->description_section)
-                                    <p>
+                                    <div class="port04-show__related-items__header__description">
                                         {!! $portfolio->description_section !!}
-                                    </p>
+                                    </div>
                                 @endif
-                            </div>
                         </header>
                     @endif
-                    <article>
-                        <div class="">
+                    <div class="port04-show__related-items__content">
+                        <div class="port04-show__related-items__carousel container">
                             @foreach ($relationships as $relationship)
-                                <article>
-                                    <a
+                                <article class="port04-show__related-items__content__item">
+                                    <a  class="d-flex flex-row align-items-end w-100"
                                         href="{{ route('port04.page.content', ['PORT04PortfoliosCategory' => $relationship->category->slug, 'PORT04Portfolios' => $relationship->slug]) }}">
-                                        <img src="{{ asset('storage/' . $relationship->path_image) }}"
+                                        <img
+                                        class="port04-show__related-items__content__item__image"
+                                        src="{{ asset('storage/' . $relationship->path_image) }}"
                                             alt="Imagem do portfólio">
-                                        <div>
-                                            @if ($relationship->title)
-                                                <h4>{{ $relationship->title }}</h4>
-                                            @endif
-                                            @if ($relationship->description)
-                                                <p>
-                                                    {!! $relationship->description !!}
-                                                </p>
-                                            @endif
-                                        </div>
-                                        <img src="{{ asset('storage/' . $relationship->path_image_icon) }}"
-                                            alt="Ícone do portfólio">
+                                            <div class="port04-show__related-items__content__item__container">
+                                                <div class="port04-show__related-items__content__item__container__header">
+                                                    @if ($relationship->title)
+                                                        <h4 class="port04-show__related-items__content__item__container__header__title">{{ $relationship->title }}</h4>
+                                                    @endif
+                                                    @if ($relationship->description)
+                                                        <p class="port04-show__related-items__content__item__container__header__description">
+                                                            {!! $relationship->description !!}
+                                                        </p>
+                                                    @endif
+                                                </div>
+                                                <img
+                                                class="port04-show__related-items__content__item__container__icon transition"
+                                                src="{{ asset('storage/' . $relationship->path_image_icon) }}"
+                                                    alt="Ícone do portfólio">
+
+                                            </div>
+
                                     </a>
                                 </article>
                             @endforeach
                         </div>
-                    </article>
+
+                    </div>
                 </section>
             @endif
 

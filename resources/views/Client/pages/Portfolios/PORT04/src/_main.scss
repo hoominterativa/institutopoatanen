@@ -644,7 +644,7 @@
 
         &__topics {
             padding: 72px 0;
-            color: $color-five;
+            background-color: $color-five;
             display: flex;
             justify-content: center;
 
@@ -713,6 +713,171 @@
                         }
                     }
                 }
+            }
+        }
+
+        &__gallery {
+            padding: 72px 0 48px;
+
+            &__carousel{
+                .owl-stage-outer {
+                    overflow: visible;
+
+                    .owl-stage {
+                        display: flex;
+                    }
+                }
+                .owl-nav {
+                }
+
+                .owl-dots {
+                    justify-content: start;
+
+                    .owl-dot {
+                    }
+                    .owl-dot.active,
+                    .owl-dot.hover {
+                    }
+                }
+            }
+            &__item{
+
+            }
+        }
+    }
+
+    &__related-items {
+        background-color: $color-five;
+        padding: 56px 0 62px;
+
+        &__header {
+            &__title {
+                font-family: $font-primary;
+                font-size: $T2;
+                color: $color-one;
+                font-weight: $weight-700;
+
+                text-align: center;
+
+                @include medium-device-down {
+                    font-size: $T2-mobile;
+                    font-weight: $weight-700;
+                }
+            }
+            &__subtitle {
+                font-family: $font-primary;
+                font-size: $T4;
+                color: $color-one;
+                font-weight: $weight-700;
+
+                text-align: center;
+
+                @include medium-device-down {
+                    font-size: $T4-mobile;
+                    font-weight: $weight-700;
+                }
+            }
+
+            &__line {
+                margin-top: 28px;
+                margin-bottom: 32px;
+            }
+            &__description {
+                margin-bottom: 72px;
+
+                max-width: 1122px;
+
+                font-family: $font-paragraph;
+                font-size: $P1;
+                color: $color-ten;
+                font-weight: $weight-400;
+
+                text-align: center;
+                line-height: 170%;
+                letter-spacing: 0.2px;
+
+                p {
+                    font: inherit;
+                    color: inherit;
+                    font-weight: inherit;
+                }
+
+                @include medium-device-down {
+                    font-size: $P1-mobile;
+                    font-weight: $weight-400;
+                }
+            }
+        }
+        &__carousel {
+            .owl-stage-outer {
+                overflow: visible;
+
+                .owl-stage {
+                    display: flex;
+                }
+            }
+
+            // Conforme layout, o nav está como false no js. Dessa forma, é necessário colocar o true e false nos dots e não usar display: flex !important para mostrá-lo
+            .owl-nav {
+            }
+
+            .owl-dots {
+                justify-content: start;
+
+                .owl-dot {
+                }
+                .owl-dot.active,
+                .owl-dot.hover {
+                }
+            }
+        }
+        &__content {
+            &__item {
+                position: relative;
+                @include Flex($justify: start, $align: end);
+
+                width: 327px;
+                height: 100%;
+
+                @include small-device-down {
+                    width: 100%;
+                }
+
+                &__image {
+                    width: 100%;
+                }
+                &__container {
+                    position: absolute;
+                    width: 100%;
+                    padding: 0 32px 40px;
+
+                    @include Flex();
+
+                    &__header {
+                        @include Flex($direction: column, $align: start);
+                        &__title {
+                            font-family: $font-primary;
+                            font-size: $T5;
+                            font-weight: $weight-700;
+                            color: $color-black;
+                        }
+
+                        &__description {
+                            font-family: $font-secondary;
+                            font: $paragraph-min;
+                            color: $color-two;
+
+                            letter-spacing: 0.2px;
+                            line-height: 140%;
+                        }
+                    }
+                    &__icon {
+                        width: 33px !important; /* !important aqui por conta do owl caroussel */
+                        height: 33px;
+                    }
+                }
+            }
+            &__content {
             }
         }
     }
