@@ -12083,9 +12083,9 @@ if (elementosAnimados.length > 0) {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* SECTION */
-var owlProtfolios = $('.port04__portfolios__carousel');
-owlProtfolios.addClass('owl-carousel');
-owlProtfolios.owlCarousel({
+var owlPortfolios = $('.port04__portfolios__carousel');
+owlPortfolios.addClass('owl-carousel');
+owlPortfolios.owlCarousel({
   loop: false,
   nav: false,
   dots: true,
@@ -12143,9 +12143,9 @@ owlCaterories.owlCarousel({
 /* END CATEGORIES */
 
 /* BEGIN CONTENT */
-var owlCaterories = $('.port04-page__portfolio__content__carousel');
-owlCaterories.addClass('owl-carousel');
-owlCaterories.owlCarousel({
+var owlContent = $('.port04-page__portfolio__content__carousel');
+owlContent.addClass('owl-carousel');
+owlContent.owlCarousel({
   loop: false,
   nav: false,
   dots: true,
@@ -12179,9 +12179,44 @@ owlCaterories.owlCarousel({
 
 /* BEGIN SHOW */
 /* BEGIN TOPICS */
-var owlCaterories = $('.port04-show__content__topics__carousel');
-owlCaterories.addClass('owl-carousel');
-owlCaterories.owlCarousel({
+var owlTopics = $('.port04-show__content__topics__carousel');
+owlTopics.addClass('owl-carousel');
+owlTopics.owlCarousel({
+  loop: false,
+  nav: false,
+  dots: false,
+  margin: 24,
+  rewind: true,
+  autoWidth: true,
+  autoplay: 3000,
+  responsive: {
+    0: {
+      items: 1,
+      autoWidth: false
+    },
+    576.98: {
+      items: 1
+    },
+    767.98: {
+      items: 2
+    },
+    991.98: {
+      items: 3
+    },
+    1199.98: {
+      items: 4
+    },
+    1399.98: {
+      items: 8
+    }
+  }
+});
+/* END TOPICS */
+
+/* BEGIN GALLERY */
+var owlGallery = $('.port04-show__content__gallery__carousel');
+owlGallery.addClass('owl-carousel');
+owlGallery.owlCarousel({
   loop: false,
   nav: false,
   dots: true,
@@ -12191,56 +12226,21 @@ owlCaterories.owlCarousel({
   responsive: {
     0: {
       items: 1,
-      autoWidth: false,
-      autoplay: 2000,
-      dots: false
+      autoWidth: false
     },
     576.98: {
       items: 2
     },
-    600: {
+    767.98: {
       items: 3
     },
-    960: {
+    991.98: {
       items: 5
     },
-    1200: {
+    1199.98: {
       items: 4
     },
-    2000: {
-      items: 8
-    }
-  }
-});
-/* END TOPICS */
-
-/* BEGIN GALLERY */
-var owlCaterories = $('.port04-show__content__gallery__carousel');
-owlCaterories.addClass('owl-carousel');
-owlCaterories.owlCarousel({
-  loop: false,
-  nav: false,
-  dots: true,
-  margin: 24,
-  rewind: true,
-  autoWidth: false,
-  responsive: {
-    0: {
-      items: 1
-    },
-    576.98: {
-      items: 2
-    },
-    600: {
-      items: 3
-    },
-    960: {
-      items: 5
-    },
-    1200: {
-      items: 4
-    },
-    2000: {
+    1399.98: {
       items: 8
     }
   }
@@ -12248,9 +12248,9 @@ owlCaterories.owlCarousel({
 /* END GALLERY */
 
 /* BEGIN RELATED-ITEMS */
-var owlProtfolios = $('.port04-show__related-items__carousel');
-owlProtfolios.addClass('owl-carousel');
-owlProtfolios.owlCarousel({
+var owlRelated = $('.port04-show__related-items__carousel');
+owlRelated.addClass('owl-carousel');
+owlRelated.owlCarousel({
   loop: false,
   nav: false,
   dots: true,
@@ -12266,7 +12266,13 @@ owlProtfolios.owlCarousel({
     575.98: {
       items: 2
     },
-    960: {
+    767.98: {
+      items: 4
+    },
+    991.98: {
+      items: 4
+    },
+    1199.98: {
       items: 4
     },
     2000: {

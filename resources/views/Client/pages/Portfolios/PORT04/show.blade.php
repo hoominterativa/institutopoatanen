@@ -44,16 +44,15 @@
                     </div>
                 @endif
                 @if ($additionalTopics->count())
-                    <div class="port04-show__content__additional-content">
+                    <div class="port04-show__content__additional-topic">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             @foreach ($additionalTopics as $additionalTopic)
                                 <div class="accordion-item">
-
                                     @if ($additionalTopic->title)
-                                        <h4 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
+                                        <h4 class="accordion-header" id="heading{{$additionalTopic->id}}">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse{{$additionalTopic->id}}" aria-expanded="true"
+                                                aria-controls="collapse{{$additionalTopic->id}}">
                                                 @if ($additionalTopic->path_image_icon)
                                                     <div class="">
                                                         <img src="{{ asset('storage/' . $additionalTopic->path_image_icon) }}"
@@ -65,8 +64,8 @@
                                         </h4>
                                     @endif
                                     @if ($additionalTopic->text)
-                                        <div id="collapseOne" class="accordion-collapse collapse show"
-                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div id="collapse{{$additionalTopic->id}}" class="accordion-collapse collapse"
+                                            aria-labelledby="heading{{$additionalTopic->id}}" data-bs-parent="#accordionFlushExample">
 
                                             <div class="accordion-body">
                                                 {!! $additionalTopic->text !!}

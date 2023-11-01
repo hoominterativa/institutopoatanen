@@ -2326,6 +2326,12 @@ body .owl-dots .owl-dot.active {
 .port04 {
   padding: 72px 0;
 }
+@media (max-width: 767.98px) {
+  .port04__header {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
 .port04__header__title {
   font-family: "Ubuntu", sans-serif, arial;
   font-size: 2.5rem;
@@ -2482,6 +2488,12 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@media (max-width: 767.98px) {
+  .port04-page__banner__header {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 .port04-page__banner__header__title {
   font-family: "Ubuntu", sans-serif, arial;
@@ -2676,10 +2688,17 @@ body .owl-dots .owl-dot.active {
   height: auto;
 }
 @media (max-width: 767.98px) {
-  .port04-page__portfolio__content {
+  .port04-page__portfolio__content__carousel {
     width: 90%;
     margin: 0 auto;
   }
+}
+.port04-page__portfolio__content__carousel .owl-stage-outer {
+  overflow: visible;
+}
+.port04-page__portfolio__content__carousel .owl-dots {
+  margin-top: 56px;
+  justify-content: start;
 }
 .port04-page__portfolio__content__item {
   position: relative;
@@ -2730,13 +2749,7 @@ body .owl-dots .owl-dot.active {
   width: 33px !important; /* !important aqui por conta do owl caroussel */
   height: 33px;
 }
-.port04-page__portfolio__content__carousel .owl-stage-outer {
-  overflow: visible;
-}
-.port04-page__portfolio__content__carousel .owl-dots {
-  margin-top: 56px;
-  justify-content: start;
-}
+
 /* END PAGE */
 /* SHOW */
 .port04-show__banner__container {
@@ -2748,6 +2761,12 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@media (max-width: 767.98px) {
+  .port04-show__banner__header {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 .port04-show__banner__header__title {
   font-family: "Ubuntu", sans-serif, arial;
@@ -2788,13 +2807,20 @@ body .owl-dots .owl-dot.active {
   align-items: center;
   gap: 48px;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .port04-show__content__main-content {
     flex-direction: column-reverse;
   }
 }
 .port04-show__content__main-content__image {
   height: 512px;
+  align-self: end;
+}
+@media (max-width: 767.98px) {
+  .port04-show__content__main-content__image {
+    align-self: center;
+    max-width: 90%;
+  }
 }
 .port04-show__content__main-content__image__img {
   width: 100%;
@@ -2819,6 +2845,7 @@ body .owl-dots .owl-dot.active {
   .port04-show__content__main-content__information__title {
     font-size: 1.875rem;
     font-weight: 700;
+    text-align: center;
   }
 }
 .port04-show__content__main-content__information__subtitle {
@@ -2831,6 +2858,7 @@ body .owl-dots .owl-dot.active {
   .port04-show__content__main-content__information__subtitle {
     font-size: 1.125rem;
     font-weight: 700;
+    text-align: center;
   }
 }
 .port04-show__content__main-content__information__line {
@@ -2849,20 +2877,25 @@ body .owl-dots .owl-dot.active {
   color: inherit;
   font-weight: inherit;
 }
-.port04-show__content__additional-content {
+@media (max-width: 767.98px) {
+  .port04-show__content__main-content__information__description {
+    text-align: center;
+  }
+}
+.port04-show__content__additional-topic {
   background-color: #b3b3b3;
   padding: 80px 0;
 }
-.port04-show__content__additional-content .accordion {
+.port04-show__content__additional-topic .accordion {
   width: 90%;
   margin: 0 auto;
 }
-.port04-show__content__additional-content .accordion .accordion-item {
+.port04-show__content__additional-topic .accordion .accordion-item {
   border: none;
   border-bottom: solid 1px #404040;
   margin-bottom: 24px;
 }
-.port04-show__content__additional-content .accordion .accordion-item .accordion-header .accordion-button {
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button {
   background-color: #b3b3b3;
   font-size: 1.063rem;
   font-family: "Ubuntu", sans-serif, arial;
@@ -2870,16 +2903,20 @@ body .owl-dots .owl-dot.active {
   color: #404040;
 }
 @media (max-width: 767.98px) {
-  .port04-show__content__additional-content .accordion .accordion-item .accordion-header .accordion-button {
+  .port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button {
     font-size: 1.063rem;
     font-weight: 700;
   }
 }
-.port04-show__content__additional-content .accordion .accordion-item .accordion-header .accordion-button::after {
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button:focus {
+  border: none;
+  box-shadow: none;
+}
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button::after {
   background-image: url(../images/accordion-icon.svg);
   width: 21px;
 }
-.port04-show__content__additional-content .accordion .accordion-item .accordion-body {
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-body {
   background-color: #fff;
   font-family: "Montserrat", sans-serif, arial;
   font-size: 1rem;
@@ -2888,7 +2925,7 @@ body .owl-dots .owl-dot.active {
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.port04-show__content__additional-content .accordion .accordion-item .accordion-body p {
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-body p {
   font: inherit;
   color: inherit;
   font-weight: inherit;
@@ -2902,6 +2939,12 @@ body .owl-dots .owl-dot.active {
 .port04-show__content__topics__carousel {
   display: flex !important;
   justify-content: center;
+}
+@media (max-width: 991.98px) {
+  .port04-show__content__topics__carousel {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 .port04-show__content__topics__item {
   width: 300px;
@@ -2961,6 +3004,11 @@ body .owl-dots .owl-dot.active {
 .port04-show__content__gallery {
   padding: 72px 0 48px;
 }
+@media (max-width: 1199.98px) {
+  .port04-show__content__gallery {
+    padding: 72px 0 48px !important;
+  }
+}
 .port04-show__content__gallery__carousel .owl-stage-outer {
   overflow: visible;
 }
@@ -2968,11 +3016,26 @@ body .owl-dots .owl-dot.active {
   display: flex;
 }
 .port04-show__content__gallery__carousel .owl-dots {
-  justify-content: start;
+  justify-content: center;
+}
+.port04-show__content__gallery__item {
+  width: 300px;
+}
+@media (max-width: 575.98px) {
+  .port04-show__content__gallery__item {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 .port04-show__related-items {
   background-color: #efefef;
   padding: 56px 0 62px;
+}
+@media (max-width: 767.98px) {
+  .port04-show__related-items__header {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 .port04-show__related-items__header__title {
   font-family: "Ubuntu", sans-serif, arial;
@@ -3024,6 +3087,12 @@ body .owl-dots .owl-dot.active {
   .port04-show__related-items__header__description {
     font-size: 0.938rem;
     font-weight: 400;
+  }
+}
+@media (max-width: 767.98px) {
+  .port04-show__related-items__carousel {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 .port04-show__related-items__carousel .owl-stage-outer {

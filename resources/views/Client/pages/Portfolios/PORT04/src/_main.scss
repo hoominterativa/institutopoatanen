@@ -6,6 +6,10 @@
     padding: 72px 0;
 
     &__header {
+        @include medium-device-down {
+            width: 90%;
+            margin: 0 auto;
+        }
         &__title {
             font-family: $font-primary;
             font-size: $T2;
@@ -66,11 +70,11 @@
 
     &__portfolios {
         gap: 24px; /* ESPAÇAMENTO ENTRE O CARROSSEL E O BOTÃO CTA */
-
         @include medium-device-down {
             width: 90%;
             margin: 0 auto;
         }
+
         &__carousel {
             .owl-stage-outer {
                 overflow: visible;
@@ -79,8 +83,6 @@
                     display: flex;
                 }
             }
-
-            // Conforme layout, o nav está como false no js. Dessa forma, é necessário colocar o true e false nos dots e não usar display: flex !important para mostrá-lo
             .owl-nav {
             }
 
@@ -185,6 +187,10 @@
             @include backG;
         }
         &__header {
+            @include medium-device-down {
+                width: 90%;
+                margin: 0 auto;
+            }
             &__title {
                 font-family: $font-primary;
                 font-size: $T1;
@@ -398,9 +404,31 @@
         }
 
         &__content {
-            @include medium-device-down {
-                width: 90%;
-                margin: 0 auto;
+            &__carousel {
+                @include medium-device-down {
+                    width: 90%;
+                    margin: 0 auto;
+                }
+                .owl-stage-outer {
+                    overflow: visible;
+
+                    .owl-stage {
+                    }
+                }
+
+                .owl-nav {
+                }
+
+                .owl-dots {
+                    margin-top: 56px;
+                    justify-content: start;
+
+                    .owl-dot {
+                    }
+                    .owl-dot.active,
+                    .owl-dot.hover {
+                    }
+                }
             }
             &__item {
                 position: relative;
@@ -447,28 +475,7 @@
                     }
                 }
             }
-            &__carousel {
-                .owl-stage-outer {
-                    overflow: visible;
 
-                    .owl-stage {
-                    }
-                }
-
-                .owl-nav {
-                }
-
-                .owl-dots {
-                    margin-top: 56px;
-                    justify-content: start;
-
-                    .owl-dot {
-                    }
-                    .owl-dot.active,
-                    .owl-dot.hover {
-                    }
-                }
-            }
         }
     }
 }
@@ -488,6 +495,10 @@
             @include backG;
         }
         &__header {
+            @include medium-device-down {
+                width: 90%;
+                margin: 0 auto;
+            }
             &__title {
                 font-family: $font-primary;
                 font-size: $T1;
@@ -528,12 +539,18 @@
             @include Flex;
             gap: 48px;
 
-            @include medium-device-down {
+            @include large-device-down {
                 flex-direction: column-reverse;
             }
 
             &__image {
                 height: 512px;
+                align-self: end;
+
+                @include medium-device-down {
+                    align-self: center;
+                    max-width: 90%;
+                }
 
                 &__img {
                     width: 100%;
@@ -556,6 +573,7 @@
                     @include medium-device-down {
                         font-size: $T2-mobile;
                         font-weight: $weight-700;
+                        text-align: center;
                     }
                 }
                 &__subtitle {
@@ -567,6 +585,7 @@
                     @include medium-device-down {
                         font-size: $T4-mobile;
                         font-weight: $weight-700;
+                        text-align: center;
                     }
                 }
 
@@ -587,11 +606,15 @@
                         color: inherit;
                         font-weight: inherit;
                     }
+
+                    @include medium-device-down {
+                        text-align: center;
+                    }
                 }
             }
         }
 
-        &__additional-content {
+        &__additional-topic {
             background-color: $color-three;
             padding: 80px 0;
             .accordion {
@@ -615,6 +638,11 @@
                                 font-size: $T5-mobile;
                                 font-weight: $weight-700;
                             }
+                        }
+
+                        .accordion-button:focus {
+                            border: none;
+                            box-shadow: none;
                         }
                         .accordion-button::after {
                             background-image: url(../images/accordion-icon.svg);
@@ -651,6 +679,11 @@
             &__carousel {
                 display: flex !important;
                 justify-content: center;
+
+                @include large-device-down {
+                    width: 90%;
+                    margin: 0 auto;
+                }
                 .owl-stage-outer {
                     .owl-stage {
                     }
@@ -719,7 +752,11 @@
         &__gallery {
             padding: 72px 0 48px;
 
-            &__carousel{
+            @include x-large-device-down {
+                padding: 72px 0 48px !important;
+            }
+
+            &__carousel {
                 .owl-stage-outer {
                     overflow: visible;
 
@@ -731,7 +768,7 @@
                 }
 
                 .owl-dots {
-                    justify-content: start;
+                    justify-content: center;
 
                     .owl-dot {
                     }
@@ -740,8 +777,13 @@
                     }
                 }
             }
-            &__item{
+            &__item {
+                width: 300px;
 
+                @include small-device-down {
+                    width: 90%;
+                    margin: 0 auto;
+                }
             }
         }
     }
@@ -751,6 +793,10 @@
         padding: 56px 0 62px;
 
         &__header {
+            @include medium-device-down {
+                width: 90%;
+                margin: 0 auto;
+            }
             &__title {
                 font-family: $font-primary;
                 font-size: $T2;
@@ -809,6 +855,10 @@
             }
         }
         &__carousel {
+            @include medium-device-down {
+                width: 90%;
+                margin: 0 auto;
+            }
             .owl-stage-outer {
                 overflow: visible;
 
@@ -816,8 +866,6 @@
                     display: flex;
                 }
             }
-
-            // Conforme layout, o nav está como false no js. Dessa forma, é necessário colocar o true e false nos dots e não usar display: flex !important para mostrá-lo
             .owl-nav {
             }
 
