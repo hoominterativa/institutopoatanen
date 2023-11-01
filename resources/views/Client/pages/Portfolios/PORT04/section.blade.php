@@ -7,9 +7,9 @@
                 <hr class="port04__header__line">
             @endif
             @if ($section->text_section)
-                <p class="port04__header__description">
+                <div class="port04__header__description">
                     {!! $section->text_section !!}
-                </p>
+                </div>
             @endif
         </header>
         @if ($portfolios->count())
