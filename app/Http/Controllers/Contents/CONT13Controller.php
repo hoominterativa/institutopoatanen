@@ -10,10 +10,13 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contents\CONT13ContentsGallery;
+use App\Models\Contents\CONT13ContentsSection;
+use App\Models\Contents\CONT13ContentsTopic;
 
 class CONT13Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Contents/CONT13/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +25,15 @@ class CONT13Controller extends Controller
      */
     public function index()
     {
-        //
+        $contents = CONT13Contents::sorting()->get();
+        $section = CONT13ContentsSection::first();
+        $topics = CONT13ContentsTopic::sorting()->get();
+        return view('Admin.cruds.Contents.CONT13.index', [
+            'contents' => $contents,
+            'section' => $section,
+            'topics' => $topics,
+            'cropSetting' => getCropImage('Contents', 'CONT13')
+        ]);
     }
 
     /**
@@ -32,7 +43,9 @@ class CONT13Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Contents.CONT13.create', [
+            'cropSetting' => getCropImage('Contents', 'CONT13')
+        ]);
     }
 
     /**
@@ -44,33 +57,28 @@ class CONT13Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        $helper = new HelperArchive();
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(CONT13Contents::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if($content = CONT13Contents::create($data)){
+            Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            return redirect()->route('admin.cont13.edit',[ 'CONT13Contents' => $content->id]);
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
     }
@@ -83,7 +91,12 @@ class CONT13Controller extends Controller
      */
     public function edit(CONT13Contents $CONT13Contents)
     {
-        //
+        $galleries = CONT13ContentsGallery::where('content_id', $CONT13Contents->id)->sorting()->get();
+        return view('Admin.cruds.Contents.CONT13.edit',[
+            'content' => $CONT13Contents,
+            'galleries' => $galleries,
+            'cropSetting' => getCropImage('Contents', 'CONT13')
+        ]);
     }
 
     /**
@@ -96,11 +109,10 @@ class CONT13Controller extends Controller
     public function update(Request $request, CONT13Contents $CONT13Contents)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +123,37 @@ class CONT13Controller extends Controller
             storageDelete($CONT13Contents, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($CONT13Contents, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($CONT13Contents, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
+        }
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($CONT13Contents, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT13Contents, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($CONT13Contents, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($CONT13Contents, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
         }
 
-        */
 
         if($CONT13Contents->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +164,20 @@ class CONT13Controller extends Controller
      */
     public function destroy(CONT13Contents $CONT13Contents)
     {
-        //storageDelete($CONT13Contents, 'path_image');
-        //storageDelete($CONT13Contents, 'path_archive');
+        $galleries = CONT13ContentsGallery::where('content_id', $CONT13Contents->id)->get();
+        if ($galleries->count()) {
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+        }
+
+        storageDelete($CONT13Contents, 'path_image');
+        storageDelete($CONT13Contents, 'path_image_desktop');
+        storageDelete($CONT13Contents, 'path_image_mobile');
 
         if($CONT13Contents->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +190,24 @@ class CONT13Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $CONT13Contentss = CONT13Contents::whereIn('id', $request->deleteAll)->get();
         foreach($CONT13Contentss as $CONT13Contents){
+            $galleries = CONT13ContentsGallery::where('content_id', $CONT13Contents->id);
+            if ($galleries->count()) {
+                foreach ($galleries as $gallery) {
+                    storageDelete($gallery, 'path_image');
+                    $gallery->delete();
+                }
+            }
+
             storageDelete($CONT13Contents, 'path_image');
-            storageDelete($CONT13Contents, 'path_archive');
+            storageDelete($CONT13Contents, 'path_image_desktop');
+            storageDelete($CONT13Contents, 'path_image_mobile');
         }
-        */
 
         if($deleted = CONT13Contents::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Conteúdos deletados com sucessso']);
         }
     }
     /**
@@ -217,28 +246,33 @@ class CONT13Controller extends Controller
     }
 
     /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Contents', 'CONT13', 'page');
-
-        return view('Client.pages.Contents.CONT13.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Section index resource.
      *
      * @return \Illuminate\Http\Response
      */
     public static function section()
     {
-        return view('Client.pages.Contents.CONT13.section');
+        $section = CONT13ContentsSection::first();
+        $contents = CONT13Contents::with('galleries')->active()->sorting()->get();
+        $topics = CONT13ContentsTopic::active()->sorting()->get();
+
+        switch(deviceDetect()){
+            case 'mobile':
+            case 'tablet':
+                if($section) {
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+                if($contents->count()) {
+                    foreach($contents as $content){
+                        $content->path_image_desktop = $content->path_image_mobile;
+                    }
+                }
+            break;
+        }
+        return view('Client.pages.Contents.CONT13.section',[
+            'section' => $section,
+            'contents' => $contents,
+            'topics' => $topics
+        ]);
     }
 }

@@ -16,7 +16,7 @@ class CONT13Contents extends Model
     }
 
     protected $table = "cont13_contents";
-    protected $fillable = [];
+    protected $fillable = ['title', 'subtitle', 'text', 'link', 'path_image', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -28,8 +28,8 @@ class CONT13Contents extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function galleries()
+    {
+        return $this->hasMany(CONT13ContentsGallery::class, 'content_id');
+    }
 }

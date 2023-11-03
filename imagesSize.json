@@ -927,6 +927,54 @@
                 "height": "300",
                 "activeCrop": "false"
             }
+        },
+        "CONT13": {
+            "path_image": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "964",
+                "activeCrop":"false"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "1042",
+                "activeCrop":"true"
+            },
+            "Section": {
+                "path_image": {
+                    "width": "506",
+                    "height": "700",
+                    "activeCrop": "false"
+                },
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "964",
+                    "activeCrop":"false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "1724",
+                    "activeCrop":"true"
+                }
+            },
+            "Topic": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "465",
+                    "height": "465",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "ContentPages": {

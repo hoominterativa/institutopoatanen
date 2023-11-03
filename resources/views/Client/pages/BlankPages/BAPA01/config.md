@@ -1,4 +1,4 @@
-' BlankPages' => (object) [
+'BlankPages' => (object) [
     'BAPA01' => (object)[
         'ViewHome' => false,
         'ViewListMenu' => false,
