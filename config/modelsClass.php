@@ -414,6 +414,19 @@ return [
                     ]
                 ]
             ],
+            'SERV09' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV09Controller::class,
+                'model' => App\Models\Services\SERV09Services::class,
+                'seedQty' => 20,
+                'routeName' => 'serv09.category.page',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV09ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 7,
+                    ]
+                ]
+            ],
         ],
         // END SERVICES
 

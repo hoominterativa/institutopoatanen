@@ -11856,8 +11856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT05/src/main */ "./resources/views/Client/Core/Footers/FOOT05/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contents_CONT13_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT13/src/main */ "./resources/views/Client/pages/Contents/CONT13/src/main.js");
-/* harmony import */ var _pages_Contents_CONT13_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT13_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Services_SERV09_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Services/SERV09/src/main */ "./resources/views/Client/pages/Services/SERV09/src/main.js");
+/* harmony import */ var _pages_Services_SERV09_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV09_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12029,64 +12029,13 @@ if (elementosAnimados.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT13/src/main.js":
+/***/ "./resources/views/Client/pages/Services/SERV09/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT13/src/main.js ***!
+  !*** ./resources/views/Client/pages/Services/SERV09/src/main.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (() => {
 
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-function carrosselMultItem(element, quantItem, quantLamina, auto, nav, dots) {
-  var quantItemAppend = $(element).find('>*').length;
-  var refFor = quantItemAppend / quantItem;
-  for (var i = 1; i <= refFor; i++) {
-    $(element).append('<div class="contItemAppend' + i + ' pd-carrossel"></div>');
-    $(element).find('> *:lt(' + quantItem + ')').addClass('appendItem' + i);
-    $(element).find('.appendItem' + i).appendTo('.contItemAppend' + i + '');
-  }
-  $(element).owlCarousel({
-    loop: false,
-    nav: true,
-    dots: dots,
-    autoplay: false,
-    responsiveClass: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 1
-      },
-      620: {
-        items: 1
-      },
-      840: {
-        items: quantLamina,
-        margin: 0
-      }
-    }
-  }); // FIM $('.owl-carousel').owlCarousel({
-}
 
-$(function () {
-  carrosselMultItem('.carousel-cont13', 6, 1, true, true, true);
-  if ($(window).outerWidth() <= 801) {
-    $(".carousel-cont13").css("width", $(".cont13 .cont13__main").outerWidth());
-  }
-  $(".carousel-lics").owlCarousel({
-    smartSpeed: 450,
-    loop: false,
-    dots: true,
-    nav: true,
-    rewind: true,
-    autoHeight: true,
-    items: 1
-  });
-  $(".carousel-lics").css("width", $(window).outerWidth() / 2 - 150);
-  if ($(window).outerWidth() <= 801) {
-    $(".carousel-lics").css("width", $(window).outerWidth() - 20);
-  }
-});
 
 /***/ }),
 

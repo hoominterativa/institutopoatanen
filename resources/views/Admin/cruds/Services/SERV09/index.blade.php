@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Services', 'SERV08')}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Services', 'SERV09')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Services', 'SERV08')}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Services', 'SERV09')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#services" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
-                            {{ getTitleModel($configModelsMain, 'Services', 'SERV08') }}
+                            {{ getTitleModel($configModelsMain, 'Services', 'SERV09') }}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do conteúdo principal"></i>
@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Informações complementares
+                            Informações home
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro de informações para a seção home"></i>
@@ -53,22 +53,6 @@
                                 data-bs-original-title="Cadastro de informações para a seção banner da página principal"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#content" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Conteúdo complementar
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de informações para a seção conteúdo que será apresentada acima dos campos das categorias na página principal"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
-                            Informações de contato
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações de contato que será apresentada no ligthbox"></i>
-                        </a>
-                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -79,10 +63,10 @@
                                     <div class="card-body">
                                         <div class="row mb-3">
                                             <div class="col-6">
-                                                <button id="btSubmitDelete" data-route="{{route('admin.serv08.destroySelected')}}" type="button" class="btn btn-danger btnDeleteServices" style="display: none;">Deletar selecionados</button>
+                                                <button id="btSubmitDelete" data-route="{{route('admin.serv09.destroySelected')}}" type="button" class="btn btn-danger btnDeleteServices" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                <a href="{{route('admin.serv08.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                <a href="{{route('admin.serv09.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
@@ -97,16 +81,16 @@
                                                     <th>Título/Subtítulo</th>
                                                     <th>Descrição</th>
                                                     <th>Texto</th>
-                                                    <th>Título do preço</th>
                                                     <th>Preço</th>
-                                                    <th>Título do destaque</th>
-                                                    <th>Cor do destaque</th>
+                                                    <th>Título info</th>
+                                                    <th>Informações</th>
+                                                    <th>Link</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
                                             </thead>
 
-                                            <tbody data-route="{{route('admin.serv08.sorting')}}">
+                                            <tbody data-route="{{route('admin.serv09.sorting')}}">
                                                 @foreach ($services as $service)
                                                     <tr data-code="{{$service->id}}">
                                                         <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -122,11 +106,13 @@
                                                         <td class="align-middle">{{$service->title}} <b>/</b>{{$service->subtitle}}</td>
                                                         <td class="align-middle">{!! substr($service->description, 0, 20) !!}<b>...</b></td>
                                                         <td class="align-middle">{!! substr($service->text, 0, 20) !!}<b>...</b></td>
-                                                        <td class="align-middle">{{$service->title_price}}</td>
                                                         <td class="align-middle"><b>R$</b>{{number_format($service->price, 2, ',', '.')}}</td>
-                                                        <td class="align-middle">{{$service->title_featured_service}}</td>
+                                                        <td class="align-middle">{{$service->title_info}}</td>
+                                                        <td class="align-middle">{!! substr($service->informations, 0, 20) !!}<b>...</b></td>
                                                         <td class="align-middle">
-                                                            <span class="badge" style="background-color: {{$service->color_featured_service}}">{{$service->color_featured_service}}</span>
+                                                            @if ($service->link)
+                                                                <a href="{{ $service->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             @if ($service->active)
@@ -137,16 +123,13 @@
                                                             @if ($service->featured)
                                                                 <span class="badge bg-primary text-white">Destaque Home</span>
                                                             @endif
-                                                            @if ($service->featured_service)
-                                                            <span class="badge bg-primary text-white">Serviço em destaque</span>
-                                                        @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <a href="{{route('admin.serv08.edit',['SERV08Services' => $service->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                                    <a href="{{route('admin.serv09.edit',['SERV09Services' => $service->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                                 </div>
-                                                                <form action="{{route('admin.serv08.destroy',['SERV08Services' => $service->id])}}" class="col-4" method="POST">
+                                                                <form action="{{route('admin.serv09.destroy',['SERV09Services' => $service->id])}}" class="col-4" method="POST">
                                                                     @method('DELETE') @csrf
                                                                     <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                                 </form>
@@ -167,25 +150,15 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="category">
-                        @include("Admin.cruds.Services.SERV08.Category.index",[
+                        @include("Admin.cruds.Services.SERV09.Category.index",[
                             'categories' => $serviceCategories,
                         ])
                     </div>
                     <div class="tab-pane" id="section">
-                        @include("Admin.cruds.Services.SERV08.Section.form")
+                        @include("Admin.cruds.Services.SERV09.Section.form")
                     </div>
                     <div class="tab-pane" id="banner">
-                        @include("Admin.cruds.Services.SERV08.Banner.form")
-                    </div>
-                    <div class="tab-pane" id="content">
-                        @include("Admin.cruds.Services.SERV08.Content.form")
-                    </div>
-                    <div class="tab-pane" id="contact">
-                        @include('Admin.cruds.Services.SERV08.Contact.form', [
-                            'contact' => $contact,
-                            'configForm' => $configForm,
-                            'compliances' => $compliances
-                        ])
+                        @include("Admin.cruds.Services.SERV09.Banner.form")
                     </div>
                 </div>
                 <!-- end row -->
