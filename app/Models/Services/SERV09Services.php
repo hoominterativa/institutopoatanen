@@ -19,7 +19,7 @@ class SERV09Services extends Model
     protected $fillable = [
         'category_id', 'title', 'subtitle', 'description', 'price', 'path_image', 'title_info', 'informations', 'active', 'sorting', 'slug', 'featured', 'text', 'link',
         //Banner Inner
-        'title_banner', 'subtitle_banner', 'active_banner', 'path_image_desktop', 'path_image_mobile', 'background_color'
+        'title_banner', 'subtitle_banner', 'active_banner', 'path_image_desktop', 'path_image_mobile', 'background_color',
     ];
 
     public function scopeSorting($query)
@@ -40,5 +40,10 @@ class SERV09Services extends Model
     public function categories()
     {
         return $this->belongsTo(SERV09ServicesCategory::class, 'category_id');
+    }
+
+    public function topics()
+    {
+        return $this->belongsTo(SERV09ServicesTopic::class, 'service_id');
     }
 }

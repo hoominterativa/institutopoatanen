@@ -2,7 +2,7 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV09ServicesTopicFactory;
+use Database\Factories\Services\SERV09ServicesTopicFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,8 @@ class SERV09ServicesTopic extends Model
         return SERV09ServicesTopicFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "serv09_services_topics";
+    protected $fillable = ['service_id', 'title', 'path_image', 'active', 'featured', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -28,8 +28,13 @@ class SERV09ServicesTopic extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(SERV09Services::class, 'service_id');
+    }
 }

@@ -1,16 +1,32 @@
-@if (isset($topic))
-    {!! Form::model($topic, ['route' => ['admin.serv09.topic.update', $topic->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+@if (isset($feedback))
+    {!! Form::model($feedback, ['route' => ['admin.serv09.feedback.update', $feedback->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => ['admin.serv09.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => ['admin.serv09.feedback.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
     {!! Form::hidden('service_id', $service->id) !!}
 @endif
 <div class="row">
     <div class="col-12 col-lg-6">
         <div class="card card-body border" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title',]) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('name', 'Nome', ['class'=>'form-label']) !!}
+                        {!! Form::text('name', null, ['class'=>'form-control', 'id'=>'name',]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('profession', 'Profissão', ['class'=>'form-label']) !!}
+                        {!! Form::text('profession', null, ['class'=>'form-control', 'id'=>'profession',]) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="normal-editor__content mb-3">
+                {!! Form::label('text', 'Depoimento', ['class' => 'form-label']) !!}
+                {!! Form::textarea('text', null, [
+                    'class' => 'form-control normal-editor',
+                    'data-height' => 500,
+                    'id' => 'text',
+                ]) !!}
             </div>
         </div>
         <div class="d-flex">
@@ -18,31 +34,27 @@
                 {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
                 {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
             </div>
-            <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
-                {!! Form::label('featured', 'Destacar na página?', ['class' => 'form-check-label']) !!}
-            </div>
         </div>
     </div>
     <div class="col-12 col-lg-6">
         <div class="card card-body border" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone', ['class' => 'form-label']) !!}
+                    {!! Form::label('inputImage', 'Foto', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Topic->path_image->width }}x{{ $cropSetting->Topic->path_image->height }}px!</small>
+                        {{ $cropSetting->Feedback->path_image->width }}x{{ $cropSetting->Feedback->path_image->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->Topic->path_image->activeCrop, // px
-                            'data-min-width' => $cropSetting->Topic->path_image->width, // px
-                            'data-min-height' => $cropSetting->Topic->path_image->height, // px
+                            'data-status' => $cropSetting->Feedback->path_image->activeCrop, // px
+                            'data-min-width' => $cropSetting->Feedback->path_image->width, // px
+                            'data-min-height' => $cropSetting->Feedback->path_image->height, // px
                             'data-box-height' => '225', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($topic)
-                                ? ($topic->path_image != ''
-                                    ? url('storage/' . $topic->path_image)
+                            'data-default-file' => isset($feedback)
+                                ? ($feedback->path_image != ''
+                                    ? url('storage/' . $feedback->path_image)
                                     : '')
                                 : '',
                         ]) !!}

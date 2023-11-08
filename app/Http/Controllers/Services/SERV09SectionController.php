@@ -28,6 +28,7 @@ class SERV09SectionController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
         $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_feedback'] = $request->active_feedback ? 1 : 0;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -59,6 +60,7 @@ class SERV09SectionController extends Controller
 
         $data['active'] = $request->active? 1 : 0;
         $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_feedback'] = $request->active_feedback ? 1 : 0;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){

@@ -2,6 +2,7 @@
     {!! Form::model($section, ['route' => ['admin.serv09.section.update', $section->id],'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
     {!! Form::hidden('active_banner', $section->active_banner) !!}
+    {!! Form::hidden('active_feedback', $section->active_feedback) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.serv09.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif

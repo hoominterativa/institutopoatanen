@@ -13,27 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class SERV09FeedbackController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Services/SERV09/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +24,20 @@ class SERV09FeedbackController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(SERV09ServicesFeedback::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Feedback cadastrado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o feedback');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Services\SERV09ServicesFeedback  $SERV09ServicesFeedback
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SERV09ServicesFeedback $SERV09ServicesFeedback)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,11 +50,9 @@ class SERV09FeedbackController extends Controller
     public function update(Request $request, SERV09ServicesFeedback $SERV09ServicesFeedback)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +63,14 @@ class SERV09FeedbackController extends Controller
             storageDelete($SERV09ServicesFeedback, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SERV09ServicesFeedback, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV09ServicesFeedback, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($SERV09ServicesFeedback->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Feedback atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar feedback');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +81,10 @@ class SERV09FeedbackController extends Controller
      */
     public function destroy(SERV09ServicesFeedback $SERV09ServicesFeedback)
     {
-        //storageDelete($SERV09ServicesFeedback, 'path_image');
-        //storageDelete($SERV09ServicesFeedback, 'path_archive');
+        storageDelete($SERV09ServicesFeedback, 'path_image');
 
         if($SERV09ServicesFeedback->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Feedback deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +97,14 @@ class SERV09FeedbackController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $SERV09ServicesFeedbacks = SERV09ServicesFeedback::whereIn('id', $request->deleteAll)->get();
         foreach($SERV09ServicesFeedbacks as $SERV09ServicesFeedback){
             storageDelete($SERV09ServicesFeedback, 'path_image');
-            storageDelete($SERV09ServicesFeedback, 'path_archive');
         }
-        */
 
         if($deleted = SERV09ServicesFeedback::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' feedbacks deletados com sucessso']);
         }
     }
     /**
@@ -194,51 +120,5 @@ class SERV09FeedbackController extends Controller
             SERV09ServicesFeedback::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Services\SERV09ServicesFeedback  $SERV09ServicesFeedback
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SERV09ServicesFeedback $SERV09ServicesFeedback)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

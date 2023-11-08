@@ -2,7 +2,7 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV09ServicesFeedbackFactory;
+use Database\Factories\Services\SERV09ServicesFeedbackFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,8 @@ class SERV09ServicesFeedback extends Model
         return SERV09ServicesFeedbackFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "serv09_services_feedback";
+    protected $fillable = ['service_id', 'name', 'profession', 'text', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class SERV09ServicesFeedback extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

@@ -27,6 +27,9 @@ class CreateServ09ServicesSectionsTable extends Migration
              $table->string('path_image_mobile')->nullable();
              $table->string('background_color')->nullable();
              $table->integer('active_banner')->default(0);
+            //Section Feedback
+            $table->string('title_feedback')->nullable();
+            $table->integer('active_feedback')->default(0);
             $table->timestamps();
         });
     }

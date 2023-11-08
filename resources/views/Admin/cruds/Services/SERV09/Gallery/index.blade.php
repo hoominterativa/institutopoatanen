@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{route('admin.port04.gallery.destroySelected')}}" type="button" class="btn btn-danger btnDeleteGallery" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{route('admin.serv09.gallery.destroySelected')}}" type="button" class="btn btn-danger btnDeleteGallery" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)"  data-bs-target="#modal-gallery-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{route('admin.port04.gallery.sorting')}}">
+                    <tbody data-route="{{route('admin.serv09.gallery.sorting')}}">
                         @foreach ($galleries as $gallery)
                             <tr data-code="{{$gallery->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -36,7 +36,7 @@
                                 </td>
                                 <td class="align-middle">
                                     <div class="row">
-                                        <form action="{{route('admin.port04.gallery.destroy',['PORT04PortfoliosGallery' => $gallery->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.serv09.gallery.destroy',['SERV09ServicesGallery' => $gallery->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
@@ -62,7 +62,7 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Portfolios.PORT04.Gallery.form',[
+                @include('Admin.cruds.Services.SERV09.Gallery.form',[
                     'gallery' => null
                 ])
             </div>

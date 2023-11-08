@@ -1,5 +1,5 @@
-{!! Form::model(null, ['route' => ['admin.port04.gallery.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
-    {!! Form::hidden('portfolio_id', $portfolio->id) !!}
+{!! Form::model(null, ['route' => ['admin.serv09.gallery.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('service_id', $service->id) !!}
     <div class="row">
         <div class="col-12">
             <div class="card card-body border" id="tooltip-container">

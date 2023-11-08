@@ -2,7 +2,7 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV09ServicesContentFactory;
+use Database\Factories\Services\SERV09ServicesContentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,8 @@ class SERV09ServicesContent extends Model
         return SERV09ServicesContentFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "serv09_services_contents";
+    protected $fillable = ['service_id', 'title', 'text', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class SERV09ServicesContent extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

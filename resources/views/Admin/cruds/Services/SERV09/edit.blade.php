@@ -82,6 +82,30 @@
                     <div class="tab-pane" id="bannerInner">
                         @include('Admin.cruds.Services.SERV09.BannerInner.form')
                     </div>
+                    <div class="tab-pane" id="topics">
+                        @include('Admin.cruds.Services.SERV09.Topics.index', [
+                            'topics' => $topics,
+                            'service' => $service
+                        ])
+                    </div>
+                    <div class="tab-pane" id="gallery">
+                        @include('Admin.cruds.Services.SERV09.Gallery.index', [
+                            'galleries' => $galleries,
+                            'service' => $service
+                        ])
+                    </div>
+                    <div class="tab-pane" id="contents">
+                        @include('Admin.cruds.Services.SERV09.Contents.index', [
+                            'contents' => $contents,
+                            'service' => $service
+                        ])
+                    </div>
+                    <div class="tab-pane" id="feedbacks">
+                        @include('Admin.cruds.Services.SERV09.Feedbacks.index', [
+                            'feedbacks' => $feedbacks,
+                            'service' => $service
+                        ])
+                    </div>
                 </div>
             </div> <!-- container -->
         </div> <!-- content -->

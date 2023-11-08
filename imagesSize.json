@@ -1585,6 +1585,27 @@
                     "activeCrop": "false"
                 }
             },
+            "Topic": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "300",
+                    "height": "340",
+                    "activeCrop": "false"
+                }
+            },
+            "Feedback": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
             "Banner": {
                 "path_image_desktop": {
                     "width": "1500",

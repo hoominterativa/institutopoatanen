@@ -34,6 +34,9 @@ class SERV09ServicesSectionFactory extends Factory
             'path_image_desktop' => 'uploads/tmp/bg-boxitem.png',
             'path_image_mobile' => 'uploads/tmp/image-box-white.jpg',
             'background_color' => '#FFFFFF',
+            //Section Feedback
+            'title_feedback' => 'Feedbacks',
+            'active_feedback' => 1,
         ];
     }
 }

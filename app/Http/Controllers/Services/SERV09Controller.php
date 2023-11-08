@@ -13,6 +13,11 @@ use App\Models\Services\SERV09ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV09ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV09ServicesContent;
+use App\Models\Services\SERV09ServicesFeedback;
+use App\Models\Services\SERV09ServicesGallery;
+use App\Models\Services\SERV09ServicesTopic;
+use Database\Factories\Services\SERV09ServicesFactory;
 
 class SERV09Controller extends Controller
 {
@@ -100,9 +105,17 @@ class SERV09Controller extends Controller
     public function edit(SERV09Services $SERV09Services)
     {
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
+        $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
+        $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
+        $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->get();
+        $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
         return view('Admin.cruds.Services.SERV09.edit', [
             'service' => $SERV09Services,
             'categories' => $categories,
+            'topics' => $topics,
+            'galleries' => $galleries,
+            'contents' => $contents,
+            'feedbacks' => $feedbacks,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
     }
@@ -175,6 +188,37 @@ class SERV09Controller extends Controller
      */
     public function destroy(SERV09Services $SERV09Services)
     {
+        $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
+        if ($topics->count()) {
+            foreach ($topics as $topic) {
+                storageDelete($topic, 'path_images');
+                $topic->delete();
+            }
+        }
+
+        $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
+        if ($galleries->count()) {
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_images');
+                $gallery->delete();
+            }
+        }
+
+        $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->get();
+        if ($contents->count()) {
+            foreach ($contents as $content) {
+                $content->delete();
+            }
+        }
+
+        $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
+        if ($feedbacks->count()) {
+            foreach ($feedbacks as $feedback) {
+                storageDelete($feedback, 'path_images');
+                $feedback->delete();
+            }
+        }
+
         storageDelete($SERV09Services, 'path_image');
         storageDelete($SERV09Services, 'path_image_desktop');
         storageDelete($SERV09Services, 'path_image_mobile');
@@ -196,6 +240,37 @@ class SERV09Controller extends Controller
 
         $SERV09Servicess = SERV09Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV09Servicess as $SERV09Services){
+            $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
+            if ($topics->count()) {
+                foreach ($topics as $topic) {
+                    storageDelete($topic, 'path_images');
+                    $topic->delete();
+                }
+            }
+
+            $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
+            if ($galleries->count()) {
+                foreach ($galleries as $gallery) {
+                    storageDelete($gallery, 'path_images');
+                    $gallery->delete();
+                }
+            }
+
+            $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->get();
+            if ($contents->count()) {
+                foreach ($contents as $content) {
+                    $content->delete();
+                }
+            }
+
+            $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
+            if ($feedbacks->count()) {
+                foreach ($feedbacks as $feedback) {
+                    storageDelete($feedback, 'path_images');
+                    $feedback->delete();
+                }
+            }
+
             storageDelete($SERV09Services, 'path_image');
             storageDelete($SERV09Services, 'path_image_desktop');
             storageDelete($SERV09Services, 'path_image_mobile');

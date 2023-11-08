@@ -21,6 +21,8 @@ class SERV09ServicesSection extends Model
         'title', 'subtitle', 'description', 'active',
         //Section Banner
         'title_banner', 'subtitle_banner', 'active_banner', 'path_image_desktop', 'path_image_mobile', 'background_color',
+        //Section Feedback
+        'title_feedback', 'active_feedback'
     ];
 
     public function scopeActive($query)

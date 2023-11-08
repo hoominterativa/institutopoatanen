@@ -53,6 +53,14 @@
                                 data-bs-original-title="Cadastro de informações para a seção banner da página principal"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#sectionFeedback" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seção dos feedbacks
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de informações complementares para os feedbacks"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -159,6 +167,9 @@
                     </div>
                     <div class="tab-pane" id="banner">
                         @include("Admin.cruds.Services.SERV09.Banner.form")
+                    </div>
+                    <div class="tab-pane" id="sectionFeedback">
+                        @include("Admin.cruds.Services.SERV09.SectionFeedback.form")
                     </div>
                 </div>
                 <!-- end row -->
