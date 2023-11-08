@@ -305,13 +305,39 @@ class SERV09Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV09Services $SERV09Services)
-    public function show()
+    public function show($SERV09ServicesCategory, SERV09Services $SERV09Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV09', 'show');
 
+        $category = SERV09ServicesCategory::where('slug', $SERV09ServicesCategory)->first();
+        $service = SERV09Services::where(['category_id' => $category->id, 'id' => $SERV09Services->id])->first();
+        $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
+        $services = SERV09Services::with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->whereNotIn('id', [$SERV09Services->id])->active()->sorting()->get();
+        $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->active()->sorting()->get();
+        $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->sorting()->get();
+        $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->active()->sorting()->get();
+        $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->active()->sorting()->get();
+        $section = SERV09ServicesSection::active()->first();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($service)
+                    {$service->path_image_desktop = $service->path_image_mobile;}
+            break;
+        }
+
         return view('Client.pages.Services.SERV09.show',[
-            'sections' => $sections
+            'sections' => $sections,
+            'service' => $service,
+            'topics' => $topics,
+            'galleries' => $galleries,
+            'contents' => $contents,
+            'feedbacks' => $feedbacks,
+            'section' => $section,
+            'categories' => $categories,
+            'services' => $services,
         ]);
     }
 
@@ -321,13 +347,38 @@ class SERV09Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV09ServicesCategory $SERV09ServicesCategory, SERV09Services $SERV09Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV09', 'page');
 
+        $section = SERV09ServicesSection::active()->first();
+        $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
+        $services = SERV09Services::active();
+        if($SERV09ServicesCategory->exists){
+            $services = $services->where('category_id', $SERV09ServicesCategory->id);
+
+            foreach ($categories as $category) {
+                if($SERV09ServicesCategory->id==$category->id){
+                    $category->selected = true;
+                }
+            }
+        }
+        $services = $services->with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->active()->sorting()->paginate(16);
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section)
+                    {$section->path_image_desktop = $section->path_image_mobile;}
+            break;
+        }
+
         return view('Client.pages.Services.SERV09.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'section' => $section,
+            'categories' => $categories,
+            'services' => $services,
         ]);
     }
 
@@ -338,6 +389,15 @@ class SERV09Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV09.section');
+        $section = SERV09ServicesSection::active()->first();
+        $categories = SERV09ServicesCategory::active()->featured()->exists()->sorting()->get();
+        $categoryFirst = SERV09ServicesCategory::active()->exists()->first();
+        $services = SERV09Services::with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->active()->featured()->sorting()->get();
+        return view('Client.pages.Services.SERV09.section',[
+            'section' => $section,
+            'categories' => $categories,
+            'categoryFirst' => $categoryFirst,
+            'services' => $services,
+        ]);
     }
 }

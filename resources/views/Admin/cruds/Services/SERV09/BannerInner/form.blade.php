@@ -2,7 +2,9 @@
     {!! Form::model($service, ['route' => ['admin.serv09.update', $service->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
     {!! Form::hidden('active', $service->active) !!}
+    {!! Form::hidden('featured', $service->featured) !!}
     {!! Form::hidden('title', $service->title) !!}
+    {!! Form::hidden('link', $service->link) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.serv09.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif

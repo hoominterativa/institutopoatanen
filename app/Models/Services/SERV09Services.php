@@ -44,6 +44,6 @@ class SERV09Services extends Model
 
     public function topics()
     {
-        return $this->belongsTo(SERV09ServicesTopic::class, 'service_id');
+        return $this->hasMany(SERV09ServicesTopic::class, 'service_id');
     }
 }

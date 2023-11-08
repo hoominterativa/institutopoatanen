@@ -1,4 +1,5 @@
 <div class="row col-12">
+    {!! Form::hidden('active_banner', $service->active_banner) !!}
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">

@@ -54,7 +54,7 @@
                                 </div>
                                 <div style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};" class="serv08-box__top__right d-flex flex-column align-items-end justify-content-start ">
                                     <h4 class="serv08-box__top__subtitlee">{{$service->title_price}}</h4>
-                                    <h3 class="serv08-box__top__title"><span>R$</span>{{str_replace('.', ',', $service->price)}}</h3>
+                                    <h3 class="serv08-box__top__title"><span>R$</span>{{number_format($service->price, 2, ',', '.')}}</h3>
                                 </div>
                             </div>
                             @include('Client.pages.Services.SERV08.show',[
