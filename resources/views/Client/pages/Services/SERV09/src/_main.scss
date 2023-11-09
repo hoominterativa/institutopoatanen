@@ -1,3 +1,178 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.serv09{
+    .container--serv09{
+
+    }
+    &__header{
+        &__title {
+            font-family: $font-primary;
+            font-size: $T2;
+            font-weight: 700;
+            color: $color-one;
+            text-align: center;
+            margin-bottom: 0;
+    
+            @include medium-device-down {
+                font-size: $T2-mobile;
+            }
+        }
+    
+        &__subtitle {
+            font-family: $font-primary;
+            font-size: $T4;
+            font-weight: 700;
+            color: $color-three;
+            text-align: center;
+            margin-bottom: 0;
+    
+            @include medium-device-down {
+                font-size: $T4-mobile;
+            }
+        }
+    
+        &__line {
+            width: 100%;
+            border-top: 1px solid $color-one;
+            margin: 22px 0 29px 0;
+        }
+
+        &__description{
+            color: $color-two;
+            font-weight: $weight-400;
+            font: $paragraph;
+            max-width: 53.625rem;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+
+            @include medium-device-down{
+                font: $paragraph-mobile;
+                font-weight: $weight-400;
+            }
+
+            p{
+                color: $color-two;
+                font-weight: $weight-400;
+                font: $paragraph;
+                margin-bottom: 0;
+
+                @include medium-device-down{
+                    font: $paragraph-mobile;
+                    font-weight: $weight-400;
+                }
+            }
+        }
+        &__nav{
+            margin-top: 2.75rem;
+            margin-bottom: 3.56rem;
+
+            &__list {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 18px;
+                width: 100%;
+                list-style-type: none;
+                padding-left: 0;
+        
+               
+                &__category {
+                    a {
+                        @include Flex;
+                        gap: 1rem;
+                        padding: 0.56rem 1.19rem;
+                        background-color: $color-nine;
+                        white-space: nowrap;
+                        font-size: $T5;
+                        font-family: $font-primary;
+                        font-weight: $weight-700;
+                        color: $color-two;
+        
+                        &:hover {
+                            background-color: $color-three;
+                            color: $color-black;
+                        }
+        
+                        img {
+                            height: 36px;
+                            width: 36px !important;
+                            object-fit: contain;
+                            object-position: center;
+                            @include trans($transition: 0.5s);
+                        }
+                    }
+                    &:hover &.active {
+                        background: $color-black;
+        
+                        a {
+                            color: $color-white;
+                            background-color: #000000;
+                        }
+                        img {
+                            filter: invert(1) grayscale(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__main{
+
+    }
+    &__content{
+
+    }
+    &__box{
+        &__left{
+            &__content{
+                &__title{
+
+                }
+                &__subtitle{
+                    
+                }
+                &__price{
+
+                }
+                &__paragraph{
+                    p{
+
+                    }
+                }
+
+                &__engBox{
+                    &__button{
+                        &__icon{
+
+                        }
+                        &__title{
+
+                        }
+                    }
+                }
+
+            }
+        }
+        &__right{
+            position: relative;
+            
+            &__image{
+               
+            }
+            &__btn{
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                &__icon{
+
+                }    
+            }
+        }
+    }
+}
+// Fim-serv09

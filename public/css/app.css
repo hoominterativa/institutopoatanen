@@ -2321,6 +2321,124 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.serv09__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #404040;
+  text-align: center;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .serv09__header__title {
+    font-size: 1.875rem;
+  }
+}
+.serv09__header__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #b3b3b3;
+  text-align: center;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .serv09__header__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.serv09__header__line {
+  width: 100%;
+  border-top: 1px solid #404040;
+  margin: 22px 0 29px 0;
+}
+.serv09__header__description {
+  color: #7c7c7c;
+  font-weight: 400;
+  font: 1rem "Montserrat", sans-serif, arial;
+  max-width: 53.625rem;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .serv09__header__description {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.serv09__header__description p {
+  color: #7c7c7c;
+  font-weight: 400;
+  font: 1rem "Montserrat", sans-serif, arial;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .serv09__header__description p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.serv09__header__nav {
+  margin-top: 2.75rem;
+  margin-bottom: 3.56rem;
+}
+.serv09__header__nav__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  width: 100%;
+  list-style-type: none;
+  padding-left: 0;
+}
+.serv09__header__nav__list__category a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.56rem 1.19rem;
+  background-color: #d9d9d9;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #7c7c7c;
+}
+.serv09__header__nav__list__category a:hover {
+  background-color: #b3b3b3;
+  color: #000;
+}
+.serv09__header__nav__list__category a img {
+  height: 36px;
+  width: 36px !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transition: all 0.5s ease;
+}
+.serv09__header__nav__list__category:hover .serv09__header__nav__list__category.active {
+  background: #000;
+}
+.serv09__header__nav__list__category:hover .serv09__header__nav__list__category.active a {
+  color: #fff;
+  background-color: #000000;
+}
+.serv09__header__nav__list__category:hover .serv09__header__nav__list__category.active img {
+  filter: invert(1) grayscale(1);
+}
+.serv09__box__right {
+  position: relative;
+}
+.serv09__box__right__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
