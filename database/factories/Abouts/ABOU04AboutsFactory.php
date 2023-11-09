@@ -2,8 +2,9 @@
 
 namespace Database\Factories\Abouts;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use App\Models\Abouts\ABOU04Abouts;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ABOU04AboutsFactory extends Factory
 {
@@ -21,11 +22,14 @@ class ABOU04AboutsFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(10);
         return [
-            'title' => $this->faker->text(10),
+            'slug' => Str::slug($title),
+            'title' => $title,
             'subtitle' => $this->faker->text(10),
             'text' => $this->faker->text(999),
             'path_image' => 'uploads/tmp/image-pmg.png',
+            'active' => 1,
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Abouts;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Abouts\ABOU04Abouts;
 use App\Http\Controllers\Controller;
@@ -29,21 +30,20 @@ class ABOU04Controller extends Controller
      */
     public function index()
     {
-        $about = ABOU04Abouts::first();
-        $section = ABOU04AboutsSection::first();
-        $galleries = ABOU04AboutsGallery::with('category')->sorting()->get();
-        $categories = ABOU04AboutsCategory::exists()->sorting()->pluck('title', 'id');
-        $categoryCreate = ABOU04AboutsCategory::sorting()->pluck('title', 'id');
-        $galleryCategories = ABOU04AboutsCategory::sorting()->get();
-        $topics = ABOU04AboutsTopic::sorting()->get();
-        return view('Admin.cruds.Abouts.ABOU04.edit', [
-            'about' => $about,
-            'section' => $section,
-            'galleries' => $galleries,
-            'categories' => $categories,
-            'galleryCategories' => $galleryCategories,
-            'categoryCreate' => $categoryCreate,
-            'topics' => $topics,
+        $abouts = ABOU04Abouts::sorting()->get();
+        return view('Admin.cruds.Abouts.ABOU04.index', [
+            'abouts' => $abouts,
+        ]);
+    }
+
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('Admin.cruds.Abouts.ABOU04.create',[
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }
@@ -58,6 +58,8 @@ class ABOU04Controller extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -72,6 +74,33 @@ class ABOU04Controller extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Blogs\BLOG03Blogs  $BLOG03Blogs
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(ABOU04Abouts $ABOU04Abouts)
+    {
+        $section = ABOU04AboutsSection::where('about_id', $ABOU04Abouts->id)->first();
+        $topics = ABOU04AboutsTopic::where('about_id', $ABOU04Abouts->id)->sorting()->get();
+        $galleries = ABOU04AboutsGallery::where('about_id', $ABOU04Abouts->id)->with('category')->sorting()->get();
+        $categories = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->exists()->sorting()->pluck('title', 'id');
+        $categoryCreate = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->sorting()->pluck('title', 'id');
+        $galleryCategories = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->sorting()->get();
+
+        return view('Admin.cruds.Abouts.ABOU04.edit',[
+            'about' => $ABOU04Abouts,
+            'section' => $section,
+            'topics' => $topics,
+            'galleries' => $galleries,
+            'categories' => $categories,
+            'galleryCategories' => $galleryCategories,
+            'categoryCreate' => $categoryCreate,
+            'cropSetting' => getCropImage('Abouts', 'ABOU04')
+        ]);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -82,6 +111,8 @@ class ABOU04Controller extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+        $data['active'] = $request->active?1:0;
+        $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -100,6 +131,55 @@ class ABOU04Controller extends Controller
             Session::flash('error', 'Erro ao atualizar as informações');
         }
         return redirect()->back();
+    }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Abouts\ABOU04AboutsTopic  $ABOU04AboutsTopic
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(ABOU04Abouts $ABOU04Abouts)
+    {
+        storageDelete($ABOU04Abouts, 'path_image');
+
+        if($ABOU04Abouts->delete()){
+            Session::flash('success', 'Conteúdo deletado com sucessso');
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Remove the selected resources from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroySelected(Request $request)
+    {
+
+        $ABOU04Abouts = ABOU04Abouts::whereIn('id', $request->deleteAll)->get();
+        foreach($ABOU04Abouts as $ABOU04Abouts){
+            storageDelete($ABOU04Abouts, 'path_image');
+        }
+
+        if($deleted = ABOU04Abouts::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' Conteúdo deletados com sucessso']);
+        }
+    }
+    /**
+    * Sort record by dragging and dropping
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+
+    public function sorting(Request $request)
+    {
+        foreach($request->arrId as $sorting => $id){
+            ABOU04Abouts::where('id', $id)->update(['sorting' => $sorting]);
+        }
+        return Response::json(['status' => 'success']);
     }
 
     // METHODS CLIENT
@@ -155,26 +235,6 @@ class ABOU04Controller extends Controller
             'topics' => $topics,
             'section' => $section
 
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        $section = ABOU04AboutsSection::activeSection()->first();
-        switch (deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if ($section)
-                $section->path_image_desktop_section = $section->path_image_mobile_section;
-            break;
-        }
-        return view('Client.pages.Abouts.ABOU04.section', [
-            'section' => $section
         ]);
     }
 }

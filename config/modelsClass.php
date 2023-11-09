@@ -17,7 +17,7 @@ return [
             'ABOU04' => (object)[
                 'controller' => App\Http\Controllers\Abouts\ABOU04Controller::class,
                 'model' => App\Models\Abouts\ABOU04Abouts::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
             ],
             'ABOU05' => (object)[
                 'controller' => App\Http\Controllers\Abouts\ABOU05Controller::class,

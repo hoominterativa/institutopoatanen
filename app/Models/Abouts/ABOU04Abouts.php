@@ -16,5 +16,15 @@ class ABOU04Abouts extends Model
     }
 
     protected $table = "abou04_abouts";
-    protected $fillable = ['title', 'subtitle', 'text', 'path_image'];
+    protected $fillable = ['slug', 'title', 'subtitle', 'text', 'path_image', 'active', 'sorting'];
+
+    public function scopeSorting($query)
+    {
+        return $query->orderBy('sorting', 'ASC');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
 }

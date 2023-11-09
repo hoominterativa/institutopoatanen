@@ -14,12 +14,12 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Services' => (object) [
-            'SERV09' => (object)[
+        'Abouts' => (object) [
+            'ABOU04' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
@@ -27,24 +27,18 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
+                    'relation' => ''
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Serviços',
-                    'anchor' =>  false,
-                    'linkMenu' => 'serv09.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
-                    'iconPanel' => 'mdi-alpha-s-box-outline'
+                'titleMenu' => 'Sobre',
+                'anchor' => false,
+                'linkMenu' => 'abou04.page',
+                'iconMenu' => '',
+                'titlePanel' => 'Sobre',
+                'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) [
-                ]
+                ],
             ],
         ],
     ],

@@ -22,15 +22,6 @@ class ABOU04AboutsSectionFactory extends Factory
     public function definition()
     {
         return [
-            //Section
-            'title_section' => $this->faker->text(10),
-            'subtitle_section' => $this->faker->text(10),
-            'description_section' => $this->faker->text(300),
-            'path_image_section' => 'uploads/tmp/image-pmg.png',
-            'path_image_desktop_section' => 'uploads/tmp/port01_path_image_section.jpg',
-            'path_image_mobile_section' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color_section' => '#FFFFFF',
-            'active_section' => 1,
             //Banner
             'title_banner' => $this->faker->text(10),
             'subtitle_banner' => $this->faker->text(10),
