@@ -213,6 +213,29 @@ class ABOU04Controller extends Controller
      */
     public function destroy(ABOU04Abouts $ABOU04Abouts)
     {
+        $topics = ABOU04AboutsTopic::where('service_id', $ABOU04Abouts->id)->get();
+            if ($topics->count()) {
+                foreach ($topics as $topic) {
+                    storageDelete($topic, 'path_image_icon');
+                    $topic->delete();
+                }
+            }
+
+        $galleries = ABOU04AboutsGallery::where('service_id', $ABOU04Abouts->id)->get();
+        if ($galleries->count()) {
+            foreach ($galleries as $gallery) {
+                storageDelete($gallery, 'path_image');
+                $gallery->delete();
+            }
+        }
+
+        $categories = ABOU04AboutsCategory::where('service_id', $ABOU04Abouts->id)->get();
+        if ($categories->count()) {
+            foreach ($categories as $category) {
+                $category->delete();
+            }
+        }
+
         storageDelete($ABOU04Abouts, 'path_image');
         storageDelete($ABOU04Abouts, 'path_image_desktop_banner');
         storageDelete($ABOU04Abouts, 'path_image_mobile_banner');
@@ -236,6 +259,29 @@ class ABOU04Controller extends Controller
 
         $ABOU04Abouts = ABOU04Abouts::whereIn('id', $request->deleteAll)->get();
         foreach($ABOU04Abouts as $ABOU04Abouts){
+            $topics = ABOU04AboutsTopic::where('service_id', $ABOU04Abouts->id)->get();
+            if ($topics->count()) {
+                foreach ($topics as $topic) {
+                    storageDelete($topic, 'path_image_icon');
+                    $topic->delete();
+                }
+            }
+
+            $galleries = ABOU04AboutsGallery::where('service_id', $ABOU04Abouts->id)->get();
+            if ($galleries->count()) {
+                foreach ($galleries as $gallery) {
+                    storageDelete($gallery, 'path_image');
+                    $gallery->delete();
+                }
+            }
+
+            $categories = ABOU04AboutsCategory::where('service_id', $ABOU04Abouts->id)->get();
+            if ($categories->count()) {
+                foreach ($categories as $category) {
+                    $category->delete();
+                }
+            }
+            
             storageDelete($ABOU04Abouts, 'path_image');
             storageDelete($ABOU04Abouts, 'path_image_desktop_banner');
             storageDelete($ABOU04Abouts, 'path_image_mobile_banner');

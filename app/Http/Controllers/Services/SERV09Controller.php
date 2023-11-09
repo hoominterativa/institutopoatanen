@@ -191,7 +191,7 @@ class SERV09Controller extends Controller
         $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
         if ($topics->count()) {
             foreach ($topics as $topic) {
-                storageDelete($topic, 'path_images');
+                storageDelete($topic, 'path_image');
                 $topic->delete();
             }
         }
@@ -199,7 +199,7 @@ class SERV09Controller extends Controller
         $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
         if ($galleries->count()) {
             foreach ($galleries as $gallery) {
-                storageDelete($gallery, 'path_images');
+                storageDelete($gallery, 'path_image');
                 $gallery->delete();
             }
         }
@@ -214,7 +214,7 @@ class SERV09Controller extends Controller
         $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
         if ($feedbacks->count()) {
             foreach ($feedbacks as $feedback) {
-                storageDelete($feedback, 'path_images');
+                storageDelete($feedback, 'path_image');
                 $feedback->delete();
             }
         }
@@ -243,7 +243,7 @@ class SERV09Controller extends Controller
             $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
             if ($topics->count()) {
                 foreach ($topics as $topic) {
-                    storageDelete($topic, 'path_images');
+                    storageDelete($topic, 'path_image');
                     $topic->delete();
                 }
             }
@@ -251,7 +251,7 @@ class SERV09Controller extends Controller
             $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
             if ($galleries->count()) {
                 foreach ($galleries as $gallery) {
-                    storageDelete($gallery, 'path_images');
+                    storageDelete($gallery, 'path_image');
                     $gallery->delete();
                 }
             }
@@ -266,7 +266,7 @@ class SERV09Controller extends Controller
             $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
             if ($feedbacks->count()) {
                 foreach ($feedbacks as $feedback) {
-                    storageDelete($feedback, 'path_images');
+                    storageDelete($feedback, 'path_image');
                     $feedback->delete();
                 }
             }

@@ -2321,437 +2321,325 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.abou04 {
+/* BEGIN STYLE */
+.gall02 {
+  padding: 70px 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 68px;
 }
-.abou04__main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
+.gall02__content {
+  margin-left: 170px;
 }
-@media (max-width: 575.98px) {
-  .abou04__main {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: end;
+@media (max-width: 767.98px) {
+  .gall02__content {
+    margin-left: 53px;
   }
 }
-.abou04__image {
-  width: 34%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center bottom;
-     object-position: center bottom;
+.gall02 .container {
+  max-width: inherit !important;
+  padding: 0;
 }
-@media (max-width: 575.98px) {
-  .abou04__image {
+.gall02 .container .header-gall02 {
+  text-align: center;
+  width: 88%;
+  margin: 0 auto;
+  margin-bottom: 197px;
+}
+@media (max-width: 767.98px) {
+  .gall02 .container .header-gall02 {
     width: 100%;
-    margin-top: 59px;
+    margin-bottom: 157px;
   }
 }
-.abou04__content {
-  width: 52%;
+.gall02 .container .header-gall02 .container-title {
+  margin-bottom: 26px;
 }
-@media (max-width: 575.98px) {
-  .abou04__content {
-    width: 100%;
+@media (max-width: 767.98px) {
+  .gall02 .container .header-gall02 .container-title {
+    margin-bottom: 18px;
   }
 }
-.abou04__title {
-  font-family: "Ubuntu", sans-serif, arial;
+.gall02 .container .header-gall02 .container-title .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #000;
-  text-align: left;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  display: block;
 }
 @media (max-width: 767.98px) {
-  .abou04__title {
+  .gall02 .container .header-gall02 .container-title .title {
     font-size: 1.875rem;
-    text-align: center;
   }
 }
-.abou04__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
+.gall02 .container .header-gall02 .container-title .subtitle {
   font-size: 1.25rem;
   font-weight: 700;
+  font-family: "Ubuntu", sans-serif, arial;
   color: #404040;
-  text-align: left;
-  margin-bottom: 39px;
+  display: block;
 }
 @media (max-width: 767.98px) {
-  .abou04__subtitle {
+  .gall02 .container .header-gall02 .container-title .subtitle {
     font-size: 1.125rem;
-    text-align: center;
   }
 }
-.abou04__line {
-  width: 100%;
-  border-top: 1px solid #7c7c7c;
-  margin: 0 0 34px 0;
-  opacity: 1;
+.gall02 .container .header-gall02 .line {
+  background-color: #404040;
+  display: flex;
 }
-.abou04__cta {
+.gall02 .container .box-gall02 {
+  width: 100%;
+}
+@media (max-width: 767.98px) {
+  .gall02 .container .box-gall02 {
+    width: 66% !important;
+  }
+}
+.gall02 .container .box-gall02:hover .content .description {
+  opacity: 1;
+  visibility: visible;
+}
+.gall02 .container .box-gall02 .content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.gall02 .container .box-gall02 .content .image {
+  height: 338px;
+  width: 100%;
+  margin-bottom: 0;
+}
+.gall02 .container .box-gall02 .content .image img {
+  width: 100% !important;
+  height: 100% !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+.gall02 .container .box-gall02 .content .description {
+  text-align: center;
+  margin-bottom: 0;
+  background-color: #efefef;
+  min-height: 43px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  align-self: end;
-  white-space: nowrap;
-  background-color: #fff;
-  padding: 10px 40px;
-  margin-top: 25px;
+  opacity: 0;
+  visibility: hidden;
+}
+.gall02 .container .box-gall02 .content .description .title {
   font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 400;
+  letter-spacing: 0.2;
 }
-.abou04__cta:hover {
-  background-color: #404040;
+@media (max-width: 767.98px) {
+  .gall02 .container .box-gall02 .content .description .title {
+    font-size: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.gall02 .carousel-gall02 .owl-nav {
+  display: flex !important;
+  margin-top: 75px;
+  gap: 0 20.5px;
+  width: calc(100vw - 350px);
+  margin-right: auto;
+}
+@media (max-width: 767.98px) {
+  .gall02 .carousel-gall02 .owl-nav {
+    width: 75%;
+  }
+}
+.gall02 .carousel-gall02 .owl-dots {
+  display: none !important;
+}
+.gall02 .carousel-gall02 .owl-nav .owl-prev,
+.gall02 .carousel-gall02 .owl-nav .owl-next {
+  height: 38px;
+  width: 38px;
+  border-radius: 100%;
+  background-color: #404040 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #404040 !important;
+}
+.gall02 .carousel-gall02 .owl-nav .owl-prev span,
+.gall02 .carousel-gall02 .owl-nav .owl-next span {
   color: #fff;
+  font-size: 41px;
+  height: 34px;
+  display: block;
 }
-.abou04__cta__icon {
-  height: 25px;
-  width: 25px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-  transition: all 0.5s ease;
+.gall02 .carousel-gall02 .owl-nav .owl-prev:hover,
+.gall02 .carousel-gall02 .owl-nav .owl-next:hover {
+  background: transparent !important;
 }
-.abou04__cta:hover .abou04__cta__icon {
-  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+.gall02 .carousel-gall02 .owl-nav .owl-prev:hover span,
+.gall02 .carousel-gall02 .owl-nav .owl-next:hover span {
+  color: #404040 !important;
 }
 
-.abou04-page {
+.lightbox-gall02 {
+  display: none;
+  background: transparent;
   width: 100%;
-}
-.abou04-page__banner {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 112px 0 92px 0;
-}
-.abou04-page__banner__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 3.125rem;
-  font-weight: 700;
-  line-height: 2.875rem;
-  color: #000;
-  text-align: center;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__banner__title {
-    font-size: 2.5rem;
-  }
-}
-.abou04-page__banner__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.315rem;
-  color: #7c7c7c;
-  text-align: center;
-  margin-bottom: 28px;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__banner__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou04-page__banner__line {
-  width: 95%;
-  max-width: 610px;
-  border-top: 1px solid #000;
-  margin: 0 auto;
-  opacity: 1;
-}
-.abou04-page__cont {
-  padding-top: 48px;
-}
-.abou04-page__cont__main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-}
-@media (max-width: 575.98px) {
-  .abou04-page__cont__main {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: end;
-  }
-}
-.abou04-page__cont__image {
-  width: 34%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center bottom;
-     object-position: center bottom;
-}
-@media (max-width: 575.98px) {
-  .abou04-page__cont__image {
-    width: 100%;
-    margin-top: 59px;
-  }
-}
-.abou04-page__cont__content {
-  width: 52%;
-}
-@media (max-width: 575.98px) {
-  .abou04-page__cont__content {
-    width: 100%;
-  }
-}
-.abou04-page__cont__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000;
-  text-align: left;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__cont__title {
-    font-size: 1.875rem;
-    text-align: center;
-  }
-}
-.abou04-page__cont__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #404040;
-  text-align: left;
-  margin-bottom: 39px;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__cont__subtitle {
-    font-size: 1.125rem;
-    text-align: center;
-  }
-}
-.abou04-page__cont__line {
-  width: 100%;
-  border-top: 1px solid #7c7c7c;
-  margin: 0 0 34px 0;
-  opacity: 1;
-}
-.abou04-page__gallery {
-  padding: 70px 0;
-  background-color: #cacaca;
-}
-.abou04-page__gallery__header {
-  margin-bottom: 70px;
-}
-.abou04-page__gallery__header__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #404040;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__gallery__header__title {
-    font-size: 1.875rem;
-  }
-}
-.abou04-page__gallery__header__subtitle {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #404040;
-  margin-bottom: 39px;
-}
-@media (max-width: 767.98px) {
-  .abou04-page__gallery__header__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou04-page__gallery__header__line {
-  width: 100%;
-  border-top: 1px solid #7c7c7c;
-  margin: 0 auto;
-  opacity: 1;
-}
-.abou04-page__gallery__list {
-  gap: 15px 11px;
-}
-.abou04-page__gallery__list__item {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: end;
-  width: calc(25% - 9px);
-  height: auto;
-  aspect-ratio: 319/288;
-  position: relative;
-  padding: 33px;
-  overflow: hidden;
-}
-@media (max-width: 991.98px) {
-  .abou04-page__gallery__list__item {
-    width: calc(33% - 5px);
-  }
-}
-@media (max-width: 767.98px) {
-  .abou04-page__gallery__list__item {
-    width: calc(50% - 5.5px);
-  }
-}
-@media (max-width: 575.98px) {
-  .abou04-page__gallery__list__item {
-    width: 100%;
-  }
-}
-.abou04-page__gallery__list__item__image {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
   height: 100%;
+  padding: 0;
+}
+.lightbox-gall02 .carousel__button.is-close {
+  top: 37px !important;
+  right: 37px;
+  width: 31px;
+  height: 31px;
+  border-radius: 5px;
+  background-color: #000;
+}
+.lightbox-gall02__content {
+  display: flex;
+  flex-direction: column;
+}
+.lightbox-gall02 .container {
+  height: 100%;
+  height: 100%;
+  padding: 78px 140px;
+}
+.lightbox-gall02__top__description {
+  margin-bottom: 20px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall02__top__description {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+.lightbox-gall02__top__description__title {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall02__top__description__title {
+    font-size: 1.875rem;
+  }
+}
+.lightbox-gall02__top__description__subtitle {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall02__top__description__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.lightbox-gall02__bottom__main {
+  position: relative;
+  height: 407px;
   width: 100%;
+  display: block;
+  margin-bottom: 25px;
+}
+@media (max-width: 767.98px) {
+  .lightbox-gall02__bottom__main {
+    height: 240px;
+  }
+}
+.lightbox-gall02__bottom__main__iframe, .lightbox-gall02__bottom__main__item {
+  position: absolute;
+  top: 0;
+  left: 0;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
-.abou04-page__gallery__list__item__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #404040;
-  position: relative;
-  z-index: 5;
+.lightbox-gall02__bottom__main__iframe {
+  display: block;
+}
+.lightbox-gall02__bottom__main__legend {
+  color: #000;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  position: absolute;
+  bottom: 27px;
+  left: 27px;
 }
 @media (max-width: 767.98px) {
-  .abou04-page__gallery__list__item__title {
-    font-size: 1.125rem;
+  .lightbox-gall02__bottom__main__legend {
+    font-size: 0.875rem "Montserrat", sans-serif, arial;
+    bottom: 14px;
+    left: 23px;
   }
 }
-.abou04-page__gallery__list__item__title::before {
-  content: "";
-  height: 25px;
-  width: 27px;
-  position: absolute;
-  left: -33px;
-  top: 0;
-  background-color: #404040;
+.lightbox-gall02__bottom__thumbnail__carousel {
+  margin: 0 auto;
 }
-.abou04-page__gallery__list__item__title::after {
-  content: "";
-  height: 1px;
-  width: 95px;
-  position: absolute;
-  left: -7px;
-  top: 24px;
-  background-color: #404040;
-}
-.abou04-page__gallery__cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  white-space: nowrap;
-  background-color: #b3b3b3;
-  padding: 10px 40px;
-  margin-top: 55px;
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-}
-.abou04-page__gallery__cta:hover {
-  background-color: #404040;
-  color: #b3b3b3;
-}
-.abou04-page__gallery__cta__icon {
-  height: 25px;
-  width: 25px;
-  -o-object-fit: contain;
-     object-fit: contain;
+.lightbox-gall02__bottom__thumbnail__item {
+  width: 55px;
+  height: 55px;
+  -o-object-fit: cover;
+     object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: all 0.5s ease;
 }
-.abou04-page__gallery__cta:hover .abou04-page__gallery__cta__icon {
-  filter: brightness(1) contrast(1) invert(1) grayscale(1);
-}
-.abou04-page__topics {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 125px 0;
-}
-.abou04-page__topics__list {
-  gap: 27px;
-}
-.abou04-page__topics__item {
-  gap: 27px;
-  width: calc(33% - 15px);
-  padding: 55px 30px 45px 30px;
-  background-color: #cacaca;
-}
-@media (max-width: 991.98px) {
-  .abou04-page__topics__item {
-    width: calc(50% - 15px);
+@media (max-width: 767.98px) {
+  .lightbox-gall02__bottom__thumbnail__item {
+    height: 47px;
   }
 }
-@media (max-width: 991.98px) {
-  .abou04-page__topics__item {
-    width: 100%;
-  }
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav {
+  display: flex !important;
+  z-index: 100;
 }
-.abou04-page__topics__item__header {
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev,
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next {
+  height: 21px;
+  width: 21px;
+  border-radius: 100%;
+  background-color: #7c7c7c !important;
   display: flex;
-  flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  gap: 19px;
+  border: 1px solid #7c7c7c !important;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
 }
-.abou04-page__topics__item__icon {
-  width: 32px;
-  height: auto;
-  aspect-ratio: 1/1;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-fit: center;
-     object-fit: center;
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev {
+  left: 0;
+  margin-left: -36px;
 }
-.abou04-page__topics__item__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #000;
-  text-align: left;
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next {
+  right: 0;
+  margin-right: -36px;
 }
-@media (max-width: 767.98px) {
-  .abou04-page__topics__item__title {
-    font-size: 1.563rem;
-  }
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev span,
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next span {
+  color: #fff;
+  font-size: 22px;
+  height: 28px;
+  display: block;
 }
-.abou04-page__topics__item__desc {
-  width: 100%;
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev:hover,
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next:hover {
+  background: transparent !important;
 }
-@media (max-width: 767.98px) {
-  .abou04-page__topics__item__desc {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-prev:hover span,
+.lightbox-gall02 .lightbox-gall02__bottom__thumbnail__carousel .owl-nav .owl-next:hover span {
+  color: #7c7c7c !important;
 }
-.abou04-page__topics__item__desc p {
-  width: 100%;
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
+
+.fancybox__backdrop {
+  background-color: #404040 !important;
 }
-@media (max-width: 767.98px) {
-  .abou04-page__topics__item__desc p {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
+
+.fancybox__slide {
+  padding: 0 !important;
 }
 
 /* BEGIN STYLE */

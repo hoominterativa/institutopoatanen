@@ -1,42 +1,23 @@
-@if (isset($image))
-    {!! Form::model($image, ['route' => ['admin.gall02.image.update', $image->id], 'class'=>'parsley-validate', 'files' => true]) !!}
-    @method('PUT')
-@else
-    {!! Form::model(null, ['route' => ['admin.gall02.image.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+{!! Form::model(null, ['route' => ['admin.gall02.image.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
     <input type="hidden" name="gallery_id" value="{{ $gallery->id }}">
-@endif
     <div class="row">
         <div class="col-12">
             <div class="card card-body border" id="tooltip-container">
+                <div class="alert alert-warning mb-3">
+                    <p class="mb-0">Selecione as imagens que deseja subir e aguarde até que a mensagem de aviso seja exibida e a página seja recarregada.</p>
+                </div>
                 <div class="mb-3">
-                    <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
-                        <small class="ms-2">Dimensões proporcionais mínimas
-                            {{ $cropSetting->Images->path_image->width }}x{{ $cropSetting->Images->path_image->height }}px!</small>
-                        <label class="area-input-image-crop" for="inputImage">
-                            {!! Form::file('path_image', [
-                                'id' => 'inputImage',
-                                'class' => 'inputImage',
-                                'data-status' => $cropSetting->Images->path_image->activeCrop, // px
-                                'data-min-width' => $cropSetting->Images->path_image->width, // px
-                                'data-min-height' => $cropSetting->Images->path_image->height, // px
-                                'data-box-height' => '225', // Input height in the form
-                                'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file' => isset($image)
-                                    ? ($image->path_image != ''
-                                        ? url('storage/' . $image->path_image)
-                                        : '')
-                                    : '',
-                            ]) !!}
+                    <div class="uploadMultipleImage">
+                        <label for="path_image" class="content-message">
+                            {!! Form::file('path_image[]', [ 'id' => 'path_image', 'multiple' => 'multiple', 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff', 'class' => 'inputGetImage']) !!}
+                            <i class="mdi mdi-cloud-upload-outline mdi-36px"></i>
+                            <h4 class="title">Solte as imagens aqui ou clique para fazer upload.</h4>
+                            <span class="text-muted font-13">Carregar imagens com no máximo <strong>2mb</strong></span>
                         </label>
-                    </div><!-- END container image crop -->
+                        <div id="containerMultipleImages" class="mt-3"></div>
+                    </div>
                 </div>
             </div>
-            {{-- end card-body --}}
         </div>
-    </div>
-    <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-        {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
-        {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
     </div>
 {!! Form::close() !!}

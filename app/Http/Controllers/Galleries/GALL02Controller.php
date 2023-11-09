@@ -209,18 +209,15 @@ class GALL02Controller extends Controller
      */
     public static function section()
     {
+        $section = GALL02GalleriesSection::active()->first();
+        $galleries = GALL02Galleries::with('images')->active()->sorting()->get();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = GALL02GalleriesSection::active()->first();
-                if($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-                $section = GALL02GalleriesSection::active()->first();
-                break;
+            if($section) $section->path_image_desktop = $section->path_image_mobile;
+            break;
         }
 
-        $galleries = GALL02Galleries::with('images')->active()->sorting()->get();
         return view('Client.pages.Galleries.GALL02.section', [
             'section' => $section,
             'galleries' => $galleries
