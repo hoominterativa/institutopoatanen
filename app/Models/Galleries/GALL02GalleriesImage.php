@@ -22,9 +22,4 @@ class GALL02GalleriesImage extends Model
     {
         return $query->orderBy('sorting', 'ASC');
     }
-
-    public function galleries()
-    {
-        return $this->belongsTo(GALL02Galleries::class, 'gallery_id');
-    }
 }
