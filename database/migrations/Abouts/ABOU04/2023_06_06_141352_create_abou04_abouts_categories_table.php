@@ -15,6 +15,7 @@ class CreateAbou04AboutsCategoriesTable extends Migration
     {
         Schema::create('abou04_abouts_categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('about_id')->constrained('abou04_abouts');
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->nullable();

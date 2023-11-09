@@ -61,13 +61,36 @@ class ABOU04Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['slug'] = Str::slug($request->title);
 
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_topics'] = $request->active_topics?1:0;
+        $data['active_galleries'] = $request->active_galleries?1:0;
+        $data['link_button_galleries'] = isset($data['link_button_galleries']) ? getUri($data['link_button_galleries']) : null;
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
+
+         //Banner
+         $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+         if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+
+         $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+         if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+
+         // Section topics
+         $path_image_desktop_topics = $helper->optimizeImage($request, 'path_image_desktop_topics', $this->path, null,100);
+         if($path_image_desktop_topics) $data['path_image_desktop_topics'] = $path_image_desktop_topics;
+
+         $path_image_mobile_topics = $helper->optimizeImage($request, 'path_image_mobile_topics', $this->path, null,100);
+         if($path_image_mobile_topics) $data['path_image_mobile_topics'] = $path_image_mobile_topics;
 
         if(ABOU04Abouts::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Storage::delete($path_image_desktop_topics);
+            Storage::delete($path_image_mobile_topics);
             Session::flash('error', 'Erro ao cadastradar as informações');
         }
         return redirect()->back();
@@ -81,7 +104,6 @@ class ABOU04Controller extends Controller
      */
     public function edit(ABOU04Abouts $ABOU04Abouts)
     {
-        $section = ABOU04AboutsSection::where('about_id', $ABOU04Abouts->id)->first();
         $topics = ABOU04AboutsTopic::where('about_id', $ABOU04Abouts->id)->sorting()->get();
         $galleries = ABOU04AboutsGallery::where('about_id', $ABOU04Abouts->id)->with('category')->sorting()->get();
         $categories = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->exists()->sorting()->pluck('title', 'id');
@@ -90,7 +112,6 @@ class ABOU04Controller extends Controller
 
         return view('Admin.cruds.Abouts.ABOU04.edit',[
             'about' => $ABOU04Abouts,
-            'section' => $section,
             'topics' => $topics,
             'galleries' => $galleries,
             'categories' => $categories,
@@ -114,6 +135,11 @@ class ABOU04Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['slug'] = Str::slug($request->title);
 
+        $data['active_banner'] = $request->active_banner?1:0;
+        $data['active_topics'] = $request->active_topics?1:0;
+        $data['active_galleries'] = $request->active_galleries?1:0;
+        $data['link_button_galleries'] = isset($data['link_button_galleries']) ? getUri($data['link_button_galleries']) : null;
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($ABOU04Abouts, 'path_image');
@@ -124,10 +150,56 @@ class ABOU04Controller extends Controller
             $data['path_image'] = null;
         }
 
+        //Banner
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($ABOU04Abouts, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($ABOU04Abouts, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($ABOU04Abouts, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($ABOU04Abouts, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
+
+        //Section Topics
+        $path_image_desktop_topics = $helper->optimizeImage($request, 'path_image_desktop_topics', $this->path, null,100);
+        if($path_image_desktop_topics){
+            storageDelete($ABOU04Abouts, 'path_image_desktop_topics');
+            $data['path_image_desktop_topics'] = $path_image_desktop_topics;
+        }
+        if($request->delete_path_image_desktop_topics && !$path_image_desktop_topics){
+            storageDelete($ABOU04Abouts, 'path_image_desktop_topics');
+            $data['path_image_desktop_topics'] = null;
+        }
+
+        $path_image_mobile_topics = $helper->optimizeImage($request, 'path_image_mobile_topics', $this->path, null,100);
+        if($path_image_mobile_topics){
+            storageDelete($ABOU04Abouts, 'path_image_mobile_topics');
+            $data['path_image_mobile_topics'] = $path_image_mobile_topics;
+        }
+        if($request->delete_path_image_mobile_topics && !$path_image_mobile_topics){
+            storageDelete($ABOU04Abouts, 'path_image_mobile_topics');
+            $data['path_image_mobile_topics'] = null;
+        }
+
         if($ABOU04Abouts->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Storage::delete($path_image_desktop_topics);
+            Storage::delete($path_image_mobile_topics);
             Session::flash('error', 'Erro ao atualizar as informações');
         }
         return redirect()->back();
@@ -142,6 +214,10 @@ class ABOU04Controller extends Controller
     public function destroy(ABOU04Abouts $ABOU04Abouts)
     {
         storageDelete($ABOU04Abouts, 'path_image');
+        storageDelete($ABOU04Abouts, 'path_image_desktop_banner');
+        storageDelete($ABOU04Abouts, 'path_image_mobile_banner');
+        storageDelete($ABOU04Abouts, 'path_image_desktop_topics');
+        storageDelete($ABOU04Abouts, 'path_image_mobile_topics');
 
         if($ABOU04Abouts->delete()){
             Session::flash('success', 'Conteúdo deletado com sucessso');
@@ -161,6 +237,10 @@ class ABOU04Controller extends Controller
         $ABOU04Abouts = ABOU04Abouts::whereIn('id', $request->deleteAll)->get();
         foreach($ABOU04Abouts as $ABOU04Abouts){
             storageDelete($ABOU04Abouts, 'path_image');
+            storageDelete($ABOU04Abouts, 'path_image_desktop_banner');
+            storageDelete($ABOU04Abouts, 'path_image_mobile_banner');
+            storageDelete($ABOU04Abouts, 'path_image_desktop_topics');
+            storageDelete($ABOU04Abouts, 'path_image_mobile_topics');
         }
 
         if($deleted = ABOU04Abouts::whereIn('id', $request->deleteAll)->delete()){
@@ -192,13 +272,28 @@ class ABOU04Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(ABOU04Abouts $ABOU04Abouts)
-    public function show()
+    public function show(Request $request, ABOU04Abouts $ABOU04Abouts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU04', 'show');
 
-        return view('Client.pages.Abouts.ABOU04.show',[
-            'sections' => $sections
+        $categories = ABOU04AboutsCategory::with(['galleries' => function ($query) {$query->where('active', 1);}])->where('about_id', $ABOU04Abouts->id)->exists()->active()->sorting()->get();
+        $topics = ABOU04AboutsTopic::where('about_id', $ABOU04Abouts->id)->active()->sorting()->get();
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($ABOU04Abouts)
+                $ABOU04Abouts->path_image_desktop_banner = $ABOU04Abouts->path_image_mobile_banner;
+                $ABOU04Abouts->path_image_desktop_topics = $ABOU04Abouts->path_image_mobile_topics;
+            break;
+
+        }
+
+        return view('Client.pages.Abouts.ABOU04.page',[
+            'sections' => $sections,
+            'about' => $ABOU04Abouts,
+            'topics' => $topics,
+            'categories' => $categories
         ]);
     }
 
@@ -208,32 +303,29 @@ class ABOU04Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request, ABOU04AboutsCategory $ABOU04AboutsCategory)
+    public function page(Request $request, ABOU04Abouts $ABOU04Abouts)
     {
-        $section = ABOU04AboutsSection::first();
-        switch (deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if ($section)
-                $section->path_image_desktop_banner = $section->path_image_mobile_banner;
-                $section->path_image_desktop_topics = $section->path_image_mobile_topics;
-            break;
-
-        }
-
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Abouts', 'ABOU04', 'page');
 
-        $about = ABOU04Abouts::first();
-        $categories = ABOU04AboutsCategory::with(['galleries' => function ($query) {$query->where('active', 1);}])->exists()->active()->sorting()->get();
-        $topics = ABOU04AboutsTopic::active()->sorting()->get();
+        $about = ABOU04Abouts::active()->sorting()->first();
+        $categories = ABOU04AboutsCategory::with(['galleries' => function ($query) {$query->where('active', 1);}])->where('about_id', $about->id)->exists()->active()->sorting()->get();
+        $topics = ABOU04AboutsTopic::where('about_id', $about->id)->active()->sorting()->get();
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($about)
+                $about->path_image_desktop_banner = $about->path_image_mobile_banner;
+                $about->path_image_desktop_topics = $about->path_image_mobile_topics;
+            break;
+
+        }
 
         return view('Client.pages.Abouts.ABOU04.page',[
             'sections' => $sections,
             'about' => $about,
             'categories' => $categories,
             'topics' => $topics,
-            'section' => $section
 
         ]);
     }

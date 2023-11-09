@@ -1,5 +1,8 @@
 <div class="row col-12">
-    {!! Form::hidden('active_banner', $service->active_banner) !!}
+    {!! Form::hidden('active_banner', $about->active_banner) !!}
+    {!! Form::hidden('active_galleries', $about->active_galleries) !!}
+    {!! Form::hidden('active_topics', $about->active_topics) !!}
+    {!! Form::hidden('link_button_galleries', $about->link_button_galleries) !!}
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
@@ -47,9 +50,9 @@
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '180', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($service)
-                                ? ($service->path_image != ''
-                                    ? url('storage/' . $service->path_image)
+                            'data-default-file' => isset($about)
+                                ? ($about->path_image != ''
+                                    ? url('storage/' . $about->path_image)
                                     : '')
                                 : '',
                         ]) !!}

@@ -24,6 +24,7 @@ class ABOU04AboutsCategoryFactory extends Factory
     {
         $title = $this->faker->text(10);
         return [
+            'about_id' => rand(1,2),
             'title' => $title,
             'slug' => Str::slug($title),
             'description' => $this->faker->text(20),

@@ -27,6 +27,7 @@ class ABOU04AboutsGalleryFactory extends Factory
             'uploads/tmp/slid01_path_image_desktop.png',
         ]);
         return [
+            'about_id' => rand(1,2),
             'title' => $this->faker->text(10),
             'path_image' => $path,
             'active' => 1,

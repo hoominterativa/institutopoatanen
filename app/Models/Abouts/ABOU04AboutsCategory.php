@@ -16,7 +16,7 @@ class ABOU04AboutsCategory extends Model
     }
 
     protected $table = "abou04_abouts_categories";
-    protected $fillable = ['title', 'description', 'slug', 'sorting', 'active'];
+    protected $fillable = ['about_id', 'title', 'description', 'slug', 'sorting', 'active'];
 
     public function scopeSorting($query)
     {

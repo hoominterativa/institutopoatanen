@@ -3,6 +3,7 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => ['admin.abou04.gallery.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('about_id', $about->id) !!}
 @endif
     <div class="row">
         <div class="col-12">

@@ -1,11 +1,13 @@
-@if ($section)
-    {!! Form::model($section, ['route' => ['admin.abou04.section-topics.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
+@if ($about)
+    {!! Form::model($about, ['route' => ['admin.abou04.update', $about->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
-    {!! Form::hidden('active_banner', $section->active_banner) !!}
-    {!! Form::hidden('active_galleries', $section->active_galleries) !!}
-    {!! Form::hidden('active_section', $section->active_section) !!}
+    {!! Form::hidden('active_banner', $about->active_banner) !!}
+    {!! Form::hidden('active_galleries', $about->active_galleries) !!}
+    {!! Form::hidden('active', $about->active) !!}
+    {!! Form::hidden('link_button_galleries', $about->link_button_galleries) !!}
+    {!! Form::hidden('title', $about->title) !!}
 @else
-    {!! Form::model(null, ['route' => 'admin.abou04.section-topics.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.abou04.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
@@ -33,19 +35,19 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background desktop', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Section->path_image_desktop_topics->width }}x{{ $cropSetting->Section->path_image_desktop_topics->height }}px!</small>
+                        {{ $cropSetting->path_image_desktop_topics->width }}x{{ $cropSetting->path_image_desktop_topics->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_desktop_topics', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->Section->path_image_desktop_topics->activeCrop, // px
-                            'data-min-width' => $cropSetting->Section->path_image_desktop_topics->width, // px
-                            'data-min-height' => $cropSetting->Section->path_image_desktop_topics->height, // px
+                            'data-status' => $cropSetting->path_image_desktop_topics->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_desktop_topics->width, // px
+                            'data-min-height' => $cropSetting->path_image_desktop_topics->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($section)
-                                ? ($section->path_image_desktop_topics != ''
-                                    ? url('storage/' . $section->path_image_desktop_topics)
+                            'data-default-file' => isset($about)
+                                ? ($about->path_image_desktop_topics != ''
+                                    ? url('storage/' . $about->path_image_desktop_topics)
                                     : '')
                                 : '',
                         ]) !!}
@@ -56,19 +58,19 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Section->path_image_mobile_topics->width }}x{{ $cropSetting->Section->path_image_mobile_topics->height }}px!</small>
+                        {{ $cropSetting->path_image_mobile_topics->width }}x{{ $cropSetting->path_image_mobile_topics->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_mobile_topics', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->Section->path_image_mobile_topics->activeCrop, // px
-                            'data-min-width' => $cropSetting->Section->path_image_mobile_topics->width, // px
-                            'data-min-height' => $cropSetting->Section->path_image_mobile_topics->height, // px
+                            'data-status' => $cropSetting->path_image_mobile_topics->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_mobile_topics->width, // px
+                            'data-min-height' => $cropSetting->path_image_mobile_topics->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($section)
-                                ? ($section->path_image_mobile_topics != ''
-                                    ? url('storage/' . $section->path_image_mobile_topics)
+                            'data-default-file' => isset($about)
+                                ? ($about->path_image_mobile_topics != ''
+                                    ? url('storage/' . $about->path_image_mobile_topics)
                                     : '')
                                 : '',
                         ]) !!}

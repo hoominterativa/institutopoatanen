@@ -29,11 +29,6 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
 
-    Route::resource($route.'/banner', ABOU04SectionController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'ABOU04AboutsSection']);
-    Route::resource($route.'/secao-topicos', ABOU04SectionController::class)->names('admin.'.$routeName.'.section-topics')->parameters(['secao-topicos' => 'ABOU04AboutsSection']);
-    Route::resource($route.'/secao', ABOU04SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'ABOU04AboutsSection']);
-    Route::resource($route.'/secao-galerias', ABOU04SectionController::class)->names('admin.'.$routeName.'.section-gallery')->parameters(['secao-galerias' => 'ABOU04AboutsSection']);
-
     Route::resource($route.'/galeria', ABOU04GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'ABOU04AboutsGallery']);
     Route::post($route.'/galeria/delete', [ABOU04GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
     Route::post($route.'/galeria/sorting', [ABOU04GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');

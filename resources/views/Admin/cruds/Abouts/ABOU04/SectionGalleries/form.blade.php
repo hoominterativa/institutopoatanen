@@ -1,11 +1,12 @@
-@if ($section)
-    {!! Form::model($section, ['route' => ['admin.abou04.section-gallery.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
+@if ($about)
+    {!! Form::model($about, ['route' => ['admin.abou04.update', $about->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
-    {!! Form::hidden('active_banner', $section->active_banner) !!}
-    {!! Form::hidden('active_topics', $section->active_topics) !!}
-    {!! Form::hidden('active_section', $section->active_section) !!}
+    {!! Form::hidden('active_banner', $about->active_banner) !!}
+    {!! Form::hidden('active_topics', $about->active_topics) !!}
+    {!! Form::hidden('active', $about->active) !!}
+    {!! Form::hidden('title', $about->title) !!}
 @else
-    {!! Form::model(null, ['route' => 'admin.abou04.section-gallery.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.abou04.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
@@ -84,7 +85,7 @@
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button_galleries', (isset($section) && isset($section->link_button_galleries) ? getUri($section->link_button_galleries) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button_galleries', (isset($about) && isset($about->link_button_galleries) ? getUri($about->link_button_galleries) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                      </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button_galleries', 'Redirecionar para', ['class' => 'form-label']) !!}

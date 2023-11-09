@@ -16,7 +16,7 @@ class ABOU04AboutsGallery extends Model
     }
 
     protected $table = "abou04_abouts_galleries";
-    protected $fillable = ['title', 'path_image', 'active', 'sorting', 'category_id'];
+    protected $fillable = ['about_id', 'title', 'path_image', 'active', 'sorting', 'category_id'];
 
     public function scopeSorting($query)
     {

@@ -40,6 +40,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações para o banner da página"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#gallery" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Galeria
@@ -75,26 +84,7 @@
                                 data-bs-original-title="Esta seção adcional que será apresentada junto com os tópicos"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações para home
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esta seção será apresentada na home"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Banner
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações para o banner da página"></i>
-                        </a>
-                    </li>
                 </ul>
-
                 <div class="tab-content">
                     <div class="tab-pane show active" id="about">
                         {!! Form::model($about, ['route' => ['admin.abou04.update', $about->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
@@ -105,26 +95,30 @@
                     </div>
                     <div class="tab-pane" id="categories">
                         @include('Admin.cruds.Abouts.ABOU04.Category.index',[
-                            'categories' => $galleryCategories
+                            'categories' => $galleryCategories,
+                            'about' => $about
                         ])
                     </div>
                     <div class="tab-pane" id="gallery">
-                        @include('Admin.cruds.Abouts.ABOU04.Gallery.index')
+                        @include('Admin.cruds.Abouts.ABOU04.Gallery.index',[
+                            'galleries' => $galleries,
+                            'about' => $about
+                        ])
                     </div>
                     <div class="tab-pane" id="sectionGalleries">
                         @include('Admin.cruds.Abouts.ABOU04.SectionGalleries.form')
                     </div>
                     <div class="tab-pane" id="topics">
-                        @include('Admin.cruds.Abouts.ABOU04.Topic.index')
+                        @include('Admin.cruds.Abouts.ABOU04.Topic.index',[
+                            'topics' => $topics,
+                            'about' => $about
+                        ])
                     </div>
                     <div class="tab-pane" id="sectionTopics">
                         @include('Admin.cruds.Abouts.ABOU04.SectionTopics.form')
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Abouts.ABOU04.Banner.form')
-                    </div>
-                    <div class="tab-pane" id="section">
-                        @include('Admin.cruds.Abouts.ABOU04.Section.form')
                     </div>
                 </div>
             </div> <!-- container -->

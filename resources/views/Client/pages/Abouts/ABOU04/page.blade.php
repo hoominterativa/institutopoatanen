@@ -2,14 +2,14 @@
 @section('content')
     {{-- BEGIN Page content --}}
     <div class="abou04-page" id="abou04-page">
-        @if ($section->active_banner)
+        @if ($about->active_banner)
             <section class="abou04-page__banner w-100"
-                style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
+                style="background-image: url({{ asset('storage/' . $about->path_image_desktop_banner) }}); background-color: {{ $about->background_color_banner }};">
                 <header
                     class="abou04-page__banner__content container d-flex flex-column align-items-center justify-content-center">
-                    @if ($section->title_banner || $section->subtitle_banner)
-                        <h1 class="abou04-page__banner__title">{{ $section->title_banner }}</h1>
-                        <div class="abou04-page__banner__subtitle">{{ $section->subtitle_banner }}</div>
+                    @if ($about->title_banner || $about->subtitle_banner)
+                        <h1 class="abou04-page__banner__title">{{ $about->title_banner }}</h1>
+                        <div class="abou04-page__banner__subtitle">{{ $about->subtitle_banner }}</div>
                         <hr class="abou04-page__banner__line">
                     @endif
                 </header>
@@ -40,11 +40,11 @@
         @endif
         @if ($categories->count())
             <section class="abou04-page__gallery w-100 d-flex flex-column align-items-center">
-                @if ($section->active_galleries)
+                @if ($about->active_galleries)
                     <header class="abou04-page__gallery__header container d-flex flex-column align-items-center">
-                        @if ($section->title_galleries || $section->description_galleries)
-                            <h2 class="abou04-page__gallery__header__title text-center">{{ $section->title_galleries }}</h2>
-                            <p class="abou04-page__gallery__header__description text-center">{!! $section->description_galleries !!}</p>
+                        @if ($about->title_galleries || $about->description_galleries)
+                            <h2 class="abou04-page__gallery__header__title text-center">{{ $about->title_galleries }}</h2>
+                            <p class="abou04-page__gallery__header__description text-center">{!! $about->description_galleries !!}</p>
                             <hr class="abou04-page__gallery__header__line">
                         @endif
                     </header>
@@ -71,11 +71,11 @@
                             </div>
                         @endif
                     @endforeach
-                    @if ($section->link_button_galleries && $section->active_galleries)
-                        <a href="{{ getUri($section->link_button_galleries) }}" target="{{ $section->target_link_button_galleries }}" class="abou04-page__gallery__cta">
+                    @if ($about->link_button_galleries && $about->active_galleries)
+                        <a href="{{ getUri($about->link_button_galleries) }}" target="{{ $about->target_link_button_galleries }}" class="abou04-page__gallery__cta">
                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone" class="abou04-page__gallery__cta__icon">
-                            @if ($section->title_button_galleries)
-                                {{ $section->title_button_galleries }}
+                            @if ($about->title_button_galleries)
+                                {{ $about->title_button_galleries }}
                             @endif
                         </a>
                     @endif
@@ -84,7 +84,7 @@
         @endif
         @if ($topics->count())
             <section class="abou04-page__topics w-100"
-                style="background-image: url({{ asset('storage/' . $section->path_image_desktop_topics) }}); background-color: {{ $section->background_color_topics }};">
+                style="background-image: url({{ asset('storage/' . $about->path_image_desktop_topics) }}); background-color: {{ $about->background_color_topics }};">
                 <div class="abou04-page__topics__list container d-flex flex-wrap justify-content-start align-items-stretch ">
                     @foreach ($topics as $topic)
                         <article
