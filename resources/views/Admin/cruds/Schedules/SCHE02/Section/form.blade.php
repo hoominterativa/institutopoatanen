@@ -6,7 +6,7 @@
     ]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => 'admin.sche01.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.sche02.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
