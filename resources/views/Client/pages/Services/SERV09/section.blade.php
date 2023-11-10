@@ -42,7 +42,7 @@
                                     @if ($service->price)
                                         <h3 class="serv09__box__left__content__price"><span>R$</span>{{number_format($service->price, 2, ',', '.')}}</h3>
                                     @endif
-                                
+
                                     <div class="serv09__box__left__content__paragraph">
                                         @if ($service->description)
                                             <p>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="serv09__box__right col-sm-6">
                                 <img src="{{ asset('storage/' . $service->path_image) }}" alt="" class="serv09__box__right__image">
-                                <a href="{{route('serv09.page.content', ['SERV09ServicesCategory' => $category->slug, 'SERV09Services' => $service->slug])}}" class="serv09__box__right__btn">
+                                <a href="{{route('serv09.page.content', ['SERV09ServicesCategory' => $service->categories->slug, 'SERV09Services' => $service->slug])}}" class="serv09__box__right__btn">
                                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícon" class="serv09__box__right__btn__icon">
                                     CTA
                                 </a>
