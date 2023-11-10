@@ -3,7 +3,8 @@
 /* BEGIN STYLE */
 .serv09{
     .container--serv09{
-
+        padding-top: 3.06rem;
+        padding-bottom: 3.62rem;
     }
     &__header{
         &__title {
@@ -128,29 +129,57 @@
     }
     &__box{
         &__left{
+            padding: 1.81rem 1.44rem 2.13rem 2.19rem;
             &__content{
                 &__title{
-
+                    font-family: $font-primary;
+                    color: $color-one;
+                    font-size: $T3;
+                    margin-bottom: 0.5rem;
+                    font-weight: $weight-700;
                 }
                 &__subtitle{
-                    
+                    font-family: $font-primary;
+                    color:$color-two;
+                    font-size: $T5;
+                    font-weight: $weight-700;
                 }
                 &__price{
-
+                    font: $paragraph;
+                    margin-bottom: 1.25rem;
                 }
                 &__paragraph{
-                    p{
+                    font: $paragraph;
+                    color:$color-two;
+                    font-weight: $weight-400;
 
+                    p{
+                        font: $paragraph;
+                        color:$color-two;
+                        font-weight: $weight-400;
                     }
                 }
 
                 &__engBox{
-                    &__button{
-                        &__icon{
+                    display: flex;
+                    margin-top: 2.44rem;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 0 0.3rem;
 
+                    &__button{
+                        display: flex;
+                        gap: 0 0.4rem;
+
+                        &__icon{
+                            width: 1rem !important;
+                            height: 1rem !important;
+                            object-fit: contain;
                         }
                         &__title{
-
+                            font: $paragraph-min;
+                            color:$color-black;
+                            font-weight: $weight-700;
                         }
                     }
                 }
@@ -159,19 +188,86 @@
         }
         &__right{
             position: relative;
+            padding: 0;
             
             &__image{
-               
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
             &__btn{
                 position: absolute;
-                top: 0;
-                right: 0;
+                bottom: 1.6rem;
+                right: 1.19rem;
+                max-width: 6.25rem;
+                width: 100%;
+                height: 1.6875rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0 0.5rem;
+                background-color: $color-five;
+                color: $color-one;
+                font-weight: $weight-700;
+                letter-spacing: 0.0125rem;
+                font: $paragraph;
 
                 &__icon{
-
+                    width: 0.8875rem !important;
+                    height: 0.94344rem !important;
+                    object-fit: contain;
                 }    
+
+                &:hover{
+                    background-color: $color-black;
+                    color: $color-white;
+                }
+                &:hover &__icon{
+                    filter: invert(1) grayscale(1);
+                }
             }
+        }
+    }
+
+    &__cta{
+        position: absolute;
+        right: 15px;
+        width: 11.0625rem;
+        height: 2.8125rem;
+        background-color: $color-five;
+        color: $color-one;
+        font-weight: $weight-700 !important;
+        letter-spacing: 0.0125rem;
+        bottom: 51px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        font: $paragraph;
+        gap: 0 0.5rem;
+
+        &:hover{
+            background-color: $color-black;
+            color: $color-white;
+        }
+        &:hover img{
+            filter: invert(1) grayscale(1);
+        }
+    }
+}
+.carousel-serv09 .owl-dots{
+    display: flex;
+    gap:0 0.3rem;
+    margin-top: 4.81rem;
+
+    .owl-dot{
+        width: 24px;
+        height: 24px;
+        background-color: $color-three;
+        border-radius: 0 !important;
+
+        &.active, &:hover{
+            background-color: $color-one;
         }
     }
 }

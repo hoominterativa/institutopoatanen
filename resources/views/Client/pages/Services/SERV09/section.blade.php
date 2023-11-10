@@ -1,5 +1,5 @@
 <section id="SERV09" class="serv09">
-    <div class="container container--serv09">
+    <div class="container container--serv09 position-relative">
         <header class="serv09__header">
             @if ($section->title || $section->subtitle)
                 <h3 class="serv09__header__title">{{ $section->subtitle }}</h3>

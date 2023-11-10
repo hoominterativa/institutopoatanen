@@ -2321,6 +2321,10 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.serv09 .container--serv09 {
+  padding-top: 3.06rem;
+  padding-bottom: 3.62rem;
+}
 .serv09__header__title {
   font-family: "Ubuntu", sans-serif, arial;
   font-size: 2.5rem;
@@ -2431,14 +2435,138 @@ body .owl-dots .owl-dot.active {
 .serv09__header__nav__list__category:hover .serv09__header__nav__list__category.active img {
   filter: invert(1) grayscale(1);
 }
+.serv09__box__left {
+  padding: 1.81rem 1.44rem 2.13rem 2.19rem;
+}
+.serv09__box__left__content__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  font-size: 1.875rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.serv09__box__left__content__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #7c7c7c;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.serv09__box__left__content__price {
+  font: 1rem "Montserrat", sans-serif, arial;
+  margin-bottom: 1.25rem;
+}
+.serv09__box__left__content__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+}
+.serv09__box__left__content__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+}
+.serv09__box__left__content__engBox {
+  display: flex;
+  margin-top: 2.44rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 0.3rem;
+}
+.serv09__box__left__content__engBox__button {
+  display: flex;
+  gap: 0 0.4rem;
+}
+.serv09__box__left__content__engBox__button__icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.serv09__box__left__content__engBox__button__title {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+}
 .serv09__box__right {
   position: relative;
+  padding: 0;
+}
+.serv09__box__right__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .serv09__box__right__btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  bottom: 1.6rem;
+  right: 1.19rem;
+  max-width: 6.25rem;
+  width: 100%;
+  height: 1.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 0.5rem;
+  background-color: #efefef;
+  color: #404040;
+  font-weight: 700;
+  letter-spacing: 0.0125rem;
+  font: 1rem "Montserrat", sans-serif, arial;
 }
+.serv09__box__right__btn__icon {
+  width: 0.8875rem !important;
+  height: 0.94344rem !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.serv09__box__right__btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+.serv09__box__right__btn:hover .serv09__box__right__btn__icon {
+  filter: invert(1) grayscale(1);
+}
+.serv09__cta {
+  position: absolute;
+  right: 15px;
+  width: 11.0625rem;
+  height: 2.8125rem;
+  background-color: #efefef;
+  color: #404040;
+  font-weight: 700 !important;
+  letter-spacing: 0.0125rem;
+  bottom: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  font: 1rem "Montserrat", sans-serif, arial;
+  gap: 0 0.5rem;
+}
+.serv09__cta:hover {
+  background-color: #000;
+  color: #fff;
+}
+.serv09__cta:hover img {
+  filter: invert(1) grayscale(1);
+}
+
+.carousel-serv09 .owl-dots {
+  display: flex;
+  gap: 0 0.3rem;
+  margin-top: 4.81rem;
+}
+.carousel-serv09 .owl-dots .owl-dot {
+  width: 24px;
+  height: 24px;
+  background-color: #b3b3b3;
+  border-radius: 0 !important;
+}
+.carousel-serv09 .owl-dots .owl-dot.active, .carousel-serv09 .owl-dots .owl-dot:hover {
+  background-color: #404040;
+}
+
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

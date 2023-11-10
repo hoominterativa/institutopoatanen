@@ -1,16 +1,16 @@
 @extends('Client.Core.client')
 @section('content')
 {{-- BEGIN Page content --}}
-<section class="serv09-page">
-    <header class="">
-        <div class="">
+<section id="serv09-page" class="serv09-page sepa">
+    <header class="sepa__header">
+        <div class="container-fluid px-0">
             @if ($section)
-                <div class="" style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});  background-color: {{$section->background_color}};">
-                    <div class="">
+                <div class="sepa__header__bg" style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});  background-color: {{$section->background_color}};">
+                    <div class="sepa__header__content">
                         @if ($section->title_banner || $section->subtitle_banner)
-                            <h3 class="">{{$section->title_banner}}</h3>
-                            <h4 class="">{{$section->subtitle_banner}}</h4>
-                            <hr class="">
+                            <h3 class="sepa__header__title">{{$section->title_banner}}</h3>
+                            <h4 class="sepa__header__subtitle">{{$section->subtitle_banner}}</h4>
+                            <hr class="sepa__header__hr">
                         @endif
                     </div>
                 </div>
