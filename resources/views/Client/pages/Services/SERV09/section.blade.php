@@ -26,6 +26,26 @@
                         @endforeach
                     </ul>
                 </nav>
+
+                <div class="serv09__header__dropdow-mobile">
+                    <button class="serv09__header__dropdow-mobile__tab  accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="collapseTwo">
+                        <img class="serv09__header__dropdow-mobile__tab__left" src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
+                        Selecione as categorias
+                    </button>
+                    <ul id="category" class="serv09__header__dropdow-mobile__description accordion-collapse collapse" data-bs-parent="#category">
+                        @foreach ($categories as $category)
+                            <li >
+                                <a href="{{route('serv09.category.page', ['SERV09ServicesCategory' => $category->slug])}}" >
+                                    @if ($category->path_image)
+                                        <img src="{{ asset('storage/' . $category->path_image) }}" alt="Icone categoria" class="serv09__header__nav__list__category__icon">
+                                    @endif
+                                    {{$category->title}}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
             @endif
         </header>
         @if ($services->count())

@@ -364,7 +364,7 @@ class SERV09Controller extends Controller
                 }
             }
         }
-        $services = $services->with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->active()->sorting()->paginate(16);
+        $services = $services->with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->active()->sorting()->paginate(3);
 
         switch(deviceDetect()) {
             case 'mobile':
