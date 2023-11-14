@@ -2,6 +2,7 @@
     {!! Form::model($portfolio, ['route' => ['admin.port04.update', $portfolio->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
     {!! Form::hidden('active', $portfolio->active) !!}
+    {!! Form::hidden('featured', $portfolio->featured) !!}
     {!! Form::hidden('active_content', $portfolio->active_content) !!}
     {!! Form::hidden('title', $portfolio->title) !!}
 @else
