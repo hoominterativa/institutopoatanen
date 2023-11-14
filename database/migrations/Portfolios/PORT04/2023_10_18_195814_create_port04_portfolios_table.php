@@ -37,11 +37,6 @@ class CreatePort04PortfoliosTable extends Migration
             $table->text('text_content')->nullable();
             $table->string('path_image_content')->nullable();
             $table->integer('active_content')->default(0);
-            //Internal Section
-            $table->string('title_section')->nullable();
-            $table->string('subtitle_section')->nullable();
-            $table->text('description_section')->nullable();
-            $table->integer('active_section')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

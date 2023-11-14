@@ -39,6 +39,11 @@ class PORT04PortfoliosSectionFactory extends Factory
             'subtitle_content' => $this->faker->text(10),
             'text_content' => $this->faker->text(400),
             'active_content' => 1,
+            //Section relationship
+            'title_relationship' => $this->faker->text(10),
+            'subtitle_relationship' => $this->faker->text(10),
+            'description_relationship' => $this->faker->text(300),
+            'active_relationship' => 1,
         ];
     }
 }

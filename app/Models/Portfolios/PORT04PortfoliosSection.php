@@ -22,7 +22,9 @@ class PORT04PortfoliosSection extends Model
         //Banner
         'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
         //Content
-        'title_content', 'subtitle_content', 'text_content', 'active_content'
+        'title_content', 'subtitle_content', 'text_content', 'active_content',
+        //Internal relationship
+       'title_relationship', 'subtitle_relationship', 'description_relationship', 'active_relationship',
     ];
 
     public function scopeActiveBanner($query)

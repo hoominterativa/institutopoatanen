@@ -1,8 +1,9 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.port04.section.update', $section->id],'class' => 'parsley-validate','files' => true,]) !!}
     @method('PUT')
-    {!! Form::hidden('active_section', $section->active_section) !!}
+    {!! Form::hidden('active_relationship', $section->active_relationship) !!}
     {!! Form::hidden('active_content', $section->active_content) !!}
+    {!! Form::hidden('active_section', $section->active_section) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.port04.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif

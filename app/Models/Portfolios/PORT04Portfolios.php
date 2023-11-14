@@ -23,8 +23,6 @@ class PORT04Portfolios extends Model
        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
        //Internal Content
        'title_content', 'subtitle_content', 'text_content', 'path_image_content', 'active_content',
-       //Internal Section
-       'title_section', 'subtitle_section', 'description_section', 'active_section',
        //General
         'sorting'
     ];
@@ -52,11 +50,6 @@ class PORT04Portfolios extends Model
     public function scopeActiveContent($query)
     {
         return $query->where('active_content', 1);
-    }
-
-    public function scopeActiveSection($query)
-    {
-        return $query->where('active_section', 1);
     }
 
     public function additionalTopics()

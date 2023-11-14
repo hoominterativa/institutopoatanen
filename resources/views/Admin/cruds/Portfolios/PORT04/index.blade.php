@@ -62,6 +62,14 @@
                                 data-bs-original-title="Esse banner será exibido na página de portifólios"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#sectionInner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seção da página interna
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Este conteúdo será apresentado como complemento da seção de portfólios relacionados. Última seção"></i>
+                        </a>
+                    </li>
 
                 </ul>
 
@@ -154,6 +162,9 @@
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Portfolios.PORT04.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="sectionInner">
+                        @include('Admin.cruds.Portfolios.PORT04.SectionInner.form')
                     </div>
                 </div>
                 <!-- end row -->

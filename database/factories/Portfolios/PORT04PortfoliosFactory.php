@@ -46,11 +46,6 @@ class PORT04PortfoliosFactory extends Factory
             'text_content' => $this->faker->text(900),
             'path_image_content' => 'uploads/tmp/png-slide.png',
             'active_content' => 1,
-            //Internal Section
-            'title_section' => $this->faker->text(10),
-            'subtitle_section' => $this->faker->text(10),
-            'description_section' => $this->faker->text(300),
-            'active_section' => 1,
         ];
     }
 }

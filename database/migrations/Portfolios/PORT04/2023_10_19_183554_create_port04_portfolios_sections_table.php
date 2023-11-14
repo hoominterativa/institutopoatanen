@@ -32,6 +32,11 @@ class CreatePort04PortfoliosSectionsTable extends Migration
             $table->string('subtitle_content')->nullable();
             $table->text('text_content')->nullable();
             $table->integer('active_content')->default(0);
+            //Section relationship
+            $table->string('title_relationship')->nullable();
+            $table->string('subtitle_relationship')->nullable();
+            $table->text('description_relationship')->nullable();
+            $table->integer('active_relationship')->default(0);
             $table->timestamps();
         });
     }

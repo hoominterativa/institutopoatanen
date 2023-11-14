@@ -3,6 +3,7 @@
     @method('PUT')
     {!! Form::hidden('active_banner', $section->active_banner) !!}
     {!! Form::hidden('active_content', $section->active_content) !!}
+    {!! Form::hidden('active_relationship', $section->active_relationship) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.port04.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif

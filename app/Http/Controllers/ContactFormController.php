@@ -188,11 +188,16 @@ class ContactFormController extends Controller
 
         $arrayContents = [];
 
+        $imageValue = json_decode($ContactForm->content, true);
+
         foreach ($data['content'] as $name => $value) {
             $type = $data['type_'.$name];
 
             if($type=='image'){
-                $value = $helperArchive->optimizeImage($request, $name, $path, null, 100);
+                $value = $imageValue[$name]['value'];
+                if($request->file($name)){
+                    $value = $helperArchive->optimizeImage($request, $name, $path, null, 100);
+                }
             }
 
             $content = [

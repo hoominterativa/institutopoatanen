@@ -71,7 +71,6 @@ class PORT04Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
         $data['active_content'] = $request->active_content?1:0;
-        $data['active_section'] = $request->active_section?1:0;
 
         //Portfolio
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -145,7 +144,6 @@ class PORT04Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
         $data['active_content'] = $request->active_content?1:0;
-        $data['active_section'] = $request->active_section?1:0;
 
         //Portfolio
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -339,6 +337,7 @@ class PORT04Controller extends Controller
         $additionalTopics = PORT04PortfoliosAdditionalTopic::where('portfolio_id', $portfolio->id)->get();
         $topics = PORT04PortfoliosTopic::where('portfolio_id', $portfolio->id)->get();
         $galleries = PORT04PortfoliosGallery::where('portfolio_id', $portfolio->id)->get();
+        $section = PORT04PortfoliosSection::first();
 
         $relationships = PORT04Portfolios::where('category_id', $PORT04Portfolios->category_id)->whereNotIn('id', [$PORT04Portfolios->id])->active()->sorting()->get();
 
@@ -355,7 +354,8 @@ class PORT04Controller extends Controller
             'additionalTopics' => $additionalTopics,
             'topics' => $topics,
             'galleries' => $galleries,
-            'relationships' => $relationships
+            'relationships' => $relationships,
+            'section' => $section,
         ]);
     }
 
