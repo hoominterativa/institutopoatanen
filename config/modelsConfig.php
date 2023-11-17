@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Galleries' => (object) [
-            'GALL02' => (object)[
+        'Contents' => (object) [
+            'CONT08' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -26,11 +26,11 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Galeria',
-                    'iconPanel' => 'mdi-folder-multiple-image'
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => ''
                 ]
             ],
-        ], 
+        ],
     ],
 
     'ModelsForm' => (object)[

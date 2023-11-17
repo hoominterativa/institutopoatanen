@@ -118,6 +118,11 @@ return [
                 'model' => App\Models\Contents\CONT07Contents::class,
                 'seedQty' => 4,
             ],
+            'CONT08' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT08Controller::class,
+                'model' => App\Models\Contents\CONT08Contents::class,
+                'seedQty' => 1,
+            ],
             'CONT09' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT09Controller::class,
                 'model' => App\Models\Contents\CONT09Contents::class,

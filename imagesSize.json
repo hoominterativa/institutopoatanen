@@ -819,6 +819,30 @@
                 }
             }
         },
+        "CONT08": {
+            "path_image": {
+                "width": "430",
+                "height": "540",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "900",
+                "activeCrop": "false"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "1366",
+                "activeCrop": "true"
+            },
+            "Topic": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            }
+        },
         "CONT02": {
             "path_image_background_desktop": {
                 "width": "1500",
