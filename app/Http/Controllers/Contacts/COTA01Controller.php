@@ -87,8 +87,11 @@ class COTA01Controller extends Controller
 
         $data['slug'] = Str::slug($request->title_page);
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null, 100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null, 100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
         $path_image_section_topic = $helper->optimizeImage($request, 'path_image_section_topic', $this->path, null, 100);
         if($path_image_section_topic) $data['path_image_section_topic'] = $path_image_section_topic;
@@ -97,7 +100,8 @@ class COTA01Controller extends Controller
             Session::flash('success', 'Informações cadastradas com sucesso');
             return redirect()->route('admin.cota01.edit', ['COTA01Contacts' => $contact->id]);
         }else{
-            Storage::delete($path_image_banner);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Storage::delete($path_image_section_topic);
             Session::flash('error', 'Erro ao cadastradar informações');
             return redirect()->back();
@@ -179,14 +183,24 @@ class COTA01Controller extends Controller
 
         $data['slug'] = Str::slug($request->title_page);
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner){
-            storageDelete($COTA01Contacts, 'path_image_banner');
-            $data['path_image_banner'] = $path_image_banner;
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null, 100);
+        if($path_image_desktop_banner){
+            storageDelete($COTA01Contacts, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
         }
-        if($request->delete_path_image_banner && !$path_image_banner){
-            storageDelete($COTA01Contacts, 'path_image_banner');
-            $data['path_image_banner'] = null;
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($COTA01Contacts, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null, 100);
+        if($path_image_mobile_banner){
+            storageDelete($COTA01Contacts, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($COTA01Contacts, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
         }
 
         $path_image_section_topic = $helper->optimizeImage($request, 'path_image_section_topic', $this->path, null, 100);
@@ -202,7 +216,8 @@ class COTA01Controller extends Controller
         if($COTA01Contacts->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            Storage::delete($path_image_banner);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Storage::delete($path_image_section_topic);
             Session::flash('success', 'Erro ao atualizar informações');
         }
@@ -217,12 +232,14 @@ class COTA01Controller extends Controller
      */
     public function destroy(COTA01Contacts $COTA01Contacts)
     {
-        storageDelete($COTA01Contacts, 'path_image_banner');
+        storageDelete($COTA01Contacts, 'path_image_desktop_banner');
+        storageDelete($COTA01Contacts, 'path_image_mobile_banner');
         storageDelete($COTA01Contacts, 'path_image_section_topic');
 
         $topicsForm = COTA01ContactsTopicForm::where('contact_id', $COTA01Contacts->id)->get();
         if ($topicsForm->count()) {
             foreach ($topicsForm as $topicForm) {
+                storageDelete($topicForm, 'path_image_icon');
                 $topicForm->delete();
             }
         }
@@ -230,6 +247,7 @@ class COTA01Controller extends Controller
         $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id)->get();
         if($topics->count()){
             foreach ($topics as $topic){
+                storageDelete($topic, 'path_image_icon');
                 $topic->delete();
             }
         }
@@ -250,12 +268,14 @@ class COTA01Controller extends Controller
     {
         $COTA01Contactss = COTA01Contacts::whereIn('id', $request->deleteAll)->get();
         foreach($COTA01Contactss as $COTA01Contacts){
-            storageDelete($COTA01Contacts, 'path_image_banner');
+            storageDelete($COTA01Contacts, 'path_image_desktop_banner');
+            storageDelete($COTA01Contacts, 'path_image_mobile_banner');
             storageDelete($COTA01Contacts, 'path_image_section_topic');
 
             $topicsForm = COTA01ContactsTopicForm::where('contact_id', $COTA01Contacts->id)->get();
             if ($topicsForm->count()) {
                 foreach ($topicsForm as $topicForm) {
+                    storageDelete($topicForm, 'path_image_icon');
                     $topicForm->delete();
                 }
             }
@@ -263,6 +283,7 @@ class COTA01Controller extends Controller
             $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id)->get();
             if($topics->count()){
                 foreach ($topics as $topic){
+                    storageDelete($topic, 'path_image_icon');
                     $topic->delete();
                 }
             }
@@ -307,13 +328,18 @@ class COTA01Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA01');
 
         $compliance = getCompliance($COTA01Contacts->compliance_id??'0');
-        $topics = COTA01ContactsTopic::where('contact_id', $COTA01Contacts->id )->sorting()->get();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($COTA01Contacts) $COTA01Contacts->path_image_desktop_banner = $COTA01Contacts->path_image_mobile_banner;
+                break;
+        }
 
         return view('Client.pages.Contacts.COTA01.show',[
             'sections' => $sections,
             'contact' => $COTA01Contacts,
             'compliance' => $compliance,
-            'topics' => $topics,
             'inputs' => $COTA01Contacts ? (json_decode($COTA01Contacts->inputs_form) ?? []) : []
         ]);
     }
@@ -331,6 +357,13 @@ class COTA01Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA01');
         $contact = COTA01Contacts::with(['topicsSection', 'topicsForms'])->active()->sorting()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($contact) $contact->path_image_desktop_banner = $contact->path_image_mobile_banner;
+                break;
+        }
 
         return view('Client.pages.Contacts.COTA01.show',[
             'contact' => $contact,

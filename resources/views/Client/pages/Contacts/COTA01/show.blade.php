@@ -3,7 +3,8 @@
     {{-- BEGIN Page content --}}
     <main id="root">
         <section id="COTA01" class="cota01-show container-fluid px-0">
-            <header class="cota01-show__banner" style="background-image: url({{asset('storage/'.$contact->path_image_banner)}})">
+            <header class="cota01-show__banner"
+            style="background-image: url({{ asset('storage/' . $contact->path_image_desktop_banner) }}); background-color: {{ $contact->background_color }};">
                 <div class="container">
                     @if ($contact->title_banner || $contact->description_banner)
                         <h2 class="cota01-show__banner__title">{{$contact->title_banner}}</h2>
@@ -61,13 +62,15 @@
                         @if ($contact->topicsForms->count())
                             <div class="cota01-show__topics-form col-12 col-xl-5 row">
                                 @foreach ($contact->topicsForms as $topicsForm)
-                                    <div class="cota01-show__topics-form__item d-flex align-items-center col-6 col-lg-12">
-                                        <img src="{{asset('storage/'.$topicsForm->path_image_icon)}}" class="cota01-show__topics-form__icon" width="26" alt="{{$topicsForm->title}}">
-                                        <div class="cota01-show__topics-form__description">
-                                            <h4 class="cota01-show__topics-form__title">{{$topicsForm->title}}</h4>
-                                            <p class="cota01-show__topics-form__paragraph">{{$topicsForm->description}}</p>
+                                    @if ($topicsForm->active)
+                                        <div class="cota01-show__topics-form__item d-flex align-items-center col-6 col-lg-12">
+                                            <img src="{{asset('storage/'.$topicsForm->path_image_icon)}}" class="cota01-show__topics-form__icon" width="26" alt="{{$topicsForm->title}}">
+                                            <div class="cota01-show__topics-form__description">
+                                                <h4 class="cota01-show__topics-form__title">{{$topicsForm->title}}</h4>
+                                                <p class="cota01-show__topics-form__paragraph">{{$topicsForm->description}}</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endforeach
                             </div>
                             {{-- END .cota01-show__topics-form --}}
@@ -85,15 +88,17 @@
                             <div class="cota01-show__topics col-12 col-xl-8">
                                 <div class="row">
                                     @foreach ($contact->topicsSection as $topicSection)
-                                        <div class="col-12 col-lg-6">
-                                            <div class="cota01-show__topics__item d-flex align-items-center">
-                                                <img src="{{asset('storage/'.$topicSection->path_image_icon)}}" width="26" class="cota01-show__topics__icon" alt="{{$topicSection->title}}">
-                                                <div class="cota01-show__topics__description">
-                                                    <h4 class="cota01-show__topics__title">{{$topicSection->title}}</h4>
-                                                    <p class="cota01-show__topics__paragraph">{{$topicSection->description}}</p>
+                                        @if ($topicSection->active)
+                                            <div class="col-12 col-lg-6">
+                                                <div class="cota01-show__topics__item d-flex align-items-center">
+                                                    <img src="{{asset('storage/'.$topicSection->path_image_icon)}}" width="26" class="cota01-show__topics__icon" alt="{{$topicSection->title}}">
+                                                    <div class="cota01-show__topics__description">
+                                                        <h4 class="cota01-show__topics__title">{{$topicSection->title}}</h4>
+                                                        <p class="cota01-show__topics__paragraph">{{$topicSection->description}}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -108,7 +113,6 @@
         </section>
     </main>
     {{-- END #root --}}
-
     {{-- Finish Content page Here --}}
     @foreach ($sections as $section)
         {!!$section!!}

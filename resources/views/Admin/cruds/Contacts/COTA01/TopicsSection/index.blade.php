@@ -18,9 +18,10 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteBlogCategory" type="checkbox"></label>
                             </th>
-                            <th width="60px"></th>
+                            <th width="60px">Imagem</th>
                             <th>Title</th>
                             <th>description</th>
+                            <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
@@ -38,7 +39,14 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$topicSection->title}}</td>
-                                <td class="align-middle">{{$topicSection->description}}</td>
+                                <td class="align-middle">{!! substr($topicSection->description, 0, 25) !!}<b>...</b></td>
+                                <td class="align-middle">
+                                    @if ($topicSection->active)
+                                        <span class="badge bg-success">Ativo</span>
+                                    @else
+                                        <span class="badge bg-danger">Inativo</span>
+                                    @endif
+                                </td>
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
@@ -99,7 +107,7 @@
 
 {{-- BEGIN MODAL BANNER CREATE --}}
 <div id="modal-imageTopic-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 1100px;">
+    <div class="modal-dialog" style="max-width: 900px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
                 <h4 class="page-title">Cadastrar Tópicos</h4>
@@ -114,17 +122,19 @@
                             <input type="hidden" name="title_page" value="{{$contact->title_page}}">
                             <div class="mb-3">
                                 <div class="container-image-crop">
-                                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                                    <small class="ms-2">Dimensão proporcional mínima 400x300px</small>
+                                    {!! Form::label('inputImage', 'Background Desktop', ['class' => 'form-label']) !!}
+                                    <small class="ms-2">Dimensões proporcionais mínimas
+                                        {{ $cropSetting->path_image_section_topic->width }}x{{ $cropSetting->path_image_section_topic->height }}px!</small>
                                     <label class="area-input-image-crop" for="inputImage">
                                         {!! Form::file('path_image_section_topic', [
-                                            'id'=>'inputImage',
-                                            'class'=>'inputImage',
-                                            'data-min-width'=>'200', // px
-                                            'data-min-height'=>'275', // px
-                                            'data-box-height'=>'180', // Input height in the form
-                                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                            'data-default-file'=> isset($contact)?($contact->path_image_section_topic<>''?url('storage/'.$contact->path_image_section_topic):''):'',
+                                            'id' => 'inputImage',
+                                            'class' => 'inputImage',
+                                            'data-status' => $cropSetting->path_image_section_topic->activeCrop, // px
+                                            'data-min-width' => $cropSetting->path_image_section_topic->width, // px
+                                            'data-min-height' => $cropSetting->path_image_section_topic->height, // px
+                                            'data-box-height' => '170', // Input height in the form
+                                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                                            'data-default-file' => isset($contact)? ($contact->path_image_section_topic != ''? url('storage/' . $contact->path_image_section_topic): ''): '',
                                         ]) !!}
                                     </label>
                                 </div><!-- END container image crop -->
