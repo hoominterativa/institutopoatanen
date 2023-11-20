@@ -1077,9 +1077,19 @@
     },
     "Contacts": {
         "COTA01": {
-            "path_image_banner": {
+            "path_image_desktop_banner": {
                 "width": "1500",
                 "height": "360",
+                "activeCrop": "false"
+            },
+            "path_image_mobile_banner": {
+                "width": "390",
+                "height": "409",
+                "activeCrop": "true"
+            },
+            "path_image_section_topic": {
+                "width": "390",
+                "height": "409",
                 "activeCrop": "false"
             },
             "TopicForm": {

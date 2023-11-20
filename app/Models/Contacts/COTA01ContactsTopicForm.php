@@ -23,6 +23,7 @@ class COTA01ContactsTopicForm extends Model
         "description",
         "path_image_icon",
         "sorting",
+        "active"
     ];
 
     public function scopeSorting($query)
@@ -34,9 +35,4 @@ class COTA01ContactsTopicForm extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

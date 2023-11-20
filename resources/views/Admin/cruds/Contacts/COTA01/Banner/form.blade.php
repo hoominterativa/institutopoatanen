@@ -19,24 +19,47 @@
                         'data-parsley-validation-threshold'=>'10',
                     ]) !!}
                 </div>
+                <div class="col-12">
+                    {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                    {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
+                </div>
             </div>
         </div>
         <div class="col-12 col-lg-6">
             <div class="card card-body" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_banner->width}}x{{$cropSetting->path_image_banner->height}}px!</small>
+                        {!! Form::label('inputImage', 'Background Desktop', ['class' => 'form-label']) !!}
+                        <small class="ms-2">Dimensões proporcionais mínimas
+                            {{ $cropSetting->path_image_desktop_banner->width }}x{{ $cropSetting->path_image_desktop_banner->height }}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
-                            {!! Form::file('path_image_banner', [
-                                'id'=>'inputImage',
-                                'class'=>'inputImage',
-                                'data-status'=>$cropSetting->path_image_banner->activeCrop, // px
-                                'data-min-width'=>$cropSetting->path_image_banner->width, // px
-                                'data-min-height'=>$cropSetting->path_image_banner->height, // px
-                                'data-box-height'=>'300', // Input height in the form
-                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file'=> isset($contact)?($contact->path_image_banner<>''?url('storage/'.$contact->path_image_banner):''):'',
+                            {!! Form::file('path_image_desktop_banner', [
+                                'id' => 'inputImage',
+                                'class' => 'inputImage',
+                                'data-status' => $cropSetting->path_image_desktop_banner->activeCrop, // px
+                                'data-min-width' => $cropSetting->path_image_desktop_banner->width, // px
+                                'data-min-height' => $cropSetting->path_image_desktop_banner->height, // px
+                                'data-box-height' => '170', // Input height in the form
+                                'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                                'data-default-file' => isset($contact)? ($contact->path_image_desktop_banner != ''? url('storage/' . $contact->path_image_desktop_banner): ''): '',
+                            ]) !!}
+                        </label>
+                    </div><!-- END container image crop -->
+                </div>
+                <div class="mb-3">
+                    <div class="container-image-crop">
+                        {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
+                        <small class="ms-2">Dimensões proporcionais mínimas {{ $cropSetting->path_image_mobile_banner->width }}x{{ $cropSetting->path_image_mobile_banner->height }}px!</small>
+                        <label class="area-input-image-crop" for="inputImage">
+                            {!! Form::file('path_image_mobile_banner', [
+                                'id' => 'inputImage',
+                                'class' => 'inputImage',
+                                'data-status' => $cropSetting->path_image_mobile_banner->activeCrop, // px
+                                'data-min-width' => $cropSetting->path_image_mobile_banner->width, // px
+                                'data-min-height' => $cropSetting->path_image_mobile_banner->height, // px
+                                'data-box-height' => '170', // Input height in the form
+                                'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                'data-default-file' => isset($contact)? ($contact->path_image_mobile_banner != ''? url('storage/' . $contact->path_image_mobile_banner): ''): '',
                             ]) !!}
                         </label>
                     </div><!-- END container image crop -->

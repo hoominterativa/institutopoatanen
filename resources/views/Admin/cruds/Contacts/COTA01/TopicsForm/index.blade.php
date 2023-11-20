@@ -17,9 +17,10 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteBlogCategory" type="checkbox"></label>
                             </th>
-                            <th width="60px"></th>
+                            <th width="60px">Imagem</th>
                             <th>Title</th>
                             <th>description</th>
+                            <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
@@ -37,7 +38,14 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$topicForm->title}}</td>
-                                <td class="align-middle">{{$topicForm->description}}</td>
+                                <td class="align-middle">{!! substr($topicForm->description, 0, 25) !!}<b>...</b></td>
+                                <td class="align-middle">
+                                    @if ($topicForm->active)
+                                        <span class="badge bg-success">Ativo</span>
+                                    @else
+                                        <span class="badge bg-danger">Inativo</span>
+                                    @endif
+                                </td>
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
