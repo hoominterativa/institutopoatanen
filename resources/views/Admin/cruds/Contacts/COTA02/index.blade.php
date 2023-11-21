@@ -39,7 +39,7 @@
                                             <th width="30px" class="bs-checkbox">
                                                 <label><input name="btnSelectAll" value="btnDeleteContacts" type="checkbox"></label>
                                             </th>
-                                            <th></th>
+                                            <th>Imagem</th>
                                             <th>Título Banner</th>
                                             <th>Título Formulário</th>
                                             <th width="100px">Status</th>

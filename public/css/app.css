@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
-@charset "UTF-8";
 body {
   overflow-x: hidden;
   width: 100%;
@@ -2322,171 +2321,273 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-/* BEGIN STYLE */
-.cont08 {
-  padding: 64px 0 64px 2.5vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-  gap: 152px;
+.cota02__header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
-@media (max-width: 991.98px) {
-  .cont08 {
-    flex-direction: column-reverse;
-    gap: 80px;
+.cota02__header .container-cont02-page__header {
+  padding: 108px 0;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 575.98px) {
+  .cota02__header .container-cont02-page__header {
+    padding: 44px 20px;
   }
 }
-.cont08__image {
-  width: 50%;
-  height: 439px;
-  margin: 0;
-  align-self: flex-end;
-}
-.cont08__image__img {
+.cota02__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.73);
+}
+.cota02__header__title {
+  font-size: 3.125rem;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+}
+@media (max-width: 575.98px) {
+  .cota02__header__title {
+    font-size: 1.875rem;
+  }
+}
+.cota02__header__subtitle {
+  font-size: 1.875rem;
+  font-family: "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 575.98px) {
+  .cota02__header__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.cota02__header__line {
+  margin-top: 1.25rem;
+  color: #7c7c7c;
+  width: 100%;
+}
+.cota02__boxForm {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cota02__boxForm .justify-content-center {
+  gap: 25px 0;
+}
+.cota02__boxForm .container--boxForm {
+  padding: 68px 0 59px 0 !important;
+}
+@media (max-width: 575.98px) {
+  .cota02__boxForm .container--boxForm .row {
+    margin: 0 auto;
+  }
+}
+.cota02__boxForm__item:last-of-type .cota02__boxForm__item__content::after {
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .cota02__boxForm__item {
+    margin: 0 auto;
+    padding: 0;
+    width: 94%;
+  }
+}
+.cota02__boxForm__item__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 36px;
+}
+.cota02__boxForm__item__content::after {
+  content: "";
+  width: 1px;
+  height: 88%;
+  background: rgba(64, 64, 64, 0.18);
+  display: flex;
+  position: absolute;
+  right: -10px;
+  top: 0;
+}
+.cota02__boxForm__item__content__image {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 14.04px;
+}
+@media (max-width: 991.98px) {
+  .cota02__boxForm__item__content__image {
+    width: 50px;
+    height: 50px;
+  }
+}
+.cota02__boxForm__item__content__image img {
+  width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-@media (max-width: 991.98px) {
-  .cont08__image {
-    width: 100%;
-  }
-}
-.cont08__information {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-}
-@media (max-width: 991.98px) {
-  .cont08__information {
-    width: 100%;
-  }
-}
-.cont08__information__header {
-  margin-bottom: 32px;
-  padding: 12px 2.5vw 0 0; /* insrido para colar o carousel à esquerda sem necessidade de overflow-x */
-}
-.cont08__information__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-}
-@media (max-width: 767.98px) {
-  .cont08__information__header__title {
-    font-size: 1.875rem;
-    font-weight: 700;
-  }
-}
-.cont08__information__header__subtitle {
-  margin-bottom: 16px;
+.cota02__boxForm__item__content__description__title {
   font-size: 1.25rem;
+  font-weight: 500;
+  color: #404040;
   font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
+  margin-bottom: 5px;
+}
+@media (max-width: 991.98px) {
+  .cota02__boxForm__item__content__description__title {
+    font-size: 1.125rem;
+  }
+}
+.cota02__boxForm__item__content__description__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
   color: #404040;
 }
-@media (max-width: 767.98px) {
-  .cont08__information__header__subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
+.cota02__boxForm__item__content__description__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+  margin-bottom: 0;
+}
+@media (max-width: 991.98px) {
+  .cota02__boxForm__item__content__description__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.cont08__information__header__line {
-  margin-bottom: 16px;
-  height: 1px;
+.cota02__form {
+  padding: 78px 0 154.45px 0;
+}
+.cota02__form__header {
+  margin-bottom: 50px;
+}
+.cota02__form__header__title {
+  font-size: 2.5rem;
+  color: #404040;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  background: linear-gradient(to right, #404040 14.8%, #7c7c7c 25px);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (max-width: 575.98px) {
+  .cota02__form__header__title {
+    font-size: 1.875rem;
+    background: linear-gradient(to right, #132229 39.8%, #b34423 25px);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.cota02__form__header__line {
+  background: #404040;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  display: block;
+}
+.cota02__form__header__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
+}
+@media (max-width: 991.98px) {
+  .cota02__form__header__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cota02__form .input__item {
+  width: 100%;
+}
+.cota02__form .input__item--select .form-select {
+  margin-bottom: 0 !important;
+  height: 52px;
+  border-radius: 0 !important;
+}
+.cota02__form__inputs__formIput {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+}
+.cota02__form__inputs__formIput .input__item {
+  width: 100%;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+}
+.cota02__form__inputs__formIput .input__item .form-control {
+  height: 52px;
+  border-radius: 0 !important;
+}
+.cota02__form__inputs__compliance {
+  display: flex;
+}
+.cota02__form__inputs__compliance input {
+  border: 1px solid #393939;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.cota02__form__inputs__compliance label {
+  color: #393939;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+.cota02__form__inputs__compliance label a {
+  color: #7c7c7c;
+  font: 0.875rem "Montserrat", sans-serif, arial;
+}
+
+.cota02-show__form__item__input:nth-of-type(5) {
+  width: 100% !important;
+}
+
+.cota02-show__form__item__input .input__item--textarea textarea {
+  height: 136px !important;
+}
+
+.cota02-show__form__inputs__formIput__input-submit {
+  height: 31px;
+  width: 165px;
+  background-color: #7c7c7c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #7c7c7c;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #fff;
+}
+.cota02-show__form__inputs__formIput__input-submit:hover {
+  background-color: transparent;
   color: #7c7c7c;
 }
-.cont08__information__description {
-  margin-bottom: 42px;
-  font: 0.875rem "Montserrat", sans-serif, arial 400;
-  color: #404040;
-  letter-spacing: 0.2px;
-  line-height: 140%;
-}
-.cont08__information__content__carousel {
-  /*              EXPLICAÇÕES
-          1. Caso deseje-se controlar a largura das boxes é necessário realizar a adição da propriedade autoWidht: true e inserir os valores width nos items (classe logo abaixo);
 
-          2. .owl-dots adotado como padrão, caso deseje-se alterar basta mudar no js. Não precisa colocar display: none !important para ocultar um e display: flex !important em outro para fazê-lo aparecer;
+.cota02-show__form__compliance {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #393939;
+}
+.cota02-show__form__compliance a {
+  color: #7c7c7c;
+  text-decoration: underline;
+}
 
-          3. As classes de ambos já estão inseridas abaixo, basta apenas configurá-las da maneira como o layout solicitar;
-  */
+.form-check-input:checked[type=checkbox] {
+  border: 1px solid #393939;
 }
-.cont08__information__content__carousel .owl-nav {
-  justify-content: start;
-}
-.cont08__information__content__carousel .owl-nav .owl-prev,
-.cont08__information__content__carousel .owl-nav .owl-next {
-  background-color: #b3b3b3 !important;
-}
-.cont08__information__content__carousel .owl-nav .owl-prev:hover,
-.cont08__information__content__carousel .owl-nav .owl-next:hover {
-  background-color: #404040 !important;
-}
-.cont08__information__content__carousel .owl-dots {
-  display: flex !important;
-  justify-content: start;
-}
-.cont08__information__content__carousel .owl-dots .owl-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 0;
-  background-color: #b3b3b3;
-}
-.cont08__information__content__carousel .owl-dots .owl-dot.active, .cont08__information__content__carousel .owl-dots .owl-dot:hover {
-  background-color: #404040;
-}
-.cont08__information__content__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-.cont08__information__content__item__icon {
-  /* COM !IMPORTANT POR CONTA DO OWL CAROUSEL */
-  width: 56px !important;
-  height: 56px !important;
-}
-.cont08__information__content__item__description {
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #404040;
-  letter-spacing: 0.2px;
-  max-width: 166px;
-  text-align: center;
-}
-.cont08__information__cta {
-  margin: 48px 2.5vw 0 0;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  background-color: #fff;
-  color: #000;
-  padding: 8px 48px;
-  text-decoration: none;
-}
-.cont08__information__cta__icon {
-  width: 24px;
-  height: 24px;
-}
-.cont08__information__cta:hover {
-  color: #fff;
-  background-color: #000;
-}
-.cont08__information__cta:hover .cont07__cta__icon {
-  filter: invert(1) grayscale(1);
-}
-@media (max-width: 991.98px) {
-  .cont08__information__cta {
-    align-self: center;
-  }
+
+.form-check-input:checked {
+  background-color: #b34423;
+  border-color: #b34423;
 }
 
 /* BEGIN STYLE */

@@ -17,6 +17,7 @@ class CreateCota02ContactsTable extends Migration
             $table->id();
 
             $table->string('slug')->nullable();
+            $table->string('title_page')->nullable();
 
             $table->integer('compliance_id')->nullable();
 
@@ -35,9 +36,8 @@ class CreateCota02ContactsTable extends Migration
             $table->string('path_image_form_desktop')->nullable();
             $table->string('path_image_form_mobile')->nullable();
             $table->string('background_color_form')->nullable();
-
             $table->string('title_button_form')->nullable();
-
+            
             $table->text('inputs_form')->nullable();
             $table->string('email_form')->nullable();
 

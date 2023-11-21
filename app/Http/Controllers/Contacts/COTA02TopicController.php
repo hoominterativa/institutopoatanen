@@ -33,10 +33,10 @@ class COTA02TopicController extends Controller
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(COTA02ContactsTopic::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
+            Session::flash('success', 'Tópico cadastrado com sucesso');
         }else{
             Storage::delete($path_image_icon);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o tópico');
         }
         return redirect()->back();
     }
@@ -66,10 +66,10 @@ class COTA02TopicController extends Controller
         }
 
         if($COTA02ContactsTopic->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
+            Session::flash('success', 'Tópico atualizado com sucesso');
         }else{
             Storage::delete($path_image_icon);
-            Session::flash('error', 'Erro ao atualizar item');
+            Session::flash('error', 'Erro ao atualizar o tópico');
         }
         return redirect()->back();
     }
@@ -85,7 +85,7 @@ class COTA02TopicController extends Controller
         storageDelete($COTA02ContactsTopic, 'path_image_icon');
 
         if($COTA02ContactsTopic->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -104,7 +104,7 @@ class COTA02TopicController extends Controller
         }
 
         if($deleted = COTA02ContactsTopic::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos deletados com sucessso']);
         }
     }
     /**

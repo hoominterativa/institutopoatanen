@@ -1,5 +1,5 @@
-<div class="tab-pane" id="infoForm">
-    <div class="col-12">
+<div class="row">
+    <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="d-flex align-items-center mb-1">
@@ -20,6 +20,14 @@
                     ]) !!}
                 </div>
             </div>
+            <div class="mb-3">
+                {!! Form::label('colorpicker-default', 'Cor de fundo', ['class' => 'form-label']) !!}
+                {!! Form::text('background_color_form', null, ['class' => 'form-control colorpicker-default','id' => 'colorpicker-default',]) !!}
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem Desktop', ['class' => 'form-label']) !!}
@@ -66,19 +74,9 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-            <div class="mb-3">
-                {!! Form::label('colorpicker-default', 'Cor de fundo', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color_form', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'colorpicker-default',
-                ]) !!}
-            </div>
         </div>
         <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-            {!! Form::button('Salvar', [
-                'class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0',
-                'type' => 'submit',
-            ]) !!}
+            {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0','type' => 'submit',]) !!}
         </div>
         {{-- end card-body --}}
     </div>

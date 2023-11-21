@@ -86,22 +86,25 @@ class COTA02Controller extends Controller
 
         $data['inputs_form'] = $jsonInputs;
 
-        $data['slug'] = Str::slug($request->title_banner);
+        $data['slug'] = Str::slug($request->title_page);
 
         $data['active'] = $request->active?1:0;
 
+        //Banner
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
         if($path_image_banner_desktop) $data['path_image_banner_desktop'] = $path_image_banner_desktop;
 
         $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null,100);
         if($path_image_banner_mobile) $data['path_image_banner_mobile'] = $path_image_banner_mobile;
 
+        //Topics
         $path_image_topic_desktop = $helper->optimizeImage($request, 'path_image_topic_desktop', $this->path, null,100);
         if($path_image_topic_desktop) $data['path_image_topic_desktop'] = $path_image_topic_desktop;
 
         $path_image_topic_mobile = $helper->optimizeImage($request, 'path_image_topic_mobile', $this->path, null,100);
         if($path_image_topic_mobile) $data['path_image_topic_mobile'] = $path_image_topic_mobile;
 
+        //Forms
         $path_image_form_desktop = $helper->optimizeImage($request, 'path_image_form_desktop', $this->path, null,100);
         if($path_image_form_desktop) $data['path_image_form_desktop'] = $path_image_form_desktop;
 
@@ -195,7 +198,7 @@ class COTA02Controller extends Controller
             $data['active'] = $request->active?1:0;
         }
 
-        $data['slug'] = Str::slug($request->title_banner);
+        $data['slug'] = Str::slug($request->title_page);
 
         //Banner
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
@@ -291,7 +294,10 @@ class COTA02Controller extends Controller
 
         $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id)->get();
         if($topics->count()){
-            $topics->delete();
+            foreach($topics as $topic) {
+                storageDelete($topic, 'path_image_icon');
+                $topics->delete();
+            }
         }
 
         if($COTA02Contacts->delete()){
@@ -310,6 +316,14 @@ class COTA02Controller extends Controller
     {
         $COTA02Contactss = COTA02Contacts::whereIn('id', $request->deleteAll)->get();
         foreach($COTA02Contactss as $COTA02Contacts){
+            $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id)->get();
+            if($topics->count()){
+                foreach($topics as $topic) {
+                    storageDelete($topic, 'path_image_icon');
+                    $topics->delete();
+                }
+            }
+
             storageDelete($COTA02Contacts, 'path_image_banner_desktop');
             storageDelete($COTA02Contacts, 'path_image_banner_mobile');
             storageDelete($COTA02Contacts, 'path_image_topic_desktop');
@@ -318,10 +332,7 @@ class COTA02Controller extends Controller
             storageDelete($COTA02Contacts, 'path_image_form_desktop');
         }
 
-        $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id)->get();
-        if($topics->count()){
-            $topics->delete();
-        }
+
 
         if($deleted = COTA02Contacts::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -352,18 +363,22 @@ class COTA02Controller extends Controller
      */
     public function show(Request $request, COTA02Contacts $COTA02Contacts)
     {
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if($COTA02Contacts) $COTA02Contacts->path_image_banner_desktop = $COTA02Contacts->path_image_banner_mobile;
-            break;
-        }
-
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA02');
 
         $compliance = getCompliance($COTA02Contacts->compliance_id??'0');
         $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id )->active()->sorting()->get();
+        
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($COTA02Contacts) {
+                    $COTA02Contacts->path_image_banner_desktop = $COTA02Contacts->path_image_banner_mobile;
+                    $COTA02Contacts->path_image_topic_desktop = $COTA02Contacts->path_image_topic_mobile;
+                    $COTA02Contacts->path_image_form_desktop = $COTA02Contacts->path_image_form_mobile;
+                }
+                break;
+        }
 
         return view('Client.pages.Contacts.COTA02.page',[
             'sections' => $sections,
@@ -382,22 +397,23 @@ class COTA02Controller extends Controller
      */
     public function page(Request $request)
     {
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $contact = COTA02Contacts::with(['topics'])->first();
-                if($contact) $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
-            break;
-            default:
-            $contact = COTA02Contacts::with(['topics'])->first();
-            break;
-        }
-
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA02');
 
+        $contact = COTA02Contacts::first();
         $compliance = getCompliance($contact->compliance_id??'0');
         $topics = COTA02ContactsTopic::where('contact_id', $contact->id )->active()->sorting()->get();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($contact) {
+                    $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
+                    $contact->path_image_topic_desktop = $contact->path_image_topic_mobile;
+                    $contact->path_image_form_desktop = $contact->path_image_form_mobile;
+                }
+            break;
+        }
 
         return view('Client.pages.Contacts.COTA02.page',[
             'sections' => $sections,

@@ -73,60 +73,31 @@
                 </ul>
 
                 <div class="tab-content">
-
                     <div class="tab-pane show active" id="infoContact">
-                        {!! Form::model($contact, [
-                            'route' => ['admin.cota02.update', $contact->id],
-                            'class' => 'parsley-validate',
-                            'method' => 'PUT',
-                            'files' => true,
-                        ]) !!}
-                        {!! Form::hidden('title_banner', $contact->title_banner) !!}
+                        {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id], 'class' => 'parsley-validate', 'method' => 'PUT','files' => true,]) !!}
                         @include('Admin.cruds.Contacts.COTA02.form')
-                        {!! Form::button('Salvar', [
-                            'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
-                            'type' => 'submit',
-                        ]) !!}
-                        <a href="{{ route('admin.cota02.index') }}"
-                            class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit', ]) !!}
+                        <a href="{{ route('admin.cota02.index') }}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane" id="infoBanner">
-                        {!! Form::model($contact, [
-                            'route' => ['admin.cota02.update', $contact->id],
-                            'class' => 'parsley-validate',
-                            'method' => 'PUT',
-                            'files' => true,
-                        ]) !!}
-                        {!! Form::hidden('title_banner', $contact->contact) !!}
+                        {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id], 'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true,]) !!}
+                        {!! Form::hidden('title_page', $contact->title_page) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoBanner.form')
                         {!! Form::close() !!}
                     </div>
-
-                    <div class="tab-pane" id="infoTopic">
-                        {!! Form::model($contact, [
-                            'route' => ['admin.cota02.update', $contact->id],
-                            'class' => 'parsley-validate',
-                            'method' => 'PUT',
-                            'files' => true,
-                        ]) !!}
-                        {!! Form::hidden('title_banner', $contact->title_banner) !!}
-                        @include('Admin.cruds.Contacts.COTA02.InfoTopic.form')
-                        {!! Form::close() !!}
-                    </div>
-
                     <div class="tab-pane" id="infoForm">
-                        {!! Form::model($contact, [
-                            'route' => ['admin.cota02.update', $contact->id],
-                            'class' => 'parsley-validate',
-                            'method' => 'PUT',
-                            'files' => true,
-                        ]) !!}
-                        {!! Form::hidden('title_banner', $contact->title_banner) !!}
+                        {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id],'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true, ]) !!}
+                        {!! Form::hidden('title_page', $contact->title_page) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoForm.form')
                         {!! Form::close() !!}
                     </div>
-
+                    <div class="tab-pane" id="infoTopic">
+                        {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id], 'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true,]) !!}
+                        {!! Form::hidden('title_page', $contact->title_page) !!}
+                        @include('Admin.cruds.Contacts.COTA02.InfoTopic.form')
+                        {!! Form::close() !!}
+                    </div>
                     <div class="tab-pane" id="topicSection">
                         @include('Admin.cruds.Contacts.COTA02.Topics.index', [
                             'topics' => $topics,

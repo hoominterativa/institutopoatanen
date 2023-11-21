@@ -17,7 +17,7 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteTopic" type="checkbox"></label>
                             </th>
-                            <th width="60px"></th>
+                            <th width="60px">Imagem</th>
                             <th>Title</th>
                             <th>description</th>
                             <th width="90px">Ações</th>
@@ -37,7 +37,7 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$topic->title}}</td>
-                                <td class="align-middle">{{$topic->description}}</td>
+                                <td class="align-middle">{!! substr($topic->description, 0, 25) !!}<b>...</b></td>
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
@@ -47,9 +47,9 @@
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
-                                        {{-- BEGIN MODAL CATEGORY UPDATE --}}
+                                        {{-- BEGIN MODAL TOPIC UPDATE --}}
                                         <div id="modal-topic-update-{{$topic->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 1100px;">
+                                            <div class="modal-dialog" style="max-width: 900px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
                                                         <h4 class="page-title">Editar Tópico</h4>
@@ -64,7 +64,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- END MODAL CATEGORY UPDATE --}}
+                                        {{-- END MODAL TOPIC UPDATE --}}
                                     </div>
                                 </td>
                             </tr>
@@ -77,9 +77,9 @@
 </div>
 <!-- end row -->
 
-{{-- BEGIN MODAL CATEGORY CREATE --}}
+{{-- BEGIN MODAL TOPIC CREATE --}}
 <div id="modal-topicSection-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 1100px;">
+    <div class="modal-dialog" style="max-width: 900px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
                 <h4 class="page-title">Cadastrar Tópicos</h4>
@@ -94,5 +94,5 @@
         </div>
     </div>
 </div>
-{{-- END MODAL CATEGORY CREATE --}}
+{{-- END MODAL TOPIC CREATE --}}
 

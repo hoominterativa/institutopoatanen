@@ -21,11 +21,11 @@ class COTA02ContactsTopicFactory extends Factory
      */
     public function definition()
     {
-        return [            
-            'title' => $this->faker->text(10),
-            'description' => $this->faker->text(150),
-            'path_image_icon' => 'uploads/tmp/favicon.png',
-            'active' => 1,
+        return [
+            // 'title' => $this->faker->text(10),
+            // 'description' => $this->faker->text(150),
+            // 'path_image_icon' => 'uploads/tmp/favicon.png',
+            // 'active' => 1,
         ];
     }
 }

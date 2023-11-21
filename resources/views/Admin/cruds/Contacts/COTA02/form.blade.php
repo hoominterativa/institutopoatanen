@@ -1,39 +1,38 @@
 <div class="row col-12">
     <div class="col-12">
+        <input type="hidden" name="title_form" value="{{ isset($contact->title_page) ?? null }}">
         <div class="card card-body" id="tooltip-container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 col-lg-6">
                     <div class="mb-3">
                         <div class="d-flex align-items-center mb-1">
-                            {!! Form::label('title_button_form', 'Nome do botão no formulário', ['class' => 'form-label mb-0']) !!}
+                            {!! Form::label('title_page', 'Título da Página', ['class'=>'form-label mb-0']) !!}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Título que é exibido no menu do site"></i>
+                        </div>
+                        {!! Form::text('title_page', null, ['class'=>'form-control', 'id'=>'title_page', 'required'=>true]) !!}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="mb-3">
+                        <div class="d-flex align-items-center mb-1">
+                            {!! Form::label('title_button_form', 'Nome do botão no formulário', ['class'=>'form-label mb-0']) !!}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Nome que aparecerá no botão do formulário"></i>
                         </div>
-                        {!! Form::text('title_button_form', null, [
-                            'class' => 'form-control',
-                            'id' => 'title_button_form',
-                            'required' => true,
-                        ]) !!}
-                    </div>
-                    <div class="mb-3 form-check">
-                        {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                        {!! Form::label('active', 'Ativar exbição da página no site', ['class' => 'form-check-label']) !!}
+                        {!! Form::text('title_button_form', null, ['class'=>'form-control', 'id'=>'title_button_form', 'required'=>true]) !!}
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="col-12">
-        <div class="card card-body" id="tooltip-container">
             <div class="row">
                 <div class="mb-3 col-12 col-lg-6">
                     <div class="d-flex align-items-center mb-1">
                         {!! Form::label('compliance_id', 'Termos do formulário', ['class' => 'form-label mb-0']) !!}
                         <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                             data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-original-title="Escolha qual compliance será exigido de aceite no formulário. Caso não aparecça nenhuma opção abaixo você deverá cadastrar na área de Conpliance."></i>
+                            data-bs-original-title="Escolha qual compliance será exigido de aceite no formulário. Caso não aparecça nenhuma opção abaixo você deverá cadastrar na área de Compliance."></i>
                     </div>
                     {!! Form::select('compliance_id', $compliances, null, [
                         'class' => 'form-select',
@@ -56,6 +55,14 @@
                     ]) !!}
                 </div>
             </div>
+            <div class="mb-3 form-check">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Ativar exbição da página no site', ['class'=>'form-check-label']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card card-body" id="tooltip-container">
             <div class="mb-3 d-flex align-items-center">
                 <div>
                     <h4>Campos do Formulário</h4>
@@ -114,7 +121,6 @@
                     {{-- END MODAL LEGEND INPUTS --}}
                 </div>
             </div>
-
             <div class="row container-inputs-contact">
                 @if (isset($configForm))
                     @foreach ($configForm as $key => $value)
