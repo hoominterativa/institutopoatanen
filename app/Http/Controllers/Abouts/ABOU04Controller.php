@@ -41,9 +41,10 @@ class ABOU04Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(ABOU04Abouts $ABOU04Abouts)
     {
         return view('Admin.cruds.Abouts.ABOU04.create',[
+            'about' => $ABOU04Abouts,
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }
@@ -83,8 +84,9 @@ class ABOU04Controller extends Controller
          $path_image_mobile_topics = $helper->optimizeImage($request, 'path_image_mobile_topics', $this->path, null,100);
          if($path_image_mobile_topics) $data['path_image_mobile_topics'] = $path_image_mobile_topics;
 
-        if(ABOU04Abouts::create($data)){
+        if($about = ABOU04Abouts::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
+            return redirect()->route('admin.abou04.edit', ['ABOU04Abouts' => $about->id]);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_desktop_banner);
@@ -92,8 +94,8 @@ class ABOU04Controller extends Controller
             Storage::delete($path_image_desktop_topics);
             Storage::delete($path_image_mobile_topics);
             Session::flash('error', 'Erro ao cadastradar as informações');
+            return redirect()->back();
         }
-        return redirect()->back();
     }
 
     /**
@@ -213,7 +215,7 @@ class ABOU04Controller extends Controller
      */
     public function destroy(ABOU04Abouts $ABOU04Abouts)
     {
-        $topics = ABOU04AboutsTopic::where('service_id', $ABOU04Abouts->id)->get();
+        $topics = ABOU04AboutsTopic::where('about_id', $ABOU04Abouts->id)->get();
             if ($topics->count()) {
                 foreach ($topics as $topic) {
                     storageDelete($topic, 'path_image_icon');
@@ -221,7 +223,7 @@ class ABOU04Controller extends Controller
                 }
             }
 
-        $galleries = ABOU04AboutsGallery::where('service_id', $ABOU04Abouts->id)->get();
+        $galleries = ABOU04AboutsGallery::where('about_id', $ABOU04Abouts->id)->get();
         if ($galleries->count()) {
             foreach ($galleries as $gallery) {
                 storageDelete($gallery, 'path_image');
@@ -229,7 +231,7 @@ class ABOU04Controller extends Controller
             }
         }
 
-        $categories = ABOU04AboutsCategory::where('service_id', $ABOU04Abouts->id)->get();
+        $categories = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->get();
         if ($categories->count()) {
             foreach ($categories as $category) {
                 $category->delete();
@@ -259,7 +261,7 @@ class ABOU04Controller extends Controller
 
         $ABOU04Abouts = ABOU04Abouts::whereIn('id', $request->deleteAll)->get();
         foreach($ABOU04Abouts as $ABOU04Abouts){
-            $topics = ABOU04AboutsTopic::where('service_id', $ABOU04Abouts->id)->get();
+            $topics = ABOU04AboutsTopic::where('about_id', $ABOU04Abouts->id)->get();
             if ($topics->count()) {
                 foreach ($topics as $topic) {
                     storageDelete($topic, 'path_image_icon');
@@ -267,7 +269,7 @@ class ABOU04Controller extends Controller
                 }
             }
 
-            $galleries = ABOU04AboutsGallery::where('service_id', $ABOU04Abouts->id)->get();
+            $galleries = ABOU04AboutsGallery::where('about_id', $ABOU04Abouts->id)->get();
             if ($galleries->count()) {
                 foreach ($galleries as $gallery) {
                     storageDelete($gallery, 'path_image');
@@ -275,13 +277,13 @@ class ABOU04Controller extends Controller
                 }
             }
 
-            $categories = ABOU04AboutsCategory::where('service_id', $ABOU04Abouts->id)->get();
+            $categories = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->get();
             if ($categories->count()) {
                 foreach ($categories as $category) {
                     $category->delete();
                 }
             }
-            
+
             storageDelete($ABOU04Abouts, 'path_image');
             storageDelete($ABOU04Abouts, 'path_image_desktop_banner');
             storageDelete($ABOU04Abouts, 'path_image_mobile_banner');
