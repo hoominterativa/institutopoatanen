@@ -15,12 +15,6 @@
                     {!! Form::text('background_color_topic', null, [ 'class' => 'form-control colorpicker-default','id' => 'background_color_topic',]) !!}
                 </div>
             </div>
-            <div class="d-flex">
-                <div class="mb-3 form-check me-3">
-                    {!! Form::checkbox('active_topic', '1', null, ['class' => 'form-check-input', 'id' => 'active_topic']) !!}
-                    {!! Form::label('active_topic', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
-                </div>
-            </div>
         </div>
         <div class="col-12 col-lg-6">
             <div class="card card-body" id="tooltip-container">

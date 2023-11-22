@@ -5,7 +5,7 @@
         @if ($about)
             <div id="ABOU01" class="abou01-page">
                 <section class="container-fluid px-0">
-                    @if ($section->active_banner)
+                    @if (isset($section->active_banner))
                         <header class="abou01-page__header"
                             style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }});background-color: {{ $section->background_color_banner }}">
                             <div class="container d-flex flex-column justify-content-center align-items-center">
@@ -74,7 +74,7 @@
                     </section>
                 @endif
                 {{-- END .abou01-page__topic --}}
-                @if ($section->active_content)
+                @if (isset($section->active_content))
                     <section class="abou01-page__section container-fluid"
                         style="background-image: url({{ asset('storage/' . $section->path_image_content_desktop) }}); background-color: {{ $section->background_color_content }};">
                         <div class="container">
@@ -102,6 +102,14 @@
                                     @endif
                                 </div>
                             </div>
+                            @if ($section->link_button_content)
+                                <a href="{{getUri($section->link_button_content)}}" target="{{ $section->target_link_button_content }}" class="">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="">
+                                    @if ($section->title_button_content)
+                                        {{$section->title_button_content}}
+                                    @endif
+                                </a>
+                            @endif
                         </div>
                     </section>
                 @endif

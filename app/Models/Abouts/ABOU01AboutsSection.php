@@ -36,7 +36,6 @@ class ABOU01AboutsSection extends Model
         "path_image_topic_desktop",
         "path_image_topic_mobile",
         "background_color_topic",
-        "active_topic",
         //Content
         "title_content",
         "subtitle_content",
@@ -59,11 +58,6 @@ class ABOU01AboutsSection extends Model
     function scopeActiveBanner($query)
     {
         return $query->where('active_banner', 1);
-    }
-
-    function scopeActiveTopic($query)
-    {
-        return $query->where('active_topic', 1);
     }
 
     function scopeActiveContent($query)
