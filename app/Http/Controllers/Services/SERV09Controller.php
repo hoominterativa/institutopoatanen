@@ -71,9 +71,9 @@ class SERV09Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
-        $data['slug'] = Str::slug($request->title);
-        $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
+        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
+        if($request->link) $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -135,9 +135,9 @@ class SERV09Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
-        $data['slug'] = Str::slug($request->title);
-        $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
+        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
+        if($request->link) $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -310,8 +310,6 @@ class SERV09Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV09', 'show');
 
-        $category = SERV09ServicesCategory::where('slug', $SERV09ServicesCategory)->first();
-        $service = SERV09Services::where(['category_id' => $category->id, 'id' => $SERV09Services->id])->first();
         $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
         $services = SERV09Services::with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->whereNotIn('id', [$SERV09Services->id])->active()->sorting()->get();
         $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->active()->sorting()->get();
@@ -323,14 +321,14 @@ class SERV09Controller extends Controller
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                if ($service)
-                    {$service->path_image_desktop = $service->path_image_mobile;}
+                if ($SERV09Services)
+                    {$SERV09Services->path_image_desktop = $SERV09Services->path_image_mobile;}
             break;
         }
 
         return view('Client.pages.Services.SERV09.show',[
             'sections' => $sections,
-            'service' => $service,
+            'service' => $SERV09Services,
             'topics' => $topics,
             'galleries' => $galleries,
             'contents' => $contents,

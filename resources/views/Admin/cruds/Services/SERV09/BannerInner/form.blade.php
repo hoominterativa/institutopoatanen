@@ -3,8 +3,7 @@
     @method('PUT')
     {!! Form::hidden('active', $service->active) !!}
     {!! Form::hidden('featured', $service->featured) !!}
-    {!! Form::hidden('title', $service->title) !!}
-    {!! Form::hidden('link', $service->link) !!}
+    {!! Form::hidden('slug', $service->slug) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.serv09.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
