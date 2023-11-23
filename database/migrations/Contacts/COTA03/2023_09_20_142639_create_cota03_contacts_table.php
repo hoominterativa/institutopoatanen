@@ -16,7 +16,7 @@ class CreateCota03ContactsTable extends Migration
         Schema::create('cota03_contacts', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->nullable();
-
+            $table->string('title_page')->nullable();
             $table->integer('compliance_id')->nullable();
 
             $table->string('title_banner')->nullable();
@@ -35,7 +35,6 @@ class CreateCota03ContactsTable extends Migration
 
             $table->string('title_form')->nullable();
             $table->text('description_form')->nullable();
-
             $table->string('title_button_form')->nullable();
 
             $table->text('inputs_form')->nullable();

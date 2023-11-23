@@ -40,7 +40,7 @@
                                                 <label><input name="btnSelectAll" value="btnDeleteContacts" type="checkbox"></label>
                                             </th>
                                             <th>Imagem</th>
-                                            <th>Título banner</th>
+                                            <th>Título da página</th>
                                             <th>Título Formulário</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
@@ -55,14 +55,12 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$contact->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    @if ($contact->path_image_banner_desktop)
+                                                    @if ($contact->path_image_banner_desktop || $contact->path_image_content)
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $contact->path_image_banner_desktop)}})"></div>
-                                                    @endif
-                                                    @if ($contact->path_image_content)
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $contact->path_image_content)}})"></div>
                                                     @endif
                                                 </td>
-                                                <td class="align-middle">{{$contact->title_banner}}</td>
+                                                <td class="align-middle">{{$contact->title_page}}</td>
                                                 <td class="align-middle">{{$contact->title_form}}</td>
                                                 <td class="align-middle">
                                                     @switch($contact->active)

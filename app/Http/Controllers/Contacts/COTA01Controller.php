@@ -83,9 +83,8 @@ class COTA01Controller extends Controller
         $jsonInputs = json_encode($arrayInputs);
 
         $data['inputs_form'] = $jsonInputs;
-        $data['active'] = $request->active?1:0;
-
-        $data['slug'] = Str::slug($request->title_page);
+        if($request->active) $data['active'] = $request->active?1:0;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
 
         $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null, 100);
         if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
@@ -177,11 +176,8 @@ class COTA01Controller extends Controller
             $jsonInputs = json_encode($arrayInputs);
             $data['inputs_form'] = $jsonInputs;
         }
-        if($request->active){
-            $data['active'] = $request->active?1:0;
-        }
-
-        $data['slug'] = Str::slug($request->title_page);
+        if($request->active) $data['active'] = $request->active?1:0;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
 
         $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null, 100);
         if($path_image_desktop_banner){
