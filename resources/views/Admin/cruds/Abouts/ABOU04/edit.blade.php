@@ -88,7 +88,7 @@
                 <div class="tab-content">
                     <div class="tab-pane show active" id="about">
                         {!! Form::model($about, ['route' => ['admin.abou04.update', $about->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                            @include('Admin.cruds.Abouts.abou04.form')
+                            @include('Admin.cruds.Abouts.ABOU04.form')
                             {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                             <a href="{{route('admin.abou04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}

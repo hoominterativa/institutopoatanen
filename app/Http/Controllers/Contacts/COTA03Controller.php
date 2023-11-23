@@ -84,9 +84,9 @@ class COTA03Controller extends Controller
         $jsonInputs = json_encode($arrayInputs);
 
         $data['inputs_form'] = $jsonInputs;
-        $data['slug'] = Str::slug($request->title_banner);
-        $data['active'] = $request->active?1:0;
-        $data['link_button_content'] = isset($data['link_button_content']) ? $data['link_button_content'] : null;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
+        if($request->active) $data['active'] = $request->active?1:0;
+        if($request->link_button_content) $data['link_button_content'] = isset($data['link_button_content']) ? $data['link_button_content'] : null;
 
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
         if($path_image_banner_desktop) $data['path_image_banner_desktop'] = $path_image_banner_desktop;
@@ -175,12 +175,9 @@ class COTA03Controller extends Controller
             $jsonInputs = json_encode($arrayInputs);
             $data['inputs_form'] = $jsonInputs;
         }
-        if($request->active){
-            $data['active'] = $request->active?1:0;
-        }
-
-        $data['slug'] = Str::slug($request->title_banner);
-        $data['link_button_content'] = isset($data['link_button_content']) ? $data['link_button_content'] : null;
+        if($request->active) $data['active'] = $request->active?1:0;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
+        if($request->link_button_content) $data['link_button_content'] = isset($data['link_button_content']) ? $data['link_button_content'] : null;
 
         //Banner
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
@@ -318,21 +315,17 @@ class COTA03Controller extends Controller
      */
     public function page(Request $request)
     {
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $contact = COTA03Contacts::first();
-                if($contact) $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
-            break;
-            default:
-            $contact = COTA03Contacts::first();
-            break;
-        }
-
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA03');
 
+        $contact = COTA03Contacts::first();
         $compliance = getCompliance($contact->compliance_id??'0');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($contact) $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
+            break;
+        }
 
         return view('Client.pages.Contacts.COTA03.page',[
             'sections' => $sections,

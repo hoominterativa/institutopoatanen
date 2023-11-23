@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">

@@ -82,19 +82,16 @@
                     </div>
                     <div class="tab-pane" id="infoBanner">
                         {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id], 'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true,]) !!}
-                        {!! Form::hidden('title_page', $contact->title_page) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoBanner.form')
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane" id="infoForm">
                         {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id],'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true, ]) !!}
-                        {!! Form::hidden('title_page', $contact->title_page) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoForm.form')
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane" id="infoTopic">
                         {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id], 'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true,]) !!}
-                        {!! Form::hidden('title_page', $contact->title_page) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoTopic.form')
                         {!! Form::close() !!}
                     </div>

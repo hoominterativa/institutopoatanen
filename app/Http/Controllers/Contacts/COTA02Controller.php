@@ -85,10 +85,8 @@ class COTA02Controller extends Controller
         $jsonInputs = json_encode($arrayInputs);
 
         $data['inputs_form'] = $jsonInputs;
-
-        $data['slug'] = Str::slug($request->title_page);
-
-        $data['active'] = $request->active?1:0;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
+        if($request->active) $data['active'] = $request->active?1:0;
 
         //Banner
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
@@ -194,11 +192,8 @@ class COTA02Controller extends Controller
             $jsonInputs = json_encode($arrayInputs);
             $data['inputs_form'] = $jsonInputs;
         }
-        if($request->active){
-            $data['active'] = $request->active?1:0;
-        }
-
-        $data['slug'] = Str::slug($request->title_page);
+        if($request->active) $data['active'] = $request->active?1:0;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
 
         //Banner
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
@@ -368,7 +363,7 @@ class COTA02Controller extends Controller
 
         $compliance = getCompliance($COTA02Contacts->compliance_id??'0');
         $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id )->active()->sorting()->get();
-        
+
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':

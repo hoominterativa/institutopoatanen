@@ -10,7 +10,7 @@
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Título que é exibido no banner da página"></i>
                         </div>
-                        {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner', 'required' => 'required']) !!}
+                        {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
                     </div>
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center mb-1">
