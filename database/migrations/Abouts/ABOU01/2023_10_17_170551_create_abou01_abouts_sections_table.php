@@ -35,7 +35,6 @@ class CreateAbou01AboutsSectionsTable extends Migration
             $table->string('path_image_topic_desktop')->nullable();
             $table->string('path_image_topic_mobile')->nullable();
             $table->string('background_color_topic')->nullable();
-            $table->integer('active_topic')->default(0);
 
             //Content
             $table->string('title_content')->nullable();

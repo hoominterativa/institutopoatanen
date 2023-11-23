@@ -41,7 +41,6 @@ class ABOU01AboutsSectionFactory extends Factory
             "path_image_topic_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
             "path_image_topic_mobile" => "uploads/tmp/image-box-white.jpg",
             "background_color_topic" => '#FFFFFF',
-            'active_topic' => 1,
             //Content
             "title_content" => $this->faker->text(10),
             "subtitle_content" => $this->faker->text(10),

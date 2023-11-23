@@ -2,7 +2,6 @@
     {!! Form::model($section, ['route' => ['admin.abou01.content.update', $section->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
     {!! Form::hidden('active_section', $section->active_section) !!}
     {!! Form::hidden('active_banner', $section->active_banner) !!}
-    {!! Form::hidden('active_topic', $section->active_topic) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou01.content.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
 @endif

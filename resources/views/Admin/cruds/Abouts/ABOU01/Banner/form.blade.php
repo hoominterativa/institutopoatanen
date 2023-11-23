@@ -1,7 +1,6 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.abou01.banner.update', $section->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
     {!! Form::hidden('active_section', $section->active_section) !!}
-    {!! Form::hidden('active_topic', $section->active_topic) !!}
     {!! Form::hidden('active_content', $section->active_content) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou01.banner.store', 'class'=>'parsley-validate', 'files'=>true]) !!}

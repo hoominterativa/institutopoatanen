@@ -27,7 +27,6 @@ class ABOU01SectionController extends Controller
 
         $data['active_section'] = $request->active_section?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
-        $data['active_topic'] = $request->active_topic?1:0;
         $data['active_content'] = $request->active_content?1:0;
         $data['link_button_content'] = isset($data['link_button_content']) ? getUri($data['link_button_content']) : null;
 
@@ -91,7 +90,6 @@ class ABOU01SectionController extends Controller
 
         $data['active_section'] = $request->active_section?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
-        $data['active_topic'] = $request->active_topic?1:0;
         $data['active_content'] = $request->active_content?1:0;
         $data['link_button_content'] = isset($data['link_button_content']) ? getUri($data['link_button_content']) : null;
 
