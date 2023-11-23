@@ -17,6 +17,7 @@ class CreateCota04ContactsTable extends Migration
             $table->id();
             $table->string('slug')->nullable();
             $table->integer('compliance_id')->nullable();
+            $table->string('title_page')->nullable();
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
             $table->string('path_image_banner_desktop')->nullable();

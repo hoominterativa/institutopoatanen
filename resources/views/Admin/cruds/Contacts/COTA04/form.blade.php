@@ -2,6 +2,15 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
+                <div class="d-flex align-items-center mb-1">
+                    {!! Form::label('title_page', 'Título da Página', ['class'=>'form-label mb-0']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Título que é exibido no menu do site"></i>
+                </div>
+                {!! Form::text('title_page', null, ['class'=>'form-control', 'id'=>'title_page', 'required'=>true]) !!}
+            </div>
+            <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Form::label('title_banner', 'Título Banner', ['class' => 'form-label']) !!}
@@ -102,7 +111,7 @@
             <div class="d-flex">
                 <div class="mb-3 form-check me-3">
                     {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                    {!! Form::label('active', 'Ativar exibição ?', ['class' => 'form-check-label']) !!}
+                    {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
                 </div>
             </div>
         </div>

@@ -22,11 +22,12 @@ class COTA04ContactsFactory extends Factory
      */
     public function definition()
     {
-        $titleBanner = $this->faker->text(10);
+        $titlePage = $this->faker->text(10);
         return [
-            'slug' => Str::slug($titleBanner),
+            'slug' => Str::slug($titlePage),
+            'title_page' => $titlePage,
             'active' => 1,
-            'title_banner' => $titleBanner,
+            'title_banner' => $this->faker->text(8),
             'subtitle_banner' => $this->faker->text(10),
             'path_image_banner_desktop' => 'uploads/tmp/gall01_image2.png',
             'path_image_banner_mobile' => 'uploads/tmp/port01_path_image_box.png',
@@ -39,6 +40,7 @@ class COTA04ContactsFactory extends Factory
             "email_form" => $this->faker->email(),
             'title_compliance' => $this->faker->text(15),
             'subtitle_compliance' => $this->faker->text(10),
+            'compliance_id' => 1
         ];
     }
 }

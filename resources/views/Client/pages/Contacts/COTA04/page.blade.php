@@ -62,67 +62,89 @@
                                     <p>{!! $section->description !!}</p>
                                 </div>
                             </div>
-                            <div class="cota04__form__category">
-                                <ul class="nav">
-                                    @foreach ($section->categories as $category)
-                                        <li>
-                                            <button class="tab" data-tab="tab{{$category->id}}">
-                                                @if ($category->path_image)
-                                                    <img src="{{asset('storage/' . $category->path_image)}}" alt="" class="me-3 transition">
-                                                @endif
-                                                {{$category->title}}
-                                            </button>
-                                        </li>
-                                    @endforeach
-                                </ul>
-
-                                <div class="cota04__form__dropdown">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapse-1" aria-expanded="false"
-                                                    aria-controls="flush-collapseOne">
-                                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="prod05-categories__dropdown-mobile__item__icon">
-                                                    Categorias
+                            @if ($section->categories->count())
+                                <div class="cota04__form__category">
+                                    <ul class="nav">
+                                        @foreach ($section->categories as $category)
+                                            <li>
+                                                <button class="tab" data-tab="tab{{$category->id}}">
+                                                    @if ($category->path_image)
+                                                        <img src="{{asset('storage/' . $category->path_image)}}" alt="" class="me-3 transition">
+                                                    @endif
+                                                    {{$category->title}}
                                                 </button>
-                                            </h2>
-                                            <div id="flush-collapse-1" class="accordion-collapse collapse"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
-                                                    <ul>
-                                                        @foreach ($section->categories as $category)
-                                                            <li>
-                                                                <button class="tab" data-tab="tab{{$category->id}}">
-                                                                    <img src="{{asset('storage/' . $category->path_image)}}" alt="" class="me-3 transition">
-                                                                    {{$category->title}}
-                                                                </button>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
+                                    <div class="cota04__form__dropdown">
+                                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapse-1" aria-expanded="false"
+                                                        aria-controls="flush-collapseOne">
+                                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="prod05-categories__dropdown-mobile__item__icon">
+                                                        Categorias
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapse-1" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body">
+                                                        <ul>
+                                                            @foreach ($section->categories as $category)
+                                                                <li>
+                                                                    <button class="tab" data-tab="tab{{$category->id}}">
+                                                                        <img src="{{asset('storage/' . $category->path_image)}}" alt="" class="me-3 transition">
+                                                                        {{$category->title}}
+                                                                    </button>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="cota04__form__engInputs">
                                 @foreach ($section->forms as $form)
-                                    <div class="cota04__form__inputs tab-content tab{{$form->category_id}}">
-                                        <input type="hidden" name="target_lead" value="{{ $form->title_page }}">
-                                        <input type="hidden" name="target_send" value="{{ base64_encode($form->email_form) }}">
-                                        <div class="row">
-                                            @foreach (json_decode($form->inputs_form) as $name => $input)
-                                                @include('Client.Components.inputs', [
-                                                    'name' => $name,
-                                                    'options' => $input->option,
-                                                    'placeholder' => $input->placeholder,
-                                                    'type' => $input->type,
-                                                    'required' => isset($input->required) ? $input->required : false,
-                                                ])
-                                            @endforeach
+                                    @if ($form->category_id)
+                                        <div class="cota04__form__inputs tab-content tab{{$form->category_id}}">
+                                            <input type="hidden" name="target_lead" value="{{ $form->title_page }}">
+                                            <input type="hidden" name="target_send" value="{{ base64_encode($form->email_form) }}">
+                                            <div class="row">
+                                                @foreach (json_decode($form->inputs_form) as $name => $input)
+                                                    @include('Client.Components.inputs', [
+                                                        'name' => $name,
+                                                        'options' => $input->option,
+                                                        'placeholder' => $input->placeholder,
+                                                        'type' => $input->type,
+                                                        'required' => isset($input->required) ? $input->required : false,
+                                                    ])
+                                                @endforeach
+                                            </div>
                                         </div>
-                                    </div>
+                                    @else
+                                        <div class="">
+                                            <input type="hidden" name="target_lead" value="{{ $form->title_page }}">
+                                            <input type="hidden" name="target_send" value="{{ base64_encode($form->email_form) }}">
+                                            <div class="row">
+                                                @foreach (json_decode($form->inputs_form) as $name => $input)
+                                                    @include('Client.Components.inputs', [
+                                                        'name' => $name,
+                                                        'options' => $input->option,
+                                                        'placeholder' => $input->placeholder,
+                                                        'type' => $input->type,
+                                                        'required' => isset($input->required)
+                                                            ? $input->required
+                                                            : false,
+                                                    ])
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
                                 @endforeach
                                 {{-- fim-cota04__form__inputs --}}
                             </div>

@@ -10,7 +10,7 @@
             'sorting' => true,
             'limit' => 'all',
             'condition' => 'active=1{Ativos}',
-            'titleList' => 'title_banner',
+            'titleList' => 'title_page',
             'relation' => ''
         ],
         'config' => (object) [

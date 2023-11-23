@@ -56,7 +56,7 @@ class COTA04Controller extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
-        $data['slug'] = Str::slug($request->title_banner);
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
         $data['active'] = $request->active?1:0;
 
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
@@ -112,8 +112,7 @@ class COTA04Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-
-        $data['slug'] = Str::slug($request->title_banner);
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
 
         $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
         if($path_image_banner_desktop){
@@ -257,9 +256,7 @@ class COTA04Controller extends Controller
         switch(deviceDetect()){
             case 'mobile':
             case 'tablet':
-                if ($COTA04Contacts->path_image_banner_mobile != ''){
-                    $COTA04Contacts->path_image_banner_desktop = $COTA04Contacts->path_image_banner_mobile;
-                }
+                if ($COTA04Contacts) $COTA04Contacts->path_image_banner_desktop = $COTA04Contacts->path_image_banner_mobile;
                 break;
         }
 
@@ -290,9 +287,7 @@ class COTA04Controller extends Controller
         switch(deviceDetect()){
             case 'mobile':
             case 'tablet':
-                if ($contact->path_image_banner_mobile != ''){
-                    $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
-                }
+                if ($contact) $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
                 break;
         }
 

@@ -193,7 +193,7 @@
         </div>
         <div class="mb-3 form-check">
             {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-            {!! Form::label('active', 'Ativar exbição da página no site', ['class' => 'form-check-label']) !!}
+            {!! Form::label('active', 'Ativar exbição da página no site?', ['class' => 'form-check-label']) !!}
         </div>
     </div>
 

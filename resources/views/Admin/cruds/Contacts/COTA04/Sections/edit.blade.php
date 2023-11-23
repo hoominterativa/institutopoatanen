@@ -61,14 +61,14 @@
                     <div class="tab-pane" id="category">
                         @include('Admin.cruds.Contacts.COTA04.Category.index',[
                             'categories' => $serviceCategories,
-                        ]);
+                        ])
                     </div>
                     <div class="tab-pane" id="form">
                         @include('Admin.cruds.Contacts.COTA04.Form.index',[
                             'categories' => $categories,
                             'forms' => $forms,
                             'section' => $section
-                        ]);
+                        ])
                     </div>
                 </div> <!-- container -->
             </div>

@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Contacts' => (object) [
-            'COTA03' => (object)[
+            'COTA04' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -32,34 +32,9 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Contato',
                     'anchor' =>  false,
-                    'linkMenu' => 'cota03.page',
+                    'linkMenu' => 'cota04.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Contato',
-                    'iconPanel' => 'mdi-contacts'
-                ],
-                'IncludeSections' => (object) [
-                ]
-            ],
-            'COTA02' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title_page',
-                    'relation' => ''
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Contato2',
-                    'anchor' =>  false,
-                    'linkMenu' => 'cota02.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Contato2',
                     'iconPanel' => 'mdi-contacts'
                 ],
                 'IncludeSections' => (object) [

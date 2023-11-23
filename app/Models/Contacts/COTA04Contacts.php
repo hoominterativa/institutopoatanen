@@ -19,7 +19,7 @@ class COTA04Contacts extends Model
     protected $table = "cota04_contacts";
     protected $fillable = [
         'slug', 'compliance_id', 'active', 'sorting',
-        'title_banner','subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner',
+        'title_banner','subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner', 'title_page',
         'title_content', 'subtitle_content', 'description_content', 'path_image_content', 'title_button_form', 'email_form', 'title_compliance', 'subtitle_compliance',
     ];
 
