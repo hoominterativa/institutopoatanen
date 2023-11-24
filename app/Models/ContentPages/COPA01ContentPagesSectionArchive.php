@@ -17,11 +17,7 @@ class COPA01ContentPagesSectionArchive extends Model
 
     protected $table = "copa01_contentpages_sectionarchives";
     protected $fillable = [
-        'section_id',
-        'title',
-        'link',
-        'link_target',
-        'path_archive',
+        'contentPage_id', 'title', 'link', 'link_target', 'path_archive', 'sorting', 'active',
     ];
 
     public function scopeSorting($query)

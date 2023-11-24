@@ -15,13 +15,17 @@ class CreateCopa01ContentpagesSectionsTable extends Migration
     {
         Schema::create('copa01_contentpages_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('contentPage_id')->nullable();
+            //Banner
             $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->string('path_image_icon')->nullable();
-            $table->text('text')->nullable();
-            $table->integer('active')->default(0);
-            $table->integer('sorting')->default(0);
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('background_color')->nullable();
+            $table->integer('active_banner')->default(0);
+            //Section
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->text('description_section')->nullable();
+            $table->integer('active_section')->default(0);
             $table->timestamps();
         });
     }

@@ -11860,8 +11860,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT05/src/main */ "./resources/views/Client/Core/Footers/FOOT05/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contacts/COTA04/src/main */ "./resources/views/Client/pages/Contacts/COTA04/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/ContentPages/COPA01/src/main */ "./resources/views/Client/pages/ContentPages/COPA01/src/main.js");
+/* harmony import */ var _pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12033,39 +12033,13 @@ if (elementosAnimados.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contacts/COTA04/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contacts/COTA04/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./resources/views/Client/pages/ContentPages/COPA01/src/main.js":
+/*!**********************************************************************!*\
+  !*** ./resources/views/Client/pages/ContentPages/COPA01/src/main.js ***!
+  \**********************************************************************/
+/***/ (() => {
 
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(".box").each(function () {
-  // Encontre elementos de guia e conteúdo dentro da caixa atual
-  var $box = $(this);
-  var $tabs = $box.find(".tab");
-  var $tabContents = $box.find(".tab-content");
-  $tabs.on('click', function (event) {
-    event.preventDefault(); // Impede o comportamento padrão de rolagem
 
-    var tabClass = $(this).data("tab");
-
-    // Esconder todo o conteúdo da aba na caixa atual
-    $tabContents.removeClass("active-tab");
-
-    // Exibir apenas o conteúdo da aba selecionada na caixa atual
-    $box.find("." + tabClass).addClass("active-tab");
-
-    // Remover a classe 'active' de todas as abas na caixa atual
-    $tabs.removeClass("active");
-
-    // Adicionar a classe 'active' à aba selecionada na caixa atual
-    $(this).addClass("active");
-  });
-
-  // Ativar a primeira aba por padrão na caixa atual
-  $tabs.first().trigger("click");
-});
 
 /***/ }),
 

@@ -11,7 +11,7 @@
             'linkMenu' => 'copa02.page',
             'iconMenu' => '',
             'titlePanel' => 'Soluções',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-book-open-page-variant'
         ],
         'IncludeSections' => (object) [
             'Feedbacks' => ['FEED01'],

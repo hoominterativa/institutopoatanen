@@ -17,26 +17,20 @@ class COPA01ContentPagesSection extends Model
 
     protected $table = "copa01_contentpages_sections";
     protected $fillable = [
-        'contentPage_id',
-        'title',
-        'subtitle',
-        'path_image_icon',
-        'text',
-        'active',
+        //Banner
+        'title','path_image_desktop','path_image_mobile','background_color','active_banner',
+        //Section
+        'title_section', 'subtitle_section', 'description_section', 'active_section',
     ];
 
-    public function scopeSorting($query)
+    public function scopeActiveBanner($query)
     {
-        return $query->orderBy('sorting', 'ASC');
+        return $query->where('active_banner', 1);
     }
 
-    public function scopeActive($query)
+    public function scopeActiveSection($query)
     {
-        return $query->where('active', 1);
+        return $query->where('active_section', 1);
     }
 
-    public function archives()
-    {
-        return $this->hasMany(COPA01ContentPagesSectionArchive::class, 'section_id', 'id')->sorting();
-    }
 }

@@ -16,12 +16,7 @@ class COPA01ContentPages extends Model
     }
 
     protected $table = "copa01_contentpages";
-    protected $fillable = [
-        'title_page',
-        'slug',
-        'title_banner',
-        'path_image_banner',
-    ];
+    protected $fillable = ['title', 'subtitle', 'text','path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -33,8 +28,8 @@ class COPA01ContentPages extends Model
         return $query->where('active', 1);
     }
 
-    public function sections()
+    public function archives()
     {
-        return $this->hasMany(COPA01ContentPagesSection::class, 'contentPage_id', 'id')->with('archives')->sorting();
+        return $this->hasMany(COPA01ContentPagesSectionArchive::class, 'contentPage_id');
     }
 }

@@ -26,6 +26,8 @@ class COPA01SectionArchiveController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active ? 1 : 0;
+
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
         if($path_archive) $data['path_archive'] = $path_archive;
 
@@ -35,7 +37,6 @@ class COPA01SectionArchiveController extends Controller
             Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar arquivo');
         }
-        Session::flash('reopenModal', ['modal-archive-create-'.$request->section_id, 'modal-section-update-'.$request->section_id]);
         return redirect()->back();
     }
 
@@ -50,6 +51,8 @@ class COPA01SectionArchiveController extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
 
         $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
         if($path_archive){
@@ -68,7 +71,6 @@ class COPA01SectionArchiveController extends Controller
             Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar arquivo');
         }
-        Session::flash('reopenModal', ['modal-archive-create-'.$request->section_id, 'modal-section-update-'.$request->section_id]);
         return redirect()->back();
     }
 

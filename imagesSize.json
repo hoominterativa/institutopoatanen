@@ -986,16 +986,33 @@
     },
     "ContentPages": {
         "COPA01": {
-            "path_image_banner": {
-                "width": "1500",
-                "height": "400",
+            "path_image": {
+                "width": "300",
+                "height": "300",
                 "activeCrop": "false"
             },
             "Section": {
-                "path_image_icon": {
-                    "width": "400",
-                    "height": "400",
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "352",
                     "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "352",
+                    "activeCrop": "true"
+                }
+            },
+            "Topic": {
+                "path_image":{
+                    "width": "316",
+                    "height": "367",
+                    "activeCrop":"false"
+                },
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop":"false"
                 }
             }
         },

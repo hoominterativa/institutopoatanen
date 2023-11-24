@@ -15,11 +15,12 @@ class CreateCopa01ContentpagesSectionarchivesTable extends Migration
     {
         Schema::create('copa01_contentpages_sectionarchives', function (Blueprint $table) {
             $table->id();
-            $table->string('section_id')->nullable();
+            $table->foreignId('contentPage_id')->constrained('copa01_contentpages');
             $table->string('title')->nullable();
             $table->string('link')->nullable();
-            $table->enum('link_target',['_self', '_blankl'])->default('_self');
+            $table->enum('link_target',['_self', '_blank'])->default('_self');
             $table->string('path_archive')->nullable();
+            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

@@ -26,17 +26,25 @@ class COPA01SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+        if($request->active_banner) $data['active_banner'] = $request->active_banner?1:0;
+        if($request->active_section) $data['active_section'] = $request->active_section?1:0;
 
-        $data['active'] = $request->active?1:0;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        if($section = COPA01ContentPagesSection::create($data)){
-            Session::flash('success', 'Informações cadastradas com sucesso');
-            Session::flash('reopenModal', 'modal-section-update-'.$section->id);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+
+        if($request->active_banner) $data['active_banner'] = $request->active_banner?1:0;
+        if($request->active_section) $data['active_section'] = $request->active_section?1:0;
+
+        if(COPA01ContentPagesSection::create($data)){
+            Session::flash('success', 'Seção cadastrada com sucesso');
         }else{
-            Storage::delete($path_image_icon);
-            Session::flash('error', 'Erro ao cadastradar informações');
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+
+            Session::flash('error', 'Erro ao cadastradar a seção');
         }
         return redirect()->back();
     }
@@ -53,84 +61,36 @@ class COPA01SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if($path_image_icon){
-            storageDelete($COPA01ContentPagesSection, 'path_image_icon');
-            $data['path_image_icon'] = $path_image_icon;
+        if($request->active_banner) $data['active_banner'] = $request->active_banner?1:0;
+        if($request->active_section) $data['active_section'] = $request->active_section?1:0;
+
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if($path_image_desktop){
+            storageDelete($COPA01ContentPagesSection, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
         }
-        if($request->delete_path_image_icon && !$path_image_icon){
-            storageDelete($COPA01ContentPagesSection, 'path_image_icon');
-            $data['path_image_icon'] = null;
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($COPA01ContentPagesSection, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        $data['active'] = $request->active?1:0;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if($path_image_mobile){
+            storageDelete($COPA01ContentPagesSection, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($COPA01ContentPagesSection, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
+        }
 
         if($COPA01ContentPagesSection->fill($data)->save()){
-            Session::flash('success', 'Informações atualizadas com sucesso');
-            Session::flash('reopenModal', 'modal-section-update-'.$COPA01ContentPagesSection->id);
+            Session::flash('success', 'Seção atualizada com sucesso');
         }else{
-            Storage::delete($path_image_icon);
-            Session::flash('error', 'Erro ao atualizar informações');
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Session::flash('error', 'Erro ao atualizar a seção');
         }
         return redirect()->back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ContentPages\COPA01ContentPagesSection  $COPA01ContentPagesSection
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(COPA01ContentPagesSection $COPA01ContentPagesSection)
-    {
-        foreach($COPA01ContentPagesSection->archives as $archive){
-            storageDelete($archive, 'path_archive');
-            $archive->delete();
-        }
-
-        storageDelete($COPA01ContentPagesSection, 'path_image_icon');
-
-        if($COPA01ContentPagesSection->delete()){
-            Session::flash('success', 'Informações deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-        $COPA01ContentPagesSections = COPA01ContentPagesSection::whereIn('id', $request->deleteAll)->get();
-        foreach($COPA01ContentPagesSections as $COPA01ContentPagesSection){
-            foreach($COPA01ContentPagesSection->archives as $archive){
-                storageDelete($archive, 'path_archive');
-                $archive->delete();
-            }
-
-            storageDelete($COPA01ContentPagesSection, 'path_image_icon');
-        }
-
-        if($deleted = COPA01ContentPagesSection::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            COPA01ContentPagesSection::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
     }
 }

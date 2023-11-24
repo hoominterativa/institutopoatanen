@@ -22,12 +22,12 @@ class COPA01ContentPagesFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->text(15);
         return [
-            "title_page" => $title,
-            "slug" => Str::slug($title),
-            "title_banner" => $this->faker->text(15),
-            "path_image_banner" => 'uploads/tmp/bg-banner-inner.jpg',
+            "title" => $this->faker->text(10),
+            "subtitle" => $this->faker->text(15),
+            "text" => $this->faker->paragraph(3),
+            "path_image" => 'uploads/tmp/favicon.png',
+            "active" => 1
         ];
     }
 }

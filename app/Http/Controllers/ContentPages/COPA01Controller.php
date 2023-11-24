@@ -12,6 +12,7 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\ContentPages\COPA01ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA01ContentPagesSection;
+use App\Models\ContentPages\COPA01ContentPagesSectionArchive;
 
 class COPA01Controller extends Controller
 {
@@ -24,11 +25,23 @@ class COPA01Controller extends Controller
      */
     public function index()
     {
-        $contentPage = COPA01ContentPages::first();
-        $sections = COPA01ContentPagesSection::with('archives')->where('contentPage_id', $contentPage->id)->sorting()->get();
-        return view('Admin.cruds.ContentPages.COPA01.edit',[
-            'contentPage' => $contentPage,
-            'sections' => $sections,
+        $contentPages = COPA01ContentPages::sorting()->get();
+        $section = COPA01ContentPagesSection::first();
+        return view('Admin.cruds.ContentPages.COPA01.index',[
+            'contentPages' => $contentPages,
+            'section' => $section,
+            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('Admin.cruds.ContentPages.COPA01.create', [
             'cropSetting' => getCropImage('ContentPages', 'COPA01')
         ]);
     }
@@ -44,19 +57,35 @@ class COPA01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if($path_image) $data['path_image'] = $path_image;
 
-        $data['slug'] = Str::slug($request->title_page);
+        $data['active'] = $request->active ? 1 : 0;
 
         if($contentPage = COPA01ContentPages::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
             return redirect()->route('admin.copa01.edit', ['COPA01ContentPages' => $contentPage]);
         }else{
-            Storage::delete($path_image_banner);
+            Storage::delete($path_image);
             Session::flash('success', 'Erro ao cadastradar informações');
             return redirect()->back();
         }
+    }
+
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Brands\COPA01ContentPages  $COPA01ContentPages
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(COPA01ContentPages $COPA01ContentPages)
+    {
+        $archives = COPA01ContentPagesSectionArchive::where('contentPage_id', $COPA01ContentPages->id)->sorting()->get();
+        return view('Admin.cruds.ContentPages.COPA01.edit', [
+            'contentPage' => $COPA01ContentPages,
+            'archives' => $archives,
+            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+        ]);
     }
 
     /**
@@ -71,22 +100,22 @@ class COPA01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner){
-            storageDelete($COPA01ContentPages, 'path_image_banner');
-            $data['path_image_banner'] = $path_image_banner;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if($path_image){
+            storageDelete($COPA01ContentPages, 'path_image');
+            $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image_banner && !$path_image_banner){
-            storageDelete($COPA01ContentPages, 'path_image_banner');
-            $data['path_image_banner'] = null;
+        if($request->delete_path_image && !$path_image){
+            storageDelete($COPA01ContentPages, 'path_image');
+            $data['path_image'] = null;
         }
 
-        $data['slug'] = Str::slug($request->title_page);
+        $data['active'] = $request->active ? 1 : 0;
 
         if($COPA01ContentPages->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            Storage::delete($path_image_banner);
+            Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar informações');
         }
         return redirect()->back();
@@ -100,18 +129,15 @@ class COPA01Controller extends Controller
      */
     public function destroy(COPA01ContentPages $COPA01ContentPages)
     {
-        $sections = COPA01ContentPagesSection::where('contentPage_id', $COPA01ContentPages->id)->get();
-        foreach($sections as $section){
-            foreach($section->archives as $archive){
-                storageDelete($section, 'path_archive');
+        $archives = COPA01ContentPagesSectionArchive::where('contentPage_id', $COPA01ContentPages->id)->get();
+        foreach($archives as $archive){
+            foreach($archives as $archive){
+                storageDelete($archive, 'path_archive');
                 $archive->delete();
             }
-
-            storageDelete($section, 'path_image_icon');
-            $section->delete();
         }
 
-        storageDelete($COPA01ContentPages, 'path_image_banner');
+        storageDelete($COPA01ContentPages, 'path_image');
 
         if($COPA01ContentPages->delete()){
             Session::flash('success', 'Informações deletadas com sucessso');
@@ -129,18 +155,15 @@ class COPA01Controller extends Controller
     {
         $COPA01ContentPagess = COPA01ContentPages::whereIn('id', $request->deleteAll)->get();
         foreach($COPA01ContentPagess as $COPA01ContentPages){
-            $sections = COPA01ContentPagesSection::where('contentPage_id', $COPA01ContentPages->id)->get();
-            foreach($sections as $section){
-                foreach($section->archives as $archive){
+            $archives = COPA01ContentPagesSectionArchive::where('contentPage_id', $COPA01ContentPages->id)->get();
+            foreach($archives as $archive){
+                foreach($archives as $archive){
                     storageDelete($archive, 'path_archive');
                     $archive->delete();
                 }
-
-                storageDelete($section, 'path_image_icon');
-                $section->delete();
             }
 
-            storageDelete($COPA01ContentPages, 'path_image_banner');
+            storageDelete($COPA01ContentPages, 'path_image');
         }
 
         if($deleted = COPA01ContentPages::whereIn('id', $request->deleteAll)->delete()){
@@ -175,11 +198,11 @@ class COPA01Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA01');
 
-        $contentPage = COPA01ContentPages::with('sections')->first();
+        $contentPages = COPA01ContentPages::with(['archives' => function ($query) {$query->where(['active' => 1]);}])->first();
 
         return view('Client.pages.ContentPages.COPA01.page',[
             'sections' => $sections,
-            'contentPage' => $contentPage
+            'contentPages' => $contentPages
         ]);
     }
 }

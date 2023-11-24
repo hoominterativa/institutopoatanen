@@ -22,9 +22,17 @@ class COPA01ContentPagesSectionFactory extends Factory
     public function definition()
     {
         return [
-            // 'title' => $this->faker->text(10),
-            // 'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,
+            //Banner
+            'title' => $this->faker->text(10),
+            'path_image_desktop' => 'uploads/tmp/gall01_image1.png',
+            'path_image_mobile' => 'uploads/tmp/bg-boxitem-light.png',
+            'background_color' => '#FFFFFF',
+            'active_banner' => 1,
+            //Section
+            'title_section' => $this->faker->text(10),
+            'subtitle_section' => $this->faker->text(12),
+            'description_section' => $this->faker->text(400),
+            'active_section' => 1
         ];
     }
 }
