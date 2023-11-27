@@ -50,16 +50,18 @@
                 {{-- Área nova --}}
                 @if ($topics->count())
                     <div>
-                        <div>
-                            <h2 class="">
-                                <span class="">{{$section->title_section}}</span>
-                                <span class="">{{$section->subtitle_section}}</span>
-                                <hr class="">
-                            </h2>
-                            <div class="">
-                                {!!$section->description_section!!}
+                        @if (isset($section->active_section))
+                            <div>
+                                <h2 class="">
+                                    <span class="">{{$section->title_section}}</span>
+                                    <span class="">{{$section->subtitle_section}}</span>
+                                    <hr class="">
+                                </h2>
+                                <div class="">
+                                    {!!$section->description_section!!}
+                                </div>
                             </div>
-                        </div>
+                        @endif
                         <div>
                             @foreach ($topics as $topic)
                                 @if ($topic->path_image)
