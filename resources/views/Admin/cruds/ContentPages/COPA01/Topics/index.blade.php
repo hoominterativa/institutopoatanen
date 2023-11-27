@@ -4,10 +4,10 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{route('admin.copa01.archive.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{route('admin.copa01.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="javascript:void(0)"  data-bs-target="#modal-archive-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-topic-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -15,36 +15,33 @@
                         <tr>
                             <th width="50px"></th>
                             <th width="30px" class="bs-checkbox">
-                                <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
+                                <label><input name="btnSelectAll" value="btnDeleteTopics" type="checkbox"></label>
                             </th>
+                            <th>Imagem</th>
                             <th>Título</th>
-                            <th>Arquivo</th>
-                            <th>Link</th>
+                            <th>Descrição</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{route('admin.copa01.archive.sorting')}}">
-                        @foreach ($archives as $archive)
-                            <tr data-code="{{$archive->id}}">
+                    <tbody data-route="{{route('admin.copa01.topic.sorting')}}">
+                        @foreach ($topics as $topic)
+                            <tr data-code="{{$topic->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$archive->id}}"></label>
+                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                 </td>
-                                <td class="align-middle">{{$archive->title}}</td>
-                                <td class="align-middle">
-                                    @if ($archive->path_archive)
-                                        <a href="{{asset('storage/'.$archive->path_archive)}}" target="_blank" rel="noopener noreferrer"><i class="mdi mdi-cloud-download font-20"></i></a>
+                                <td class="align-middle avatar-group">
+                                    @if ($topic->path_image || $topic->path_image_icon)
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image)}})"></div>
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_icon)}})"></div>
                                     @endif
                                 </td>
+                                <td class="align-middle">{{$topic->title}}</td>
+                                <td class="align-middle">{!! substr($topic->description, 0, 25) !!}<b>...</b></td>
                                 <td class="align-middle">
-                                    @if ($archive->link)
-                                        <a href="{{ $archive->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
-                                    @endif
-                                </td>
-                                <td class="align-middle">
-                                    @if ($archive->active)
+                                    @if ($topic->active)
                                         <span class="badge bg-success">Ativo</span>
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
@@ -53,30 +50,30 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="javascript:void(0)" data-bs-target="#modal-archive-update-{{$archive->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                            <a href="javascript:void(0)" data-bs-target="#modal-topic-update-{{$topic->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.copa01.archive.destroy',['COPA01ContentPagesSectionArchive' => $archive->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.copa01.topic.destroy',['COPA01ContentPagesTopic' => $topic->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
-                                        {{-- BEGIN MODAL ARCHIVES UPDATE --}}
-                                        <div id="modal-archive-update-{{$archive->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                        {{-- BEGIN MODAL TOPICS UPDATE --}}
+                                        <div id="modal-topic-update-{{$topic->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                             <div class="modal-dialog" style="max-width: 1100px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
-                                                        <h4 class="page-title">Editar Arquivo</h4>
+                                                        <h4 class="page-title">Editar tópico</h4>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.ContentPages.COPA01.Archives.form',[
-                                                            'archive' => $archive
+                                                        @include('Admin.cruds.ContentPages.COPA01.Topics.form',[
+                                                            'topic' => $topic
                                                         ])
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- END MODAL ARCHIVES UPDATE --}}
+                                        {{-- END MODAL TOPICS UPDATE --}}
                                     </div>
                                 </td>
                             </tr>
@@ -89,8 +86,8 @@
 </div>
 <!-- end row -->
 
-{{-- BEGIN MODAL ARCHIVES CREATE --}}
-<div id="modal-archive-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+{{-- BEGIN MODAL TOPICS CREATE --}}
+<div id="modal-topic-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" style="max-width: 1100px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
@@ -99,11 +96,11 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.ContentPages.COPA01.Archives.form',[
-                    'archive' => null
+                @include('Admin.cruds.ContentPages.COPA01.Topics.form',[
+                    'topic' => null
                 ])
             </div>
         </div>
     </div>
 </div>
-{{-- END MODAL ARCHIVES CREATE --}}
+{{-- END MODAL TOPICS CREATE --}}

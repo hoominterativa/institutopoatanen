@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ContentPages\COPA01SectionArchiveController;
-use App\Http\Controllers\ContentPages\COPA01SectionController;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContentPages\COPA01TopicController;
+use App\Http\Controllers\ContentPages\COPA01SectionController;
+use App\Http\Controllers\ContentPages\COPA01SectionArchiveController;
 
 /**
  * Uncomment the code below
@@ -34,6 +35,8 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/archives', COPA01SectionArchiveController::class)->names('admin.'.$routeName.'.archive')->parameters(['archives' => 'COPA01ContentPagesSectionArchive']);
     Route::post($route.'/archives/delete', [COPA01SectionArchiveController::class, 'destroySelected'])->name('admin.'.$routeName.'.archive.destroySelected');
     Route::post($route.'/archives/sorting', [COPA01SectionArchiveController::class, 'sorting'])->name('admin.'.$routeName.'.archive.sorting');
+    // TOPICS
+    Route::resource($route.'/topicos', COPA01TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'COPA01ContentPagesTopic']);
+    Route::post($route.'/topicos/delete', [COPA01TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topicos/sorting', [COPA01TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
 });
-// CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

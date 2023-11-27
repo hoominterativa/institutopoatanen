@@ -4,40 +4,46 @@
 @else
     {!! Form::model(null, ['route' => ['admin.copa01.archive.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
 @endif
-    <input type="hidden" name="section_id" value="{{$section->id}}">
+    <input type="hidden" name="contentPage_id" value="{{$contentPage->id}}">
     <div class="row">
         <div class="col-12 col-lg-6">
-            <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required'=>true]) !!}
-            </div>
-            <div class="alert alert-warning">
-                <p class="mb-0">O campo de link abaixo só deverá ser preenchido caso não exista um arquivo.</p>
-            </div>
-            <div class="row">
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('link', 'Link', ['class'=>'form-label']) !!}
-                    {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'link']) !!}
+            <div class="card card-body border" id="tooltip-container">
+                <div class="mb-3">
+                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required'=>true]) !!}
                 </div>
-                <div class="mb-3 col-12 col-lg-6">
-                    {!! Form::label('link_target', 'Abrir link em', ['class'=>'form-label']) !!}
-                    {!! Form::select('link_target', ['_self' => 'Mesma aba', '_blank' => 'Nova aba'], null, [
-                        'class'=>'form-select',
-                        'id'=>'link_target'
+                <div class="alert alert-warning">
+                    <p class="mb-0">O campo de link abaixo só deverá ser preenchido caso não exista um arquivo.</p>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-12 col-lg-6">
+                        {!! Form::label('link', 'Link', ['class'=>'form-label']) !!}
+                        {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'link']) !!}
+                    </div>
+                    <div class="mb-3 col-12 col-lg-6">
+                        {!! Form::label('link_target', 'Abrir link em', ['class'=>'form-label']) !!}
+                        {!! Form::select('link_target', ['_self' => 'Mesma aba', '_blank' => 'Nova aba'], null, ['class'=>'form-select','id'=>'link_target']) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="mb-3 form-check me-3">
+                    {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                    {!! Form::label('active', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 ">
+            <div class="card card-body border" id="tooltip-container">
+                <div class="mb-3">
+                    {!! Form::label('file', 'Arquivo', ['class'=>'form-label']) !!}
+                    {!! Form::file('path_archive', [
+                        'data-plugins'=>'dropify',
+                        'data-height'=>'180',
+                        'data-max-file-size-preview'=>'2M',
+                        'data-default-file'=> isset($archive)?($archive->path_archive<>''?url('storage/'.$archive->path_archive):''):'',
                     ]) !!}
                 </div>
-            </div>
-
-        </div>
-        <div class="col-12 col-lg-6">
-            <div class="mb-3">
-                {!! Form::label('file', 'Arquivo', ['class'=>'form-label']) !!}
-                {!! Form::file('path_archive', [
-                    'data-plugins'=>'dropify',
-                    'data-height'=>'180',
-                    'data-max-file-size-preview'=>'2M',
-                    'data-default-file'=> isset($archive)?($archive->path_archive<>''?url('storage/'.$archive->path_archive):''):'',
-                ]) !!}
             </div>
         </div>
     </div>

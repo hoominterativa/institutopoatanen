@@ -21,24 +21,24 @@
                 <!-- end page title -->
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#infoPage" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
-                            Informações da Página
+                        <a href="#editContentPage" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                            {{getTitleModel($configModelsMain, 'ContentPages', 'COPA01')}}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações como título e banner da página"></i>
+                                data-bs-original-title="Edição do conteúdo principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sectionsPage" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                            Seções da Página
+                        <a href="#archives" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                            Arquivos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Conteúdo que será exibido como seções na págima"></i>
+                                data-bs-original-title="Cadastro de conteúdo para download ou links"></i>
                         </a>
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active show" id="infoPage">
+                    <div class="tab-pane active show" id="editContentPage">
                         {!! Form::model($contentPage, ['route' => ['admin.copa01.update', $contentPage->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
                             @include('Admin.cruds.ContentPages.COPA01.form')
                             {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
@@ -47,10 +47,10 @@
                     </div>
                     {{-- END #infoPage --}}
 
-                    <div class="tab-pane" id="sectionsPage">
-                        @include('Admin.cruds.ContentPages.COPA01.Sections.index',[
+                    <div class="tab-pane" id="archives">
+                        @include('Admin.cruds.ContentPages.COPA01.Archives.index',[
                             'contentPage' => $contentPage,
-                            'sections' => $sections
+                            'archives' => $archives
                         ])
                     </div>
                     {{-- END #listArchives --}}

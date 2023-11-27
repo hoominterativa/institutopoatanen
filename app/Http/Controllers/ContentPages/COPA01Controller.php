@@ -13,6 +13,7 @@ use App\Models\ContentPages\COPA01ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA01ContentPagesSection;
 use App\Models\ContentPages\COPA01ContentPagesSectionArchive;
+use App\Models\ContentPages\COPA01ContentPagesTopic;
 
 class COPA01Controller extends Controller
 {
@@ -27,9 +28,11 @@ class COPA01Controller extends Controller
     {
         $contentPages = COPA01ContentPages::sorting()->get();
         $section = COPA01ContentPagesSection::first();
+        $topics = COPA01ContentPagesTopic::sorting()->get();
         return view('Admin.cruds.ContentPages.COPA01.index',[
             'contentPages' => $contentPages,
             'section' => $section,
+            'topics' => $topics,
             'cropSetting' => getCropImage('ContentPages', 'COPA01')
         ]);
     }
@@ -198,11 +201,22 @@ class COPA01Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA01');
 
-        $contentPages = COPA01ContentPages::with(['archives' => function ($query) {$query->where(['active' => 1]);}])->first();
+        $contentPages = COPA01ContentPages::with(['archives' => function ($query) {$query->where(['active' => 1]);}])->active()->sorting()->get();
+        $section = COPA01ContentPagesSection::first();
+        $topics = COPA01ContentPagesTopic::active()->sorting()->get();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+            break;
+        }
 
         return view('Client.pages.ContentPages.COPA01.page',[
             'sections' => $sections,
-            'contentPages' => $contentPages
+            'contentPages' => $contentPages,
+            'section' => $section,
+            'topics' => $topics
         ]);
     }
 }
