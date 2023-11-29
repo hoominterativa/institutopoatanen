@@ -193,9 +193,6 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($content->path_image_icon)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_icon)}})"></div>
-                                                            @endif
                                                             @if ($content->path_image_desktop)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_desktop)}})"></div>
                                                             @endif
@@ -229,11 +226,6 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-
-                                        {{-- PAGINATION --}}
-                                        <div class="mt-3 float-end">
-                                            {{$contents->links()}}
-                                        </div>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->

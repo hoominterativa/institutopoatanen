@@ -25,10 +25,8 @@ class CreateCopa02ContentpagesTable extends Migration
 
             $table->string('title_button')->nullable();
             $table->string('link_button')->nullable();
-            $table->string('path_image_icon')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
 
-            // $table->enum('image_position', ['_left', '_right'])->default('_left');
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

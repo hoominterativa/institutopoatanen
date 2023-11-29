@@ -13,8 +13,6 @@
             'titlePanel' => 'Soluções',
             'iconPanel' => 'mdi-book-open-page-variant'
         ],
-        'IncludeSections' => (object) [
-            'Feedbacks' => ['FEED01'],
-        ]
+        'IncludeSections' => (object) []
     ],
 ],

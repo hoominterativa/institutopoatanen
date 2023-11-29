@@ -27,7 +27,7 @@ class COPA02Controller extends Controller
      */
     public function index()
     {
-        $contents = COPA02ContentPages::sorting()->paginate(15);
+        $contents = COPA02ContentPages::sorting()->get();
         $sectionContent = COPA02ContentPagesSectionContent::first();
         $pageSections = COPA02ContentPagesSection::sorting()->get();
         $topics = COPA02ContentPagesTopic::sorting()->get();
@@ -73,9 +73,6 @@ class COPA02Controller extends Controller
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
-
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
@@ -88,7 +85,6 @@ class COPA02Controller extends Controller
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_desktop);
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar a página de conteúdo');
             return redirect()->back();
@@ -134,16 +130,6 @@ class COPA02Controller extends Controller
             $data['path_image_box'] = null;
         }
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon){
-            storageDelete($COPA02ContentPages, 'path_image_icon');
-            $data['path_image_icon'] = $path_image_icon;
-        }
-        if($request->delete_path_image_icon && !$path_image_icon){
-            storageDelete($COPA02ContentPages, 'path_image_icon');
-            $data['path_image_icon'] = null;
-        }
-
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){
             storageDelete($COPA02ContentPages, 'path_image_desktop');
@@ -169,7 +155,6 @@ class COPA02Controller extends Controller
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_desktop);
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar a página de conteúdo');
         }
@@ -185,7 +170,6 @@ class COPA02Controller extends Controller
     public function destroy(COPA02ContentPages $COPA02ContentPages)
     {
         storageDelete($COPA02ContentPages, 'path_image_box');
-        storageDelete($COPA02ContentPages, 'path_image_icon');
         storageDelete($COPA02ContentPages, 'path_image_desktop');
         storageDelete($COPA02ContentPages, 'path_image_mobile');
 
@@ -206,7 +190,6 @@ class COPA02Controller extends Controller
         $COPA02ContentPagess = COPA02ContentPages::whereIn('id', $request->deleteAll)->get();
         foreach($COPA02ContentPagess as $COPA02ContentPages){
             storageDelete($COPA02ContentPages, 'path_image_box');
-            storageDelete($COPA02ContentPages, 'path_image_icon');
             storageDelete($COPA02ContentPages, 'path_image_desktop');
             storageDelete($COPA02ContentPages, 'path_image_mobile');
         }

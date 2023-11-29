@@ -30,10 +30,8 @@ class COPA02ContentPagesFactory extends Factory
             'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
             'background_color' => '#FFFFFF',
             'title_button' => $this->faker->text(10),
-            'link_button' => 'www.lorempixel.com',
+            'link_button' => $this->faker->url(),
             'target_link_button' => '_blank',
-            'path_image_icon' => 'uploads/tmp/favicon.png',
-            // 'image_position' => $this->faker->randomElement(['left', 'right']),
             'active' => 1,
         ];
     }

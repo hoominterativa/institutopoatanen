@@ -1032,11 +1032,6 @@
                 "height": "1062",
                 "activeCrop": "true"
             },
-            "path_image_icon": {
-                "width": "400",
-                "height": "400",
-                "activeCrop": "false"
-            },
             "SectionContent": {
                 "path_image_desktop": {
                     "width": "1500",

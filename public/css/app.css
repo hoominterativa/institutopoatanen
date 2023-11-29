@@ -2321,102 +2321,747 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.copa01-page__header {
+@media (max-width: 767.98px) {
+  .copa02-page .row--boxStandard {
+    margin: 0 auto;
+  }
+}
+.copa02-page__assortedBox__header {
   text-align: center;
-  background-color: #EFEFEF;
-  padding: 87px 0;
   margin: 0;
+  padding-bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.copa01-page__header__container {
-  margin-bottom: 25px;
+.copa02-page__assortedBox__header .container-assortedBox--copa02-page {
+  padding: 123px 0 59px 0;
 }
-.copa01-page__header__title {
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__header .container-assortedBox--copa02-page {
+    padding: 108px 0 46px 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.copa02-page__assortedBox__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.18);
+}
+.copa02-page__assortedBox__header__encompass {
+  z-index: 100;
+  position: relative;
+}
+.copa02-page__assortedBox__header__title {
   font-size: 3.125rem;
   font-family: "Ubuntu", sans-serif, arial;
   color: #000;
+  font-weight: 700;
   display: block;
+  margin-bottom: 8px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .copa01-page__header__title {
-    font-size: 1.875rem;
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__header__title {
+    font-size: 2.5rem;
+    font-weight: 700;
   }
 }
-.copa01-page__content {
-  padding: 45px 0 120px;
+.copa02-page__assortedBox__header__subtitle {
+  font-size: 1.875rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+  display: block;
 }
-.copa01-page__content__icon {
-  width: 36px;
-  margin: 10px auto;
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__header__subtitle {
+    font-size: 1.563rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__assortedBox__header__line {
+  background-color: #000;
+  margin: 0 auto;
+  margin-top: 10px;
   display: table;
+  opacity: 1;
+  border: none;
+  height: 1px;
+  width: 100%;
 }
-.copa01-page__content__container {
-  text-align: center;
-  margin-bottom: 35px;
+.copa02-page__assortedBox__boxStandard__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.18);
 }
-.copa01-page__content__title {
+.copa02-page__assortedBox__boxStandard:nth-of-type(even) .copa02-page__assortedBox__boxStandard__image {
+  order: 2;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard:nth-of-type(even) .copa02-page__assortedBox__boxStandard__image {
+    order: inherit;
+  }
+}
+.copa02-page__assortedBox__boxStandard:nth-of-type(even) .copa02-page__assortedBox__boxStandard__description {
+  order: 1;
+  padding-left: 0 !important;
+  padding-right: 64px !important;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard:nth-of-type(even) .copa02-page__assortedBox__boxStandard__description {
+    order: inherit;
+    padding-right: 0 !important;
+  }
+}
+.copa02-page__assortedBox__boxStandard .container--boxStandard {
+  padding: 90px 0 126px 0;
+  z-index: 100;
+  position: relative;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard .container--boxStandard {
+    padding: 97px 0 73px 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.copa02-page__assortedBox__boxStandard__image {
+  height: 473px;
+  max-width: 655px;
+  min-width: 300px;
+  width: 100%;
+  padding: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__image {
+    height: 245px;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+.copa02-page__assortedBox__boxStandard__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.copa02-page__assortedBox__boxStandard__description {
+  padding-left: 64px !important;
+  padding-right: 0 !important;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description {
+    padding-top: 33px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+.copa02-page__assortedBox__boxStandard__description__title {
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description__title {
+    font-size: 1.063rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__assortedBox__boxStandard__description__subtitle {
   font-size: 2.5rem;
   font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
   color: #404040;
-  display: block;
+  font-weight: 700;
+  margin-bottom: 0;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .copa01-page__content__title {
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description__subtitle {
     font-size: 1.875rem;
+    font-weight: 700;
   }
 }
-.copa01-page__content__subtitle {
-  font-size: 1.25rem;
+.copa02-page__assortedBox__boxStandard__description__line {
+  background-color: #404040;
+  margin: 0 auto;
+  margin-top: 21px;
+  margin-bottom: 50px;
+  display: table;
+  opacity: 1;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+.copa02-page__assortedBox__boxStandard__description__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__assortedBox__boxStandard__description__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description__paragraph p {
+    font-size: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__assortedBox__boxStandard__description__cta {
+  margin-left: auto;
+  margin-top: 28px;
+  float: right;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 43px;
+  }
+}
+.copa02-page__assortedBox__boxStandard__description__cta__link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #404040;
+  background: #cacaca;
+  border: 1px solid #cacaca;
+  width: 100%;
+  max-width: 190px;
+  min-width: 177px;
+  height: 45px;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
-  color: #404040;
-  display: block;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .copa01-page__content__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.copa01-page__content__line {
-  width: 100%;
-  background-color: #404040;
-  margin-bottom: 35px;
-}
-.copa01-page__content__paragraph {
+  display: flex;
+  gap: 0 16.87px;
   font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  padding: 0 30px;
-  color: #404040;
-  line-height: 25px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .copa01-page__content__paragraph {
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description__cta__link {
+    max-width: 159px;
+    min-width: 159px;
+    height: 40px;
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.copa01-page__archives {
-  margin-top: 50px;
+.copa02-page__assortedBox__boxStandard__description__cta__icon {
+  height: 25px;
+  width: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
-.copa01-page__archives__item {
-  font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-  display: table;
-  margin: 0 25px 0 0;
-  max-width: 100%;
-  padding: 10px 15px;
-  background-color: #cacaca;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .copa01-page__archives__item {
-    font: 0.938rem "Montserrat", sans-serif, arial;
+@media (max-width: 767.98px) {
+  .copa02-page__assortedBox__boxStandard__description__cta__icon {
+    height: 22.58px;
+    width: 22.58px;
   }
 }
-.copa01-page__archives__item:hover {
+.copa02-page__assortedBox__boxStandard__description__cta:hover .copa02-page__assortedBox__boxStandard__description__cta__link {
   color: #fff;
   background-color: #000;
 }
-.copa01-page__archives__item:hover .copa01__archives__item__icon {
+.copa02-page__assortedBox__boxStandard__description__cta:hover .copa02-page__assortedBox__boxStandard__description__cta__link .copa02-page__assortedBox__boxStandard__description__cta__img {
+  filter: invert(1) grayscale(1);
+}
+.copa02-page__emphasis__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.18);
+}
+.copa02-page__emphasis__header {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 0;
+  position: relative;
+  z-index: 100;
+}
+.copa02-page__emphasis__header .container-emphasis--copa02-page {
+  padding: 129px 0 59px 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__emphasis__header .container-emphasis--copa02-page {
+    padding: 60px 0 53px 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.copa02-page__emphasis__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.73);
+}
+@media (max-width: 767.98px) {
+  .copa02-page__emphasis__header {
+    padding: 54px 0;
+  }
+}
+.copa02-page__emphasis__header__encompass {
+  z-index: 100;
+  position: relative;
+}
+.copa02-page__emphasis__header__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  font-weight: 700;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__emphasis__header__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__emphasis__header__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #b3b3b3;
+  font-weight: 700;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__emphasis__header__subtitle {
+    font-size: 1.563rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__emphasis__header__line {
+  background-color: #404040;
+  margin: 0 auto;
+  margin-top: 17.03px;
+  margin-bottom: 30px;
+  display: table;
+  opacity: 1;
+  border: none;
+  height: 1px;
+  width: 100%;
+  max-width: 698px;
+}
+.copa02-page__emphasis__header__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__emphasis__header__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__emphasis__header__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__emphasis__header__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__boxTopic .container--copa02-page-boxTopic {
+  padding: 90px 0 126px 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic .container--copa02-page-boxTopic {
+    width: 90%;
+    margin: 0 auto;
+    padding: 71px 0 71.4px 0;
+  }
+}
+.copa02-page__boxTopic .carousel-topics-copa02-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 57.65px;
+  flex-direction: column;
+}
+.copa02-page__boxTopic .carousel-topics-copa02-page .owl-dots {
+  display: flex;
+  gap: 0 5px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 55.86px;
+}
+.copa02-page__boxTopic .carousel-topics-copa02-page .owl-dot {
+  height: 23px;
+  width: 24px;
+  background: #7c7c7c;
+}
+.copa02-page__boxTopic .carousel-topics-copa02-page .owl-dot.active {
+  background: #000;
+}
+.copa02-page__boxTopic__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.18);
+}
+.copa02-page__boxTopic__header {
+  text-align: center;
+  margin-bottom: 58px;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__header {
+    margin-bottom: 47px;
+  }
+}
+.copa02-page__boxTopic__header .container-emphasis--copa02-page {
+  padding: 129px 0 59px 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__header .container-emphasis--copa02-page {
+    width: 90%;
+    margin: 0 auto;
+    padding: 129px 0 59px 0;
+  }
+}
+.copa02-page__boxTopic__header__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.18);
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__header {
+    padding: 54px 0;
+  }
+}
+.copa02-page__boxTopic__header__encompass {
+  z-index: 100;
+  position: relative;
+}
+.copa02-page__boxTopic__header__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__header__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__boxTopic__header__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #b3b3b3;
+  font-weight: 700;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__header__subtitle {
+    font-size: 1.563rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__boxTopic__header__line {
+  background-color: #000;
+  margin: 0 auto;
+  margin-top: 17.03px;
+  margin-bottom: 30px;
+  display: table;
+  opacity: 1;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+.copa02-page__boxTopic__header__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  display: block;
+  max-width: 1096px;
+  width: 100%;
+  margin: 0 auto;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__header__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__boxTopic__header__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__header__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__boxTopic__item__image {
+  height: 281.39px;
+  width: 100%;
+}
+.copa02-page__boxTopic__item__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.copa02-page__boxTopic__item__description {
+  padding: 25.68px 20.1px;
+  background-color: #cacaca;
+}
+.copa02-page__boxTopic__item__description__title {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 13.4px;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__item__description__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__boxTopic__item__description__subtitle {
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 700;
+  margin-bottom: 25.68px;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__item__description__subtitle {
+    font-size: 1.563rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__boxTopic__item__description__paragraph {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__item__description__paragraph {
+    font: 0.813rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__boxTopic__item__description__paragraph p {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxTopic__item__description__paragraph p {
+    font-size: 0.813rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__boxContent__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.18);
+}
+.copa02-page__boxContent .container--copa02-page-boxContent {
+  padding: 90px 0 126px 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent .container--copa02-page-boxContent {
+    width: 90%;
+    margin: 0 auto;
+    padding: 35px 0 80px 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent .row--copa02-page-boxContent {
+    margin: 0 auto;
+  }
+}
+.copa02-page__boxContent__item__image {
+  height: 473px;
+  max-width: 655px;
+  min-width: 300px;
+  width: 100%;
+  padding: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__image {
+    max-width: 100%;
+    min-width: 100%;
+    height: 245px;
+  }
+}
+.copa02-page__boxContent__item__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.copa02-page__boxContent__item__description {
+  padding-left: 64px !important;
+  padding-right: 0 !important;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 35px;
+  }
+}
+.copa02-page__boxContent__item__description__title {
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description__title {
+    font-size: 1.063rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__boxContent__item__description__subtitle {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description__subtitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+}
+.copa02-page__boxContent__item__description__line {
+  background-color: #000;
+  margin: 0 auto;
+  margin-top: 21px;
+  margin-bottom: 44px;
+  display: table;
+  opacity: 1;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+.copa02-page__boxContent__item__description__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description__paragraph {
+    font-size: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__boxContent__item__description__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    font-weight: 400;
+  }
+}
+.copa02-page__boxContent__item__description__cta {
+  margin-left: auto;
+  margin-top: 28px;
+  float: right;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+    margin-top: 43px;
+  }
+}
+.copa02-page__boxContent__item__description__cta__link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #404040;
+  background: #cacaca;
+  border: 1px solid #cacaca;
+  width: 100%;
+  max-width: 190px;
+  min-width: 177px;
+  height: 45px;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  display: flex;
+  gap: 0 16.87px;
+  font: 1rem "Montserrat", sans-serif, arial;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description__cta__link {
+    max-width: 159px;
+    min-width: 159px;
+    height: 40px;
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.copa02-page__boxContent__item__description__cta__icon {
+  height: 25px;
+  width: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (max-width: 767.98px) {
+  .copa02-page__boxContent__item__description__cta__icon {
+    height: 22.58px;
+    width: 22.58px;
+  }
+}
+.copa02-page__boxContent__item__description__cta:hover .copa02-page__boxContent__item__description__cta__link {
+  color: #fff;
+  background-color: #000;
+}
+.copa02-page__boxContent__item__description__cta:hover .copa02-page__boxContent__item__description__cta__link .copa02-page__boxContent__item__description__cta__img {
   filter: invert(1) grayscale(1);
 }
 

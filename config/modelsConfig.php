@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'ContentPages' => (object) [
-            'COPA01' => (object)[
+            'COPA02' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -24,14 +24,14 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Soluções',
                     'anchor' =>  false,
-                    'linkMenu' => 'copa01.page',
+                    'linkMenu' => 'copa02.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Soluções',
                     'iconPanel' => 'mdi-book-open-page-variant'
                 ],
                 'IncludeSections' => (object) []
             ],
-        ]
+        ],
     ],
 
     'ModelsForm' => (object)[
