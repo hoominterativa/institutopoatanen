@@ -17,6 +17,8 @@
     <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
     <link rel="canonical" href="{{url(Route::current()->uri)}}">
     <link rel="stylesheet" href="{{asset(mix('css/libraries.css'))}}">
+    <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
+    <link rel="stylesheet" href="{{asset(mix('css/icons.css'))}}">
     <script>
         $url = "{{url('')}}";
     </script>
@@ -33,8 +35,7 @@
         {!!$renderFooter!!}
     </footer>
 
-    <link rel="stylesheet" href="{{asset(mix('css/app.css'))}}">
-    <link rel="stylesheet" href="{{asset(mix('css/icons.css'))}}">
+
     <script src="{{asset(mix('js/app.js'))}}"></script>
 
     @if ($themeMenu)

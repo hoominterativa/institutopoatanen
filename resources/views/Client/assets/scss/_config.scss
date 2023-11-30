@@ -722,7 +722,7 @@ body {
     background-repeat: no-repeat;
 
     .container--pd{
-        
+
     }
     &__boxLeft{
         padding: 0 38px;
@@ -735,7 +735,7 @@ body {
                 color: $color-black;
                 margin-bottom: 17px;
                 font-weight: $weight-700;
-    
+
                 @include small-device {
                     font-size: $T3-mobile;
                 }
@@ -743,21 +743,21 @@ body {
             &__paragraph {
                 max-width: 592px;
                 width: 100%;
-    
+
                 @include small-device {
                     width: 100%;
                 }
-    
+
                 p {
                     font: $paragraph;
                     font-weight: $weight-400;
                     color: $color-one;
-    
+
                     @include small-device {
                         font: $paragraph-min;
                     }
                 }
-            }    
+            }
         }
         &__form{
             justify-content: space-between;
@@ -1496,76 +1496,42 @@ body {
 
 // ANIMAÇÃO
 
-.fadeInLeft {
-    transform: translateX(-50%);
-}
-
-.fadeInRight {
-    transform: translateX(50%);
-}
-
-.fadeInTop {
-    transform: translateY(-10%);
-}
-
-.fadeInBottom {
-    transform: translateY(10%);
-}
-
 .blur-5 {
     filter: blur(5px);
-}
+  }
 
-.t-delay-1s {
-    transition-delay: 1s;
-}
-
-.animation {
+  .animation {
     opacity: 0;
-    transition-duration: 1s;
-    transition-property: all;
-}
+  }
 
-.animated {
+  .animated {
     opacity: 1;
-    transition-duration: 1s;
-    transition-property: all;
+    animation-duration: 1.5s !important;
 
     &.blur-5 {
-        filter: blur(0px);
+      filter: blur(0px);
     }
 
-    &.fadeInRight,
-    &.fadeInLeft {
-        transform: translateX(0);
+    &.fadeIn {
+      animation: fadeIn;
     }
 
-    &.fadeInTop,
-    &.fadeInBottom {
-        transform: translateY(0);
+    &.fadeInUp {
+      animation: fadeInUp;
     }
-}
 
-.delay-group {
-    $transition-delay: 0.1s; // Valor inicial para o delay da transição
-    $transition-delay-increment: 0.1s; // Incremento para cada elemento
-
-    @for $i from 1 through 20 {
-        // Substitui $i pelo número de elementos no grupo
-        &:nth-child(#{$i}) {
-            transition-delay: $transition-delay +
-                ($i * $transition-delay-increment);
-        }
+    &.fadeInDown {
+      animation: fadeInDown;
     }
-}
+  }
 
-.hover-image-box {
+  .hover-image-box {
     &__target {
-        transition: all 0.4s ease;
+      transition: all 0.4s ease;
     }
 
     &:hover &__target {
-        scale: 1.1;
-        transition: all 0.4s ease;
+      scale: 1.1;
+      transition: all 0.4s ease;
     }
-}
+  }

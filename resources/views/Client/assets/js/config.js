@@ -144,35 +144,45 @@ $(function () {
         });
     });
 });
-
+/******  ANIMAÇÃO ******/
 // Verifica se há elementos com a classe .animation no documento
 const elementosAnimados = document.querySelectorAll(".animation");
 if (elementosAnimados.length > 0) {
-    // Função para tratar o callback da interseção
-    const handleIntersection = (entradas, observador) => {
-        entradas.forEach((entrada) => {
-            if (entrada.isIntersecting) {
-                entrada.target.classList.add("animated"); // Adiciona a classe .animated
-                observador.unobserve(entrada.target); // Para de observar o elemento após adicionar a classe
-            }
-            // else {
-            //     entrada.target.classList.remove("animated"); // Remove a classe .animated
-            // }
-        });
-    };
+  let delayGroup = -1; //delay =-1 pois a primeira rodada é criada depois de do primeiro incremento;
 
-    // Opções do Intersection Observer
-    const opcoes = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.01,
-    };
-
-    // Cria uma nova instância do Intersection Observer
-    const observador = new IntersectionObserver(handleIntersection, opcoes);
-
-    // Observa cada elemento animado
-    elementosAnimados.forEach((elemento) => {
-        observador.observe(elemento);
+  // Função para tratar o callback da interseção
+  const handleIntersection = (entradas, observador) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        if (delayGroup < 8) {
+          delayGroup++;
+        }
+        setTimeout(() => {
+          entrada.target.classList.add("animated"); // Adiciona a classe .animated
+          observador.unobserve(entrada.target); // Para de observar o elemento após adicionar a classe
+          if (delayGroup > 0) {
+            delayGroup--;
+          }
+        }, delayGroup * 500);
+      }
+      // else {
+      //     entrada.target.classList.remove("animated"); // Remove a classe .animated
+      // }
     });
+  };
+
+  // Opções do Intersection Observer
+  const opcoes = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.05,
+  };
+
+  // Cria uma nova instância do Intersection Observer
+  const observador = new IntersectionObserver(handleIntersection, opcoes);
+
+  // Observa cada elemento animado
+  elementosAnimados.forEach((elemento) => {
+    observador.observe(elemento);
+  });
 }
