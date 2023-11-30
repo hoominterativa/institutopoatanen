@@ -261,18 +261,32 @@ if(!function_exists('getUri')){
      * @param string $url
      * @return array
      */
+
     function getUri($url)
     {
-        if(filter_var($url, FILTER_VALIDATE_URL)){
+        if (filter_var($url, FILTER_VALIDATE_URL)) {
             $parseUrl = parse_url($url);
             $parseUrlCurrent = parse_url(url()->current());
 
             if($parseUrl['host'] === $parseUrlCurrent['host']){
-                $url = $parseUrl['path']??'';
-            }
+                $fragment = isset($parseUrl['fragment']) ? '#'.$parseUrl['fragment'] : '';
+                $query = isset($parseUrl['query']) ? '?'.$parseUrl['query'] : '';
 
-            return $url;
-        }else{
+                $urlPath = $parseUrl['path'] ?? '';
+                $arrayUrlPath = explode('/', $urlPath);
+
+                if(strpos($parseUrlCurrent['path'], '_website') === false){
+                    if(strpos($urlPath, '_website') !== false){
+                        $firstPathRemove = $arrayUrlPath[array_search('_website', $arrayUrlPath)];
+                        $lastPathRemove = $arrayUrlPath[(array_search('_website', $arrayUrlPath))+1];
+                        $urlPath = str_replace([$firstPathRemove.'/', $lastPathRemove.'/'], '', $urlPath);
+                    }
+                }
+                return $urlPath.$query.$fragment;
+            }else{
+                return $url;
+            }
+        } else {
             return url($url);
         }
     }
