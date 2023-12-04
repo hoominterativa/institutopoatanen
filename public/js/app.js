@@ -11746,9 +11746,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Footers/FOOT05/src/main.js":
+/***/ "./resources/views/Client/Core/Footers/FOOT02/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Footers/FOOT05/src/main.js ***!
+  !*** ./resources/views/Client/Core/Footers/FOOT02/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -11858,10 +11858,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE02/src/main */ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js");
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT05/src/main */ "./resources/views/Client/Core/Footers/FOOT05/src/main.js");
-/* harmony import */ var _Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT05_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/ContentPages/COPA01/src/main */ "./resources/views/Client/pages/ContentPages/COPA01/src/main.js");
-/* harmony import */ var _pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_ContentPages_COPA01_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
+/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _pages_Portfolios_PORT03_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Portfolios/PORT03/src/main */ "./resources/views/Client/pages/Portfolios/PORT03/src/main.js");
+/* harmony import */ var _pages_Portfolios_PORT03_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Portfolios_PORT03_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -11988,16 +11988,26 @@ $(function () {
     });
   });
 });
-
+/******  ANIMAÇÃO ******/
 // Verifica se há elementos com a classe .animation no documento
 var elementosAnimados = document.querySelectorAll(".animation");
 if (elementosAnimados.length > 0) {
+  var delayGroup = -1; //delay =-1 pois a primeira rodada é criada depois de do primeiro incremento;
+
   // Função para tratar o callback da interseção
   var handleIntersection = function handleIntersection(entradas, observador) {
     entradas.forEach(function (entrada) {
       if (entrada.isIntersecting) {
-        entrada.target.classList.add("animated"); // Adiciona a classe .animated
-        observador.unobserve(entrada.target); // Para de observar o elemento após adicionar a classe
+        if (delayGroup < 8) {
+          delayGroup++;
+        }
+        setTimeout(function () {
+          entrada.target.classList.add("animated"); // Adiciona a classe .animated
+          observador.unobserve(entrada.target); // Para de observar o elemento após adicionar a classe
+          if (delayGroup > 0) {
+            delayGroup--;
+          }
+        }, delayGroup * 500);
       }
       // else {
       //     entrada.target.classList.remove("animated"); // Remove a classe .animated
@@ -12009,7 +12019,7 @@ if (elementosAnimados.length > 0) {
   var opcoes = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.01
+    threshold: 0.05
   };
 
   // Cria uma nova instância do Intersection Observer
@@ -12033,13 +12043,58 @@ if (elementosAnimados.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/ContentPages/COPA01/src/main.js":
-/*!**********************************************************************!*\
-  !*** ./resources/views/Client/pages/ContentPages/COPA01/src/main.js ***!
-  \**********************************************************************/
-/***/ (() => {
+/***/ "./resources/views/Client/pages/Portfolios/PORT03/src/main.js":
+/*!********************************************************************!*\
+  !*** ./resources/views/Client/pages/Portfolios/PORT03/src/main.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+document.addEventListener('DOMContentLoaded', function () {
+  var divider = document.querySelector('.divider');
+  var imageContainer = document.querySelector('.image-container');
+  var image1 = document.querySelector('.image1');
+  var image2 = document.querySelector('.image2');
+  var isDragging = false;
+  if (!divider || !imageContainer || !image1 || !image2) {
+    return;
+  }
+  divider.addEventListener('mousedown', function (e) {
+    isDragging = true;
+    e.preventDefault();
+  });
+  document.addEventListener('mouseup', function () {
+    isDragging = false;
+  });
+  document.addEventListener('mousemove', function (e) {
+    if (isDragging) {
+      var xPos = e.pageX - imageContainer.offsetLeft;
+      var containerWidth = imageContainer.offsetWidth;
+      var percentage = xPos / containerWidth * 100;
+      percentage = Math.min(100, Math.max(0, percentage));
+      divider.style.left = percentage + '%';
+      image1.style.clipPath = "inset(0% ".concat(100 - percentage, "% 0% 0%)");
+      image2.style.clipPath = "inset(0% 0% 0% ".concat(percentage, "%)");
+    }
+  });
+});
+$(function () {
+  var _$$owlCarousel;
+  $('.carousel-port03').owlCarousel((_$$owlCarousel = {
+    smartSpeed: 450,
+    loop: false,
+    dots: false,
+    nav: true,
+    rewind: true,
+    autoHeight: true,
+    items: 1
+  }, _defineProperty(_$$owlCarousel, "rewind", true), _defineProperty(_$$owlCarousel, "touchDrag", false), _defineProperty(_$$owlCarousel, "mouseDrag", false), _$$owlCarousel));
+  $('.carousel-port03').css('width', $('.port03 .container').outerWidth());
+});
 
 /***/ }),
 
