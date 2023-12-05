@@ -7,14 +7,13 @@
             <div class="popa__banner__image"
                 style="background-image: url();  background-color: ;">
                     <div class="container popa__banner__header text-center">
-                        <h4 class="popa__banner__header__subtitle">Titulo da Página</h4>
+                        <h4 class="popa__banner__header__title">Titulo da Página</h4>
                         <hr class="popa__banner__header__line">
                     </div>
             </div>
         </div>
     </header>
     <main class="popa__portfolio">
-        
             <div class="popa__portfolio__header">
                 <div class="container">
                     <div class="popa__portfolio__header__top">
@@ -42,8 +41,9 @@
             </div>
             <nav class="popa__portfolio__categories">
                 <div class="container">
-                    <ul class="popa__portfolio__categories__list w-100">
+                    <ul class="popa__portfolio__categories__list w-100  mb-0 px-0">
                         <div class="popa__portfolio__categories__carousel">
+                                @for ($i = 0; $i <= 16; $i++)
                                 <li
                                     class="popa__portfolio__categories__list__item">
                                     <a class=" d-flex w-100 h-100 justify-content-between align-items-center" href="#">
@@ -52,6 +52,7 @@
                                             Categoria
                                     </a>
                                 </li>
+                                @endfor
                         </div>
                     </ul>
 
@@ -93,15 +94,22 @@
                     </div>
                 </div>
             </nav>
-            <div class="popa__portfolio__content">
-                <div class="popa__portfolio__content__carousel">
-                    <article class="popa__portfolio__content__item">
-                        <a class="link-full" href="#"></a>
-                        <div class="popa__portfolio__content__item__images">
+            <div class="popa__portfolio__content container px-0">
+                <div class="row">
+                @for ($i = 0; $i <= 16; $i++)
+                <article class="popa__portfolio__content__item col-sm-4 position-relative">
+                    <a class="link-full" href="#"></a>
+                    <div class="popa__portfolio__content__item__encompass">
+                        <div class="popa__portfolio__content__item__images mx-auto">
                             <div class="carousel-box-image owl-carousel">
                                 <div class="popa__portfolio__content__item__images__image">
-                                    <img src="" alt="">
+                                    <img src="{{ asset('storage/uploads/tmp/gall01_image1.png') }}" alt="Imagem">
                                 </div>
+                                {{-- fim popa__portfolio__content__item__images__image --}}
+                                <div class="popa__portfolio__content__item__images__image">
+                                    <img src="{{ asset('storage/uploads/tmp/gall01_image1.png') }}" alt="Imagem">
+                                </div>
+                                {{-- fim popa__portfolio__content__item__images__image --}}
                             </div>
                         </div>
                         <div class="popa__portfolio__content__item__description">
@@ -110,7 +118,10 @@
                                 <p>Descrição</p>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                </article>
+                {{-- fim popa__portfolio__content__item --}}
+                @endfor
                 </div>
             </div>
     </main>

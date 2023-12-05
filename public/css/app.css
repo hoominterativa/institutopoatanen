@@ -2063,7 +2063,7 @@ body .owl-dots .owl-dot.active {
 
 /* BEGIN STYLE */
 .port03 .container--port03 {
-  padding: 5.25rem 0;
+  padding: 5.25rem 0 !important;
 }
 .port03__header {
   margin-bottom: 3rem;
@@ -2099,6 +2099,12 @@ body .owl-dots .owl-dot.active {
 .port03__box {
   padding-top: 3rem;
 }
+@media (max-width: 575.98px) {
+  .port03__box {
+    padding-bottom: 5rem;
+    margin-bottom: -79px;
+  }
+}
 .port03__box__engImage__content {
   position: relative;
 }
@@ -2111,6 +2117,13 @@ body .owl-dots .owl-dot.active {
   width: 100%;
   height: 463px;
 }
+@media (max-width: 575.98px) {
+  .port03__box__engImage__content__flow__images {
+    height: auto;
+    display: flex;
+    gap: 0.62rem 0;
+  }
+}
 .port03__box__engImage__content__flow__images__img {
   width: 100%;
   height: 100%;
@@ -2119,15 +2132,36 @@ body .owl-dots .owl-dot.active {
   top: 0;
   left: 0;
 }
+@media (max-width: 575.98px) {
+  .port03__box__engImage__content__flow__images__img {
+    width: 100%;
+    height: 13.5rem;
+    position: relative;
+    left: inherit;
+    top: inherit;
+  }
+}
 .port03__box__engImage__content__flow__images__img:nth-of-type(odd) {
   z-index: 2;
   -webkit-clip-path: inset(0% 50% 0% 0%);
           clip-path: inset(0% 50% 0% 0%);
 }
+@media (max-width: 575.98px) {
+  .port03__box__engImage__content__flow__images__img:nth-of-type(odd) {
+    -webkit-clip-path: inherit;
+            clip-path: inherit;
+  }
+}
 .port03__box__engImage__content__flow__images__img:nth-of-type(even) {
   z-index: 1;
   -webkit-clip-path: inset(0% 0% 0% 50%);
           clip-path: inset(0% 0% 0% 50%);
+}
+@media (max-width: 575.98px) {
+  .port03__box__engImage__content__flow__images__img:nth-of-type(even) {
+    -webkit-clip-path: inherit;
+            clip-path: inherit;
+  }
 }
 .port03__box__engImage__content__divider {
   position: absolute;
@@ -2139,6 +2173,11 @@ body .owl-dots .owl-dot.active {
   background-color: #404040;
   cursor: ew-resize;
   z-index: 10;
+}
+@media (max-width: 575.98px) {
+  .port03__box__engImage__content__divider {
+    display: none;
+  }
 }
 .port03__box__engImage__content__divider .before-text {
   position: absolute;
@@ -2179,6 +2218,12 @@ body .owl-dots .owl-dot.active {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+@media (max-width: 575.98px) {
+  .port03__box__description {
+    padding-top: 1.5rem;
+    padding-left: 0.81rem;
+  }
 }
 .port03__box__description__left__title {
   font-size: 1.25rem;
@@ -2250,6 +2295,15 @@ body .owl-dots .owl-dot.active {
   position: relative;
   justify-content: center;
 }
+@media (max-width: 575.98px) {
+  .port03 .carousel-port03 .owl-nav {
+    gap: 0 0.5rem;
+    margin-top: -3.31rem;
+    position: relative;
+    justify-content: flex-start;
+    margin-left: 0.81rem;
+  }
+}
 .port03 .carousel-port03 .owl-nav .owl-prev, .port03 .carousel-port03 .owl-nav .owl-next {
   width: 1.75rem;
   height: 1.75rem;
@@ -2258,7 +2312,12 @@ body .owl-dots .owl-dot.active {
   border: 1px solid #000;
   line-height: initial !important;
   font-size: 29px !important;
-  margin: inherit !important;
+  margin: initial !important;
+}
+@media (max-width: 575.98px) {
+  .port03 .carousel-port03 .owl-nav .owl-prev, .port03 .carousel-port03 .owl-nav .owl-next {
+    margin: initial !important;
+  }
 }
 .port03 .carousel-port03 .owl-nav .owl-prev span, .port03 .carousel-port03 .owl-nav .owl-next span {
   height: 1.15rem;
@@ -2274,6 +2333,16 @@ body .owl-dots .owl-dot.active {
 
 .popa__banner__container {
   height: 280px;
+  position: relative;
+}
+.popa__banner__container:after {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 .popa__banner__image {
   height: 100%;
@@ -2281,6 +2350,10 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+.popa__banner__header {
+  z-index: 100;
+  position: relative;
 }
 @media (max-width: 767.98px) {
   .popa__banner__header {
@@ -2355,8 +2428,7 @@ body .owl-dots .owl-dot.active {
   margin: 24px 32px;
 }
 .popa__portfolio__header__bottom__description {
-  font-family: "Montserrat", sans-serif, arial;
-  font-size: 1rem;
+  font: 1rem "Montserrat", sans-serif, arial;
   color: #393939;
   font-weight: 400;
   text-align: center;
@@ -2364,31 +2436,48 @@ body .owl-dots .owl-dot.active {
   letter-spacing: 0.2px;
 }
 .popa__portfolio__header__bottom__description p {
-  font: inherit;
-  color: inherit;
-  font-weight: inherit;
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #393939;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 .popa__portfolio__categories {
   background-color: #cacaca;
   /* Só aparece abaixo de medium-device-up, ou seja, a partir de 767.98px */
 }
 .popa__portfolio__categories > .container {
-  padding: 2.12rem 0;
+  padding-top: 2.12rem !important;
+  padding-bottom: 2.12rem !important;
 }
-.popa__portfolio__categories__list__carousel {
+@media (max-width: 767.98px) {
+  .popa__portfolio__categories > .container {
+    max-width: 90% !important;
+    padding-top: 2.63rem !important;
+    padding-bottom: 2.63rem !important;
+  }
+}
+.popa__portfolio__categories__carousel {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.06rem;
+}
+@media (max-width: 767.98px) {
+  .popa__portfolio__categories__list {
+    display: none;
+  }
 }
 .popa__portfolio__categories__list__item {
-  padding: 16px 24px;
-  width: auto;
+  padding: 16px 13px;
   background: #efefef;
   font-family: "Ubuntu", sans-serif, arial;
   font-size: 1.125rem;
   font-weight: 700;
   color: #7c7c7c;
-  width: 17%;
-  list-style: none;
+  width: 15.35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .popa__portfolio__categories__list__item.active, .popa__portfolio__categories__list__item:hover {
   background-color: #404040;
@@ -2401,9 +2490,10 @@ body .owl-dots .owl-dot.active {
   font: inherit;
   color: inherit;
   text-decoration: inherit;
+  justify-content: center !important;
+  gap: 0 0.5rem;
 }
 .popa__portfolio__categories__list__item__icon {
-  margin-right: 8px;
   width: 32px !important;
   height: 32px;
 }
@@ -2474,67 +2564,87 @@ body .owl-dots .owl-dot.active {
   width: auto;
   height: auto;
 }
+.popa__portfolio__content {
+  padding-top: 5.56rem !important;
+  padding-bottom: 8.69rem !important;
+}
 @media (max-width: 767.98px) {
-  .popa__portfolio__content__carousel {
-    width: 90%;
+  .popa__portfolio__content {
+    padding-top: 3.5rem !important;
+    padding-bottom: 4.81rem !important;
+    max-height: 90% !important;
     margin: 0 auto;
   }
 }
-.popa__portfolio__content__carousel .owl-stage-outer {
-  overflow: visible;
+.popa__portfolio__content .row {
+  gap: 2.37rem 0;
 }
-.popa__portfolio__content__carousel .owl-dots {
-  margin-top: 56px;
-  justify-content: start;
-}
-.popa__portfolio__content__item {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: end;
-  width: 327px;
-  height: 100%;
-}
-@media (max-width: 575.98px) {
-  .popa__portfolio__content__item {
-    width: 100%;
+@media (max-width: 767.98px) {
+  .popa__portfolio__content .row {
+    margin: 0 auto;
   }
 }
-.popa__portfolio__content__item__image {
-  width: 100%;
+.popa__portfolio__content__item {
+  padding: 0 !important;
 }
-.popa__portfolio__content__item__container {
+.popa__portfolio__content__item__encompass {
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+}
+.popa__portfolio__content__item__images__image {
+  height: 23.4375rem;
+}
+.popa__portfolio__content__item__images__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.popa__portfolio__content__item__images .carousel-box-image .owl-dots {
   position: absolute;
-  width: 100%;
-  padding: 0 32px 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 20px;
 }
-.popa__portfolio__content__item__container__header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
+.popa__portfolio__content__item__description {
+  padding-top: 1.69rem;
 }
-.popa__portfolio__content__item__container__header__title {
+.popa__portfolio__content__item__description__title {
   font-family: "Ubuntu", sans-serif, arial;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #000;
+  color: #404040;
+  display: flex;
+  gap: 0 0.44rem;
+  position: relative;
 }
-.popa__portfolio__content__item__container__header__description {
-  font-family: "Ubuntu", sans-serif, arial;
-  font: 0.875rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  letter-spacing: 0.2px;
-  line-height: 140%;
+.popa__portfolio__content__item__description__title:before {
+  content: "";
+  width: 1.6875rem;
+  height: 1.5625rem;
+  display: flex;
+  background-color: #404040;
 }
-.popa__portfolio__content__item__container__icon {
-  width: 33px !important; /* !important aqui por conta do owl caroussel */
-  height: 33px;
+.popa__portfolio__content__item__description__title:after {
+  content: "";
+  width: 31%;
+  height: 1.5625rem;
+  display: flex;
+  border-bottom: 1px solid #404040;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.popa__portfolio__content__item__description__paragraph {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+}
+.popa__portfolio__content__item__description__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #404040;
+  margin-bottom: 0;
 }
 
 .posh .container--posh {
