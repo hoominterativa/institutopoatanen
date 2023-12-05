@@ -11,8 +11,8 @@
                     <div class="port03__box__engImage__content">
                         <div class="port03__box__engImage__content__flow image-container">
                             <div class="port03__box__engImage__content__flow__images">
-                                <img src="{{asset('storage/uploads/tmp/box-port01.png')}}" alt="Image 1" class="port03__box__engImage__content__flow__images__img image1">
-                                <img src="{{asset('storage/uploads/tmp/box-port02.png')}}" alt="Image 2" class="port03__box__engImage__content__flow__images__img image2">
+                                <img src="{{asset('storage/uploads/tmp/box-port01.png')}}" alt="Image 1" class="port03__box__engImage__content__flow__images__img image1"/>
+                                <img src="{{asset('storage/uploads/tmp/box-port02.png')}}" alt="Image 2" class="port03__box__engImage__content__flow__images__img image2"/>
                             </div>
                         </div>
                         <div class="port03__box__engImage__content__divider divider">

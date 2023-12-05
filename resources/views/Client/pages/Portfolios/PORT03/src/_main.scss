@@ -51,6 +51,9 @@
                 &__flow{
                     position: relative;
                     overflow: hidden;
+                    @include small-device-down{
+                        overflow: visible  !important;
+                    }
                     
                     &__images{
                         position: relative;
@@ -61,8 +64,26 @@
                             height: auto;
                             display: flex;
                             gap: 0.62rem 0;
+                            flex-direction: column;
                         }
+                        .img:nth-of-type(odd){
+                      
 
+                            @include small-device-down{
+                                &::before{
+                                    content: 'Antes';
+                                }
+                            }
+
+                        }
+                       .img:nth-of-type(even){
+                    
+                            @include small-device-down{
+                                &::before{
+                                    content: 'Depois';
+                                }
+                            }
+                        }
                         &__img{
                             width: 100%;
                             height: 100%;
@@ -72,28 +93,26 @@
                             left: 0;
 
                             @include small-device-down{
-                                width: 100%;
-                                height: 13.5rem;
-                                position: relative;
-                                left: inherit;
-                                top: inherit;
+                                width: 100%  !important;
+                                height: 13.5rem  !important;
+                                position: relative  !important;
+                                left: inherit  !important;
+                                top: inherit  !important;
+                                clip-path:inherit !important;
                             }
 
                             &:nth-of-type(odd){
                                 z-index: 2;
                                 clip-path: inset(0% 50% 0% 0%);
 
-                                @include small-device-down{
-                                    clip-path:inherit;
-                                }
+                             
+
                             }
                             &:nth-of-type(even){
                                 z-index: 1;
                                 clip-path: inset(0% 0% 0% 50%);
 
-                                @include small-device-down{
-                                    clip-path:inherit;
-                                }
+                            
                             }
                         }
                     }
@@ -110,7 +129,7 @@
                     z-index: 10;
 
                     @include small-device-down{
-                        display: none;
+                        background: transparent;
                     }
 
                     .before-text{
@@ -120,6 +139,12 @@
                         transform: translateX(-50%);
                         font:$paragraph;
                         font-weight: 500;
+
+                        @include small-device-down{
+                            top: 39%;
+                            left: -50%;
+                            transform: translateX(-50%);
+                        }
                     }
 
                     .after-text{
@@ -129,6 +154,12 @@
                         transform: translateX(-50%);
                         font:$paragraph;
                         font-weight: 500;
+
+                        @include small-device-down{
+                            top: 57%;
+                            left: -50%;
+                            transform: translateX(-50%);
+                        }
                     }
 
                     &:before{
@@ -139,6 +170,10 @@
                         top: -7px;
                         background-color: $color-one;
                         left: -4px;
+
+                        @include small-device-down{
+                            display: none;
+                        }
                     }
                     &:after{
                         content: "";
@@ -148,6 +183,10 @@
                         bottom: -7px;
                         background-color: $color-one;
                         left: -4px;
+
+                        @include small-device-down{
+                            display: none;
+                        }
                     }
                     
                 }
@@ -162,6 +201,8 @@
             @include small-device-down{
                 padding-top: 1.5rem;
                 padding-left: 0.81rem;
+                padding-right: 0.81rem;
+                padding-bottom: 4rem;
             }
 
             &__left{
@@ -205,6 +246,12 @@
                     width: 147px;
                 }
 
+                @include small-device-down{
+                    margin-left: auto !important;
+                    margin-right: initial !important;
+                    margin-bottom: -50px;
+                }
+
                 img {
                     height: 25px !important;
                     width: 25px !important;
@@ -236,7 +283,7 @@
 
             @include small-device-down{
                 gap: 0 0.5rem;
-                margin-top: -3.31rem;
+                margin-top: -3.7rem;
                 position: relative;
                 justify-content: flex-start;
                 margin-left: 0.81rem;
@@ -330,7 +377,11 @@
 
         &__header {
             & > .container{
-                padding-bottom: 4.63rem;
+                padding-bottom: 4.63rem !important;
+
+                @include small-device-down{
+                    padding-bottom: 4.56rem !important;
+                }
             }
            &__top{
                 display: flex;
@@ -471,13 +522,17 @@
                         @include Flex($justify: start);
                         gap: 1rem;
                         padding: 15px 26px;
-                        background-color: $color-nine;
+                        background-color: #EFEFEF;
                         white-space: nowrap;
 
                         font-size: $T5-mobile;
                         font-family: $font-primary;
                         font-weight: 700;
                         color: $color-black;
+
+                        @include small-device-down{
+                            padding: 31px 26px;
+                        }
 
                         img {
                             height: 25px;
@@ -514,20 +569,23 @@
                 }
 
                 .accordion-button::after {
-                    border-left: 8px solid transparent;
-                    border-right: 7px solid transparent;
-                    border-top: 11px solid $color-black;
-                    width: auto;
-                    height: auto;
+                    // border-left: 8px solid transparent;
+                    // border-right: 7px solid transparent;
+                    // border-top: 11px solid $color-black;
+                    width: 16px;
+                    height: 9px;
+                    background-image: url('../images/arrow-1.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
                 }
 
                 .accordion-button:not(.collapsed)::after {
-                    border-left: 8px solid transparent;
-                    border-right: 7px solid transparent;
-                    border-top: 11px solid $color-black;
-                    transform: rotate(184deg);
-                    width: auto;
-                    height: auto;
+                    // border-left: 8px solid transparent;
+                    // border-right: 7px solid transparent;
+                    // border-top: 11px solid $color-black;
+                    // transform: rotate(184deg);
+                    // width: auto;
+                    // height: auto;
                 }
             }
         }
@@ -572,6 +630,14 @@
                             left: 50%;
                             transform: translate(-50%, 0);
                             bottom: 20px;
+
+                            .owl-dots{
+                                background-color: #D9D9D9 !important;
+
+                                &.active, &:hover{
+                                    background-color: #404040 !important;
+                                }
+                            }
                         }
                     }
                 }
@@ -629,10 +695,18 @@
 // fim port03-page
 .posh{
     .container--posh{
-        padding: 5.25rem 0;
+        padding: 5.25rem 0 !important;
+
+        @include medium-device-down{
+            max-width: 90% !important;
+        }
     }
     &__header {
         margin-bottom: 97px;
+
+        @include small-device-down{
+            margin-bottom: 0;
+        }
 
         &__title {
             font-size: $T3;
@@ -663,18 +737,52 @@
 
     }
     &__box{
+        padding-top: 3rem;
+
+        @include small-device-down{
+            padding-bottom: 5rem;
+            margin-bottom: -79px;
+        }
+
         &__engImage{
             &__content{
                 position: relative;
                 &__flow{
                     position: relative;
                     overflow: hidden;
+                    @include small-device-down{
+                        overflow: visible  !important;
+                    }
                     
                     &__images{
                         position: relative;
                         width: 100%;
                         height: 463px;
 
+                        @include small-device-down{
+                            height: auto;
+                            display: flex;
+                            gap: 0.62rem 0;
+                            flex-direction: column;
+                        }
+                        .img:nth-of-type(odd){
+                      
+
+                            @include small-device-down{
+                                &::before{
+                                    content: 'Antes';
+                                }
+                            }
+
+                        }
+                       .img:nth-of-type(even){
+                    
+                            @include small-device-down{
+                                &::before{
+                                    content: 'Depois';
+                                }
+                            }
+                        }
                         &__img{
                             width: 100%;
                             height: 100%;
@@ -683,13 +791,27 @@
                             top: 0;
                             left: 0;
 
+                            @include small-device-down{
+                                width: 100%  !important;
+                                height: 13.5rem  !important;
+                                position: relative  !important;
+                                left: inherit  !important;
+                                top: inherit  !important;
+                                clip-path:inherit !important;
+                            }
+
                             &:nth-of-type(odd){
                                 z-index: 2;
                                 clip-path: inset(0% 50% 0% 0%);
+
+                             
+
                             }
                             &:nth-of-type(even){
                                 z-index: 1;
                                 clip-path: inset(0% 0% 0% 50%);
+
+                            
                             }
                         }
                     }
@@ -705,6 +827,10 @@
                     cursor: ew-resize;
                     z-index: 10;
 
+                    @include small-device-down{
+                        background: transparent;
+                    }
+
                     .before-text{
                         position: absolute;
                         top: 47%;
@@ -712,6 +838,12 @@
                         transform: translateX(-50%);
                         font:$paragraph;
                         font-weight: 500;
+
+                        @include small-device-down{
+                            top: 39%;
+                            left: -50%;
+                            transform: translateX(-50%);
+                        }
                     }
 
                     .after-text{
@@ -721,6 +853,12 @@
                         transform: translateX(-50%);
                         font:$paragraph;
                         font-weight: 500;
+
+                        @include small-device-down{
+                            top: 57%;
+                            left: -50%;
+                            transform: translateX(-50%);
+                        }
                     }
 
                     &:before{
@@ -731,6 +869,10 @@
                         top: -7px;
                         background-color: $color-one;
                         left: -4px;
+
+                        @include small-device-down{
+                            display: none;
+                        }
                     }
                     &:after{
                         content: "";
@@ -740,6 +882,10 @@
                         bottom: -7px;
                         background-color: $color-one;
                         left: -4px;
+
+                        @include small-device-down{
+                            display: none;
+                        }
                     }
                     
                 }
@@ -750,6 +896,13 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+
+            @include small-device-down{
+                padding-top: 1.5rem;
+                padding-left: 0.81rem;
+                padding-right: 0.81rem;
+                padding-bottom: 4rem;
+            }
 
             &__left{
                 &__title{
@@ -790,6 +943,12 @@
                     font: $paragraph-mobile;
                     font-weight: $weight-700;
                     width: 147px;
+                }
+
+                @include small-device-down{
+                    margin-left: auto !important;
+                    margin-right: initial !important;
+                    margin-bottom: -50px;
                 }
 
                 img {
