@@ -71,7 +71,7 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Sobre Orçamento',
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
@@ -201,7 +201,7 @@ return [
         'BlankPages' => (object) [
             'BAPA01' => (object)[
                 'ViewHome' => false,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => false,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
