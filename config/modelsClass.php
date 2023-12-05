@@ -268,6 +268,11 @@ return [
                     ]
                 ]
             ],
+            'PORT03' => (object)[
+                'controller' => App\Http\Controllers\Portfolios\PORT03Controller::class,
+                'model' => App\Models\Portfolios\PORT03Portfolios::class,
+                'seedQty' => 4,
+            ],
             'PORT04' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT04Controller::class,
                 'model' => App\Models\Portfolios\PORT04Portfolios::class,
