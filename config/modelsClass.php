@@ -271,7 +271,15 @@ return [
             'PORT03' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT03Controller::class,
                 'model' => App\Models\Portfolios\PORT03Portfolios::class,
-                'seedQty' => 4,
+                'seedQty' => 9,
+                'routeName' => 'port02.category.page',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Portfolios\PORT02PortfoliosCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
             'PORT04' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT04Controller::class,

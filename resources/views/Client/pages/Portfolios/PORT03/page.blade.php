@@ -30,14 +30,14 @@
                         <hr class="popa__portfolio__header__bottom__line">
                         <div class="popa__portfolio__header__bottom__description">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin 
-                                vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. 
-                                Donec tincidunt dignissim faucibus. 
-                                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
+                                vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere.
+                                Donec tincidunt dignissim faucibus.
+                                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed
                             </p>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
             <nav class="popa__portfolio__categories">
                 <div class="container">
@@ -74,7 +74,7 @@
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <ul>
-                                        
+
                                                 <li
                                                     class="popa__portfolio__categories__dropdown-mobile__item">
                                                     <a class=" d-flex w-100 h-100 justify-content-start align-items-center"
@@ -85,7 +85,7 @@
                                                             Categoria
                                                     </a>
                                                 </li>
-                                        
+
                                         </ul>
                                     </div>
                                 </div>
@@ -103,10 +103,12 @@
                         <div class="popa__portfolio__content__item__images mx-auto">
                             <div class="carousel-box-image owl-carousel">
                                 <div class="popa__portfolio__content__item__images__image">
+                                    {{-- <span class="before-text">Antes</span> --}}
                                     <img src="{{ asset('storage/uploads/tmp/gall01_image1.png') }}" alt="Imagem">
                                 </div>
                                 {{-- fim popa__portfolio__content__item__images__image --}}
                                 <div class="popa__portfolio__content__item__images__image">
+                                    {{-- <span class="after-text">Depois</span> --}}
                                     <img src="{{ asset('storage/uploads/tmp/gall01_image1.png') }}" alt="Imagem">
                                 </div>
                                 {{-- fim popa__portfolio__content__item__images__image --}}

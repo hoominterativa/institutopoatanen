@@ -26,7 +26,7 @@
                         <h4 class="port03__box__description__left__title">Título Tópico</h4>
                         <h5 class="port03__box__description__left__subtitle">Descrição</h5>
                     </div>
-                    <a href="#" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
+                    <a href="{{route('port03.page')}}" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="icon" class="port03__box__description__btn__icon me-3 transition">
                         CTA
                     </a>
