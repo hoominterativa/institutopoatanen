@@ -11,19 +11,19 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">{{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.port03.index')}}">{{ getTitleModel($configModelsMain, 'Portfolios', 'PORT03')}}</a></li>
+                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Portfolios', 'PORT03')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</h4>
+                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Portfolios', 'PORT03')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($code, ['route' => ['admin.code.update', $code->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.Module.CODE.form')
+                {!! Form::model($portfolio, ['route' => ['admin.port03.update', $portfolio->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                    @include('Admin.cruds.Portfolios.PORT03.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.code.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.port03.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

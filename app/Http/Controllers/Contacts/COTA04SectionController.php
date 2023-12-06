@@ -89,6 +89,7 @@ class COTA04SectionController extends Controller
     public function update(Request $request, COTA04ContactsSection $COTA04ContactsSection)
     {
         $data = $request->all();
+        $data['active'] = $request->active?1:0;
 
         if($COTA04ContactsSection->fill($data)->save()){
             Session::flash('success', 'Seção atualizada com sucesso');
@@ -145,7 +146,7 @@ class COTA04SectionController extends Controller
                 $form->delete();
                 }
             }
-            
+
             $categories = COTA04ContactsCategory::where('section_id', $COTA04ContactsSection->id)->get();
             if($categories){
                 foreach($categories as $category){

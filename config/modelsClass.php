@@ -275,7 +275,7 @@ return [
                 'routeName' => 'port02.category.page',
                 'relationship' => [
                     'category' => [
-                        'class' => App\Models\Portfolios\PORT02PortfoliosCategory::class,
+                        'class' => App\Models\Portfolios\PORT03PortfoliosCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 4,
                     ]

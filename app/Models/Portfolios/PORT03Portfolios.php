@@ -15,8 +15,11 @@ class PORT03Portfolios extends Model
         return PORT03PortfoliosFactory::new();
     }
 
+
     protected $table = "port03_portfolios";
-    protected $fillable = [];
+    protected $fillable = [
+        'category_id', 'title', 'slug', 'description', 'text', 'title_button', 'link_button', 'target_link_button', 'path_image_before', 'path_image_after', 'active', 'featured', 'sorting'
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +31,13 @@ class PORT03Portfolios extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(PORT03PortfoliosCategory::class, 'category_id');
+    }
 }
