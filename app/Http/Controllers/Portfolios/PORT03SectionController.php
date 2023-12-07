@@ -62,9 +62,13 @@ class PORT03SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+
+
         $data['active_section'] = $request->active_section?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
         $data['active_content'] = $request->active_content?1:0;
+
+        // dd($data);
 
         $path_image_icon_content = $helper->optimizeImage($request, 'path_image_icon_content', $this->path, null,100);
         if($path_image_icon_content){
