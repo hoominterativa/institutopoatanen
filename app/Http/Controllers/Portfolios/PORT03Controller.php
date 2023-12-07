@@ -232,7 +232,7 @@ class PORT03Controller extends Controller
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+                if ($section) $section->path_image_desktop_banner = $section->path_image_mobile_banner;
             break;
         }
 
