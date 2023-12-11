@@ -51,49 +51,40 @@
                 <div class="container">
                     <ul class="popa__portfolio__categories__list w-100  mb-0 px-0">
                         <div class="popa__portfolio__categories__carousel">
-                                @for ($i = 0; $i <= 16; $i++)
-                                <li
-                                    class="popa__portfolio__categories__list__item">
-                                    <a class=" d-flex w-100 h-100 justify-content-between align-items-center" href="#">
-                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone da categoria"
-                                                class="popa__portfolio__categories__list__item__icon">
-                                            Categoria
+                            @foreach ($categories as $category)
+                                <li class="popa__portfolio__categories__list__item">
+                                    <a class=" d-flex w-100 h-100 justify-content-between align-items-center {{isset($category->selected) ? 'active':''}}" href="{{route('port03.category.page', ['PORT03PortfoliosCategory' => $category->slug])}}">
+                                        @if($category->path_image_icon)
+                                            <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="Ícone da categoria" class="popa__portfolio__categories__list__item__icon">
+                                        @endif
+                                        {{$category->title}}
                                     </a>
                                 </li>
-                                @endfor
+                            @endforeach
                         </div>
                     </ul>
-
                     <div class="popa__portfolio__categories__dropdown-mobile">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
-                                <h2
-                                    class="accordion-header popa__portfolio__categories__dropdown-mobile__item">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                        aria-expanded="false" aria-controls="flush-collapseOne">
-                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                            alt=""
-                                            class="popa__portfolio__categories__dropdown-mobile__item__icon">
+                                <h2 class="accordion-header popa__portfolio__categories__dropdown-mobile__item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="popa__portfolio__categories__dropdown-mobile__item__icon">
                                         Categorias
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <ul>
-
-                                                <li
-                                                    class="popa__portfolio__categories__dropdown-mobile__item">
-                                                    <a class=" d-flex w-100 h-100 justify-content-start align-items-center"
-                                                        href="#">
-                                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                                                alt="Ícone da categoria"
-                                                                class="popa__portfolio__categories__dropdown-mobile__item__icon">
-                                                            Categoria
+                                            @foreach ($categories as $category)
+                                                <li class="popa__portfolio__categories__dropdown-mobile__item">
+                                                    <a class=" d-flex w-100 h-100 justify-content-start align-items-center" href="{{route('port03.category.page', ['PORT03PortfoliosCategory' => $category->slug])}}">
+                                                        @if ($category->path_image_icon)
+                                                            <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="Ícone da categoria" class="popa__portfolio__categories__dropdown-mobile__item__icon">
+                                                        @endif
+                                                        {{$category->title}}
                                                     </a>
                                                 </li>
-
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -102,38 +93,45 @@
                     </div>
                 </div>
             </nav>
+        @if ($portfolios->count())
             <div class="popa__portfolio__content container px-0">
                 <div class="row">
-                @for ($i = 0; $i <= 16; $i++)
-                <article class="popa__portfolio__content__item col-sm-4 position-relative">
-                    <a class="link-full" href="#"></a>
-                    <div class="popa__portfolio__content__item__encompass">
-                        <div class="popa__portfolio__content__item__images mx-auto">
-                            <div class="carousel-box-image owl-carousel">
-                                <div class="popa__portfolio__content__item__images__image">
-                                    {{-- <span class="before-text">Antes</span> --}}
-                                    <img src="{{ asset('storage/uploads/tmp/gall01_image1.png') }}" alt="Imagem">
+                    @foreach ($portfolios as $portfolio)
+                        <article class="popa__portfolio__content__item col-sm-4 position-relative">
+                            <a rel="next" href="#" data-fancybox="{{$portfolio->slug}}" data-src="#lightbox-port03-{{$portfolio->id}}" class="link-full"></a>
+                            <div class="popa__portfolio__content__item__encompass">
+                                <div class="popa__portfolio__content__item__images mx-auto">
+                                    <div class="carousel-box-image owl-carousel">
+                                        @if ($portfolio->path_image_before)
+                                            <div class="popa__portfolio__content__item__images__image">
+                                                <img src="{{ asset('storage/' . $portfolio->path_image_before) }}" alt="Imagem antes">
+                                            </div>
+                                        @endif
+                                        {{-- fim popa__portfolio__content__item__images__image --}}
+                                        @if ($portfolio->path_image_after)
+                                            <div class="popa__portfolio__content__item__images__image">
+                                                <img src="{{ asset('storage/' . $portfolio->path_image_after) }}" alt="Imagem depois">
+                                            </div>
+                                        @endif
+                                        {{-- fim popa__portfolio__content__item__images__image --}}
+                                    </div>
                                 </div>
-                                {{-- fim popa__portfolio__content__item__images__image --}}
-                                <div class="popa__portfolio__content__item__images__image">
-                                    {{-- <span class="after-text">Depois</span> --}}
-                                    <img src="{{ asset('storage/uploads/tmp/gall01_image1.png') }}" alt="Imagem">
+                                <div class="popa__portfolio__content__item__description">
+                                    <h4 class="popa__portfolio__content__item__description__title">{{$portfolio->title}}</h4>
+                                    <div class="popa__portfolio__content__item__description__paragraph">
+                                        <p>{!! $portfolio->description !!}</p>
+                                    </div>
                                 </div>
-                                {{-- fim popa__portfolio__content__item__images__image --}}
                             </div>
-                        </div>
-                        <div class="popa__portfolio__content__item__description">
-                            <h4 class="popa__portfolio__content__item__description__title">Título</h4>
-                            <div class="popa__portfolio__content__item__description__paragraph">
-                                <p>Descrição</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                {{-- fim popa__portfolio__content__item --}}
-                @endfor
+                            @include('Client.pages.Portfolios.PORT03.show',[
+                                'portfolio' => $portfolio
+                            ])
+                        </article>
+                    @endforeach
+                    {{-- fim popa__portfolio__content__item --}}
                 </div>
             </div>
+        @endif
     </main>
 </section>
 {{-- Finish Content page Here --}}
