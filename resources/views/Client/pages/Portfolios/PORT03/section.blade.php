@@ -12,7 +12,7 @@
         @if ($portfolios->count())
             <div class="port03__content carousel-port03 owl-carousel">
                 @foreach ($portfolios as $portfolio)
-                    <div class="port03__box position-relative">
+                    <div class="port03__box box-slide position-relative">
                         <div class="port03__box__engImage">
                             <div class="port03__box__engImage__content">
                                 <div class="port03__box__engImage__content__flow image-container">

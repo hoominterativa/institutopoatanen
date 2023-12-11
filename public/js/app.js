@@ -12056,58 +12056,111 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 $(function () {
   var _$$owlCarousel;
-  if ($(window).outerWidth() >= '500') {
-    var divider = $('.divider');
-    var imageContainer = $('.image-container');
-    var image1 = $('.image1');
-    var image2 = $('.image2');
-    var isDragging = false;
-    if (!divider.length || !imageContainer.length || !image1.length || !image2.length) {
-      return;
-    }
-    divider.on('mousedown', function (e) {
-      isDragging = true;
-      e.preventDefault();
-    });
-    $(document).on('mouseup', function () {
-      isDragging = false;
-    });
-    $(document).on('mousemove', function (e) {
-      if (isDragging) {
-        var xPos = e.pageX - imageContainer.offset().left;
-        var containerWidth = imageContainer.width();
-        var percentage = xPos / containerWidth * 100;
-        percentage = Math.min(100, Math.max(0, percentage));
-        divider.css('left', percentage + '%');
-        image1.css('clip-path', "inset(0% ".concat(100 - percentage, "% 0% 0%)"));
-        image2.css('clip-path', "inset(0% 0% 0% ".concat(percentage, "%)"));
+  if ($(window).outerWidth() >= 500) {
+    var boxSlideElements = $('.box-slide').get();
+    boxSlideElements.forEach(function (element) {
+      var $this = $(element);
+      var divider = $this.find('.divider');
+      var imageContainer = $this.find('.image-container');
+      var image1 = $this.find('.image1');
+      var image2 = $this.find('.image2');
+      var isDragging = false;
+      if (!divider.length || !imageContainer.length || !image1.length || !image2.length) {
+        return;
       }
-    });
-    $(document).on('mousemove', function (e) {
-      divider = $('.fancybox__container .posh-show .divider');
-      imageContainer = $('.fancybox__container .posh-show .image-container');
-      image1 = $('.fancybox__container .posh-show .image1');
-      image2 = $('.fancybox__container .posh-show .image2');
-      isDragging = false;
-      if (isDragging) {
-        var xPos = e.pageX;
-
-        // Se você estiver usando o FancyBox, ajuste os seletores de acordo com a estrutura do lightbox
-        var _imageContainer = $('.fancybox__container .posh-show .image-container');
-        var _image = $('.fancybox__container .posh-show .image1');
-        var _image2 = $('.fancybox__container .posh-show .image2');
-        if (!_imageContainer.length || !_image.length || !_image2.length) {
-          return;
+      $('body').on('mousedown', divider, function (e) {
+        isDragging = true;
+        e.preventDefault();
+      });
+      $(document).on('mouseup', function () {
+        isDragging = false;
+      });
+      $(document).on('mousemove', function (e) {
+        if (isDragging) {
+          var xPos = e.pageX - imageContainer.offset().left;
+          var containerWidth = imageContainer.width();
+          var percentage = xPos / containerWidth * 100;
+          percentage = Math.min(100, Math.max(0, percentage));
+          divider.css('left', percentage + '%');
+          image1.css('clip-path', "inset(0% ".concat(100 - percentage, "% 0% 0%)"));
+          image2.css('clip-path', "inset(0% 0% 0% ".concat(percentage, "%)"));
         }
-        var containerWidth = _imageContainer.width();
-        var percentage = xPos / containerWidth * 100;
-        percentage = Math.min(100, Math.max(0, percentage));
-        $('.fancybox__container .posh-show .divider').css('left', percentage + '%');
-        _image.css('clip-path', "inset(0% ".concat(100 - percentage, "% 0% 0%)"));
-        _image2.css('clip-path', "inset(0% 0% 0% ".concat(percentage, "%)"));
-      }
+      });
     });
   }
+
+  // if($(window).outerWidth() >= '500'){
+
+  //     $('.box-slide').forEach(element => {
+  //         let $this = $(this);
+  //         let divider = $this.find('.divider');
+  //         let imageContainer = $this.find('.image-container');
+  //         let image1 = $this.find('.image1');
+  //         let image2 = $this.find('.image2');
+  //         let isDragging = false;
+
+  //         if (!divider.length || !imageContainer.length || !image1.length || !image2.length) {
+  //             return;
+  //         }
+
+  //         $('body').on('mousedown', divider, function (e) {
+  //             isDragging = true;
+  //             e.preventDefault();
+  //         });
+
+  //         $(document).on('mouseup', function () {
+  //             isDragging = false;
+  //         });
+
+  //         $(document).on('mousemove', function (e) {
+  //             if (isDragging) {
+  //                 let xPos = e.pageX - imageContainer.offset().left;
+  //                 let containerWidth = imageContainer.width();
+  //                 let percentage = (xPos / containerWidth) * 100;
+
+  //                 percentage = Math.min(100, Math.max(0, percentage));
+
+  //                 divider.css('left', percentage + '%');
+  //                 image1.css('clip-path', `inset(0% ${100 - percentage}% 0% 0%)`);
+  //                 image2.css('clip-path', `inset(0% 0% 0% ${percentage}%)`);
+  //             }
+  //         });
+  //     });
+
+  //     // $(document).on('mousemove', function (e) {
+  //     //     divider = $('.fancybox__container .posh-show .divider');
+  //     //     imageContainer = $('.fancybox__container .posh-show .image-container');
+  //     //     image1 = $('.fancybox__container .posh-show .image1');
+  //     //     image2 = $('.fancybox__container .posh-show .image2');
+  //     //     isDragging = false;
+
+  //     //     if (isDragging) {
+  //     //         let xPos = e.pageX;
+
+  //     //         // Se você estiver usando o FancyBox, ajuste os seletores de acordo com a estrutura do lightbox
+  //     //         let imageContainer = $('.fancybox__container .posh-show .image-container');
+  //     //         let image1 = $('.fancybox__container .posh-show .image1');
+  //     //         let image2 = $('.fancybox__container .posh-show .image2');
+
+  //     //         if (!imageContainer.length || !image1.length || !image2.length) {
+  //     //             return;
+  //     //         }
+
+  //     //         let containerWidth = imageContainer.width();
+  //     //         let percentage = (xPos / containerWidth) * 100;
+
+  //     //         percentage = Math.min(100, Math.max(0, percentage));
+
+  //     //         $('.fancybox__container .posh-show .divider').css('left', percentage + '%');
+  //     //         image1.css('clip-path', `inset(0% ${100 - percentage}% 0% 0%)`);
+  //     //         image2.css('clip-path', `inset(0% 0% 0% ${percentage}%)`);
+
+  //     //     }
+
+  //     // });
+
+  // }
+
   $('.carousel-port03').owlCarousel((_$$owlCarousel = {
     smartSpeed: 450,
     loop: false,

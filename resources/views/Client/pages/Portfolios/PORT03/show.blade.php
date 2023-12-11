@@ -6,7 +6,7 @@
             <h3 class="posh__header__subtitle">{!! $portfolio->text !!}</h3>
         </header>
         <div class="posh__content carousel-posh">
-            <div class="posh__box">
+            <div class="posh__box box-slide">
                 <div class="posh__box__engImage">
                     <div class="posh__box__engImage__content">
                         <div class="posh__box__engImage__content__flow image-container">
