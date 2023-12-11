@@ -12054,38 +12054,60 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-if ($(window).outerWidth() >= '500') {
-  document.addEventListener('DOMContentLoaded', function () {
-    var divider = document.querySelector('.divider');
-    var imageContainer = document.querySelector('.image-container');
-    var image1 = document.querySelector('.image1');
-    var image2 = document.querySelector('.image2');
+$(function () {
+  var _$$owlCarousel;
+  if ($(window).outerWidth() >= '500') {
+    var divider = $('.divider');
+    var imageContainer = $('.image-container');
+    var image1 = $('.image1');
+    var image2 = $('.image2');
     var isDragging = false;
-    if (!divider || !imageContainer || !image1 || !image2) {
+    if (!divider.length || !imageContainer.length || !image1.length || !image2.length) {
       return;
     }
-    divider.addEventListener('mousedown', function (e) {
+    divider.on('mousedown', function (e) {
       isDragging = true;
       e.preventDefault();
     });
-    document.addEventListener('mouseup', function () {
+    $(document).on('mouseup', function () {
       isDragging = false;
     });
-    document.addEventListener('mousemove', function (e) {
+    $(document).on('mousemove', function (e) {
       if (isDragging) {
-        var xPos = e.pageX - imageContainer.offsetLeft;
-        var containerWidth = imageContainer.offsetWidth;
+        var xPos = e.pageX - imageContainer.offset().left;
+        var containerWidth = imageContainer.width();
         var percentage = xPos / containerWidth * 100;
         percentage = Math.min(100, Math.max(0, percentage));
-        divider.style.left = percentage + '%';
-        image1.style.clipPath = "inset(0% ".concat(100 - percentage, "% 0% 0%)");
-        image2.style.clipPath = "inset(0% 0% 0% ".concat(percentage, "%)");
+        divider.css('left', percentage + '%');
+        image1.css('clip-path', "inset(0% ".concat(100 - percentage, "% 0% 0%)"));
+        image2.css('clip-path', "inset(0% 0% 0% ".concat(percentage, "%)"));
       }
     });
-  });
-}
-$(function () {
-  var _$$owlCarousel;
+    $(document).on('mousemove', function (e) {
+      divider = $('.fancybox__container .posh-show .divider');
+      imageContainer = $('.fancybox__container .posh-show .image-container');
+      image1 = $('.fancybox__container .posh-show .image1');
+      image2 = $('.fancybox__container .posh-show .image2');
+      isDragging = false;
+      if (isDragging) {
+        var xPos = e.pageX;
+
+        // Se você estiver usando o FancyBox, ajuste os seletores de acordo com a estrutura do lightbox
+        var _imageContainer = $('.fancybox__container .posh-show .image-container');
+        var _image = $('.fancybox__container .posh-show .image1');
+        var _image2 = $('.fancybox__container .posh-show .image2');
+        if (!_imageContainer.length || !_image.length || !_image2.length) {
+          return;
+        }
+        var containerWidth = _imageContainer.width();
+        var percentage = xPos / containerWidth * 100;
+        percentage = Math.min(100, Math.max(0, percentage));
+        $('.fancybox__container .posh-show .divider').css('left', percentage + '%');
+        _image.css('clip-path', "inset(0% ".concat(100 - percentage, "% 0% 0%)"));
+        _image2.css('clip-path', "inset(0% 0% 0% ".concat(percentage, "%)"));
+      }
+    });
+  }
   $('.carousel-port03').owlCarousel((_$$owlCarousel = {
     smartSpeed: 450,
     loop: false,
@@ -12096,15 +12118,14 @@ $(function () {
     items: 1
   }, _defineProperty(_$$owlCarousel, "rewind", true), _defineProperty(_$$owlCarousel, "touchDrag", false), _defineProperty(_$$owlCarousel, "mouseDrag", false), _$$owlCarousel));
   $('.carousel-port03').css('width', $('.port03 .container').outerWidth());
-  $('.carousel-box-image').owlCarousel(_defineProperty({
+  $('.carousel-box-image').owlCarousel({
     smartSpeed: 450,
     loop: false,
     dots: true,
     nav: false,
-    rewind: true,
     autoHeight: true,
     items: 1
-  }, "rewind", true));
+  });
   $('.carousel-box-image').css('width', $('.popa .popa__portfolio__content__item').outerWidth() - 24);
 });
 

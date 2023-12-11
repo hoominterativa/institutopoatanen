@@ -1,5 +1,8 @@
 @import 'variables';
 
+.fancybox__slide{
+    padding: 0 !important;
+}
 /* BEGIN STYLE */
 .port03{
     .container--port03{
@@ -277,9 +280,13 @@
             display: flex !important;
             z-index: 1;
             gap: 0 0.5rem;
-            margin-top: -23px;
+            bottom: 17px;
             position: relative;
             justify-content: center;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-top: 0;
 
             @include small-device-down{
                 gap: 0 0.5rem;
@@ -631,7 +638,7 @@
                             transform: translate(-50%, 0);
                             bottom: 20px;
 
-                            .owl-dots{
+                            .owl-dot{
                                 background-color: #D9D9D9 !important;
 
                                 &.active, &:hover{
@@ -690,10 +697,15 @@
             }
 
         }
+       
+       
     }
 }
 // fim port03-page
 .posh{
+    display: none;
+    width: 100%;
+
     .container--posh{
         padding: 5.25rem 0 !important;
 
@@ -970,6 +982,12 @@
                 }
             }
         }
+    }
+
+    .carousel__button.is-close{
+        top: 11px !important;
+        right: 11px  !important;
+        color: $color-black !important;
     }
 }
 // fim port03-show

@@ -98,25 +98,26 @@
                 <div class="row">
                     @foreach ($portfolios as $portfolio)
                         <article class="popa__portfolio__content__item col-sm-4 position-relative">
-                            <a rel="next" href="#" data-fancybox="{{$portfolio->slug}}" data-src="#lightbox-port03-{{$portfolio->id}}" class="link-full"></a>
+                            
                             <div class="popa__portfolio__content__item__encompass">
                                 <div class="popa__portfolio__content__item__images mx-auto">
                                     <div class="carousel-box-image owl-carousel">
                                         @if ($portfolio->path_image_before)
                                             <div class="popa__portfolio__content__item__images__image">
-                                                <img src="{{ asset('storage/' . $portfolio->path_image_before) }}" alt="Imagem antes">
+                                                <img src="{{ asset('storage/' . $portfolio->path_image_before) }}" data-fancybox="gallery-{{$portfolio->id}}" alt="Imagem antes">
                                             </div>
                                         @endif
                                         {{-- fim popa__portfolio__content__item__images__image --}}
                                         @if ($portfolio->path_image_after)
                                             <div class="popa__portfolio__content__item__images__image">
-                                                <img src="{{ asset('storage/' . $portfolio->path_image_after) }}" alt="Imagem depois">
+                                                <img src="{{ asset('storage/' . $portfolio->path_image_after) }}" data-fancybox="gallery-{{$portfolio->id}}" alt="Imagem depois">
                                             </div>
                                         @endif
                                         {{-- fim popa__portfolio__content__item__images__image --}}
                                     </div>
                                 </div>
-                                <div class="popa__portfolio__content__item__description">
+                                <div class="popa__portfolio__content__item__description position-relative">
+                                    <a rel="next" href="#lightbox-port03-{{$portfolio->id}}" data-fancybox="" class="link-full"></a>
                                     <h4 class="popa__portfolio__content__item__description__title">{{$portfolio->title}}</h4>
                                     <div class="popa__portfolio__content__item__description__paragraph">
                                         <p>{!! $portfolio->description !!}</p>

@@ -2061,6 +2061,10 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 
+.fancybox__slide {
+  padding: 0 !important;
+}
+
 /* BEGIN STYLE */
 .port03 .container--port03 {
   padding: 5.25rem 0 !important;
@@ -2330,9 +2334,13 @@ body .owl-dots .owl-dot.active {
   display: flex !important;
   z-index: 1;
   gap: 0 0.5rem;
-  margin-top: -23px;
+  bottom: 17px;
   position: relative;
   justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 0;
 }
 @media (max-width: 575.98px) {
   .port03 .carousel-port03 .owl-nav {
@@ -2648,10 +2656,10 @@ body .owl-dots .owl-dot.active {
   transform: translate(-50%, 0);
   bottom: 20px;
 }
-.popa__portfolio__content__item__images .carousel-box-image .owl-dots .owl-dots {
+.popa__portfolio__content__item__images .carousel-box-image .owl-dots .owl-dot {
   background-color: #D9D9D9 !important;
 }
-.popa__portfolio__content__item__images .carousel-box-image .owl-dots .owl-dots.active, .popa__portfolio__content__item__images .carousel-box-image .owl-dots .owl-dots:hover {
+.popa__portfolio__content__item__images .carousel-box-image .owl-dots .owl-dot.active, .popa__portfolio__content__item__images .carousel-box-image .owl-dots .owl-dot:hover {
   background-color: #404040 !important;
 }
 .popa__portfolio__content__item__description {
@@ -2695,6 +2703,10 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 0;
 }
 
+.posh {
+  display: none;
+  width: 100%;
+}
 .posh .container--posh {
   padding: 5.25rem 0 !important;
 }
@@ -2967,6 +2979,11 @@ body .owl-dots .owl-dot.active {
 .posh__box__description__btn:hover img {
   filter: invert(1) grayscale(1);
   transition: all ease 0.3s;
+}
+.posh .carousel__button.is-close {
+  top: 11px !important;
+  right: 11px !important;
+  color: #000 !important;
 }
 
 /* BEGIN STYLE */

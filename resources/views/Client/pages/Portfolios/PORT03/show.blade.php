@@ -1,6 +1,4 @@
-@extends('Client.Core.client')
-@section('content')
-{{-- BEGIN Page content --}}
+
 <section id="lightbox-port03-{{$portfolio->id}}" class="posh-show posh">
     <div class="container container--posh">
         <header class="posh__header text-center">
@@ -40,8 +38,4 @@
     </div>
 </section>
 {{-- #PORT02 --}}
-{{-- Finish Content page Here --}}
-@foreach ($sections as $section)
-    {!!$section!!}
-@endforeach
-@endsection
+
