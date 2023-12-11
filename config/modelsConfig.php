@@ -201,7 +201,7 @@ return [
                 ]
             ],
         ],
-        'Contents' => (object)[
+        'Contents.2' => (object)[
             'CONT11' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -226,21 +226,21 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => 'Pagina em branco',
+                    'titleMenu' => 'Governança',
                     'anchor' => false,
                     'linkMenu' => 'bapa01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Pagina em branco',
+                    'titlePanel' => 'Governança',
                     'iconPanel' => 'mdi-contacts'
                 ],
                 'IncludeSections' => (object) [
-                    'CONT11'
+                    'Contents.2' => 'CONT11'
                 ]
             ],
         ],
         'Abouts.1' => (object) [
             'ABOU04' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
