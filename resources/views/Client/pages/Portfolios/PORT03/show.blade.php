@@ -1,6 +1,4 @@
-@extends('Client.Core.client')
-@section('content')
-{{-- BEGIN Page content --}}
+
 <section id="lightbox-port03-{{$portfolio->id}}" class="posh-show posh">
     <div class="container container--posh">
         <header class="posh__header text-center">
@@ -8,7 +6,7 @@
             <h3 class="posh__header__subtitle">{!! $portfolio->text !!}</h3>
         </header>
         <div class="posh__content carousel-posh">
-            <div class="posh__box">
+            <div class="posh__box box-slide">
                 <div class="posh__box__engImage">
                     <div class="posh__box__engImage__content">
                         <div class="posh__box__engImage__content__flow image-container">
@@ -40,8 +38,4 @@
     </div>
 </section>
 {{-- #PORT02 --}}
-{{-- Finish Content page Here --}}
-@foreach ($sections as $section)
-    {!!$section!!}
-@endforeach
-@endsection
+

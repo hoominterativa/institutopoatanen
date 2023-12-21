@@ -12,7 +12,7 @@
         @if ($portfolios->count())
             <div class="port03__content carousel-port03 owl-carousel">
                 @foreach ($portfolios as $portfolio)
-                    <div class="port03__box position-relative">
+                    <div class="port03__box box-slide position-relative">
                         <div class="port03__box__engImage">
                             <div class="port03__box__engImage__content">
                                 <div class="port03__box__engImage__content__flow image-container">
@@ -40,12 +40,25 @@
                                     <h5 class="port03__box__description__left__subtitle">{!! $portfolio->description !!}</h5>
                                 @endif
                             </div>
-                            @if ($portfolio->link_button || $portfolio->title_button)
+                            {{-- @if ($portfolio->link_button || $portfolio->title_button)
                                 <a href="{{getUri($portfolio->link_button)}}" target="{{$portfolio->target_link_button}}" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
                                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="icon" class="port03__box__description__btn__icon me-3 transition">
                                     {{$portfolio->title_button}}
                                 </a>
-                            @endif
+                            @endif --}}
+                            
+                            <a href="{{route('port03.page')}}" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="icon" class="port03__box__description__btn__icon me-3 transition">
+                                Ver mais
+                            </a>
+
+                            {{-- <a href="#lightbox-port03-{{$portfolio->id}}" data-fancybox="" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="icon" class="port03__box__description__btn__icon me-3 transition">
+                                Ver mais
+                            </a>
+                            @include('Client.pages.Portfolios.PORT03.show',[
+                                'portfolio' => $portfolio
+                            ]) --}}
                         </div>
                     </div>
                 @endforeach
