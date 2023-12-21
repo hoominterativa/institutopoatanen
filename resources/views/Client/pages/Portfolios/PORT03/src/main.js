@@ -15,7 +15,7 @@ $(function(){
                 return;
             }
     
-            $('body').on('mousedown', divider, function (e) {
+            divider.on('mousedown', function (e) {
                 isDragging = true;
                 e.preventDefault();
             });

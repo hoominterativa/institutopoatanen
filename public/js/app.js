@@ -12068,7 +12068,7 @@ $(function () {
       if (!divider.length || !imageContainer.length || !image1.length || !image2.length) {
         return;
       }
-      $('body').on('mousedown', divider, function (e) {
+      divider.on('mousedown', function (e) {
         isDragging = true;
         e.preventDefault();
       });

@@ -47,13 +47,18 @@
                                 </a>
                             @endif --}}
                             
-                            <a href="#lightbox-port03-{{$portfolio->id}}" data-fancybox="" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
+                            <a href="{{route('port03.page')}}" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="icon" class="port03__box__description__btn__icon me-3 transition">
+                                Ver mais
+                            </a>
+
+                            {{-- <a href="#lightbox-port03-{{$portfolio->id}}" data-fancybox="" class="port03__box__description__btn transition d-flex justify-content-center align-items-center">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="icon" class="port03__box__description__btn__icon me-3 transition">
                                 Ver mais
                             </a>
                             @include('Client.pages.Portfolios.PORT03.show',[
                                 'portfolio' => $portfolio
-                            ])
+                            ]) --}}
                         </div>
                     </div>
                 @endforeach
