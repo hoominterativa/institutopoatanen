@@ -16,7 +16,7 @@ class TOPI01TopicsSection extends Model
     }
 
     protected $table = "topi01_topics_sections";
-    protected $fillable = ['title','subtitle','description','active', 'path_image_background', 'background_color'];
+    protected $fillable = ['title','subtitle','description','active',];
 
     public function scopeActive($query)
     {

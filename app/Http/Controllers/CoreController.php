@@ -262,6 +262,7 @@ class CoreController extends Controller
                     "anchor" => false,
                     "link" => $config->pages->$pageCurrent->route,
                     "dropdown" => $listDropdown,
+                    "target_link" => $page->target_link,
                 ];
             }
 
@@ -273,6 +274,7 @@ class CoreController extends Controller
                     "link" => $page->link,
                     "target_link" => $page->target_link,
                     "dropdown" => $listDropdown,
+                    "target_link" => $page->target_link,
                 ];
             }
 
@@ -283,6 +285,7 @@ class CoreController extends Controller
                     "anchor" => $config->config->anchor,
                     "link" => $config->config->linkMenu,
                     "dropdown" => $listDropdown,
+                    "target_link" => $page->target_link,
                 ];
             }
 

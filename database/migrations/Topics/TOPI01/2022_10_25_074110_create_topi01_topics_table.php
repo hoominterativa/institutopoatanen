@@ -18,7 +18,7 @@ class CreateTopi01TopicsTable extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->text('link')->nullable();
-            $table->enum('target_link', ['_self', '_blank', '_lightbox'])->default('_self');
+            $table->enum('target_link', ['_self', '_blank'])->default('_self');
             $table->integer('active')->default(0);
             $table->string('path_image_icon')->nullable();
             $table->string('path_image')->nullable();

@@ -18,10 +18,7 @@ class CreateTopi01TopicsSectionsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
-            $table->string('path_image_background')->nullable();
-            $table->string('background_color')->nullable();
             $table->integer('active')->nullable();
-            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }

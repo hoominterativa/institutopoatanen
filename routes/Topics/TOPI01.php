@@ -26,7 +26,4 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/secao', TOPI01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'TOPI01TopicsSection']);
-    Route::post($route.'/secao/delete', [TOPI01SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 });
-// CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

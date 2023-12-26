@@ -56,7 +56,7 @@ class TOPI01Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) $data['path_image'] = $path_image;
@@ -102,7 +102,7 @@ class TOPI01Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) {
@@ -126,13 +126,12 @@ class TOPI01Controller extends Controller
 
         if ($TOPI01Topics->fill($data)->save()) {
             Session::flash('success', 'Tópico atualizado com sucesso');
-            return redirect()->route('admin.topi01.index');
         } else {
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
             Session::flash('success', 'Erro ao atualizar informações');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**

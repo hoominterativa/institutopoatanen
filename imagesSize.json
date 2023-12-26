@@ -1767,14 +1767,7 @@
             "path_image": {
                 "width": "260",
                 "height": "240",
-                "activeCrop": "true"
-            },
-            "Section": {
-                "path_image_background": {
-                    "width": "1400",
-                    "height": "700",
-                    "activeCrop": "false"
-                }
+                "activeCrop": "false"
             }
         },
         "TOPI02": {

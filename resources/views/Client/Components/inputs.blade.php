@@ -144,11 +144,11 @@
         <div class="form__file mb-3 input__item input__item--file">
             {!! Form::label($name, $placeholder, ['class'=>'form-label']) !!}
             <label for="{{$name}}" class="form__file__item form-control">
-                Clique para abexar o arquivo
+                Clique para anexar o arquivo
             </label>
             {!! Form::file($name, [
                 'required'=> $required,
-                'accept'=>'.pdf',
+                'accept'=>'*',
                 'id' => $name
             ]) !!}
             <input type="hidden" name="{{str_replace('_'.$type,'',$name)}}" value="{{$placeholder}}">
