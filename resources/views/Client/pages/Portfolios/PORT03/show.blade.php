@@ -1,4 +1,3 @@
-
 <section id="lightbox-port03-{{$portfolio->id}}" class="posh-show posh">
     <div class="container container--posh">
         <header class="posh__header text-center">

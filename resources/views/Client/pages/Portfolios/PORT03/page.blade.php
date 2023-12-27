@@ -2,7 +2,7 @@
 @section('content')
 {{-- BEGIN Page content --}}
 <section class="port03-page popa">
-    @if (isset($section->active_banner))
+    @if ($section->active_banner)
         <header class="popa__banner container-fluid px-0">
             <div class="popa__banner__container">
                 <div class="popa__banner__image"
@@ -18,7 +18,7 @@
         </header>
     @endif
     <main class="popa__portfolio">
-        @if (isset($section->active_content))
+        @if ($section->active_content)
             <div class="popa__portfolio__header">
                 <div class="container">
                     <div class="popa__portfolio__header__top">
@@ -53,7 +53,7 @@
                         <div class="popa__portfolio__categories__carousel">
                             @foreach ($categories as $category)
                                 <li class="popa__portfolio__categories__list__item">
-                                    <a class=" d-flex w-100 h-100 justify-content-between align-items-center {{isset($category->selected) ? 'active':''}}" href="{{route('port03.category.page', ['PORT03PortfoliosCategory' => $category->slug])}}">
+                                    <a class=" d-flex w-100 h-100 justify-content-between align-items-center {{isset($category->selected) ? 'active' : ''}}" href="{{route('port03.category.page', ['PORT03PortfoliosCategory' => $category->slug])}}">
                                         @if($category->path_image_icon)
                                             <img src="{{ asset('storage/' . $category->path_image_icon) }}" alt="Ícone da categoria" class="popa__portfolio__categories__list__item__icon">
                                         @endif
@@ -98,7 +98,7 @@
                 <div class="row">
                     @foreach ($portfolios as $portfolio)
                         <article class="popa__portfolio__content__item col-sm-4 position-relative">
-                            
+
                             <div class="popa__portfolio__content__item__encompass">
                                 <div class="popa__portfolio__content__item__images mx-auto">
                                     <div class="carousel-box-image owl-carousel">

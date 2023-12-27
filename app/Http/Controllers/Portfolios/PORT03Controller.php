@@ -251,7 +251,6 @@ class PORT03Controller extends Controller
      */
     public static function section()
     {
-        $category = PORT03PortfoliosCategory::active()->exists()->first();
         $portfolios = PORT03Portfolios::active()->featured()->sorting()->get();
         $section = PORT03PortfoliosSection::active()->first();
         switch(deviceDetect()) {
@@ -264,7 +263,6 @@ class PORT03Controller extends Controller
         return view('Client.pages.Portfolios.PORT03.section',[
             "portfolios" => $portfolios,
             "section" => $section,
-            'category' => $category
         ]);
     }
 }
