@@ -69,18 +69,18 @@
                 <div class="row">
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                        {!! Form::url('link', (isset($topic)?getUri($topic->link):null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link', (isset($topic) && isset($topic->link) ? getUri($topic->link) : null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link', 'Redirecionar para', ['class'=>'form-label']) !!}
-                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
+                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+            {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>

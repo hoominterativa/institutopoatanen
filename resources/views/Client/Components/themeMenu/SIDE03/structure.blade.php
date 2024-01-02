@@ -32,7 +32,7 @@
                                     @endif
                                 </a>
                             @elseif (Route::current()->uri != 'home')
-                                <a href="{{route('home')}}{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} target="{{$menu->target_link}}" class="side03__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} target="{{$menu->target_link}}" class="side03__navigation__item__link transition {{!$menu->anchor?isActive($menu->link):''}}">
                                     <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" width="25" class="me-3" alt="" loading="lazy">{{$menu->title}}
                                     @if ($menu->dropdown)
                                         <i class="menu-arrow"></i>

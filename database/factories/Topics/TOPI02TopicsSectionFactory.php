@@ -25,7 +25,6 @@ class TOPI02TopicsSectionFactory extends Factory
             "title" => $this->faker->text(10),
             "subtitle" => $this->faker->text(10),
             "description" => $this->faker->text(100),
-            "path_image_background" => 'uploads/temp/bg-section-gray.jpg',
             "active" => 1,
         ];
     }
