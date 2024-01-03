@@ -55,7 +55,7 @@ class TOPI03Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
@@ -97,7 +97,7 @@ class TOPI03Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['link'] = getUri($data['link']);
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){

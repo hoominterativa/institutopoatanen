@@ -25,7 +25,7 @@ class TOPI03TopicsFactory extends Factory
             'title' => $this->faker->text(10),
             'description' => $this->faker->text(300),
             'path_image_icon' => 'uploads/tmp/favicon.png',
-            'link' => 'https://www.lipsum.com/',
+            'link' => $this->faker->url(),
             'target_link' => '_blank',
             'active' => 1,
         ];

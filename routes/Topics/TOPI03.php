@@ -27,5 +27,3 @@ $routeName = Str::lower($model);
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/secao', TOPI03SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'TOPI03TopicsSection']);
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
