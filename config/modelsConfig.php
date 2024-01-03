@@ -77,7 +77,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Tópicos1',
                     'iconPanel' => 'mdi-book-multiple-outline'
                 ]
             ],
@@ -118,7 +118,6 @@ return [
                 ]
             ],
         ],
-
         'Contents.1' => (object) [
             'CONT08' => (object)[
                 'ViewHome' => true,
@@ -131,7 +130,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
+                    'titlePanel' => 'Conteúdo8',
                     'iconPanel' => 'mdi-view-split-horizontal'
                 ]
             ],
@@ -167,7 +166,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópico 11',
+                    'titlePanel' => 'Tópicos2',
                     'iconPanel' => ''
                 ]
             ],
@@ -184,7 +183,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Tópicos3',
                     'iconPanel' => ''
                 ]
             ],
