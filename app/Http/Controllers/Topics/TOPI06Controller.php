@@ -13,6 +13,8 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class TOPI06Controller extends Controller
 {
+    protected $path = 'uploads/Topics/TOPI06/images/';
+
     /**
      * Display a listing of the resource.
      *
@@ -53,13 +55,13 @@ class TOPI06Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, null,100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->$path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
         if(TOPI06Topics::create($data)){
@@ -104,7 +106,7 @@ class TOPI06Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $path, null,100);
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon){
             storageDelete($TOPI06Topics, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;
@@ -114,7 +116,7 @@ class TOPI06Controller extends Controller
             $data['path_image_icon'] = null;
         }
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $path, null,100);
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){
             storageDelete($TOPI06Topics, 'path_image_desktop');
             $data['path_image_desktop'] = $path_image_desktop;
@@ -124,7 +126,7 @@ class TOPI06Controller extends Controller
             $data['path_image_desktop'] = null;
         }
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
         if($path_image_mobile){
             storageDelete($TOPI06Topics, 'path_image_mobile');
             $data['path_image_mobile'] = $path_image_mobile;
@@ -206,19 +208,16 @@ class TOPI06Controller extends Controller
      */
     public static function section()
     {
+        $topics = TOPI06Topics::active()->sorting()->get();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $topics = TOPI06Topics::active()->sorting()->get();
                 if($topics) {
                     foreach ($topics as $topic) {
                         $topic->path_image_desktop = $topic->path_image_mobile;
                     }
                 }
-                break;
-            default:
-            $topics = TOPI06Topics::active()->sorting()->get();
-                break;
+            break;
         }
 
         return view('Client.pages.Topics.TOPI06.section',[

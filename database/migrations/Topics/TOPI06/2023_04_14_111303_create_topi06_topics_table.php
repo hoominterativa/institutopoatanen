@@ -20,7 +20,6 @@ class CreateTopi06TopicsTable extends Migration
             $table->string('path_image_icon')->nullable();
             $table->string('path_image_desktop')->nullable();
             $table->string('path_image_mobile')->nullable();
-
             $table->string('title_button')->nullable();
             $table->string('link_button')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
