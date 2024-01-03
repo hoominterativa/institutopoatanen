@@ -25,6 +25,8 @@
                     <li class="nav-item">
                         <a href="#topic" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Topics', 'TOPI04') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Edição do conteúdo principal."></i>
                         </a>
                     </li>
                     <li class="nav-item">

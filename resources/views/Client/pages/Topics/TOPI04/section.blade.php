@@ -36,12 +36,11 @@
                         </div>
                     </div>
                     <div class="topi04__topics carrosel-topi04-topics owl-carousel">
-                        @foreach ($topic->topicSection as $topicSection)
+                        @foreach ($topic->topicSections as $topicSection)
                             <div class="topi04__topics__item w-100">
                                 <div class="topi04__topics__item__image w-100 h-100">
                                     @if ($topicSection->path_image_box)
-                                        <img src="{{ asset('storage/' . $topicSection->path_image_box) }}"
-                                            alt="Imagem" class="w-100 h-100">
+                                        <img src="{{ asset('storage/' . $topicSection->path_image_box) }}" alt="Imagem" class="w-100 h-100">
                                     @endif
                                 </div>
                                 <div class="topi04__topics__item__description d-flex flex-column position-absolute top-0 start-0 w-100 h-100 justify-content-center align-items-center">
@@ -50,7 +49,8 @@
                                     @endif
                                     @if ($topicSection->title)
                                         <h4 class="topi04__topics__item__title mb-0 text-center">
-                                            {{ $topicSection->title }}</h4>
+                                            {{ $topicSection->title }}
+                                        </h4>
                                     @endif
                                 </div>
                             </div>
