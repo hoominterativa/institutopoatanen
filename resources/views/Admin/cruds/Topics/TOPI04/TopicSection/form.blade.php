@@ -1,8 +1,8 @@
 @if (isset($topicSection))
-    {!! Form::model($topicSection, ['route' => ['admin.topi04.topicsection.update', $topicSection->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::model($topicSection, ['route' => ['admin.topi04.topic.section.update', $topicSection->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => ['admin.topi04.topicsection.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => ['admin.topi04.topic.section.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
     <input type="hidden" name="topic_id" value="{{ $topic->id }}">
 @endif
     <div class="row">
@@ -12,12 +12,10 @@
                     {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
                     {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
                 </div>
-                <div class="d-flex">
-                    <div class="mb-3 form-check me-3">
-                        {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                        {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-                    </div>
-                </div>
+            </div>
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         <div class="col-12 col-lg-6">
