@@ -262,34 +262,37 @@ if(!function_exists('getUri')){
      * @return array
      */
 
-    function getUri($url)
-    {
-        if (filter_var($url, FILTER_VALIDATE_URL)) {
-            $parseUrl = parse_url($url);
-            $parseUrlCurrent = parse_url(url()->current());
+     function getUri($url)
+     {
+         if($url){
+             if (filter_var($url, FILTER_VALIDATE_URL)) {
+                 $parseUrl = parse_url($url);
+                 $parseUrlCurrent = parse_url(url()->current());
 
-            if($parseUrl['host'] === $parseUrlCurrent['host']){
-                $fragment = isset($parseUrl['fragment']) ? '#'.$parseUrl['fragment'] : '';
-                $query = isset($parseUrl['query']) ? '?'.$parseUrl['query'] : '';
+                 if($parseUrl['host'] === $parseUrlCurrent['host']){
+                     $fragment = isset($parseUrl['fragment']) ? '#'.$parseUrl['fragment'] : '';
+                     $query = isset($parseUrl['query']) ? '?'.$parseUrl['query'] : '';
 
-                $urlPath = $parseUrl['path'] ?? '';
-                $arrayUrlPath = explode('/', $urlPath);
+                     $urlPath = $parseUrl['path'] ?? '';
+                     $arrayUrlPath = explode('/', $urlPath);
 
-                if(strpos($parseUrlCurrent['path'], '_website') === false){
-                    if(strpos($urlPath, '_website') !== false){
-                        $firstPathRemove = $arrayUrlPath[array_search('_website', $arrayUrlPath)];
-                        $lastPathRemove = $arrayUrlPath[(array_search('_website', $arrayUrlPath))+1];
-                        $urlPath = str_replace([$firstPathRemove.'/', $lastPathRemove.'/'], '', $urlPath);
-                    }
-                }
-                return $urlPath.$query.$fragment;
-            }else{
-                return $url;
-            }
-        } else {
-            return url($url);
-        }
-    }
+                     if(strpos($urlPath, '_website') !== false){
+                         $firstPathRemove = $arrayUrlPath[array_search('_website', $arrayUrlPath)];
+                         $lastPathRemove = $arrayUrlPath[(array_search('_website', $arrayUrlPath))+1];
+                         $urlPath = str_replace([$firstPathRemove.'/', $lastPathRemove.'/'], '', $urlPath);
+                     }
+
+                     return $urlPath.$query.$fragment;
+                 }else{
+                     return $url;
+                 }
+             } else {
+                 return url($url);
+             }
+         }else{
+             return null;
+         }
+     }
 }
 
 if(!function_exists('listPage')){

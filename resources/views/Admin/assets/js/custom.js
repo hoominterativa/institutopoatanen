@@ -1,20 +1,31 @@
-function embedLinkYoutube(elem){
-    var val = elem.val()
-    let result = val.includes("watch?v=");
+function embedLinkYoutube(elem) {
+    var val = elem.val();
+    let isYouTubeLink = val.includes("youtube.com") || val.includes("youtu.be");
 
-    if (result) {
-        newLink = val.replace('watch?v=', 'embed/')
-        elem.val(newLink)
-    } else if(val) {
-        arrayLink = val.split('/'),
-        id = arrayLink[arrayLink.length - 1]
-        elem.val(`https://www.youtube.com/embed/${id}`)
+    if (isYouTubeLink) {
+        let result = val.includes("watch?v=");
+
+        if (result) {
+            newLink = val.replace('watch?v=', 'embed/');
+            elem.val(newLink);
+        } else {
+            let url = new URL(val);
+            let id = url.searchParams.get('v');
+            if (id) {
+                elem.val(`https://www.youtube.com/embed/${id}`);
+            }
+        }
+    } else {
+        var newVal = val.replaceAll('http://', '').replaceAll('https://', '').split('/'),
+        id = newVal[1].replaceAll('?share=copy', '')
+        elem.val(`https://player.vimeo.com/video/${id}?share=copy`)
     }
 }
 
 $('body').on('change, focusout', '.embedLinkYoutube', function(){
     embedLinkYoutube($(this))
 });
+
 function slugify(text) {
     return text
         .toString() // Cast to string (optional)
