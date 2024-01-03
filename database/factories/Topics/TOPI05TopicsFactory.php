@@ -25,7 +25,7 @@ class TOPI05TopicsFactory extends Factory
             "title" => $this->faker->text(10),
             "description" => $this->faker->text(100),
             "path_image" => 'uploads/tmp/image-box.jpg',
-            "link" => 'www.example.com',
+            "link" => $this->faker->url(),
             "target_link" => '_blank',
             "active" => 1,
         ];

@@ -61,8 +61,16 @@
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">{{$topic->title}}</td>
-                                                <td class="align-middle">{{substr($topic->description, 0, 50)}}</td>
-                                                <td class="align-middle"><a href="{{ $topic->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                <td class="align-middle">
+                                                    @if ($topic->description)
+                                                        {!! substr($topic->description, 0, 25) !!}<b>...</b>
+                                                    @endif
+                                                </td>
+                                                <td class="align-middle">
+                                                    @if ($topic->link)
+                                                        <a href="{{ $topic->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                    @endif
+                                                </td>
                                                 <td class="align-middle">
                                                     @switch($topic->active)
                                                         @case(1) <span class="badge bg-success">Ativo</span>  @break
