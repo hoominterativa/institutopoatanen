@@ -6,6 +6,14 @@
     justify-content:$justify;
     align-items: $align;
 }
+
+@mixin disFlex($displayFlex:flex, $direction:row, $justify:start, $align:stretch) {
+    display:$displayFlex;
+    flex-direction: $direction;
+    justify-content:$justify;
+    align-items: $align;
+}
+
 @mixin Img ($Width:100%, $Height: 100%, $ObjectFit: contain){
     width: $Width !important;
     height: $Height !important;

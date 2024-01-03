@@ -43,7 +43,7 @@
             @endforeach
         </div>
         <a rel="next" href="{{ route('blog01.page', ['BLOG01BlogsCategory' => $category->slug]) }}" class="blog01__cta transition justify-content-center align-items-center">
-            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA" class="blog01__cta__icon me-3 transition">
+            {{-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA" class="blog01__cta__icon me-3 transition"> --}}
             CTA
         </a>
     </div>

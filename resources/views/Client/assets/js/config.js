@@ -154,7 +154,7 @@ if (elementosAnimados.length > 0) {
   const handleIntersection = (entradas, observador) => {
     entradas.forEach((entrada) => {
       if (entrada.isIntersecting) {
-        if (delayGroup < 8) {
+        if (delayGroup < 4) {
           delayGroup++;
         }
         setTimeout(() => {
@@ -163,7 +163,7 @@ if (elementosAnimados.length > 0) {
           if (delayGroup > 0) {
             delayGroup--;
           }
-        }, delayGroup * 500);
+        }, delayGroup * 300);
       }
       // else {
       //     entrada.target.classList.remove("animated"); // Remove a classe .animated

@@ -1523,6 +1523,13 @@ body {
     &.fadeInDown {
       animation: fadeInDown;
     }
+
+    &.fadeInRight{
+        animation: fadeInRight;
+    }
+    &.fadeInLeft{
+        animation: fadeInLeft;
+    }
   }
 
   .hover-image-box {

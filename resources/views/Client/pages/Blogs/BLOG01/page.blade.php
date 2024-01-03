@@ -48,7 +48,7 @@
                                             {{ $blogFeatured->description }}</p>
                                         <a itemprop="url" href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blogFeatured->category->slug, 'BLOG01Blogs' => $blogFeatured->slug]) }}"
                                             class="blog01-page__boxs__featured__item__cta d-flex align-items-center justify-content-center ms-auto">
-                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="25" class="blog01-page__boxs__featured__item__cta__icon me-3" alt="{{ $blogFeatured->title }}" />
+                                            {{-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="25" class="blog01-page__boxs__featured__item__cta__icon me-3" alt="{{ $blogFeatured->title }}" /> --}}
                                             CTA
                                         </a>
                                     </div>

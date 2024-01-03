@@ -218,7 +218,7 @@ class SLID01Controller extends Controller
                 if ($slides) {
                     foreach($slides as $slide){
                         $slide->path_image_desktop = $slide->path_image_mobile;
-                        $slide->path_image_png = null;
+                        // $slide->path_image_png = null;
                     }
                 }
             break;
