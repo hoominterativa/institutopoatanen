@@ -1,4 +1,3 @@
-
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
@@ -12,16 +11,15 @@
                     'class'=>'form-control',
                     'id'=>'description',
                     'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'10',
-                    'data-parsley-maxlength'=>'800',
+                    'data-parsley-maxlength'=>'300',
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 10 caracteres.',
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
             </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>

@@ -37,7 +37,6 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
                                                 <label><input name="btnSelectAll" value="btnDeleteTopics" type="checkbox"></label>
                                             </th>
                                             <th>Imagem</th>
@@ -61,7 +60,11 @@
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">{{$topic->title}}</td>
-                                                <td class="align-middle">{!! substr($topic->description, 0, 30) !!}</td>
+                                                <td class="align-middle">
+                                                    @if ($topic->description)
+                                                        {!! substr($topic->description, 0, 25) !!}
+                                                    @endif
+                                                </td>
                                                 <td class="align-middle">
                                                     @if ($topic->active)
                                                         <span class="badge bg-success">Ativo</span>
