@@ -1845,7 +1845,7 @@
             }
         },
         "TOPI08": {
-            "path_image_box": {
+            "path_image": {
                 "width": "350",
                 "height": "521",
                 "activeCrop": "false"

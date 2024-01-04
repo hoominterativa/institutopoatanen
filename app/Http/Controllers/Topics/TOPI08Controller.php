@@ -58,14 +58,14 @@ class TOPI08Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
-        if($path_image_box) $data['path_image_box'] = $path_image_box;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        if($path_image) $data['path_image'] = $path_image;
 
         if(TOPI08Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
             return redirect()->route('admin.topi08.index');
         }else{
-            Storage::delete($path_image_box);
+            Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o tópico');
             return redirect()->back();
         }
@@ -100,20 +100,20 @@ class TOPI08Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
-        if($path_image_box){
-            storageDelete($TOPI08Topics, 'path_image_box');
-            $data['path_image_box'] = $path_image_box;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        if($path_image){
+            storageDelete($TOPI08Topics, 'path_image');
+            $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image_box && !$path_image_box){
-            storageDelete($TOPI08Topics, 'path_image_box');
-            $data['path_image_box'] = null;
+        if($request->delete_path_image && !$path_image){
+            storageDelete($TOPI08Topics, 'path_image');
+            $data['path_image'] = null;
         }
 
         if($TOPI08Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');
         }else{
-            Storage::delete($path_image_box);
+            Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar o tópico');
         }
         return redirect()->back();
@@ -127,7 +127,7 @@ class TOPI08Controller extends Controller
      */
     public function destroy(TOPI08Topics $TOPI08Topics)
     {
-        storageDelete($TOPI08Topics, 'path_image_box');
+        storageDelete($TOPI08Topics, 'path_image');
 
         if($TOPI08Topics->delete()){
             Session::flash('success', 'Tópico deletado com sucessso');
@@ -145,7 +145,7 @@ class TOPI08Controller extends Controller
     {
         $TOPI08Topicss = TOPI08Topics::whereIn('id', $request->deleteAll)->get();
         foreach($TOPI08Topicss as $TOPI08Topics){
-            storageDelete($TOPI08Topics, 'path_image_box');
+            storageDelete($TOPI08Topics, 'path_image');
         }
 
         if($deleted = TOPI08Topics::whereIn('id', $request->deleteAll)->delete()){
@@ -176,14 +176,13 @@ class TOPI08Controller extends Controller
      */
     public static function section()
     {
+        $section = TOPI08TopicsSection::active()->first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = TOPI08TopicsSection::active()->first();
                 if ($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-            $section = TOPI08TopicsSection::active()->first();
+            break;
+
         }
 
         $topics = TOPI08Topics::active()->sorting()->get();

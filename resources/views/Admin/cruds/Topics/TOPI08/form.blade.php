@@ -5,14 +5,16 @@
                 {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
             </div>
-            <div class="col-12">
-                <div class="normal-editor__content mb-3">
-                    {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
-                    {!! Form::textarea('description', null, [
-                        'class'=>'form-control normal-editor',
-                        'id'=>'description',
-                    ]) !!}
-                </div>
+            <div class="mb-3">
+                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description', null, [
+                    'class'=>'form-control',
+                    'id'=>'description',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-maxlength'=>'300',
+                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
+                ]) !!}
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
@@ -71,7 +73,7 @@
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button', (isset($topic) && isset($topic->link_button) ? getUri($topic->link_button) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button',getUri($topic->link_button), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                      </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button', 'Redirecionar para', ['class' => 'form-label']) !!}
@@ -82,10 +84,10 @@
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>
@@ -95,19 +97,19 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_box->width }}x{{ $cropSetting->path_image_box->height }}px!</small>
+                        {{ $cropSetting->path_image->width }}x{{ $cropSetting->path_image->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_box', [
+                        {!! Form::file('path_image', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_box->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_box->width, // px
-                            'data-min-height' => $cropSetting->path_image_box->height, // px
+                            'data-status' => $cropSetting->path_image->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image->width, // px
+                            'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($topic)
-                                ? ($topic->path_image_box != ''
-                                    ? url('storage/' . $topic->path_image_box)
+                                ? ($topic->path_image != ''
+                                    ? url('storage/' . $topic->path_image)
                                     : '')
                                 : '',
                         ]) !!}

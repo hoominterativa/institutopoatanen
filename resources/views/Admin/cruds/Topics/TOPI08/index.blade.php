@@ -26,12 +26,12 @@
                             {{getTitleModel($configModelsMain, 'Topics', 'TOPI08')}}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro dos tópicos"></i>
+                                data-bs-original-title="Cadastro do conteúdo principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
-                            Informações da seção
+                            Informações da seção home
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Informações complementares que serão exibidas na home, caso esteja ativa"></i>
@@ -78,14 +78,22 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($topic->path_image_box)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_box)}})"></div>
+                                                            @if ($topic->path_image)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image)}})"></div>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">{{$topic->title}}</td>
-                                                        <td class="align-middle">{!! substr($topic->description, 0, 30) !!}</td>
+                                                        <td class="align-middle">
+                                                            @if ($topic->description)
+                                                                {!! substr($topic->description, 0, 25) !!}<b>...</b>
+                                                            @endif
+                                                        </td>
                                                         <td class="align-middle">{{$topic->title_button}}</td>
-                                                        <td class="align-middle"><a href="{{ $topic->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                        <td class="align-middle">
+                                                            @if ($topic->link_button)
+                                                                <a href="{{ $topic->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                            @endif
+                                                        </td>
                                                         <td class="align-middle">
                                                             @if ($topic->active)
                                                                 <span class="badge bg-success">Ativo</span>
