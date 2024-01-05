@@ -27,11 +27,8 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName) {
     Route::resource($route . '/secao', TOPI102SectionController::class)->names('admin.' . $routeName . '.section')->parameters(['secao' => 'TOPI102TopicsSection']);
-    Route::post($route . '/secao/delete', [TOPI102SectionController::class, 'destroySelected'])->name('admin.' . $routeName . '.section.destroySelected');
 
-    Route::resource($route . '/topicodestaque', TOPI102FeaturedTopicsController::class)->names('admin.' . $routeName . '.featuredtopic')->parameters(['topicodestaque' => 'TOPI102TopicsFeaturedTopics']);
-    Route::post($route . '/topicodestaque/delete', [TOPI102FeaturedTopicsController::class, 'destroySelected'])->name('admin.' . $routeName . '.featuredtopic.destroySelected');
-    Route::post($route . '/topicodestaque/sorting', [TOPI102FeaturedTopicsController::class, 'sorting'])->name('admin.' . $routeName . '.featuredtopic.sorting');
+    Route::resource($route . '/topicodestaque', TOPI102FeaturedTopicsController::class)->names('admin.' . $routeName . '.featured.topic')->parameters(['topicodestaque' => 'TOPI102TopicsFeaturedTopics']);
+    Route::post($route . '/topicodestaque/delete', [TOPI102FeaturedTopicsController::class, 'destroySelected'])->name('admin.' . $routeName . '.featured.topic.destroySelected');
+    Route::post($route . '/topicodestaque/sorting', [TOPI102FeaturedTopicsController::class, 'sorting'])->name('admin.' . $routeName . '.featured.topic.sorting');
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

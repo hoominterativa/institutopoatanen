@@ -24,9 +24,9 @@ class TOPI102Controller extends Controller
      */
     public function index()
     {
-        $topics = TOPI102Topics::sorting()->paginate(10);
+        $topics = TOPI102Topics::sorting()->get();
         $section = TOPI102TopicsSection::first();
-        $featuredtopics = TOPI102TopicsFeaturedTopics::sorting()->paginate(6);
+        $featuredtopics = TOPI102TopicsFeaturedTopics::sorting()->get();
 
         return view('Admin.cruds.Topics.TOPI102.index', [
             'topics' => $topics,
@@ -216,26 +216,15 @@ class TOPI102Controller extends Controller
     {
         $topics = TOPI102Topics::active()->sorting()->get();
         $featuredtopics = TOPI102TopicsFeaturedTopics::active()->sorting()->get();
-        $sections = TOPI102TopicsSection::active()->first();
+        $section = TOPI102TopicsSection::active()->first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                if ($sections) $sections->path_image_desktop = $sections->path_image_mobile;
-                break;
+                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+            break;
         }
 
 
-        return view('Client.pages.Topics.TOPI102.section', compact('topics', 'featuredtopics', 'sections'));
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function show()
-    {
-
-        return view('Client.pages.Topics.TOPI102.show');
+        return view('Client.pages.Topics.TOPI102.section', compact('topics', 'featuredtopics', 'section'));
     }
 }

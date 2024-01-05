@@ -540,7 +540,7 @@ return [
             'TOPI102' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI102Controller::class,
                 'model' => App\Models\Topics\TOPI102Topics::class,
-                'seedQty' => 4,
+                'seedQty' => 8,
             ],
         ],
         // END TOPICS

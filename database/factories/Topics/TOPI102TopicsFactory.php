@@ -23,6 +23,7 @@ class TOPI102TopicsFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
+            'title_lightbox' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
             'description' => $this->faker->text(200),
             'text' => $this->faker->text(600),

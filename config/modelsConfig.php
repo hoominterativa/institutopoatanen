@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Topics' => (object) [
-            'TOPI101' => (object)[
+            'TOPI102' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,

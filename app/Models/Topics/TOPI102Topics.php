@@ -16,7 +16,7 @@ class TOPI102Topics extends Model
     }
 
     protected $table = "topi102_topics";
-    protected $fillable = ['title', 'subtitle', 'description', 'title_button', 'link_button', 'target_link_button', 'text', 'path_image_box', 'path_image_lightbox', 'path_image_background_lightbox', 'active', 'sorting'];
+    protected $fillable = ['title', 'subtitle', 'description', 'title_button', 'link_button', 'target_link_button', 'text', 'title_lightbox', 'path_image_box', 'path_image_lightbox', 'path_image_background_lightbox', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

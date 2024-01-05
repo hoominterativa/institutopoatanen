@@ -16,20 +16,10 @@ class TOPI102TopicsSection extends Model
     }
 
     protected $table = "topi102_topics_sections";
-    protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'active', 'sorting'];
-
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
+    protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'active', 'background_color'];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

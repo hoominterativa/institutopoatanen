@@ -27,9 +27,4 @@ class TOPI102TopicsFeaturedTopics extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

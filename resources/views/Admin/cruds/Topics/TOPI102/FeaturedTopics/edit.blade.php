@@ -20,10 +20,10 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($featuredtopic, ['route' => ['admin.topi102.featuredtopic.update', $featuredtopic->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                {!! Form::model($featuredtopic, ['route' => ['admin.topi102.featured.topic.update', $featuredtopic->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
                     @include('Admin.cruds.Topics.TOPI102.FeaturedTopics.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.topi102.featuredtopic.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.topi102.featured.topic.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->
