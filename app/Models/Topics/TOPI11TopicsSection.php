@@ -24,18 +24,8 @@ class TOPI11TopicsSection extends Model
         'active',
     ];
 
-    public function scopeSorting($query)
-    {
-        return $query->orderBy('sorting', 'ASC');
-    }
-
     public function scopeActive($query)
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

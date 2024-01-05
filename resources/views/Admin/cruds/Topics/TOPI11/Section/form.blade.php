@@ -9,29 +9,29 @@
     <div class="col-12 col-md-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título da seção', ['class' => 'form-label']) !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title', 'Título da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+            <div class="normal-editor__content mb-3">
+                {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
                 {!! Form::textarea('description', null, [
-                    'class'=>'form-control',
-                    'id'=>'description',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'900',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
+                    'class' => 'form-control normal-editor',
+                    'data-height' => 500,
+                    'id' => 'description',
                 ]) !!}
             </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
     </div>
     <div class="col-12 col-md-6">

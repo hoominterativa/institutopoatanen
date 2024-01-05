@@ -12,10 +12,10 @@
                     'id'=>'basic-editor',
                 ]) !!}
             </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                {!! Form::label('active', 'Ativar Exibição', ['class'=>'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+            {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>

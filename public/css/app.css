@@ -2067,116 +2067,154 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-#TOPI10 {
-  padding: 70px 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+#TOPI11 {
+  padding-top: 50px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 {
-    padding: 35px 20px;
+
+@media (min-width: 0) and (max-width: 575.98px) {
+  .topi11__container {
+    padding: 0 40px !important;
   }
 }
-#TOPI10 .header-topic {
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi11__container {
+    padding: 0 40px !important;
+  }
+}
+.topi11__header {
   text-align: center;
 }
-#TOPI10 .header-topic .container-title {
-  margin-bottom: 25px;
-}
-#TOPI10 .header-topic .container-title .title {
+.topi11__header__title {
   font-size: 2.5rem;
-  font-weight: 700;
   font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
   color: #404040;
-  display: block;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 .header-topic .container-title .title {
+@media (min-width: 0) and (max-width: 575.98px) {
+  .topi11__header__title {
     font-size: 1.875rem;
   }
 }
-#TOPI10 .header-topic .container-title .subtitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #b3b3b3;
-  display: block;
-}
 @media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 .header-topic .container-title .subtitle {
+  .topi11__header__title {
+    font-size: 1.875rem;
+  }
+}
+.topi11__header__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #b3b3b3;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .topi11__header__subtitle {
     font-size: 1.125rem;
   }
 }
-#TOPI10 .header-topic .paragraph {
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi11__header__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.topi11__header__line {
+  margin-top: 17px;
+}
+.topi11__header__paragraph {
+  margin-top: 30px;
   font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  margin-top: 25px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 .header-topic .paragraph {
-    font: 90%;
-    width: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-#TOPI10 .header-topic .line {
-  background-color: #404040;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 .container-box {
-    width: 70%;
-  }
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 .container-box .owl-stage-outer {
-    overflow: visible;
-  }
-}
-#TOPI10 .container-box .box-topic {
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
-}
-#TOPI10 .container-box .box-topic .content {
-  padding: 0 20px;
-}
-#TOPI10 .container-box .box-topic .content .container-info {
-  position: relative;
-  z-index: 1;
-  min-height: 320px;
-}
-#TOPI10 .container-box .box-topic .content .container-info .image img {
-  width: 61px;
-}
-#TOPI10 .container-box .box-topic .content .container-info .description {
-  text-align: center;
-}
-#TOPI10 .container-box .box-topic .content .container-info .description .title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-  font-weight: 700;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 .container-box .box-topic .content .container-info .description .title {
-    font-size: 1.875rem;
-  }
-}
-#TOPI10 .container-box .box-topic .content .container-info .description .paragraph {
-  font: 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
   color: #7c7c7c;
-  font-weight: 500;
+  width: 100%;
+  max-width: 890px;
+  display: table;
+  margin: 0 auto;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #TOPI10 .container-box .box-topic .content .container-info .description .paragraph {
-    font: 0.813rem "Montserrat", sans-serif, arial;
+@media (min-width: 0) and (max-width: 575.98px) {
+  .topi11__header__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-#TOPI10 .container-box .box-topic .content:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi11__header__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.topi11__wrapper {
+  margin-top: 80px;
+}
+.topi11__wrapper__items {
+  padding-right: 150px;
+  padding-top: 40px;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .topi11__wrapper__items {
+    padding: 0;
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi11__wrapper__items {
+    padding: 0;
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .topi11__wrapper__items {
+    padding-right: 80px;
+    padding-top: 0;
+  }
+}
+.topi11__wrapper__item {
+  border-radius: 0 !important;
+  border: none !important;
+}
+.topi11__wrapper__item .accordion-button {
+  border: none !important;
+  border-bottom: 1px solid #b3b3b3 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #000;
+  transition: all 0.5s ease;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .topi11__wrapper__item .accordion-button {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi11__wrapper__item .accordion-button {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.topi11__wrapper__item .accordion-button::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: #b3b3b3;
+  margin-right: 10px;
+}
+.topi11__wrapper__item .accordion-button:not(.collapsed) {
+  background-color: #efefef !important;
+  padding-left: 20px !important;
+  transition: all 0.5s ease;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .topi11__wrapper__image {
+    padding: 0;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topi11__wrapper__image {
+    padding: 0;
+  }
+}
+.topi11__wrapper__image__img {
+  width: 100%;
 }
 
 /* BEGIN STYLE */

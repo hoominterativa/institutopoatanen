@@ -23,7 +23,7 @@ class TOPI11TopicsFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'text' => $this->faker->text(250),
+            'text' => $this->faker->text(400),
             'active' => 1,
         ];
     }

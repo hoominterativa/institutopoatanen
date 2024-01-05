@@ -21,7 +21,7 @@ class TOPI11Controller extends Controller
      */
     public function index()
     {
-        $topics = TOPI11Topics::all();
+        $topics = TOPI11Topics::sorting()->get();
         $section = TOPI11TopicsSection::first();
 
         return view('Admin.cruds.Topics.TOPI11.index', [
@@ -90,11 +90,10 @@ class TOPI11Controller extends Controller
 
         if($TOPI11Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');
-            return redirect()->route('admin.topi11.index');
         }else{
             Session::flash('error', 'Erro ao atualizar tópico');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -106,7 +105,7 @@ class TOPI11Controller extends Controller
     public function destroy(TOPI11Topics $TOPI11Topics)
     {
         if($TOPI11Topics->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Tópico deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -120,7 +119,7 @@ class TOPI11Controller extends Controller
     public function destroySelected(Request $request)
     {
         if($deleted = TOPI11Topics::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' tópicos deletados com sucessso']);
         }
     }
     /**
@@ -147,9 +146,11 @@ class TOPI11Controller extends Controller
      */
     public static function section()
     {
+        $topics = TOPI11Topics::active()->sorting()->get();
+        $section = TOPI11TopicsSection::active()->first();
         return view('Client.pages.Topics.TOPI11.section',[
-            'topics' => TOPI11Topics::active()->sorting()->get(),
-            'section' => TOPI11TopicsSection::active()->first()
+            'topics' => $topics,
+            'section' => $section
         ]);
     }
 }

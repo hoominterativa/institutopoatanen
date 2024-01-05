@@ -1,14 +1,16 @@
 <section id="TOPI11" class="topi11">
     <div class="topi11__container container">
         @if ($section)
-            @if ($section->title || $section->subtitle || $section->description)
-                <div class="topi11__header">
+            <div class="topi11__header">
+                @if ($section->title || $section->subtitle)
                     <h3 class="topi11__header__title">{{$section->title}}</h3>
                     <h4 class="topi11__header__subtitle">{{$section->subtitle}}</h4>
                     <hr class="topi11__header__line">
-                    <p class="topi11__header__paragraph">{{$section->description}}</p>
-                </div>
-            @endif
+                @endif
+                @if ($section->description)
+                    <p class="topi11__header__paragraph">{!! $section->description !!}</p>
+                @endif
+            </div>
         @endif
         {{-- END .topi11__header --}}
         <div class="topi11__wrapper">
