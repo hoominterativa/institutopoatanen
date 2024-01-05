@@ -1,9 +1,5 @@
 @if ($section)
-    {!! Form::model($section, [
-        'route' => ['admin.topi08.section.update', $section->id],
-        'class' => 'parsley-validate',
-        'files' => true,
-    ]) !!}
+    {!! Form::model($section, ['route' => ['admin.topi08.section.update', $section->id],'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => 'admin.topi08.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
@@ -13,12 +9,16 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título da seção', ['class' => 'form-label']) !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title', 'Título da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                    </div>
+                </div>
             </div>
             <div class="normal-editor__content mb-3">
                 {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
@@ -95,6 +95,10 @@
                         ]) !!}
                     </div>
                 </div>
+                <div class="mb-3 border px-2 py-3">
+                    {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                    {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
+                </div>
             </div> {{-- END .wrapper-links --}}
         </div>
         <div class="mb-3 form-check">
@@ -150,21 +154,10 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-            <div class="mb-3 border px-2 py-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
-                ]) !!}
-            </div>
         </div>
     </div>
-
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-        {!! Form::button('Salvar', [
-            'class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0',
-            'type' => 'submit',
-        ]) !!}
+        {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0', 'type' => 'submit',]) !!}
     </div>
 </div>
 {!! Form::close() !!}

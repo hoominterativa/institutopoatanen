@@ -1,22 +1,17 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
-                {!! Form::textarea('description', null, [
-                    'class' => 'form-control',
-                    'id' => 'description',
-                    'data-parsley-trigger' => 'keyup',
-                    'data-parsley-minlength' => '20',
-                    'data-parsley-maxlength' => '400',
-                    'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold' => '10',
+            <div class="basic-editor__content mb-3">
+                {!! Form::label('basic-editor', 'Texto', ['class'=>'form-label']) !!}
+                {!! Form::textarea('text', null, [
+                    'class'=>'form-control basic-editor',
+                    'id'=>'basic-editor',
                 ]) !!}
             </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>

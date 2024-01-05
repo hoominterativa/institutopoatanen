@@ -23,7 +23,7 @@ class TOPI101Controller extends Controller
      */
     public function index()
     {
-        $topics = TOPI101Topics::active()->sorting()->paginate(10);
+        $topics = TOPI101Topics::active()->sorting()->get();
         $section = TOPI101TopicsSection::first();
         return view('Admin.cruds.Topics.TOPI101.index', [
             'topics' => $topics,
@@ -110,12 +110,11 @@ class TOPI101Controller extends Controller
 
         if ($TOPI101Topics->fill($data)->save()) {
             Session::flash('success', 'Tópico atualizado com sucesso');
-            return redirect()->route('admin.topi101.index');
         } else {
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar o tópico');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -171,18 +170,15 @@ class TOPI101Controller extends Controller
 
     public static function section()
     {
+        $section = TOPI101TopicsSection::active()->first();
+        $topics = TOPI101Topics::active()->sorting()->get();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = TOPI101TopicsSection::active()->first();
                 if($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-                $section = TOPI101TopicsSection::active()->first();
-                break;
+            break;
         }
 
-        $topics = TOPI101Topics::active()->sorting()->get();
         return view('Client.pages.Topics.TOPI101.section', [
             'topics' => $topics,
             'section' => $section
