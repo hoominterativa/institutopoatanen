@@ -1025,32 +1025,45 @@
             "path_image_desktop": {
                 "width": "1500",
                 "height": "690",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "path_image_mobile": {
                 "width": "387",
                 "height": "1062",
                 "activeCrop": "true"
             },
-            "SectionContent": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "312",
-                    "activeCrop": "true"
-                },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "352",
-                    "activeCrop": "true"
-                }
-            },
             "Section": {
-                "path_image_desktop": {
+                "path_image_desktop_banner": {
                     "width": "1500",
+                    "height": "421",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "415",
                     "height": "421",
                     "activeCrop": "true"
                 },
-                "path_image_mobile": {
+                "path_image_box_last_section": {
+                    "width": "655",
+                    "height": "473",
+                    "activeCrop": "false"
+                },
+                "path_image_desktop_last_section": {
+                    "width": "1500",
+                    "height": "690",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_last_section": {
+                    "width": "387",
+                    "height": "1062",
+                    "activeCrop": "true"
+                },
+                "path_image_desktop_content": {
+                    "width": "1500",
+                    "height": "421",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_content": {
                     "width": "415",
                     "height": "421",
                     "activeCrop": "true"
@@ -1061,28 +1074,6 @@
                     "width": "397",
                     "height": "280",
                     "activeCrop": "true"
-                }
-            },
-            "LastSection": {
-                "path_image_box": {
-                    "width": "655",
-                    "height": "473",
-                    "activeCrop": "false"
-                },
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "690",
-                    "activeCrop": "true"
-                },
-                "path_image_mobile": {
-                    "width": "387",
-                    "height": "1062",
-                    "activeCrop": "true"
-                },
-                "path_image_icon": {
-                    "width": "400",
-                    "height": "400",
-                    "activeCrop": "false"
                 }
             }
         }

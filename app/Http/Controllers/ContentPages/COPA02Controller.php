@@ -28,18 +28,12 @@ class COPA02Controller extends Controller
     public function index()
     {
         $contents = COPA02ContentPages::sorting()->get();
-        $sectionContent = COPA02ContentPagesSectionContent::first();
-        $pageSections = COPA02ContentPagesSection::sorting()->get();
+        $section = COPA02ContentPagesSection::first();
         $topics = COPA02ContentPagesTopic::sorting()->get();
-        $sectionTopic = COPA02ContentPagesSectionTopic::first();
-        $lastSections = COPA02ContentPagesLastSection::sorting()->get();
         return view('Admin.cruds.ContentPages.COPA02.index', [
             'contents' => $contents,
-            'sectionContent' => $sectionContent,
-            'pageSections' => $pageSections,
+            'section' => $section,
             'topics' => $topics,
-            'sectionTopic' => $sectionTopic,
-            'lastSections' => $lastSections,
             'cropSetting' => getCropImage('ContentPages', 'COPA02')
         ]);
     }
@@ -224,48 +218,29 @@ class COPA02Controller extends Controller
      */
     public function page(Request $request)
     {
+        $section = COPA02ContentPagesSection::active()->first();
+        $contents = COPA02ContentPages::active()->sorting()->get();
+        $topics = COPA02ContentPagesTopic::active()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $sectionContent = COPA02ContentPagesSectionContent::active()->first();
-                if($sectionContent) $sectionContent->path_image_desktop = $sectionContent->path_image_mobile;
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
 
-                $contents = COPA02ContentPages::active()->sorting()->get();
+                if($contents) {
                     foreach($contents as $content) {
-                        if($content) $content->path_image_desktop = $content->path_image_mobile;
+                        $content->path_image_desktop = $content->path_image_mobile;
                     }
-
-                $pageSections = COPA02ContentPagesSection::active()->sorting()->get();
-                foreach($pageSections as $pageSection) {
-                    if($pageSection) $pageSection->path_image_desktop = $pageSection->path_image_mobile;
                 }
-
-                $lastSections = COPA02ContentPagesLastSection::active()->sorting()->get();
-                foreach($lastSections as $lastSection) {
-                    if($lastSection) $lastSection->path_image_desktop = $lastSection->path_image_mobile;
-                }
-            break;
-            default:
-            $contents = COPA02ContentPages::active()->sorting()->get();
-            $sectionContent = COPA02ContentPagesSectionContent::active()->first();
-            $pageSections = COPA02ContentPagesSection::active()->sorting()->get();
-            $lastSections = COPA02ContentPagesLastSection::active()->sorting()->get();
             break;
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA02');
-
-        $topics = COPA02ContentPagesTopic::active()->sorting()->get();
-        $sectionTopic = COPA02ContentPagesSectionTopic::active()->first();
         return view('Client.pages.ContentPages.COPA02.page',[
             'sections' => $sections,
             'contents' => $contents,
-            'sectionContent' => $sectionContent,
-            'pageSections' => $pageSections,
-            'sectionTopic' => $sectionTopic,
+            'section' => $section,
             'topics' => $topics,
-            'lastSections' => $lastSections
         ]);
     }
 
