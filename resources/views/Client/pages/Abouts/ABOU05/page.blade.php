@@ -4,7 +4,7 @@
 <main id="root">
     <div id="abou05-page" class="abou05-page">
         <section class="container-fluid px-0">
-            @if ($section->active_banner)
+            @if ($section->active_banner == 1)
                 <header class="abou05-page__header"
                 style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{$section->background_color_banner}};">
                     <div class="container container--abou05-header d-flex flex-column justify-content-center align-items-center">

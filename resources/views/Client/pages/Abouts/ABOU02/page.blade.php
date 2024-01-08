@@ -3,7 +3,7 @@
 {{-- BEGIN Page content --}}
 <div id="ABOU02" class="abou02-page">
     <section class="container-fluid px-0">
-        @if ($section->active_banner)
+        @if ($section->active_banner == 1)
             <header class="abou02-page__header" style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
                 <div class="abou02-page__header__mask"></div>
                 @if ($section->title_banner || $section->subtitle_banner)
@@ -90,7 +90,7 @@
         </section>
     @endif
     {{-- END .abou02-page__topic --}}
-    @if ($section->active_content)
+    @if ($section->active_content == 1)
         <section class="abou02-page__section container-fluid px-0">
             <div class="container container--abou02-page__section">
                 <div class="row abou02-page__section__row align-items-center">

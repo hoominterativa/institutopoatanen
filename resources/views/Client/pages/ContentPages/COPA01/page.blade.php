@@ -4,7 +4,7 @@
     <main id="root">
         <div id="COPA01" class="copa01-page">
             <section class="container-fluid px-0">
-                @if (isset($section->active_banner))
+                @if ($section->active_banner == 1)
                     <header class="copa01-page__header"
                     style="background-image: url({{asset('storage/'.$section->path_image_desktop)}}); background-color: {{$section->background_color}};">
                         <div class="container d-flex flex-column justify-content-center align-items-center">
@@ -50,7 +50,7 @@
                 {{-- Área nova --}}
                 @if ($topics->count())
                     <div>
-                        @if (isset($section->active_section))
+                        @if ($section->active_section == 1)
                             <div>
                                 <h2 class="">
                                     <span class="">{{$section->title_section}}</span>

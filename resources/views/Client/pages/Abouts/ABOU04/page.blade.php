@@ -2,7 +2,7 @@
 @section('content')
     {{-- BEGIN Page content --}}
     <div class="abou04-page" id="abou04-page">
-        @if ($about->active_banner)
+        @if ($about->active_banner == 1)
             <section class="abou04-page__banner w-100"
                 style="background-image: url({{ asset('storage/' . $about->path_image_desktop_banner) }}); background-color: {{ $about->background_color_banner }};">
                 <header
