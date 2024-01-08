@@ -1,3 +1,10 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
+.serv02 {
+    &__item {
+        @include medium-device-down {
+            width: 268px;
+        }
+    }
+}

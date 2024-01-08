@@ -1938,6 +1938,7 @@ body .owl-dots .owl-dot.active {
 .foot02 {
   background-color: #efefef;
   padding: 0;
+  overflow: hidden;
 }
 .foot02__container {
   padding: 80px 0;
@@ -2067,6 +2068,12 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+@media (max-width: 767.98px) {
+  .serv02__item {
+    width: 268px;
+  }
+}
+
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
