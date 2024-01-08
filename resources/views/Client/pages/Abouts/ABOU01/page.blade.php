@@ -5,7 +5,7 @@
         @if ($about)
             <div id="ABOU01" class="abou01-page">
                 <section class="container-fluid px-0">
-                    @if (isset($section->active_banner))
+                    @if ($section->active_banner == 1)
                         <header class="abou01-page__header"
                             style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }});background-color: {{ $section->background_color_banner }}">
                             <div class="container d-flex flex-column justify-content-center align-items-center">
@@ -74,7 +74,7 @@
                     </section>
                 @endif
                 {{-- END .abou01-page__topic --}}
-                @if (isset($section->active_content))
+                @if ($section->active_content == 1)
                     <section class="abou01-page__section container-fluid"
                         style="background-image: url({{ asset('storage/' . $section->path_image_content_desktop) }}); background-color: {{ $section->background_color_content }};">
                         <div class="container">

@@ -28,14 +28,24 @@ class COPA02ContentPagesSection extends Model
         'title_last_section', 'subtitle_last_section', 'description_last_section', 'path_image_box_last_section', 'path_image_desktop_last_section', 'path_image_mobile_last_section', 'background_color_last_section', 'title_button_last_section', 'link_button_last_section', 'target_link_button_last_section', 'active_last_section',
     ];
 
-    // public function scopeActiveBanner($query)
-    // {
-    //     return $query->where('active_banner', 1);
-    // }
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
+    }
 
-    // public function ScopeActiveContent($query)
-    // {
-    //     return $query->where('active_content', 1);
-    // }
+    public function ScopeActiveContent($query)
+    {
+        return $query->where('active_content', 1);
+    }
+
+    public function ScopeActiveSectionTopic($query)
+    {
+        return $query->where('active_section_topic', 1);
+    }
+
+    public function ScopeActiveLastSection($query)
+    {
+        return $query->where('active_last_section', 1);
+    }
 
 }

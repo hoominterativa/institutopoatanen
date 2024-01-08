@@ -1073,7 +1073,7 @@
                 "path_image_box": {
                     "width": "397",
                     "height": "280",
-                    "activeCrop": "true"
+                    "activeCrop": "false"
                 }
             }
         }

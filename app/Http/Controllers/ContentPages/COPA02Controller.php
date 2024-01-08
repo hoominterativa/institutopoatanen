@@ -218,17 +218,21 @@ class COPA02Controller extends Controller
      */
     public function page(Request $request)
     {
-        $section = COPA02ContentPagesSection::active()->first();
-        $contents = COPA02ContentPages::active()->sorting()->get();
+        $section = COPA02ContentPagesSection::first();
+        $contentPages = COPA02ContentPages::active()->sorting()->get();
         $topics = COPA02ContentPagesTopic::active()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                if($section) $section->path_image_desktop = $section->path_image_mobile;
+                if($section) {
+                    $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+                    $section->path_image_desktop_last_section = $section->path_image_mobile_last_section;
+                    $section->path_image_desktop_content = $section->path_image_mobile_content;
+                }
 
-                if($contents) {
-                    foreach($contents as $content) {
-                        $content->path_image_desktop = $content->path_image_mobile;
+                if($contentPages) {
+                    foreach($contentPages as $contentPage) {
+                        $contentPage->path_image_desktop = $contentPage->path_image_mobile;
                     }
                 }
             break;
@@ -238,7 +242,7 @@ class COPA02Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA02');
         return view('Client.pages.ContentPages.COPA02.page',[
             'sections' => $sections,
-            'contents' => $contents,
+            'contentPages' => $contentPages,
             'section' => $section,
             'topics' => $topics,
         ]);

@@ -2,67 +2,64 @@
 @section('content')
     {{-- BEGIN Page content --}}
     <main id="root">
-
         <div id="COPA02" class="copa02-page">
             <section class="copa02-page__assortedBox container-fluid px-0">
-                @if ($sectionContent)
+                @if ($section->active_banner == 1)
                     <header class="copa02-page__assortedBox__header position-relative"
-                        style="background-image: url({{ asset('storage/' . $sectionContent->path_image_desktop) }}); background-color: {{ $sectionContent->background_color }};">
+                        style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
                         <div class="copa02-page__assortedBox__header__mask"></div>
-                        @if ($sectionContent->title || $sectionContent->subtitle)
-                            <div
-                                class="container-assortedBox--copa02-page container d-flex flex-column justify-content-center align-items-center">
+                        @if ($section->title_banner || $section->subtitle_banner)
+                            <div class="container-assortedBox--copa02-page container d-flex flex-column justify-content-center align-items-center">
                                 <h3 class="copa02-page__assortedBox__header__encompass flex-column">
-                                    <span class="copa02-page__assortedBox__header__title">{{ $sectionContent->title }}</span>
-                                    <span
-                                        class="copa02-page__assortedBox__header__subtitle">{{ $sectionContent->subtitle }}</span>
+                                    <span class="copa02-page__assortedBox__header__title">{{ $section->title_banner }}</span>
+                                    <span class="copa02-page__assortedBox__header__subtitle">{{ $section->subtitle_banner }}</span>
                                 </h3>
                                 <hr class="copa02-page__assortedBox__header__line" />
                             </div>
                         @endif
                     </header>
                 @endif
-                @if ($contents->count())
+                @if ($contentPages->count())
                     <div class="copa02-page__assortedBox__content">
                         <div class="row  row--boxStandard flex-column">
-                            @foreach ($contents as $content)
+                            @foreach ($contentPages as $contentPage)
                                 <div class="copa02-page__assortedBox__boxStandard position-relative px-0"
-                                    style="background-image: url({{ asset('storage/' . $content->path_image_desktop) }}); background-color: {{ $content->background_color }};">
+                                    style="background-image: url({{ asset('storage/' . $contentPage->path_image_desktop) }}); background-color: {{ $contentPage->background_color }};">
                                     <div class="copa02-page__assortedBox__boxStandard__mask"></div>
                                     <div class="container container--boxStandard">
                                         <div class="row row--boxStandard">
-                                            @if ($content->path_image_box)
+                                            @if ($contentPage->path_image_box)
                                                 <div class="copa02-page__assortedBox__boxStandard__image col">
-                                                    <img src="{{ asset('storage/' . $content->path_image_box) }}"
+                                                    <img src="{{ asset('storage/' . $contentPage->path_image_box) }}"
                                                         loading="lazy" />
                                                 </div>
                                             @endif
                                             <div class="copa02-page__assortedBox__boxStandard__description col">
-                                                @if ($content->title || $content->subtitle)
+                                                @if ($contentPage->title || $contentPage->subtitle)
                                                     <h4 class="copa02-page__assortedBox__boxStandard__description__title">
-                                                        {{ $content->subtitle }}
+                                                        {{ $contentPage->subtitle }}
                                                     </h4>
                                                     <h5
                                                         class="copa02-page__assortedBox__boxStandard__description__subtitle">
-                                                        {{ $content->title }}
+                                                        {{ $contentPage->title }}
                                                     </h5>
                                                     <hr class="copa02-page__assortedBox__boxStandard__description__line" />
                                                 @endif
                                                 <div class="copa02-page__assortedBox__boxStandard__description__paragraph">
-                                                    @if ($content->description)
+                                                    @if ($contentPage->description)
                                                         <p>
-                                                            {!! $content->description !!}
+                                                            {!! $contentPage->description !!}
                                                         </p>
                                                     @endif
                                                 </div>
                                                 <div class="copa02-page__assortedBox__boxStandard__description__cta">
-                                                    @if ($content->link_button)
-                                                        <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}" class="copa02-page__assortedBox__boxStandard__description__cta__link">
-                                                            @if ($content->path_image_icon)
-                                                                <img src="{{ asset('storage/' . $content->path_image_icon) }}" alt="" class="copa02-page__assortedBox__boxStandard__description__cta__img">
+                                                    @if ($contentPage->link_button)
+                                                        <a href="{{ getUri($contentPage->link_button) }}" target="{{ $contentPage->target_link_button }}" class="copa02-page__assortedBox__boxStandard__description__cta__link">
+                                                            @if ($contentPage->path_image_icon)
+                                                                <img src="{{ asset('storage/' . $contentPage->path_image_icon) }}" alt="" class="copa02-page__assortedBox__boxStandard__description__cta__img">
                                                             @endif
-                                                            @if ($content->title_button)
-                                                                {{ $content->title_button }}
+                                                            @if ($contentPage->title_button)
+                                                                {{ $contentPage->title_button }}
                                                             @endif
                                                         </a>
                                                     @endif
@@ -77,51 +74,48 @@
                 @endif
             </section>
         </div>
-        @if ($pageSections->count())
-            @foreach ($pageSections as $pageSection)
-                <section class="copa02-page__emphasis position-relative"
-                    style="background-image: url({{ asset('storage/' . $pageSection->path_image_desktop) }}); background-color: {{ $pageSection->background_color }};">
-                    <div class="copa02-page__emphasis__mask"></div>
-                    <div class="copa02-page__emphasis__header">
-                        <div
-                            class="container container-emphasis--copa02-page d-flex flex-column justify-content-center align-items-center">
-                            @if ($pageSection->title || $pageSection->subtitle)
-                                <h3 class="copa02-page__emphasis__container">
-                                    <span class="copa02-page__emphasis__header__title">{{ $pageSection->title }}</span>
-                                    <span class="copa02-page__emphasis__headers__subtitle">{{ $pageSection->subtitle }}</span>
-                                </h3>
-                                <hr class="copa02-page__emphasis__header__line"/>
-                            @endif
-                            @if ($pageSection->description)
-                                <div class="copa02-page__emphasis__header__paragraph">
-                                    <p>
-                                        {!! $pageSection->description !!}
-                                    </p>
-                                </div>
-                            @endif
-                        </div>
+        @if ($section->active_content == 1)
+            <section class="copa02-page__emphasis position-relative"
+                style="background-image: url({{ asset('storage/' . $section->path_image_desktop_content) }}); background-color: {{ $section->background_color_content }};">
+                <div class="copa02-page__emphasis__mask"></div>
+                <div class="copa02-page__emphasis__header">
+                    <div class="container container-emphasis--copa02-page d-flex flex-column justify-content-center align-items-center">
+                        @if ($section->title_content || $section->subtitle_content)
+                            <h3 class="copa02-page__emphasis__container">
+                                <span class="copa02-page__emphasis__header__title">{{ $section->title_content }}</span>
+                                <span class="copa02-page__emphasis__headers__subtitle">{{ $section->subtitle_content }}</span>
+                            </h3>
+                            <hr class="copa02-page__emphasis__header__line"/>
+                        @endif
+                        @if ($section->description_content)
+                            <div class="copa02-page__emphasis__header__paragraph">
+                                <p>
+                                    {!! $section->description_content !!}
+                                </p>
+                            </div>
+                        @endif
                     </div>
-                </section>
-            @endforeach
+                </div>
+            </section>
         @endif
         @if ($topics->count())
             <section class="copa02-page__boxTopic position-relative" style="background:#ffffff;">
                 <div class="copa02-page__boxTopic__mask"></div>
                 <div class="container container--copa02-page-boxTopic">
-                    @if ($sectionTopic)
+                    @if ($section->active_section_topic == 1)
                         <header class="copa02-page__boxTopic__header">
                             <div class="d-flex flex-column justify-content-center align-items-center">
-                                @if ($sectionTopic->title || $sectionTopic->subtitle)
+                                @if ($section->title_section_topic || $section->subtitle_section_topic)
                                     <h3 class="copa02-page__boxTopic__header__encompass">
-                                        <span class="copa02-page__boxTopic__header__title">{{ $sectionTopic->title }}</span>
-                                        <span class="copa02-page__boxTopic__header__subtitle">{{ $sectionTopic->subtitle }}</span>
+                                        <span class="copa02-page__boxTopic__header__title">{{ $section->title_section_topic }}</span>
+                                        <span class="copa02-page__boxTopic__header__subtitle">{{ $section->subtitle_section_topic }}</span>
                                     </h3>
                                     <hr class="copa02-page__boxTopic__header__line" />
                                 @endif
-                                @if ($sectionTopic->description)
+                                @if ($section->description_section_topic)
                                     <div class="copa02-page__boxTopic__header__paragraph">
                                         <p>
-                                            {!! $sectionTopic->description !!}
+                                            {!! $section->description_section_topic !!}
                                         </p>
                                     </div>
                                 @endif
@@ -157,52 +151,50 @@
                 </div>
             </section>
         @endif
-        @if ($lastSections)
-            @foreach ($lastSections as $lastSection)
-                <section class="copa02-page__boxContent position-relative"
-                    style="background-image: url({{ asset('storage/' . $lastSection->path_image_desktop) }}); background-color: {{ $lastSection->background_color }};">
-                    <div class="copa02-page__boxContent__mask"></div>
-                    <div class="container container--copa02-page-boxContent">
-                        <div class="copa02-page__boxContent__item">
-                            <div class="row row--copa02-page-boxContent">
-                                @if ($lastSection->path_image_box)
-                                    <div class="copa02-page__boxContent__item__image col px-0">
-                                        <img src="{{ asset('storage/' . $lastSection->path_image_box) }}" loading="lazy" />
+        @if ($section->active_last_section == 1)
+            <section class="copa02-page__boxContent position-relative"
+                style="background-image: url({{ asset('storage/' . $section->path_image_desktop_last_section) }}); background-color: {{ $section->background_color_last_section }};">
+                <div class="copa02-page__boxContent__mask"></div>
+                <div class="container container--copa02-page-boxContent">
+                    <div class="copa02-page__boxContent__item">
+                        <div class="row row--copa02-page-boxContent">
+                            @if ($section->path_image_box_last_section)
+                                <div class="copa02-page__boxContent__item__image col px-0">
+                                    <img src="{{ asset('storage/' . $section->path_image_box_last_section) }}" loading="lazy" />
+                                </div>
+                            @endif
+                            <div class="copa02-page__boxContent__item__description col">
+                                @if ($section->title_last_section || $section->subtitle_last_section)
+                                    <h4 class="copa02-page__boxContent__item__description__title">
+                                        {{ $section->title_last_section }}</h4>
+                                    <h5 class="copa02-page__boxContent__item__description__subtitle">
+                                        {{ $section->subtitle_last_section }}</h5>
+                                    <hr class="copa02-page__boxContent__item__description__line" />
+                                @endif
+                                @if ($section->description_last_section)
+                                    <div class="copa02-page__boxContent__item__description__paragraph">
+                                        <p>
+                                            {!! $section->description_last_section !!}
+                                        </p>
                                     </div>
                                 @endif
-                                <div class="copa02-page__boxContent__item__description col">
-                                    @if ($lastSection->title || $lastSection->subtitle)
-                                        <h4 class="copa02-page__boxContent__item__description__title">
-                                            {{ $lastSection->title }}</h4>
-                                        <h5 class="copa02-page__boxContent__item__description__subtitle">
-                                            {{ $lastSection->subtitle }}</h5>
-                                        <hr class="copa02-page__boxContent__item__description__line" />
-                                    @endif
-                                    @if ($lastSection->description)
-                                        <div class="copa02-page__boxContent__item__description__paragraph">
-                                            <p>
-                                                {!! $lastSection->description !!}
-                                            </p>
-                                        </div>
-                                    @endif
-                                    @if ($lastSection->link_button)
-                                        <div class="copa02-page__boxContent__item__description__cta">
-                                            <a href="{{ getUri($lastSection->link_button) }}"target="{{ $lastSection->target_link_button }}" class="copa02-page__boxContent__item__description__cta__link">
-                                                @if ($lastSection->path_image_icon)
-                                                    <img src="{{ asset('storage/' . $lastSection->path_image_icon) }}" alt="" class="copa02-page__boxContent__item__description__cta__img">
-                                                @endif
-                                                @if ($lastSection->title_button)
-                                                    {{ $lastSection->title_button }}
-                                                @endif
-                                            </a>
-                                        </div>
-                                    @endif
-                                </div>
+                                @if ($section->link_button_last_section)
+                                    <div class="copa02-page__boxContent__item__description__cta">
+                                        <a href="{{ getUri($section->link_button_last_section) }}"target="{{ $section->target_link_button_last_section }}" class="copa02-page__boxContent__item__description__cta__link">
+                                            @if ($section->path_image_icon_last_section)
+                                                <img src="{{ asset('storage/' . $section->path_image_icon_last_section) }}" alt="" class="copa02-page__boxContent__item__description__cta__img">
+                                            @endif
+                                            @if ($section->title_button_last_section)
+                                                {{ $section->title_button_last_section }}
+                                            @endif
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
-                </section>
-            @endforeach
+                </div>
+            </section>
         @endif
         </div>
 

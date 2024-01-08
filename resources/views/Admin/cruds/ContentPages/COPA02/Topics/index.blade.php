@@ -39,7 +39,7 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$topic->title}} <b>/</b> {{$topic->subtitle}}</td>
-                                <td class="align-middle">{!! substr($topic->description,0,50) !!}</td>
+                                <td class="align-middle">{!! substr($topic->description,0,25) !!}</td>
                                 <td class="align-middle">
                                     @if ($topic->active)
                                         <span class="badge bg-success">Ativo</span>
