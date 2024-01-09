@@ -2,11 +2,278 @@
 
 /* BEGIN STYLE */
 .serv02 {
+    @include disFlex(column, center);
+    background-color: $color-white;
+    padding: 76px 5vw 36px;
+
+    &__header {
+        @include disFlex(column, center, center);
+        margin-bottom: 3.375rem;
+
+        @include medium-device-down {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__title {
+        font: 700 $T2 $font-primary;
+        text-align: center;
+        color: $color-one;
+        margin-bottom: 1rem;
+
+        @include medium-device-down {
+            font-size: $T2-mobile;
+        }
+    }
+
+    &__subtitle {
+        font: 700 $T4 $font-primary;
+        text-align: center;
+        color: $color-four;
+        margin-bottom: 1.375rem;
+
+        @include medium-device-down {
+            font-size: $T4-mobile;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        border-top: solid $color-one 1px;
+        margin-bottom: 1.75rem;
+    }
+
+    &__paragraph {
+        width: 100%;
+        max-width: 1018px;
+
+        font: $paragraph;
+        color: $color-two;
+        line-height: 170%;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $P1-mobile;
+        }
+
+        p {
+            font: inherit;
+            color: inherit;
+            line-height: inherit;
+            text-align: inherit;
+        }
+    }
+
+    &__main {
+        width: 100%;
+    }
+
+    &__carousel {
+        width: 100%;
+
+        .owl {
+            &-stage-outer {
+                padding-bottom: 93px;
+                overflow-y: visible;
+
+                @include medium-device-down {
+                    overflow: visible;
+                }
+            }
+
+            &-dot {
+                border-radius: 0 !important;
+            }
+        }
+    }
+
     &__item {
+        @include disFlex(column, center, center);
+
+        aspect-ratio: 330 / 380;
+        position: relative;
+
         @include medium-device-down {
             width: 268px;
+        }
+
+        &__bg {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &__information {
+            @include disFlex(column, center, center);
+            position: relative;
+            z-index: 2;
+
+            &__icon {
+                width: 59px !important;
+                height: auto;
+                aspect-ratio: 1/1;
+                object-fit: contain;
+                object-position: center;
+                margin-bottom: 1.5rem;
+            }
+
+            &__title {
+                font: 700 $T5 $font-primary;
+                line-height: normal;
+                text-align: center;
+                color: $color-black;
+
+                @include medium-device-down {
+                    font-size: $T5-mobile;
+                }
+            }
+
+            &__description {
+                font: $paragraph-min;
+                line-height: 140px;
+                letter-spacing: 0.2px;
+                text-align: center;
+                color: $color-black;
+
+                max-width: 182px;
+
+                @include medium-device-down {
+                    font-size: $P2-mobile;
+                }
+            }
+        }
+
+        &__cta {
+            @include disFlex(row, center, center);
+
+            width: fit-content;
+            padding: 10px 46px;
+            background-color: $color-five;
+
+            font: $paragraph;
+            font-weight: 700;
+            line-height: 170%;
+            color: $color-one;
+
+            position: absolute;
+            z-index: 2;
+            bottom: -17px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            @include medium-device-down {
+                font-size: $P1-mobile;
+            }
+
+            &__icon {
+                width: 25px !important;
+                height: auto;
+                aspect-ratio: 1/1;
+                object-fit: contain;
+                object-position: center;
+                margin-right: 1rem;
+            }
         }
     }
 }
 
-// qnd eu for fazer page chamar hideki
+.serv02-page {
+    @include disFlex(column, center);
+
+    &__header {
+        @include disFlex(column, center, center);
+        padding: 88px 5vw;
+        background-color: $color-five;
+    }
+
+    &__title {
+        font: 700 $T1 $font-primary;
+        line-height: 140px;
+        text-align: center;
+        color: $color-one;
+        margin-bottom: 1rem;
+
+        @include medium-device-down {
+            font-size: $T1-mobile;
+        }
+    }
+
+    &__paragraph {
+        width: 100%;
+        max-width: 890px;
+
+        font: $paragraph;
+        color: $color-two;
+        line-height: 170%;
+        text-align: center;
+
+        @include medium-device-down {
+            font-size: $P1-mobile;
+        }
+
+        p {
+            font: inherit;
+            color: inherit;
+            line-height: inherit;
+            text-align: inherit;
+        }
+    }
+
+    &__main {
+        @include disFlex;
+        flex-wrap: wrap;
+        gap: 2rem 12px;
+
+        padding: 72px 5vw 160px;
+        width: 100%;
+    }
+
+    &__item {
+        @extend .serv02__item;
+        margin-bottom: 20px;
+        width: calc(25% - 9px);
+
+        @include x-large-device-down {
+            width: calc(33% - 6px);
+        }
+
+        @include medium-device-down {
+            width: calc(50% - 6px);
+        }
+
+        @include small-device-down {
+            width: 100%;
+        }
+
+        &__bg {
+            @extend .serv02__item__bg;
+        }
+
+        &__information {
+            @extend .serv02__item__information;
+
+            &__icon {
+                @extend .serv02__item__information__icon;
+            }
+
+            &__title {
+                @extend .serv02__item__information__title;
+            }
+
+            &__description {
+                @extend .serv02__item__information__description;
+            }
+        }
+
+        &__cta {
+            @extend .serv02__item__cta;
+
+            &__icon {
+                @extend .serv02__item__cta__icon;
+            }
+        }
+    }
+}

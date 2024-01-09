@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
+/* ------- --------- */
 body {
   overflow-x: hidden;
   width: 100%;
@@ -2068,12 +2069,264 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.serv02 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #fff;
+  padding: 76px 5vw 36px;
+}
+.serv02__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3.375rem;
+}
 @media (max-width: 767.98px) {
-  .serv02__item {
+  .serv02__header {
+    margin-bottom: 1rem;
+  }
+}
+.serv02__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  text-align: center;
+  color: #404040;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767.98px) {
+  .serv02__title {
+    font-size: 1.875rem;
+  }
+}
+.serv02__subtitle {
+  font: 700 1.25rem "Ubuntu", sans-serif, arial;
+  text-align: center;
+  color: #cacaca;
+  margin-bottom: 1.375rem;
+}
+@media (max-width: 767.98px) {
+  .serv02__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.serv02__line {
+  width: 100%;
+  border-top: solid #404040 1px;
+  margin-bottom: 1.75rem;
+}
+.serv02__paragraph {
+  width: 100%;
+  max-width: 1018px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  line-height: 170%;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .serv02__paragraph {
+    font-size: 0.938rem;
+  }
+}
+.serv02__paragraph p {
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.serv02__main {
+  width: 100%;
+}
+.serv02__carousel {
+  width: 100%;
+}
+.serv02__carousel .owl-stage-outer {
+  padding-bottom: 93px;
+  overflow-y: visible;
+}
+@media (max-width: 767.98px) {
+  .serv02__carousel .owl-stage-outer {
+    overflow: visible;
+  }
+}
+.serv02__carousel .owl-dot {
+  border-radius: 0 !important;
+}
+.serv02__item, .serv02-page__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 330/380;
+  position: relative;
+}
+@media (max-width: 767.98px) {
+  .serv02__item, .serv02-page__item {
     width: 268px;
   }
 }
+.serv02__item__bg, .serv02-page__item__bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.serv02__item__information, .serv02-page__item__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.serv02__item__information__icon, .serv02-page__item__information__icon {
+  width: 59px !important;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  margin-bottom: 1.5rem;
+}
+.serv02__item__information__title, .serv02-page__item__information__title {
+  font: 700 1.125rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+  color: #000;
+}
+@media (max-width: 767.98px) {
+  .serv02__item__information__title, .serv02-page__item__information__title {
+    font-size: 1.063rem;
+  }
+}
+.serv02__item__information__description, .serv02-page__item__information__description {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  line-height: 140px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #000;
+  max-width: 182px;
+}
+@media (max-width: 767.98px) {
+  .serv02__item__information__description, .serv02-page__item__information__description {
+    font-size: 0.813rem;
+  }
+}
+.serv02__item__cta, .serv02-page__item__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 46px;
+  background-color: #efefef;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  line-height: 170%;
+  color: #404040;
+  position: absolute;
+  z-index: 2;
+  bottom: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 767.98px) {
+  .serv02__item__cta, .serv02-page__item__cta {
+    font-size: 0.938rem;
+  }
+}
+.serv02__item__cta__icon, .serv02-page__item__cta__icon {
+  width: 25px !important;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  margin-right: 1rem;
+}
 
+.serv02-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.serv02-page__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 88px 5vw;
+  background-color: #efefef;
+}
+.serv02-page__title {
+  font: 700 3.125rem "Ubuntu", sans-serif, arial;
+  line-height: 140px;
+  text-align: center;
+  color: #404040;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767.98px) {
+  .serv02-page__title {
+    font-size: 2.5rem;
+  }
+}
+.serv02-page__paragraph {
+  width: 100%;
+  max-width: 890px;
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  line-height: 170%;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .serv02-page__paragraph {
+    font-size: 0.938rem;
+  }
+}
+.serv02-page__paragraph p {
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.serv02-page__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem 12px;
+  padding: 72px 5vw 160px;
+  width: 100%;
+}
+.serv02-page__item {
+  margin-bottom: 20px;
+  width: calc(25% - 9px);
+}
+@media (max-width: 1199.98px) {
+  .serv02-page__item {
+    width: calc(33% - 6px);
+  }
+}
+@media (max-width: 767.98px) {
+  .serv02-page__item {
+    width: calc(50% - 6px);
+  }
+}
+@media (max-width: 575.98px) {
+  .serv02-page__item {
+    width: 100%;
+  }
+}
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

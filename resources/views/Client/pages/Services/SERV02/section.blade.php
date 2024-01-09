@@ -39,7 +39,7 @@
                     <a href="#" class="serv02__item__cta">
 
                         <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                            alt="Imagem de fundo [ttl do topic]" class="serv02__item__information__icon">
+                            alt="Imagem de fundo [ttl do topic]" class="serv02__item__cta__icon">
 
                         CTA
 
