@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV02Controller;
+use App\Http\Controllers\Services\SERV02TopicController;
+use App\Http\Controllers\Services\SERV02SectionController;
 
 /**
  * Uncomment the code below
@@ -11,22 +14,26 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'Services';
+$model = 'SERV02';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $module = getNameModule($modelConfig, $module, $model);
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    //Topics
+    Route::resource($route.'/topicos', SERV02TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV02ServicesTopic']);
+    Route::post($route.'/topico/delete', [SERV02TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topico/sorting', [SERV02TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    //Sections: Home && Banner page
+    Route::resource($route.'/secao', SERV02SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV02ServicesSection']);
+});
+// CLIENT
+Route::get($route.'/{SERV02Services:slug}', [SERV02Controller::class, 'show'])->name($routeName.'.page.content');

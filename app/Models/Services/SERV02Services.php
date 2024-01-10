@@ -54,4 +54,8 @@ class SERV02Services extends Model
     {
         return $query->where('active', 1);
     }
+
+    public function topics() {
+        return $this->hasMany(SERV02ServicesTopic::class, 'service_id')->active()->sorting();
+    }
 }

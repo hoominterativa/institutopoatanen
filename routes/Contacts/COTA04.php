@@ -43,5 +43,3 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/secao/delete', [COTA04SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
     Route::post($route.'/secao/sorting', [COTA04SectionController::class, 'sorting'])->name('admin.'.$routeName.'.section.sorting');
 });
-// CLIENT
-Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

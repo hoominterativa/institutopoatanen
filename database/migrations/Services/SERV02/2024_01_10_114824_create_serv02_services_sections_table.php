@@ -15,7 +15,13 @@ class CreateServ02ServicesSectionsTable extends Migration
     {
         Schema::create('serv02_services_sections', function (Blueprint $table) {
             $table->id();
-            $table->integer('sorting')->default(0);
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->text('description_section')->nullable();
+            $table->integer('active_section')->default(0);
+            $table->string('title_banner')->nullable();
+            $table->text('description_banner')->nullable();
+            $table->integer('active_banner')->default(0);
             $table->timestamps();
         });
     }

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV02ServicesSection;
+use App\Models\Services\SERV02ServicesTopic;
 
 class SERV02Controller extends Controller
 {
@@ -24,8 +26,10 @@ class SERV02Controller extends Controller
     public function index()
     {
         $services = SERV02Services::sorting()->get();
+        $section = SERV02ServicesSection::first();
         return view('Admin.cruds.Services.SERV02.index', [
             'services' => $services,
+            'section' => $section,
             'cropSetting' => getCropImage('Services', 'SERV02')
         ]);
     }
@@ -101,8 +105,10 @@ class SERV02Controller extends Controller
      */
     public function edit(SERV02Services $SERV02Services)
     {
+        $topics = SERV02ServicesTopic::where('service_id', $SERV02Services->id)->sorting()->get();
         return view('Admin.cruds.Services.SERV02.edit',[
             'service' => $SERV02Services,
+            'topics' => $topics,
             'cropSetting' => getCropImage('Services', 'SERV02')
         ]);
     }
@@ -208,6 +214,15 @@ class SERV02Controller extends Controller
      */
     public function destroy(SERV02Services $SERV02Services)
     {
+        $topics = SERV02ServicesTopic::where('service_id', $SERV02Services->id)->get();
+        if ($topics->count()) {
+            foreach ($topics as $topic) {
+                storageDelete($topic, 'path_image');
+                storageDelete($topic, 'path_image_icon');
+                $topic->delete();
+            }
+        }
+
         storageDelete($SERV02Services, 'path_image_desktop');
         storageDelete($SERV02Services, 'path_image_mobile');
         storageDelete($SERV02Services, 'path_image_box');
@@ -232,6 +247,15 @@ class SERV02Controller extends Controller
 
         $SERV02Servicess = SERV02Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV02Servicess as $SERV02Services){
+            $topics = SERV02ServicesTopic::where('service_id', $SERV02Services->id)->get();
+            if ($topics->count()) {
+                foreach ($topics as $topic) {
+                    storageDelete($topic, 'path_image');
+                    storageDelete($topic, 'path_image_icon');
+                    $topic->delete();
+                }
+            }
+            
             storageDelete($SERV02Services, 'path_image_desktop');
             storageDelete($SERV02Services, 'path_image_mobile');
             storageDelete($SERV02Services, 'path_image_box');

@@ -11862,11 +11862,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Services_SERV02_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Services/SERV02/src/main */ "./resources/views/Client/pages/Services/SERV02/src/main.js");
 /* harmony import */ var _pages_Services_SERV02_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV02_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Services_SERV09_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Services/SERV09/src/main */ "./resources/views/Client/pages/Services/SERV09/src/main.js");
-/* harmony import */ var _pages_Services_SERV09_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV09_src_main__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__);
-
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -12111,143 +12108,6 @@ $(".serv02-show__topics__carousel").owlCarousel({
     }
   }
 });
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Services/SERV09/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Services/SERV09/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(".carousel-serv09").owlCarousel({
-  smartSpeed: 450,
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: 12,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 down
-    400: {
-      items: 1
-    },
-    // breakpoint from 400 down
-    520: {
-      items: 1
-    },
-    // breakpoint from 520 down
-    768: {
-      items: 2
-    },
-    // breakpoint from 768 down
-    980: {
-      items: 2
-    }
-    // breakpoint from  768 down
-  }
-});
-
-$('.carousel-serv04').css('width', $('.serv09 .container--serv09').outerWidth());
-if ($(window).outerWidth() <= 800) {
-  $('.carousel-serv04').css('width', $(window).outerWidth());
-}
-$(".carousel-section-gallery").owlCarousel({
-  smartSpeed: 450,
-  loop: true,
-  dots: true,
-  nav: false,
-  rewind: true,
-  margin: 12,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 down
-    400: {
-      items: 2
-    },
-    // breakpoint from 400 down
-    520: {
-      items: 2
-    },
-    // breakpoint from 520 down
-    768: {
-      items: 2
-    },
-    // breakpoint from 768 down
-    980: {
-      items: 4
-    }
-    // breakpoint from  768 down
-  }
-});
-
-$(".carousel-section-gallery").css('width', $(window).outerWidth());
-$(".carousel-section-feedbacks").owlCarousel({
-  items: 1,
-  loop: true,
-  autoplay: true,
-  autoplayTimeout: 5000,
-  autoplayHoverPause: true,
-  nav: true
-  // navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-  // onInitialized: function (event) {
-  //     $(".owl-prev", event.target).hide();
-  // },
-  // onChanged: function (event) {
-  //     if (event.item.index === 0) {
-  //     $(".owl-prev", event.target).hide();
-  //     } else {
-  //     $(".owl-prev", event.target).show();
-  //     }
-
-  //     if (event.item.index === event.item.count - 1) {
-  //     $(".owl-next", event.target).hide();
-  //     } else {
-  //     $(".owl-next", event.target).show();
-  //     }
-  // }
-});
-
-$(".carousel-section-feedbacks").css('width', $('.sesh__section-feedbacks .container--sesh__section-feedbacks').outerWidth());
-$(".carousel-service-related").owlCarousel({
-  smartSpeed: 450,
-  loop: true,
-  dots: true,
-  nav: false,
-  rewind: true,
-  margin: 12,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 down
-    400: {
-      items: 2
-    },
-    // breakpoint from 400 down
-    520: {
-      items: 2
-    },
-    // breakpoint from 520 down
-    768: {
-      items: 2
-    },
-    // breakpoint from 768 down
-    980: {
-      items: 2
-    }
-    // breakpoint from  768 down
-  }
-});
-
-$(".carousel-service-related").css('width', $('.sesh .sesh__service-related__main').outerWidth());
 
 /***/ }),
 

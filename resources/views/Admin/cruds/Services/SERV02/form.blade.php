@@ -33,10 +33,9 @@
                     'class' => 'form-control',
                     'id' => 'description_box',
                     'data-parsley-trigger' => 'keyup',
-                    'data-parsley-maxlength' => '100',
+                    'data-parsley-maxlength' => '300',
                     'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold' => '10',
-                    'placeholder'=> 'Total (taxes and charges incl.)'
                 ]) !!}
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">

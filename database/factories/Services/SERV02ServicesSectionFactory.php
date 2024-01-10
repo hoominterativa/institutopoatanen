@@ -22,9 +22,13 @@ class SERV02ServicesSectionFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'title_section' => $this->faker->text(10),
+            'subtitle_section' => $this->faker->text(10),
+            'description_section' => $this->faker->text(300),
+            'active_section' => 1,
+            'title_banner' => $this->faker->text(10),
+            'description_banner' => $this->faker->text(300),
+            'active_banner' => 1,
         ];
     }
 }

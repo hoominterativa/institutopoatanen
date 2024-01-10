@@ -66,12 +66,12 @@
                     <div class="tab-pane" id="bannerInner">
                         @include('Admin.cruds.Services.SERV02.BannerInner.form')
                     </div>
-                    {{-- <div class="tab-pane" id="topics">
+                    <div class="tab-pane" id="topics">
                         @include('Admin.cruds.Services.SERV02.Topics.index', [
                             'topics' => $topics,
                             'service' => $service
                         ])
-                    </div> --}}
+                    </div>
                     <div class="tab-pane" id="sectionTopics">
                         @include('Admin.cruds.Services.SERV02.SectionTopics.form')
                     </div>
