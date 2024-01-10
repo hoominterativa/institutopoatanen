@@ -28,10 +28,6 @@ class CreateServ02ServicesTable extends Migration
             $table->text('description_box')->nullable();
             $table->string('path_image_box')->nullable();
             $table->string('path_image_icon_box')->nullable();
-            // Service Button
-            $table->string('title_button')->nullable();
-            $table->text('link_button')->nullable();
-            $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
             // Banner Inner
             $table->string('title_banner')->nullable();
             $table->string('path_image_desktop_banner')->nullable();

@@ -62,7 +62,6 @@ class SERV02Controller extends Controller
         $data['active_section'] = $request->active_section ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
         if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
-        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -130,7 +129,6 @@ class SERV02Controller extends Controller
         $data['active_section'] = $request->active_section ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
         if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
-        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){
@@ -255,7 +253,7 @@ class SERV02Controller extends Controller
                     $topic->delete();
                 }
             }
-            
+
             storageDelete($SERV02Services, 'path_image_desktop');
             storageDelete($SERV02Services, 'path_image_mobile');
             storageDelete($SERV02Services, 'path_image_box');
@@ -293,13 +291,22 @@ class SERV02Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV02Services $SERV02Services)
-    public function show()
+    public function show(SERV02Services $SERV02Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV02', 'show');
 
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($SERV02Services)
+                    {$SERV02Services->path_image_desktop_banner = $SERV02Services->path_image_mobile_banner;}
+            break;
+        }
+
         return view('Client.pages.Services.SERV02.show', [
-            'sections' => $sections
+            'sections' => $sections,
+            'service' => $SERV02Services
         ]);
     }
 
@@ -314,8 +321,13 @@ class SERV02Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV02', 'page');
 
+        $banner = SERV02ServicesSection::activeBanner()->first();
+        $services = SERV02Services::with('topics')->active()->sorting()->get();
+
         return view('Client.pages.Services.SERV02.page', [
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'services' => $services
         ]);
     }
 
@@ -326,6 +338,11 @@ class SERV02Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV02.section');
+        $section = SERV02ServicesSection::activeSection()->first();
+        $services = SERV02Services::with('topics')->active()->featured()->sorting()->get();
+        return view('Client.pages.Services.SERV02.section',[
+            'services' => $services,
+            'section' => $section
+        ]);
     }
 }

@@ -33,19 +33,19 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background desktop', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_desktop->width }}x{{ $cropSetting->path_image_desktop->height }}px!</small>
+                        {{ $cropSetting->path_image_desktop_banner->width }}x{{ $cropSetting->path_image_desktop_banner->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_desktop', [
+                        {!! Form::file('path_image_desktop_banner', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_desktop->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_desktop->width, // px
-                            'data-min-height' => $cropSetting->path_image_desktop->height, // px
+                            'data-status' => $cropSetting->path_image_desktop_banner->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_desktop_banner->width, // px
+                            'data-min-height' => $cropSetting->path_image_desktop_banner->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($service)
-                                ? ($service->path_image_desktop != ''
-                                    ? url('storage/' . $service->path_image_desktop)
+                                ? ($service->path_image_desktop_banner != ''
+                                    ? url('storage/' . $service->path_image_desktop_banner)
                                     : '')
                                 : '',
                         ]) !!}
@@ -56,19 +56,19 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background mobile', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_mobile->width }}x{{ $cropSetting->path_image_mobile->height }}px!</small>
+                        {{ $cropSetting->path_image_mobile_banner->width }}x{{ $cropSetting->path_image_mobile_banner->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_mobile', [
+                        {!! Form::file('path_image_mobile_banner', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_mobile->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_mobile->width, // px
-                            'data-min-height' => $cropSetting->path_image_mobile->height, // px
+                            'data-status' => $cropSetting->path_image_mobile_banner->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_mobile_banner->width, // px
+                            'data-min-height' => $cropSetting->path_image_mobile_banner->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($service)
-                                ? ($service->path_image_mobile != ''
-                                    ? url('storage/' . $service->path_image_mobile)
+                                ? ($service->path_image_mobile_banner != ''
+                                    ? url('storage/' . $service->path_image_mobile_banner)
                                     : '')
                                 : '',
                         ]) !!}

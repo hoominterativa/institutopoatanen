@@ -30,9 +30,6 @@ class SERV02Services extends Model
         'description_box',
         'path_image_box',
         'path_image_icon_box',
-        'title_button',
-        'link_button',
-        'target_link_button',
         'title_banner',
         'path_image_desktop_banner',
         'path_image_mobile_banner',
@@ -53,6 +50,11 @@ class SERV02Services extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
     }
 
     public function topics() {

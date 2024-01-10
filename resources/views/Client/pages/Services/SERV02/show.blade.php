@@ -5,9 +5,8 @@
 
         <section class="serv02-show">
             <header class="serv02-show__header"
-                style="background-image: url({{ asset('storage/uploads/tmp/bg-boxitem.png') }})">
-
-                <h1 class="serv02-show__header__title">Título do Banner</h1>
+                style="background-image: url({{ asset('storage/' . $service->path_image_desktop_banner) }});  background-color: {{ $service->background_color_banner }};">
+                <h1 class="serv02-show__header__title">{{$service->title_banner}}</h1>
 
                 <nav class="serv02-show__header__categories">
 

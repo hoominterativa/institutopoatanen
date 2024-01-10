@@ -2,55 +2,50 @@
 @section('content')
     <main id="root">
         {{-- BEGIN Page content --}}
-
         <section class="serv02-page">
-            <header class="serv02-page__header">
-
-                <h1 class="serv02-page__title">Título Página</h1>
-
-                <div class="serv02-page__paragraph">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                        sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget
-                        purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Cras vel tortor</p>
-                </div>
-            </header>
-
-            <main class="serv02-page__main">
-
-                @for ($i = 0; $i < 8; $i++)
-                    <div class="serv02-page__item">
-
-                        <img src="{{ asset('storage/uploads/tmp/bg-boxitem.png') }}" alt="Imagem de fundo [ttl do topic]"
-                            class="serv02-page__item__bg">
-
-                        <div class="serv02-page__item__information">
-
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                alt="Imagem de fundo [ttl do topic]" class="serv02-page__item__information__icon">
-
-                            <h4 class="serv02-page__item__information__title">Título do tópico</h4>
-
-                            <p class="serv02-page__item__information__description">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. </p>
-
+            @if ($banner)
+                <header class="serv02-page__header">
+                    @if ($banner->title_banner)
+                        <h1 class="serv02-page__title">{{$banner->title_banner}}</h1>
+                    @endif
+                    @if ($banner->description_banner)
+                        <div class="serv02-page__paragraph">
+                            <p>
+                                {!! $banner->description_banner !!}
+                            </p>
                         </div>
-
-                        <a href="#" class="serv02-page__item__cta">
-
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                alt="Imagem de fundo [ttl do topic]" class="serv02-page__item__cta__icon">
-
-                            CTA
-
-                        </a>
-
-                    </div>
-                @endfor
-
-            </main>
+                    @endif
+                </header>
+            @endif
+            @if ($services->count())
+                <main class="serv02-page__main">
+                    @foreach ($services as $service)
+                        <div class="serv02-page__item">
+                            @if ($service->path_image_box)
+                                <img src="{{ asset('storage/' . $service->path_image_box) }}" alt="{{$service->title_box}}" class="serv02-page__item__bg">
+                            @endif
+                            <div class="serv02-page__item__information">
+                                @if ($service->path_image_icon_box)
+                                    <img src="{{ asset('storage/'.$service->path_image_icon_box) }}" alt="Ícone" class="serv02-page__item__information__icon">
+                                @endif
+                                @if ($service->title_box)
+                                    <h4 class="serv02-page__item__information__title">{{$service->title_box}}</h4>
+                                @endif
+                                @if ($service->description_box)
+                                    <p class="serv02-page__item__information__description">
+                                        {!! $service->description_box !!}
+                                    </p>
+                                @endif
+                            </div>
+                            <a href="{{route('serv02.page.content', ['SERV02Services' => $service->slug])}}" class="serv02-page__item__cta">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Imagem de fundo [ttl do topic]" class="serv02-page__item__cta__icon">
+                                CTA
+                            </a>
+                        </div>
+                    @endforeach
+                </main>
+            @endif
         </section>
-
         {{-- Finish Content page Here --}}
         @foreach ($sections as $section)
             {!! $section !!}

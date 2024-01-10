@@ -40,10 +40,6 @@ class SERV02ServicesFactory extends Factory
             'description_box' => $this->faker->text(100),
             'path_image_box' => 'uploads/tmp/image-box.jpg',
             'path_image_icon_box' => 'uploads/tmp/favicon.png',
-            // Service Button
-            'title_button' => $this->faker->text(10),
-            'link_button' => $this->faker->url(),
-            'target_link_button' => '_blank',
             // Banner Inner
             'title_banner' => $this->faker->text(12),
             'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
