@@ -1,5 +1,12 @@
 import '../../Core/Headers/HEAD02/src/main';
 import '../../Components/themeMenu/SIDE02/src/main';
 import '../../Core/Footers/FOOT02/src/main';
-import '../../pages/Topics/TOPI102/src/main';
+import '../../pages/Slides/SLID01/src/main';
+import '../../pages/Abouts/ABOU01/src/main';
+import '../../pages/Topics/TOPI01/src/main';
+import '../../pages/Contents/CONT02/src/main';
+import '../../pages/Portfolios/PORT02/src/main';
+import '../../pages/Brands/BRAN01/src/main';
+import '../../pages/Blogs/BLOG01/src/main';
+import '../../pages/Contacts/COTA01/src/main';
 import '../../pages/Compliances/COMP01/src/main';
