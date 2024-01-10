@@ -1357,6 +1357,50 @@
                 }
             }
         },
+        "SERV02": {
+            "path_image_icon_box": {
+                "width": "200",
+                "height": "200",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "330",
+                "height": "400",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "468",
+                "activeCrop": "false"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "444",
+                "activeCrop": "true"
+            },
+            "path_image_desktop_banner": {
+                "width": "1500",
+                "height": "352",
+                "activeCrop": "false"
+            },
+            "path_image_mobile_banner": {
+                "width": "390",
+                "height": "328",
+                "activeCrop": "true"
+            },
+            "Topics": {
+                "path_image_icon": {
+                    "width": "200",
+                    "height": "200",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width": "330",
+                    "height": "299",
+                    "activeCrop": "false"
+                }
+            }
+        },
         "SERV04": {
             "path_image_icon": {
                 "width": "200",

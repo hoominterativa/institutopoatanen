@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Services\SERV02Services;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Services\SERV02Services;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV02Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Services/SERV02/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +23,11 @@ class SERV02Controller extends Controller
      */
     public function index()
     {
-        //
+        $services = SERV02Services::sorting()->get();
+        return view('Admin.cruds.Services.SERV02.index', [
+            'services' => $services,
+            'cropSetting' => getCropImage('Services', 'SERV02')
+        ]);
     }
 
     /**
@@ -32,7 +37,9 @@ class SERV02Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Services.SERV02.create',[
+            'cropSetting' => getCropImage('Services', 'SERV02')
+        ]);
     }
 
     /**
@@ -44,33 +51,44 @@ class SERV02Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $data['active'] = $request->active ? 1 : 0;
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_section'] = $request->active_section ? 1 : 0;
+        $data['featured'] = $request->featured ? 1 : 0;
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        $helper = new HelperArchive();
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
+        $path_image_icon_box = $helper->optimizeImage($request, 'path_image_icon_box', $this->path, null,100);
+        if($path_image_icon_box) $data['path_image_icon_box'] = $path_image_icon_box;
 
-        if($path_archive) $data['path_archive'] = $path_archive;
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
 
-        */
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
-        if (SERV02Services::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if ($service = SERV02Services::create($data)) {
+            Session::flash('success', 'Serviço cadastrado com sucesso');
+            return redirect()->route('admin.serv02.edit', ['SERV02Services' => $service->id]);
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_box);
+            Storage::delete($path_image_icon_box);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
     }
@@ -83,7 +101,10 @@ class SERV02Controller extends Controller
      */
     public function edit(SERV02Services $SERV02Services)
     {
-        //
+        return view('Admin.cruds.Services.SERV02.edit',[
+            'service' => $SERV02Services,
+            'cropSetting' => getCropImage('Services', 'SERV02')
+        ]);
     }
 
     /**
@@ -96,51 +117,87 @@ class SERV02Controller extends Controller
     public function update(Request $request, SERV02Services $SERV02Services)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($SERV02Services, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active ? 1 : 0;
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_section'] = $request->active_section ? 1 : 0;
+        $data['featured'] = $request->featured ? 1 : 0;
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
+
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($SERV02Services, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SERV02Services, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($SERV02Services, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($SERV02Services, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($SERV02Services, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($SERV02Services, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($SERV02Services, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
         }
 
-        */
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box){
+            storageDelete($SERV02Services, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
+        }
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($SERV02Services, 'path_image_box');
+            $data['path_image_box'] = null;
+        }
+
+        $path_image_icon_box = $helper->optimizeImage($request, 'path_image_icon_box', $this->path, null,100);
+        if($path_image_icon_box){
+            storageDelete($SERV02Services, 'path_image_icon_box');
+            $data['path_image_icon_box'] = $path_image_icon_box;
+        }
+        if($request->delete_path_image_icon_box && !$path_image_icon_box){
+            storageDelete($SERV02Services, 'path_image_icon_box');
+            $data['path_image_icon_box'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($SERV02Services, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($SERV02Services, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
+
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($SERV02Services, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($SERV02Services, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
 
         if ($SERV02Services->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Serviço atualizado com sucesso');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_box);
+            Storage::delete($path_image_icon_box);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Session::flash('error', 'Erro ao atualizar o serviço');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +208,15 @@ class SERV02Controller extends Controller
      */
     public function destroy(SERV02Services $SERV02Services)
     {
-        //storageDelete($SERV02Services, 'path_image');
-        //storageDelete($SERV02Services, 'path_archive');
+        storageDelete($SERV02Services, 'path_image_desktop');
+        storageDelete($SERV02Services, 'path_image_mobile');
+        storageDelete($SERV02Services, 'path_image_box');
+        storageDelete($SERV02Services, 'path_image_icon_box');
+        storageDelete($SERV02Services, 'path_image_desktop_banner');
+        storageDelete($SERV02Services, 'path_image_mobile_banner');
 
         if ($SERV02Services->delete()) {
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Serviço deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +229,19 @@ class SERV02Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $SERV02Servicess = SERV02Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV02Servicess as $SERV02Services){
-            storageDelete($SERV02Services, 'path_image');
-            storageDelete($SERV02Services, 'path_archive');
+            storageDelete($SERV02Services, 'path_image_desktop');
+            storageDelete($SERV02Services, 'path_image_mobile');
+            storageDelete($SERV02Services, 'path_image_box');
+            storageDelete($SERV02Services, 'path_image_icon_box');
+            storageDelete($SERV02Services, 'path_image_desktop_banner');
+            storageDelete($SERV02Services, 'path_image_mobile_banner');
         }
-        */
 
         if ($deleted = SERV02Services::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted . ' serviços deletados com sucessso']);
         }
     }
     /**

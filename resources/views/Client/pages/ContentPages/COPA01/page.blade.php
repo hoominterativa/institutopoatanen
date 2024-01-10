@@ -18,8 +18,8 @@
                     @foreach ($contentPages as $contentPage)
                         <div class="copa01-page__content">
                             <div class="">
-                                @if ($contentPage->path_image_icon)
-                                    <img src="{{asset('storage/'.$contentPage->path_image_icon)}}" width="36" alt="Ícone" class="copa01-page__content__icon">
+                                @if ($contentPage->path_image)
+                                    <img src="{{asset('storage/'.$contentPage->path_image)}}" width="36" alt="Ícone" class="copa01-page__content__icon">
                                 @endif
                                 <h2 class="copa01-page__content__container">
                                     <span class="copa01-page__content__subtitle">{{$contentPage->subtitle}}</span>
