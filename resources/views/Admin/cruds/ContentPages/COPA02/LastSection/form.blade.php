@@ -1,25 +1,36 @@
+@if ($section)
+    {!! Form::model($section, ['route' => ['admin.copa02.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+    @method('PUT')
+    {!! Form::hidden('active_content', $section->active_content) !!}
+    {!! Form::hidden('active_section_topic', $section->active_section_topic) !!}
+    {!! Form::hidden('active_banner', $section->active_banner) !!}
+@else
+    {!! Form::model(null, ['route' => 'admin.copa02.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+@endif
+
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title_last_section', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_last_section', null, ['class' => 'form-control', 'id' => 'title_last_section']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle_last_section', 'Subtítulo', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle_last_section', null, ['class' => 'form-control', 'id' => 'subtitle_last_section']) !!}
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                {!! Form::textarea('description', null, [
-                    'class'=>'form-control',
-                    'id'=>'description',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'800',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
-                ]) !!}
+                <div class="complete-editor__content mb-3">
+                    {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
+                    {!! Form::textarea('description_last_section', null, [
+                        'class'=>'form-control complete-editor',
+                        'id'=>'complete-editor',
+                    ]) !!}
+                </div>
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
@@ -73,26 +84,30 @@
                 </div> {{-- END .tab-content --}}
                 <div class="row">
                     <div class="mb-3">
-                        {!! Form::label('title_button', 'Título da botão', ['class' => 'form-label']) !!}
-                        {!! Form::text('title_button', null, ['class' => 'form-control', 'id' => 'title_button']) !!}
+                        {!! Form::label('title_button_last_section', 'Título da botão', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_button_last_section', null, ['class' => 'form-control', 'id' => 'title_button_last_section']) !!}
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button', (isset($lastSection) && isset($lastSection->link_button) ? getUri($lastSection->link_button) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button_last_section',(isset($section) ? getUri($section->link_button_last_section) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                      </div>
                     <div class="col-12 col-sm-4">
-                        {!! Form::label('target_link_button', 'Redirecionar para', ['class' => 'form-label']) !!}
-                        {!! Form::select('target_link_button', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, [
+                        {!! Form::label('target_link_button_last_section', 'Redirecionar para', ['class' => 'form-label']) !!}
+                        {!! Form::select('target_link_button_last_section', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, [
                             'class' => 'form-select',
-                            'id' => 'target_link_button',
+                            'id' => 'target_link_button_last_section',
                         ]) !!}
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
+            <div class="mb-3 border px-2 py-3">
+                {!! Form::label('background_color_last_section', 'Cor do background', ['class' => 'form-label']) !!}
+                {!! Form::text('background_color_last_section', null, ['class' => 'form-control colorpicker-default','id' => 'background_color_last_section',]) !!}
             </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active_last_section', '1', null, ['class' => 'form-check-input', 'id' => 'active_last_section']) !!}
+            {!! Form::label('active_last_section', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>
@@ -100,46 +115,19 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->LastSection->path_image_box->width }}x{{ $cropSetting->LastSection->path_image_box->height }}px!</small>
+                        {{ $cropSetting->Section->path_image_box_last_section->width }}x{{ $cropSetting->Section->path_image_box_last_section->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_box', [
+                        {!! Form::file('path_image_box_last_section', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->LastSection->path_image_box->activeCrop, // px
-                            'data-min-width' => $cropSetting->LastSection->path_image_box->width, // px
-                            'data-min-height' => $cropSetting->LastSection->path_image_box->height, // px
+                            'data-status' => $cropSetting->Section->path_image_box_last_section->activeCrop, // px
+                            'data-min-width' => $cropSetting->Section->path_image_box_last_section->width, // px
+                            'data-min-height' => $cropSetting->Section->path_image_box_last_section->height, // px
                             'data-box-height' => '170', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($lastSection)
-                                ? ($lastSection->path_image_box != ''
-                                    ? url('storage/' . $lastSection->path_image_box)
-                                    : '')
-                                : '',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone do botão', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->LastSection->path_image_icon->width }}x{{ $cropSetting->LastSection->path_image_icon->height }}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_icon', [
-                            'id' => 'inputImage',
-                            'class' => 'inputImage',
-                            'data-status' => $cropSetting->LastSection->path_image_icon->activeCrop, // px
-                            'data-min-width' => $cropSetting->LastSection->path_image_icon->width, // px
-                            'data-min-height' => $cropSetting->LastSection->path_image_icon->height, // px
-                            'data-box-height' => '170', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($lastSection)
-                                ? ($lastSection->path_image_icon != ''
-                                    ? url('storage/' . $lastSection->path_image_icon)
-                                    : '')
-                                : '',
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file' => isset($section)? ($section->path_image_box_last_section != ''? url('storage/' . $section->path_image_box_last_section): ''): '',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
@@ -148,21 +136,17 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background Desktop', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->LastSection->path_image_desktop->width }}x{{ $cropSetting->LastSection->path_image_desktop->height }}px!</small>
+                        {{ $cropSetting->Section->path_image_desktop_last_section->width }}x{{ $cropSetting->Section->path_image_desktop_last_section->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_desktop', [
+                        {!! Form::file('path_image_desktop_last_section', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->LastSection->path_image_desktop->activeCrop, // px
-                            'data-min-width' => $cropSetting->LastSection->path_image_desktop->width, // px
-                            'data-min-height' => $cropSetting->LastSection->path_image_desktop->height, // px
+                            'data-status' => $cropSetting->Section->path_image_desktop_last_section->activeCrop, // px
+                            'data-min-width' => $cropSetting->Section->path_image_desktop_last_section->width, // px
+                            'data-min-height' => $cropSetting->Section->path_image_desktop_last_section->height, // px
                             'data-box-height' => '170', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($lastSection)
-                                ? ($lastSection->path_image_desktop != ''
-                                    ? url('storage/' . $lastSection->path_image_desktop)
-                                    : '')
-                                : '',
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file' => isset($section)? ($section->path_image_desktop_last_section != ''? url('storage/' . $section->path_image_desktop_last_section): ''): '',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
@@ -170,34 +154,27 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->LastSection->path_image_mobile->width }}x{{ $cropSetting->LastSection->path_image_mobile->height }}px!</small>
+                    <small class="ms-2">Dimensões proporcionais mínimas {{ $cropSetting->Section->path_image_mobile_last_section->width }}x{{ $cropSetting->Section->path_image_mobile_last_section->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_mobile', [
+                        {!! Form::file('path_image_mobile_last_section', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->LastSection->path_image_mobile->activeCrop, // px
-                            'data-min-width' => $cropSetting->LastSection->path_image_mobile->width, // px
-                            'data-min-height' => $cropSetting->LastSection->path_image_mobile->height, // px
+                            'data-status' => $cropSetting->Section->path_image_mobile_last_section->activeCrop, // px
+                            'data-min-width' => $cropSetting->Section->path_image_mobile_last_section->width, // px
+                            'data-min-height' => $cropSetting->Section->path_image_mobile_last_section->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($lastSection)
-                                ? ($lastSection->path_image_mobile != ''
-                                    ? url('storage/' . $lastSection->path_image_mobile)
-                                    : '')
-                                : '',
+                            'data-default-file' => isset($section)? ($section->path_image_mobile_last_section != ''? url('storage/' . $section->path_image_mobile_last_section): ''): '',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
             </div>
-            <div class="mb-3 border px-2 py-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
-                ]) !!}
-            </div>
         </div>
     </div>
+    <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+        {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0','type' => 'submit',]) !!}
+    </div>
 </div>
-{{-- end row --}}
+{!! Form::close() !!}
+
+

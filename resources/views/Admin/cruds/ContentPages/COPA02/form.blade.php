@@ -2,14 +2,17 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
-            </div>
-        
             <div class="mb-3">
                 <div class="complete-editor__content mb-3">
                     {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
@@ -18,7 +21,7 @@
                         'id'=>'complete-editor',
                     ]) !!}
                 </div>
-            </div> 
+            </div>
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
                     <li class="nav-item">
@@ -76,7 +79,7 @@
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button', (isset($content) && isset($content->link_button) ? getUri($content->link_button) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button', isset($content) ? getUri($content->link_button) : null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                      </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button', 'Redirecionar para', ['class' => 'form-label']) !!}
@@ -87,10 +90,14 @@
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
+            <div class="mb-3 border px-2 py-3">
+                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
             </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>
@@ -113,29 +120,6 @@
                             'data-default-file' => isset($content)
                                 ? ($content->path_image_box != ''
                                     ? url('storage/' . $content->path_image_box)
-                                    : '')
-                                : '',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone do botão', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_icon->width }}x{{ $cropSetting->path_image_icon->height }}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_icon', [
-                            'id' => 'inputImage',
-                            'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_icon->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_icon->width, // px
-                            'data-min-height' => $cropSetting->path_image_icon->height, // px
-                            'data-box-height' => '170', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($content)
-                                ? ($content->path_image_icon != ''
-                                    ? url('storage/' . $content->path_image_icon)
                                     : '')
                                 : '',
                         ]) !!}
@@ -187,13 +171,6 @@
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3 border px-2 py-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
-                ]) !!}
             </div>
         </div>
     </div>

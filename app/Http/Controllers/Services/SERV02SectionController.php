@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\ContentPages;
+namespace App\Http\Controllers\Services;
 
-use App\Models\ContentPages\COPA02ContentPagesSectionTopic;
+use App\Models\Services\SERV02ServicesSection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
-class COPA02SectionTopicController extends Controller
+class SERV02SectionController extends Controller
 {
-    protected $path = 'uploads/ContentPages/COPA02/images/';
+    protected $path = 'uploads/Module/Code/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -24,11 +24,10 @@ class COPA02SectionTopicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_section'] = $request->active_section ? 1 : 0;
 
-        $data['active'] = $request->active?1:0;
-
-        if(COPA02ContentPagesSectionTopic::create($data)){
+        if(SERV02ServicesSection::create($data)){
             Session::flash('success', 'Seção cadastrada com sucesso');
         }else{
             Session::flash('error', 'Erro ao cadastradar a seção');
@@ -40,17 +39,16 @@ class COPA02SectionTopicController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ContentPages\COPA02ContentPagesSectionTopic  $COPA02ContentPagesSectionTopic
+     * @param  \App\Models\Services\SERV02ServicesSection  $SERV02ServicesSection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, COPA02ContentPagesSectionTopic $COPA02ContentPagesSectionTopic)
+    public function update(Request $request, SERV02ServicesSection $SERV02ServicesSection)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_section'] = $request->active_section ? 1 : 0;
 
-        $data['active'] = $request->active?1:0;
-
-        if($COPA02ContentPagesSectionTopic->fill($data)->save()){
+        if($SERV02ServicesSection->fill($data)->save()){
             Session::flash('success', 'Seção atualizada com sucesso');
         }else{
             Session::flash('error', 'Erro ao atualizar a seção');

@@ -8,64 +8,8 @@
                     </div>
                     <div class="col-6">
                         <a href="{{route('admin.copa02.topic.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                        <button class="btn btn-warning float-end me-2" type="button" data-bs-toggle="collapse" data-bs-target="#sectionTopic" aria-expanded="false" aria-controls="collapseExample"> Informações adicionais </button>
                     </div>
-                    <div class="col-12 mt-3">
-                        <div class="collapse bg-light p-3 mb-3" id="sectionTopic">
-                            @if ($sectionTopic)
-                                {!! Form::model($sectionTopic, [
-                                    'route' => ['admin.copa02.section.topic.update', $sectionTopic->id],
-                                    'class' => 'parsley-validate',
-                                    'files' => true,
-                                ]) !!}
-                                @method('PUT')
-                            @else
-                                {!! Form::model(null, [
-                                    'route' => 'admin.copa02.section.topic.store',
-                                    'class' => 'parsley-validate',
-                                    'files' => true,
-                                ]) !!}
-                            @endif
-                            <div class="row col-12">
-                                <div class="col-12 col-lg-6">
-                                        <div class="card card-body" id="tooltip-container">
-                                            <div class="mb-2">
-                                                {!! Form::label('title', 'Título da seção', ['class' => 'form-label']) !!}
-                                                {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
-                                            </div>
-                                            <div class="mb-2">
-                                                {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
-                                                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
-                                            </div>
-                                            <div class="mb-3">
-                                                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                                                {!! Form::textarea('description', null, [
-                                                    'class'=>'form-control',
-                                                    'id'=>'description',
-                                                    'data-parsley-trigger'=>'keyup',
-                                                    'data-parsley-minlength'=>'20',
-                                                    'data-parsley-maxlength'=>'800',
-                                                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                                                    'data-parsley-validation-threshold'=>'10',
-                                                ]) !!}
-                                            </div>
-                                            <div class="mb-3 form-check">
-                                                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                                                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                            <div
-                                class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
-                                {!! Form::button('Salvar', [
-                                    'class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0',
-                                    'type' => 'submit',
-                                ]) !!}
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
-                    </div> <!-- end col-->
+
                 </div>
                 <table class="table table-bordered table-sortable">
                     <thead class="table-light">
@@ -95,7 +39,7 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$topic->title}} <b>/</b> {{$topic->subtitle}}</td>
-                                <td class="align-middle">{!! substr($topic->description,0,50) !!}</td>
+                                <td class="align-middle">{!! substr($topic->description,0,25) !!}</td>
                                 <td class="align-middle">
                                     @if ($topic->active)
                                         <span class="badge bg-success">Ativo</span>

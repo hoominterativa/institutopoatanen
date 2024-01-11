@@ -2,7 +2,7 @@
 @section('content')
     {{-- BEGIN Page content --}}
 <section id="BRAN01" class="bran01-page container-fluid px-0">
-    @if ($section->active_banner)
+    @if ($section->active_banner == 1)
         <header class="bran01-page__header"
             style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }}); background-color: {{ $section->background_color_banner }};">
             @if ($section->path_image_banner_desktop)
@@ -19,7 +19,7 @@
     @endif
     <main class="bran01-page__main">
         <div class="container container--bran01-page__main">
-            @if ($section->active_content)
+            @if ($section->active_content == 1)
                 <div class="bran01-page__encompass px-0 text-center mx-auto w-100">
                     @if ($section->title_content || $section->subtitle_content)
                         <h2 class="bran01-page__encompass__title">{{ $section->title_content }}</h2>

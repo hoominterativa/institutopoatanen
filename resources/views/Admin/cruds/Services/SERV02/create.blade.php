@@ -11,19 +11,19 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.copa02.index')}}">{{getTitleModel($configModelsMain, 'ContentPages', 'COPA02')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar Seção</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.serv02.index')}}">{{ getTitleModel($configModelsMain, 'Services', 'SERV02')}}</a></li>
+                                    <li class="breadcrumb-item active">Cadastro {{ getTitleModel($configModelsMain, 'Services', 'SERV02')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Seção</h4>
+                            <h4 class="page-title">Cadastro {{ getTitleModel($configModelsMain, 'Services', 'SERV02')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($pageSection, ['route' => ['admin.copa02.section.update', $pageSection->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                    @include('Admin.cruds.ContentPages.COPA02.Section.form')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.copa02.section.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                {!! Form::model(null, ['route' => 'admin.serv02.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+                    @include('Admin.cruds.Services.SERV02.form')
+                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    <a href="{{route('admin.serv02.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

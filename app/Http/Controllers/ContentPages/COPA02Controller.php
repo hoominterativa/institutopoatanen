@@ -27,19 +27,13 @@ class COPA02Controller extends Controller
      */
     public function index()
     {
-        $contents = COPA02ContentPages::sorting()->paginate(15);
-        $sectionContent = COPA02ContentPagesSectionContent::first();
-        $pageSections = COPA02ContentPagesSection::sorting()->get();
+        $contents = COPA02ContentPages::sorting()->get();
+        $section = COPA02ContentPagesSection::first();
         $topics = COPA02ContentPagesTopic::sorting()->get();
-        $sectionTopic = COPA02ContentPagesSectionTopic::first();
-        $lastSections = COPA02ContentPagesLastSection::sorting()->get();
         return view('Admin.cruds.ContentPages.COPA02.index', [
             'contents' => $contents,
-            'sectionContent' => $sectionContent,
-            'pageSections' => $pageSections,
+            'section' => $section,
             'topics' => $topics,
-            'sectionTopic' => $sectionTopic,
-            'lastSections' => $lastSections,
             'cropSetting' => getCropImage('ContentPages', 'COPA02')
         ]);
     }
@@ -73,9 +67,6 @@ class COPA02Controller extends Controller
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
-
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
@@ -88,7 +79,6 @@ class COPA02Controller extends Controller
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_desktop);
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar a página de conteúdo');
             return redirect()->back();
@@ -134,16 +124,6 @@ class COPA02Controller extends Controller
             $data['path_image_box'] = null;
         }
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon){
-            storageDelete($COPA02ContentPages, 'path_image_icon');
-            $data['path_image_icon'] = $path_image_icon;
-        }
-        if($request->delete_path_image_icon && !$path_image_icon){
-            storageDelete($COPA02ContentPages, 'path_image_icon');
-            $data['path_image_icon'] = null;
-        }
-
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){
             storageDelete($COPA02ContentPages, 'path_image_desktop');
@@ -169,7 +149,6 @@ class COPA02Controller extends Controller
         }else{
             Storage::delete($path_image_box);
             Storage::delete($path_image_desktop);
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar a página de conteúdo');
         }
@@ -185,7 +164,6 @@ class COPA02Controller extends Controller
     public function destroy(COPA02ContentPages $COPA02ContentPages)
     {
         storageDelete($COPA02ContentPages, 'path_image_box');
-        storageDelete($COPA02ContentPages, 'path_image_icon');
         storageDelete($COPA02ContentPages, 'path_image_desktop');
         storageDelete($COPA02ContentPages, 'path_image_mobile');
 
@@ -206,7 +184,6 @@ class COPA02Controller extends Controller
         $COPA02ContentPagess = COPA02ContentPages::whereIn('id', $request->deleteAll)->get();
         foreach($COPA02ContentPagess as $COPA02ContentPages){
             storageDelete($COPA02ContentPages, 'path_image_box');
-            storageDelete($COPA02ContentPages, 'path_image_icon');
             storageDelete($COPA02ContentPages, 'path_image_desktop');
             storageDelete($COPA02ContentPages, 'path_image_mobile');
         }
@@ -241,48 +218,33 @@ class COPA02Controller extends Controller
      */
     public function page(Request $request)
     {
+        $section = COPA02ContentPagesSection::first();
+        $contentPages = COPA02ContentPages::active()->sorting()->get();
+        $topics = COPA02ContentPagesTopic::active()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $sectionContent = COPA02ContentPagesSectionContent::active()->first();
-                if($sectionContent) $sectionContent->path_image_desktop = $sectionContent->path_image_mobile;
+                if($section) {
+                    $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+                    $section->path_image_desktop_last_section = $section->path_image_mobile_last_section;
+                    $section->path_image_desktop_content = $section->path_image_mobile_content;
+                }
 
-                $contents = COPA02ContentPages::active()->sorting()->get();
-                    foreach($contents as $content) {
-                        if($content) $content->path_image_desktop = $content->path_image_mobile;
+                if($contentPages) {
+                    foreach($contentPages as $contentPage) {
+                        $contentPage->path_image_desktop = $contentPage->path_image_mobile;
                     }
-
-                $pageSections = COPA02ContentPagesSection::active()->sorting()->get();
-                foreach($pageSections as $pageSection) {
-                    if($pageSection) $pageSection->path_image_desktop = $pageSection->path_image_mobile;
                 }
-
-                $lastSections = COPA02ContentPagesLastSection::active()->sorting()->get();
-                foreach($lastSections as $lastSection) {
-                    if($lastSection) $lastSection->path_image_desktop = $lastSection->path_image_mobile;
-                }
-            break;
-            default:
-            $contents = COPA02ContentPages::active()->sorting()->get();
-            $sectionContent = COPA02ContentPagesSectionContent::active()->first();
-            $pageSections = COPA02ContentPagesSection::active()->sorting()->get();
-            $lastSections = COPA02ContentPagesLastSection::active()->sorting()->get();
             break;
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA02');
-
-        $topics = COPA02ContentPagesTopic::active()->sorting()->get();
-        $sectionTopic = COPA02ContentPagesSectionTopic::active()->first();
         return view('Client.pages.ContentPages.COPA02.page',[
             'sections' => $sections,
-            'contents' => $contents,
-            'sectionContent' => $sectionContent,
-            'pageSections' => $pageSections,
-            'sectionTopic' => $sectionTopic,
+            'contentPages' => $contentPages,
+            'section' => $section,
             'topics' => $topics,
-            'lastSections' => $lastSections
         ]);
     }
 

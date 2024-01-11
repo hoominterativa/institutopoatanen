@@ -18,7 +18,7 @@ class COPA02ContentPages extends Model
     protected $table = "copa02_contentpages";
     protected $fillable = [
         'title', 'subtitle', 'description', 'path_image_box', 'path_image_desktop', 'path_image_mobile', 'background_color',
-        'title_button', 'link_button', 'target_link_button', 'path_image_icon', 'active', 'sorting', //'image_position'
+        'title_button', 'link_button', 'target_link_button', 'active', 'sorting',
     ];
 
     public function scopeSorting($query)
@@ -30,9 +30,4 @@ class COPA02ContentPages extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function scopePosition($query)
-    // {
-    //     return $query->where('image_position', 'right');
-    // }
 }

@@ -1,5 +1,5 @@
 <div class="row col-12">
-    {!! Form::hidden('active_banner', $service->active_banner) !!}
+    {!! Form::hidden('active_banner', isset($service) ? $service->active_banner : null) !!}
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
@@ -76,7 +76,7 @@
                 <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                     data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-original-title="Caso este link seja inserido, o formulário na página interna será desconsiderado."></i>
-                {!! Form::url('link', (isset($service) && isset($service->link) ? getUri($service->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                {!! Form::url('link', (isset($service) ? getUri($service->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
             </div>
         </div>
         <div class="d-flex">

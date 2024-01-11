@@ -4,7 +4,7 @@
     <main id="root">
         <div id="COPA01" class="copa01-page">
             <section class="container-fluid px-0">
-                @if (isset($section->active_banner))
+                @if ($section->active_banner == 1)
                     <header class="copa01-page__header"
                     style="background-image: url({{asset('storage/'.$section->path_image_desktop)}}); background-color: {{$section->background_color}};">
                         <div class="container d-flex flex-column justify-content-center align-items-center">
@@ -18,8 +18,8 @@
                     @foreach ($contentPages as $contentPage)
                         <div class="copa01-page__content">
                             <div class="">
-                                @if ($contentPage->path_image_icon)
-                                    <img src="{{asset('storage/'.$contentPage->path_image_icon)}}" width="36" alt="Ícone" class="copa01-page__content__icon">
+                                @if ($contentPage->path_image)
+                                    <img src="{{asset('storage/'.$contentPage->path_image)}}" width="36" alt="Ícone" class="copa01-page__content__icon">
                                 @endif
                                 <h2 class="copa01-page__content__container">
                                     <span class="copa01-page__content__subtitle">{{$contentPage->subtitle}}</span>
@@ -50,7 +50,7 @@
                 {{-- Área nova --}}
                 @if ($topics->count())
                     <div>
-                        @if (isset($section->active_section))
+                        @if ($section->active_section == 1)
                             <div>
                                 <h2 class="">
                                     <span class="">{{$section->title_section}}</span>

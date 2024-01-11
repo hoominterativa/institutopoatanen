@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCopa02ContentpagesSectiontopicsTable extends Migration
+class CreateServ02ServicesTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateCopa02ContentpagesSectiontopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('copa02_contentpages_sectiontopics', function (Blueprint $table) {
+        Schema::create('serv02_services_topics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('service_id')->constrained('serv02_services');
             $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
+            $table->string('path_image')->nullable();
+            $table->string('path_image_icon')->nullable();
             $table->integer('active')->default(0);
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateCopa02ContentpagesSectiontopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('copa02_contentpages_sectiontopics');
+        Schema::dropIfExists('serv02_services_topics');
     }
 }

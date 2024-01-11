@@ -170,7 +170,7 @@ return [
             'COPA02' => (object)[
                 'controller' => App\Http\Controllers\ContentPages\COPA02Controller::class,
                 'model' => App\Models\ContentPages\COPA02ContentPages::class,
-                'seedQty' => 3,
+                'seedQty' => 2,
             ],
         ],
         // END CONTENT PAGES
@@ -374,6 +374,13 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV01Controller::class,
                 'model' => App\Models\Services\SERV01Services::class,
                 'seedQty' => 4,
+            ],
+            'SERV02' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV02Controller::class,
+                'model' => App\Models\Services\SERV02Services::class,
+                'seedQty' => 8,
+                'routeName' => 'serv02.page.content',
+                'relationship' => null,
             ],
             'SERV04' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV04Controller::class,
