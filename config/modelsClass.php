@@ -7,7 +7,8 @@ return [
             'ABOU01' => (object)[
                 'controller' => App\Http\Controllers\Abouts\ABOU01Controller::class,
                 'model' => App\Models\Abouts\ABOU01Abouts::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
+                'relationship' => null,
             ],
             'ABOU02' => (object)[
                 'controller' => App\Http\Controllers\Abouts\ABOU02Controller::class,
@@ -18,6 +19,7 @@ return [
                 'controller' => App\Http\Controllers\Abouts\ABOU04Controller::class,
                 'model' => App\Models\Abouts\ABOU04Abouts::class,
                 'seedQty' => 2,
+                'relationship' => null,
             ],
             'ABOU05' => (object)[
                 'controller' => App\Http\Controllers\Abouts\ABOU05Controller::class,

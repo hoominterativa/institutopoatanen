@@ -69,8 +69,6 @@ class ABOU01TopicsController extends Controller
             Storage::delete($path_image_icon);
             Session::flash('success', 'Erro ao atualizar tópico');
         }
-
-        Session::flash('reopenModal', 'modal-topic-update-'.$ABOU01AboutsTopics->id);
         return redirect()->back();
     }
 

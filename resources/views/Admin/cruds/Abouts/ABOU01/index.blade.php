@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Abouts', 'ABOU04')}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Abouts', 'ABOU01')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Abouts', 'ABOU04')}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Abouts', 'ABOU01')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -25,10 +25,10 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.abou04.destroySelected')}}" type="button" class="btn btn-danger btnDeleteAbouts" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.abou01.destroySelected')}}" type="button" class="btn btn-danger btnDeleteAbouts" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('admin.abou04.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        <a href="{{route('admin.abou01.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
                                 <table class="table table-bordered table-sortable">
@@ -47,7 +47,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody data-route="{{route('admin.abou04.sorting')}}">
+                                    <tbody data-route="{{route('admin.abou01.sorting')}}">
                                         @foreach ($abouts as $about)
                                             <tr data-code="{{$about->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -61,7 +61,11 @@
                                                 </td>
                                                 <td class="align-middle">{{$about->title}}</td>
                                                 <td class="align-middle">{{$about->subtitle}}</td>
-                                                <td class="align-middle">{!! substr($about->text, 0, 20) !!}<b>...</b></td>
+                                                <td class="align-middle">
+                                                    @if ($about->text)
+                                                        {!! substr($about->text, 0, 20) !!}<b>...</b>
+                                                    @endif
+                                                </td>
                                                 <td class="align-middle">
                                                     @if ($about->active)
                                                         <span class="badge bg-success">Ativo</span>
@@ -72,9 +76,9 @@
                                                 <td class="align-middle">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.abou04.edit',['ABOU04Abouts' => $about->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.abou01.edit',['ABOU01Abouts' => $about->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.abou04.destroy',['ABOU04Abouts' => $about->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.abou01.destroy',['ABOU01Abouts' => $about->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

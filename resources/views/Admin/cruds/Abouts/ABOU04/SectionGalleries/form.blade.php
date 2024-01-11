@@ -4,7 +4,7 @@
     {!! Form::hidden('active_banner', $about->active_banner) !!}
     {!! Form::hidden('active_topics', $about->active_topics) !!}
     {!! Form::hidden('active', $about->active) !!}
-    {!! Form::hidden('title', $about->title) !!}
+    {!! Form::hidden('slug', $about->slug) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.abou04.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif

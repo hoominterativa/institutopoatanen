@@ -17,6 +17,7 @@ class ABOU01AboutsTopics extends Model
 
     protected $table = "abou01_abouts_topics";
     protected $fillable = [
+        "about_id",
         "title",
         "description",
         "path_image_icon",

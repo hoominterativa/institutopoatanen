@@ -15,6 +15,7 @@ class CreateAbou01AboutsTopicsTable extends Migration
     {
         Schema::create('abou01_abouts_topics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('about_id')->constrained('abou01_abouts');
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('path_image_icon')->nullable();

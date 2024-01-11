@@ -3,6 +3,7 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => ['admin.abou01.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('about_id', $about->id) !!}
 @endif
     <div class="row col-12">
         <div class="col-12 col-lg-6 ">
@@ -31,7 +32,7 @@
             <div class="card card-body wrapper-links my-2 border px-2 py-3" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Ícone do tópico', ['class'=>'form-label']) !!}
+                        {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
                         <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Topic->path_image_icon->width}}x{{$cropSetting->Topic->path_image_icon->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image_icon', [
