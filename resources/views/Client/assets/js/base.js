@@ -3,6 +3,7 @@ import '../../Components/themeMenu/SIDE02/src/main';
 import '../../Core/Footers/FOOT02/src/main';
 import '../../pages/Slides/SLID01/src/main';
 import '../../pages/Abouts/ABOU01/src/main';
+import '../../pages/Services/SERV02/src/main';
 import '../../pages/Topics/TOPI01/src/main';
 import '../../pages/Contents/CONT02/src/main';
 import '../../pages/Portfolios/PORT02/src/main';
