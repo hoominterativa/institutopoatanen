@@ -36,7 +36,7 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                <label><input name="btnSelectAll" value="btnDeleteBrands" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeleteAbouts" type="checkbox"></label>
                                             </th>
                                             <th>Imagem</th>
                                             <th>Título</th>

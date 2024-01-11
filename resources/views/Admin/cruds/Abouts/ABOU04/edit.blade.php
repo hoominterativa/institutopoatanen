@@ -15,7 +15,7 @@
                                     <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU04') }}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Página {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU04') }}</h4>
+                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU04') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                             {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU04') }}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações do conteúdo principal"></i>
+                                data-bs-original-title="Edição do conteúdo principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">

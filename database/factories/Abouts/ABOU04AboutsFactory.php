@@ -23,10 +23,11 @@ class ABOU04AboutsFactory extends Factory
     public function definition()
     {
         $title = $this->faker->text(10);
+        $subtitle = $this->faker->text(10);
         return [
-            'slug' => Str::slug($title),
-            'title' => $title,
-            'subtitle' => $this->faker->text(10),
+            'slug' => Str::slug($title. ' ' .$subtitle),
+            "title" => $title,
+            "subtitle" => $subtitle,
             'text' => $this->faker->text(999),
             'path_image' => 'uploads/tmp/png-slide.png',
             'active' => 1,

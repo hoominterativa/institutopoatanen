@@ -13,7 +13,7 @@
             'limit' => 'all',
             'condition' => 'active=1{Ativos}',
             'titleList' => 'title',
-            'relation' => ''
+            'relation' => null,
         ],
         'config' => (object) [
         'titleMenu' => 'Sobre',

@@ -27,9 +27,4 @@ class SERV02ServicesTopic extends Model
     {
         return $query->where('active', 1);
     }
-
-    public function service()
-    {
-        return $this->belongsTo(SERV02Services::class, 'service_id');
-    }
 }

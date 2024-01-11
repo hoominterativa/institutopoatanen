@@ -60,7 +60,7 @@ class ABOU04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
         $data['active'] = $request->active?1:0;
-        $data['slug'] = Str::slug($request->title);
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
 
         $data['active_banner'] = $request->active_banner?1:0;
         $data['active_topics'] = $request->active_topics?1:0;
@@ -135,7 +135,7 @@ class ABOU04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
         $data['active'] = $request->active?1:0;
-        $data['slug'] = Str::slug($request->title);
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
 
         $data['active_banner'] = $request->active_banner?1:0;
         $data['active_topics'] = $request->active_topics?1:0;
