@@ -34,14 +34,6 @@ class ABOU01AboutsFactory extends Factory
             "path_image" => "uploads/tmp/image-pmg.png",
             "background_color" => '#FFFFFF',
             "active" => 1,
-            //Section Home
-            "title_section" => $this->faker->text(10),
-            "subtitle_section" => $this->faker->text(10),
-            "description_section" => $this->faker->text(550),
-            "path_image_section_desktop" => "uploads/tmp/bg-section-dark-gray.jpg",
-            "path_image_section_mobile" => "uploads/tmp/image-box-white.jpg",
-            "background_color_section" => '#FFFFFF',
-            'active_section' => 1,
             // Banner
             "title_banner" => $this->faker->text(10),
             "subtitle_banner" => $this->faker->text(10),

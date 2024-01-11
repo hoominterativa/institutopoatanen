@@ -29,14 +29,6 @@ class ABOU01Abouts extends Model
         "background_color",
         "active",
         "sorting",
-        //Section home
-        "title_section",
-        "subtitle_section",
-        "description_section",
-        "path_image_section_desktop",
-        "path_image_section_mobile",
-        "background_color_section",
-        "active_section",
         //Banner
         "title_banner",
         "subtitle_banner",
@@ -70,11 +62,6 @@ class ABOU01Abouts extends Model
     function scopeActive($query)
     {
         return $query->where('active', 1);
-    }
-
-    function scopeActiveSection($query)
-    {
-        return $query->where('active_section', 1);
     }
 
     function scopeActiveBanner($query)

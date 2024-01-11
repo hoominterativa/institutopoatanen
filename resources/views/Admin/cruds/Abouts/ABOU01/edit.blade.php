@@ -22,21 +22,12 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#about" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#editAbout" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Abouts', 'ABOU01') }}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Edição do conteúdo principal"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações para a seção Home
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de informações para a seção Home"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -77,15 +68,12 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane show active" id="about">
+                    <div class="tab-pane show active" id="editAbout">
                         {!! Form::model($about, ['route' => ['admin.abou01.update', $about->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
                             @include('Admin.cruds.Abouts.ABOU01.form')
                             {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                             <a href="{{route('admin.abou01.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
-                    </div>
-                    <div class="tab-pane" id="section">
-                        @include('Admin.cruds.Abouts.ABOU01.Section.form')
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Abouts.ABOU01.Banner.form')

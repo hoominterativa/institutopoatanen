@@ -26,14 +26,6 @@ class CreateAbou01AboutsTable extends Migration
             $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
-            //Section home
-            $table->string('title_section')->nullable();
-            $table->string('subtitle_section')->nullable();
-            $table->text('description_section')->nullable();
-            $table->string('path_image_section_desktop')->nullable();
-            $table->string('path_image_section_mobile')->nullable();
-            $table->string('background_color_section')->nullable();
-            $table->integer('active_section')->default(0);
             //Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
@@ -41,12 +33,10 @@ class CreateAbou01AboutsTable extends Migration
             $table->string('path_image_banner_mobile')->nullable();
             $table->string('background_color_banner')->nullable();
             $table->integer('active_banner')->default(0);
-
             //Section topic
             $table->string('path_image_topic_desktop')->nullable();
             $table->string('path_image_topic_mobile')->nullable();
             $table->string('background_color_topic')->nullable();
-
             //Content
             $table->string('title_content')->nullable();
             $table->string('subtitle_content')->nullable();

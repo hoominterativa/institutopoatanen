@@ -36,16 +36,6 @@
                 "height": "800",
                 "activeCrop": "true"
             },
-            "path_image_section_desktop": {
-                "width": "1500",
-                "height": "622",
-                "activeCrop": "false"
-            },
-            "path_image_section_mobile": {
-                "width": "410",
-                "height": "546",
-                "activeCrop": "true"
-            },
             "path_image_topic_desktop": {
                 "width": "1500",
                 "height": "622",
@@ -66,6 +56,18 @@
                     "width": "200",
                     "height": "200",
                     "activeCrop": "false"
+                }
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "622",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "410",
+                    "height": "546",
+                    "activeCrop": "true"
                 }
             }
         },

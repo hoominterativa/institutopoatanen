@@ -25,8 +25,10 @@ class ABOU01Controller extends Controller
     public function index()
     {
         $abouts = ABOU01Abouts::sorting()->get();
+        $section = ABOU01AboutsSection::first();
         return view('Admin.cruds.Abouts.ABOU01.index',[
             'abouts' => $abouts,
+            'section' => $section,
             'cropSetting' => getCropImage('Abouts', 'ABOU01')
         ]);
     }
@@ -86,12 +88,6 @@ class ABOU01Controller extends Controller
         $path_image_content_mobile = $helper->optimizeImage($request, 'path_image_content_mobile', $this->path, null, 100);
         if($path_image_content_mobile) $data['path_image_content_mobile'] = $path_image_content_mobile;
 
-        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null, 100);
-        if($path_image_section_desktop) $data['path_image_section_desktop'] = $path_image_section_desktop;
-
-        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null, 100);
-        if($path_image_section_mobile) $data['path_image_section_mobile'] = $path_image_section_mobile;
-
         $path_image_topic_desktop = $helper->optimizeImage($request, 'path_image_topic_desktop', $this->path, null, 100);
         if($path_image_topic_desktop) $data['path_image_topic_desktop'] = $path_image_topic_desktop;
 
@@ -110,8 +106,6 @@ class ABOU01Controller extends Controller
             Storage::delete($path_image);
             Storage::delete($path_image_banner_desktop);
             Storage::delete($path_image_banner_mobile);
-            Storage::delete($path_image_section_desktop);
-            Storage::delete($path_image_section_mobile);
             Storage::delete($path_image_topic_desktop);
             Storage::delete($path_image_topic_mobile);
             Storage::delete($path_image_content_desktop);
@@ -150,10 +144,8 @@ class ABOU01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
         if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
-
-        $data['active_section'] = $request->active_section?1:0;
+        $data['active'] = $request->active?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
         $data['active_content'] = $request->active_content?1:0;
         $data['link_button_content'] = isset($data['link_button_content']) ? getUri($data['link_button_content']) : null;
@@ -232,26 +224,6 @@ class ABOU01Controller extends Controller
             $data['path_image_content_mobile'] = null;
         }
 
-        $path_image_section_desktop = $helper->optimizeImage($request, 'path_image_section_desktop', $this->path, null, 100);
-        if($path_image_section_desktop){
-            storageDelete($ABOU01Abouts, 'path_image_section_desktop');
-            $data['path_image_section_desktop'] = $path_image_section_desktop;
-        }
-        if($request->delete_path_image_section_desktop && !$path_image_section_desktop){
-            storageDelete($ABOU01Abouts, 'path_image_section_desktop');
-            $data['path_image_section_desktop'] = null;
-        }
-
-        $path_image_section_mobile = $helper->optimizeImage($request, 'path_image_section_mobile', $this->path, null, 100);
-        if($path_image_section_mobile){
-            storageDelete($ABOU01Abouts, 'path_image_section_mobile');
-            $data['path_image_section_mobile'] = $path_image_section_mobile;
-        }
-        if($request->delete_path_image_section_mobile && !$path_image_section_mobile){
-            storageDelete($ABOU01Abouts, 'path_image_section_mobile');
-            $data['path_image_section_mobile'] = null;
-        }
-
         $path_image_topic_desktop = $helper->optimizeImage($request, 'path_image_topic_desktop', $this->path, null, 100);
         if($path_image_topic_desktop){
             storageDelete($ABOU01Abouts, 'path_image_topic_desktop');
@@ -290,8 +262,6 @@ class ABOU01Controller extends Controller
             Storage::delete($path_image);
             Storage::delete($path_image_banner_desktop);
             Storage::delete($path_image_banner_mobile);
-            Storage::delete($path_image_section_desktop);
-            Storage::delete($path_image_section_mobile);
             Storage::delete($path_image_topic_desktop);
             Storage::delete($path_image_topic_mobile);
             Storage::delete($path_image_content_desktop);
@@ -310,14 +280,19 @@ class ABOU01Controller extends Controller
      */
     public function destroy(ABOU01Abouts $ABOU01Abouts)
     {
+        $topics = ABOU01AboutsTopics::where('about_id', $ABOU01Abouts->id)->get();
+        if ($topics) {
+            foreach ($topics as $topic) {
+                storageDelete($topic, 'path_image');
+                $topic->delete();
+            }
+        }
 
         storageDelete($ABOU01Abouts, 'path_image');
         storageDelete($ABOU01Abouts, 'path_image_desktop');
         storageDelete($ABOU01Abouts, 'path_image_mobile');
         storageDelete($ABOU01Abouts, 'path_image_banner_mobile');
         storageDelete($ABOU01Abouts, 'path_image_banner_desktop');
-        storageDelete($ABOU01Abouts, 'path_image_section_desktop');
-        storageDelete($ABOU01Abouts, 'path_image_section_mobile');
         storageDelete($ABOU01Abouts, 'path_image_topic_desktop');
         storageDelete($ABOU01Abouts, 'path_image_topic_mobile');
         storageDelete($ABOU01Abouts, 'path_image_content_desktop');
@@ -340,16 +315,21 @@ class ABOU01Controller extends Controller
     {
 
         $ABOU01Abouts = ABOU01Abouts::whereIn('id', $request->deleteAll)->get();
-        foreach($ABOU01Abouts as $ABOU01Abouts){
+        foreach($ABOU01Abouts as $ABOU01About){
 
+            $topics = ABOU01AboutsTopics::where('about_id', $ABOU01About->id)->get();
+            if ($topics) {
+                foreach ($topics as $topic) {
+                    storageDelete($topic, 'path_image');
+                    $topic->delete();
+                }
+            }
 
             storageDelete($ABOU01Abouts, 'path_image');
             storageDelete($ABOU01Abouts, 'path_image_desktop');
             storageDelete($ABOU01Abouts, 'path_image_mobile');
             storageDelete($ABOU01Abouts, 'path_image_banner_mobile');
             storageDelete($ABOU01Abouts, 'path_image_banner_desktop');
-            storageDelete($ABOU01Abouts, 'path_image_section_desktop');
-            storageDelete($ABOU01Abouts, 'path_image_section_mobile');
             storageDelete($ABOU01Abouts, 'path_image_topic_desktop');
             storageDelete($ABOU01Abouts, 'path_image_topic_mobile');
             storageDelete($ABOU01Abouts, 'path_image_content_desktop');
@@ -446,7 +426,7 @@ class ABOU01Controller extends Controller
      */
     public static function section()
     {
-        $section = ABOU01Abouts::activeSection()->first();
+        $section = ABOU01AboutsSection::active()->first();
         switch(deviceDetect()){
             case "mobile":
             case "tablet":
