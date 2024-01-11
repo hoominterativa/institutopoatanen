@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button_last_section',(isset($section) && isset($section->link_button_last_section) ? getUri($section->link_button_last_section) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button_last_section',(isset($section) ? getUri($section->link_button_last_section) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                      </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button_last_section', 'Redirecionar para', ['class' => 'form-label']) !!}

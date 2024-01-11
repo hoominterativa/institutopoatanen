@@ -10,7 +10,7 @@
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
-                    {!! Form::url('link', (isset($social) && isset($social->link) ? getUri($social->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                    {!! Form::url('link', (isset($social) ? getUri($social->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                 </div>
             </div>
             <div class="mb-3 form-check">

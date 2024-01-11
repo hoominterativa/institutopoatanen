@@ -295,6 +295,8 @@ class SERV02Controller extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV02', 'show');
+        $servicesNotIn = SERV02Services::whereNotIn('id', [$SERV02Services->id])->active()->sorting()->get();
+        $topics = SERV02ServicesTopic::where('service_id', $SERV02Services->id)->active()->sorting()->get();
 
         switch(deviceDetect()) {
             case 'mobile':
@@ -306,7 +308,9 @@ class SERV02Controller extends Controller
 
         return view('Client.pages.Services.SERV02.show', [
             'sections' => $sections,
-            'service' => $SERV02Services
+            'service' => $SERV02Services,
+            'servicesNotIn' => $servicesNotIn,
+            'topics' => $topics
         ]);
     }
 
@@ -322,7 +326,7 @@ class SERV02Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV02', 'page');
 
         $banner = SERV02ServicesSection::activeBanner()->first();
-        $services = SERV02Services::with('topics')->active()->sorting()->get();
+        $services = SERV02Services::active()->sorting()->get();
 
         return view('Client.pages.Services.SERV02.page', [
             'sections' => $sections,
@@ -339,7 +343,7 @@ class SERV02Controller extends Controller
     public static function section()
     {
         $section = SERV02ServicesSection::activeSection()->first();
-        $services = SERV02Services::with('topics')->active()->featured()->sorting()->get();
+        $services = SERV02Services::active()->featured()->sorting()->get();
         return view('Client.pages.Services.SERV02.section',[
             'services' => $services,
             'section' => $section

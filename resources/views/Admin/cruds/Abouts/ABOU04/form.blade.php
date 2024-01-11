@@ -1,8 +1,8 @@
 <div class="row col-12">
-    {!! Form::hidden('active_banner', $about->active_banner) !!}
-    {!! Form::hidden('active_galleries', $about->active_galleries) !!}
-    {!! Form::hidden('active_topics', $about->active_topics) !!}
-    {!! Form::hidden('link_button_galleries', $about->link_button_galleries) !!}
+    {!! Form::hidden('active_banner', isset($about) ? $about->active_banner : null) !!}
+    {!! Form::hidden('active_galleries', isset($about) ? $about->active_galleries : null) !!}
+    {!! Form::hidden('active_topics', isset($about) ? $about->active_topics : null) !!}
+    {!! Form::hidden('link_button_galleries', isset($about) ? $about->link_button_galleries : null) !!}
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">

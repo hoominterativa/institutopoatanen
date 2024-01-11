@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button',getUri($content->link_button), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link_button', isset($content) ? getUri($content->link_button) : null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                      </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button', 'Redirecionar para', ['class' => 'form-label']) !!}
