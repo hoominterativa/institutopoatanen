@@ -12,15 +12,9 @@
             'include' => true,
             'sorting' => true,
             'limit' => 'all',
-            'condition' => 'active=1{Ativos},featured=1{Detaques}',
+            'condition' => 'active=1{Ativos}',
             'titleList' => 'title',
-            'relation' => (object)[
-                'category' =>(object)[
-                    'name' => 'Categoria',
-                    'titleList' => 'title',
-                    'condition' => 'active=1{Ativos}',
-                ]
-            ],
+            'relation' => null,
         ],
         'config' => (object) [
             'titleMenu' => 'Serviços',
