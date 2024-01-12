@@ -11,7 +11,7 @@
             'limit' => 'all',
             'condition' => 'active=1{Ativos}',
             'titleList' => 'title_page',
-            'relation' => null
+            'relation' => '',
         ],
         'config' => (object) [
             'titleMenu' => 'Contato',

@@ -149,7 +149,7 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title',
-                    'relation' => null,
+                    'relation' => '',
                 ],
                 'config' => (object) [
                     'titleMenu' => 'Sobre',
@@ -193,7 +193,7 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title',
-                    'relation' => null,
+                    'relation' => '',
                 ],
                 'config' => (object) [
                     'titleMenu' => 'ESG',
@@ -396,7 +396,7 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title_page',
-                    'relation' => null
+                    'relation' => '',
                 ],
                 'config' => (object) [
                     'titleMenu' => 'Contato',
@@ -423,7 +423,7 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title_page',
-                    'relation' => null
+                    'relation' => '',
                 ],
                 'config' => (object) [
                     'titleMenu' => 'Trabalhe Conosco',
