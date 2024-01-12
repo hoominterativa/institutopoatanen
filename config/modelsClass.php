@@ -623,6 +623,7 @@ return [
                 'controller' => App\Http\Controllers\WorkWith\WOWI01Controller::class,
                 'model' => App\Models\WorkWith\WOWI01WorkWith::class,
                 'seedQty' => 1,
+                'relationship' => null,
             ],
         ],
         // END TOPICS

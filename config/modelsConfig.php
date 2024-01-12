@@ -396,7 +396,7 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title_page',
-                    'relation' => ''
+                    'relation' => null
                 ],
                 'config' => (object) [
                     'titleMenu' => 'Contato',
@@ -417,10 +417,18 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_page',
+                    'relation' => null
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Trabalhe Conosco',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'wowi01.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Trabalhe Conosco',
                     'iconPanel' => 'mdi-google-my-business'
