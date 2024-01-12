@@ -28,7 +28,7 @@ class WOWI01Controller extends Controller
     {
         $workwiths = WOWI01WorkWith::sorting()->get();
         $section = WOWI01WorkWithSection::first();
-        return view('Admin.cruds.WorkWith.WOWI01.index',[
+        return view('Admin.cruds.WorkWith.WOWI01.index', [
             'workwiths' => $workwiths,
             'section' => $section,
         ]);
@@ -41,7 +41,7 @@ class WOWI01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.WorkWith.WOWI01.create',[
+        return view('Admin.cruds.WorkWith.WOWI01.create', [
             'cropSetting' => getCropImage('WorkWith', 'WOWI01')
         ]);
     }
@@ -58,25 +58,25 @@ class WOWI01Controller extends Controller
         $helper = new HelperArchive();
 
         $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner) $data['path_image_banner'] = $path_image_banner;
+        if ($path_image_banner) $data['path_image_banner'] = $path_image_banner;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+        if ($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null, 100);
-        if($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
+        if ($path_image_thumbnail) $data['path_image_thumbnail'] = $path_image_thumbnail;
 
         $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null, 100);
-        if($path_image_content) $data['path_image_content'] = $path_image_content;
+        if ($path_image_content) $data['path_image_content'] = $path_image_content;
 
-        $data['slug'] = Str::slug($request->title.'-'.$request->subtitle);
+        $data['slug'] = Str::slug($request->title . '-' . $request->subtitle);
 
-        $data['featured_menu'] = $request->featured_menu?1:0;
-        $data['active'] = $request->active?1:0;
+        $data['featured_menu'] = $request->featured_menu ? 1 : 0;
+        $data['active'] = $request->active ? 1 : 0;
 
-        if($workwiths = WOWI01WorkWith::create($data)){
+        if ($workwiths = WOWI01WorkWith::create($data)) {
             Session::flash('success', 'Informações cadastradas com sucesso');
-        }else{
+        } else {
             Storage::delete($path_image_banner);
             Storage::delete($path_image_icon);
             Storage::delete($path_image_thumbnail);
@@ -97,11 +97,11 @@ class WOWI01Controller extends Controller
     public function edit(WOWI01WorkWith $WOWI01WorkWith)
     {
         $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->sorting()->get();
-        foreach($topics as $topic){
+        foreach ($topics as $topic) {
             $topic->link = getUri($topic->link);
         }
         $topicSection = WOWI01WorkWithTopicSection::where('workwith_id', $WOWI01WorkWith->id)->first();
-        return view('Admin.cruds.WorkWith.WOWI01.edit',[
+        return view('Admin.cruds.WorkWith.WOWI01.edit', [
             'workWith' => $WOWI01WorkWith,
             'topicSection' => $topicSection,
             'topics' => $topics,
@@ -122,51 +122,51 @@ class WOWI01Controller extends Controller
         $helper = new HelperArchive();
 
         $path_image_banner = $helper->optimizeImage($request, 'path_image_banner', $this->path, null, 100);
-        if($path_image_banner){
+        if ($path_image_banner) {
             storageDelete($WOWI01WorkWith, 'path_image_banner');
             $data['path_image_banner'] = $path_image_banner;
         }
-        if($request->delete_path_image_banner && !$path_image_banner){
+        if ($request->delete_path_image_banner && !$path_image_banner) {
             storageDelete($WOWI01WorkWith, 'path_image_banner');
             $data['path_image_banner'] = null;
         }
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if($path_image_icon){
+        if ($path_image_icon) {
             storageDelete($WOWI01WorkWith, 'path_image_icon');
             $data['path_image_icon'] = $path_image_icon;
         }
-        if($request->delete_path_image_icon && !$path_image_icon){
+        if ($request->delete_path_image_icon && !$path_image_icon) {
             storageDelete($WOWI01WorkWith, 'path_image_icon');
             $data['path_image_icon'] = null;
         }
 
         $path_image_thumbnail = $helper->optimizeImage($request, 'path_image_thumbnail', $this->path, null, 100);
-        if($path_image_thumbnail){
+        if ($path_image_thumbnail) {
             storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
             $data['path_image_thumbnail'] = $path_image_thumbnail;
         }
-        if($request->delete_path_image_thumbnail && !$path_image_thumbnail){
+        if ($request->delete_path_image_thumbnail && !$path_image_thumbnail) {
             storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
             $data['path_image_thumbnail'] = null;
         }
 
         $path_image_content = $helper->optimizeImage($request, 'path_image_content', $this->path, null, 100);
-        if($path_image_content){
+        if ($path_image_content) {
             storageDelete($WOWI01WorkWith, 'path_image_content');
             $data['path_image_content'] = $path_image_content;
         }
-        if($request->delete_path_image_content && !$path_image_content){
+        if ($request->delete_path_image_content && !$path_image_content) {
             storageDelete($WOWI01WorkWith, 'path_image_content');
             $data['path_image_content'] = null;
         }
 
-        $data['featured_menu'] = $request->featured_menu?1:0;
-        $data['active'] = $request->active?1:0;
+        $data['featured_menu'] = $request->featured_menu ? 1 : 0;
+        $data['active'] = $request->active ? 1 : 0;
 
-        if($WOWI01WorkWith->fill($data)->save()){
+        if ($WOWI01WorkWith->fill($data)->save()) {
             Session::flash('success', 'Informações atualizadas com sucesso');
-        }else{
+        } else {
             Storage::delete($path_image_banner);
             Storage::delete($path_image_icon);
             Storage::delete($path_image_thumbnail);
@@ -186,7 +186,7 @@ class WOWI01Controller extends Controller
     public function destroy(WOWI01WorkWith $WOWI01WorkWith)
     {
         $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->get();
-        foreach($topics as $topic){
+        foreach ($topics as $topic) {
             storageDelete($topic, 'path_image_icon');
             storageDelete($topic, 'path_image_thumbnail');
             $topic->delete();
@@ -199,7 +199,7 @@ class WOWI01Controller extends Controller
         storageDelete($WOWI01WorkWith, 'path_image_thumbnail');
         storageDelete($WOWI01WorkWith, 'path_image_content');
 
-        if($WOWI01WorkWith->delete()){
+        if ($WOWI01WorkWith->delete()) {
             Session::flash('success', 'Informações deletadas com sucessso');
             return redirect()->back();
         }
@@ -214,10 +214,10 @@ class WOWI01Controller extends Controller
     public function destroySelected(Request $request)
     {
         $WOWI01WorkWiths = WOWI01WorkWith::whereIn('id', $request->deleteAll)->get();
-        foreach($WOWI01WorkWiths as $WOWI01WorkWith){
+        foreach ($WOWI01WorkWiths as $WOWI01WorkWith) {
 
             $topics = WOWI01WorkWithTopic::where('workwith_id', $WOWI01WorkWith->id)->get();
-            foreach($topics as $topic){
+            foreach ($topics as $topic) {
                 storageDelete($topic, 'path_image_icon');
                 storageDelete($topic, 'path_image_thumbnail');
                 $topic->delete();
@@ -231,20 +231,20 @@ class WOWI01Controller extends Controller
             storageDelete($WOWI01WorkWith, 'path_image_content');
         }
 
-        if($deleted = WOWI01WorkWith::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        if ($deleted = WOWI01WorkWith::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             WOWI01WorkWith::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -259,7 +259,7 @@ class WOWI01Controller extends Controller
      * @param  \App\Models\WorkWith\WOWI01WorkWith  $WOWI01WorkWith
      * @return \Illuminate\Http\Response
      */
-    public function show(WOWI01WorkWith $WOWI01WorkWith)
+    public function page(WOWI01WorkWith $WOWI01WorkWith)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('WorkWith', 'WOWI01');
@@ -272,7 +272,7 @@ class WOWI01Controller extends Controller
 
         $workWiths = WOWI01WorkWith::whereNotIn('id', [$WOWI01WorkWith->id])->active()->sorting()->get();
 
-        return view('Client.pages.WorkWith.WOWI01.show',[
+        return view('Client.pages.WorkWith.WOWI01.show', [
             'workWith' => $WOWI01WorkWith,
             'workWiths' => $workWiths,
             'topicSection' => $topicSection,
@@ -292,7 +292,7 @@ class WOWI01Controller extends Controller
         $workWiths = WOWI01WorkWith::active()->sorting()->get();
         $section = WOWI01WorkWithSection::active()->first();
 
-        return view('Client.pages.WorkWith.WOWI01.section',[
+        return view('Client.pages.WorkWith.WOWI01.section', [
             'workWiths' => $workWiths,
             'section' => $section,
         ]);
