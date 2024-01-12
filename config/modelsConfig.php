@@ -410,6 +410,44 @@ return [
             ],
         ],
 
+        'WorkWith' => (object) [
+            'WOWI01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Trabalhe Conosco',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Trabalhe Conosco',
+                    'iconPanel' => 'mdi-google-my-business'
+                ],
+                'IncludeSections' => (object) []
+            ],
+        ],
+
+        'Schedules' => (object) [
+            'SCHE01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Eventos',
+                    'anchor' =>  false,
+                    'linkMenu' => 'sche01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Eventos',
+                    'iconPanel' => 'mdi-calendar-month-outline'
+                ],
+                'IncludeSections' => (object) [],
+            ],
+        ],
+
     ],
 
     'ModelsForm' => (object)[
