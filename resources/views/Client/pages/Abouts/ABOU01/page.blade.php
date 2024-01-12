@@ -4,46 +4,48 @@
         {{-- BEGIN Page content --}}
         @if ($about)
             <div id="ABOU01" class="abou01-page">
-                <section class="container-fluid px-0">
-                    @if ($about->active_banner == 1)
-                        <header class="abou01-page__header"
-                            style="background-image: url({{ asset('storage/' . $about->path_image_banner_desktop) }});background-color: {{ $about->background_color_banner }}">
-                            <div class="container d-flex flex-column justify-content-center align-items-center">
-                                @if ($about->title_banner || $about->subtitle_banner)
-                                    <h3 class="abou01-page__header__container">
-                                        <span class="abou01-page__header__title">{{ $about->title_banner }}</span>
-                                        <span class="abou01-page__header__subtitle">{{ $about->subtitle_banner }}</span>
-                                    </h3>
-                                    <hr class="abou01-page__header__line">
-                                @endif
+
+                @if ($about->active_banner == 1)
+                    <section class="abou01-page__banner"
+                        style="background-image: url({{ asset('storage/' . $about->path_image_banner_desktop) }}); background-color: {{ $about->background_color_banner }}">
+
+                        @if ($about->title_banner || $about->subtitle_banner)
+                            <h1 class="abou01-page__banner__title">{{ $about->title_banner }}</h1>
+                            <h2 class="abou01-page__banner__subtitle">{{ $about->subtitle_banner }}</h2>
+                            <hr class="abou01-page__banner__line">
+                        @endif
+                    </section>
+                @endif
+
+                <section class="abou01-page__main"
+                    style="background-image: url({{ asset('storage/' . $about->path_image_desktop) }});background-color: {{ $about->background_color }}">
+
+                    <div class="abou01-page__main__image">
+                        @if ($about->path_image)
+                            <img src="{{ asset('storage/' . $about->path_image) }}" class="abou01-page__main__image__img"
+                                alt="{{ $about->title }}">
+                        @endif
+                    </div>
+
+                    <div class="abou01-page__main__information">
+                        @if ($about->title || $about->subtitle)
+                            <header class="abou01-page__main__information__header">
+                                <h3 class="abou01-page__main__information__header__subtitle">
+                                    {{ $about->subtitle }}</h3>
+                                <h2 class="abou01-page__main__information__header__title">
+                                    {{ $about->title }}</h2>
+                                {{-- <hr class="abou01-page__content__line"> --}}
+                            </header>
+                        @endif
+
+                        @if ($about->text)
+                            <div class="abou01-page__main__information__paragraph">
+                                {!! $about->text !!}
                             </div>
-                        </header>
-                    @endif
-                    <div class="container"
-                        style="background-image: url({{ asset('storage/' . $about->path_image_desktop) }});background-color: {{ $about->background_color }}">
-                        <div class="container__img">
-                            @if ($about->path_image)
-                                <img src="{{ asset('storage/' . $about->path_image) }}" class="" width="430"
-                                    alt="{{ $about->title }}">
-                            @endif
-                        </div>
-                        <div class="abou01-page__content">
-                            @if ($about->title || $about->subtitle)
-                                <h2 class="abou01-page__content__container">
-                                    <span class="abou01-page__content__title">{{ $about->title }}</span>
-                                    <span class="abou01-page__content__subtitle">{{ $about->subtitle }}</span>
-                                </h2>
-                                <hr class="abou01-page__content__line">
-                            @endif
-                            @if ($about->text)
-                                <div class="abou01-page__content__paragraph">
-                                    {!! $about->text !!}
-                                </div>
-                            @endif
-                        </div>
+                        @endif
                     </div>
                 </section>
-                {{-- END .abou01-page__content --}}
+
                 @if ($about->topics->count())
                     <section class="abou01-page__topic container-fluid"
                         style="background-image: url({{ asset('storage/' . $about->path_image_topic_desktop) }}); background-color: {{ $about->background_color_topic }};">
@@ -104,10 +106,12 @@
                                 </div>
                             </div>
                             @if ($about->link_button_content)
-                                <a href="{{getUri($about->link_button_content)}}" target="{{ $about->target_link_button_content }}" class="">
-                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="">
+                                <a href="{{ getUri($about->link_button_content) }}"
+                                    target="{{ $about->target_link_button_content }}" class="">
+                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
+                                        class="">
                                     @if ($about->title_button_content)
-                                        {{$about->title_button_content}}
+                                        {{ $about->title_button_content }}
                                     @endif
                                 </a>
                             @endif

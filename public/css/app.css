@@ -4266,6 +4266,97 @@ body .owl-dots .owl-dot.active {
   }
 }
 
+.abou01-page__banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 352px;
+  padding: 184px 5vw 96px;
+}
+.abou01-page__banner__title {
+  font: 700 3.125rem "Ubuntu", sans-serif, arial;
+  text-align: center;
+  line-height: 140%;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 767.98px) {
+  .abou01-page__banner__title {
+    font-size: 2.5rem;
+  }
+}
+.abou01-page__banner__subtitle {
+  font-size: 700 1.25rem "Ubuntu", sans-serif, arial;
+  color: #7c7c7c;
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .abou01-page__banner__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.abou01-page__banner__line {
+  width: 100%;
+  max-width: 610px;
+  border-top: 1px solid #000;
+}
+.abou01-page__main {
+  padding-top: 268px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main {
+    padding-top: 174px;
+    flex-direction: column;
+    gap: 80px;
+  }
+}
+.abou01-page__main__information {
+  width: 50%;
+  padding: 0 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main__information {
+    width: 100%;
+  }
+}
+.abou01-page__main__information__header {
+  margin-bottom: 32px;
+}
+.abou01-page__main__image {
+  width: 50%;
+  height: 456px;
+  padding: 0 5vw;
+}
+@media (min-width: 1400px) {
+  .abou01-page__main__image {
+    height: unset;
+  }
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main__image {
+    width: 100%;
+  }
+}
+.abou01-page__main__image__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .abou01-page .container {
   display: flex;
   align-items: flex-start;
@@ -4293,45 +4384,6 @@ body .owl-dots .owl-dot.active {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.abou01-page__header {
-  text-align: center;
-  background-color: #efefef;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 87px 0;
-  margin: 0;
-}
-.abou01-page__header__container {
-  margin-bottom: 25px;
-}
-.abou01-page__header__title {
-  font-size: 3.125rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-  display: block;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .abou01-page__header__title {
-    font-size: 1.875rem;
-  }
-}
-.abou01-page__header__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #7c7c7c;
-  display: block;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .abou01-page__header__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.abou01-page__header__line {
-  width: 100%;
-  max-width: 610px;
-  background-color: #404040;
 }
 .abou01-page__content {
   width: 58.33333333%;

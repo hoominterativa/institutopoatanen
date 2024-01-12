@@ -14,7 +14,7 @@
             'limit' => 'all',
             'condition' => 'active=1{Ativos}',
             'titleList' => 'title',
-            'relation' => null,
+            'relation' => "",
         ],
         'config' => (object) [
             'titleMenu' => 'Serviços',

@@ -76,6 +76,100 @@
 // END .abou01
 
 .abou01-page {
+    &__banner {
+        @include backG;
+        @include disFlex(column, start, center);
+
+        height: 352px;
+        padding: 184px 5vw 96px;
+
+        &__title {
+            font: 700 $T1 $font-primary;
+            text-align: center;
+            line-height: 140%;
+            color: $color-black;
+
+            margin-bottom: 1.5rem;
+
+            @include medium-device-down {
+                font-size: $T1-mobile;
+            }
+        }
+
+        &__subtitle {
+            font-size: 700 $T4 $font-primary;
+            color: $color-two;
+            text-align: center;
+            margin-bottom: 1.75rem;
+
+            @include small-device {
+                font-size: $T4-mobile;
+            }
+        }
+
+        &__line {
+            width: 100%;
+            max-width: 610px;
+            border-top: 1px solid $color-black;
+        }
+    }
+
+    &__main {
+        padding-top: 268px;
+
+        @include Flex($justify: space-between);
+        gap: 40px;
+
+        @include large-device-down {
+            padding-top: 174px;
+
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        &__information {
+            width: 50%;
+            padding: 0 5vw;
+
+            @include Flex($direction: column, $justify: start, $align: start);
+
+            @include large-device-down {
+                width: 100%;
+            }
+            &__header {
+                margin-bottom: 32px;
+
+                &__title {
+                }
+                &__subtitle {
+                }
+            }
+            &__paragraph {
+            }
+        }
+
+        &__image {
+            width: 50%;
+            height: 456px;
+
+            padding: 0 5vw;
+
+            @include xx-large-device-up {
+                height: unset;
+            }
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
     .container {
         display: flex;
         align-items: flex-start;
@@ -90,11 +184,10 @@
             width: 41.66666667%;
             padding-right: calc(var(--bs-gutter-x) * 0.5);
             padding-left: calc(var(--bs-gutter-x) * 0.5);
-            
-            @include large-device-down{
+
+            @include large-device-down {
                 width: 100%;
             }
-
 
             img {
                 width: 100%;
@@ -104,43 +197,43 @@
             }
         }
     }
-    &__header {
-        text-align: center;
-        background-color: #efefef;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding: 87px 0;
-        margin: 0;
-        &__container {
-            margin-bottom: 25px;
-        }
-        &__title {
-            font-size: $T1;
-            font-family: $font-primary;
-            color: $color-black;
-            display: block;
+    // &__header {
+    //     text-align: center;
+    //     background-color: #efefef;
+    //     background-position: center;
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     padding: 87px 0;
+    //     margin: 0;
+    //     &__container {
+    //         margin-bottom: 25px;
+    //     }
+    //     &__title {
+    //         font-size: $T1;
+    //         font-family: $font-primary;
+    //         color: $color-black;
+    //         display: block;
 
-            @include small-device {
-                font-size: $T2-mobile;
-            }
-        }
-        &__subtitle {
-            font-size: $T4;
-            font-family: $font-primary;
-            color: $color-two;
-            display: block;
+    //         @include small-device {
+    //             font-size: $T2-mobile;
+    //         }
+    //     }
+    //     &__subtitle {
+    //         font-size: $T4;
+    //         font-family: $font-primary;
+    //         color: $color-two;
+    //         display: block;
 
-            @include small-device {
-                font-size: $T4-mobile;
-            }
-        }
-        &__line {
-            width: 100%;
-            max-width: 610px;
-            background-color: $color-one;
-        }
-    }
+    //         @include small-device {
+    //             font-size: $T4-mobile;
+    //         }
+    //     }
+    //     &__line {
+    //         width: 100%;
+    //         max-width: 610px;
+    //         background-color: $color-one;
+    //     }
+    // }
     // END __header
 
     &__content {
@@ -323,4 +416,5 @@
     }
     // END __section
 }
+
 // END .abou01-page
