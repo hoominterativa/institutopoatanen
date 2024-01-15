@@ -41,9 +41,7 @@
                                             <th>Imagem</th>
                                             <th>Título</th>
                                             <th>Texto</th>
-                                            <th>Título do botão</th>
                                             <th>Link</th>
-                                            <th>Cor</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
@@ -67,11 +65,15 @@
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">{{$content->title}}</td>
-                                                <td class="align-middle">{{substr($content->description, 0, 50)}}</td>
-                                                <td class="align-middle">{{$content->title_button}}</td>
-                                                <td class="align-middle"><a href="{{$content->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                 <td class="align-middle">
-                                                    <span class="badge" style="background-color: {{$content->color}}">{{$content->color}}</span>
+                                                    @if ($content->description)
+                                                        {{substr($content->description, 0, 25)}}<b>...</b>
+                                                    @endif
+                                                </td>
+                                                <td class="align-middle">
+                                                    @if ($content->link_button)
+                                                        <a href="{{$content->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                    @endif
                                                 </td>
                                                 <td class="align-middle">
                                                     @switch($content->active)

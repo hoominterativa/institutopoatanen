@@ -14,56 +14,21 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Abouts' => (object) [
-            'ABOU01' => (object)[
+        'Contents' => (object) [
+            'CONT02' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown',
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => null,
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Sobre',
-                    'anchor' =>  false,
-                    'linkMenu' => 'abou01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Sobre',
-                    'iconPanel' => 'mdi-information-variant'
-                ],
-                'IncludeSections' => (object) [
-                ]
-            ],
-            'ABOU04' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => null,
-                ],
                 'config' => (object) [
-                'titleMenu' => 'Sobre4',
-                'anchor' => false,
-                'linkMenu' => 'abou04.page',
-                'iconMenu' => '',
-                'titlePanel' => 'Sobre4',
-                'iconPanel' => 'mdi-information'
-                ],
-                'IncludeSections' => (object) [
-                ],
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => 'mdi-table-of-contents'
+                ]
             ],
         ],
     ],

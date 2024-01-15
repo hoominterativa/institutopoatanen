@@ -30,9 +30,4 @@ class CONT02Contents extends Model
     {
         return $query->orderBy('sorting', 'ASC');
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

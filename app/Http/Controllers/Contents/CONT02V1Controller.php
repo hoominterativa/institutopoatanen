@@ -207,17 +207,15 @@ class CONT02V1Controller extends Controller
      */
     public static function section()
     {
+        $contents = CONT02V1Contents::active()->sorting()->get();
+
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $contents = CONT02V1Contents::active()->sorting()->get();
                 foreach ($contents as $content) {
                     if ($content) $content->path_image_background_desktop = $content->path_image_background_mobile;
                 }
-                break;
-            default:
-                $contents = CONT02V1Contents::active()->sorting()->get();
-                break;
+            break;
         }
 
         return view('Client.pages.Contents.CONT02V1.section', [
