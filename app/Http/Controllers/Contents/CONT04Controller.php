@@ -43,6 +43,8 @@ class CONT04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['link_button']  = isset($data['link_button']) ? getUri($data['link_button']) : null;
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) $data['path_image'] = $path_image;
 
@@ -67,6 +69,8 @@ class CONT04Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['link_button']  = isset($data['link_button']) ? getUri($data['link_button']) : null;
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) {
             storageDelete($CONT04Contents, 'path_image');
@@ -86,21 +90,6 @@ class CONT04Controller extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Sort record by dragging and dropping
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    public function sorting(Request $request)
-    {
-        foreach ($request->arrId as $sorting => $id) {
-            CONT04Contents::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
-    }
-
     // METHODS CLIENT
 
     /**
@@ -110,18 +99,17 @@ class CONT04Controller extends Controller
      */
     public static function section()
     {
+        $section = CONT04ContentsSection::active()->first();
+        $content = CONT04Contents::first();
+
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = CONT04ContentsSection::active()->first();
                 if ($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-                $section = CONT04ContentsSection::active()->first();
-                break;
+            break;
+
         }
 
-        $content = CONT04Contents::first();
         return view('Client.pages.Contents.CONT04.section', [
             'content' => $content,
             'section' => $section

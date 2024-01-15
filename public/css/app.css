@@ -2069,106 +2069,155 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-#CONT03 {
-  padding: 80px 0 0;
-  background-position: center;
+.cont04 {
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  padding-top: 45px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #CONT03 {
-    padding: 60px 50px 0;
-  }
+.cont04__header {
+  margin-bottom: 70px;
 }
-
-.cont03__content {
-  padding-right: 75px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont03__content {
-    padding-right: 0;
-    margin-bottom: 60px;
-  }
-}
-.cont03__content__hypertext {
-  margin-bottom: 30px;
-}
-.cont03__content__title {
-  display: block;
-  font-size: 1.875rem;
+.cont04__header__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
-  color: #000;
+  color: #404040;
+  line-height: 2.5rem;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont03__content__title {
-    font-size: 1.563rem;
+@media (max-width: 767.98px) {
+  .cont04__header__title {
+    font-size: 1.875rem;
   }
 }
-.cont03__content__subtitle {
+.cont04__header__subtitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #7c7c7c;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #cacaca;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont03__content__subtitle {
+@media (max-width: 767.98px) {
+  .cont04__header__subtitle {
     font-size: 1.125rem;
   }
 }
-.cont03__content__line {
+.cont04__header__line {
+  opacity: 1;
+  border-top: solid 1px #404040;
   width: 100%;
-  background-color: #000;
-  margin-bottom: 40px;
 }
-.cont03__content__paragraph {
+.cont04__header__desc {
+  width: 100%;
+  max-width: 1096px;
   font: 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  color: #404040;
-  margin-bottom: 50px;
+  color: #7c7c7c;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont03__content__paragraph {
+@media (max-width: 767.98px) {
+  .cont04__header__desc {
     font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.cont03__content__cta {
+.cont04__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+@media (max-width: 575.98px) {
+  .cont04__main {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+.cont04__main__image {
+  height: auto;
+  width: 34%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center bottom;
+     object-position: center bottom;
+}
+@media (max-width: 575.98px) {
+  .cont04__main__image {
+    width: 95%;
+  }
+}
+.cont04__main__content {
+  width: 52%;
+}
+@media (max-width: 575.98px) {
+  .cont04__main__content {
+    width: 95%;
+    margin-bottom: 2rem;
+  }
+}
+.cont04__main__subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+@media (max-width: 767.98px) {
+  .cont04__main__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.cont04__main__title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+@media (max-width: 767.98px) {
+  .cont04__main__title {
+    font-size: 1.875rem;
+  }
+}
+.cont04__main__line {
+  width: 100%;
+  opacity: 1;
+  margin-bottom: 2rem;
+  border-top: solid 1px #7c7c7c;
+}
+.cont04__main__desc {
+  font: 1rem "Montserrat", sans-serif, arial;
+  color: #404040;
+}
+@media (max-width: 767.98px) {
+  .cont04__main__desc {
+    font-size: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cont04__main__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: end;
+  white-space: nowrap;
+  background-color: #fff;
+  padding: 10px 34px;
+  margin-top: 3rem;
+  gap: 15px;
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   color: #404040;
-  display: block;
-  max-width: 177px;
-  padding: 10px 15px;
-  background-color: #fff;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont03__content__cta {
-    font: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.cont03__content__cta:hover {
+.cont04__main__cta:hover {
+  background-color: #404040;
   color: #fff;
-  background-color: #000;
 }
-.cont03__content__cta:hover .cont03__content__cta__icon {
-  filter: invert(1) grayscale(1);
+.cont04__main__cta__icon {
+  height: 25px;
+  width: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transition: all 0.5s ease;
 }
-.cont03__figure__center {
-  margin-bottom: 0;
-  padding: 0 10px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont03__figure__center {
-    padding: 0 30px;
-    margin-bottom: 50px;
-  }
-}
-.cont03__figure__right {
-  margin-bottom: 0;
-  padding: 0 10px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cont03__figure__right {
-    padding: 0 30px;
-  }
+.cont04__main__cta:hover .cont04__main__cta__icon {
+  filter: brightness(1) contrast(1) invert(1) grayscale(1);
 }
 
 /* BEGIN STYLE */

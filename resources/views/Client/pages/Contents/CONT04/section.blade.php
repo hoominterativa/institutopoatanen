@@ -27,20 +27,21 @@
                             <h4 class="cont04__main__title">{{$content->subtitle}}</h4>
                             <hr class="cont04__main__line">
                         @endif
-                        <div class="cont04__main__desc w-100">
-                            @if ($content->description)
+                        @if ($content->description)
+                            <div class="cont04__main__desc w-100">
                                 <p>
                                     {!! $content->description !!}
                                 </p>
-                            @endif
-                        </div>
-                        <a href="{{ $content->link_button ? getUri($content->link_button) : '#' }}" target="{{ $content->target_link_button }}" class="cont04__main__cta">
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                                class="cont04__main__content__cta__icon" alt="Ícone do botão">
-                            @if ($content->title_button)
+                            </div>
+                        @endif
+                        @if ($content->link_button)
+                            <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}" class="cont04__main__cta">
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="cont04__main__content__cta__icon" alt="Ícone do botão">
+                                @if ($content->title_button)
                                 {{ $content->title_button }}
-                            @endif
-                        </a>
+                                @endif
+                            </a>
+                        @endif
                     </div>
                 </main>
             @endif
