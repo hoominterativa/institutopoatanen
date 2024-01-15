@@ -14,20 +14,22 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contents' => (object) [
-            'CONT03' => (object)[
+        'Brands' => (object) [
+            'BRAN01' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Marcas',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'bran01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
-                    'iconPanel' => 'mdi-table-of-contents'
+                    'titlePanel' => 'Marcas',
+                    'iconPanel' => 'mdi-google-my-business'
+                ],
+                'IncludeSections' => (object) [
                 ]
             ],
         ],

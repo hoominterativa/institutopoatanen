@@ -1,62 +1,62 @@
 @extends('Client.Core.client')
 @section('content')
-    {{-- BEGIN Page content --}}
-<section id="BRAN01" class="bran01-page container-fluid px-0">
-    @if ($section->active_banner == 1)
-        <header class="bran01-page__header"
-            style="background-image: url({{ asset('storage/' . $section->path_image_banner_desktop) }}); background-color: {{ $section->background_color_banner }};">
-            @if ($section->path_image_banner_desktop)
-                <div class="bran01-page__header__mask"></div>
-            @endif
-            @if ($section->title_banner || $section->subtitle_banner)
-                <h2 class="container container--bran01-page d-block text-center">
-                    <span class="bran01-page__header__title d-block">{{ $section->title_banner }}</span>
-                    <span class="bran01-page__header__subtitle d-block">{{ $section->subtitle_banner }}</span>
-                    <hr class="bran01-page__header__line mb-0">
-                </h2>
-            @endif
-        </header>
-    @endif
-    <main class="bran01-page__main">
-        <div class="container container--bran01-page__main">
-            @if ($section->active_content == 1)
-                <div class="bran01-page__encompass px-0 text-center mx-auto w-100">
-                    @if ($section->title_content || $section->subtitle_content)
-                        <h2 class="bran01-page__encompass__title">{{ $section->title_content }}</h2>
-                        <h3 class="bran01-page__encompass__subtitle">{{ $section->subtitle_content }}</h3>
-                        <hr class="bran01-page__encompass__line">
+    <main id="root">
+        <section id="BRAN01" class="bran01-page">
+            @if ($section->active_banner == 1)
+                <section class="bran01-page__banner"
+                    style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
+
+                    @if ($section->title_banner || $section->subtitle_banner)
+                        <h1 class="bran01-page__banner__title">{{ $section->title_banner }}</h1>
+                        <h2 class="bran01-page__banner__subtitle">{{ $section->subtitle_banner }}</h2>
+                        <hr class="bran01-page__banner__line">
                     @endif
-                    @if ($section->description_content)
-                        <div class="bran01-page__encompass__paragraph mx-auto">
-                            <p>
-                                {!! $section->description_content !!}
-                            </p>
-                        </div>
-                    @endif
-                </div>
+                </section>
             @endif
-            <div class="bran01-page__content">
-                <div class="row row--bran01-page w-100 mx-auto">
+
+            <section class="bran01-page__main">
+
+                @if ($section->active_content == 1)
+                    <header class="bran01-page__main__header">
+                        @if ($section->title_content || $section->subtitle_content)
+                            <h2 class="bran01-page__main__header__title">{{ $section->title_content }}</h2>
+                            <h3 class="bran01-page__main__header__subtitle">{{ $section->subtitle_content }}</h3>
+                            <hr class="bran01-page__main__header__line">
+                        @endif
+                        @if ($section->description_content)
+                            <div class="bran01-page__main__header__paragraph">
+                                <p>
+                                    {!! $section->description_content !!}
+                                </p>
+                            </div>
+                        @endif
+                    </header>
+                @endif
+
+                <main class="bran01-page__main__content">
                     @foreach ($brands as $brand)
-                        <div class="bran01-page__box col-sm-3 position-relative">
-                            <a href="{{getUri($brand->link?? '#')}}" target="{{($brand->link? $brand->target_link : null)}}" @if (!$brand->link) style="cursor: default;" @endif class="link-full"></a>
-                            <div class="bran01-page__box__content"
-                                style="background-image:url({{ asset('storage/' . $brand->path_image_box) }}); background-size:cover;background-repeat:no-repeat; background-position:center;">
-                                <div class="bran01-page__box__image">
-                                    <img src="{{ asset('storage/' . $brand->path_image_icon) }}" alt="Logo"
+                        <div class="bran01-page__main__content__item"
+                            style="background-image:url({{ asset('storage/' . $brand->path_image_box) }});">
+                            <a href="{{ getUri($brand->link ?? '#') }}"
+                                target="{{ $brand->link ? $brand->target_link : null }}"
+                                @if (!$brand->link) style="cursor: default;" @endif class="link-full"></a>
+
+                                <div class="bran01-page__main__content__item__image">
+                                    <img src="{{ asset('storage/' . $brand->path_image_icon) }}"
+                                    class="bran01-page__main__content__item__image__img"
+                                    alt="Logo"
                                         loading="lazy">
                                 </div>
-                            </div>
                         </div>
                     @endforeach
                     {{-- END .bran01-page__box --}}
-                </div>
-            </div>
-        </div>
+                </main>
+
+            </section>
+        </section>
+
+        @foreach ($sections as $section)
+            {!! $section !!}
+        @endforeach
     </main>
-</section>
-{{-- Finish Content page Here --}}
-@foreach ($sections as $section)
-    {!! $section !!}
-@endforeach
 @endsection
