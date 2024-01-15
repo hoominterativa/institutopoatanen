@@ -18,13 +18,12 @@
                     @endif
                 </header>
                 <div class="cont05__content">
-                    @if ($content->title_button)
-                    <a href="{{$content->link_button ? getUri($content->link_button) : 'javascript:void(0)'}}" target="{{$content->target_link_button}}"
-                        class="cont05__content__cta transition d-flex justify-content-center align-items-center">
-                        <img src="" alt="" class="cont05__cta__icon me-3 transition">
-
-                            {{$content->title_button}}
-
+                    @if ($content->link_button)
+                    <a href="{{getUri($content->link_button)}}" target="{{$content->target_link_button}}" class="cont05__content__cta transition d-flex justify-content-center align-items-center">
+                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="ìcone" class="cont05__cta__icon me-3 transition">
+                        @if ($content->title_button)
+                            {{ $content->title_button }}
+                        @endif
                     </a>
                     @endif
                 </div>

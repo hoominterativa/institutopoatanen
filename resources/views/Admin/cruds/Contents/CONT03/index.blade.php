@@ -40,8 +40,7 @@
                                                 <label><input name="btnSelectAll" value="btnDeleteContent" type="checkbox"></label>
                                             </th>
                                             <th></th>
-                                            <th>Título</th>
-                                            <th>Subtítulo</th>
+                                            <th>Título/Subtítulo</th>
                                             <th>Link</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
@@ -66,8 +65,7 @@
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$content->path_image_background_desktop)}})"></div>
                                                     @endif
                                                 </td>
-                                                <td class="align-middle">{{$content->title}}</td>
-                                                <td class="align-middle">{{$content->subtitle}}</td>
+                                                <td class="align-middle">{{$content->title}}<b>/</b>{{$content->subtitle}}</td>
                                                 <td class="align-middle">
                                                     @if ($content->link_button)
                                                         <a href="{{$content->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>

@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Contents' => (object) [
-            'CONT04' => (object)[
+            'CONT05' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,

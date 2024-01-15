@@ -38,7 +38,7 @@
                             <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}" class="cont04__main__cta">
                                 <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="cont04__main__content__cta__icon" alt="Ícone do botão">
                                 @if ($content->title_button)
-                                {{ $content->title_button }}
+                                    {{ $content->title_button }}
                                 @endif
                             </a>
                         @endif

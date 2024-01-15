@@ -52,6 +52,7 @@ class CONT05Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['link_button']  = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -97,6 +98,7 @@ class CONT05Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['link_button']  = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){
@@ -188,16 +190,14 @@ class CONT05Controller extends Controller
      */
     public static function section()
     {
+        $contents = CONT05Contents::active()->sorting()->get();
+
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $contents = CONT05Contents::active()->sorting()->get();
-                    foreach($contents as $content) {
-                        if($content) $content->path_image_desktop = $content->path_image_mobile;
-                    }
-            break;
-            default:
-            $contents = CONT05Contents::active()->sorting()->get();
+                foreach($contents as $content) {
+                    if($content) $content->path_image_desktop = $content->path_image_mobile;
+                }
             break;
         }
 
