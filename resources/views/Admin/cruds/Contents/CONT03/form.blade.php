@@ -1,14 +1,16 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="col-12 col-sm-6">
-                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
-                </div>
-                <div class="col-12 col-sm-6">
-                    {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+                    </div>
                 </div>
             </div>
             <div class="col-12">
@@ -76,20 +78,23 @@
                         {!! Form::text('title_button', null, ['class'=>'form-control', 'id'=>'title_button']) !!}
                     </div>
                     <div class="col-12 col-sm-8">
-                        {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                        {!! Form::url('link', (isset($content) && isset($content->link)?getUri($content->link):null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::label(null, 'Link do botão', ['class'=>'form-label']) !!}
+                        {!! Form::url('link_button', (isset($content) ? getUri($content->link_button) : null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">
-                        {!! Form::label('link_target', 'Redirecionar para', ['class'=>'form-label']) !!}
-                        {!! Form::select('link_target', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'link_target']) !!}
+                        {!! Form::label('link_target_button', 'Redirecionar para', ['class'=>'form-label']) !!}
+                        {!! Form::select('link_target_button', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'link_target_button']) !!}
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
+            <div class="mb-3">
+                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default', 'id' => 'background_color', ]) !!}
             </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class'=>'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>
@@ -114,7 +119,6 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem da Esquerda', ['class'=>'form-label']) !!}
@@ -133,21 +137,38 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem Background', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_background->width}}x{{$cropSetting->path_image_background->height}}px!</small>
+                    {!! Form::label('inputImage', 'Background desktop', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_background_desktop->width}}x{{$cropSetting->path_image_background_desktop->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_background', [
+                        {!! Form::file('path_image_background_desktop', [
                             'id'=>'inputImage',
                             'class'=>'inputImage',
-                            'data-status'=>$cropSetting->path_image_background->activeCrop, // px
-                            'data-min-width'=>$cropSetting->path_image_background->width, // px
-                            'data-min-height'=>$cropSetting->path_image_background->height, // px
+                            'data-status'=>$cropSetting->path_image_background_desktop->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_background_desktop->width, // px
+                            'data-min-height'=>$cropSetting->path_image_background_desktop->height, // px
                             'data-box-height'=>'170', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file'=> isset($content)?($content->path_image_background<>''?url('storage/'.$content->path_image_background):''):'',
+                            'data-default-file'=> isset($content)?($content->path_image_background_desktop<>''?url('storage/'.$content->path_image_background_desktop):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Background mobile', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_background_mobile->width}}x{{$cropSetting->path_image_background_mobile->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_background_mobile', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_background_mobile->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_background_mobile->width, // px
+                            'data-min-height'=>$cropSetting->path_image_background_mobile->height, // px
+                            'data-box-height'=>'170', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($content)?($content->path_image_background_mobile<>''?url('storage/'.$content->path_image_background_mobile):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->

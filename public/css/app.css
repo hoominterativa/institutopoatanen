@@ -2069,148 +2069,106 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-#CONT02 {
+#CONT03 {
   padding: 80px 0 0;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  #CONT02 {
+  #CONT03 {
     padding: 60px 50px 0;
   }
 }
 
-.cont02 {
-  padding-top: 68.54px;
+.cont03__content {
+  padding-right: 75px;
 }
-@media (max-width: 991.98px) {
-  .cont02 {
-    padding-top: 82px;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont03__content {
+    padding-right: 0;
+    margin-bottom: 60px;
   }
 }
-.cont02 .container--cont02 {
-  position: relative;
-  z-index: 100;
+.cont03__content__hypertext {
+  margin-bottom: 30px;
 }
-.cont02 .cont02__mark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
-}
-@media (max-width: 991.98px) {
-  .cont02__left {
-    margin: 0 auto;
-    order: 2;
-    width: 100%;
-  }
-}
-.cont02__image {
-  height: 592px;
-  max-width: 451px;
-  width: 100%;
-}
-@media (max-width: 575.98px) {
-  .cont02__image {
-    height: 350px;
-    max-width: 259px;
-  }
-}
-@media (max-width: 991.98px) {
-  .cont02__image {
-    margin: 0 auto;
-  }
-}
-.cont02__image img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-@media (max-width: 575.98px) {
-  .cont02__image img {
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-}
-.cont02__right {
-  padding-left: 171.46px;
-  padding-right: 0;
-}
-@media (max-width: 991.98px) {
-  .cont02__right {
-    padding: 86px 50px 0 50px;
-    order: 1;
-    margin-bottom: 59.22px;
-    width: 100%;
-  }
-}
-.cont02__title {
-  font-size: 2.5rem;
+.cont03__content__title {
+  display: block;
+  font-size: 1.875rem;
+  font-weight: 700;
   color: #000;
-  font-family: "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 21px;
 }
-@media (max-width: 575.98px) {
-  .cont02__title {
-    font-size: 1.875rem;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont03__content__title {
+    font-size: 1.563rem;
   }
 }
-.cont02__subtitle {
+.cont03__content__subtitle {
   font-size: 1.25rem;
-  font-family: "Montserrat", sans-serif, arial;
-  color: #404040;
   font-weight: 700;
+  color: #7c7c7c;
 }
-@media (max-width: 575.98px) {
-  .cont02__subtitle {
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont03__content__subtitle {
     font-size: 1.125rem;
   }
 }
-.cont02__line {
-  margin: 39px 0 34px 0;
+.cont03__content__line {
+  width: 100%;
+  background-color: #000;
+  margin-bottom: 40px;
 }
-.cont02__paragraph {
-  color: #404040;
-  font-weight: 400;
+.cont03__content__paragraph {
   font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 500;
+  color: #404040;
+  margin-bottom: 50px;
 }
-@media (max-width: 575.98px) {
-  .cont02__paragraph {
-    font-size: 0.938rem "Montserrat", sans-serif, arial;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont03__content__paragraph {
+    font: 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.cont02__paragraph p {
-  color: #404040;
-  font-weight: 400;
+.cont03__content__cta {
   font: 1rem "Montserrat", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 575.98px) {
-  .cont02__paragraph p {
-    font-size: 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.cont02__cta {
-  font: 0.875rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   color: #404040;
-  display: flex;
-  margin-top: 37px;
+  display: block;
   max-width: 177px;
   padding: 10px 15px;
-  background-color: #cacaca;
+  background-color: #fff;
 }
-.cont02__cta:hover {
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont03__content__cta {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cont03__content__cta:hover {
   color: #fff;
   background-color: #000;
 }
-.cont02__cta:hover img {
+.cont03__content__cta:hover .cont03__content__cta__icon {
   filter: invert(1) grayscale(1);
+}
+.cont03__figure__center {
+  margin-bottom: 0;
+  padding: 0 10px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont03__figure__center {
+    padding: 0 30px;
+    margin-bottom: 50px;
+  }
+}
+.cont03__figure__right {
+  margin-bottom: 0;
+  padding: 0 10px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cont03__figure__right {
+    padding: 0 30px;
+  }
 }
 
 /* BEGIN STYLE */

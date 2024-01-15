@@ -16,14 +16,16 @@ class CreateCont03ContentsTable extends Migration
         Schema::create('cont03_contents', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('title_button')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
-            $table->string('link')->nullable();
-            $table->enum('link_target',['_self','_blank'])->default('_self');
+            $table->string('title_button')->nullable();
+            $table->string('link_button')->nullable();
+            $table->enum('link_target_button',['_self','_blank'])->default('_self');
             $table->string('path_image_center')->nullable();
             $table->string('path_image_right')->nullable();
-            $table->string('path_image_background')->nullable();
+            $table->string('path_image_background_desktop')->nullable();
+            $table->string('path_image_background_mobile')->nullable();
+            $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

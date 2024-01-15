@@ -52,7 +52,7 @@ class CONT03Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);
         if ($path_image_center) $data['path_image_center'] = $path_image_center;
@@ -60,8 +60,11 @@ class CONT03Controller extends Controller
         $path_image_right = $helper->optimizeImage($request, 'path_image_right', $this->path, null, 100);
         if ($path_image_right) $data['path_image_right'] = $path_image_right;
 
-        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
-        if ($path_image_background) $data['path_image_background'] = $path_image_background;
+        $path_image_background_desktop = $helper->optimizeImage($request, 'path_image_background_desktop', $this->path, null, 100);
+        if ($path_image_background_desktop) $data['path_image_background_desktop'] = $path_image_background_desktop;
+
+        $path_image_background_mobile = $helper->optimizeImage($request, 'path_image_background_mobile', $this->path, null, 100);
+        if ($path_image_background_mobile) $data['path_image_background_mobile'] = $path_image_background_mobile;
 
         if (CONT03Contents::create($data)) {
             Session::flash('success', 'Informações cadastradas com sucesso');
@@ -69,7 +72,8 @@ class CONT03Controller extends Controller
         } else {
             Storage::delete($path_image_center);
             Storage::delete($path_image_right);
-            Storage::delete($path_image_background);
+            Storage::delete($path_image_background_mobile);
+            Storage::delete($path_image_background_desktop);
             Session::flash('success', 'Erro ao cadastradar informações');
             return redirect()->back();
         }
@@ -102,7 +106,7 @@ class CONT03Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         // path_image_center
         $path_image_center = $helper->optimizeImage($request, 'path_image_center', $this->path, null, 100);
@@ -126,15 +130,26 @@ class CONT03Controller extends Controller
             $data['path_image_right'] = null;
         }
 
-        // path_image_background
-        $path_image_background = $helper->optimizeImage($request, 'path_image_background', $this->path, null, 100);
-        if ($path_image_background) {
-            storageDelete($CONT03Contents, 'path_image_background');
-            $data['path_image_background'] = $path_image_background;
+        // path_image_background_desktop
+        $path_image_background_desktop = $helper->optimizeImage($request, 'path_image_background_desktop', $this->path, null, 100);
+        if ($path_image_background_desktop) {
+            storageDelete($CONT03Contents, 'path_image_background_desktop');
+            $data['path_image_background_desktop'] = $path_image_background_desktop;
         }
-        if ($request->delete_path_image_background && !$path_image_background) {
-            storageDelete($CONT03Contents, 'path_image_background');
-            $data['path_image_background'] = null;
+        if ($request->delete_path_image_background_desktop && !$path_image_background_desktop) {
+            storageDelete($CONT03Contents, 'path_image_background_desktop');
+            $data['path_image_background_desktop'] = null;
+        }
+
+        // path_image_background_desktop
+        $path_image_background_mobile = $helper->optimizeImage($request, 'path_image_background_mobile', $this->path, null, 100);
+        if ($path_image_background_mobile) {
+            storageDelete($CONT03Contents, 'path_image_background_mobile');
+            $data['path_image_background_mobile'] = $path_image_background_mobile;
+        }
+        if ($request->delete_path_image_background_mobile && !$path_image_background_mobile) {
+            storageDelete($CONT03Contents, 'path_image_background_mobile');
+            $data['path_image_background_mobile'] = null;
         }
 
         if ($CONT03Contents->fill($data)->save()) {
@@ -142,7 +157,8 @@ class CONT03Controller extends Controller
         } else {
             Storage::delete($path_image_center);
             Storage::delete($path_image_right);
-            Storage::delete($path_image_background);
+            Storage::delete($path_image_background_desktop);
+            Storage::delete($path_image_background_mobile);
             Session::flash('success', 'Erro ao atualizar informações');
         }
         return redirect()->back();
@@ -158,7 +174,8 @@ class CONT03Controller extends Controller
     {
         storageDelete($CONT03Contents, 'path_image_center');
         storageDelete($CONT03Contents, 'path_image_right');
-        storageDelete($CONT03Contents, 'path_image_background');
+        storageDelete($CONT03Contents, 'path_image_background_desktop');
+        storageDelete($CONT03Contents, 'path_image_background_mobile');
 
         if ($CONT03Contents->delete()) {
             Session::flash('success', 'Informações deletadas com sucessso');
@@ -178,7 +195,8 @@ class CONT03Controller extends Controller
         foreach ($CONT03Contentss as $CONT03Contents) {
             storageDelete($CONT03Contents, 'path_image_center');
             storageDelete($CONT03Contents, 'path_image_right');
-            storageDelete($CONT03Contents, 'path_image_background');
+            storageDelete($CONT03Contents, 'path_image_background_desktop');
+            storageDelete($CONT03Contents, 'path_image_background_mobile');
         }
 
         if ($deleted = CONT03Contents::whereIn('id', $request->deleteAll)->delete()) {
@@ -210,6 +228,15 @@ class CONT03Controller extends Controller
     public static function section()
     {
         $contents = CONT03Contents::active()->sorting()->get();
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                foreach ($contents as $content) {
+                    if ($content) $content->path_image_background_desktop = $content->path_image_background_mobile;
+                }
+            break;
+        }
+
         return view('Client.pages.Contents.CONT03.section', [
             'contents' => $contents
         ]);

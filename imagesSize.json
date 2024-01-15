@@ -753,10 +753,15 @@
                 "height": "600",
                 "activeCrop": "false"
             },
-            "path_image_background": {
+            "path_image_background_desktop": {
                 "width": "1300",
                 "height": "600",
                 "activeCrop": "false"
+            },
+            "path_image_background_mobile": {
+                "width": "390",
+                "height": "1178",
+                "activeCrop": "true"
             }
         },
         "CONT04": {
