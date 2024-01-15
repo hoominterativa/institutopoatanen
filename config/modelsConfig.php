@@ -177,7 +177,7 @@ return [
                     'iconPanel' => 'mdi-information-variant'
                 ],
                 'IncludeSections' => (object) [
-                    'Contents' => 'COTA08',
+                    'Contents' => 'CONT08',
                 ]
             ],
 

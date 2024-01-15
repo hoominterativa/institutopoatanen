@@ -30,11 +30,11 @@
                     <div class="abou01-page__main__information">
                         @if ($about->title || $about->subtitle)
                             <header class="abou01-page__main__information__header">
-                                <h3 class="abou01-page__main__information__header__subtitle">
-                                    {{ $about->subtitle }}</h3>
-                                <h2 class="abou01-page__main__information__header__title">
-                                    {{ $about->title }}</h2>
-                                {{-- <hr class="abou01-page__content__line"> --}}
+                                <h2 class="abou01-page__main__information__header__title">{{ $about->title }}</h2>
+
+                                <h3 class="abou01-page__main__information__header__subtitle">{{ $about->subtitle }}</h3>
+
+                                <hr class="abou01-page__content__line">
                             </header>
                         @endif
 
@@ -47,69 +47,80 @@
                 </section>
 
                 @if ($about->topics->count())
-                    <section class="abou01-page__topic container-fluid"
+                    <section class="abou01-page__topics"
                         style="background-image: url({{ asset('storage/' . $about->path_image_topic_desktop) }}); background-color: {{ $about->background_color_topic }};">
-                        <div class="container">
-                            <div class="row carousel-abou01-topic">
-                                @foreach ($about->topics as $topic)
-                                    <article class="abou01-page__topic__item col-12 col-lg-4">
-                                        <div class="abou01-page__topic__content transition">
-                                            <div class="abou01-page__topic__item__header d-flex align-items-center">
-                                                @if ($topic->path_image_icon)
-                                                    <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
-                                                        width="32" class="abou01-page__topic__item__icon"
-                                                        alt="{{ $topic->title }}">
-                                                @endif
-                                                @if ($topic->title)
-                                                    <h3 class="abou01-page__topic__item__title">{{ $topic->title }}</h3>
-                                                @endif
-                                            </div>
-                                            @if ($topic->description)
-                                                <p class="abou01-page__topic__item__paragraph">
-                                                    {!! $topic->description !!}
-                                                </p>
-                                            @endif
+
+                        <div class="abou01-page__topics__carousel owl-carousel">
+
+                            @foreach ($about->topics as $topic)
+                                <article class="abou01-page__topics__item">
+
+                                    <header class="abou01-page__topics__item__header">
+
+                                        @if ($topic->path_image_icon)
+                                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                                class="abou01-page__topics__item__header__icon" alt="{{ $topic->title }}">
+                                        @endif
+
+                                        @if ($topic->title)
+                                            <h3 class="abou01-page__topics__item__header__title">{{ $topic->title }}</h3>
+                                        @endif
+                                    </header>
+
+                                    @if ($topic->description)
+                                        <div class="abou01-page__topics__item__paragraph">
+                                            {!! $topic->description !!}
                                         </div>
-                                    </article>
-                                @endforeach
-                            </div>
+                                    @endif
+
+                                </article>
+                            @endforeach
+
                         </div>
+
                     </section>
                 @endif
                 {{-- END .abou01-page__topic --}}
+
                 @if ($about->active_content == 1)
-                    <section class="abou01-page__section container-fluid"
-                        style="background-image: url({{ asset('storage/' . $about->path_image_content_desktop) }}); background-color: {{ $about->background_color_content }};">
-                        <div class="container">
-                            <div class="row abou01-page__section__row align-items-center">
-                                <div class="abou01-page__section__image col-12 col-lg-5">
-                                    @if ($about->path_image_content)
-                                        <img src="{{ asset('storage/' . $about->path_image_content) }}"
-                                            class="abou01-page__section__image__item" width="430"
-                                            alt="{{ $about->title_content }}">
-                                    @endif
+                    <section class="abou01-page__section"
+                        style="background-image: url({{ asset('storage/' . $about->path_image_content_desktop) }}); background-color: {{ $about->background_color_content }}">
+
+                        <div class="abou01-page__section__image">
+                            @if ($about->path_image_content)
+                                <img src="{{ asset('storage/' . $about->path_image_content) }}"
+                                    class="abou01-page__section__image__img" alt="{{ $about->title_content }}">
+                            @endif
+                        </div>
+
+                        <div class="abou01-page__section__information">
+                            @if ($about->title_content || $about->subtitle_content)
+                                <header class="abou01-page__section__information__header">
+                                    <h2 class="abou01-page__section__information__header__title">
+                                        {{ $about->title_content }}
+                                    </h2>
+
+                                    <h3 class="abou01-page__section__information__header__subtitle">
+                                        {{ $about->subtitle_content }}
+                                    </h3>
+
+                                    <hr class="abou01-page__section__information__header__line">
+                                </header>
+                            @endif
+
+                            @if ($about->text_content)
+                                <div class="abou01-page__section__information__paragraph">
+                                    {!! $about->text_content !!}
                                 </div>
-                                <div class="col-12 col-lg-7">
-                                    @if ($about->title_content || $about->subtitle_content)
-                                        <h2 class="abou01-page__section__container">
-                                            <span class="abou01-page__section__title">{{ $about->title_content }}</span>
-                                            <span
-                                                class="abou01-page__section__subtitle">{{ $about->subtitle_content }}</span>
-                                            <hr class="abou01-page__section__line">
-                                        </h2>
-                                    @endif
-                                    @if ($about->text_content)
-                                        <p class="abou01-page__section__paragraph">
-                                            {!! $about->text_content !!}
-                                        </p>
-                                    @endif
-                                </div>
-                            </div>
+                            @endif
+
                             @if ($about->link_button_content)
                                 <a href="{{ getUri($about->link_button_content) }}"
-                                    target="{{ $about->target_link_button_content }}" class="">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
-                                        class="">
+                                    target="{{ $about->target_link_button_content }}"
+                                    class="abou01-page__section__information__cta">
+                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone do botão"
+                                        class="abou01-page__section__information__cta__icon">
+
                                     @if ($about->title_button_content)
                                         {{ $about->title_button_content }}
                                     @endif
