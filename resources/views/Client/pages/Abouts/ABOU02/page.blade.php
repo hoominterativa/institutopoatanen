@@ -3,17 +3,19 @@
 {{-- BEGIN Page content --}}
 <div id="ABOU02" class="abou02-page">
     <section class="container-fluid px-0">
-        @if ($section->active_banner == 1)
-            <header class="abou02-page__header" style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
-                <div class="abou02-page__header__mask"></div>
-                @if ($section->title_banner || $section->subtitle_banner)
-                    <h2 class="container container--abou02-header d-block text-center">
-                        <span class="abou02-page__header__title d-block">{{$section->title_banner}}</span>
-                        <span class="abou02-page__header__subtitle d-block text-uppercase">{{$section->subtitle_banner}}</span>
-                        <hr class="abou02-page__header__line mb-0">
-                    </h2>
-                @endif
-            </header>
+        @if ($section)
+            @if ($section->active_banner == 1)
+                <header class="abou02-page__header" style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
+                    <div class="abou02-page__header__mask"></div>
+                    @if ($section->title_banner || $section->subtitle_banner)
+                        <h2 class="container container--abou02-header d-block text-center">
+                            <span class="abou02-page__header__title d-block">{{$section->title_banner}}</span>
+                            <span class="abou02-page__header__subtitle d-block text-uppercase">{{$section->subtitle_banner}}</span>
+                            <hr class="abou02-page__header__line mb-0">
+                        </h2>
+                    @endif
+                </header>
+            @endif
         @endif
         @if ($about)
             <div class="container container--abou02-page">
@@ -90,44 +92,46 @@
         </section>
     @endif
     {{-- END .abou02-page__topic --}}
-    @if ($section->active_content == 1)
-        <section class="abou02-page__section container-fluid px-0">
-            <div class="container container--abou02-page__section">
-                <div class="row abou02-page__section__row align-items-center">
-                    @if ($section->path_image_content)
-                        <div class="abou02-page__section__image col-12 col-md-5 m-0">
-                            <img class="w-100 h-100" src="{{asset('storage/' . $section->path_image_content)}}"  width="430" alt="Titulo">
-                        </div>
-                    @endif
-                    <div class="col-12 col-md-7 abou02-page__section__description">
-                        @if ($section->title_content||$section->subtitle_content)
-                            <h2 class="abou02-page__section__encompass_title d-block">
-                                <span class="abou02-page__section__title d-block">{{$section->title_content}}</span>
-                                <span class="abou02-page__section__subtitle d-block">{{$section->subtitle_content}}</span>
-                                <hr class="abou02-page__section__line">
-                            </h2>
-                        @endif
-                        @if ($section->description_content)
-                            <div class="abou02-page__section__paragraph">
-                                <p>
-                                    {!! $section->description_content !!}
-                                </p>
+    @if ($section)
+        @if ($section->active_content == 1)
+            <section class="abou02-page__section container-fluid px-0">
+                <div class="container container--abou02-page__section">
+                    <div class="row abou02-page__section__row align-items-center">
+                        @if ($section->path_image_content)
+                            <div class="abou02-page__section__image col-12 col-md-5 m-0">
+                                <img class="w-100 h-100" src="{{asset('storage/' . $section->path_image_content)}}"  width="430" alt="Titulo">
                             </div>
                         @endif
-                        @if ($section->link_button_content)
-                            <a href="{{ $section->link_button_content ? getUri($section->link_button_content) : 'javascript:void(0)' }}" target="{{ $section->target_link_button_content }}" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
-                                <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02-page__section__cta__icon me-3 transition">
-                                @if ($section->title_button_content)
-                                    {{$section->title_button_content}}
-                                @endif
-                            </a>
-                        @endif
+                        <div class="col-12 col-md-7 abou02-page__section__description">
+                            @if ($section->title_content||$section->subtitle_content)
+                                <h2 class="abou02-page__section__encompass_title d-block">
+                                    <span class="abou02-page__section__title d-block">{{$section->title_content}}</span>
+                                    <span class="abou02-page__section__subtitle d-block">{{$section->subtitle_content}}</span>
+                                    <hr class="abou02-page__section__line">
+                                </h2>
+                            @endif
+                            @if ($section->description_content)
+                                <div class="abou02-page__section__paragraph">
+                                    <p>
+                                        {!! $section->description_content !!}
+                                    </p>
+                                </div>
+                            @endif
+                            @if ($section->link_button_content)
+                                <a href="{{ $section->link_button_content ? getUri($section->link_button_content) : 'javascript:void(0)' }}" target="{{ $section->target_link_button_content }}" class="abou02-page__section__cta transition justify-content-center align-items-center ms-auto">
+                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Icone CTA" class="abou02-page__section__cta__icon me-3 transition">
+                                    @if ($section->title_button_content)
+                                        {{$section->title_button_content}}
+                                    @endif
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
+        {{-- END .abou02-page__section --}}
     @endif
-    {{-- END .abou02-page__section --}}
 </div>
 {{-- Finish Content page Here --}}
 @foreach ($sections as $section)

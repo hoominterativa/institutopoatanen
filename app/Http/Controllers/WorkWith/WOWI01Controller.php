@@ -259,7 +259,7 @@ class WOWI01Controller extends Controller
      * @param  \App\Models\WorkWith\WOWI01WorkWith  $WOWI01WorkWith
      * @return \Illuminate\Http\Response
      */
-    public function page(WOWI01WorkWith $WOWI01WorkWith)
+    public function show(WOWI01WorkWith $WOWI01WorkWith)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('WorkWith', 'WOWI01');
