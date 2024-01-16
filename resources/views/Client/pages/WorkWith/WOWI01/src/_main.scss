@@ -1,85 +1,86 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-#WOWI01{
-
+#WOWI01 {
     /*
     ==================================
     ========= BEGIN SECTION ==========
     ==================================
     */
 
-    &.wowi01{
+    &.wowi01 {
         padding: 70px 0;
-        @include small-device{
+        @include small-device {
             padding: 35px 0;
         }
     }
-    .wowi01{
-        &__header{
+    .wowi01 {
+        &__header {
+            @include backG;
             text-align: center;
-            &__container{
+
+            &__container {
                 margin-bottom: 25px;
             }
-            &__title{
+            &__title {
                 font-size: $T2;
                 font-family: $font-primary;
                 font-weight: $weight-700;
                 color: $color-one;
                 display: block;
-                @include small-device{
+                @include small-device {
                     font-size: $T2-mobile;
                 }
             }
-            &__subtitle{
+            &__subtitle {
                 font-size: $T4;
                 font-weight: $weight-700;
                 font-family: $font-primary;
                 color: $color-two;
                 display: block;
 
-                @include small-device{
+                @include small-device {
                     font-size: $T4-mobile;
                 }
             }
-            &__line{
+            &__line {
                 background-color: $color-one;
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph;
                 width: 80%;
                 margin: 0 auto;
                 margin-bottom: 50px;
                 margin-top: 25px;
-                @include small-device{
+                @include small-device {
                     width: 90%;
                 }
             }
         }
         // END __header
 
-        &__container-box{
-            @include small-device{
+        &__container-box {
+            @include small-device {
                 width: 70%;
             }
-            .owl-stage-outer{
-                @include small-device{
+            .owl-stage-outer {
+                @include small-device {
                     overflow: visible;
                 }
             }
-            &__item{
+            &__item {
                 padding-right: 0.25rem;
                 padding-left: 0.25rem;
-                .content{
+                .content {
                     padding: 0 20px;
 
-                    &:hover{
+                    &:hover {
                         transform: scale(1.01);
                         box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
-                        .wowi01__container-box__link{
+                        .wowi01__container-box__link {
                             background-color: #c0c0c0;
                             color: $color-two;
-                            &__icon{
+                            &__icon {
                                 filter: grayscale(1) invert(1);
                             }
                         }
@@ -87,35 +88,35 @@
                 }
             }
 
-            &__info{
+            &__info {
                 position: relative;
                 z-index: 1;
                 min-height: 330px;
             }
-            &__image{
+            &__image {
                 margin-bottom: 28px;
-                img{
+                img {
                     width: 60px;
                 }
             }
-            &__description{
+            &__description {
                 text-align: center;
             }
-            &__title{
+            &__title {
                 font-size: $T5;
                 font-family: $font-primary;
                 color: $color-black;
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph-min;
                 color: $color-two;
                 font-weight: $weight-500;
                 width: 60%;
-                @include small-device{
+                @include small-device {
                     width: 100%;
                 }
             }
-            &__link{
+            &__link {
                 font: 1rem "Montserrat";
                 color: $color-one;
                 position: absolute;
@@ -126,10 +127,10 @@
                 min-width: 177px;
                 padding: 10px 15px;
                 font-weight: 700;
-                background-color: #EFEFEF;
+                background-color: #efefef;
                 text-align: center;
 
-                &__icon{
+                &__icon {
                     width: 25px;
                 }
             }
@@ -144,67 +145,68 @@
     ==================================
     */
 
-    .wowi01-show{
-        &__header{
+    .wowi01-show {
+        &__header {
+            @include backG;
             text-align: center;
-            background-color: #EFEFEF;
+            background-color: #efefef;
             padding: 87px 0;
             margin: 0;
-            &__container{
+            &__container {
                 margin-bottom: 25px;
             }
-            &__title{
+            &__title {
                 font-size: $T1;
                 font-family: $font-primary;
                 color: $color-black;
                 display: block;
 
-                @include small-device{
+                @include small-device {
                     font-size: $T1-mobile;
                 }
             }
         }
         // END __header
 
-        &__content{
+        &__content {
             padding: 45px 0 120px;
-            &__icon{
+            &__icon {
                 width: 36px;
                 margin: 10px auto;
                 display: table;
             }
-            &__container{
+            &__container {
                 text-align: center;
                 margin-bottom: 35px;
             }
-            &__title{
+            &__title {
                 font-size: $T2;
                 font-family: $font-primary;
                 font-weight: $weight-700;
                 color: $color-one;
                 display: block;
 
-                @include small-device{
+                @include small-device {
                     font-size: $T2-mobile;
                 }
             }
-            &__subtitle{
+            &__subtitle {
                 font-size: $T4;
                 font-family: $font-primary;
                 font-weight: $weight-700;
                 color: $color-one;
                 display: block;
 
-                @include small-device{
+                @include small-device {
                     font-size: $T4-mobile;
                 }
             }
-            &__line{
+            &__line {
                 width: 100%;
                 background-color: $color-one;
                 margin-bottom: 35px;
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph;
                 font-weight: $weight-500;
                 padding: 0 30px;
@@ -212,74 +214,73 @@
                 line-height: 25px;
                 text-align: center;
 
-                @include small-device{
+                @include small-device {
                     font: $paragraph-mobile;
                 }
             }
-
         }
         // END __content
 
-        &__container-box{
-            @include small-device{
+        &__container-box {
+            @include small-device {
                 width: 70%;
             }
-            .owl-stage-outer{
-                @include small-device{
+            .owl-stage-outer {
+                @include small-device {
                     overflow: visible;
                 }
             }
-            &__wrapper{
+            &__wrapper {
                 background-color: $color-five;
                 padding: 80px 0;
             }
-            &__header{
+            &__header {
                 text-align: center;
-                &__container{
+                &__container {
                     margin-bottom: 25px;
                 }
-                &__title{
+                &__title {
                     font-size: $T2;
                     font-family: $font-primary;
                     color: $color-one;
                     display: block;
                 }
-                &__subtitle{
+                &__subtitle {
                     font-size: $T4;
                     font-family: $font-primary;
                     color: $color-three;
                     display: block;
                 }
-                &__line{
+                &__line {
                     background-color: $color-one;
                 }
-                &__paragraph{
+                &__paragraph {
                     font: $paragraph;
                     width: 80%;
                     margin: 0 auto;
                     margin-bottom: 50px;
                     margin-top: 25px;
 
-                    @include small-device{
+                    @include small-device {
                         width: 90%;
                     }
                 }
             }
             // END __header
 
-            &__item{
+            &__item {
                 padding-right: 0.25rem;
                 padding-left: 0.25rem;
-                .content{
+                .content {
                     padding: 0;
 
-                    &:hover{
+                    &:hover {
                         transform: scale(1.01);
                         box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
-                        .wowi01__container-box__link{
+                        .wowi01__container-box__link {
                             background-color: #c0c0c0;
                             color: $color-two;
-                            &__icon{
+                            &__icon {
                                 filter: grayscale(1) invert(1);
                             }
                         }
@@ -287,45 +288,45 @@
                 }
             }
 
-            &__info{
+            &__info {
                 position: relative;
                 z-index: 1;
                 min-height: auto;
                 padding: 30px 20px;
                 background-color: #fff;
             }
-            &__image{
+            &__image {
                 max-height: 296px;
                 object-fit: cover;
                 object-position: center;
             }
-            &__icon{
+            &__icon {
                 margin-bottom: 28px;
                 margin-top: -60px;
                 justify-content: center;
                 display: flex;
-                img{
-                    width: 60px;;
+                img {
+                    width: 60px;
                 }
             }
-            &__description{
+            &__description {
                 text-align: center;
             }
-            &__title{
+            &__title {
                 font-size: $T5;
                 font-family: $font-primary;
                 color: $color-black;
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph-min;
                 color: $color-two;
                 font-weight: $weight-500;
-                width: 60%;;
-                @include small-device{
+                width: 60%;
+                @include small-device {
                     width: 100%;
                 }
             }
-            &__link{
+            &__link {
                 font: 1rem "Montserrat";
                 color: $color-one;
                 position: absolute;
@@ -333,113 +334,112 @@
                 left: 50%;
                 transform: translate(-50%);
                 z-index: 2;
-                min-width:  177px;
+                min-width: 177px;
                 padding: 10px 15px;
                 font-weight: 700;
-                background-color: #EFEFEF;
+                background-color: #efefef;
                 text-align: center;
 
-                &__icon{
+                &__icon {
                     width: 25px;
                 }
             }
         }
         // END __container-box
 
-        &__content-section{
+        &__content-section {
             padding: 80px 0 0;
             background-color: $color-four;
-            &__header{
+            &__header {
                 text-align: center;
                 margin-bottom: 75px;
 
-                &__container{
+                &__container {
                     margin-bottom: 25px;
                 }
-                &__title{
+                &__title {
                     font-size: $T2;
                     font-family: $font-primary;
                     font-weight: $weight-700;
                     color: $color-one;
                     display: block;
                 }
-                &__subtitle{
+                &__subtitle {
                     font-size: $T4;
                     font-family: $font-primary;
                     color: $color-three;
                     display: block;
                 }
-                &__line{
+                &__line {
                     background-color: $color-one;
                 }
-                &__paragraph{
+                &__paragraph {
                     font: $paragraph;
                     width: 80%;
                     margin: 0 auto;
                     margin-bottom: 50px;
                     margin-top: 25px;
 
-                    @include small-device{
+                    @include small-device {
                         width: 90%;
                     }
                 }
             }
             // END __header
 
-            &__info{
-                &__image{
+            &__info {
+                &__image {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: end;
 
-                    &__item{
+                    &__item {
                         width: 430px;
                         object-fit: contain;
                         object-position: center;
                     }
                 }
                 // END __image
-                &__description{
+                &__description {
                 }
-                &__container{
+                &__container {
                     margin-bottom: 25px;
                 }
-                &__title{
+                &__title {
                     font-size: $T4;
                     font-family: $font-primary;
                     font-weight: $weight-700;
                     color: $color-one;
                     display: block;
 
-                    @include small-device{
+                    @include small-device {
                         font-size: $T4-mobile;
                     }
-
                 }
-                &__subtitle{
+                &__subtitle {
                     font-size: $T2;
                     font-family: $font-primary;
                     color: $color-black;
                     display: block;
 
-                    @include small-device{
+                    @include small-device {
                         font-size: $T2-mobile;
                     }
                 }
-                &__line{
+                &__line {
                     background-color: $color-one;
                 }
-                &__paragraph{
+                &__paragraph {
                     font: $paragraph;
                     margin-bottom: 50px;
                     margin-top: 25px;
 
-                    @include small-device{
+                    @include small-device {
                         width: 90%;
                     }
                 }
-                &__cta{
+                &__cta {
                     font: $paragraph;
                     font-weight: $weight-700;
                     color: $color-one;
@@ -447,15 +447,15 @@
                     padding: 10px 45px;
                     background-color: $bg-white;
 
-                    @include small-device{
+                    @include small-device {
                         font: $paragraph-mobile;
                     }
 
-                    &:hover{
+                    &:hover {
                         color: $color-white;
                         background-color: $bg-black;
 
-                        .wowi01-show__content-section__info__cta__icon{
+                        .wowi01-show__content-section__info__cta__icon {
                             filter: invert(1) grayscale(1);
                         }
                     }

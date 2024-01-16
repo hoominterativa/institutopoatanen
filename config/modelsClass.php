@@ -8,7 +8,6 @@ return [
                 'controller' => App\Http\Controllers\Abouts\ABOU01Controller::class,
                 'model' => App\Models\Abouts\ABOU01Abouts::class,
                 'seedQty' => 2,
-                'relationship' => null,
             ],
             'ABOU02' => (object)[
                 'controller' => App\Http\Controllers\Abouts\ABOU02Controller::class,
@@ -19,7 +18,6 @@ return [
                 'controller' => App\Http\Controllers\Abouts\ABOU04Controller::class,
                 'model' => App\Models\Abouts\ABOU04Abouts::class,
                 'seedQty' => 2,
-                'relationship' => null,
             ],
             'ABOU05' => (object)[
                 'controller' => App\Http\Controllers\Abouts\ABOU05Controller::class,
@@ -382,7 +380,6 @@ return [
                 'model' => App\Models\Services\SERV02Services::class,
                 'seedQty' => 8,
                 'routeName' => 'serv02.page.content',
-                'relationship' => null,
             ],
             'SERV04' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV04Controller::class,

@@ -1,8 +1,8 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.cota01-show{
-    &__banner{
+.cota01-show {
+    &__banner {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -10,141 +10,144 @@
         padding: 87px 17%;
         text-align: center;
 
-        @include small-device{
+        @include small-device {
             padding: 60px 30px;
         }
 
-        &__title{
+        &__title {
             font-size: $T1;
             font-family: $font-primary;
             font-weight: $weight-700;
             color: $color-black;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T1-mobile;
             }
         }
-        &__paragraph{
+        &__paragraph {
             font: $paragraph;
             font-weight: $weight-400;
             color: $color-one;
             margin: 30px 0 0 0;
 
-            @include small-device{
+            @include small-device {
                 font: $paragraph-mobile;
             }
         }
     }
     // END __banner
 
-    &__form-section{
+    &__form-section {
         padding: 87px 0;
         background-color: $color-five;
 
-        @include small-device{
+        @include small-device {
             padding: 60px 30px;
         }
 
-        &__header{
+        &__header {
             text-align: center;
             margin-bottom: 90px;
             padding: 0 17%;
 
-            @include small-device{
+            @include small-device {
                 padding: 0 30px;
             }
         }
-        &__title{
+        &__title {
             font-size: $T2;
             font-family: $font-primary;
             font-weight: $weight-700;
             color: $color-black;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T2-mobile;
             }
         }
-        &__paragraph{
+        &__paragraph {
             font: $paragraph;
             font-weight: $weight-400;
             color: $color-one;
             margin: 30px 0 0 0;
 
-            @include small-device{
+            @include small-device {
                 font: $paragraph-mobile;
             }
         }
-        @include small-device{
-            &__container{
+        @include small-device {
+            &__container {
                 flex-direction: column-reverse;
             }
         }
-        @include large-device{
-            &__container{
+        @include large-device {
+            &__container {
                 flex-direction: column-reverse;
             }
         }
     }
     // END __form-section
 
-    &__form{
-        &__header{
+    &__form {
+        width: 50%;
+        &__header {
             max-width: 85%;
 
-            @include small-device{
+            @include small-device {
                 max-width: 100%;
             }
 
-            &__title{
+            &__title {
                 font-size: $T2;
                 font-family: $font-primary;
                 font-weight: $weight-700;
                 color: $color-black;
 
-                @include small-device{
+                @include small-device {
                     font-size: $T2-mobile;
                 }
             }
-            &__paragraph{
+            &__paragraph {
                 font: $paragraph;
                 font-weight: $weight-400;
                 color: $color-one;
                 margin: 30px 0 0 0;
 
-                @include small-device{
+                @include small-device {
                     font: $paragraph-mobile;
                 }
             }
         }
-        &__item{
+        &__item {
             margin-top: 55px;
 
-            &__input{
-                input:not(input[type=checkbox], input[type=radio]), select, textarea{
+            &__input {
+                input:not(input[type="checkbox"], input[type="radio"]),
+                select,
+                textarea {
                     border-color: transparent;
                     border-radius: 0;
                     padding: 10px 10px;
 
-                    &:focus{
+                    &:focus {
                         border-color: $color-black;
                         background-color: $color-white;
                         box-shadow: 0 0 0 0.25rem #d0d0d0;
                     }
                 }
 
-                .form__file__item{
+                .form__file__item {
                     border-color: transparent;
                     border-radius: 0;
                     padding: 10px 10px;
 
-                    &:hover{
+                    &:hover {
                         border-color: $color-black;
                         background-color: $color-white;
                         box-shadow: 0 0 0 0.25rem #d0d0d0;
                     }
                 }
             }
-            &__submit{
+            &__submit {
                 border: none;
                 border-radius: 0;
                 padding: 10px 30px;
@@ -153,31 +156,31 @@
                 font: $paragraph;
                 font-weight: $weight-700;
 
-                &:hover{
+                &:hover {
                     background-color: $color-black;
                     color: $color-white;
-                    .icon__button{
+                    .icon__button {
                         filter: invert(1) grayscale(1);
                     }
                 }
             }
         }
-        &__footer{
-            @include small-device{
+        &__footer {
+            @include small-device {
                 flex-direction: column;
             }
         }
-        &__compliance{
+        &__compliance {
             font: $paragraph-min;
             font-weight: $weight-400;
             color: $color-two;
 
-            @include small-device{
+            @include small-device {
                 width: 100%;
                 margin-bottom: 30px;
             }
 
-            &__link{
+            &__link {
                 font: $paragraph-min;
                 font-weight: $weight-700;
                 color: $color-two;
@@ -187,11 +190,12 @@
     }
     // END __form
 
-    &__topics-form{
+    &__topics-form {
+        width: 50%;
         padding-left: 130px;
         flex-direction: column;
 
-        @include small-device{
+        @include small-device {
             padding-left: 0;
             justify-content: center;
             flex-direction: row;
@@ -199,7 +203,7 @@
             margin-bottom: 60px;
         }
 
-        @include large-device{
+        @include large-device {
             padding-left: 0;
             justify-content: center;
             flex-direction: row;
@@ -207,110 +211,107 @@
             margin-bottom: 60px;
         }
 
-        &__item{
+        &__item {
             margin-bottom: 50px;
 
-            @include small-device{
+            @include small-device {
                 text-align: center;
                 flex-direction: column;
                 margin-bottom: 60px;
             }
 
-            @include large-device{
+            @include large-device {
                 text-align: center;
                 flex-direction: column;
                 margin-bottom: 60px;
             }
         }
-        &__icon{
+        &__icon {
             width: 25px;
             margin-right: 15px;
 
-            @include small-device{
+            @include small-device {
                 margin-right: 0;
                 margin-bottom: 20px;
             }
         }
-        &__description{
-
+        &__description {
         }
-        &__title{
+        &__title {
             font-size: $T3;
             font-family: $font-primary;
             font-weight: $weight-700;
             color: $color-one;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T2-mobile;
             }
         }
-        &__paragraph{
+        &__paragraph {
             font: $paragraph;
             font-weight: $weight-400;
             color: $color-two;
             margin: 10px 0 0 0;
 
-            @include small-device{
+            @include small-device {
                 font: $paragraph-mobile;
             }
         }
     }
     // END __topics-form
 
-    &__topics-section{
+    &__topics-section {
         padding: 80px 0 0 0;
 
-        @include small-device{
+        @include small-device {
             padding: 50px 30px;
         }
 
-        @include large-device{
+        @include large-device {
             padding: 50px 30px;
         }
     }
 
-    &__topics{
-
-        @include small-device{
+    &__topics {
+        @include small-device {
             margin-bottom: 50px;
         }
 
-        @include large-device{
+        @include large-device {
             margin-bottom: 50px;
         }
 
-        &__item{
+        &__item {
             margin-bottom: 50px;
         }
-        &__image{
+        &__image {
             object-fit: contain;
             height: 433px;
             object-position: bottom;
         }
-        &__icon{
+        &__icon {
             width: 25px;
             margin-right: 15px;
         }
-        &__description{
-
+        &__description {
         }
-        &__title{
+        &__title {
             font-size: $T3;
             font-family: $font-primary;
             font-weight: $weight-700;
             color: $color-one;
 
-            @include small-device{
+            @include small-device {
                 font-size: $T2-mobile;
             }
         }
-        &__paragraph{
+        &__paragraph {
             font: $paragraph;
             font-weight: $weight-400;
             color: $color-two;
             margin: 10px 0 0 0;
 
-            @include small-device{
+            @include small-device {
                 font: $paragraph-mobile;
             }
         }

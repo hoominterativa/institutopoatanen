@@ -76,187 +76,204 @@
 // END .abou01
 
 .abou01-page {
-    .container {
-        display: flex;
-        align-items: flex-start;
-        padding: 68px 15px 0 15px !important;
+    &__banner {
+        @include backG;
+        @include disFlex(column, start, center);
 
-        @include large-device-down {
-            flex-direction: column-reverse;
-            gap: 25px 0;
-        }
+        height: 352px;
+        padding: 112px 5vw 92px;
 
-        .container__img {
-            width: 41.66666667%;
-            padding-right: calc(var(--bs-gutter-x) * 0.5);
-            padding-left: calc(var(--bs-gutter-x) * 0.5);
-            
-            @include large-device-down{
-                width: 100%;
-            }
-
-
-            img {
-                width: 100%;
-                max-width: 430px;
-                height: auto;
-                object-fit: cover;
-            }
-        }
-    }
-    &__header {
-        text-align: center;
-        background-color: #efefef;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding: 87px 0;
-        margin: 0;
-        &__container {
-            margin-bottom: 25px;
-        }
         &__title {
-            font-size: $T1;
-            font-family: $font-primary;
+            font: 700 $T1 $font-primary;
+            text-align: center;
+            line-height: 140%;
             color: $color-black;
-            display: block;
 
-            @include small-device {
-                font-size: $T2-mobile;
+            margin-bottom: 1.5rem;
+
+            @include large-device-down {
+                font-size: $T1-mobile;
             }
         }
-        &__subtitle {
-            font-size: $T4;
-            font-family: $font-primary;
-            color: $color-two;
-            display: block;
 
-            @include small-device {
+        &__subtitle {
+            font-size: 700 $T4 $font-primary;
+            color: $color-two;
+            text-align: center;
+            margin-bottom: 1.75rem;
+
+            @include large-device-down {
                 font-size: $T4-mobile;
             }
         }
+
         &__line {
             width: 100%;
             max-width: 610px;
-            background-color: $color-one;
+            border-top: 1px solid $color-black;
         }
     }
-    // END __header
 
-    &__content {
-        width: 58.33333333%;
-        padding-right: calc(var(--bs-gutter-x) * 0.5);
-        padding-left: calc(var(--bs-gutter-x) * 0.5);
+    &__main {
+        @include backG;
+        @include disFlex($justify: space-between);
+
+        padding: 48px 5vw 0;
 
         @include large-device-down {
-            width: 100%;
+            flex-direction: column;
+            gap: 80px;
+
+            padding: 48px 5vw;
         }
 
-        &__container {
-            margin-bottom: 25px;
-        }
-        &__title {
-            font-size: $T2;
-            font-family: $font-primary;
-            color: $color-one;
-            display: block;
+        &:has(&__image) &__information {
+            width: 65%;
 
-            @include small-device {
-                font-size: $T2-mobile;
+            @include large-device-down {
+                width: 100%;
             }
         }
-        &__subtitle {
-            font-size: $T4;
-            font-family: $font-primary;
-            color: $color-one;
-            display: block;
 
-            @include small-device {
-                font-size: $T4-mobile;
+        &__information {
+            @include disFlex(column, start, start);
+
+            padding-bottom: 40px;
+            width: 100%;
+
+            @include large-device-down {
+                width: 100%;
+                padding-bottom: 0px;
+            }
+
+            &__header {
+                margin-bottom: 30px;
+                width: 100%;
+
+                &__title {
+                    font: 700 $T2 $font-primary;
+                    line-height: 100%;
+                    text-align: left;
+                    color: $color-black;
+
+                    margin-bottom: 1.5rem;
+
+                    @include large-device-down {
+                        font-size: $T2-mobile;
+                    }
+                }
+
+                &__subtitle {
+                    font-size: 700 $T4 $font-primary;
+                    color: $color-two;
+                    text-align: left;
+                    margin-bottom: 1.75rem;
+
+                    @include large-device-down {
+                        font-size: $T4-mobile;
+                    }
+                }
+            }
+
+            &__paragraph {
+                font: $paragraph;
+                line-height: 170%;
+                color: $color-one;
+
+                @include large-device-down {
+                    font-size: $P1-mobile;
+                }
             }
         }
-        &__line {
-            width: 100%;
-            background-color: $color-one;
-        }
-        &__paragraph {
-            font: $paragraph;
-            font-weight: $weight-500;
-            color: $color-one;
-            line-height: 25px;
 
-            @include small-device {
-                font: $paragraph-mobile;
+        &:has(&__information) &__image {
+            width: 30%;
+
+            @include large-device-down {
+                width: 100%;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 517px;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center bottom;
             }
         }
     }
-    // END __content
 
-    &__topic {
-        padding: 125px 10px;
-        background-color: #fff;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+    &__topics {
+        @include backG;
+
+        padding: 125px 5vw;
 
         &__content {
-            background-color: #cacaca;
-            padding: 51px;
             min-height: 100%;
 
             &:hover {
                 transform: scale(1.01);
             }
         }
-        .carousel-abou01-topic {
-            gap: 25px 0;
-        }
-        &__item {
-            &__header {
-                margin-bottom: 35px;
-            }
-            &__icon {
-                width: 32px !important;
-                margin-right: 21px;
-            }
-            &__title {
-                font-size: $T3;
-                color: $color-black;
 
-                @include small-device {
-                    font-size: $T3-mobile;
+        &__carousel {
+            width: 100%;
+
+            &:not(.owl-carousel) {
+                @include disFlex;
+                gap: 26px;
+                flex-wrap: wrap;
+            }
+        }
+
+        &__item {
+            @include disFlex(column);
+            width: 100%;
+            padding: 2.8rem 2.25rem;
+
+            background-color: $color-four;
+
+            &__header {
+                @include disFlex;
+                margin-bottom: 28px;
+
+                &__icon {
+                    width: 32px !important;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    margin-right: 19px;
+                    object-fit: contain;
+                    object-position: center;
+                }
+
+                &__title {
+                    font: 700 $T3 $font-primary;
+                    color: $color-black;
+                    text-align: left;
+                    margin-bottom: 0;
+
+                    @include large-device-down {
+                        font-size: $T3-mobile;
+                    }
                 }
             }
+
             &__paragraph {
                 font: $paragraph;
-                font-weight: $weight-500;
                 color: $color-two;
+                text-align: left;
+                line-height: 170%;
 
-                @include small-device {
-                    font: $paragraph-mobile;
-                }
-            }
-        }
-        .carousel-abou01-topic {
-            @include small-device {
-                margin: 0 auto;
-            }
-            .owl-stage-outer {
-                padding: 0;
-            }
-            .owl-dots {
-                text-align: center;
-                margin-top: 20px;
-                .owl-dot {
-                    width: 20px;
-                    height: 10px;
-                    display: inline-block;
-                    background-color: #fff;
-                    margin: 0 5px;
-                    &.active,
-                    &:hover {
-                        background-color: #969696;
-                    }
+                @include large-device-down {
+                    font-size: $P1-mobile;
                 }
             }
         }
@@ -264,63 +281,60 @@
     // END __topic
 
     &__section {
-        padding: 68px 15px 0 15px;
+        @extend .abou01-page__main;
 
-        .align-items-center {
-            align-items: flex-start !important;
+        &__information {
+            @extend .abou01-page__main__information;
 
-            @include large-device-down {
-                flex-direction: column-reverse;
-                gap: 25px 0;
+            &__header {
+                @extend .abou01-page__main__information__header;
+
+                &__title {
+                    @extend .abou01-page__main__information__header__title;
+                }
+
+                &__subtitle {
+                    @extend .abou01-page__main__information__header__subtitle;
+                }
+            }
+
+            &__paragraph {
+                @extend .abou01-page__main__information__paragraph;
+            }
+
+            &__cta {
+                @include disFlex(row, center, center);
+                align-self: end;
+                padding: 0.5rem 2.5rem;
+                margin-top: 1rem;
+
+                font: 700 $P1 $font-primary;
+                color: $color-black;
+                text-align: center;
+
+                background-color: #f2f2f2;
+
+                &__icon {
+                    height: auto;
+                    width: 1.5rem;
+                    margin-right: 1rem;
+                    aspect-ratio: 1/1;
+                    object-fit: contain;
+                    object-position: center;
+                }
             }
         }
-        &__row {
-            @include small-device {
-                flex-direction: column-reverse;
-            }
-        }
+
         &__image {
-            &__item {
-                width: 100%;
-                max-width: 430px;
-                object-fit: contain;
-            }
-        }
-        &__title {
-            font-size: $T2;
-            font-weight: $weight-700;
-            color: $color-black;
-            display: block;
+            @extend .abou01-page__main__image;
 
-            @include small-device {
-                font-size: $T2-mobile;
-            }
-        }
-        &__subtitle {
-            font-size: $T4;
-            font-weight: $weight-700;
-            color: $color-one;
-
-            @include small-device {
-                font-size: $T4-mobile;
-            }
-        }
-        &__line {
-            width: 100%;
-            background-color: $bg-secondary;
-        }
-        &__paragraph {
-            font: $paragraph;
-            font-weight: $weight-500;
-            color: $color-one;
-            line-height: 25px;
-
-            @include small-device {
-                font: $paragraph-mobile;
-                margin-bottom: 30px;
+            // NEXT: CTA
+            &__img {
+                @extend .abou01-page__main__image__img;
             }
         }
     }
     // END __section
 }
+
 // END .abou01-page

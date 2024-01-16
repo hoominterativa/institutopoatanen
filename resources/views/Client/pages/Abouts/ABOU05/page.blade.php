@@ -4,19 +4,21 @@
 <main id="root">
     <div id="abou05-page" class="abou05-page">
         <section class="container-fluid px-0">
-            @if ($section->active_banner == 1)
-                <header class="abou05-page__header"
-                style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{$section->background_color_banner}};">
-                    <div class="container container--abou05-header d-flex flex-column justify-content-center align-items-center">
-                        @if ($section->title_banner || $section->subtitle_banner)
-                            <h3 class="abou05-page__header__container d-flex flex-column justify-content-center align-items-center">
-                                <span class="abou05-page__header__title">{{$section->title_banner}}</span>
-                                <span class="abou05-page__header__subtitle">{{$section->subtitle_banner}}</span>
-                            </h3>
-                            <hr class="abou05-page__header__line">
-                        @endif
-                    </div>
-                </header>
+            @if ($section)
+                @if ($section->active_banner == 1)
+                    <header class="abou05-page__header"
+                    style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{$section->background_color_banner}};">
+                        <div class="container container--abou05-header d-flex flex-column justify-content-center align-items-center">
+                            @if ($section->title_banner || $section->subtitle_banner)
+                                <h3 class="abou05-page__header__container d-flex flex-column justify-content-center align-items-center">
+                                    <span class="abou05-page__header__title">{{$section->title_banner}}</span>
+                                    <span class="abou05-page__header__subtitle">{{$section->subtitle_banner}}</span>
+                                </h3>
+                                <hr class="abou05-page__header__line">
+                            @endif
+                        </div>
+                    </header>
+                @endif
             @endif
             @if ($about)
                 <div class="container">

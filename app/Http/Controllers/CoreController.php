@@ -49,7 +49,7 @@ class CoreController extends Controller
                     // BEGIN QUERY
                     $relations = $modelElloquent::query();
                     $existsRelation = false;
-                    if(isset($config->IncludeCore->relation)){
+                    if($config->IncludeCore->relation){
                         $existsRelation = true;
                         $relationship = $config->IncludeCore->relation;
                         $arrRelations = get_object_vars($relationship);

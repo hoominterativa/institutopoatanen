@@ -13,7 +13,7 @@
             'limit' => 'all',
             'condition' => 'active=1{Ativos}',
             'titleList' => 'title_banner',
-            'relation' => ''
+            'relation' => '',
         ],
         'config' => (object) [
             'titleMenu' => 'Contato',

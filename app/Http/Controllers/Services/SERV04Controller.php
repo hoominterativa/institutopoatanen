@@ -309,13 +309,13 @@ class SERV04Controller extends Controller
                 if($section) $section->path_image_section_desktop = $section->path_image_section_mobile;
             break;
             default:
-            $section = SERV04ServicesSection::first();
+                $section = SERV04ServicesSection::first();
             break;
         }
 
 
         $services = SERV04Services::with('category')->featured()->sorting()->get();
-        $category = SERV04ServicesCategory::active()->first();
+        $category = SERV04ServicesCategory::exists()->active()->first();
 
         return view('Client.pages.Services.SERV04.section', [
             'section' => $section,
