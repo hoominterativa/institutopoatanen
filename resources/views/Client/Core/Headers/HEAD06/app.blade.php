@@ -5,7 +5,18 @@
                 <li class="head06__content__left__list__item">
                     <a href="#">Home</a>
                 </li>
-                
+                <li class="head06__content__left__list__item">
+                    <div class="head06__content__right__encompass-cta__cta__dropdown dropdown">
+                        <button class="dropdown-toggle head06__content__right__encompass-cta__cta__dropdown__dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            CTA
+                        </button>
+                        <ul class="dropdown-menu head06__content__right__encompass-cta__cta__dropdown__dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </nav>
         <div class="head06__content__logo">
@@ -23,37 +34,36 @@
                </ul>
             </nav>
             
-            @if ($linksCtaHeader->count() && $callToActionTitle->active_header??false)
-                <div class="head06__content__right__cta">
-                    <div class="dropdown">
-                        @if ($linksCtaHeader->count()>1)
-                            <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta transition">
-                                {{$callToActionTitle->title_header??''}}
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right" >
-                                @foreach ($linksCtaHeader as $linkCtaHeader)
-                                    <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item">{{$linkCtaHeader->title}}</a>
-                                @endforeach
-                            </div>
-                        @else
-                            @foreach ($linksCtaHeader as $linkCtaHeader)
-                                <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta">{{$linkCtaHeader->title}}</a>
-                            @endforeach
-                        @endif
+            <div class="head06__content__right__encompass-cta">
+                {{-- <div class="head06__content__right__encompass-cta__cta">
+                    <a href="" class="head06__content__right__encompass-cta__cta__button">
+                        CTA
+                    </a>
+                </div> --}}
+                {{-- END BUTTON --}}
+                <div class="head06__content__right__encompass-cta__cta">
+                    <div class="head06__content__right__encompass-cta__cta__dropdown dropdown">
+                        <button class="dropdown-toggle head06__content__right__encompass-cta__cta__dropdown__dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        CTA
+                        </button>
+                        <ul class="dropdown-menu head06__content__right__encompass-cta__cta__dropdown__dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
                     </div>
                 </div>
-            @endif
+                {{-- END DROPDOWN --}}
+            </div>
+
             {{-- END .btn-cta --}}
-            @if ($socials->count())
                 <div class="head06__content__right__rede">
-                    @foreach ($socials as $social)
-                    <a href="{{$social->link}}" title="{{$social->title}}">
-                        <img src="{{asset('storage/'.$social->path_image_icon)}}" alt="{{$social->title}}">
-                    </a>
-                    @endforeach
+                    @for($i = 0; $i <= 2; $i++)
+                        <a href="#" title="Rede Social">
+                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="ícone rede social">
+                        </a>
+                    @endfor
                 </div>
-            @endif
             {{-- head06__content__right__rede --}}
         </div>
     </menu>

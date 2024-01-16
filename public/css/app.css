@@ -1530,13 +1530,16 @@ body .owl-dots .owl-dot.active {
 .head06__content {
   padding: 0 4.81rem;
   width: 100%;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
 }
 .head06__content__left {
   width: 26vw;
   margin-right: auto;
+  justify-content: flex-start;
 }
 .head06__content__left ul {
   padding: 0;
@@ -1576,14 +1579,73 @@ body .owl-dots .owl-dot.active {
   align-items: center;
   width: 28vw;
   margin-left: auto;
+  justify-content: flex-end;
 }
 .head06__content__right__menu ul {
   display: flex;
 }
+.head06__content__right__encompass-cta {
+  gap: 0 0.55rem;
+  display: flex;
+  margin-left: 2.37rem;
+  margin-right: 1.56rem;
+}
+.head06__content__right__encompass-cta__cta {
+  width: auto;
+  height: auto;
+  border-radius: 1.6875rem;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.head06__content__right__encompass-cta__cta__button {
+  color: #fff;
+  font-size: 0.9375rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  padding: 0.19rem 1.88rem;
+}
+.head06__content__right__encompass-cta__cta__dropdown {
+  width: 100%;
+}
+.head06__content__right__encompass-cta__cta__dropdown__dropdown-toggle {
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.19rem 1.88rem;
+}
+.head06__content__right__encompass-cta__cta__dropdown__dropdown-toggle::after {
+  margin-left: 0.72rem;
+  color: #cacaca;
+  border-top: 8px solid;
+  border-right: 6.5px solid transparent;
+  border-bottom: 0;
+  border-left: 6.5px solid transparent;
+}
+.head06__content__right__encompass-cta__cta__dropdown__dropdown-menu {
+  background-color: #000;
+}
+.head06__content__right__encompass-cta__cta__dropdown__dropdown-menu li a {
+  font-size: 0.9375rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #fff;
+}
+.head06__content__right__encompass-cta__cta__dropdown__dropdown-menu li a:hover, .head06__content__right__encompass-cta__cta__dropdown__dropdown-menu li a:focus, .head06__content__right__encompass-cta__cta__dropdown__dropdown-menu li a:active {
+  background-color: #fff;
+  color: #000;
+}
 .head06__content__right__rede {
   display: flex;
   align-items: center;
-  gap: 0 62rem;
+  gap: 0 0.62rem;
 }
 .head06__content__right__rede a img {
   width: 1.57081rem;

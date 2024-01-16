@@ -10,13 +10,16 @@
     &__content{
         padding: 0 4.81rem;
         width: 100%;
+        height: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin: 0;
     
         &__left{
             width: 26vw;
             margin-right: auto;
+            justify-content: flex-start;
 
             ul{
                 padding: 0;
@@ -65,21 +68,81 @@
             align-items: center;
             width: 28vw;
             margin-left: auto;
+            justify-content: flex-end;
 
             &__menu{
                 ul{
                     display: flex;
                 }
             }
-    
-            &__cta{
-                
+            
+            &__encompass-cta{
+                gap:0 0.55rem;
+                display: flex;
+                margin-left: 2.37rem;
+                margin-right: 1.56rem;
+
+                &__cta{
+                    width: auto;
+                    height: auto;
+                    border-radius: 1.6875rem;
+                    background-color: $color-black;
+                    @include disFlex(column,center,center);
+
+                    &__button{
+                        color: $color-white;
+                        font-size: $font-15;
+                        font-family: $font-primary;
+                        padding: 0.19rem 1.88rem;
+                    }
+
+                    &__dropdown{
+                        width: 100%;
+
+                        &__dropdown-toggle{
+                            background-color: transparent;
+                            border: 0;
+                            color: $color-white;
+                            font-size: $font-15;
+                            font-family: $font-primary;
+                            @include disFlex(row,center,center);
+                            width: 100%;
+                            padding: 0.19rem 1.88rem;
+
+                            &::after{
+                                margin-left: 0.72rem;
+                                color: $color-four;
+                                border-top: 8px solid;
+                                border-right: 6.5px solid transparent;
+                                border-bottom: 0;
+                                border-left: 6.5px solid transparent;
+                            }
+                        }
+                        &__dropdown-menu{
+                            background-color: $color-black;
+
+                            li{
+                                a{
+                                    
+                                    font-size: $font-15;
+                                    font-family: $font-primary;
+                                    color: $color-white;
+
+                                    &:hover, &:focus, &:active{
+                                        background-color: $color-white;
+                                        color: $color-black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             &__rede{
                 display: flex;
                 align-items: center;
-                gap:0 62rem;
+                gap:0 0.62rem;
 
                 a{
                     img{
