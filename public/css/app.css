@@ -8509,6 +8509,9 @@ body .owl-dots .owl-dot.active {
   }
 }
 #WOWI01 .wowi01__header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
 }
 #WOWI01 .wowi01__header__container {
@@ -8622,15 +8625,18 @@ body .owl-dots .owl-dot.active {
   min-width: 177px;
   padding: 10px 15px;
   font-weight: 700;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   text-align: center;
 }
 #WOWI01 .wowi01__container-box__link__icon {
   width: 25px;
 }
 #WOWI01 .wowi01-show__header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   padding: 87px 0;
   margin: 0;
 }
@@ -8820,7 +8826,7 @@ body .owl-dots .owl-dot.active {
   min-width: 177px;
   padding: 10px 15px;
   font-weight: 700;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   text-align: center;
 }
 #WOWI01 .wowi01-show__container-box__link__icon {
