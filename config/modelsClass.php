@@ -451,6 +451,11 @@ return [
                     ]
                 ]
             ],
+            'SERV10' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV10Controller::class,
+                'model' => App\Models\Services\SERV10Services::class,
+                'seedQty' => 1,
+            ],
         ],
         // END SERVICES
 

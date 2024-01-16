@@ -209,9 +209,9 @@ class SERV10Controller extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV10', 'show');
 
-        return view('Client.pages.Module.Model.show',[
+        return view('Client.pages.Services.SERV10.show',[
             'sections' => $sections
         ]);
     }
@@ -225,9 +225,9 @@ class SERV10Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV10', 'page');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Services.SERV10.page',[
             'sections' => $sections
         ]);
     }
@@ -239,6 +239,6 @@ class SERV10Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Services.SERV10.section');
     }
 }
