@@ -11760,9 +11760,14 @@ $(function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/Core/Headers/HEAD06/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$('.dropdown-submenu a.dropdown-item').on("click", function (e) {
+  $(this).next('ul').toggle();
+  e.stopPropagation();
+  e.preventDefault();
+});
 
 /***/ }),
 

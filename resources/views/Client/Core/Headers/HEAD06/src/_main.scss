@@ -1,10 +1,56 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+
 .head06{
     display: flex;
     height: 6.25rem;
     border-bottom: 9px solid $color-two;
+
+    // Estilos padrões do dropdown
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 100%;
+            margin-top: 5px;
+            margin-left: -1px;
+        }
+
+        .nav-link:focus, .nav-link:hover{
+
+        }
+        .navbar-expand-lg .navbar-nav .nav-link{
+            padding: 0;
+        }
+        .navbar-expand-lg{
+            padding: 0;
+        }
+        .navbar-nav{
+            gap: 0 1.5rem;
+        }
+
+        .dropdown-menu {
+            background: $color-black;
+        }
+        .dropdown-submenu{
+            background: $color-black;
+        }
+        .dropdown-item{
+            color: $color-white;
+
+            &:focus, &:hover{
+                background: $color-white;
+                color:$color-black;
+            }
+
+            .menu-arrow{
+                border-top: 5px solid $color-white;
+                margin-left: 0.56rem;
+            }
+        }
+    //END estilos padrões do dropdown
     
 
     &__content{
@@ -15,20 +61,28 @@
         justify-content: space-between;
         align-items: center;
         margin: 0;
+
+        @include x-large-device-down{
+            padding: 0 1.81rem;
+        }
     
         &__left{
             width: 26vw;
             margin-right: auto;
             justify-content: flex-start;
 
-            ul{
+            @include x-large-device-down {
+                display: none;
+            }
+
+            &__list{
                 padding: 0;
                 gap: 0 5rem;
                 display: flex;
                 align-items: center;
                 list-style: none;
 
-                li{
+                &__item{
                     position: relative;
 
                     &:after{
@@ -44,13 +98,27 @@
                     a{
 
                     }
+
+                    &__dropdown-primary{
+                        &__dropdown-toggle{
+                            background-color: transparent;
+                            border: 0;
+                        }
+                        &__dropdown-menu{
+
+                        }
+                    }
                 }
             }
-
         }
         &__logo{
-            width: 19.875rem;
+            width: 14.875rem;
             height: 5.625rem;
+
+            @include x-large-device-down{
+                width: 10.34725rem;
+                height: 4.61013rem;
+            }
 
             a{
                 width: 100%;
@@ -71,16 +139,21 @@
             justify-content: flex-end;
 
             &__menu{
-                ul{
-                    display: flex;
+                @include x-large-device-down {
+                    display: none;
                 }
             }
             
             &__encompass-cta{
                 gap:0 0.55rem;
                 display: flex;
-                margin-left: 2.37rem;
+                margin-left: 1.56rem;
                 margin-right: 1.56rem;
+
+                @include x-large-device-down {
+                    display: none;
+                }
+
 
                 &__cta{
                     width: auto;
@@ -88,6 +161,7 @@
                     border-radius: 1.6875rem;
                     background-color: $color-black;
                     @include disFlex(column,center,center);
+                    
 
                     &__button{
                         color: $color-white;
@@ -144,12 +218,40 @@
                 align-items: center;
                 gap:0 0.62rem;
 
+                @include x-large-device-down {
+                    display: none;
+                }
+
                 a{
                     img{
                         width: 1.57081rem;
                         height: 1.57238rem;
                         object-fit: contain;
                     }
+                }
+            }
+
+            &__btn-sidebar{
+                display: none;
+                margin-left: 35px;
+
+                &__lines{
+                    width: 38px;
+                    >i{
+                        height: 2px;
+                        display: block;
+                        background-color: #000;
+                    }
+                }
+                &:active{
+                    &__lines{
+                        >i{
+                            background-color: rgb(138, 138, 138);
+                        }
+                    }
+                }
+                @include x-large-device-down {
+                    display: block;
                 }
             }
         }
