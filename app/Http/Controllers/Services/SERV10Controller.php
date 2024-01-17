@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV10ServicesCategory;
+use App\Models\Services\SERV10ServicesContent;
+use App\Models\Services\SERV10ServicesGallery;
+use App\Models\Services\SERV10ServicesSection;
+use App\Models\Services\SERV10ServicesTopic;
 
 class SERV10Controller extends Controller
 {
@@ -24,8 +29,14 @@ class SERV10Controller extends Controller
     public function index()
     {
         $services = SERV10Services::sorting()->get();
+        $serviceCategories = SERV10ServicesCategory::sorting()->get();
+        $categories = SERV10ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $section = SERV10ServicesSection::first();
         return view('Admin.cruds.Services.SERV10.index', [
-            'services' => $services
+            'services' => $services,
+            'section' => $section,
+            'serviceCategories' => $serviceCategories,
+            'categories' => $categories
         ]);
     }
 
@@ -36,7 +47,9 @@ class SERV10Controller extends Controller
      */
     public function create()
     {
+        $categories = SERV10ServicesCategory::exists()->sorting()->pluck('title', 'id');
         return view('Admin.cruds.Services.SERV10.create', [
+            'categories' => $categories,
             'cropSetting' => getCropImage('Services', 'SERV10')
         ]);
     }
@@ -55,6 +68,11 @@ class SERV10Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
 
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_content'] = $request->active_content ? 1 : 0;
+        $data['active_topic'] = $request->active_topic ? 1 : 0;
+        $data['active_gallery'] = $request->active_gallery ? 1 : 0;
+
         if($request->title || $request->title_box) $data['slug'] = Str::slug($request->title. ' ' . ($request->title_box ? $request->title_box : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -66,7 +84,11 @@ class SERV10Controller extends Controller
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
 
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
 
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
         if($service = SERV10Services::create($data)){
             Session::flash('success', 'Serviço cadastrado com sucesso');
@@ -75,6 +97,8 @@ class SERV10Controller extends Controller
             Storage::delete($path_image);
             Storage::delete($path_image_icon_box);
             Storage::delete($path_image_box);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
@@ -88,8 +112,16 @@ class SERV10Controller extends Controller
      */
     public function edit(SERV10Services $SERV10Services)
     {
+        $categories = SERV10ServicesCategory::sorting()->pluck('title', 'id');
+        $contents = SERV10ServicesContent::where('service_id', $SERV10Services->id)->sorting()->get();
+        $topics = SERV10ServicesTopic::where('service_id', $SERV10Services->id)->sorting()->get();
+        $galleries = SERV10ServicesGallery::where('service_id', $SERV10Services->id)->sorting()->get();
         return view('Admin.cruds.Services.SERV10.edit',[
             'service' => $SERV10Services,
+            'categories' => $categories,
+            'contents' => $contents,
+            'topics' => $topics,
+            'galleries' => $galleries,
             'cropSetting' => getCropImage('Services', 'SERV10')
         ]);
     }
@@ -108,6 +140,11 @@ class SERV10Controller extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
+
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_content'] = $request->active_content ? 1 : 0;
+        $data['active_topic'] = $request->active_topic ? 1 : 0;
+        $data['active_gallery'] = $request->active_gallery ? 1 : 0;
 
         if($request->title || $request->title_box) $data['slug'] = Str::slug($request->title. ' ' .($request->title_box ? $request->title_box : ''));
 
@@ -141,12 +178,34 @@ class SERV10Controller extends Controller
             $data['path_image_box'] = null;
         }
 
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($SERV10Services, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($SERV10Services, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($SERV10Services, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($SERV10Services, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
+
         if($SERV10Services->fill($data)->save()){
             Session::flash('success', 'Serviço atualizado com sucesso');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_box);
             Storage::delete($path_image_icon_box);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao atualizar o serviço');
         }
         return redirect()->back();
@@ -162,7 +221,9 @@ class SERV10Controller extends Controller
     {
         storageDelete($SERV10Services, 'path_image');
         storageDelete($SERV10Services, 'path_image_icon_box');
-        storageDelete($SERV10Services, 'path_image');
+        storageDelete($SERV10Services, 'path_image_box');
+        storageDelete($SERV10Services, 'path_image_desktop_banner');
+        storageDelete($SERV10Services, 'path_image_box_mobile_banner');
 
         if($SERV10Services->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -184,6 +245,8 @@ class SERV10Controller extends Controller
             storageDelete($SERV10Services, 'path_image');
             storageDelete($SERV10Services, 'path_image_icon_box');
             storageDelete($SERV10Services, 'path_image_box');
+            storageDelete($SERV10Services, 'path_image_desktop_banner');
+            storageDelete($SERV10Services, 'path_image_box_mobile_banner');
         }
 
         if($deleted = SERV10Services::whereIn('id', $request->deleteAll)->delete()){

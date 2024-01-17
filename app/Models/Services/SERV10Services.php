@@ -17,7 +17,14 @@ class SERV10Services extends Model
 
     protected $table = "serv10_services";
     protected $fillable = [
+        //Services
         'category_id', 'slug', 'title', 'text', 'path_image', 'title_box', 'description_box', 'path_image_icon_box', 'path_image_box', 'featured', 'active', 'sorting',
+        //Show page
+        'title_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
+        'title_content', 'subtitle_content', 'description_content', 'active_content',
+        'title_topic', 'subtitle_topic', 'description_topic', 'active_topic',
+        'title_gallery', 'description_gallery', 'active_gallery',
+
     ];
 
     public function scopeSorting($query)

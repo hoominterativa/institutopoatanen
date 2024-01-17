@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{route('admin.serv09.content.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContents" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{route('admin.serv10.content.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContents" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)"  data-bs-target="#modal-contents-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
@@ -24,7 +24,7 @@
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{route('admin.serv09.content.sorting')}}">
+                    <tbody data-route="{{route('admin.serv10.content.sorting')}}">
                         @foreach ($contents as $content)
                             <tr data-code="{{$content->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -32,7 +32,11 @@
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
                                 </td>
                                 <td class="align-middle">{{$content->title}}</td>
-                                <td class="align-middle">{!! substr($content->text, 0, 20)!!}<b>...</b></td>
+                                <td class="align-middle">
+                                    @if ($content->description)
+                                        {!! substr($content->description, 0, 20)!!}<b>...</b>
+                                    @endif
+                                </td>
                                 <td class="align-middle">
                                     @if ($content->active)
                                         <span class="badge bg-success">Ativo</span>
@@ -45,7 +49,7 @@
                                         <div class="col-4">
                                             <a href="javascript:void(0)" data-bs-target="#modal-contents-update-{{$content->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.serv09.content.destroy',['SERV09ServicesContent' => $content->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.serv10.content.destroy',['SERV10ServicesContent' => $content->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
@@ -59,7 +63,7 @@
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.Services.SERV09.Contents.form',[
+                                                        @include('Admin.cruds.Services.SERV10.Contents.form',[
                                                             'content' => $content
                                                         ])
                                                     </div>
@@ -89,7 +93,7 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Services.SERV09.Contents.form',[
+                @include('Admin.cruds.Services.SERV10.Contents.form',[
                     'content' => null
                 ])
             </div>

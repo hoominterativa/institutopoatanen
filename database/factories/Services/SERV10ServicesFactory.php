@@ -36,6 +36,27 @@ class SERV10ServicesFactory extends Factory
             'path_image_icon_box' => 'uploads/tmp/favicon.png',
             'featured' => rand(0, 1),
             'active' => 1,
+
+            //Show page
+            'title_banner' => $this->faker->text(10),
+            'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile_banner' => 'uploads/tmp/gall01_image1.png',
+            'background_color_banner' => '#FFFFFF',
+            'active_banner' => 1,
+
+            'title_content' => $this->faker->text(10),
+            'subtitle_content' => $this->faker->text(10),
+            'description_content' => $this->faker->text(350),
+            'active_content' => 1,
+
+            'title_topic' => $this->faker->text(10),
+            'subtitle_topic' => $this->faker->text(10),
+            'description_topic' => $this->faker->text(350),
+            'active_topic' => 1,
+
+            'title_gallery' => $this->faker->text(10),
+            'description_gallery' => $this->faker->text(350),
+            'active_gallery' => 1,
         ];
     }
 }

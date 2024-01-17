@@ -93,23 +93,21 @@ class SERV10CategoryController extends Controller
 
         // Verificar se existem serviços associadas às categorias
         $serviceExist = SERV10Services::whereIn('category_id', $categoryIds)->exists();
-
         if ($serviceExist) {
-            return response()->json([
+            return Response::json([
                 'status' => 'error',
-                'message' => 'Não é possível excluir as categorias porque existem serviços associados a elas.'
+                'message' => 'Não é possível excluir as categorias porque existem serviços associadas a elas.'
             ]);
         }
 
         // Excluir as categorias
         $deletedCategories = SERV10ServicesCategory::whereIn('id', $categoryIds)->get();
+        foreach ($deletedCategories as $category) {
+            storageDelete($category, 'path_image');
+        }
 
         if ($deleted = SERV10ServicesCategory::whereIn('id', $categoryIds)->delete()) {
-            return response()->json([
-                'status'  => 'success',
-                'message' => count($deletedCategories) . ' categorias excluídas com sucesso',
-                'deleted' => $deletedCategories
-            ]);
+            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
         }
     }
     /**

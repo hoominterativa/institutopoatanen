@@ -1735,6 +1735,52 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "SERV10": {
+            "path_image": {
+                "width": "582",
+                "height": "341",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "330",
+                "height": "400",
+                "activeCrop": "false"
+            },
+            "path_image_icon_box": {
+                "width": "200",
+                "height": "200",
+                "activeCrop": "false"
+            },
+            "path_image_desktop_banner": {
+                "width": "1500",
+                "height": "352",
+                "activeCrop": "false"
+            },
+            "path_image_mobile_banner": {
+                "width": "390",
+                "height": "231",
+                "activeCrop": "true"
+            },
+            "Topic": {
+                "path_image": {
+                    "width": "330",
+                    "height": "300",
+                    "activeCrop": "false"
+                },
+                "path_image_icon": {
+                    "width": "200",
+                    "height": "200",
+                    "activeCrop": "false"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "300",
+                    "height": "340",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Slides": {
