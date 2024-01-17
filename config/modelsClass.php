@@ -454,7 +454,15 @@ return [
             'SERV10' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV10Controller::class,
                 'model' => App\Models\Services\SERV10Services::class,
-                'seedQty' => 1,
+                'seedQty' => 12,
+                'routeName' => 'serv10.category.page',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV10ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
             ],
         ],
         // END SERVICES
