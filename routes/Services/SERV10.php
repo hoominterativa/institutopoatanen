@@ -54,4 +54,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao', SERV10SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV10ServicesSection']);
 });
 Route::get($route.'/categoria/{SERV10ServicesCategory:slug}', [SERV10Controller::class, 'page'])->name($routeName.'.category.page');
-Route::get('categoria/{SERV10ServicesCategory:slug}/'.$route.'/{SERV10Services:slug}', [SERV10Controller::class, 'show'])->name($routeName.'.page.content');
+Route::get('categoria/{SERV10ServicesCategory:slug}/'.$route.'/{SERV10Services:slug}', [SERV10Controller::class, 'show'])->name($routeName.'.show');

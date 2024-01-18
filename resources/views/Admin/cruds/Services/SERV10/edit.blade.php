@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#sectionContent" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Seção conteúdo
+                            Seção conteúdos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Informações complementares que serão apresentadas acima dos conteúdos"></i>

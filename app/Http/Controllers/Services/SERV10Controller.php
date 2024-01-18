@@ -47,7 +47,7 @@ class SERV10Controller extends Controller
      */
     public function create()
     {
-        $categories = SERV10ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $categories = SERV10ServicesCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Services.SERV10.create', [
             'categories' => $categories,
             'cropSetting' => getCropImage('Services', 'SERV10')
@@ -278,13 +278,28 @@ class SERV10Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV10Services $SERV10Services)
-    public function show()
+    public function show($request, SERV10Services $SERV10Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV10', 'show');
 
+        $contents = SERV10ServicesContent::where('service_id', $SERV10Services->id)->active()->sorting()->get();
+        $topics = SERV10ServicesTopic::where('service_id', $SERV10Services->id)->active()->sorting()->get();
+        $galleries = SERV10ServicesGallery::where('service_id', $SERV10Services->id)->sorting()->get();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($SERV10Services) $SERV10Services->path_image_desktop_banner = $SERV10Services->path_image_mobile_banner;
+            break;
+        }
+
         return view('Client.pages.Services.SERV10.show',[
-            'sections' => $sections
+            'sections' => $sections,
+            'contents' => $contents,
+            'topics' => $topics,
+            'galleries' => $galleries,
+            'service' => $SERV10Services
         ]);
     }
 
@@ -294,13 +309,32 @@ class SERV10Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV10ServicesCategory $SERV10ServicesCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV10', 'page');
 
+        $section = SERV10ServicesSection::activeBanner()->first();
+        $categories = SERV10ServicesCategory::active()->exists()->sorting()->get();
+        $services= SERV10Services::active();
+
+        if($SERV10ServicesCategory->exists) {
+            $services = $services->where('category_id', $SERV10ServicesCategory->id);
+
+            foreach($categories as $category) {
+                if($SERV10ServicesCategory->id == $category->id) {
+                    $category->selected = true;
+                }
+            }
+        }
+
+        $services = $services->sorting()->get();
+
         return view('Client.pages.Services.SERV10.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'section' => $section,
+            'categories' => $categories,
+            'services' => $services
         ]);
     }
 
@@ -311,6 +345,12 @@ class SERV10Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV10.section');
+        $section = SERV10ServicesSection::activeSection()->first();
+        $services= SERV10Services::with('categories')->active()->featured()->sorting()->get();
+
+        return view('Client.pages.Services.SERV10.section',[
+            'section' => $section,
+            'services' => $services
+        ]);
     }
 }
