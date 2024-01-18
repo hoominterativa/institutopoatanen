@@ -79,7 +79,7 @@
                                                     <a href="{{$item->route}}" data-bs-toggle="dropdown" class="sublink-item transition">{{$item->name}} <i class="menu-arrow"></i></a>
                                                     <div class="dropdown-menu">
                                                         @foreach ($item->subList as $subItem)
-                                                        <a href="{{$subItem->route}}" class="sublink-item transition">{{$subItem->name}}</a>
+                                                            <a href="{{$subItem->route}}" class="sublink-item transition">{{$subItem->name}}</a>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -95,36 +95,36 @@
                 </nav>
                 {{-- END .menu-list --}}
                 @if ($linksCtaHeader->count() && $callToActionTitle->active_header??false)
-                <div class="container-cta">
-                    <div class="dropdown">
-                        @if ($linksCtaHeader->count()>1)
-                        <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta transition">
-                            {{$callToActionTitle->title_header??''}}
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right">
-                            @foreach ($linksCtaHeader as $linkCtaHeader)
-                            <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item transition mb-2">{{$linkCtaHeader->title}}</a>
-                            @endforeach
+                    <div class="container-cta">
+                        <div class="dropdown">
+                            @if ($linksCtaHeader->count()>1)
+                                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta transition">
+                                    {{$callToActionTitle->title_header??''}}
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right">
+                                    @foreach ($linksCtaHeader as $linkCtaHeader)
+                                        <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item transition mb-2">{{$linkCtaHeader->title}}</a>
+                                    @endforeach
+                                </div>
+                            @else
+                                @foreach ($linksCtaHeader as $linkCtaHeader)
+                                    <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta transition">{{$linkCtaHeader->title}}</a>
+                                @endforeach
+                            @endif
                         </div>
-                        @else
-                        @foreach ($linksCtaHeader as $linkCtaHeader)
-                        <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta transition">{{$linkCtaHeader->title}}</a>
-                        @endforeach
-                        @endif
                     </div>
-                </div>
                 @endif
                 {{-- END .btn-cta --}}
 
                 @if ($socials->count())
-                <nav class="social-network d-flex align-items-center mb-0">
-                    @foreach ($socials as $social)
-                    <a href="{{$social->link}}" class="social-link transition" title="{{$social->title}}">
-                        <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
-                    </a>
-                    @endforeach
-                </nav>
+                    <nav class="social-network d-flex align-items-center mb-0">
+                        @foreach ($socials as $social)
+                            <a href="{{$social->link}}" class="social-link transition" title="{{$social->title}}">
+                                <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
+                            </a>
+                        @endforeach
+                    </nav>
                 @endif
                 {{-- END .social-network --}}
 

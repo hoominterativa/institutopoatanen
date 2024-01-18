@@ -315,7 +315,7 @@ class SERV10Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV10', 'page');
 
         $section = SERV10ServicesSection::activeBanner()->first();
-        $categories = SERV10ServicesCategory::active()->exists()->sorting()->get();
+        $categories = SERV10ServicesCategory::exists()->active()->sorting()->get();
         $services= SERV10Services::active();
 
         if($SERV10ServicesCategory->exists) {

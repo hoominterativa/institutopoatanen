@@ -33,4 +33,13 @@ class SERV10ServicesCategory extends Model
             $query->select('id')->from('serv10_services')->whereColumn('serv10_services.category_id', 'serv10_services_categories.id');
         });
     }
+
+    // DROPDOW MENU
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('serv10_services')->whereColumn('serv10_services.category_id', 'serv10_services_categories.id');
+        });
+    }
 }

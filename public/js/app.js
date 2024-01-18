@@ -11853,8 +11853,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Services_SERV10_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Services/SERV10/src/main */ "./resources/views/Client/pages/Services/SERV10/src/main.js");
 /* harmony import */ var _pages_Services_SERV10_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV10_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -12021,6 +12024,112 @@ if (elementosAnimados.length > 0) {
     observador.observe(elemento);
   });
 }
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Blogs/BLOG01/src/main.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  // if($(window).outerWidth() <= 800){
+  $(".blog01__boxs__carousel").addClass("owl-carousel");
+  $(".blog01__boxs__carousel").owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    items: 4,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 4,
+        touchDrag: false,
+        mouseDrag: false
+      }
+    }
+  });
+  $(".blog01-page__header__category__carousel").addClass("owl-carousel");
+  $(".blog01-page__header__category__carousel").owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: false,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 2
+      }
+    }
+  });
+  // }
+
+  $(".blog01-page__boxs__featured__carousel").addClass("owl-carousel");
+  $(".blog01-page__boxs__featured__carousel").owlCarousel({
+    margin: 10,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 360 up
+      361: {
+        items: 1
+      },
+      // breakpoint from 768 up
+      800: {
+        items: 1
+      }
+    }
+  });
+});
+addEventListener("DOMContentLoaded", function () {
+  var shareButton = document.getElementById("shareButton");
+  shareButton.addEventListener("click", function () {
+    // Verifique se a API do Web Share está disponível no navegador
+    if (navigator.share) {
+      // Dados para compartilhar
+      var title = "{{$blog->title}}"; // Incorporar o título do artigo
+      var description = "{{$blog->description}}"; // Incorporar o a descrição do artigo
+      var url = "{{url()->current() }}"; // Incorporar a URL do artigo
+
+      var shareData = {
+        title: title,
+        text: description,
+        url: url
+      };
+
+      // Chame a API do Web Share para abrir a janela de compartilhamento
+      navigator.share(shareData).then(function () {
+        console.log('Artigo compartilhado com sucesso!');
+      })["catch"](function (error) {
+        console.error('Erro ao compartilhar o artigo:', error);
+      });
+    } else {
+      alert('Este navegador não suporta compartilhamento direto. Você pode copiar o link e compartilhá-lo manualmente.');
+    }
+  });
+});
 
 /***/ }),
 

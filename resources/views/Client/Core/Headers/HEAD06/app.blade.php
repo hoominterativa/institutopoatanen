@@ -7,28 +7,34 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
                         @foreach (array_slice($listMenu, 0, 4) as $module => $menu)
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{$menu->title}} <span class="caret"></span>
+                            <li class="nav-item dropdown" {{$menu->dropdown ? 'dropdown' : ''}}>
+                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link ?? '_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown' : ''}} {{$menu->anchor ? 'data-bs-toggle=jqueryanchor' : ''}}
+                                    class=" nav-link {{!$menu->anchor ? isActive($menu->link) : ''}}">
+                                    {{$menu->title}}
+                                    @if ($menu->dropdown)
+                                        <i class="menu-arrow"></i>
+                                    @endif
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Sobre 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Sobre 2</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a class="dropdown-item" href="#">Sobre 3 <i class="menu-arrow"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Sobre 3.1</a></li>
-                                            <li><a class="dropdown-item" href="#">Sobre 3.2</a></li>
-                                            <li class="dropdown-submenu">
-                                                <a class="dropdown-item" href="#">Sobre 4<i class="menu-arrow"></i></a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Sobre 4.1</a></li>
-                                                    <li><a class="dropdown-item" href="#">Sobre 4.2</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                @if ($menu->dropdown)
+                                    <ul class="dropdown-menu">
+                                        @foreach ($menu->dropdown as $item)
+                                            @if ($item->subList)
+                                                <li class="dropdown-submenu">
+                                                    <a href="{{$item->route}}" data-bs-toggle="dropdown" class="dropdown-item">{{$item->name}} <i class="menu-arrow"></i></a>
+                                                    <ul class="dropdown-menu">
+                                                        @foreach ($item->subList as $subItem)
+                                                            <li>
+                                                                <a href="{{$subItem->route}}" class="dropdown-item">{{$subItem->name}}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @else
+                                                <li><a class="dropdown-item" href="{{$item->route}}">{{$item->name}}</a></li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </li>
                         @endforeach
                         {{-- END nav-item dropdown --}}
@@ -47,29 +53,36 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="navbar-nav">
                             @foreach (array_slice($listMenu, 4, 4) as $module => $menu)
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <span class="caret"></span></a>
+                            <li class="nav-item dropdown" {{$menu->dropdown ? 'dropdown' : ''}}>
+                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link ?? '_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown' : ''}} {{$menu->anchor ? 'data-bs-toggle=jqueryanchor' : ''}}
+                                    class=" nav-link {{!$menu->anchor ? isActive($menu->link) : ''}}">
+                                    {{$menu->title}}
+                                    @if ($menu->dropdown)
+                                        <i class="menu-arrow"></i>
+                                    @endif
+                                </a>
+                                @if ($menu->dropdown)
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="/blog">Blog 1</a></li>
-                                        <li><a class="dropdown-item" href="#/blog">Blog 2</a></li>
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="/blog">Blog 3 <i class="menu-arrow"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Blog 3.1</a></li>
-                                                <li><a class="dropdown-item" href="#">Blog 3.2</a></li>
+                                        @foreach ($menu->dropdown as $item)
+                                            @if ($item->subList)
                                                 <li class="dropdown-submenu">
-                                                    <a class="dropdown-item" href="#">Blog 4<i class="menu-arrow"></i></a>
+                                                    <a href="{{$item->route}}" data-bs-toggle="dropdown" class="dropdown-item">{{$item->name}} <i class="menu-arrow"></i></a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Blog 4.1</a></li>
-                                                        <li><a class="dropdown-item" href="#">Blog 4.2</a></li>
+                                                        @foreach ($item->subList as $subItem)
+                                                            <li>
+                                                                <a href="{{$subItem->route}}" class="dropdown-item">{{$subItem->name}}</a>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
-                                            </ul>
-                                        </li>
+                                            @else
+                                                <li><a class="dropdown-item" href="{{$item->route}}">{{$item->name}}</a></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
+                                @endif
                                 </li>
                             @endforeach
-                            {{-- END nav-item dropdown --}}
                         </ul>
                     </div>
                 </nav>
@@ -83,29 +96,40 @@
                     </a>
                 </div> --}}
                 {{-- END Button --}}
-                <div class="head06__content__right__encompass-cta__cta">
-                    <div class="head06__content__right__encompass-cta__cta__dropdown dropdown">
-                        <button class="dropdown-toggle head06__content__right__encompass-cta__cta__dropdown__dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        CTA
-                        </button>
-                        <ul class="dropdown-menu head06__content__right__encompass-cta__cta__dropdown__dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                @if ($linksCtaHeader->count() && $callToActionTitle->active_header??false)
+                    <div class="head06__content__right__encompass-cta__cta">
+                        <div class="head06__content__right__encompass-cta__cta__dropdown dropdown">
+                            @if ($linksCtaHeader->count()>1)
+                                <button class="dropdown-toggle head06__content__right__encompass-cta__cta__dropdown__dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{$callToActionTitle->title_header??''}}
+                                    <i class="menu-arrow"></i>
+                                </button>
+                                <ul class="dropdown-menu head06__content__right__encompass-cta__cta__dropdown__dropdown-menu">
+                                    @foreach ($linksCtaHeader as $linkCtaHeader)
+                                        <li><a class="dropdown-item" href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a></li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                @foreach ($linksCtaHeader as $linkCtaHeader)
+                                    <li><a class="dropdown-item" href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a></li>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
-                </div>
+                @endif
                 {{-- END Dropdown --}}
             </div>
 
             {{-- END .btn-cta --}}
+            @if ($socials->count())
                 <div class="head06__content__right__rede">
-                    @for($i = 0; $i <= 2; $i++)
-                        <a href="#" title="Rede Social">
-                            <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="ícone rede social">
+                    @foreach ($socials as $social)
+                        <a href="{{$social->link}}" target="_blank" title="{{$social->title}}">
+                            <img src="{{asset('storage/'.$social->path_image_icon)}}" alt="{{$social->title}}">
                         </a>
-                    @endfor
+                    @endforeach
                 </div>
+            @endif
             {{-- head06__content__right__rede --}}
             <div class="head06__content__right__btn-sidebar">
                 <a href="#SIDE03" alt="{{__('Abrir menu')}}" nofollow data-plugin="sidebar" data-sb-position="right" class="d-flex align-items-center">
