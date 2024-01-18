@@ -299,6 +299,7 @@ class CoreController extends Controller
     public function renderHeader()
     {
         $listMenu = self::buildListMenu();
+        // dd(array_slice($listMenu, 0, 4), array_slice($listMenu, 4, 4));
         if(isset($this->InsertModelsCore->Headers->Code)){
             return view('Client.Core.Headers.'.$this->InsertModelsCore->Headers->Code.'.app', [
                 'class' => $this->Class,

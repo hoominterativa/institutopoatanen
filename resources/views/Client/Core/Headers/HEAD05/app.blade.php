@@ -64,32 +64,32 @@
                             <a href="{{route('home')}}" class="link transition"><img class="img" src="{{asset('images/home.png')}}" alt="Imagem Home"></a>
                         </li>
                         @foreach ($listMenu as $module => $menu)
-                        <li class="list-inline-item menu-item {{$menu->dropdown?'dropdown':''}}">
-                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="link transition {{!$menu->anchor?isActive($menu->link):''}}">
-                                {{$menu->title}}
+                            <li class="list-inline-item menu-item {{$menu->dropdown?'dropdown':''}}">
+                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="link transition {{!$menu->anchor?isActive($menu->link):''}}">
+                                    {{$menu->title}}
+                                    @if ($menu->dropdown)
+                                    <i class="menu-arrow"></i>
+                                    @endif
+                                </a>
                                 @if ($menu->dropdown)
-                                <i class="menu-arrow"></i>
-                                @endif
-                            </a>
-                            @if ($menu->dropdown)
-                            <div class="sublink--menu text-end dropdown-menu" aria-labelledby="sublink--menu">
-                                @foreach ($menu->dropdown as $item)
-                                @if ($item->subList)
-                                <div class="mb-2 dropdown">
-                                    <a href="{{$item->route}}" data-bs-toggle="dropdown" class="sublink-item transition">{{$item->name}} <i class="menu-arrow"></i></a>
-                                    <div class="dropdown-menu">
-                                        @foreach ($item->subList as $subItem)
-                                        <a href="{{$subItem->route}}" class="sublink-item transition">{{$subItem->name}}</a>
+                                    <div class="sublink--menu text-end dropdown-menu" aria-labelledby="sublink--menu">
+                                        @foreach ($menu->dropdown as $item)
+                                            @if ($item->subList)
+                                                <div class="mb-2 dropdown">
+                                                    <a href="{{$item->route}}" data-bs-toggle="dropdown" class="sublink-item transition">{{$item->name}} <i class="menu-arrow"></i></a>
+                                                    <div class="dropdown-menu">
+                                                        @foreach ($item->subList as $subItem)
+                                                        <a href="{{$subItem->route}}" class="sublink-item transition">{{$subItem->name}}</a>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
+                                            @endif
                                         @endforeach
                                     </div>
-                                </div>
-                                @else
-                                <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
                                 @endif
-                                @endforeach
-                            </div>
-                            @endif
-                        </li>
+                            </li>
                         @endforeach
                     </ul>
                 </nav>

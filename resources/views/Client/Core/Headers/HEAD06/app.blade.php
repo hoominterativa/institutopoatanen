@@ -5,72 +5,32 @@
             <div class="navbar navbar-expand-lg">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Sobre 1</a></li>
-                                <li><a class="dropdown-item" href="#">Sobre 2</a></li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="#">Sobre 3 <i class="menu-arrow"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Sobre 3.1</a></li>
-                                        <li><a class="dropdown-item" href="#">Sobre 3.2</a></li>
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="#">Sobre 4<i class="menu-arrow"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Sobre 4.1</a></li>
-                                                <li><a class="dropdown-item" href="#">Sobre 4.2</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        {{-- END nav-item dropdown --}}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Produtos <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Produtos 1</a></li>
-                                <li><a class="dropdown-item" href="#">Produtos 2</a></li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="#">Produtos 3 <i class="menu-arrow"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Produtos 3.1</a></li>
-                                        <li><a class="dropdown-item" href="#">Produtos 3.2</a></li>
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="#">Produtos 4<i class="menu-arrow"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Produtos 4.1</a></li>
-                                                <li><a class="dropdown-item" href="#">Produtos 4.2</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        {{-- END nav-item dropdown --}}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Serviços 1</a></li>
-                                <li><a class="dropdown-item" href="#">Serviços 2</a></li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="#">Serviços 3 <i class="menu-arrow"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Serviços 3.1</a></li>
-                                        <li><a class="dropdown-item" href="#">Serviços 3.2</a></li>
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="#">Serviços 4<i class="menu-arrow"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Serviços 4.1</a></li>
-                                                <li><a class="dropdown-item" href="#">Serviços 4.2</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
+                        @foreach (array_slice($listMenu, 0, 4) as $module => $menu)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{$menu->title}} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Sobre 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Sobre 2</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" href="#">Sobre 3 <i class="menu-arrow"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Sobre 3.1</a></li>
+                                            <li><a class="dropdown-item" href="#">Sobre 3.2</a></li>
+                                            <li class="dropdown-submenu">
+                                                <a class="dropdown-item" href="#">Sobre 4<i class="menu-arrow"></i></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Sobre 4.1</a></li>
+                                                    <li><a class="dropdown-item" href="#">Sobre 4.2</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endforeach
                         {{-- END nav-item dropdown --}}
                     </ul>
                 </div>
@@ -86,35 +46,36 @@
                 <nav class="navbar navbar-expand-lg">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/blog">Blog 1</a></li>
-                                    <li><a class="dropdown-item" href="#/blog">Blog 2</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a class="dropdown-item" href="/blog">Blog 3 <i class="menu-arrow"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Blog 3.1</a></li>
-                                            <li><a class="dropdown-item" href="#">Blog 3.2</a></li>
-                                            <li class="dropdown-submenu">
-                                                <a class="dropdown-item" href="#">Blog 4<i class="menu-arrow"></i></a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Blog 4.1</a></li>
-                                                    <li><a class="dropdown-item" href="#">Blog 4.2</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                            @foreach (array_slice($listMenu, 4, 4) as $module => $menu)
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/blog">Blog 1</a></li>
+                                        <li><a class="dropdown-item" href="#/blog">Blog 2</a></li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="/blog">Blog 3 <i class="menu-arrow"></i></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Blog 3.1</a></li>
+                                                <li><a class="dropdown-item" href="#">Blog 3.2</a></li>
+                                                <li class="dropdown-submenu">
+                                                    <a class="dropdown-item" href="#">Blog 4<i class="menu-arrow"></i></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">Blog 4.1</a></li>
+                                                        <li><a class="dropdown-item" href="#">Blog 4.2</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endforeach
                             {{-- END nav-item dropdown --}}
-                            <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
-            
-            
+
+
             <div class="head06__content__right__encompass-cta">
                 {{-- <div class="head06__content__right__encompass-cta__cta">
                     <a href="" class="head06__content__right__encompass-cta__cta__button">
