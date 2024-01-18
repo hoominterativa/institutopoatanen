@@ -20,7 +20,7 @@
     @endif
     {{-- END serv10-page__banner --}}
     <div class="serv10-page__main container px-0">
-        @if ($categories)
+        @if ($categories->count())
             <div class="serv10-page__main__navigation">
                 <nav>
                     <ul>
