@@ -91,21 +91,13 @@
                     </div>
                 </nav>
             </div>
-
-
             <div class="head06__content__right__encompass-cta">
-                {{-- <div class="head06__content__right__encompass-cta__cta">
-                    <a href="" class="head06__content__right__encompass-cta__cta__button">
-                        CTA
-                    </a>
-                </div> --}}
-                {{-- END Button --}}
                 @if ($linksCtaHeader->count() && $callToActionTitle->active_header??false)
                     <div class="head06__content__right__encompass-cta__cta">
                         <div class="head06__content__right__encompass-cta__cta__dropdown dropdown">
                             @if ($linksCtaHeader->count()>1)
                                 <button class="dropdown-toggle head06__content__right__encompass-cta__cta__dropdown__dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{$callToActionTitle->title_header??''}}
+                                    {{$callToActionTitle->title_header ?? ''}}
                                     <i class="menu-arrow"></i>
                                 </button>
                                 <ul class="dropdown-menu head06__content__right__encompass-cta__cta__dropdown__dropdown-menu">
@@ -115,7 +107,11 @@
                                 </ul>
                             @else
                                 @foreach ($linksCtaHeader as $linkCtaHeader)
-                                    <li><a class="dropdown-item" href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}">{{$linkCtaHeader->title}}</a></li>
+                                    <div class="head06__content__right__encompass-cta__cta">
+                                        <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="head06__content__right__encompass-cta__cta__button">
+                                            {{$linkCtaHeader->title}}
+                                        </a>
+                                    </div>
                                 @endforeach
                             @endif
                         </div>
@@ -123,7 +119,6 @@
                 @endif
                 {{-- END Dropdown --}}
             </div>
-
             {{-- END .btn-cta --}}
             @if ($socials->count())
                 <div class="head06__content__right__rede">
