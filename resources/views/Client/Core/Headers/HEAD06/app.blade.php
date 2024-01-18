@@ -6,6 +6,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
+                        {{-- Se desejar alterar a origem do elemento e a quantidade de itens em um array, você pode realizar essa operação utilizando a função array_slice.
+                                Nessa função, o primeiro parâmetro representa o índice de início do elemento desejado, enquanto o segundo parâmetro indica a extensão (ou quantidade) de itens que você deseja extrair. --}}
                         @foreach (array_slice($listMenu, 0, 4) as $module => $menu)
                             <li class="nav-item dropdown" {{$menu->dropdown ? 'dropdown' : ''}}>
                                 <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link ?? '_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown' : ''}} {{$menu->anchor ? 'data-bs-toggle=jqueryanchor' : ''}}
@@ -52,6 +54,8 @@
                 <nav class="navbar navbar-expand-lg">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="navbar-nav">
+                            {{-- Se desejar alterar a origem do elemento e a quantidade de itens em um array, você pode realizar essa operação utilizando a função array_slice.
+                                Nessa função, o primeiro parâmetro representa o índice de início do elemento desejado, enquanto o segundo parâmetro indica a extensão (ou quantidade) de itens que você deseja extrair. --}}
                             @foreach (array_slice($listMenu, 4, 4) as $module => $menu)
                             <li class="nav-item dropdown" {{$menu->dropdown ? 'dropdown' : ''}}>
                                 <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link ?? '_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown' : ''}} {{$menu->anchor ? 'data-bs-toggle=jqueryanchor' : ''}}
