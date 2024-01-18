@@ -1,0 +1,259 @@
+@import 'variables';
+
+/* BEGIN STYLE */
+
+.head06{
+    display: flex;
+    height: 6.25rem;
+    border-bottom: 9px solid $color-two;
+
+    // Estilos padrões do dropdown
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 100%;
+            margin-top: 5px;
+            margin-left: -1px;
+        }
+
+        .nav-link:focus, .nav-link:hover{
+
+        }
+        .navbar-expand-lg .navbar-nav .nav-link{
+            padding: 0;
+        }
+        .navbar-expand-lg{
+            padding: 0;
+        }
+        .navbar-nav{
+            gap: 0 1.5rem;
+        }
+
+        .dropdown-menu {
+            background: $color-black;
+        }
+        .dropdown-submenu{
+            background: $color-black;
+        }
+        .dropdown-item{
+            color: $color-white;
+
+            &:focus, &:hover{
+                background: $color-white;
+                color:$color-black;
+            }
+
+            .menu-arrow{
+                border-top: 5px solid $color-white;
+                margin-left: 0.56rem;
+            }
+        }
+    //END estilos padrões do dropdown
+    
+
+    &__content{
+        padding: 0 4.81rem;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+
+        @include x-large-device-down{
+            padding: 0 1.81rem;
+        }
+    
+        &__left{
+            width: 26vw;
+            margin-right: auto;
+            justify-content: flex-start;
+
+            @include x-large-device-down {
+                display: none;
+            }
+
+            &__list{
+                padding: 0;
+                gap: 0 5rem;
+                display: flex;
+                align-items: center;
+                list-style: none;
+
+                &__item{
+                    position: relative;
+
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 9px;
+                        background-color: $color-black;
+                        left: 0;
+                        bottom: -42px;    
+                    }
+
+                    a{
+
+                    }
+
+                    &__dropdown-primary{
+                        &__dropdown-toggle{
+                            background-color: transparent;
+                            border: 0;
+                        }
+                        &__dropdown-menu{
+
+                        }
+                    }
+                }
+            }
+        }
+        &__logo{
+            width: 14.875rem;
+            height: 5.625rem;
+
+            @include x-large-device-down{
+                width: 10.34725rem;
+                height: 4.61013rem;
+            }
+
+            a{
+                width: 100%;
+                height: 100%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                } 
+            }  
+        }
+        &__right{
+           display: flex;
+            align-items: center;
+            width: 28vw;
+            margin-left: auto;
+            justify-content: flex-end;
+
+            &__menu{
+                @include x-large-device-down {
+                    display: none;
+                }
+            }
+            
+            &__encompass-cta{
+                gap:0 0.55rem;
+                display: flex;
+                margin-left: 1.56rem;
+                margin-right: 1.56rem;
+
+                @include x-large-device-down {
+                    display: none;
+                }
+
+
+                &__cta{
+                    width: auto;
+                    height: auto;
+                    border-radius: 1.6875rem;
+                    background-color: $color-black;
+                    @include disFlex(column,center,center);
+                    
+
+                    &__button{
+                        color: $color-white;
+                        font-size: $font-15;
+                        font-family: $font-primary;
+                        padding: 0.19rem 1.88rem;
+                    }
+
+                    &__dropdown{
+                        width: 100%;
+
+                        &__dropdown-toggle{
+                            background-color: transparent;
+                            border: 0;
+                            color: $color-white;
+                            font-size: $font-15;
+                            font-family: $font-primary;
+                            @include disFlex(row,center,center);
+                            width: 100%;
+                            padding: 0.19rem 1.88rem;
+
+                            &::after{
+                                margin-left: 0.72rem;
+                                color: $color-four;
+                                border-top: 8px solid;
+                                border-right: 6.5px solid transparent;
+                                border-bottom: 0;
+                                border-left: 6.5px solid transparent;
+                            }
+                        }
+                        &__dropdown-menu{
+                            background-color: $color-black;
+
+                            li{
+                                a{
+                                    
+                                    font-size: $font-15;
+                                    font-family: $font-primary;
+                                    color: $color-white;
+
+                                    &:hover, &:focus, &:active{
+                                        background-color: $color-white;
+                                        color: $color-black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__rede{
+                display: flex;
+                align-items: center;
+                gap:0 0.62rem;
+
+                @include x-large-device-down {
+                    display: none;
+                }
+
+                a{
+                    img{
+                        width: 1.57081rem;
+                        height: 1.57238rem;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            &__btn-sidebar{
+                display: none;
+                margin-left: 35px;
+
+                &__lines{
+                    width: 38px;
+                    >i{
+                        height: 2px;
+                        display: block;
+                        background-color: #000;
+                    }
+                }
+                &:active{
+                    &__lines{
+                        >i{
+                            background-color: rgb(138, 138, 138);
+                        }
+                    }
+                }
+                @include x-large-device-down {
+                    display: block;
+                }
+            }
+        }
+    }
+}
