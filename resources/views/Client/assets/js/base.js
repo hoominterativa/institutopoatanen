@@ -1,6 +1,16 @@
 import '../../Core/Headers/HEAD06/src/main';
 import '../../Components/themeMenu/SIDE02/src/main';
 import '../../Core/Footers/FOOT02/src/main';
+import '../../pages/Slides/SLID01/src/main';
+import '../../pages/Topics/TOPI09/src/main';
+import '../../pages/Abouts/ABOU04/src/main';
+import '../../pages/Topics/TOPI02/src/main';
+import '../../pages/Contents/CONT06/src/main';
 import '../../pages/Services/SERV10/src/main';
+import '../../pages/Portfolios/PORT02/src/main';
+import '../../pages/Topics/TOPI01/src/main';
+import '../../pages/Units/UNIT01/src/main';
+import '../../pages/Feedbacks/FEED05/src/main';
 import '../../pages/Blogs/BLOG01/src/main';
+import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Compliances/COMP01/src/main';
