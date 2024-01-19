@@ -2,6 +2,18 @@
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
+                <div class="d-flex">
+                    {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
+                    <i class="text-danger">*</i>
+                </div>
+                {!! Form::select('category_id', $categories, null, [
+                    'class'=>'form-select',
+                    'id'=>'heard',
+                    'required'=>'required',
+                    'placeholder' => 'Informe a categoria do serviço'
+                ]) !!}
+            </div>
+            <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Form::label('title_unit', 'Título da Unidade', ['class'=>'form-label']) !!}
@@ -13,16 +25,12 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+            <div class="normal-editor__content mb-3">
+                {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
                 {!! Form::textarea('description', null, [
-                    'class'=>'form-control',
-                    'id'=>'description',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'800',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
+                    'class' => 'form-control normal-editor',
+                    'data-height' => 500,
+                    'id' => 'description',
                 ]) !!}
             </div>
             <div class="d-flex">
