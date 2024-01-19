@@ -19,16 +19,21 @@
                         @if ($categories->count())
                             <div class="unit01-page__header__navigation">
                                 <nav class="unit01-page__header__navigation__desktop">
-                                    <ul>
+                                    <ul class="unit01-page__header__navigation__desktop__item">
                                         @foreach ($categories as $category)
-                                            <li class=" {{isset($category->selected) ? 'active':''}}"><a href="{{route('unit01.category.page',['UNIT01UnitsCategory' => $category->slug])}}">{{$category->title}}</a></li>
+                                            <li>
+                                                <a href="{{route('unit01.category.page',['UNIT01UnitsCategory' => $category->slug])}}">
+                                                    <img src="{{asset('storage/' . $category->path_image)}}" alt="ícone {{$category->title}}">
+                                                    {{$category->title}}
+                                                </a>
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </nav>
-                                <div class="unit01-page__header__navigation__mobile">
+                                <div class="unit01-page__header__navigation__dropdown-mobile">
                                     <div class="accordion accordion-flush" id="accordionFlushExample">
                                         <div class="accordion-item">
-                                            <h2 class="accordion-header serv10-page__main__navigation__dropdown-mobile__item">
+                                            <h2 class="accordion-header unit01-page__header__navigation__dropdown-mobile__item">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#flush-collapseOne" aria-expanded="false"
                                                     aria-controls="flush-collapseOne">
@@ -39,8 +44,9 @@
                                                 <div class="accordion-body">
                                                     <ul>
                                                         @foreach ($categories as $category)
-                                                            <li class="serv10-page__main__navigation__dropdown-mobile__item">
+                                                            <li class="unit01-page__header__navigation__dropdown-mobile__item">
                                                                 <a href="{{route('unit01.category.page',['UNIT01UnitsCategory' => $category->slug])}}">
+                                                                    <img src="{{asset('storage/' . $category->path_image)}}" alt="ícone {{$category->title}}">
                                                                     {{$category->title}}
                                                                 </a>
                                                             </li>

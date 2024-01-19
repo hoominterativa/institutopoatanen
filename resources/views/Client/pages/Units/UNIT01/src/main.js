@@ -30,3 +30,7 @@ $(".unit01-show-carousel").css("width", $(window).outerWidth() / 2 - 108);
 var altLightbox = $(".lightbox-unit01").outerHeight();
 $(".unit01-show-carousel").css("height", $(altLightbox));
 
+if($(window).outerWidth() <= 800){
+    $(".unit01-show-carousel").css("width", $(window).outerWidth() - 16);
+}
+

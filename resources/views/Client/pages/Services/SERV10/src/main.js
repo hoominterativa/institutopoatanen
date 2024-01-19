@@ -27,3 +27,7 @@ $('.carousel-serv10').owlCarousel({
 });
 
 $('.carousel-serv10').css('width', $('.serv10 .container').outerWidth());
+if($(window).outerWidth() <= 800){
+    $('.carousel-serv10').css('width',  $(window).outerWidth());
+}
+

@@ -74,6 +74,10 @@
             padding-bottom: 20px;
         }
         &__box{
+            width: 100%;
+            // @include medium-device-down{
+            //     width: 20.625rem;
+            // }
             &__content{
                 padding: 0 0.5rem;
                 height: 100%;

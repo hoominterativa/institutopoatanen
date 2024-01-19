@@ -6,6 +6,11 @@
     @include medium-device-down {
         padding: 35px 0;
     }
+    .container--edit{
+        @include medium-device-down {
+            max-width: 90% !important;
+        } 
+    }
     .header-topic {
         text-align: center;
         .container-title {

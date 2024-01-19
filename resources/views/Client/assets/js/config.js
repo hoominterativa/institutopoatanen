@@ -54,6 +54,20 @@ function insertImageMobile() {
 }
 
 $(function () {
+    $('.owl-carousel').each(function () {
+        const owlCarousel = $(this);
+        const owlItems = owlCarousel.find('.owl-item');
+        const prevButton = owlCarousel.find('.owl-prev');
+        const nextButton = owlCarousel.find('.owl-next');
+    
+        if (owlItems.length > 1) {
+            prevButton.show();
+            nextButton.show();
+        } else {
+            prevButton.hide();
+            nextButton.hide();
+        }
+    });
     // SET HEADER FLOATING
     const ff = $(".fixed-floating"),
         hf = ff.find(".header-floating"),

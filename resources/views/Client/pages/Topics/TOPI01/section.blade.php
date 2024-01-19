@@ -1,6 +1,6 @@
 @if ($topics->count())
     <section id="TOPI01" class="container-fluid">
-        <div class="container">
+        <div class="container container--edit">
             @if ($section)
                 <header class="header-topic">
                     <h3 class="container-title">
