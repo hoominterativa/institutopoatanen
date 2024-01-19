@@ -9,12 +9,16 @@
         <div class="col-12 col-lg-6">
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
-                    {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
-                </div>
-                <div class="mb-3">
-                    {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                            {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title']) !!}
+                        </div>
+                        <div class="col-sm-6">
+                            {!! Form::label('subtitle', 'Subtítulo', ['class'=>'form-label']) !!}
+                            {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'subtitle']) !!}
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                     {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
@@ -22,8 +26,7 @@
                         'class'=>'form-control',
                         'id'=>'description',
                         'data-parsley-trigger'=>'keyup',
-                        'data-parsley-minlength'=>'20',
-                        'data-parsley-maxlength'=>'1000',
+                        'data-parsley-maxlength'=>'500',
                         'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                         'data-parsley-validation-threshold'=>'10',
                     ]) !!}
@@ -81,7 +84,7 @@
                     <div class="row">
                         <div class="col-12 col-sm-8">
                             {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                            {!! Form::url('link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
+                            {!! Form::url('link', (isset($topic) ? getUri($topic->link) : null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                         </div>
                         <div class="col-12 col-sm-4">
                             {!! Form::label('target_link', 'Redirecionar para', ['class'=>'form-label']) !!}
@@ -89,10 +92,10 @@
                         </div>
                     </div>
                 </div> {{-- END .wrapper-links --}}
-                <div class="mb-3 form-check">
-                    {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                    {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
-                </div>
+            </div>
+            <div class="mb-3 form-check">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Ativar exibição?', ['class'=>'form-check-label']) !!}
             </div>
         </div>
         <div class="col-12 col-lg-6">

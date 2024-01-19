@@ -16,10 +16,18 @@ class UNIT01UnitsSection extends Model
     }
 
     protected $table = "unit01_units_sections";
-    protected $fillable = ['title', 'subtitle', 'active'];
+    protected $fillable = [
+        'title_section', 'subtitle_section', 'active_section',
+        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner'
+    ];
 
-    public function scopeActive($query)
+    public function scopeActiveSection($query)
     {
-        return $query->where('active', 1);
+        return $query->where('active_section', 1);
+    }
+
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
     }
 }

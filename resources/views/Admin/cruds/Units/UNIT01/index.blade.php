@@ -27,10 +27,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Banner
+                        <a href="#categories" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-original-title="Informações para o banner da página."></i>
+                            data-bs-original-title="Cadastro das categorias para as unidades."></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -40,8 +40,14 @@
                             data-bs-original-title="Informações adicionais que serão mostradas na página home."></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Informações para o banner da página."></i>
+                        </a>
+                    </li>
                 </ul>
-
                 <div class="tab-content">
                     <div class="tab-pane show active" id="units">
                         <div class="row">
@@ -63,6 +69,7 @@
                                                     <th width="30px" class="bs-checkbox">
                                                         <label><input name="btnSelectAll" value="btnDeleteUnits" type="checkbox"></label>
                                                     </th>
+                                                    <th>Categoria</th>
                                                     <th>Títulos</th>
                                                     <th>Descrição</th>
                                                     <th width="100px">Status</th>
@@ -77,8 +84,13 @@
                                                         <td class="bs-checkbox align-middle">
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$unit->id}}"></label>
                                                         </td>
+                                                        <td class="align-middle">{{$unit->category->title}}</td>
                                                         <td class="align-middle">{{$unit->title_unit}} <b>/<b> {{$unit->title}}</td>
-                                                        <td class="align-middle">{!! substr($unit->description, 0, 50) !!}</td>
+                                                        <td class="align-middle">
+                                                            @if ($unit->description)
+                                                                {!! substr($unit->description, 0, 25) !!} <b>...</b>
+                                                            @endif
+                                                        </td>
                                                         <td class="align-middle">
                                                             @if ($unit->active)
                                                                 <span class="badge bg-success">Ativo</span>
@@ -109,8 +121,17 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                        @include('Admin.cruds.Units.UNIT01.Banner.form')
+                    <div class="tab-pane" id="section">
                         @include('Admin.cruds.Units.UNIT01.Section.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Units.UNIT01.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="categories">
+                        @include('Admin.cruds.Units.UNIT01.Categories.index',[
+                            'categories' => $serviceCategories,
+                        ])
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->

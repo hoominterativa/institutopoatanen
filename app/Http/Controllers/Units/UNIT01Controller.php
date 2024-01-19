@@ -9,11 +9,12 @@ use App\Models\Units\UNIT01UnitsTopic;
 use App\Models\Units\UNIT01UnitsBanner;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Response;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Units\UNIT01UnitsGallery;
 use App\Models\Units\UNIT01UnitsSection;
+use Illuminate\Support\Facades\Response;
+use App\Models\Units\UNIT01UnitsCategory;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\IncludeSectionsController;
 
 class UNIT01Controller extends Controller
 {
@@ -25,12 +26,14 @@ class UNIT01Controller extends Controller
     public function index()
     {
         $units = UNIT01Units::sorting()->get();
-        $banner = UNIT01UnitsBanner::first();
         $section = UNIT01UnitsSection::first();
+        $serviceCategories = UNIT01UnitsCategory::sorting()->get();
+        $categories = UNIT01UnitsCategory::exists()->sorting()->pluck('title', 'id');
         return view('Admin.cruds.Units.UNIT01.index', [
             'units' => $units,
-            'banner' => $banner,
             'section' => $section,
+            'serviceCategories' => $serviceCategories,
+            'categories' => $categories,
             'cropSetting' => getCropImage('Units', 'UNIT01')
         ]);
     }
@@ -42,7 +45,10 @@ class UNIT01Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Units.UNIT01.create');
+        $categories = UNIT01UnitsCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Units.UNIT01.create',[
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -57,9 +63,9 @@ class UNIT01Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
 
-        if(UNIT01Units::create($data)){
+        if($unit = UNIT01Units::create($data)){
             Session::flash('success', 'Unidade cadastrada com sucesso');
-            return redirect()->route('admin.unit01.index');
+            return redirect()->route('admin.unit01.edit',['UNIT01Units' => $unit->id]);
         }else{
             Session::flash('success', 'Erro ao cadastradar a unidade');
             return redirect()->back();
@@ -76,10 +82,12 @@ class UNIT01Controller extends Controller
     {
         $topics = UNIT01UnitsTopic::where('unit_id', $UNIT01Units->id)->sorting()->get();
         $galleries = UNIT01UnitsGallery::where('unit_id', $UNIT01Units->id)->sorting()->get();
+        $categories = UNIT01UnitsCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Units.UNIT01.edit', [
             'unit' => $UNIT01Units,
             'topics' => $topics,
             'galleries' => $galleries,
+            'categories' => $categories,
             'cropSetting' => getCropImage('Units', 'UNIT01')
         ]);
     }
@@ -193,28 +201,39 @@ class UNIT01Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, UNIT01UnitsCategory $UNIT01UnitsCategory)
     {
-        switch (deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $banner = UNIT01UnitsBanner::active()->first();
-                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
-                break;
-            default:
-                $banner = UNIT01UnitsBanner::active()->first();
-                break;
-        }
-
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT01');
 
-        $units = UNIT01Units::with(['topics', 'galleries'])->active()->sorting()->get();
+        $section = UNIT01UnitsSection::activeBanner()->first();
+        $categories = UNIT01UnitsCategory::exists()->active()->sorting()->get();
+        $units= UNIT01Units::with(['topics', 'galleries'])->active();
+
+        if($UNIT01UnitsCategory->exists) {
+            $units = $units->where('category_id', $UNIT01UnitsCategory->id);
+
+            foreach($categories as $category) {
+                if($UNIT01UnitsCategory->id == $category->id) {
+                    $category->selected = true;
+                }
+            }
+        }
+
+        $units = $units->sorting()->get();
+
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($section) $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+            break;
+        }
 
         return view('Client.pages.Units.UNIT01.page',[
             'sections' => $sections,
             'units' => $units,
-            'banner' => $banner
+            'section' => $section,
+            'categories' => $categories
         ]);
     }
 
@@ -225,6 +244,14 @@ class UNIT01Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Units.UNIT01.section');
+        $section = UNIT01UnitsSection::activeSection()->first();
+        $categories = UNIT01UnitsCategory::exists()->active()->featured()->sorting()->get();
+        $units = UNIT01Units::active()->featured()->sorting()->get();
+
+        return view('Client.pages.Units.UNIT01.section',[
+            'section' => $section,
+            'categories' => $categories,
+            'units' => $units
+        ]);
     }
 }

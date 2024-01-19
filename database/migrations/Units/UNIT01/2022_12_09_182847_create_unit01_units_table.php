@@ -15,6 +15,7 @@ class CreateUnit01UnitsTable extends Migration
     {
         Schema::create('unit01_units', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('unit01_units_categories');
             $table->string('title_unit')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();

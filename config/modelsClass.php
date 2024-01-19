@@ -610,7 +610,15 @@ return [
             'UNIT01' => (object)[
                 'controller' => App\Http\Controllers\Units\UNIT01Controller::class,
                 'model' => App\Models\Units\UNIT01Units::class,
-                'seedQty' => 2,
+                'seedQty' => 12,
+                'routeName' => 'unit01.show',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Units\UNIT01UnitsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 7,
+                    ]
+                ]
             ],
             'UNIT03' => (object)[
                 'controller' => App\Http\Controllers\Units\UNIT03Controller::class,

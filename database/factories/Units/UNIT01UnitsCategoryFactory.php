@@ -2,17 +2,18 @@
 
 namespace Database\Factories\Units;
 
+use Illuminate\Support\Str;
+use App\Models\Units\UNIT01UnitsCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Units\UNIT01Units;
 
-class UNIT01UnitsFactory extends Factory
+class UNIT01UnitsCategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = UNIT01Units::class;
+    protected $model = UNIT01UnitsCategory::class;
 
     /**
      * Define the model's default state.
@@ -21,11 +22,12 @@ class UNIT01UnitsFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(10);
+
         return [
-            'category_id' => rand(1, 7),
-            'title_unit' => $this->faker->text(10),
-            'title' => $this->faker->text(10),
-            'description' => $this->faker->text(200),
+            'slug' => Str::slug($title),
+            'title' => $title,
+            'path_image' => 'uploads/tmp/favicon.png',
             'active' => 1,
             'featured' => rand(0, 1),
         ];

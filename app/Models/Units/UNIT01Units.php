@@ -17,7 +17,7 @@ class UNIT01Units extends Model
     }
 
     protected $table = "unit01_units";
-    protected $fillable = ['title_unit', 'title', 'description', 'featured', 'active', 'sorting'];
+    protected $fillable = ['category_id', 'title_unit', 'title', 'description', 'featured', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -42,5 +42,10 @@ class UNIT01Units extends Model
     public function galleries()
     {
         return $this->hasMany(UNIT01UnitsGallery::class, 'unit_id')->sorting();
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(UNIT01UnitsCategory::class, 'category_id');
     }
 }

@@ -1,7 +1,7 @@
 @if ($section)
     {!! Form::model($section, ['route' => ['admin.serv10.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
-    {!! Form::hidden('active_active', $section->active_active) !!}
+    {!! Form::hidden('active_section', $section->active_section) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.serv10.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif

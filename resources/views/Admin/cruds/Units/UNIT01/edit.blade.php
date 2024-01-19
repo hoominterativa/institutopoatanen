@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#galleries" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                        <a href="#gallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Galeria
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                             data-bs-original-title="Você pode cadastrar múltiplas imagens."></i>
@@ -59,8 +59,8 @@
                             'topics' => $topics,
                         ])
                     </div>
-                    <div class="tab-pane" id="galleries">
-                        @include('Admin.cruds.Units.UNIT01.Galleries.index', [
+                    <div class="tab-pane" id="gallery">
+                        @include('Admin.cruds.Units.UNIT01.Gallery.index', [
                             'unit' => $unit,
                             'galleries' => $galleries,
                         ])

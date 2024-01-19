@@ -33,7 +33,7 @@
                             Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de categorias para os serviços"></i>
+                                data-bs-original-title="Cadastro das categorias para os serviços"></i>
                         </a>
                     </li>
                     <li class="nav-item">
