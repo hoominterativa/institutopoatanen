@@ -72,6 +72,7 @@ return [
                 'iconPanel' => 'mdi-information'
                 ],
                 'IncludeSections' => (object) [
+                    'Services' => ['SERV10'],
                 ],
             ],
         ],
@@ -139,6 +140,7 @@ return [
                     'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
                 'IncludeSections' => (object) [
+                    'Services' => ['SERV10'],
                 ]
             ],
         ],
