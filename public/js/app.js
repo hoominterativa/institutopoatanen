@@ -12540,6 +12540,19 @@ if ($(window).outerWidth() <= 801) {
 }
 // END carousel_unit01
 
+$(".unit01-show-carousel").owlCarousel({
+  smartSpeed: 450,
+  loop: false,
+  dots: false,
+  nav: true,
+  rewind: true,
+  autoHeight: true,
+  items: 1
+});
+$(".unit01-show-carousel").css("width", $(window).outerWidth() / 2 - 108);
+var altLightbox = $(".lightbox-unit01").outerHeight();
+$(".unit01-show-carousel").css("height", $(altLightbox));
+
 /***/ }),
 
 /***/ "./node_modules/bootstrap/js/dist/base-component.js":

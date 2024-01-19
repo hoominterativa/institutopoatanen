@@ -247,6 +247,44 @@
     display: none;
     padding: 0;
 
+    .unit01-show-carousel .owl-dot {
+        display: none;
+    }
+    .unit01-show-carousel .owl-nav {
+        display: flex;
+        padding: 0 31px;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+    .unit01-show-carousel .owl-nav .owl-prev,
+    .unit01-show-carousel .owl-nav .owl-next {
+        height: 29px;
+        width: 29px;
+        border-radius: 100%;
+        background-color: $color-one;
+        @include dflex;
+        border: none;
+    }
+    .unit01-show-carousel .owl-nav .owl-prev span,
+    .unit01-show-carousel .owl-nav .owl-next span {
+        color: #fff;
+        font-size: 32px;
+        height: 30px;
+    }
+
+
+    &__left{
+        height: 31.6875rem;
+    }
+    &__image{
+        height: 31.6875rem;
+
+        img{
+            object-fit: cover;
+        }
+    }
     &__subtitle {
         font-size: $T4;
         color: $color-one;

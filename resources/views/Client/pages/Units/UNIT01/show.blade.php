@@ -1,10 +1,15 @@
 <div id="lightbox-unit01-1-{{$topic->id}}" class="lightbox-unit01 row px-0">
     <div class="row px-0 px-0 mx-0">
-        @foreach ($galleries as $gallery)
-            <div class="lightbox-unit01__image px-0 col-md-6">
-                <img src="{{asset('storage/' . $gallery->path_image)}}" class="h-100 w-100" alt="Subtitulo">
+        <div class="lightbox-unit01__left px-0 col-md-6">
+            <div class="unit01-show-carousel owl-carousel">
+                @foreach ($galleries as $gallery)
+                <div class="lightbox-unit01__image">
+                    <img src="{{asset('storage/' . $gallery->path_image)}}" class="h-100 w-100" alt="Subtitulo">
+                </div>
+                 @endforeach
             </div>
-        @endforeach
+        </div>
+        
         {{-- END .lightbox-unit01__image --}}
         <div class="lightbox-unit01__description p-5 col-md-6 d-block">
             <h3 class="lightbox-unit01__subtitle">{{$topic->subtitle}}</h3>
