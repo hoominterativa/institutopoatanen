@@ -5,11 +5,11 @@
                 <h4 class="cont13__left__titleDest">Título Seção</h4>   
                 <nav class="cont13__left__navigation">
                     <ul class="cont13__left__list">
-                        <li class="cont13__left__item"><button id="1" url="cont14.show" class="cont13__left__link">Título Categoria</button></li>
-                        <li class="cont13__left__item"><button id="2" url="cont14.show" class="cont13__left__link">Título Categoria</button></li>
-                        <li class="cont13__left__item"><button id="3" url="cont14.show" class="cont13__left__link">Título Categoria</button></li>
-                        <li class="cont13__left__item"><button id="4" url="cont14.show" class="cont13__left__link">Título Categoria</button></li>
-                        <li class="cont13__left__item"><button id="5" url="cont14.show" class="cont13__left__link">Título Categoria</button></li>
+                        <li class="cont13__left__item"><button  url="{{route('cont14.show', ['CONT14ContentsCategory' => '1'])}}" class="cont13__left__link">Título Categoria</button></li>
+                        <li class="cont13__left__item"><button  url="{{route('cont14.show', ['CONT14ContentsCategory' => '2'])}}" class="cont13__left__link">Título Categoria</button></li>
+                        <li class="cont13__left__item"><button  url="{{route('cont14.show', ['CONT14ContentsCategory' => '3'])}}" class="cont13__left__link">Título Categoria</button></li>
+                        <li class="cont13__left__item"><button  url="{{route('cont14.show', ['CONT14ContentsCategory' => '4'])}}" class="cont13__left__link">Título Categoria</button></li>
+                        <li class="cont13__left__item"><button  url="{{route('cont14.show', ['CONT14ContentsCategory' => '5'])}}" class="cont13__left__link">Título Categoria</button></li>
                     </ul>
                 </nav> 
             </div>
