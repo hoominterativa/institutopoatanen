@@ -1,6 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=512025e9db96dfa658afa1e341137b5f",
+    "/js/app.js": "/js/app.js?id=4604de170d516393a08f767c4f70f040",
     "/css/libraries.css": "/css/libraries.css?id=2a70fd1c68fc31c29475c03a4b6988ab",
+    "/css/app.css": "/css/app.css?id=ae8492767c30c8e529704740040b309c",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
@@ -446,6 +447,5 @@
     "/Admin/assets/libs/i18n/ur.js": "/Admin/assets/libs/i18n/ur.js?id=3cc894ecacb70594c1df9552064c8d97",
     "/Admin/assets/libs/i18n/zh_cn.extra.js": "/Admin/assets/libs/i18n/zh_cn.extra.js?id=e5d635d10d14819a7ffc950fe9f3077a",
     "/Admin/assets/libs/i18n/zh_cn.js": "/Admin/assets/libs/i18n/zh_cn.js?id=3b26d4d158a3f6e8a7702cdcee0d0452",
-    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf",
-    "/css/app.css": "/css/app.css?id=90ba5fe21cf695a0359c1f0d7e7a1190"
+    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf"
 }

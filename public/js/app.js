@@ -12065,6 +12065,36 @@ $(".carousel-gallery-cont13").owlCarousel({
   dots: true,
   nav: false
 });
+$('.cont13__left__link').on('click', function (e) {
+  e.preventDefault();
+  var id = $(this).attr("id");
+  var url = $(this).attr('url');
+  $.ajax({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: "POST",
+    url: url,
+    success: function success(response) {
+      var _this = this;
+      alert(response);
+
+      // Fade out the existing content
+      $("#cont13__right__engBox").fadeOut(400, function () {
+        $(this).empty();
+        $(".cont13__right").append(response).fadeIn();
+      });
+      $('.cont13__left__link').removeClass('active');
+      setTimeout(function () {
+        $(_this).addClass('active');
+      }, 400);
+    },
+    error: function error(xhr, status, _error) {
+      console.error(_error);
+      console.log("Status Code:", xhr.status);
+    }
+  });
+});
 
 /***/ }),
 

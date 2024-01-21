@@ -2109,15 +2109,15 @@ body .owl-dots .owl-dot.active {
     font-size: 1.875rem;
   }
 }
-.cont13__left__navigation__list {
+.cont13__left__list {
   max-width: 100%;
   padding: 0;
-}
-.cont13__left__navigation__list__item {
   list-style: none;
+}
+.cont13__left__item {
   width: 100%;
 }
-.cont13__left__navigation__list__item__link {
+.cont13__left__link {
   width: 100%;
   height: 100%;
   background-color: transparent;
@@ -2137,11 +2137,11 @@ body .owl-dots .owl-dot.active {
   transition: all 0.5s ease;
 }
 @media (max-width: 767.98px) {
-  .cont13__left__navigation__list__item__link {
+  .cont13__left__link {
     font: 0.875rem "Montserrat", sans-serif, arial;
   }
 }
-.cont13__left__navigation__list__item__link:before {
+.cont13__left__link:before {
   content: "";
   width: 0.8125rem;
   height: 100%;
@@ -2152,7 +2152,7 @@ body .owl-dots .owl-dot.active {
   top: 0;
   transition: all 0.5s ease;
 }
-.cont13__left__navigation__list__item__link:hover, .cont13__left__navigation__list__item__link.active {
+.cont13__left__link:hover, .cont13__left__link.active {
   background-color: #565656;
   color: #fff;
   transition: all 0.5s ease;
@@ -2170,7 +2170,7 @@ body .owl-dots .owl-dot.active {
     margin-top: 2rem;
   }
 }
-.cont13__right__box__title {
+.cont13__right__engBox__box__title {
   font-size: 2.8125rem;
   font-weight: 300;
   line-height: 140%;
@@ -2179,25 +2179,25 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 0;
 }
 @media (max-width: 767.98px) {
-  .cont13__right__box__title {
+  .cont13__right__engBox__box__title {
     font-size: 2.0125rem;
   }
 }
-.cont13__right__box__subtitle {
+.cont13__right__engBox__box__subtitle {
   font-size: 1.875rem;
   font-weight: 500;
   font-family: "Ubuntu", sans-serif, arial;
   margin-bottom: 0;
 }
 @media (max-width: 767.98px) {
-  .cont13__right__box__subtitle {
+  .cont13__right__engBox__box__subtitle {
     font-size: 1.563rem;
   }
 }
-.cont13__right__box .carousel-gallery-cont13 {
+.cont13__right__engBox__box .carousel-gallery-cont13 {
   margin-top: 1rem;
 }
-.cont13__right__box .carousel-gallery-cont13 .owl-dots {
+.cont13__right__engBox__box .carousel-gallery-cont13 .owl-dots {
   display: flex !important;
   position: absolute;
   right: 0;
@@ -2206,7 +2206,7 @@ body .owl-dots .owl-dot.active {
   gap: 0 0.5rem;
 }
 @media (max-width: 767.98px) {
-  .cont13__right__box .carousel-gallery-cont13 .owl-dots {
+  .cont13__right__engBox__box .carousel-gallery-cont13 .owl-dots {
     position: relative;
     right: inherit;
     bottom: inherit;
@@ -2214,39 +2214,39 @@ body .owl-dots .owl-dot.active {
     gap: 0 0.5rem;
   }
 }
-.cont13__right__box .carousel-gallery-cont13 .owl-dots .owl-dot {
+.cont13__right__engBox__box .carousel-gallery-cont13 .owl-dots .owl-dot {
   margin: 0;
   border-radius: 0;
   background-color: #cacaca;
 }
-.cont13__right__box .carousel-gallery-cont13 .owl-dots .owl-dot:hover, .cont13__right__box .carousel-gallery-cont13 .owl-dots .owl-dot.active {
+.cont13__right__engBox__box .carousel-gallery-cont13 .owl-dots .owl-dot:hover, .cont13__right__engBox__box .carousel-gallery-cont13 .owl-dots .owl-dot.active {
   background-color: #404040;
 }
-.cont13__right__box__image {
+.cont13__right__engBox__box__image {
   width: 100%;
   height: 24.6875rem;
 }
 @media (max-width: 767.98px) {
-  .cont13__right__box__image {
+  .cont13__right__engBox__box__image {
     height: 15.6875rem;
   }
 }
-.cont13__right__box__image img {
+.cont13__right__engBox__box__image img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.cont13__right__box__paragraph {
+.cont13__right__engBox__box__paragraph {
   margin-top: 2rem;
   max-width: 32.375rem;
 }
 @media (max-width: 767.98px) {
-  .cont13__right__box__paragraph {
+  .cont13__right__engBox__box__paragraph {
     max-width: 100%;
   }
 }
-.cont13__right__box__paragraph p {
+.cont13__right__engBox__box__paragraph p {
   font: 1rem "Montserrat", sans-serif, arial;
   font-weight: 400;
   line-height: 170%;
@@ -2254,7 +2254,7 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 0;
 }
 @media (max-width: 767.98px) {
-  .cont13__right__box__paragraph p {
+  .cont13__right__engBox__box__paragraph p {
     font: 0.875rem "Montserrat", sans-serif, arial;
     text-align: center;
   }
