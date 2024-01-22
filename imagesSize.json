@@ -840,7 +840,7 @@
             "path_image": {
                 "width": "200",
                 "height": "180",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "Section": {
                 "path_image_desktop": {
@@ -852,11 +852,6 @@
                     "width": "390",
                     "height": "900",
                     "activeCrop": "true"
-                },
-                "path_image_icon": {
-                    "width": "200",
-                    "height": "200",
-                    "activeCrop": "false"
                 }
             }
         },

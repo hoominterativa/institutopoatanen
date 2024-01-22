@@ -11851,8 +11851,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT06/src/main */ "./resources/views/Client/pages/Contents/CONT06/src/main.js");
-/* harmony import */ var _pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT07/src/main */ "./resources/views/Client/pages/Contents/CONT07/src/main.js");
+/* harmony import */ var _pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12047,36 +12047,54 @@ if (elementosAnimados.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT06/src/main.js":
+/***/ "./resources/views/Client/pages/Contents/CONT07/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT06/src/main.js ***!
+  !*** ./resources/views/Client/pages/Contents/CONT07/src/main.js ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-if ($("#videoApre").length) {
-  var valorAntigo = $("#videoApre").attr('data-src');
-  var caminhoCapaVideo = $("#videoApre").attr('data-capa-video');
-  var arrValorAntigo = new Array();
-  if (valorAntigo.indexOf("/embed/") > 0) {
-    if (valorAntigo != "") {
-      arrValorAntigo = valorAntigo.split("/embed/");
-      if (arrValorAntigo.length > 1) {
-        arrValorAntigo = arrValorAntigo[1].split('&');
-        if (caminhoCapaVideo == "") {
-          $("#videoApre").css('background-image', 'url(https://i.ytimg.com/vi/' + arrValorAntigo[0] + '/hqdefault.jpg)');
-        } else {
-          $("#videoApre").css('background-image', 'url(' + caminhoCapaVideo + ')');
-        }
+$(function () {
+  $('.carousel-gallery-cont07').owlCarousel({
+    loop: false,
+    autoplay: false,
+    nav: false,
+    dots: true,
+    margin: 5,
+    stagePadding: 0,
+    smartSpeed: 450,
+    autoplayTimeout: 5000,
+    rewind: true,
+    autoHeight: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: -25
+      },
+      500: {
+        items: 2,
+        margin: -25
+      },
+      992: {
+        items: 3,
+        margin: -25
+      },
+      800: {
+        items: 4
+      },
+      1200: {
+        items: 4
       }
     }
-  }
-  $('body').on('click', '#videoApre .play', function () {
-    $urlVideo = $(this).parents('#videoApre').attr('data-src');
-    $(this).parents('.cont06__boxVideo__content').append('<iframe id="urlYoutube" width="99.5%" height=500" src="' + $urlVideo + '?autoplay=1" frameborder="0" allowfullscreen></iframe>');
-    $(this).parents('#videoApre').remove();
   });
-}
+  $('.carousel-gallery-cont07').css('width', $(window).outerWidth() - 213);
+  $(window).resize(function () {
+    $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
+  });
+  if ($(window).outerWidth() <= 600) {
+    $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
+  }
+});
 
 /***/ }),
 

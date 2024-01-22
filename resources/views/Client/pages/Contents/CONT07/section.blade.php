@@ -14,8 +14,7 @@
                         <div class="cont07__boxVideo__content">
                             @if ($video->link_video)
                                 <a href="{{ getUri($video->link_video) }}" class="play" data-fancybox>
-                                    <img class="trans-fast " src="{{ asset('storage/uploads/tmp/play.png') }}"
-                                        alt="Play Vídeo">
+                                    <img class="trans-fast " src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                                 </a>
                             @endif
                         </div>
@@ -39,12 +38,8 @@
             </div>
         @endif
         @if ($section->link_button)
-            <a href="{{ getUri($section->link_button) }}" target="{{ $section->target_link_button }}"
-                class="cont07__cta transition d-flex justify-content-center align-items-center">
-                @if ($section->path_image_icon)
-                    <img src="{{ asset('storage/' . $section->path_image_icon) }}" alt=""
-                        class="cont07__cta__icon me-3 transition">
-                @endif
+            <a href="{{ getUri($section->link_button) }}" target="{{ $section->target_link_button }}" class="cont07__cta transition d-flex justify-content-center align-items-center">
+                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="cont07__cta__icon me-3 transition">
                 @if ($section->title_button)
                     {{ $section->title_button }}
                 @endif

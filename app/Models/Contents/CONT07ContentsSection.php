@@ -17,7 +17,7 @@ class CONT07ContentsSection extends Model
 
     protected $table = "cont07_contents_sections";
     protected $fillable = [
-        'title_section', 'subtitle_section', 'link_button', 'title_button', 'target_link_button', 'path_image_desktop', 'path_image_mobile', 'path_image_icon', 'background_color', 'active'
+        'title_section', 'subtitle_section', 'link_button', 'title_button', 'target_link_button', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active'
     ];
 
     public function scopeActive($query)

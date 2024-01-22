@@ -13,7 +13,7 @@
             'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Conteúdo',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-text-box'
         ]
     ],
 ],

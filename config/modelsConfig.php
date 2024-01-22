@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Contents' => (object) [
-            'CONT06' => (object)[
+            'CONT07' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -30,7 +30,7 @@ return [
                     'iconPanel' => 'mdi-text-box'
                 ]
             ],
-        ]
+        ],
     ],
 
     'ModelsForm' => (object)[

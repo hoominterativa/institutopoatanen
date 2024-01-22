@@ -24,7 +24,7 @@ class CONT07Controller extends Controller
      */
     public function index()
     {
-        $contents = CONT07Contents::sorting()->paginate(10);
+        $contents = CONT07Contents::sorting()->get();
         $section = CONT07ContentsSection::first();
         return view('Admin.cruds.Contents.CONT07.index', [
             'contents' => $contents,
@@ -57,6 +57,7 @@ class CONT07Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image) $data['path_image'] = $path_image;
@@ -98,6 +99,7 @@ class CONT07Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if($path_image){
@@ -177,15 +179,13 @@ class CONT07Controller extends Controller
      */
     public static function section()
     {
+        $section = CONT07ContentsSection::active()->first();
+        
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = CONT07ContentsSection::active()->first();
                 if($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-                $section = CONT07ContentsSection::active()->first();
-                break;
+            break;
         }
 
         $contents = CONT07Contents::active()->sorting()->get();

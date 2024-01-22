@@ -27,9 +27,7 @@ class CONT07SectionController extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -40,7 +38,6 @@ class CONT07SectionController extends Controller
         if(CONT07ContentsSection::create($data)){
             Session::flash('success', 'Seção cadastrada com sucesso');
         }else{
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar a seção');
@@ -61,16 +58,7 @@ class CONT07SectionController extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon){
-            storageDelete($CONT07ContentsSection, 'path_image_icon');
-            $data['path_image_icon'] = $path_image_icon;
-        }
-        if($request->delete_path_image_icon && !$path_image_icon){
-            storageDelete($CONT07ContentsSection, 'path_image_icon');
-            $data['path_image_icon'] = null;
-        }
+        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
         if($path_image_desktop){
@@ -95,7 +83,6 @@ class CONT07SectionController extends Controller
         if($CONT07ContentsSection->fill($data)->save()){
             Session::flash('success', 'Seção atualizada com sucesso');
         }else{
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar a seção');

@@ -29,7 +29,6 @@ class CONT07ContentsSectionFactory extends Factory
             'target_link_button' => '_blank',
             'path_image_desktop' => 'uploads/tmp/image-box.jpg',
             'path_image_mobile' => 'uploads/tmp/bg-slid-mobile.jpg',
-            'path_image_icon' => 'uploads/tmp/favicon.png',
             'background_color' => '#FFFFFF',
             'active' => 1
         ];

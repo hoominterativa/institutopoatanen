@@ -22,7 +22,6 @@ class CreateCont07ContentsSectionsTable extends Migration
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
             $table->string('path_image_desktop')->nullable();
             $table->string('path_image_mobile')->nullable();
-            $table->string('path_image_icon')->nullable();
             $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
             $table->timestamps();
