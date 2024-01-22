@@ -7,11 +7,11 @@
                         @if ($content->title)
                             <h3 class="cont06__header__title">
                                 {{$content->title}}
+                                <hr class="cont06__header__line">
                             </h3>
                         @endif
                         @if ($content->description)
-                            <hr class="cont06__header__line">
-                            <p class="cont06__header__paragraph">{{$content->description}}</p>
+                            <p class="cont06__header__paragraph">{!! $content->description !!}</p>
                         @endif
                     </header>
                 @endif
@@ -19,18 +19,14 @@
                     @if ($content->link_video)
                         <div class="cont06__boxVideo__content">
                             <div id="videoApre" class="cont06__boxVideo__content__video d-flex justify-content-center align-items-center" data-src="{{getUri($content->link_video)}}" data-capa-video="{{ asset('storage/' . $content->path_image) }}" style="background-image: url({{ asset('storage/' . $content->path_image) }});">
-                                <img class="trans-fast play" src="{{ asset('storage/uploads/tmp/play.png') }}"
-                                    alt="Play Vídeo">
+                                <img class="trans-fast play" src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                             </div>
                         </div>
                     @endif
                     @if ($content->link_button)
                         <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link }}"
                             class="cont06__boxVideo__cta transition d-flex justify-content-center align-items-center">
-                            @if ($content->path_image_icon)
-                                <img src="{{ asset('storage/' . $content->path_image_icon) }}" alt=""
-                                    class="cont06__cta__icon me-3 transition">
-                            @endif
+                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone" class="cont06__cta__icon me-3 transition">
                             @if ($content->title_button)
                                 {{ $content->title_button }}
                             @endif

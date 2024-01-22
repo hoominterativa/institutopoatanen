@@ -22,7 +22,7 @@ class CONT06Controller extends Controller
      */
     public function index()
     {
-        $contents = CONT06Contents::sorting()->paginate(15);
+        $contents = CONT06Contents::sorting()->get();
         return view('Admin.cruds.Contents.CONT06.index', [
             'contents' => $contents,
         ]);
@@ -53,8 +53,8 @@ class CONT06Controller extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if ($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+        $data['link_video']= isset($data['link_video']) ? getUri($data['link_video']) : '';
+        $data['link_button']= isset($data['link_button']) ? getUri($data['link_button']) : '';
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if ($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -69,7 +69,6 @@ class CONT06Controller extends Controller
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
             return redirect()->route('admin.cont06.index');
         } else {
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Storage::delete($path_image);
@@ -104,15 +103,10 @@ class CONT06Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if ($path_image_icon) {
-            storageDelete($CONT06Contents, 'path_image_icon');
-            $data['path_image_icon'] = $path_image_icon;
-        }
-        if ($request->delete_path_image_icon && !$path_image_icon) {
-            storageDelete($CONT06Contents, 'path_image_icon');
-            $data['path_image_icon'] = null;
-        }
+        $data['active'] = $request->active ? 1 : 0;
+
+        $data['link_video']= isset($data['link_video']) ? getUri($data['link_video']) : '';
+        $data['link_button']= isset($data['link_button']) ? getUri($data['link_button']) : '';
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if ($path_image_desktop) {
@@ -148,7 +142,6 @@ class CONT06Controller extends Controller
             Session::flash('success', 'Conteúdo atualizado com sucesso');
         } else {
             Storage::delete($path_image_desktop);
-            Storage::delete($path_image_icon);
             Storage::delete($path_image_mobile);
             Storage::delete($path_image);
             Session::flash('success', 'Erro ao atualizar o conteúdo');
@@ -165,7 +158,6 @@ class CONT06Controller extends Controller
     public function destroy(CONT06Contents $CONT06Contents)
     {
         storageDelete($CONT06Contents, 'path_image');
-        storageDelete($CONT06Contents, 'path_image_icon');
         storageDelete($CONT06Contents, 'path_image_desktop');
         storageDelete($CONT06Contents, 'path_image_mobile');
 
@@ -186,7 +178,6 @@ class CONT06Controller extends Controller
         $CONT06Contentss = CONT06Contents::whereIn('id', $request->deleteAll)->get();
         foreach ($CONT06Contentss as $CONT06Contents) {
             storageDelete($CONT06Contents, 'path_image');
-            storageDelete($CONT06Contents, 'path_image_icon');
             storageDelete($CONT06Contents, 'path_image_mobile');
             storageDelete($CONT06Contents, 'path_image_desktop');
         }
@@ -220,17 +211,16 @@ class CONT06Controller extends Controller
      */
     public static function section()
     {
+        $contents = CONT06Contents::active()->sorting()->get();
+
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $contents = CONT06Contents::active()->sorting()->get();
                 foreach ($contents as $content) {
                     if ($content) $content->path_image_desktop = $content->path_image_mobile;
                 }
-                break;
-            default:
-                $contents = CONT06Contents::active()->sorting()->get();
-                break;
+            break;
+
         }
 
         return view('Client.pages.Contents.CONT06.section', [

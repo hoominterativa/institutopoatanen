@@ -63,14 +63,19 @@
                                                     @if ($content->path_image_mobile)
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_mobile)}})"></div>
                                                     @endif
-                                                    @if ($content->path_image_icon)
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_icon)}})"></div>
-                                                    @endif
                                                 </td>
                                                 <td class="align-middle">{{$content->title}}</td>
-                                                <td class="align-middle">{{substr($content->description, 0, 50)}}</td>
-                                                <td class="align-middle"><a href="{{ $content->link_video }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
-                                                <td class="align-middle"><a href="{{ $content->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
+                                                <td class="align-middle">{{substr($content->description, 0, 25)}}</td>
+                                                <td class="align-middle">
+                                                    @if ($content->link_video)
+                                                        <a href="{{ $content->link_video }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                    @endif
+                                                </td>
+                                                <td class="align-middle">
+                                                    @if ($content->link_button)
+                                                        <a href="{{ $content->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                    @endif
+                                                </td>
                                                 <td class="align-middle">
                                                     @switch($content->active)
                                                         @case(1) <span class="badge bg-success">Ativo</span>  @break
@@ -92,11 +97,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-
-                                {{-- PAGINATION --}}
-                                <div class="mt-3 float-end">
-                                    {{$contents->links()}}
-                                </div>
                             </div>
                         </div> <!-- end card-->
                     </div> <!-- end col-->

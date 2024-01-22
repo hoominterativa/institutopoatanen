@@ -28,7 +28,6 @@ class CONT06ContentsFactory extends Factory
             'title_button' => $this->faker->text(10),
             'link_button' => 'https://www.lipsum.com/',
             'target_link_button' => '_blank',
-            'path_image_icon' => 'uploads/tmp/favicon.png',
             'path_image' => 'uploads/tmp/image-box-white.jpg',
             'path_image_desktop' => 'uploads/tmp/gall01_image2.png',
             'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
