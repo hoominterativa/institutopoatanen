@@ -15,8 +15,8 @@ class CONT14Contents extends Model
         return CONT14ContentsFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "cont14_contents";
+    protected $fillable = ['category_id', 'title', 'description', 'subtitle', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -28,8 +28,8 @@ class CONT14Contents extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function category()
+    {
+        return $this->belongsTo(CONT14ContentsCategory::class, 'category_id');
+    }
 }

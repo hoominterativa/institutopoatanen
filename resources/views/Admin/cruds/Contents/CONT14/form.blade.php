@@ -1,31 +1,71 @@
-{{--
-    Para uma boa organização dos inputs, em caso de uma tela de cadastro com muitos campos, recomendamos dividir em dua colunas
-    o "div class=col-12 dentro de .row" adicionando a classe 'col-lg-6' e duplicando toda a div e distribuir os inputs nessas colunas.
-
-    Lista de Inputs se encontra no arquivo 'resources/views/Admin/components/forms/inputs.blade.php' é só copiar a estrutura do blase desejada e colar
-    na área indicada abaixo. Veja abaixo um exemplo da estrutura do input.
-
-    <div class="mb-3">
-        {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'First name', 'required'=>'required']) !!}
-    </div>
-
-    PS.: Excluir esse comentário e todos relacioado a instruções.
---}}
 <div class="row col-12">
-    <div class="col-12">
+    <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            {{-- INSERI OS INPUTS DOS FORMULARIOS AQUI --}}
+            <div class="mb-3">
+                <div class="d-flex">
+                    {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
+                    <i class="text-danger">*</i>
+                </div>
+                {!! Form::select('category_id', $categories, null, [
+                    'class'=>'form-select',
+                    'id'=>'heard',
+                    'required'=>'required',
+                    'placeholder' => 'Informe a categoria'
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="normal-editor__content mb-3">
+                {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
+                {!! Form::textarea('description', null, [
+                    'class' => 'form-control normal-editor',
+                    'data-height' => 500,
+                    'id' => 'description',
+                ]) !!}
+            </div>
+        </div>
+        <div class="mb-3 form-check me-3">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição ?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas
+                        {{ $cropSetting->path_image->width }}x{{ $cropSetting->path_image->height }}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image', [
+                            'id' => 'inputImage',
+                            'class' => 'inputImage',
+                            'data-status' => $cropSetting->path_image->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image->width, // px
+                            'data-min-height' => $cropSetting->path_image->height, // px
+                            'data-box-height' => '180', // Input height in the form
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file' => isset($content)
+                                ? ($content->path_image != ''
+                                    ? url('storage/' . $content->path_image)
+                                    : '')
+                                : '',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+        </div>
+    </div>
 </div>
 {{-- end row --}}
-
-{{-- Essa estrutura pode ser usada junto ao label do input para aparecer o ícone de duvida do lado do mesmo. pode usar a estutura abaixo substituindo o "Form::label" --}}
-{{-- <div class="d-flex align-items-center mb-1">
-    {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-original-title="Coloque a mensagem desejado aqui"></i>
-</div> --}}

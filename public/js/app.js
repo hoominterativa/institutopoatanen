@@ -11851,8 +11851,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT07/src/main */ "./resources/views/Client/pages/Contents/CONT07/src/main.js");
-/* harmony import */ var _pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT07_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Contents_CONT14_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contents/CONT14/src/main */ "./resources/views/Client/pages/Contents/CONT14/src/main.js");
+/* harmony import */ var _pages_Contents_CONT14_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT14_src_main__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12047,53 +12047,69 @@ if (elementosAnimados.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT07/src/main.js":
+/***/ "./resources/views/Client/pages/Contents/CONT14/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT07/src/main.js ***!
+  !*** ./resources/views/Client/pages/Contents/CONT14/src/main.js ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  $('.carousel-gallery-cont07').owlCarousel({
-    loop: false,
-    autoplay: false,
-    nav: false,
-    dots: true,
-    margin: 5,
-    stagePadding: 0,
-    smartSpeed: 450,
-    autoplayTimeout: 5000,
-    rewind: true,
-    autoHeight: true,
-    responsive: {
-      0: {
-        items: 2,
-        margin: -25
-      },
-      500: {
-        items: 2,
-        margin: -25
-      },
-      992: {
-        items: 3,
-        margin: -25
-      },
-      800: {
-        items: 4
-      },
-      1200: {
-        items: 4
-      }
+$(".carousel-gallery-cont13").owlCarousel({
+  items: 1,
+  margin: 0,
+  stagePadding: 0,
+  smartSpeed: 450,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  loop: true,
+  dots: true,
+  nav: false
+});
+$('.cont13__left__link').on('click', function (e) {
+  e.preventDefault();
+  var id = $(this).attr("id");
+  var url = $(this).attr("url");
+  console.log(url);
+
+  // Store a reference to 'this' for later use
+  var $this = $(this);
+  $.ajax({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: "POST",
+    url: url,
+    success: function success(response) {
+      $("#cont13__right__engBox").fadeOut(400, function () {
+        $(this).remove();
+        $(".cont13__right").append(response).fadeIn();
+
+        // Destruir o carrossel existente antes de recriá-lo
+        $(".carousel-gallery-cont13").owlCarousel('destroy');
+        $(".carousel-gallery-cont13").owlCarousel({
+          items: 1,
+          margin: 0,
+          stagePadding: 0,
+          smartSpeed: 450,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          loop: true,
+          dots: true,
+          nav: false
+        });
+        // Acionar o evento refresh para garantir que o Owl Carousel seja atualizado corretamente
+        $(".carousel-gallery-cont13").trigger('refresh.owl.carousel');
+      });
+      $('.cont13__left__link').removeClass('active');
+      setTimeout(function () {
+        $this.addClass('active');
+      }, 400);
+    },
+    error: function error(xhr, status, _error) {
+      console.error(_error);
+      console.log("Status Code:", xhr.status);
     }
   });
-  $('.carousel-gallery-cont07').css('width', $(window).outerWidth() - 213);
-  $(window).resize(function () {
-    $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
-  });
-  if ($(window).outerWidth() <= 600) {
-    $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
-  }
 });
 
 /***/ }),
