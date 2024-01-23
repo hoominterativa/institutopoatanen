@@ -33,6 +33,10 @@
                     'id' => 'description',
                 ]) !!}
             </div>
+            <div class="mb-3">
+                {!! Form::label(null, 'Link do vídeo', ['class' => 'form-label']) !!}
+                {!! Form::url('link', (isset($content) ? getUri($content->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+            </div>
         </div>
         <div class="mb-3 form-check me-3">
             {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
@@ -45,6 +49,9 @@
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-original-title="Caso você cadastre a imagem, o link de vídeo não será exibido."></i>
                     <small class="ms-2">Dimensões proporcionais mínimas
                         {{ $cropSetting->path_image->width }}x{{ $cropSetting->path_image->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">

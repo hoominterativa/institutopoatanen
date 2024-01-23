@@ -16,7 +16,7 @@ class CONT14Contents extends Model
     }
 
     protected $table = "cont14_contents";
-    protected $fillable = ['category_id', 'title', 'description', 'subtitle', 'path_image', 'active', 'sorting'];
+    protected $fillable = ['category_id', 'title', 'description', 'subtitle', 'link', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

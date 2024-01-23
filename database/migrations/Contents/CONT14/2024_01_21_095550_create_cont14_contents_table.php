@@ -19,6 +19,7 @@ class CreateCont14ContentsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
+            $table->string('link')->nullable();
             $table->string('path_image')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);

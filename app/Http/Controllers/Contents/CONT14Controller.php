@@ -61,6 +61,7 @@ class CONT14Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -104,6 +105,7 @@ class CONT14Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -183,29 +185,16 @@ class CONT14Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(CONT14Contents $CONT14Contents)
-    public function show()
+    public function show(CONT14ContentsCategory $CONT14ContentsCategory, CONT14Contents $CONT14Contents)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contents', 'CONT14', 'show');
 
+        $contents = $CONT14Contents->where('category_id', $CONT14ContentsCategory->id)->active()->sorting()->get();
+
         return view('Client.pages.Contents.CONT14.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Contents', 'CONT14', 'page');
-
-        return view('Client.pages.Contents.CONT14.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'contents' => $contents
         ]);
     }
 
@@ -216,6 +205,26 @@ class CONT14Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Contents.CONT14.section');
+        $categories = CONT14ContentsCategory::exists()->active()->sorting()->get();
+
+        $categoryFirst = CONT14ContentsCategory::exists()->active()->first();
+        $contents = CONT14Contents::where('category_id', $categoryFirst->id)->active()->sorting()->get();
+
+        $section = CONT14ContentsSection::active()->first();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+            break;
+        }
+
+
+        return view('Client.pages.Contents.CONT14.section',[
+            'section' => $section,
+            'categories' => $categories,
+            'contents' => $contents,
+            'categoryFirst' => $categoryFirst
+        ]);
     }
 }

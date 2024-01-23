@@ -26,6 +26,7 @@ class CONT14ContentsFactory extends Factory
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(8),
             'description' => $this->faker->text(500),
+            'link' => 'https://www.youtube.com/embed/dHFN1WGPzvk?si=P57I72jlvjOvxOpM',
             'path_image' => 'uploads/tmp/thumbnail.png',
             'active' => 1,
         ];

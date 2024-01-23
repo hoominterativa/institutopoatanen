@@ -72,6 +72,7 @@
                                                     <th>Categoria</th>
                                                     <th>Título/Subtítulo</th>
                                                     <th>Descrição</th>
+                                                    <th>Link do vídeo</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -92,6 +93,11 @@
                                                         <td class="align-middle">{{$content->category->title}}</td>
                                                         <td class="align-middle">{{$content->title}}<b> / </b>{{$content->subtitle}}</td>
                                                         <td class="align-middle">{!! substr($content->description, 0,25) !!}</td>
+                                                        <td class="align-middle">
+                                                            @if ($content->link)
+                                                                <a href="{{ $content->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                                            @endif
+                                                        </td>
                                                         <td class="align-middle">
                                                             @if ($content->active)
                                                                 <span class="badge bg-success">Ativo</span>
