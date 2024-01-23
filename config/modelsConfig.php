@@ -43,7 +43,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Contents05',
+                    'titlePanel' => 'Contents5',
                     'iconPanel' => 'mdi-folder-outline'
                 ]
             ],
@@ -77,29 +77,29 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo02',
+                    'titlePanel' => 'Conteúdo2',
                     'iconPanel' => 'mdi-table-of-contents'
                 ]
             ],
         ],  
-        'Contents.3' => (object) [
-            'CONT14' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo14',
-                    'iconPanel' => 'mdi-table-of-contents'
-                ]
-            ],
-        ],   
-        'Topics.2' => (object) [
+        // 'Contents.3' => (object) [
+        //     'CONT14' => (object)[
+        //         'ViewHome' => true,
+        //         'ViewListMenu' => false,
+        //         'ViewListPanel' => true,
+        //         'ViewListFooter' => false,
+        //         'Viewer' => 'dropdown', // accepted values, list or dropdown
+        //         'config' => (object) [
+        //             'titleMenu' => '',
+        //             'anchor' =>  false,
+        //             'linkMenu' => '',
+        //             'iconMenu' => '',
+        //             'titlePanel' => 'Conteúdo14',
+        //             'iconPanel' => 'mdi-table-of-contents'
+        //         ]
+        //     ],
+        // ],   
+        'Topics.1' => (object) [
             'TOPI03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -111,7 +111,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos03',
+                    'titlePanel' => 'Tópicos3',
                     'iconPanel' => 'mdi-book-minus-multiple'
                 ]
             ],
@@ -128,12 +128,12 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo06',
+                    'titlePanel' => 'Conteúdo6',
                     'iconPanel' => 'mdi-text-box'
                 ]
             ],
         ],  
-        'Topics.3' => (object) [
+        'Topics.2' => (object) [
             'TOPI02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -145,12 +145,12 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos02',
+                    'titlePanel' => 'Tópicos2',
                     'iconPanel' => 'mdi-book-multiple-outline'
                 ]
             ],
         ],
-        'Contents' => (object) [
+        'Contents.5' => (object) [
             'CONT04' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -162,7 +162,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo04',
+                    'titlePanel' => 'Conteúdo4',
                     'iconPanel' => 'mdi-view-split-horizontal'
                 ]
             ],
