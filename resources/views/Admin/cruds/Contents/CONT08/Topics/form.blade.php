@@ -3,6 +3,7 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => ['admin.cont08.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('content_id', $content->id) !!}
 @endif
 <div class="row">
     <div class="col-12 col-lg-6">

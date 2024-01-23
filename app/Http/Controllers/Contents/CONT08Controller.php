@@ -23,11 +23,20 @@ class CONT08Controller extends Controller
      */
     public function index()
     {
-        $content = CONT08Contents::first();
-        $topics = CONT08ContentsTopic::sorting()->get();
-        return view('Admin.cruds.Contents.CONT08.edit',[
-            'content' => $content,
-            'topics' => $topics,
+        $contents = CONT08Contents::sorting()->get();
+        return view('Admin.cruds.Contents.CONT08.index',[
+            'contents' => $contents,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('Admin.cruds.Contents.CONT08.create', [
             'cropSetting' => getCropImage('Contents', 'CONT08')
         ]);
     }
@@ -43,6 +52,7 @@ class CONT08Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active ? 1 : 0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -56,15 +66,32 @@ class CONT08Controller extends Controller
 
 
 
-        if(CONT08Contents::create($data)){
+        if($content = CONT08Contents::create($data)){
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            return redirect()->route('admin.cont08.edit', ['CONT08Contents' => $content->id]);
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar o conteúdo');
+            return redirect()->back();
         }
-        return redirect()->back();
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Contents\CONT08Contents  $CONT08Contents
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(CONT08Contents $CONT08Contents)
+    {
+        $topics = CONT08ContentsTopic::where('content_id', $CONT08Contents->id)->sorting()->get();
+        return view('Admin.cruds.Contents.CONT08.edit', [
+            'content' => $CONT08Contents,
+            'topics' => $topics,
+            'cropSetting' => getCropImage('Contents', 'CONT08')
+        ]);
     }
 
     /**
@@ -79,6 +106,7 @@ class CONT08Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active'] = $request->active ? 1 : 0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
@@ -132,19 +160,19 @@ class CONT08Controller extends Controller
      */
     public static function section()
     {
-        $content = CONT08Contents::first();
-        $topics = CONT08ContentsTopic::active()->sorting()->get();
+        $contents = CONT08Contents::with('topics')->active()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                if($content) $content->path_image_desktop = $content->path_image_mobile;
+                foreach($contents as $content){
+                    if($content) $content->path_image_desktop = $content->path_image_mobile;
+                }
             break;
 
         }
 
         return view('Client.pages.Contents.CONT08.section',[
-            'content' => $content,
-            'topics' => $topics
+            'contents' => $contents,
         ]);
     }
 }

@@ -1,4 +1,5 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
+
 'Contents' => (object) [
     'CONT08' => (object)[
         'ViewHome' => true,

@@ -15,6 +15,7 @@ class CreateCont08ContentsTopicsTable extends Migration
     {
         Schema::create('cont08_contents_topics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('content_id')->constrained('cont08_contents')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->string('path_image')->nullable();
             $table->integer('active')->default(0);

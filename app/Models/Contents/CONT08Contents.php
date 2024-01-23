@@ -16,6 +16,24 @@ class CONT08Contents extends Model
     }
 
     protected $table = "cont08_contents";
-    protected $fillable = ['title', 'subtitle', 'text', 'title_button', 'link_button', 'target_link_button', 'path_image', 'path_image_desktop', 'path_image_mobile', 'background_color'];
+    protected $fillable = [
+        'title', 'subtitle', 'text', 'title_button', 'link_button', 'target_link_button', 'path_image', 'path_image_desktop', 'path_image_mobile', 'background_color',
+        'active', 'sorting'
+    ];
+
+    public function scopeSorting($query)
+    {
+        return $query->orderBy('sorting', 'ASC');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+
+    public function topics()
+    {
+        return $this->hasMany(CONT08ContentsTopic::class, 'content_id')->active()->sorting();
+    }
 
 }

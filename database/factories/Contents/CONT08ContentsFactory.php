@@ -32,6 +32,7 @@ class CONT08ContentsFactory extends Factory
             'path_image' => 'uploads/tmp/png-slide.png',
             'path_image_desktop' => 'uploads/tmp/port01_path_image_right.jpg',
             'path_image_mobile' => 'uploads/tmp/secaobox.png',
+            'active' => 1
         ];
     }
 }

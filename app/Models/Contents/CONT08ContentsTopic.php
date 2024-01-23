@@ -16,7 +16,7 @@ class CONT08ContentsTopic extends Model
     }
 
     protected $table = "cont08_contents_topics";
-    protected $fillable = ['description', 'path_image', 'active', 'sorting'];
+    protected $fillable = ['content_id', 'description', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
