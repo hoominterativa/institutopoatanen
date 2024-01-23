@@ -1018,6 +1018,25 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "CONT14": {
+            "path_image": {
+                "width": "702",
+                "height": "395",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "964",
+                    "activeCrop":"false"
+                },
+                "path_image_mobile": {
+                    "width": "390",
+                    "height": "1724",
+                    "activeCrop":"true"
+                }
+            }
         }
     },
     "ContentPages": {

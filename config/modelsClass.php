@@ -161,7 +161,15 @@ return [
             'CONT14' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT14Controller::class,
                 'model' => App\Models\Contents\CONT14Contents::class,
-                'seedQty' => 10,
+                'seedQty' => 8,
+                'routeName' => 'cont14.show',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Contents\CONT14ContentsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 3,
+                    ]
+                ]
             ],
         ],
         // END CONTENTS
