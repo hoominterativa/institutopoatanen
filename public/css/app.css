@@ -2474,6 +2474,186 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.cont14 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cont14 .container--cont14 {
+  padding: 5rem 0 5rem 0 !important;
+}
+@media (max-width: 767.98px) {
+  .cont14 .container--cont14 {
+    max-width: 90% !important;
+  }
+}
+.cont14__left {
+  width: 100%;
+  max-width: 23.75rem;
+}
+.cont14__left__titleDest {
+  font-size: 2.5rem;
+  font-size: "Ubuntu", sans-serif, arial;
+  font-weight: 400;
+  line-height: 129.5%;
+  letter-spacing: 1.6px;
+  margin-bottom: 3rem;
+}
+@media (max-width: 767.98px) {
+  .cont14__left__titleDest {
+    font-size: 1.875rem;
+  }
+}
+.cont14__left__list {
+  max-width: 100%;
+  padding: 0;
+  list-style: none;
+}
+.cont14__left__item {
+  width: 100%;
+}
+.cont14__left__link {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  line-height: 170%;
+  letter-spacing: 0.0125rem;
+  transition: all 0.5s ease;
+}
+@media (max-width: 767.98px) {
+  .cont14__left__link {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+  }
+}
+.cont14__left__link:before {
+  content: "";
+  width: 0.8125rem;
+  height: 100%;
+  background-color: #565656;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease;
+}
+.cont14__left__link:hover, .cont14__left__link.active {
+  background-color: #565656;
+  color: #fff;
+  transition: all 0.5s ease;
+}
+.cont14__right {
+  width: 100%;
+  max-width: 65%;
+  padding-left: 5rem;
+  padding-right: 0;
+}
+@media (max-width: 767.98px) {
+  .cont14__right {
+    max-width: 100%;
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+}
+.cont14__right__engBox__box__title {
+  font-size: 2.8125rem;
+  font-weight: 300;
+  line-height: 140%;
+  letter-spacing: 0.0125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .cont14__right__engBox__box__title {
+    font-size: 2.0125rem;
+  }
+}
+.cont14__right__engBox__box__subtitle {
+  font-size: 1.875rem;
+  font-weight: 500;
+  font-family: "Ubuntu", sans-serif, arial;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .cont14__right__engBox__box__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.cont14__right__engBox__box__image {
+  width: 100%;
+  height: 24.6875rem;
+  margin-top: 1rem;
+}
+@media (max-width: 767.98px) {
+  .cont14__right__engBox__box__image {
+    height: 15.6875rem;
+  }
+}
+.cont14__right__engBox__box__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cont14__right__engBox__box__paragraph {
+  margin-top: 2rem;
+  max-width: 32.375rem;
+}
+@media (max-width: 767.98px) {
+  .cont14__right__engBox__box__paragraph {
+    max-width: 100%;
+  }
+}
+.cont14__right__engBox__box__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  line-height: 170%;
+  letter-spacing: 0.0125rem;
+  margin-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .cont14__right__engBox__box__paragraph p {
+    font: 0.875rem "Montserrat", sans-serif, arial;
+    text-align: center;
+  }
+}
+.cont14__right .carousel-gallery-cont14 .owl-dots {
+  display: flex !important;
+  position: absolute;
+  right: 0;
+  bottom: 46px;
+  margin-top: 0;
+  gap: 0 0.5rem;
+}
+@media (max-width: 767.98px) {
+  .cont14__right .carousel-gallery-cont14 .owl-dots {
+    position: relative;
+    right: inherit;
+    bottom: inherit;
+    margin-top: 39px;
+    gap: 0 0.5rem;
+  }
+}
+.cont14__right .carousel-gallery-cont14 .owl-dots .owl-dot {
+  margin: 0;
+  border-radius: 0;
+  background-color: #cacaca;
+}
+.cont14__right .carousel-gallery-cont14 .owl-dots .owl-dot:hover, .cont14__right .carousel-gallery-cont14 .owl-dots .owl-dot.active {
+  background-color: #404040;
+}
+
+/* BEGIN STYLE */
 #TOPI03 {
   padding: 70px 0;
   background-size: cover;
@@ -2784,6 +2964,96 @@ body .owl-dots .owl-dot.active {
 }
 #TOPI02 .container-box .box-topic .content:hover {
   transform: scale(1.02);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* BEGIN STYLE */
+#TOPI01 {
+  padding: 70px 0;
+}
+@media (max-width: 767.98px) {
+  #TOPI01 {
+    padding: 35px 0;
+  }
+}
+@media (max-width: 767.98px) {
+  #TOPI01 .container--edit {
+    max-width: 90% !important;
+  }
+}
+#TOPI01 .header-topic {
+  text-align: center;
+}
+#TOPI01 .header-topic .container-title {
+  margin-bottom: 25px;
+}
+#TOPI01 .header-topic .container-title .title {
+  font-size: 2.5rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #404040;
+  display: block;
+}
+#TOPI01 .header-topic .container-title .subtitle {
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #b3b3b3;
+  display: block;
+}
+#TOPI01 .header-topic .paragraph {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 25px;
+}
+@media (max-width: 767.98px) {
+  #TOPI01 .header-topic .paragraph {
+    width: 90%;
+  }
+}
+#TOPI01 .header-topic .line {
+  background-color: #404040;
+}
+@media (max-width: 767.98px) {
+  #TOPI01 .container-box {
+    width: 70%;
+  }
+}
+@media (max-width: 767.98px) {
+  #TOPI01 .container-box .owl-stage-outer {
+    overflow: visible;
+  }
+}
+#TOPI01 .container-box .box-topic {
+  padding: 0.25rem;
+  padding-left: 0.25rem;
+}
+#TOPI01 .container-box .box-topic .content {
+  padding: 1rem 20px 0 20px;
+  height: 100%;
+}
+#TOPI01 .container-box .box-topic .content .container-info {
+  position: relative;
+  z-index: 1;
+  min-height: 240px;
+}
+#TOPI01 .container-box .box-topic .content .container-info .image img {
+  width: 50px;
+}
+#TOPI01 .container-box .box-topic .content .container-info .description {
+  text-align: center;
+}
+#TOPI01 .container-box .box-topic .content .container-info .description .title {
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  color: #000;
+}
+#TOPI01 .container-box .box-topic .content .container-info .description .paragraph {
+  font: 0.875rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  font-weight: 500;
+}
+#TOPI01 .container-box .box-topic .content:hover {
+  transform: scale(1.01);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
