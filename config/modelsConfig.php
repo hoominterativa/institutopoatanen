@@ -150,6 +150,24 @@ return [
                 ]
             ],
         ],
+        'Topics.3' => (object) [
+            'TOPI01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos1',
+                    'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
+        
         'Contents.5' => (object) [
             'CONT04' => (object)[
                 'ViewHome' => true,
