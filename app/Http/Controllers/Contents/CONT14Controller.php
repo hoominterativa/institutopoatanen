@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\Contents;
 
-use App\Models\Contents\CONT14Contents;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Contents\CONT14Contents;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use App\Models\Contents\CONT14ContentsSection;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Contents\CONT14ContentsCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
 class CONT14Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Contents/CONT14/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +24,15 @@ class CONT14Controller extends Controller
      */
     public function index()
     {
-        //
+        $contents = CONT14Contents::sorting()->get();
+        $categories = CONT14ContentsCategory::sorting()->get();
+        $section = CONT14ContentsSection::first();
+        return view('Admin.cruds.Contents.CONT14.index', [
+            'contents' => $contents,
+            'categories' => $categories,
+            'section' => $section,
+            'cropSetting' => getCropImage('Contents', 'CONT14')
+        ]);
     }
 
     /**
@@ -32,7 +42,11 @@ class CONT14Controller extends Controller
      */
     public function create()
     {
-        //
+        $categories = CONT14ContentsCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Contents.CONT14.create', [
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Contents', 'CONT14')
+        ]);
     }
 
     /**
@@ -44,33 +58,20 @@ class CONT14Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(CONT14Contents::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            return redirect()->route('admin.cont14.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
     }
@@ -83,7 +84,12 @@ class CONT14Controller extends Controller
      */
     public function edit(CONT14Contents $CONT14Contents)
     {
-        //
+        $categories = CONT14ContentsCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Contents.CONT14.edit', [
+            'categories' => $categories,
+            'content' => $CONT14Contents,
+            'cropSetting' => getCropImage('Contents', 'CONT14')
+        ]);
     }
 
     /**
@@ -96,11 +102,10 @@ class CONT14Controller extends Controller
     public function update(Request $request, CONT14Contents $CONT14Contents)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +116,14 @@ class CONT14Controller extends Controller
             storageDelete($CONT14Contents, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($CONT14Contents, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT14Contents, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($CONT14Contents->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar conteúdo');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +134,10 @@ class CONT14Controller extends Controller
      */
     public function destroy(CONT14Contents $CONT14Contents)
     {
-        //storageDelete($CONT14Contents, 'path_image');
-        //storageDelete($CONT14Contents, 'path_archive');
+        storageDelete($CONT14Contents, 'path_image');
 
         if($CONT14Contents->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +150,14 @@ class CONT14Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $CONT14Contentss = CONT14Contents::whereIn('id', $request->deleteAll)->get();
         foreach($CONT14Contentss as $CONT14Contents){
             storageDelete($CONT14Contents, 'path_image');
-            storageDelete($CONT14Contents, 'path_archive');
         }
-        */
 
         if($deleted = CONT14Contents::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' conteúdos deletados com sucessso']);
         }
     }
     /**
@@ -206,29 +185,16 @@ class CONT14Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(CONT14Contents $CONT14Contents)
-    public function show()
+    public function show(CONT14ContentsCategory $CONT14ContentsCategory, CONT14Contents $CONT14Contents)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contents', 'CONT14', 'show');
 
+        $contents = $CONT14Contents->where('category_id', $CONT14ContentsCategory->id)->active()->sorting()->get();
+
         return view('Client.pages.Contents.CONT14.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Contents', 'CONT14', 'page');
-
-        return view('Client.pages.Contents.CONT14.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'contents' => $contents
         ]);
     }
 
@@ -239,6 +205,26 @@ class CONT14Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Contents.CONT14.section');
+        $categories = CONT14ContentsCategory::exists()->active()->sorting()->get();
+
+        $categoryFirst = CONT14ContentsCategory::exists()->active()->first();
+        $contents = CONT14Contents::where('category_id', $categoryFirst->id)->active()->sorting()->get();
+
+        $section = CONT14ContentsSection::active()->first();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+            break;
+        }
+
+
+        return view('Client.pages.Contents.CONT14.section',[
+            'section' => $section,
+            'categories' => $categories,
+            'contents' => $contents,
+            'categoryFirst' => $categoryFirst
+        ]);
     }
 }

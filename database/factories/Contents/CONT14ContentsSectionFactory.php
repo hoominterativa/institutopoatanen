@@ -3,16 +3,16 @@
 namespace Database\Factories\Contents;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Contents\CONT14Contents;
+use App\Models\Contents\CONT14ContentsSection;
 
-class CONT14ContentsFactory extends Factory
+class CONT14ContentsSectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CONT14Contents::class;
+    protected $model = CONT14ContentsSection::class;
 
     /**
      * Define the model's default state.
@@ -22,12 +22,10 @@ class CONT14ContentsFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => rand(1,3),
             'title' => $this->faker->text(10),
-            'subtitle' => $this->faker->text(8),
-            'description' => $this->faker->text(500),
-            'link' => 'https://www.youtube.com/embed/dHFN1WGPzvk?si=P57I72jlvjOvxOpM',
-            'path_image' => 'uploads/tmp/thumbnail.png',
+            'path_image_desktop' => 'uploads/tmp/thumbnail.png',
+            'path_image_mobile' => 'uploads/tmp/slid01_path_image_png.png',
+            'background_color' => "#FFFFFF",
             'active' => 1,
         ];
     }

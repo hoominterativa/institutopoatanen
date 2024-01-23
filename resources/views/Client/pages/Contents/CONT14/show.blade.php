@@ -1,21 +1,23 @@
 <div id="cont13__right__engBox" class="cont13__right__engBox">
     <div class="carousel-gallery-cont13 owl-carousel">
-        @for($i=0; $i <= 2; $i++)
+        @foreach ($contents as $content)
             <div class="cont13__right__engBox__box">
-                <h4 class="cont13__right__engBox__box__title">Título Conteúdo{{$i}}</h4>
-                <h5 class="cont13__right__engBox__box__subtitle">Subtítulo Conteúdo</h5>
+                <h4 class="cont13__right__engBox__box__title">{{$content->title}}</h4>
+                <h5 class="cont13__right__engBox__box__subtitle">{{$content->subtitle}}</h5>
                 <div class="cont13__right__engBox__box__image">
-                    <img src="{{asset('storage/uploads/tmp/thumbnail-b.png')}}" class="h-100 w-100" alt="Imagem">
-                    <iframe src="" frameborder="0"></iframe>
+                    @if ($content->path_image)
+                        <img src="{{asset('storage/'.$content->path_image)}}" class="h-100 w-100" alt="Imagem">
+                    @else
+                    <iframe width="100%" height="100%" src="{{getUri($content->link)}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    @endif
                 </div>
                 <div class="cont13__right__engBox__box__paragraph">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus 
-                        gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. 
+                        {!! $content->description !!}
                     </p>
                 </div>
             </div>
             <!-- Fim-cont13__right__box -->
-        @endfor
-    </div>    
+        @endforeach
+    </div>
 </div>
