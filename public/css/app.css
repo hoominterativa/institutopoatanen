@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
-@charset "UTF-8";
 /* ------- --------- */
 body {
   overflow-x: hidden;
@@ -2070,171 +2069,119 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-/* BEGIN STYLE */
-.cont08 {
-  padding: 64px 0 64px 2.5vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-  gap: 152px;
+.cont09 .container--pd {
+  padding: 84px 0 89px 0;
+}
+.cont09__encompass {
+  padding-bottom: 20px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid #404040;
+}
+.cont09__encompass__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
 }
 @media (max-width: 991.98px) {
-  .cont08 {
-    flex-direction: column-reverse;
-    gap: 80px;
+  .cont09__encompass__title {
+    font-size: 1.875rem;
   }
 }
-.cont08__image {
-  width: 50%;
-  height: 439px;
-  margin: 0;
-  align-self: flex-end;
+.cont09__encompass__subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #7c7c7c;
+  font-family: "Ubuntu", sans-serif, arial;
 }
-.cont08__image__img {
+@media (max-width: 991.98px) {
+  .cont09__encompass__subtitle {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .cont09__content {
+    padding: 0 41px;
+  }
+}
+@media (max-width: 991.98px) {
+  .cont09__content__boxLeft {
+    margin-bottom: 40px;
+  }
+}
+.cont09__content__boxLeft__description {
+  width: 100%;
+  max-width: 487px;
+  background: #CACACA;
+  padding: 10px 78px 28px 78px;
+  margin-bottom: 19px;
+}
+@media (max-width: 991.98px) {
+  .cont09__content__boxLeft__description {
+    padding: 10px 33px 28px 33px;
+  }
+}
+.cont09__content__boxLeft__description__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000;
+  font-family: "Ubuntu", sans-serif, arial;
+}
+@media (max-width: 991.98px) {
+  .cont09__content__boxLeft__description__title {
+    font-size: 1.063rem;
+  }
+}
+.cont09__content__boxLeft__description__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 36px;
+  margin: 0 auto;
+}
+@media (max-width: 991.98px) {
+  .cont09__content__boxLeft__description__link {
+    gap: 0 26.06px;
+  }
+}
+.cont09__content__boxLeft__description__link a {
+  width: 26.43px;
+  height: 26.43px;
+}
+.cont09__content__boxLeft__description__link a img {
+  width: 26.43px;
+  height: 26.43px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 991.98px) {
+  .cont09__content__boxLeft__description__link a img {
+    width: 26.43px;
+    height: 26.43px;
+  }
+}
+.cont09__content__boxLeft__description__paragraph p {
+  font: 1rem "Montserrat", sans-serif, arial;
+  font-weight: 400;
+  color: #000;
+}
+@media (max-width: 991.98px) {
+  .cont09__content__boxLeft__description__paragraph p {
+    font: 0.938rem "Montserrat", sans-serif, arial;
+  }
+}
+.cont09__content__boxRight__iframe {
+  width: 100%;
+  height: 579px;
+}
+@media (max-width: 991.98px) {
+  .cont09__content__boxRight__iframe {
+    height: 409px;
+  }
+}
+.cont09__content__boxRight__iframe iframe {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-@media (max-width: 991.98px) {
-  .cont08__image {
-    width: 100%;
-  }
-}
-.cont08__information {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-}
-@media (max-width: 991.98px) {
-  .cont08__information {
-    width: 100%;
-  }
-}
-.cont08__information__header {
-  margin-bottom: 32px;
-  padding: 12px 2.5vw 0 0; /* insrido para colar o carousel à esquerda sem necessidade de overflow-x */
-}
-.cont08__information__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-}
-@media (max-width: 767.98px) {
-  .cont08__information__header__title {
-    font-size: 1.875rem;
-    font-weight: 700;
-  }
-}
-.cont08__information__header__subtitle {
-  margin-bottom: 16px;
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-}
-@media (max-width: 767.98px) {
-  .cont08__information__header__subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
-  }
-}
-.cont08__information__header__line {
-  margin-bottom: 16px;
-  height: 1px;
-  color: #7c7c7c;
-}
-.cont08__information__description {
-  margin-bottom: 42px;
-  font: 0.875rem "Montserrat", sans-serif, arial 400;
-  color: #404040;
-  letter-spacing: 0.2px;
-  line-height: 140%;
-}
-.cont08__information__content__carousel {
-  /*              EXPLICAÇÕES
-          1. Caso deseje-se controlar a largura das boxes é necessário realizar a adição da propriedade autoWidht: true e inserir os valores width nos items (classe logo abaixo);
-
-          2. .owl-dots adotado como padrão, caso deseje-se alterar basta mudar no js. Não precisa colocar display: none !important para ocultar um e display: flex !important em outro para fazê-lo aparecer;
-
-          3. As classes de ambos já estão inseridas abaixo, basta apenas configurá-las da maneira como o layout solicitar;
-  */
-}
-.cont08__information__content__carousel .owl-nav {
-  justify-content: start;
-}
-.cont08__information__content__carousel .owl-nav .owl-prev,
-.cont08__information__content__carousel .owl-nav .owl-next {
-  background-color: #b3b3b3 !important;
-}
-.cont08__information__content__carousel .owl-nav .owl-prev:hover,
-.cont08__information__content__carousel .owl-nav .owl-next:hover {
-  background-color: #404040 !important;
-}
-.cont08__information__content__carousel .owl-dots {
-  display: flex !important;
-  justify-content: start;
-}
-.cont08__information__content__carousel .owl-dots .owl-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 0;
-  background-color: #b3b3b3;
-}
-.cont08__information__content__carousel .owl-dots .owl-dot.active, .cont08__information__content__carousel .owl-dots .owl-dot:hover {
-  background-color: #404040;
-}
-.cont08__information__content__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-.cont08__information__content__item__icon {
-  /* COM !IMPORTANT POR CONTA DO OWL CAROUSEL */
-  width: 56px !important;
-  height: 56px !important;
-}
-.cont08__information__content__item__description {
-  font: 1rem "Montserrat", sans-serif, arial;
-  color: #404040;
-  letter-spacing: 0.2px;
-  max-width: 166px;
-  text-align: center;
-}
-.cont08__information__cta {
-  margin: 48px 2.5vw 0 0;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  background-color: #fff;
-  color: #000;
-  padding: 8px 48px;
-  text-decoration: none;
-}
-.cont08__information__cta__icon {
-  width: 24px;
-  height: 24px;
-}
-.cont08__information__cta:hover {
-  color: #fff;
-  background-color: #000;
-}
-.cont08__information__cta:hover .cont07__cta__icon {
-  filter: invert(1) grayscale(1);
-}
-@media (max-width: 991.98px) {
-  .cont08__information__cta {
-    align-self: center;
-  }
 }
 
 /* BEGIN STYLE */

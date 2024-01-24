@@ -22,6 +22,12 @@ class CreateCont09ContentsTable extends Migration
             $table->text('path_image_mobile')->nullable();
             $table->text('background_color')->nullable();
             $table->integer('active')->default(0);
+
+            //Section
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->integer('active_section')->default(0);
+            
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

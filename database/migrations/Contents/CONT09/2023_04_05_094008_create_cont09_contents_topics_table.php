@@ -15,6 +15,7 @@ class CreateCont09ContentsTopicsTable extends Migration
     {
         Schema::create('cont09_contents_topics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('content_id')->constrained('cont09_contents')->onDelete('cascade');
             $table->text('link')->nullable();
             $table->enum('link_target',['_self','_blank'])->default('_self');
             $table->string('path_image_icon')->nullable();

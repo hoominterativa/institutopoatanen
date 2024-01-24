@@ -17,7 +17,7 @@ class CONT09ContentsTopic extends Model
 
     protected $table = "cont09_contents_topics";
     protected $fillable = [
-        'link', 'link_target', 'path_image_icon', 'active', 'sorting'
+        'content_id', 'link', 'link_target', 'path_image_icon', 'active', 'sorting'
     ];
 
     public function scopeSorting($query)
@@ -29,9 +29,4 @@ class CONT09ContentsTopic extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

@@ -16,18 +16,6 @@ class CONT09TopicController extends Controller
     protected $path = 'uploads/Contents/CONT09/images/';
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('Admin.cruds.Contents.CONT09.Topics.create', [
-            'cropSetting' => getCropImage('Contents', 'CONT09')
-        ]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -45,26 +33,11 @@ class CONT09TopicController extends Controller
 
         if(CONT09ContentsTopic::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
-            return redirect()->route('admin.cont09.index');
         }else{
             Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao cadastradar o tópico');
-            return redirect()->back();
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contents\CONT09ContentsTopic  $CONT09ContentsTopic
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CONT09ContentsTopic $CONT09ContentsTopic)
-    {
-        return view('Admin.cruds.Contents.CONT09.Topics.edit', [
-            'topic' => $CONT09ContentsTopic,
-            'cropSetting' => getCropImage('Contents', 'CONT09')
-        ]);
+        return redirect()->back();
     }
 
     /**
@@ -131,7 +104,7 @@ class CONT09TopicController extends Controller
         }
 
         if($deleted = CONT09ContentsTopic::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' tópicos deletados com sucessso']);
         }
     }
     /**

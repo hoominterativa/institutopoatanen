@@ -62,7 +62,7 @@ class TOPI01Controller extends Controller
         if ($path_image) $data['path_image'] = $path_image;
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null, 100);
-        if ($path_image_icon) $data['path_image'] = $path_image_icon;
+        if ($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if (TOPI01Topics::create($data)) {
             Session::flash('success', 'Tópico cadastrado com sucesso');

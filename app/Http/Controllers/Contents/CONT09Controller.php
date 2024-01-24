@@ -24,13 +24,9 @@ class CONT09Controller extends Controller
      */
     public function index()
     {
-        $contents = CONT09Contents::sorting()->paginate(10);
-        $topics = CONT09ContentsTopic::sorting()->get();
-        $section = CONT09ContentsTopicSection::first();
+        $contents = CONT09Contents::sorting()->get();
         return view('Admin.cruds.Contents.CONT09.index', [
             'contents' => $contents,
-            'topics' => $topics,
-            'section' => $section,
             'cropSetting' => getCropImage('Contents', 'CONT09')
         ]);
     }
@@ -59,6 +55,8 @@ class CONT09Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['active_section'] = $request->active_section?1:0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
@@ -66,9 +64,9 @@ class CONT09Controller extends Controller
         $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        if(CONT09Contents::create($data)){
+        if($content = CONT09Contents::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.cont09.index');
+            return redirect()->route('admin.cont09.edit', ['CONT09Contents' => $content->id]);
         }else{
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
@@ -85,8 +83,10 @@ class CONT09Controller extends Controller
      */
     public function edit(CONT09Contents $CONT09Contents)
     {
+        $topics = CONT09ContentsTopic::where('content_id', $CONT09Contents->id)->sorting()->get();
         return view('Admin.cruds.Contents.CONT09.edit', [
             'content' => $CONT09Contents,
+            'topics' => $topics,
             'cropSetting' => getCropImage('Contents', 'CONT09')
         ]);
     }
@@ -104,6 +104,8 @@ class CONT09Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
+        $data['active_section'] = $request->active_section?1:0;
+        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
 
         $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
         if($path_image_desktop){
@@ -127,13 +129,12 @@ class CONT09Controller extends Controller
 
         if($CONT09Contents->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.cont09.index');
         }else{
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -196,25 +197,19 @@ class CONT09Controller extends Controller
      */
     public static function section()
     {
+        $contents = CONT09Contents::with('topics')->active()->sorting()->get();
+
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $contents = CONT09Contents::active()->sorting()->get();
-                    foreach($contents as $content) {
-                        if($content) $content->path_image_desktop = $content->path_image_mobile;
-                    }
-            break;
-            default:
-            $contents = CONT09Contents::active()->sorting()->get();
+                foreach($contents as $content) {
+                    if($content) $content->path_image_desktop = $content->path_image_mobile;
+                }
             break;
         }
 
-        $topics = CONT09ContentsTopic::active()->sorting()->get();
-        $section = CONT09ContentsTopicSection::active()->first();
         return view('Client.pages.Contents.CONT09.section', [
             'contents' => $contents,
-            'topics' => $topics,
-            'section' => $section
         ]);
     }
 }

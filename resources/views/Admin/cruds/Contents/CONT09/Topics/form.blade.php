@@ -1,7 +1,14 @@
-<div class="row col-12">
+@if (isset($topic))
+    {!! Form::model($topic, ['route' => ['admin.cont09.topic.update', $topic->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+    @method('PUT')
+@else
+    {!! Form::model(null, ['route' => ['admin.cont09.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('content_id', $content->id) !!}
+@endif
+<div class="row">
     <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
-            <div class="wrapper-links my-2 border px-2 py-3">
+        <div class="card card-body border" id="tooltip-container">
+            <div class="wrapper-links my-2 px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
                     <li class="nav-item">
                         <a href="#linkPages" data-bs-toggle="tab" aria-expanded="false" class="nav-link py-1">
@@ -54,7 +61,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                        {!! Form::url('link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('link', (isset($topic) ? getUri($topic->link) : null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('link_target', 'Redirecionar para', ['class'=>'form-label']) !!}
@@ -62,28 +69,27 @@
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
-            </div>
         </div>
-        {{-- end card-body --}}
+        <div class="mb-3 form-check me-3">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
+        </div>
     </div>
     <div class="col-12 col-lg-6">
-        <div class="card card-body" id="tooltip-container">
+        <div class="card card-body border" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Ícone', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Topics->path_image_icon->width }}x{{ $cropSetting->Topics->path_image_icon->height }}px!</small>
+                        {{ $cropSetting->Topic->path_image_icon->width }}x{{ $cropSetting->Topic->path_image_icon->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_icon', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->Topics->path_image_icon->activeCrop, // px
-                            'data-min-width' => $cropSetting->Topics->path_image_icon->width, // px
-                            'data-min-height' => $cropSetting->Topics->path_image_icon->height, // px
-                            'data-box-height' => '170', // Input height in the form
+                            'data-status' => $cropSetting->Topic->path_image_icon->activeCrop, // px
+                            'data-min-width' => $cropSetting->Topic->path_image_icon->width, // px
+                            'data-min-height' => $cropSetting->Topic->path_image_icon->height, // px
+                            'data-box-height' => '225', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($topic)
                                 ? ($topic->path_image_icon != ''
@@ -98,4 +104,8 @@
         {{-- end card-body --}}
     </div>
 </div>
-{{-- end row --}}
+<div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
+    {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}
+</div>
+{!! Form::close() !!}

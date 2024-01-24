@@ -30,9 +30,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/topico/delete', [CONT09TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [CONT09TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
 
-
-    Route::resource($route . '/secao', CONT09TopicSectionController::class)->names('admin.' . $routeName . '.topicsection')->parameters(['secao' => 'CONT09ContentsTopicSection']);
-    Route::post($route . '/secao/delete', [CONT09TopicSectionController::class, 'destroySelected'])->name('admin.' . $routeName . '.topicsection.destroySelected');
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

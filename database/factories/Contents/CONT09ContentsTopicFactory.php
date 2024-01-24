@@ -22,10 +22,10 @@ class CONT09ContentsTopicFactory extends Factory
     public function definition()
     {
         return [
-            'link' => 'https://www.lipsum.com/',
-            'link_target' => '_blank',
-            'path_image_icon' => 'uploads/tmp/favicon.png',
-            'active' => 1,
+            // 'link' => 'https://www.lipsum.com/',
+            // 'link_target' => '_blank',
+            // 'path_image_icon' => 'uploads/tmp/favicon.png',
+            // 'active' => 1,
         ];
     }
 }

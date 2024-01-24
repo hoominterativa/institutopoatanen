@@ -17,7 +17,9 @@ class CONT09Contents extends Model
 
     protected $table = "cont09_contents";
     protected $fillable = [
-        'title', 'subtitle', 'link', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active', 'sorting'
+        'title', 'subtitle', 'link', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active', 'sorting',
+        //Section
+        'title_section', 'subtitle_section', 'active_section'
     ];
 
     public function scopeSorting($query)
@@ -30,8 +32,13 @@ class CONT09Contents extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeActiveSection($query)
+    {
+        return $query->where('active_section', 1);
+    }
+
+    public function topics()
+    {
+        return $this->hasMany(CONT09ContentsTopic::class, 'content_id')->active()->sorting();
+    }
 }

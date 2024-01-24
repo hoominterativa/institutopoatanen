@@ -1,22 +1,32 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
+        {!! Form::hidden('active_section', isset($content) ? $content->active_section : null) !!}
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 {!! Form::label('link', 'Link', ['class' => 'form-label']) !!}
-                {!! Form::text('link', null, ['class' => 'form-control embedLinkYoutube', 'id' => 'link']) !!}
+                {!! Form::text('link', (isset($content) ? getUri($content->link) : null), ['class' => 'form-control', 'id' => 'link']) !!}
             </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
+            {{-- Color Picker --}}
+            <div class="mb-3">
+                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                {!! Form::text('background_color', null, [ 'class' => 'form-control colorpicker-default', 'id' => 'background_color', ]) !!}
             </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class'=>'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>
@@ -68,16 +78,6 @@
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
-            </div>
-        </div>
-        {{-- Color Picker --}}
-        <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
-                ]) !!}
             </div>
         </div>
         {{-- end card-body --}}
