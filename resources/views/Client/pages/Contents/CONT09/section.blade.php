@@ -11,12 +11,14 @@
                     @endif
                 </header>
                 <div class="cont09__content row justify-content-between d-flex">
-                    <div class="cont09__content__boxLeft col-sm-5 px-0 text-center d-flex flex-column align-items-center justify-content-center">
-                        <div class="cont09__content__boxLeft__description">
-                            @if ($content->title_section)
-                                <h4 class="cont09__content__boxLeft__description__title">{{$content->title_section}}</h4>
-                            @endif
-                            @if ($content->topics->count())
+                    @if ($content->topics->count())
+                        <div class="cont09__content__boxLeft col-sm-5 px-0 text-center d-flex flex-column align-items-center justify-content-center">
+                            <div class="cont09__content__boxLeft__description">
+                                @if ($content->active_section == 1)
+                                    @if ($content->title_section)
+                                        <h4 class="cont09__content__boxLeft__description__title">{{$content->title_section}}</h4>
+                                    @endif
+                                @endif
                                 <div class="cont09__content__boxLeft__description__link">
                                     @foreach ($content->topics as $topic)
                                         <a href="{{getUri($topic->link) ?? '#'}}" target="{{$topic->link ? $topic->link_target : ''}}" @if (!$topic->link) style="cursor: default;" @endif class="transition">
@@ -26,14 +28,16 @@
                                         </a>
                                     @endforeach
                                 </div>
+                            </div>
+                            @if ($content->active_section == 1)
+                                @if ($content->subtitle_section)
+                                    <div class="cont09__content__boxLeft__description__paragraph">
+                                        <p>{{$content->subtitle_section}}</p>
+                                    </div>
+                                @endif
                             @endif
                         </div>
-                        @if ($content->subtitle_section)
-                            <div class="cont09__content__boxLeft__description__paragraph">
-                                <p>{{$content->subtitle_section}}</p>
-                            </div>
-                        @endif
-                    </div>
+                    @endif
                     @if ($content->link)
                         <div class="cont09__content__boxRight col-sm-5 px-0">
                             <div class="cont09__content__boxRight__iframe">
