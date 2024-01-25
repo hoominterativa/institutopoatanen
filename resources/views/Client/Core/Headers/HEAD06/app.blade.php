@@ -32,7 +32,7 @@
                                                     </ul>
                                                 </li>
                                             @else
-                                                <li><a class="dropdown-item" href="{{$item->route}}">{{$item->name}}</a></li>
+                                                <li><a class="dropdown-item" target="{{$item->target}}" href="{{$item->route}}">{{$item->name}}</a></li>
                                             @endif
                                         @endforeach
                                     </ul>

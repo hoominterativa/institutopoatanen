@@ -24,8 +24,8 @@ function getRelationsModel(module, model, page=null, mode='create', callback=nul
                     $('.btnViewPage .title').text('')
 
                     if(response.dropdown){
-                        $('.ifDropdown').fadeOut('fast');
-                        $('.activeDropdown option[value=0]').attr('selected', 'selected')
+                        // $('.ifDropdown').fadeOut('fast');
+                        // $('.activeDropdown option[value=0]').attr('selected', 'selected')
                     }else{
                         $('.ifDropdown').fadeIn('fast');
                         $('.containerListPages li').remove()
@@ -34,8 +34,8 @@ function getRelationsModel(module, model, page=null, mode='create', callback=nul
                 break;
                 case 'edit':
                     if(response.dropdown){
-                        $('.ifDropdown').fadeOut('fast');
-                        $('.activeDropdown option[value=0]').attr('selected', 'selected')
+                        // $('.ifDropdown').fadeOut('fast');
+                        // $('.activeDropdown option[value=0]').attr('selected', 'selected')
                     }else{
                         $('.ifDropdown').fadeIn('fast');
                         $('.containerListPages li').remove()

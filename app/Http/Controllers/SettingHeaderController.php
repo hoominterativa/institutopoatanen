@@ -57,11 +57,28 @@ class SettingHeaderController extends Controller
             $data['page'] = $request->pageN;
         }
 
-        if($data['select_dropdown']=='' && $data['link']<>''){
+        if($request->type_dropdown==0 && $data['link']==''){
+            $linksDropdown = [];
+            foreach ($request->title_link_dropdown as $key => $value) {
+                array_push($linksDropdown,[
+                    'title' => $value,
+                    'link' => $request->link_dropdown[$key],
+                    'target' => $request->target_link_dropdown[$key]
+                ]);
+            }
+
+            $data['links_dropdown'] = json_encode($linksDropdown);
+        }
+
+        if($data['link']<>''){
             $data['select_dropdown'] = NULL;
+            $data['module'] = NULL;
+            $data['model'] = NULL;
+            $data['dropdown'] = 0;
             $data['condition'] = NULL;
             $data['exists'] = NULL;
             $data['limit'] = NULL;
+            $data['links_dropdown'] = NULL;
         }
 
         if(SettingHeader::create($data)){
@@ -112,11 +129,30 @@ class SettingHeaderController extends Controller
             $data['page'] = $request->pageN;
         }
 
-        if($data['select_dropdown']=='' && $data['link']<>''){
+        if($request->type_dropdown==0 && $data['link']==''){
+            $linksDropdown = [];
+            foreach ($request->title_link_dropdown as $key => $value) {
+                array_push($linksDropdown,[
+                    'title' => $value,
+                    'link' => $request->link_dropdown[$key],
+                    'target' => $request->target_link_dropdown[$key]
+                ]);
+            }
+
+            $data['links_dropdown'] = json_encode($linksDropdown);
+        }else{
+            $data['links_dropdown'] = NULL;
+        }
+
+        if($data['link']<>''){
             $data['select_dropdown'] = NULL;
+            $data['module'] = NULL;
+            $data['model'] = NULL;
+            $data['dropdown'] = 0;
             $data['condition'] = NULL;
             $data['exists'] = NULL;
             $data['limit'] = NULL;
+            $data['links_dropdown'] = NULL;
         }
 
         if($SettingHeader->fill($data)->save()){

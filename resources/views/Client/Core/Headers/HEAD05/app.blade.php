@@ -84,7 +84,7 @@
                                                     </div>
                                                 </div>
                                             @else
-                                                <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
+                                                <a href="{{$item->route}}" target="{{$item->target}}" class="sublink-item transition">{{$item->name}}</a>
                                             @endif
                                         @endforeach
                                     </div>

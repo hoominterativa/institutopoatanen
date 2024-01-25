@@ -132,124 +132,147 @@ class CoreController extends Controller
             $module = $page->module;
             $code = $page->model;
             $dropdown = null;
+
             if(!$page->link){
-                $config = $this->InsertModelsMain->$module->$code; // Get config current model
+                if($module){
+                    $config = $this->InsertModelsMain->$module->$code; // Get config current model
+                }else{
+                    $config = null;
+                }
             }
 
             if($page->dropdown){
                 $dropdown = $page->select_dropdown;
-                /*
-                If the $dropdown variable is "this", a direct query will be performed on the main table
-                If not, a query will be made on the relationship table
-                The query return will be in the $query variable
-                */
-                if($dropdown==='this'){
-                    $model = $this->Class->$module->$code->model; // Get model class
-                    $query = $model::query(); // begin query
+                if($page->links_dropdown){
 
-                    // conditions
-                    if($page->condition<>null){
-                        $condition = explode(',', $config->IncludeCore->condition);
-                        $splitCondition = explode('{', $condition[$page->condition]);
-                        $query = $query->whereRaw($splitCondition[0]);
-                    }
-                    if($page->limit<>null) $query = $query->limit($page->limit);
-
-                    // get query
-                    $query = $query->get();
-
-                    // Build array for dropdown
-                    foreach($query as $item){
-                        $param = self::getModelParameters($model); // Get parameter the model
-                        $route = Str::lower($code).'.show'; // Build route
-                        $columTitleRef = $config->IncludeCore->titleList; // Get reference title
-
-                        if(isset($this->Class->$module->$code->relationship)){
-                            $paramsThis = [];
-                            foreach ($this->Class->$module->$code->relationship as $relation => $value) {
-                                $columnIdRef = $value['column'];
-                                $routeName = $this->Class->$module->$code->routeName;
-                                $queryRelation = $value['class']::find($item->$columnIdRef);
-
-                                $getParam = self::getModelParameters($value['class']);
-
-                                $paramsThis = array_merge($paramsThis, [$getParam => $queryRelation->slug]);
-                            }
-
-                            $paramsThis = array_merge($paramsThis, [$param => $item->slug]);
-                            $routeCurrent = route($routeName, $paramsThis);
-
-                        }else{
-                            $routeCurrent = route($route, [$param => $item->slug]);
-                        }
-
+                    foreach (json_decode($page->links_dropdown) as $linksDrop) {
                         $menu = [
-                            "id" => $item->id,
-                            "name" => $item->$columTitleRef,
-                            "slug" => $item->slug,
-                            "route" => $routeCurrent,
+                            "id" => null,
+                            "name" => $linksDrop->title,
+                            "slug" => null,
+                            "route" => $linksDrop->link,
+                            "target" => $linksDrop->target,
                             'subList' => null
                         ];
                         array_push($listDropdown, $menu);
                     }
+
                 }else{
-                    $relation = explode(',', $dropdown); // Get relations to query
-                    $r0=$relation[0]; // Get first telationship
-                    $model = $this->Class->$module->$code->relationship[$r0]['class']; // Get model class
-                    $param = self::getModelParameters($model); // Get parameter the model
-                    $subRoute = Str::lower($code).'.'.$r0.'.page'; // Build route
+                    /*
+                    If the $dropdown variable is "this", a direct query will be performed on the main table
+                    If not, a query will be made on the relationship table
+                    The query return will be in the $query variable
+                    */
+                    if($dropdown==='this'){
+                        $model = $this->Class->$module->$code->model; // Get model class
+                        $query = $model::query(); // begin query
 
-                    $query = $model::query();// begin query
+                        // conditions
+                        if($page->condition<>null){
+                            $condition = explode(',', $config->IncludeCore->condition);
+                            $splitCondition = explode('{', $condition[$page->condition]);
+                            $query = $query->whereRaw($splitCondition[0]);
+                        }
+                        if($page->limit<>null) $query = $query->limit($page->limit);
 
-                    // If the dropdown has more than one level
-                    if(count($relation) > 1){
-                        $query = $query->with('getRelationCore');
-                    }
+                        // get query
+                        $query = $query->get();
 
-                    // conditions
-                    if($page->exists) $query = $query->existsRegister();
-                    if($page->condition!==null){
-                        $condition = explode(',', $config->IncludeCore->relation->$r0->condition);
-                        $splitCondition = explode('{', $condition[$page->condition]);
-                        $query = $query->whereRaw($splitCondition[0]);
-                    }
-                    if($page->limit<>null) $query = $query->limit($page->limit);
+                        // Build array for dropdown
+                        foreach($query as $item){
+                            $param = self::getModelParameters($model); // Get parameter the model
+                            $route = Str::lower($code).'.show'; // Build route
+                            $columTitleRef = $config->IncludeCore->titleList; // Get reference title
 
-                    // get query
-                    $query = $query->get();
+                            if(isset($this->Class->$module->$code->relationship)){
+                                $paramsThis = [];
+                                foreach ($this->Class->$module->$code->relationship as $relation => $value) {
+                                    $columnIdRef = $value['column'];
+                                    $routeName = $this->Class->$module->$code->routeName;
+                                    $queryRelation = $value['class']::find($item->$columnIdRef);
 
-                    // Build array for dropdown
-                    foreach($query as $item){
-                        $columTitleRef = $config->IncludeCore->relation->$r0->titleList; // Get reference title
-                        $dropdownSub = [];
+                                    $getParam = self::getModelParameters($value['class']);
 
-                        if(count($relation) > 1){
-                            $r1=$relation[1];
-                            $columTitleRefSub = $config->IncludeCore->relation->$r1->titleList; // Get reference title
-                            $modelSub = $this->Class->$module->$code->relationship[$r1]['class']; // Get model class
-                            $paramSub = self::getModelParameters($modelSub); // Get parameter the model
+                                    $paramsThis = array_merge($paramsThis, [$getParam => $queryRelation->slug]);
+                                }
 
-                            // Build array for subitems
-                            foreach($item->getRelationCore as $subItem){
-                                $subMenu = [
-                                    "id" => $subItem->id,
-                                    "name" => $subItem->$columTitleRefSub,
-                                    "slug" => Str::slug($subItem->$columTitleRefSub),
-                                    "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef), $paramSub => Str::slug($subItem->$columTitleRefSub)]),
-                                ];
-                                array_push($dropdownSub, $subMenu);
+                                $paramsThis = array_merge($paramsThis, [$param => $item->slug]);
+                                $routeCurrent = route($routeName, $paramsThis);
+
+                            }else{
+                                $routeCurrent = route($route, [$param => $item->slug]);
                             }
 
+                            $menu = [
+                                "id" => $item->id,
+                                "name" => $item->$columTitleRef,
+                                "slug" => $item->slug,
+                                "route" => $routeCurrent,
+                                "target" => '_self',
+                                'subList' => null
+                            ];
+                            array_push($listDropdown, $menu);
+                        }
+                    }else{
+                        $relation = explode(',', $dropdown); // Get relations to query
+                        $r0=$relation[0]; // Get first telationship
+                        $model = $this->Class->$module->$code->relationship[$r0]['class']; // Get model class
+                        $param = self::getModelParameters($model); // Get parameter the model
+                        $subRoute = Str::lower($code).'.'.$r0.'.page'; // Build route
+
+                        $query = $model::query();// begin query
+
+                        // If the dropdown has more than one level
+                        if(count($relation) > 1){
+                            $query = $query->with('getRelationCore');
                         }
 
-                        $menu = [
-                            "id" => $item->id,
-                            "name" => $item->$columTitleRef,
-                            "slug" => Str::slug($item->$columTitleRef),
-                            "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef)]),
-                            'subList' => count($dropdownSub)?$dropdownSub:null
-                        ];
-                        array_push($listDropdown, $menu);
+                        // conditions
+                        if($page->exists) $query = $query->existsRegister();
+                        if($page->condition!==null){
+                            $condition = explode(',', $config->IncludeCore->relation->$r0->condition);
+                            $splitCondition = explode('{', $condition[$page->condition]);
+                            $query = $query->whereRaw($splitCondition[0]);
+                        }
+                        if($page->limit<>null) $query = $query->limit($page->limit);
+
+                        // get query
+                        $query = $query->get();
+
+                        // Build array for dropdown
+                        foreach($query as $item){
+                            $columTitleRef = $config->IncludeCore->relation->$r0->titleList; // Get reference title
+                            $dropdownSub = [];
+
+                            if(count($relation) > 1){
+                                $r1=$relation[1];
+                                $columTitleRefSub = $config->IncludeCore->relation->$r1->titleList; // Get reference title
+                                $modelSub = $this->Class->$module->$code->relationship[$r1]['class']; // Get model class
+                                $paramSub = self::getModelParameters($modelSub); // Get parameter the model
+
+                                // Build array for subitems
+                                foreach($item->getRelationCore as $subItem){
+                                    $subMenu = [
+                                        "id" => $subItem->id,
+                                        "name" => $subItem->$columTitleRefSub,
+                                        "slug" => Str::slug($subItem->$columTitleRefSub),
+                                        "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef), $paramSub => Str::slug($subItem->$columTitleRefSub)]),
+                                    ];
+                                    array_push($dropdownSub, $subMenu);
+                                }
+
+                            }
+
+                            $menu = [
+                                "id" => $item->id,
+                                "name" => $item->$columTitleRef,
+                                "slug" => Str::slug($item->$columTitleRef),
+                                "route" => route($subRoute, [$param => Str::slug($item->$columTitleRef)]),
+                                "target" => '_self',
+                                'subList' => count($dropdownSub)?$dropdownSub:null
+                            ];
+                            array_push($listDropdown, $menu);
+                        }
                     }
                 }
             }
@@ -281,17 +304,18 @@ class CoreController extends Controller
             if(!$page->page && !$page->link){
                 $menu = (object) [
                     "title" => $page->title,
-                    "slug" => Str::slug($config->config->titleMenu),
-                    "anchor" => $config->config->anchor,
-                    "link" => $config->config->linkMenu,
+                    "slug" => $config?Str::slug($config->config->titleMenu):'',
+                    "anchor" => $config?$config->config->anchor:true,
+                    "link" => $config?$config->config->linkMenu:'',
                     "dropdown" => $listDropdown,
-                    "target_link" => $page->target_link,
+                    "target_link" => $config?$page->target_link:'',
                 ];
             }
 
 
             array_push($listMenu, $menu);
         }
+
         $response = json_encode($listMenu);
         return json_decode($response);
     }

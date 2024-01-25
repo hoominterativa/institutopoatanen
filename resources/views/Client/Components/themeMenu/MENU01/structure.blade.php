@@ -28,7 +28,7 @@
                                 <div class="sublink--sidebar-right text-end dropdown-menu" aria-labelledby="sublink--sidebar-right" >
                                     @foreach ($menu->dropdown as $item)
                                         <div class="mb-2">
-                                            <a href="{{$item->route}}" class="sublink-item transition">{{$item->name}}</a>
+                                            <a href="{{$item->route}}" target="{{$item->target}}" class="sublink-item transition">{{$item->name}}</a>
                                         </div>
                                     @endforeach
                                 </div>

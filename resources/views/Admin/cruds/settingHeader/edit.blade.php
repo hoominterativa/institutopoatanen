@@ -34,10 +34,22 @@
             $(window).on('load', function(){
                 let module = $('input[name=module]').val(),
                     model = $('input[name=model]').val(),
-                    selectDropdown = $('input[name=select_dropdown]').val()
+                    selectDropdown = $('input[name=select_dropdown]').val(),
+                    linksDropdownManually = $('input[name=links_dropdown_manually]').val()
 
                 if($('.activeDropdown').val()==1){
                     $('.ifRelations').fadeIn('fast')
+                    $('.ifTypeDropdown').fadeIn('fast')
+
+                    if(linksDropdownManually==1){
+                        $('.ifTypeDropdown option[value=0]').attr('selected', 'selected')
+                        $('.ifLinkDropdown').fadeIn('fast')
+                        $('.ifRelations').fadeOut('fast')
+                    }else{
+                        $('.ifTypeDropdown option[value=1]').attr('selected', 'selected')
+                        $('.ifRelations').fadeIn('fast')
+                        $('.ifLinkDropdown').fadeOut('fast')
+                    }
                 }
 
                 var page = null;
@@ -58,6 +70,7 @@
                             let condition = $('input[name=set_condition]').val()
                             $(`select[name=condition] option[value=${condition}]`).attr('selected', 'selected')
                         }
+                        console.log(selectDropdown)
                         if(selectDropdown=='this'){
                             $('.btnViewPage .title').text($('.btnSelectPage').text())
                             $('.btnSelectPage input').prop('checked', true)

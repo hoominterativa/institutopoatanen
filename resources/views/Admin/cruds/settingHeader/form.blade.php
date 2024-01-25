@@ -2,6 +2,7 @@
 {!! Form::hidden('model', null) !!}
 {!! Form::hidden('pageN', null) !!}
 {!! Form::hidden('select_dropdown', null) !!}
+{!! Form::hidden('links_dropdown_manually', isset($header->links_dropdown)?true:false) !!}
 {!! Form::hidden('set_condition', isset($header->condition)?$header->condition:null) !!}
 <div class="row col-12">
     <div class="col-12 col-md-6">
@@ -101,7 +102,7 @@
     </div>
     <div class="col-12 col-md-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="ifDropdown" style="display: none;">
+            <div class="ifDropdown">
                 <div class="mb-3">
                     <div class="d-flex align-items-center mb-1">
                         {!! Form::label('dropdown', 'Terá lista suspensa?', ['class'=>'form-label mb-0']) !!}
@@ -115,13 +116,102 @@
                         'required'=>'required'
                     ]) !!}
                 </div>
+                <div class="mb-3 ifTypeDropdown" style="display: none;">
+                    <div class="d-flex align-items-center mb-1">
+                        {!! Form::label('dropdown', 'Tipo da Lista', ['class'=>'form-label mb-0']) !!}
+                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="DINÂMICA: Será impresso na lista suspensa registros relacionados a página selecionada. MANUAL: Você deverá cadastrar todos os links que serão impressos na lista suspensa."></i>
+                    </div>
+                    {!! Form::select('type_dropdown', [0 => 'Manual', 1 => 'Dinâmica'], null, [
+                        'class'=>'form-select activeTypeDropdown',
+                        'id'=>'type_dropdown',
+                        'placeholder'=>'Selecione'
+                    ]) !!}
+                </div>
+                <div class="mb-3 ifLinkDropdown" style="display: none;">
+                    <div class="w-100">
+                        <button type="button" class="btn btn-warning waves-effect waves-light" style="margin-top: 28px !important;" id="addLinkDropdown">Adicionar Link</button>
+                    </div>
+                    <div id="receiverLinksDropdown">
+                        @if (isset($header->links_dropdown))
+                            @foreach (json_decode($header->links_dropdown) as $linkDropdown)
+                                <div class="contLinkDropdown w-100 mt-3 p-3 bg-light">
+                                    <button type="button" class="btn btn-danger waves-effect waves-light rounded-circle float-end removeLinkDropdown" style="margin-top: -36px;margin-right: -40px;">X</button>
+                                    <div class="mb-3 w-100">
+                                        <div class="d-flex align-items-center mb-1">
+                                            {!! Form::label('title_link_dropdown', 'Título Link', ['class'=>'form-label mb-0']) !!}
+                                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-original-title="O título será exibido na lista suspensa."></i>
+                                        </div>
+                                        {!! Form::text('title_link_dropdown[]', $linkDropdown->title, ['class'=>'form-control', 'id'=>'title_link_dropdown']) !!}
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-md-8">
+                                            <div class="d-flex align-items-center mb-1">
+                                                {!! Form::label('link_dropdown', 'Link', ['class'=>'form-label mb-0']) !!}
+                                                <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    data-bs-original-title="Link de redirecionamento"></i>
+                                            </div>
+                                            {!! Form::url('link_dropdown[]', $linkDropdown->link, ['class'=>'form-control', 'parsley-type'=>'url', 'id' => 'link_dropdown[]']) !!}
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <div class="d-flex align-items-center mb-1">
+                                                {!! Form::label('target_link_dropdown', 'Redirecionar para', ['class'=>'form-label mb-0']) !!}
+                                                <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    data-bs-original-title="Se ao clicar no link abrirá em nova aba ou na mesma aba"></i>
+                                            </div>
+                                            {!! Form::select('target_link_dropdown[]', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], $linkDropdown->target, ['class'=>'form-select', 'id'=>'target_link_dropdown']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="contLinkDropdown w-100 mt-3 p-3 bg-light">
+                                <button type="button" class="btn btn-danger waves-effect waves-light rounded-circle float-end removeLinkDropdown" style="margin-top: -36px;margin-right: -40px;">X</button>
+                                <div class="mb-3 w-100">
+                                    <div class="d-flex align-items-center mb-1">
+                                        {!! Form::label('title_link_dropdown', 'Título Link', ['class'=>'form-label mb-0']) !!}
+                                        <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-original-title="O título será exibido na lista suspensa."></i>
+                                    </div>
+                                    {!! Form::text('title_link_dropdown[]', null, ['class'=>'form-control', 'id'=>'title_link_dropdown']) !!}
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-8">
+                                        <div class="d-flex align-items-center mb-1">
+                                            {!! Form::label(null, 'Link', ['class'=>'form-label mb-0']) !!}
+                                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-original-title="Link de redirecionamento"></i>
+                                        </div>
+                                        {!! Form::url('link_dropdown[]', null, ['class'=>'form-control', 'parsley-type'=>'url', 'id' => 'link_dropdown[]']) !!}
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="d-flex align-items-center mb-1">
+                                            {!! Form::label('target_link_dropdown', 'Redirecionar para', ['class'=>'form-label mb-0']) !!}
+                                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-original-title="Se ao clicar no link abrirá em nova aba ou na mesma aba"></i>
+                                        </div>
+                                        {!! Form::select('target_link_dropdown[]', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_dropdown']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
                 <div class="mb-3 ifRelations" style="display: none;">
                     <div class="mb-3 col-12">
                         <div class="d-flex align-items-center mb-1">
                             {!! Form::label('dropdown', 'O que será exibido?', ['class'=>'form-label mb-0']) !!}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Selecione o que a lista suspensa deste menu exibirá."></i>
+                                data-bs-original-title="Selecione o que a lista suspensa deste menu exibirá. Obs.: Necessário selecionar a 'Página do site' antes."></i>
                         </div>
                         <button class="form-control dropdown-toggle text-start btnViewPage" type="button" id="dropdownPages" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="title"></span>

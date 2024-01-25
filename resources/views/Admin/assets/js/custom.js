@@ -515,9 +515,49 @@ $(function() {
 
     $('.activeDropdown').on('change', function(){
         if($(this).val()=='1'){
+            $('.ifTypeDropdown').fadeIn('fast');
+        }else{
+            $('.ifTypeDropdown').fadeOut('fast');
+            $('.ifLinkDropdown').fadeOut('fast');
+            $('.ifRelations').fadeOut('fast');
+
+            $('.activeTypeDropdown').find('option').removeAttr('selected');
+            $('.activeTypeDropdown').find('option:first').attr('selected', 'selected')
+        }
+    })
+
+    $('.activeTypeDropdown').on('change', function(){
+        if($(this).val()=='1'){
             $('.ifRelations').fadeIn('fast');
+            $('.ifLinkDropdown').fadeOut('fast');
         }else{
             $('.ifRelations').fadeOut('fast');
+            $('.ifLinkDropdown').fadeIn('fast');
+
+            $('.containerListPages li').remove()
+
+            $('.selectPage').find('option').removeAttr('selected');
+            $('.selectPage').find('option:first').attr('selected', 'selected')
+        }
+    })
+
+    $('#addLinkDropdown').on('click', function() {
+        $(this).parents('.ifLinkDropdown').find('.contLinkDropdown:first').clone(true).appendTo('#receiverLinksDropdown');
+        $('.contLinkDropdown:last').find('input').val('');
+        $('.contLinkDropdown:last').find('select option').removeAttr('selected');
+        $('.contLinkDropdown:last').find('select option:first').attr('selected', 'selected');
+    })
+
+    $('.removeLinkDropdown').on('click', function() {
+        if($('.contLinkDropdown').length > 1){
+            $(this).parent().remove();
+        }else{
+            $('.activeDropdown').find('option').removeAttr('selected');
+            $('.activeDropdown').find('option:first').attr('selected', 'selected')
+            $('.activeTypeDropdown').find('option').removeAttr('selected');
+            $('.activeTypeDropdown').find('option:first').attr('selected', 'selected')
+            $('.ifTypeDropdown').fadeOut('fast');
+            $('.ifLinkDropdown').fadeOut('fast');
         }
     })
 

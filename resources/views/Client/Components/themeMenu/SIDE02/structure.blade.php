@@ -46,7 +46,7 @@
                         @if ($menu->dropdown)
                             <div class="side02__navigation__dropdown dropdown-menu">
                                 @foreach ($menu->dropdown as $item)
-                                    <a href="{{ $item->route }}" class="side02__navigation__sublink transition">
+                                    <a href="{{ $item->route }}" target="{{$item->target}}" class="side02__navigation__sublink transition">
                                         {{ $item->name }}
                                     </a>
                                 @endforeach

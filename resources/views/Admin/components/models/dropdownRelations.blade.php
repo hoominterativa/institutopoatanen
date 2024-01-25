@@ -34,6 +34,7 @@
             {!! Form::select('condition', $relations, null, [
                 'class'=>'form-select activeDropdown',
                 'id'=>'condition',
+                'placeholder'=>'Selecione a condição de exibição',
             ]) !!}
         </div>
     @break
