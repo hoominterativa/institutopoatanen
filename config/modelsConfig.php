@@ -48,7 +48,7 @@ return [
             ],
         ],
         'Contents' => (object) [
-            'CONT09' => (object)[
+            'CONT10' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,

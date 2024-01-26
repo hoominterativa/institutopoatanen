@@ -15,11 +15,11 @@ class CreateCont10ContentsTable extends Migration
     {
         Schema::create('cont10_contents', function (Blueprint $table) {
             $table->id();
-            $table->date('date')->nullable();
             $table->string('title')->nullable();
-            $table->string('locale')->nullable();
-            $table->string('link')->nullable();
-            $table->enum('link_target', ['_self', '_blank'])->default('_self');
+            $table->string('subtitle')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

@@ -16,7 +16,7 @@ class CONT10Contents extends Model
     }
 
     protected $table = "cont10_contents";
-    protected $fillable = ['date', 'title', 'locale', 'link', 'link_target', 'active', 'sorting'];
+    protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active'];
 
     public function scopeSorting($query)
     {
@@ -26,6 +26,11 @@ class CONT10Contents extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function topics()
+    {
+        return $this->hasMany(CONT10ContentsTopic::class, 'content_id')->active()->sorting();
     }
 
 }
