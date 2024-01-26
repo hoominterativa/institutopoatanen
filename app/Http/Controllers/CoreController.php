@@ -150,7 +150,7 @@ class CoreController extends Controller
                             "id" => null,
                             "name" => $linksDrop->title,
                             "slug" => null,
-                            "route" => $linksDrop->link,
+                            "route" => getUri($linksDrop->link),
                             "target" => $linksDrop->target,
                             'subList' => null
                         ];

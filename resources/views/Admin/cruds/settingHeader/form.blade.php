@@ -155,7 +155,7 @@
                                                     data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                                     data-bs-original-title="Link de redirecionamento"></i>
                                             </div>
-                                            {!! Form::url('link_dropdown[]', $linkDropdown->link, ['class'=>'form-control', 'parsley-type'=>'url', 'id' => 'link_dropdown[]']) !!}
+                                            {!! Form::url('link_dropdown[]', getUri($linkDropdown->link), ['class'=>'form-control', 'parsley-type'=>'url', 'id' => 'link_dropdown[]']) !!}
                                         </div>
                                         <div class="col-12 col-md-4">
                                             <div class="d-flex align-items-center mb-1">

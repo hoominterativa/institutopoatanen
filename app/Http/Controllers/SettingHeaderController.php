@@ -60,14 +60,17 @@ class SettingHeaderController extends Controller
         if($request->type_dropdown==0 && $data['link']==''){
             $linksDropdown = [];
             foreach ($request->title_link_dropdown as $key => $value) {
+                $linkDropdown = isset($request->link_dropdown[$key])?getUri($request->link_dropdown[$key]):null;
                 array_push($linksDropdown,[
                     'title' => $value,
-                    'link' => $request->link_dropdown[$key],
+                    'link' => $linkDropdown,
                     'target' => $request->target_link_dropdown[$key]
                 ]);
             }
 
             $data['links_dropdown'] = json_encode($linksDropdown);
+        }else{
+            $data['links_dropdown'] = NULL;
         }
 
         if($data['link']<>''){
@@ -132,9 +135,10 @@ class SettingHeaderController extends Controller
         if($request->type_dropdown==0 && $data['link']==''){
             $linksDropdown = [];
             foreach ($request->title_link_dropdown as $key => $value) {
+                $linkDropdown = isset($request->link_dropdown[$key])?getUri($request->link_dropdown[$key]):null;
                 array_push($linksDropdown,[
                     'title' => $value,
-                    'link' => $request->link_dropdown[$key],
+                    'link' => $linkDropdown,
                     'target' => $request->target_link_dropdown[$key]
                 ]);
             }
