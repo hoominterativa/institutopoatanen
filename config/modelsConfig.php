@@ -43,7 +43,7 @@ return [
                 'anchor' => false,
                 'linkMenu' => '',
                 'iconMenu' => '',
-                'titlePanel' => 'Tópicos09',
+                'titlePanel' => 'Tópicos9',
                 'iconPanel' => 'mdi-apps'
                 ]
             ],
@@ -88,8 +88,25 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos02',
+                    'titlePanel' => 'Tópicos2',
                     'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
+        'Topics.3' => (object) [
+            'TOPI03' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos3',
+                    'iconPanel' => 'mdi-book-minus-multiple'
                 ]
             ],
         ],
