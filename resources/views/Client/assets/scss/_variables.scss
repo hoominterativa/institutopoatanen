@@ -1,5 +1,7 @@
 // BEGIN CONFIG THEME
 
+
+// VAI FICAR OBSOLETO
 // MAIN WRAP
 $max-width-container-fluid: 1100px;
 
@@ -9,6 +11,8 @@ $T2: 2.5rem;
 $T3: 1.875rem;
 $T4: 1.25rem;
 $T5: 1.125rem;
+
+// VAI SER RETIRADO - VER ONDE FOI USADO PARA SUBSTITUIR
 $T6:2.8125rem;
 
 $T1-mobile: 2.5rem;
@@ -31,6 +35,7 @@ $color-two: #7c7c7c;
 $color-three: #b3b3b3;
 $color-four: #cacaca;
 $color-five: #efefef;
+
 $color-six: #e6e6e6;
 $color-seven: #f2f2f2;
 $color-eight: #282828;
@@ -40,8 +45,9 @@ $color-eleven:#565656;
 
 $color-white: #fff;
 $color-black: #000;
-$color-black-opacity: #000;
 
+// VAI FICAR OBSOLETO
+$color-black-opacity: #000;
 $color-info: #0d84f5;
 $color-warning: #f5980d;
 $color-danger: #c90000;
@@ -51,15 +57,19 @@ $font-primary: "Ubuntu", sans-serif, arial;
 $font-secondary: "Ubuntu", sans-serif, arial;
 $font-paragraph: "Montserrat", sans-serif, arial;
 
-// FONT PARAGRAPH
-$paragraph: $P1 $font-paragraph;
-$paragraph-min: $P2 $font-paragraph;
 
-$paragraph-mobile: $P1-mobile $font-paragraph;
-$paragraph-min-mobile: $P2-mobile $font-paragraph;
+// VAI FICAR OBSOLETO
+// FONT PARAGRAPH
+$paragraph: 400 $P1 $font-paragraph;
+$paragraph-min: 400 $P2 $font-paragraph;
+
+$paragraph-mobile: 400 $P1-mobile $font-paragraph;
+$paragraph-min-mobile: 400 $P2-mobile $font-paragraph;
 
 // END CONFIG THEME
 
+
+// VAI FICAR OBSOLETO
 // GRAYSCALE
 $gray-100: #f7f8f9;
 $gray-200: #eceff1;
@@ -71,6 +81,8 @@ $gray-700: #6c757d;
 $gray-800: #343a40;
 $gray-900: #323a46;
 
+
+// VAI FICAR OBSOLETO
 // BACKGROUNDS
 $bg-main: $color-one;
 $bg-secondary: $color-two;
@@ -85,6 +97,7 @@ $bg-info: $color-info;
 $bg-warning: $color-warning;
 $bg-danger: $color-danger;
 
+// VAI FICAR OBSOLETO
 // WIDTH PERCENT SECTION BODY
 $wp-100: 100%;
 $wp-90: 90%;
@@ -97,12 +110,16 @@ $wp-30: 30%;
 $wp-20: 20%;
 $wp-10: 10%;
 
+
+// VAI FICAR OBSOLETO
 // EDGE
 $edge-rounded-none: 0;
 $edge-rounded-soft: 5px;
 $edge-rounded: 50px;
 $edge-rounded-full: 100%;
 
+
+// VAI FICAR OBSOLETO
 // FONT SIZE
 $font-0: 0rem;
 $font-10: 0.625rem;
@@ -131,6 +148,7 @@ $font-48: 3rem;
 $font-50: 3.125rem;
 $font-51: 1.0625rem;
 
+// VAI FICAR OBSOLETO
 // WEIGHT
 $weight-100: 100;
 $weight-200: 200;

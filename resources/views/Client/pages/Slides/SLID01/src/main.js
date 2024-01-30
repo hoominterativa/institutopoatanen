@@ -1,5 +1,5 @@
 $(".slid01").owlCarousel({
-    animateOut: "fadeOut",
+    // animateOut: "fadeOut",
     items: 1,
     margin: 0,
     stagePadding: 0,

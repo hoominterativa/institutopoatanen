@@ -219,6 +219,7 @@ mix
         "public/Admin/assets/css/custom.css"
     )
     //Plugins
+
     .styles(
         "node_modules/mohithg-switchery/dist/switchery.min.css",
         "public/Admin/assets/libs/switchery.min.css"

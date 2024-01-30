@@ -3,8 +3,17 @@ body {
     width: 100%;
     height: 100%;
     display: block;
+
     &.no-scroll {
         overflow-y: hidden;
+    }
+
+    .swiper-slide{
+        display: flex;
+    }
+
+    .swiper-autoheight .swiper-slide{
+        height: 100%;
     }
 }
 
@@ -721,15 +730,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 
-    .container--pd{
-
+    .container--pd {
     }
-    &__boxLeft{
+    &__boxLeft {
         padding: 0 38px;
-        @include medium-device-down{
+        @include medium-device-down {
             margin-bottom: 25px;
         }
-        &__content{
+        &__content {
             &__title {
                 font-size: $T3;
                 color: $color-black;
@@ -759,39 +767,38 @@ body {
                 }
             }
         }
-        &__form{
+        &__form {
             justify-content: space-between;
-            .input__item{
+            .input__item {
                 width: 48.5%;
                 padding: 0;
 
-
-                @include medium-device-down{
+                @include medium-device-down {
                     width: 100%;
                 }
                 label {
                     color: #000 !important;
                 }
-                .form-placeholder{
+                .form-placeholder {
                     background-color: #fff !important;
                     border: none !important;
                 }
-                input{
+                input {
                     background-color: transparent !important;
                     color: #000 !important;
                     border-radius: 0 !important;
                     height: 2.9375rem;
                     padding: 0;
 
-                    &::placeholder{
+                    &::placeholder {
                         color: #000 !important;
                     }
                 }
             }
-            &__checkbox-label{
+            &__checkbox-label {
                 padding: 0;
             }
-            button{
+            button {
                 background-color: $color-white;
                 color: $color-one;
                 height: 45px;
@@ -838,19 +845,19 @@ body {
             }
         }
     }
-    &__boxRight{
-       &__image{
-        height: 434px;
-        max-width: 315px;
-        width: 100%;
-
-        img{
+    &__boxRight {
+        &__image {
+            height: 434px;
+            max-width: 315px;
             width: 100%;
-            height: 100%;
-            -o-object-fit: cover;
-            object-fit: cover;
+
+            img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
         }
-       }
     }
 }
 
@@ -1498,47 +1505,363 @@ body {
 
 .blur-5 {
     filter: blur(5px);
-  }
+}
 
-  .animation {
+.animation {
     opacity: 0;
-  }
+}
 
-  .animated {
+.animated {
     opacity: 1;
     animation-duration: 1.5s !important;
 
     &.blur-5 {
-      filter: blur(0px);
+        filter: blur(0px);
     }
 
     &.fadeIn {
-      animation: fadeIn;
+        animation: fadeIn;
     }
 
     &.fadeInUp {
-      animation: fadeInUp;
+        animation: fadeInUp;
     }
 
     &.fadeInDown {
-      animation: fadeInDown;
+        animation: fadeInDown;
     }
 
-    &.fadeInRight{
+    &.fadeInRight {
         animation: fadeInRight;
     }
-    &.fadeInLeft{
+    &.fadeInLeft {
         animation: fadeInLeft;
     }
-  }
+}
 
-  .hover-image-box {
+.hover-image-box {
+    overflow: hidden;
     &__target {
-      transition: all 0.4s ease;
+        transition: all 0.4s ease;
     }
 
     &:hover &__target {
-      scale: 1.1;
-      transition: all 0.4s ease;
+        scale: 1.1;
+        transition: all 0.4s ease;
     }
-  }
+}
+
+/* CONFIGURAÇÃO DO TEMA */
+%theme {
+    &__padding {
+        padding-top: 4.5rem;
+        padding-right: 5vw;
+        padding-bottom: 4.5rem;
+        padding-left: 5vw;
+    }
+
+    &__t {
+        &1 {
+            font: 700 $T1 $font-primary;
+            line-height: 140%;
+            letter-spacing: 0.0125rem;
+            text-align: center;
+
+            margin-bottom: 0.25rem;
+
+            @include large-device-down {
+                font-size: $T1-mobile;
+                line-height: 90%;
+            }
+
+            &-c {
+                &w {
+                    @extend %theme__t1;
+                    color: $color-white;
+                }
+                &b {
+                    @extend %theme__t1;
+                    color: $color-black;
+                }
+
+                &1 {
+                    @extend %theme__t1;
+                    color: $color-one;
+                }
+                &2 {
+                    @extend %theme__t1;
+                    color: $color-two;
+                }
+                &3 {
+                    @extend %theme__t1;
+                    color: $color-three;
+                }
+                &4 {
+                    @extend %theme__t1;
+                    color: $color-four;
+                }
+                &5 {
+                    @extend %theme__t1;
+                    color: $color-five;
+                }
+            }
+        }
+
+        &2 {
+            font: 700 $T2 $font-primary;
+            line-height: normal;
+            text-align: center;
+
+            @include large-device-down {
+                font-size: $T2-mobile;
+            }
+
+            &-c {
+                &w {
+                    @extend %theme__t2;
+                    color: $color-white;
+                }
+                &b {
+                    @extend %theme__t2;
+                    color: $color-black;
+                }
+
+                &1 {
+                    @extend %theme__t2;
+                    color: $color-one;
+                }
+                &2 {
+                    @extend %theme__t2;
+                    color: $color-two;
+                }
+                &3 {
+                    @extend %theme__t2;
+                    color: $color-three;
+                }
+                &4 {
+                    @extend %theme__t2;
+                    color: $color-four;
+                }
+                &5 {
+                    @extend %theme__t2;
+                    color: $color-five;
+                }
+            }
+        }
+
+        &3 {
+            font: 700 $T3 $font-primary;
+            line-height: normal;
+            text-align: left;
+
+            @include large-device-down {
+                font-size: $T3-mobile;
+            }
+
+            &-c {
+                &w {
+                    @extend %theme__t3;
+                    color: $color-white;
+                }
+                &b {
+                    @extend %theme__t3;
+                    color: $color-black;
+                }
+
+                &1 {
+                    @extend %theme__t3;
+                    color: $color-one;
+                }
+                &2 {
+                    @extend %theme__t3;
+                    color: $color-two;
+                }
+                &3 {
+                    @extend %theme__t3;
+                    color: $color-three;
+                }
+                &4 {
+                    @extend %theme__t3;
+                    color: $color-four;
+                }
+                &5 {
+                    @extend %theme__t3;
+                    color: $color-five;
+                }
+            }
+        }
+
+        &4 {
+            font: 700 $T4 $font-primary;
+            line-height: normal;
+            text-align: left;
+
+            margin-bottom: 2rem;
+
+            @include large-device-down {
+                font-size: $T4-mobile;
+            }
+
+            &-c {
+                &w {
+                    @extend %theme__t4;
+                    color: $color-white;
+                }
+                &b {
+                    @extend %theme__t4;
+                    color: $color-black;
+                }
+
+                &1 {
+                    @extend %theme__t4;
+                    color: $color-one;
+                }
+                &2 {
+                    @extend %theme__t4;
+                    color: $color-two;
+                }
+                &3 {
+                    @extend %theme__t4;
+                    color: $color-three;
+                }
+                &4 {
+                    @extend %theme__t4;
+                    color: $color-four;
+                }
+                &5 {
+                    @extend %theme__t4;
+                    color: $color-five;
+                }
+            }
+        }
+
+        &5 {
+            font: 700 $T5 $font-primary;
+            line-height: normal;
+            text-align: left;
+
+            @include large-device-down {
+                font-size: $T5-mobile;
+            }
+
+            &-c {
+                &w {
+                    @extend %theme__t5;
+                    color: $color-white;
+                }
+                &b {
+                    @extend %theme__t5;
+                    color: $color-black;
+                }
+
+                &1 {
+                    @extend %theme__t5;
+                    color: $color-one;
+                }
+                &2 {
+                    @extend %theme__t5;
+                    color: $color-two;
+                }
+                &3 {
+                    @extend %theme__t5;
+                    color: $color-three;
+                }
+                &4 {
+                    @extend %theme__t5;
+                    color: $color-four;
+                }
+                &5 {
+                    @extend %theme__t5;
+                    color: $color-five;
+                }
+            }
+        }
+    }
+
+    &__p {
+        &1 {
+            font: 400 $P1 $font-paragraph;
+            line-height: 170%;
+            letter-spacing: 0.2px;
+
+            @include large-device-down {
+                font-size: $P1-mobile;
+            }
+
+            &-c {
+                &w {
+                    @extend %theme__p1;
+                    color: $color-white;
+                }
+                &b {
+                    @extend %theme__p1;
+                    color: $color-black;
+                }
+
+                &1 {
+                    @extend %theme__p1;
+                    color: $color-one;
+                }
+                &2 {
+                    @extend %theme__p1;
+                    color: $color-two;
+                }
+                &3 {
+                    @extend %theme__p1;
+                    color: $color-three;
+                }
+                &4 {
+                    @extend %theme__p1;
+                    color: $color-four;
+                }
+                &5 {
+                    @extend %theme__p1;
+                    color: $color-five;
+                }
+            }
+        }
+
+        &2 {
+            font: 400 $P2 $font-paragraph;
+            line-height: 140%;
+            letter-spacing: 0.2px;
+
+            @include large-device-down {
+                font-size: $P2-mobile;
+                line-height: 170%;
+            }
+
+            &-c {
+                &w {
+                    @extend %theme__p2;
+                    color: $color-white;
+                }
+                &b {
+                    @extend %theme__p2;
+                    color: $color-black;
+                }
+
+                &1 {
+                    @extend %theme__p2;
+                    color: $color-one;
+                }
+                &2 {
+                    @extend %theme__p2;
+                    color: $color-two;
+                }
+                &3 {
+                    @extend %theme__p2;
+                    color: $color-three;
+                }
+                &4 {
+                    @extend %theme__p2;
+                    color: $color-four;
+                }
+                &5 {
+                    @extend %theme__p2;
+                    color: $color-five;
+                }
+            }
+        }
+    }
+}

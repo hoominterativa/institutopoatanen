@@ -59,7 +59,7 @@ $(function () {
         const owlItems = owlCarousel.find('.owl-item');
         const prevButton = owlCarousel.find('.owl-prev');
         const nextButton = owlCarousel.find('.owl-next');
-    
+
         if (owlItems.length > 1) {
             prevButton.show();
             nextButton.show();
@@ -200,3 +200,14 @@ if (elementosAnimados.length > 0) {
     observador.observe(elemento);
   });
 }
+
+/* HOTFIX PARA O HEADER */
+window.addEventListener("scroll", () => {
+    const menuAberto = document.querySelector(".sublink--menu.show");
+    if (menuAberto) {
+        menuAberto.classList.remove("show");
+        document
+            .querySelector(".menu-list .link.show")
+            .classList.remove("show");
+    }
+});

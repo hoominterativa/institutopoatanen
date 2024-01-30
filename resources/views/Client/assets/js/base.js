@@ -1,5 +1,5 @@
-import '../../Core/Headers/HEAD02/src/main';
+import '../../Core/Headers/HEAD06/src/main';
 import '../../Components/themeMenu/SIDE02/src/main';
 import '../../Core/Footers/FOOT02/src/main';
-import '../../pages/Contents/CONT10/src/main';
+import '../../pages/Topics/TOPI01/src/main';
 import '../../pages/Compliances/COMP01/src/main';
