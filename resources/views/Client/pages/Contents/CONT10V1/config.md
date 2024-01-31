@@ -1,4 +1,5 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
+
 'Contents' => (object) [
     'CONT10V1' => (object)[
         'ViewHome' => true,
@@ -12,7 +13,7 @@
             'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Conteúdo',
-            'iconPanel' => 'mdi-table-of-contents'
+            'iconPanel' => 'mdi-view-split-horizontal'
         ]
     ],
-]
+],

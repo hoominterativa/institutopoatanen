@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCont10v1ContentsTable extends Migration
+class CreateCont10V1ContentsTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateCont10v1ContentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cont10v1_contents', function (Blueprint $table) {
+        Schema::create('cont10v1_contents_topics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('content_id')->constrained('cont10v1_contents')->onDelete('cascade');
             $table->date('date')->nullable();
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
             $table->string('locale')->nullable();
-            $table->string('link')->nullable();
-            $table->enum('link_target', ['_self', '_blank'])->default('_self');
+            $table->string('title_button')->nullable();
+            $table->string('link_button')->nullable();
+            $table->enum('link_target_button', ['_self', '_blank'])->default('_self');
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
@@ -34,6 +34,6 @@ class CreateCont10v1ContentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cont10v1_contents');
+        Schema::dropIfExists('cont10v1_contents_topics');
     }
 }

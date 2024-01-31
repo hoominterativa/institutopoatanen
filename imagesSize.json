@@ -926,17 +926,15 @@
             }
         },
         "CONT10V1": {
-            "Section": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "900",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "1043",
-                    "activeCrop": "true"
-                }
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "900",
+                "activeCrop": "false"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "1043",
+                "activeCrop": "true"
             }
         },
         "CONT10V2": {
