@@ -8,17 +8,31 @@ body {
         overflow-y: hidden;
     }
 
-    .swiper-slide{
+    /* RESET DE ELEMENTOS */
+    hr {
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* CARROSSEL - SWIPER */
+    .swiper-slide {
         display: flex;
     }
 
-    .swiper-autoheight .swiper-slide{
+    .swiper-autoheight .swiper-slide {
         height: 100%;
     }
-}
 
-p {
-    line-height: 27px !important;
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        position: relative;
+        top: unset;
+        bottom: unset;
+        left: unset;
+    }
 }
 
 .form-check-input {
@@ -47,10 +61,7 @@ body::-webkit-scrollbar-thumb:hover {
     background: $color-one;
 }
 
-a {
-    text-decoration: none;
-}
-
+// VAI FICAR OBSOLETO
 .content {
     position: relative;
 }
@@ -64,15 +75,16 @@ a {
     top: 0;
     left: 0;
 }
-
+// VAI FICAR OBSOLETO
 .text-primary {
     color: $color-one !important;
 }
-
+// VAI FICAR OBSOLETO
 .text-secondary {
     color: $color-two !important;
 }
 
+// VAI FICAR OBSOLETO
 // Font sizes (Custom)
 .font-11 {
     font-size: 11px !important;
@@ -130,6 +142,7 @@ a {
     font-size: 28px !important;
 }
 
+// VAI FICAR OBSOLETO
 // Font Weight
 .fw-medium {
     font-weight: 600;
@@ -139,6 +152,7 @@ a {
     font-weight: 900;
 }
 
+// VAI FICAR OBSOLETO
 // Width
 .w-10 {
     width: 10% !important;
@@ -164,7 +178,7 @@ a {
 .w-90 {
     width: 90% !important;
 }
-
+/* VAI FICAR OBSOLETO */
 @include x-small-device {
     .container,
     .container-lg,
@@ -234,6 +248,8 @@ a {
         max-width: $max-width-container-fluid !important;
     }
 }
+
+/*_______________________________ */
 
 .btn-icon {
     transform: scale(1);
@@ -1567,8 +1583,6 @@ body {
             letter-spacing: 0.0125rem;
             text-align: center;
 
-            margin-bottom: 0.25rem;
-
             @include large-device-down {
                 font-size: $T1-mobile;
                 line-height: 90%;
@@ -1784,6 +1798,13 @@ body {
             line-height: 170%;
             letter-spacing: 0.2px;
 
+            p {
+                font: inherit;
+                letter-spacing: inherit;
+                color: inherit;
+                letter-spacing: inherit;
+            }
+
             @include large-device-down {
                 font-size: $P1-mobile;
             }
@@ -1826,6 +1847,13 @@ body {
             line-height: 140%;
             letter-spacing: 0.2px;
 
+            p {
+                font: inherit;
+                letter-spacing: inherit;
+                color: inherit;
+                letter-spacing: inherit;
+            }
+
             @include large-device-down {
                 font-size: $P2-mobile;
                 line-height: 170%;
@@ -1860,6 +1888,35 @@ body {
                 &5 {
                     @extend %theme__p2;
                     color: $color-five;
+                }
+            }
+        }
+    }
+
+    &__cta {
+        @include disFlex;
+        width: fit-content;
+        padding: 0.75rem 3rem;
+
+        background-color: $color-four;
+
+        @extend %theme__p1-c1;
+        font-weight: 700;
+    }
+
+    &__pagination {
+        .swiper-pagination-bullets {
+            margin-top: 2rem;
+            text-align: left;
+            .swiper-pagination-bullet {
+                width: 20px;
+                height: 20px;
+
+                border-radius: 0;
+                background-color: rgba($color-two, 0.5);
+
+                &-active {
+                    background-color: $color-two;
                 }
             }
         }

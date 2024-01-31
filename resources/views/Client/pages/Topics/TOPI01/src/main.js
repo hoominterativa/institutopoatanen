@@ -1,4 +1,4 @@
-import Swiper from 'swiper';
+import Swiper from 'swiper/bundle';
 
 const swiper = new Swiper('.topi01__topics', {
     slidesPerView: 'auto',

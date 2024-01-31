@@ -13,18 +13,24 @@
 
         &__title {
             @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
         }
         &__subtitle {
             @extend %theme__t4-c3;
+            margin-bottom: 2rem;
         }
 
         &__line {
             width: 100%;
-            border-top: solid 1px $color-three;
             margin-bottom: 2rem;
+
+            border-top: solid 1px $color-three;
         }
 
         &__paragraph {
+            width: 100%;
+            max-width: 938px;
+
             @extend %theme__p1;
             text-align: center;
         }
