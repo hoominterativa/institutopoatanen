@@ -37,6 +37,7 @@
     }
 
     &__topics {
+        height: auto;
         /* Este bloco existe caso o design solicite que haja overflow hidden. Por padráo, o swiper entrega overflow visible
 
 &__swiper-wrapper {
@@ -50,7 +51,7 @@
             position: relative;
             /* Qtde de gaps * tamanho do gap / qtde de elementos */
             width: calc(20% - 7px);
-            height: 100%;
+            height: auto;
             padding: 1rem 2.5rem;
 
             @include disFlex(column, end, center);

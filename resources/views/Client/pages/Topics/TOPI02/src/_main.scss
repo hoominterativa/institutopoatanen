@@ -1,106 +1,96 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-#TOPI02{
-    padding: 70px 0;
+.topi02 {
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
 
-    @include backG ($BackgroundSize: cover, $backgroundPosition: center, $backgroundRepeat: no-repeat);
+    &__header {
+        width: 100%;
+        @include disFlex(column, center, center);
 
-    @include small-device{
-        padding: 35px 20px;
-    }
-    .header-topic{
-        text-align: center;
-        .container-title{
-            margin-bottom: 25px;
-            .title{
-                font-size: $T2;
-                font-weight: $weight-700;
-                font-family: $font-primary;
-                color: $color-one;
-                display: block;
-                @include small-device{
-                    font-size:  $T2-mobile;
-                }
-            }
-            .subtitle{
-                font-size: $T4;
-                font-weight: $weight-700;
-                font-family: $font-primary;
-                color: $color-three;
-                display: block;
-                @include small-device{
-                    font-size: $T4-mobile;
-                }
-            }
+        margin-bottom: 3rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
         }
-        .paragraph{
-            font: $paragraph;
-            font-weight: $weight-500;
+        &__subtitle {
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
+        }
+
+        &__line {
             width: 100%;
-            margin: 0 auto;
-            margin-bottom: 50px;
-            margin-top: 25px;
+            margin-bottom: 2rem;
 
-            @include small-device{
-                font: 90%;
-                width: $paragraph-mobile;
-            }
+            border-top: solid 1px $color-three;
         }
-        .line{
-            background-color: $color-one;
+
+        &__paragraph {
+            width: 100%;
+            max-width: 938px;
+
+            @extend %theme__p1;
+            text-align: center;
         }
     }
-    .container-box {
-        @include small-device{
-            width: 70%;
-        }
-        .owl-stage-outer{
-            @include small-device{
+
+    &__topics {
+        height: auto;
+        /* Este bloco existe caso o design solicite que haja overflow hidden. Por padráo, o swiper entrega overflow visible
+
+        &__swiper-wrapper {
+            overflow: hidden;
+
+            @include large-device-down{
                 overflow: visible;
             }
-        }
-        .box-topic{
-            padding-right: 0.25rem;
-            padding-left: 0.25rem;
+        } */
+        &__item {
+            position: relative;
+            /* Qtde de gaps * tamanho do gap / qtde de elementos */
+            width: calc(25% - 24px);
+            height: auto;
+            padding: 3.375rem 2.5rem;
 
-            .content{
-                padding: 0 20px;
-                .container-info{
-                    position: relative;
-                    z-index: 1;
-                    min-height: 320px;
-                    .image{
-                        img{
-                            width: 61px;
-                        }
-                    }
-                    .description{
-                        text-align: center;
-                        .title{
-                            font-size: $T2;
-                            font-family: $font-primary;
-                            color: $color-black;
-                            font-weight: $weight-700;
-                            @include small-device{
-                                font-size: $T2-mobile;
-                            }
-                        }
-                        .paragraph{
-                            font: $paragraph-min;
-                            color: $color-two;
-                            font-weight:$weight-500;
-                            @include small-device{
-                                font: $paragraph-min-mobile;
-                            }
-                        }
-                    }
-                }
+            @include disFlex(column, center, center);
 
-                &:hover{
-                    transform: scale(1.02);
-                    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
-                }
+            @include x-large-device-down {
+                width: calc(33.33% - 21px );
+            }
+            @include large-device-down {
+                width: calc(50% - 6px);
+            }
+            @include medium-device-down {
+                width: 90%;
+            }
+
+            &__bg {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                inset: 0;
+                object-position: center;
+                object-fit: cover;
+                z-index: -1; /* envia para o fundo o bg do topico */
+            }
+
+            &__icon {
+                width: 4rem;
+                height: 4rem;
+                object-fit: contain;
+
+                margin-bottom: 1.5rem;
+            }
+            &__title {
+                @extend %theme__t2-cb;
+
+                margin-bottom: 1.25rem;
+            }
+            &__paragraph {
+                @extend %theme__p2-c2;
+                text-align: center;
             }
         }
     }
