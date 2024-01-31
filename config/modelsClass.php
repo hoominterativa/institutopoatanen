@@ -136,7 +136,7 @@ return [
             'CONT10V1' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT10V1Controller::class,
                 'model' => App\Models\Contents\CONT10V1Contents::class,
-                'seedQty' => 15,
+                'seedQty' => 1,
             ],
             'CONT10V2' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT10V2Controller::class,

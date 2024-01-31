@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Contents\CONT10V1TopicController;
 use App\Http\Controllers\Contents\CONT10V1SectionController;
 
 /**
@@ -25,5 +26,7 @@ use App\Http\Controllers\Contents\CONT10V1SectionController;
 
  // ADMIN
  Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-     Route::resource($route.'/secao', CONT10V1SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'CONT10V1ContentsSection']);
+    Route::resource($route.'/topicos', CONT10V1TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'CONT10V1ContentsTopic']);
+    Route::post($route.'/topico/delete', [CONT10V1TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topico/sorting', [CONT10V1TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
  });

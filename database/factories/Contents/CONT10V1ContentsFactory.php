@@ -21,32 +21,12 @@ class CONT10V1ContentsFactory extends Factory
      */
     public function definition()
     {
-        $event_locale = [
-            'Salvador-BA',
-            'São Paulo-SP',
-            'Rio de Janeiro-RJ',
-            'Recife-PE',
-            'Aracaju-SE',
-            'Brasília-DF',
-            'Fortaleza-CE',
-            'Belo Horizonte-MG',
-            'Curitiba-PR',
-            'Porto Alegre-RS',
-            'Belém-PA',
-            'Manaus-AM',
-            'Natal-RN',
-            'Vitória-ES',
-            'Cuiabá-MT',
-            'Goiânia-GO',
-        ];
-
         return [
-            'date' => $this->faker->date('Y-m-d'),
             'title' => $this->faker->text(10),
-            'description' => $this->faker->text(30),
-            'locale' => $this->faker->randomElement($event_locale),
-            'link' => $this->faker->url(),
-            'link_target' => $this->faker->randomElement(['_self', '_blank']),
+            'subtitle' => $this->faker->text(15),
+            'path_image_desktop' => 'uploads/tmp/image-box-white.jpg',
+            'path_image_mobile' => 'uploads/tmp/bg-slid-mobile.jpg',
+            'background_color' => '#FFFFFF',
             'active' => 1
         ];
     }

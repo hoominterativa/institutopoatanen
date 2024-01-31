@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCont10v1ContentsSectionsTable extends Migration
+class CreateCont10V1ContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateCont10v1ContentsSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cont10v1_contents_sections', function (Blueprint $table) {
+        Schema::create('cont10v1_contents', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('path_image_desktop')->nullable();
             $table->string('path_image_mobile')->nullable();
             $table->string('background_color')->nullable();
+            $table->integer('active')->default(0);
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateCont10v1ContentsSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cont10v1_contents_sections');
+        Schema::dropIfExists('cont10v1_contents');
     }
 }
