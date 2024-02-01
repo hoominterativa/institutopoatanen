@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Contents\CONT12ContentsSection;
+use App\Models\Contents\CONT12ContentsTopic;
 
 class CONT12Controller extends Controller
 {
-    protected $path = 'uploads/Contents/CONT12/images/';
 
     /**
      * Display a listing of the resource.
@@ -24,10 +24,8 @@ class CONT12Controller extends Controller
     public function index()
     {
         $contents = CONT12Contents::sorting()->get();
-        $section = CONT12ContentsSection::first();
         return view('Admin.cruds.Contents.CONT12.index',[
             'contents' => $contents,
-            'section' => $section
         ]);
     }
 
@@ -38,9 +36,7 @@ class CONT12Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Contents.CONT12.create',[
-            'cropSetting' => getCropImage('Contents', 'CONT12')
-        ]);
+        return view('Admin.cruds.Contents.CONT12.create');
     }
 
     /**
@@ -52,23 +48,13 @@ class CONT12Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
 
         $data['active'] = $request->active? 1 : 0;
-        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        if (CONT12Contents::create($data)) {
+        if ($content = CONT12Contents::create($data)) {
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
-            return redirect()->route('admin.cont12.index');
+            return redirect()->route('admin.cont12.edit', ['CONT12Contents' => $content->id]);
         } else {
-            Storage::delete($path_image_icon);
-            Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
@@ -82,8 +68,11 @@ class CONT12Controller extends Controller
      */
     public function edit(CONT12Contents $CONT12Contents)
     {
+        $topics = CONT12ContentsTopic::where('content_id', $CONT12Contents->id)->sorting()->get();
+        
         return view('Admin.cruds.Contents.CONT12.edit',[
             'content' => $CONT12Contents,
+            'topics' => $topics,
             'cropSetting' => getCropImage('Contents', 'CONT12')
         ]);
     }
@@ -98,37 +87,12 @@ class CONT12Controller extends Controller
     public function update(Request $request, CONT12Contents $CONT12Contents)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
 
         $data['active'] = $request->active? 1 : 0;
-        $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
-
-        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon){
-            storageDelete($CONT12Contents, 'path_image_icon');
-            $data['path_image_icon'] = $path_image_icon;
-        }
-        if($request->delete_path_image_icon && !$path_image_icon){
-            storageDelete($CONT12Contents, 'path_image_icon');
-            $data['path_image_icon'] = null;
-        }
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-        if($path_archive){
-            storageDelete($CONT12Contents, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($CONT12Contents, 'path_archive');
-            $data['path_archive'] = null;
-        }
 
         if ($CONT12Contents->fill($data)->save()) {
             Session::flash('success', 'Conteúdo atualizado com sucesso');
         } else {
-            Storage::delete($path_image_icon);
-            Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
         return redirect()->back();
@@ -142,8 +106,6 @@ class CONT12Controller extends Controller
      */
     public function destroy(CONT12Contents $CONT12Contents)
     {
-        storageDelete($CONT12Contents, 'path_image_icon');
-        storageDelete($CONT12Contents, 'path_archive');
 
         if ($CONT12Contents->delete()) {
             Session::flash('success', 'Conteúdo deletado com sucessso');
@@ -159,12 +121,6 @@ class CONT12Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-
-        $CONT12Contentss = CONT12Contents::whereIn('id', $request->deleteAll)->get();
-        foreach($CONT12Contentss as $CONT12Contents){
-            storageDelete($CONT12Contents, 'path_image_icon');
-            storageDelete($CONT12Contents, 'path_archive');
-        }
 
         if ($deleted = CONT12Contents::whereIn('id', $request->deleteAll)->delete()) {
             return Response::json(['status' => 'success', 'message' => $deleted . ' Conteúdos deletados com sucessso']);
@@ -195,11 +151,9 @@ class CONT12Controller extends Controller
      */
     public static function section()
     {
-        $contents = CONT12Contents::active()->sorting()->get();
-        $section = CONT12ContentsSection::active()->first();
+        $contents = CONT12Contents::with('topics')->active()->sorting()->get();
         return view('Client.pages.Contents.CONT12.section',[
             'contents' => $contents,
-            'section' => $section
         ]);
     }
 }

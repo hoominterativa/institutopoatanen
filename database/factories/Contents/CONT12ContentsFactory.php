@@ -23,11 +23,7 @@ class CONT12ContentsFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'path_image_icon' => 'uploads/tmp/favicon.png',
-            'title_button' => $this->faker->text(10),
-            'link_button' => $this->faker->url(),
-            'target_link' => '_blank',
-            'path_archive' => 'uploads/tmp/guerreiro.png',
+            'subtitle' => $this->faker->text(12),
             'active' => 1,
         ];
     }
