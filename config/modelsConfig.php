@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Topics' => (object) [
-            'TOPI03' => (object)[
+            'TOPI04' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -27,7 +27,7 @@ return [
                     'linkMenu' => '',
                     'iconMenu' => '',
                     'titlePanel' => 'Tópicos',
-                    'iconPanel' => 'mdi-book-minus-multiple'
+                    'iconPanel' => 'mdi-book-multiple'
                 ]
             ],
         ],

@@ -1,144 +1,106 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.topi04{
-    &__destaque{
-        padding: 6px 16px 5px 21px;
-        background: $color-four;
-        font-size: $T4;
-        color: $color-one;
-        max-width: 200px;
-        margin-bottom: 8px;
+.topi04 {
+    overflow: hidden; /* Prevenção do shift da animação */
+    @include disFlex(row, space-between);
 
-        @include small-device{
-            font-size: $T4-mobile;
-            margin-bottom: 18px;
-        }
+    @include large-device-down {
+        flex-direction: column;
     }
-    &__title{
-        font-size: $T2;
-        color: $color-one;
-        margin-bottom: 15.97px;
-        font-weight: $weight-700;
-        font-family: $font-primary;
 
-        @include small-device{
-            font-size: $T2-mobile;
-        }
-    }
-    &__subtitle{
-        font-size: $T4;
-        color:$color-three;
-        font-weight: $weight-700;
-        font-family: $font-primary;
+    &__image {
+        width: 50%;
 
-        @include small-device{
-            font-size: $T4-mobile;
-        }
-    }
-    &__line{
-        margin: 17.83px auto 30px;
-        background-color: $color-one;
-
-        @include small-device{
-            margin: 14.03px auto 25px;
-        }
-    }
-    &__paragraph{
-        font-size:$paragraph-min;
-        color:$color-two;
-        font-weight: $weight-400;
-        font-family: $font-primary;
-
-        @include small-device{
-            font-size:$paragraph-min-mobile;
-        }
-    }
-    &__boxLeft{
-        height: 759px;
-
-        @include small-device{
-            height:395.21px;
+        @include large-device-down {
+            width: 100%;
         }
 
-        &__image{
-
-            img{
-                object-fit: cover;
-            }
+        &__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
 
-    &__cta{
-        font: $paragraph;
-        font-weight: $weight-700;
-        color: $color-black;
-        display: block;
-        margin-top: 18px;
-        max-width: 177px;
-        padding: 10px 15px;
-        background-color: $bg-soft;
+    &__information {
+        overflow: hidden;
+        @include disFlex(column);
+        width: 50%;
 
-        @include small-device{
-            font: $paragraph-mobile;
-            margin-top: 39px;
-            width: 147px;
+        @include large-device-down {
+            width: 100%;
         }
 
-        &:hover{
-            color: $color-white;
-            background-color: $bg-black;
+        &__header {
+            @extend %theme__padding;
 
-            .lightbox-port101__description__cta__icon{
-                filter: invert(1) grayscale(1);
-            }
-        }
-    }
+            &__featured-title {
+                width: fit-content;
+                margin-bottom: 0.5rem;
+                padding: 0.25rem 1.25rem;
 
-    &__description{
-        padding: 72px 91px;
+                background-color: $color-four;
 
-        @include small-device{
-            padding: 54px 45px 91.28px 39px;
-        }
-    }
-    &__boxRight{
-        min-height: 759px;
-        @include small-device{
-            min-height: inherit;
-        }
-    }
-
-    &__topics{
-        &__item{
-            height: 224px;
-
-            @include small-device{
-                height:129px;
+                @extend %theme__t4-c1;
             }
 
-            &__icone{
-                height: 47px !important;
-                width: 48px !important;
+            &__title {
+                margin-bottom: 0.75rem;
 
-                @include small-device{
-                    height: 24.96px !important;
-                    width: 24.96px !important;
-                }
+                @extend %theme__t2-c1;
+                text-align: left;
             }
-            &__title{
-                margin-top: 16px;
-                font: $paragraph;
-                font-family: $font-primary;
-                font-weight: $weight-400;
+            &__subtitle {
+                @extend %theme__t4-c3;
+                margin-bottom: 1.25rem;
+            }
 
-                @include small-device{
-                    font: $paragraph-mobile;
+            &__line {
+                width: 100%;
+                margin-bottom: 1rem;
+                border-top: solid 1px $color-one;
+            }
+            &__paragraph {
+                @extend %theme__p2-c2;
+                margin-bottom: 1.25rem;
+            }
+            &__cta {
+                @extend %theme__cta;
+            }
+        }
+
+        &__topics {
+            width: 100%;
+            margin-top: auto;
+            &__item {
+                position: relative;
+                @include disFlex(column, center, center);
+                padding: 4rem 3rem;
+                width: 33.33%;
+
+                &__image {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    inset: 0;
+                    object-fit: cover;
+                    z-index: -1;
                 }
 
-            }
-            &__description{
-                position: absolute;
+                &__icon {
+                    width: 3rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+
+                    margin-bottom: 1rem;
+                }
+
+                &__title {
+                    @extend %theme__p1-cb;
+                    text-align: center;
+                }
             }
         }
     }
