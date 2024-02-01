@@ -7,7 +7,7 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.cont10.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="javascript:void(0)"  data-bs-target="#modal-topics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-topics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Tópico <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -88,7 +88,7 @@
 </div>
 <!-- end row -->
 
-{{-- BEGIN MODAL ADDITIONALTOPICS CREATE --}}
+{{-- BEGIN MODAL TOPICS CREATE --}}
 <div id="modal-topics-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" style="max-width: 900px;">
         <div class="modal-content">
@@ -105,4 +105,4 @@
         </div>
     </div>
 </div>
-{{-- END MODAL ADDITIONALTOPICS CREATE --}}
+{{-- END MODAL TOPICS CREATE --}}

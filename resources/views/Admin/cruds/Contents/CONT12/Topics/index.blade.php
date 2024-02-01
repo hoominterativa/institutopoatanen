@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{route('admin.cont09.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{route('admin.cont12.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
                         <a href="javascript:void(0)"  data-bs-target="#modal-topics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Tópico <i class="mdi mdi-plus"></i></a>
@@ -18,13 +18,15 @@
                                 <label><input name="btnSelectAll" value="btnDeleteTopics" type="checkbox"></label>
                             </th>
                             <th>Imagem</th>
-                            <th>Link</th>
+                            <th>Título</th>
+                            <th>Link do botão</th>
+                            <th>Arquivo</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{route('admin.cont09.topic.sorting')}}">
+                    <tbody data-route="{{route('admin.cont12.topic.sorting')}}">
                         @foreach ($topics as $topic)
                             <tr data-code="{{$topic->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
@@ -36,9 +38,15 @@
                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_icon)}})"></div>
                                     @endif
                                 </td>
+                                <td class="align-middle">{{$topic->title}}</td>
                                 <td class="align-middle">
-                                    @if ($content->link)
-                                        <a href="{{ $content->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                    @if ($topic->link_button)
+                                        <a href="{{ $topic->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
+                                    @endif
+                                </td>
+                                <td class="align-middle">
+                                    @if ($topic->path_archive)
+                                        <a href="{{asset('storage/'.$topic->path_archive)}}" target="_blank" rel="noopener noreferrer"><i class="mdi mdi-cloud-download font-20"></i></a>
                                     @endif
                                 </td>
                                 <td class="align-middle">
@@ -53,13 +61,13 @@
                                         <div class="col-4">
                                             <a href="javascript:void(0)" data-bs-target="#modal-topics-update-{{$topic->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.cont09.topic.destroy',['CONT09ContentsTopic' => $topic->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.cont12.topic.destroy',['CONT12ContentsTopic' => $topic->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
                                         {{-- BEGIN MODAL TOPICS UPDATE --}}
                                         <div id="modal-topics-update-{{$topic->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 1100px;">
+                                            <div class="modal-dialog" style="max-width: 1200px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
                                                         <h4 class="page-title">Editar Tópico</h4>
@@ -67,7 +75,7 @@
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.Contents.CONT09.Topics.form',[
+                                                        @include('Admin.cruds.Contents.CONT12.Topics.form',[
                                                             'topic' => $topic
                                                         ])
                                                     </div>
@@ -87,9 +95,9 @@
 </div>
 <!-- end row -->
 
-{{-- BEGIN MODAL ADDITIONALTOPICS CREATE --}}
+{{-- BEGIN MODAL TOPICS CREATE --}}
 <div id="modal-topics-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 1100px;">
+    <div class="modal-dialog" style="max-width: 1200px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
                 <h4 class="page-title">Cadastrar Tópico</h4>
@@ -97,11 +105,11 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Contents.CONT09.Topics.form',[
+                @include('Admin.cruds.Contents.CONT12.Topics.form',[
                     'topic' => null
                 ])
             </div>
         </div>
     </div>
 </div>
-{{-- END MODAL ADDITIONALTOPICS CREATE --}}
+{{-- END MODAL TOPICS CREATE --}}
