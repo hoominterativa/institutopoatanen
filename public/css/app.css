@@ -1542,78 +1542,88 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.topi02 {
+.topi101 {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.topi02__header__title, .topi02__topics__item__title {
+.topi101__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .topi02__header__title, .topi02__topics__item__title {
+  .topi101__header__title {
     font-size: 1.875rem;
   }
 }
-.topi02__topics__item__title {
-  color: #000;
-}
-.topi02__header__title {
+.topi101__header__title {
   color: #404040;
 }
-.topi02__header__subtitle {
+.topi101__header__subtitle {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
   margin-bottom: 2rem;
 }
 @media (max-width: 991.98px) {
-  .topi02__header__subtitle {
+  .topi101__header__subtitle {
     font-size: 1.125rem;
   }
 }
-.topi02__header__subtitle {
+.topi101__header__subtitle {
   color: #b3b3b3;
 }
-.topi02__header__paragraph {
+.topi101__timeline__item__information__paragraph {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi02__header__paragraph p {
+.topi101__timeline__item__information__paragraph p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi02__header__paragraph {
+  .topi101__timeline__item__information__paragraph {
     font-size: 0.938rem;
   }
 }
-.topi02__topics__item__paragraph {
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  line-height: 140%;
-  letter-spacing: 0.2px;
-}
-.topi02__topics__item__paragraph p {
-  font: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-}
-@media (max-width: 991.98px) {
-  .topi02__topics__item__paragraph {
-    font-size: 0.813rem;
-    line-height: 170%;
-  }
-}
-.topi02__topics__item__paragraph {
+.topi101__timeline__item__information__paragraph {
   color: #7c7c7c;
 }
+.topi101__timeline__nav {
+  --swiper-navigation-size: 2rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-five; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.topi101__timeline__nav .swiper-button-next,
+.topi101__timeline__nav .swiper-button-prev {
+  position: relative;
+  width: auto;
+  aspect-ratio: 1/1;
+  margin: unset;
+  top: unset;
+  right: unset;
+  left: unset;
+  border-radius: 50%;
+  background-color: #404040;
+}
+.topi101__timeline__nav .swiper-button-next::after,
+.topi101__timeline__nav .swiper-button-prev::after {
+  color: #efefef;
+  font-size: 0.75rem; /* tamanho da seta */
+}
+
 /* BEGIN STYLE */
 .head06 {
   display: flex;
@@ -2176,94 +2186,143 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 
-/* BEGIN STYLE */
-.topi02 {
-  overflow: hidden; /* prevenção do shift da animação*/
+.topi101 {
+  overflow: hidden; /* prevenção do shift da animação */
 }
-.topi02__header {
+.topi101__header {
   width: 100%;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
 }
-.topi02__header__title {
-  margin-bottom: 0.25rem;
-}
-.topi02__header__subtitle {
-  margin-bottom: 2rem;
-}
-.topi02__header__line {
-  width: 100%;
-  margin-bottom: 2rem;
-  border-top: solid 1px #b3b3b3;
-}
-.topi02__header__paragraph {
-  width: 100%;
-  max-width: 938px;
+.topi101__header__title {
   text-align: center;
 }
-.topi02__topics {
-  height: auto;
-  /* Este bloco existe caso o design solicite que haja overflow hidden. Por padráo, o swiper entrega overflow visible
-
-  &__swiper-wrapper {
-      overflow: hidden;
-
-      @include large-device-down{
-          overflow: visible;
-      }
-  } */
+.topi101__header__subtitle {
+  text-align: center;
 }
-.topi02__topics__item {
-  position: relative;
-  /* Qtde de gaps * tamanho do gap / qtde de elementos */
-  width: calc(25% - 24px);
+.topi101__header__line {
+  width: 100%;
+  border-top: solid 1px #404040;
+}
+.topi101__timeline {
   height: auto;
-  padding: 3.375rem 2.5rem;
+  position: relative;
+}
+.topi101__timeline__item {
+  height: auto;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+}
+.topi101__timeline__item:nth-child(even) {
+  flex-direction: column-reverse;
+}
+.topi101__timeline__item:nth-child(even) .topi101__timeline__item__information {
+  padding: 0 0.5rem 2rem;
+  justify-content: end;
+}
+.topi101__timeline__item:nth-child(even) .topi101__timeline__item__information::before, .topi101__timeline__item:nth-child(even) .topi101__timeline__item__information::after {
+  top: unset;
+  bottom: 0;
+  background-color: #b3b3b3;
+}
+.topi101__timeline__item:nth-child(even) .topi101__timeline__item__information::after {
+  -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+          clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+.topi101__timeline__item:nth-child(even) .topi101__timeline__item__image {
+  justify-content: start;
+  padding-bottom: 0;
+  padding-top: 2.75rem;
+}
+.topi101__timeline__item:nth-child(even) .topi101__timeline__item__image__img {
+  -o-object-position: center top;
+     object-position: center top;
+}
+.topi101__timeline__item:nth-child(even) .topi101__timeline__item__image::before {
+  top: 0.5rem;
+  bottom: unset;
 }
 @media (max-width: 1199.98px) {
-  .topi02__topics__item {
-    width: calc(33.33% - 21px);
+  .topi101__timeline__item {
+    width: 33%;
   }
 }
 @media (max-width: 991.98px) {
-  .topi02__topics__item {
-    width: calc(50% - 6px);
+  .topi101__timeline__item {
+    width: 42%;
   }
 }
 @media (max-width: 767.98px) {
-  .topi02__topics__item {
-    width: 90%;
+  .topi101__timeline__item {
+    width: 50%;
   }
 }
-.topi02__topics__item__bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: -1; /* envia para o fundo o bg do topico */
+@media (max-width: 575.98px) {
+  .topi101__timeline__item {
+    width: 75%;
+  }
 }
-.topi02__topics__item__icon {
-  width: 4rem;
-  height: 4rem;
+.topi101__timeline__item__image {
+  position: relative;
+  padding-bottom: 2.75rem;
+  height: calc(50% - 0.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+.topi101__timeline__item__image::before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 1.75rem;
+  background-color: #000;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.topi101__timeline__item__image__img {
+  width: calc(100% - 2rem);
+  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  margin-bottom: 1.5rem;
+  -o-object-position: center bottom;
+     object-position: center bottom;
 }
-.topi02__topics__item__title {
-  margin-bottom: 1.25rem;
+.topi101__timeline__item__information {
+  position: relative;
+  padding: 2rem 0.5rem 0;
+  height: calc(50% + 0.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
 }
-.topi02__topics__item__paragraph {
+.topi101__timeline__item__information::before, .topi101__timeline__item__information::after {
+  content: "";
+  width: 100%;
+  height: 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #404040;
+}
+.topi101__timeline__item__information::after {
+  width: 1.5rem;
+  height: 1.625rem;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+.topi101__timeline__item__information__paragraph {
   text-align: center;
 }
 

@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI02' => (object)[
+        'Topics' => (object)[
+            'TOPI101' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -23,11 +23,11 @@ return [
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => '',
-                    'anchor' =>  false,
+                    'anchor' => false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
-                    'iconPanel' => 'mdi-book-multiple-outline'
+                    'titlePanel' => 'Topicos',
+                    'iconPanel' => 'mdi-apps'
                 ]
             ],
         ],
