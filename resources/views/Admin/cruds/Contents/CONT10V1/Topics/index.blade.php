@@ -7,7 +7,7 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.cont10v1.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="javascript:void(0)"  data-bs-target="#modal-topics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-topics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Tópico <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
