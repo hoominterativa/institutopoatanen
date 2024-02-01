@@ -1,11 +1,17 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="basic-editor__content mb-3">
-                {!! Form::label('basic-editor', 'Texto', ['class'=>'form-label']) !!}
-                {!! Form::textarea('text', null, [
-                    'class'=>'form-control basic-editor',
-                    'id'=>'basic-editor',
+            <div class="mb-3">
+                {!! Form::label('description', 'Breve Descrição', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description', null, [
+                    'class'=>'form-control',
+                    'id'=>'description',
+                    'required'=>'required',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-minlength'=>'10',
+                    'data-parsley-maxlength'=>'185',
+                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 10 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
                 ]) !!}
             </div>
         </div>
@@ -26,11 +32,12 @@
                         {!! Form::file('path_image', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
+                            'required' => 'required',
                             'data-status' => $cropSetting->path_image->activeCrop, // px
                             'data-min-width' => $cropSetting->path_image->width, // px
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '180', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp, .svg',
                             'data-default-file' => isset($topic)
                                 ? ($topic->path_image != ''
                                     ? url('storage/' . $topic->path_image)

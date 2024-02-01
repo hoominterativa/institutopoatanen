@@ -1,48 +1,57 @@
 @if ($section)
-    <section id="TOPI101" class="topi101 container-fluid px-0"
-    style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};">
-        <div class="container container--topic101">
-            @if ($section->title || $section->subtitle)
-                <div class="topi101__encompass text-center">
-                    <h4 class="topi101__encompass__title">{{ $section->title }}</h4>
-                    <h5 class="topi101__encompass__subtitle">{{ $section->subtitle }}</h5>
-                    <hr class="topi101__encompass__line">
-                </div>
-            @endif
-            {{-- END topi101__encompass --}}
-            @if ($topics->count())
-                <div class="topi101__content carousel-topi101 owl-carousel">
+    <section id="TOPI101" class="topi101" {{--  BACKEND: OCULTAR PAINEL  --}} {{--  style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};" --}}>
+
+        @if ($section->title || $section->subtitle)
+            <header class="topi101__header">
+                @if ($section->title)
+                    <h2 class="topi101__header__title">{{ $section->title }}</h4>
+                @endif
+
+                @if ($section->subtitle)
+                    <h3 class="topi101__header__subtitle">{{ $section->subtitle }}</h3>
+                @endif
+
+                @if ($section->title || $section->subtitle)
+                    <hr class="topi101__header__line">
+                @endif
+            </header>
+        @endif
+
+
+        @if ($topics->count())
+            <main class="topi101__timeline">
+                <div class="topi101__timeline__swiper-wrapper swiper-wrapper">
+                    {{-- BACKEND: INSERIR IMAGEM E TEXTO COMO CAMPOS OBRIGATÓRIOS E FAZENDO A RETIRADA DO IF --}}
                     @foreach ($topics as $topic)
-                        <div class="topi101__box">
-                            <div class="topi101__box__top">
-                                @if ($topic->path_image)
-                                    <div class="topi101__box__top__image">
-                                        <img src="{{ asset('storage/' . $topic->path_image) }}" loading="lazy" alt="Imagem do tópico">
+                        @if ($topic->path_image && $topic->description)
+                            <article class="topi101__timeline__item swiper-slide">
+
+                                <div class="topi101__timeline__item__image">
+                                    <img src="{{ asset('storage/' . $topic->path_image) }}" loading="lazy"
+                                        alt="Imagem do tópico {{ $topic->description }}"
+                                        class="topi101__timeline__item__image__img">
+                                </div>
+
+                                <div class="topi101__timeline__item__information">
+                                    <div class="topi101__timeline__item__information__paragraph">
+                                        {!! $topic->description !!}
                                     </div>
-                                @endif
-                            </div>
-                            <div class="topi101__box__bottom">
-                                <div class="topi101__box__engLine">
-                                    <span class="topi101__box__line"></span>
-                                    <span class="topi101__box__thickline"></span>
                                 </div>
-                                <div class="topi101__box__bottom__description">
-                                    @if ($topic->description)
-                                        <div class="topi101__box__bottom__description__paragraph">
-                                            <p>
-                                                {!! $topic->description !!}
-                                            </p>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        {{-- END .topi101__box --}}
+
+                            </article>
+                        @endif
                     @endforeach
                 </div>
-            @endif
-            {{-- END .topi101__content --}}
+                <div class="topi101__timeline__nav">
+                    <div class="topi101__timeline__nav__swiper-button-prev swiper-button-prev"></div>
+                    <div class="topi101__timeline__nav__swiper-button-next swiper-button-next"></div>
+                </div>
+            </main>
+
+
+        @endif
+
         </div>
-        {{-- END .container --}}
+
     </section>
 @endif
