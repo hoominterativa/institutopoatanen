@@ -92,7 +92,7 @@
                             <div class="cota03__form__compliance form-check d-flex align-items-center">
                                 {!! Form::checkbox('term_accept', 1, null, ['class' => 'form-check-input me-1', 'id' => 'term_accept', 'required' => true]) !!}
                                 {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank" class="cota03__form__compliance__link ms-1">Política de Privacidade</a>
+                                <a href="{{ $compliance->link ?? '#'}}" target="_blank" class="cota03__form__compliance__link ms-1">Política de Privacidade</a>
                             </div>
                             <button type="submit" class="cota03__form__inputs__formIput__input-submit ms-auto">
                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="" class="transition">

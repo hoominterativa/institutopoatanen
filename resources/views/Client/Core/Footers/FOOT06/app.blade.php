@@ -21,7 +21,7 @@
             <div class="foot06__item foot06__item__cta col-12 col-md-4">
                 @if ($linksCtaFooter->count())
                     @foreach ($linksCtaFooter as $linkCtaHeader)
-                        <a class="foot06__item__cta__link" href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" rel="next">
+                        <a class="foot06__item__cta__link" href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" rel="next">
                             <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="me-2" alt="">
                             {{$linkCtaHeader->title}}
                         </a>

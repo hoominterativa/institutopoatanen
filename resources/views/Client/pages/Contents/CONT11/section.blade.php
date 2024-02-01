@@ -5,7 +5,7 @@
                 @foreach ($content->galleries as $gallery)
                     <div class="cont11__corousel__item">
                         @if ($gallery->path_image)
-                            <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="">
+                            <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagems da galeria">
                         @endif
                     </div>
                 @endforeach
@@ -25,7 +25,7 @@
                 </div>
                 @if ($content->link_button)
                     <a href="{{getUri($content->link_button)}}" target="{{$content->target_link_button}}" class="cont11__cta">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="cont11__cta__icon">
+                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone do botão" class="cont11__cta__icon">
                        @if ($content->title_button)
                             {{ $content->title_button}}
                        @endif

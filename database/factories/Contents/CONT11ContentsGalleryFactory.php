@@ -22,8 +22,8 @@ class CONT11ContentsGalleryFactory extends Factory
     public function definition()
     {
         return [
-            'content_id' => 1,
-            'path_image' => 'uploads/tmp/guerreiro.png',
+            // 'content_id' => 1,
+            // 'path_image' => 'uploads/tmp/guerreiro.png',
         ];
     }
 }

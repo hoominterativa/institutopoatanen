@@ -58,9 +58,9 @@
                         <ul class="d-flex align-items-center justify-content-between px-0 mb-0">
                             @if ($linksCtaFooter->count())
                                 @foreach ($linksCtaFooter as $linkCtaHeader)
-                                    <li><a href="{{ $linkCtaHeader->link }}"
-                                            target="{{ $linkCtaHeader->link_target }}"
-                                            rel="next">{{ $linkCtaHeader->title }}</a></li>
+                                    <li>
+                                        <a href="{{ getUri($linkCtaHeader->link) }}" target="{{ $linkCtaHeader->link_target }}" rel="next">{{ $linkCtaHeader->title }}</a>
+                                    </li>
                                 @endforeach
                             @endif
                         </ul>

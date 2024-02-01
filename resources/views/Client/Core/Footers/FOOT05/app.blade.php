@@ -68,7 +68,7 @@
                 @endforeach
                 @if ($linksCtaFooter->count())
                     @foreach ($linksCtaFooter as $linkCtaHeader)
-                        <li class="foot05__hoom__links__item"><a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" rel="next">{{$linkCtaHeader->title}}</a></li>
+                        <li class="foot05__hoom__links__item"><a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" rel="next">{{$linkCtaHeader->title}}</a></li>
                     @endforeach
                 @endif
             </ul>

@@ -40,7 +40,6 @@
                                             </th>
                                             <th>Título/Subtítulo</th>
                                             <th>Texto</th>
-                                            <th>Título do botão</th>
                                             <th>Link do botão</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
@@ -55,7 +54,6 @@
                                                 </td>
                                                 <td class="align-middle">{{$content->title}} <b>/</b> {{$content->subtitle}}</td>
                                                 <td class="align-middle">{!! Str::substr($content->text, 0, 30) !!}</td>
-                                                <td class="align-middle">{{$content->title_button}}</td>
                                                 <td class="align-middle"><a href="{{ $content->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                 <td class="align-middle">
                                                     @if ($content->active)
