@@ -5,16 +5,17 @@ namespace App\Http\Controllers\Contents;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Contents\CONT10V2Contents;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
-use App\Models\Contents\CONT10V2Contents;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\Contents\CONT10V2ContentsSection;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Contents\CONT10V2ContentsTopic;
 
 class CONT10V2Controller extends Controller
 {
+    protected $path = 'uploads/Contents/CONT10V2/images/';
 
     /**
      * Display a listing of the resource.
@@ -23,12 +24,9 @@ class CONT10V2Controller extends Controller
      */
     public function index()
     {
-        $contents = CONT10V2Contents::sorting()->paginate(15);
-        $section = CONT10V2ContentsSection::first();
+        $contents = CONT10V2Contents::sorting()->get();
         return view('Admin.cruds.Contents.CONT10V2.index', [
             'contents' => $contents,
-            'section' => $section,
-            'cropSetting' => getCropImage('Contents', 'CONT10V2')
         ]);
     }
 
@@ -39,7 +37,9 @@ class CONT10V2Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Contents.CONT10V2.create');
+        return view('Admin.cruds.Contents.CONT10V2.create',[
+            'cropSetting' => getCropImage('Contents', 'CONT10V2')
+        ]);
     }
 
     /**
@@ -51,15 +51,22 @@ class CONT10V2Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $helper = new HelperArchive();
 
-        $date['active'] = $request->active ? 1 : 0;
-        $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        $data['active'] = $request->active?1:0;
 
-        if (CONT10V2Contents::create($data)) {
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+
+        if ($content = CONT10V2Contents::create($data)) {
             Session::flash('success', 'Conteúdo cadastrado com sucesso');
-            return redirect()->route('admin.cont10v2.index');
+            return redirect()->route('admin.cont10v2.edit', ['CONT10V2Contents' => $content->id]);
         } else {
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar o conteúdo');
             return redirect()->back();
         }
@@ -73,9 +80,16 @@ class CONT10V2Controller extends Controller
      */
     public function edit(CONT10V2Contents $CONT10V2Contents)
     {
-        $CONT10V2Contents->date = Carbon::parse($CONT10V2Contents->date)->format('d/m/Y');
+        $topics = CONT10V2ContentsTopic::where('content_id', $CONT10V2Contents->id)->sorting()->get();
+
+        foreach ($topics as $topic) {
+            if($topic) $topic->date = $topic->date != null ? Carbon::parse($topic->date)->format('d/m/Y') : null;
+        }
+
         return view('Admin.cruds.Contents.CONT10V2.edit', [
-            'content' => $CONT10V2Contents
+            'content' => $CONT10V2Contents,
+            'topics' => $topics,
+            'cropSetting' => getCropImage('Contents', 'CONT10V2')
         ]);
     }
 
@@ -89,14 +103,35 @@ class CONT10V2Controller extends Controller
     public function update(Request $request, CONT10V2Contents $CONT10V2Contents)
     {
         $data = $request->all();
+        $helper = new HelperArchive();
 
-        $date['active'] = $request->active ? 1 : 0;
-        $data['date'] = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        $data['active'] = $request->active?1:0;
 
-        if ($CONT10V2Contents->fill($data)->save()) {
-            Session::flash('success', 'Conteúdo atualizado com sucesso');
-        } else {
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($CONT10V2Contents, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
+        }
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($CONT10V2Contents, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
+        }
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($CONT10V2Contents, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($CONT10V2Contents, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
+        }
+
+        if($CONT10V2Contents->fill($data)->save()){
+            Session::flash('success', 'Conteúdo atualizada com sucesso');
+        }else{
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
         return redirect()->back();
@@ -110,6 +145,7 @@ class CONT10V2Controller extends Controller
      */
     public function destroy(CONT10V2Contents $CONT10V2Contents)
     {
+
         if ($CONT10V2Contents->delete()) {
             Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
@@ -124,27 +160,27 @@ class CONT10V2Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
+
         if ($deleted = CONT10V2Contents::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' Conteúdos deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted . ' conteúdos deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             CONT10V2Contents::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
 
     // METHODS CLIENT
-
     /**
      * Section index resource.
      *
@@ -152,21 +188,19 @@ class CONT10V2Controller extends Controller
      */
     public static function section()
     {
+        $contents = CONT10V2Contents::with('topics')->active()->sorting()->get();
+
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = CONT10V2ContentsSection::active()->first();
-                if($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-                $section = CONT10V2ContentsSection::active()->first();
-                break;
+                foreach($contents as $content) {
+                    if($content) $content->path_image_desktop = $content->path_image_mobile;
+                }
+            break;
         }
 
-        $contents = CONT10V2Contents::active()->sorting()->get();
         return view('Client.pages.Contents.CONT10V2.section', [
             'contents' => $contents,
-            'section' => $section
         ]);
     }
 }

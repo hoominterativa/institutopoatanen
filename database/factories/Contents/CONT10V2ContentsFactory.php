@@ -22,12 +22,11 @@ class CONT10V2ContentsFactory extends Factory
     public function definition()
     {
         return [
-            'date' => $this->faker->date('Y-m-d'),
             'title' => $this->faker->text(10),
-            'description' => $this->faker->text(30),
-            'locale' => 'Salvador-BA',
-            'link' => 'http://lorempixel.com',
-            'link_target' => '_blank',
+            'subtitle' => $this->faker->text(15),
+            'path_image_desktop' => 'uploads/tmp/image-box-white.jpg',
+            'path_image_mobile' => 'uploads/tmp/bg-slid-mobile.jpg',
+            'background_color' => '#FFFFFF',
             'active' => 1
         ];
     }

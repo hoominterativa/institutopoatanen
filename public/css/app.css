@@ -2,14 +2,23 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
 @charset "UTF-8";
 /* ------- --------- */
+/*__________________________________*/
 body {
   overflow-x: hidden;
   width: 100%;
   height: 100%;
   display: block;
+  /* RESET DE ELEMENTOS */
+  /* CARROSSEL - SWIPER */
 }
 body.no-scroll {
   overflow-y: hidden;
+}
+body hr {
+  margin: 0;
+}
+body a {
+  text-decoration: none;
 }
 body .swiper-slide {
   display: flex;
@@ -17,9 +26,12 @@ body .swiper-slide {
 body .swiper-autoheight .swiper-slide {
   height: 100%;
 }
-
-p {
-  line-height: 27px !important;
+body .swiper-horizontal > .swiper-pagination-bullets,
+body .swiper-pagination-bullets.swiper-pagination-horizontal {
+  position: relative;
+  top: unset;
+  bottom: unset;
+  left: unset;
 }
 
 .form-check-input {
@@ -46,10 +58,6 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background: #404040;
-}
-
-a {
-  text-decoration: none;
 }
 
 .content {
@@ -170,6 +178,7 @@ a {
   width: 90% !important;
 }
 
+/* VAI FICAR OBSOLETO */
 @media (min-width: 0) and (max-width: 575.98px) {
   .container,
   .container-lg,
@@ -234,6 +243,7 @@ a {
     max-width: 1100px !important;
   }
 }
+/*_______________________________ */
 .btn-icon {
   transform: scale(1);
   transition: ease all 0.4s;
@@ -2095,18 +2105,18 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.cont10v1 {
+.cont10v2 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }
-.cont10v1 .container--pd {
+.cont10v2 .container--pd {
   padding: 84px 0 89px 0;
   z-index: 100;
   position: relative;
 }
-.cont10v1__mask {
+.cont10v2__mask {
   position: absolute;
   top: 0;
   left: 0;
@@ -2114,34 +2124,34 @@ body .owl-dots .owl-dot.active {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.73);
 }
-.cont10v1__encompass {
+.cont10v2__encompass {
   padding-bottom: 20px;
   margin-bottom: 68px;
   border-bottom: 1px solid #404040;
 }
-.cont10v1__encompass__title {
+.cont10v2__encompass__title {
   font-size: 2.5rem;
   font-weight: 700;
   color: #000;
   font-family: "Ubuntu", sans-serif, arial;
 }
 @media (max-width: 991.98px) {
-  .cont10v1__encompass__title {
+  .cont10v2__encompass__title {
     font-size: 1.875rem;
   }
 }
-.cont10v1__encompass__subtitle {
+.cont10v2__encompass__subtitle {
   font-size: 1.25rem;
   font-weight: 700;
   color: #7c7c7c;
   font-family: "Ubuntu", sans-serif, arial;
 }
 @media (max-width: 991.98px) {
-  .cont10v1__encompass__subtitle {
+  .cont10v2__encompass__subtitle {
     font-size: 1.125rem;
   }
 }
-.cont10v1__content {
+.cont10v2__content {
   background: #CACACA;
   height: 404px;
   max-width: 449px;
@@ -2150,19 +2160,19 @@ body .owl-dots .owl-dot.active {
   padding: 28px 35px;
 }
 @media (max-width: 991.98px) {
-  .cont10v1__content {
+  .cont10v2__content {
     margin: 0 auto;
     width: 93%;
     padding: 28px 7px;
   }
 }
-.cont10v1__content__navigation {
+.cont10v2__content__navigation {
   border-bottom: 1px solid rgba(64, 64, 64, 0.15);
   padding: 10px 17px 10px 12px;
   display: flex;
   margin-bottom: 0;
 }
-.cont10v1__content__navigation__title {
+.cont10v2__content__navigation__title {
   list-style: none;
   flex: 0 0 auto;
   width: 33.33333333%;
@@ -2172,24 +2182,24 @@ body .owl-dots .owl-dot.active {
   font-size: 15px;
   line-height: 14px;
 }
-.cont10v1__content__list {
+.cont10v2__content__list {
   height: 341px;
 }
-.cont10v1__content__list__item__box {
+.cont10v2__content__list__item__box {
   list-style: none;
   border-bottom: 1px solid rgba(64, 64, 64, 0.15);
   padding: 10px 17px 10px 12px;
   display: flex;
   margin-bottom: 0;
 }
-.cont10v1__content__list__item__title {
+.cont10v2__content__list__item__title {
   flex: 0 0 auto;
   width: 33.33333333%;
   font-family: "Ubuntu", sans-serif, arial;
   color: #707070;
   font-weight: 700;
 }
-.cont10v1__content__cta {
+.cont10v2__content__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   color: #000;
@@ -2202,22 +2212,22 @@ body .owl-dots .owl-dot.active {
   background-color: #EFEFEF;
 }
 @media (max-width: 991.98px) {
-  .cont10v1__content__cta {
+  .cont10v2__content__cta {
     font: 400 0.938rem "Montserrat", sans-serif, arial;
   }
 }
-.cont10v1__content__cta__icon {
+.cont10v2__content__cta__icon {
   width: 16.65px !important;
   margin-right: 0 !important;
 }
-.cont10v1__content__cta:hover {
+.cont10v2__content__cta:hover {
   color: #fff;
   background-color: #000;
 }
-.cont10v1__content__cta:hover .cont10v1__content__cta__icon {
+.cont10v2__content__cta:hover .cont10v2__content__cta__icon {
   filter: invert(1) grayscale(1);
 }
-.cont10v1 .carousel-cont10v1 .owl-nav {
+.cont10v2 .carousel-cont10v2 .owl-nav {
   display: flex !important;
   gap: 0 18px;
   justify-content: space-between;
@@ -2226,17 +2236,17 @@ body .owl-dots .owl-dot.active {
   left: 50%;
   bottom: 14px;
 }
-.cont10v1 .carousel-cont10v1 .owl-dots {
+.cont10v2 .carousel-cont10v2 .owl-dots {
   display: none !important;
 }
-.cont10v1 .carousel-cont10v1 .owl-nav .owl-prev {
+.cont10v2 .carousel-cont10v2 .owl-nav .owl-prev {
   left: -52px;
 }
-.cont10v1 .carousel-cont10v1 .owl-nav .owl-next {
+.cont10v2 .carousel-cont10v2 .owl-nav .owl-next {
   right: -52px;
 }
-.cont10v1 .carousel-cont10v1 .owl-nav .owl-prev,
-.cont10v1 .carousel-cont10v1 .owl-nav .owl-next {
+.cont10v2 .carousel-cont10v2 .owl-nav .owl-prev,
+.cont10v2 .carousel-cont10v2 .owl-nav .owl-next {
   height: 29px;
   width: 29px;
   border-radius: 100%;
@@ -2248,8 +2258,8 @@ body .owl-dots .owl-dot.active {
   border: none;
   position: absolute;
 }
-.cont10v1 .carousel-cont10v1 .owl-nav .owl-prev span,
-.cont10v1 .carousel-cont10v1 .owl-nav .owl-next span {
+.cont10v2 .carousel-cont10v2 .owl-nav .owl-prev span,
+.cont10v2 .carousel-cont10v2 .owl-nav .owl-next span {
   color: #fff;
   font-size: 32px;
   height: 32px;
