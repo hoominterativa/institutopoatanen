@@ -1,46 +1,51 @@
 @if ($topics->count())
-    <section id="TOPI03" class="container-fluid" style="background-image: url(); background-color: ;">
-        <div class="container">
-            @if ($section)
-                <header class="header-topic">
-                    @if ($section->title || $section->subtitle)
-                        <h3 class="container-title">
-                            <span class="title">{{$section->title}}</span>
-                            <span class="subtitle">{{$section->subtitle}}</span>
-                            <hr class="line">
-                        </h3>
+    <section id="TOPI03" class="topi03">
+        @if ($section)
+            @if ($section->title || $section->subtitle || $section->description)
+                <header class="topi03__header">
+                    @if ($section->title)
+                        <h2 class="topi03__header__title">{{ $section->title }}</h2>
                     @endif
+
+                    @if ($section->subtitle)
+                        <h3 class="topi03__header__subtitle">{{ $section->subtitle }}</h3>
+                    @endif
+
+                    @if ($section->title || $section->subtitle)
+                        <hr class="topi03__header__line">
+                    @endif
+
                     @if ($section->description)
-                        <p class="paragraph">{!! $section->description !!}</p>
+                        <div class="topi03__header__paragraph">{!! $section->description !!}</div>
                     @endif
                 </header>
             @endif
-            <div class="container-box row">
-                @foreach ($topics as $topic)
-                    <article class="box-topic col-sm-4">
-                        <div class="content transition">
-                            <a href="{{ $topic->link ? getUri($topic->link) : 'javascript:void(0)' }}" @if ($topic->link) target="{{ $topic->target_link }}" @endif @if (!$topic->link) style="cursor: default;" @endif>
-                                <div class="container-info d-flex flex-column justify-content-center align-items-center">
-                                    <figure class="image">
-                                        @if ($topic->path_image_icon)
-                                            <img src="{{asset('storage/' . $topic->path_image_icon)}}" class="icon" width="61" alt="">
-                                        @endif
-                                    </figure>
-                                    <div class="description">
-                                        @if ($topic->title)
-                                            <h3 class="title">{{$topic->title}}</h3>
-                                        @endif
-                                        @if ($topic->description)
-                                            <p class="paragraph">{!! $topic->description !!}</p>
-                                        @endif
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </article>
-                @endforeach
-                {{-- END .box-topic --}}
-            </div>
-        </div>
+        @endif
+
+
+        <main class="topi03__topics">
+            @foreach ($topics as $topic)
+                <article class="topi03__topics__item">
+                    @if ($topic->link)
+                        <a class="link-full" href="{{ getUri($topic->link) }}" target="{{ $topic->target_link }}"></a>
+                    @endif
+
+                    @if ($topic->path_image_icon)
+                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="topi03__topics__item__icon"
+                            alt="ícone do tópico {{ $topic->title }}">
+                    @endif
+
+                    @if ($topic->title)
+                        <h3 class="topi03__topics__item__title">{{ $topic->title }}</h3>
+                    @endif
+
+                    @if ($topic->description)
+                        <p class="topi03__topics__item__paragraph">{!! $topic->description !!}</p>
+                    @endif
+
+                </article>
+            @endforeach
+        </main>
+
     </section>
 @endif

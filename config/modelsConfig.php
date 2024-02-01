@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contents' => (object) [
-            'CONT11' => (object)[
+        'Topics' => (object) [
+            'TOPI03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -26,11 +26,11 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
-                    'iconPanel' => 'mdi-table-of-contents'
+                    'titlePanel' => 'Tópicos',
+                    'iconPanel' => 'mdi-book-minus-multiple'
                 ]
             ],
-        ]
+        ],
     ],
 
     'ModelsForm' => (object)[
