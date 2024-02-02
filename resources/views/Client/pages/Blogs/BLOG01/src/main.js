@@ -70,7 +70,7 @@ $(function () {
 });
 addEventListener("DOMContentLoaded", function() {
     const shareButton = document.getElementById("shareButton");
-
+if (shareButton){
     shareButton.addEventListener("click", function() {
         // Verifique se a API do Web Share está disponível no navegador
         if (navigator.share) {
@@ -97,4 +97,5 @@ addEventListener("DOMContentLoaded", function() {
             alert('Este navegador não suporta compartilhamento direto. Você pode copiar o link e compartilhá-lo manualmente.');
         }
     });
+}
 });

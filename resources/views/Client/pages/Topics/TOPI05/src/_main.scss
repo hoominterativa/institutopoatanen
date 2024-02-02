@@ -1,57 +1,53 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
 
-.topi05{
-    .container--pd{
-        padding: 82px 0 72px 0 !important;
+.topi05 {
+    @extend %theme__padding;
 
-        @include small-device {
-            padding: 68px 42px 68px 42px !important;
+    @include disFlex;
+    flex-wrap: wrap;
+    gap: 2rem 1.25rem;
+
+    &__item {
+        position: relative;
+        width: calc(33.33% - 0.84rem);
+
+        @include disFlex(column, start, center);
+
+        @include large-device-down {
+            width: calc(50% - 0.625rem);
         }
 
-    }
-
-    &__box{
-        gap:0 20px;
-
-        &__image{
-            height: 319px;
-            @include small-device{
-                height: 267px;
-            }
+        @include medium-device-down {
+            width: 100%;
         }
-        &__description{
-            padding: 31px 40px;
 
-            @include small-device{
-                padding: 24px 40px 29px 40px;
-            }
+        &__image {
+            margin-bottom: 2rem;
 
-            &__title{
-                font-size: $T4;
-                color: $color-black;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                margin-bottom: 10px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 401/319;
 
-                @include small-device {
-                    font-size: $T4-mobile;
-                }
-            }
-            &__paragraph{
-                p{
-                    font-family: $font-primary;
-                    font-weight: $weight-400;
-                    font:$paragraph;
-                    color:$color-two;
+            object-fit: cover;
+            object-position: center;
+        }
 
-                    @include small-device {
-                        font:$paragraph-min;
-                    }
-                }
-            }
+        &__title {
+            margin-bottom: 0.75rem;
+
+            @extend %theme__t4-cb;
+            text-align: center;
+        }
+
+        &__paragraph {
+            width: 100%;
+            max-width: 64%;
+            padding-bottom: 0.75rem;
+
+            @extend %theme__p1-c2;
+            text-align: center;
         }
     }
 }
-// END .topi05
