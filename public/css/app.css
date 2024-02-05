@@ -1542,57 +1542,50 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.topi06 {
+.topi09 {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.topi06__item__information__title {
-  font: 700 2.5rem "Ubuntu", sans-serif, arial;
-  line-height: normal;
-  text-align: center;
-}
-@media (max-width: 991.98px) {
-  .topi06__item__information__title {
-    font-size: 1.875rem;
-  }
-}
-.topi06__item__information__title {
-  color: #000;
-}
-.topi06__item__information__paragraph, .topi06__item__information__cta {
+.topi09__topics__item__information__title {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi06__item__information__paragraph p, .topi06__item__information__cta p {
+.topi09__topics__item__information__title p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi06__item__information__paragraph, .topi06__item__information__cta {
+  .topi09__topics__item__information__title {
     font-size: 0.938rem;
   }
 }
-.topi06__item__information__cta {
-  color: #404040;
+.topi09__topics__item__information__title {
+  color: #000;
 }
-.topi06__item__information__paragraph {
+.topi09__topics__item__information__paragraph {
+  font: 400 0.875rem "Montserrat", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+}
+.topi09__topics__item__information__paragraph p {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+@media (max-width: 991.98px) {
+  .topi09__topics__item__information__paragraph {
+    font-size: 0.813rem;
+    line-height: 170%;
+  }
+}
+.topi09__topics__item__information__paragraph {
   color: #7c7c7c;
-}
-.topi06__item__information__cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0.75rem 3rem;
-  background-color: #cacaca;
-  font-weight: 700;
 }
 /* BEGIN STYLE */
 .head06 {
@@ -2157,75 +2150,64 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.topi06 {
+.topi09__topics {
+  height: auto;
+}
+.topi09__topics__item {
+  width: calc(25% - 36px);
+  height: auto;
+  padding: 0.75rem 0.75rem 1rem 2rem;
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: stretch;
-  flex-direction: wrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #d9d9d9;
+}
+@media (max-width: 1199.98px) {
+  .topi09__topics__item {
+    width: 33.33%;
+  }
 }
 @media (max-width: 991.98px) {
-  .topi06 {
+  .topi09__topics__item {
+    width: 50%;
+    padding: 1rem;
     flex-direction: column;
   }
 }
-.topi06__item {
-  position: relative;
-  width: calc(50% - 0.5rem);
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-}
-.topi06__item:nth-child(even) {
-  flex-direction: row-reverse;
-}
-.topi06__item:nth-child(even) .topi06__item__information {
-  padding: 4rem 4.56rem 2rem 1rem;
-}
-@media (max-width: 991.98px) {
-  .topi06__item {
-    width: 100%;
+@media (max-width: 767.98px) {
+  .topi09__topics__item {
+    width: 72%;
   }
 }
-.topi06__item__bg {
-  position: absolute;
-  z-index: -1;
+@media (max-width: 575.98px) {
+  .topi09__topics__item {
+    width: 80%;
+  }
+}
+.topi09__topics__item__icon {
+  width: 3.5rem;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.topi09__topics__item__icon__img {
   width: 100%;
   height: 100%;
-  inset: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-.topi06__item__information {
-  width: 80%;
-  padding: 4rem 1rem 2rem 4.56rem;
-}
-.topi06__item__information__title {
-  text-align: left;
-  margin-bottom: 3rem;
-}
-.topi06__item__information__paragraph {
-  margin-bottom: 2rem;
-}
-.topi06__item__icon {
-  padding: 0 3.5rem;
-  width: 20%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.topi06__item__icon__img {
-  width: 4rem;
-  height: auto;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
+}
+.topi09__topics__item__information {
+  width: calc(100% - 3.5rem + 1.5rem);
+}
+.topi09__topics__item__information__title {
+  font-weight: 700;
+  text-align: center;
+}
+.topi09__topics__item__information__paragraph {
+  text-align: center;
 }
 
 /* BEGIN STYLE */

@@ -1,33 +1,35 @@
 @if ($topics->count())
-    <section id="TOPI09" class="topi09 container-fluid px-0" style="background-color:;">
-        <div class="container container--pd">
-            <div class=" row--carrossel owl-carousel topi09__carousel">
+    <section id="TOPI09" class="topi09">
+
+        <div class="topi09__topics">
+            <div class="swiper-wrapper">
                 @foreach ($topics as $topic)
-                    <article class="topi09__box">
-                        <div class="topi09__content transition">
-                            <div class="topi09__image">
-                                @if ($topic->path_image_icon)
-                                    <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="icon" width="53.74" alt="Ícone">
-                                @endif
+                    <article class="topi09__topics__item swiper-slide">
+
+                        @if ($topic->path_image_icon)
+                            <div class="topi09__topics__item__icon">
+                                <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                    class="topi09__topics__item__icon__img" alt="Ícone do tópico {{ $topic->title }}">
                             </div>
-                            <div class="topi09__description">
+                        @endif
+
+                        @if ($topic->title || $topic->description)
+                            <div class="topi09__topics__item__information">
                                 @if ($topic->title)
-                                    <h3 class="topi09__title">{{ $topic->title }}</h3>
+                                    <h3 class="topi09__topics__item__information__title">{{ $topic->title }}</h3>
                                 @endif
-                                <div class="topi09__paragraph">
-                                    @if ($topic->description)
+
+                                @if ($topic->description)
+                                    <div class="topi09__topics__item__information__paragraph">
                                         <p>{!! $topic->description !!}</p>
-                                    @endif
-                                </div>
+                                    </div>
+                                @endif
                             </div>
-                        </div>
+                        @endif
+
                     </article>
                 @endforeach
-                {{-- Fim box --}}
             </div>
-            {{-- Fim row --}}
         </div>
-        {{-- Fim container --}}
     </section>
 @endif
-{{-- Fim section topi09 --}}

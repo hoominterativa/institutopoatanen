@@ -15,22 +15,22 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Topics' => (object) [
-            'TOPI06' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
+            'TOPI09' => (object)[
+            'ViewHome' => true,
+            'ViewListMenu' => false,
+            'ViewListPanel' => true,
+            'ViewListFooter' => false,
+            'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Tópico',
-                    'iconPanel' => 'mdi-file-table-box-multiple'
+                'titleMenu' => '',
+                'anchor' => false,
+                'linkMenu' => '',
+                'iconMenu' => '',
+                'titlePanel' => 'Tópicos',
+                'iconPanel' => 'mdi-apps'
                 ]
             ],
-        ]
+        ],
     ],
 
     'ModelsForm' => (object)[
