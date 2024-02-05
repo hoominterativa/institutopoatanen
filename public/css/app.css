@@ -2195,6 +2195,9 @@ body .owl-dots .owl-dot.active {
   width: calc(100% - 10rem + 22.5rem);
   padding-bottom: 2.5rem;
 }
+.topi11__main__topics__item {
+  overflow: hidden;
+}
 .topi11__main__image {
   width: 22.5rem;
   height: auto;

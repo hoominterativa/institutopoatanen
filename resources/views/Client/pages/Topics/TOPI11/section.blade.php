@@ -33,7 +33,7 @@
                     </summary>
 
 
-                    <div class="topi11__main__topics__item__paragraph content">
+                    <div class="topi11__main__topics__item__paragraph details-content">
                         {!! $topic->text !!}
                     </div>
 

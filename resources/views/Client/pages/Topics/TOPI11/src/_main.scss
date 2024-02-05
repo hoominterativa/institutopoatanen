@@ -46,6 +46,7 @@
             padding-bottom: 2.5rem;
 
             &__item {
+                overflow: hidden;
                 // &[open] &__paragraph{
                 //     max-height: 100vh;
                 // }
@@ -56,9 +57,6 @@
                     // max-height: 0;
 
                     // transition: max-height ease .3s 4s;
-
-
-
                 }
             }
         }
