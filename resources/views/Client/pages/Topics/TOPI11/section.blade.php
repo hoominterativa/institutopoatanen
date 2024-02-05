@@ -23,28 +23,24 @@
     @endif
 
     <main class="topi11__main">
-
         <div class="topi11__main__topics">
-            <div class="accordion" id="accordion__topi11">
-                @foreach ($topics as $topic)
-                    <div class="topi11__wrapper__item accordion-item">
-                        <h3 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse-{{ $topic->id }}" aria-expanded="false"
-                                aria-controls="collapseOne">
-                                {{ $topic->title }}
-                            </button>
-                        </h3>
-                        <div id="collapse-{{ $topic->id }}" class="accordion-collapse collapse"
-                            aria-labelledby="headingOne" data-bs-parent="#accordion__topi11">
-                            <div class="accordion-body">
-                                {!! $topic->text !!}
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+            @foreach ($topics as $topic)
+                <details class="topi11__main__topics__item">
 
-            </div>
+
+                    <summary class="topi11__main__topics__item__title" aria-level="3" role="heading">
+                        {{ $topic->title }}
+                    </summary>
+
+
+                    <div class="topi11__main__topics__item__paragraph content">
+                        {!! $topic->text !!}
+                    </div>
+
+
+                </details>
+            @endforeach
+
 
         </div>
 
