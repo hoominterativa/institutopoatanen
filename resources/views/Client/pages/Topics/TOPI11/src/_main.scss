@@ -1,133 +1,63 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
 
-#TOPI11{
-    padding-top: 50px;
-}
+.topi11 {
+    @extend %theme__padding;
+    padding-bottom: 0;
 
-.topi11{
-    &__container{
-        @include x-small-device{
-            padding: 0 40px !important;
+    &__header {
+        width: 100%;
+        @include disFlex(column, center, center);
+
+        margin-bottom: 5rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
         }
-        @include small-device{
-            padding: 0 40px !important;
+        &__subtitle {
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
         }
-    }
-    &__header{
-        text-align: center;
-        &__title{
-            font-size: $T2;
-            font-family: $font-primary;
-            font-weight: $weight-700;
-            color: $color-one;
-            @include x-small-device{
-                font-size:  $T2-mobile;
-            }
-            @include small-device{
-                font-size:  $T2-mobile;
-            }
-        }
-        &__subtitle{
-            font-size: $T4;
-            font-family: $font-primary;
-            font-weight: $weight-700;
-            color: $color-three;
-            @include x-small-device{
-                font-size:  $T4-mobile;
-            }
-            @include small-device{
-                font-size:  $T4-mobile;
-            }
-        }
-        &__line{
-            margin-top: 17px;
-        }
-        &__paragraph{
-            margin-top: 30px;
-            font: $paragraph;
-            font-weight: $weight-400;
-            color: $color-two;
+
+        &__line {
             width: 100%;
-            max-width: 890px;
-            display: table;
-            margin: 0 auto;
-            @include x-small-device{
-                font: $paragraph-mobile;
-            }
-            @include small-device{
-                font: $paragraph-mobile;
-            }
+            margin-bottom: 2rem;
+
+            border-top: solid 1px $color-three;
+        }
+
+        &__paragraph {
+            width: 100%;
+            max-width: 938px;
+
+            @extend %theme__p1-cb;
+            text-align: center;
         }
     }
-    // END __header
 
-    &__wrapper{
-        margin-top: 80px;
-        &__items{
-            padding-right: 150px;
-            padding-top: 40px;
-            @include x-small-device{
-                padding: 0;
-                margin-bottom: 50px;
-            }
-            @include small-device{
-                padding: 0;
-                margin-bottom: 50px;
-            }
-            @include medium-device{
-                padding-right: 80px;
-                padding-top: 0;
-            }
+    &__main{
+        @include disFlex (row, space-between, center);
+        gap: 10rem;
+
+        &__topics{
+            width: calc(100% - 10rem + 22.5rem);
+            padding-bottom: 2.5rem;
         }
-        &__item{
-            border-radius: 0 !important;
-            border: none !important;
-            .accordion-button{
-                border: none !important;
-                border-bottom: 1px solid $color-three !important;
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                padding-left: 0 !important;
-                font: $paragraph;
-                font-weight: $weight-700;
-                color: $color-black;
-                @include trans();
-                @include x-small-device{
-                    font: $paragraph-mobile;
-                }
-                @include small-device{
-                    font: $paragraph-mobile;
-                }
 
-                &::before{
-                    content: '';
-                    display: block;
-                    width: 8px;
-                    height: 8px;
-                    border-radius: 100%;
-                    background-color: $color-three;
-                    margin-right: 10px;
-                }
-
-                &:not(.collapsed){
-                    background-color: $color-five !important;
-                    padding-left: 20px !important;
-                    @include trans();
-                }
-            }
-        }
         &__image{
-            @include x-small-device{
-                padding: 0;
-            }
-            @include small-device{
-                padding: 0;
-            }
+            width: 22.5rem;
+            height: auto;
+            aspect-ratio: 361/468;
+
+            align-self: end;
 
             &__img{
-                width: 100%;
+                width:100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center bottom;
             }
         }
     }
