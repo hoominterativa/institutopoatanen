@@ -17,6 +17,11 @@ body {
         text-decoration: none;
     }
 
+    ul {
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
     /* CARROSSEL - SWIPER */
     .swiper-slide {
         display: flex;
@@ -1947,8 +1952,8 @@ body {
 
     &__nav {
         // VARIÁVEIS QUE ALTERAM AS SETAS DE NAVEGAÇÃO
-        --swiper-navigation-size: 2rem; /* Variável que define o tamanho do botão e do after */
-        --swiper-navigation-color: $color-five; /* Variável que define a cor do after (setas) */
+        --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+        --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
 
         // O CSS DEVE SER RETIRADO QUANDO NÃO HOUVER UM CONTAINER PARAR SEGURAR OS BOTÕES DE NAVEGAÇÃO (&__nav)
         position: relative;
@@ -1960,22 +1965,22 @@ body {
         .swiper-button-next,
         .swiper-button-prev {
             // O CSS DEVE SER RETIRADO QUANDO NÃO HOUVER UM BG NOS BOTÕES DE NAVEGAÇÃO
-            position: relative;
-            width: auto;
-            aspect-ratio: 1/1;
+            // position: relative;
+            // width: auto;
+            // aspect-ratio: 1/1;
 
-            margin: unset;
-            top: unset;
-            right: unset;
-            left: unset;
+            // margin: unset;
+            // top: unset;
+            // right: unset;
+            // left: unset;
 
-            border-radius: 50%;
-            background-color: $color-one;
+            // border-radius: 50%;
+            // background-color: $color-one;
 
-            &::after {
-                color: $color-five;
-                font-size: 0.75rem; /* tamanho da seta */
-            }
+            // &::after {
+            //     color: $color-five;
+            //     font-size: 0.75rem; /* tamanho da seta */
+            // }
         }
     }
     &__accordion {
