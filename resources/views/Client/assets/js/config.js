@@ -328,7 +328,7 @@ class Accordion {
             },
             {
                 duration: 200,
-                easing: "linear",
+                easing: "ease-out",
             }
         );
         // When the animation is complete, call onAnimationFinish()

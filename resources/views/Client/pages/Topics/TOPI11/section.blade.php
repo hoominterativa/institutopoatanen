@@ -29,6 +29,9 @@
 
 
                     <summary class="topi11__main__topics__item__title" aria-level="3" role="heading">
+                        {{-- BACKEND: INSERIR DE FORMA DINÂMICA A INCLUSÃO DO ÍCONE DO TÓPICO --}}
+                        <img class="topi11__main__topics__item__title__icon" src="{{ asset('images/cta.png') }}"
+                            alt="Ícone do tópico {{ $topic->title }}">
                         {{ $topic->title }}
                     </summary>
 
