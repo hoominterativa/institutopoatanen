@@ -4,11 +4,11 @@
         @if ($section->title || $section->subtitle)
             <header class="topi102__header">
                 @if ($section->title)
-                    <h3 class="topi102__header__title">{{ $section->title }}</h3>
+                    <h2 class="topi102__header__title">{{ $section->title }}</h2>
                 @endif
 
                 @if ($section->subtitle)
-                    <h4 class="topi102__header__subtitle">{{ $section->subtitle }}</h4>
+                    <h3 class="topi102__header__subtitle">{{ $section->subtitle }}</h3>
                 @endif
             </header>
         @endif
@@ -43,16 +43,21 @@
 
                             @if ($topic->path_image_box)
                                 <img loading="lazy" src="{{ asset('storage/' . $topic->path_image_box) }}"
-                                    class="topi102__topics__item__bg" alt=" Imagem de fundo do tópico {{ $topic->title }}">
+                                    class="topi102__topics__item__bg"
+                                    alt=" Imagem de fundo do tópico {{ $topic->title }}">
                             @endif
 
-                            <h2 class="topi102__topics__item__title">{{ $topic->title }}</h2>
+                            @if ($topic->title)
+                                <h3 class="topi102__topics__item__title">{{ $topic->title }}</h3>
+                            @endif
 
-                            <div class="topi102__topics__item__paragraph">
-                                <p>
-                                    {!! $topic->description !!}
-                                </p>
-                            </div>
+                            @if ($topic->description)
+                                <div class="topi102__topics__item__paragraph">
+                                    <p>
+                                        {!! $topic->description !!}
+                                    </p>
+                                </div>
+                            @endif
 
                             @include('Client.pages.Topics.TOPI102.show', ['topic' => $topic])
                         </article>

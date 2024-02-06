@@ -774,8 +774,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 
-    .container--pd {
-    }
     &__boxLeft {
         padding: 0 38px;
         @include medium-device-down {
@@ -1930,6 +1928,11 @@ body {
 
         @extend %theme__p1-c1;
         font-weight: 700;
+
+        &:focus {
+            /* uso do !important para resetar o valor do fancybox */
+            outline: none !important;
+        }
     }
 
     &__pagination {
@@ -1962,27 +1965,28 @@ body {
         margin: 3rem auto 0;
         @include disFlex(row, space-between, center);
 
-        .swiper-button-next,
-        .swiper-button-prev {
-            // O CSS DEVE SER RETIRADO QUANDO NÃO HOUVER UM BG NOS BOTÕES DE NAVEGAÇÃO
-            // position: relative;
-            // width: auto;
-            // aspect-ratio: 1/1;
+        // .swiper-button-next,
+        // .swiper-button-prev {
+        // O CSS DEVE SER RETIRADO QUANDO NÃO HOUVER UM BG NOS BOTÕES DE NAVEGAÇÃO
+        // position: relative;
+        // width: auto;
+        // aspect-ratio: 1/1;
 
-            // margin: unset;
-            // top: unset;
-            // right: unset;
-            // left: unset;
+        // margin: unset;
+        // top: unset;
+        // right: unset;
+        // left: unset;
 
-            // border-radius: 50%;
-            // background-color: $color-one;
+        // border-radius: 50%;
+        // background-color: $color-one;
 
-            // &::after {
-            //     color: $color-five;
-            //     font-size: 0.75rem; /* tamanho da seta */
-            // }
-        }
+        // &::after {
+        //     color: $color-five;
+        //     font-size: 0.75rem; /* tamanho da seta */
+        // }
+        // }
     }
+
     &__accordion {
         &__item {
             border-bottom: solid 1px rgba($color-one, 0.2);

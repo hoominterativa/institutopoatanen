@@ -1,24 +1,37 @@
-<section id="lightbox-topi102-{{ $topic->id }}" class="topi102-show"
-    style="background-image: url({{ asset('storage/' . $topic->path_image_background_lightbox) }});">
-    <div class="topi102-show__left">
-        @if ($topic->title_lightbox || $topic->subtitle)
-            <h2 class="topi102-show__title">{{ $topic->title_lightbox }}</h2>
-            <h3 class="topi102-show__subtitle">{{ $topic->subtitle }}</h3>
-            <hr class="topi102-show__line">
-        @endif
-        <div class="topi102-show__description">
-            <p>
-                {!! $topic->text !!}
-            </p>
+<section id="lightbox-topi102-{{ $topic->id }}" class="topi102-show" {{-- style="background-image: url({{ asset('storage/' . $topic->path_image_background_lightbox) }});" --}}>
+
+    @if ($topic->title_lightbox || $topic->subtitle || $topic->text)
+        <div class="topi102-show__information">
+            @if ($topic->title_lightbox || $topic->subtitle)
+                @if ($topic->title_lightbox)
+                    <h4 class="topi102-show__information__title">{{ $topic->title_lightbox }}</h4>
+                @endif
+                @if ($topic->subtitle)
+                    <h5 class="topi102-show__information__subtitle">{{ $topic->subtitle }}</h5>
+                @endif
+
+                <hr class="topi102-show__information__line">
+            @endif
+
+            @if ($topic->text)
+                <div class="topi102-show__information__paragraph">
+                    <p>
+                        {!! $topic->text !!}
+                    </p>
+                </div>
+            @endif
+
+            @if ($topic->link_button)
+                <a href="{{ getUri($topic->link_button) }}" target="{{ $topic->target_link_button }}"
+                    class="topi102-show__information__cta">
+                    {{ $topic->title_button }}
+                </a>
+            @endif
         </div>
-        @if ($topic->link_button)
-            <a href="{{ getUri($topic->link_button) }}" target="{{ $topic->target_link_button }}" class="topi102-show__cta">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="ícone do botão"class="topi102-show__cta__icon">
-                {{ $topic->title_button }}
-            </a>
-        @endif
-    </div>
+    @endif
+
     @if ($topic->path_image_lightbox)
-        <img src="{{ asset('storage/' . $topic->path_image_lightbox) }}" alt="título do tópico" class="topi102-show__image">
+        <img src="{{ asset('storage/' . $topic->path_image_lightbox) }}" alt="título do tópico" loading="lazy"
+            class="topi102-show__image">
     @endif
 </section>

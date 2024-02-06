@@ -73,6 +73,7 @@
         }
 
         &__item {
+            cursor: pointer;
             position: relative;
             width: 25%;
             height: auto;
@@ -151,12 +152,12 @@
 }
 
 .topi102-show {
-    @include backG;
-    @include Flex($align: stretch, $justify: space-between);
-    width: 95%;
+    @include disFlex($justify: space-between);
+    @extend %theme__padding;
+    width: 95vw;
     max-height: 95vh;
-    padding: 5%;
-    overflow-y: scroll;
+
+    background-color: $color-five;
 
     display: none;
 
@@ -170,81 +171,40 @@
         right: 1rem;
     }
 
-    &__left {
-        @include Flex($direction: column, $align: stretch, $justify: start);
-        width: 45%;
-        padding-bottom: 10%;
+    &__information {
+        @include disFlex(column);
+        width: 40%;
 
         @include large-device-down {
             width: 100%;
         }
-    }
 
-    &__title {
-        font-family: $font-primary;
-        font-size: $T2;
-        font-weight: 700;
-        color: $color-black;
-        text-align: start;
-
-        @include medium-device-down {
-            font-size: $T2-mobile;
-        }
-    }
-
-    &__subtitle {
-        font-family: $font-primary;
-        font-size: $T4;
-        font-weight: 700;
-        color: $color-two;
-        text-align: start;
-
-        @include medium-device-down {
-            font-size: $T4-mobile;
-        }
-    }
-
-    &__line {
-        border-top: $color-one solid 1px;
-        opacity: 1;
-        width: 100%;
-        margin: 20px 0 34px 0;
-    }
-
-    &__description {
-        font: $paragraph;
-        color: $color-one;
-        text-align: left;
-
-        margin-bottom: 24px;
-
-        @include medium-device-down {
-            font: $paragraph-mobile;
+        &__title {
+            @extend %theme__t2-cb;
+            text-align: left;
+            margin-bottom: 1rem;
         }
 
-        p {
-            font: inherit;
-            color: inherit;
-            text-align: inherit;
+        &__subtitle {
+            @extend %theme__t4-c2;
+            text-align: left;
+            margin-bottom: 0.75rem;
         }
-    }
 
-    &__cta {
-        @include Flex;
-        gap: 1rem;
-        padding: 0.75rem 1.5rem;
-        align-self: start;
+        &__line {
+            border-top: $color-one solid 1px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
 
-        background-color: $color-white;
-        font: $paragraph;
-        font-weight: 700;
-        color: $color-two;
+        &__paragraph {
+            @extend %theme__p1-c1;
 
-        &__icon {
-            width: 25px;
-            height: auto;
-            object-fit: contain;
-            object-position: center;
+            margin-bottom: 3.5rem;
+        }
+
+        &__cta {
+            @extend %theme__cta;
         }
     }
 
