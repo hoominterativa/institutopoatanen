@@ -38,7 +38,8 @@
                             @endif
                             @if ($topic->path_image)
                                 <img src="{{ asset('storage/' . $topic->path_image) }}"
-                                    alt="imagem de fundo do tópico {{ $topic->title }}"
+                                loading="lazy"
+                                alt="imagem de fundo do tópico {{ $topic->title }}"
                                     class="topi08__topics__item__bg hover-image-box__target">
                             @endif
 

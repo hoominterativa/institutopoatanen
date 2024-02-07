@@ -31,22 +31,14 @@
             width: 100%;
             max-width: 938px;
 
-            @extend %theme__p1;
+            @extend %theme__p1-c2;
             text-align: center;
         }
     }
 
     &__topics {
         height: auto;
-        /* Este bloco existe caso o design solicite que haja overflow hidden. Por padráo, o swiper entrega overflow visible
 
-        &__swiper-wrapper {
-            overflow: hidden;
-
-            @include large-device-down{
-                overflow: visible;
-            }
-        } */
         &__item {
             position: relative;
             /* Qtde de gaps * tamanho do gap / qtde de elementos */

@@ -30,7 +30,9 @@
 
                     <summary class="topi11__main__topics__item__title" aria-level="3" role="heading">
                         {{-- BACKEND: INSERIR DE FORMA DINÂMICA A INCLUSÃO DO ÍCONE DO TÓPICO --}}
-                        <img class="topi11__main__topics__item__title__icon" src="{{ asset('images/cta.png') }}"
+                        <img class="topi11__main__topics__item__title__icon"
+                        loading="lazy"
+                        src="{{ asset('images/cta.png') }}"
                             alt="Ícone do tópico {{ $topic->title }}">
                         {{ $topic->title }}
                     </summary>
@@ -51,8 +53,9 @@
         @if ($section)
             @if ($section->path_image)
                 <div class="topi11__main__image">
-                    <img src="{{ asset('storage/' . $section->path_image) }}" class="topi11__main__image__img"
-                        alt="Imagem da seção {{ $section->title }}">
+                    <img src="{{ asset('storage/' . $section->path_image) }}"
+                    loading="lazy" class="topi11__main__image__img"
+                    alt="Imagem da seção {{ $section->title }}">
                 </div>
             @endif
         @endif

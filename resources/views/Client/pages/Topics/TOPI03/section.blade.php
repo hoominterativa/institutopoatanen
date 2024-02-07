@@ -1,4 +1,4 @@
-@if ($topics->count())
+@if ($section || $topics->count())
     <section id="TOPI03" class="topi03">
         @if ($section)
             @if ($section->title || $section->subtitle || $section->description)
@@ -22,30 +22,31 @@
             @endif
         @endif
 
+        @if ($topics->count())
+            <main class="topi03__topics">
+                @foreach ($topics as $topic)
+                    <article class="topi03__topics__item">
+                        @if ($topic->link)
+                            <a class="link-full" href="{{ getUri($topic->link) }}"
+                                target="{{ $topic->target_link }}"></a>
+                        @endif
 
-        <main class="topi03__topics">
-            @foreach ($topics as $topic)
-                <article class="topi03__topics__item">
-                    @if ($topic->link)
-                        <a class="link-full" href="{{ getUri($topic->link) }}" target="{{ $topic->target_link }}"></a>
-                    @endif
+                        @if ($topic->path_image_icon)
+                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                class="topi03__topics__item__icon" alt="ícone do tópico {{ $topic->title }}">
+                        @endif
 
-                    @if ($topic->path_image_icon)
-                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="topi03__topics__item__icon"
-                            alt="ícone do tópico {{ $topic->title }}">
-                    @endif
+                        @if ($topic->title)
+                            <h3 class="topi03__topics__item__title">{{ $topic->title }}</h3>
+                        @endif
 
-                    @if ($topic->title)
-                        <h3 class="topi03__topics__item__title">{{ $topic->title }}</h3>
-                    @endif
+                        @if ($topic->description)
+                            <p class="topi03__topics__item__paragraph">{!! $topic->description !!}</p>
+                        @endif
 
-                    @if ($topic->description)
-                        <p class="topi03__topics__item__paragraph">{!! $topic->description !!}</p>
-                    @endif
-
-                </article>
-            @endforeach
-        </main>
-
+                    </article>
+                @endforeach
+            </main>
+        @endif
     </section>
 @endif

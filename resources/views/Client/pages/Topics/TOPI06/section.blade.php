@@ -31,15 +31,12 @@
 
                 @if ($topic->path_image_icon)
                     <div class="topi06__item__icon">
-                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="topi06__item__icon__img"
-                            alt="Ícone">
+                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}" loading="lazy" class="topi06__item__icon__img"
+                            alt="Ícone do tópico {{ $topic->title }}">
                     </div>
                 @endif
 
             </article>
         @endforeach
-        {{-- END .topi06__box --}}
-
-
     </section>
 @endif

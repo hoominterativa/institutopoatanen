@@ -9,8 +9,8 @@
                 @endif
 
                 @if ($topic->path_image)
-                    <img src="{{ asset('storage/' . $topic->path_image) }}" alt="Imagem do tópico {{ $topic->title }}"
-                        class="topi05__item__image">
+                    <img src="{{ asset('storage/' . $topic->path_image) }}" loading="lazy"
+                        alt="Imagem do tópico {{ $topic->title }}" class="topi05__item__image">
                 @endif
 
                 @if ($topic->title)

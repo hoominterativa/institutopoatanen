@@ -9,6 +9,7 @@
                         @if ($topic->path_image_icon)
                             <div class="topi09__topics__item__icon">
                                 <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                loading="lazy"
                                     class="topi09__topics__item__icon__img" alt="Ícone do tópico {{ $topic->title }}">
                             </div>
                         @endif

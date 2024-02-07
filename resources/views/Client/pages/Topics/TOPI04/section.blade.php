@@ -1,17 +1,25 @@
 @if ($topics->count())
-    <section id="TOPI04" class="topi04">
-        @foreach ($topics as $topic)
-            @if ($topic->path_image)
-                <section class="topi04__image">
-                    <img src="{{ asset('storage/' . $topic->path_image) }}"
-                        alt="Imagem que descreve a seção {{ $topic->title }}" class="topi04__image__img">
-                </section>
-            @endif
+    @foreach ($topics as $topic)
+        <section class="topi04">
+
+            {{-- BACKEND: TRANSFORMA IMAGEM FIXA EM GALERIA E DEVE-SE COLOCÁ-LA COMO OBRIGATÓRIO NO PAINEL --}}
+            <div class="topi04__gallery">
+                <div class="topi04__gallery__image__swiper-wrapper swiper-wrapper">
+                    @for ($i = 0; $i < 4; $i++)
+                        <img src="{{ asset('storage/' . $topic->path_image) }}"
+                            alt="Imagem que descreve a seção {{ $topic->title }}" loading="lazy"
+                            class="topi04__gallery__image__img swiper-slide">
+                    @endfor
+                </div>
+                <div class="topi04__gallery__nav">
+                    <div class="topi04__gallery__nav__swiper-button-prev swiper-button-prev"></div>
+                    <div class="topi04__gallery__nav__swiper-button-next swiper-button-next"></div>
+                </div>
+            </div>
 
 
 
-
-            <section class="topi04__information ">
+            <div class="topi04__information">
                 @if ($topic->title_topic || $topic->title || $topic->subtitle || $topic->description)
                     <header class="topi04__information__header">
 
@@ -45,8 +53,6 @@
                                 @endif
                             </a>
                         @endif
-
-
                     </header>
                 @endif
 
@@ -57,13 +63,14 @@
                             <article class="topi04__information__topics__item swiper-slide">
                                 @if ($topicSection->path_image_box)
                                     <img src="{{ asset('storage/' . $topicSection->path_image_box) }}"
-                                        alt="Imagem de fundo do topico {{ $topicSection->title }}"
+                                        alt="Imagem de fundo do topico {{ $topicSection->title }}" loading="lazy"
                                         class="topi04__information__topics__item__image">
                                 @endif
 
                                 @if ($topicSection->path_image_icon)
-                                    <img src="{{ asset('storage/' . $topicSection->path_image_icon) }}"
-                                        class="topi04__information__topics__item__icon" alt="Ícone do tópico {{ $topicSection->title }}">
+                                    <img src="{{ asset('storage/' . $topicSection->path_image_icon) }}" loading="lazy"
+                                        class="topi04__information__topics__item__icon"
+                                        alt="Ícone do tópico {{ $topicSection->title }}">
                                 @endif
 
                                 @if ($topicSection->title)
@@ -76,10 +83,8 @@
                         @endforeach
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
+    @endforeach
 
-            {{-- END .row --}}
-        @endforeach
-    </section>
-    {{-- END #ABOU04 --}}
 @endif
