@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI10' => (object)[
+        'Feedbacks' => (object) [
+            'FEED01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -26,8 +26,8 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
-                    'iconPanel' => 'mdi-apps'
+                    'titlePanel' => 'Depoimentos',
+                    'iconPanel' => 'mdi-android-messages'
                 ]
             ],
         ],
