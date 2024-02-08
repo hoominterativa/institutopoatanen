@@ -1565,7 +1565,7 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.topi102-show, .topi102, .topi101, .topi11, .topi10, .topi09, .topi08, .topi06, .topi05, .topi04__information__header, .topi03, .topi02, .topi01 {
+.topi102-show, .topi102, .topi101, .topi10, .topi09, .topi08, .topi06, .topi05, .topi04__information__header, .topi03, .topi02, .topi11 {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -1586,20 +1586,20 @@ body .owl-dots .owl-dot.active {
 .topi08__header__title {
   color: #404040;
 }
-.topi102__header__title, .topi101__header__title, .topi11__header__title, .topi10__header__title, .topi04__information__header__title, .topi03__header__title, .topi02__header__title, .topi01__header__title, .topi102-show__information__title, .topi06__item__information__title, .topi02__topics__item__title {
+.topi102__header__title, .topi101__header__title, .topi10__header__title, .topi04__information__header__title, .topi03__header__title, .topi02__header__title, .topi11__header__title, .topi102-show__information__title, .topi06__item__information__title, .topi02__topics__item__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .topi102__header__title, .topi101__header__title, .topi11__header__title, .topi10__header__title, .topi04__information__header__title, .topi03__header__title, .topi02__header__title, .topi01__header__title, .topi102-show__information__title, .topi06__item__information__title, .topi02__topics__item__title {
+  .topi102__header__title, .topi101__header__title, .topi10__header__title, .topi04__information__header__title, .topi03__header__title, .topi02__header__title, .topi11__header__title, .topi102-show__information__title, .topi06__item__information__title, .topi02__topics__item__title {
     font-size: 1.875rem;
   }
 }
 .topi102-show__information__title, .topi06__item__information__title, .topi02__topics__item__title {
   color: #000;
 }
-.topi102__header__title, .topi101__header__title, .topi11__header__title, .topi10__header__title, .topi04__information__header__title, .topi03__header__title, .topi02__header__title, .topi01__header__title {
+.topi102__header__title, .topi101__header__title, .topi10__header__title, .topi04__information__header__title, .topi03__header__title, .topi02__header__title, .topi11__header__title {
   color: #404040;
 }
 .topi102__navigation__item__count {
@@ -1615,14 +1615,14 @@ body .owl-dots .owl-dot.active {
 .topi102__navigation__item__count {
   color: #000;
 }
-.topi102__topics__item__title, .topi102__header__subtitle, .topi101__header__subtitle, .topi11__header__subtitle, .topi10__header__subtitle, .topi08__header__subtitle, .topi04__information__header__subtitle, .topi03__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .topi102-show__information__subtitle, .topi04__information__header__featured-title, .topi10__topics__item__header__title, .topi05__item__title {
+.topi102__topics__item__title, .topi102__header__subtitle, .topi101__header__subtitle, .topi10__header__subtitle, .topi08__header__subtitle, .topi04__information__header__subtitle, .topi03__header__subtitle, .topi02__header__subtitle, .topi11__header__subtitle, .topi102-show__information__subtitle, .topi04__information__header__featured-title, .topi10__topics__item__header__title, .topi05__item__title {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
   margin-bottom: 2rem;
 }
 @media (max-width: 991.98px) {
-  .topi102__topics__item__title, .topi102__header__subtitle, .topi101__header__subtitle, .topi11__header__subtitle, .topi10__header__subtitle, .topi08__header__subtitle, .topi04__information__header__subtitle, .topi03__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .topi102-show__information__subtitle, .topi04__information__header__featured-title, .topi10__topics__item__header__title, .topi05__item__title {
+  .topi102__topics__item__title, .topi102__header__subtitle, .topi101__header__subtitle, .topi10__header__subtitle, .topi08__header__subtitle, .topi04__information__header__subtitle, .topi03__header__subtitle, .topi02__header__subtitle, .topi11__header__subtitle, .topi102-show__information__subtitle, .topi04__information__header__featured-title, .topi10__topics__item__header__title, .topi05__item__title {
     font-size: 1.125rem;
   }
 }
@@ -1635,69 +1635,66 @@ body .owl-dots .owl-dot.active {
 .topi102-show__information__subtitle {
   color: #7c7c7c;
 }
-.topi102__header__subtitle, .topi101__header__subtitle, .topi11__header__subtitle, .topi10__header__subtitle, .topi08__header__subtitle, .topi04__information__header__subtitle, .topi03__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle {
+.topi102__header__subtitle, .topi101__header__subtitle, .topi10__header__subtitle, .topi08__header__subtitle, .topi04__information__header__subtitle, .topi03__header__subtitle, .topi02__header__subtitle, .topi11__header__subtitle {
   color: #b3b3b3;
 }
 .topi102__topics__item__title {
   color: #efefef;
 }
-.topi01__topics__item__title, .topi08__topics__item__content__title {
+.topi08__topics__item__content__title {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .topi01__topics__item__title, .topi08__topics__item__content__title {
+  .topi08__topics__item__content__title {
     font-size: 1.063rem;
   }
 }
 .topi08__topics__item__content__title {
   color: #fff;
 }
-.topi01__topics__item__title {
-  color: #000;
-}
-.topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph {
+.topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi102-show__information__paragraph, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__header__paragraph, .topi11__main__topics__item__title, .topi102__topics__item__paragraph {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi10__header__paragraph p, .topi101__timeline__item__information__paragraph p, .topi08__header__paragraph p, .topi06__item__information__paragraph p, .topi05__item__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .topi102-show__information__paragraph p, .topi102-show__information__cta p, .topi08__cta p, .topi06__item__information__cta p, .topi04__information__header__cta p, .topi11__header__paragraph p, .topi09__topics__item__information__title p, .topi04__information__topics__item__title p, .topi03__topics__item__title p, .topi11__main__topics__item__title p, .topi102__topics__item__paragraph p {
+.topi10__header__paragraph p, .topi101__timeline__item__information__paragraph p, .topi08__header__paragraph p, .topi06__item__information__paragraph p, .topi05__item__paragraph p, .topi02__header__paragraph p, .topi102-show__information__paragraph p, .topi102-show__information__cta p, .topi08__cta p, .topi06__item__information__cta p, .topi04__information__header__cta p, .topi09__topics__item__information__title p, .topi04__information__topics__item__title p, .topi03__topics__item__title p, .topi11__header__paragraph p, .topi11__main__topics__item__title p, .topi102__topics__item__paragraph p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph {
+  .topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi102-show__information__paragraph, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__header__paragraph, .topi11__main__topics__item__title, .topi102__topics__item__paragraph {
     font-size: 0.938rem;
   }
 }
 .topi102__topics__item__paragraph {
   color: #fff;
 }
-.topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title {
+.topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__header__paragraph, .topi11__main__topics__item__title {
   color: #000;
 }
 .topi102-show__information__paragraph, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta {
   color: #404040;
 }
-.topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph {
+.topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph {
   color: #7c7c7c;
 }
-.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .topi08__topics__item__content__information {
+.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .topi08__topics__item__content__information {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .topi04__information__header__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi02__topics__item__paragraph p, .topi01__topics__item__paragraph p, .topi11__main__topics__item__paragraph p, .topi102__navigation__item__title p, .topi08__topics__item__content__information p {
+.topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .topi04__information__header__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi02__topics__item__paragraph p, .topi11__main__topics__item__paragraph p, .topi102__navigation__item__title p, .topi08__topics__item__content__information p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .topi08__topics__item__content__information {
+  .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .topi08__topics__item__content__information {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1708,7 +1705,7 @@ body .owl-dots .owl-dot.active {
 .topi102__navigation__item__title {
   color: #000;
 }
-.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph {
+.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi11__main__topics__item__paragraph {
   color: #7c7c7c;
 }
 .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta {
@@ -2336,99 +2333,75 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.topi01 {
-  overflow: hidden; /* prevenção do shift da animação*/
+.topi11 {
+  overflow: hidden; /* Prevenção do shift da animação */
+  padding-bottom: 0;
 }
-.topi01__header {
+.topi11__header {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
-.topi01__header__title {
+.topi11__header__title {
   margin-bottom: 0.25rem;
 }
-.topi01__header__subtitle {
+.topi11__header__subtitle {
   margin-bottom: 2rem;
 }
-.topi01__header__line {
+.topi11__header__line {
   width: 100%;
   margin-bottom: 2rem;
   border-top: solid 1px #b3b3b3;
 }
-.topi01__header__paragraph {
+.topi11__header__paragraph {
   width: 100%;
   max-width: 938px;
   text-align: center;
 }
-.topi01__topics {
-  height: auto;
-  /* Este bloco existe caso o design solicite que haja overflow hidden. Por padráo, o swiper entrega overflow visible
-
-  &__swiper-wrapper {
-              overflow: hidden;
-
-              @include large-device-down{
-                  overflow: visible;
-              }
-          } */
-}
-.topi01__topics__item {
-  position: relative;
-  /* Qtde de gaps * tamanho do gap / qtde de elementos */
-  width: calc(20% - 7px);
-  height: auto;
-  padding: 1rem 2.5rem;
+.topi11__main {
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-}
-@media (max-width: 1199.98px) {
-  .topi01__topics__item {
-    width: calc(25% - 6px);
-  }
+  gap: 10rem;
 }
 @media (max-width: 991.98px) {
-  .topi01__topics__item {
-    width: calc(33.33% - 5px);
+  .topi11__main {
+    flex-direction: column;
+    gap: 3.25rem;
   }
 }
-@media (max-width: 767.98px) {
-  .topi01__topics__item {
-    width: calc(50% - 4px);
+.topi11__main__topics {
+  width: calc(100% - 10rem + 22.5rem);
+  padding-bottom: 2.5rem;
+}
+@media (max-width: 991.98px) {
+  .topi11__main__topics {
+    width: 100%;
+    padding-bottom: 0;
   }
 }
-@media (max-width: 575.98px) {
-  .topi01__topics__item {
+.topi11__main__image {
+  width: 22.5rem;
+  height: auto;
+  aspect-ratio: 361/468;
+  align-self: end;
+}
+@media (max-width: 991.98px) {
+  .topi11__main__image {
     width: 100%;
   }
 }
-.topi01__topics__item__bg {
+.topi11__main__image__img {
   width: 100%;
   height: 100%;
-  position: absolute;
-  inset: 0;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: -1; /* envia para o fundo o bg do topico */
-}
-.topi01__topics__item__icon {
-  width: 3rem;
-  height: 3rem;
   -o-object-fit: contain;
      object-fit: contain;
-  margin-bottom: 1.5rem;
-}
-.topi01__topics__item__title {
-  margin-bottom: 0.75rem;
-}
-.topi01__topics__item__paragraph {
-  text-align: center;
+  -o-object-position: center bottom;
+     object-position: center bottom;
 }
 
 /* BEGIN STYLE */
