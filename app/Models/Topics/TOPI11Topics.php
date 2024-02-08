@@ -21,6 +21,7 @@ class TOPI11Topics extends Model
         'text',
         'active',
         'sorting',
+        'path_image_icon'
     ];
 
     public function scopeSorting($query)

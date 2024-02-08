@@ -25,7 +25,6 @@ class TOPI11TopicsSectionFactory extends Factory
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(13),
             'description' => $this->faker->text(500),
-            'path_image' => 'uploads/tmp/image-pmg.png',
             'active' => 1,
         ];
     }

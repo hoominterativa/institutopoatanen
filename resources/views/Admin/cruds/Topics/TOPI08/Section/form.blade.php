@@ -95,11 +95,11 @@
                         ]) !!}
                     </div>
                 </div>
-                <div class="mb-3 border px-2 py-3">
-                    {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                    {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
-                </div>
             </div> {{-- END .wrapper-links --}}
+            <div class="mb-3 border px-2 py-3">
+                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
+                {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
+            </div>
         </div>
         <div class="mb-3 form-check">
             {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}

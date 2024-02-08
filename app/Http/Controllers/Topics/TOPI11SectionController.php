@@ -26,15 +26,11 @@ class TOPI11SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
-
         $data['active'] = $request->active? 1 : 0;
 
         if(TOPI11TopicsSection::create($data)){
             Session::flash('success', 'Informações cadastradas com sucesso');
         }else{
-            Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar informações');
         }
 
@@ -53,22 +49,11 @@ class TOPI11SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($TOPI11TopicsSection, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($TOPI11TopicsSection, 'path_image');
-            $data['path_image'] = null;
-        }
-
         $data['active'] = $request->active? 1 : 0;
 
         if($TOPI11TopicsSection->fill($data)->save()){
             Session::flash('success', 'Informações atualizadas com sucesso');
         }else{
-            Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar informações');
         }
         return redirect()->back();

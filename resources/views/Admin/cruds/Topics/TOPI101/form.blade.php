@@ -32,7 +32,6 @@
                         {!! Form::file('path_image', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'required' => 'required',
                             'data-status' => $cropSetting->path_image->activeCrop, // px
                             'data-min-width' => $cropSetting->path_image->width, // px
                             'data-min-height' => $cropSetting->path_image->height, // px

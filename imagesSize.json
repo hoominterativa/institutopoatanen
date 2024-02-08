@@ -1888,10 +1888,12 @@
             }
         },
         "TOPI04": {
-            "path_image": {
-                "width": "749",
-                "height": "759",
-                "activeCrop": "false"
+            "Gallery": {
+                "path_image": {
+                    "width": "749",
+                    "height": "759",
+                    "activeCrop": "false"
+                }
             },
             "TopicSection": {
                 "path_image_icon": {
@@ -1974,10 +1976,24 @@
             }
         },
         "TOPI11": {
-            "path_image": {
+            "path_image_icon": {
                 "width": "300",
-                "height": "400",
-                "activeCrop": "true"
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image": {
+                    "width": "1450",
+                    "height": "836",
+                    "activeCrop": "false"
+                }
+            },
+            "Image": {
+                "path_image": {
+                    "width": "754",
+                    "height": "650",
+                    "activeCrop": "false"
+                }
             }
         },
         "TOPI101": {

@@ -18,7 +18,7 @@ class TOPI04Topics extends Model
     }
 
     protected $table = "topi04_topics";
-    protected $fillable = ['title_topic', 'title', 'subtitle', 'description', 'path_image', 'title_button', 'link_button', 'target_link_button', 'active', 'sorting'];
+    protected $fillable = ['title_topic', 'title', 'subtitle', 'description', 'title_button', 'link_button', 'target_link_button', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -33,5 +33,10 @@ class TOPI04Topics extends Model
     public function topicSections()
     {
         return $this->hasMany(TOPI04TopicsTopicSection::class, 'topic_id')->active()->sorting();
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(TOPI04TopicsGallery::class, 'topic_id')->sorting();
     }
 }

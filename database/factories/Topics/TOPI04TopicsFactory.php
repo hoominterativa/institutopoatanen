@@ -26,7 +26,6 @@ class TOPI04TopicsFactory extends Factory
             "title" => $this->faker->text(10),
             "subtitle" => $this->faker->text(12),
             "description" => $this->faker->text(200),
-            "path_image" => 'uploads/tmp/image-box.jpg',
             "title_button" => $this->faker->text(8),
             "link_button" => $this->faker->url(),
             "target_link_button" => '_blank',

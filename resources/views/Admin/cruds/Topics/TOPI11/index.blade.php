@@ -37,6 +37,14 @@
                                 data-bs-original-title="Informações complementares que serão exibidas na home, caso esteja ativa"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#image" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                            Imagem
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro da imagem principal"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -60,6 +68,7 @@
                                                     <th width="30px" class="bs-checkbox">
                                                         <label><input name="btnSelectAll" value="deleteTopic" type="checkbox"></label>
                                                     </th>
+                                                    <th>Imagem</th>
                                                     <th>Título</th>
                                                     <th>Texto</th>
                                                     <th width="100px">Status</th>
@@ -73,6 +82,11 @@
                                                         <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                         <td class="bs-checkbox align-middle">
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
+                                                        </td>
+                                                        <td class="align-middle avatar-group">
+                                                            @if ($topic->path_image_icon)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_icon)}})"></div>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">{{$topic->title}}</td>
                                                         <td class="align-middle">{{substr(strip_tags($topic->text), 0, 50)}}</td>
@@ -108,6 +122,11 @@
                     <div class="tab-pane" id="section">
                         @include("Admin.cruds.Topics.TOPI11.Section.form",[
                             'section' => $section
+                        ])
+                    </div>
+                    <div class="tab-pane" id="image">
+                        @include("Admin.cruds.Topics.TOPI11.Image.form",[
+                            'image' => $image
                         ])
                     </div>
                 </div>

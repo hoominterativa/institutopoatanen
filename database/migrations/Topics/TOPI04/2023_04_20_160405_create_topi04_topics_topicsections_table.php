@@ -15,7 +15,7 @@ class CreateTopi04TopicsTopicsectionsTable extends Migration
     {
         Schema::create('topi04_topics_topicsections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('topic_id')->constrained('topi04_topics');
+            $table->foreignId('topic_id')->constrained('topi04_topics')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('path_image_icon')->nullable();
             $table->string('path_image_box')->nullable();

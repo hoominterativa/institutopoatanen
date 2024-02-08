@@ -17,6 +17,7 @@ class CreateTopi11TopicsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('text')->nullable();
+            $table->string('path_image_icon')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

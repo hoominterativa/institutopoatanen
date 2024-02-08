@@ -3,16 +3,16 @@
 namespace Database\Factories\Topics;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Topics\TOPI11Topics;
+use App\Models\Topics\TOPI04TopicsGallery;
 
-class TOPI11TopicsFactory extends Factory
+class TOPI04TopicsGalleryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = TOPI11Topics::class;
+    protected $model = TOPI04TopicsGallery::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,9 @@ class TOPI11TopicsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'text' => $this->faker->text(400),
-            'path_image_icon' => 'uploads/tmp/favicon.png',
-            'active' => 1,
+            /*'title' => $this->faker->text(10),
+            'path_image' => 'uploads/temp/image_temporary.png',
+            'active' => 1,*/
         ];
     }
 }

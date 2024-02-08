@@ -63,8 +63,6 @@
                                                     <th>Imagem</th>
                                                     <th>Título</th>
                                                     <th>Description</th>
-                                                    <th>Título do botão</th>
-                                                    <th>Link do botão</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -86,12 +84,6 @@
                                                         <td class="align-middle">
                                                             @if ($topic->description)
                                                                 {!! substr($topic->description, 0, 25) !!}<b>...</b>
-                                                            @endif
-                                                        </td>
-                                                        <td class="align-middle">{{$topic->title_button}}</td>
-                                                        <td class="align-middle">
-                                                            @if ($topic->link_button)
-                                                                <a href="{{ $topic->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">

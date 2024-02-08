@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Topics\TOPI04TopicsGallery;
 use App\Models\Topics\TOPI04TopicsTopicSection;
 
 class TOPI04Controller extends Controller
@@ -55,14 +56,10 @@ class TOPI04Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
-        if($path_image) $data['path_image'] = $path_image;
-
         if($topics = TOPI04Topics::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
             return redirect()->route('admin.topi04.edit', ['TOPI04Topics' => $topics->id]);
         }else{
-            Storage::delete($path_image);
             Session::flash('success', 'Erro ao cadastradar o tópico');
             return redirect()->back();
         }
@@ -77,9 +74,11 @@ class TOPI04Controller extends Controller
     public function edit(TOPI04Topics $TOPI04Topics)
     {
         $topicSections = TOPI04TopicsTopicSection::where('topic_id', $TOPI04Topics->id)->sorting()->get();
+        $galleries = TOPI04TopicsGallery::where('topic_id', $TOPI04Topics->id)->sorting()->get();
         return view('Admin.cruds.Topics.TOPI04.edit', [
             'topic' => $TOPI04Topics,
             'topicSections' => $topicSections,
+            'galleries' => $galleries,
             'cropSetting' => getCropImage('Topics', 'TOPI04')
         ]);
     }
@@ -99,20 +98,9 @@ class TOPI04Controller extends Controller
         $data['active'] = $request->active?1:0;
         $data['link_button'] = isset($data['link_button']) ? getUri($data['link_button']) : null;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
-        if($path_image){
-            storageDelete($TOPI04Topics, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($TOPI04Topics, 'path_image');
-            $data['path_image'] = null;
-        }
-
         if($TOPI04Topics->fill($data)->save()){
             Session::flash('success', 'Tópico atualizado com sucesso');
         }else{
-            Storage::delete($path_image);
             Session::flash('success', 'Erro ao atualizar o tópico');
         }
         return redirect()->back();
@@ -126,14 +114,6 @@ class TOPI04Controller extends Controller
      */
     public function destroy(TOPI04Topics $TOPI04Topics)
     {
-        $topicSections = TOPI04TopicsTopicSection::where('topic_id', $TOPI04Topics->id)->get();
-        foreach($topicSections as $topicSection){
-            storageDelete($topicSection, 'path_image_icon');
-            storageDelete($topicSection, 'path_image_box');
-            $topicSection->delete();
-        }
-
-        storageDelete($TOPI04Topics, 'path_image');
 
         if($TOPI04Topics->delete()){
             Session::flash('success', 'Tópico deletado com sucessso');
@@ -151,17 +131,6 @@ class TOPI04Controller extends Controller
     {
 
         $TOPI04Topicss = TOPI04Topics::whereIn('id', $request->deleteAll)->get();
-        foreach($TOPI04Topicss as $TOPI04Topics){
-            $topicSections = TOPI04TopicsTopicSection::where('topic_id', $TOPI04Topics->id)->get();
-            foreach($topicSections as $topicSection){
-                storageDelete($topicSection, 'path_image_icon');
-                storageDelete($topicSection, 'path_image_box');
-                $topicSection->delete();
-            }
-
-            storageDelete($TOPI04Topics, 'path_image');
-        }
-
 
         if($deleted = TOPI04Topics::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' Tópicos deletados com sucessso']);
@@ -192,7 +161,7 @@ class TOPI04Controller extends Controller
     public static function section()
     {
 
-        $topics = TOPI04Topics::with(['topicSections' => function ($query) {$query->where(['active' => 1]);}])->active()->sorting()->get();
+        $topics = TOPI04Topics::with(['topicSections', 'galleries'])->active()->sorting()->get();
 
         return view('Client.pages.Topics.TOPI04.section', [
             'topics' => $topics,

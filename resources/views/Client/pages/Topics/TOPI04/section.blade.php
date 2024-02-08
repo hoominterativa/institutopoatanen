@@ -2,22 +2,19 @@
     @foreach ($topics as $topic)
         <section class="topi04">
 
-            {{-- BACKEND: TRANSFORMA IMAGEM FIXA EM GALERIA E DEVE-SE COLOCÁ-LA COMO OBRIGATÓRIO NO PAINEL --}}
-            <div class="topi04__gallery">
-                <div class="topi04__gallery__image__swiper-wrapper swiper-wrapper">
-                    @for ($i = 0; $i < 4; $i++)
-                        <img src="{{ asset('storage/' . $topic->path_image) }}"
-                            alt="Imagem que descreve a seção {{ $topic->title }}" loading="lazy"
-                            class="topi04__gallery__image__img swiper-slide">
-                    @endfor
+            @if ($topic->galleries->count())
+                <div class="topi04__gallery">
+                    <div class="topi04__gallery__image__swiper-wrapper swiper-wrapper">
+                        @foreach ($topic->galleries as $gallery)
+                            <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Galeria de imagens" loading="lazy" class="topi04__gallery__image__img swiper-slide">
+                        @endforeach
+                    </div>
+                    <div class="topi04__gallery__nav">
+                        <div class="topi04__gallery__nav__swiper-button-prev swiper-button-prev"></div>
+                        <div class="topi04__gallery__nav__swiper-button-next swiper-button-next"></div>
+                    </div>
                 </div>
-                <div class="topi04__gallery__nav">
-                    <div class="topi04__gallery__nav__swiper-button-prev swiper-button-prev"></div>
-                    <div class="topi04__gallery__nav__swiper-button-next swiper-button-next"></div>
-                </div>
-            </div>
-
-
+            @endif
 
             <div class="topi04__information">
                 @if ($topic->title_topic || $topic->title || $topic->subtitle || $topic->description)

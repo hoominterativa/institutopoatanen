@@ -25,9 +25,6 @@ class TOPI08TopicsFactory extends Factory
             'title' => $this->faker->text(10),
             'description' => $this->faker->text(100),
             'path_image' => 'uploads/tmp/gall01_image2.png',
-            'title_button' => $this->faker->text(10),
-            'link_button' => $this->faker->url(),
-            'target_link_button' => '_blank',
             'active' => 1,
         ];
     }

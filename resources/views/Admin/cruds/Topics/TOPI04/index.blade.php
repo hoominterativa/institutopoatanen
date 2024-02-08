@@ -39,11 +39,8 @@
                                             <th width="30px" class="bs-checkbox">
                                                 <label><input name="btnSelectAll" value="btnDeleteTOPI04" type="checkbox"></label>
                                             </th>
-                                            <th>Imagem</th>
                                             <th>Título do tópico</th>
                                             <th>Título/Subtítulo</th>
-                                            <th>Descrição</th>
-                                            <th>Título do botão</th>
                                             <th>Link do botão</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
@@ -57,19 +54,8 @@
                                                 <td class="bs-checkbox align-middle">
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                                 </td>
-                                                <td class="align-middle avatar-group">
-                                                    @if ($topic->path_image)
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image)}})"></div>
-                                                    @endif
-                                                </td>
                                                 <td class="align-middle">{{$topic->title_topic}}</td>
                                                 <td class="align-middle">{{$topic->title}} <b>/</b> {{$topic->subtitle}}</td>
-                                                <td class="align-middle">
-                                                    @if ($topic->description)
-                                                        {!! substr($topic->description, 0, 25) !!}<b>...</b>
-                                                    @endif
-                                                </td>
-                                                <td class="align-middle">{{$topic->title_button}}</td>
                                                 <td class="align-middle">
                                                     @if ($topic->link_button)
                                                         <a href="{{ $topic->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>

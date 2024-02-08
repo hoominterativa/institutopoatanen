@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopi11TopicsSectionsTable extends Migration
+class CreateTopi04TopicsGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTopi11TopicsSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topi11_topics_sections', function (Blueprint $table) {
+        Schema::create('topi04_topics_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->text('description')->nullable();
-            $table->integer('active')->default(0);
+            $table->foreignId('topic_id')->constrained('topi04_topics')->onDelete('cascade');
+            $table->string('path_image')->nullable();
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateTopi11TopicsSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topi11_topics_sections');
+        Schema::dropIfExists('topi04_topics_galleries');
     }
 }

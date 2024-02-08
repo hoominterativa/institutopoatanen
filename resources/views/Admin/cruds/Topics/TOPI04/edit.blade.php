@@ -33,7 +33,14 @@
                         <a href="#topicSection" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Tópicos em destaque
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-original-title="Esta seção exibira os tópicos em destaque."></i>
+                            data-bs-original-title="Esta seção exibirá os tópicos em destaque."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Galeria
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-original-title="Esta seção exibirá imagens em destaque."></i>
                         </a>
                     </li>
                 </ul>
@@ -52,6 +59,12 @@
                         @include('Admin.cruds.Topics.TOPI04.TopicSection.index', [
                             'topic' => $topic,
                             'topicSections' => $topicSections,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="gallery">
+                        @include('Admin.cruds.Topics.TOPI04.Gallery.index', [
+                            'topic' => $topic,
+                            'galleries' => $galleries,
                         ])
                     </div>
                 </div>

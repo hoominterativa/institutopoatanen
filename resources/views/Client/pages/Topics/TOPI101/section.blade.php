@@ -1,6 +1,6 @@
 @if ($section)
-    <section id="TOPI101" class="topi101" {{--  BACKEND: OCULTAR PAINEL  --}} {{--  style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};" --}}>
-
+    <section id="TOPI101" class="topi101"
+    style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};">
         @if ($section->title || $section->subtitle)
             <header class="topi101__header">
                 @if ($section->title)
@@ -21,14 +21,12 @@
         @if ($topics->count())
             <main class="topi101__timeline">
                 <div class="topi101__timeline__swiper-wrapper swiper-wrapper">
-                    {{-- BACKEND: INSERIR IMAGEM E TEXTO COMO CAMPOS OBRIGATÓRIOS E FAZENDO A RETIRADA DO IF --}}
                     @foreach ($topics as $topic)
                         @if ($topic->path_image && $topic->description)
                             <article class="topi101__timeline__item swiper-slide">
 
                                 <div class="topi101__timeline__item__image">
-                                    <img src="{{ asset('storage/' . $topic->path_image) }}" loading="lazy"
-                                        alt="Imagem do tópico {{ $topic->description }}"
+                                    <img src="{{ asset('storage/' . $topic->path_image) }}" loading="lazy" alt="Imagem do tópico {{ $topic->description }}"
                                         class="topi101__timeline__item__image__img">
                                 </div>
 
