@@ -24,6 +24,7 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body">
             <div class="mb-3">
+                <i class="text-danger">Atenção: Campo obrigatório</i>
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem do Box', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
