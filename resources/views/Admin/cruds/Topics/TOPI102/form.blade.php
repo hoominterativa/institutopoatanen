@@ -161,29 +161,6 @@
                         </label>
                     </div><!-- END container image crop -->
                 </div>
-                <div class="mb-3">
-                    <div class="container-image-crop">
-                        {!! Form::label('inputImage', 'Background lightbox', ['class' => 'form-label']) !!}
-                        <small class="ms-2">Dimensões proporcionais mínimas
-                            {{ $cropSetting->path_image_background_lightbox->width }}x{{ $cropSetting->path_image_background_lightbox->height }}px!</small>
-                        <label class="area-input-image-crop" for="inputImage">
-                            {!! Form::file('path_image_background_lightbox', [
-                                'id' => 'inputImage',
-                                'class' => 'inputImage',
-                                'data-status' => $cropSetting->path_image_background_lightbox->activeCrop, // px
-                                'data-min-width' => $cropSetting->path_image_background_lightbox->width, // px
-                                'data-min-height' => $cropSetting->path_image_background_lightbox->height, // px
-                                'data-box-height' => '250', // Input height in the form
-                                'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                                'data-default-file' => isset($topic)
-                                    ? ($topic->path_image_background_lightbox != ''
-                                        ? url('storage/' . $topic->path_image_background_lightbox)
-                                        : '')
-                                    : '',
-                            ]) !!}
-                        </label>
-                    </div><!-- END container image crop -->
-                </div>
             </div>
             {{-- end card-body --}}
         </div>

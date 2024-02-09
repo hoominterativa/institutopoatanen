@@ -28,9 +28,6 @@ class TOPI08TopicsSectionFactory extends Factory
             'title_button' => $this->faker->text(10),
             'link_button' => $this->faker->url(),
             'target_link_button' => '_blank',
-            'path_image_desktop' => 'uploads/tmp/image-box-white.jpg',
-            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#FFF',
             'active' => 1,
         ];
     }

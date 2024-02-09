@@ -25,6 +25,7 @@ class TOPI08Controller extends Controller
     {
         $topics = TOPI08Topics::sorting()->get();
         $section = TOPI08TopicsSection::first();
+        
         return view('Admin.cruds.Topics.TOPI08.index', [
             'topics' => $topics,
             'section' => $section,
@@ -175,15 +176,8 @@ class TOPI08Controller extends Controller
     public static function section()
     {
         $section = TOPI08TopicsSection::active()->first();
-        switch (deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if ($section) $section->path_image_desktop = $section->path_image_mobile;
-            break;
-
-        }
-
         $topics = TOPI08Topics::active()->sorting()->get();
+
         return view('Client.pages.Topics.TOPI08.section', [
             'topics' => $topics,
             'section' => $section

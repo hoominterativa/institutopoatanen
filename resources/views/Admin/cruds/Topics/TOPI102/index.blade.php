@@ -73,8 +73,6 @@
                                                     <th>Imagem</th>
                                                     <th>Título/Subtítulo</th>
                                                     <th>Descrição</th>
-                                                    <th>Texto</th>
-                                                    <th>Título botão</th>
                                                     <th>Link botão</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
@@ -90,9 +88,6 @@
                                                             </label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($topic->path_image_background_lightbox)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $topic->path_image_background_lightbox) }})"></div>
-                                                            @endif
                                                             @if ($topic->path_image_box)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $topic->path_image_box) }})"></div>
                                                             @endif
@@ -102,8 +97,6 @@
                                                         </td>
                                                         <td class="align-middle">{{ $topic->title }} <b>/</b> {{$topic->subtitle}}</td>
                                                         <td class="align-middle">{!! Str::limit($topic->description, 25) !!}</td>
-                                                        <td class="align-middle">{!! Str::limit($topic->text, 25) !!}</td>
-                                                        <td class="align-middle">{{ $topic->title_button }}</td>
                                                         <td class="align-middle">
                                                             @if ($topic->link_button)
                                                                 <a href="{{$topic->link_button}}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>

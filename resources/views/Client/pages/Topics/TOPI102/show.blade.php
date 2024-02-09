@@ -1,4 +1,4 @@
-<section id="lightbox-topi102-{{ $topic->id }}" class="topi102-show" {{-- style="background-image: url({{ asset('storage/' . $topic->path_image_background_lightbox) }});" --}}>
+<section id="lightbox-topi102-{{ $topic->id }}" class="topi102-show">
 
     @if ($topic->title_lightbox || $topic->subtitle || $topic->text)
         <div class="topi102-show__information">

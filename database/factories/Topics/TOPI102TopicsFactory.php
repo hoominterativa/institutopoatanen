@@ -31,7 +31,6 @@ class TOPI102TopicsFactory extends Factory
             'link_button' => $this->faker->url(),
             'target_link_button' => '_blank',
             'path_image_box' => $this->faker->randomElement(['uploads/tmp/image-box.jpg', 'uploads/tmp/gall01_image1.png', 'uploads/tmp/thumbnail.png']),
-            'path_image_background_lightbox' => 'uploads/tmp/bg-boxitem-light.png',
             'path_image_lightbox' => 'uploads/tmp/gall01_image2.png',
             'active' => 1,
         ];

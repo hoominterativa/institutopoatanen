@@ -24,9 +24,6 @@ class TOPI102TopicsSectionFactory extends Factory
         return [
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(12),
-            'path_image_desktop' => 'uploads/tmp/image-box-white.jpg',
-            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#FFF',
             'active' => 1
         ];
     }

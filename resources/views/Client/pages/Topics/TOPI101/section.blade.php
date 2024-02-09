@@ -1,6 +1,5 @@
 @if ($section)
-    <section id="TOPI101" class="topi101"
-    style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};">
+    <section id="TOPI101" class="topi101">
         @if ($section->title || $section->subtitle)
             <header class="topi101__header">
                 @if ($section->title)

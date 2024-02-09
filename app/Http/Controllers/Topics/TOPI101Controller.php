@@ -172,12 +172,6 @@ class TOPI101Controller extends Controller
     {
         $section = TOPI101TopicsSection::active()->first();
         $topics = TOPI101Topics::active()->sorting()->get();
-        switch (deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if($section) $section->path_image_desktop = $section->path_image_mobile;
-            break;
-        }
 
         return view('Client.pages.Topics.TOPI101.section', [
             'topics' => $topics,

@@ -68,16 +68,12 @@ class TOPI102Controller extends Controller
         $path_image_lightbox = $helper->optimizeImage($request, 'path_image_lightbox', $this->path, null, 100);
         if ($path_image_lightbox) $data['path_image_lightbox'] = $path_image_lightbox;
 
-        $path_image_background_lightbox = $helper->optimizeImage($request, 'path_image_background_lightbox', $this->path, null, 100);
-        if ($path_image_background_lightbox) $data['path_image_background_lightbox'] = $path_image_background_lightbox;
-
         if (TOPI102Topics::create($data)) {
             Session::flash('success', 'Tópico cadastrado com sucesso');
             return redirect()->route('admin.topi102.index');
         } else {
             Storage::delete($path_image_box);
             Storage::delete($path_image_lightbox);
-            Storage::delete($path_image_background_lightbox);
             Session::flash('error', 'Erro ao cadastradar o tópico');
             return redirect()->back();
         }
@@ -132,22 +128,11 @@ class TOPI102Controller extends Controller
             $data['path_image_lightbox'] = null;
         }
 
-        $path_image_background_lightbox = $helper->optimizeImage($request, 'path_image_background_lightbox', $this->path, null, 100);
-        if ($path_image_background_lightbox) {
-            storageDelete($TOPI102Topics, 'path_image_background_lightbox');
-            $data['path_image_background_lightbox'] = $path_image_background_lightbox;
-        }
-        if ($request->delete_path_image_background_lightbox && !$path_image_background_lightbox) {
-            storageDelete($TOPI102Topics, 'path_image_background_lightbox');
-            $data['path_image_background_lightbox'] = null;
-        }
-
         if ($TOPI102Topics->fill($data)->save()) {
             Session::flash('success', 'Tópico atualizado com sucesso');
         } else {
             Storage::delete($path_image_box);
             Storage::delete($path_image_lightbox);
-            Storage::delete($path_image_background_lightbox);
             Session::flash('error', 'Erro ao atualizar o tópico');
         }
         return redirect()->back();
@@ -163,7 +148,6 @@ class TOPI102Controller extends Controller
     {
         storageDelete($TOPI102Topics, 'path_image_box');
         storageDelete($TOPI102Topics, 'path_image_lightbox');
-        storageDelete($TOPI102Topics, 'path_image_background_lightbox');
 
         if ($TOPI102Topics->delete()) {
             Session::flash('success', 'Tópico deletado com sucessso');
@@ -183,7 +167,6 @@ class TOPI102Controller extends Controller
         foreach ($TOPI102Topicss as $TOPI102Topics) {
             storageDelete($TOPI102Topics, 'path_image_box');
             storageDelete($TOPI102Topics, 'path_image_lightbox');
-            storageDelete($TOPI102Topics, 'path_image_background_lightbox');
         }
 
         if ($deleted = TOPI102Topics::whereIn('id', $request->deleteAll)->delete()) {

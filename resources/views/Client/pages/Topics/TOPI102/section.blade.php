@@ -1,6 +1,5 @@
 @if ($section)
-    <section id="TOPI102" class="topi102" {{-- style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};" --}}>
-
+    <section id="TOPI102" class="topi102">
         @if ($section->title || $section->subtitle)
             <header class="topi102__header">
                 @if ($section->title)
@@ -12,7 +11,6 @@
                 @endif
             </header>
         @endif
-
         @if ($featuredtopics->count())
             <div class="topi102__navigation">
                 <ul class="topi102__navigation__swiper-wrapper swiper-wrapper">
@@ -32,8 +30,6 @@
                 </ul>
             </div>
         @endif
-
-
         @if ($topics->count())
             <div class="topi102__topics">
                 <div class="topi102__topics__swiper-wrapper swiper-wrapper">

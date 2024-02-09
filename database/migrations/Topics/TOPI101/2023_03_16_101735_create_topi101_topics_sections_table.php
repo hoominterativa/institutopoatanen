@@ -17,9 +17,6 @@ class CreateTopi101TopicsSectionsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
-            $table->string('background_color')->nullable();
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
             $table->integer('active')->default(0);
             $table->timestamps();
         });
