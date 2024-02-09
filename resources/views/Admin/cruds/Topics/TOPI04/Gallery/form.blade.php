@@ -9,7 +9,7 @@
                 <div class="mb-3">
                     <div class="uploadMultipleImage">
                         <label for="path_image" class="content-message">
-                            {!! Form::file('path_image[]', [ 'id' => 'path_image', 'multiple' => 'multiple', 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff', 'class' => 'inputGetImage']) !!}
+                            {!! Form::file('path_image[]', [ 'id' => 'path_image', 'multiple' => 'multiple', 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.svg', 'class' => 'inputGetImage']) !!}
                             <i class="mdi mdi-cloud-upload-outline mdi-36px"></i>
                             <h4 class="title">Solte as imagens aqui ou clique para fazer upload.</h4>
                             <span class="text-muted font-13">Carregar imagens com no máximo <strong>2mb</strong></span>
