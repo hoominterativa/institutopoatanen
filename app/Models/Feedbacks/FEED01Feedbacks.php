@@ -16,9 +16,7 @@ class FEED01Feedbacks extends Model
     }
 
     protected $table = "feed01_feedbacks";
-    protected $fillable = [
-        'name', 'profession', 'testimony', 'path_image', 'active', 'sorting'
-    ];
+    protected $fillable = ['name', 'profession', 'testimony', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

@@ -23,9 +23,6 @@ class FEED01FeedbacksSectionFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'path_image_desktop' => 'uploads/tmp/gall01_image2.png',
-            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#FFFFFF',
             'active' => 1,
         ];
     }

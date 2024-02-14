@@ -2147,7 +2147,7 @@ body .owl-dots .owl-dot.active {
   font-size: 2.5rem;
   font-family: "Ubuntu", sans-serif, arial;
   font-weight: 700;
-  color: #fff;
+  color: #000;
 }
 @media (max-width: 991.98px) {
   .feed01__header__title {
@@ -2176,7 +2176,7 @@ body .owl-dots .owl-dot.active {
 .feed01__content__item__titulo {
   font: 400 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   margin-bottom: 11px;
 }
 @media (max-width: 991.98px) {
@@ -2187,7 +2187,7 @@ body .owl-dots .owl-dot.active {
 .feed01__content__item__subtitulo {
   font: 400 1rem "Montserrat", sans-serif, arial;
   font-weight: 400;
-  color: #fff;
+  color: #000;
   max-width: 214px;
   width: 100%;
   margin: 0 auto;
@@ -2208,7 +2208,7 @@ body .owl-dots .owl-dot.active {
 .feed01__content__item__description p {
   font: 400 1rem "Montserrat", sans-serif, arial;
   font-weight: 400;
-  color: #fff;
+  color: #000;
 }
 @media (max-width: 991.98px) {
   .feed01__content__item__description p {

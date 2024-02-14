@@ -16,9 +16,6 @@ class CreateFeed01FeedbacksSectionsTable extends Migration
         Schema::create('feed01_feedbacks_sections', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
             $table->timestamps();
         });
