@@ -599,7 +599,7 @@ return [
             'FEED01' => (object)[
                 'controller' => App\Http\Controllers\Feedbacks\FEED01Controller::class,
                 'model' => App\Models\Feedbacks\FEED01Feedbacks::class,
-                'seedQty' => 1,
+                'seedQty' => 3,
             ],
             'FEED03' => (object)[
                 'controller' => App\Http\Controllers\Feedbacks\FEED03Controller::class,

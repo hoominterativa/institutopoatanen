@@ -23,7 +23,7 @@ class FEED01Controller extends Controller
      */
     public function index()
     {
-        $feedbacks = FEED01Feedbacks::sorting()->paginate();
+        $feedbacks = FEED01Feedbacks::sorting()->get();
         $section = FEED01FeedbacksSection::first();
 
         return view('Admin.cruds.Feedbacks.FEED01.index', [
@@ -111,12 +111,11 @@ class FEED01Controller extends Controller
 
         if($FEED01Feedbacks->fill($data)->save()){
             Session::flash('success', 'Feedback atualizado com sucesso');
-            return redirect()->route('admin.feed01.index');
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar o feedback');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -177,17 +176,8 @@ class FEED01Controller extends Controller
      */
     public static function section()
     {
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $section = FEED01FeedbacksSection::first();
-                if($section) $section->path_image_home_desktop = $section->path_image_home_mobile;
-            break;
-            default:
-            $section = FEED01FeedbacksSection::first();
-            break;
-        }
 
+        $section = FEED01FeedbacksSection::first();
         $feedbacks = FEED01Feedbacks::active()->sorting()->get();
         return view('Client.pages.Feedbacks.FEED01.section', [
             'feedbacks' => $feedbacks,

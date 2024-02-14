@@ -13,7 +13,7 @@
             'linkMenu' => '',
             'iconMenu' => '',
             'titlePanel' => 'Depoimentos',
-            'iconPanel' => ''
+            'iconPanel' => 'mdi-android-messages'
         ]
     ],
 ],

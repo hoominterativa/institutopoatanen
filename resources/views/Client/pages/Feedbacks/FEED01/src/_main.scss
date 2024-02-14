@@ -36,7 +36,7 @@
             font-size: $T2;
             font-family: $font-primary;
             font-weight: $weight-700;
-            color:$color-white;
+            color:$color-black;
 
             @include large-device-down{
                 font-size: $T2-mobile;
@@ -67,7 +67,7 @@
             &__titulo{
                 font: $paragraph;
                 font-weight: $weight-700;
-                color:$color-white;
+                color:$color-black;
                 margin-bottom: 11px;
 
                 @include large-device-down{
@@ -77,7 +77,7 @@
             &__subtitulo{
                 font: $paragraph;
                 font-weight: $weight-400;
-                color:$color-white;
+                color:$color-black;
 
                 max-width: 214px;
                 width: 100%;
@@ -98,7 +98,7 @@
                 p{
                     font: $paragraph;
                     font-weight: $weight-400;
-                    color:$color-white;
+                    color:$color-black;
 
                     @include large-device-down{
                         font: $paragraph-mobile;

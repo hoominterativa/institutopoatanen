@@ -1,32 +1,33 @@
-
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('name', 'Nome', ['class' => 'form-label']) !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('profession', 'Cargo', ['class' => 'form-label']) !!}
-                {!! Form::text('profession', null, ['class' => 'form-control', 'id' => 'profession']) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('name', 'Nome', ['class' => 'form-label']) !!}
+                        {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('profession', 'Cargo', ['class' => 'form-label']) !!}
+                        {!! Form::text('profession', null, ['class' => 'form-control', 'id' => 'profession']) !!}
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 {!! Form::label('testimony', 'Depoimento', ['class' => 'form-label']) !!}
                 {!! Form::textarea('testimony', null, [
                     'class' => 'form-control',
                     'id' => 'testimony',
-                    'required' => 'required',
                     'data-parsley-trigger' => 'keyup',
-                    'data-parsley-minlength' => '20',
                     'data-parsley-maxlength' => '600',
                     'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold' => '10',
                 ]) !!}
             </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>
@@ -46,12 +47,8 @@
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($feedback)
-                                ? ($feedback->path_image != ''
-                                    ? url('storage/' . $feedback->path_image)
-                                    : '')
-                                : '',
-                        ]) !!}
+                            'data-default-file' => isset($feedback) ? ($feedback->path_image != '' ? url('storage/' . $feedback->path_image) : '') : '', ])
+                        !!}
                     </label>
                 </div><!-- END container image crop -->
             </div>

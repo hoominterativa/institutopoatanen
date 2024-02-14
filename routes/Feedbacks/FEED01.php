@@ -25,10 +25,7 @@ $routeName = Str::lower($model);
 
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-    Route::resource($route.'/secao', FEED01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'FEED01FeedbacksSection']);
-    Route::post($route.'/secao/delete', [FEED01SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.section.destroySelected');
 
-    // Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+    Route::resource($route.'/secao', FEED01SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'FEED01FeedbacksSection']);
+    
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

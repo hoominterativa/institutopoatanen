@@ -1258,7 +1258,7 @@
             "path_image": {
                 "width":"200",
                 "height":"200",
-                "activeCrop": "true"
+                "activeCrop": "false"
             },
             "Section": {
                 "path_image_desktop": {

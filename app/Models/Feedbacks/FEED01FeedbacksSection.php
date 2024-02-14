@@ -16,9 +16,7 @@ class FEED01FeedbacksSection extends Model
     }
 
     protected $table = "feed01_feedbacks_sections";
-    protected $fillable = [
-        'title', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active'
-    ];
+    protected $fillable = ['title', 'active'];
 
     public function scopeActive($query)
     {
