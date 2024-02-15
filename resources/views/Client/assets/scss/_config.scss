@@ -63,6 +63,18 @@ details {
 }
 /*******************************************************************************************************************************************/
 
+/************************************************************ QUEDINHA (DROPDOWN PADRÃO) ***************************************************/
+/* Utilizado o nome quedinha para que não haja sobreposição de classes com o plugin do bootstrap. Esse plugin está sendo criado para suprir a necessidade que o dropdown do bootstrap não oferecia (segundo nível com clique) */
+.quedinha {
+    position: relative;
+
+    &__btn {
+        // TODO: Zerar os estilos padrão do botão de modo que fiquem iguais ao a dos links
+    }
+}
+
+/*******************************************************************************************************************************************/
+
 .form-check-input {
     width: 1.2em;
     height: 1.2em;
