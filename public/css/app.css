@@ -1565,11 +1565,95 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.cont03 {
+.cont04 {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
+}
+.cont04__main__information__title, .cont04__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .cont04__main__information__title, .cont04__header__title {
+    font-size: 1.875rem;
+  }
+}
+.cont04__main__information__title, .cont04__header__title {
+  color: #404040;
+}
+.cont04__header__subtitle, .cont04__main__information__subtitle {
+  font: 700 1.25rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+@media (max-width: 991.98px) {
+  .cont04__header__subtitle, .cont04__main__information__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.cont04__main__information__subtitle {
+  color: #404040;
+}
+.cont04__header__subtitle {
+  color: #b3b3b3;
+}
+.cont04__main__information__paragraph, .cont04__main__information__cta {
+  font: 400 1rem "Montserrat", sans-serif, arial;
+  line-height: 170%;
+  letter-spacing: 0.2px;
+}
+.cont04__main__information__paragraph p, .cont04__main__information__cta p {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+@media (max-width: 991.98px) {
+  .cont04__main__information__paragraph, .cont04__main__information__cta {
+    font-size: 0.938rem;
+  }
+}
+.cont04__main__information__paragraph, .cont04__main__information__cta {
+  color: #404040;
+}
+.cont04__header__paragraph {
+  font: 400 0.875rem "Montserrat", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+}
+.cont04__header__paragraph p {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+@media (max-width: 991.98px) {
+  .cont04__header__paragraph {
+    font-size: 0.813rem;
+    line-height: 170%;
+  }
+}
+.cont04__header__paragraph {
+  color: #7c7c7c;
+}
+.cont04__main__information__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  background-color: #cacaca;
+  font-weight: 700;
+}
+.cont04__main__information__cta:focus {
+  /* uso do !important para resetar o valor do fancybox */
+  outline: none !important;
 }
 /* BEGIN STYLE */
 #HEAD02 {
@@ -2118,21 +2202,89 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 
-.cont03 {
+/* BEGIN STYLE */
+.cont04 {
+  overflow: hidden; /* prevenção do shift da animação*/
+}
+.cont04__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.cont04__header__title {
+  margin-bottom: 0.25rem;
+}
+.cont04__header__subtitle {
+  margin-bottom: 2rem;
+}
+.cont04__header__line {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-top: solid 1px #b3b3b3;
+}
+.cont04__header__paragraph {
+  width: 100%;
+  max-width: 890px;
+  text-align: center;
+}
+.cont04__main {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: start;
-  gap: 3rem;
+  justify-content: space-between;
+  align-items: stretch;
 }
-.cont03__information {
-  width: calc(33.33% - 2rem);
+@media (max-width: 991.98px) {
+  .cont04__main {
+    flex-direction: column-reverse;
+  }
 }
-.cont03__image {
-  width: calc(33.33% - 2rem);
-  height: 100%;
+.cont04__main:not(:has(.cont04__main__image)) .cont04__main__information {
+  width: 100%;
 }
-
+.cont04__main__image {
+  width: 34%;
+  height: auto;
+  max-height: 80vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center bottom;
+     object-position: center bottom;
+}
+@media (max-width: 991.98px) {
+  .cont04__main__image {
+    width: 100%;
+  }
+}
+.cont04__main__information {
+  width: 64%;
+  padding: 4rem 2rem;
+}
+@media (max-width: 991.98px) {
+  .cont04__main__information {
+    width: 100%;
+  }
+}
+.cont04__main__information__subtitle {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.cont04__main__information__title {
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.cont04__main__information__line {
+  width: 100%;
+  opacity: 1;
+  margin-bottom: 2rem;
+  border-top: solid 1px #7c7c7c;
+}
+.cont04__main__information__paragraph {
+  margin-bottom: 4rem;
+}
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
