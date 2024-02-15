@@ -23,7 +23,7 @@ class FEED03Controller extends Controller
      */
     public function index()
     {
-        $feedbacks = FEED03Feedbacks::sorting()->paginate(15);
+        $feedbacks = FEED03Feedbacks::sorting()->get();
         $section = FEED03FeedbacksSection::first();
         return view('Admin.cruds.Feedbacks.FEED03.index', [
             'feedbacks' => $feedbacks,
@@ -174,18 +174,10 @@ class FEED03Controller extends Controller
      */
     public static function section()
     {
-        switch (deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $section = FEED03FeedbacksSection::active()->first();
-                if($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-                $section = FEED03FeedbacksSection::active()->first();
-                break;
-        }
 
+        $section = FEED03FeedbacksSection::active()->first();
         $feedbacks = FEED03Feedbacks::active()->sorting()->get();
+        
         return view('Client.pages.Feedbacks.FEED03.section', [
             'feedbacks' => $feedbacks,
             'section' => $section

@@ -25,9 +25,6 @@ class FEED03FeedbacksSectionFactory extends Factory
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(15),
             'path_image_icon' => 'uploads/tmp/favicon.png',
-            'path_image_desktop' => 'uploads/tmp/image-box.jpg',
-            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#FFFFFF',
             'active' => 1,
         ];
     }

@@ -16,7 +16,7 @@ class FEED03FeedbacksSection extends Model
     }
 
     protected $table = "feed03_feedbacks_sections";
-    protected $fillable = ['title', 'subtitle', 'path_image_icon', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active'];
+    protected $fillable = ['title', 'subtitle', 'path_image_icon', 'active'];
 
     public function scopeActive($query)
     {

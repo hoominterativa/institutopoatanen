@@ -25,6 +25,9 @@
                         <a href="#feedbacks" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Feedbacks', 'FEED03') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro do conteúdo principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -75,10 +78,12 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$feedback->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $feedback->path_image_icon)}})"></div>
+                                                            @if ($feedback->path_image_icon)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $feedback->path_image_icon)}})"></div>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">{{$feedback->name}}</td>
-                                                        <td class="align-middle">{!! substr($feedback->testimony, 0, 50) !!}</td>
+                                                        <td class="align-middle">{!! substr($feedback->testimony, 0, 30) !!}</td>
                                                         <td class="align-middle">
                                                             @switch($feedback->active)
                                                                 @case(1) <span class="badge bg-success">Ativo</span> @break
@@ -100,17 +105,14 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-
-                                        {{-- PAGINATION --}}
-                                        <div class="mt-3 float-end">
-                                            {{$feedbacks->links()}}
-                                        </div>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    @include('Admin.cruds.Feedbacks.FEED03.Section.form')
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Feedbacks.FEED03.Section.form')
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->
