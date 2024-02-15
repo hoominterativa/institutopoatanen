@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Contents' => (object) [
-            'CONT02' => (object)[
+            'CONT03' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -27,7 +27,7 @@ return [
                     'linkMenu' => '',
                     'iconMenu' => '',
                     'titlePanel' => 'Conteúdo',
-                    'iconPanel' => 'mdi-table-of-contents'
+                    'iconPanel' => 'mdi-view-split-horizontal'
                 ]
             ],
         ],

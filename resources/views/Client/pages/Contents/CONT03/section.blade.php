@@ -1,49 +1,52 @@
 @if ($contents)
     @foreach ($contents as $content)
-        <section id="CONT03" class="cont03 container-fluid"
-            style="background-image: url({{ asset('storage/' . $content->path_image_background_desktop)}}); background-color:{{$content->background_color}};">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-12 col-lg-4">
-                        <article class="cont03__content">
-                            @if ($content->title || $content->subtitle)
-                                <h2 class="cont03__content__hypertext">
-                                    <span class="cont03__content__title">{{$content->title}}</span>
-                                    <span class="cont03__content__subtitle">{{$content->subtitle}}</span>
-                                    <hr class="cont03__content__line">
-                                </h2>
-                            @endif
-                            @if ($content->description)
-                                <div class="cont03__content__paragraph">
-                                    {!! $content->description !!}
-                                </div>
-                            @endif
-                            @if ($content->link_button)
-                                <a href="{{getUri($content->link_button)}}" target="{{$content->target_link_button}}" class="cont03__content__cta d-flex justify-content-center align-items-center transition">
-                                    <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" class="cont03__content__cta__icon transition me-3" width="25" alt="Ícone">
-                                    @if ($content->title_button)
-                                        {{$content->title_button}}
-                                    @endif
-                                </a>
-                            @endif
-                        </article>
+        <section id="CONT03" class="cont03">
+            {{-- FRONTEND: REVISAR A ESTRUTURA DO HTML - ARTICLE DEVERIA ENVOLVER TAMBEM A IMAGEM OU SO A PARTE DO TEXTO? --}}
+            <div class="cont03__information">
+                @if ($content->title || $content->subtitle || $content->description)
+                    @if ($content->title)
+                        <h2 class="cont03__information__title">{{ $content->title }}</h2>
+                    @endif
+
+                    @if ($content->subtitle)
+                        <h3 class="cont03__information__subtitle">{{ $content->subtitle }}</h3>
+                    @endif
+
+                    @if ($content->title || $content->subtitle)
+                        <hr class="cont03__information__line">
+                    @endif
+                @endif
+
+                @if ($content->description)
+                    <div class="cont03__information__paragraph">
+                        {!! $content->description !!}
                     </div>
-                    @if ($content->path_image_center)
-                        <div class="col-12 col-lg-4">
-                            <figure class="cont03__figure__center">
-                                <img src="{{asset('storage/'. $content->path_image_center)}}" width="100%" alt="Imagem central">
-                            </figure>
-                        </div>
-                    @endif
-                    @if ($content->path_image_right)
-                        <div class="col-12 col-lg-4">
-                            <figure class="cont03__figure__right">
-                                <img src="{{asset('storage/'. $content->path_image_right)}}" width="100%" alt="Imagem direita">
-                            </figure>
-                        </div>
-                    @endif
-                </div>
+                @endif
+
+                @if ($content->link_button)
+                    <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}"
+                        class="cont03__information__cta">
+
+                        @if ($content->title_button)
+                            {{ $content->title_button }}
+                        @endif
+                    </a>
+                @endif
             </div>
+
+            @if ($content->path_image_center)
+                <div class="cont03__image">
+                    <img src="{{ asset('storage/' . $content->path_image_center) }}" class="cont03__image"
+                        alt="Imagem da ">
+                </div>
+            @endif
+
+            @if ($content->path_image_right)
+                <div class="cont03__image">
+                    <img src="{{ asset('storage/' . $content->path_image_right) }}" class="" alt="Imagem direita">
+                </div>
+            @endif
+
         </section>
     @endforeach
 @endif
