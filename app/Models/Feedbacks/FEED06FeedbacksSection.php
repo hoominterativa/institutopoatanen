@@ -16,7 +16,7 @@ class FEED06FeedbacksSection extends Model
     }
 
     protected $table = "feed06_feedbacks_sections";
-    protected $fillable = ['title', 'title_button', 'link_button', 'target_link_button', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active'];
+    protected $fillable = ['title', 'title_button', 'link_button', 'target_link_button', 'active'];
 
     public function scopeActive($query)
     {

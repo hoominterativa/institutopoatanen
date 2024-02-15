@@ -11,9 +11,7 @@
                 {!! Form::textarea('testimony', null, [
                     'class' => 'form-control',
                     'id' => 'testimony',
-                    'required' => 'required',
                     'data-parsley-trigger' => 'keyup',
-                    'data-parsley-minlength' => '20',
                     'data-parsley-maxlength' => '800',
                     'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold' => '10',
@@ -24,14 +22,13 @@
                 {!! Form::select('classification', ['1' => '1 estrela', '2' => '2 estrelas', '3' => '3 estrelas', '4' => '4 estrelas', '5' => '5 estrelas'], null, [
                     'class'=>'form-select',
                     'id'=>'classification',
-                    'required'=>'required',
                     'placeholder' => 'Insira a classificação...'
                 ]) !!}
             </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+            {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
         </div>
         {{-- end card-body --}}
     </div>

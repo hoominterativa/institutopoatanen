@@ -17,7 +17,7 @@ class CreateFeed06FeedbacksTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->text('testimony')->nullable();
-            $table->integer('classification')->default(5);
+            $table->integer('classification')->nullable();
             $table->integer('sorting')->default(0);
             $table->integer('active')->default(0);
             $table->timestamps();

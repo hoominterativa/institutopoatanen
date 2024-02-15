@@ -2113,96 +2113,79 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.feed05 {
+.feed06 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 26px 0;
 }
-.feed05__title {
+.feed06__title {
   font-family: "Ubuntu", sans-serif, arial;
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 0;
+  line-height: 2.875rem;
+  margin-bottom: 20px;
   color: #404040;
   text-align: center;
 }
 @media (max-width: 767.98px) {
-  .feed05__title {
+  .feed06__title {
     font-size: 1.875rem;
   }
 }
-.feed05__line {
+.feed06__line {
   width: 100%;
   border-top: 1px solid #000;
-  margin: 40px auto 60px auto;
+  margin: 20px auto 30px auto;
   opacity: 1;
 }
-.feed05__carousel {
-  width: 90%;
-  padding-top: 160px;
-  max-width: 600px;
-  overflow: visible;
-}
-@media (max-width: 767.98px) {
-  .feed05__carousel {
-    padding-top: 130px;
-  }
-}
-.feed05__carousel .owl-stage-outer {
-  overflow: visible;
-}
-.feed05__carousel .owl-item.active {
-  scale: 1.1;
-}
-.feed05__carousel .owl-nav {
-  margin-top: 60px;
-}
-.feed05__item {
+.feed06__carousel {
   width: 100%;
+  overflow: visible;
+}
+.feed06__carousel .owl-stage-outer {
+  overflow: visible;
+}
+.feed06__carousel .owl-dots {
+  justify-content: start;
+}
+.feed06__carousel .owl-dots .owl-dot {
+  border-radius: 0;
+}
+.feed06__item {
+  width: 85%;
   padding: 27px;
   background-color: #efefef;
 }
-.feed05__item__avatar {
-  width: 188px !important;
-  height: auto;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-position: center;
-  margin-bottom: 24px;
-  margin-top: -160px;
-}
 @media (max-width: 767.98px) {
-  .feed05__item__avatar {
-    width: 156px !important;
+  .feed06__item {
+    width: 100%;
   }
 }
-.feed05__item__title {
+.feed06__item__title {
   font: 400 1rem "Montserrat", sans-serif, arial;
   font-weight: 700;
   color: #7c7c7c;
-  text-align: center;
+  text-align: start;
   margin-bottom: 9px;
 }
 @media (max-width: 767.98px) {
-  .feed05__item__title {
+  .feed06__item__title {
     font: 400 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 700;
   }
 }
-.feed05__item__stars {
+.feed06__item__stars {
   padding-left: 0;
   gap: 4px;
   margin-bottom: 18px;
   list-style-type: none;
 }
-.feed05__item__stars__item {
+.feed06__item__stars__item {
   height: 16px;
   width: 16px;
 }
-.feed05__item__stars__item img {
+.feed06__item__stars__item img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -2210,23 +2193,54 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.feed05__item__text {
+.feed06__item__text {
   font: 400 1rem "Montserrat", sans-serif, arial;
   font-weight: 400;
   color: #7c7c7c;
-  text-align: center;
+  text-align: start;
 }
 @media (max-width: 767.98px) {
-  .feed05__item__text {
+  .feed06__item__text {
     font: 400 0.938rem "Montserrat", sans-serif, arial;
     font-weight: 400;
   }
 }
-.feed05__item__text p {
+.feed06__item__text p {
   font: inherit;
   font-weight: inherit;
   color: inherit;
   text-align: inherit;
+}
+.feed06__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: end;
+  white-space: nowrap;
+  background-color: #fff;
+  padding: 6px 40px;
+  margin-top: 0px;
+  font: 400 0.875rem "Montserrat", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+.feed06__cta:hover {
+  background-color: #404040;
+  color: #fff;
+}
+.feed06__cta__icon {
+  height: 19px;
+  width: 19px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transition: all 0.5s ease;
+}
+.feed06__cta:hover .feed06__cta__icon {
+  filter: brightness(1) contrast(1) invert(1) grayscale(1);
 }
 
 /* BEGIN STYLE */

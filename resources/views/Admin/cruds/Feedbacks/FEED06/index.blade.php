@@ -25,6 +25,9 @@
                         <a href="#feedbacks" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Feedbacks', 'FEED06') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro do conteúdo principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -59,7 +62,6 @@
                                                         <label><input name="btnSelectAll" value="btnDeleteFeedbacks" type="checkbox"></label>
                                                     </th>
                                                     <th>Nome</th>
-                                                    <th>Depoimento</th>
                                                     <th>Classificação</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
@@ -74,15 +76,18 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$feedback->id}}"></label>
                                                         </td>
                                                         <td class="align-middle">{{$feedback->name}}</td>
-                                                        <td class="align-middle">{!! substr($feedback->testimony, 0, 30) !!}</td>
                                                         <td class="align-middle">
-                                                            @for ($i = 1; $i <= 5; $i++)
-                                                                @if ($i <= $feedback->classification)
-                                                                    <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
-                                                                @else
-                                                                    <img src="{{ asset('storage/uploads/tmp/star-outline.png') }}" alt="Contorno de estrela">
-                                                                @endif
-                                                            @endfor
+                                                            @if ($feedback->classification)
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    @if ($i <= $feedback->classification)
+                                                                        <img src="{{ asset('storage/uploads/tmp/star-full.png') }}" alt="Estrela cinza">
+                                                                    @else
+                                                                        <img src="{{ asset('storage/uploads/tmp/star-outline.png') }}" alt="Contorno de estrela">
+                                                                    @endif
+                                                                @endfor
+                                                            @else
+                                                                <b>Não avaliado</b>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             @if ($feedback->active)

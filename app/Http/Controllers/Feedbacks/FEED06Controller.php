@@ -15,7 +15,6 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class FEED06Controller extends Controller
 {
-    protected $path = 'uploads/Feedbacks/FEED06/images/';
 
     /**
      * Display a listing of the resource.
@@ -29,7 +28,6 @@ class FEED06Controller extends Controller
         return view('Admin.cruds.Feedbacks.FEED06.index', [
             'feedbacks' => $feedbacks,
             'section' => $section,
-            'cropSetting' => getCropImage('Feedbacks', 'FEED06')
         ]);
     }
 
@@ -151,19 +149,8 @@ class FEED06Controller extends Controller
      */
     public static function section()
     {
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $section = FEED06FeedbacksSection::active()->first();
-                if($section) {
-                    $section->path_image_desktop = $section->path_image_mobile;
-                }
-            break;
-            default:
-            $section = FEED06FeedbacksSection::active()->first();
-            break;
-        }
 
+        $section = FEED06FeedbacksSection::active()->first();
         $feedbacks = FEED06Feedbacks::active()->sorting()->get();
         return view('Client.pages.Feedbacks.FEED06.section', [
             'feedbacks' => $feedbacks,
