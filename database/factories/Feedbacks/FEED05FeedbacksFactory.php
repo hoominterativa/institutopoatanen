@@ -22,7 +22,7 @@ class FEED05FeedbacksFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(10),
+            'name' => $this->faker->name(),
             'testimony' => $this->faker->text(150),
             'classification' => rand(3, 5),
             'path_image' => 'uploads/tmp/guerreiro.png',

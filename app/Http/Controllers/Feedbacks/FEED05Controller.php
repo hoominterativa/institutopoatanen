@@ -28,7 +28,6 @@ class FEED05Controller extends Controller
         return view('Admin.cruds.Feedbacks.FEED05.index', [
             'feedbacks' => $feedbacks,
             'section' => $section,
-            'cropSetting' => getCropImage('Feedbacks', 'FEED05')
         ]);
     }
 
@@ -39,7 +38,9 @@ class FEED05Controller extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Feedbacks.FEED05.create', ['cropSetting' => getCropImage('Feedbacks', 'FEED05')]);
+        return view('Admin.cruds.Feedbacks.FEED05.create', [
+            'cropSetting' => getCropImage('Feedbacks', 'FEED05')
+        ]);
     }
 
     /**
