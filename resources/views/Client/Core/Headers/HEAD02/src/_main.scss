@@ -1,17 +1,17 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-#HEAD02{
+#HEAD02 {
     border-bottom: 9px solid $color-two;
-    .container-header{
+    .container-header {
         min-height: 100px;
 
         @include medium-device-down {
             min-height: auto;
         }
 
-        #logoHeader{
-            img{
+        #logoHeader {
+            img {
                 width: 185px;
 
                 @include medium-device-down {
@@ -20,17 +20,17 @@
             }
         }
     }
-    .container-navigation{
-        .menu-list{
+    .container-navigation {
+        .menu-list {
             margin-right: 35px;
             padding-right: 35px;
             border-right: 1px solid adjust-color($color-black, $alpha: -0.9);
-            .menu-item{
+            .menu-item {
                 margin-right: 44px;
                 position: relative;
 
-                &:after{
-                    content: '';
+                &:after {
+                    content: "";
                     width: 100%;
                     height: 9px;
                     display: block;
@@ -40,42 +40,42 @@
                     left: 0;
                     transition: ease all 0.2s;
                 }
-                &:hover{
-                    &:after{
+                &:hover {
+                    &:after {
                         background-color: #8a8a8a;
                         transition: ease all 0.2s;
                     }
                 }
-                .link{
+                .link {
                     font: $paragraph;
                     color: $color-two;
-                    &:hover{
+                    &:hover {
                         color: $color-black;
                     }
                 }
-                &:last-child{
-                    margin-right:0;
+                &:last-child {
+                    margin-right: 0;
                 }
 
-                .sublink--menu{
-                    background-color:$bg-main;
-                    border-radius:0 10px 10px;
-                    min-width:165px;
-                    padding:10px;
+                .sublink--menu {
+                    background-color: $bg-main;
+                    border-radius: 0 10px 10px;
+                    min-width: 165px;
+                    padding: 10px;
 
-                    .sublink-item{
+                    .sublink-item {
                         font: $paragraph-min;
                         color: $color-white;
                         margin-bottom: 11px;
                         display: table;
 
-                        &:nth-of-type(2n+0),
-                        &:last-of-type{
+                        &:nth-of-type(2n + 0),
+                        &:last-of-type {
                             padding-right: 0;
                             margin-right: 0;
-                            border: none
+                            border: none;
                         }
-                        &:after{
+                        &:after {
                             content: "";
                             width: 30px;
                             height: 1px;
@@ -84,10 +84,10 @@
                             margin-top: 2px;
                             transition: ease all 0.2s;
                         }
-                        &:hover{
+                        &:hover {
                             color: $color-two;
 
-                            &:after{
+                            &:after {
                                 width: 90%;
                             }
                         }
@@ -95,17 +95,16 @@
                 }
             }
 
-        
             @include large-device-down {
                 display: none;
             }
         }
 
-        .container-cta{
+        .container-cta {
             margin-right: 35px;
             padding-right: 35px;
             border-right: 1px solid adjust-color($color-black, $alpha: -0.9);
-            .btn-cta{
+            .btn-cta {
                 background-color: $bg-black;
                 border-radius: $edge-rounded;
                 min-width: 125px;
@@ -114,33 +113,33 @@
                 color: $color-white;
                 padding: 1px 15px;
 
-                &.show{
+                &.show {
                     border-radius: 17px 17px 0 0;
                     background-color: $bg-secondary;
                 }
-                &:hover{
+                &:hover {
                     background-color: $bg-secondary;
                 }
 
-                .menu-arrow{
+                .menu-arrow {
                     border-top-color: $color-white;
                     margin-left: 10px;
                     margin-right: -25px;
                     margin-bottom: 3px;
                 }
             }
-            .sublink--cta-right{
-                background-color:$bg-main;
-                border-radius:0 10px 10px;
-                min-width:260px;
+            .sublink--cta-right {
+                background-color: $bg-main;
+                border-radius: 0 10px 10px;
+                min-width: 260px;
                 flex-wrap: wrap;
-                padding:10px;
+                padding: 10px;
 
-                &.show{
+                &.show {
                     display: flex;
                 }
-                &:after{
-                    content: '';
+                &:after {
+                    content: "";
                     width: 90%;
                     height: 1px;
                     background-color: $bg-white;
@@ -149,20 +148,21 @@
                     left: 50%;
                     transform: translate(-50%);
                 }
-                .sublink-item{
+                .sublink-item {
                     font: $paragraph-min;
                     color: $color-white;
-                    border-right: 1px solid adjust-color($color-white, $alpha: -0.8);
+                    border-right: 1px solid
+                        adjust-color($color-white, $alpha: -0.8);
                     padding-right: 11px;
                     margin-right: 11px;
                     display: table;
-                    &:nth-of-type(2n+0),
-                    &:last-of-type{
+                    &:nth-of-type(2n + 0),
+                    &:last-of-type {
                         padding-right: 0;
                         margin-right: 0;
-                        border: none
+                        border: none;
                     }
-                    &:hover{
+                    &:hover {
                         color: $color-two;
                     }
                 }
@@ -172,8 +172,8 @@
                 display: none;
             }
         }
-        .link-translate{
-            .btn-translate{
+        .link-translate {
+            .btn-translate {
                 font-size: $font-15;
                 font-family: $font-primary;
                 font-weight: $weight-600;
@@ -182,42 +182,72 @@
                 line-height: 15px;
             }
         }
-        .social-network{
+        .social-network {
             margin-right: 20px;
-            .social-link{
+            .social-link {
                 color: #404040;
                 font-size: 22px;
                 margin: 0 5px;
 
-                &:hover{
-                    color: #7C7C7C;
+                &:hover {
+                    color: #7c7c7c;
                 }
             }
-            @include medium-device-down{
+            @include medium-device-down {
                 display: none !important;
             }
         }
 
-        .menu-sidebar-header{
+        .menu-sidebar-header {
             display: none;
             margin-left: 35px;
-            .lines{
+            .lines {
                 width: 38px;
-                >i{
+                > i {
                     height: 2px;
                     display: block;
                     background-color: #000;
                 }
             }
-            &:active{
-                .lines{
-                    >i{
+            &:active {
+                .lines {
+                    > i {
                         background-color: rgb(138, 138, 138);
                     }
                 }
             }
             @include large-device-down {
                 display: block;
+            }
+        }
+    }
+}
+.head02 {
+    &__logo {
+        &__img {
+        }
+    }
+
+    &__navigation {
+        @include disFlex;
+        list-style: none;
+        gap: 1.5rem;
+
+        &__item {
+            &__link {
+                @extend %theme__p1-c1;
+                text-decoration: none;
+            }
+            &__btn {
+                @extend .head02__navigation__item__link;
+            }
+            /* Estilização do menu-dropdown */
+            &__content {
+                padding: 0.5rem;
+
+                &__item {
+                    width: 100%;
+                }
             }
         }
     }

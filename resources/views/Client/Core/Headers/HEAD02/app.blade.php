@@ -16,34 +16,43 @@
 
                 @if (!$menu->dropdown)
                     <a href="{{ $menu->anchor ? $menu->link : route($menu->link) }}"
-                        target="{{ $menu->target_link ?? '_self' }}" {{-- {{ $menu->dropdown ? 'data-bs-toggle=dropdown' : '' }} --}} {{-- {{ $menu->anchor ? 'data-bs-toggle=jqueryanchor' : '' }} --}}
+                        target="{{ $menu->target_link ?? '_self' }}"
                         class=" {{ !$menu->anchor ? isActive($menu->link) : '' }}">
                         {{ $menu->title }}
                     </a>
                 @else
-                    <button class=" head02__navigation__item__link quedinha__btn ">Botao do dropdown</button>
+                    <button class=" head02__navigation__item__btn quedinha__btn">{{ $menu->title }}</button>
                 @endif
+
                 @if ($menu->dropdown)
-                    <div class="sublink--menu text-end dropdown-menu" aria-labelledby="sublink--menu">
+                    <ul class="head02__navigation__item__content quedinha__content">
                         @foreach ($menu->dropdown as $item)
                             @if ($item->subList)
-                                <div class="mb-2 dropdown">
-                                    <a href="{{ $item->route }}" data-bs-toggle="dropdown"
-                                        class="sublink-item transition">{{ $item->name }} <i
-                                            class="menu-arrow"></i></a>
-                                    <div class="dropdown-menu">
+                                <li class="head02__navigation__item__content__item quedinha">
+                                    <button href="{{ $item->route }}"
+                                        class="head02__navigation__item__link quedinha__btn">{{ $item->name }}</button>
+
+                                    <ul class="quedinha__content quedinha__content--sub-menu">
                                         @foreach ($item->subList as $subItem)
-                                            <a href="{{ $subItem->route }}"
-                                                class="sublink-item transition">{{ $subItem->name }}</a>
+                                            <li class="head02__navigation__item">
+                                                <a href="{{ $subItem->route }}"
+                                                    class="head02__navigation__item__link">{{ $subItem->name }}</a>
+
+                                            </li>
                                         @endforeach
-                                    </div>
-                                </div>
+                                        <li class="head02__navigation__item">
+                                            <a href="{{ $item->route }}" class="head02__navigation__item__link">Ver
+                                                todos</a>
+                                        </li>
+                                    </ul>
+
+                                </li>
                             @else
                                 <a href="{{ $item->route }}" target="{{ $item->target }}"
-                                    class="sublink-item transition">{{ $item->name }}</a>
+                                    class="head02__navigation__item__link">{{ $item->name }}</a>
                             @endif
                         @endforeach
-                    </div>
+                    </ul>
                 @endif
             </li>
         @endforeach
