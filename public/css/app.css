@@ -61,20 +61,45 @@ details .details-content {
 /* Utilizado o nome quedinha para que não haja sobreposição de classes com o plugin do bootstrap. Esse plugin está sendo criado para suprir a necessidade que o dropdown do bootstrap não oferecia (segundo nível com clique) */
 .quedinha {
   position: relative;
+  /* edita a poição da seta no submenu  para abrir para o lado*/
 }
 .quedinha__btn {
+  position: relative;
   background-color: transparent;
   border: none;
   padding: 0;
+  padding-right: 1rem;
+}
+.quedinha__btn::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 0.5rem;
+  height: auto;
+  aspect-ratio: 6/4;
+  background-color: #7c7c7c;
+  content: "";
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  transition: all ease 0.3s;
+}
+.quedinha.open > .quedinha__btn::after {
+  transform: translateY(-50%) rotate(-180deg);
+  transition: all ease 0.3s;
+}
+.quedinha__content > .quedinha.open > .quedinha__btn::after {
+  transform: translateY(-50%) rotate(-90deg);
 }
 .quedinha__content {
+  position: absolute;
+  z-index: 2;
   list-style: none;
   display: none;
-  position: absolute;
-  background-color: #8a8a8a;
+  background-color: #cacaca;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 2;
 }
 .quedinha__content--sub-menu {
   top: 0;
@@ -1818,25 +1843,6 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-#HEAD02 {
-  border-bottom: 9px solid #7c7c7c;
-}
-#HEAD02 .container-header {
-  min-height: 100px;
-}
-@media (max-width: 767.98px) {
-  #HEAD02 .container-header {
-    min-height: auto;
-  }
-}
-#HEAD02 .container-header #logoHeader img {
-  width: 185px;
-}
-@media (max-width: 767.98px) {
-  #HEAD02 .container-header #logoHeader img {
-    width: 155px;
-  }
-}
 #HEAD02 .container-navigation .menu-list {
   margin-right: 35px;
   padding-right: 35px;
@@ -2021,15 +2027,45 @@ body .owl-dots .owl-dot.active {
   }
 }
 
+.head02 {
+  width: 100%;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  border-bottom: 0.5rem solid #7c7c7c;
+}
+.head02__logo {
+  position: relative;
+  width: 12.5rem; /* = 200px */
+  height: auto;
+  aspect-ratio: 202/90;
+}
+.head02__logo__img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
 .head02__navigation {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: end;
   align-items: stretch;
   list-style: none;
   gap: 1.5rem;
+  width: calc(100% - 15rem);
 }
 .head02__navigation__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   /* Estilização do menu-dropdown */
 }
 .head02__navigation__item__link, .head02__navigation__item__btn {
@@ -2037,6 +2073,8 @@ body .owl-dots .owl-dot.active {
 }
 .head02__navigation__item__content {
   padding: 0.5rem;
+  top: 60%;
+  left: 0;
 }
 .head02__navigation__item__content__item {
   width: 100%;

@@ -2,24 +2,6 @@
 
 /* BEGIN STYLE */
 #HEAD02 {
-    border-bottom: 9px solid $color-two;
-    .container-header {
-        min-height: 100px;
-
-        @include medium-device-down {
-            min-height: auto;
-        }
-
-        #logoHeader {
-            img {
-                width: 185px;
-
-                @include medium-device-down {
-                    width: 155px;
-                }
-            }
-        }
-    }
     .container-navigation {
         .menu-list {
             margin-right: 35px;
@@ -223,20 +205,45 @@
     }
 }
 .head02 {
+    width: 100%;
+    padding-right: 5vw;
+    padding-left: 5vw;
+
+    @include disFlex(row, space-between);
+
+    border-bottom: 0.5rem solid $color-two;
+
     &__logo {
+        position: relative;
+
+        width: 12.5rem; /* = 200px */
+        height: auto;
+        aspect-ratio: 202/90;
+
         &__img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
         }
     }
 
     &__navigation {
-        @include disFlex;
+        @include disFlex(row, end);
         list-style: none;
         gap: 1.5rem;
+        width: calc(100% - 15rem);
 
         &__item {
+            position: relative;
+            @include disFlex(row, center, center);
+
             &__link {
                 @extend %theme__p1-c1;
                 text-decoration: none;
+
+                &:hover {
+                }
             }
             &__btn {
                 @extend .head02__navigation__item__link;
@@ -244,6 +251,8 @@
             /* Estilização do menu-dropdown */
             &__content {
                 padding: 0.5rem;
+                top: 60%;
+                left: 0;
 
                 &__item {
                     width: 100%;

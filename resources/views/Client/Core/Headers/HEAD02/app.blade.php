@@ -12,7 +12,7 @@
         </li>
 
         @foreach ($listMenu as $module => $menu)
-            <li class=" {{ $menu->dropdown ? 'quedinha' : '' }}">
+            <li class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
 
                 @if (!$menu->dropdown)
                     <a href="{{ $menu->anchor ? $menu->link : route($menu->link) }}"
