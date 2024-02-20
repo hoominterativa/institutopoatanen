@@ -1565,82 +1565,79 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.cont04 {
+.cont11__information {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.cont04__main__information__title, .cont04__header__title {
+.cont11__information__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .cont04__main__information__title, .cont04__header__title {
+  .cont11__information__title {
     font-size: 1.875rem;
   }
 }
-.cont04__main__information__title, .cont04__header__title {
+.cont11__information__title {
   color: #404040;
 }
-.cont04__header__subtitle, .cont04__main__information__subtitle {
+.cont11__information__subtitle {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
   margin-bottom: 2rem;
 }
 @media (max-width: 991.98px) {
-  .cont04__header__subtitle, .cont04__main__information__subtitle {
+  .cont11__information__subtitle {
     font-size: 1.125rem;
   }
 }
-.cont04__main__information__subtitle {
-  color: #404040;
-}
-.cont04__header__subtitle {
+.cont11__information__subtitle {
   color: #b3b3b3;
 }
-.cont04__main__information__paragraph, .cont04__main__information__cta {
+.cont11__information__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.cont04__main__information__paragraph p, .cont04__main__information__cta p {
+.cont11__information__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .cont04__main__information__paragraph, .cont04__main__information__cta {
+  .cont11__information__cta {
     font-size: 0.938rem;
   }
 }
-.cont04__main__information__paragraph, .cont04__main__information__cta {
+.cont11__information__cta {
   color: #404040;
 }
-.cont04__header__paragraph {
+.cont11__information__paragraph {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.cont04__header__paragraph p {
+.cont11__information__paragraph p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .cont04__header__paragraph {
+  .cont11__information__paragraph {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
-.cont04__header__paragraph {
+.cont11__information__paragraph {
   color: #7c7c7c;
 }
-.cont04__main__information__cta {
+.cont11__information__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1651,9 +1648,21 @@ body .owl-dots .owl-dot.active {
   background-color: #cacaca;
   font-weight: 700;
 }
-.cont04__main__information__cta:focus {
+.cont11__information__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
+}
+.cont11__gallery__nav {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 /* BEGIN STYLE */
 #HEAD02 {
@@ -2203,87 +2212,63 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.cont04 {
+.cont11 {
   overflow: hidden; /* prevenção do shift da animação*/
-}
-.cont04__header {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
 }
-.cont04__header__title {
+@media (max-width: 991.98px) {
+  .cont11 {
+    flex-direction: column;
+  }
+}
+.cont11__gallery {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .cont11__gallery {
+    width: 100%;
+  }
+}
+.cont11__gallery__nav {
+  position: absolute;
+  z-index: 2;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cont11__gallery__item {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 749/759;
+}
+.cont11__information {
+  width: 50%;
+}
+@media (max-width: 991.98px) {
+  .cont11__information {
+    width: 100%;
+  }
+}
+.cont11__information__title {
   margin-bottom: 0.25rem;
+  text-align: left;
 }
-.cont04__header__subtitle {
+.cont11__information__subtitle {
   margin-bottom: 2rem;
 }
-.cont04__header__line {
+.cont11__information__line {
   width: 100%;
   margin-bottom: 2rem;
   border-top: solid 1px #b3b3b3;
 }
-.cont04__header__paragraph {
-  width: 100%;
-  max-width: 890px;
-  text-align: center;
-}
-.cont04__main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-}
-@media (max-width: 991.98px) {
-  .cont04__main {
-    flex-direction: column-reverse;
-  }
-}
-.cont04__main:not(:has(.cont04__main__image)) .cont04__main__information {
-  width: 100%;
-}
-.cont04__main__image {
-  width: 34%;
-  height: auto;
-  max-height: 80vh;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center bottom;
-     object-position: center bottom;
-}
-@media (max-width: 991.98px) {
-  .cont04__main__image {
-    width: 100%;
-  }
-}
-.cont04__main__information {
-  width: 64%;
-  padding: 4rem 2rem;
-}
-@media (max-width: 991.98px) {
-  .cont04__main__information {
-    width: 100%;
-  }
-}
-.cont04__main__information__subtitle {
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-.cont04__main__information__title {
-  font-weight: 700;
-  text-align: left;
-  margin-bottom: 1.5rem;
-}
-.cont04__main__information__line {
-  width: 100%;
-  opacity: 1;
-  margin-bottom: 2rem;
-  border-top: solid 1px #7c7c7c;
-}
-.cont04__main__information__paragraph {
-  margin-bottom: 4rem;
+.cont11__information__paragraph {
+  margin-bottom: 3.5rem;
 }
 /* BEGIN STYLE */
 .comp01-page__header {

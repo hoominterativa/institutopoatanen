@@ -1,9 +1,10 @@
-$(".cont11__carousel").owlCarousel({
-    smartSpeed: 450,
-    loop: true,
-    dots: false,
-    nav: true,
-    rewind: true,
-    autoHeight: true,
-    items: 1,
-});
+import Swiper from 'swiper/bundle'
+
+new Swiper ('.cont11__gallery', {
+    slidesPerView: 1,
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+})

@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contents' => (object) [
-            'CONT04' => (object)[
+        'Contents' => (object)[
+            'CONT11' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -23,14 +23,15 @@ return [
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                     'titleMenu' => '',
-                    'anchor' =>  false,
+                    'anchor' => false,
                     'linkMenu' => '',
                     'iconMenu' => '',
                     'titlePanel' => 'Conteúdo',
-                    'iconPanel' => 'mdi-view-split-horizontal'
+                    'iconPanel' => 'mdi-table-of-contents'
                 ]
             ],
         ],
+
     ],
 
     'ModelsForm' => (object)[

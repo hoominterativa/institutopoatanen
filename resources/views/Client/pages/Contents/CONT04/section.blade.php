@@ -18,7 +18,7 @@
         @if ($content)
             <main class="cont04__main">
                 @if ($content->path_image)
-                    <img src="{{ asset('storage/' . $content->path_image) }}" alt="" class="cont04__main__image">
+                    <img src="{{ asset('storage/' . $content->path_image) }}" loading="lazy" alt="Imagem de apoio do {{ $content->title }}" class="cont04__main__image">
                 @endif
 
 
