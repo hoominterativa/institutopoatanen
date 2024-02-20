@@ -27,20 +27,18 @@ class COPA03ContentPagesFactory extends Factory
         return [
             'slug' => Str::slug($title_page),
             'title_page' =>  $title_page,
-            'active' => 1,
 
             'title_topic_section' => $this->faker->text(10),
             'subtitle_topic_section' => $this->faker->text(10),
-            'active_topic_section' => 1,
 
             'title_video_section' => $this->faker->text(10),
             'subtitle_video_section' => $this->faker->text(10),
-            'active_video_section' => 1,
 
             'path_image_banner_desktop' => 'uploads/tmp/image-box.jpg',
             'path_image_banner_mobile' => 'uploads/tmp/thumbnail.png',
             'background_color_banner' => '#FFFFFF',
-            'active_banner' => 1,
+            
+            'active' => 1,
         ];
     }
 }

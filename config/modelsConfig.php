@@ -14,45 +14,6 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Products' => (object) [
-            'PROD05' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home}',
-                    'titleList' => 'title',
-                    'relation' => (object) [
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos},featured_home=1{Detaques Home}',
-                        ],
-                        'subcategory' =>(object)[
-                            'name' => 'Subcategoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Produtos',
-                    'anchor' =>  false,
-                    'linkMenu' => 'prod05.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Produtos',
-                    'iconPanel' => 'mdi-shopping-outline'
-                ],
-                'IncludeSections' => (object) [
-
-                ]
-            ],
-        ],
         'ContentPages' => (object) [
             'COPA03' => (object)[
                 'ViewHome' => false,
@@ -66,25 +27,13 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title_page',
-                    // 'relation' => (object) [
-                    //     'category' =>(object)[
-                    //         'name' => 'Categoria',
-                    //         'titleList' => 'title',
-                    //         'condition' => 'active=1{Ativos}',
-                    //     ],
-                    //     'subcategory' =>(object)[
-                    //         'name' => 'Subcategoria',
-                    //         'titleList' => 'title',
-                    //         'condition' => 'active=1{Ativos}',
-                    //     ]
-                    // ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Soluções',
+                    'titleMenu' => 'Página de contato',
                     'anchor' =>  false,
                     'linkMenu' => 'copa03.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Soluções',
+                    'titlePanel' => 'Página de contato',
                     'iconPanel' => 'mdi-book-open-page-variant'
                 ],
                 'IncludeSections' => (object) []

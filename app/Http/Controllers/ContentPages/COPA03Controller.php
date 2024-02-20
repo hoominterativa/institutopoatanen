@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA03ContentPages;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA03ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 
 class COPA03Controller extends Controller
@@ -36,7 +37,9 @@ class COPA03Controller extends Controller
      */
     public function create()
     {
-        //
+        return view("Admin.cruds.ContentPages.COPA03.create",[
+            'cropSetting' => getCropImage('ContentPages', 'COPA03')
+        ]);
     }
 
     /**
@@ -48,35 +51,27 @@ class COPA03Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $data['active'] = $request->active ? 1 : 0;
 
-        if($path_image) $data['path_image'] = $path_image;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
+        if($path_image_banner_desktop) $data['path_image_banner_desktop'] = $path_image_banner_desktop;
 
-        $helper = new HelperArchive();
+        $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null,100);
+        if($path_image_banner_mobile) $data['path_image_banner_mobile'] = $path_image_banner_mobile;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(COPA03ContentPages::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if($contentPage = COPA03ContentPages::create($data)){
+            Session::flash('success', 'Conteúdo cadastrado com sucesso');
+            return redirect()->route('admin.copa03.edit', ['COPA03ContentPages' => $contentPage->id]);
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image_banner_desktop);
+            Storage::delete($path_image_banner_mobile);
+            Session::flash('error', 'Erro ao cadastradar o conteúdo');
         }
+        return redirect()->back();
     }
 
     /**
@@ -87,7 +82,10 @@ class COPA03Controller extends Controller
      */
     public function edit(COPA03ContentPages $COPA03ContentPages)
     {
-        //
+        return view("Admin.cruds.ContentPages.COPA03.edit",[
+            'contentPage' => $COPA03ContentPages,
+            'cropSetting' => getCropImage('ContentPages', 'COPA03')
+        ]);
     }
 
     /**
@@ -100,51 +98,40 @@ class COPA03Controller extends Controller
     public function update(Request $request, COPA03ContentPages $COPA03ContentPages)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($COPA03ContentPages, 'path_image');
-            $data['path_image'] = $path_image;
+        $data['active'] = $request->active ? 1 : 0;
+
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
+
+        $path_image_banner_desktop = $helper->optimizeImage($request, 'path_image_banner_desktop', $this->path, null,100);
+        if($path_image_banner_desktop){
+            storageDelete($COPA03ContentPages, 'path_image_banner_desktop');
+            $data['path_image_banner_desktop'] = $path_image_banner_desktop;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($COPA03ContentPages, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($COPA03ContentPages, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_banner_desktop && !$path_image_banner_desktop){
+            storageDelete($COPA03ContentPages, 'path_image_banner_desktop');
+            $data['path_image_banner_desktop'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($COPA03ContentPages, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null,100);
+        if($path_image_banner_mobile){
+            storageDelete($COPA03ContentPages, 'path_image_banner_mobile');
+            $data['path_image_banner_mobile'] = $path_image_banner_mobile;
         }
-
-        */
+        if($request->delete_path_image_banner_mobile && !$path_image_banner_mobile){
+            storageDelete($COPA03ContentPages, 'path_image_banner_mobile');
+            $data['path_image_banner_mobile'] = null;
+        }
 
         if($COPA03ContentPages->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Conteúdo atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_banner_desktop);
+            Storage::delete($path_image_banner_mobile);
+            Session::flash('error', 'Erro ao atualizar o conteúdo');
         }
+        return redirect()->back();
     }
 
     /**
@@ -155,11 +142,11 @@ class COPA03Controller extends Controller
      */
     public function destroy(COPA03ContentPages $COPA03ContentPages)
     {
-        //storageDelete($COPA03ContentPages, 'path_image');
-        //storageDelete($COPA03ContentPages, 'path_archive');
+        storageDelete($COPA03ContentPages, 'path_image_banner_desktop');
+        storageDelete($COPA03ContentPages, 'path_image_banner_mobile');
 
         if($COPA03ContentPages->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Conteúdo deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -172,17 +159,15 @@ class COPA03Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $COPA03ContentPagess = COPA03ContentPages::whereIn('id', $request->deleteAll)->get();
         foreach($COPA03ContentPagess as $COPA03ContentPages){
-            storageDelete($COPA03ContentPages, 'path_image');
-            storageDelete($COPA03ContentPages, 'path_archive');
+            storageDelete($COPA03ContentPages, 'path_image_banner_desktop');
+            storageDelete($COPA03ContentPages, 'path_image_banner_mobile');
         }
-        */
 
         if($deleted = COPA03ContentPages::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' conteúdos deletados com sucessso']);
         }
     }
     /**

@@ -12,26 +12,14 @@
             'sorting' => true,
             'limit' => 'all',
             'condition' => 'active=1{Ativos}',
-            'titleList' => 'title',
-            'relation' => (object) [
-                'category' =>(object)[
-                    'name' => 'Categoria',
-                    'titleList' => 'title',
-                    'condition' => 'active=1{Ativos}',
-                ],
-                'subcategory' =>(object)[
-                    'name' => 'Subcategoria',
-                    'titleList' => 'title',
-                    'condition' => 'active=1{Ativos}',
-                ]
-            ],
+            'titleList' => 'title_page',
         ],
         'config' => (object) [
-            'titleMenu' => 'Soluções',
+            'titleMenu' => 'Página de contato',
             'anchor' =>  false,
             'linkMenu' => 'copa03.page',
             'iconMenu' => '',
-            'titlePanel' => 'Soluções',
+            'titlePanel' => 'Página de contato',
             'iconPanel' => 'mdi-book-open-page-variant'
         ],
         'IncludeSections' => (object) []

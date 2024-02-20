@@ -1127,6 +1127,18 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "COPA03": {
+            "path_image_banner_desktop": {
+                "width": "1500",
+                "height": "244",
+                "activeCrop": "false"
+            },
+            "path_image_banner_mobile": {
+                "width": "390",
+                "height": "206",
+                "activeCrop": "true"
+            }
         }
     },
     "Contacts": {

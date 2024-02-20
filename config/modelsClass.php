@@ -188,20 +188,8 @@ return [
             'COPA03' => (object)[
                 'controller' => App\Http\Controllers\ContentPages\COPA03Controller::class,
                 'model' => App\Models\ContentPages\COPA03ContentPages::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
                 'routeName' => 'copa03.category.page',
-                // 'relationship' => [
-                //     'category' => [
-                //         'class' => App\Models\ContentPages\COPA03ContentPagesCategory::class,
-                //         'column' => 'category_id',
-                //         'seedQty' => 5,
-                //     ],
-                //     'subcategory' => [
-                //         'class' => App\Models\ContentPages\COPA03ContentPagesSubcategory::class,
-                //         'column' => 'subcategory_id',
-                //         'seedQty' => 5,
-                //     ]
-                // ]
             ],
         ],
         // END CONTENT PAGES

@@ -15,7 +15,7 @@
                                     <li class="breadcrumb-item active">Cadastro {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}/h4>
+                            <h4 class="page-title">Cadastro {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</h4>
                         </div>
                     </div>
                 </div>
