@@ -189,7 +189,7 @@ return [
                 'controller' => App\Http\Controllers\ContentPages\COPA03Controller::class,
                 'model' => App\Models\ContentPages\COPA03ContentPages::class,
                 'seedQty' => 1,
-                // 'routeName' => 'copa03.category.page',
+                'routeName' => 'copa03.category.page',
                 // 'relationship' => [
                 //     'category' => [
                 //         'class' => App\Models\ContentPages\COPA03ContentPagesCategory::class,

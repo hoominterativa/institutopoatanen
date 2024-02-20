@@ -13,7 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class COPA03Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/ContentPages/COPA03/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +22,11 @@ class COPA03Controller extends Controller
      */
     public function index()
     {
-        //
+        $contentPages = COPA03ContentPages::sorting()->get();
+        return view("Admin.cruds.ContentPages.COPA03.index",[
+            'contentPages' => $contentPages,
+            'cropSetting' => getCropImage('ContentPages', 'COPA03')
+        ]);
     }
 
     /**
