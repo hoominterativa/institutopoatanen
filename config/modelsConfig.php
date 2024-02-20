@@ -14,23 +14,82 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Feedbacks' => (object) [
-            'FEED06' => (object)[
+        'Products' => (object) [
+            'PROD05' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home}',
+                    'titleList' => 'title',
+                    'relation' => (object) [
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos},featured_home=1{Detaques Home}',
+                        ],
+                        'subcategory' =>(object)[
+                            'name' => 'Subcategoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Produtos',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'prod05.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Depoimentos',
-                    'iconPanel' => 'mdi-android-messages'
+                    'titlePanel' => 'Produtos',
+                    'iconPanel' => 'mdi-shopping-outline'
+                ],
+                'IncludeSections' => (object) [
+
                 ]
             ],
         ],
+        'ContentPages' => (object) [
+            'COPA03' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                // 'IncludeCore' => (object) [
+                //     'include' => true,
+                //     'sorting' => true,
+                //     'limit' => 'all',
+                //     'condition' => 'active=1{Ativos}',
+                //     'titleList' => 'title',
+                //     'relation' => (object) [
+                //         'category' =>(object)[
+                //             'name' => 'Categoria',
+                //             'titleList' => 'title',
+                //             'condition' => 'active=1{Ativos}',
+                //         ],
+                //         'subcategory' =>(object)[
+                //             'name' => 'Subcategoria',
+                //             'titleList' => 'title',
+                //             'condition' => 'active=1{Ativos}',
+                //         ]
+                //     ],
+                // ],
+                'config' => (object) [
+                    'titleMenu' => 'Soluções',
+                    'anchor' =>  false,
+                    'linkMenu' => 'copa03.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Soluções',
+                    'iconPanel' => 'mdi-book-open-page-variant'
+                ],
+                'IncludeSections' => (object) []
+            ]
+        ]
     ],
 
     'ModelsForm' => (object)[

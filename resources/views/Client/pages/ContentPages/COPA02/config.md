@@ -1,3 +1,5 @@
+<!-- IDEAL CONFIGURATION FOR THE MODEL -->
+
 'ContentPages' => (object) [
     'COPA02' => (object)[
         'ViewHome' => false,
