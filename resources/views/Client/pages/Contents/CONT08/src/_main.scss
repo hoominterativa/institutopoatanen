@@ -1,173 +1,109 @@
-@import 'variables';
-
-/* BEGIN STYLE */
 @import "variables";
 
-/* BEGIN STYLE */
-
 .cont08 {
-    padding: 64px 0 64px 2.5vw;
-    @include Flex($justify: space-between, $align: start);
-    gap: 152px;
+    overflow: hidden; /* Previne o sfhit da animação */
+    @extend %theme__padding;
+    padding-bottom: 0;
+    @include disFlex($justify: space-between, $align: start);
 
-    @include large-device-down{
+    @include large-device-down {
         flex-direction: column-reverse;
         gap: 80px;
     }
 
     &__image {
-        width: 50%;
-        height: 439px;
-        margin: 0;
+        width: 34%;
+        height: auto;
+        aspect-ratio: 430/593;
+        max-height: 593px;
+
         align-self: flex-end;
 
         &__img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            object-position: center;
         }
 
         @include large-device-down {
             width: 100%;
+            max-height: 593px;
         }
     }
 
     &__information {
-        width: 50%;
-        @include Flex($direction: column, $justify: start, $align: stretch);
+        width: 53%;
+        padding-bottom: 3rem;
+        @include disFlex(column);
 
         @include large-device-down {
             width: 100%;
         }
 
         &__header {
-            margin-bottom: 32px;
-            padding: 12px 2.5vw 0 0; /* insrido para colar o carousel à esquerda sem necessidade de overflow-x */
-            &__title {
-                font-size: $T2;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                color: $color-black;
+            width: 100%;
+            @include disFlex(column);
 
-                @include medium-device-down {
-                    font-size: $T2-mobile;
-                    font-weight: $weight-700;
-                }
+            &__title {
+                @extend %theme__t2-c1;
+                text-align: left;
+                margin-bottom: 0.25rem;
             }
             &__subtitle {
-                margin-bottom: 16px;
-
-                font-size: $T4;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                color: $color-one;
-
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                    font-weight: $weight-700;
-                }
+                @extend %theme__t4-c3;
+                margin-bottom: 2rem;
             }
+
             &__line {
-                margin-bottom: 16px;
-                height: 1px;
-                color: $color-two;
+                width: 100%;
+                margin-bottom: 1rem;
+
+                border-top: solid 1px $color-three;
             }
-
         }
+
         &__description {
-            margin-bottom: 42px;
-
-            font: $paragraph-min $weight-400;
-            color: $color-one;
-            letter-spacing: 0.2px;
-            line-height: 140%;
+            @extend %theme__p1-cb;
+            margin-bottom: 1rem;
         }
 
-        &__content {
-            &__carousel {
-                /*              EXPLICAÇÕES
-        1. Caso deseje-se controlar a largura das boxes é necessário realizar a adição da propriedade autoWidht: true e inserir os valores width nos items (classe logo abaixo);
+        &__topics {
+            overflow: hidden;
+            margin-bottom: 3rem;
 
-        2. .owl-dots adotado como padrão, caso deseje-se alterar basta mudar no js. Não precisa colocar display: none !important para ocultar um e display: flex !important em outro para fazê-lo aparecer;
-
-        3. As classes de ambos já estão inseridas abaixo, basta apenas configurá-las da maneira como o layout solicitar;
-*/
-                .owl-nav {
-                    justify-content: start;
-                    .owl-prev,
-                    .owl-next {
-                        background-color: $color-three !important;
-                        &:hover {
-                            background-color: $color-one !important;
-                        }
-                    }
-                }
-
-                .owl-dots {
-                    display: flex !important;
-                    justify-content: start;
-
-                    .owl-dot {
-                        width: 16px;
-                        height: 16px;
-                        border-radius: 0;
-                        background-color: $color-three;
-
-                        &.active,
-                        &:hover {
-                            background-color: $color-one;
-                        }
-                    }
-                }
+            @include large-device-down {
+                overflow: visible;
             }
 
             &__item {
-                @include Flex($direction: column);
+                @include disFlex(column, center, center);
                 gap: 12px;
 
-                &__icon {
-                    /* COM !IMPORTANT POR CONTA DO OWL CAROUSEL */
-                    width: 56px !important;
-                    height: 56px !important;
+                /* (quantidade de gap * tamanho do gap / quantidade de elementos) */
+                width: calc(33.33% - 58px);
+
+                @include medium-device-down {
+                    width: calc(50% - 44px);
                 }
 
-                &__description{
-                    font: $paragraph;
-                    color: $color-one;
-                    letter-spacing: 0.2px;
-                    max-width: 166px;
+                &__icon {
+                    width: 3.5rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                }
+
+                &__description {
+                    @extend %theme__p1-c1;
                     text-align: center;
+                    max-width: 166px;
                 }
             }
         }
 
         &__cta {
-            margin: 48px 2.5vw 0 0;
-
-            align-self: flex-end;
-
-            @include Flex;
-            gap: 16px;
-
-            background-color: $color-white;
-            color: $color-black;
-            padding: 8px 48px;
-            text-decoration: none;
-
-            &__icon {
-                width: 24px;
-                height: 24px;
-            }
-
-            &:hover{
-                color: $color-white;
-                background-color: $bg-black;
-
-                .cont07__cta__icon{
-                    filter: invert(1) grayscale(1);
-                }
-            }
+            @extend %theme__cta;
+            margin-left: auto;
 
             @include large-device-down {
                 align-self: center;
