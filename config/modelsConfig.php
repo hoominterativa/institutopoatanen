@@ -53,6 +53,23 @@ return [
         //         ]
         //     ],
         // ],
+        'Topics' => (object)[
+            'TOPI101' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' => false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Topicos',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
         'ContentPages' => (object) [
             'COPA03' => (object)[
                 'ViewHome' => false,

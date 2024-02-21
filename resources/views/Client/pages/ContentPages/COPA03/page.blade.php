@@ -37,6 +37,7 @@
                             Subcategoria {{ $i }}
                         </li>
                     @endfor
+
                 </ul>
             </nav>
 
@@ -46,7 +47,7 @@
                     @for ($i = 0; $i < 7; $i++)
                         <article class="copa03__topics__main__item swiper-slide">
 
-                            <img src="{{ asset('storage/uploads/tmp/thumbnail.png') }}"
+                            <img src="{{ asset('storage/uploads/tmp/bg-boxitem-light.png') }}"
                                 alt="Imagem de fundo do tópico [BACKEND: ADD TITULO AQUI]" loading="lazy"
                                 class="copa03__topics__main__item__bg">
 
@@ -70,9 +71,9 @@
 
                 </div>
 
-                <div class="copa03__topics__main">
-                    <div class="copa03__topics__main__swiper-button-prev swiper-button-prev"></div>
-                    <div class="copa03__topics__main__swiper-button-next swiper-button-next"></div>
+                <div class="copa03__topics__main__nav">
+                    <div class="copa03__topics__main__nav__swiper-button-prev swiper-button-prev"></div>
+                    <div class="copa03__topics__main__nav__swiper-button-next swiper-button-next"></div>
                 </div>
             </main>
         </section>
@@ -99,29 +100,20 @@
             </nav>
 
             <main class="copa03__videos__main">
-                <div class="copa03__videos__main__swiper-wrapper swiper-wrapper">
 
-                    @for ($i = 0; $i < 7; $i++)
-                        <article class="copa03__videos__main__item">
+                @for ($i = 0; $i < 9; $i++)
+                    <article class="copa03__videos__main__item" data-fancybox
+                        data-src="https://www.youtube.com/watch?v=X1uaOtiJ9Vc">
 
-                            <img src="" alt="" class="copa03__videos__main__item__bg">
+                        <img src="{{ asset('storage/uploads/tmp/bloco2.png') }}"
+                            alt="Thumbnail do [BACKEND: ADD TITULO AQUI]" loading="lazy"
+                            class="copa03__videos__main__item__bg">
 
-                            <img src="" alt="" class="copa03__videos__main__item__icon">
+                        <h3 class="copa03__videos__main__item__title">Título Vídeo</h3>
 
-                            <h3 class="copa03__videos__main__item__title">Título Tópico</h3>
+                    </article>
+                @endfor
 
-                            <div class="copa03__videos__main__item__paragraph">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-
-                            <a href="#" class="copa03__videos__main__item__cta">
-                                CTA
-                            </a>
-
-                        </article>
-                    @endfor
-
-                </div>
             </main>
         </section>
 

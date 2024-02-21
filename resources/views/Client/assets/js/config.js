@@ -364,6 +364,21 @@ if (details.length > 0) {
 const quedinhaBtnList = document.querySelectorAll(".quedinha__btn");
 
 quedinhaBtnList.forEach((quedinhaBtn) => {
+    const content = quedinhaBtn.nextElementSibling;
+    // Verifica se existe um subMenu dentro do dropdown
+    if (content.classList.contains("quedinha__content--sub-menu")) {
+        const elRect = content.getBoundingClientRect();
+
+        // Calcula a diferença entre a largura da viewport e a parede esquerda do elemento em si.
+
+        const diff = window.innerWidth - elRect.left;
+        // Verifica se o diff é menor que a largura do elemento. Sendo menor, altera-se o estilo, fazendo com que o subMenu abra para o lado oposto;
+        if (diff < elRect.width) {
+            content.style.left = "unset";
+            content.style.right = "100%";
+        }
+    }
+
     quedinhaBtn.addEventListener("click", () => {
         if (quedinhaBtn.parentElement.classList.contains("open")) {
             quedinhaBtn.parentElement.classList.remove("open");
