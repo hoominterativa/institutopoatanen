@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContentPages\COPA03CategoryController;
+use App\Http\Controllers\ContentPages\COPA03SubCategoryTopicController;
+use App\Http\Controllers\ContentPages\COPA03SubCategoryVideoController;
 
 /**
  * Uncomment the code below
@@ -11,22 +14,32 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+$module = 'ContentPages';
+$model = 'COPA03';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $module = getNameModule($modelConfig, $module, $model);
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
-// // CLIENT
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/categorias', COPA03CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'COPA03ContentPagesCategory']);
+    Route::post($route.'/categoria/delete', [COPA03CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [COPA03CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+
+    //
+    Route::resource($route.'/subcategoria-topics', COPA03SubCategoryTopicController::class)->names('admin.'.$routeName.'.subcategory-topics')->parameters(['subcategoria-topics' => 'COPA03ContentPagesSubCategoryT']);
+    Route::post($route.'/subcategoria-topic/delete', [COPA03SubCategoryTopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.subcategory-topics.destroySelected');
+    Route::post($route.'/subcategoria-topic/sorting', [COPA03SubCategoryTopicController::class, 'sorting'])->name('admin.'.$routeName.'.subcategory-topics.sorting');
+
+    //
+    Route::resource($route.'/subcategoria-videos', COPA03SubCategoryVideoController::class)->names('admin.'.$routeName.'.subcategory-videos')->parameters(['subcategoria-videos' => 'COPA03ContentPagesSubCategoryV']);
+    Route::post($route.'/subcategoria-video/delete', [COPA03SubCategoryVideoController::class, 'destroySelected'])->name('admin.'.$routeName.'.subcategory-videos.destroySelected');
+    Route::post($route.'/subcategoria-video/sorting', [COPA03SubCategoryVideoController::class, 'sorting'])->name('admin.'.$routeName.'.subcategory-videos.sorting');
+});
+// CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');

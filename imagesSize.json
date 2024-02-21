@@ -1138,6 +1138,20 @@
                 "width": "390",
                 "height": "206",
                 "activeCrop": "true"
+            },
+            "SubcategoryTopics": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "SubcategoryVideos": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
             }
         }
     },

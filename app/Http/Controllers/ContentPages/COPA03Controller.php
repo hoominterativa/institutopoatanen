@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ContentPages;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -11,6 +12,9 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\ContentPages\COPA03ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA03ContentPagesCategory;
+use App\Models\ContentPages\COPA03ContentPagesSubCategoryTopic;
+use App\Models\ContentPages\COPA03ContentPagesSubCategoryVideo;
 
 class COPA03Controller extends Controller
 {
@@ -82,8 +86,20 @@ class COPA03Controller extends Controller
      */
     public function edit(COPA03ContentPages $COPA03ContentPages)
     {
+        $categories = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->sorting()->get();
+        $categoriesExists = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->sorting()->pluck('title', 'id');
+
+        $categoryIds = $categories->pluck('id');
+
+        $subcategoryTopics = COPA03ContentPagesSubCategoryTopic::whereIn('category_id', $categoryIds)->sorting()->get();
+        $subcategoryVideos = COPA03ContentPagesSubCategoryVideo::whereIn('category_id', $categoryIds)->sorting()->get();
+
         return view("Admin.cruds.ContentPages.COPA03.edit",[
             'contentPage' => $COPA03ContentPages,
+            'categories' => $categories,
+            'categoriesExists' => $categoriesExists,
+            'subcategoryTopics' => $subcategoryTopics,
+            'subcategoryVideos' => $subcategoryVideos,
             'cropSetting' => getCropImage('ContentPages', 'COPA03')
         ]);
     }

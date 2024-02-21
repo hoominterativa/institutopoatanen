@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Models\ContentPages;
+
+use Database\Factories\ContentPages\COPA03ContentPagesSubCategoryTopicFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class COPA03ContentPagesSubCategoryTopic extends Model
+{
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return COPA03ContentPagesSubCategoryTopicFactory::new();
+    }
+
+    protected $table = "copa03_contentpages_subcategorytopics";
+    protected $fillable = ['category_id', 'slug', 'title', 'path_image_icon', 'active', 'sorting'];
+
+    public function scopeSorting($query)
+    {
+        return $query->orderBy('sorting', 'ASC');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+}

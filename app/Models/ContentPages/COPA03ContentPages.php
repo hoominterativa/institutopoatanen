@@ -35,6 +35,11 @@ class COPA03ContentPages extends Model
         return $query->where('active', 1);
     }
 
+    public function categories()
+    {
+        return $this->hasMany(COPA03ContentPagesCategory::class, 'contentPage_id')->exists()->active()->sorting();
+    }
+
     // public function getRelationCore()
     // {
     //     return null;
