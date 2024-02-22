@@ -17,6 +17,7 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteSubcategoryTopics" type="checkbox"></label>
                             </th>
+                            <th>Categoria</th>
                             <th>Título</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
@@ -30,6 +31,7 @@
                                 <td class="bs-checkbox align-middle">
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$subcategoryTopic->id}}"></label>
                                 </td>
+                                <td class="align-middle">{{$subcategoryTopic->category->title}}</td>
                                 <td class="align-middle">{{$subcategoryTopic->title}}</td>
                                 <td class="align-middle">
                                     @if ($subcategoryTopic->active)

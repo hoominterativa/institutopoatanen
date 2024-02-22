@@ -57,6 +57,68 @@ details .details-content {
 }
 
 /*******************************************************************************************************************************************/
+/************************************************************ QUEDINHA (DROPDOWN PADRÃO) ***************************************************/
+/* Utilizado o nome quedinha para que não haja sobreposição de classes com o plugin do bootstrap. Esse plugin está sendo criado para suprir a necessidade que o dropdown do bootstrap não oferecia (segundo nível com clique) */
+.quedinha {
+  position: relative;
+  /* edita a poição da seta no submenu  para abrir para o lado*/
+}
+.quedinha__btn {
+  position: relative;
+  z-index: 3;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  padding-right: 1rem;
+}
+.quedinha__btn::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 0.5rem;
+  height: auto;
+  aspect-ratio: 6/4;
+  background-color: #7c7c7c;
+  content: "";
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  transition: all ease 0.4s;
+}
+.quedinha.open > .quedinha__btn::after {
+  transform: translateY(-50%) rotate(-180deg);
+  transition: all ease 0.4s;
+}
+.quedinha__content > .quedinha.open > .quedinha__btn::after {
+  transform: translateY(-50%) rotate(-90deg);
+}
+.quedinha__content {
+  position: absolute;
+  z-index: 2;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  visibility: collapse;
+  background-color: #cacaca;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10%);
+  transition: all 0.4s ease-out;
+}
+.quedinha__content--sub-menu {
+  top: 0;
+  left: 100%;
+}
+.quedinha.open > .quedinha__content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease-out;
+}
+
+/*******************************************************************************************************************************************/
 .form-check-input {
   width: 1.2em;
   height: 1.2em;
@@ -1565,6 +1627,123 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
+.copa03__videos, .copa03__topics, .copa03__banner {
+  padding-top: 4.5rem;
+  padding-right: 5vw;
+  padding-bottom: 4.5rem;
+  padding-left: 5vw;
+}
+.copa03__videos__header__title, .copa03__topics__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .copa03__videos__header__title, .copa03__topics__header__title {
+    font-size: 1.875rem;
+  }
+}
+.copa03__videos__header__title, .copa03__topics__header__title {
+  color: #404040;
+}
+.copa03__videos__header__subtitle, .copa03__topics__header__subtitle, .copa03__banner__categories__content__item__link, .copa03__banner__categories__btn {
+  font: 700 1.25rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .copa03__videos__header__subtitle, .copa03__topics__header__subtitle, .copa03__banner__categories__content__item__link, .copa03__banner__categories__btn {
+    font-size: 1.125rem;
+  }
+}
+.copa03__banner__categories__content__item__link, .copa03__banner__categories__btn {
+  color: #000;
+}
+.copa03__videos__header__subtitle, .copa03__topics__header__subtitle {
+  color: #b3b3b3;
+}
+.copa03__videos__subcategories__item, .copa03__topics__subcategories__item, .copa03__videos__main__item__title, .copa03__topics__main__item__title {
+  font: 700 1.125rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .copa03__videos__subcategories__item, .copa03__topics__subcategories__item, .copa03__videos__main__item__title, .copa03__topics__main__item__title {
+    font-size: 1.063rem;
+  }
+}
+.copa03__videos__main__item__title, .copa03__topics__main__item__title {
+  color: #000;
+}
+.copa03__videos__subcategories__item, .copa03__topics__subcategories__item {
+  color: #7c7c7c;
+}
+.copa03__topics__main__item__cta {
+  font: 400 1rem "Montserrat", sans-serif, arial;
+  line-height: 170%;
+  letter-spacing: 0.2px;
+}
+.copa03__topics__main__item__cta p {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+@media (max-width: 991.98px) {
+  .copa03__topics__main__item__cta {
+    font-size: 0.938rem;
+  }
+}
+.copa03__topics__main__item__cta {
+  color: #404040;
+}
+.copa03__topics__main__item__paragraph {
+  font: 400 0.875rem "Montserrat", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+}
+.copa03__topics__main__item__paragraph p {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+@media (max-width: 991.98px) {
+  .copa03__topics__main__item__paragraph {
+    font-size: 0.813rem;
+    line-height: 170%;
+  }
+}
+.copa03__topics__main__item__paragraph {
+  color: #7c7c7c;
+}
+.copa03__topics__main__item__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  background-color: #cacaca;
+  font-weight: 700;
+}
+.copa03__topics__main__item__cta:focus {
+  /* uso do !important para resetar o valor do fancybox */
+  outline: none !important;
+}
+.copa03__topics__main__nav {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 /* BEGIN STYLE */
 #HEAD02 {
   border-bottom: 9px solid #7c7c7c;
@@ -2113,6 +2292,289 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.copa03__banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.copa03__banner__categories {
+  width: 100%;
+  max-width: 887px;
+}
+.copa03__banner__categories__btn {
+  width: 100%;
+  height: auto;
+  padding: 1.375rem 2rem;
+  border: solid 1px #000;
+  text-align: left;
+}
+.copa03__banner__categories__btn::after {
+  width: 1.375rem;
+  aspect-ratio: 1/1;
+  right: 1.5rem;
+  background-color: #404040;
+}
+.copa03__banner__categories__content {
+  width: 100%;
+}
+.copa03__banner__categories__content__item {
+  width: 100%;
+}
+.copa03__banner__categories__content__item__link {
+  display: block;
+  padding: 0.75rem;
+  text-align: left;
+}
+.copa03__topics {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: 100%;
+}
+.copa03__topics__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.copa03__topics__header__title {
+  text-align: center;
+}
+.copa03__topics__header__subtitle {
+  text-align: center;
+}
+.copa03__topics__header__line {
+  width: 100%;
+  border-top: solid 1px #404040;
+}
+.copa03__topics__subcategories {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+.copa03__topics__subcategories__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: calc(25% - 0.75rem);
+  padding: 0.875rem 1.5rem;
+  position: relative;
+  background-color: #cacaca;
+}
+@media (max-width: 991.98px) {
+  .copa03__topics__subcategories__item {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+.copa03__topics__subcategories__item__icon {
+  width: 2.25rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-right: 1rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa03__topics__main {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.copa03__topics__main__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  position: relative;
+  padding: 2.25rem 2.75rem;
+  width: 20%;
+  height: auto;
+}
+@media (max-width: 1399.98px) {
+  .copa03__topics__main__item {
+    width: 25%;
+  }
+}
+@media (max-width: 1199.98px) {
+  .copa03__topics__main__item {
+    width: 33%;
+  }
+}
+@media (max-width: 991.98px) {
+  .copa03__topics__main__item {
+    width: 50%;
+  }
+}
+@media (max-width: 767.98px) {
+  .copa03__topics__main__item {
+    width: 77%;
+  }
+}
+.copa03__topics__main__item * {
+  position: relative;
+  z-index: 1;
+}
+.copa03__topics__main__item__bg {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa03__topics__main__item__icon {
+  width: 3rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  margin-bottom: 1.5rem;
+}
+.copa03__topics__main__item__title {
+  margin-bottom: 0.75rem;
+}
+.copa03__topics__main__item__paragraph {
+  margin-bottom: 2rem;
+}
+.copa03__videos {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: 100%;
+  background-color: #efefef;
+}
+.copa03__videos__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.copa03__videos__header__title {
+  text-align: center;
+}
+.copa03__videos__header__subtitle {
+  text-align: center;
+}
+.copa03__videos__header__line {
+  width: 100%;
+  border-top: solid 1px #404040;
+}
+.copa03__videos__subcategories {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+.copa03__videos__subcategories__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: calc(25% - 0.75rem);
+  padding: 1.25rem;
+  position: relative;
+  background-color: #cacaca;
+}
+@media (max-width: 991.98px) {
+  .copa03__videos__subcategories__item {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+.copa03__videos__subcategories__item__icon {
+  width: 2.25rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-right: 1rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa03__videos__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.copa03__videos__main__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  padding: 2.25rem 2.75rem;
+  width: calc(33% - 0.85rem);
+  height: auto;
+  aspect-ratio: 343/192;
+  position: relative;
+  cursor: pointer;
+}
+@media (max-width: 1199.98px) {
+  .copa03__videos__main__item {
+    width: calc(50% - 0.625rem);
+  }
+}
+@media (max-width: 767.98px) {
+  .copa03__videos__main__item {
+    width: 100%;
+  }
+}
+.copa03__videos__main__item::before {
+  content: "";
+  width: 4rem;
+  height: auto;
+  aspect-ratio: 59/64;
+  background-color: #fff;
+  -webkit-clip-path: polygon(100% 48%, 0 0, 0 100%);
+          clip-path: polygon(100% 48%, 0 0, 0 100%);
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 767.98px) {
+  .copa03__videos__main__item::before {
+    width: 3rem;
+  }
+}
+.copa03__videos__main__item__bg {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa03__videos__main__item__title {
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

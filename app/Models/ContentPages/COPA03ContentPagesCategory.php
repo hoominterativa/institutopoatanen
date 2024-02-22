@@ -56,8 +56,5 @@ class COPA03ContentPagesCategory extends Model
 
 
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    
 }

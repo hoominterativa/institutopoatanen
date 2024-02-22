@@ -47,11 +47,27 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#topics" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Tópicos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode cadastrar uma ou mais tópicos"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#subcategoryVideos" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Subcategorias dos vídeos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Aqui você pode cadastrar uma ou mais subcategorias para os vídeos"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#videos" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Vídeos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode cadastrar uma ou mais vídeos"></i>
                         </a>
                     </li>
                 </ul>
@@ -76,10 +92,22 @@
                             'subcategoryTopics' => $subcategoryTopics
                         ])
                     </div>
+                    <div class="tab-pane" id="topics">
+                        @include('Admin.cruds.ContentPages.COPA03.Topics.index', [
+                            'topics' => $topics,
+                            'subcategoryTopicsExists' => $subcategoryTopicsExists
+                        ])
+                    </div>
                     <div class="tab-pane" id="subcategoryVideos">
                         @include('Admin.cruds.ContentPages.COPA03.SubcategoryVideos.index', [
                             'categoriesExists' => $categoriesExists,
                             'subcategoryVideos' => $subcategoryVideos
+                        ])
+                    </div>
+                    <div class="tab-pane" id="videos">
+                        @include('Admin.cruds.ContentPages.COPA03.Videos.index', [
+                            'videos' => $videos,
+                            'subcategoryVideosExists' => $subcategoryVideosExists
                         ])
                     </div>
                 </div>

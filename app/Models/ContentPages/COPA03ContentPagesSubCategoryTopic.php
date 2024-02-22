@@ -27,4 +27,9 @@ class COPA03ContentPagesSubCategoryTopic extends Model
     {
         return $query->where('active', 1);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(COPA03ContentPagesCategory::class, 'category_id');
+    }
 }

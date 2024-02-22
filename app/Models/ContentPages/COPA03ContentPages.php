@@ -39,9 +39,4 @@ class COPA03ContentPages extends Model
     {
         return $this->hasMany(COPA03ContentPagesCategory::class, 'contentPage_id')->exists()->active()->sorting();
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

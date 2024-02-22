@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\ContentPages\COPA03ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA03ContentPagesTopic;
+use App\Models\ContentPages\COPA03ContentPagesVideo;
 use App\Models\ContentPages\COPA03ContentPagesCategory;
 use App\Models\ContentPages\COPA03ContentPagesSubCategoryTopic;
 use App\Models\ContentPages\COPA03ContentPagesSubCategoryVideo;
@@ -88,18 +90,30 @@ class COPA03Controller extends Controller
     {
         $categories = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->sorting()->get();
         $categoriesExists = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->sorting()->pluck('title', 'id');
-
         $categoryIds = $categories->pluck('id');
 
         $subcategoryTopics = COPA03ContentPagesSubCategoryTopic::whereIn('category_id', $categoryIds)->sorting()->get();
+        $subcategoryTopicsExists = COPA03ContentPagesSubCategoryTopic::whereIn('category_id', $categoryIds)->sorting()->pluck('title', 'id');
+        $subcategoryTopicsIds = $subcategoryTopics->pluck('id');
+
+        $topics = COPA03ContentPagesTopic::whereIn('subtopic_id', $subcategoryTopicsIds)->sorting()->get();
+
         $subcategoryVideos = COPA03ContentPagesSubCategoryVideo::whereIn('category_id', $categoryIds)->sorting()->get();
+        $subcategoryVideosExists = COPA03ContentPagesSubCategoryVideo::whereIn('category_id', $categoryIds)->sorting()->pluck('title', 'id');
+        $subcategoryVideosIds = $subcategoryVideos->pluck('id');
+
+        $videos = COPA03ContentPagesVideo::whereIn('subvideo_id', $subcategoryVideosIds)->sorting()->get();
 
         return view("Admin.cruds.ContentPages.COPA03.edit",[
             'contentPage' => $COPA03ContentPages,
             'categories' => $categories,
             'categoriesExists' => $categoriesExists,
             'subcategoryTopics' => $subcategoryTopics,
+            'subcategoryTopicsExists' => $subcategoryTopicsExists,
+            'topics' => $topics,
             'subcategoryVideos' => $subcategoryVideos,
+            'subcategoryVideosExists' => $subcategoryVideosExists,
+            'videos' => $videos,
             'cropSetting' => getCropImage('ContentPages', 'COPA03')
         ]);
     }

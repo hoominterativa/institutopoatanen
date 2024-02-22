@@ -1152,6 +1152,25 @@
                     "height": "300",
                     "activeCrop": "false"
                 }
+            },
+            "Topic": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width": "263",
+                    "height": "340",
+                    "activeCrop": "false"
+                }
+            },
+            "Video": {
+                "path_image": {
+                    "width": "436",
+                    "height": "245",
+                    "activeCrop": "false"
+                }
             }
         }
     },

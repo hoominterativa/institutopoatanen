@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContentPages\COPA03TopicController;
+use App\Http\Controllers\ContentPages\COPA03VideoController;
 use App\Http\Controllers\ContentPages\COPA03CategoryController;
 use App\Http\Controllers\ContentPages\COPA03SubCategoryTopicController;
 use App\Http\Controllers\ContentPages\COPA03SubCategoryVideoController;
@@ -40,6 +42,16 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/subcategoria-videos', COPA03SubCategoryVideoController::class)->names('admin.'.$routeName.'.subcategory-videos')->parameters(['subcategoria-videos' => 'COPA03ContentPagesSubCategoryV']);
     Route::post($route.'/subcategoria-video/delete', [COPA03SubCategoryVideoController::class, 'destroySelected'])->name('admin.'.$routeName.'.subcategory-videos.destroySelected');
     Route::post($route.'/subcategoria-video/sorting', [COPA03SubCategoryVideoController::class, 'sorting'])->name('admin.'.$routeName.'.subcategory-videos.sorting');
+
+    //
+    Route::resource($route.'/topicos', COPA03TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'COPA03ContentPagesTopic']);
+    Route::post($route.'/topico/delete', [COPA03TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topico/sorting', [COPA03TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    //
+    Route::resource($route.'/videos', COPA03VideoController::class)->names('admin.'.$routeName.'.video')->parameters(['videos' => 'COPA03ContentPagesVideo']);
+    Route::post($route.'/video/delete', [COPA03VideoController::class, 'destroySelected'])->name('admin.'.$routeName.'.video.destroySelected');
+    Route::post($route.'/video/sorting', [COPA03VideoController::class, 'sorting'])->name('admin.'.$routeName.'.video.sorting');
 });
 // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
