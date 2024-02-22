@@ -14,4 +14,5 @@ import '../../pages/Topics/TOPI11/src/main';
 import '../../pages/Topics/TOPI101/src/main';
 import '../../pages/Topics/TOPI102/src/main';
 import '../../pages/Products/PROD05/src/main';
+import '../../pages/Contents/CONT13/src/main';
 import '../../pages/Compliances/COMP01/src/main';

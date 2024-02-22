@@ -57,31 +57,31 @@
             </li>
         @endforeach
 
-        @if ($linksCtaHeader->count() && $callToActionTitle->active_header ?? false)
-            <div class="container-cta">
-                <div class="dropdown">
-
-
-                    @if ($linksCtaHeader->count() > 1)
-                        <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta transition">
-                            {{ $callToActionTitle->title_header ?? '' }}
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right">
-                            @foreach ($linksCtaHeader as $linkCtaHeader)
-                                <a href="{{ getUri($linkCtaHeader->link) }}"
-                                    target="{{ $linkCtaHeader->link_target }}"
-                                    class="sublink-item transition mb-2">{{ $linkCtaHeader->title }}</a>
-                            @endforeach
-                        </div>
-                    @else
+        @if ($linksCtaHeader->count() > 0 && $callToActionTitle->active_header)
+            <li class="head02__navigation__item  {{$linksCtaHeader->count() > 1 ? 'quedinha' : ''}}">
+                @if ($linksCtaHeader->count() > 1)
+                {{-- NEXT: AJEITAR CLASSES DO CTA  --}}
+                    <button class="head02__navigation__item__cta quedinha__btn">
+                        {{ $callToActionTitle->title_header ?? '' }}
+                    </button>
+                    <ul class="quedinha__content" >
                         @foreach ($linksCtaHeader as $linkCtaHeader)
+                        <li>
                             <a href="{{ getUri($linkCtaHeader->link) }}" target="{{ $linkCtaHeader->link_target }}"
-                                class="btn-cta transition">{{ $linkCtaHeader->title }}</a>
+                                class="">{{ $linkCtaHeader->title }}</a>
+                        </li>
                         @endforeach
-                    @endif
-                </div>
-            </div>
+                    </ul>
+                @else
+                    {{-- BACKEND: EXISTE MOTIVO PARA ALGUM MOTIVO UTILIZAR O FOR EACH?  --}}
+                    {{-- {{$linksCtaHeader[0]}} --}}
+                    {{-- @foreach ($linksCtaHeader as $linkCtaHeader) --}}
+                    <a href="{{ getUri($linksCtaHeader[0]->link) }}" target="{{ $linksCtaHeader[0]->link_target }}"
+                        class="head02__navigation__item__link">{{ $linksCtaHeader[0]->title }}</a>
+                    {{-- @endforeach --}}
+                @endif
+            </li>
+
         @endif
 
 
@@ -104,8 +104,9 @@
 
         <div class="menu-sidebar-header">
             <div class="btn-menu-sidebar-header">
-                <a href="#SIDE03" alt="{{ __('Abrir menu') }}" nofollow data-plugin="sidebar" data-sb-position="right"
-                    class="d-flex align-items-center">
+                {{-- vai ser alterado para um botão --}}
+                <a href="#SIDE03" alt="{{ __('Abrir menu') }}" rel="nofollow" data-plugin="sidebar"
+                    data-sb-position="right" class="d-flex align-items-center">
                     <div class="lines">
                         <i class="w-100 mb-2 mx-auto transition"></i>
                         <i class="w-100 mb-2 mx-auto transition"></i>
