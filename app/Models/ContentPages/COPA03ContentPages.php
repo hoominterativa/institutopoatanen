@@ -17,12 +17,8 @@ class COPA03ContentPages extends Model
 
     protected $table = "copa03_contentpages";
     protected $fillable = [
-        'slug', 'title_page',
-        'title_topic_section', 'subtitle_topic_section',
-        'title_video_section', 'subtitle_video_section',
-        'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner',
-        'active', 'sorting',
-
+        'slug', 'title_page', 'title_topic_section', 'subtitle_topic_section', 'title_video_section', 'subtitle_video_section',
+        'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner', 'active', 'sorting',
     ];
 
     public function scopeSorting($query)
@@ -33,10 +29,5 @@ class COPA03ContentPages extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
-    }
-
-    public function categories()
-    {
-        return $this->hasMany(COPA03ContentPagesCategory::class, 'contentPage_id')->exists()->active()->sorting();
     }
 }

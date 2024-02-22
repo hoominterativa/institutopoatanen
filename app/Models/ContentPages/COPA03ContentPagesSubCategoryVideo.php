@@ -32,4 +32,13 @@ class COPA03ContentPagesSubCategoryVideo extends Model
     {
         return $this->belongsTo(COPA03ContentPagesCategory::class, 'category_id');
     }
+
+
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query) {
+            $query->select('id')->from('copa03_contentpages_videos')->whereColumn('copa03_contentpages_videos.subvideo_id', 'copa03_contentpages_subcategoryvideos.id');
+        });
+    }
 }

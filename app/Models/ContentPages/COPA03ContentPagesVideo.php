@@ -28,7 +28,7 @@ class COPA03ContentPagesVideo extends Model
         return $query->where('active', 1);
     }
 
-    public function subcategoryVideo()
+    public function subcategory()
     {
         return $this->belongsTo(COPA03ContentPagesSubCategoryVideo::class, 'subvideo_id');
     }

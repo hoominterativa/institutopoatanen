@@ -40,7 +40,7 @@
                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_icon)}})"></div>
                                     @endif
                                 </td>
-                                <td class="align-middle">{{$topic->subcategoryTopic->title}}</td>
+                                <td class="align-middle">{{$topic->subcategory->title}}</td>
                                 <td class="align-middle">{{$topic->title}}</td>
                                 <td class="align-middle">
                                     @if ($topic->active)

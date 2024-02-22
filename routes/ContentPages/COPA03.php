@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentPages\COPA03TopicController;
 use App\Http\Controllers\ContentPages\COPA03VideoController;
 use App\Http\Controllers\ContentPages\COPA03CategoryController;
+use App\Http\Controllers\ContentPages\COPA03Controller;
 use App\Http\Controllers\ContentPages\COPA03SubCategoryTopicController;
 use App\Http\Controllers\ContentPages\COPA03SubCategoryVideoController;
 
@@ -54,4 +55,6 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/video/sorting', [COPA03VideoController::class, 'sorting'])->name('admin.'.$routeName.'.video.sorting');
 });
 // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{COPA03ContentPagesCategory:slug}', [COPA03Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get($route.'/categoria/{COPA03ContentPagesCategory:slug}/subcategoria/{COPA03ContentPagesSubCategoryT:slug}', [COPA03Controller::class, 'page'])->name($routeName.'.subcategory-topic.page');
+Route::get($route.'/categoria/{COPA03ContentPagesCategory:slug}/subcategoria/{COPA03ContentPagesSubCategoryV:slug}', [COPA03Controller::class, 'page'])->name($routeName.'.subcategory-video.page');

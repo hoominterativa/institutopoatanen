@@ -28,33 +28,17 @@ class COPA03ContentPagesCategory extends Model
         return $query->where('active', 1);
     }
 
-    public function subcategoryTopics()
-    {
-        return $this->hasMany(COPA03ContentPagesSubCategoryTopic::class, 'category_id')->exists()->active()->sorting();
-    }
-
     public function scopeExists($query)
     {
         return $query->whereExists(function($query) {
-            $query->select('id')->from('copa03_contentpages_subcategorytopics')->whereColumn('copa03_contentpages_subcategorytopics.category_id', 'copa03_contentpages_categories.id');
+            $query->select('id')
+                ->from('copa03_contentpages_subcategorytopics')
+                ->whereColumn('copa03_contentpages_subcategorytopics.category_id', 'copa03_contentpages_categories.id');
+        })
+        ->orWhereExists(function($query) {
+            $query->select('id')
+                ->from('copa03_contentpages_subcategoryvideos')
+                ->whereColumn('copa03_contentpages_subcategoryvideos.category_id', 'copa03_contentpages_categories.id');
         });
     }
-
-    // public function scopeExists($query)
-    // {
-    //     return $query->whereExists(function($query) {
-    //         $query->select('id')
-    //             ->from('copa03_contentpages_subcategorytopics')
-    //             ->whereColumn('copa03_contentpages_subcategorytopics.category_id', 'copa03_contentpages_categories.id');
-    //     })
-    //     ->orWhereExists(function($query) {
-    //         $query->select('id')
-    //             ->from('copa03_contentpages_subcategoryvideos')
-    //             ->whereColumn('copa03_contentpages_subcategoryvideos.category_id', 'copa03_contentpages_categories.id');
-    //     });
-    // }
-
-
-
-    
 }

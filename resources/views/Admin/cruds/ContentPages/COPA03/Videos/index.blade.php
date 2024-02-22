@@ -37,7 +37,7 @@
                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $video->path_image)}})"></div>
                                     @endif
                                 </td>
-                                <td class="align-middle">{{$video->subcategoryVideo->title}}</td>
+                                <td class="align-middle">{{$video->subcategory->title}}</td>
                                 <td class="align-middle">{{$video->title}}</td>
                                 <td class="align-middle">
                                     @if ($video->active)

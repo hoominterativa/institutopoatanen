@@ -32,4 +32,13 @@ class COPA03ContentPagesSubCategoryTopic extends Model
     {
         return $this->belongsTo(COPA03ContentPagesCategory::class, 'category_id');
     }
+
+    
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query) {
+            $query->select('id')->from('copa03_contentpages_topics')->whereColumn('copa03_contentpages_topics.subtopic_id', 'copa03_contentpages_subcategorytopics.id');
+        });
+    }
 }

@@ -28,7 +28,7 @@ class COPA03ContentPagesTopic extends Model
         return $query->where('active', 1);
     }
 
-    public function subcategoryTopic()
+    public function subcategory()
     {
         return $this->belongsTo(COPA03ContentPagesSubCategoryTopic::class, 'subtopic_id');
     }

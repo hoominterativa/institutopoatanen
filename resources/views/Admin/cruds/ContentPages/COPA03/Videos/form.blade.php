@@ -25,9 +25,9 @@
             </div>
 
             <div class="mb-3">
-                {!! Form::label(null, 'Link', ['class' => 'form-label']) !!}
-                <i class="text-danger">Atenção: Caso você cadastre um arquivo, o link será desconsiderado.</i>
-                {!! Form::url('link', (isset($video) ? getUri($video->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                {!! Form::label(null, 'Link do vídeo', ['class' => 'form-label']) !!}
+                <i class="text-danger">Atenção: Caso você cadastre um arquivo, o link do vídeo será desconsiderado.</i>
+                {!! Form::url('link', (isset($video) ? getUri($video->link) : null), ['class' => 'form-control embedLinkYoutube', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
             </div>
         </div>
         <div class="d-flex">
