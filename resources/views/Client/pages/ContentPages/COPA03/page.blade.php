@@ -34,6 +34,10 @@
 
                             <a href="#" class="link-full"></a>
 
+                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
+                                alt="Ícone do tópico [BACKEND: ADD TITULO AQUI]" loading="lazy"
+                                class="copa03__topics__subcategories__item__icon">
+
                             Subcategoria {{ $i }}
                         </li>
                     @endfor
@@ -92,6 +96,10 @@
                         <li class="copa03__videos__subcategories__item swiper-slide">
 
                             <a href="#" class="link-full"></a>
+
+                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
+                                alt="Ícone do tópico [BACKEND: ADD TITULO AQUI]" loading="lazy"
+                                class="copa03__videos__subcategories__item__icon">
 
                             Subcategoria {{ $i }}
                         </li>
