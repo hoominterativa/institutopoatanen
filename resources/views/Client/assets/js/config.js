@@ -357,3 +357,64 @@ if (details.length > 0) {
         el._accordionInstance = new Accordion(el);
     });
 }
+
+/***********************************************************/
+
+/*  QUEDINHA - DROPDOWN DO SISTEMA */
+const quedinhaBtnList = document.querySelectorAll(".quedinha__btn");
+
+quedinhaBtnList.forEach((quedinhaBtn) => {
+    const content = quedinhaBtn.nextElementSibling;
+    // Verifica se existe um subMenu dentro do dropdown
+    if (content.classList.contains("quedinha__content--sub-menu")) {
+        const elRect = content.getBoundingClientRect();
+
+        // Calcula a diferença entre a largura da viewport e a parede esquerda do elemento em si.
+
+        const diff = window.innerWidth - elRect.left;
+        // Verifica se o diff é menor que a largura do elemento. Sendo menor, altera-se o estilo, fazendo com que o subMenu abra para o lado oposto;
+        if (diff < elRect.width) {
+            content.style.left = "unset";
+            content.style.right = "100%";
+        }
+    }
+
+    quedinhaBtn.addEventListener("click", () => {
+        if (quedinhaBtn.parentElement.classList.contains("open")) {
+            quedinhaBtn.parentElement.classList.remove("open");
+
+            const quedinhaSub =
+                quedinhaBtn.parentElement.querySelector(".quedinha.open");
+
+            if (quedinhaSub) {
+                quedinhaSub.classList.remove("open");
+            }
+        } else {
+            /* elemento que está esperando para ser aberto */
+            const quedinhaToOpen = quedinhaBtn.parentElement;
+
+            /* verificando elementos irmãos que possam estar abertos e fechando-os */
+            const quedinhaOpen =
+                quedinhaToOpen.parentElement.querySelectorAll(".quedinha.open");
+
+            if (quedinhaOpen.length > 0) {
+                quedinhaOpen.forEach((el) => {
+                    el.classList.remove("open");
+                });
+            }
+
+            quedinhaToOpen.classList.add("open");
+        }
+    });
+});
+
+// Fecha o dropdown se o usuário clicar fora dele mesmo.
+window.onclick = function (event) {
+    if (!event.target.matches(".quedinha__btn")) {
+        document
+            .querySelectorAll(".quedinha.open")
+            .forEach((el) => el.classList.remove("open"));
+    }
+};
+
+/***********************************************************/
