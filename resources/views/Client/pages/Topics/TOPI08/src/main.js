@@ -6,7 +6,7 @@ new Swiper ('.topi08__topics', {
     spaceBetween: 8,
 
     pagination: {
-        el: '.swiper-pagination',
+        el: '.topi08__topics__swiper-pagination',
         clickable: true,
       },
 })

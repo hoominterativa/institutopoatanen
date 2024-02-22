@@ -16,7 +16,7 @@ new Swiper('.topi102__topics', {
     slidesPerView: 'auto',
 
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".topi102__topics__nav__swiper-button-next",
+        prevEl: ".topi102__topics__nav__swiper-button-prev",
     },
 });

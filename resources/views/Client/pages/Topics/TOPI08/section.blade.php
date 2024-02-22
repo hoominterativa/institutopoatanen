@@ -50,7 +50,7 @@
                     @endforeach
 
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="topi08__topics__swiper-pagination swiper-pagination"></div>
             </main>
         @endif
 

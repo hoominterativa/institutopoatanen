@@ -41,9 +41,6 @@
 
         @include disFlex(column);
 
-        &__swiper-wrapper {
-        }
-
         @extend %theme__pagination;
 
         &__item {
@@ -62,16 +59,15 @@
                 opacity: 1;
             }
 
-            @include large-device-down{
+            @include large-device-down {
                 width: 33.33%;
             }
-            @include medium-device-down{
+            @include medium-device-down {
                 width: 50%;
             }
-            @include small-device-down{
+            @include small-device-down {
                 width: 100%;
             }
-
 
             &__bg {
                 position: absolute;

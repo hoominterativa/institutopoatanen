@@ -4,7 +4,7 @@ new Swiper ('.topi101__timeline', {
     slidesPerView: 'auto',
 
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".topi101__timeline__nav__swiper-button-next",
+        prevEl: ".topi101__timeline__nav__swiper-button-prev",
       },
 })
