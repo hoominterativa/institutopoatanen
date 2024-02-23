@@ -33,7 +33,10 @@ class COPA03ContentPagesSubCategoryVideo extends Model
         return $this->belongsTo(COPA03ContentPagesCategory::class, 'category_id');
     }
 
-
+    public function videos()
+    {
+        return $this->hasMany(COPA03ContentPagesVideo::class, 'subvideo_id')->active()->sorting();
+    }
 
     public function scopeExists($query)
     {

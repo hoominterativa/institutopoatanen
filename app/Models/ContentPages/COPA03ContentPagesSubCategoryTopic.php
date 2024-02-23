@@ -33,7 +33,10 @@ class COPA03ContentPagesSubCategoryTopic extends Model
         return $this->belongsTo(COPA03ContentPagesCategory::class, 'category_id');
     }
 
-    
+    public function topics()
+    {
+        return $this->hasMany(COPA03ContentPagesTopic::class, 'subtopic_id')->active()->sorting();
+    }
 
     public function scopeExists($query)
     {
