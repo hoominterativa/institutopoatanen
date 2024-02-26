@@ -270,7 +270,7 @@ class COPA03Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA03', 'page');
 
-        $contentPage = COPA03ContentPages::with('categories')->active()->sorting()->first();
+        $contentPage = COPA03ContentPages::active()->sorting()->first();
 
         if(!$COPA03ContentPagesCategory->exists){
             $COPA03ContentPagesCategory = COPA03ContentPagesCategory::where('contentPage_id', $contentPage->id)->exists()->sorting()->first();
