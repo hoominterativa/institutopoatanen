@@ -1,20 +1,28 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
 'ContentPages' => (object) [
-    'COPA02' => (object)[
+    'COPA03' => (object)[
         'ViewHome' => false,
         'ViewListMenu' => true,
         'ViewListPanel' => true,
         'ViewListFooter' => false,
         'Viewer' => 'dropdown', // accepted values, list or dropdown
+        'IncludeCore' => (object) [
+            'include' => true,
+            'sorting' => true,
+            'limit' => 'all',
+            'condition' => 'active=1{Ativos}',
+            'titleList' => 'title_page',
+            'relation' => ''
+        ],
         'config' => (object) [
-            'titleMenu' => 'Soluções',
+            'titleMenu' => 'Página de contato',
             'anchor' =>  false,
-            'linkMenu' => 'copa02.page',
+            'linkMenu' => 'copa03.page',
             'iconMenu' => '',
-            'titlePanel' => 'Soluções',
+            'titlePanel' => 'Página de contato',
             'iconPanel' => 'mdi-book-open-page-variant'
         ],
         'IncludeSections' => (object) []
-    ],
-],
+    ]
+]

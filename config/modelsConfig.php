@@ -14,59 +14,32 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Topics' => (object) [
-            'TOPI08' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
+        'ContentPages' => (object) [
+            'COPA03' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_page',
+                    'relation' => ''
+                ],
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Página de contato',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'copa03.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
-                    'iconPanel' => 'mdi-book-multiple-outline'
-                ]
-            ],
-        ],
-
-        'Topics.1' => (object)[
-            'TOPI102' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' => false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Topicos.1',
-                    'iconPanel' => 'mdi-apps'
-                ]
-            ],
-        ],
-
-        'Topics.2' => (object)[
-            'TOPI101' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' => false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Topicos.2',
-                    'iconPanel' => 'mdi-apps'
-                ]
-            ],
-        ],
+                    'titlePanel' => 'Página de contato',
+                    'iconPanel' => 'mdi-book-open-page-variant'
+                ],
+                'IncludeSections' => (object) []
+            ]
+        ]
     ],
 
     'ModelsForm' => (object)[

@@ -1127,6 +1127,51 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "COPA03": {
+            "path_image_banner_desktop": {
+                "width": "1500",
+                "height": "244",
+                "activeCrop": "false"
+            },
+            "path_image_banner_mobile": {
+                "width": "390",
+                "height": "206",
+                "activeCrop": "true"
+            },
+            "SubcategoryTopics": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "SubcategoryVideos": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "Topic": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width": "263",
+                    "height": "340",
+                    "activeCrop": "false"
+                }
+            },
+            "Video": {
+                "path_image": {
+                    "width": "436",
+                    "height": "245",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Contacts": {

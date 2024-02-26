@@ -185,6 +185,12 @@ return [
                 'model' => App\Models\ContentPages\COPA02ContentPages::class,
                 'seedQty' => 2,
             ],
+            'COPA03' => (object)[
+                'controller' => App\Http\Controllers\ContentPages\COPA03Controller::class,
+                'model' => App\Models\ContentPages\COPA03ContentPages::class,
+                'seedQty' => 2,
+                'routeName' => 'copa03.category.page',
+            ],
         ],
         // END CONTENT PAGES
 
