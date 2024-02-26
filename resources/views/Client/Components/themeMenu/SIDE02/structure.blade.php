@@ -21,7 +21,7 @@
             alt="{{ env('APP_NAME') }}">
 
         <nav class="side02__navigation">
-            <ul class="side02__navigation__wrapper">
+            <ul class="side02__navigation__wrapper sideLinks">
                 <li class="side02__navigation__item">
                     <a href="{{ route('home') }}" class="side02__navigation__item__link transition">
                         {{-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="25" class="me-3"
@@ -34,7 +34,7 @@
                         <a href="{{ $menu->anchor ? $menu->link : route($menu->link) }}"
                             target="{{ $menu->target_link ?? '_self' }}"
                             {{ $menu->dropdown ? 'data-bs-toggle=dropdown' : '' }}
-                            {{ $menu->anchor ? 'data-bs-toggle=jqueryanchor' : '' }}
+                            {{-- {{ $menu->anchor ? 'data-bs-toggle=jqueryanchor' : '' }} --}}
                             class="side02__navigation__item__link transition {{ !$menu->anchor ? isActive($menu->link) : '' }}">
                             {{-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="25"
                                 class="me-3" alt="">  --}}

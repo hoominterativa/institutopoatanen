@@ -207,21 +207,8 @@ if (elementosAnimados.length > 0) {
         observador.observe(elemento);
     });
 }
-/**************** VAI FICAR OBSOLETO ******************/
-/* HOTFIX PARA O HEADER */
-window.addEventListener("scroll", () => {
-    /* Esconde o dropdown do menu quando há uma rolagem da tela */
-    const menuAberto = document.querySelector(".sublink--menu.show");
-    if (menuAberto) {
-        menuAberto.classList.remove("show");
-        document
-            .querySelector(".menu-list .link.show")
-            .classList.remove("show");
-    }
-});
-/******************************************************/
 
-/* NOVO SCRIPT DE ANIMAÇÃO DO ACCORDION */
+/******************* NOVO SCRIPT DE ANIMAÇÃO DO ACCORDION *****************************/
 class Accordion {
     constructor(el) {
         // Store the <details> element
@@ -359,7 +346,7 @@ if (details.length > 0) {
         el._accordionInstance = new Accordion(el);
     });
 }
-/***********************************************************/
+/*************************************************************************************/
 
 /*  QUEDINHA - DROPDOWN DO SISTEMA */
 const quedinhaBtnList = document.querySelectorAll('.quedinha__btn');
@@ -371,8 +358,8 @@ quedinhaBtnList.forEach((quedinhaBtn) => {
         const elRect = content.getBoundingClientRect();
 
         // Calcula a diferença entre a largura da viewport e a parede esquerda do elemento em si.
-
         const diff = window.innerWidth - elRect.left;
+
         // Verifica se o diff é menor que a largura do elemento. Sendo menor, altera-se o estilo, fazendo com que o subMenu abra para o lado oposto;
         if (diff < elRect.width) {
             content.style.left = 'unset';
@@ -439,9 +426,10 @@ btnsBurguer.forEach(el => {
     })
 })
 /* Define o fechamento e rolagem para âncoras */
-const sideAnchors = sidebar.querySelectorAll('a[href^="#"]')
-if (sideAnchors.length > 0) {
-    sideAnchors.forEach(el => {
+const sideLinks = sidebar.querySelectorAll('.sideLinks a')
+
+if (sideLinks.length > 0) {
+    sideLinks.forEach(el => {
         el.addEventListener('click', ev => {
             ev.preventDefault();
 
@@ -449,9 +437,22 @@ if (sideAnchors.length > 0) {
             document.body.style.overflow = 'visible'; /* valor padrão visible, permitindo rolagem*/
 
             setTimeout(() => {
-                document.querySelector(el.href).scrollInToView({
-                    behavior: 'smooth'
-                })
+
+                if (el.hash.length > 0) {
+                    if (window.location.pathname === '/home') {
+                        document.querySelector(el.hash).scrollIntoView({
+                            behavior: 'smooth'
+                        })
+                    } else {
+                        window.location.assign(el.href)
+                        console.log(el.href)
+                    }
+
+                } else {
+                    window.location.assign(el.href)
+                    // console.log('Não tenho hash')
+
+                }
             }, 800)
         })
     })

@@ -7,25 +7,42 @@ DONE: verificação do JS da distância entre o canto da parede e o dropdown con
 DONE: animação - inserir transição (dentro do próprio plugin)
 
 DEV DO PLUGIN BURGER (MENU MOBILE):
-- EVENTO DE CLICK PARA ABRIR E FECHAR O SIDEBAR ATUAL:
-  - DONE: CAPACITAR O JS PARA RECEBER A STRING DE ABERTURA E FECHAMENTO SEM PRECISAR REESCREVER-LO; 
-  -  DEFINIR PADRÃO DE ABERTURA E FECHAMENTO GLOBAL PARA TODOS OS SIDEBARS;
-  - CONSEGUIR LIDAR COM AS ANCORAS;
-- FINALIZAR A ESTILIZAÇÃO DO BOTÃO;
-    - DOTS E BARS
+
+-   EVENTO DE CLICK PARA ABRIR E FECHAR O SIDEBAR ATUAL:
+    -   DONE: CAPACITAR O JS PARA RECEBER A STRING DE ABERTURA E FECHAMENTO SEM PRECISAR REESCREVER-LO;
+    -   DEFINIR PADRÃO DE ABERTURA E FECHAMENTO GLOBAL PARA TODOS OS SIDEBARS;
+    -   CONSEGUIR LIDAR COM AS ANCORAS;
+-   FINALIZAR A ESTILIZAÇÃO DO BOTÃO;
+    -   DOTS E BARS
 
 TODO: MENOS PRIORIDADE
-  -   SUBSTITUIR EM TODAS OS HEADERS PELO NOVO PLUGING
-      -   DOTS;
 
- ATENTION:  TESTAR TROCA PARA SIDE03;
+-   SUBSTITUIR EM TODAS OS HEADERS PELO NOVO PLUGING
+    -   DOTS;
 
- SIDEBAR 
-  - Reestruturação da blade;
-  - Add funcionalidade de transform dinâmica (ltr, ttb, rtl, btt);
-  - Funcionaliade de âncora;
+ ATENTION: TESTAR TROCA PARA SIDE03;
 
+ ATENTION: QUANDO FOR ESTRUTURAR A SIDEBAR (BLADE), CERTIFICAR QUE TODOS OS LINKS DE NAVEGAÇÃO ENCONTRAM-SE DENTRO DA MESMA TAG HTML, COM UNICA CLASSE UNICA, PARA ENTÃO A BUSCA SER REALIZADA COM QUERY SELECTOR ALL('.CLASSE')
 
-prevent default
+SIDEBAR
+
+-   Reestruturação da blade;
+-   Add funcionalidade de transform dinâmica (ltr, ttb, rtl, btt);
+-   Funcionaliade de âncora;
+
+prevent default 
 fechar a sidebar
-no timeout, dar uma rolada suave
+if (verificar se o click tem ancora) {
+    if (home) {
+        rola no hash de maneira suave
+
+    } else {
+        progredir pra o href dele
+    }
+
+} else {
+
+ele progrige no próprio href
+
+}
+NEXT: Verificar se eu não estiver na home, completar o link com a hash. Se estiver na home não precisa ser feito nada.
