@@ -3,85 +3,73 @@
 /* BEGIN STYLE */
 
 .bran01 {
-    padding: 40px 5vw 24px;
+    overflow: hidden; /*previne o shift da animação*/
+    @extend %theme__padding;
 
     &__header {
         width: 100%;
-        margin-bottom: 64px;
-
         @include disFlex(column, center, center);
 
+        margin-bottom: 3rem;
+
         &__title {
-            margin: 0;
-
-            font: 700 $T2 $font-primary;
-            color: $color-one;
-            text-align: center;
-
-            @include large-device-down {
-                font-size: $T2-mobile;
-            }
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
         }
         &__subtitle {
-            margin: 0;
-
-            font: 700 $T4 $font-primary;
-            color: $color-three;
-            text-align: center;
-
-            @include large-device-down {
-                font-size: $T4-mobile;
-            }
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
         }
+
         &__line {
-            margin-bottom: 32px;
-            border-top: solid 1px $color-one;
             width: 100%;
+            margin-bottom: 2rem;
+
+            border-top: solid 1px $color-three;
         }
+
         &__paragraph {
-            max-width: 890px;
-            margin: 0;
+            width: 100%;
+            max-width: 70%;
 
-            font: 400 $P1 $font-paragraph;
+            @extend %theme__p1-c2;
             text-align: center;
-
-            @include large-device-down {
-                font-size: $P1-mobile;
-            }
         }
     }
 
     &__content {
-        margin-bottom: 48px;
-        /* Todas as classes do owl-carousel estarão dentro na classe abaixo */
-        &__carousel {
-            .owl-stage-outer {
-                @include large-device-down {
-                    overflow: visible;
-                }
-                .owl-stage {
-                    display: flex;
-                }
-            }
-            .owl-dots {
-                justify-content: center;
-            }
-        }
+        height: auto;
+        margin-bottom: 1.5rem;
+
+        // &__swiper-wrapper{}
 
         &__item {
             position: relative;
-            padding: 40px;
 
-            @include backG;
+            width: calc(25% - 1.125rem);
+            height: auto;
+            aspect-ratio: 321/136;
+
+            @include bg;
+
             @include disFlex(row, center, center);
 
             @include large-device-down {
-                width: 322px;
+                width: 33%;
+            }
+
+            @include medium-device-down {
+                width: 50%;
+            }
+
+            @include small-device-down {
+                width: 90%;
             }
 
             &__image {
-                width: 62px !important ; /* uso do important por conta do owl-carousel */
-                height: 62px;
+                width: 4rem;
+                height: auto;
+                aspect-ratio: 1/1;
 
                 &__img {
                     width: 100%;
@@ -93,24 +81,8 @@
     }
 
     &__cta {
-        padding: 12px 48px;
-        width: fit-content;
+        @extend %theme__cta;
         margin-inline: auto;
-
-        @include disFlex(row, center, center);
-        gap: 16px;
-
-        background-color: $color-four;
-
-        font: 700 $P1 $font-paragraph;
-        color: $color-black;
-
-        transition: all ease 0.2s;
-
-        &:hover {
-            background-color: rgba($color-four, 0.5);
-            transition: all ease 0.2s;
-        }
     }
 }
 

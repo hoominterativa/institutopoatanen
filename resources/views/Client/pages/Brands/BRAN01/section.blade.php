@@ -1,4 +1,4 @@
-@if ($section || $brands->count())
+@if ($section || $brands->count() > 0)
     <section id="BRAN01" class="bran01">
         @if ($section)
             @if ($section->title_section || $section->subtitle_section || $section->description_section)
@@ -26,11 +26,12 @@
         @endif
 
         @if ($brands->count())
-            <div class="bran01__content">
-                <div class="bran01__content__swiper-wrapper">
+            <main class="bran01__content">
+                <div class="bran01__content__swiper-wrapper swiper-wrapper">
                     @foreach ($brands as $brand)
                         <article class="bran01__content__item swiper-slide"
                             style="background-image:url({{ asset('storage/' . $brand->path_image_box) }})">
+
                             @if ($brand->link)
                                 <a href="{{ getUri($brand->link) }}" target="{{ $brand->target_link }}"
                                     class="link-full"></a>
@@ -41,15 +42,14 @@
                                     loading="lazy" class="bran01__content__item__icon">
                             @endif
                         </article>
-
                     @endforeach
 
                 </div>
-            </div>
+            </main>
         @endif
 
 
-        <a href="{{ route('bran01.page') }}"class="bran01__content__cta">
+        <a href="{{ route('bran01.page') }}"class="bran01__cta">
             CTA
         </a>
 
