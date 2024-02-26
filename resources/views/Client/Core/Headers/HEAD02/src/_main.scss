@@ -211,8 +211,6 @@
 
     @include disFlex(row, space-between);
 
-    border-bottom: 0.5rem solid $color-two;
-
     &__logo {
         position: relative;
 
@@ -241,13 +239,12 @@
             &__link {
                 @extend %theme__p1-c1;
                 text-decoration: none;
-
-                &:hover {
-                }
             }
+
             &__btn {
                 @extend .head02__navigation__item__link;
             }
+
             /* Estilização do menu-dropdown */
             &__content {
                 padding: 0.5rem;
@@ -256,6 +253,85 @@
 
                 &__item {
                     width: 100%;
+                }
+            }
+
+            &__cta {
+                width: fit-content;
+                padding: 0.25rem 1.5rem;
+
+                @include disFlex(row, center, center);
+                gap: 0.75rem;
+
+                border: solid 1px $color-black;
+                border-radius: 0.75rem;
+
+                background-color: $color-black;
+
+                @extend %theme__p1-cw;
+                white-space: nowrap;
+
+                // setinha do dropdown (quando houver)
+                &::after {
+                    position: relative;
+                    top: unset;
+                    right: unset;
+                    transform: unset;
+
+                    display: block;
+
+                    width: 0.5rem;
+
+                    background-color: $color-four;
+                }
+                // corpo do dropdown
+                &__content {
+                    top: 71%;
+                    padding: 0.75rem;
+                    border-radius: 0 0 0.5rem 0.5rem;
+
+                    // item do dropdown
+                    &__item {
+                        @extend %theme__p2-cb;
+                    }
+                }
+            }
+
+            /* Modificador das redes socais */
+            &--socials {
+                @extend .head02__navigation__item;
+                gap: 0.5rem;
+
+                &__item {
+                    width: 1.5rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+
+                    &__icon {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
+            }
+
+            /* Modificador dos idiomas */
+            // &--languages {
+            //     @include disFlex(row, center, center);
+            //     gap: 0.5rem;
+
+            //     &__item {
+            //         @extend .head02__navigation__item__link;
+            //     }
+            // }
+
+            /* Modificador do menu mobile */
+            &--menu-mobile{
+                @extend .head02__navigation__item;
+
+                &__item{
+                    @extend %theme__menu-mobile;
                 }
             }
         }

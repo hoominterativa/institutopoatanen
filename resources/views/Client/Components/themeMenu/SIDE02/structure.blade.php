@@ -1,13 +1,13 @@
-<div id="SIDE02" class="side02 transition">
+<div id="SIDE02" class="side02 transition burger__target">
     <div class="side02__scroll">
         <div class="side02__header row">
-            <div class="side02__header__button-close col-6 text-start">
-                <a href="#">
+            <div class="side02__header__button-close col-6 text-start ">
+                <button class="burguer">
                     <svg class="side02__header__button-close__icon" width="13" height="15" viewBox="0 0 13 15"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M-3.71547e-07 7.5L12.75 0.138784L12.75 14.8612L-3.71547e-07 7.5Z" fill="#D9D9D9" />
                     </svg>
-                </a>
+                </button>
             </div>
             {{-- END .side02__header__button-close --}}
             {{-- <nav class="side02__header__languages d-flex align-items-center justify-content-end col-6">

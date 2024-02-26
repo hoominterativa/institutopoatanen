@@ -143,6 +143,24 @@ details {
 
 /*******************************************************************************************************************************************/
 
+/************************************************************ BURGUER (MENU MOBILE PADRÃO) ************************************************************/
+.burguer {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    &__icon {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/*******************************************************************************************************************************************/
+
 .form-check-input {
     width: 1.2em;
     height: 1.2em;
@@ -2113,6 +2131,16 @@ body {
 
                 background-color: $color-five;
             }
+        }
+    }
+
+    &__menu-mobile {
+        /* edita apenas o btn de menu mobile */
+        @extend %theme__p1-c1;
+
+        &__icon {
+            width: 2rem;
+            height: auto;
         }
     }
 }

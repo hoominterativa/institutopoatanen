@@ -37,9 +37,6 @@
         {!! $renderFooter !!}
     </footer>
 
-
-    <script src="{{ asset(mix('js/app.js')) }}"></script>
-
     @if ($themeMenu)
         @include('Client.Components.themeMenu.' . $themeMenu . '.structure', [
             'listMenu' => $listMenu,
@@ -50,6 +47,7 @@
         ])
     @endif
 
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
 
 </body>
 

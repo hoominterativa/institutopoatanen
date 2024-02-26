@@ -1,3 +1,4 @@
+/**************** VAI FICAR OBSOLETO ******************/
 function resizeHeightSlide() {
     // mw500=700
     if ($("[data-slide-height]").length) {
@@ -35,7 +36,10 @@ function resizeHeightSlide() {
         }
     }
 }
+/******************************************************/
 
+
+/**************** VAI FICAR OBSOLETO ******************/
 function insertImageMobile() {
     // INCLUDE IMAGE MOBILE
     if ($(window).outerWidth() <= 800) {
@@ -52,7 +56,7 @@ function insertImageMobile() {
         });
     }
 }
-
+/**************** VAI FICAR OBSOLETO ******************/
 $(function () {
     $(".owl-carousel").each(function () {
         const owlCarousel = $(this);
@@ -158,6 +162,9 @@ $(function () {
         });
     });
 });
+/******************************************************/
+
+
 /******  ANIMAÇÃO ******/
 // Verifica se há elementos com a classe .animation no documento
 const elementosAnimados = document.querySelectorAll(".animation");
@@ -200,7 +207,7 @@ if (elementosAnimados.length > 0) {
         observador.observe(elemento);
     });
 }
-
+/**************** VAI FICAR OBSOLETO ******************/
 /* HOTFIX PARA O HEADER */
 window.addEventListener("scroll", () => {
     /* Esconde o dropdown do menu quando há uma rolagem da tela */
@@ -212,6 +219,7 @@ window.addEventListener("scroll", () => {
             .classList.remove("show");
     }
 });
+/******************************************************/
 
 /* NOVO SCRIPT DE ANIMAÇÃO DO ACCORDION */
 class Accordion {
@@ -411,3 +419,103 @@ window.onclick = function (event) {
 
 
 /***********************************************************/
+
+/* BURGUER - MENU-MOBILE & FUNCIONALIDADE SIDEBAR */
+/* Define a abertura e fechamento do menu */
+const CLASS_SIDEBAR_OPEN = "open";
+const btnsBurguer = document.querySelectorAll('.burguer'); //btn de abrir side nos headers
+const sidebar = document.querySelector('.burger__target'); //alvo (target) do plugin
+
+btnsBurguer.forEach(el => {
+    el.addEventListener('click', () => {
+        if (!sidebar.classList.contains(CLASS_SIDEBAR_OPEN)) {
+            sidebar.classList.add(CLASS_SIDEBAR_OPEN);
+            document.body.style.overflow = 'hidden'; /* valor padrão hidden, não permitindo rolagem */
+
+        } else {
+            sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
+            document.body.style.overflow = 'visible'; /* valor padrão visible, permitindo rolagem*/
+        }
+    })
+})
+/* Define o fechamento e rolagem para âncoras */
+const sideAnchors = sidebar.querySelectorAll('a[href^="#"]')
+if (sideAnchors.length > 0) {
+    sideAnchors.forEach(el => {
+        el.addEventListener('click', ev => {
+            ev.preventDefault();
+
+            sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
+            document.body.style.overflow = 'visible'; /* valor padrão visible, permitindo rolagem*/
+
+            setTimeout(() => {
+                document.querySelector(el.href).scrollInToView({
+                    behavior: 'smooth'
+                })
+            }, 800)
+        })
+    })
+
+}
+
+
+
+/***********************************************************/
+
+// // / menu responsivo /
+// const backdrop = document.createElement("div");
+// backdrop.classList.add("backdrop");
+// document.body.appendChild(backdrop);
+
+// const btnSandwich = document.querySelector(".btn-mn-mbl");
+
+// const contIcon = btnSandwich.querySelector(".icon");
+
+// let spans = "";
+
+// if (btnSandwich.classList.contains("dots")) {
+//     for (let i = 0; i < 9; i++) {
+//         spans += "<span></span>";
+//     }
+// }
+
+// // DEFAULT
+// if (btnSandwich.classList.contains("bars")) {
+//     for (let i = 0; i < 3; i++) {
+//         spans += "<span></span>";
+//     }
+// }
+
+// contIcon.innerHTML = spans;
+
+// const closeMenu = () => {
+//     if (document.getElementById("menu-mobile").classList.contains("aberto")) {
+//         // backdrop.style.display = "none";
+//         document.getElementById("menu-mobile").classList.remove("aberto");
+//         document.body.style.overflowY = "visible";
+//         btnSandwich.classList.remove("open");
+//     }
+// };
+
+// btnSandwich.addEventListener("click", () => {
+//     if (!document.getElementById("menu-mobile").classList.contains("aberto")) {
+//         // backdrop.style.display = "block";
+//         // backdrop.style.opacity = "1";
+//         document.getElementById("menu-mobile").classList.add("aberto");
+//         document.body.style.overflowY = "hidden";
+//         btnSandwich.classList.add("open");
+//     } else {
+//         closeMenu();
+//     }
+// });
+
+// window.addEventListener("resize", closeMenu);
+// backdrop.addEventListener("click", closeMenu);
+// if (document.getElementById("a-mb-close")) {
+//     document.getElementById("a-mb-close").addEventListener("click", closeMenu);
+// }
+
+// for (const link of document.querySelectorAll(".engloba-sidebar li a")) {
+//     link.addEventListener("click", closeMenu);
+// }
+// // / fim menu responsivo
