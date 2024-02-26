@@ -225,17 +225,18 @@ class COPA03Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(COPA03ContentPages $COPA03ContentPages)
-    public function show(COPA03ContentPages $COPA03ContentPages, COPA03ContentPagesCategory $COPA03ContentPagesCategory)
+    public function show($COPA03ContentPages, COPA03ContentPagesCategory $COPA03ContentPagesCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA03', 'show');
+
+        $COPA03ContentPages = COPA03ContentPages::where('slug', $COPA03ContentPages)->exists()->active()->sorting()->first();
 
         if(!$COPA03ContentPagesCategory->exists){
             $COPA03ContentPagesCategory = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->exists()->sorting()->first();
         }
 
         $categories = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->exists()->active()->sorting()->get();
-
 
         $subcategoryTopics = COPA03ContentPagesSubCategoryTopic::with('topics')->where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->get();
 
@@ -265,12 +266,12 @@ class COPA03Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page($COPA03ContentPages, COPA03ContentPagesCategory $COPA03ContentPagesCategory, )
+    public function page(COPA03ContentPages $COPA03ContentPages, COPA03ContentPagesCategory $COPA03ContentPagesCategory )
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA03', 'page');
 
-        $contentPage = COPA03ContentPages::active()->sorting()->first();
+        $contentPage = COPA03ContentPages::exists()->active()->sorting()->first();
 
         if(!$COPA03ContentPagesCategory->exists){
             $COPA03ContentPagesCategory = COPA03ContentPagesCategory::where('contentPage_id', $contentPage->id)->exists()->sorting()->first();

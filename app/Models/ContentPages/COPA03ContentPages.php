@@ -35,4 +35,13 @@ class COPA03ContentPages extends Model
     {
         return $this->hasMany(COPA03ContentPagesCategory::class, 'contentPage_id')->exists()->active()->sorting();
     }
+
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query) {
+            $query->select('id')
+                ->from('copa03_contentpages_categories')
+                ->whereColumn('copa03_contentpages_categories.contentPage_id', 'copa03_contentpages.id');
+        });
+    }
 }
