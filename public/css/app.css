@@ -1565,7 +1565,7 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.bran01 {
+.bran01-page__banner, .bran01 {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -2260,7 +2260,8 @@ body .owl-dots .owl-dot.active {
 .bran01-page__banner {
   width: 100%;
   height: 218px;
-  padding: 0 5vw;
+  padding-top: 0;
+  padding-bottom: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

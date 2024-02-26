@@ -91,9 +91,11 @@
     &__banner {
         width: 100%;
         height: 218px;
-        padding: 0 5vw;
+        @extend %theme__padding;
+        padding-top: 0;
+        padding-bottom: 0;
 
-        @include backG;
+        @include bg;
         @include disFlex(column, center, center);
 
         &__title {
