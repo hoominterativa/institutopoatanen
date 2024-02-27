@@ -8,12 +8,12 @@
         'ViewListFooter' => false,
         'Viewer' => 'dropdown', // accepted values, list or dropdown
         'config' => (object) [
-            'titleMenu' => 'FAQ',
+            'titleMenu' => 'Perguntas',
             'anchor' =>  false,
             'linkMenu' => 'freq01.page',
             'iconMenu' => '',
             'titlePanel' => 'Perguntas',
-            'iconPanel' => 'mdi-topic-circle'
+            'iconPanel' => 'mdi-frequently-asked-questions'
         ],
         'IncludeSections' => (object) [
         ]

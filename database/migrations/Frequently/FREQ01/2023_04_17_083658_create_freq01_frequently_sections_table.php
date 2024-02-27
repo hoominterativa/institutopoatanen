@@ -21,6 +21,9 @@ class CreateFreq01FrequentlySectionsTable extends Migration
             $table->string('path_image_mobile')->nullable();
             $table->string('background_color')->nullable();
             $table->integer('active')->default(0);
+            $table->string('title_form')->nullable();
+            $table->string('subtitle_form')->nullable();
+            $table->integer('active_form')->default(0);
             $table->timestamps();
         });
     }

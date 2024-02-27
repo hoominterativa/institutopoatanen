@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\Frequently\FREQ01Frequently;
+use App\Models\Compliances\COMP01Compliances;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Frequently\FREQ01FrequentlySection;
 use App\Http\Controllers\IncludeSectionsController;
@@ -21,7 +22,7 @@ class FREQ01Controller extends Controller
      */
     public function index()
     {
-        $frequentlys = FREQ01Frequently::sorting()->paginate(15);
+        $frequentlys = FREQ01Frequently::sorting()->get();
         $section = FREQ01FrequentlySection::first();
         return view('Admin.cruds.Frequently.FREQ01.index', [
             'frequentlys' => $frequentlys,
@@ -49,7 +50,6 @@ class FREQ01Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
 
@@ -85,7 +85,6 @@ class FREQ01Controller extends Controller
     public function update(Request $request, FREQ01Frequently $FREQ01Frequently)
     {
         $data = $request->all();
-        $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
 
@@ -149,25 +148,26 @@ class FREQ01Controller extends Controller
      */
     public function page(Request $request)
     {
-        switch (deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $section = FREQ01FrequentlySection::active()->first();
-                if($section) $section->path_image_desktop = $section->path_image_mobile;
-                break;
-            default:
-                $section = FREQ01FrequentlySection::active()->first();
-                break;
-        }
-
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Frequently', 'FREQ01');
 
         $frequentlys = FREQ01Frequently::active()->sorting()->get();
+        $compliances = COMP01Compliances::sorting()->first();
+        $compliances = getCompliance($compliances->id);
+        $section = FREQ01FrequentlySection::first();
+        
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
+            break;
+        }
+
         return view('Client.pages.Frequently.FREQ01.page',[
             'sections' => $sections,
             'section' => $section,
-            'frequentlys' => $frequentlys
+            'frequentlys' => $frequentlys,
+            'compliances' => $compliances
         ]);
     }
 }

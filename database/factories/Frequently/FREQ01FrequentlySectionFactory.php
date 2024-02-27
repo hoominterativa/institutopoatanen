@@ -28,6 +28,9 @@ class FREQ01FrequentlySectionFactory extends Factory
             'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
             'background_color' => '#fff',
             'active' => 1,
+            'title_form' => $this->faker->text(10),
+            'subtitle_form' => $this->faker->text(10),
+            'active_form' => 1
         ];
     }
 }
