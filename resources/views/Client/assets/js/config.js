@@ -444,8 +444,20 @@ if (sideLinks.length > 0) {
                             behavior: 'smooth'
                         })
                     } else {
-                        window.location.assign(el.href)
-                        console.log(el.href)
+                        const pathArray = window.location.pathname.split('/');
+                        const lastIndex = pathArray.length - 1;
+
+                        pathArray.forEach((el, i) => {
+                        // Check if the element is not an empty string and if it's not the last element
+                        if (el !== '' && i !== lastIndex) {
+                            console.log(el + i);
+                        }
+                        });
+
+                        /* TODO: VERIFICAR VIABILIDADE DO CÓDIGO ATUAL DENTRO DE PÁGINAS COMO PRODUTOS INTERNOS E POSTAGENS DE BLOG */
+                        const url = window.location.protocol + '//' + window.location.host + fixedPathname + "/home" + window.location.hash;
+                        console.log(url)
+                        // window.location.assign(el.href)
                     }
 
                 } else {

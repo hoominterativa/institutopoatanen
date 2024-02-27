@@ -33,8 +33,7 @@
                     <li class="side02__navigation__item {{ $menu->dropdown ? 'dropdown' : '' }}">
                         <a href="{{ $menu->anchor ? $menu->link : route($menu->link) }}"
                             target="{{ $menu->target_link ?? '_self' }}"
-                            {{ $menu->dropdown ? 'data-bs-toggle=dropdown' : '' }}
-                            {{-- {{ $menu->anchor ? 'data-bs-toggle=jqueryanchor' : '' }} --}}
+                            {{ $menu->dropdown ? 'data-bs-toggle=dropdown' : '' }} {{-- {{ $menu->anchor ? 'data-bs-toggle=jqueryanchor' : '' }} --}}
                             class="side02__navigation__item__link transition {{ !$menu->anchor ? isActive($menu->link) : '' }}">
                             {{-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="25"
                                 class="me-3" alt="">  --}}
@@ -46,7 +45,8 @@
                         @if ($menu->dropdown)
                             <div class="side02__navigation__dropdown dropdown-menu">
                                 @foreach ($menu->dropdown as $item)
-                                    <a href="{{ $item->route }}" target="{{$item->target}}" class="side02__navigation__sublink transition">
+                                    <a href="{{ $item->route }}" target="{{ $item->target }}"
+                                        class="side02__navigation__sublink transition">
                                         {{ $item->name }}
                                     </a>
                                 @endforeach
@@ -63,16 +63,22 @@
             <div class="side02__container-cta">
                 @if ($linksCtaHeader->count() > 1)
                     <div class="side02__container-cta__dropdown dropdown">
-                        <a href="javascript:void(0)" data-bs-toggle="dropdown" class="side02__container-cta__btn-cta transition">{{ $callToActionTitle->title_header ?? '' }} <i class="menu-arrow"></i></a>
-                        <div class="side02__container-cta__sublink dropdown-menu" aria-labelledby="side02__container-cta__sublink">
+                        <a href="javascript:void(0)" data-bs-toggle="dropdown"
+                            class="side02__container-cta__btn-cta transition">{{ $callToActionTitle->title_header ?? '' }}
+                            <i class="menu-arrow"></i></a>
+                        <div class="side02__container-cta__sublink dropdown-menu"
+                            aria-labelledby="side02__container-cta__sublink">
                             @foreach ($linksCtaHeader as $linkCtaHeader)
-                                <a href="{{ getUri($linkCtaHeader->link) }}" target="{{ $linkCtaHeader->link_target }}" class="side02__container-cta__sublink__item transition">{{ $linkCtaHeader->title }}</a>
+                                <a href="{{ getUri($linkCtaHeader->link) }}"
+                                    target="{{ $linkCtaHeader->link_target }}"
+                                    class="side02__container-cta__sublink__item transition">{{ $linkCtaHeader->title }}</a>
                             @endforeach
                         </div>
                     </div>
                 @else
                     @foreach ($linksCtaHeader as $linkCtaHeader)
-                        <a href="{{ getUri($linkCtaHeader->link) }}" target="{{ $linkCtaHeader->link_target }}" class="side02__container-cta__sublink__item transition">{{ $linkCtaHeader->title }}</a>
+                        <a href="{{ getUri($linkCtaHeader->link) }}" target="{{ $linkCtaHeader->link_target }}"
+                            class="side02__container-cta__sublink__item transition">{{ $linkCtaHeader->title }}</a>
                     @endforeach
                 @endif
             </div>
@@ -89,16 +95,15 @@
                 @endforeach
             </nav>
         @endif
-        {{-- END .side02__social --}}
 
-        <div class="side02__footer d-flex align-items-center justify-content-center">
-            @if ($linksCtaFooter->count())
-            @foreach ($linksCtaFooter as $linkCtaHeader)
-                <li><a href="{{$linkCtaHeader->link}}" target="{{$linkCtaHeader->link_target}}" rel="next">{{$linkCtaHeader->title}}</a></li>
-            @endforeach
-            @endif
-        </div>
+        @if ($linksCtaFooter->count())
+            <div class="side02__footer d-flex align-items-center justify-content-center">
+                @foreach ($linksCtaFooter as $linkCtaHeader)
+                    <li><a href="{{ $linkCtaHeader->link }}" target="{{ $linkCtaHeader->link_target }}"
+                            rel="next">{{ $linkCtaHeader->title }}</a></li>
+                @endforeach
+            </div>
+        @endif
     </div>
-    {{-- END .side02__scroll --}}
+
 </div>
-{{-- END #SIDE02 --}}
