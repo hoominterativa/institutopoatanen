@@ -100,7 +100,7 @@
                     <main class="copa03__videos__main">
                         @foreach ($subcategoryVideo->videos as $video)
                             @if ($video->path_archive || $video->link)
-                                <article class="copa03__videos__main__item" data-fancybox data-src="{{$video->path_archive ? $video->path_archive : getUri($video->link)}}">
+                                <article class="copa03__videos__main__item" data-fancybox data-src="{{$video->path_archive ? asset('storage/'.$video->path_archive) : getUri($video->link)}}">
                                     @if ($video->path_image)
                                         <img src="{{ asset('storage/'.$video->path_image) }}" alt="Thumbnail do {{$video->title}}" loading="lazy" class="copa03__videos__main__item__bg">
                                     @endif
