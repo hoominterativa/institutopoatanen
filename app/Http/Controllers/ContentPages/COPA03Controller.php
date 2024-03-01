@@ -225,22 +225,42 @@ class COPA03Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(COPA03ContentPages $COPA03ContentPages)
-    public function show($COPA03ContentPages, COPA03ContentPagesCategory $COPA03ContentPagesCategory)
+    public function show($COPA03ContentPages, COPA03ContentPagesCategory $COPA03ContentPagesCategory, $COPA03ContentPagesSubCategoryT, $COPA03ContentPagesSubCategoryV = null)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA03', 'show');
 
+        $COPA03ContentPagesSubCategoryV = COPA03ContentPagesSubCategoryVideo::where('slug', $COPA03ContentPagesSubCategoryV)->exists()->active()->sorting()->first();
+        $COPA03ContentPagesSubCategoryT = COPA03ContentPagesSubCategoryTopic::where('slug', $COPA03ContentPagesSubCategoryT)->exists()->active()->sorting()->first();
+
         $COPA03ContentPages = COPA03ContentPages::where('slug', $COPA03ContentPages)->exists()->active()->sorting()->first();
+
+        if(!$COPA03ContentPages){
+            $COPA03ContentPages = COPA03ContentPages::exists()->active()->sorting()->first();
+        }
 
         if(!$COPA03ContentPagesCategory->exists){
             $COPA03ContentPagesCategory = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->exists()->sorting()->first();
         }
 
+        if(!$COPA03ContentPagesSubCategoryT){
+            $COPA03ContentPagesSubCategoryT = COPA03ContentPagesSubCategoryTopic::with('topics')->where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->first();
+        }
+
+        if(!$COPA03ContentPagesSubCategoryV){
+            $COPA03ContentPagesSubCategoryV = COPA03ContentPagesSubCategoryVideo::with('videos')->where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->first();
+        }
+
         $categories = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->exists()->active()->sorting()->get();
 
-        $subcategoryTopics = COPA03ContentPagesSubCategoryTopic::with('topics')->where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->get();
+        $subcategoryTopics = COPA03ContentPagesSubCategoryTopic::where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->get();
+        $subcategoryVideos = COPA03ContentPagesSubCategoryVideo::where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->get();
 
-        $subcategoryVideos = COPA03ContentPagesSubCategoryVideo::with('videos')->where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->get();
+        $topics = null;
+        $videos = null;
+
+        if($COPA03ContentPagesSubCategoryT) $topics = COPA03ContentPagesTopic::where('subTopic_id', $COPA03ContentPagesSubCategoryT->id)->active()->sorting()->get();
+        if($COPA03ContentPagesSubCategoryV) $videos = COPA03ContentPagesVideo::where('subvideo_id', $COPA03ContentPagesSubCategoryV->id)->active()->sorting()->get();
 
         switch(deviceDetect()){
             case 'mobile':
@@ -253,8 +273,13 @@ class COPA03Controller extends Controller
             'sections' => $sections,
             'contentPage' => $COPA03ContentPages,
             'categories' => $categories,
+            'categoryCurrent' => $COPA03ContentPagesCategory,
             'subcategoryTopics' => $subcategoryTopics,
             'subcategoryVideos' => $subcategoryVideos,
+            'subcategoryCurrentT' => $COPA03ContentPagesSubCategoryT,
+            'subcategoryCurrentV' => $COPA03ContentPagesSubCategoryV,
+            'topics' => $topics,
+            'videos' => $videos,
 
         ]);
     }
@@ -266,36 +291,11 @@ class COPA03Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(COPA03ContentPages $COPA03ContentPages, COPA03ContentPagesCategory $COPA03ContentPagesCategory )
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA03', 'page');
+    public function page(){
 
-        $contentPage = COPA03ContentPages::exists()->active()->sorting()->first();
+        $COPA03ContentPages = COPA03ContentPages::exists()->active()->sorting()->first();
+        $COPA03ContentPagesCategory = COPA03ContentPagesCategory::where('contentPage_id', $COPA03ContentPages->id)->exists()->active()->sorting()->first();
 
-        if(!$COPA03ContentPagesCategory->exists){
-            $COPA03ContentPagesCategory = COPA03ContentPagesCategory::where('contentPage_id', $contentPage->id)->exists()->sorting()->first();
-        }
-
-        $categories = COPA03ContentPagesCategory::where('contentPage_id', $contentPage->id)->exists()->active()->sorting()->get();
-
-        $subcategoryTopics = COPA03ContentPagesSubCategoryTopic::with('topics')->where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->get();
-
-        $subcategoryVideos = COPA03ContentPagesSubCategoryVideo::with('videos')->where('category_id', $COPA03ContentPagesCategory->id)->exists()->active()->sorting()->get();
-
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if($contentPage) $contentPage->path_image_banner_desktop = $contentPage->path_image_banner_mobile;
-            break;
-        }
-
-        return view('Client.pages.ContentPages.COPA03.page',[
-            'sections' => $sections,
-            'contentPage' => $contentPage,
-            'categories' => $categories,
-            'subcategoryTopics' => $subcategoryTopics,
-            'subcategoryVideos' => $subcategoryVideos,
-        ]);
+        return Self::show($COPA03ContentPages, $COPA03ContentPagesCategory, null);
     }
 }

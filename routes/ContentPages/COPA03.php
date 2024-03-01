@@ -56,5 +56,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 // CLIENT
 Route::get($route.'/{COPA03ContentPages:slug}/categoria/{COPA03ContentPagesCategory:slug}', [COPA03Controller::class, 'show'])->name($routeName.'.category.page');
-Route::get($route.'/{COPA03ContentPages:slug}/categoria/{COPA03ContentPagesCategory:slug}/subcategoria{COPA03ContentPagesSubCategoryT:slug}', [COPA03Controller::class, 'show'])->name($routeName.'.subcategory-topic.page');
-Route::get($route.'/{COPA03ContentPages:slug}/categoria/{COPA03ContentPagesCategory:slug}/subcategoria{COPA03ContentPagesSubCategoryV:slug}', [COPA03Controller::class, 'show'])->name($routeName.'.subcategory-video.page');
+Route::get($route.'/{COPA03ContentPages:slug}/categoria/{COPA03ContentPagesCategory:slug}/{COPA03ContentPagesSubCategoryT:slug?}/{COPA03ContentPagesSubCategoryV:slug?}', [COPA03Controller::class, 'show'])->name($routeName.'.subcategory.page');

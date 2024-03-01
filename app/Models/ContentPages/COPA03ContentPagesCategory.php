@@ -41,4 +41,15 @@ class COPA03ContentPagesCategory extends Model
                 ->whereColumn('copa03_contentpages_subcategoryvideos.category_id', 'copa03_contentpages_categories.id');
         });
     }
+
+    public function cOPA03ContentPagesSubCategoryTs()
+    {
+        return $this->hasMany(COPA03ContentPagesSubCategoryTopic::class ,'category_id')->exists()->active()->sorting();
+
+    }
+    
+    public function cOPA03ContentPagesSubCategoryVs()
+    {
+        return $this->hasMany(COPA03ContentPagesSubCategoryVideo::class ,'category_id')->exists()->active()->sorting();
+    }
 }

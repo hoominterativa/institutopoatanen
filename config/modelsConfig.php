@@ -14,25 +14,32 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Frequently' => (object) [
-            'FREQ01' => (object)[
+        'ContentPages' => (object) [
+            'COPA03' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Perguntas',
-                    'anchor' =>  false,
-                    'linkMenu' => 'freq01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Perguntas',
-                    'iconPanel' => 'mdi-frequently-asked-questions'
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_page',
+                    'relation' => ''
                 ],
-                'IncludeSections' => (object) [
-                ]
-            ],
-        ],
+                'config' => (object) [
+                    'titleMenu' => 'Página de contato',
+                    'anchor' =>  false,
+                    'linkMenu' => 'copa03.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Página de contato',
+                    'iconPanel' => 'mdi-book-open-page-variant'
+                ],
+                'IncludeSections' => (object) []
+            ]
+        ]
     ],
 
     'ModelsForm' => (object)[
