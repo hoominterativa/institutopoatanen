@@ -15,7 +15,7 @@
             <li class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
 
                 @if (!$menu->dropdown)
-                    <a href="{{ $menu->anchor ? $menu->link : route($menu->link) }}"
+                    <a href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
                         target="{{ $menu->target_link ?? '_self' }}"
                         class=" {{ !$menu->anchor ? isActive($menu->link) : '' }}">
                         {{ $menu->title }}

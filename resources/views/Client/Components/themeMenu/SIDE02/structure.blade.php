@@ -31,7 +31,8 @@
                 </li>
                 @foreach ($listMenu as $module => $menu)
                     <li class="side02__navigation__item {{ $menu->dropdown ? 'dropdown' : '' }}">
-                        <a href="{{ $menu->anchor ? $menu->link : route($menu->link) }}"
+                        {{-- NOTE: AQUI O USO DA CONCATENAÇÃO DE ROTA E HASH RESOLVE A QUESTÃO DA ANCORA PARA QLQR PÁGINA --}}
+                        <a href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
                             target="{{ $menu->target_link ?? '_self' }}"
                             {{ $menu->dropdown ? 'data-bs-toggle=dropdown' : '' }} {{-- {{ $menu->anchor ? 'data-bs-toggle=jqueryanchor' : '' }} --}}
                             class="side02__navigation__item__link transition {{ !$menu->anchor ? isActive($menu->link) : '' }}">

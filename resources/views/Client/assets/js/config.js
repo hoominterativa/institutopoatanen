@@ -17,8 +17,8 @@ function resizeHeightSlide() {
                     var maxWidth = value.split("=")[0].replace("mw", ""),
                         widthWindow = $(window).outerWidth();
                     (height = value.split("=")[1]),
-                    (slideHeight =
-                        height == "auto" ? heightWindow : height + "px");
+                        (slideHeight =
+                            height == "auto" ? heightWindow : height + "px");
 
                     if (widthWindow <= maxWidth) {
                         $("[data-slide-height]")
@@ -37,7 +37,6 @@ function resizeHeightSlide() {
     }
 }
 /******************************************************/
-
 
 /**************** VAI FICAR OBSOLETO ******************/
 function insertImageMobile() {
@@ -164,7 +163,6 @@ $(function () {
 });
 /******************************************************/
 
-
 /******  ANIMAÇÃO ******/
 // Verifica se há elementos com a classe .animation no documento
 const elementosAnimados = document.querySelectorAll(".animation");
@@ -273,13 +271,16 @@ class Accordion {
         }
 
         // Start a WAAPI animation
-        this.animation = this.el.animate({
-            // Set the keyframes from the startHeight to endHeight
-            height: [startHeight, endHeight],
-        }, {
-            duration: 200,
-            easing: "linear",
-        });
+        this.animation = this.el.animate(
+            {
+                // Set the keyframes from the startHeight to endHeight
+                height: [startHeight, endHeight],
+            },
+            {
+                duration: 200,
+                easing: "linear",
+            }
+        );
 
         // When the animation is complete, call onAnimationFinish()
         this.animation.onfinish = () => this.onAnimationFinish(false);
@@ -313,13 +314,16 @@ class Accordion {
         }
 
         // Start a WAAPI animation
-        this.animation = this.el.animate({
-            // Set the keyframes from the startHeight to endHeight
-            height: [startHeight, endHeight],
-        }, {
-            duration: 200,
-            easing: "ease-out",
-        });
+        this.animation = this.el.animate(
+            {
+                // Set the keyframes from the startHeight to endHeight
+                height: [startHeight, endHeight],
+            },
+            {
+                duration: 200,
+                easing: "ease-out",
+            }
+        );
         // When the animation is complete, call onAnimationFinish()
         this.animation.onfinish = () => this.onAnimationFinish(true);
         // If the animation is cancelled, isExpanding variable is set to false
@@ -349,12 +353,12 @@ if (details.length > 0) {
 /*************************************************************************************/
 
 /*  QUEDINHA - DROPDOWN DO SISTEMA */
-const quedinhaBtnList = document.querySelectorAll('.quedinha__btn');
+const quedinhaBtnList = document.querySelectorAll(".quedinha__btn");
 
 quedinhaBtnList.forEach((quedinhaBtn) => {
     const content = quedinhaBtn.nextElementSibling;
     // Verifica se existe um subMenu dentro do dropdown
-    if (content.classList.contains('quedinha__content--sub-menu')) {
+    if (content.classList.contains("quedinha__content--sub-menu")) {
         const elRect = content.getBoundingClientRect();
 
         // Calcula a diferença entre a largura da viewport e a parede esquerda do elemento em si.
@@ -362,116 +366,98 @@ quedinhaBtnList.forEach((quedinhaBtn) => {
 
         // Verifica se o diff é menor que a largura do elemento. Sendo menor, altera-se o estilo, fazendo com que o subMenu abra para o lado oposto;
         if (diff < elRect.width) {
-            content.style.left = 'unset';
-            content.style.right = '100%';
+            content.style.left = "unset";
+            content.style.right = "100%";
         }
     }
 
+    quedinhaBtn.addEventListener("click", () => {
+        if (quedinhaBtn.parentElement.classList.contains("open")) {
+            quedinhaBtn.parentElement.classList.remove("open");
 
-    quedinhaBtn.addEventListener('click', () => {
-        if (quedinhaBtn.parentElement.classList.contains('open')) {
-            quedinhaBtn.parentElement.classList.remove('open');
-
-            const quedinhaSub = quedinhaBtn.parentElement.querySelector('.quedinha.open');
+            const quedinhaSub =
+                quedinhaBtn.parentElement.querySelector(".quedinha.open");
 
             if (quedinhaSub) {
-                quedinhaSub.classList.remove('open');
+                quedinhaSub.classList.remove("open");
             }
         } else {
             /* elemento que está esperando para ser aberto */
             const quedinhaToOpen = quedinhaBtn.parentElement;
 
             /* verificando elementos irmãos que possam estar abertos e fechando-os */
-            const quedinhaOpen = quedinhaToOpen.parentElement.querySelectorAll(".quedinha.open");
+            const quedinhaOpen =
+                quedinhaToOpen.parentElement.querySelectorAll(".quedinha.open");
 
             if (quedinhaOpen.length > 0) {
-                quedinhaOpen.forEach(el => {
-
-                    el.classList.remove('open');
-                })
+                quedinhaOpen.forEach((el) => {
+                    el.classList.remove("open");
+                });
             }
 
-            quedinhaToOpen.classList.add('open');
-
+            quedinhaToOpen.classList.add("open");
         }
-    })
+    });
 });
 
 // Fecha o dropdown se o usuário clicar fora dele mesmo.
 window.onclick = function (event) {
-    if (!event.target.matches('.quedinha__btn')) {
-        document.querySelectorAll(".quedinha.open").forEach(el => el.classList.remove("open"));
+    if (!event.target.matches(".quedinha__btn")) {
+        document
+            .querySelectorAll(".quedinha.open")
+            .forEach((el) => el.classList.remove("open"));
     }
-}
-
+};
 
 /***********************************************************/
 
 /* BURGUER - MENU-MOBILE & FUNCIONALIDADE SIDEBAR */
 /* Define a abertura e fechamento do menu */
 const CLASS_SIDEBAR_OPEN = "open";
-const btnsBurguer = document.querySelectorAll('.burguer'); //btn de abrir side nos headers
-const sidebar = document.querySelector('.burger__target'); //alvo (target) do plugin
+const btnsBurguer = document.querySelectorAll(".burguer"); //btn de abrir side nos headers
+const sidebar = document.querySelector(".burger__target"); //alvo (target) do plugin
 
-btnsBurguer.forEach(el => {
-    el.addEventListener('click', () => {
+btnsBurguer.forEach((el) => {
+    el.addEventListener("click", () => {
         if (!sidebar.classList.contains(CLASS_SIDEBAR_OPEN)) {
             sidebar.classList.add(CLASS_SIDEBAR_OPEN);
-            document.body.style.overflow = 'hidden'; /* valor padrão hidden, não permitindo rolagem */
-
+            document.body.style.overflow =
+                "hidden"; /* valor padrão hidden, não permitindo rolagem */
         } else {
             sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
-            document.body.style.overflow = 'visible'; /* valor padrão visible, permitindo rolagem*/
+            document.body.style.overflow =
+                "visible"; /* valor padrão visible, permitindo rolagem*/
         }
-    })
-})
+    });
+});
 /* Define o fechamento e rolagem para âncoras */
-const sideLinks = sidebar.querySelectorAll('.sideLinks a')
+const sideLinks = sidebar.querySelectorAll(".sideLinks a");
 
 if (sideLinks.length > 0) {
-    sideLinks.forEach(el => {
-        el.addEventListener('click', ev => {
+    sideLinks.forEach((el) => {
+        el.addEventListener("click", (ev) => {
             ev.preventDefault();
 
             sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
-            document.body.style.overflow = 'visible'; /* valor padrão visible, permitindo rolagem*/
+            document.body.style.overflow =
+                "visible"; /* valor padrão visible, permitindo rolagem*/
 
             setTimeout(() => {
-
                 if (el.hash.length > 0) {
-                    if (window.location.pathname === '/home') {
+                    if (window.location.pathname === "/home") {
                         document.querySelector(el.hash).scrollIntoView({
-                            behavior: 'smooth'
-                        })
-                    } else {
-                        const pathArray = window.location.pathname.split('/');
-                        const lastIndex = pathArray.length - 1;
-
-                        pathArray.forEach((el, i) => {
-                        // Check if the element is not an empty string and if it's not the last element
-                        if (el !== '' && i !== lastIndex) {
-                            console.log(el + i);
-                        }
+                            behavior: "smooth",
                         });
-
-                        /* TODO: VERIFICAR VIABILIDADE DO CÓDIGO ATUAL DENTRO DE PÁGINAS COMO PRODUTOS INTERNOS E POSTAGENS DE BLOG */
-                        const url = window.location.protocol + '//' + window.location.host + fixedPathname + "/home" + window.location.hash;
-                        console.log(url)
-                        // window.location.assign(el.href)
+                    } else {
+                        window.location.assign(el.href);
                     }
-
                 } else {
-                    window.location.assign(el.href)
-                    // console.log('Não tenho hash')
-
+                    window.location.assign(el.href);
                 }
-            }, 800)
-        })
-    })
-
+            }, 800);
+        });
+    });
 }
-
-
 
 /***********************************************************/
 
