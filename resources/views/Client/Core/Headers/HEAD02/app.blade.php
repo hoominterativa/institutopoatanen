@@ -17,7 +17,7 @@
                 @if (!$menu->dropdown)
                     <a href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
                         target="{{ $menu->target_link ?? '_self' }}"
-                        class=" {{ !$menu->anchor ? isActive($menu->link) : '' }}">
+                        class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link) : '' }}">
                         {{ $menu->title }}
                     </a>
                 @else
@@ -104,26 +104,14 @@
             <a href="#" class="head02__navigation__item--languages__item"
                 alt="{{ __('Traduzir para Portugês') }}">PT</a>
         </li> --}}
+
         <li class="head02__navigation__item--menu-mobile">
-            <button class="head02__navigation__item--menu-mobile__item burguer dots">
-                Menu
-                <div class="head02__navigation__item--menu-mobile__item__icon burguer__icon"></div>
+            <button class="head02__navigation__item--menu-mobile__item burguer">
+                {{-- Menu --}}
+                <div class="head02__navigation__item--menu-mobile__item__icon burguer__icon dots">
+                </div>
             </button>
         </li>
-        {{-- <div class="menu-sidebar-header">
-            <div class="btn-menu-sidebar-header">
-
-                <a href="#SIDE03" alt="{{ __('Abrir menu') }}" rel="nofollow" data-plugin="sidebar"
-                    data-sb-position="right" class="d-flex align-items-center">
-                    MENU
-                    <div class="lines">
-                        <i class="w-100 mb-2 mx-auto transition"></i>
-                        <i class="w-100 mb-2 mx-auto transition"></i>
-                        <i class="w-100 mb-0 mx-auto transition"></i>
-                    </div>
-                </a>
-            </div>
-        </div> --}}
 
     </ul>
 

@@ -418,6 +418,7 @@ const btnsBurguer = document.querySelectorAll(".burguer"); //btn de abrir side n
 const sidebar = document.querySelector(".burger__target"); //alvo (target) do plugin
 
 btnsBurguer.forEach((el) => {
+    /* O evento de click abaixo está ligado a classe .burger permitindo que seja usada como marcador para fechar a sidebar inclusive no botão da própria side */
     el.addEventListener("click", () => {
         if (!sidebar.classList.contains(CLASS_SIDEBAR_OPEN)) {
             sidebar.classList.add(CLASS_SIDEBAR_OPEN);
@@ -429,7 +430,18 @@ btnsBurguer.forEach((el) => {
                 "visible"; /* valor padrão visible, permitindo rolagem*/
         }
     });
+    const burguerIcon = el.querySelector('.burguer__icon');
+
+    if(burguerIcon) {
+        if(!burguerIcon.classList.contains('dots')){
+            burguerIcon.innerHTML = "<span></span> <span></span> <span></span>"
+
+        }  else {
+            burguerIcon.innerHTML = "<span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span>"
+        }
+    }
 });
+
 /* Define o fechamento e rolagem para âncoras */
 const sideLinks = sidebar.querySelectorAll(".sideLinks a");
 
@@ -443,17 +455,7 @@ if (sideLinks.length > 0) {
                 "visible"; /* valor padrão visible, permitindo rolagem*/
 
             setTimeout(() => {
-                if (el.hash.length > 0) {
-                    if (window.location.pathname === "/home") {
-                        document.querySelector(el.hash).scrollIntoView({
-                            behavior: "smooth",
-                        });
-                    } else {
-                        window.location.assign(el.href);
-                    }
-                } else {
                     window.location.assign(el.href);
-                }
             }, 800);
         });
     });

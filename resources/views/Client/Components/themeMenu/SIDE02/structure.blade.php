@@ -24,8 +24,6 @@
             <ul class="side02__navigation__wrapper sideLinks">
                 <li class="side02__navigation__item">
                     <a href="{{ route('home') }}" class="side02__navigation__item__link transition">
-                        {{-- <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" width="25" class="me-3"
-                            alt="">  --}}
                         Home
                     </a>
                 </li>

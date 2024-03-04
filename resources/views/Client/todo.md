@@ -24,7 +24,7 @@ TODO: MENOS PRIORIDADE
 
  ATENTION: QUANDO FOR ESTRUTURAR A SIDEBAR (BLADE), CERTIFICAR QUE TODOS OS LINKS DE NAVEGAÇÃO ENCONTRAM-SE DENTRO DA MESMA TAG HTML, COM UNICA CLASSE UNICA, PARA ENTÃO A BUSCA SER REALIZADA COM QUERY SELECTOR ALL('.CLASSE')
 
-SIDEBAR
+SIDEBAR 
 
 -   Reestruturação da blade;
 -   Add funcionalidade de transform dinâmica (ltr, ttb, rtl, btt);
@@ -45,4 +45,6 @@ if (verificar se o click tem ancora) {
 ele progrige no próprio href
 
 }
-NEXT: Verificar se eu não estiver na home, completar o link com a hash. Se estiver na home não precisa ser feito nada.
+DONE: Verificar se eu não estiver na home, completar o link com a hash. Se estiver na home não precisa ser feito nada.
+
+

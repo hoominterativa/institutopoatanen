@@ -236,6 +236,10 @@
             position: relative;
             @include disFlex(row, center, center);
 
+            @include large-device-down {
+                display: none;
+            }
+
             &__link {
                 @extend %theme__p1-c1;
                 text-decoration: none;
@@ -327,11 +331,20 @@
             // }
 
             /* Modificador do menu mobile */
-            &--menu-mobile{
-                @extend .head02__navigation__item;
+            &--menu-mobile {
+                display: none;
+                position: relative;
 
-                &__item{
+                @include large-device-down {
+                    @include disFlex(row, center, center);
+                }
+
+                &__item {
                     @extend %theme__menu-mobile;
+
+                    &__icon {
+                        @extend %theme__menu-mobile__icon;
+                    }
                 }
             }
         }
