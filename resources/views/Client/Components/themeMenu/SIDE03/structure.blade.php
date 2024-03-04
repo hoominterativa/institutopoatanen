@@ -1,4 +1,4 @@
-<div id="SIDE03" class="side03 transition">
+<div id="SIDE03" class="side03 burger__target">
     <div class="side03__scroll row mx-auto">
         <div class="side03__left col-sm-6 h-100 col-sm-6 h-100 flex-column d-flex justify-content-end" style="background-image">
             <div class="side03__image mx-auto">
@@ -7,7 +7,7 @@
         </div>
         {{-- END .side03__left --}}
         <div class="side03__right col-sm-6 h-100 flex-column position-relative d-flex justify-content-center">
-            <a href="#" class="side03__button-close">
+            <a href="#" class="side03__button-close burguer">
                 <svg class="side03__button-close__icon" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M-3.71547e-07 7.5L12.75 0.138784L12.75 14.8612L-3.71547e-07 7.5Z" fill="#D9D9D9"></path>
                 </svg>

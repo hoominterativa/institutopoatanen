@@ -17,7 +17,7 @@
     -ms-transition: all 0.7s ease-in-out;
     transition: all 0.7s ease-in-out;
 
-    &--show {
+    &--show, &.open {
         left: 0;
         top: 0;
         transition-duration: 0.6s;

@@ -30,21 +30,14 @@ SIDEBAR
 -   Add funcionalidade de transform dinâmica (ltr, ttb, rtl, btt);
 -   Funcionaliade de âncora;
 
-prevent default 
-fechar a sidebar
-if (verificar se o click tem ancora) {
-    if (home) {
-        rola no hash de maneira suave
-
-    } else {
-        progredir pra o href dele
-    }
-
-} else {
-
-ele progrige no próprio href
-
-}
 DONE: Verificar se eu não estiver na home, completar o link com a hash. Se estiver na home não precisa ser feito nada.
+
+
+/* 04/03/2024 */
+SIDEBAR (02)
+    -   Reestruturação da blade;
+    -   Funcionaliade de âncora (impressão do link da âncora sempre voltando para a Home);
+    -   Dropdown (multicamadas);
+    -   Add funcionalidade de transform dinâmica (ltr, ttb, rtl, btt);
 
 

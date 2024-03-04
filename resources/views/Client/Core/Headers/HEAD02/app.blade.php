@@ -74,7 +74,7 @@
                         @endforeach
                     </ul>
                 @else
-                    {{-- BACKEND: Inserir required no link --}}
+                    {{-- BACKEND: Inserir required no link - Verificar o script que reescreve o código do link, pois só está inserindo uma barra e não está inserindo o https:// --}}
                     <a href="{{ getUri($linksCtaHeader[0]->link) }}" target="{{ $linksCtaHeader[0]->link_target }}"
                         class="head02__navigation__item__cta">{{ $linksCtaHeader[0]->title }}</a>
 
