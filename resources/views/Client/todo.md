@@ -40,4 +40,9 @@ SIDEBAR (02)
     -  DONE: Dropdown (multicamadas);
     -   Add funcionalidade de transform dinâmica (ltr, ttb, rtl, btt);
 
+/* 05/03/2024 */
+SIDEBAR (03)
 
+    -  DONE: Reestruturação da blade;
+    -  DONE: Funcionaliade de âncora (impressão do link da âncora sempre voltando para a Home); 
+    -  DONE: Dropdown (multicamadas);
