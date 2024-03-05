@@ -20,7 +20,7 @@
 
     <ul class="side02__navigation sideLinks">
         <li class="side02__navigation__item">
-            <a href="{{ route('home') }}" class="side02__navigation__item__link">
+            <a title="HOME" href="{{ route('home') }}" class="side02__navigation__item__link">
                 HOME
             </a>
         </li>
@@ -29,7 +29,8 @@
             <li class="side02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
 
                 @if (!$menu->dropdown)
-                    <a href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
+                    <a title="{{ $menu->title }}"
+                        href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
                         target="{{ $menu->target_link ?? '_self' }}"
                         class="side02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link) : '' }}">
                         {{ $menu->title }}
@@ -56,14 +57,16 @@
                                             </li>
                                         @endforeach
                                         <li class="side02__navigation__item">
-                                            <a href="{{ $item->route }}" class="side02__navigation__item__link">Ver
+                                            <a title="Ver todos" href="{{ $item->route }}"
+                                                class="side02__navigation__item__link">Ver
                                                 todos</a>
                                         </li>
                                     </ul>
 
                                 </li>
                             @else
-                                <a href="{{ $item->route }}" target="{{ $item->target }}"
+                                <a title="{{ $item->name }}" href="{{ $item->route }}"
+                                    target="{{ $item->target }}"
                                     class="side02__navigation__item__link">{{ $item->name }}</a>
                             @endif
                         @endforeach
@@ -75,46 +78,48 @@
 
 
     @if ($linksCtaHeader->count() > 0 && $callToActionTitle->active_header)
-        <li class="side02__navigation__item  {{ $linksCtaHeader->count() > 1 ? 'quedinha' : '' }}">
+        <div class="side02__navigation__item  {{ $linksCtaHeader->count() > 1 ? 'quedinha' : '' }}">
             @if ($linksCtaHeader->count() > 1)
 
-                <button class="side02__navigation__item__cta quedinha__btn">
+                <button class="side02__cta quedinha__btn">
                     {{ $callToActionTitle->title_header ?? '' }}
                 </button>
-                <ul class="side02__navigation__item__cta__content quedinha__content">
+                <ul class="side02__cta__content quedinha__content">
                     @foreach ($linksCtaHeader as $linkCtaHeader)
                         <li>
-                            <a href="{{ getUri($linkCtaHeader->link) }}" target="{{ $linkCtaHeader->link_target }}"
-                                class="side02__navigation__item__cta__content__item">{{ $linkCtaHeader->title }}</a>
+                            <a title="{{ $linkCtaHeader->title }}" href="{{ getUri($linkCtaHeader->link) }}"
+                                target="{{ $linkCtaHeader->link_target }}"
+                                class="side02__cta__content__item">{{ $linkCtaHeader->title }}</a>
                         </li>
                     @endforeach
                 </ul>
             @else
                 {{-- BACKEND: Inserir required no link - Verificar o script que reescreve o código do link, pois só está inserindo uma barra e não está inserindo o https:// --}}
-                <a href="{{ getUri($linksCtaHeader[0]->link) }}" target="{{ $linksCtaHeader[0]->link_target }}"
-                    class="side02__navigation__item__cta">{{ $linksCtaHeader[0]->title }}</a>
+                <a title="{{ $linksCtaHeader[0]->title }}" href="{{ getUri($linksCtaHeader[0]->link) }}"
+                    target="{{ $linksCtaHeader[0]->link_target }}"
+                    class="side02__cta">{{ $linksCtaHeader[0]->title }}</a>
 
             @endif
-        </li>
+        </div>
 
     @endif
 
     @if ($socials->count())
-        <nav class="side02__social d-flex align-items-center justify-content-center">
+        <div class="side02__socials">
             @foreach ($socials as $social)
-                <a href="{{ $social->link }}" class="social-link transition" title="{{ $social->title }}">
-                    <img src="{{ asset('storage/' . $social->path_image_icon) }}" width="28.5px"
-                        alt="{{ $social->title }}">
+                <a href="{{ $social->link }}" class="side02__socials__item" title="{{ $social->title }}">
+                    <img class="side02__socials__item__icon" src="{{ asset('storage/' . $social->path_image_icon) }}"
+                        loading="lazy" alt="{{ $social->title }}">
                 </a>
             @endforeach
-        </nav>
+        </div>
     @endif
 
     @if ($linksCtaFooter->count())
-        <div class="side02__footer d-flex align-items-center justify-content-center">
+        <div class="side02__footer">
             @foreach ($linksCtaFooter as $linkCtaHeader)
-                <li><a href="{{ $linkCtaHeader->link }}" target="{{ $linkCtaHeader->link_target }}"
-                        rel="next">{{ $linkCtaHeader->title }}</a></li>
+                <a  title="{{ $linkCtaHeader->title }}" class="side02__footer__item" title="{{ $linkCtaHeader->title }}" href="{{ $linkCtaHeader->link }}"
+                    target="{{ $linkCtaHeader->link_target }}" rel="next">{{ $linkCtaHeader->title }}</a>
             @endforeach
         </div>
     @endif

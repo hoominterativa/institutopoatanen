@@ -1764,23 +1764,23 @@ body .owl-dots .owl-dot.active {
 .topi01__topics__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side02__navigation__item__cta, .head02__navigation__item__cta {
+.topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi10__header__paragraph p, .topi101__timeline__item__information__paragraph p, .topi08__header__paragraph p, .topi06__item__information__paragraph p, .topi05__item__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .topi102-show__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .topi102-show__information__cta p, .topi08__cta p, .topi06__item__information__cta p, .topi04__information__header__cta p, .topi11__header__paragraph p, .topi09__topics__item__information__title p, .topi04__information__topics__item__title p, .topi03__topics__item__title p, .topi11__main__topics__item__title p, .topi102__topics__item__paragraph p, .side02__navigation__item__cta p, .head02__navigation__item__cta p {
+.topi10__header__paragraph p, .topi101__timeline__item__information__paragraph p, .topi08__header__paragraph p, .topi06__item__information__paragraph p, .topi05__item__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .topi102-show__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .topi102-show__information__cta p, .topi08__cta p, .topi06__item__information__cta p, .topi04__information__header__cta p, .topi11__header__paragraph p, .topi09__topics__item__information__title p, .topi04__information__topics__item__title p, .topi03__topics__item__title p, .topi11__main__topics__item__title p, .topi102__topics__item__paragraph p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side02__navigation__item__cta, .head02__navigation__item__cta {
+  .topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
-.topi102__topics__item__paragraph, .side02__navigation__item__cta, .head02__navigation__item__cta {
+.topi102__topics__item__paragraph, .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
 .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title {
@@ -1792,19 +1792,19 @@ body .owl-dots .owl-dot.active {
 .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph {
   color: #7c7c7c;
 }
-.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side02__navigation__item__cta__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
+.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .topi04__information__header__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi02__topics__item__paragraph p, .topi01__topics__item__paragraph p, .topi11__main__topics__item__paragraph p, .topi102__navigation__item__title p, .side02__navigation__item__cta__content__item p, .head02__navigation__item__cta__content__item p, .topi08__topics__item__content__information p {
+.topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .topi04__information__header__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi02__topics__item__paragraph p, .topi01__topics__item__paragraph p, .topi11__main__topics__item__paragraph p, .topi102__navigation__item__title p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .topi08__topics__item__content__information p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side02__navigation__item__cta__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
+  .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1812,7 +1812,7 @@ body .owl-dots .owl-dot.active {
 .topi08__topics__item__content__information {
   color: #fff;
 }
-.topi102__navigation__item__title, .side02__navigation__item__cta__content__item, .head02__navigation__item__cta__content__item {
+.topi102__navigation__item__title, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
 .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph {
@@ -2128,10 +2128,11 @@ body .owl-dots .owl-dot.active {
   right: unset !important;
   /* Uso do important para resetar os valores de estilos que são inseridos via JS pelo plugin*/
 }
-.side02__navigation__item__cta {
+.side02__cta {
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.25rem 1.5rem;
+  margin-bottom: 8.75rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -2142,7 +2143,7 @@ body .owl-dots .owl-dot.active {
   background-color: #000;
   white-space: nowrap;
 }
-.side02__navigation__item__cta::after {
+.side02__cta::after {
   position: relative;
   top: unset;
   right: unset;
@@ -2151,34 +2152,38 @@ body .owl-dots .owl-dot.active {
   width: 0.5rem;
   background-color: #cacaca;
 }
-.side02__navigation__item__cta__content {
+.side02__cta__content {
   top: 71%;
   padding: 0.75rem;
   border-radius: 0 0 0.5rem 0.5rem;
 }
-.side02__social {
-  margin-bottom: 44px;
+.side02__socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.75rem;
 }
-.side02__social__item {
-  color: #404040;
-  font-size: 25px;
-  margin: 0 5px;
+.side02__socials__item {
+  width: 1.5rem;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.side02__socials__item__icon {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 .side02__footer {
-  margin-bottom: 30px;
-}
-.side02__footer__item {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #404040;
-  border-right: 2px solid #404040;
-  padding: 0 30px 0 0;
-  margin: 0 30px 0 0;
-}
-.side02__footer__item:last-of-type {
-  border: none;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 .side02__override {
   position: fixed;

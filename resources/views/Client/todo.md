@@ -35,9 +35,9 @@ DONE: Verificar se eu não estiver na home, completar o link com a hash. Se esti
 
 /* 04/03/2024 */
 SIDEBAR (02)
-    -   Reestruturação da blade;
-    -   Funcionaliade de âncora (impressão do link da âncora sempre voltando para a Home);
-    -   Dropdown (multicamadas);
+    -  DONE: Reestruturação da blade;
+    -  DONE: Funcionaliade de âncora (impressão do link da âncora sempre voltando para a Home); 
+    -  DONE: Dropdown (multicamadas);
     -   Add funcionalidade de transform dinâmica (ltr, ttb, rtl, btt);
 
 

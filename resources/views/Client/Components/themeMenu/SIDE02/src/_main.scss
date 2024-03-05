@@ -138,73 +138,76 @@
                     /* Uso do important para resetar os valores de estilos que são inseridos via JS pelo plugin*/
                 }
             }
+        }
+    }
 
-            &__cta {
-                width: fit-content;
-                padding: 0.25rem 1.5rem;
+    &__cta {
+        width: fit-content;
+        padding: 0.25rem 1.5rem;
+        margin-bottom: 8.75rem;
 
-                @include disFlex(row, center, center);
-                gap: 0.75rem;
+        @include disFlex(row, center, center);
+        gap: 0.75rem;
 
-                border: solid 1px $color-black;
-                border-radius: 0.75rem;
+        border: solid 1px $color-black;
+        border-radius: 0.75rem;
 
-                background-color: $color-black;
+        background-color: $color-black;
 
-                @extend %theme__p1-cw;
-                white-space: nowrap;
+        @extend %theme__p1-cw;
+        white-space: nowrap;
 
-                // setinha do dropdown (quando houver)
-                &::after {
-                    position: relative;
-                    top: unset;
-                    right: unset;
-                    transform: unset;
+        // setinha do dropdown (quando houver)
+        &::after {
+            position: relative;
+            top: unset;
+            right: unset;
+            transform: unset;
 
-                    display: block;
+            display: block;
 
-                    width: 0.5rem;
+            width: 0.5rem;
 
-                    background-color: $color-four;
-                }
-                // corpo do dropdown
-                &__content {
-                    top: 71%;
-                    padding: 0.75rem;
-                    border-radius: 0 0 0.5rem 0.5rem;
+            background-color: $color-four;
+        }
+        // corpo do dropdown
+        &__content {
+            top: 71%;
+            padding: 0.75rem;
+            border-radius: 0 0 0.5rem 0.5rem;
 
-                    // item do dropdown
-                    &__item {
-                        @extend %theme__p2-cb;
-                    }
-                }
+            // item do dropdown
+            &__item {
+                @extend %theme__p2-cb;
             }
         }
     }
 
-    &__social {
-        margin-bottom: 44px;
+    &__socials {
+        @include disFlex(row, center, center);
+        gap: 0.5rem;
+        margin-bottom: 2.75rem;
+
         &__item {
-            color: #404040;
-            font-size: 25px;
-            margin: 0 5px;
+            width: 1.5rem;
+            height: auto;
+            aspect-ratio: 1/1;
+
+            &__icon {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
         }
     }
 
     &__footer {
-        margin-bottom: 30px;
+        @include disFlex(row, center, center);
+        gap: 0.5rem;
+
         &__item {
-            font: $paragraph;
-            font-weight: $weight-400;
-            color: $color-one;
-            border-right: 2px solid $color-one;
-            padding: 0 30px 0 0;
-            margin: 0 30px 0 0;
-            &:last-of-type {
-                border: none;
-                padding: 0;
-                margin: 0;
-            }
+            @extend %theme__p2-cb;
         }
     }
 
