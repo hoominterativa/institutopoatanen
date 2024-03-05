@@ -72,7 +72,7 @@
                                         </div>
                                     @endif
                                     @if ($topic->path_archive || $topic->link_button)
-                                        <a href="{{ $topic->path_archive ? $topic->path_archive : getUri($topic->link_button) }}"
+                                        <a href="{{ $topic->path_archive ? asset('storage/' . $topic->path_archive) : getUri($topic->link_button) }}"
                                             {{ $topic->path_archive ? 'download' : 'target="_blank"' }}
                                             class="copa03__topics__main__item__cta">
                                             @if ($topic->title_button)
