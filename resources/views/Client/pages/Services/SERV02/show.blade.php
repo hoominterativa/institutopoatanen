@@ -11,7 +11,7 @@
                         <ul class="serv02-show__header__categories__carousel owl-carousel">
                             @foreach ($servicesNotIn as $serviceNotIn)
                                 <li class="serv02-show__header__categories__item">
-                                    <a href="{{route('serv02.page.content',['SERV02Services' => $serviceNotIn->slug])}}" class="link-full"></a>
+                                    <a href="{{route('serv02.show',['SERV02Services' => $serviceNotIn->slug])}}" class="link-full"></a>
                                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="icone" class="serv02-show__header__categories__item__icon">
                                     {{$serviceNotIn->title}}
                                 </li>
@@ -21,8 +21,7 @@
                 @endif
             </header>
             <main class="serv02-show__main">
-                <section class="serv02-show__core"
-                    style="background-image: url({{ asset('storage/' . $service->path_image_desktop) }});  background-color: {{ $service->background_color }};">
+                <section class="serv02-show__core">
                     @if ($service->title || $service->subtitle)
                         <header class="serv02-show__core__header">
                             <h3 class="serv02-show__core__header__subtitle">{{$service->subtitle}}</h3>
@@ -40,20 +39,22 @@
                 </section>
                 @if ($topics->count())
                     <section class="serv02-show__topics">
-                        <header class="serv02-show__topics__header">
-                            @if ($service->title_section || $service->subtitle_section)
-                                <h2 class="serv02-show__topics__header__title">{{$service->title_section}}</h2>
-                                <h3 class="serv02-show__topics__header__subtitle">{{$service->subtitle_section}}</h3>
-                                <hr class="serv02-show__topics__header__line">
-                            @endif
-                            @if ($service->description_section)
-                                <div class="serv02-show__topics__header__paragraph">
-                                    <p>
-                                        {!! $service->description_section !!}
-                                    </p>
-                                </div>
-                            @endif
-                        </header>
+                        @if ($service->active_section == 1)
+                            <header class="serv02-show__topics__header">
+                                @if ($service->title_section || $service->subtitle_section)
+                                    <h2 class="serv02-show__topics__header__title">{{$service->title_section}}</h2>
+                                    <h3 class="serv02-show__topics__header__subtitle">{{$service->subtitle_section}}</h3>
+                                    <hr class="serv02-show__topics__header__line">
+                                @endif
+                                @if ($service->description_section)
+                                    <div class="serv02-show__topics__header__paragraph">
+                                        <p>
+                                            {!! $service->description_section !!}
+                                        </p>
+                                    </div>
+                                @endif
+                            </header>
+                        @endif
                         <main class="serv02-show__topics__main">
                             <div class="serv02-show__topics__carousel owl-carousel">
                                 @foreach ($topics as $topic)

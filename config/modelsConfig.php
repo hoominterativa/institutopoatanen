@@ -14,32 +14,32 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'ContentPages' => (object) [
-            'COPA03' => (object)[
-                'ViewHome' => false,
+        'Services' => (object) [
+            'SERV02' => (object)[
+                'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title_page',
-                    'relation' => ''
+                    'titleList' => 'title',
+                    'relation' => "",
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Página de contato',
+                    'titleMenu' => 'Serviços',
                     'anchor' =>  false,
-                    'linkMenu' => 'copa03.page',
+                    'linkMenu' => 'serv02.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Página de contato',
-                    'iconPanel' => 'mdi-book-open-page-variant'
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
                 'IncludeSections' => (object) []
-            ]
-        ]
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[

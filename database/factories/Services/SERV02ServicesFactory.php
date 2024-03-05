@@ -30,9 +30,6 @@ class SERV02ServicesFactory extends Factory
             'title' => $title,
             'subtitle' => $subtitle,
             'text' => $this->faker->text(500),
-            'path_image_desktop' => 'uploads/tmp/image-box.jpg',
-            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#CACACA',
             'active' => 1,
             'featured' => rand(0, 1),
             // Service Box

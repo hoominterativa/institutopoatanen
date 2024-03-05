@@ -37,8 +37,7 @@
                                     </p>
                                 @endif
                             </div>
-                            <a href="{{route('serv02.page.content', ['SERV02Services' => $service->slug])}}" class="serv02-page__item__cta">
-                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Imagem de fundo [ttl do topic]" class="serv02-page__item__cta__icon">
+                            <a href="{{route('serv02.show', ['SERV02Services' => $service->slug])}}" class="serv02-page__item__cta">
                                 CTA
                             </a>
                         </div>

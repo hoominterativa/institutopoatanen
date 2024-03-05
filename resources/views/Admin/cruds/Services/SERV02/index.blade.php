@@ -69,8 +69,8 @@
                                                         <label><input name="btnSelectAll" value="btnDeleteSERV02" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
-                                                    <th>Título/Subtítulo</th>
-                                                    <th>Text</th>
+                                                    <th>Título/Subtítulo internos</th>
+                                                    <th>Título do box</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -84,17 +84,12 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$service->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($service->path_image_desktop)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$service->path_image_desktop)}})"></div>
-                                                            @endif
                                                             @if ($service->path_image_box)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$service->path_image_box)}})"></div>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">{{$service->title}}<b>/</b>{{$service->subtitle}}</td>
-                                                        @if ($service->text)
-                                                            <td class="align-middle">{!! substr($service->text, 0, 25) !!}<b>...</b></td>
-                                                        @endif
+                                                        <td class="align-middle">{{$service->title_box}}</td>
                                                         <td class="align-middle">
                                                             @if ($service->active)
                                                                 <span class="badge bg-success">Ativo</span>

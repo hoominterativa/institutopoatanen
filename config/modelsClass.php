@@ -398,7 +398,7 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV02Controller::class,
                 'model' => App\Models\Services\SERV02Services::class,
                 'seedQty' => 8,
-                'routeName' => 'serv02.page.content',
+                'routeName' => 'serv02.show',
             ],
             'SERV04' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV04Controller::class,

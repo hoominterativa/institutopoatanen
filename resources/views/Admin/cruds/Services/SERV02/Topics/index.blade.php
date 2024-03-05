@@ -19,7 +19,6 @@
                             </th>
                             <th>Imagem</th>
                             <th>Título</th>
-                            <th>Descrição</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -41,11 +40,6 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$topic->title}}</td>
-                                <td class="align-middle">
-                                    @if ($topic->description)
-                                        {!! substr($topic->description, 0, 25) !!}<b>...</b>
-                                    @endif
-                                </td>
                                 <td class="align-middle">
                                     @if ($topic->active)
                                         <span class="badge bg-success">Ativo</span>

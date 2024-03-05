@@ -4,6 +4,21 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
+                {!! Form::label('title_box', 'Título box', ['class' => 'form-label']) !!}
+                {!! Form::text('title_box', null, ['class' => 'form-control', 'id' => 'title_box']) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label('description_box', 'Descrição do box', ['class' => 'form-label']) !!}
+                {!! Form::textarea('description_box', null, [
+                    'class' => 'form-control',
+                    'id' => 'description_box',
+                    'data-parsley-trigger' => 'keyup',
+                    'data-parsley-maxlength' => '300',
+                    'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
+                    'data-parsley-validation-threshold' => '10',
+                ]) !!}
+            </div>
+            <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Form::label('title', 'Título interno', ['class' => 'form-label']) !!}
@@ -21,28 +36,6 @@
                     'class' => 'form-control normal-editor',
                     'data-height' => 500,
                     'id' => 'text',
-                ]) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('title_box', 'Título box', ['class' => 'form-label']) !!}
-                {!! Form::text('title_box', null, ['class' => 'form-control', 'id' => 'title_box']) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('description_box', 'Descrição do box', ['class' => 'form-label']) !!}
-                {!! Form::textarea('description_box', null, [
-                    'class' => 'form-control',
-                    'id' => 'description_box',
-                    'data-parsley-trigger' => 'keyup',
-                    'data-parsley-maxlength' => '300',
-                    'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold' => '10',
-                ]) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
                 ]) !!}
             </div>
         </div>
@@ -100,52 +93,6 @@
                             'data-default-file' => isset($service)
                                 ? ($service->path_image_box != ''
                                     ? url('storage/' . $service->path_image_box)
-                                    : '')
-                                : '',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Background desktop', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_desktop->width }}x{{ $cropSetting->path_image_desktop->height }}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_desktop', [
-                            'id' => 'inputImage',
-                            'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_desktop->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_desktop->width, // px
-                            'data-min-height' => $cropSetting->path_image_desktop->height, // px
-                            'data-box-height' => '180', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($service)
-                                ? ($service->path_image_desktop != ''
-                                    ? url('storage/' . $service->path_image_desktop)
-                                    : '')
-                                : '',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Background mobile', ['class' => 'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->path_image_mobile->width }}x{{ $cropSetting->path_image_mobile->height }}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_mobile', [
-                            'id' => 'inputImage',
-                            'class' => 'inputImage',
-                            'data-status' => $cropSetting->path_image_mobile->activeCrop, // px
-                            'data-min-width' => $cropSetting->path_image_mobile->width, // px
-                            'data-min-height' => $cropSetting->path_image_mobile->height, // px
-                            'data-box-height' => '180', // Input height in the form
-                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($service)
-                                ? ($service->path_image_mobile != ''
-                                    ? url('storage/' . $service->path_image_mobile)
                                     : '')
                                 : '',
                         ]) !!}

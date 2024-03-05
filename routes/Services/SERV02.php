@@ -36,4 +36,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao', SERV02SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV02ServicesSection']);
 });
 // CLIENT
-Route::get($route.'/{SERV02Services:slug}', [SERV02Controller::class, 'show'])->name($routeName.'.page.content');
+Route::get($route.'/{SERV02Services:slug}', [SERV02Controller::class, 'show'])->name($routeName.'.show');

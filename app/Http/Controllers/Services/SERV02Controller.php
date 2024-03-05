@@ -61,13 +61,8 @@ class SERV02Controller extends Controller
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['active_section'] = $request->active_section ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
+
         if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
-
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
-
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box) $data['path_image_box'] = $path_image_box;
@@ -85,8 +80,6 @@ class SERV02Controller extends Controller
             Session::flash('success', 'Serviço cadastrado com sucesso');
             return redirect()->route('admin.serv02.edit', ['SERV02Services' => $service->id]);
         } else {
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
             Storage::delete($path_image_box);
             Storage::delete($path_image_icon_box);
             Storage::delete($path_image_desktop_banner);
@@ -128,27 +121,8 @@ class SERV02Controller extends Controller
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['active_section'] = $request->active_section ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
+
         if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
-
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop){
-            storageDelete($SERV02Services, 'path_image_desktop');
-            $data['path_image_desktop'] = $path_image_desktop;
-        }
-        if($request->delete_path_image_desktop && !$path_image_desktop){
-            storageDelete($SERV02Services, 'path_image_desktop');
-            $data['path_image_desktop'] = null;
-        }
-
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile){
-            storageDelete($SERV02Services, 'path_image_mobile');
-            $data['path_image_mobile'] = $path_image_mobile;
-        }
-        if($request->delete_path_image_mobile && !$path_image_mobile){
-            storageDelete($SERV02Services, 'path_image_mobile');
-            $data['path_image_mobile'] = null;
-        }
 
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box){
@@ -193,8 +167,6 @@ class SERV02Controller extends Controller
         if ($SERV02Services->fill($data)->save()) {
             Session::flash('success', 'Serviço atualizado com sucesso');
         } else {
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
             Storage::delete($path_image_box);
             Storage::delete($path_image_icon_box);
             Storage::delete($path_image_desktop_banner);
@@ -212,17 +184,7 @@ class SERV02Controller extends Controller
      */
     public function destroy(SERV02Services $SERV02Services)
     {
-        $topics = SERV02ServicesTopic::where('service_id', $SERV02Services->id)->get();
-        if ($topics->count()) {
-            foreach ($topics as $topic) {
-                storageDelete($topic, 'path_image');
-                storageDelete($topic, 'path_image_icon');
-                $topic->delete();
-            }
-        }
 
-        storageDelete($SERV02Services, 'path_image_desktop');
-        storageDelete($SERV02Services, 'path_image_mobile');
         storageDelete($SERV02Services, 'path_image_box');
         storageDelete($SERV02Services, 'path_image_icon_box');
         storageDelete($SERV02Services, 'path_image_desktop_banner');
@@ -245,17 +207,8 @@ class SERV02Controller extends Controller
 
         $SERV02Servicess = SERV02Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV02Servicess as $SERV02Services){
-            $topics = SERV02ServicesTopic::where('service_id', $SERV02Services->id)->get();
-            if ($topics->count()) {
-                foreach ($topics as $topic) {
-                    storageDelete($topic, 'path_image');
-                    storageDelete($topic, 'path_image_icon');
-                    $topic->delete();
-                }
-            }
 
-            storageDelete($SERV02Services, 'path_image_desktop');
-            storageDelete($SERV02Services, 'path_image_mobile');
+
             storageDelete($SERV02Services, 'path_image_box');
             storageDelete($SERV02Services, 'path_image_icon_box');
             storageDelete($SERV02Services, 'path_image_desktop_banner');
@@ -297,14 +250,6 @@ class SERV02Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV02', 'show');
         $servicesNotIn = SERV02Services::whereNotIn('id', [$SERV02Services->id])->active()->sorting()->get();
         $topics = SERV02ServicesTopic::where('service_id', $SERV02Services->id)->active()->sorting()->get();
-
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if ($SERV02Services)
-                    {$SERV02Services->path_image_desktop_banner = $SERV02Services->path_image_mobile_banner;}
-            break;
-        }
 
         return view('Client.pages.Services.SERV02.show', [
             'sections' => $sections,

@@ -20,9 +20,6 @@ class CreateServ02ServicesTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('text')->nullable();
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
             // Service Box
             $table->string('title_box')->nullable();
             $table->text('description_box')->nullable();
