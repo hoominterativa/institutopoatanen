@@ -33,7 +33,9 @@
                             style="background-image:url({{ asset('storage/' . $brand->path_image_box) }})">
 
                             @if ($brand->link)
-                                <a href="{{ getUri($brand->link) }}" target="{{ $brand->target_link }}"
+                                <a
+                                title="link para a marca"
+                                href="{{ getUri($brand->link) }}" target="{{ $brand->target_link }}"
                                     class="link-full"></a>
                             @endif
 
@@ -49,7 +51,7 @@
         @endif
 
 
-        <a href="{{ route('bran01.page') }}"class="bran01__cta">
+        <a title="ir para a página" href="{{ route('bran01.page') }}" class="bran01__cta">
             CTA
         </a>
 

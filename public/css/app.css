@@ -1565,11 +1565,30 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.bran01-page__banner, .bran01 {
+.bran01-page__main, .bran01, .bran01-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
+}
+.bran01-page__banner {
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+}
+.bran01-page__banner__title {
+  font: 700 3.125rem "Ubuntu", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.0125rem;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .bran01-page__banner__title {
+    font-size: 2.5rem;
+    line-height: 90%;
+  }
+}
+.bran01-page__banner__title {
+  color: #404040;
 }
 .bran01__header__title, .bran01-page__main__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
@@ -1583,6 +1602,19 @@ body .owl-dots .owl-dot.active {
 }
 .bran01__header__title, .bran01-page__main__header__title {
   color: #404040;
+}
+.bran01-page__banner__subtitle {
+  font: 700 1.875rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .bran01-page__banner__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.bran01-page__banner__subtitle {
+  color: #b3b3b3;
 }
 .bran01__header__subtitle, .bran01-page__main__header__subtitle {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
@@ -2252,6 +2284,8 @@ body .owl-dots .owl-dot.active {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 .bran01__cta {
   margin-inline: auto;
@@ -2259,9 +2293,6 @@ body .owl-dots .owl-dot.active {
 
 .bran01-page__banner {
   width: 100%;
-  height: 218px;
-  padding-top: 0;
-  padding-bottom: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2270,31 +2301,12 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: center;
 }
-.bran01-page__banner__title {
-  font: 700 3.125rem "Ubuntu", sans-serif, arial;
-  color: #404040;
-}
-@media (max-width: 991.98px) {
-  .bran01-page__banner__title {
-    font-size: 2.5rem;
-  }
-}
-.bran01-page__banner__subtitle {
-  font: 700 1.875rem "Ubuntu", sans-serif, arial;
-  color: #b3b3b3;
-}
-@media (max-width: 991.98px) {
-  .bran01-page__banner__subtitle {
-    font-size: 1.563rem;
-  }
-}
-.bran01-page__banner__line {
-  margin-bottom: 32px;
-  border-top: solid 1px #404040;
-  width: 100%;
-}
 .bran01-page__main {
-  padding: 48px 5vw 120px;
+  padding-top: 3rem;
+  padding-bottom: 4.5rem;
+}
+.bran01-page__main__header__paragraph {
+  max-width: unset;
 }
 .bran01-page__main__content {
   display: flex;

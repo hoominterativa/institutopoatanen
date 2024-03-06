@@ -75,6 +75,7 @@
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
+                    object-position: center;
                 }
             }
         }
@@ -90,38 +91,26 @@
 .bran01-page {
     &__banner {
         width: 100%;
-        height: 218px;
-        @extend %theme__padding;
-        padding-top: 0;
-        padding-bottom: 0;
+
+        @extend %theme__padding--banner;
 
         @include bg;
+
         @include disFlex(column, center, center);
 
         &__title {
-            font: 700 $T1 $font-primary;
-            color: $color-one;
-
-            @include large-device-down {
-                font-size: $T1-mobile;
-            }
+            @extend %theme__t1-c1;
         }
+
         &__subtitle {
-            font: 700 $T3 $font-primary;
-            color: $color-three;
-
-            @include large-device-down {
-                font-size: $T3-mobile;
-            }
-        }
-        &__line {
-            margin-bottom: 32px;
-            border-top: solid 1px $color-one;
-            width: 100%;
+            @extend %theme__t3-c3;
         }
     }
+
     &__main {
-        padding: 48px 5vw 120px;
+        @extend %theme__padding;
+        padding-top: 3rem;
+        padding-bottom: 4.5rem;
 
         &__header {
             @extend .bran01__header;
@@ -129,6 +118,7 @@
             &__title {
                 @extend .bran01__header__title;
             }
+
             &__subtitle {
                 @extend .bran01__header__subtitle;
             }
@@ -139,6 +129,7 @@
 
             &__paragraph {
                 @extend .bran01__header__paragraph;
+                max-width: unset;
             }
         }
 
@@ -167,6 +158,7 @@
 
                 &__image {
                     @extend .bran01__content__item__image;
+
                     &__img {
                         @extend .bran01__content__item__image__img;
                     }
