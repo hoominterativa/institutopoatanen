@@ -4,7 +4,7 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD01',
+            'Code' => 'HEAD02',
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
@@ -14,8 +14,8 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'ContentPages' => (object) [
-            'COPA03' => (object)[
+        'Contacts' => (object) [
+            'COTA05' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -27,19 +27,19 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title_page',
-                    'relation' => ''
+                    'relation' => '',
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Página de contato',
-                    'anchor' =>  false,
-                    'linkMenu' => 'copa03.page',
+                    'titleMenu' => 'Contato',
+                    'anchor' => false,
+                    'linkMenu' => 'cota05.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Página de contato',
-                    'iconPanel' => 'mdi-book-open-page-variant'
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => 'mdi-contacts'
                 ],
                 'IncludeSections' => (object) []
-            ]
-        ]
+            ],
+        ],
     ],
 
     'ModelsForm' => (object)[
