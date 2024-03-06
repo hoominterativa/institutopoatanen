@@ -19,7 +19,6 @@
     <link rel="canonical" href="{{ url(Route::current()->uri) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/libraries.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
-    <link rel="stylesheet" href="{{ asset(mix('css/icons.css')) }}">
     <script>
         $url = "{{ url('') }}";
     </script>
