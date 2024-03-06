@@ -2,64 +2,6 @@
 
 /* BEGIN STYLE */
 .side03 {
-    &--show,
-    &.open {
-        left: 0;
-        top: 0;
-        transition-duration: 0.6s;
-        display: flex;
-
-        transition: all 0.7s ease-in;
-    }
-
-    &__network {
-        gap: 0 9.87px;
-        margin-top: 90px;
-
-        a {
-            img {
-                object-fit: contain;
-                height: 25.15px;
-                width: 25.13px;
-            }
-        }
-    }
-
-    &__privacy {
-        margin-top: 45.84px;
-
-        ul {
-            border: none;
-            padding: 0;
-            margin: 0;
-
-            li {
-                display: flex;
-                align-items: center;
-
-                a {
-                    font: $paragraph;
-                    font-weight: $weight-400;
-                    color: $color-one;
-                }
-                &::after {
-                    content: "";
-                    width: 1px;
-                    height: 15px;
-                    background: $color-black;
-                    display: flex;
-                    margin: 0 20px;
-                }
-
-                &:last-of-type::after,
-                &:last-of-type::marker {
-                    display: none !important;
-                }
-            }
-        }
-    }
-}
-.side03 {
     position: fixed;
     left: -100%;
     top: 0;
@@ -67,7 +9,6 @@
     width: 100vw;
     height: 100vh;
 
-    background-color: #222222;
     z-index: 1000;
 
     border-bottom: 8px solid $color-two;
@@ -90,13 +31,9 @@
         background: $color-one;
     }
 
-    &:has(.open) &__button-close {
-        display: block;
-    }
-
     &__button-close {
-        display: none;
-        position: fixed;
+        display: block;
+        position: absolute;
         left: 1.25rem;
         top: 1rem;
     }
@@ -172,20 +109,117 @@
             }
 
             &__content {
+                padding: 0.75rem;
+                border-radius: 0 0 0.5rem 0.5rem;
+
                 left: 50%;
                 transform: translate(
                     -50%,
                     0
                 ) !important; /*Uso do !important para resetar os valores padrões do .quedinha__content, pois este possui 4 níveis de especificidade*/
 
+                &__item {
+                    @extend %theme__p2-cb;
+                }
+
                 &--sub-menu {
+                    padding: 0.75rem;
+                    border-radius: 0 0 0.5rem 0.5rem;
+
                     top: 100% !important;
                     left: 0 !important;
                     right: unset !important;
 
                     /* Uso do important para resetar os valores de estilos que são inseridos via JS pelo plugin*/
+
+                    &__item {
+                        @extend %theme__p2-cb;
+
+                        &__link {
+                            @extend %theme__p2-cb;
+                        }
+                    }
                 }
             }
         }
+
+        &__cta {
+            width: fit-content;
+            padding: 0.25rem 1.5rem;
+
+            @include disFlex(row, center, center);
+            gap: 0.75rem;
+
+            border: solid 1px $color-black;
+            border-radius: 0.75rem;
+
+            background-color: $color-black;
+
+            @extend %theme__p1-cw;
+            white-space: nowrap;
+
+            // setinha do dropdown (quando houver)
+            &::after {
+                position: relative;
+                top: unset;
+                right: unset;
+                transform: unset;
+
+                display: block;
+
+                width: 0.5rem;
+
+                background-color: $color-four;
+            }
+            // corpo do dropdown
+            &__content {
+                top: 71%;
+                padding: 0.75rem;
+                border-radius: 0 0 0.5rem 0.5rem;
+
+                // item do dropdown
+                &__item {
+                    @extend %theme__p2-cb;
+                }
+            }
+        }
+
+        &__socials {
+            @include disFlex(row, center, center);
+            gap: 0.5rem;
+            margin: 8.75rem 0 2.75rem;
+
+            &__item {
+                width: 1.5rem;
+                height: auto;
+                aspect-ratio: 1/1;
+
+                &__icon {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+        }
+
+        &__footer {
+            @include disFlex(row, center, center);
+            gap: 0.5rem;
+
+            &__item {
+                @extend %theme__p2-cb;
+            }
+        }
     }
+
+    &.open {
+        left: 0;
+        top: 0;
+        transition-duration: 0.6s;
+        display: flex;
+
+        transition: all 0.7s ease-in;
+    }
+
 }

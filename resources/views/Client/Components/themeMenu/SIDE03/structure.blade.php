@@ -11,16 +11,16 @@
             loading="lazy" />
     </div>
 
-    <ul class="side03__navigation">
+    <div class="side03__navigation">
 
         <img src="{{ asset('storage/' . $generalSetting->path_logo_header_light) }}" class="side03__navigation__logo"
             alt="{{ env('APP_NAME') }}" loading='lazy'>
 
 
-        <li class="side03__navigation__item">
-            <a href="{{ route('home') }}" class="side03__navigation__item__link transition"> HOME
+        <div class="side03__navigation__item">
+            <a title="HOME" href="{{ route('home') }}" class="side03__navigation__item__link transition"> HOME
             </a>
-        </li>
+        </div>
 
         @foreach ($listMenu as $module => $menu)
             <li class="side03__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
@@ -33,7 +33,7 @@
                         {{ $menu->title }}
                     </a>
                 @else
-                    <button class=" side03__navigation__item__btn quedinha__btn">{{ $menu->title }}</button>
+                    <button class="side03__navigation__item__btn quedinha__btn">{{ $menu->title }}</button>
                 @endif
 
                 @if ($menu->dropdown)
@@ -47,15 +47,15 @@
                                     <ul
                                         class="side03__navigation__item__content--sub-menu quedinha__content quedinha__content--sub-menu">
                                         @foreach ($item->subList as $subItem)
-                                            <li class="side03__navigation__item">
+                                            <li class="side03__navigation__item__content--sub-menu__item">
                                                 <a href="{{ $subItem->route }}"
-                                                    class="side03__navigation__item__link">{{ $subItem->name }}</a>
+                                                    class="side03__navigation__item__content--sub-menu__item__link">{{ $subItem->name }}</a>
 
                                             </li>
                                         @endforeach
-                                        <li class="side03__navigation__item">
+                                        <li class="side03__navigation__item__content--sub-menu__item">
                                             <a title="Ver todos" href="{{ $item->route }}"
-                                                class="side03__navigation__item__link">Ver
+                                                class="side03__navigation__item__content--sub-menu__item__link">Ver
                                                 todos</a>
                                         </li>
                                     </ul>
@@ -72,55 +72,58 @@
             </li>
         @endforeach
 
-
-
-
-        @if ($linksCtaHeader->count())
-            <div class="dropdown side03__dropdown mx-auto">
+        @if ($linksCtaHeader->count() > 0 && $callToActionTitle->active_header)
+            <div class="side02__navigation__item  {{ $linksCtaHeader->count() > 1 ? 'quedinha' : '' }}">
                 @if ($linksCtaHeader->count() > 1)
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{ $callToActionTitle->title_header ?? '' }} <i class="menu-arrow"></i>
+
+                    <button class="side03__navigation__cta quedinha__btn">
+                        {{ $callToActionTitle->title_header ?? '' }}
                     </button>
-                    <ul class="dropdown-menu side03__dropdown__menu">
+                    <ul class="side03__navigation__cta__content quedinha__content">
                         @foreach ($linksCtaHeader as $linkCtaHeader)
-                            <li><a class="dropdown-item" href="{{ $linkCtaHeader->link }}"
-                                    target="{{ $linkCtaHeader->link_target }}">{{ $linkCtaHeader->title }}</a></li>
+                            <li>
+                                <a title="{{ $linkCtaHeader->title }}" href="{{ getUri($linkCtaHeader->link) }}"
+                                    target="{{ $linkCtaHeader->link_target }}"
+                                    class="side03__navigation__cta__content__item">{{ $linkCtaHeader->title }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 @else
-                    @foreach ($linksCtaHeader as $title => $linkCtaHeader)
-                        <li><a class="dropdown-item" href="{{ $linkCtaHeader->link }}"
-                                target="{{ $linkCtaHeader->link_target }}">{{ $linkCtaHeader->title }}</a></li>
-                    @endforeach
+                    {{-- BACKEND: Inserir required no link - Verificar o script que reescreve o código do link, pois só está inserindo uma barra e não está inserindo o https:// --}}
+                    <a title="{{ $linksCtaHeader[0]->title }}" href="{{ getUri($linksCtaHeader[0]->link) }}"
+                        target="{{ $linksCtaHeader[0]->link_target }}"
+                        class="side03__navigation__cta">{{ $linksCtaHeader[0]->title }}</a>
+
                 @endif
             </div>
+
         @endif
 
 
         @if ($socials->count())
-            <nav class="side03__network d-flex align-items-center justify-content-center">
+            <div class="side03__navigation__socials">
                 @foreach ($socials as $social)
-                    <a href="{{ $social->link }}" target="_blank" class="social-link transition"
+                    <a href="{{ $social->link }}" class="side03__navigation__socials__item"
                         title="{{ $social->title }}">
-                        <img src="{{ asset('storage/' . $social->path_image_icon) }}" width="28.5px"
+                        <img class="side03__navigation__socials__item__icon"
+                            src="{{ asset('storage/' . $social->path_image_icon) }}" loading="lazy"
                             alt="{{ $social->title }}">
                     </a>
                 @endforeach
-            </nav>
+            </div>
         @endif
 
-        <nav class="side03__privacy">
-            @if (isset($linksCtaFooter))
-                <ul class="d-flex align-items-center justify-content-center">
-                    @foreach ($linksCtaFooter as $title => $linkCtaHeader)
-                        <li><a href="{{ $linkCtaHeader->link }}"
-                                target="{{ $linkCtaHeader->link_target }}">{{ $linkCtaHeader->title }}</a></li>
-                    @endforeach
-                </ul>
-            @endif
-        </nav>
-    </ul>
+        @if ($linksCtaFooter->count())
+            <div class="side03__navigation__footer">
+                @foreach ($linksCtaFooter as $linkCtaHeader)
+                    <a title="{{ $linkCtaHeader->title }}" class="side03__navigation__footer__item"
+                        title="{{ $linkCtaHeader->title }}" href="{{ $linkCtaHeader->link }}"
+                        target="{{ $linkCtaHeader->link_target }}" rel="next">{{ $linkCtaHeader->title }}</a>
+                @endforeach
+            </div>
+        @endif
+
+    </div>
 
 
 </nav>

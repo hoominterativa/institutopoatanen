@@ -46,3 +46,6 @@ SIDEBAR (03)
     -  DONE: Reestruturação da blade;
     -  DONE: Funcionaliade de âncora (impressão do link da âncora sempre voltando para a Home); 
     -  DONE: Dropdown (multicamadas);
+
+/* 06/03/2024 */
+ - NEXT: Verficar se vai colocar a classe dos items do submenu 
