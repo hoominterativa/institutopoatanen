@@ -46,21 +46,23 @@
             </ul>
         </div>
 
-        <div class="cota05-page__form__radio-group">
-            <p class="cota05-page__form__radio-group__title">Atendimento</p>
+        @for ($i = 0; $i < 4; $i++)
+            <div class="cota05-page__form__radio-group">
+                <p class="cota05-page__form__radio-group__title">Atendimento</p>
 
-            <ul class="cota05-page__form__radio-group__list">
-                <li class="cota05-page__form__radio-group__list__item">
-                    <input type="radio" name="item01" class="cota05-page__form__radio-group__list__item__input">
-                </li>
-                <li class="cota05-page__form__radio-group__list__item">
-                    <input type="radio" name="item01" class="cota05-page__form__radio-group__list__item__input">
-                </li>
-                <li class="cota05-page__form__radio-group__list__item">
-                    <input type="radio" name="item01" class="cota05-page__form__radio-group__list__item__input">
-                </li>
-            </ul>
-        </div>
+                <ul class="cota05-page__form__radio-group__list">
+                    <li class="cota05-page__form__radio-group__list__item">
+                        <input type="radio" name="item01" class="cota05-page__form__radio-group__list__item__input">
+                    </li>
+                    <li class="cota05-page__form__radio-group__list__item">
+                        <input type="radio" name="item01" class="cota05-page__form__radio-group__list__item__input">
+                    </li>
+                    <li class="cota05-page__form__radio-group__list__item">
+                        <input type="radio" name="item01" class="cota05-page__form__radio-group__list__item__input">
+                    </li>
+                </ul>
+            </div>
+        @endfor
 
         <div class="cota05-page__form__radio-group">
             <p class="cota05-page__form__radio-group__title">Atendimento</p>
@@ -80,6 +82,42 @@
                 </li>
             </ul>
         </div>
+
+        <div class="cota05-page__form__inputs-group">
+
+            @include('Client.Components.inputs', [
+                'name' => 'name',
+                'placeholder' => 'Nome',
+                'type' => 'text',
+                'required' => false,
+            ])
+
+            @include('Client.Components.inputs', [
+                'name' => 'email',
+                'placeholder' => 'E-mail',
+                'type' => 'email',
+                'required' => false,
+            ])
+
+            @include('Client.Components.inputs', [
+                'name' => 'cellphone',
+                'placeholder' => 'Celular',
+                'type' => 'cellphone',
+                'required' => false,
+            ])
+
+            @include('Client.Components.inputs', [
+                'name' => 'textarea',
+                'placeholder' => 'Sugestões para melhorar',
+                'type' => 'textarea',
+                'required' => false,
+            ])
+
+        </div>
+
+        <button type="submit" class="cota05-page__form__cta">
+            CTA
+        </button>
 
         {!! Form::close() !!}
 
