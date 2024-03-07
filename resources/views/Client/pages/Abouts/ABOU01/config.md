@@ -2,7 +2,7 @@
 
 'Abouts' => (object) [
     'ABOU01' => (object)[
-        'ViewHome' => false,
+        'ViewHome' => true,
         'ViewListMenu' => true,
         'ViewListPanel' => true,
         'ViewListFooter' => false,

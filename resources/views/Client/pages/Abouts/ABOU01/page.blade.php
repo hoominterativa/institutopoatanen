@@ -1,24 +1,27 @@
 @extends('Client.Core.client')
 @section('content')
     <main id="root">
-        {{-- BEGIN Page content --}}
+
         @if ($about)
             <div id="ABOU01" class="abou01-page">
-
-                @if ($about->active_banner == 1)
+                @if ($about->active_banner)
                     <section class="abou01-page__banner"
                         style="background-image: url({{ asset('storage/' . $about->path_image_banner_desktop) }}); background-color: {{ $about->background_color_banner }}">
-
                         @if ($about->title_banner || $about->subtitle_banner)
-                            <h1 class="abou01-page__banner__title">{{ $about->title_banner }}</h1>
-                            <h2 class="abou01-page__banner__subtitle">{{ $about->subtitle_banner }}</h2>
-                            <hr class="abou01-page__banner__line">
+                            @if ($about->title_banner)
+                                <h1 class="abou01-page__banner__title">{{ $about->title_banner }}</h1>
+                            @endif
+
+                            @if ($about->subtitle_banner)
+                                <h2 class="abou01-page__banner__subtitle">{{ $about->subtitle_banner }}</h2>
+                            @endif
+
                         @endif
                     </section>
                 @endif
 
-                <section class="abou01-page__main"
-                    style="background-image: url({{ asset('storage/' . $about->path_image_desktop) }});background-color: {{ $about->background_color }}">
+                <main class="abou01-page__main"
+                    {{-- style="background-image: url({{ asset('storage/' . $about->path_image_desktop) }});background-color: {{ $about->background_color }}" --}}>
 
                     <div class="abou01-page__main__image">
                         @if ($about->path_image)
@@ -44,7 +47,7 @@
                             </div>
                         @endif
                     </div>
-                </section>
+                </main>
 
                 @if ($about->topics->count())
                     <section class="abou01-page__topics"
@@ -80,9 +83,9 @@
 
                     </section>
                 @endif
-                {{-- END .abou01-page__topic --}}
 
-                @if ($about->active_content == 1)
+
+                @if ($about->active_content)
                     <section class="abou01-page__section"
                         style="background-image: url({{ asset('storage/' . $about->path_image_content_desktop) }}); background-color: {{ $about->background_color_content }}">
 
@@ -129,12 +132,10 @@
                         </div>
                     </section>
                 @endif
-                {{-- END .abou01-page__section --}}
             </div>
-            {{-- END .abou01-page --}}
 
         @endif
-        {{-- Finish Content page Here --}}
+
 
         @foreach ($sections as $section)
             {!! $section !!}

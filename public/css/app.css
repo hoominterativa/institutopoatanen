@@ -1627,93 +1627,101 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.bran01-page__main, .bran01, .bran04, .bran01-page__banner {
+.abou01, .abou01-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.bran01-page__banner {
+.abou01-page__banner {
+  width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.bran01-page__banner__title {
+.abou01-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .bran01-page__banner__title {
+  .abou01-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.bran01-page__banner__title {
+.abou01-page__banner__title {
   color: #404040;
 }
-.bran01__header__title, .bran01-page__main__header__title, .bran04__header__title {
+.abou01__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .bran01__header__title, .bran01-page__main__header__title, .bran04__header__title {
+  .abou01__header__title {
     font-size: 1.875rem;
   }
 }
-.bran01__header__title, .bran01-page__main__header__title, .bran04__header__title {
+.abou01__header__title {
   color: #404040;
 }
-.bran01-page__banner__subtitle {
+.abou01-page__banner__subtitle {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .bran01-page__banner__subtitle {
+  .abou01-page__banner__subtitle {
     font-size: 1.563rem;
   }
 }
-.bran01-page__banner__subtitle {
+.abou01-page__banner__subtitle {
   color: #b3b3b3;
 }
-.bran01__header__subtitle, .bran01-page__main__header__subtitle, .bran04__header__subtitle {
+.abou01__header__subtitle {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .bran01__header__subtitle, .bran01-page__main__header__subtitle, .bran04__header__subtitle {
+  .abou01__header__subtitle {
     font-size: 1.125rem;
   }
 }
-.bran01__header__subtitle, .bran01-page__main__header__subtitle, .bran04__header__subtitle {
+.abou01__header__subtitle {
   color: #b3b3b3;
 }
-.bran01__header__paragraph, .bran01-page__main__header__paragraph, .bran04__header__paragraph, .bran01__cta {
+.abou01__paragraph, .abou01__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .bran04__header__paragraph p, .bran01__cta p {
+.abou01__paragraph p, .abou01__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .bran01__header__paragraph, .bran01-page__main__header__paragraph, .bran04__header__paragraph, .bran01__cta {
+  .abou01__paragraph, .abou01__cta {
     font-size: 0.938rem;
   }
 }
-.bran01__cta {
+.abou01__cta {
   color: #404040;
 }
-.bran01__header__paragraph, .bran01-page__main__header__paragraph, .bran04__header__paragraph {
+.abou01__paragraph {
   color: #7c7c7c;
 }
-.bran01__cta {
+.abou01__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1724,7 +1732,7 @@ body .owl-dots .owl-dot.active {
   background-color: #cacaca;
   font-weight: 700;
 }
-.bran01__cta:focus {
+.abou01__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -2171,11 +2179,10 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-/* BEGIN STYLE */
-.bran04 {
-  overflow: hidden; /*previne o shift da animação*/
+.abou01 {
+  overflow: hidden; /* prevenção do shift da animação*/
 }
-.bran04__header {
+.abou01__header {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -2183,182 +2190,223 @@ body .owl-dots .owl-dot.active {
   align-items: center;
   margin-bottom: 3rem;
 }
-.bran04__header__title {
+.abou01__header__title {
   margin-bottom: 0.25rem;
+  text-align: center;
 }
-.bran04__header__subtitle {
+.abou01__header__subtitle {
   margin-bottom: 2rem;
+  text-align: center;
 }
-.bran04__header__line {
+.abou01__header__line {
   width: 100%;
   margin-bottom: 2rem;
   border-top: solid 1px #b3b3b3;
 }
-.bran04__header__paragraph {
+.abou01__paragraph {
   width: 100%;
-  max-width: 70%;
+  max-width: 1206px;
+  margin: 0 auto 2rem;
   text-align: center;
 }
-.bran04__content {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 1.5rem 1.25rem;
-}
-.bran04__content__item {
-  position: relative;
-  width: calc(25% - 0.9375rem);
-  height: auto;
-  aspect-ratio: 320/136;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@media (max-width: 991.98px) {
-  .bran04__content__item {
-    width: calc(33.33% - 0.84rem);
-  }
-}
-@media (max-width: 767.98px) {
-  .bran04__content__item {
-    width: calc(50% - 0.625rem);
-  }
-}
-.bran04__content__item__icon {
-  width: 3.75rem;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+.abou01__cta {
+  margin-inline: auto;
 }
 
-/* BEGIN STYLE */
-.bran01 {
-  overflow: hidden; /*previne o shift da animação*/
-}
-.bran01__header, .bran01-page__main__header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-.bran01__header__title, .bran01-page__main__header__title {
-  margin-bottom: 0.25rem;
-}
-.bran01__header__subtitle, .bran01-page__main__header__subtitle {
-  margin-bottom: 2rem;
-}
-.bran01__header__line, .bran01-page__main__header__line {
-  width: 100%;
-  margin-bottom: 2rem;
-  border-top: solid 1px #b3b3b3;
-}
-.bran01__header__paragraph, .bran01-page__main__header__paragraph {
-  width: 100%;
-  max-width: 70%;
-  text-align: center;
-}
-.bran01__content {
-  height: auto;
-  margin-bottom: 1.5rem;
-}
-.bran01__content__item, .bran01-page__main__content__item {
-  position: relative;
-  width: calc(25% - 1.125rem);
-  height: auto;
-  aspect-ratio: 321/136;
+.abou01-page__main, .abou01-page__section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 48px 5vw 0;
 }
 @media (max-width: 991.98px) {
-  .bran01__content__item, .bran01-page__main__content__item {
-    width: 33%;
+  .abou01-page__main, .abou01-page__section {
+    flex-direction: column;
+    gap: 80px;
+    padding: 48px 5vw;
   }
 }
-@media (max-width: 767.98px) {
-  .bran01__content__item, .bran01-page__main__content__item {
-    width: 50%;
+.abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information {
+  width: 65%;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information {
+    width: 100%;
   }
 }
-@media (max-width: 575.98px) {
-  .bran01__content__item, .bran01-page__main__content__item {
-    width: 90%;
+.abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image {
+  width: 30%;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image {
+    width: 100%;
   }
 }
-.bran01__content__item__image, .bran01-page__main__content__item__image {
-  width: 4rem;
-  height: auto;
-  aspect-ratio: 1/1;
+.abou01-page__main__information, .abou01-page__section__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding-bottom: 40px;
+  width: 100%;
 }
-.bran01__content__item__image__img, .bran01-page__main__content__item__image__img {
+@media (max-width: 991.98px) {
+  .abou01-page__main__information, .abou01-page__section__information {
+    width: 100%;
+    padding-bottom: 0px;
+  }
+}
+.abou01-page__main__information__header, .abou01-page__section__information__header {
+  margin-bottom: 30px;
+  width: 100%;
+}
+.abou01-page__main__information__header__title, .abou01-page__section__information__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: 100%;
+  text-align: left;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main__information__header__title, .abou01-page__section__information__header__title {
+    font-size: 1.875rem;
+  }
+}
+.abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle {
+  font-size: 700 1.25rem "Ubuntu", sans-serif, arial;
+  color: #7c7c7c;
+  text-align: left;
+  margin-bottom: 1.75rem;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph {
+  font: 400 1rem "Montserrat", sans-serif, arial;
+  line-height: 170%;
+  color: #404040;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph {
+    font-size: 0.938rem;
+  }
+}
+.abou01-page__main__image, .abou01-page__section__image {
+  width: 100%;
+  height: 517px;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main__image, .abou01-page__section__image {
+    width: 100%;
+  }
+}
+.abou01-page__main__image__img, .abou01-page__section__image__img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: center bottom;
+     object-position: center bottom;
 }
-.bran01__cta {
-  margin-inline: auto;
-}
-
-.bran01-page__banner {
-  width: 100%;
+.abou01-page__topics {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 125px 5vw;
 }
-.bran01-page__main {
-  padding-top: 3rem;
-  padding-bottom: 4.5rem;
+.abou01-page__topics__content {
+  min-height: 100%;
 }
-.bran01-page__main__header__paragraph {
-  max-width: unset;
+.abou01-page__topics__content:hover {
+  transform: scale(1.01);
 }
-.bran01-page__main__content {
+.abou01-page__topics__carousel {
+  width: 100%;
+}
+.abou01-page__topics__carousel:not(.owl-carousel) {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: stretch;
+  gap: 26px;
   flex-wrap: wrap;
-  gap: 1.25rem 1.5rem;
 }
-.bran01-page__main__content__item {
-  /* (Quantiade de gap * tamanho do gap)/quantidade de elementos */
-  width: calc(25% - 1.125rem);
+.abou01-page__topics__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: 100%;
+  padding: 2.8rem 2.25rem;
+  background-color: #cacaca;
+}
+.abou01-page__topics__item__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  margin-bottom: 28px;
+}
+.abou01-page__topics__item__header__icon {
+  width: 32px !important;
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-right: 19px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.abou01-page__topics__item__header__title {
+  font: 700 1.875rem "Ubuntu", sans-serif, arial;
+  color: #000;
+  text-align: left;
+  margin-bottom: 0;
 }
 @media (max-width: 991.98px) {
-  .bran01-page__main__content__item {
-    width: calc(33.33% - 1rem);
+  .abou01-page__topics__item__header__title {
+    font-size: 1.563rem;
   }
 }
-@media (max-width: 767.98px) {
-  .bran01-page__main__content__item {
-    width: calc(50% - 0.75rem);
+.abou01-page__topics__item__paragraph {
+  font: 400 1rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  text-align: left;
+  line-height: 170%;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__topics__item__paragraph {
+    font-size: 0.938rem;
   }
 }
-@media (max-width: 575.98px) {
-  .bran01-page__main__content__item {
-    width: 100%;
-  }
+.abou01-page__section__information__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: end;
+  padding: 0.5rem 2.5rem;
+  margin-top: 1rem;
+  font: 700 1rem "Ubuntu", sans-serif, arial;
+  color: #000;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+.abou01-page__section__information__cta__icon {
+  height: auto;
+  width: 1.5rem;
+  margin-right: 1rem;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 /* BEGIN STYLE */
 .comp01-page__header {

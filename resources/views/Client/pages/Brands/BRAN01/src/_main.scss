@@ -90,20 +90,13 @@
 // Inicio-bran01
 .bran01-page {
     &__banner {
-        width: 100%;
-
-        @extend %theme__padding--banner;
-
-        @include bg;
-
-        @include disFlex(column, center, center);
-
+        @extend %theme__banner;
         &__title {
-            @extend %theme__t1-c1;
+            @extend %theme__banner__title;
         }
 
         &__subtitle {
-            @extend %theme__t3-c3;
+            @extend %theme__banner__subtitle;
         }
     }
 

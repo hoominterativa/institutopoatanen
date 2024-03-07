@@ -3,114 +3,60 @@
 /* BEGIN STYLE */
 
 .abou01 {
-    text-align: center;
-    padding: 80px 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
 
-    @include small-device {
-        padding: 40px 0;
-    }
-
-    &__title {
-        font-size: $T2;
-        font-family: $font-primary;
-        color: $color-one;
-        display: block;
-
-        @include small-device {
-            font-size: $T2-mobile;
-        }
-    }
-    &__subtitle {
-        font-size: $T4;
-        font-family: $font-primary;
-        color: $color-one;
-        display: block;
-
-        @include small-device {
-            font-size: $T4-mobile;
-        }
-    }
-    &__line {
+    &__header {
         width: 100%;
-        background-color: $color-one;
-        margin: 30px 0;
+        @include disFlex(column, center, center);
+
+        margin-bottom: 3rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
+            text-align: center;
+        }
+
+        &__subtitle {
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        &__line {
+            width: 100%;
+            margin-bottom: 2rem;
+
+            border-top: solid 1px $color-three;
+        }
     }
+
     &__paragraph {
-        font: $paragraph;
-        font-weight: $weight-500;
-        padding: 0 30px;
-        color: $color-one;
-        line-height: 25px;
+        width: 100%;
+        max-width: 1206px;
+        margin: 0 auto 2rem;
 
-        @include small-device {
-            font: $paragraph-mobile;
-        }
+        @extend %theme__p1-c2;
+        text-align: center;
     }
+
     &__cta {
-        font: $paragraph;
-        font-weight: $weight-700;
-        color: $color-black;
-        display: block;
-        margin: 30px auto 0;
-        max-width: 177px;
-        padding: 10px 15px;
-        background-color: $bg-soft;
-
-        &:hover {
-            color: $color-white;
-            background-color: $bg-black;
-        }
-
-        &:hover &__icon {
-            filter: invert(1) grayscale(1);
-        }
-
-        @include small-device {
-            font: $paragraph-mobile;
-        }
+        @extend %theme__cta;
+        margin-inline: auto;
     }
 }
 // END .abou01
 
 .abou01-page {
     &__banner {
-        @include backG;
-        @include disFlex(column, start, center);
-
-        height: 352px;
-        padding: 112px 5vw 92px;
-
+        @extend %theme__banner;
         &__title {
-            font: 700 $T1 $font-primary;
-            text-align: center;
-            line-height: 140%;
-            color: $color-black;
-
-            margin-bottom: 1.5rem;
-
-            @include large-device-down {
-                font-size: $T1-mobile;
-            }
+            @extend %theme__banner__title;
         }
 
         &__subtitle {
-            font-size: 700 $T4 $font-primary;
-            color: $color-two;
-            text-align: center;
-            margin-bottom: 1.75rem;
-
-            @include large-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 100%;
-            max-width: 610px;
-            border-top: 1px solid $color-black;
+            @extend %theme__banner__subtitle;
         }
     }
 
@@ -129,6 +75,14 @@
 
         &:has(&__image) &__information {
             width: 65%;
+
+            @include large-device-down {
+                width: 100%;
+            }
+        }
+
+        &:has(&__information) &__image {
+            width: 30%;
 
             @include large-device-down {
                 width: 100%;
@@ -186,17 +140,11 @@
             }
         }
 
-        &:has(&__information) &__image {
-            width: 30%;
-
-            @include large-device-down {
-                width: 100%;
-            }
-        }
 
         &__image {
             width: 100%;
             height: 517px;
+
 
             @include large-device-down {
                 width: 100%;

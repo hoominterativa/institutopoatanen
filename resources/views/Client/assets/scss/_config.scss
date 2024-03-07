@@ -1679,11 +1679,25 @@ body {
         padding-bottom: 4.5rem;
         padding-left: 5vw;
 
-        &--banner{
-            @extend %theme__padding;
+    }
 
-            padding-top: 6.5rem;
-            padding-bottom: 6.5rem;
+    &__banner {
+        width: 100%;
+
+        @extend %theme__padding;
+        padding-top: 6.5rem;
+        padding-bottom: 6.5rem;
+
+        @include bg;
+
+        @include disFlex(column, center, center);
+
+        &__title {
+            @extend %theme__t1-c1;
+        }
+
+        &__subtitle {
+            @extend %theme__t3-c3;
         }
     }
 
