@@ -61,6 +61,7 @@
 
                 &__title {
                     @extend %theme__accordion__item__title;
+
                     &__icon {
                         @extend %theme__accordion__item__title__icon;
                     }

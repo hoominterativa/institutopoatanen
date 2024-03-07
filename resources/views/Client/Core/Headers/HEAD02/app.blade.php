@@ -1,106 +1,119 @@
-<div id="HEAD02" class="container-fluid">
-    <div class="container">
-        <div class="container-header d-flex align-items-center justify-content-between">
-            <div id="logoHeader">
-                <a href="{{route('home')}}">
-                    <img src="{{asset('storage/'.$generalSetting->path_logo_header_light)}}" alt="" width="202">
-                </a>
-            </div>
-            {{-- END #logoHeader --}}
-            <div class="container-navigation d-flex align-items-center">
-                <nav>
-                    <ul class="menu-list list-inline mb-0">
-                        <li class="list-inline-item menu-item dropdown">
-                            <a href="{{route('home')}}" class="link transition">Home</a>
-                        </li>
-                        @foreach ($listMenu as $module => $menu)
-                            <li class="list-inline-item menu-item {{$menu->dropdown?'dropdown':''}}">
-                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link??'_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown':''}} {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}} class="link transition {{!$menu->anchor?isActive($menu->link):''}}">
-                                    {{$menu->title}}
-                                    @if ($menu->dropdown)
-                                        <i class="menu-arrow"></i>
-                                    @endif
-                                </a>
-                                @if ($menu->dropdown)
-                                    <div class="sublink--menu text-end dropdown-menu" aria-labelledby="sublink--menu" >
-                                        @foreach ($menu->dropdown as $item)
-                                            @if ($item->subList)
-                                                <div class="mb-2 dropdown">
-                                                    <a href="{{$item->route}}" data-bs-toggle="dropdown" class="sublink-item transition">{{$item->name}} <i class="menu-arrow"></i></a>
-                                                    <div class="dropdown-menu">
-                                                        @foreach ($item->subList as $subItem)
-                                                            <a href="{{$subItem->route}}" class="sublink-item transition">{{$subItem->name}}</a>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <a href="{{$item->route}}" target="{{$item->target}}" class="sublink-item transition">{{$item->name}}</a>
-                                            @endif
+<nav id="HEAD02" class="head02">
+
+    <a href="{{ route('home') }}" class="head02__logo">
+        <img src="{{ asset('storage/' . $generalSetting->path_logo_header_light) }}" alt="Logo do site" loading="lazy"
+            class="head02__logo__img">
+    </a>
+
+
+    <ul class="head02__navigation">
+        <li class="head02__navigation__item">
+            <a href="{{ route('home') }}" class="head02__navigation__item__link">Home</a>
+        </li>
+
+        @foreach ($listMenu as $module => $menu)
+            <li class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
+
+                @if (!$menu->dropdown)
+                    <a href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
+                        target="{{ $menu->target_link ?? '_self' }}"
+                        class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link) : '' }}">
+                        {{ $menu->title }}
+                    </a>
+                @else
+                    <button class=" head02__navigation__item__btn quedinha__btn">{{ $menu->title }}</button>
+                @endif
+
+                @if ($menu->dropdown)
+                    <ul class="head02__navigation__item__content quedinha__content">
+                        @foreach ($menu->dropdown as $item)
+                            @if ($item->subList)
+                                <li class="head02__navigation__item__content__item quedinha">
+                                    <button href="{{ $item->route }}"
+                                        class="head02__navigation__item__link quedinha__btn">{{ $item->name }}</button>
+
+                                    <ul class="quedinha__content quedinha__content--sub-menu">
+                                        @foreach ($item->subList as $subItem)
+                                            <li class="head02__navigation__item">
+                                                <a href="{{ $subItem->route }}"
+                                                    class="head02__navigation__item__link">{{ $subItem->name }}</a>
+
+                                            </li>
                                         @endforeach
-                                    </div>
-                                @endif
+                                        <li class="head02__navigation__item">
+                                            <a href="{{ $item->route }}" class="head02__navigation__item__link">Ver
+                                                todos</a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            @else
+                                <a href="{{ $item->route }}" target="{{ $item->target }}"
+                                    class="head02__navigation__item__link">{{ $item->name }}</a>
+                            @endif
+                        @endforeach
+                    </ul>
+                @endif
+            </li>
+        @endforeach
+
+        @if ($linksCtaHeader->count() > 0 && $callToActionTitle->active_header)
+            <li class="head02__navigation__item  {{ $linksCtaHeader->count() > 1 ? 'quedinha' : '' }}">
+                @if ($linksCtaHeader->count() > 1)
+
+                    <button class="head02__navigation__item__cta quedinha__btn">
+                        {{ $callToActionTitle->title_header ?? '' }}
+                    </button>
+                    <ul class="head02__navigation__item__cta__content quedinha__content">
+                        @foreach ($linksCtaHeader as $linkCtaHeader)
+                            <li>
+                                <a href="{{ getUri($linkCtaHeader->link) }}"
+                                    target="{{ $linkCtaHeader->link_target }}"
+                                    class="head02__navigation__item__cta__content__item">{{ $linkCtaHeader->title }}</a>
                             </li>
                         @endforeach
                     </ul>
-                </nav>
-                {{-- END .menu-list --}}
-                @if ($linksCtaHeader->count() && $callToActionTitle->active_header??false)
-                    <div class="container-cta">
-                        <div class="dropdown">
-                            @if ($linksCtaHeader->count()>1)
-                                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="btn-cta transition">
-                                    {{$callToActionTitle->title_header??''}}
-                                    <i class="menu-arrow"></i>
-                                </a>
-                                <div class="sublink--cta-right text-end dropdown-menu" aria-labelledby="sublink--cta-right" >
-                                    @foreach ($linksCtaHeader as $linkCtaHeader)
-                                        <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="sublink-item transition mb-2">{{$linkCtaHeader->title}}</a>
-                                    @endforeach
-                                </div>
-                            @else
-                                @foreach ($linksCtaHeader as $linkCtaHeader)
-                                    <a href="{{getUri($linkCtaHeader->link)}}" target="{{$linkCtaHeader->link_target}}" class="btn-cta transition">{{$linkCtaHeader->title}}</a>
-                                @endforeach
-                            @endif
-                        </div>
-                    </div>
+                @else
+                    {{-- BACKEND: Inserir required no link - Verificar o script que reescreve o código do link, pois só está inserindo uma barra e não está inserindo o https:// --}}
+                    <a href="{{ getUri($linksCtaHeader[0]->link) }}" target="{{ $linksCtaHeader[0]->link_target }}"
+                        class="head02__navigation__item__cta">{{ $linksCtaHeader[0]->title }}</a>
+
                 @endif
-                {{-- END .btn-cta --}}
+            </li>
 
-                @if ($socials->count())
-                    <nav class="social-network d-flex align-items-center mb-0">
-                        @foreach ($socials as $social)
-                            <a href="{{$social->link}}" class="social-link transition" title="{{$social->title}}">
-                                <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
-                            </a>
-                        @endforeach
-                    </nav>
-                @endif
-                {{-- END .social-network --}}
+        @endif
 
-                <nav class="d-flex align-items-center link-translate">
-                    <a href="#" class="btn-translate px-2" alt="{{__('Traduzir para Inglês')}}">EN</a>
-                    <a href="#" class="btn-translate px-2 border-0" alt="{{__('Traduzir para Portugês')}}">PT</a>
-                </nav>
-                {{-- END .link-translate --}}
 
-                <div class="menu-sidebar-header">
-                    <div class="btn-menu-sidebar-header">
-                        <a href="#SIDE03" alt="{{__('Abrir menu')}}" nofollow data-plugin="sidebar" data-sb-position="right" class="d-flex align-items-center">
-                            <div class="lines">
-                                <i class="w-100 mb-2 mx-auto transition"></i>
-                                <i class="w-100 mb-2 mx-auto transition"></i>
-                                <i class="w-100 mb-0 mx-auto transition"></i>
-                            </div>
-                        </a>
-                    </div>
+        @if ($socials->count())
+            <li class="head02__navigation__item--socials">
+                @foreach ($socials as $social)
+                    <a href="{{ $social->link }}" class="head02__navigation__item--socials__item"
+                        title="{{ $social->title }}">
+                        <img loading="lazy" src="{{ asset('storage/' . $social->path_image_icon) }}"
+                            alt="{{ $social->title }}" class="head02__navigation__item--socials__item__icon">
+                    </a>
+                @endforeach
+            </li>
+        @endif
+
+        {{-- IDIOMAS --}}
+        {{-- <li class="head02__navigation__item--languages">
+            <a href="#" class="head02__navigation__item--languages__item"
+                alt="{{ __('Traduzir para Inglês') }}">EN</a>
+
+            <a href="#" class="head02__navigation__item--languages__item"
+                alt="{{ __('Traduzir para Portugês') }}">PT</a>
+        </li> --}}
+
+        <li class="head02__navigation__item--menu-mobile">
+            <button class="head02__navigation__item--menu-mobile__item burguer">
+                {{-- Menu --}}
+                <div class="head02__navigation__item--menu-mobile__item__icon burguer__icon dots">
                 </div>
-                {{-- END menu-sidebar-header --}}
-            </div>
+            </button>
+        </li>
 
-        </div>
-        {{-- END .container-header --}}
-    </div>
-    {{-- END .container --}}
-</div>
-{{-- END #HEAD02 --}}
+    </ul>
+
+
+</nav>
