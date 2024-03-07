@@ -1733,6 +1733,7 @@ body {
         padding-bottom: 6.5rem;
 
         @include bg;
+        background-color: $color-four;
 
         @include disFlex(column, center, center);
 

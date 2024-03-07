@@ -24,7 +24,7 @@
             @endif
         @endif
         @if ($topics->count())
-            <main class="topi01__topics">
+            <main class="topi01__topics swiper">
                 <div class="topi01__topics__swiper-wrapper swiper-wrapper">
                     @foreach ($topics as $topic)
                         <article class="topi01__topics__item swiper-slide">

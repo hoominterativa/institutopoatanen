@@ -136,15 +136,28 @@
         @extend %theme__padding;
         height: auto;
 
+        /* FRONTEND CASO SEJA NECESSÁRIO O CARROSSEL VAZANDO, REMOVER O OVERFLOW HIDDEN */
+        &__carousel {
+            overflow: hidden;
+
+            @extend %theme__pagination;
+        }
+
         &__item {
             @include disFlex(column);
             padding: 2.8rem 2.25rem;
-
+            width: calc(33.33% - 1rem);
             height: auto;
 
             background-color: $color-four;
 
+            @include large-device-down {
+                width: calc(50% - 0.75rem);
+            }
 
+            @include medium-device-down {
+                width: 100%;
+            }
 
             &__header {
                 @include disFlex;
@@ -161,30 +174,15 @@
                 }
 
                 &__title {
-                    font: 700 $T3 $font-primary;
-                    color: $color-black;
-                    text-align: left;
-                    margin-bottom: 0;
-
-                    @include large-device-down {
-                        font-size: $T3-mobile;
-                    }
+                    @extend %theme__t5-cb;
                 }
             }
 
             &__paragraph {
-                font: $paragraph;
-                color: $color-two;
-                text-align: left;
-                line-height: 170%;
-
-                @include large-device-down {
-                    font-size: $P1-mobile;
-                }
+                @extend %theme__p2-c2;
             }
         }
     }
-    // END __topic
 
     &__section {
         @extend .abou01-page__main;
@@ -209,6 +207,7 @@
             }
 
             &__cta {
+                margin-top: 3rem;
                 @extend %theme__cta;
             }
         }

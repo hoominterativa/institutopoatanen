@@ -1677,6 +1677,7 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #cacaca;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1736,17 +1737,17 @@ body .owl-dots .owl-dot.active {
 .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle {
   color: #b3b3b3;
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .side02__navigation__item__link, .side02__navigation__item__btn {
+  .abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
 .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .abou01-page__section__information__cta, .abou01__cta, .side02__cta, .head02__navigation__item__cta {
@@ -1774,25 +1775,28 @@ body .owl-dots .owl-dot.active {
 .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph {
   color: #7c7c7c;
 }
-.side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.abou01-page__topics__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.abou01-page__topics__item__paragraph p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .abou01-page__topics__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
+}
+.abou01-page__topics__item__paragraph {
+  color: #7c7c7c;
 }
 .abou01-page__section__information__cta, .abou01__cta {
   display: flex;
@@ -1808,6 +1812,19 @@ body .owl-dots .owl-dot.active {
 .abou01-page__section__information__cta:focus, .abou01__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
+}
+.abou01-page__topics__carousel .swiper-pagination-bullets {
+  margin-top: 2rem;
+  text-align: left;
+}
+.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background-color: rgba(124, 124, 124, 0.5);
+}
+.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  background-color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
   /* edita apenas o btn de menu mobile */
@@ -2245,6 +2262,10 @@ body .owl-dots .owl-dot.active {
   background-position: center;
   background-repeat: no-repeat;
   height: auto;
+  /* FRONTEND CASO SEJA NECESSÁRIO O CARROSSEL VAZANDO, REMOVER O OVERFLOW HIDDEN */
+}
+.abou01-page__topics__carousel {
+  overflow: hidden;
 }
 .abou01-page__topics__item {
   display: flex;
@@ -2252,8 +2273,19 @@ body .owl-dots .owl-dot.active {
   justify-content: start;
   align-items: stretch;
   padding: 2.8rem 2.25rem;
+  width: calc(33.33% - 1rem);
   height: auto;
   background-color: #cacaca;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__topics__item {
+    width: calc(50% - 0.75rem);
+  }
+}
+@media (max-width: 767.98px) {
+  .abou01-page__topics__item {
+    width: 100%;
+  }
 }
 .abou01-page__topics__item__header {
   display: flex;
@@ -2272,27 +2304,8 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.abou01-page__topics__item__header__title {
-  font: 700 1.875rem "Ubuntu", sans-serif, arial;
-  color: #000;
-  text-align: left;
-  margin-bottom: 0;
-}
-@media (max-width: 991.98px) {
-  .abou01-page__topics__item__header__title {
-    font-size: 1.563rem;
-  }
-}
-.abou01-page__topics__item__paragraph {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  text-align: left;
-  line-height: 170%;
-}
-@media (max-width: 991.98px) {
-  .abou01-page__topics__item__paragraph {
-    font-size: 0.938rem;
-  }
+.abou01-page__section__information__cta {
+  margin-top: 3rem;
 }
 /* BEGIN STYLE */
 .comp01-page__header {

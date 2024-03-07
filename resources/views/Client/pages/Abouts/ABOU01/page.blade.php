@@ -54,32 +54,36 @@
             @if ($about->topics->count())
                 <section class="abou01-page__topics">
 
-                    <div class="abou01-page__topics__swiper-wrapper swiper-wrapper">
+                    <div class="abou01-page__topics__carousel">
+                        <div class="abou01-page__topics__carousel__swiper-wrapper swiper-wrapper">
 
-                        @foreach ($about->topics as $topic)
-                            <article class="abou01-page__topics__item swiper-slide">
+                            @foreach ($about->topics as $topic)
+                                <article class="abou01-page__topics__item swiper-slide">
 
-                                <header class="abou01-page__topics__item__header">
+                                    <header class="abou01-page__topics__item__header">
 
-                                    @if ($topic->path_image_icon)
-                                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
-                                            class="abou01-page__topics__item__header__icon" alt="{{ $topic->title }}">
+                                        @if ($topic->path_image_icon)
+                                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                                class="abou01-page__topics__item__header__icon" alt="{{ $topic->title }}">
+                                        @endif
+
+                                        @if ($topic->title)
+                                            <h3 class="abou01-page__topics__item__header__title">{{ $topic->title }}</h3>
+                                        @endif
+                                    </header>
+
+                                    @if ($topic->description)
+                                        <div class="abou01-page__topics__item__paragraph">
+                                            {!! $topic->description !!}
+                                        </div>
                                     @endif
 
-                                    @if ($topic->title)
-                                        <h3 class="abou01-page__topics__item__header__title">{{ $topic->title }}</h3>
-                                    @endif
-                                </header>
+                                </article>
+                            @endforeach
 
-                                @if ($topic->description)
-                                    <div class="abou01-page__topics__item__paragraph">
-                                        {!! $topic->description !!}
-                                    </div>
-                                @endif
+                        </div>
 
-                            </article>
-                        @endforeach
-
+                        <div class="abou01-page__topics__carousel__swiper-pagination"></div>
                     </div>
 
                 </section>
