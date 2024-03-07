@@ -1,3 +1,4 @@
+/**************** VAI FICAR OBSOLETO ******************/
 function resizeHeightSlide() {
     // mw500=700
     if ($("[data-slide-height]").length) {
@@ -35,7 +36,9 @@ function resizeHeightSlide() {
         }
     }
 }
+/******************************************************/
 
+/**************** VAI FICAR OBSOLETO ******************/
 function insertImageMobile() {
     // INCLUDE IMAGE MOBILE
     if ($(window).outerWidth() <= 800) {
@@ -52,7 +55,7 @@ function insertImageMobile() {
         });
     }
 }
-
+/**************** VAI FICAR OBSOLETO ******************/
 $(function () {
     $(".owl-carousel").each(function () {
         const owlCarousel = $(this);
@@ -158,6 +161,8 @@ $(function () {
         });
     });
 });
+/******************************************************/
+
 /******  ANIMAÇÃO ******/
 // Verifica se há elementos com a classe .animation no documento
 const elementosAnimados = document.querySelectorAll(".animation");
@@ -201,19 +206,7 @@ if (elementosAnimados.length > 0) {
     });
 }
 
-/* HOTFIX PARA O HEADER */
-window.addEventListener("scroll", () => {
-    /* Esconde o dropdown do menu quando há uma rolagem da tela */
-    const menuAberto = document.querySelector(".sublink--menu.show");
-    if (menuAberto) {
-        menuAberto.classList.remove("show");
-        document
-            .querySelector(".menu-list .link.show")
-            .classList.remove("show");
-    }
-});
-
-/* NOVO SCRIPT DE ANIMAÇÃO DO ACCORDION */
+/******************* NOVO SCRIPT DE ANIMAÇÃO DO ACCORDION *****************************/
 class Accordion {
     constructor(el) {
         // Store the <details> element
@@ -357,8 +350,7 @@ if (details.length > 0) {
         el._accordionInstance = new Accordion(el);
     });
 }
-
-/***********************************************************/
+/*************************************************************************************/
 
 /*  QUEDINHA - DROPDOWN DO SISTEMA */
 const quedinhaBtnList = document.querySelectorAll(".quedinha__btn");
@@ -370,8 +362,8 @@ quedinhaBtnList.forEach((quedinhaBtn) => {
         const elRect = content.getBoundingClientRect();
 
         // Calcula a diferença entre a largura da viewport e a parede esquerda do elemento em si.
-
         const diff = window.innerWidth - elRect.left;
+
         // Verifica se o diff é menor que a largura do elemento. Sendo menor, altera-se o estilo, fazendo com que o subMenu abra para o lado oposto;
         if (diff < elRect.width) {
             content.style.left = "unset";
@@ -418,3 +410,113 @@ window.onclick = function (event) {
 };
 
 /***********************************************************/
+
+/* BURGUER - MENU-MOBILE & FUNCIONALIDADE SIDEBAR */
+/* Define a abertura e fechamento do menu */
+const CLASS_SIDEBAR_OPEN = "open";
+const btnsBurguer = document.querySelectorAll(".burguer"); //btn de abrir side nos headers
+const sidebar = document.querySelector(".burger__target"); //alvo (target) do plugin
+
+btnsBurguer.forEach((el) => {
+    /* O evento de click abaixo está ligado a classe .burger permitindo que seja usada como marcador para fechar a sidebar inclusive no botão da própria side */
+    el.addEventListener("click", () => {
+        if (!sidebar.classList.contains(CLASS_SIDEBAR_OPEN)) {
+            sidebar.classList.add(CLASS_SIDEBAR_OPEN);
+            document.body.style.overflow =
+                "hidden"; /* valor padrão hidden, não permitindo rolagem */
+        } else {
+            sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
+            document.body.style.overflow =
+                "visible"; /* valor padrão visible, permitindo rolagem*/
+        }
+    });
+    const burguerIcon = el.querySelector('.burguer__icon');
+
+    if(burguerIcon) {
+        if(!burguerIcon.classList.contains('dots')){
+            burguerIcon.innerHTML = "<span></span> <span></span> <span></span>"
+
+        }  else {
+            burguerIcon.innerHTML = "<span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span>"
+        }
+    }
+});
+
+/* Define o fechamento e rolagem para âncoras */
+const sideLinks = sidebar.querySelectorAll(".sideLinks a");
+
+if (sideLinks.length > 0) {
+    sideLinks.forEach((el) => {
+        el.addEventListener("click", (ev) => {
+            ev.preventDefault();
+
+            sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
+            document.body.style.overflow =
+                "visible"; /* valor padrão visible, permitindo rolagem*/
+
+            setTimeout(() => {
+                    window.location.assign(el.href);
+            }, 800);
+        });
+    });
+}
+
+/***********************************************************/
+
+// // / menu responsivo /
+// const backdrop = document.createElement("div");
+// backdrop.classList.add("backdrop");
+// document.body.appendChild(backdrop);
+
+// const btnSandwich = document.querySelector(".btn-mn-mbl");
+
+// const contIcon = btnSandwich.querySelector(".icon");
+
+// let spans = "";
+
+// if (btnSandwich.classList.contains("dots")) {
+//     for (let i = 0; i < 9; i++) {
+//         spans += "<span></span>";
+//     }
+// }
+
+// // DEFAULT
+// if (btnSandwich.classList.contains("bars")) {
+//     for (let i = 0; i < 3; i++) {
+//         spans += "<span></span>";
+//     }
+// }
+
+// contIcon.innerHTML = spans;
+
+// const closeMenu = () => {
+//     if (document.getElementById("menu-mobile").classList.contains("aberto")) {
+//         // backdrop.style.display = "none";
+//         document.getElementById("menu-mobile").classList.remove("aberto");
+//         document.body.style.overflowY = "visible";
+//         btnSandwich.classList.remove("open");
+//     }
+// };
+
+// btnSandwich.addEventListener("click", () => {
+//     if (!document.getElementById("menu-mobile").classList.contains("aberto")) {
+//         // backdrop.style.display = "block";
+//         // backdrop.style.opacity = "1";
+//         document.getElementById("menu-mobile").classList.add("aberto");
+//         document.body.style.overflowY = "hidden";
+//         btnSandwich.classList.add("open");
+//     } else {
+//         closeMenu();
+//     }
+// });
+
+// window.addEventListener("resize", closeMenu);
+// backdrop.addEventListener("click", closeMenu);
+// if (document.getElementById("a-mb-close")) {
+//     document.getElementById("a-mb-close").addEventListener("click", closeMenu);
+// }
+
+// for (const link of document.querySelectorAll(".engloba-sidebar li a")) {
+//     link.addEventListener("click", closeMenu);
+// }
+// // / fim menu responsivo
