@@ -42,7 +42,7 @@
                                 'data-min-width'=>$cropSetting->Topic->path_image_icon->width, // px
                                 'data-min-height'=>$cropSetting->Topic->path_image_icon->height, // px
                                 'data-box-height'=>'225', // Input height in the form
-                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp,.svg',
                                 'data-default-file'=> isset($topic)?($topic->path_image_icon<>''?url('storage/'.$topic->path_image_icon):''):'',
                             ]) !!}
                         </label>

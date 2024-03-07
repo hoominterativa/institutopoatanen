@@ -10,9 +10,6 @@
                     <h3 class="abou01__header__subtitle">{{ $section->subtitle }}</h3>
                 @endif
 
-                @if ($section->title || $section->subtile)
-                    <hr class="abou01__header__line">
-                @endif
             </header>
         @endif
 

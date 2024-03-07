@@ -23,13 +23,6 @@
             margin-bottom: 2rem;
             text-align: center;
         }
-
-        &__line {
-            width: 100%;
-            margin-bottom: 2rem;
-
-            border-top: solid 1px $color-three;
-        }
     }
 
     &__paragraph {
@@ -61,16 +54,16 @@
     }
 
     &__main {
-        @include backG;
         @include disFlex($justify: space-between);
 
-        padding: 48px 5vw 0;
+        @extend %theme__padding;
+        padding-bottom: 0;
 
         @include large-device-down {
             flex-direction: column;
-            gap: 80px;
+            gap: 5rem;
 
-            padding: 48px 5vw;
+            padding-bottom: 3rem;
         }
 
         &:has(&__image) &__information {
@@ -92,7 +85,7 @@
         &__information {
             @include disFlex(column, start, start);
 
-            padding-bottom: 40px;
+            padding-bottom: 2.5rem;
             width: 100%;
 
             @include large-device-down {
@@ -101,58 +94,36 @@
             }
 
             &__header {
-                margin-bottom: 30px;
+                margin-bottom: 2rem;
                 width: 100%;
 
                 &__title {
-                    font: 700 $T2 $font-primary;
-                    line-height: 100%;
+                    @extend %theme__t2-c1;
                     text-align: left;
-                    color: $color-black;
 
                     margin-bottom: 1.5rem;
-
-                    @include large-device-down {
-                        font-size: $T2-mobile;
-                    }
                 }
 
                 &__subtitle {
-                    font-size: 700 $T4 $font-primary;
-                    color: $color-two;
+                    @extend %theme__t4-c3;
                     text-align: left;
-                    margin-bottom: 1.75rem;
-
-                    @include large-device-down {
-                        font-size: $T4-mobile;
-                    }
                 }
             }
 
             &__paragraph {
-                font: $paragraph;
-                line-height: 170%;
-                color: $color-one;
-
-                @include large-device-down {
-                    font-size: $P1-mobile;
-                }
+                @extend %theme__p1-c2;
             }
         }
 
-
         &__image {
             width: 100%;
-            height: 517px;
-
-
-            @include large-device-down {
-                width: 100%;
-            }
+            height: auto;
+            aspect-ratio: 436/528;
 
             &__img {
                 width: 100%;
                 height: 100%;
+
                 object-fit: contain;
                 object-position: center bottom;
             }
@@ -160,44 +131,31 @@
     }
 
     &__topics {
-        @include backG;
+        @include bg;
 
-        padding: 125px 5vw;
-
-        &__content {
-            min-height: 100%;
-
-            &:hover {
-                transform: scale(1.01);
-            }
-        }
-
-        &__carousel {
-            width: 100%;
-
-            &:not(.owl-carousel) {
-                @include disFlex;
-                gap: 26px;
-                flex-wrap: wrap;
-            }
-        }
+        @extend %theme__padding;
+        height: auto;
 
         &__item {
             @include disFlex(column);
-            width: 100%;
             padding: 2.8rem 2.25rem;
+
+            height: auto;
 
             background-color: $color-four;
 
+
+
             &__header {
                 @include disFlex;
+                gap: 1.25rem;
                 margin-bottom: 28px;
 
                 &__icon {
-                    width: 32px !important;
+                    width: 2rem;
                     height: auto;
                     aspect-ratio: 1/1;
-                    margin-right: 19px;
+
                     object-fit: contain;
                     object-position: center;
                 }
@@ -251,38 +209,16 @@
             }
 
             &__cta {
-                @include disFlex(row, center, center);
-                align-self: end;
-                padding: 0.5rem 2.5rem;
-                margin-top: 1rem;
-
-                font: 700 $P1 $font-primary;
-                color: $color-black;
-                text-align: center;
-
-                background-color: #f2f2f2;
-
-                &__icon {
-                    height: auto;
-                    width: 1.5rem;
-                    margin-right: 1rem;
-                    aspect-ratio: 1/1;
-                    object-fit: contain;
-                    object-position: center;
-                }
+                @extend %theme__cta;
             }
         }
 
         &__image {
             @extend .abou01-page__main__image;
 
-            // NEXT: CTA
             &__img {
                 @extend .abou01-page__main__image__img;
             }
         }
     }
-    // END __section
 }
-
-// END .abou01-page
