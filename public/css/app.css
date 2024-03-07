@@ -1672,7 +1672,7 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.topi102-show, .topi102, .topi101, .topi11, .topi10, .topi09, .topi08, .topi06, .topi05, .topi04__information__header, .topi03, .topi02, .topi01, .side03__navigation {
+.topi102-show, .topi102, .topi101, .topi11, .topi10, .topi09, .topi08, .topi06, .topi05, .topi04__information__header, .topi03, .topi02, .topi01, .side02, .side02--btt, .side02--rtl, .side02--ttb {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -1748,39 +1748,39 @@ body .owl-dots .owl-dot.active {
 .topi102__topics__item__title {
   color: #efefef;
 }
-.topi01__topics__item__title, .side03__navigation__item__link, .side03__navigation__item__btn, .topi08__topics__item__content__title {
+.topi01__topics__item__title, .side02__navigation__item__link, .side02__navigation__item__btn, .topi08__topics__item__content__title {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .topi01__topics__item__title, .side03__navigation__item__link, .side03__navigation__item__btn, .topi08__topics__item__content__title {
+  .topi01__topics__item__title, .side02__navigation__item__link, .side02__navigation__item__btn, .topi08__topics__item__content__title {
     font-size: 1.063rem;
   }
 }
 .topi08__topics__item__content__title {
   color: #fff;
 }
-.topi01__topics__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+.topi01__topics__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side03__navigation__cta, .head02__navigation__item__cta {
+.topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi10__header__paragraph p, .topi101__timeline__item__information__paragraph p, .topi08__header__paragraph p, .topi06__item__information__paragraph p, .topi05__item__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .topi102-show__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .topi102-show__information__cta p, .topi08__cta p, .topi06__item__information__cta p, .topi04__information__header__cta p, .topi11__header__paragraph p, .topi09__topics__item__information__title p, .topi04__information__topics__item__title p, .topi03__topics__item__title p, .topi11__main__topics__item__title p, .topi102__topics__item__paragraph p, .side03__navigation__cta p, .head02__navigation__item__cta p {
+.topi10__header__paragraph p, .topi101__timeline__item__information__paragraph p, .topi08__header__paragraph p, .topi06__item__information__paragraph p, .topi05__item__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .topi102-show__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .topi102-show__information__cta p, .topi08__cta p, .topi06__item__information__cta p, .topi04__information__header__cta p, .topi11__header__paragraph p, .topi09__topics__item__information__title p, .topi04__information__topics__item__title p, .topi03__topics__item__title p, .topi11__main__topics__item__title p, .topi102__topics__item__paragraph p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side03__navigation__cta, .head02__navigation__item__cta {
+  .topi10__header__paragraph, .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi102-show__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi102-show__information__cta, .topi08__cta, .topi06__item__information__cta, .topi04__information__header__cta, .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title, .topi102__topics__item__paragraph, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
-.topi102__topics__item__paragraph, .side03__navigation__cta, .head02__navigation__item__cta {
+.topi102__topics__item__paragraph, .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
 .topi11__header__paragraph, .topi09__topics__item__information__title, .topi04__information__topics__item__title, .topi03__topics__item__title, .topi11__main__topics__item__title {
@@ -1792,19 +1792,19 @@ body .owl-dots .owl-dot.active {
 .topi101__timeline__item__information__paragraph, .topi08__header__paragraph, .topi06__item__information__paragraph, .topi05__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph {
   color: #7c7c7c;
 }
-.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
+.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .topi04__information__header__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi02__topics__item__paragraph p, .topi01__topics__item__paragraph p, .topi11__main__topics__item__paragraph p, .topi102__navigation__item__title p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p, .head02__navigation__item__cta__content__item p, .topi08__topics__item__content__information p {
+.topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .topi04__information__header__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi02__topics__item__paragraph p, .topi01__topics__item__paragraph p, .topi11__main__topics__item__paragraph p, .topi102__navigation__item__title p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .topi08__topics__item__content__information p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
+  .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph, .topi102__navigation__item__title, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .topi08__topics__item__content__information {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1812,7 +1812,7 @@ body .owl-dots .owl-dot.active {
 .topi08__topics__item__content__information {
   color: #fff;
 }
-.topi102__navigation__item__title, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .head02__navigation__item__cta__content__item {
+.topi102__navigation__item__title, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
 .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi04__information__header__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi11__main__topics__item__paragraph {
@@ -2018,117 +2018,132 @@ body .owl-dots .owl-dot.active {
   }
 }
 /* BEGIN STYLE */
-.side03 {
+.side02, .side02--btt, .side02--rtl, .side02--ttb {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   position: fixed;
-  left: -100%;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
-  border-bottom: 8px solid #7c7c7c;
-  transition: all 0.7s ease-in-out;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-}
-.side03::-webkit-scrollbar {
-  width: 8px;
-  height: 10px;
-  background: rgba(64, 64, 64, 0.5);
-}
-.side03::-webkit-scrollbar-thumb {
-  background: rgba(64, 64, 64, 0.8);
-}
-.side03::-webkit-scrollbar-thumb:hover {
-  background: #404040;
-}
-.side03__button-close {
-  display: block;
-  position: absolute;
-  left: 1.25rem;
-  top: 1rem;
-}
-.side03__image {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: end;
-  align-self: end;
-  background-color: #d9d9d9;
-}
-.side03__image__img {
-  width: 32.25rem;
-  height: auto;
-  aspect-ratio: 516/709;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-}
-@media (max-width: 991.98px) {
-  .side03__image {
-    display: none;
-  }
-}
-.side03__navigation {
-  width: 50%;
-  height: 100%;
+  z-index: 10;
+  inset: 0;
+  transform: translate(-100%, 0); /* O default de animaçào da abertura é da esquerda para a direita */
+  transition: transform ease 0.6s;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  gap: 1.5rem;
+  width: 100vw;
+  height: 100vh;
+  border-bottom: 8px solid #7c7c7c;
+  background-color: #fff;
   list-style: none;
+  /* ANIMAÇÕES DE ABERTURA */
+  /* top to bottom - de cima para baixo*/
+  /*right to left - de esquerda para direita*/
+  /* bottom to top - de baixo para cima */
 }
-@media (max-width: 991.98px) {
-  .side03__navigation {
-    width: 100%;
+.side02::-webkit-scrollbar, .side02--btt::-webkit-scrollbar, .side02--rtl::-webkit-scrollbar, .side02--ttb::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  background: rgba(64, 64, 64, 0.5);
+}
+.side02::-webkit-scrollbar-thumb, .side02--btt::-webkit-scrollbar-thumb, .side02--rtl::-webkit-scrollbar-thumb, .side02--ttb::-webkit-scrollbar-thumb {
+  background: rgba(64, 64, 64, 0.8);
+}
+.side02::-webkit-scrollbar-thumb:hover, .side02--btt::-webkit-scrollbar-thumb:hover, .side02--rtl::-webkit-scrollbar-thumb:hover, .side02--ttb::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+.side02.open, .open.side02--btt, .open.side02--rtl, .open.side02--ttb {
+  left: 0;
+  transform: translate(0, 0);
+  transition: transform ease 0.6s;
+}
+.side02--ttb {
+  transform: translate(0, -100%);
+}
+.side02--rtl {
+  transform: translate(100%, 0);
+}
+.side02--btt {
+  transform: translate(0, 100%);
+}
+.side02__header {
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /*
+  &__languages {
+      @include disFlex;
+
+      &__item {
+          padding: 0.5rem;
+          @extend %theme__t5-cb;
+          font-weight: 400;
+          color: $color-black;
+          border-right: 1px solid $color-one;
+
+          &:last-of-type {
+              border: none;
+          }
+
+          &:hover {
+              color: $color-four;
+          }
+      }
   }
+  */
 }
-@media (max-width: 575.98px) {
-  .side03__navigation {
-    max-width: 280px;
-  }
+.side02__header__button-close__icon path {
+  fill: #7c7c7c;
 }
-.side03__navigation__logo {
-  width: 18rem;
+.side02__header__button-close__icon:hover path {
+  fill: #404040;
+}
+.side02__logo {
+  width: 12.5rem;
   height: auto;
-  aspect-ratio: 288/129;
+  aspect-ratio: 200/90;
+  margin: 0 auto 2.5rem;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
 }
-.side03__navigation__item {
+.side02__navigation {
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 4.5rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.side02__navigation__item {
   position: relative;
   width: -moz-fit-content;
   width: fit-content;
 }
-.side03__navigation__item__link, .side03__navigation__item__btn {
+.side02__navigation__item__link, .side02__navigation__item__btn {
   width: 100%;
   text-align: center;
 }
-.side03__navigation__item__link:hover, .side03__navigation__item__btn:hover, .side03__navigation__item__link:active, .side03__navigation__item__btn:active, .side03__navigation__item__link:focus, .side03__navigation__item__btn:focus {
+.side02__navigation__item__link:hover, .side02__navigation__item__btn:hover, .side02__navigation__item__link:active, .side02__navigation__item__btn:active, .side02__navigation__item__link:focus, .side02__navigation__item__btn:focus {
   border-bottom: #000;
 }
-.side03__navigation__item__content {
-  padding: 0.75rem;
-  border-radius: 0 0 0.5rem 0.5rem;
+.side02__navigation__item__content {
   left: 50%;
   transform: translate(-50%, 0) !important; /*Uso do !important para resetar os valores padrões do .quedinha__content, pois este possui 4 níveis de especificidade*/
 }
-.side03__navigation__item__content--sub-menu {
-  padding: 0.75rem;
-  border-radius: 0 0 0.5rem 0.5rem;
+.side02__navigation__item__content--sub-menu {
   top: 100% !important;
   left: 0 !important;
   right: unset !important;
   /* Uso do important para resetar os valores de estilos que são inseridos via JS pelo plugin*/
 }
-.side03__navigation__cta {
+.side02__cta {
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.25rem 1.5rem;
@@ -2142,7 +2157,7 @@ body .owl-dots .owl-dot.active {
   background-color: #000;
   white-space: nowrap;
 }
-.side03__navigation__cta::after {
+.side02__cta::after {
   position: relative;
   top: unset;
   right: unset;
@@ -2151,12 +2166,12 @@ body .owl-dots .owl-dot.active {
   width: 0.5rem;
   background-color: #cacaca;
 }
-.side03__navigation__cta__content {
+.side02__cta__content {
   top: 71%;
   padding: 0.75rem;
   border-radius: 0 0 0.5rem 0.5rem;
 }
-.side03__navigation__socials {
+.side02__socials {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -2164,12 +2179,12 @@ body .owl-dots .owl-dot.active {
   gap: 0.5rem;
   margin: 8.75rem 0 2.75rem;
 }
-.side03__navigation__socials__item {
+.side02__socials__item {
   width: 1.5rem;
   height: auto;
   aspect-ratio: 1/1;
 }
-.side03__navigation__socials__item__icon {
+.side02__socials__item__icon {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -2177,21 +2192,13 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.side03__navigation__footer {
+.side02__footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
-.side03.open {
-  left: 0;
-  top: 0;
-  transition-duration: 0.6s;
-  display: flex;
-  transition: all 0.7s ease-in;
-}
-
 /* BEGIN STYLE */
 .foot02 {
   background-color: #efefef;

@@ -2,22 +2,30 @@
 
 /* BEGIN STYLE */
 .side02 {
-    @extend %theme__padding;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: -100%;
-
-    @include disFlex(column, start, center);
-
     width: 100vw;
     height: 100vh;
 
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+    @extend %theme__padding;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+
+    @include disFlex(column, start, center);
+
     border-bottom: 8px solid $color-two;
-    background-color: #fff;
+    background-color: $color-white;
     list-style: none;
+
+    transform: translate(
+        -100%,
+        0
+    ); /* O default de animaçào da abertura é da esquerda para a direita */
+
+    transition: transform ease 0.6s;
 
     &::-webkit-scrollbar {
         width: 8px;
@@ -27,13 +35,37 @@
 
     &::-webkit-scrollbar-thumb {
         background: rgba($color-one, 0.8);
+        &:hover {
+            background: $color-one;
+        }
     }
 
-    &::-webkit-scrollbar-thumb:hover {
-        background: $color-one;
+    &.open {
+        left: 0;
+        // transition-duration: 0.6s;
+
+        transform: translate(0, 0);
+        transition: transform ease 0.6s;
     }
 
+    /* ANIMAÇÕES DE ABERTURA */
+    /* top to bottom - de cima para baixo*/
+    &--ttb {
+        @extend .side02;
+        transform: translate(0, -100%);
+    }
 
+    /*right to left - de esquerda para direita*/
+    &--rtl {
+        @extend .side02;
+        transform: translate(100%, 0);
+    }
+
+    /* bottom to top - de baixo para cima */
+    &--btt {
+        @extend .side02;
+        transform: translate(0, 100%);
+    }
 
     &__header {
         width: 100%;
@@ -141,7 +173,6 @@
         width: fit-content;
         padding: 0.25rem 1.5rem;
 
-
         @include disFlex(row, center, center);
         gap: 0.75rem;
 
@@ -206,10 +237,4 @@
             @extend %theme__p2-cb;
         }
     }
-
-    &.open {
-        left: 0;
-        transition-duration: 0.6s;
-    }
-
 }

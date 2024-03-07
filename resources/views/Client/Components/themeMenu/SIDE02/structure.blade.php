@@ -1,9 +1,11 @@
 <nav id="SIDE02" class="side02 burger__target">
     <div class="side02__header">
         <button class="side02__header__button-close burguer">
-            <svg class="side02__header__button-close__icon" width="13" height="15" viewBox="0 0 13 15" fill="none">
-                <path d="M-3.71547e-07 7.5L12.75 0.138784L12.75 14.8612L-3.71547e-07 7.5Z" fill="#D9D9D9" />
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L21 21" stroke="#404040"/>
+                <path d="M21 1L0.999999 21" stroke="#404040"/>
+                </svg>
+
         </button>
 
 

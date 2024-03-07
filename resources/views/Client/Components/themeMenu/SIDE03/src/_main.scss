@@ -2,20 +2,23 @@
 
 /* BEGIN STYLE */
 .side03 {
-    position: fixed;
-    left: -100%;
-    top: 0;
-
     width: 100vw;
     height: 100vh;
 
-    z-index: 1000;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+    @include disFlex(row, start, center);
 
     border-bottom: 8px solid $color-two;
 
-    transition: all 0.7s ease-in-out;
+    transform: translate(
+        -100%,
+        0
+    ); /* O default de animaçào da abertura é da esquerda para a direita */
 
-    @include disFlex(row, start, center);
+    transition: transform ease 0.6s;
 
     &::-webkit-scrollbar {
         width: 8px;
@@ -25,10 +28,33 @@
 
     &::-webkit-scrollbar-thumb {
         background: rgba($color-one, 0.8);
+        &:hover {
+            background: $color-one;
+        }
     }
 
-    &::-webkit-scrollbar-thumb:hover {
-        background: $color-one;
+    &.open {
+        transform: translate(0, 0);
+        transition: transform ease 0.6s;
+    }
+
+    /* ANIMAÇÕES DE ABERTURA */
+    /* top to bottom - de cima para baixo*/
+    &--ttb {
+        @extend .side02;
+        transform: translate(0, -100%);
+    }
+
+    /*right to left - de esquerda para direita*/
+    &--rtl {
+        @extend .side02;
+        transform: translate(100%, 0);
+    }
+
+    /* bottom to top - de baixo para cima */
+    &--btt {
+        @extend .side02;
+        transform: translate(0, 100%);
     }
 
     &__button-close {
@@ -212,14 +238,4 @@
             }
         }
     }
-
-    &.open {
-        left: 0;
-        top: 0;
-        transition-duration: 0.6s;
-        display: flex;
-
-        transition: all 0.7s ease-in;
-    }
-
 }

@@ -1,9 +1,10 @@
 <nav id="SIDE03" class="side03 burger__target">
 
     <button class="side03__button-close burguer">
-        <svg class="side03__button-close__icon" width="13" height="15" viewBox="0 0 13 15" fill="none">
-            <path d="M-3.71547e-07 7.5L12.75 0.138784L12.75 14.8612L-3.71547e-07 7.5Z" fill="#D9D9D9"></path>
-        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L21 21" stroke="#404040"/>
+            <path d="M21 1L0.999999 21" stroke="#404040"/>
+            </svg>
     </button>
 
     <div class="side03__image">
@@ -18,12 +19,12 @@
 
 
         <div class="side03__navigation__item">
-            <a title="HOME" href="{{ route('home') }}" class="side03__navigation__item__link transition"> HOME
+            <a title="HOME" href="{{ route('home') }}" class="side03__navigation__item__link transition">HOME
             </a>
         </div>
 
         @foreach ($listMenu as $module => $menu)
-            <li class="side03__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
+            <div class="side03__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
 
                 @if (!$menu->dropdown)
                     <a title="{{ $menu->title }}"
@@ -48,7 +49,7 @@
                                         class="side03__navigation__item__content--sub-menu quedinha__content quedinha__content--sub-menu">
                                         @foreach ($item->subList as $subItem)
                                             <li class="side03__navigation__item__content--sub-menu__item">
-                                                <a href="{{ $subItem->route }}"
+                                                <a href="{{ $subItem->route }}" title="{{ $subItem->name }}"
                                                     class="side03__navigation__item__content--sub-menu__item__link">{{ $subItem->name }}</a>
 
                                             </li>
@@ -69,7 +70,7 @@
                         @endforeach
                     </ul>
                 @endif
-            </li>
+            </div>
         @endforeach
 
         @if ($linksCtaHeader->count() > 0 && $callToActionTitle->active_header)
