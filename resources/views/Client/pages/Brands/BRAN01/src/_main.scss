@@ -136,20 +136,20 @@
         &__content {
             @include disFlex;
             flex-wrap: wrap;
-            gap: 20px 24px;
+            gap: 1.25rem 1.5rem;
 
             &__item {
                 @extend .bran01__content__item;
 
                 /* (Quantiade de gap * tamanho do gap)/quantidade de elementos */
-                width: calc(25% - 18px);
+                width: calc(25% - 1.125rem);
 
                 @include large-device-down {
-                    width: calc(33.33% - 16px);
+                    width: calc(33.33% - 1rem);
                 }
 
                 @include medium-device-down {
-                    width: calc(50% - 12px);
+                    width: calc(50% - 0.75rem);
                 }
 
                 @include small-device-down {
