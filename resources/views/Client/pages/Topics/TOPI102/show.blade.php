@@ -22,8 +22,8 @@
             @endif
 
             @if ($topic->link_button)
-                <a href="{{ getUri($topic->link_button) }}" target="{{ $topic->target_link_button }}"
-                    class="topi102-show__information__cta">
+                <a title="{{ $topic->title_button }}" href="{{ getUri($topic->link_button) }}"
+                    target="{{ $topic->target_link_button }}" class="topi102-show__information__cta">
                     {{ $topic->title_button }}
                 </a>
             @endif

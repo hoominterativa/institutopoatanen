@@ -27,17 +27,15 @@
                 <article class="topi10__topics__item">
 
                     @if ($topic->path_image_box)
-                        <img src="{{ asset('storage/' . $topic->path_image_box) }}"
-                        loading="lazy" class="topi10__topics__item__bg"
-                        alt="background do tópico {{ $topic->title }}">
+                        <img src="{{ asset('storage/' . $topic->path_image_box) }}" loading="lazy"
+                            class="topi10__topics__item__bg" alt="background do tópico {{ $topic->title }}">
                     @endif
 
                     @if ($topic->path_image_icon || $topic->title)
                         <header class="topi10__topics__item__header">
                             @if ($topic->path_image_icon)
                                 <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
-                                    alt="ícone do tópico {{ $topic->title }}"
-                                    loading="lazy"
+                                    alt="ícone do tópico {{ $topic->title }}" loading="lazy"
                                     class="topi10__topics__item__header__icon">
                             @endif
 

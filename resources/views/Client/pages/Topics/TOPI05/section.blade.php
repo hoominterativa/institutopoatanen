@@ -5,7 +5,8 @@
             <article class="topi05__item">
 
                 @if ($topic->link)
-                    <a class="link-full" href="{{ getUri($topic->link) }}" target="{{ $topic->target_link }}"></a>
+                    <a title="{{ $topic->title }}" class="link-full" href="{{ getUri($topic->link) }}"
+                        target="{{ $topic->target_link }}"></a>
                 @endif
 
                 @if ($topic->path_image)

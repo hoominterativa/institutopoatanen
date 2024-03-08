@@ -32,37 +32,39 @@
         @endif
         @if ($topics->count())
             <div class="topi102__topics">
-                <div class="topi102__topics__swiper-wrapper swiper-wrapper">
-                    @foreach ($topics as $topic)
-                        <article data-fancybox data-src="#lightbox-topi102-{{ $topic->id }}"
-                            class="topi102__topics__item swiper-slide">
+                <div class="topi102__topics__carousel">
+                    <div class="topi102__topics__carousel__swiper-wrapper swiper-wrapper">
+                        @foreach ($topics as $topic)
+                            <article data-fancybox data-src="#lightbox-topi102-{{ $topic->id }}"
+                                class="topi102__topics__item swiper-slide">
 
-                            @if ($topic->path_image_box)
-                                <img loading="lazy" src="{{ asset('storage/' . $topic->path_image_box) }}"
-                                    class="topi102__topics__item__bg"
-                                    alt=" Imagem de fundo do tópico {{ $topic->title }}">
-                            @endif
+                                @if ($topic->path_image_box)
+                                    <img loading="lazy" src="{{ asset('storage/' . $topic->path_image_box) }}"
+                                        class="topi102__topics__item__bg"
+                                        alt=" Imagem de fundo do tópico {{ $topic->title }}">
+                                @endif
 
-                            @if ($topic->title)
-                                <h3 class="topi102__topics__item__title">{{ $topic->title }}</h3>
-                            @endif
+                                @if ($topic->title)
+                                    <h3 class="topi102__topics__item__title">{{ $topic->title }}</h3>
+                                @endif
 
-                            @if ($topic->description)
-                                <div class="topi102__topics__item__paragraph">
-                                    <p>
-                                        {!! $topic->description !!}
-                                    </p>
-                                </div>
-                            @endif
+                                @if ($topic->description)
+                                    <div class="topi102__topics__item__paragraph">
+                                        <p>
+                                            {!! $topic->description !!}
+                                        </p>
+                                    </div>
+                                @endif
 
-                            @include('Client.pages.Topics.TOPI102.show', ['topic' => $topic])
-                        </article>
-                    @endforeach
-                </div>
+                                @include('Client.pages.Topics.TOPI102.show', ['topic' => $topic])
+                            </article>
+                        @endforeach
+                    </div>
 
-                <div class="topi102__topics__nav">
-                    <div class="topi102__topics__nav__swiper-button-prev swiper-button-prev"></div>
-                    <div class="topi102__topics__nav__swiper-button-next swiper-button-next"></div>
+                    <div class="topi102__topics__carousel__nav">
+                        <div class="topi102__topics__carousel__nav__swiper-button-prev swiper-button-prev"></div>
+                        <div class="topi102__topics__carousel__nav__swiper-button-next swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
 

@@ -13,10 +13,6 @@
                         <h3 class="topi02__header__subtitle">{{ $section->subtitle }}</h3>
                     @endif
 
-                    @if ($section->title || $section->subtitle)
-                        <hr class="topi02__header__line">
-                    @endif
-
                     @if ($section->description)
                         <div class="topi02__header__paragraph">{!! $section->description !!}</div>
                     @endif
@@ -26,35 +22,40 @@
 
         @if ($topics->count())
             <main class="topi02__topics">
-                <div class="topi02__topics__swiper-wrapper swiper-wrapper">
-                    @foreach ($topics as $topic)
-                        <article class="topi02__topics__item swiper-slide">
+                <div class="topi02__topics__carousel">
+                    <div class="topi02__topics__carousel__swiper-wrapper swiper-wrapper">
+                        @foreach ($topics as $topic)
+                            <article class="topi02__topics__item swiper-slide">
 
-                            @if ($topic->link)
-                                <a class="link-full" href="{{ getUri($topic->link) }}"
-                                    target="{{ $topic->target_link }}"></a>
-                            @endif
+                                @if ($topic->link)
+                                    <a
+                                    title="{{ $topic->title }}"
+                                    class="link-full" href="{{ getUri($topic->link) }}"
+                                        target="{{ $topic->target_link }}"></a>
+                                @endif
 
-                            @if ($topic->path_image)
-                                <img src="{{ asset('storage/' . $topic->path_image) }}"
-                                    alt="imagem de fundo do  tópico {{ $topic->title }}" loading="lazy"
-                                    class="topi02__topics__item__bg">
-                            @endif
-
-
-                            @if ($topic->path_image_icon)
-                                <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
-                                    class="topi02__topics__item__icon" loading="lazy"
-                                    alt="Ícone do item {{ $topic->title }}">
-                            @endif
+                                @if ($topic->path_image)
+                                    <img src="{{ asset('storage/' . $topic->path_image) }}"
+                                        alt="imagem de fundo do  tópico {{ $topic->title }}" loading="lazy"
+                                        class="topi02__topics__item__bg">
+                                @endif
 
 
-                            @if ($topic->title || $topic->description)
-                                <h3 class="topi02__topics__item__title">{{ $topic->title }}</h3>
-                                <p class="topi02__topics__item__paragraph">{!! $topic->description !!}</p>
-                            @endif
-                        </article>
-                    @endforeach
+                                @if ($topic->path_image_icon)
+                                    <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                        class="topi02__topics__item__icon" loading="lazy"
+                                        alt="Ícone do item {{ $topic->title }}">
+                                @endif
+
+
+                                @if ($topic->title || $topic->description)
+                                    <h3 class="topi02__topics__item__title">{{ $topic->title }}</h3>
+                                    <p class="topi02__topics__item__paragraph">{!! $topic->description !!}</p>
+                                @endif
+                            </article>
+                        @endforeach
+
+                    </div>
 
                 </div>
 

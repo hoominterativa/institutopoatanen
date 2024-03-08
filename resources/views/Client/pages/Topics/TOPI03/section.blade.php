@@ -11,10 +11,6 @@
                         <h3 class="topi03__header__subtitle">{{ $section->subtitle }}</h3>
                     @endif
 
-                    @if ($section->title || $section->subtitle)
-                        <hr class="topi03__header__line">
-                    @endif
-
                     @if ($section->description)
                         <div class="topi03__header__paragraph">{!! $section->description !!}</div>
                     @endif
@@ -27,7 +23,8 @@
                 @foreach ($topics as $topic)
                     <article class="topi03__topics__item">
                         @if ($topic->link)
-                            <a class="link-full" href="{{ getUri($topic->link) }}"
+                            <a title="{{ $topic->title }}"
+                            class="link-full" href="{{ getUri($topic->link) }}"
                                 target="{{ $topic->target_link }}"></a>
                         @endif
 

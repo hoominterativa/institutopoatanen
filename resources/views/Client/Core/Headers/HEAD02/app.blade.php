@@ -1,6 +1,8 @@
 <nav id="HEAD02" class="head02">
 
-    <a href="{{ route('home') }}" class="head02__logo">
+    <a
+    title="HOME"
+    href="{{ route('home') }}" class="head02__logo">
         <img src="{{ asset('storage/' . $generalSetting->path_logo_header_light) }}" alt="Logo do site" loading="lazy"
             class="head02__logo__img">
     </a>
@@ -8,14 +10,16 @@
 
     <ul class="head02__navigation">
         <li class="head02__navigation__item">
-            <a href="{{ route('home') }}" class="head02__navigation__item__link">Home</a>
+            <a title="Home" href="{{ route('home') }}" class="head02__navigation__item__link">Home</a>
         </li>
 
         @foreach ($listMenu as $module => $menu)
             <li class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
 
                 @if (!$menu->dropdown)
-                    <a href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
+                    <a
+                    title="  {{ $menu->title }}"
+                    href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
                         target="{{ $menu->target_link ?? '_self' }}"
                         class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link) : '' }}">
                         {{ $menu->title }}
@@ -41,14 +45,16 @@
                                             </li>
                                         @endforeach
                                         <li class="head02__navigation__item">
-                                            <a href="{{ $item->route }}" class="head02__navigation__item__link">Ver
+                                            <a
+                                            title="ver todos"
+                                            href="{{ $item->route }}" class="head02__navigation__item__link">Ver
                                                 todos</a>
                                         </li>
                                     </ul>
 
                                 </li>
                             @else
-                                <a href="{{ $item->route }}" target="{{ $item->target }}"
+                                <a title="{{ $item->name }}"  href="{{ $item->route }}" target="{{ $item->target }}"
                                     class="head02__navigation__item__link">{{ $item->name }}</a>
                             @endif
                         @endforeach
@@ -67,7 +73,8 @@
                     <ul class="head02__navigation__item__cta__content quedinha__content">
                         @foreach ($linksCtaHeader as $linkCtaHeader)
                             <li>
-                                <a href="{{ getUri($linkCtaHeader->link) }}"
+                                <a title="{{ $linkCtaHeader->title }}"
+                                href="{{ getUri($linkCtaHeader->link) }}"
                                     target="{{ $linkCtaHeader->link_target }}"
                                     class="head02__navigation__item__cta__content__item">{{ $linkCtaHeader->title }}</a>
                             </li>
@@ -75,7 +82,8 @@
                     </ul>
                 @else
                     {{-- BACKEND: Inserir required no link - Verificar o script que reescreve o código do link, pois só está inserindo uma barra e não está inserindo o https:// --}}
-                    <a href="{{ getUri($linksCtaHeader[0]->link) }}" target="{{ $linksCtaHeader[0]->link_target }}"
+                    <a title="{{ $linksCtaHeader[0]->title }}"
+                    href="{{ getUri($linksCtaHeader[0]->link) }}" target="{{ $linksCtaHeader[0]->link_target }}"
                         class="head02__navigation__item__cta">{{ $linksCtaHeader[0]->title }}</a>
 
                 @endif
@@ -106,7 +114,7 @@
         </li> --}}
 
         <li class="head02__navigation__item--menu-mobile">
-            <button class="head02__navigation__item--menu-mobile__item burguer">
+            <button title="menu mobile" class="head02__navigation__item--menu-mobile__item burguer">
                 {{-- Menu --}}
                 <div class="head02__navigation__item--menu-mobile__item__icon burguer__icon dots">
                 </div>

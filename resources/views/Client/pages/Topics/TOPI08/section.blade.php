@@ -10,53 +10,50 @@
                     <h3 class="topi08__header__subtitle">{{ $section->subtitle }}</h3>
                 @endif
 
-                @if ($section->title || $section->subtitle)
-                    <hr class="topi08__header__line">
-                @endif
-
                 @if ($section->description)
-                    <p class="topi08__header__paragraph">
+                    <div class="topi08__header__paragraph">
                         {!! $section->description !!}
-                    </p>
+                    </div>
                 @endif
             </header>
         @endif
 
         @if ($topics->count())
             <main class="topi08__topics">
-                <div class="topi08__topics__swiper-wrapper swiper-wrapper">
-                    @foreach ($topics as $topic)
-                        <article class="topi08__topics__item swiper-slide hover-image-box">
-                            @if ($topic->path_image)
-                                <img src="{{ asset('storage/' . $topic->path_image) }}"
-                                loading="lazy"
-                                alt="imagem de fundo do tópico {{ $topic->title }}"
-                                    class="topi08__topics__item__bg hover-image-box__target">
-                            @endif
+                <div class="topi08__topics__carousel">
+                    <div class="topi08__topics__carousel__swiper-wrapper swiper-wrapper">
 
-                            <div class="topi08__topics__item__content">
-                                @if ($topic->title)
-                                    <h3 class="topi08__topics__item__content__title">{{ $topic->title }}</h3>
+                        @foreach ($topics as $topic)
+                            <article class="topi08__topics__item swiper-slide hover-image-box">
+                                @if ($topic->path_image)
+                                    <img src="{{ asset('storage/' . $topic->path_image) }}" loading="lazy"
+                                        alt="imagem de fundo do tópico {{ $topic->title }}"
+                                        class="topi08__topics__item__bg hover-image-box__target">
                                 @endif
 
-                                @if ($topic->description)
-                                    <div class="topi08__topics__item__content__information">
-                                        {!! $topic->description !!}
-                                    </div>
-                                @endif
+                                <div class="topi08__topics__item__content">
+                                    @if ($topic->title)
+                                        <h3 class="topi08__topics__item__content__title">{{ $topic->title }}</h3>
+                                    @endif
 
-                            </div>
-                        </article>
-                    @endforeach
+                                    @if ($topic->description)
+                                        <div class="topi08__topics__item__content__information">
+                                            {!! $topic->description !!}
+                                        </div>
+                                    @endif
 
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
+                    <div class="topi08__topics__carousel__swiper-pagination swiper-pagination"></div>
                 </div>
-                <div class="topi08__topics__swiper-pagination swiper-pagination"></div>
             </main>
         @endif
 
         @if ($section->link_button)
-            <a href="{{ getUri($section->link_button) }}" target="{{ $section->target_link_button }}"
-                class="topi08__cta">
+            <a title="{{ $section->title_button }}" href="{{ getUri($section->link_button) }}"
+                target="{{ $section->target_link_button }}" class="topi08__cta">
                 @if ($section->title_button)
                     {{ $section->title_button }}
                 @endif

@@ -1,6 +1,6 @@
 <nav id="SIDE02" class="side02 burger__target">
     <div class="side02__header">
-        <button class="side02__header__button-close burguer">
+        <button title="botão fechar" class="side02__header__button-close burguer">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L21 21" stroke="#404040"/>
                 <path d="M21 1L0.999999 21" stroke="#404040"/>

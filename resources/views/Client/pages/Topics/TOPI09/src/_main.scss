@@ -7,6 +7,16 @@
     &__topics {
         height: auto;
 
+        /*Os elementos do carrossel como pagination e nav devem estar dentro da classe carrosel*/
+        &__carousel {
+            height: auto;
+            overflow: hidden;
+
+            @include large-device-down {
+                overflow: visible;
+            }
+        }
+
         &__item {
             width: calc(25% - 36px);
             height: auto;
@@ -17,7 +27,7 @@
 
             background-color: $color-nine;
 
-            @include x-large-device-down{
+            @include x-large-device-down {
                 width: 33.33%;
             }
 

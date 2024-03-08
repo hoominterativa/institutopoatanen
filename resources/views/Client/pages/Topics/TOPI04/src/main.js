@@ -5,11 +5,11 @@ new Swiper('.topi04__gallery', {
     slidesPerView: 1,
 
     navigation: {
-        nextEl: ".topi04__gallery__nav__swiper-button-next swiper-button-next",
-        prevEl: ".topi04__gallery__nav__swiper-button-prev swiper-button-prev",
+        nextEl: ".topi04__gallery__nav__swiper-button-next",
+        prevEl: ".topi04__gallery__nav__swiper-button-prev",
       },
 });
 
-new Swiper(".topi04__information__topics", {
+new Swiper(".topi04__information__topics__carousel", {
     slidesPerView: 'auto',
 })

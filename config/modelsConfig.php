@@ -14,31 +14,211 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Abouts' => (object) [
-            'ABOU01' => (object)[
+        'Topics.01' => (object) [
+            'TOPI01' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => '',
-                ],
                 'config' => (object) [
-                'titleMenu' => 'Sobre',
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos.01',
+                    'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
+        'Topics.02' => (object) [
+            'TOPI02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos.02',
+                    'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
+        'Topics.03' => (object) [
+            'TOPI03' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos.03',
+                    'iconPanel' => 'mdi-book-minus-multiple'
+                ]
+            ],
+        ],
+
+        'Topics.04' => (object) [
+            'TOPI04' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos.04',
+                    'iconPanel' => 'mdi-book-multiple'
+                ]
+            ],
+        ],
+
+        'Topics.05' => (object) [
+            'TOPI05' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos.05',
+                    'iconPanel' => 'mdi-file-table-box-multiple'
+                ]
+            ],
+        ],
+        'Topics.06' => (object) [
+            'TOPI06' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópico.06',
+                    'iconPanel' => 'mdi-file-table-box-multiple'
+                ]
+            ],
+        ],
+        'Topics.08' => (object) [
+            'TOPI08' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos.08',
+                    'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
+        'Topics.09' => (object) [
+            'TOPI09' => (object)[
+            'ViewHome' => true,
+            'ViewListMenu' => false,
+            'ViewListPanel' => true,
+            'ViewListFooter' => false,
+            'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                'titleMenu' => '',
                 'anchor' => false,
-                'linkMenu' => 'abou01.page',
+                'linkMenu' => '',
                 'iconMenu' => '',
-                'titlePanel' => 'Sobre',
-                'iconPanel' => 'mdi-information'
-                ],
-                'IncludeSections' => (object) [
-                ],
+                'titlePanel' => 'Tópicos.09',
+                'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+        'Topics.10'=> (object) [
+            'TOPI10' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos.10',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+        'Topics.11' => (object) [
+            'TOPI11' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópico 11',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+        'Topics.101' => (object)[
+            'TOPI101' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' => false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Topicos.101',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+
+        'Topics.102' => (object)[
+            'TOPI102' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' => false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Topicos.102',
+                    'iconPanel' => 'mdi-apps'
+                ]
             ],
         ],
     ],

@@ -72,16 +72,12 @@
                 @extend %theme__t2-c1;
                 text-align: left;
             }
+
             &__subtitle {
                 @extend %theme__t4-c3;
-                margin-bottom: 1.25rem;
+                margin-bottom: 2rem;
             }
 
-            &__line {
-                width: 100%;
-                margin-bottom: 1rem;
-                border-top: solid 1px $color-one;
-            }
             &__paragraph {
                 @extend %theme__p2-c2;
                 margin-bottom: 1.25rem;
@@ -94,6 +90,14 @@
         &__topics {
             width: 100%;
             margin-top: auto;
+
+            &__carousel{
+                overflow: hidden;
+
+                @include large-device-down {
+                    overflow: visible;
+                }
+            }
             &__item {
                 position: relative;
                 @include disFlex(column, center, center);

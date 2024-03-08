@@ -13,6 +13,7 @@
             margin-bottom: 2rem;
             width: 100%;
         }
+
         &__title {
             @extend %theme__t2-c1;
             margin-bottom: 0.25rem;
@@ -22,6 +23,7 @@
                 text-align: center;
             }
         }
+
         &__subtitle {
             @extend %theme__t4-c3;
             @include large-device-down {
@@ -63,13 +65,19 @@
     }
 
     &__topics {
+        width: 100%;
         margin-top: 3.5rem;
 
-        width: 100%;
-        overflow: hidden;
+        &__carousel {
+            overflow: hidden;
 
-        @include large-device-down {
-            overflow: visible;
+            &__nav {
+                @extend %theme__nav;
+            }
+
+            @include large-device-down {
+                overflow: visible;
+            }
         }
 
         &__item {
@@ -143,10 +151,6 @@
 
                 transition: max-height 0.6s ease;
             }
-        }
-
-        &__nav {
-            @extend %theme__nav;
         }
     }
 }

@@ -3,7 +3,7 @@
         @foreach ($topics as $topic)
             <article class="topi06__item">
                 @if ($topic->path_image_desktop)
-                    <img src="{{ asset('storage/' . $topic->path_image_desktop) }}" alt="Background"
+                    <img src="{{ asset('storage/' . $topic->path_image_desktop) }}" loading= 'lazy' alt="Background"
                         class="topi06__item__bg">
                 @endif
 
@@ -21,8 +21,8 @@
                         @endif
 
                         @if ($topic->link_button)
-                            <a href="{{ getUri($topic->link_button) }}" target="{{ $topic->target_link_button }}"
-                                class="topi06__item__information__cta">
+                            <a title="{{ $topic->title_button }}" href="{{ getUri($topic->link_button) }}"
+                                target="{{ $topic->target_link_button }}" class="topi06__item__information__cta">
                                 {{ $topic->title_button }}
                             </a>
                         @endif
@@ -31,8 +31,8 @@
 
                 @if ($topic->path_image_icon)
                     <div class="topi06__item__icon">
-                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}" loading="lazy" class="topi06__item__icon__img"
-                            alt="Ícone do tópico {{ $topic->title }}">
+                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}" loading="lazy"
+                            class="topi06__item__icon__img" alt="Ícone do tópico {{ $topic->title }}">
                     </div>
                 @endif
 

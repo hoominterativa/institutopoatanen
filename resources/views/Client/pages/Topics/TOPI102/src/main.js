@@ -12,11 +12,11 @@ new Swiper('.topi102__navigation', {
     }
 });
 
-new Swiper('.topi102__topics', {
+new Swiper('.topi102__topics__carousel', {
     slidesPerView: 'auto',
 
     navigation: {
-        nextEl: ".topi102__topics__nav__swiper-button-next",
-        prevEl: ".topi102__topics__nav__swiper-button-prev",
+        nextEl: ".topi102__topics__carousel__nav__swiper-button-next",
+        prevEl: ".topi102__topics__carousel__nav__swiper-button-prev",
     },
 });
