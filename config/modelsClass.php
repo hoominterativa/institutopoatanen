@@ -218,7 +218,7 @@ return [
             'COTA05' => (object)[
                 'controller' => App\Http\Controllers\Contacts\COTA05Controller::class,
                 'model' => App\Models\Contacts\COTA05Contacts::class,
-                'seedQty' => 1,
+                'seedQty' => 2,
             ],
         ],
         // END CONTACTS

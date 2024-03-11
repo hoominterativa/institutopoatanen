@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Contacts;
 
-use App\Models\Contacts\COTA05Contacts;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Contacts\COTA05Contacts;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
 class COTA05Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Contacts/COTA05/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +23,8 @@ class COTA05Controller extends Controller
      */
     public function index()
     {
-        //
+        $contacts = COTA05Contacts::sorting()->get();
+        return view('Admin.cruds.Contacts.COTA05.index', ['contacts' => $contacts]);
     }
 
     /**
@@ -32,7 +34,11 @@ class COTA05Controller extends Controller
      */
     public function create()
     {
-        //
+        $compliances = getCompliance(null, 'id', 'title_page');
+        return view('Admin.cruds.Contacts.COTA05.create', [
+            'compliances' => $compliances,
+            'cropSetting' => getCropImage('Contacts', 'COTA05')
+        ]);
     }
 
     /**
@@ -44,33 +50,61 @@ class COTA05Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
 
-        if($path_image) $data['path_image'] = $path_image;
+        $data['active'] = $request->active ? 1 : 0;
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_form'] = $request->active_form ? 1 : 0;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
 
-        $helper = new HelperArchive();
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
+        $path_image_icon_form = $helper->optimizeImage($request, 'path_image_icon_form', $this->path, null,100);
+        if($path_image_icon_form) $data['path_image_icon_form'] = $path_image_icon_form;
 
-        if($path_archive) $data['path_archive'] = $path_archive;
+        $arrayInputs = [];
 
-        */
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required?? false,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
 
-        if (COTA05Contacts::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        $jsonInputs = json_encode($arrayInputs);
+        $data['inputs_form'] = $jsonInputs;
+
+        if ($contact = COTA05Contacts::create($data)) {
+            Session::flash('success', 'Informações cadastradas com sucesso');
+            return redirect()->route('admin.cota05.edit', ['COTA05Contacts' => $contact->id]);
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Storage::delete($path_image_icon_form);
+            Session::flash('error', 'Erro ao cadastradar as informações');
             return redirect()->back();
         }
     }
@@ -83,7 +117,15 @@ class COTA05Controller extends Controller
      */
     public function edit(COTA05Contacts $COTA05Contacts)
     {
-        //
+        $configForm = json_decode($COTA05Contacts->inputs_form);
+        $compliances = getCompliance(null, 'id', 'title_page');
+
+        return view('Admin.cruds.Contacts.COTA05.edit', [
+            'contact' => $COTA05Contacts,
+            'compliances' => $compliances,
+            'configForm' => !is_array($configForm) ? $configForm : null,
+            'cropSetting' => getCropImage('Contacts', 'COTA05')
+        ]);
     }
 
     /**
@@ -96,51 +138,88 @@ class COTA05Controller extends Controller
     public function update(Request $request, COTA05Contacts $COTA05Contacts)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($COTA05Contacts, 'path_image');
-            $data['path_image'] = $path_image;
+        if($request->title_page) $data['slug'] = Str::slug($request->title_page);
+
+        $data['active'] = $request->active ? 1 : 0;
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+        $data['active_form'] = $request->active_form ? 1 : 0;
+
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($COTA05Contacts, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($COTA05Contacts, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($COTA05Contacts, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($COTA05Contacts, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($COTA05Contacts, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($COTA05Contacts, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($COTA05Contacts, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
         }
 
-        */
+        $path_image_icon_form = $helper->optimizeImage($request, 'path_image_icon_form', $this->path, null,100);
+        if($path_image_icon_form){
+            storageDelete($COTA05Contacts, 'path_image_icon_form');
+            $data['path_image_icon_form'] = $path_image_icon_form;
+        }
+        if($request->delete_path_image_icon_form && !$path_image_icon_form){
+            storageDelete($COTA05Contacts, 'path_image_icon_form');
+            $data['path_image_icon_form'] = null;
+        }
+
+        $arrayInputs = [];
+
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                $required = false;
+
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required?? false,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
+
+        if(count($arrayInputs)){
+            $jsonInputs = json_encode($arrayInputs);
+            $data['inputs_form'] = $jsonInputs;
+        }
 
         if ($COTA05Contacts->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Informações atualizadas com sucesso');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
+            Storage::delete($path_image_icon_form);
+            Session::flash('error', 'Erro ao atualizar as informações');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,8 +230,9 @@ class COTA05Controller extends Controller
      */
     public function destroy(COTA05Contacts $COTA05Contacts)
     {
-        //storageDelete($COTA05Contacts, 'path_image');
-        //storageDelete($COTA05Contacts, 'path_archive');
+        storageDelete($COTA05Contacts, 'path_image_desktop_banner');
+        storageDelete($COTA05Contacts, 'path_image_mobile_banner');
+        storageDelete($COTA05Contacts, 'path_image_icon_form');
 
         if ($COTA05Contacts->delete()) {
             Session::flash('success', 'Item deletado com sucessso');
@@ -168,14 +248,13 @@ class COTA05Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $COTA05Contactss = COTA05Contacts::whereIn('id', $request->deleteAll)->get();
         foreach($COTA05Contactss as $COTA05Contacts){
-            storageDelete($COTA05Contacts, 'path_image');
-            storageDelete($COTA05Contacts, 'path_archive');
+            storageDelete($COTA05Contacts, 'path_image_desktop_banner');
+            storageDelete($COTA05Contacts, 'path_image_mobile_banner');
+            storageDelete($COTA05Contacts, 'path_image_icon_form');
         }
-        */
 
         if ($deleted = COTA05Contacts::whereIn('id', $request->deleteAll)->delete()) {
             return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
@@ -206,13 +285,25 @@ class COTA05Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(COTA05Contacts $COTA05Contacts)
-    public function show()
+    public function show(COTA05Contacts $COTA05Contacts)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA05', 'show');
 
-        return view('Client.pages.Module.Model.show', [
-            'sections' => $sections
+        $compliance = getCompliance($COTA05Contacts->compliance_id ?? '0');
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($COTA05Contacts) $COTA05Contacts->path_image_desktop_banner = $COTA05Contacts->path_image_mobile_banner;
+            break;
+        }
+
+        return view('Client.pages.Contacts.COTA05.page', [
+            'sections' => $sections,
+            'contact' => $COTA05Contacts,
+            'compliance' => $compliance,
+            'inputs' => json_decode($COTA05Contacts->inputs_form)
         ]);
     }
 
@@ -227,18 +318,21 @@ class COTA05Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA05', 'page');
 
-        return view('Client.pages.Contacts.COTA05.page', [
-            'sections' => $sections
-        ]);
-    }
+        $contact = COTA05Contacts::active()->sorting()->first();
+        $compliance = getCompliance($contact->compliance_id ?? '0');
 
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if($contact) $contact->path_image_desktop_banner = $contact->path_image_mobile_banner;
+            break;
+        }
+
+        return view('Client.pages.Contacts.COTA05.page', [
+            'sections' => $sections,
+            'contact' => $contact,
+            'compliance' => $compliance,
+            'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
+        ]);
     }
 }

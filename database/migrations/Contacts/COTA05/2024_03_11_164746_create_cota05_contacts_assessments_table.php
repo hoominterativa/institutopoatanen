@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCota05ContactsAssessmentsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('cota05_contacts_assessments', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('contact_id')->constrained('cota05_contacts')->onDelete('cascade');
+            $table->string('title')->nullable();
+            $table->text('value')->nullable();
+            $table->integer('active')->default(0);
+            $table->integer('sorting')->default(0);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('cota05_contacts_assessments');
+    }
+}

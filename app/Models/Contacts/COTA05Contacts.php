@@ -16,7 +16,13 @@ class COTA05Contacts extends Model
     }
 
     protected $table = "cota05_contacts";
-    protected $fillable = [];
+    protected $fillable = [
+        'slug', 'title_page', 'active',
+        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
+        'title_form', 'description_form', 'path_image_icon_form', 'active_form',
+        'title_button_form', 'compliance_id', 'email_form', 'inputs_form',
+        'sorting'
+    ];
 
     public function scopeSorting($query)
     {
@@ -27,9 +33,4 @@ class COTA05Contacts extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }
