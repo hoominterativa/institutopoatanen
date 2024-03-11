@@ -1,103 +1,103 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.cont07{
-    padding: 63px 0 59px 0;
+.cont07 {
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
 
-    .container--pd{
-        @include large-device-down {
-            padding:0 53px !important;
-        }
-    }
-    &__emcompass{
-        padding-bottom:17.02px;
-        border-bottom: 1px solid #404040;
-        
-        &__title{
-            color: $color-one;
-            font-size: $T2;
-            font-family: $font-primary;
-            font-weight: $weight-700;
-            @include small-device {
-                font-size: $T2-mobile;
-            }
-        }
-        &__subtitle{
-            color: #7C7C7C;
-            font-size: $T4;
-            font-family: $font-primary;
-            font-weight: $weight-700;
-            @include small-device {
-                font-size: $T4-mobile;
-            }
-        }
-    }
-    &__boxVideo{
-        &__content{
-            width:100%;
-            height: 439px;
-            @include Flex; 
-            .play{
-                width: 87px;
-                height: 87px;
+    &__header {
+        width: 100%;
+        @include disFlex(column, center, center);
 
-                @include large-device-down {
-                    width:59px;
-                    height:59px;
-                }
+        margin-bottom: 3rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
+        }
+        &__subtitle {
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
+        }
+    }
+    &__video {
+        width: 100%;
+        height: 50vh;
+        @include disFlex(row, center, center);
+
+        &__button {
+            width: 5.5rem;
+            height: auto;
+            aspect-ratio: 1/1;
+
+            background-color: transparent;
+            border: none;
+
+            &__icon {
+                width: 100%;
+                height: 100%;
+
+                object-fit: contain;
+                object-position: center;
             }
         }
     }
-    &__gallery{
-        @include large-device-down{
-            margin-left: 58px !important;
+    &__gallery {
+        width: 100%;
+        height: auto;
+        max-width: 900px;
+
+        position: relative;
+
+        margin-inline: auto;
+
+        &__carousel {
+            width: 100%;
+            max-width: 836px;
+            height: auto;
+
+            margin-inline: auto;
+
+            overflow: hidden;
+            @include large-device-down {
+                overflow: visible;
+            }
         }
-        &__item{
-            width:100%;
-            height:179px;
+
+        &__nav {
+            @extend %theme__nav;
+        }
+
+        &__item {
+            cursor: pointer;
+
+            width: calc(25% - 15px);
+            height: auto;
+            aspect-ratio: 1/1;
 
             @include large-device-down {
-                width: 87%;
+                width: 33.33%;
             }
-            @include small-device-down{
-                width: 80%;
-                height:168px;
-            }
-            a{
-                width:100%; 
-                height:100%;
 
-                img{
-                    width:100%; 
-                    height:100%;
-                    object-fit:cover;
-                }
+            @include medium-device-down {
+                width: 50%;
             }
-        }  
+
+            @include small-device-down {
+                width: 90%;
+            }
+
+            &__bg {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
     }
-    &__cta{
-        font: $paragraph;
-        font-weight: $weight-700;
-        color: $color-black;
-        display: block;
-        margin: 28px auto 0;
-        max-width: 177px;
-        padding: 10px 15px;
-        background-color: $bg-soft;
 
-        @include small-device{
-            font: $paragraph-mobile;
-            margin: 36px auto 0;
-            width: 147px;
-        }
-
-        &:hover{
-            color: $color-white;
-            background-color: $bg-black;
-
-            .cont07__cta__icon{
-                filter: invert(1) grayscale(1);
-            }
-        }
+    &__cta {
+        @extend %theme__cta;
+        margin: 1.25rem auto 0;
     }
 }

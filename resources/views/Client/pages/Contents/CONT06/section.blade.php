@@ -19,7 +19,6 @@
             @if ($content->link_video)
                 <main class="cont06__video" {{--BACKEND: INSERIR REQUIRED NO CAMPO DE IMAGEM THUMBNAIL --}}
                     data-src="{{ getUri($content->link_video) }}"
-                    data-capa-video="{{ asset('storage/' . $content->path_image) }}"
                     style="background-image: url({{ asset('storage/' . $content->path_image) }});">
 
 

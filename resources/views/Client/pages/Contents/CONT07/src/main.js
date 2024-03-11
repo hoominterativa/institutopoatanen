@@ -1,42 +1,21 @@
-$(function(){
-        $('.carousel-gallery-cont07').owlCarousel({
-                loop:false,
-                autoplay:false,
-                nav:false,
-                dots: true,
-                margin:5,
-                stagePadding:0,
-                smartSpeed:450,
-                autoplayTimeout:5000,
-                rewind: true,
-                autoHeight: true,
-                responsive:{
-                    0:{
-                        items:2,
-                        margin:-25
-                    },
-                    500:{
-                        items:2,
-                        margin:-25
-                    },
-                    992:{
-                        items:3,
-                        margin:-25
-                    },
-                     800:{
-                        items:4
-                    },
-                    1200:{
-                        items:4
-                    }
-                }
-        });
-        $('.carousel-gallery-cont07').css('width', $(window).outerWidth() - 213);
-        $(window).resize(function(){
-                $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
-        });
-        if($(window).outerWidth() <= 600){
-                $('.carousel-gallery-cont07').css('width', $(window).outerWidth());
-        }
-})
-    
+import Swiper from 'swiper/bundle';
+
+new Swiper('.cont07__gallery__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+
+    navigation: {
+        nextEl: ".cont07__gallery__nav__swiper-button-next",
+        prevEl: ".cont07__gallery__nav__swiper-button-prev",
+      },
+});
+
+
+// O botão abre o primeiro elemento da galeria de vídeos
+const buttonPlay = document.querySelector('.cont07__video__button');
+
+if(buttonPlay) {
+    buttonPlay.addEventListener('click', () => {
+      document.querySelector('.cont07__gallery__item').click();
+    })
+}

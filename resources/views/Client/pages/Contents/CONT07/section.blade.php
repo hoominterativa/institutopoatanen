@@ -1,45 +1,58 @@
-@if ($section)
-    <section id="CONT07" class="cont07 container-fluid px-0"
+@if ($section && $contents->count() > 0)
+    <section id="CONT07" class="cont07"
         style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{ $section->background_color }};">
-        <div class="container container--pd px-0 mx-auto">
-            @if ($section->title_section || $section->subtitle_seciton)
-                <div class="cont07__emcompass text-center">
-                    <h4 class="cont07__emcompass__title">{{ $section->title_section }}</h4>
-                    <h5 class="cont07__emcompass__subtitle">{{ $section->subtitle_section }}</h5>
-                </div>
-            @endif
-            <div class="cont07__content d-flex justify-content-center align-content-center">
-                <div class="cont07__boxVideo">
-                    @if ($video)
-                        <div class="cont07__boxVideo__content">
-                            @if ($video->link_video)
-                                <a href="{{ getUri($video->link_video) }}" class="play" data-fancybox>
-                                    <img class="trans-fast " src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
-                                </a>
+
+        @if ($section->title_section || $section->subtitle_seciton)
+            <header class="cont07__header text-center">
+                @if ($section->title_section)
+                    <h2 class="cont07__header__title">{{ $section->title_section }}</h2>
+                @endif
+
+                @if ($section->subtitle_section)
+                    <h3 class="cont07__header__subtitle">{{ $section->subtitle_section }}</h3>
+                @endif
+
+            </header>
+        @endif
+
+
+        <main class="cont07__video">
+            <button title="play" class="cont07__video__button">
+                <img class="cont07__video__button__icon" src="{{ asset('storage/uploads/tmp/play.png') }}"
+                    alt="Play Vídeo">
+            </button>
+
+        </main>
+
+
+        <div class="cont07__gallery">
+            <div class="cont07__gallery__carousel">
+                <div class="cont07__gallery__swiper-wrapper swiper-wrapper">
+                    @foreach ($contents as $content)
+                        <div class="cont07__gallery__item swiper-slide" data-src="{{ getUri($content->link_video) }}"
+                            data-fancybox="galeria-video">
+                            @if ($content->link_video)
+                                @if ($content->path_image)
+                                    <img loading='lazy' alt="imagem de background" class="cont07__gallery__item__bg"
+                                        src="{{ asset('storage/' . $content->path_image) }}" />
+                                @endif
                             @endif
                         </div>
-                    @endif
+                    @endforeach
                 </div>
             </div>
-        </div>
-        @if ($contents->count())
-            <div class="cont07__gallery carousel-gallery-cont07 owl-carousel mx-auto">
-                @foreach ($contents as $content)
-                    <div class="cont07__gallery__item">
-                        @if ($content->link_video)
-                            <a href="{{ getUri($content->link_video) }}" data-fancybox="galeria-video">
-                                @if ($content->path_image)
-                                    <img src="{{ asset('storage/' . $content->path_image) }}" />
-                                @endif
-                            </a>
-                        @endif
-                    </div>
-                @endforeach
+
+            <div class="cont07__gallery__nav">
+                <div class="cont07__gallery__nav__swiper-button-prev swiper-button-prev"></div>
+                <div class="cont07__gallery__nav__swiper-button-next swiper-button-next"></div>
             </div>
-        @endif
+
+        </div>
+
+
         @if ($section->link_button)
-            <a href="{{ getUri($section->link_button) }}" target="{{ $section->target_link_button }}" class="cont07__cta transition d-flex justify-content-center align-items-center">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="cont07__cta__icon me-3 transition">
+            <a title="{{ $section->title_button }}" href="{{ getUri($section->link_button) }}"
+                target="{{ $section->target_link_button }}" class="cont07__cta">
                 @if ($section->title_button)
                     {{ $section->title_button }}
                 @endif

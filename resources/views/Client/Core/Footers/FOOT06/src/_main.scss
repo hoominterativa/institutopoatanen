@@ -1,16 +1,17 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.foot06{
+.foot06 {
+    overflow: hidden;
     padding: 105px 0;
     background-color: $color-five;
 
-    &__item{
-        &__socials{
-            &__link{
+    &__item {
+        &__socials {
+            &__link {
                 margin: 0 10px;
             }
-            &__title{
+            &__title {
                 font-size: $T5;
                 font-family: $font-primary;
                 color: $color-black;
@@ -19,15 +20,15 @@
             }
         }
         // END __socials
-        &__cta{
-            &__link{
+        &__cta {
+            &__link {
                 padding: 10px 55px;
                 font: $paragraph;
                 font-weight: $weight-600;
                 color: $color-one;
                 background-color: $color-white;
                 display: table;
-                &:hover{
+                &:hover {
                     background-color: $color-one;
                     color: $color-white;
                 }

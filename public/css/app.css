@@ -1664,11 +1664,37 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.cont06, .side02, .side02--btt, .side02--rtl, .side02--ttb {
+.cont07, .side02, .side02--btt, .side02--rtl, .side02--ttb {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
+}
+.cont07__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .cont07__header__title {
+    font-size: 1.875rem;
+  }
+}
+.cont07__header__title {
+  color: #404040;
+}
+.cont07__header__subtitle {
+  font: 700 1.25rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .cont07__header__subtitle {
+    font-size: 1.125rem;
+  }
+}
+.cont07__header__subtitle {
+  color: #b3b3b3;
 }
 .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
@@ -1683,30 +1709,27 @@ body .owl-dots .owl-dot.active {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.cont06__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .cont06__cta, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .cont07__cta, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.cont06__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .cont06__cta p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .cont07__cta p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
 @media (max-width: 991.98px) {
-  .cont06__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .cont06__cta, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .cont07__cta, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .cont06__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .cont07__cta {
   color: #404040;
-}
-.cont06__header__paragraph {
-  color: #7c7c7c;
 }
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
@@ -1728,7 +1751,7 @@ body .owl-dots .owl-dot.active {
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
-.cont06__cta {
+.cont07__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1739,9 +1762,24 @@ body .owl-dots .owl-dot.active {
   background-color: #cacaca;
   font-weight: 700;
 }
-.cont06__cta:focus {
+.cont07__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
+}
+.cont07__gallery__nav {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.cont07__gallery__nav:has(.swiper-button-lock) {
+  display: none;
 }
 .head02__navigation__item--menu-mobile__item {
   /* edita apenas o btn de menu mobile */
@@ -2050,6 +2088,7 @@ body .owl-dots .owl-dot.active {
 }
 /* BEGIN STYLE */
 .foot06 {
+  overflow: hidden;
   padding: 105px 0;
   background-color: #efefef;
 }
@@ -2077,47 +2116,39 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.cont06 {
+.cont07 {
   overflow: hidden; /* prevenção do shift da animação*/
 }
-.cont06__header {
+.cont07__header {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
+}
+.cont07__header__title {
+  margin-bottom: 0.25rem;
+}
+.cont07__header__subtitle {
   margin-bottom: 2rem;
 }
-.cont06__header__paragraph {
+.cont07__video {
   width: 100%;
-  max-width: 45%;
-  text-align: center;
-}
-@media (max-width: 991.98px) {
-  .cont06__header__paragraph {
-    max-width: unset;
-  }
-}
-.cont06__video {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
+  height: 50vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
-.cont06__video__button {
+.cont07__video__button {
   width: 5.5rem;
   height: auto;
   aspect-ratio: 1/1;
   background-color: transparent;
   border: none;
 }
-.cont06__video__button__icon {
+.cont07__video__button__icon {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -2125,11 +2156,55 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.cont06__video__iframe {
+.cont07__gallery {
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+  position: relative;
+  margin-inline: auto;
+}
+.cont07__gallery__carousel {
+  width: 100%;
+  max-width: 836px;
+  height: auto;
+  margin-inline: auto;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .cont07__gallery__carousel {
+    overflow: visible;
+  }
+}
+.cont07__gallery__item {
+  cursor: pointer;
+  width: calc(25% - 15px);
+  height: auto;
+  aspect-ratio: 1/1;
+}
+@media (max-width: 991.98px) {
+  .cont07__gallery__item {
+    width: 33.33%;
+  }
+}
+@media (max-width: 767.98px) {
+  .cont07__gallery__item {
+    width: 50%;
+  }
+}
+@media (max-width: 575.98px) {
+  .cont07__gallery__item {
+    width: 90%;
+  }
+}
+.cont07__gallery__item__bg {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
-.cont06__cta {
+.cont07__cta {
   margin: 1.25rem auto 0;
 }
 
