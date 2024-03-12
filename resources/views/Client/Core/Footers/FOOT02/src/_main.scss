@@ -1,148 +1,159 @@
 @import "variables";
 
-/* BEGIN STYLE */
 .foot02 {
-    background-color: $color-five;
-    padding: 0;
-    overflow: hidden;
+    background-color: $color-three;
 
-    &__container {
-        padding: 80px 0;
+    &__navigation {
+        position: relative;
+        @extend %theme__padding;
+        @include disFlex;
+        gap: 1rem;
+        flex-wrap: wrap;
 
-        @include small-device-down {
-            padding: 50px 30px !important;
-        }
-    }
-    &__logo {
-        &__item {
-            width: 202px;
-            display: block;
-            margin: 0 0 46px 0;
-        }
+        &__client-info {
+            @include disFlex(column, center, center);
+            gap: 3rem;
+            margin-right: 2rem;
 
-        &__wraper {
-            @include small-device-down {
-                margin: 0 auto 67px auto;
-                display: table;
+            @include large-device-down {
+                width: 100%;
+                margin-bottom: 2rem;
+                margin-right: unset;
             }
 
-            @include large-device {
-                margin: 0 auto 67px auto;
-                display: table;
+            &__logo {
+                width: 12.5rem;
+                height: auto;
+                aspect-ratio: 200/96;
+
+                object-fit: contain;
+                object-position: center;
             }
-        }
-    }
-    &__socials {
-        &__item {
-            font-size: 28px;
-            font-family: $font-primary;
-            color: $color-two;
-            margin: 0 8px;
-            &:hover {
-                color: $color-one;
-            }
-        }
-    }
-    // END __socials
 
-    &__nav {
-        @include small-device-down {
-            margin: 0 0 47px 0;
-        }
+            &__socials {
+                @include disFlex(row, center, center);
+                gap: 0.75rem;
 
-        @include large-device {
-            margin: 0 0 47px 0;
-        }
+                list-style: none;
 
-        &__header {
-            font-size: $T4;
-            font-weight: $weight-700;
-            font-family: $font-primary;
-            color: $color-black;
-            margin: 0 0 21px 0;
-            display: block;
-        }
-        &__item {
-            font: $paragraph;
-            font-weight: $weight-400;
-            color: $color-black;
-            margin: 0 0 15px 0;
-            display: block;
-            &:hover {
-                color: $color-three;
-            }
-            &:last-child {
-                margin: 0;
-            }
-        }
-        &--icon {
-            display: flex;
-            flex-direction: column;
-            align-items: end;
-            justify-content: end;
-        }
+                &__item {
+                    position: relative;
+                    width: 1.75rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
 
-        .phones {
-            flex-direction: column;
-        }
-    }
-    a.foot02__nav__header {
-        &:hover {
-            color: $color-three;
-        }
-    }
-    // END __nav
+                    &__icon {
+                        width: 100%;
+                        height: 100%;
 
-    &__copyright-section {
-        background-color: $color-two;
-        padding: 17px 0;
-
-        @include small-device-down {
-            text-align: center;
-            padding: 25px 0;
-        }
-
-        @include large-device {
-            text-align: center;
-            padding: 25px 0;
-        }
-
-        &__container {
-            @include small-device-down {
-                padding: 0 30px !important;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
             }
         }
 
-        &__compliances {
-            @include small-device-down {
-                margin: 0 0 30px 0;
-                justify-content: center;
-            }
+        &__pages {
+            list-style: none;
+            flex: 1 0 auto;
 
-            @include large-device {
-                margin: 0 0 30px 0;
-                justify-content: center;
+            &__header {
+                @extend %theme__t4-cb;
+
+                &__link {
+                    font: inherit;
+                    line-height: inherit;
+                    color: inherit;
+                    text-align: inherit;
+                }
             }
 
             &__item {
-                font: $paragraph;
-                font-weight: $weight-700;
-                color: $color-one;
-                border-right: 2px solid $color-one;
-                padding: 0 30px 0 0;
-                margin: 0 30px 0 0;
+                @extend %theme__p1-cb;
 
-                &:hover {
-                    color: $color-white;
-                }
-
-                &:last-of-type {
-                    border: none;
-                    padding: 0;
-                    margin: 0;
+                &__link {
+                    font: inherit;
+                    line-height: inherit;
+                    color: inherit;
+                    text-align: inherit;
                 }
             }
         }
+
+        &__client-contact {
+            list-style: none;
+            flex: 1 0 auto;
+
+            &__header {
+                @extend .foot02__navigation__pages__header;
+            }
+
+            &__item {
+                @extend .foot02__navigation__pages__item;
+
+                &__link {
+                    @extend .foot02__navigation__pages__item__link;
+                }
+            }
+        }
+
+        &__button {
+            @include disFlex;
+            position: absolute;
+            bottom: 0;
+            right: 5%;
+            height: 5rem;
+            width: 3.5rem;
+
+            border: none;
+            outline: none;
+            background-color: $color-three;
+
+            img {
+                height: 23px;
+            }
+        }
     }
-    // EMD __copyright-section
+
+    &__copyright {
+        @extend %theme__padding;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        @include disFlex(row, space-between, center);
+
+        @include large-device-down {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        &__compliances {
+            list-style: none;
+
+            &__item {
+                @extend %theme__p2-c1;
+
+                &__list {
+                    font: inherit;
+                    line-height: inherit;
+                    color: inherit;
+                    text-align: inherit;
+                }
+            }
+        }
+
+        &__hoom {
+            width: 9.25rem;
+            height: auto;
+            aspect-ratio: 148/72;
+
+            &__img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+    }
 }

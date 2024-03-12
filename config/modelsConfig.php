@@ -8,26 +8,102 @@ return [
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT06',
+            'Code' => 'FOOT02',
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contents' => (object) [
-            'CONT07' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
+        'Blogs' => (object) [
+            'BLOG01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home},featured_page=1{Detaques Página}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Artigos',
+                    'anchor' =>  false,
+                    'linkMenu' => 'blog01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Artigos',
+                    'iconPanel' => 'mdi-blogger'
+                ],
+                'IncludeSections' => (object) [
+                ]
+            ],
+        ],
+        'Services' => (object) [
+            'SERV04' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Serviços',
+                    'anchor' =>  false,
+                    'linkMenu' => 'serv04.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-alpha-s-box-outline'
+                ],
+                'IncludeSections' => (object) [
+                ]
+            ],
+        ],
+        'Contacts' => (object) [
+            'COTA02' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_banner',
+                    'relation' => '',
+                ],
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Contato',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'cota02.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
-                    'iconPanel' => 'mdi-text-box'
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => 'mdi-contacts'
+                ],
+                'IncludeSections' => (object) [
                 ]
             ],
         ],
