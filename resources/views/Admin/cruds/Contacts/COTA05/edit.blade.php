@@ -70,8 +70,7 @@
                         @include('Admin.cruds.Contacts.COTA05.Banner.form')
                     </div>
                     <div class="tab-pane" id="assessment">
-                        @include('Admin.cruds.Contacts.COTA05.Assessment.index',[
-                            'forms' => $forms,
+                        @include('Admin.cruds.Contacts.COTA05.Assessment.form',[
                             'contact' => $contact
                         ])
                     </div>

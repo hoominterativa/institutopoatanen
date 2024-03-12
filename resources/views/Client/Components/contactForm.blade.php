@@ -32,7 +32,7 @@
                                     'required' => true,
                                 ]) !!}
                                 {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank" class="">Política de Privacidade</a>
+                                <a href="{{ $compliance->link ?? '#' }}" target="_blank" class="">Política de Privacidade</a>
                             </label>
                             <button type="submit" class="form01__boxLeft__form__cta">
                                 <img src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
@@ -122,7 +122,7 @@
                                                 'required' => true,
                                             ]) !!}
                                             {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                            <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                            <a href="{{ $compliance->link ?? '#' }}" target="_blank"
                                                 class="">Política de Privacidade</a>
                                         </label>
                                     </div>
@@ -195,7 +195,7 @@
                                     'required' => true,
                                 ]) !!}
                                 {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                <a href="{{ $compliance->link ?? '#' }}" target="_blank"
                                     class="">Política de Privacidade</a>
                             </label>
                         </div>
@@ -242,7 +242,7 @@
                                     'required' => true,
                                 ]) !!}
                                 {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                <a href="{{ $compliance->link ?? '#' }}" target="_blank"
                                     class="">Política de Privacidade</a>
                             </label>
                             <button type="submit" class="form101__content__cta">
@@ -284,7 +284,7 @@
                                     'required' => true,
                                 ]) !!}
                                 {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                <a href="{{ $compliance->link ?? '#' }}" target="_blank"
                                     class="">Política de Privacidade</a>
                             </label>
                         </div>

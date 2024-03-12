@@ -1,9 +1,8 @@
-@if ($form)
-    {!! Form::model($form, ['route' => ['admin.cota05.assessment.update', $form->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+@if ($contact)
+    {!! Form::model($contact, ['route' => ['admin.cota05.assessment.update', $contact->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => 'admin.cota05.assessment.store', 'class' => 'parsley-validate', 'files' => true]) !!}
-    <input type="hidden" name="contact_id" value="{{$contact->id}}">
 @endif
 <div class="row col-12">
     <div class="col-12">
@@ -16,8 +15,8 @@
             </div>
 
             <div class="row container-inputs-contact">
-                @if (isset($form))
-                    @foreach ($form->inputs as $key => $value)
+                @if (isset($configAssessments))
+                    @foreach ($configAssessments as $key => $value)
                         <div class="container-type-input col-12 p-1">
                             <div class="border p-2">
                                 <div class="d-flex align-items-center">
@@ -89,11 +88,16 @@
                 @endif
             </div>
         </div>
-        <div class="mb-3 form-check">
-            {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-            {!! Form::label('active', 'Ativar exbição da página no site?', ['class' => 'form-check-label']) !!}
-        </div>
     </div>
+    <h4 class="mt-3">
+        <a href="javascript:void(0)"
+            class="cloneTypeButton font-18 btn btn-info d-flex align-items-center justify-content-center"
+            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-original-title="Clique para inserir um novo campo ao formulário">
+            Adicionar novo campo
+            <i class="mdi mdi-plus-circle font-22 ms-1"></i>
+        </a>
+    </h4>
 
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
         {!! Form::button('Salvar', [

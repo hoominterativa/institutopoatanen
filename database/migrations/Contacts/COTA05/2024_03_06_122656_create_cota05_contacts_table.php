@@ -33,6 +33,7 @@ class CreateCota05ContactsTable extends Migration
             $table->integer('active_form')->default(0);
 
             $table->text('inputs_form')->nullable();
+            $table->text('inputs_assessments')->nullable();
             $table->string('title_button_form')->nullable();
             $table->string('email_form')->nullable();
 

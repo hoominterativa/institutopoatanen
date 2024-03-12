@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Contacts;
 
-use App\Models\Contacts\COTA05ContactsAssessment;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Contacts\COTA05Contacts;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Contacts\COTA05ContactsAssessment;
 use App\Http\Controllers\IncludeSectionsController;
 
 class COTA05AssessmentController extends Controller
@@ -23,8 +24,6 @@ class COTA05AssessmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        $data['active'] = $request->active?1:0;
 
         $arrayInputs = [];
 
@@ -54,9 +53,9 @@ class COTA05AssessmentController extends Controller
         }
 
         $jsonInputs = json_encode($arrayInputs);
-        $data['inputs'] = $jsonInputs;
+        $data['inputs_assessments'] = $jsonInputs;
 
-        if(COTA05ContactsAssessment::create($data)){
+        if(COTA05Contacts::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
         }else{
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -68,14 +67,12 @@ class COTA05AssessmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contacts\COTA05ContactsAssessment  $COTA05ContactsAssessment
+     * @param  \App\Models\Contacts\COTA05Contacts  $COTA05Contacts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, COTA05ContactsAssessment $COTA05ContactsAssessment)
+    public function update(Request $request, COTA05Contacts $COTA05Contacts)
     {
         $data = $request->all();
-
-        $data['active'] = $request->active?1:0;
 
         $arrayInputs = [];
 
@@ -109,57 +106,14 @@ class COTA05AssessmentController extends Controller
 
         if(count($arrayInputs)){
             $jsonInputs = json_encode($arrayInputs);
-            $data['inputs'] = $jsonInputs;
+            $data['inputs_assessments'] = $jsonInputs;
         }
 
-        if($COTA05ContactsAssessment->fill($data)->save()){
+        if($COTA05Contacts->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
         }else{
             Session::flash('error', 'Erro ao atualizar item');
         }
         return redirect()->back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contacts\COTA05ContactsAssessment  $COTA05ContactsAssessment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(COTA05ContactsAssessment $COTA05ContactsAssessment)
-    {
-
-        if($COTA05ContactsAssessment->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySelected(Request $request)
-    {
-
-        if($deleted = COTA05ContactsAssessment::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-
-    public function sorting(Request $request)
-    {
-        foreach($request->arrId as $sorting => $id){
-            COTA05ContactsAssessment::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
     }
 }
