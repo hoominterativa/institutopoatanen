@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Contacts\COTA05ContactsAssessment;
 use App\Http\Controllers\IncludeSectionsController;
 
 class COTA05Controller extends Controller
@@ -119,11 +120,16 @@ class COTA05Controller extends Controller
     {
         $configForm = json_decode($COTA05Contacts->inputs_form);
         $compliances = getCompliance(null, 'id', 'title_page');
+        $forms = COTA05ContactsAssessment::where('contact_id', $COTA05Contacts->id)->sorting()->get();
+        foreach ($forms as $form) {
+            $form->inputs = json_decode($form->inputs);
+        }
 
         return view('Admin.cruds.Contacts.COTA05.edit', [
             'contact' => $COTA05Contacts,
             'compliances' => $compliances,
             'configForm' => !is_array($configForm) ? $configForm : null,
+            'forms' => $forms,
             'cropSetting' => getCropImage('Contacts', 'COTA05')
         ]);
     }
@@ -291,6 +297,7 @@ class COTA05Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA05', 'show');
 
         $compliance = getCompliance($COTA05Contacts->compliance_id ?? '0');
+        $forms = COTA05ContactsAssessment::where('contact_id', $COTA05Contacts->id)->active()->sorting();
 
         switch(deviceDetect()) {
             case 'mobile':
@@ -303,6 +310,7 @@ class COTA05Controller extends Controller
             'sections' => $sections,
             'contact' => $COTA05Contacts,
             'compliance' => $compliance,
+            'forms' => $forms ? (json_decode($forms->inputs) ?? []) : [],
             'inputs' => json_decode($COTA05Contacts->inputs_form)
         ]);
     }
@@ -319,6 +327,7 @@ class COTA05Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Contacts', 'COTA05', 'page');
 
         $contact = COTA05Contacts::active()->sorting()->first();
+        $forms = COTA05ContactsAssessment::where('contact_id', $contact->id)->active()->sorting();
         $compliance = getCompliance($contact->compliance_id ?? '0');
 
         switch(deviceDetect()) {
@@ -332,6 +341,7 @@ class COTA05Controller extends Controller
             'sections' => $sections,
             'contact' => $contact,
             'compliance' => $compliance,
+            'forms' => $forms ? (json_decode($forms->inputs) ?? []) : [],
             'inputs' => $contact ? (json_decode($contact->inputs_form) ?? []) : [],
         ]);
     }

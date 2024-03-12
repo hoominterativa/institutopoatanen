@@ -16,8 +16,7 @@ class CreateCota05ContactsAssessmentsTable extends Migration
         Schema::create('cota05_contacts_assessments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('contact_id')->constrained('cota05_contacts')->onDelete('cascade');
-            $table->string('title')->nullable();
-            $table->text('value')->nullable();
+            $table->text('inputs')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

@@ -2,7 +2,7 @@
 
 namespace App\Models\Contacts;
 
-use Database\Factories\COTA05ContactsAssessmentFactory;
+use Database\Factories\Contacts\COTA05ContactsAssessmentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,8 @@ class COTA05ContactsAssessment extends Model
         return COTA05ContactsAssessmentFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "cota05_contacts_assessments";
+    protected $fillable = ['contact_id', 'inputs', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -27,9 +27,4 @@ class COTA05ContactsAssessment extends Model
     {
         return $query->where('active', 1);
     }
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

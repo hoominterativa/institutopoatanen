@@ -33,4 +33,9 @@ class COTA05Contacts extends Model
     {
         return $query->where('active', 1);
     }
+
+    public function forms()
+    {
+        return $this->hasMany(COTA05ContactsAssessment::class, 'contact_id')->active()->sorting();
+    }
 }

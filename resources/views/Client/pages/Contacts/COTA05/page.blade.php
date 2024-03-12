@@ -90,45 +90,28 @@
                     </li>
                 </ul>
             </div>
-
             <div class="cota05-page__form__inputs-group">
-
-                @include('Client.Components.inputs', [
-                    'name' => 'name',
-                    'placeholder' => 'Nome',
-                    'type' => 'text',
-                    'required' => false,
-                ])
-
-                @include('Client.Components.inputs', [
-                    'name' => 'email',
-                    'placeholder' => 'E-mail',
-                    'type' => 'email',
-                    'required' => false,
-                ])
-
-                @include('Client.Components.inputs', [
-                    'name' => 'cellphone',
-                    'placeholder' => 'Celular',
-                    'type' => 'cellphone',
-                    'required' => false,
-                ])
-
-                @include('Client.Components.inputs', [
-                    'name' => 'textarea',
-                    'placeholder' => 'Sugestões para melhorar',
-                    'type' => 'textarea',
-                    'required' => false,
-                ])
-
+                @foreach ($inputs as $name => $input)
+                    @include('Client.Components.inputs', [
+                        'name' => $name,
+                        'options' => $input->option,
+                        'placeholder' => $input->placeholder,
+                        'type' => $input->type,
+                        'required' => isset($input->required) ? $input->required : false,
+                        ])
+                @endforeach
             </div>
-
-            <button type="submit" class="cota05-page__form__cta">
-                CTA
-            </button>
-
+            <div class="">
+                <div class="">
+                    {!! Form::checkbox('term_accept', 1, null, ['class' => 'form-check-input me-1', 'id' => 'term_accept', 'required' => true]) !!}
+                    {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                    <a href="{{ $compliance->link ?? '#'}}" target="_blank" class="cota03__form__compliance__link ms-1">Política de Privacidade</a>
+                </div>
+                <button type="submit" class="cota05-page__form__cta">
+                    {{ $contact->title_button_form }}
+                </button>
+            </div>
             {!! Form::close() !!}
-
             @foreach ($sections as $section)
                 {!! $section !!}
             @endforeach

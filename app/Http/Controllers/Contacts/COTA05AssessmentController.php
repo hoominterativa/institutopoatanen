@@ -13,27 +13,6 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class COTA05AssessmentController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,45 +24,44 @@ class COTA05AssessmentController extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
+        $data['active'] = $request->active?1:0;
 
-        $helper = new HelperArchive();
+        $arrayInputs = [];
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required?? false,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
+        }
 
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+        $jsonInputs = json_encode($arrayInputs);
+        $data['inputs'] = $jsonInputs;
 
         if(COTA05ContactsAssessment::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contacts\COTA05ContactsAssessment  $COTA05ContactsAssessment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(COTA05ContactsAssessment $COTA05ContactsAssessment)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -97,50 +75,49 @@ class COTA05AssessmentController extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
+        $data['active'] = $request->active?1:0;
 
-        $helper = new HelperArchive();
+        $arrayInputs = [];
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($COTA05ContactsAssessment, 'path_image');
-            $data['path_image'] = $path_image;
+        foreach ($data as $name => $value) {
+            $arrayName = explode('_', $name);
+            if($arrayName[0] == 'column'){
+                $type = end($arrayName);
+                $inputOption = str_replace('column', 'option', $name);
+                $inputRequired = str_replace('column', 'required', $name);
+                $option = '';
+                $required = false;
+
+                if(isset($data[$inputOption])){
+                    $option = $data[$inputOption];
+                }
+                if(isset($data[$inputRequired])){
+                    $required = true;
+                }
+
+                $pushArray = [
+                    $name => [
+                        'placeholder' => $value,
+                        'option' => $option,
+                        'type' => $type,
+                        'required' => $required?? false,
+                    ]
+                ];
+                $arrayInputs = array_merge($arrayInputs, $pushArray);
+            }
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($COTA05ContactsAssessment, 'path_image');
-            $data['path_image'] = null;
+
+        if(count($arrayInputs)){
+            $jsonInputs = json_encode($arrayInputs);
+            $data['inputs'] = $jsonInputs;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($COTA05ContactsAssessment, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($COTA05ContactsAssessment, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($COTA05ContactsAssessment->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,8 +128,6 @@ class COTA05AssessmentController extends Controller
      */
     public function destroy(COTA05ContactsAssessment $COTA05ContactsAssessment)
     {
-        //storageDelete($COTA05ContactsAssessment, 'path_image');
-        //storageDelete($COTA05ContactsAssessment, 'path_archive');
 
         if($COTA05ContactsAssessment->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -168,14 +143,6 @@ class COTA05AssessmentController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
-
-        $COTA05ContactsAssessments = COTA05ContactsAssessment::whereIn('id', $request->deleteAll)->get();
-        foreach($COTA05ContactsAssessments as $COTA05ContactsAssessment){
-            storageDelete($COTA05ContactsAssessment, 'path_image');
-            storageDelete($COTA05ContactsAssessment, 'path_archive');
-        }
-        */
 
         if($deleted = COTA05ContactsAssessment::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
@@ -194,51 +161,5 @@ class COTA05AssessmentController extends Controller
             COTA05ContactsAssessment::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Contacts\COTA05ContactsAssessment  $COTA05ContactsAssessment
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(COTA05ContactsAssessment $COTA05ContactsAssessment)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

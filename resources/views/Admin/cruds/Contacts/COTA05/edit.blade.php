@@ -35,17 +35,25 @@
                             Informações do Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode editar as informações do banner"></i>
+                                data-bs-original-title="Aqui você pode cadastrar e editar as informações do banner"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#assessment" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Formulário de avaliações
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode cadastrar e editar as informações do formulário de avaliações"></i>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="#infoForm" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Seção formulário
+                            Seção dos formulários
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode editar as informações da seção complementar que será apresentada acima do formulário"></i>
+                                data-bs-original-title="Aqui você pode cadastrar e editar as informações da seção complementar que será apresentada acima dos formulários"></i>
                         </a>
                     </li>
                 </ul>
@@ -60,6 +68,12 @@
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Contacts.COTA05.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="assessment">
+                        @include('Admin.cruds.Contacts.COTA05.Assessment.index',[
+                            'forms' => $forms,
+                            'contact' => $contact
+                        ])
                     </div>
                     <div class="tab-pane" id="infoForm">
                         @include('Admin.cruds.Contacts.COTA05.InfoForm.form')
