@@ -78,8 +78,11 @@
 
             &__icon {
                 width: 3rem;
-                height: 3rem;
+                height: auto;
+                aspect-ratio: 1/1;
+
                 object-fit: contain;
+                object-position: center;
 
                 margin-bottom: 1.5rem;
             }

@@ -1725,27 +1725,6 @@ body {
         padding-left: 5vw;
     }
 
-    &__banner {
-        width: 100%;
-
-        @extend %theme__padding;
-        padding-top: 6.5rem;
-        padding-bottom: 6.5rem;
-
-        @include bg;
-        background-color: $color-four;
-
-        @include disFlex(column, center, center);
-
-        &__title {
-            @extend %theme__t1-c1;
-        }
-
-        &__subtitle {
-            @extend %theme__t3-c3;
-        }
-    }
-
     &__t {
         &1 {
             font: 700 $T1 $font-primary;
@@ -1971,6 +1950,7 @@ body {
                 letter-spacing: inherit;
                 color: inherit;
                 letter-spacing: inherit;
+                margin: inherit;
             }
 
             @include large-device-down {
@@ -2061,6 +2041,41 @@ body {
         }
     }
 
+    &__menu-mobile {
+        /* edita apenas o btn de menu mobile */
+        @extend %theme__p1-c1;
+
+        &__icon {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    &__banner {
+        width: 100%;
+
+        @extend %theme__padding;
+        padding-top: 6.5rem;
+        padding-bottom: 6.5rem;
+
+        @include bg;
+        background-color: $color-four;
+
+        @include disFlex(column, center, center);
+
+        &__title {
+            @extend %theme__t1-c1;
+        }
+
+        &__subtitle {
+            @extend %theme__t3-c3;
+        }
+
+        &__paragraph {
+            @extend %theme__p1-c2;
+        }
+    }
+
     &__cta {
         @include disFlex;
         width: fit-content;
@@ -2074,6 +2089,18 @@ body {
         &:focus {
             /* uso do !important para resetar o valor do fancybox */
             outline: none !important;
+        }
+    }
+
+    &__category {
+        width: fit-content;
+        padding: 0.75rem 3rem;
+
+        background-color: $color-five;
+        @extend %theme__t4-cb;
+
+        &.active {
+            background-color: $color-four;
         }
     }
 
@@ -2179,15 +2206,6 @@ body {
 
                 background-color: $color-five;
             }
-        }
-    }
-    &__menu-mobile {
-        /* edita apenas o btn de menu mobile */
-        @extend %theme__p1-c1;
-
-        &__icon {
-            width: 2rem;
-            height: 2rem;
         }
     }
 }
