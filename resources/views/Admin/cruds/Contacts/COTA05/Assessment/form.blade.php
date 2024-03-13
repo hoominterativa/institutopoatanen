@@ -70,7 +70,7 @@
                         {{-- END .container-type-input --}}
                     @endforeach
                 @else
-                    <div class="container-type-input col-12 p-1">
+                    <div class="container-type-input aux-target col-12 p-1">
                         <div class="border p-2">
                             <div class="d-flex align-items-center">
                                 <div class="mb-3 w-100">
@@ -87,17 +87,17 @@
                     {{-- END .container-type-input --}}
                 @endif
             </div>
+            <h4 class="mt-3">
+                <a href="javascript:void(0)"
+                    class="cloneTypeButton--aux font-18 btn btn-info d-flex align-items-center justify-content-center"
+                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-original-title="Clique para inserir um novo campo ao formulário">
+                    Adicionar novo campo
+                    <i class="mdi mdi-plus-circle font-22 ms-1"></i>
+                </a>
+            </h4>
         </div>
     </div>
-    <h4 class="mt-3">
-        <a href="javascript:void(0)"
-            class="cloneTypeButton font-18 btn btn-info d-flex align-items-center justify-content-center"
-            data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-            data-bs-original-title="Clique para inserir um novo campo ao formulário">
-            Adicionar novo campo
-            <i class="mdi mdi-plus-circle font-22 ms-1"></i>
-        </a>
-    </h4>
 
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
         {!! Form::button('Salvar', [

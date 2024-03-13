@@ -260,6 +260,13 @@ $(function() {
         $('.infoInputs:last').remove()
     })
 
+    $('.cloneTypeButton--aux').on('click', function() {
+        $('.aux-target:first').clone(true).appendTo('.container-inputs-contact');
+        $('.aux-target:last').find('select option').removeAttr('selected');
+        $('.aux-target:last').find('select option:first').attr('selected', 'selected');
+        $('.infoInputs:last').remove()
+    })
+
     $('.deleteTypeButton').on('click', function() {
         if ($('.container-type-input').length > 1) {
             $(this).parents('.container-type-input').remove();
