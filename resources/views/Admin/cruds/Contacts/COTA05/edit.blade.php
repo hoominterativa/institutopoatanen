@@ -46,7 +46,14 @@
                                 data-bs-original-title="Aqui você pode cadastrar e editar as informações do formulário de avaliações"></i>
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a href="#inputs" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Avaliações
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode visualizar as informações do formulário de avaliações"></i>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="#infoForm" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
@@ -76,6 +83,11 @@
                     </div>
                     <div class="tab-pane" id="infoForm">
                         @include('Admin.cruds.Contacts.COTA05.InfoForm.form')
+                    </div>
+                    <div class="tab-pane" id="inputs">
+                        @include('Admin.cruds.Contacts.COTA05.Inputs.index',[
+                            'inputs' => $inputs
+                        ])
                     </div>
                 </div>
             </div> <!-- container -->

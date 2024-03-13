@@ -37,6 +37,9 @@ class CreateCota05ContactsTable extends Migration
             $table->string('title_button_form')->nullable();
             $table->string('email_form')->nullable();
 
+            $table->string('target_input')->nullable();
+            $table->longText('json')->nullable();
+
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

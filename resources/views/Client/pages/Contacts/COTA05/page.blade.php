@@ -13,8 +13,7 @@
                     @endif
                 </section>
             @endif
-            {{-- 'route' => 'form.store', --}}
-            {!! Form::open([ 'method' => 'post', 'files' => true, 'class' => 'cota05-page__form send_form_ajax parsley-validate', ]) !!}
+            {!! Form::open([ 'method' => 'post', 'route' => 'input.store', 'files' => true, 'class' => 'cota05-page__form send_form_ajax parsley-validate', ]) !!}
             <input type="hidden" name="target_lead" value="{{ $contact->title_page }}">
             <input type="hidden" name="target_send" value="{{ base64_encode($contact->email_form) }}">
 
@@ -54,7 +53,7 @@
                 </ul>
             </div>
 
-            @for ($i = 0; $i < 4; $i++)
+            {{-- @foreach ($assessments as $key => $input)
                 <div class="cota05-page__form__radio-group">
                     <p class="cota05-page__form__radio-group__title">Atendimento</p>
 
@@ -70,7 +69,34 @@
                         </li>
                     </ul>
                 </div>
-            @endfor
+            @endforeach --}}
+
+
+
+             {{-- @foreach ($assessments as $key => $input)
+                <div class="cota05-page__form__radio-group">
+                    <p class="cota05-page__form__radio-group__title">{{ $input->placeholder }}</p>
+
+                    <ul class="cota05-page__form__radio-group__list">
+                        @foreach (explode(', ', $input->option) as $option)
+                            <li class="cota05-page__form__radio-group__list__item">
+                                <input type="radio" name="{{ $key }}" class="cota05-page__form__radio-group__list__item__input" value="{{ $option }}" {{ $input->required ? 'required' : '' }}>
+                                {{ $option }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach --}}
+
+            @foreach ($assessments as $name => $input)
+                @include('Client.Components.inputs', [
+                    'name' => $name,
+                    'options' => $input->option,
+                    'placeholder' => $input->placeholder,
+                    'type' => $input->type,
+                    'required' => isset($input->required) ? $input->required : false,
+                    ])
+            @endforeach
 
             <div class="cota05-page__form__radio-group">
                 <p class="cota05-page__form__radio-group__title">Atendimento</p>

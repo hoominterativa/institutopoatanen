@@ -17,7 +17,7 @@
             <div class="row container-inputs-contact">
                 @if (isset($configAssessments))
                     @foreach ($configAssessments as $key => $value)
-                        <div class="container-type-input col-12 p-1">
+                        <div class="container-type-input col-12 col-lg-6 p-1">
                             <div class="border p-2">
                                 <div class="d-flex align-items-center">
                                     <div class="mb-3 w-100">
@@ -60,7 +60,8 @@
                                             <input type="text" name="{{ str_replace('column', 'option', $key) }}"
                                                 class="form-control inputSetOption"
                                                 placeholder="Separar as opções com vírgula"
-                                                value="{{ $value->option }}">
+                                                value="{{ $value->option }}"
+                                                required>
                                         </div>
                                     @endif
                                 </div>
@@ -70,13 +71,13 @@
                         {{-- END .container-type-input --}}
                     @endforeach
                 @else
-                    <div class="container-type-input aux-target col-12 p-1">
+                    <div class="container-type-input col-12 col-lg-6 p-1">
                         <div class="border p-2">
                             <div class="d-flex align-items-center">
                                 <div class="mb-3 w-100">
                                     {!! Form::label(null, 'Tipo do Campo', ['class' => 'form-label']) !!}
                                     {!! Form::select('', ['radio' => 'Escolha única (Um ou outro)', ], null,
-                                        ['class' => 'form-select selectTypeInput', 'placeholder' => '-'], )
+                                        ['class' => 'form-select selectTypeInput', 'required'=>'required', 'placeholder' => '-'], )
                                     !!}
                                 </div>
                                 <a href="javascript:void(0)"
@@ -89,7 +90,7 @@
             </div>
             <h4 class="mt-3">
                 <a href="javascript:void(0)"
-                    class="cloneTypeButton--aux font-18 btn btn-info d-flex align-items-center justify-content-center"
+                    class="cloneTypeButton font-18 btn btn-info d-flex align-items-center justify-content-center"
                     data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-original-title="Clique para inserir um novo campo ao formulário">
                     Adicionar novo campo

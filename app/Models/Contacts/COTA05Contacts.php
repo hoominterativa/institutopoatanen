@@ -21,7 +21,7 @@ class COTA05Contacts extends Model
         'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
         'title_form', 'description_form', 'path_image_icon_form', 'active_form',
         'title_button_form', 'compliance_id', 'email_form', 'inputs_form', 'inputs_assessments',
-        'sorting'
+        'sorting', 'json', 'target_input'
     ];
 
     public function scopeSorting($query)

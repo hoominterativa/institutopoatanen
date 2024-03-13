@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Contacts;
 
+use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactLeadConfirmation;
+use App\Mail\ContactLead as ContactLeadMail;
 use App\Models\Contacts\COTA05Contacts;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -108,6 +112,65 @@ class COTA05Controller extends Controller
             Session::flash('error', 'Erro ao cadastradar as informações');
             return redirect()->back();
         }
+    }
+
+    public function storeInputs(Request $request)
+    {
+        $data = $request->all();
+        unset($data['_token']);
+
+        $arrayInsert = [];
+        $newEmailRecipient = null;
+        foreach ($data as $key => $value) {
+            $array = explode('_', $key);
+            $requestFile = null;
+            if(COUNT($array) >= 3 ){
+                $type = end($array);
+                $name = str_replace('_'.$type, '', $key);
+                switch ($type) {
+                    case 'file':
+                        $helperArchive = new HelperArchive();
+                        $nameFile = $helperArchive->uploadArchive($request, $key, 'uploads/Contacts/COTA05/archives/');
+                        $value = $nameFile;
+                        $requestFile = $request->file($key);
+                    break;
+                    case 'selectEmail':
+                        $infoValue = explode('|',$value);
+                        $value = $infoValue[0];
+                        $newEmailRecipient = $infoValue[1];
+                    break;
+                }
+
+                $arrayInsert = array_merge($arrayInsert, [$data[$name] => ['value' => $value, 'type' => $type, 'requestFile' => $requestFile]]);
+            }
+        }
+
+        if($request->has('target_send')){
+            $emailRecipient = base64_decode($request->target_send);
+        }
+
+        if($newEmailRecipient){
+            $emailRecipient = $newEmailRecipient;
+        }
+
+        $contactInput = COTA05Contacts::create(['json' => json_encode($arrayInsert), 'target_input' => $data['target_input']]);
+
+        try {
+            Mail::send(new ContactLeadMail($arrayInsert, $emailRecipient, $contactInput));
+            Mail::send(new ContactLeadConfirmation($contactInput));
+        } catch (Exception $e) {
+            // dd($e->getMessage());
+        }
+
+        return Response::json([
+            'status' => 'success',
+            'redirect' => route('input.confirmation')
+        ]);
+    }
+
+    public function confirmation()
+    {
+        return view('Client.pages.confirmation');
     }
 
     /**
