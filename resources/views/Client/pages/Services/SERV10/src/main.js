@@ -1,33 +1,19 @@
-$('.carousel-serv10').owlCarousel({
-    smartSpeed:450,
-    loop: false,
-    dots:true,
-    nav:false,
-    rewind: true,
-    autoHeight: true,
-    responsive: {
+import Swiper from 'swiper/bundle';
 
-        0 : {
-            items:1,
-            margin:10
-        },
-        // breakpoint from 0 up
-        500 : {
-            items:1,
-            autoWidth:true,
-            margin:7
-        },
-        // breakpoint from 361 up
-        801 : {
-            items:4,
-            margin:13,
-        }
-        // breakpoint from 801 up
-    }
+new Swiper('.serv10__main__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 12,
+
+    pagination: {
+        el: '.serv10__main__swiper-pagination',
+        clickable: true,
+      },
 });
 
-$('.carousel-serv10').css('width', $('.serv10 .container').outerWidth());
-if($(window).outerWidth() <= 800){
-    $('.carousel-serv10').css('width',  $(window).outerWidth());
-}
+new Swiper('.serv10-page__main__categories__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 12,
+
+
+});
 

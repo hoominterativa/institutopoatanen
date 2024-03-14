@@ -8,83 +8,40 @@ return [
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT06',
+            'Code' => 'FOOT02',
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contacts' => (object) [
-            'COTA05' => (object)[
-                'ViewHome' => false,
+        'Services' => (object) [
+            'SERV10' => (object)[
+                'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title_page',
-                    'relation' => '',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Contato',
-                    'anchor' => false,
-                    'linkMenu' => 'cota05.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Contato',
-                    'iconPanel' => 'mdi-contacts'
-                ],
-                'IncludeSections' => (object) []
-            ],
-            'COTA04' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title_page',
-                    'relation' => '',
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Contato4',
+                    'titleMenu' => 'Serviços',
                     'anchor' =>  false,
-                    'linkMenu' => 'cota04.page',
+                    'linkMenu' => 'serv10.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Contato4',
-                    'iconPanel' => 'mdi-contacts'
-                ],
-                'IncludeSections' => (object) [
-                ]
-            ],
-            'COTA03' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title_page',
-                    'relation' => '',
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Contato3',
-                    'anchor' =>  false,
-                    'linkMenu' => 'cota03.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Contato3',
-                    'iconPanel' => 'mdi-contacts'
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
                 'IncludeSections' => (object) [
                 ]
