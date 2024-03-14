@@ -1664,7 +1664,7 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.serv10-show__main, .serv10-page__main, .serv10, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .serv10-show__banner, .serv10-page__banner {
+.serv10-show__gallery, .serv10-show__topics, .serv10-show__faq, .serv10-show__main, .serv10-page__main, .serv10, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .serv10-show__banner, .serv10-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -1685,54 +1685,54 @@ body .owl-dots .owl-dot.active {
 .serv10-show__banner__title, .serv10-page__banner__title {
   color: #404040;
 }
-.serv10-show__main__information__title, .serv10__header__title {
+.serv10-show__gallery__header__title, .serv10-show__topics__header__title, .serv10-show__faq__header__title, .serv10-show__main__information__title, .serv10__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .serv10-show__main__information__title, .serv10__header__title {
+  .serv10-show__gallery__header__title, .serv10-show__topics__header__title, .serv10-show__faq__header__title, .serv10-show__main__information__title, .serv10__header__title {
     font-size: 1.875rem;
   }
 }
-.serv10-show__main__information__title, .serv10__header__title {
+.serv10-show__gallery__header__title, .serv10-show__topics__header__title, .serv10-show__faq__header__title, .serv10-show__main__information__title, .serv10__header__title {
   color: #404040;
 }
-.serv10__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv10-page__main__categories__item {
+.serv10-show__gallery__header__subtitle, .serv10-show__topics__header__subtitle, .serv10-show__faq__header__subtitle, .serv10__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv10-page__main__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv10__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv10-page__main__categories__item {
+  .serv10-show__gallery__header__subtitle, .serv10-show__topics__header__subtitle, .serv10-show__faq__header__subtitle, .serv10__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv10-page__main__categories__item {
     font-size: 1.125rem;
   }
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv10-page__main__categories__item {
   color: #000;
 }
-.serv10__header__subtitle {
+.serv10-show__gallery__header__subtitle, .serv10-show__topics__header__subtitle, .serv10-show__faq__header__subtitle, .serv10__header__subtitle {
   color: #b3b3b3;
 }
-.serv10__main__item__title, .serv10-page__main__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.serv10-show__topics__main__item__title, .serv10__main__item__title, .serv10-page__main__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv10__main__item__title, .serv10-page__main__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+  .serv10-show__topics__main__item__title, .serv10__main__item__title, .serv10-page__main__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.serv10__main__item__title, .serv10-page__main__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.serv10-show__topics__main__item__title, .serv10__main__item__title, .serv10-page__main__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.serv10__header__paragraph, .serv10-page__banner__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.serv10-show__gallery__header__paragraph, .serv10-show__topics__header__paragraph, .serv10-show__faq__header__paragraph, .serv10__header__paragraph, .serv10-page__banner__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv10-show__faq__main__item__title, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.serv10__header__paragraph p, .serv10-page__banner__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.serv10-show__gallery__header__paragraph p, .serv10-show__topics__header__paragraph p, .serv10-show__faq__header__paragraph p, .serv10__header__paragraph p, .serv10-page__banner__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .serv10-show__faq__main__item__title p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1740,35 +1740,36 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .serv10__header__paragraph, .serv10-page__banner__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .serv10-show__gallery__header__paragraph, .serv10-show__topics__header__paragraph, .serv10-show__faq__header__paragraph, .serv10__header__paragraph, .serv10-page__banner__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv10-show__faq__main__item__title, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv10-show__faq__main__item__title {
   color: #000;
 }
 .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.serv10__header__paragraph, .serv10-page__banner__paragraph {
+.serv10-show__gallery__header__paragraph, .serv10-show__topics__header__paragraph, .serv10-show__faq__header__paragraph, .serv10__header__paragraph, .serv10-page__banner__paragraph {
   color: #7c7c7c;
 }
-.serv10-show__main__information__paragraph, .serv10__main__item__paragraph, .serv10-page__main__services__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.serv10-show__topics__main__item__paragraph, .serv10-show__main__information__paragraph, .serv10__main__item__paragraph, .serv10-page__main__services__item__paragraph, .serv10-show__faq__main__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.serv10-show__main__information__paragraph p, .serv10__main__item__paragraph p, .serv10-page__main__services__item__paragraph p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.serv10-show__topics__main__item__paragraph p, .serv10-show__main__information__paragraph p, .serv10__main__item__paragraph p, .serv10-page__main__services__item__paragraph p, .serv10-show__faq__main__item__paragraph p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
+  margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .serv10-show__main__information__paragraph, .serv10__main__item__paragraph, .serv10-page__main__services__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .serv10-show__topics__main__item__paragraph, .serv10-show__main__information__paragraph, .serv10__main__item__paragraph, .serv10-page__main__services__item__paragraph, .serv10-show__faq__main__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1779,7 +1780,7 @@ body .owl-dots .owl-dot.active {
 .foot02__copyright__compliances__item {
   color: #404040;
 }
-.serv10-show__main__information__paragraph, .serv10__main__item__paragraph, .serv10-page__main__services__item__paragraph {
+.serv10-show__topics__main__item__paragraph, .serv10-show__main__information__paragraph, .serv10__main__item__paragraph, .serv10-page__main__services__item__paragraph, .serv10-show__faq__main__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -1824,6 +1825,33 @@ body .owl-dots .owl-dot.active {
 .serv10__main .swiper-pagination-bullets .swiper-pagination-bullet-active {
   background-color: #7c7c7c;
 }
+.serv10-show__faq__main__item {
+  border-bottom: solid 1px rgba(64, 64, 64, 0.2);
+}
+[open].serv10-show__faq__main__item .serv10-show__faq__main__item__title::after {
+  transform: rotate(180deg);
+  transition: transform 0.2s linear;
+}
+.serv10-show__faq__main__item__title {
+  padding: 1rem 0.5rem;
+  font-weight: 700;
+}
+.serv10-show__faq__main__item__title::after {
+  position: absolute;
+  right: 0.5rem;
+  width: 1.5rem;
+  height: 1.25rem;
+  content: "";
+  background-color: #404040;
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  transition: transform 0.2s ease-out;
+}
+.serv10-show__faq__main__item__paragraph {
+  padding: 1rem;
+  background-color: #efefef;
+}
+
 .head02 {
   width: 100%;
   padding-right: 5vw;
@@ -2376,14 +2404,17 @@ body .owl-dots .owl-dot.active {
 }
 @media (max-width: 991.98px) {
   .serv10-show__main {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 }
 .serv10-show__main__image {
   width: 32%;
   height: 100%;
   aspect-ratio: 430/593;
-  align-self: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-inline: auto;
 }
 @media (max-width: 991.98px) {
@@ -2415,360 +2446,153 @@ body .owl-dots .owl-dot.active {
 .serv10-show__main__information__paragraph {
   margin-bottom: 2rem;
 }
-.serv10-show__faq {
-  background-color: #cacaca;
-}
-.serv10-show__faq .container--faq {
-  padding: 3.38rem 0 5.94rem 0 !important;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__faq .container--faq {
-    max-width: 90% !important;
-  }
-}
 .serv10-show__faq__header {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3.375rem;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__faq__header {
-    margin-bottom: 1rem;
-  }
+  margin-bottom: 3rem;
 }
 .serv10-show__faq__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  text-align: center;
-  color: #404040;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__faq__header__title {
-    font-size: 1.875rem;
-  }
+  margin-bottom: 0.25rem;
 }
 .serv10-show__faq__header__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  text-align: center;
-  color: #7c7c7c;
-  margin-bottom: 1.38rem;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__faq__header__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.serv10-show__faq__header__line {
-  width: 100%;
-  border-top: 1px solid #404040;
-  margin-bottom: 1.87rem;
-  margin-top: 0;
+  margin-bottom: 2rem;
 }
 .serv10-show__faq__header__paragraph {
   width: 100%;
-  max-width: 55.625rem;
-}
-.serv10-show__faq__header__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  font-weight: 400;
-  line-height: 170%; /* 1.7rem */
-  letter-spacing: 0.0125rem;
+  max-width: 938px;
   text-align: center;
-  margin-bottom: 0;
 }
-@media (max-width: 767.98px) {
-  .serv10-show__faq__header__paragraph p {
-    font: 400 0.875rem "Montserrat", sans-serif, arial;
-  }
-}
-.serv10-show__faq__main__box__tab {
-  border-bottom: 1px solid #404040;
-  padding-bottom: 1.12rem;
-}
-.serv10-show__faq__main__box__tab__title {
-  font-size: 1.25rem;
-  color: #000;
-  font-weight: 700;
-  margin-bottom: 0;
-  display: flex;
-  align-items: center;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__faq__main__box__tab__title {
-    font-size: 1.125rem;
-  }
-}
-.serv10-show__faq__main__box__tab__title:before {
-  content: "";
-  width: 0.875rem;
-  height: 0.875rem;
-  background-color: #404040;
-  display: block;
-  margin-right: 0.39rem;
-}
-.serv10-show__faq__main__box__tab::after {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 14px solid #404040;
-  right: 9px;
-}
-.serv10-show__faq__main__box__tab:not(.collapsed)::after {
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 14px solid #404040;
-  border-top: none;
-}
-.serv10-show__faq__main__box__description {
-  padding: 3rem 2.94rem !important;
-  background-color: #404040;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__faq__main__box__description {
-    padding: 1rem !important;
-  }
-}
-.serv10-show__faq__main__box__description__paragraph p {
-  line-height: 170%; /* 1.7rem */
-  letter-spacing: 0.0125rem;
-  font-size: 400 1rem "Montserrat", sans-serif, arial;
-  color: #fff;
-  margin-bottom: 0;
-}
-.serv10-show__featuredBox {
-  background-color: #efefef;
-}
-.serv10-show__featuredBox .container--feat {
-  padding: 3rem 0 3.52rem 0 !important;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__featuredBox .container--feat {
-    max-width: 90% !important;
-  }
-}
-.serv10-show__featuredBox__header {
+.serv10-show__topics__header {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3.6rem;
+  margin-bottom: 3rem;
 }
-@media (max-width: 767.98px) {
-  .serv10-show__featuredBox__header {
-    margin-bottom: 1rem;
-  }
+.serv10-show__topics__header__title {
+  margin-bottom: 0.25rem;
 }
-.serv10-show__featuredBox__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  text-align: center;
-  color: #404040;
+.serv10-show__topics__header__subtitle {
+  margin-bottom: 2rem;
 }
-@media (max-width: 767.98px) {
-  .serv10-show__featuredBox__header__title {
-    font-size: 1.875rem;
-  }
-}
-.serv10-show__featuredBox__header__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  text-align: center;
-  color: #7c7c7c;
-  margin-bottom: 1.56rem;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__featuredBox__header__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.serv10-show__featuredBox__header__line {
+.serv10-show__topics__header__paragraph {
   width: 100%;
-  border-top: 1px solid #404040;
-  margin-top: 0;
-  margin-bottom: 1.87rem;
-}
-.serv10-show__featuredBox__header__paragraph {
-  width: 100%;
-  max-width: 63.625rem;
-}
-.serv10-show__featuredBox__header__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  font-weight: 400;
-  line-height: 170%; /* 1.7rem */
-  letter-spacing: 0.0125rem;
+  max-width: 938px;
   text-align: center;
-  margin-bottom: 0;
 }
-@media (max-width: 767.98px) {
-  .serv10-show__featuredBox__header__paragraph p {
-    font: 400 0.875rem "Montserrat", sans-serif, arial;
-  }
-}
-.serv10-show__featuredBox__main {
+.serv10-show__topics__main {
   display: flex;
-  gap: 0.75rem 0;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  gap: 3rem 0.75rem;
   flex-wrap: wrap;
 }
-.serv10-show__featuredBox__main__box {
-  padding: 0 0.37rem;
-}
-.serv10-show__featuredBox__main__box__content {
-  height: 100%;
-  min-height: 18.60663rem;
-  display: flex;
+.serv10-show__topics__main__item {
   position: relative;
+  width: calc(25% - 9px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.serv10-show__featuredBox__main__box__bg {
+@media (max-width: 991.98px) {
+  .serv10-show__topics__main__item {
+    width: calc(33.33% - 8px);
+  }
+}
+@media (max-width: 767.98px) {
+  .serv10-show__topics__main__item {
+    width: calc(50% - 6px);
+  }
+}
+@media (max-width: 575.98px) {
+  .serv10-show__topics__main__item {
+    width: 100%;
+  }
+}
+.serv10-show__topics__main__item__bg {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
-.serv10-show__featuredBox__main__box__bg img {
+  z-index: -1;
+  inset: 0;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
-.serv10-show__featuredBox__main__box__description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  height: 100%;
-  width: 100%;
-}
-.serv10-show__featuredBox__main__box__description__icon {
-  width: 3.94331rem !important;
-  height: 3.94331rem;
+.serv10-show__topics__main__item__icon {
+  width: 3rem;
+  height: auto;
+  aspect-ratio: 1/1;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
-  margin-bottom: 2.05rem;
+  margin-bottom: 1.5rem;
 }
-.serv10-show__featuredBox__main__box__description__icon img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.serv10-show__featuredBox__main__box__description__title {
-  font-size: 1.0625rem;
-  line-height: normal;
+.serv10-show__topics__main__item__title {
   text-align: center;
-  color: #000;
-  font-weight: 700;
+  margin-bottom: 0.75rem;
 }
-@media (max-width: 767.98px) {
-  .serv10-show__featuredBox__main__box__description__title {
-    font-size: 1.063rem;
-  }
-}
-.serv10-show__featuredBox__main__box__description__paragraph {
-  width: 100%;
-  max-width: 11.375rem;
-}
-.serv10-show__featuredBox__main__box__description__paragraph p {
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  line-height: 140%;
+.serv10-show__topics__main__item__paragraph {
   text-align: center;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__featuredBox__main__box__description__paragraph p {
-    font: 400 0.813rem "Montserrat", sans-serif, arial;
-  }
-}
-.serv10-show__gallery {
-  background-color: #efefef;
-}
-.serv10-show__gallery .container--gall {
-  padding: 3.52rem 0 7.25rem 0 !important;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__gallery .container--gall {
-    max-width: 90% !important;
-  }
 }
 .serv10-show__gallery__header {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4.81rem;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__gallery__header {
-    margin-bottom: 1rem;
-  }
+  margin-bottom: 3rem;
 }
 .serv10-show__gallery__header__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  text-align: center;
-  color: #404040;
-  margin-bottom: 1.56rem;
+  margin-bottom: 0.25rem;
 }
-@media (max-width: 767.98px) {
-  .serv10-show__gallery__header__title {
-    font-size: 1.875rem;
-  }
+.serv10-show__gallery__header__subtitle {
+  margin-bottom: 2rem;
 }
 .serv10-show__gallery__header__paragraph {
   width: 100%;
-  max-width: 55.625rem;
-}
-.serv10-show__gallery__header__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  font-weight: 400;
-  line-height: 170%; /* 1.7rem */
-  letter-spacing: 0.0125rem;
+  max-width: 938px;
   text-align: center;
-  margin-bottom: 0;
-}
-@media (max-width: 767.98px) {
-  .serv10-show__gallery__header__paragraph p {
-    font: 400 0.875rem "Montserrat", sans-serif, arial;
-  }
 }
 .serv10-show__gallery__main {
-  gap: 1.06rem 0;
   display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-.serv10-show__gallery__main__box {
-  padding: 0 0.53rem;
-}
-.serv10-show__gallery__main__box__content {
-  width: 100%;
-  margin: 0 auto;
-  height: 17.6875rem;
-}
-.serv10-show__gallery__main__box__content img {
-  width: 100%;
-  height: 100%;
+.serv10-show__gallery__main__item {
+  width: calc(25% - 0.75rem);
+  height: auto;
+  aspect-ratio: 1/1;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 991.98px) {
+  .serv10-show__gallery__main__item {
+    width: calc(33.33% - 11px);
+  }
+}
+@media (max-width: 767.98px) {
+  .serv10-show__gallery__main__item {
+    width: calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 575.98px) {
+  .serv10-show__gallery__main__item {
+    width: 100%;
+  }
 }
 
 /* BEGIN STYLE */
