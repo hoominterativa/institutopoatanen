@@ -1,229 +1,86 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
 
-.freq01-page{
-    &__faq{
-        &__header{
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
+.freq01-page {
+    &__header {
+        @extend %theme__banner;
 
-            .container--freq01-page{
-                padding: 123px 0 81px 0;
-                z-index: 100;
-                position: relative;
-
-                @include medium-device-down{
-                    padding: 37px 34px 58.16px 34px;
-                }
-            }
-            &__mask{
-                position: absolute;
-                top:0;
-                left:0;
-                width: 100%;
-                height: 100%;
-                background-color: rgb(0 0 0 / 73%);
-            }
-
-            &__title{
-                font-size: $T1;
-                color: $color-black;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                margin-bottom: 0px;
-
-                @include medium-device-down{
-                    font-size: $T1-mobile;
-                    font-weight: $weight-700;
-                }
-            }
-            &__subtitle{
-                font-size: $T3;
-                font-family: $font-primary;
-                color: $color-black;
-                font-weight: $weight-700;
-
-                @include medium-device-down{
-                    font-size: $T3-mobile;
-                    font-weight: $weight-700;
-                }
-            }
-            &__line{
-                margin-top: 22.14px;
-                margin-bottom: 29.89px;
-
-                @include medium-device-down{
-                    margin-top: 22.14px;
-                    margin-bottom: 29.89px;
-                }
-            }
-            &__paragraph{
-                color: $color-two;
-                font-weight: $weight-400;
-                font: $paragraph;
-
-                @include medium-device-down{
-                    font: $paragraph-mobile;
-                    font-weight: $weight-400;
-                }
-
-                p{
-                    color: $color-two;
-                    font-weight: $weight-400;
-                    font: $paragraph;
-                    margin-bottom: 0;
-
-                    @include medium-device-down{
-                        font: $paragraph-mobile;
-                        font-weight: $weight-400;
-                    }
-                }
-            }
-
+        &__title {
+            @extend %theme__banner__title;
         }
-        // Fim header
 
-        &__content{
-            padding: 57px 0 94px 0;
-
-
-            &__box{
-                gap:29px 0;
-                display: flex;
-                flex-direction: column;
-
-                &__item{
-                    &__title{
-                        &__arrow{
-                            @include trans($transition: 0.5s);
-                        }
-
-                        &__arrow{
-                            transform: rotate(180deg);
-                        }
-
-                        &__button:not(.collapsed) &__arrow{
-                            transform: rotate(0deg);
-                        }
-
-                        &__button{
-                            border: 1px solid $color-one !important;
-                            border-radius: 0 !important;
-                            box-shadow: none !important;
-                            background: transparent !important;
-                            padding: 20px 20px !important;
-                            font-size: $T4 !important;
-                            color: $color-one !important;
-                            font-family: $font-paragraph !important;
-                            font-weight: $weight-700 !important;
-                            @include trans($transition: 0.5s);
-
-                            &::after{
-                                display: none;
-                            }
-
-
-
-                            @include medium-device-down{
-                                font-size: $T4-mobile !important;
-                                font-weight: $weight-700 !important;
-                            }
-                        }
-                    }
-                    &__text{
-                        color: $color-two;
-                        font-weight: $weight-400;
-                        font: $paragraph;
-                        border: 1px solid $color-one !important;
-                        border-radius: 0 !important;
-                        padding: 29px 41px;
-
-                        @include medium-device-down{
-                            font: $paragraph-mobile;
-                            font-weight: $weight-400;
-                        }
-                        .accordion-body{
-                            padding: 0 !important;
-                        }
-                        p{
-                            color: $color-two;
-                            font-weight: $weight-400;
-                            font: $paragraph;
-                            margin-bottom: 0;
-
-                            @include medium-device-down{
-                                font: $paragraph-mobile;
-                                font-weight: $weight-400;
-                            }
-                        }
-                    }
-                }
-            }
+        &__subtitle {
+            @extend %theme__banner__subtitle;
         }
-        // Fim content
     }
-    &__form{
-        background-color: $color-five;
-        padding: 50px 0;
-        &__header{
-            text-align: center;
-            width: 90%;
-            display: table;
-            margin: 0 auto;
-            margin-bottom: 65px;
-            &__title{
-                font-size: $T2;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                color: $color-one;
+
+    &__faq {
+        @extend %theme__padding;
+
+        &__item {
+            @extend %theme__accordion__item;
+
+            &__title {
+                @extend %theme__accordion__item__title;
             }
-            &__subtitle{
-                font-size: $T4;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                color: $color-one;
+
+            &__paragraph {
+                @extend %theme__accordion__item__paragraph;
             }
         }
-        // END __header
-        &__item{
-            width: 95%;
-            max-width: 890px;
-            display: table;
-            margin: 0 auto;
-            .input__item:not(.input__item--textarea){
-                .form-placeholder{
-                    .form-control{
-                        height: 45px;
-                        padding-bottom: 6px !important;
-                    }
-                }
+    }
+
+    &__form {
+        @include disFlex(row);
+        @extend %theme__padding;
+        flex-wrap: wrap;
+        gap: 1rem 0.75rem;
+
+        &__header {
+            width: 100%;
+            @include disFlex(column, center, center);
+
+            margin-bottom: 4rem;
+
+            &__title {
+                @extend %theme__t2-c1;
+                margin-bottom: 0.25rem;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c3;
+                margin-bottom: 2rem;
             }
         }
-        &__submit{
-            background-color: $color-four;
-            font: $paragraph;
-            font-weight: $weight-700;
-            border: none;
-            padding: 10px 50px;
 
-            @include trans($transition: 0.5s);
+        .input__item {
+            margin-bottom: 0;
+            width: calc(50% - 0.375rem);
 
-            &:hover{
-                background-color: $color-one;
-                color: $color-white;
+            @include large-device-down {
+                width: 100%;
             }
 
-            &__icon{
-                margin-right: 15px;
-                @include trans($transition: 0.5s);
+            &--textarea {
+                width: 100%;
+            }
+        }
+
+        &__compliance {
+            width: 100%;
+
+            &__link,
+            .form-check-label {
+                @extend %theme__p1-cb;
             }
 
-            &:hover &__icon{
-                filter: brightness(1) contrast(1) invert(1) grayscale(1);
+            .form-check-input {
+                box-shadow: none;
             }
+        }
+        &__submit {
+            @extend %theme__cta;
         }
     }
 }

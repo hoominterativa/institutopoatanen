@@ -253,13 +253,6 @@ $(function() {
         $(this).parents('.container-type-input').find('.inputSetOption').attr('name', 'option_' + slugify(val) + '_' + type)
     })
 
-    // $('#infoContact .cloneTypeButton').on('click', function() {
-    //     $('#infoContact .container-type-input:first').clone(true).appendTo('#infoContact .container-inputs-contact');
-    //     $('#infoContact .container-type-input:last').find('select option').removeAttr('selected');
-    //     $('#infoContact .container-type-input:last').find('select option:first').attr('selected', 'selected');
-    //     $('#infoContact .infoInputs:last').remove()
-    // })
-
     $('.cloneTypeButton').on('click', function() {
         const form = $(this).closest('form');
 
