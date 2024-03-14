@@ -13,9 +13,10 @@
                     @endif
                 </section>
             @endif
-            {!! Form::open([ 'method' => 'post', 'route' => 'input.store', 'files' => true, 'class' => 'cota05-page__form send_form_ajax parsley-validate', ]) !!}
+            {!! Form::open([ 'method' => 'post', 'route' => 'cota05.lead.store', 'files' => true, 'class' => 'cota05-page__form send_form_ajax parsley-validate', ]) !!}
             <input type="hidden" name="target_lead" value="{{ $contact->title_page }}">
             <input type="hidden" name="target_send" value="{{ base64_encode($contact->email_form) }}">
+            <input type="hidden" name="contact_id" value="{{ $contact->id }}">
 
             <div class="cota05-page__form__radio-group">
                 @if ($contact->active_form)

@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactLeadConfirmation;
-use App\Mail\ContactLead as ContactLeadMail;
 use App\Models\Contacts\COTA05Contacts;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Mail\ContactLead as ContactLeadMail;
+use App\Models\Contacts\COTA05ContactsLeads;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Contacts\COTA05ContactsAssessment;
 use App\Http\Controllers\IncludeSectionsController;
@@ -153,7 +154,7 @@ class COTA05Controller extends Controller
             $emailRecipient = $newEmailRecipient;
         }
 
-        $contactInput = COTA05Contacts::create(['json' => json_encode($arrayInsert), 'target_input' => $data['target_input']]);
+        $contactInput = COTA05ContactsLeads::create(['json' => json_encode($arrayInsert), 'target_lead' => $data['target_lead'], 'contact_id' => $data['contact_id']]);
 
         try {
             Mail::send(new ContactLeadMail($arrayInsert, $emailRecipient, $contactInput));
@@ -164,7 +165,7 @@ class COTA05Controller extends Controller
 
         return Response::json([
             'status' => 'success',
-            'redirect' => route('input.confirmation')
+            'redirect' => route('lead.confirmation')
         ]);
     }
 
@@ -185,11 +186,20 @@ class COTA05Controller extends Controller
         $configAssessments = json_decode($COTA05Contacts->inputs_assessments);
         $compliances = getCompliance(null, 'id', 'title_page');
 
+        $contactLeadsUpcoming = COTA05ContactsLeads::where('contact_id', $COTA05Contacts->id)->get();
+
+        foreach ($contactLeadsUpcoming as $contactLeadUpcoming) {
+            $contactLeadUpcoming->json = json_decode($contactLeadUpcoming->json);
+        }
+
+        // dd($inputs);
+
         return view('Admin.cruds.Contacts.COTA05.edit', [
             'contact' => $COTA05Contacts,
             'compliances' => $compliances,
             'configForm' => !is_array($configForm) ? $configForm : null,
             'configAssessments' => !is_array($configAssessments) ? $configAssessments : null,
+            'contactLeadsUpcoming' => $contactLeadsUpcoming,
             'cropSetting' => getCropImage('Contacts', 'COTA05')
         ]);
     }

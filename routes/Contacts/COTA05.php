@@ -29,5 +29,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/avaliacoes', COTA05AssessmentController::class)->names('admin.'.$routeName.'.assessment')->parameters(['avaliacoes' => 'COTA05Contacts']);
 });
 // CLIENT
-Route::post($route.'/inputs/website', [COTA05Controller::class ,'storeInputs'])->name('input.store');
-Route::get($route.'/inputs/confirmation', [COTA05Controller::class ,'confirmation'])->name('input.confirmation');
+Route::post($route.'/inputs/website', [COTA05Controller::class ,'storeInputs'])->name($routeName.'.lead.store');

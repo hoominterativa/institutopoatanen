@@ -47,20 +47,20 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#inputs" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Avaliações
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode visualizar as informações do formulário de avaliações"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#infoForm" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Seção dos formulários
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Aqui você pode cadastrar e editar as informações da seção complementar que será apresentada acima dos formulários"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#inputs" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Avaliações
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode visualizar as informações do formulário de avaliações"></i>
                         </a>
                     </li>
                 </ul>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="tab-pane" id="inputs">
                         @include('Admin.cruds.Contacts.COTA05.Inputs.index',[
-                            'inputs' => $inputs
+                            'contactLeadsUpcoming' => $contactLeadsUpcoming
                         ])
                     </div>
                 </div>
