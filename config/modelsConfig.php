@@ -14,23 +14,30 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Frequently' => (object) [
-            'FREQ01' => (object)[
+        'Contacts' => (object) [
+            'COTA05' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Perguntas',
-                    'anchor' =>  false,
-                    'linkMenu' => 'freq01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Perguntas',
-                    'iconPanel' => 'mdi-frequently-asked-questions'
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_page',
+                    'relation' => '',
                 ],
-                'IncludeSections' => (object) [
-                ]
+                'config' => (object) [
+                    'titleMenu' => 'Contato',
+                    'anchor' => false,
+                    'linkMenu' => 'cota05.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => 'mdi-contacts'
+                ],
+                'IncludeSections' => (object) []
             ],
         ],
     ],

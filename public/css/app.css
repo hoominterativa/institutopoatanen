@@ -1667,68 +1667,65 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.freq01-page__form, .freq01-page__faq, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .freq01-page__header {
+.cota05-page__form, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .cota05-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.freq01-page__header__title {
+.cota05-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .freq01-page__header__title {
+  .cota05-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.freq01-page__header__title {
+.cota05-page__banner__title {
   color: #404040;
 }
-.freq01-page__form__header__title {
+.cota05-page__form__header__information__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .freq01-page__form__header__title {
+  .cota05-page__form__header__information__title {
     font-size: 1.875rem;
   }
 }
-.freq01-page__form__header__title {
+.cota05-page__form__header__information__title {
   color: #404040;
 }
-.freq01-page__header__subtitle {
+.cota05-page__banner__subtitle {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .freq01-page__header__subtitle {
+  .cota05-page__banner__subtitle {
     font-size: 1.563rem;
   }
 }
-.freq01-page__header__subtitle {
+.cota05-page__banner__subtitle {
   color: #b3b3b3;
 }
-.freq01-page__form__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .freq01-page__form__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
-}
-.freq01-page__form__header__subtitle {
-  color: #b3b3b3;
 }
 .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
@@ -1743,14 +1740,12 @@ body .owl-dots .owl-dot.active {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .freq01-page__form__submit, .head02__navigation__item--menu-mobile__item, .freq01-page__form__compliance__link,
-.freq01-page__form__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .freq01-page__faq__item__title, .side02__cta, .head02__navigation__item__cta {
+.cota05-page__form .input__item--radio .form-label, .cota05-page__form__header__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota05-page__form__footer__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .freq01-page__form__submit p, .head02__navigation__item--menu-mobile__item p, .freq01-page__form__compliance__link p,
-.freq01-page__form__compliance .form-check-label p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .freq01-page__faq__item__title p, .side02__cta p, .head02__navigation__item__cta p {
+.cota05-page__form .input__item--radio .form-label p, .cota05-page__form__header__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .cota05-page__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1758,27 +1753,25 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .freq01-page__form__submit, .head02__navigation__item--menu-mobile__item, .freq01-page__form__compliance__link,
-  .freq01-page__form__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .freq01-page__faq__item__title, .side02__cta, .head02__navigation__item__cta {
+  .cota05-page__form .input__item--radio .form-label, .cota05-page__form__header__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota05-page__form__footer__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.freq01-page__form__compliance__link,
-.freq01-page__form__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .freq01-page__faq__item__title {
+.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .freq01-page__form__submit, .head02__navigation__item--menu-mobile__item {
+.cota05-page__form .input__item--radio .form-label, .cota05-page__form__header__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota05-page__form__footer__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.freq01-page__faq__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.cota05-page__form .input__item--radio__list .form-check-label, .cota05-page__form__header__icons__item__title, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.freq01-page__faq__item__paragraph p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.cota05-page__form .input__item--radio__list .form-check-label p, .cota05-page__form__header__icons__item__title p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1786,7 +1779,7 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .freq01-page__faq__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .cota05-page__form .input__item--radio__list .form-check-label, .cota05-page__form__header__icons__item__title, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1794,11 +1787,8 @@ body .owl-dots .owl-dot.active {
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
-.foot02__copyright__compliances__item {
+.cota05-page__form .input__item--radio__list .form-check-label, .cota05-page__form__header__icons__item__title, .foot02__copyright__compliances__item {
   color: #404040;
-}
-.freq01-page__faq__item__paragraph {
-  color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
   /* edita apenas o btn de menu mobile */
@@ -1807,7 +1797,7 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.freq01-page__header {
+.cota05-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -1820,7 +1810,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: center;
 }
-.freq01-page__form__submit {
+.cota05-page__form__footer__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1832,37 +1822,10 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.freq01-page__form__submit:focus {
+.cota05-page__form__footer__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
-.freq01-page__faq__item {
-  border-bottom: solid 1px rgba(64, 64, 64, 0.2);
-}
-[open].freq01-page__faq__item .freq01-page__faq__item__title::after {
-  transform: rotate(180deg);
-  transition: transform 0.2s linear;
-}
-.freq01-page__faq__item__title {
-  padding: 1rem 0.5rem;
-  font-weight: 700;
-}
-.freq01-page__faq__item__title::after {
-  position: absolute;
-  right: 0.5rem;
-  width: 1.5rem;
-  height: 1.25rem;
-  content: "";
-  background-color: #404040;
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
-  transition: transform 0.2s ease-out;
-}
-.freq01-page__faq__item__paragraph {
-  padding: 1rem;
-  background-color: #efefef;
-}
-
 .head02 {
   width: 100%;
   padding-right: 5vw;
@@ -2293,45 +2256,147 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.freq01-page__form {
+.cota05-page__form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: start;
   align-items: stretch;
   flex-wrap: wrap;
-  gap: 1rem 0.75rem;
-}
-.freq01-page__form__header {
   width: 100%;
+}
+.cota05-page__form__header, .cota05-page__form .input__item--radio {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4rem;
-}
-.freq01-page__form__header__title {
-  margin-bottom: 0.25rem;
-}
-.freq01-page__form__header__subtitle {
-  margin-bottom: 2rem;
-}
-.freq01-page__form .input__item {
-  margin-bottom: 0;
-  width: calc(50% - 0.375rem);
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  padding: 1.75rem 0;
+  width: 100%;
+  margin-bottom: 2.5rem;
 }
 @media (max-width: 991.98px) {
-  .freq01-page__form .input__item {
+  .cota05-page__form__header, .cota05-page__form .input__item--radio {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+.cota05-page__form__header__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: calc(100% - 15rem);
+  max-width: 750px;
+}
+@media (max-width: 991.98px) {
+  .cota05-page__form__header__information {
     width: 100%;
   }
 }
-.freq01-page__form .input__item--textarea {
+.cota05-page__form__header__information__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
   width: 100%;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
-.freq01-page__form__compliance {
+.cota05-page__form__header__information__title__icon {
+  width: 3.25rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  margin-right: 1.25rem;
+}
+.cota05-page__form__header__icons, .cota05-page__form .input__item--radio__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  width: 13rem;
+}
+@media (max-width: 991.98px) {
+  .cota05-page__form__header__icons, .cota05-page__form .input__item--radio__list {
+    width: 100%;
+    max-width: 13rem;
+  }
+}
+.cota05-page__form__header__icons__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  width: 3rem;
+}
+.cota05-page__form__header__icons__item__icon {
+  width: 1.5rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.cota05-page__form__header__icons__item__title {
+  text-align: center;
+}
+.cota05-page__form__header__icons__item__input {
+  accent-color: #7c7c7c;
+}
+.cota05-page__form .input__item--radio {
+  border-bottom: solid 1px rgba(124, 124, 124, 0.2);
+}
+.cota05-page__form .input__item--radio__list .form-check {
+  gap: 1rem;
+  width: 3rem;
+  flex-direction: column-reverse;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.cota05-page__form .input__item--radio__list .form-check-label {
+  text-align: center;
+}
+.cota05-page__form .input__item--radio__list .form-check-input {
+  float: none;
+  margin-left: 0;
+  margin-right: 0 !important;
+}
+.cota05-page__form__inputs-group {
   width: 100%;
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  margin-bottom: 1.75rem;
 }
-.freq01-page__form__compliance .form-check-input {
-  box-shadow: none;
+@media (max-width: 991.98px) {
+  .cota05-page__form__inputs-group {
+    -moz-column-count: 1;
+         column-count: 1;
+  }
+}
+.cota05-page__form__inputs-group .input__item--textarea .form-control {
+  height: 9.5rem;
+}
+.cota05-page__form__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.cota05-page__form__footer__compliance .form-check-label {
+  display: inline;
+}
+.cota05-page__form__footer__compliance a {
+  display: inline;
 }
 /* BEGIN STYLE */
 .comp01-page__header {

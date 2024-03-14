@@ -1727,13 +1727,6 @@ body {
         padding-right: 5vw;
         padding-bottom: 4.5rem;
         padding-left: 5vw;
-
-        &--banner {
-            @extend %theme__padding;
-
-            padding-top: 6.5rem;
-            padding-bottom: 6.5rem;
-        }
     }
 
     &__t {

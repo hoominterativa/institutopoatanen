@@ -10,12 +10,15 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.cota05.index')}}">{{ getTitleModel($configModelsMain, 'Contacts', 'COTA05')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Contacts', 'COTA05')}}</li>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a
+                                            href="{{ route('admin.cota05.index') }}">{{ getTitleModel($configModelsMain, 'Contacts', 'COTA05') }}</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Editar
+                                        {{ getTitleModel($configModelsMain, 'Contacts', 'COTA05') }}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Contacts', 'COTA05')}}</h4>
+                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Contacts', 'COTA05') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -23,27 +26,12 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#infoContact" data-bs-toggle="tab" aria-expanded="true" class="nav-link active  d-flex align-items-center">
-                            Campos do Formulário
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro das informações da página e dos campos do formulário"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
                             Informações do Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Aqui você pode cadastrar e editar as informações do banner"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#assessment" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Formulário de avaliações
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode cadastrar e editar as informações do formulário de avaliações"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -56,7 +44,26 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#inputs" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                        <a href="#assessment" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Formulário de avaliações
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode cadastrar e editar as informações do formulário de avaliações"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#infoContact" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link active  d-flex align-items-center">
+                            Campos do Formulário
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro das informações da página e dos campos do formulário"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#inputs" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
                             Avaliações
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -67,26 +74,35 @@
 
                 <div class="tab-content">
                     <div class="tab-pane show active" id="infoContact">
-                        {!! Form::model($contact, ['route' => ['admin.cota05.update', $contact->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
-                            @include('Admin.cruds.Contacts.COTA05.form')
-                            {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                            <a href="{{route('admin.cota05.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                        {!! Form::model($contact, [
+                            'route' => ['admin.cota05.update', $contact->id],
+                            'class' => 'parsley-validate',
+                            'method' => 'PUT',
+                            'files' => true,
+                        ]) !!}
+                        @include('Admin.cruds.Contacts.COTA05.form')
+                        {!! Form::button('Salvar', [
+                            'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
+                            'type' => 'submit',
+                        ]) !!}
+                        <a href="{{ route('admin.cota05.index') }}"
+                            class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Contacts.COTA05.Banner.form')
                     </div>
                     <div class="tab-pane" id="assessment">
-                        @include('Admin.cruds.Contacts.COTA05.Assessment.form',[
-                            'contact' => $contact
+                        @include('Admin.cruds.Contacts.COTA05.Assessment.form', [
+                            'contact' => $contact,
                         ])
                     </div>
                     <div class="tab-pane" id="infoForm">
                         @include('Admin.cruds.Contacts.COTA05.InfoForm.form')
                     </div>
                     <div class="tab-pane" id="inputs">
-                        @include('Admin.cruds.Contacts.COTA05.Inputs.index',[
-                            'contactLeadsUpcoming' => $contactLeadsUpcoming
+                        @include('Admin.cruds.Contacts.COTA05.Inputs.index', [
+                            'contactLeadsUpcoming' => $contactLeadsUpcoming,
                         ])
                     </div>
                 </div>
