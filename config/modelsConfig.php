@@ -14,37 +14,30 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Services' => (object) [
-            'SERV10' => (object)[
-                'ViewHome' => true,
+        'Contacts' => (object) [
+            'COTA05' => (object)[
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
+                    'titleList' => 'title_page',
+                    'relation' => '',
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Serviços',
-                    'anchor' =>  false,
-                    'linkMenu' => 'serv10.page',
+                    'titleMenu' => 'Contato',
+                    'anchor' => false,
+                    'linkMenu' => 'cota05.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
-                    'iconPanel' => 'mdi-alpha-s-box-outline'
+                    'titlePanel' => 'Contato',
+                    'iconPanel' => 'mdi-contacts'
                 ],
-                'IncludeSections' => (object) [
-                ]
+                'IncludeSections' => (object) []
             ],
         ],
     ],
