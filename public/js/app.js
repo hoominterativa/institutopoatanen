@@ -11704,42 +11704,51 @@ $(document).ready(function () {
 /*!************************************************************************!*\
   !*** ./resources/views/Client/Components/themeMenu/SIDE02/src/main.js ***!
   \************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-// $(function () {
-//     $("[data-plugin=sidebar]").on("click", function () {
-//             $("#SIDE02").addClass("side02--show");
-//             $("body").addClass("no-scroll");
-//     });
-
-//     $('#SIDE02 ul li a[href^="#"]').on("click", function () {
-//         var target = $(this.getAttribute("href"));
-//         if (target.length) {
-//             $("html, body").animate({
-//                     scrollTop: target.offset().top,
-//                 },
-//                 1000
-//             );
-//         }
-
-//         setTimeout(function () {
-//             $("#SIDE02").removeClass("side02--show");
-
-//             $("body").removeClass("no-scroll");
-//         }, 1000);
-//     });
-
-//     $(".side02__header__button-close").on("click", function () {
-//         $("#SIDE02").removeClass("side02--show");
-//         $("body").removeClass("no-scroll");
-//     });
-// });
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $("body").append('<div class="side02__override trasition"></div>');
+  $("[data-plugin=sidebar]").on("click", function () {
+    if ($("#SIDE02").hasClass("side02--show")) {
+      $("#SIDE02").removeClass("side02--show");
+      $(this).removeClass("active");
+      $(".side02__override").removeClass("side02__override--show");
+      $("body").removeClass("no-scroll");
+    } else {
+      $("#SIDE02").addClass("side02--show");
+      $(this).addClass("active");
+      $(".side02__override").addClass("side02__override--show");
+      $("body").addClass("no-scroll");
+    }
+  });
+  $('#SIDE02 ul li a[href^="#"]').on("click", function () {
+    var target = $(this.getAttribute("href"));
+    if (target.length) {
+      $("html, body").animate({
+        scrollTop: target.offset().top
+      }, 1000);
+    }
+    setTimeout(function () {
+      $("#SIDE02").removeClass("side02--show");
+      $(this).removeClass("active");
+      $(".side02__override").removeClass("side02__override--show");
+      $("body").removeClass("no-scroll");
+    }, 1000);
+  });
+  $(".side02__header__button-close").on("click", function () {
+    $("#SIDE02").removeClass("side02--show");
+    $(this).removeClass("active");
+    $(".side02__override").removeClass("side02__override--show");
+    $("body").removeClass("no-scroll");
+  });
+});
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Footers/FOOT02/src/main.js":
+/***/ "./resources/views/Client/Core/Footers/FOOT06/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Footers/FOOT02/src/main.js ***!
+  !*** ./resources/views/Client/Core/Footers/FOOT06/src/main.js ***!
   \****************************************************************/
 /***/ (() => {
 
@@ -11751,9 +11760,23 @@ $(document).ready(function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/Core/Headers/HEAD02/src/main.js ***!
   \****************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(function () {
+  $(window).on('scroll', function () {
+    var rolagem = $(this).scrollTop();
+    if (rolagem >= 90 && $('#HEAD02').hasClass('normal')) {
+      $('#HEAD02').removeClass('normal');
+      $('#HEAD02').addClass('flutuante');
+    } // FIM - if(rolagem >= 200 && $('#HEAD02').hasClass('normal')){
 
+    if (rolagem < 90 && $('#HEAD02').hasClass('flutuante')) {
+      $('#HEAD02').addClass('normal');
+      $('#HEAD02').removeClass('flutuante');
+    } // FIM - if(rolagem < 200 && $('#HEAD02').hasClass('flutuante')) {
+  });
+});
 
 /***/ }),
 
@@ -11835,14 +11858,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE02/src/main */ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js");
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
-/* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
-/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Services/SERV04/src/main */ "./resources/views/Client/pages/Services/SERV04/src/main.js");
-/* harmony import */ var _pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Services_SERV04_src_main__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Core_Footers_FOOT06_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT06/src/main */ "./resources/views/Client/Core/Footers/FOOT06/src/main.js");
+/* harmony import */ var _Core_Footers_FOOT06_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT06_src_main__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _pages_Contacts_COTA05_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Contacts/COTA05/src/main */ "./resources/views/Client/pages/Contacts/COTA05/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA05_src_main__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA05_src_main__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Contacts/COTA04/src/main */ "./resources/views/Client/pages/Contacts/COTA04/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA04_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Contacts_COTA03_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Contacts/COTA03/src/main */ "./resources/views/Client/pages/Contacts/COTA03/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA03_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA03_src_main__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_6__);
 
@@ -11868,7 +11891,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-/**************** VAI FICAR OBSOLETO ******************/
 function resizeHeightSlide() {
   // mw500=700
   if ($("[data-slide-height]").length) {
@@ -11894,9 +11916,6 @@ function resizeHeightSlide() {
     }
   }
 }
-/******************************************************/
-
-/**************** VAI FICAR OBSOLETO ******************/
 function insertImageMobile() {
   // INCLUDE IMAGE MOBILE
   if ($(window).outerWidth() <= 800) {
@@ -11913,7 +11932,6 @@ function insertImageMobile() {
     });
   }
 }
-/**************** VAI FICAR OBSOLETO ******************/
 $(function () {
   $(".owl-carousel").each(function () {
     var owlCarousel = $(this);
@@ -11995,8 +12013,6 @@ $(function () {
     });
   });
 });
-/******************************************************/
-
 /******  ANIMAÇÃO ******/
 // Verifica se há elementos com a classe .animation no documento
 var elementosAnimados = document.querySelectorAll(".animation");
@@ -12040,7 +12056,17 @@ if (elementosAnimados.length > 0) {
   });
 }
 
-/******************* NOVO SCRIPT DE ANIMAÇÃO DO ACCORDION *****************************/
+/* HOTFIX PARA O HEADER */
+window.addEventListener("scroll", function () {
+  /* Esconde o dropdown do menu quando há uma rolagem da tela */
+  var menuAberto = document.querySelector(".sublink--menu.show");
+  if (menuAberto) {
+    menuAberto.classList.remove("show");
+    document.querySelector(".menu-list .link.show").classList.remove("show");
+  }
+});
+
+/* NOVO SCRIPT DE ANIMAÇÃO DO ACCORDION */
 var Accordion = /*#__PURE__*/function () {
   function Accordion(el) {
     var _this = this;
@@ -12198,7 +12224,8 @@ if (details.length > 0) {
     el._accordionInstance = new Accordion(el);
   });
 }
-/*************************************************************************************/
+
+/***********************************************************/
 
 /*  QUEDINHA - DROPDOWN DO SISTEMA */
 var quedinhaBtnList = document.querySelectorAll(".quedinha__btn");
@@ -12209,8 +12236,8 @@ quedinhaBtnList.forEach(function (quedinhaBtn) {
     var elRect = content.getBoundingClientRect();
 
     // Calcula a diferença entre a largura da viewport e a parede esquerda do elemento em si.
-    var diff = window.innerWidth - elRect.left;
 
+    var diff = window.innerWidth - elRect.left;
     // Verifica se o diff é menor que a largura do elemento. Sendo menor, altera-se o estilo, fazendo com que o subMenu abra para o lado oposto;
     if (diff < elRect.width) {
       content.style.left = "unset";
@@ -12251,218 +12278,6 @@ window.onclick = function (event) {
 
 /***********************************************************/
 
-/* BURGUER - MENU-MOBILE & FUNCIONALIDADE SIDEBAR */
-/* Define a abertura e fechamento do menu */
-var CLASS_SIDEBAR_OPEN = "open";
-var btnsBurguer = document.querySelectorAll(".burguer"); //btn de abrir side nos headers
-var sidebar = document.querySelector(".burger__target"); //alvo (target) do plugin
-
-btnsBurguer.forEach(function (el) {
-  /* O evento de click abaixo está ligado a classe .burger permitindo que seja usada como marcador para fechar a sidebar inclusive no botão da própria side */
-  el.addEventListener("click", function () {
-    if (!sidebar.classList.contains(CLASS_SIDEBAR_OPEN)) {
-      sidebar.classList.add(CLASS_SIDEBAR_OPEN);
-      document.body.style.overflow = "hidden"; /* valor padrão hidden, não permitindo rolagem */
-    } else {
-      sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
-      document.body.style.overflow = "visible"; /* valor padrão visible, permitindo rolagem*/
-    }
-  });
-
-  var burguerIcon = el.querySelector('.burguer__icon');
-  if (burguerIcon) {
-    if (!burguerIcon.classList.contains('dots')) {
-      burguerIcon.innerHTML = "<span></span> <span></span> <span></span>";
-    } else {
-      burguerIcon.innerHTML = "<span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span>";
-    }
-  }
-});
-
-/* Define o fechamento e rolagem para âncoras */
-var sideLinks = sidebar.querySelectorAll(".sideLinks a");
-if (sideLinks.length > 0) {
-  sideLinks.forEach(function (el) {
-    el.addEventListener("click", function (ev) {
-      ev.preventDefault();
-      sidebar.classList.remove(CLASS_SIDEBAR_OPEN);
-      document.body.style.overflow = "visible"; /* valor padrão visible, permitindo rolagem*/
-
-      setTimeout(function () {
-        window.location.assign(el.href);
-      }, 800);
-    });
-  });
-}
-
-/***********************************************************/
-
-// // / menu responsivo /
-// const backdrop = document.createElement("div");
-// backdrop.classList.add("backdrop");
-// document.body.appendChild(backdrop);
-
-// const btnSandwich = document.querySelector(".btn-mn-mbl");
-
-// const contIcon = btnSandwich.querySelector(".icon");
-
-// let spans = "";
-
-// if (btnSandwich.classList.contains("dots")) {
-//     for (let i = 0; i < 9; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// // DEFAULT
-// if (btnSandwich.classList.contains("bars")) {
-//     for (let i = 0; i < 3; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// contIcon.innerHTML = spans;
-
-// const closeMenu = () => {
-//     if (document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "none";
-//         document.getElementById("menu-mobile").classList.remove("aberto");
-//         document.body.style.overflowY = "visible";
-//         btnSandwich.classList.remove("open");
-//     }
-// };
-
-// btnSandwich.addEventListener("click", () => {
-//     if (!document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "block";
-//         // backdrop.style.opacity = "1";
-//         document.getElementById("menu-mobile").classList.add("aberto");
-//         document.body.style.overflowY = "hidden";
-//         btnSandwich.classList.add("open");
-//     } else {
-//         closeMenu();
-//     }
-// });
-
-// window.addEventListener("resize", closeMenu);
-// backdrop.addEventListener("click", closeMenu);
-// if (document.getElementById("a-mb-close")) {
-//     document.getElementById("a-mb-close").addEventListener("click", closeMenu);
-// }
-
-// for (const link of document.querySelectorAll(".engloba-sidebar li a")) {
-//     link.addEventListener("click", closeMenu);
-// }
-// // / fim menu responsivo
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js":
-/*!***************************************************************!*\
-  !*** ./resources/views/Client/pages/Blogs/BLOG01/src/main.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  // if($(window).outerWidth() <= 800){
-  $(".blog01__boxs__carousel").addClass("owl-carousel");
-  $(".blog01__boxs__carousel").owlCarousel({
-    margin: 10,
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: true,
-    nav: false,
-    items: 4,
-    rewind: true,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 1
-      },
-      // breakpoint from 360 up
-      361: {
-        items: 1
-      },
-      // breakpoint from 768 up
-      800: {
-        items: 4,
-        touchDrag: false,
-        mouseDrag: false
-      }
-    }
-  });
-  $(".blog01-page__header__category__carousel").addClass("owl-carousel");
-  $(".blog01-page__header__category__carousel").owlCarousel({
-    margin: 10,
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: false,
-    nav: false,
-    rewind: true,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 2
-      }
-    }
-  });
-  // }
-
-  $(".blog01-page__boxs__featured__carousel").addClass("owl-carousel");
-  $(".blog01-page__boxs__featured__carousel").owlCarousel({
-    margin: 10,
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: true,
-    nav: false,
-    rewind: true,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 1
-      },
-      // breakpoint from 360 up
-      361: {
-        items: 1
-      },
-      // breakpoint from 768 up
-      800: {
-        items: 1
-      }
-    }
-  });
-});
-addEventListener("DOMContentLoaded", function () {
-  var shareButton = document.getElementById("shareButton");
-  if (shareButton) {
-    shareButton.addEventListener("click", function () {
-      // Verifique se a API do Web Share está disponível no navegador
-      if (navigator.share) {
-        // Dados para compartilhar
-        var title = "{{$blog->title}}"; // Incorporar o título do artigo
-        var description = "{{$blog->description}}"; // Incorporar o a descrição do artigo
-        var url = "{{url()->current() }}"; // Incorporar a URL do artigo
-
-        var shareData = {
-          title: title,
-          text: description,
-          url: url
-        };
-
-        // Chame a API do Web Share para abrir a janela de compartilhamento
-        navigator.share(shareData).then(function () {
-          console.log('Artigo compartilhado com sucesso!');
-        })["catch"](function (error) {
-          console.error('Erro ao compartilhar o artigo:', error);
-        });
-      } else {
-        alert('Este navegador não suporta compartilhamento direto. Você pode copiar o link e compartilhá-lo manualmente.');
-      }
-    });
-  }
-});
-
 /***/ }),
 
 /***/ "./resources/views/Client/pages/Compliances/COMP01/src/main.js":
@@ -12475,9 +12290,9 @@ addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contacts/COTA02/src/main.js":
+/***/ "./resources/views/Client/pages/Contacts/COTA03/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contacts/COTA02/src/main.js ***!
+  !*** ./resources/views/Client/pages/Contacts/COTA03/src/main.js ***!
   \******************************************************************/
 /***/ (() => {
 
@@ -12485,71 +12300,49 @@ addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Services/SERV04/src/main.js":
+/***/ "./resources/views/Client/pages/Contacts/COTA04/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Services/SERV04/src/main.js ***!
+  !*** ./resources/views/Client/pages/Contacts/COTA04/src/main.js ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  $('.carousel-serv04').owlCarousel({
-    margin: 12,
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true,
-    loop: false,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 1
-      },
-      // breakpoint from 500 up
-      500: {
-        items: 1
-      },
-      // breakpoint from 800 up
-      800: {
-        items: 4
-      }
-    }
+$(".box").each(function () {
+  // Encontre elementos de guia e conteúdo dentro da caixa atual
+  var $box = $(this);
+  var $tabs = $box.find(".tab");
+  var $tabContents = $box.find(".tab-content");
+  $tabs.on('click', function (event) {
+    event.preventDefault(); // Impede o comportamento padrão de rolagem
+
+    var tabClass = $(this).data("tab");
+
+    // Esconder todo o conteúdo da aba na caixa atual
+    $tabContents.removeClass("active-tab");
+
+    // Exibir apenas o conteúdo da aba selecionada na caixa atual
+    $box.find("." + tabClass).addClass("active-tab");
+
+    // Remover a classe 'active' de todas as abas na caixa atual
+    $tabs.removeClass("active");
+
+    // Adicionar a classe 'active' à aba selecionada na caixa atual
+    $(this).addClass("active");
   });
-  if ($(window).outerWidth() <= 500) {
-    $('.carousel-serv04').css('width', $(window).outerWidth());
-  }
-  $('.carousel-serv04-page__subcategory').owlCarousel({
-    margin: 12,
-    stagePadding: 0,
-    smartSpeed: 450,
-    dots: true,
-    nav: false,
-    rewind: true,
-    autoHeight: true,
-    loop: false,
-    responsive: {
-      // breakpoint from 0 up
-      0: {
-        items: 1,
-        margin: 0
-      },
-      // breakpoint from 500 up
-      500: {
-        items: 1,
-        margin: 0
-      },
-      // breakpoint from 800 up
-      800: {
-        items: 4
-      }
-    }
-  });
-  if ($(window).outerWidth() <= 500) {
-    $('.carousel-serv04-page__subcategory').css('width', $(window).outerWidth() + 200);
-  }
+
+  // Ativar a primeira aba por padrão na caixa atual
+  $tabs.first().trigger("click");
 });
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contacts/COTA05/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contacts/COTA05/src/main.js ***!
+  \******************************************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 

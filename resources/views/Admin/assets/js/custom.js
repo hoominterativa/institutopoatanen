@@ -254,10 +254,12 @@ $(function() {
     })
 
     $('.cloneTypeButton').on('click', function() {
-        $('.container-type-input:first').clone(true).appendTo('.container-inputs-contact');
-        $('.container-type-input:last').find('select option').removeAttr('selected');
-        $('.container-type-input:last').find('select option:first').attr('selected', 'selected');
-        $('.infoInputs:last').remove()
+        const form = $(this).closest('form');
+
+        form.find('.container-type-input:first').clone(true).appendTo(form.find('.container-inputs-contact'));
+        form.find('.container-type-input:last').find('select option').removeAttr('selected');
+        form.find('.container-type-input:last').find('select option:first').attr('selected', 'selected');
+        form.find('.infoInputs:last').remove()
     })
 
     $('.deleteTypeButton').on('click', function() {

@@ -22,6 +22,10 @@ body {
         margin-bottom: 0;
     }
 
+    p {
+        margin-bottom: 0;
+    }
+
     /* CARROSSEL - SWIPER */
     .swiper-slide {
         display: flex;
@@ -1723,6 +1727,13 @@ body {
         padding-right: 5vw;
         padding-bottom: 4.5rem;
         padding-left: 5vw;
+
+        &--banner {
+            @extend %theme__padding;
+
+            padding-top: 6.5rem;
+            padding-bottom: 6.5rem;
+        }
     }
 
     &__banner {
@@ -2067,6 +2078,7 @@ body {
         padding: 0.75rem 3rem;
 
         background-color: $color-four;
+        border: none;
 
         @extend %theme__p1-c1;
         font-weight: 700;
