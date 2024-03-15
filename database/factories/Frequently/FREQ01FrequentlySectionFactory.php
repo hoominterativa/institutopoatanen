@@ -26,7 +26,6 @@ class FREQ01FrequentlySectionFactory extends Factory
             'subtitle' => $this->faker->text(10),
             'path_image_desktop' => 'uploads/tmp/image-box-white.jpg',
             'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color' => '#fff',
             'active' => 1,
             'title_form' => $this->faker->text(10),
             'subtitle_form' => $this->faker->text(10),

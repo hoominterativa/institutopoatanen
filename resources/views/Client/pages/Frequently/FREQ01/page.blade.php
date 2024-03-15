@@ -2,10 +2,10 @@
 @section('content')
     <main id="root" class="freq01-page">
         @if ($frequentlys->count())
-            @if ($section->active === 1)
+            @if ($section)
                 @if ($section->title || $section->subtitle)
                     <section class="freq01-page__header"
-                        style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); /*background-color: {{ $section->background_color }};*/">
+                        style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});">
 
                         @if ($section->title)
                             <h1 class="freq01-page__header__title ">{{ $section->title }}</h1>
@@ -43,14 +43,14 @@
             {!! Form::open(['route' => 'lead.store', 'class' => 'parsley-validate send_form_ajax freq01-page__form']) !!}
             {!! Form::hidden('target_lead', 'Perguntas Frequentes') !!}
 
-            @if ($section->active_form === 1)
-                @if ($section->title_form || $section->subtitle_form)
+            @if ($sectionForm)
+                @if ($sectionForm->title_form || $sectionForm->subtitle_form)
                     <header class="freq01-page__form__header">
-                        @if ($section->title_form)
-                            <h3 class="freq01-page__form__header__title">{{ $section->title_form }}</h3>
+                        @if ($sectionForm->title_form)
+                            <h3 class="freq01-page__form__header__title">{{ $sectionForm->title_form }}</h3>
                         @endif
-                        @if ($section->subtitle_form)
-                            <h4 class="freq01-page__form__header__subtitle">{{ $section->subtitle_form }}</h4>
+                        @if ($sectionForm->subtitle_form)
+                            <h4 class="freq01-page__form__header__subtitle">{{ $sectionForm->subtitle_form }}</h4>
                         @endif
                     </header>
                 @endif
