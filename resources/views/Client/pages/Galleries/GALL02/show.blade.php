@@ -1,29 +1,39 @@
-<div id="lightbox-gall02-{{$gallery->id}}" class="lightbox-gall02 row">
-    <div class="lightbox-gall02__content">
-        <div class="container px-0 px-0 mx-auto">
-            @if ($gallery->title || $gallery->subtitle)
-                <div class="lightbox-gall02__top">
-                    <div class="lightbox-gall02__top__description">
-                        <h4 class="lightbox-gall02__top__description__title">{{$gallery->title}}</h4>
-                        <h5 class="lightbox-gall02__top__description__subtitle">{{$gallery->subtitle}}</h5>
-                    </div>
-                </div>
+<section id="gall02-show{{ $gallery->id }}" class="gall02-show">
+    @if ($gallery->title || $gallery->subtitle)
+        <header class="gall02-show__header">
+            @if ($gallery->title)
+                <h2 class="gall02-show__header__title">{{ $gallery->title }}</h2>
             @endif
-            <div class="lightbox-gall02__bottom">
-                <div class="lightbox-gall02__bottom__main">
-                    <img src="{{asset('storage/' .$gallery->path_image)}}"  width="100%" height="100%" class="lightbox-gall02__bottom__main__item" alt="">
-                    <h4 class="lightbox-gall02__bottom__main__legend">{{$gallery->image_legend}}</h4>
-                </div>
-                <div class="lightbox-gall02__bottom__thumbnail">
-                    <div class="lightbox-gall02__bottom__thumbnail__carousel">
-                        @foreach ($gallery->images as $image )
-                            <img src="{{asset('storage/' . $image->path_image)}}" data-main-image="{{asset('storage/' . $image->path_image)}}" data-main-title="{{$image->galleries->image_legend}}" width="100%" class="lightbox-gall02__bottom__thumbnail__item lightbox-gall02__bottom__thumbnail__item--active" alt="Imagem">
-                        @endforeach
-                    </div>
-                </div>
-            </div>
+
+            @if ($gallery->subtitle)
+                <h3 class="gall02-show__header__subtitle">{{ $gallery->subtitle }}</h3>
+            @endif
+        </header>
+    @endif
+
+
+    {{-- <figure class="gall02-show__gallery">
+        <img src="{{ asset('storage/' . $gallery->path_image) }}" class="gall02-show__gallery__item"
+            alt="{{ $gallery->image_legend }}">
+        <figcaption class="gall02-show__gallery__item__legend">{{ $gallery->image_legend }}</figcaption>
+    </figure> --}}
+
+    <div class="gall02-show__gallery">
+        <div class="gall02-show__gallery__swipper-wrapper swiper-wrapper">
+            @foreach ($gallery->images as $image)
+                <img class="gall02-show__gallery__item swiper-slide " src="{{ asset('storage/' . $image->path_image) }}"
+                    alt="Imagem">
+            @endforeach
         </div>
     </div>
-</div>
-{{-- END .lightbox-gall02 --}}
+    <div class="gall02-show__gallery__thumbs">
+        <div class="gall02-show__gallery__thumbs__swiper-wrapper swiper-wrapper">
+            @foreach ($gallery->images as $image)
+                <img src="{{ asset('storage/' . $image->path_image) }}"
+                    class="gall02-show__gallery__thumbs__item swiper-slide" alt="Imagem">
+            @endforeach
+        </div>
+    </div>
 
+
+</section>

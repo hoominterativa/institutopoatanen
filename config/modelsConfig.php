@@ -14,22 +14,20 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Frequently' => (object) [
-            'FREQ01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
+        'Galleries' => (object) [
+            'GALL02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => 'Perguntas',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'freq01.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Perguntas',
-                    'iconPanel' => 'mdi-frequently-asked-questions'
-                ],
-                'IncludeSections' => (object) [
+                    'titlePanel' => 'Galeria',
+                    'iconPanel' => 'mdi-folder-multiple-image'
                 ]
             ],
         ],
