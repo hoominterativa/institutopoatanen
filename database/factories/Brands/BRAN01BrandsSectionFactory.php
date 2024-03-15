@@ -32,7 +32,6 @@ class BRAN01BrandsSectionFactory extends Factory
             'subtitle_banner' => $this->faker->text(10),
             'path_image_desktop_banner' => 'uploads/tmp/port01_path_image_right.jpg',
             'path_image_mobile_banner' => 'uploads/tmp/port01_path_image_box.png',
-            'background_color_banner' => '#FFFFFF',
             'active_banner' => 1,
             //Content
             'title_content' => $this->faker->text(10),

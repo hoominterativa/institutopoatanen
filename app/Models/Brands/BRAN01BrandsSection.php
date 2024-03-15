@@ -20,7 +20,7 @@ class BRAN01BrandsSection extends Model
         //Section
         'title_section', 'subtitle_section', 'active_section', 'description_section',
         //Banner
-        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'background_color_banner', 'active_banner',
+        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'active_banner',
         //Content
         'title_content', 'subtitle_content', 'active_content', 'description_content',
     ];
