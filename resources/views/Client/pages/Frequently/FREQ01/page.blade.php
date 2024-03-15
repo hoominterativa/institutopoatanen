@@ -2,7 +2,7 @@
 @section('content')
     <main id="root" class="freq01-page">
         @if ($frequentlys->count())
-            @if ($section->active)
+            @if ($section->active === 1)
                 @if ($section->title || $section->subtitle)
                     <section class="freq01-page__header"
                         style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); /*background-color: {{ $section->background_color }};*/">
