@@ -163,67 +163,23 @@
 
 .blog01-page {
     &__header {
-        height: 352px;
-        text-align: center;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        @extend %theme__banner;
+
         &__title {
-            font-size: $T1;
-            font-weight: $weight-700;
-            color: $color-black;
-            @include medium-device-down {
-                font-size: $T1-mobile;
-            }
-        }
-        &__category {
-            margin: 43px 0 0;
-            @include medium-device-down {
-                padding-right: 60px;
-                display: block !important;
-
-                .owl-stage-outer {
-                    overflow: visible;
-                }
-            }
-            &__item {
-                font: $paragraph;
-                font-weight: $weight-700;
-                color: $color-black;
-                padding: 0 15px;
-                margin: 0 23px;
-                @include medium-device-down {
-                    font: $paragraph-mobile;
-                    font-weight: $weight-700;
-                    text-align: center;
-                    width: 100%;
-                    display: block;
-                    margin: 0;
-                }
-                &::after {
-                    content: "";
-                    display: table;
-                    visibility: hidden;
-                    opacity: 0;
-                    margin: 12px auto 0;
-                    border-top: 10px solid #000;
-                    border-left: 10px solid transparent;
-                    border-right: 10px solid transparent;
-                    transition: all ease 0.3s;
-                }
-
-                &--active,
-                &:hover {
-                    color: $color-two;
-                    &::after {
-                        visibility: visible;
-                        opacity: 1;
-                    }
-                }
-            }
+            @extend %theme__banner__title;
         }
     }
-    // END __header
+
+    &__categories {
+        @extend %theme__padding;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        width: 100%;
+
+        &__item {
+            @extend %theme__category;
+        }
+    }
 
     &__boxs {
         padding-bottom: 80px;
