@@ -1,21 +1,24 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.gall01{
-    &__box{
-        @include medium-device{
-           &:nth-of-type(even){
-                order:2;
-           }
+.gall01 {
+    overflow: hidden; /* prevenção do shift da animação */
+    @include disFlex;
+    flex-wrap: wrap;
+
+    &__item{
+        width: 25%;
+        height: auto;
+        aspect-ratio: 1/1;
+
+        flex: 1 0 auto;
+
+        @include large-device-down{
+            width: 33.33%;
         }
-        &__image{
-                @include Img ($ObjectFit: inherit, $Height:298.99px);
-                @include medium-device{
-                    height: 194.35px;
-                }
-            img{
-                @include Img ($ObjectFit: cover);
-            }
+
+        @include medium-device-down{
+            width: 50%;
         }
     }
 }
