@@ -1667,44 +1667,75 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
+.port04-show__content, .port04-page__portfolio, .port04, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .port04-show__banner, .port04-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.port04-show__banner__subtitle, .port04-show__banner__title, .port04-page__banner__subtitle, .port04-page__banner__title {
+  font: 700 3.125rem "Ubuntu", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.0125rem;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .port04-show__banner__subtitle, .port04-show__banner__title, .port04-page__banner__subtitle, .port04-page__banner__title {
+    font-size: 2.5rem;
+    line-height: 90%;
+  }
+}
+.port04-show__banner__subtitle, .port04-show__banner__title, .port04-page__banner__subtitle, .port04-page__banner__title {
+  color: #404040;
+}
+.port04-show__content__main-content__information__title, .port04-page__portfolio__header__title, .port04__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .port04-show__content__main-content__information__title, .port04-page__portfolio__header__title, .port04__header__title {
+    font-size: 1.875rem;
+  }
+}
+.port04-show__content__main-content__information__title, .port04-page__portfolio__header__title, .port04__header__title {
+  color: #404040;
+}
+.port04-show__content__main-content__information__subtitle, .port04-page__portfolio__header__subtitle, .port04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port04-page__portfolio__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .port04-show__content__main-content__information__subtitle, .port04-page__portfolio__header__subtitle, .port04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port04-page__portfolio__categories__item {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port04-page__portfolio__categories__item {
   color: #000;
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.port04-show__content__main-content__information__subtitle, .port04-page__portfolio__header__subtitle, .port04__header__subtitle {
+  color: #b3b3b3;
+}
+.port04__portfolios__item__information__title, .port04-page__portfolio__main__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .side02__navigation__item__link, .side02__navigation__item__btn {
+  .port04__portfolios__item__information__title, .port04-page__portfolio__main__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.port04__portfolios__item__information__title, .port04-page__portfolio__main__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.port04-page__portfolio__header__paragraph, .port04__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .port04__portfolios__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.port04-page__portfolio__header__paragraph p, .port04__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .port04__portfolios__cta p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1712,7 +1743,7 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .port04-page__portfolio__header__paragraph, .port04__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .port04__portfolios__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
@@ -1722,15 +1753,18 @@ body .owl-dots .owl-dot.active {
 .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .port04__portfolios__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.port04-page__portfolio__header__paragraph, .port04__header__paragraph {
+  color: #7c7c7c;
+}
+.port04-show__content__main-content__information__paragraph, .port04__portfolios__item__information__description, .port04-page__portfolio__main__item__information__description, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.port04-show__content__main-content__information__paragraph p, .port04__portfolios__item__information__description p, .port04-page__portfolio__main__item__information__description p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1738,7 +1772,7 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .port04-show__content__main-content__information__paragraph, .port04__portfolios__item__information__description, .port04-page__portfolio__main__item__information__description, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1749,12 +1783,67 @@ body .owl-dots .owl-dot.active {
 .foot02__copyright__compliances__item {
   color: #404040;
 }
+.port04-show__content__main-content__information__paragraph, .port04__portfolios__item__information__description, .port04-page__portfolio__main__item__information__description {
+  color: #7c7c7c;
+}
 .head02__navigation__item--menu-mobile__item {
   /* edita apenas o btn de menu mobile */
 }
 .head02__navigation__item--menu-mobile__item__icon {
   width: 2rem;
   height: 2rem;
+}
+.port04-show__banner, .port04-page__banner {
+  width: 100%;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #cacaca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.port04__portfolios__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  background-color: #cacaca;
+  border: none;
+  font-weight: 700;
+}
+.port04__portfolios__cta:focus {
+  /* uso do !important para resetar o valor do fancybox */
+  outline: none !important;
+}
+.port04-page__portfolio__categories__item {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  align-items: center;
+  background-color: #efefef;
+}
+.active.port04-page__portfolio__categories__item {
+  background-color: #cacaca;
+}
+.port04__portfolios__carousel .swiper-pagination-bullets, .port04-page__portfolio__main__carousel .swiper-pagination-bullets {
+  margin-top: 2rem;
+  text-align: left;
+}
+.port04__portfolios__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .port04-page__portfolio__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background-color: rgba(124, 124, 124, 0.5);
+}
+.port04__portfolios__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .port04-page__portfolio__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  background-color: #7c7c7c;
 }
 .head02 {
   width: 100%;
@@ -2185,32 +2274,433 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 
-/* BEGIN STYLE */
-.gall01 {
-  overflow: hidden; /* prevenção do shift da animação */
+.port04 {
+  overflow: hidden; /* prevenção do shift da animação*/
+}
+.port04__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.port04__header__title {
+  margin-bottom: 0.25rem;
+}
+.port04__header__subtitle {
+  margin-bottom: 2rem;
+}
+.port04__header__paragraph {
+  width: 100%;
+  max-width: 938px;
+  text-align: center;
+}
+.port04__portfolios__carousel, .port04-page__portfolio__main__carousel {
+  height: auto;
+}
+.port04__portfolios__item, .port04-page__portfolio__main__item {
+  position: relative;
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-  flex-wrap: wrap;
-}
-.gall01__item {
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
   width: 25%;
   height: auto;
-  aspect-ratio: 1/1;
-  flex: 1 0 auto;
+  aspect-ratio: 328/364;
 }
 @media (max-width: 991.98px) {
-  .gall01__item {
+  .port04__portfolios__item, .port04-page__portfolio__main__item {
     width: 33.33%;
   }
 }
 @media (max-width: 767.98px) {
-  .gall01__item {
+  .port04__portfolios__item, .port04-page__portfolio__main__item {
     width: 50%;
   }
 }
+@media (max-width: 575.98px) {
+  .port04__portfolios__item, .port04-page__portfolio__main__item {
+    width: 100%;
+  }
+}
+.port04__portfolios__item__bg, .port04-page__portfolio__main__item__bg {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.port04__portfolios__item__information, .port04-page__portfolio__main__item__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.port04__portfolios__item__icon, .port04-page__portfolio__main__item__icon {
+  width: 2rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.port04__portfolios__cta {
+  margin: 2rem 0 0 auto;
+}
 
+.port04-page__portfolio__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.port04-page__portfolio__header__title {
+  margin-bottom: 0.25rem;
+}
+.port04-page__portfolio__header__subtitle {
+  margin-bottom: 2rem;
+}
+.port04-page__portfolio__header__paragraph {
+  width: 100%;
+  max-width: 938px;
+  text-align: center;
+}
+.port04-page__portfolio__categories {
+  margin-bottom: 3rem;
+}
+.port04-page__portfolio__categories__item__icon {
+  width: 2rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-right: 0.5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.port04-show__content__main-content {
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.port04-show__content__main-content:not(:has(.port04-show__content__main-content__image)) .port04-show__content__main-content__information {
+  width: 100%;
+  padding-top: unset;
+}
+.port04-show__content__main-content:not(:has(.port04-show__content__main-content__image)) .port04-show__content__main-content__information__title, .port04-show__content__main-content:not(:has(.port04-show__content__main-content__image)) .port04-show__content__main-content__information__subtitle, .port04-show__content__main-content:not(:has(.port04-show__content__main-content__image)) .port04-show__content__main-content__information__paragraph {
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .port04-show__content__main-content {
+    flex-direction: column-reverse;
+  }
+}
+.port04-show__content__main-content__image {
+  width: 32%;
+  height: 100%;
+  aspect-ratio: 430/593;
+  margin-inline: auto;
+}
+@media (max-width: 991.98px) {
+  .port04-show__content__main-content__image {
+    width: 100%;
+    aspect-ratio: 256/351;
+  }
+}
+.port04-show__content__main-content__image__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.port04-show__content__main-content__information {
+  padding: 4rem 2rem;
+  width: 50%;
+}
+@media (max-width: 991.98px) {
+  .port04-show__content__main-content__information {
+    width: 100%;
+  }
+}
+.port04-show__content__main-content__information__title {
+  text-align: left;
+  margin-bottom: 0.75rem;
+}
+.port04-show__content__main-content__information__subtitle {
+  margin-bottom: 1.25rem;
+}
+.port04-show__content__main-content__information__paragraph {
+  margin-bottom: 2rem;
+}
+.port04-show__content__additional-topic {
+  background-color: #b3b3b3;
+  padding: 80px 0;
+}
+.port04-show__content__additional-topic .accordion {
+  width: 90%;
+  margin: 0 auto;
+}
+.port04-show__content__additional-topic .accordion .accordion-item {
+  border: none;
+  border-bottom: solid 1px #404040;
+  margin-bottom: 24px;
+}
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button {
+  background-color: #b3b3b3;
+  font-size: 1.063rem;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-weight: 700;
+  color: #404040;
+}
+@media (max-width: 767.98px) {
+  .port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button {
+    font-size: 1.063rem;
+    font-weight: 700;
+  }
+}
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button:focus {
+  border: none;
+  box-shadow: none;
+}
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-header .accordion-button::after {
+  background-image: url(../images/accordion-icon.svg);
+  width: 21px;
+}
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-body {
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 1rem;
+  color: #393939;
+  font-weight: 400;
+  line-height: 170%;
+  letter-spacing: 0.2px;
+}
+.port04-show__content__additional-topic .accordion .accordion-item .accordion-body p {
+  font: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+.port04-show__content__topics {
+  padding: 72px 0;
+  background-color: #efefef;
+  display: flex;
+  justify-content: center;
+}
+.port04-show__content__topics__carousel {
+  display: flex !important;
+  justify-content: center;
+}
+@media (max-width: 991.98px) {
+  .port04-show__content__topics__carousel {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.port04-show__content__topics__item {
+  width: 300px;
+  padding: 16px 22px;
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+@media (max-width: 575.98px) {
+  .port04-show__content__topics__item {
+    width: 100%;
+  }
+}
+.port04-show__content__topics__item__image {
+  width: 54px;
+}
+.port04-show__content__topics__item__image__img {
+  width: 100%;
+  height: 100%;
+}
+.port04-show__content__topics__item__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.port04-show__content__topics__item__information__title {
+  margin-bottom: 4px;
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 170%;
+  letter-spacing: 0.2px;
+  color: #000;
+}
+@media (max-width: 767.98px) {
+  .port04-show__content__topics__item__information__title {
+    font-size: 0.938rem;
+    font-weight: 700;
+  }
+}
+.port04-show__content__topics__item__information__description {
+  margin-bottom: 0;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  color: #7c7c7c;
+}
+@media (max-width: 767.98px) {
+  .port04-show__content__topics__item__information__description {
+    font-size: 0.938rem;
+  }
+}
+.port04-show__content__gallery {
+  padding: 72px 0 48px;
+}
+@media (max-width: 1199.98px) {
+  .port04-show__content__gallery {
+    padding: 72px 0 48px !important;
+  }
+}
+.port04-show__content__gallery__item {
+  width: 300px;
+}
+@media (max-width: 575.98px) {
+  .port04-show__content__gallery__item {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.port04-show__related-items {
+  background-color: #efefef;
+  padding: 56px 0 62px;
+}
+@media (max-width: 767.98px) {
+  .port04-show__related-items__header {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.port04-show__related-items__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 2.5rem;
+  color: #404040;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .port04-show__related-items__header__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+}
+.port04-show__related-items__header__subtitle {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.25rem;
+  color: #404040;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 767.98px) {
+  .port04-show__related-items__header__subtitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+.port04-show__related-items__header__line {
+  margin-top: 28px;
+  margin-bottom: 32px;
+}
+.port04-show__related-items__header__description {
+  margin-bottom: 72px;
+  max-width: 1122px;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 1rem;
+  color: #393939;
+  font-weight: 400;
+  text-align: center;
+  line-height: 170%;
+  letter-spacing: 0.2px;
+}
+.port04-show__related-items__header__description p {
+  font: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+@media (max-width: 767.98px) {
+  .port04-show__related-items__header__description {
+    font-size: 0.938rem;
+    font-weight: 400;
+  }
+}
+@media (max-width: 767.98px) {
+  .port04-show__related-items__carousel {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.port04-show__related-items__content__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  width: 327px;
+  height: 100%;
+}
+@media (max-width: 575.98px) {
+  .port04-show__related-items__content__item {
+    width: 100%;
+  }
+}
+.port04-show__related-items__content__item__image {
+  width: 100%;
+}
+.port04-show__related-items__content__item__container {
+  position: absolute;
+  width: 100%;
+  padding: 0 32px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.port04-show__related-items__content__item__container__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.port04-show__related-items__content__item__container__header__title {
+  font-family: "Ubuntu", sans-serif, arial;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000;
+}
+.port04-show__related-items__content__item__container__header__description {
+  font-family: "Ubuntu", sans-serif, arial;
+  font: 400 0.875rem "Montserrat", sans-serif, arial;
+  color: #7c7c7c;
+  letter-spacing: 0.2px;
+  line-height: 140%;
+}
+.port04-show__related-items__content__item__container__icon {
+  width: 33px !important; /* !important aqui por conta do owl caroussel */
+  height: 33px;
+}
+
+/* END SHOW */
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
