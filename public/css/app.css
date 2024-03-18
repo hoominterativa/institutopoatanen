@@ -1667,65 +1667,40 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.cota05-page__form, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .cota05-page__banner {
+.gall02-show, .gall02, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.cota05-page__banner__title {
-  font: 700 3.125rem "Ubuntu", sans-serif, arial;
-  line-height: 140%;
-  letter-spacing: 0.0125rem;
-  text-align: center;
-}
-@media (max-width: 991.98px) {
-  .cota05-page__banner__title {
-    font-size: 2.5rem;
-    line-height: 90%;
-  }
-}
-.cota05-page__banner__title {
-  color: #404040;
-}
-.cota05-page__form__header__information__title {
+.gall02-show__header__title, .gall02__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .cota05-page__form__header__information__title {
+  .gall02-show__header__title, .gall02__header__title {
     font-size: 1.875rem;
   }
 }
-.cota05-page__form__header__information__title {
+.gall02-show__header__title, .gall02__header__title {
   color: #404040;
 }
-.cota05-page__banner__subtitle {
-  font: 700 1.875rem "Ubuntu", sans-serif, arial;
-  line-height: normal;
-  text-align: left;
-}
-@media (max-width: 991.98px) {
-  .cota05-page__banner__subtitle {
-    font-size: 1.563rem;
-  }
-}
-.cota05-page__banner__subtitle {
-  color: #b3b3b3;
-}
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.gall02-show__header__subtitle, .gall02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .gall02-show__header__subtitle, .gall02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
+}
+.gall02-show__header__subtitle, .gall02__header__subtitle {
+  color: #b3b3b3;
 }
 .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
@@ -1740,12 +1715,12 @@ body .owl-dots .owl-dot.active {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.cota05-page__form .input__item--radio .form-label, .cota05-page__form__header__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota05-page__form__footer__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .gall02__gallery__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.cota05-page__form .input__item--radio .form-label p, .cota05-page__form__header__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .cota05-page__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .gall02__gallery__item__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1753,25 +1728,25 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .cota05-page__form .input__item--radio .form-label, .cota05-page__form__header__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota05-page__form__footer__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .gall02__gallery__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.gall02__gallery__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.cota05-page__form .input__item--radio .form-label, .cota05-page__form__header__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota05-page__form__footer__cta, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.cota05-page__form .input__item--radio__list .form-check-label, .cota05-page__form__header__icons__item__title, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .gall02-show__gallery__description {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.cota05-page__form .input__item--radio__list .form-check-label p, .cota05-page__form__header__icons__item__title p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .gall02-show__gallery__description p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1779,15 +1754,18 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .cota05-page__form .input__item--radio__list .form-check-label, .cota05-page__form__header__icons__item__title, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .gall02-show__gallery__description {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
+.gall02-show__gallery__description {
+  color: #fff;
+}
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
-.cota05-page__form .input__item--radio__list .form-check-label, .cota05-page__form__header__icons__item__title, .foot02__copyright__compliances__item {
+.foot02__copyright__compliances__item {
   color: #404040;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -1797,34 +1775,20 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.cota05-page__banner {
-  width: 100%;
-  padding-top: 6.5rem;
-  padding-bottom: 6.5rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #cacaca;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.cota05-page__form__footer__cta {
+.gall02__gallery__nav {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0.75rem 3rem;
-  background-color: #cacaca;
-  border: none;
-  font-weight: 700;
+  justify-content: space-between;
+  align-items: center;
 }
-.cota05-page__form__footer__cta:focus {
-  /* uso do !important para resetar o valor do fancybox */
-  outline: none !important;
+.gall02__gallery__nav:has(.swiper-button-lock) {
+  display: none;
 }
 .head02 {
   width: 100%;
@@ -2256,148 +2220,142 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.cota05-page__form {
+.gall02 {
+  overflow: hidden; /* prevenção do shift da animação*/
+}
+.gall02__header {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.cota05-page__form__header, .cota05-page__form .input__item--radio {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: end;
-  padding: 1.75rem 0;
-  width: 100%;
-  margin-bottom: 2.5rem;
-}
-@media (max-width: 991.98px) {
-  .cota05-page__form__header, .cota05-page__form .input__item--radio {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-}
-.cota05-page__form__header__information {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-  width: calc(100% - 15rem);
-  max-width: 750px;
-}
-@media (max-width: 991.98px) {
-  .cota05-page__form__header__information {
-    width: 100%;
-  }
-}
-.cota05-page__form__header__information__title {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  margin-bottom: 1.5rem;
-  text-align: left;
+  margin-bottom: 3rem;
 }
-.cota05-page__form__header__information__title__icon {
-  width: 3.25rem;
+.gall02__header__title {
+  margin-bottom: 0.25rem;
+}
+.gall02__gallery__carousel {
   height: auto;
-  aspect-ratio: 1/1;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-  margin-right: 1.25rem;
 }
-.cota05-page__form__header__icons, .cota05-page__form .input__item--radio__list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: end;
-  width: 13rem;
-}
-@media (max-width: 991.98px) {
-  .cota05-page__form__header__icons, .cota05-page__form .input__item--radio__list {
-    width: 100%;
-    max-width: 13rem;
-  }
-}
-.cota05-page__form__header__icons__item {
+.gall02__gallery__item {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: center;
-  gap: 1rem;
-  width: 3rem;
-}
-.cota05-page__form__header__icons__item__icon {
-  width: 1.5rem;
-  height: auto;
-  aspect-ratio: 1/1;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-}
-.cota05-page__form__header__icons__item__title {
-  text-align: center;
-}
-.cota05-page__form__header__icons__item__input {
-  accent-color: #7c7c7c;
-}
-.cota05-page__form .input__item--radio {
-  border-bottom: solid 1px rgba(124, 124, 124, 0.2);
-}
-.cota05-page__form .input__item--radio__list .form-check {
-  gap: 1rem;
-  width: 3rem;
-  flex-direction: column-reverse;
-  align-items: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.cota05-page__form .input__item--radio__list .form-check-label {
-  text-align: center;
-}
-.cota05-page__form .input__item--radio__list .form-check-input {
-  float: none;
-  margin-left: 0;
-  margin-right: 0 !important;
-}
-.cota05-page__form__inputs-group {
-  width: 100%;
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
-  margin-bottom: 1.75rem;
-}
-@media (max-width: 991.98px) {
-  .cota05-page__form__inputs-group {
-    -moz-column-count: 1;
-         column-count: 1;
-  }
-}
-.cota05-page__form__inputs-group .input__item--textarea .form-control {
-  height: 9.5rem;
-}
-.cota05-page__form__footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
   align-items: start;
-  flex-wrap: wrap;
-  gap: 1rem;
+  width: 25%;
+  height: auto;
+  aspect-ratio: 300/328;
+  margin-bottom: 0;
 }
-.cota05-page__form__footer__compliance .form-check-label {
-  display: inline;
+.gall02__gallery__item:hover .gall02__gallery__item__description {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
-.cota05-page__form__footer__compliance a {
-  display: inline;
+@media (max-width: 991.98px) {
+  .gall02__gallery__item {
+    width: 33.33%;
+  }
 }
+@media (max-width: 767.98px) {
+  .gall02__gallery__item {
+    width: 50%;
+  }
+}
+@media (max-width: 575.98px) {
+  .gall02__gallery__item {
+    width: 100%;
+  }
+}
+.gall02__gallery__item__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.gall02__gallery__item__description {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  background-color: #efefef;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+@media (max-width: 991.98px) {
+  .gall02__gallery__item__description {
+    opacity: 1;
+  }
+}
+
+.gall02-show {
+  display: none;
+  width: 100%;
+  height: auto;
+  background-color: #404040;
+}
+.gall02-show .carousel__button.is-close {
+  top: 37px !important;
+  right: 37px;
+  width: 31px;
+  height: 31px;
+  border-radius: 5px;
+  background-color: #000;
+}
+.gall02-show__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.gall02-show__header__title {
+  margin-bottom: 0.25rem;
+}
+.gall02-show__header__subtitle {
+  margin-bottom: 2rem;
+}
+.gall02-show__gallery {
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+.gall02-show__gallery__item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.gall02-show__gallery__description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.gall02-show__gallery__swiper-button-prev, .gall02-show__gallery__swiper-button-next {
+  color: #fff; /* Variável que define a cor do after (setas) */
+}
+.gall02-show__thumbs {
+  width: 100%;
+  overflow: hidden;
+}
+.gall02-show__thumbs__item {
+  width: 5rem;
+  height: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

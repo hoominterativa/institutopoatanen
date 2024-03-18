@@ -14,30 +14,21 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Contacts' => (object) [
-            'COTA05' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
+        'Galleries' => (object) [
+            'GALL02' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title_page',
-                    'relation' => '',
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Contato',
-                    'anchor' => false,
-                    'linkMenu' => 'cota05.page',
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Contato',
-                    'iconPanel' => 'mdi-contacts'
-                ],
-                'IncludeSections' => (object) []
+                    'titlePanel' => 'Galeria',
+                    'iconPanel' => 'mdi-folder-multiple-image'
+                ]
             ],
         ],
     ],
