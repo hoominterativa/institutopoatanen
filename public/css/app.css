@@ -1667,40 +1667,24 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.gall02-show, .gall02, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
+.foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.gall02-show__header__title, .gall02__header__title {
-  font: 700 2.5rem "Ubuntu", sans-serif, arial;
-  line-height: normal;
-  text-align: center;
-}
-@media (max-width: 991.98px) {
-  .gall02-show__header__title, .gall02__header__title {
-    font-size: 1.875rem;
-  }
-}
-.gall02-show__header__title, .gall02__header__title {
-  color: #404040;
-}
-.gall02-show__header__subtitle, .gall02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .gall02-show__header__subtitle, .gall02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
-}
-.gall02-show__header__subtitle, .gall02__header__subtitle {
-  color: #b3b3b3;
 }
 .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
@@ -1715,12 +1699,12 @@ body .owl-dots .owl-dot.active {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .gall02__gallery__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .gall02__gallery__item__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1728,25 +1712,25 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .gall02__gallery__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.gall02__gallery__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
 .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .gall02-show__gallery__description {
+.foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .gall02-show__gallery__description p {
+.foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1754,13 +1738,10 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .gall02-show__gallery__description {
+  .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
-}
-.gall02-show__gallery__description {
-  color: #fff;
 }
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
@@ -1774,21 +1755,6 @@ body .owl-dots .owl-dot.active {
 .head02__navigation__item--menu-mobile__item__icon {
   width: 2rem;
   height: 2rem;
-}
-.gall02__gallery__nav {
-  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
-  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
-  position: relative;
-  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
-  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
-  margin: 3rem auto 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.gall02__gallery__nav:has(.swiper-button-lock) {
-  display: none;
 }
 .head02 {
   width: 100%;
@@ -2220,140 +2186,29 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.gall02 {
-  overflow: hidden; /* prevenção do shift da animação*/
-}
-.gall02__header {
-  width: 100%;
+.gall01 {
+  overflow: hidden; /* prevenção do shift da animação */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-.gall02__header__title {
-  margin-bottom: 0.25rem;
-}
-.gall02__gallery__carousel {
-  height: auto;
-}
-.gall02__gallery__item {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: start;
-  align-items: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.gall01__item {
   width: 25%;
   height: auto;
-  aspect-ratio: 300/328;
-  margin-bottom: 0;
-}
-.gall02__gallery__item:hover .gall02__gallery__item__description {
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  aspect-ratio: 1/1;
+  flex: 1 0 auto;
 }
 @media (max-width: 991.98px) {
-  .gall02__gallery__item {
+  .gall01__item {
     width: 33.33%;
   }
 }
 @media (max-width: 767.98px) {
-  .gall02__gallery__item {
+  .gall01__item {
     width: 50%;
   }
-}
-@media (max-width: 575.98px) {
-  .gall02__gallery__item {
-    width: 100%;
-  }
-}
-.gall02__gallery__item__img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-.gall02__gallery__item__description {
-  width: 100%;
-  padding: 0.5rem 1.5rem;
-  background-color: #efefef;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-@media (max-width: 991.98px) {
-  .gall02__gallery__item__description {
-    opacity: 1;
-  }
-}
-
-.gall02-show {
-  display: none;
-  width: 100%;
-  height: auto;
-  background-color: #404040;
-}
-.gall02-show .carousel__button.is-close {
-  top: 37px !important;
-  right: 37px;
-  width: 31px;
-  height: 31px;
-  border-radius: 5px;
-  background-color: #000;
-}
-.gall02-show__header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-.gall02-show__header__title {
-  margin-bottom: 0.25rem;
-}
-.gall02-show__header__subtitle {
-  margin-bottom: 2rem;
-}
-.gall02-show__gallery {
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  height: 100%;
-}
-.gall02-show__gallery__item {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-.gall02-show__gallery__description {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 0.25rem;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.gall02-show__gallery__swiper-button-prev, .gall02-show__gallery__swiper-button-next {
-  color: #fff; /* Variável que define a cor do after (setas) */
-}
-.gall02-show__thumbs {
-  width: 100%;
-  overflow: hidden;
-}
-.gall02-show__thumbs__item {
-  width: 5rem;
-  height: 5rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
 }
 
 /* BEGIN STYLE */
