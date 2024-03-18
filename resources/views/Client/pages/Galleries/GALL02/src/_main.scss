@@ -45,6 +45,18 @@
                 transition: opacity 0.3s ease;
             }
 
+            @include large-device-down {
+                width: 33.33%;
+            }
+
+            @include medium-device-down {
+                width: 50%;
+            }
+
+            @include small-device-down {
+                width: 100%;
+            }
+
             &__img {
                 width: 100%;
                 height: 100%;
@@ -63,119 +75,12 @@
 
                 opacity: 0;
                 transition: opacity 0.3s ease;
-            }
-        }
-    }
-}
 
-.lightbox-gall02 {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-
-    .carousel__button.is-close {
-        top: 37px !important;
-        right: 37px;
-        width: 31px;
-        height: 31px;
-        border-radius: 5px;
-        background-color: $color-black;
-    }
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-    }
-    .container {
-        height: 100%;
-        height: 100%;
-        padding: 78px 140px;
-    }
-    &__top {
-        &__description {
-            margin-bottom: 20px;
-
-            @include medium-device-down {
-                text-align: center;
-                margin-bottom: 15px;
-            }
-
-            &__title {
-                color: $color-black;
-                font-size: $T2;
-                font-weight: 700;
-                margin-bottom: 6px;
-
-                @include medium-device-down {
-                    font-size: $T2-mobile;
-                }
-            }
-            &__subtitle {
-                color: $color-black;
-                font-size: $T4;
-                font-weight: 700;
-                margin-bottom: 0;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
+                @include large-device-down {
+                    opacity: 1;
                 }
             }
         }
-    }
-    &__bottom {
-        &__main {
-            position: relative;
-            height: 407px;
-            width: 100%;
-            display: block;
-            margin-bottom: 25px;
-
-            @include medium-device-down {
-                height: 240px;
-            }
-
-            &__iframe,
-            &__item {
-                position: absolute;
-                top: 0;
-                left: 0;
-                object-fit: cover;
-                object-position: center;
-            }
-            &__iframe {
-                display: block;
-            }
-            &__legend {
-                color: $color-black;
-                font: $paragraph;
-                font-weight: 400;
-                position: absolute;
-                bottom: 27px;
-                left: 27px;
-
-                @include medium-device-down {
-                    font-size: $paragraph-min;
-                    bottom: 14px;
-                    left: 23px;
-                }
-            }
-        }
-        &__thumbnail {
-            &__carousel {
-                margin: 0 auto;
-            }
-            &__item {
-                width: 55px;
-                height: 55px;
-                object-fit: cover;
-                object-position: center;
-
-                @include medium-device-down {
-                    height: 47px;
-                }
-            }
-        }
-        // END __thumbnail
     }
 }
 
@@ -214,27 +119,47 @@
     }
 
     &__gallery {
+        overflow: hidden;
+        margin-bottom: 0.5rem;
         width: 100%;
         height: 100%;
-        overflow: hidden;
 
         &__item {
-            width: 400px;
-            height: auto;
+            position: relative;
+
+            width: 100%;
+            height: 100%;
             aspect-ratio: 1/1;
             object-fit: cover;
             object-position: center;
+
+
         }
 
-        &__thumbs {
-            width: 100%;
-            &__item {
-                width: 5rem;
-                height: 5rem;
+        &__description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0.25rem;
 
-                object-fit: cover;
-                object-position: center;
-            }
+            background-color: rgba($color-black, 0.5);
+            @extend %theme__p2-cw;
+        }
+
+        &__swiper-button-prev,
+        &__swiper-button-next {
+            color: $color-white; /* Variável que define a cor do after (setas) */
+        }
+    }
+    &__thumbs {
+        width: 100%;
+        overflow: hidden;
+        &__item {
+            width: 5rem;
+            height: 5rem;
+
+            object-fit: cover;
+            object-position: center;
         }
     }
 }

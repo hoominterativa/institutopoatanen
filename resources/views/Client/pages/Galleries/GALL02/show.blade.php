@@ -19,20 +19,27 @@
     </figure> --}}
 
     <div class="gall02-show__gallery">
-        <div class="gall02-show__gallery__swipper-wrapper swiper-wrapper">
+        <figure class="gall02-show__gallery__swipper-wrapper swiper-wrapper">
             @foreach ($gallery->images as $image)
                 <img class="gall02-show__gallery__item swiper-slide " src="{{ asset('storage/' . $image->path_image) }}"
-                    alt="Imagem">
+                alt="{{ $gallery->image_legend }}">
             @endforeach
-        </div>
+            <figcaption class="gall02-show__gallery__description">
+                {{ $gallery->image_legend }}
+            </figcaption>
+        </figure>
+        <div class="gall02-show__gallery__swiper-button-prev swiper-button-prev"></div>
+        <div class="gall02-show__gallery__swiper-button-next swiper-button-next"></div>
     </div>
-    <div class="gall02-show__gallery__thumbs">
-        <div class="gall02-show__gallery__thumbs__swiper-wrapper swiper-wrapper">
+    <div class="gall02-show__thumbs">
+        <div class="gall02-show__thumbs__swiper-wrapper swiper-wrapper">
             @foreach ($gallery->images as $image)
                 <img src="{{ asset('storage/' . $image->path_image) }}"
-                    class="gall02-show__gallery__thumbs__item swiper-slide" alt="Imagem">
+                    class="gall02-show__thumbs__item swiper-slide"  alt="{{ $gallery->image_legend }}">
             @endforeach
         </div>
+
+
     </div>
 
 
