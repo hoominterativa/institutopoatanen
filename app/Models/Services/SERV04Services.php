@@ -19,8 +19,7 @@ class SERV04Services extends Model
 
     protected $table = "serv04_services";
     protected $fillable = [
-        'title', 'subtitle', 'category_id', 'slug', 'text', 'description', 'path_image', 'path_image_box', 'path_image_icon',
-        'background_color', 'featured', 'active', 'sorting',
+        'title', 'subtitle', 'category_id', 'slug', 'text', 'description', 'path_image', 'path_image_box', 'path_image_icon','featured', 'active', 'sorting',
     ];
 
     public function scopeSorting($query)

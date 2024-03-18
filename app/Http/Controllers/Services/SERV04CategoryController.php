@@ -32,17 +32,15 @@ class SERV04CategoryController extends Controller
         $data['slug'] = Str::slug($request->title);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
         if(SERV04ServicesCategory::create($data)){
             Session::flash('success', 'Categoria cadastrada com sucesso');
-            return redirect()->route('admin.serv04.index');
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar a categoria');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -72,12 +70,11 @@ class SERV04CategoryController extends Controller
 
         if($SERV04ServicesCategory->fill($data)->save()){
             Session::flash('success', 'Categoria atualizada com sucesso');
-            return redirect()->route('admin.serv04.index');
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar a categoria');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -88,14 +85,7 @@ class SERV04CategoryController extends Controller
      */
     public function destroy(SERV04ServicesCategory $SERV04ServicesCategory)
     {
-        // Verificar se existem unidades associadas à categoria
-        if (SERV04Services::where('category_id', $SERV04ServicesCategory->id)->count()) {
-        Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
-        return redirect()->back();
-        }
-
-        // Excluir a categoria
-        storageDelete($SERV04ServicesCategory, 'path_image_icon');
+        storageDelete($SERV04ServicesCategory, 'path_image');
 
         if($SERV04ServicesCategory->delete()){
             Session::flash('success', 'categoria deletado com sucessso');
@@ -111,27 +101,15 @@ class SERV04CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        $categoryIds = $request->deleteAll;
-
-        // Verificar se existem serviços associadas às categorias
-        $servicesExist = SERV04Services::whereIn('category_id', $categoryIds)->exists();
-        if ($servicesExist) {
-            return Response::json([
-                'status' => 'error',
-                'message' => 'Não é possível excluir as categorias porque existem serviços associadas a elas.'
-            ]);
+        $SERV04ServicesCategories = SERV04ServicesCategory::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV04ServicesCategories as $SERV04ServicesCategory){
+            storageDelete($SERV04ServicesCategory, 'path_image');
         }
 
-        // Excluir as categorias
-        $deletedCategories = SERV04ServicesCategory::whereIn('id', $categoryIds)->get();
-
-        foreach ($deletedCategories as $category) {
-            storageDelete($category, 'path_image_icon');
+        if($deleted = SERV04ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' categorias deletadas com sucesso']);
         }
 
-        if ($deleted = SERV04ServicesCategory::whereIn('id', $categoryIds)->delete()) {
-            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
-        }
     }
     /**
     * Sort record by dragging and dropping

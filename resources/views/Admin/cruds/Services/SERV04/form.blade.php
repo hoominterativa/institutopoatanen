@@ -9,20 +9,21 @@
                             'required' => 'required',
                             'class' => 'form-select',
                             'id' => 'category_id',
-                            'placeholder' => '--',
+                            'placeholder' => 'Escolha a categoria',
                         ]) !!}
                     </div>
                 </div>
-                <div class="col-12 ">
-                    <div class="mb-3">
-                        {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
-                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                            {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required', 'id' => 'title']) !!}
+                        </div>
+                        <div class="col-sm-6">
+                            {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                            {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
-                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
-                    </div>
-
                 </div>
             </div>
             <div class="mb-3">
@@ -32,8 +33,7 @@
                     'id' => 'description',
                     'rows' => 5,
                     'data-parsley-trigger' => 'keyup',
-                    'data-parsley-minlength' => '20',
-                    'data-parsley-maxlength' => '200',
+                    'data-parsley-maxlength' => '500',
                     'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold' => '10',
                 ]) !!}
@@ -48,15 +48,15 @@
                     ]) !!}
                 </div>
             </div>
-            <div class="d-flex">
-                <div class="mb-3 form-check me-3">
-                    {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
-                    {!! Form::label('featured', 'Destacar na home', ['class' => 'form-check-label']) !!}
-                </div>
-                <div class="mb-3 form-check me-3">
-                    {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                    {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
-                </div>
+        </div>
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
+                {!! Form::label('featured', 'Destacar na home?', ['class' => 'form-check-label']) !!}
+            </div>
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}
@@ -131,13 +131,6 @@
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3">
-                {!! Form::label('colorpicker-default', 'Cor de fundo da página ', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'colorpicker-default',
-                ]) !!}
             </div>
         </div>
         {{-- end card-body --}}

@@ -32,7 +32,7 @@
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$category->id}}"></label>
                                 </td>
                                 <td class="align-middle">{{$category->title}}</td>
-                                <td class="align-middle">{!! substr($category->description, 0, 50 ) !!}</td>
+                                <td class="align-middle">{!! substr($category->description, 0, 30) !!}</td>
                                 <td class="align-middle">
                                     @if ($category->active)
                                         <span class="badge bg-success">Ativo</span>

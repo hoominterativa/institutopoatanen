@@ -17,17 +17,17 @@ class SERV04ServicesSection extends Model
 
     protected $table = "serv04_services_sections";
     protected $fillable = [
-        'title_section', 'description_section', 'subtitle_section', 'path_image_section_desktop', 'path_image_section_mobile', 'background_color_section', 'active_section',
-        'title_banner', 'description_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner', 'active_banner',
+        'title_section', 'description_section', 'subtitle_section', 'active_section',
+        'title_banner', 'description_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'active_banner',
     ];
 
-    public function scopeActive($query)
+    public function scopeActiveSection($query)
     {
-        return $query->where('active', 1);
+        return $query->where('active_section', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
+    }
 }

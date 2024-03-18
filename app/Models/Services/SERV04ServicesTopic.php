@@ -17,7 +17,7 @@ class SERV04ServicesTopic extends Model
 
     protected $table = "serv04_services_topics";
     protected $fillable = [
-        'service_id', 'title', 'slug', 'text', 'active', 'sorting'
+        'service_id', 'title', 'text', 'active', 'sorting'
     ];
 
     public function scopeSorting($query)
@@ -30,8 +30,5 @@ class SERV04ServicesTopic extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    
 }

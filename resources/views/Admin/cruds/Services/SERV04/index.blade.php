@@ -23,39 +23,35 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#service" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link active d-flex align-items-center">
-                            {{ getTitleModel($configModelsMain, 'Services', 'SERV04') }}
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Informações para home
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastre os serviços"></i>
+                                data-bs-original-title="Informações que serão exibidas na seção Home"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#listArticleCategories" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Categorias
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastre as categorias"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Banner da página
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esse banner será exibido na página com a listagem de todos os serviços"></i>
                         </a>
-                    </li>                   
+                    </li>
                     <li class="nav-item">
-                        <a href="#infoSection" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações para home
+                        <a href="#categories" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações que serão exibidas, caso esteja ativa, na seção que é exibida na Home"></i>
+                                data-bs-original-title="Cadastre as categorias para os serviços"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#service" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
+                            {{ getTitleModel($configModelsMain, 'Services', 'SERV04') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro do conteúdo principal"></i>
                         </a>
                     </li>
                 </ul>
@@ -66,17 +62,17 @@
                             <div class="col-sm-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="row mb-3">                                            
+                                        <div class="row mb-3">
                                             <div class="col-6">
                                                 <button id="btSubmitDelete"
                                                     data-route="{{ route('admin.serv04.destroySelected') }}" type="button"
-                                                    class="btn btn-danger btnDeleteService" style="display: none;">Deletar
-                                                    selecionados</button>
+                                                    class="btn btn-danger btnDeleteService" style="display: none;">
+                                                    Deletar selecionados
+                                                </button>
                                             </div>
                                             <div class="col-6">
                                                 <a href="{{ route('admin.serv04.create') }}"
-                                                    class="btn btn-success float-end">Adicionar novo <i
-                                                        class="mdi mdi-plus"></i></a>
+                                                    class="btn btn-success float-end">Adicionar novo <i lass="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
@@ -84,12 +80,11 @@
                                                 <tr>
                                                     <th width="50px"></th>
                                                     <th width="30px" class="bs-checkbox">
-                                                        <label><input name="btnSelectAll" value="btnDeleteService"
-                                                                type="checkbox"></label>
+                                                        <label><input name="btnSelectAll" value="btnDeleteService" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
+                                                    <th>Categoria</th>
                                                     <th>Título</th>
-                                                    <th>Descrição</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -98,34 +93,27 @@
                                             <tbody data-route="{{ route('admin.serv04.sorting') }}">
                                                 @foreach ($services as $service)
                                                     <tr data-code="{{ $service->id }}">
-                                                        <td class="align-middle"><span
-                                                                class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                                        <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                         <td class="bs-checkbox align-middle">
-                                                            <label><input name="btnSelectItem" class="btnSelectItem"
-                                                                    type="checkbox" value="{{ $service->id }}"></label>
+                                                            <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{ $service->id }}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                                style="background-image: url({{ asset('storage/' . $service->path_image_icon) }})">
-                                                            </div>
+                                                            @if ($service->path_image)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
+                                                                    style="background-image: url({{ asset('storage/' . $service->path_image) }})">
+                                                                </div>
+                                                            @endif
                                                         </td>
+                                                        <td class="align-middle">{{ $service->category->title }}</td>
                                                         <td class="align-middle">{{ $service->title }}</td>
-                                                        <td class="align-middle">{!! substr($service->description, 0, 50) !!}
-                                                        </td>
                                                         <td class="align-middle">
                                                             @switch($service->active)
-                                                                @case(1)
-                                                                    <span class="badge bg-success">Ativo</span>
-                                                                @break
-
-                                                                @case(0)
-                                                                    <span class="badge bg-danger">Inativo</span>
-                                                                @break
+                                                                @case(1) <span class="badge bg-success">Ativo</span> @break
+                                                                @case(0) <span class="badge bg-danger">Inativo</span> @break
                                                             @endswitch
                                                             @if ($service->featured)
                                                                 <span class="badge bg-primary text-white">Destaque</span>
                                                             @endif
-
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">
@@ -133,13 +121,9 @@
                                                                     <a href="{{ route('admin.serv04.edit', ['SERV04Services' => $service->id]) }}"
                                                                         class="btn-icon mdi mdi-square-edit-outline"></a>
                                                                 </div>
-                                                                <form
-                                                                    action="{{ route('admin.serv04.destroy', ['SERV04Services' => $service->id]) }}"
-                                                                    class="col-4" method="POST">
+                                                                <form action="{{ route('admin.serv04.destroy', ['SERV04Services' => $service->id]) }}" lass="col-4" method="POST">
                                                                     @method('DELETE') @csrf
-                                                                    <button type="button"
-                                                                        class="btn-icon btSubmitDeleteItem"><i
-                                                                            class="mdi mdi-trash-can"></i></button>
+                                                                    <button type="button" class="btn-icon btSubmitDeleteItem"><i lass="mdi mdi-trash-can"></i></button>
                                                                 </form>
                                                             </div>
                                                         </td>
@@ -147,22 +131,22 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-
-                                        {{-- PAGINATION --}}
-                                        <div class="mt-3 float-end">
-                                            {{ $services->links() }}
-                                        </div>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="listArticleCategories">
+                    <div class="tab-pane" id="categories">
                         @include('Admin.cruds.Services.SERV04.Category.index',[
                             'categories' => $serviceCategories
                         ])
                     </div>
-                    @include('Admin.cruds.Services.SERV04.Section.form')
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Services.SERV04.Section.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Services.SERV04.Banner.form')
+                    </div>
                 </div>
             </div> <!-- container -->
         </div> <!-- content -->

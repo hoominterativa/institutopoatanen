@@ -34,7 +34,6 @@ class SERV04ServicesFactory extends Factory
             'path_image' => 'uploads/tmp/image-pmg.png',
             'path_image_box' => 'uploads/tmp/retangle.png',
             'path_image_icon' => 'uploads/tmp/icon-general.svg',
-            'background_color' => '#4a81d4',
             'featured' => rand(0,1),
             'active' => 1,
         ];

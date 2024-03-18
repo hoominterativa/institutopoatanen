@@ -25,16 +25,12 @@ class SERV04ServicesSectionFactory extends Factory
             'title_section' => $this->faker->text(10),
             'subtitle_section' => $this->faker->text(10),
             'description_section' => $this->faker->text(150),
-            'path_image_section_desktop' => 'uploads/tmp/image-box-white.jpg',
-            'path_image_section_mobile' => 'uploads/tmp/bg-slid-mobile.jpg',
-            'background_color_section' => '#4a81d4',
             'active_section' => 1,
 
             'title_banner' => $this->faker->text(10),
             'description_banner' => $this->faker->text(150),
             'path_image_banner_desktop' => 'uploads/tmp/image-box-white.jpg',
             'path_image_banner_mobile' => 'uploads/tmp/bg-slid-mobile.jpg',
-            'background_color_banner' => '#4a81d4',
             'active_banner' => 1,
         ];
     }

@@ -21,12 +21,12 @@ class SERV04ServicesTopicFactory extends Factory
      */
     public function definition()
     {
-        return [
+        /**return [
             'service_id' => rand(1,4),
             'title' => $this->faker->text(10),
             'slug' => $this->faker->text(10),
             'text' => $this->faker->text(700),
             'active' => 1,
-        ];
+        ];*/
     }
 }

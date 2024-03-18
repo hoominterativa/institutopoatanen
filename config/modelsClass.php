@@ -409,7 +409,7 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV04Controller::class,
                 'model' => App\Models\Services\SERV04Services::class,
                 'seedQty' => 4,
-                'routeName' => 'serv04.page.content',
+                'routeName' => 'serv04.show',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Services\SERV04ServicesCategory::class,

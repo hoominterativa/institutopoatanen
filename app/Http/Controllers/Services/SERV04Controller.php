@@ -26,8 +26,8 @@ class SERV04Controller extends Controller
      */
     public function index()
     {
-        $services = SERV04Services::sorting()->paginate(10);
-        $serviceCategories = SERV04ServicesCategory::paginate(10);
+        $services = SERV04Services::sorting()->get();
+        $serviceCategories = SERV04ServicesCategory::get();
         $categories = SERV04ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV04ServicesSection::first();
         return view('Admin.cruds.Services.SERV04.index', [
@@ -66,7 +66,7 @@ class SERV04Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
@@ -97,7 +97,7 @@ class SERV04Controller extends Controller
      */
     public function edit(SERV04Services $SERV04Services)
     {
-        $topics = SERV04ServicesTopic::sorting()->where('service_id', $SERV04Services->id)->paginate(10);
+        $topics = SERV04ServicesTopic::sorting()->where('service_id', $SERV04Services->id)->get();
         $categories = SERV04ServicesCategory::pluck('title', 'id');
         return view('Admin.cruds.Services.SERV04.edit', [
             'service' => $SERV04Services,
@@ -121,7 +121,7 @@ class SERV04Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -156,14 +156,13 @@ class SERV04Controller extends Controller
 
         if($SERV04Services->fill($data)->save()){
             Session::flash('success', 'Serviço atualizado com sucesso');
-            return redirect()->route('admin.serv04.index');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
             Storage::delete($path_image_box);
             Session::flash('error', 'Erro ao atualizar o serviço');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -225,24 +224,23 @@ class SERV04Controller extends Controller
 
     public function show($SERV04ServicesCategory, SERV04Services $SERV04Services)
     {
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $section = SERV04ServicesSection::first();
-                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
-            break;
-            default:
-            $section = SERV04ServicesSection::first();
-            break;
-        }
+
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV04');
 
         $categories = SERV04ServicesCategory::exists()->active()->sorting()->get();
-        $category = SERV04ServicesCategory::where('slug', $SERV04ServicesCategory)->first();
+        $category = SERV04ServicesCategory::where('slug', $SERV04ServicesCategory)->exists()->sorting()->active()->first();
         $services = SERV04Services::where('category_id', $category->id)->active()->sorting()->get();
         $topics = SERV04ServicesTopic::where('service_id', $SERV04Services->id)->active()->sorting()->get();
+
+        $section = SERV04ServicesSection::activeBanner()->first();
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
+            break;
+        }
 
         return view('Client.pages.Services.SERV04.page',[
             'sections' => $sections,
@@ -263,18 +261,7 @@ class SERV04Controller extends Controller
      */
     public function page(Request $request, SERV04ServicesCategory $SERV04ServicesCategory)
     {
-        if(!$SERV04ServicesCategory->exists){ $SERV04ServicesCategory = SERV04ServicesCategory::exists()->sorting()->first(); }
-
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $section = SERV04ServicesSection::first();
-                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
-            break;
-            default:
-            $section = SERV04ServicesSection::first();
-            break;
-        }
+        if(!$SERV04ServicesCategory->exists){ $SERV04ServicesCategory = SERV04ServicesCategory::exists()->sorting()->active()->first(); }
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV04');
@@ -283,6 +270,14 @@ class SERV04Controller extends Controller
         $services = SERV04Services::where('category_id', $SERV04ServicesCategory->id)->active()->sorting()->get();
         $service = SERV04Services::where('category_id', $SERV04ServicesCategory->id)->active()->sorting()->first();
         $topics = SERV04ServicesTopic::where('service_id', $service->id)->active()->sorting()->get();
+
+        $section = SERV04ServicesSection::activeBanner()->first();
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                $section->path_image_banner_desktop = $section->path_image_banner_mobile;
+            break;
+        }
 
         return view('Client.pages.Services.SERV04.page',[
             'sections' => $sections,
@@ -302,20 +297,16 @@ class SERV04Controller extends Controller
      */
     public static function section()
     {
+        $services = SERV04Services::with('category')->featured()->sorting()->get();
+        $category = SERV04ServicesCategory::exists()->active()->first();
+
+        $section = SERV04ServicesSection::activeSection()->first();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = SERV04ServicesSection::first();
                 if($section) $section->path_image_section_desktop = $section->path_image_section_mobile;
             break;
-            default:
-                $section = SERV04ServicesSection::first();
-            break;
         }
-
-
-        $services = SERV04Services::with('category')->featured()->sorting()->get();
-        $category = SERV04ServicesCategory::exists()->active()->first();
 
         return view('Client.pages.Services.SERV04.section', [
             'section' => $section,

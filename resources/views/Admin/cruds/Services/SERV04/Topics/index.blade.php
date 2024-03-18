@@ -15,8 +15,9 @@
                     <div class="row mb-3">
                         <div class="col-6">
                             <button id="btSubmitDelete" data-route="{{ route('admin.serv04.topic.destroySelected') }}"
-                                type="button" class="btn btn-danger btnDeleteTopic" style="display: none;">Deletar
-                                selecionados</button>
+                                type="button" class="btn btn-danger btnDeleteTopic" style="display: none;">
+                                Deletar selecionados
+                            </button>
                         </div>
                         <div class="col-6">
                             <a href="javascript:void(0)" data-bs-target="#modal-topic-create" data-bs-toggle="modal"
@@ -43,8 +44,7 @@
                                     <td class="align-middle"><span
                                             class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                     <td class="bs-checkbox align-middle">
-                                        <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox"
-                                                value="{{ $topic->id }}"></label>
+                                        <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{ $topic->id }}"></label>
                                     </td>
                                     <td class="align-middle">{{ $topic->title }}</td>
                                     <td class="align-middle">{!! substr($topic->text, 0, 50) !!}
@@ -63,17 +63,11 @@
                                     <td class="align-middle">
                                         <div class="row">
                                             <div class="col-4">
-                                                <a href="javascript:void(0)"
-                                                    data-bs-target="#modal-topic-update-{{ $topic->id }}"
-                                                    data-bs-toggle="modal"
-                                                    class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                <a href="javascript:void(0)" data-bs-target="#modal-topic-update-{{ $topic->id }}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                             </div>
-                                            <form
-                                                action="{{ route('admin.serv04.topic.destroy', ['SERV04ServicesTopic' => $topic->id]) }}"
-                                                class="col-4" method="POST">
+                                            <form action="{{ route('admin.serv04.topic.destroy', ['SERV04ServicesTopic' => $topic->id]) }}" class="col-4" method="POST">
                                                 @method('DELETE') @csrf
-                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i
-                                                        class="mdi mdi-trash-can"></i></button>
+                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                             </form>
                                             {{-- BEGIN MODAL TOPIC UPDATE --}}
                                             <div id="modal-topic-update-{{ $topic->id }}" class="modal fade"
@@ -83,17 +77,13 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header p-3 pt-2 pb-2">
                                                             <h4 class="page-title">Cadastrar Tópicos</h4>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
 
                                                         <div class="modal-body p-3 pt-0 pb-3">
-                                                            @include(
-                                                                'Admin.cruds.Services.SERV04.Topics.form',
-                                                                [
-                                                                    'topic' => $topic,
-                                                                ]
-                                                            )
+                                                            @include('Admin.cruds.Services.SERV04.Topics.form', [
+                                                                'topic' => $topic,
+                                                            ])
                                                         </div>
                                                     </div>
                                                 </div>
@@ -105,10 +95,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- PAGINATION --}}
-                    <div class="mt-3 float-end">
-                        {{ $topics->links() }}
-                    </div>
                 </div>
             </div> <!-- end card-->
         </div> <!-- end col-->
