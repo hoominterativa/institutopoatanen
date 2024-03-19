@@ -35,17 +35,9 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/delete', [SERV05CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [SERV05CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
-    Route::resource($route.'/galeria', SERV05GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'SERV05ServicesGallery']);
-    Route::post($route.'/galeria/delete', [SERV05GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
-    Route::post($route.'/galeria/sorting', [SERV05GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
-
     Route::resource($route.'/conteudos', SERV05ContentController::class)->names('admin.'.$routeName.'.content')->parameters(['conteudos' => 'SERV05ServicesContent']);
     Route::post($route.'/conteudo/delete', [SERV05ContentController::class, 'destroySelected'])->name('admin.'.$routeName.'.content.destroySelected');
     Route::post($route.'/conteudo/sorting', [SERV05ContentController::class, 'sorting'])->name('admin.'.$routeName.'.content.sorting');
-
-    Route::resource($route.'/galeria-servico', SERV05GalleryServiceController::class)->names('admin.'.$routeName.'.gallery-service')->parameters(['galeria-servico' => 'SERV05ServicesGalleryService']);
-    Route::post($route.'/galeria-servico/delete', [SERV05GalleryServiceController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery-service.destroySelected');
-    Route::post($route.'/galeria-servico/sorting', [SERV05GalleryServiceController::class, 'sorting'])->name('admin.'.$routeName.'.gallery-service.sorting');
 
     Route::resource($route.'/topicos', SERV05TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV05ServicesTopic']);
     Route::post($route.'/topico/delete', [SERV05TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
@@ -55,4 +47,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 // CLIENT
 Route::get($route.'/categoria/{SERV05ServicesCategory:slug}', [SERV05Controller::class, 'page'])->name($routeName.'.category.page');
-Route::get($route. '/{SERV05Services:slug}', [SERV05Controller::class, 'show'])->name($routeName.'.show.content');
+Route::get($route. '/{SERV05Services:slug}', [SERV05Controller::class, 'show'])->name($routeName.'.show');

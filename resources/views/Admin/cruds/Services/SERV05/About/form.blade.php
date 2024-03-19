@@ -2,7 +2,7 @@
     {!! Form::model($section, [ 'route' => ['admin.serv05.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true, ]) !!}
     @method('PUT')
     {!! Form::hidden('active_banner', $section->active_banner) !!}
-    {!! Form::hidden('active_about', $section->active_about) !!}
+    {!! Form::hidden('active', $section->active) !!}
 @else
     {!! Form::model(null, ['route' => 'admin.serv05.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
@@ -13,20 +13,20 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Form::label('title', 'Título da seção', ['class' => 'form-label']) !!}
-                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                        {!! Form::label('title_about', 'Título da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_about', null, ['class' => 'form-control', 'id' => 'title_about']) !!}
                     </div>
                     <div class="col-sm-6">
-                        {!! Form::label('subtitle', 'Subtítulo da seção', ['class' => 'form-label']) !!}
-                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                        {!! Form::label('subtitle_about', 'Subtítulo da seção', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle_about', null, ['class' => 'form-control', 'id' => 'subtitle_about']) !!}
                     </div>
                 </div>
             </div>
             <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
-                {!! Form::textarea('description', null, [
+                {!! Form::label('description_about', 'Descrição', ['class' => 'form-label']) !!}
+                {!! Form::textarea('description_about', null, [
                     'class' => 'form-control',
-                    'id' => 'description',
+                    'id' => 'description_about',
                     'data-parsley-trigger' => 'keyup',
                     'data-parsley-minlength' => '20',
                     'data-parsley-maxlength' => '900',
@@ -36,8 +36,8 @@
             </div>
             <div class="col-12">
                 <div class="mb-3 form-check me-3">
-                    {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                    {!! Form::label('active', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
+                    {!! Form::checkbox('active_about', '1', null, ['class' => 'form-check-input', 'id' => 'active_about']) !!}
+                    {!! Form::label('active_about', 'Ativar exibição dos campos?', ['class' => 'form-check-label']) !!}
                 </div>
             </div>
         </div>

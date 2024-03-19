@@ -31,6 +31,8 @@ class SERV05ServicesSectionFactory extends Factory
             //Banner
             'title_banner' => $this->faker->text(10),
             'subtitle_banner' => $this->faker->text(10),
+            'path_image_desktop_banner' => 'uploads/tmp/thumbnail.png',
+            'path_image_mobile_banner' => 'uploads/tmp/image-box.jpg',
             'active_banner' => 1,
 
             //About

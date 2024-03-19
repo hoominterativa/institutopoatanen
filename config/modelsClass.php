@@ -422,7 +422,7 @@ return [
                 'controller' => App\Http\Controllers\Services\SERV05Controller::class,
                 'model' => App\Models\Services\SERV05Services::class,
                 'seedQty' => 12,
-                'routeName' => 'serv05.show.content',
+                'routeName' => 'serv05.show',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Services\SERV05ServicesCategory::class,

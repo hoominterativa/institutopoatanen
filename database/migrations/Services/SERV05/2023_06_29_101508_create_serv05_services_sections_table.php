@@ -24,6 +24,8 @@ class CreateServ05ServicesSectionsTable extends Migration
             // Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
+            $table->string('path_image_desktop_banner')->nullable();
+            $table->string('path_image_mobile_banner')->nullable();
             $table->integer('active_banner')->default(0);
 
             //About

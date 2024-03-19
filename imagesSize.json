@@ -1522,25 +1522,13 @@
                     "activeCrop": "false"
                 }
             },
-            "Galleries": {
-                "path_image_desktop": {
+            "Section": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "419",
                     "activeCrop": "false"
                 },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "775",
-                    "activeCrop": "true"
-                }
-            },
-            "GalleryService": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "419",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "775",
                     "activeCrop": "true"

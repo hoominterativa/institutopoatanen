@@ -29,14 +29,14 @@
                                 data-bs-original-title="Edição do conteúdo principal"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#galleryContent" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Galeria
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner de cada serviço específico."></i>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a href="#content" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Conteúdo
@@ -62,12 +62,12 @@
                             <a href="{{route('admin.serv05.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
                     </div>
-                    <div class="tab-pane" id="galleryContent">
+                    {{-- <div class="tab-pane" id="galleryContent">
                         @include('Admin.cruds.Services.SERV05.GalleryService.index', [
                             'galleryServices' => $galleryServices,
                             'service' => $service
                         ])
-                    </div>
+                    </div> --}}
                     <div class="tab-pane" id="content">
                         @include('Admin.cruds.Services.SERV05.Content.index', [
                             'contents' => $contents,

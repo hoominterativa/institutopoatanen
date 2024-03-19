@@ -22,7 +22,7 @@ class SERV05ServicesSection extends Model
         'title', 'description', 'subtitle', 'active',
 
         //Banner
-        'title_banner', 'subtitle_banner', 'active_banner',
+        'title_banner', 'subtitle_banner', 'path_image_desktop_banner', 'path_image_mobile_banner', 'active_banner',
 
         //About
         'title_about', 'subtitle_about', 'description_about', 'active_about',

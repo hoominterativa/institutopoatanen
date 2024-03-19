@@ -22,6 +22,30 @@
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Informações complementares
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro de informações para a seção home, banner e tópico"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner da página."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Sobre
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção sobre da página."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#category" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -35,22 +59,6 @@
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do conteúdo principal"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Informações complementares
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de informações para a seção home, banner e tópico"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#gallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Galeria
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner da página interna."></i>
                         </a>
                     </li>
                 </ul>
@@ -79,9 +87,6 @@
                                                     <th>Imagem</th>
                                                     <th>Categoria</th>
                                                     <th>Título/Subtítulo</th>
-                                                    <th>Descrição</th>
-                                                    <th>Título do preço</th>
-                                                    <th>Preço</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -104,9 +109,6 @@
                                                         </td>
                                                         <td class="align-middle">{{$service->category->title}}</td>
                                                         <td class="align-middle">{{$service->title}} <b>/</b> {{$service->subtitle}}</td>
-                                                        <td class="align-middle">{!! Str::substr($service->description, 0, 30) !!}</td>
-                                                        <td class="align-middle">{{$service->title_price}}</td>
-                                                        <td class="align-middle">R$ {{$service->price}}</td>
                                                         <td class="align-middle">
                                                             @if ($service->active)
                                                                 <span class="badge bg-success">Ativo</span>
@@ -132,11 +134,6 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-
-                                        {{-- PAGINATION --}}
-                                        <div class="mt-3 float-end">
-                                            {{$services->links()}}
-                                        </div>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
@@ -150,8 +147,11 @@
                     <div class="tab-pane" id="section">
                         @include('Admin.cruds.Services.SERV05.Section.form')
                     </div>
-                    <div class="tab-pane" id="gallery">
-                        @include('Admin.cruds.Services.SERV05.Gallery.index')
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Services.SERV05.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="about">
+                        @include('Admin.cruds.Services.SERV05.About.form')
                     </div>
                 </div>
                 <!-- end row -->
