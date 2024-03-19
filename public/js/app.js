@@ -11837,7 +11837,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Portfolios_PORT04_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Portfolios/PORT04/src/main */ "./resources/views/Client/pages/Portfolios/PORT04/src/main.js");
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12350,6 +12350,61 @@ if (sideLinks.length > 0) {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Blogs/BLOG01/src/main.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
+
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog01__main__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  pagination: {
+    el: '.blog01__main__carousel__swiper-pagination',
+    clickable: true
+  }
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog01-page__categories", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  centerInsufficientSlides: true
+});
+addEventListener("DOMContentLoaded", function () {
+  var shareButton = document.getElementById("shareButton");
+  if (shareButton) {
+    shareButton.addEventListener("click", function () {
+      // Verifique se a API do Web Share está disponível no navegador
+      if (navigator.share) {
+        // Dados para compartilhar
+        var title = "{{$blog->title}}"; // Incorporar o título do artigo
+        var description = "{{$blog->description}}"; // Incorporar o a descrição do artigo
+        var url = "{{url()->current() }}"; // Incorporar a URL do artigo
+
+        var shareData = {
+          title: title,
+          text: description,
+          url: url
+        };
+
+        // Chame a API do Web Share para abrir a janela de compartilhamento
+        navigator.share(shareData).then(function () {
+          console.log("Artigo compartilhado com sucesso!");
+        })["catch"](function (error) {
+          console.error("Erro ao compartilhar o artigo:", error);
+        });
+      } else {
+        alert("Este navegador não suporta compartilhamento direto. Você pode copiar o link e compartilhá-lo manualmente.");
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/views/Client/pages/Compliances/COMP01/src/main.js":
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
@@ -12357,60 +12412,6 @@ if (sideLinks.length > 0) {
 /***/ (() => {
 
 
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Portfolios/PORT04/src/main.js":
-/*!********************************************************************!*\
-  !*** ./resources/views/Client/pages/Portfolios/PORT04/src/main.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04__portfolios__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 12,
-  pagination: {
-    el: '.port04__portfolios__carousel__swiper-pagination',
-    clickable: true
-  }
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port04-page__portfolio__categories", {
-  slidesPerView: "auto",
-  spaceBetween: 20,
-  centerInsufficientSlides: true
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-page__portfolio__main__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 12,
-  pagination: {
-    el: '.port04-page__portfolio__main__carousel__swiper-pagination',
-    clickable: true
-  }
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-show__content__topics__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 20
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-show__content__gallery__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 12,
-  pagination: {
-    el: '.port04-show__content__gallery__carousel__swiper-pagination',
-    clickable: true
-  }
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-show__related__main__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 12,
-  pagination: {
-    el: '.port04-show__related__main__carousel__swiper-pagination',
-    clickable: true
-  }
-});
 
 /***/ }),
 

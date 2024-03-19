@@ -14,18 +14,18 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Portfolios' => (object) [
-            'PORT04' => (object)[
+        'Blogs' => (object) [
+            'BLOG01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques Home}',
+                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home},featured_page=1{Detaques Página}',
                     'titleList' => 'title',
                     'relation' => (object)[
                         'category' =>(object)[
@@ -36,16 +36,18 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Portifólio',
+                    'titleMenu' => 'Artigos',
                     'anchor' =>  false,
-                    'linkMenu' => 'port04.page',
+                    'linkMenu' => 'blog01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Portifólio',
-                    'iconPanel' => 'mdi-alpha-p-box'
+                    'titlePanel' => 'Artigos',
+                    'iconPanel' => 'mdi-blogger'
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [
+                ]
             ],
         ],
+
     ],
 
     'ModelsForm' => (object)[

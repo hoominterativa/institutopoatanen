@@ -2,164 +2,97 @@
 
 /* BEGIN STYLE */
 .blog01 {
-    padding: 80px 0;
-    @include medium-device-down {
-        padding: 50px 20px;
-    }
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
 
     &__header {
-        text-align: center;
-        margin-bottom: 85px;
-        @include medium-device-down {
-            margin-bottom: 40px;
-        }
-        &__title {
-            font-size: $T2;
-            font-weight: $weight-700;
-            color: $color-one;
-            display: block;
+        width: 100%;
+        @include disFlex(column, center, center);
 
-            @include medium-device-down {
-                font-size: $T2-mobile;
-            }
+        margin-bottom: 3rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
         }
         &__subtitle {
-            font-size: $T4;
-            font-weight: $weight-700;
-            color: $color-three;
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
+        }
 
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-        &__line {
-            background-color: $bg-main;
-            width: 100%;
-            display: block;
-            margin: 17px 0 30px;
-        }
         &__paragraph {
-            font: $paragraph;
-            font-weight: $weight-500;
-            color: $color-two;
+            width: 100%;
+            max-width: 938px;
 
-            @include medium-device-down {
-                font: $paragraph-mobile;
-            }
+            @extend %theme__p1-c2;
+            text-align: center;
         }
     }
-    // END __header
 
-    &__boxs {
-        @include medium-device-down {
-            margin: 0;
-            padding: 0 40px 0 0;
-        }
-        .owl-stage-outer {
-            @include medium-device-down {
-                padding: 0;
+    &__main {
+        &__carousel {
+            height: auto;
+            @extend %theme__pagination;
+
+            overflow: hidden;
+            @include large-device-down {
                 overflow: visible;
             }
         }
-        &__carousel {
-            .owl-dots {
-                text-align: center;
-                margin-top: 56px;
-                justify-content: flex-start;
 
-                .owl-dot {
-                    width: 33.4px;
-                    height: 21px;
-                    display: inline-block;
-                    background-color: #ccc;
-                    margin: 0 6px;
-                    border-radius: 0;
-                    &.active {
-                        background-color: #3f3f3f;
-                    }
-                    &:hover {
-                        background-color: #3f3f3f;
-                    }
-                }
-            }
-        }
         &__item {
-            &__content {
-                &:hover {
-                    transform: scale(1.02);
-                    box-shadow: 0 0 5px #ccc;
-                }
-            }
-            &__image {
-                margin-bottom: 0;
-                height: 285px;
-                display: block;
-                &__img {
-                    object-fit: cover;
-                    object-position: center;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                }
-            }
-            &__description {
-                height: 107px;
-                background-color: #e6e6e6;
-                padding: 0 20px;
-            }
-            &__title {
-                font-size: $T4;
-                font-weight: $weight-700;
-                color: $color-black;
+            position: relative;
+            width: calc(20% - 1rem);
 
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                }
+            height: auto;
+            @include disFlex(column);
+
+            @include large-device-down {
+                width: 33.33%;
             }
-            &__icon {
-                width: 34px !important;
+
+            @include medium-device-down {
+                width: 50%;
+            }
+
+            @include small-device-down {
+                width: 90%;
+            }
+
+            &__image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 320/284;
+
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &__description {
+                height: 100%;
+
+                &__time {
+                    @extend %theme__p2-c2;
+                    margin-bottom: 0.5rem
+                }
+
+                &__title {
+                    @extend %theme__t4-cb;
+                    margin-bottom: 1rem;
+                }
+
+                &__paragraph {
+                    @extend %theme__p1-c1;
+                }
             }
         }
     }
-    // END __boxs
 
     &__cta {
-        @include Flex;
-        color: $color-black;
-        background: $color-five;
-        width: 100%;
-        max-width: 177px;
-        height: 45px;
-        font-family: $font-primary;
-        font-weight: $weight-700;
-        margin: 24px 0 0 auto;
-
-        @include medium-device-down {
-            margin-top: -32px;
-            position: relative;
-            z-index: 100;
-            font: $paragraph-mobile;
-            font-weight: $weight-700;
-            width: 147px;
-        }
-
-        &__icon {
-            height: 25px !important;
-            width: 25px !important;
-            object-fit: contain;
-        }
-
-        &:hover {
-            color: $color-white;
-            background-color: $bg-black;
-
-            .blog01__cta__icon {
-                filter: invert(1) grayscale(1);
-            }
-        }
+        @extend %theme__cta;
+        margin: 1rem 0 0 auto;
     }
 }
-// END .blog01
 
 .blog01-page {
     &__header {

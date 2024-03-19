@@ -84,7 +84,7 @@
                                 @endif
                                 <div class="blog01-page__boxs__item__description">
                                     <span class="blog01-page__boxs__item__date-publish">
-                                        Data: <span itemprop="datePublished" content="{{ $blog->publishing }}"
+                                        Data: <span itemprop="datePublished"
                                             class="blog01-page__boxs__item__date">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</span>
                                     </span>
                                     <h3 itemprop="name" class="blog01-page__boxs__item__title">{{ $blog->title }}</h3>
