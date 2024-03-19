@@ -45,7 +45,7 @@
 
             @if ($categories->count())
                 <aside class="port04-page__portfolio__categories">
-                    <ul class="port04-page__portfolio__categories__swiper-wrapper swiper-wrapper">
+                    <menu class="port04-page__portfolio__categories__swiper-wrapper swiper-wrapper">
                         @foreach ($categories as $category)
                             <li
                                 class="{{ isset($category->selected) ? 'active' : '' }} port04-page__portfolio__categories__item swiper-slide">
@@ -60,7 +60,7 @@
                                 {{ $category->title }}
                             </li>
                         @endforeach
-                    </ul>
+                    </menu>
                 </aside>
             @endif
 

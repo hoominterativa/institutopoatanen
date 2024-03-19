@@ -50,10 +50,7 @@
 
                                 <img  class="port04__portfolios__item__icon"
                                 src="{{ asset('storage/' . $portfolio->path_image_icon) }}" loading="lazy"
-                                    alt="Ícone do item {{ $portfolio->title }}"
-                                   >
-
-
+                                    alt="Ícone do item {{ $portfolio->title }}">
                             </article>
                         @endforeach
                     </div>
