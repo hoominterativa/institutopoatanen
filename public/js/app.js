@@ -12391,6 +12391,26 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-page__portfol
     clickable: true
   }
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-show__content__topics__carousel', {
+  slidesPerView: 'auto',
+  spaceBetween: 20
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-show__content__gallery__carousel', {
+  slidesPerView: 'auto',
+  spaceBetween: 12,
+  pagination: {
+    el: '.port04-show__content__gallery__carousel__swiper-pagination',
+    clickable: true
+  }
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.port04-show__related__main__carousel', {
+  slidesPerView: 'auto',
+  spaceBetween: 12,
+  pagination: {
+    el: '.port04-show__related__main__carousel__swiper-pagination',
+    clickable: true
+  }
+});
 
 /***/ }),
 
