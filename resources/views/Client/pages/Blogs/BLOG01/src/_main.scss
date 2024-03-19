@@ -95,7 +95,7 @@
 }
 
 .blog01-page {
-    &__header {
+    &__banner {
         @extend %theme__banner;
 
         &__title {
@@ -114,187 +114,35 @@
         }
     }
 
-    &__boxs {
-        padding-bottom: 80px;
-        @include medium-device-down {
-            padding-bottom: 50px;
-            margin: 0;
-        }
-        &__featured {
-            padding: 80px 0;
-            @include medium-device-down {
-                padding: 50px 0;
-            }
-            &__item {
-                &__content {
-                    @include medium-device-down {
-                        padding: 0;
-                        margin: 0;
-                    }
-                }
-                &__image {
-                    @include medium-device-down {
-                        padding: 0;
-                        margin: 0 0 20px 0;
-                    }
-                }
-                &__description {
-                    padding-left: 68px;
-                    @include medium-device-down {
-                        padding: 0;
-                    }
-                }
-                &__category {
-                    font: $paragraph-min;
-                    font-weight: 500;
-                    color: $color-black;
-                    background-color: #ccc;
-                    padding: 10px 30px;
-                    margin-bottom: 32px;
-                    display: table;
-                    @include medium-device-down {
-                        font: $paragraph-min-mobile;
-                    }
-                }
-                &__title {
-                    font-size: $T2;
-                    font-weight: $weight-700;
-                    color: $color-black;
-                    @include medium-device-down {
-                        font-size: $T2-mobile;
-                    }
-                }
-                &__date-publish {
-                    font: $paragraph-min;
-                    font-weight: $weight-500;
-                    color: $color-two;
-                    @include medium-device-down {
-                        font: $paragraph-min-mobile;
-                    }
-                }
-                &__paragraph {
-                    font: $paragraph;
-                    font-weight: $weight-500;
-                    color: $color-two;
-                    margin-top: 32px;
-                    @include medium-device-down {
-                        font: $paragraph-mobile;
-                    }
-                }
-                &__cta {
-                    font: $paragraph;
-                    font-weight: $weight-700;
-                    color: $color-one;
-                    display: block;
-                    max-width: 177px;
-                    padding: 10px 15px;
-                    background-color: $bg-soft;
-                    margin-top: 70px;
+    &__articles{
+        @extend %theme__padding;
+        &__highlighted{
 
-                    @include medium-device-down {
-                        font: $paragraph-mobile;
-                    }
-                    &__icon {
-                        width: 25px !important;
-                    }
-                    &:hover {
-                        color: $color-white;
-                        background-color: $bg-black;
+            &__carousel{
+                overflow: hidden;
+            }
 
-                        .blog01-page__boxs__featured__item__cta__icon {
-                            filter: invert(1) grayscale(1);
-                        }
-                    }
-                }
-            }
-            // END __item
+            &__item{
+                width: 100%;
+                @include disFlex(row, space-between);
 
-            &__carousel {
-                .owl-dots {
-                    text-align: center;
-                    margin-top: 50px;
-                    .owl-dot {
-                        width: 26px;
-                        height: 26px;
-                        display: inline-block;
-                        background-color: #ccc;
-                        margin: 0 6px;
-                        &.active {
-                            background-color: #3f3f3f;
-                        }
-                        &:hover {
-                            background-color: #3f3f3f;
-                        }
-                    }
-                }
-            }
-            // END __carousel
-        }
-        // END __featured
+                &__image{
+                    width: 50%;
+                    height: auto;
+                    aspect-ratio: 636/408;
 
-        &__item {
-            margin-bottom: 75px;
-            @include medium-device-down {
-                margin: 0;
-                margin-bottom: 30px;
-            }
-            &__content {
-                &:hover {
-                    transform: scale(1.02);
-                    box-shadow: 0 0 5px #ccc;
-                }
-            }
-            &__image {
-                margin-bottom: 20px;
-                height: 285px;
-                display: block;
-                &__img {
                     object-fit: cover;
                     object-position: center;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
                 }
-            }
-            &__date-publish {
-                font: $paragraph-min;
-                font-weight: $weight-400;
-                color: $color-two;
-                @include medium-device-down {
-                    font: $paragraph-min-mobile;
-                }
-            }
-            &__description {
-                padding: 0 15px;
-            }
-            &__title {
-                font-size: $T4;
-                font-weight: $weight-700;
-                color: $color-black;
 
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                }
-            }
-            &__paragraph {
-                font: $paragraph;
-                font-weight: $weight-500;
-                color: $color-two;
-                margin-top: 20px;
 
-                @include medium-device-down {
-                    font: $paragraph-mobile;
-                }
-            }
-            &__icon {
-                width: 34px !important;
             }
         }
-        // END __item
     }
-    // END __boxs
+
+
 }
-// END .blog01-page
+
 
 .blog01-show {
     padding: 80px 0;

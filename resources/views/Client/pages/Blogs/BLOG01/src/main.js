@@ -17,6 +17,14 @@ new Swiper(".blog01-page__categories", {
 });
 
 
+new Swiper(".blog01-page__articles__highlighted__carousel", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+        el: '.blog01-page__articles__highlighted__carousel__swiper-pagination',
+        clickable: true,
+      },
+});
 
 
 addEventListener("DOMContentLoaded", function () {
