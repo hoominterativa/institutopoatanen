@@ -69,10 +69,14 @@ class SERV05Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['active_topic'] = $request->active_topic?1:0;
-        $data['active_about_inner'] = $request->active_about?1:0;
+        $data['active_about_inner'] = $request->active_about_inner?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
+
         $data['featured'] = $request->featured?1:0;
+
         $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+
+        $data['link_topic'] = isset($data['link_topic']) ? getUri($data['link_topic']) : null;
 
         if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
 
@@ -135,10 +139,14 @@ class SERV05Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['active_topic'] = $request->active_topic?1:0;
-        $data['active_about_inner'] = $request->active_about?1:0;
+        $data['active_about_inner'] = $request->active_about_inner?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
+
         $data['featured'] = $request->featured?1:0;
+
         $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+
+        $data['link_topic'] = isset($data['link_topic']) ? getUri($data['link_topic']) : null;
 
         if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
 
@@ -261,7 +269,7 @@ class SERV05Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV05Services $SERV05Services)
-    public function show(SERV05Services $SERV05Services)
+    public function show($SERV05ServicesCategory, SERV05Services $SERV05Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV05', 'show');

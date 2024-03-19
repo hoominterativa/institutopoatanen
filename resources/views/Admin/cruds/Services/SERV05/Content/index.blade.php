@@ -21,7 +21,6 @@
                             <th>Imagem</th>
                             <th>Título da seção</th>
                             <th>Título/Subtítulo</th>
-                            <th>Texto</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -44,7 +43,6 @@
                                 </td>
                                 <td class="align-middle">{{$content->section}}</td>
                                 <td class="align-middle">{{$content->title}} <b>/</b> {{$content->subtitle}}</td>
-                                <td class="align-middle">{!! Str::substr($content->text, 0, 30) !!}</td>
                                 <td class="align-middle">
                                     @if ($content->active)
                                         <span class="badge bg-success">Ativo</span>
@@ -70,12 +68,9 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include(
-                                                            'Admin.cruds.Services.SERV05.Content.form',
-                                                            [
+                                                        @include('Admin.cruds.Services.SERV05.Content.form', [
                                                                 'content' => $content,
-                                                            ]
-                                                        )
+                                                            ])
                                                     </div>
                                                 </div>
                                             </div>

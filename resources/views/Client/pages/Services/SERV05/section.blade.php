@@ -95,7 +95,7 @@
                                         {!! $service->description !!}
                                     </p>
                                 @endif
-                                <a href="{{route('serv05.show.content', ['SERV05Services' => $service->slug])}}" class="serv05-box__cta">
+                                <a href="{{route('serv05.show', ['SERV05ServicesCategory' => $service->category->slug, 'SERV05Services' => $service->slug])}}" class="serv05-box__cta">
                                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
                                         class="serv05-box__cta__icon">
                                     CTA

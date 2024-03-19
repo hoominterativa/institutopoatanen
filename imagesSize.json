@@ -1515,6 +1515,16 @@
                 "height": "410",
                 "activeCrop": "false"
             },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "419",
+                "activeCrop": "false"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "775",
+                "activeCrop": "true"
+            },
             "Category": {
                 "path_image_icon": {
                     "width": "250",

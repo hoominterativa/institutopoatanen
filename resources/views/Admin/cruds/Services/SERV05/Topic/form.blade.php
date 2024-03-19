@@ -6,7 +6,7 @@
     <input type="hidden" name="service_id" value="{{ $service->id }}">
 @endif
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-lg-6">
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     <div class="row">
@@ -32,6 +32,10 @@
                         'data-parsley-validation-threshold'=>'10',
                     ]) !!}
                 </div>
+            </div>
+            <div class="mb-3 form-check">
+                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+                {!! Form::label('active', 'Ativar exibição?', ['class'=>'form-check-label']) !!}
             </div>
         </div>
         <div class="col-12 col-lg-6">
@@ -59,16 +63,6 @@
                         </label>
                     </div><!-- END container image crop -->
                 </div>
-
-            </div>
-            <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class'=>'form-check-label']) !!}
-            </div>
-            {{-- end card-body --}}
-        </div>
-        <div class="col-12 col-lg-6">
-            <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
@@ -93,6 +87,7 @@
                     </div><!-- END container image crop -->
                 </div>
             </div>
+            {{-- end card-body --}}
         </div>
     </div>
     <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">

@@ -33,7 +33,7 @@ class SERV05CategoryController extends Controller
         $data['slug'] = Str::slug($request->title);
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon) $data['path_image'] = $path_image_icon;
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(SERV05ServicesCategory::create($data)){
             Session::flash('success', 'Categoria cadastrada com sucesso');

@@ -12,9 +12,17 @@
 <div class="card card-body" id="tooltip-container">
     <div class="row">
         <div class="col-12 col-sm-6">
-            <div class="mb-2">
-                {!! Form::label('title_banner', 'Título do Banner', ['class' => 'form-label']) !!}
-                {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title_banner', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle_banner', 'Subtítulo', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle_banner', null, ['class' => 'form-control', 'id' => 'subtitle_banner']) !!}
+                    </div>
+                </div>
             </div>
             <div class="mb-3 form-check me-3">
                 {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}

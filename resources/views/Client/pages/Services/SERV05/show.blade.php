@@ -4,17 +4,15 @@
 
     <section class="serv05-show__header w-100">
         <div class="serv05-banner-carousel owl-carousel w-100">
-            @foreach ($galleryServices as $galleryService)
-                <div class="serv05-banner-carousel__item" style="background-image: url({{ asset('storage/' . $galleryService->path_image_desktop) }});  background-color: #ffffff;">
-                    <div class="container d-flex flex-column align-items-center justify-content-center">
-                        @if ($service->title_banner || $service->subtitle_banner)
-                            <h3 class="serv05-banner-carousel__title text-center">{{$service->title_banner}}</h3>
-                            <h4 class="serv05-banner-carousel__subtitle text-center">{{$service->subtitle_banner}}</h4>
-                            <hr class="serv05-banner-carousel__line">
-                        @endif
-                    </div>
+            <div class="serv05-banner-carousel__item" style="background-image: url({{ asset('storage/' . $service->path_image_desktop) }});  background-color: #ffffff;">
+                <div class="container d-flex flex-column align-items-center justify-content-center">
+                    @if ($service->title_banner || $service->subtitle_banner)
+                        <h3 class="serv05-banner-carousel__title text-center">{{$service->title_banner}}</h3>
+                        <h4 class="serv05-banner-carousel__subtitle text-center">{{$service->subtitle_banner}}</h4>
+                        <hr class="serv05-banner-carousel__line">
+                    @endif
                 </div>
-            @endforeach
+            </div>
         </div>
         <div class="serv05-top w-100">
             <div class="container d-flex flex-column align-items-center justify-content-center">

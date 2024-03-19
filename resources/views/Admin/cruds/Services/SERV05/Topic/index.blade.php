@@ -20,7 +20,6 @@
                             </th>
                             <th>Imagem</th>
                             <th>Título/Subtítle</th>
-                            <th>Descrição</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -42,7 +41,6 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">{{$topic->title}} <b>/</b> {{$topic->subtitle}}</td>
-                                <td class="align-middle">{!! substr($topic->description, 0, 30) !!}</td>
                                 <td class="align-middle">
                                     @if ($topic->active)
                                         <span class="badge bg-success">Ativo</span>
@@ -68,12 +66,9 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include(
-                                                            'Admin.cruds.Services.SERV05.Topic.form',
-                                                            [
+                                                        @include('Admin.cruds.Services.SERV05.Topic.form', [
                                                                 'topic' => $topic,
-                                                            ]
-                                                        )
+                                                            ])
                                                     </div>
                                                 </div>
                                             </div>

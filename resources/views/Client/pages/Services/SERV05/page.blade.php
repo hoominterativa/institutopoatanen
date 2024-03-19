@@ -4,17 +4,15 @@
     <section class="serv05-page">
         <header class="serv05-page__header w-100">
             <div class="serv05-banner-carousel owl-carousel w-100">
-                @foreach ($galleries as $gallery)
-                    <div class="serv05-banner-carousel__item" style="background-image: url({{ asset('storage/' . $gallery->path_image_desktop) }});  background-color: #ffffff;">
-                        <div class="container d-flex flex-column align-items-center justify-content-center">
-                            @if ($section)
-                                <h3 class="serv05-banner-carousel__title text-center">{{$section->title_banner}}</h3>
-                                <h4 class="serv05-banner-carousel__subtitle text-center">{{$section->subtitle_banner}}</h4>
-                                <hr class="serv05-banner-carousel__line">
-                            @endif
-                        </div>
+                <div class="serv05-banner-carousel__item" style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});  background-color: #ffffff;">
+                    <div class="container d-flex flex-column align-items-center justify-content-center">
+                        @if ($section)
+                            <h3 class="serv05-banner-carousel__title text-center">{{$section->title_banner}}</h3>
+                            <h4 class="serv05-banner-carousel__subtitle text-center">{{$section->subtitle_banner}}</h4>
+                            <hr class="serv05-banner-carousel__line">
+                        @endif
                     </div>
-                @endforeach
+                </div>
             </div>
             <div class="serv05-top w-100">
                 <div class="container d-flex flex-column align-items-center justify-content-center">
@@ -110,7 +108,7 @@
                                         {!! $service->description !!}
                                     </p>
                                 @endif
-                                <a href="{{route('serv05.show.content', ['SERV05Services' => $service->slug])}}" class="serv05-box__cta">
+                                <a href="{{route('serv05.show', ['SERV05ServicesCategory' => $service->category->slug, 'SERV05Services' => $service->slug])}}" class="serv05-box__cta">
                                     <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="" class="serv05-box__cta__icon">
                                     CTA
                                 </a>
