@@ -1,931 +1,440 @@
 @import "variables";
 
-/* BEGIN STYLE */
-/* SECTION */
 .port04 {
-    padding: 72px 0;
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
 
     &__header {
-        @include medium-device-down {
-            width: 90%;
-            margin: 0 auto;
-        }
+        width: 100%;
+        @include disFlex(column, center, center);
+
+        margin-bottom: 3rem;
+
         &__title {
-            font-family: $font-primary;
-            font-size: $T2;
-            color: $color-one;
-            font-weight: $weight-700;
-
-            text-align: center;
-
-            @include medium-device-down {
-                font-size: $T2-mobile;
-                font-weight: $weight-700;
-            }
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
         }
+
         &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            color: $color-one;
-            font-weight: $weight-700;
-
-            text-align: center;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-                font-weight: $weight-700;
-            }
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
         }
 
-        &__line {
-            margin-top: 28px;
-            margin-bottom: 32px;
-        }
-        &__description {
-            margin-bottom: 72px;
+        &__paragraph {
+            width: 100%;
+            max-width: 938px;
 
-            max-width: 1122px;
-
-            font-family: $font-paragraph;
-            font-size: $P1;
-            color: $color-ten;
-            font-weight: $weight-400;
-
+            @extend %theme__p1-c2;
             text-align: center;
-            line-height: 170%;
-            letter-spacing: 0.2px;
-
-            p {
-                font: inherit;
-                color: inherit;
-                font-weight: inherit;
-            }
-
-            @include medium-device-down {
-                font-size: $P1-mobile;
-                font-weight: $weight-400;
-            }
         }
     }
 
     &__portfolios {
-        gap: 24px; /* ESPAÇAMENTO ENTRE O CARROSSEL E O BOTÃO CTA */
-        @include medium-device-down {
-            width: 90%;
-            margin: 0 auto;
-        }
-
         &__carousel {
-            .owl-stage-outer {
-                overflow: visible;
+            height: auto;
 
-                .owl-stage {
-                    display: flex;
-                }
-            }
-            .owl-nav {
-            }
-
-            .owl-dots {
-                justify-content: start;
-
-                .owl-dot {
-                }
-                .owl-dot.active,
-                .owl-dot.hover {
-                }
-            }
+            @extend %theme__pagination;
         }
 
-        /*
-        1. A LARGURA DOS ITENS DO CARROSSEL SERÃO DADAS COM O WIDTH NA CLASSE ABAIXO. DESSA FORMA NÃO É NECESSÁRIO UTILIZAR O !IMPORTANT PARA DETERMINAR OS VALORES DESTES.
-
-        2.PARA SMALL-DEVICE-DOWN (0-576px), O AUTOWIDTH ESTÁ COMO FALSE, OU SEJA, O 1 ITEM OCUPARÁ 100% DO WIDTH DO ELEMENTO PAI
-
-        3. BASTA ESTILIZAR A CLASSE ABAIXO, COPIAR E COLAR TODO O ESTILO EM PROD04-PAGE, POIS AMBAS POSSUEM A MESMA ESTRUTURA INTERNA
-        */
         &__item {
             position: relative;
-            @include Flex($justify: start, $align: end);
+            padding: 2.5rem 2rem;
+            @include disFlex(row, space-between, end);
+            gap: 1rem;
 
-            width: 327px;
-            height: 100%;
+            width: 25%;
+            height: auto;
+            aspect-ratio: 328/364;
 
+            @include large-device-down {
+                width: 33.33%;
+            }
+            @include medium-device-down {
+                width: 50%;
+            }
             @include small-device-down {
                 width: 100%;
             }
 
-            &__image {
-                width: 100%;
-            }
-            &__container {
+            &__bg {
                 position: absolute;
+                z-index: -1;
+                inset: 0;
+
                 width: 100%;
-                padding: 0 32px 40px;
+                height: 100%;
 
-                @include Flex();
+                object-fit: cover;
+                object-position: center;
+            }
 
-                &__header {
-                    @include Flex($direction: column, $align: start);
-                    &__title {
-                        font-family: $font-primary;
-                        font-size: $T5;
-                        font-weight: $weight-700;
-                        color: $color-black;
-                    }
+            &__information {
+                @include disFlex(column);
 
-                    &__description {
-                        font-family: $font-secondary;
-                        font: $paragraph-min;
-                        color: $color-two;
-
-                        letter-spacing: 0.2px;
-                        line-height: 140%;
-                    }
+                &__title {
+                    @extend %theme__t5-cb;
                 }
-                &__icon {
-                    width: 33px !important; /* !important aqui por conta do owl caroussel */
-                    height: 33px;
+
+                &__description {
+                    @extend %theme__p2-c2;
                 }
+            }
+
+            &__icon {
+                width: 2rem;
+                height: auto;
+                aspect-ratio: 1/1;
+
+                object-fit: contain;
+                object-position: center;
             }
         }
 
         &__cta {
-            width: 177px;
-            height: 48px;
-
-            background-color: $color-four;
-
-            padding: 8px 48px;
-
-            @include Flex($justify: space-between);
-            align-self: flex-end;
-
-            &:hover,
-            &:focus {
-                background-color: $color-one;
-                color: $color-white;
-                img {
-                    filter: brightness(1) contrast(1) invert(1) grayscale(1);
-                }
-            }
+            @extend %theme__cta;
+            margin: 2rem 0 0 auto;
         }
     }
 }
-/* END SECTION */
 
-/* PAGE */
 .port04-page {
     &__banner {
-        &__container {
-            height: 280px;
+        @extend %theme__banner;
+
+        &__title {
+            @extend %theme__banner__title;
         }
-        &__image {
-            height: 100%;
-            padding-top: 100px;
 
-            @include backG;
-        }
-        &__header {
-            @include medium-device-down {
-                width: 90%;
-                margin: 0 auto;
-            }
-            &__title {
-                font-family: $font-primary;
-                font-size: $T1;
-                font-weight: $weight-700;
-                letter-spacing: 0.2px;
-                color: $color-one;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T1-mobile;
-                    font-weight: $weight-700;
-                }
-            }
-            &__subtitle {
-                font-family: $font-primary;
-                font-size: $T4;
-                font-weight: $weight-700;
-                color: $color-one;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                    font-weight: $weight-700;
-                }
-            }
-            &__line {
-                margin: 24px 0 64px;
-            }
+        &__subtitle {
+            @extend %theme__banner__title;
         }
     }
 
     &__portfolio {
-        padding: 54px 0 80px;
-        background-color: $color-five;
+        @extend %theme__padding;
 
         &__header {
-            @include medium-device-down {
-                width: 90%;
-                margin: 0 auto;
-            }
+            width: 100%;
+            @include disFlex(column, center, center);
+
+            margin-bottom: 3rem;
+
             &__title {
-                font-family: $font-primary;
-                font-size: $T2;
-                font-weight: $weight-700;
-                letter-spacing: 0.2px;
-                color: $color-one;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T2-mobile;
-                    font-weight: $weight-700;
-                }
-                text-align: center;
+                @extend %theme__t2-c1;
+                margin-bottom: 0.25rem;
             }
             &__subtitle {
-                font-family: $font-primary;
-                font-size: $T4;
-                font-weight: $weight-700;
-                color: $color-one;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                    font-weight: $weight-700;
-                }
+                @extend %theme__t4-c3;
+                margin-bottom: 2rem;
             }
-            &__line {
-                margin: 24px 32px;
-            }
-            &__description {
-                font-family: $font-paragraph;
-                font-size: $P1;
-                color: $color-ten;
-                font-weight: $weight-400;
 
+            &__paragraph {
+                width: 100%;
+                max-width: 938px;
+
+                @extend %theme__p1-c2;
                 text-align: center;
-                line-height: 170%;
-                letter-spacing: 0.2px;
-
-                p {
-                    font: inherit;
-                    color: inherit;
-                    font-weight: inherit;
-                }
             }
         }
+
         &__categories {
-            margin: 56px 0 48px;
-            /* Só aparece acima de medium-device-up, ou seja, a partir de 768px */
-            &__list {
-                @include medium-device-down {
-                    display: none;
-                }
-                &__carousel {
-                    display: flex !important;
-                    justify-content: center;
-                }
+            margin-bottom: 3rem;
 
-                &__item {
-                    padding: 16px 24px;
+            &__item {
+                @extend %theme__category;
 
-                    background: $color-four;
-
-                    font-family: $font-primary;
-                    font-size: $T5;
-                    font-weight: $weight-700;
-                    color: $color-two;
-
-                    list-style: none;
-
-                    &.active,
-                    &:hover {
-                        background-color: $color-one;
-                        color: $color-white;
-                        img {
-                            filter: brightness(1) contrast(1) invert(1)
-                                grayscale(1);
-                        }
-                    }
-
-                    a {
-                        font: inherit;
-                        color: inherit;
-                        text-decoration: inherit;
-                    }
-
-                    &__icon {
-                        margin-right: 8px;
-                        width: 32px !important;
-                        height: 32px;
-                    }
-                }
-            }
-            /* Só aparece abaixo de medium-device-up, ou seja, a partir de 767.98px */
-            &__dropdown-mobile {
-                display: none;
-
-                @include medium-device-down {
-                    display: flex;
-                }
-
-                &__item {
-                    a,
-                    button {
-                        @include Flex($justify: start);
-                        gap: 1rem;
-                        padding: 15px 26px;
-                        background-color: $color-nine;
-                        white-space: nowrap;
-
-                        font-size: $T5-mobile;
-                        font-family: $font-primary;
-                        font-weight: 700;
-                        color: $color-black;
-
-                        img {
-                            height: 25px;
-                            width: 25px;
-                            object-fit: contain;
-                            object-position: center;
-                            @include trans($transition: 0.5s);
-                        }
-                    }
-                }
-
-                .accordion-flush {
-                    width: 100%;
-                }
-
-                .accordion-item {
-                    margin: 0 auto;
-                    color: $color-one !important;
-                    font: $paragraph !important;
-
-                    .accordion-body {
-                        padding: 0;
-
-                        ul {
-                            padding: 0;
-                        }
-
-                        li {
-                            list-style: none;
-                            color: $color-one !important;
-                            font: $paragraph !important;
-                        }
-                    }
-                }
-
-                .accordion-button::after {
-                    border-left: 8px solid transparent;
-                    border-right: 7px solid transparent;
-                    border-top: 11px solid $color-black;
-                    width: auto;
+                &__icon {
+                    width: 2rem;
                     height: auto;
-                }
+                    aspect-ratio: 1/1;
 
-                .accordion-button:not(.collapsed)::after {
-                    border-left: 8px solid transparent;
-                    border-right: 7px solid transparent;
-                    border-top: 11px solid $color-black;
-                    transform: rotate(184deg);
-                    width: auto;
-                    height: auto;
+                    margin-right: 0.5rem;
+
+                    object-fit: contain;
+                    object-position: center;
                 }
             }
         }
 
-        &__content {
+        &__main {
             &__carousel {
-                @include medium-device-down {
-                    width: 90%;
-                    margin: 0 auto;
-                }
-                .owl-stage-outer {
-                    overflow: visible;
-
-                    .owl-stage {
-                    }
-                }
-
-                .owl-nav {
-                }
-
-                .owl-dots {
-                    margin-top: 56px;
-                    justify-content: start;
-
-                    .owl-dot {
-                    }
-                    .owl-dot.active,
-                    .owl-dot.hover {
-                    }
-                }
+                @extend .port04__portfolios__carousel;
             }
+
             &__item {
-                position: relative;
-                @include Flex($justify: start, $align: end);
+                @extend .port04__portfolios__item;
 
-                width: 327px;
-                height: 100%;
-
-                @include small-device-down {
-                    width: 100%;
+                &__bg {
+                    @extend .port04__portfolios__item__bg;
                 }
 
-                &__image {
-                    width: 100%;
+                &__information {
+                    @extend .port04__portfolios__item__information;
+
+                    &__title {
+                        @extend .port04__portfolios__item__information__title;
+                    }
+
+                    &__description {
+                        @extend .port04__portfolios__item__information__description;
+                    }
                 }
-                &__container {
-                    position: absolute;
-                    width: 100%;
-                    padding: 0 32px 40px;
 
-                    @include Flex();
-
-                    &__header {
-                        @include Flex($direction: column, $align: start);
-                        &__title {
-                            font-family: $font-primary;
-                            font-size: $T5;
-                            font-weight: $weight-700;
-                            color: $color-black;
-                        }
-
-                        &__description {
-                            font-family: $font-secondary;
-                            font: $paragraph-min;
-                            color: $color-two;
-
-                            letter-spacing: 0.2px;
-                            line-height: 140%;
-                        }
-                    }
-                    &__icon {
-                        width: 33px !important; /* !important aqui por conta do owl caroussel */
-                        height: 33px;
-                    }
+                &__icon {
+                    @extend .port04__portfolios__item__icon;
                 }
             }
-
         }
     }
 }
 
-/* END PAGE */
-
-/* SHOW */
 .port04-show {
     &__banner {
-        &__container {
-            height: 280px;
+        @extend %theme__banner;
+
+        &__title {
+            @extend %theme__banner__title;
         }
-        &__image {
-            height: 100%;
-            padding-top: 100px;
 
-            @include backG;
-        }
-        &__header {
-            @include medium-device-down {
-                width: 90%;
-                margin: 0 auto;
-            }
-            &__title {
-                font-family: $font-primary;
-                font-size: $T1;
-                font-weight: $weight-700;
-                letter-spacing: 0.2px;
-                color: $color-one;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T1-mobile;
-                    font-weight: $weight-700;
-                }
-            }
-            &__subtitle {
-                font-family: $font-primary;
-                font-size: $T4;
-                font-weight: $weight-700;
-                color: $color-one;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                    font-weight: $weight-700;
-                }
-            }
-            &__line {
-                margin: 24px 0 64px;
-            }
+        &__subtitle {
+            @extend %theme__banner__title;
         }
     }
 
     &__content {
         &__main-content {
-            padding-top: 64px;
-            background-color: $color-four;
-            @include Flex;
-            gap: 48px;
+            background-color: $color-one;
+            @extend %theme__padding;
+            padding-bottom: 0;
+            @include disFlex(row, space-between, center);
+
+            &:not(:has(&__image)) &__information {
+                width: 100%;
+                padding-top: unset;
+
+                &__title,
+                &__subtitle,
+                &__paragraph {
+                    text-align: center;
+                }
+            }
 
             @include large-device-down {
                 flex-direction: column-reverse;
             }
 
             &__image {
-                height: 512px;
-                align-self: end;
+                width: 32%;
+                height: 100%;
+                aspect-ratio: 430/593;
 
-                @include medium-device-down {
-                    align-self: center;
-                    max-width: 90%;
+                margin-inline: auto;
+
+                @include large-device-down {
+                    width: 100%;
+                    aspect-ratio: 256/351;
                 }
 
                 &__img {
                     width: 100%;
                     height: 100%;
+                    object-fit: contain;
+                    object-position: center;
                 }
             }
+
             &__information {
+                padding: 4rem 2rem;
                 width: 50%;
 
-                @include medium-device-down {
-                    width: 90%;
-                    margin: 0 auto;
+                @include large-device-down {
+                    width: 100%;
                 }
+
                 &__title {
-                    font-family: $font-primary;
-                    font-size: $T2;
-                    font-weight: $weight-700;
-                    color: $color-one;
-
-                    @include medium-device-down {
-                        font-size: $T2-mobile;
-                        font-weight: $weight-700;
-                        text-align: center;
-                    }
+                    @extend %theme__t2-c1;
+                    text-align: left;
+                    margin-bottom: 0.75rem;
                 }
+
                 &__subtitle {
-                    font-family: $font-primary;
-                    font-size: $T4;
-                    font-weight: $weight-700;
-                    color: $color-one;
-
-                    @include medium-device-down {
-                        font-size: $T4-mobile;
-                        font-weight: $weight-700;
-                        text-align: center;
-                    }
+                    @extend %theme__t4-c3;
+                    margin-bottom: 1.25rem;
                 }
 
-                &__line {
-                    margin: 20px 0 48px;
-                }
-                &__description {
-                    font-family: $font-paragraph;
-                    font-size: $P1;
-                    color: $color-ten;
-                    font-weight: $weight-400;
-
-                    line-height: 170%;
-                    letter-spacing: 0.2px;
-
-                    p {
-                        font: inherit;
-                        color: inherit;
-                        font-weight: inherit;
-                    }
-
-                    @include medium-device-down {
-                        text-align: center;
-                    }
+                &__paragraph {
+                    @extend %theme__p2-c2;
+                    margin-bottom: 2rem;
                 }
             }
         }
 
         &__additional-topic {
-            background-color: $color-three;
-            padding: 80px 0;
-            .accordion {
-                width: 90%;
-                margin: 0 auto;
-                .accordion-item {
-                    border: none;
-                    border-bottom: solid 1px $color-one;
-                    margin-bottom: 24px;
+            background-color: $color-two;
 
-                    .accordion-header {
-                        .accordion-button {
-                            background-color: $color-three;
+            @extend %theme__padding;
 
-                            font-size: $T5-mobile;
-                            font-family: $font-primary;
-                            font-weight: $weight-700;
-                            color: $color-one;
+            &__item {
+                @extend %theme__accordion__item;
 
-                            @include medium-device-down {
-                                font-size: $T5-mobile;
-                                font-weight: $weight-700;
-                            }
-                        }
+                &__title {
+                    @extend %theme__accordion__item__title;
 
-                        .accordion-button:focus {
-                            border: none;
-                            box-shadow: none;
-                        }
-                        .accordion-button::after {
-                            background-image: url(../images/accordion-icon.svg);
-                            width: 21px;
-                        }
+                    &__icon {
+                        @extend %theme__accordion__item__title__icon;
                     }
-                    .accordion-body {
-                        background-color: $color-white;
+                }
 
-                        font-family: $font-paragraph;
-                        font-size: $P1;
-                        color: $color-ten;
-                        font-weight: $weight-400;
-
-                        line-height: 170%;
-                        letter-spacing: 0.2px;
-
-                        p {
-                            font: inherit;
-                            color: inherit;
-                            font-weight: inherit;
-                        }
-                    }
+                &__paragraph {
+                    @extend %theme__accordion__item__paragraph;
                 }
             }
         }
 
         &__topics {
-            padding: 72px 0;
-            background-color: $color-five;
-            display: flex;
-            justify-content: center;
+            background-color: $color-three;
+            @extend %theme__padding;
 
             &__carousel {
-                display: flex !important;
-                justify-content: center;
+                height: auto;
+                overflow: hidden;
 
                 @include large-device-down {
-                    width: 90%;
-                    margin: 0 auto;
-                }
-                .owl-stage-outer {
-                    .owl-stage {
-                    }
-                }
-                .owl-dots {
-                }
-                .owl-nav {
+                    overflow: visible;
                 }
             }
 
             &__item {
-                width: 300px;
-                padding: 16px 22px;
+                width: calc(25% - 15px);
+                height: auto;
+                padding: 1rem 0.75rem;
+
+                @include disFlex(row, center, center);
+                gap: 1rem;
 
                 background-color: #d9d9d9;
 
-                @include Flex;
-                gap: 16px;
+                @include large-device-down {
+                    width: 33.33%;
+                }
+
+                @include medium-device-down {
+                    width: 50%;
+                }
 
                 @include small-device-down {
-                    width: 100%;
+                    width: 90%;
                 }
+
                 &__image {
-                    width: 54px;
+                    width: 3.25rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
 
                     &__img {
                         width: 100%;
                         height: 100%;
+
+                        object-fit: contain;
+                        object-position: center;
                     }
                 }
+
                 &__information {
-                    @include Flex($direction: column, $align: start);
+                    width: calc(100% - 3.25rem);
+                    @include disFlex(column, center, start);
+
                     &__title {
-                        margin-bottom: 4px;
-
-                        font-family: $font-primary;
-                        font-size: $P1;
+                        @extend %theme__p1-cb;
                         font-weight: 700;
-                        line-height: 170%;
-                        letter-spacing: 0.2px;
 
-                        color: $color-black;
-
-                        @include medium-device-down {
-                            font-size: $P1-mobile;
-                            font-weight: $weight-700;
-                        }
+                        margin-bottom: 0.25rem;
                     }
+
                     &__description {
-                        margin-bottom: 0;
-
-                        font-family: $font-paragraph;
-                        font-size: 14px;
-                        letter-spacing: 0.2px;
-
-                        color: $color-two;
-
-                        @include medium-device-down {
-                            font-size: $P1-mobile;
-                        }
+                        @extend %theme__p2-c2;
                     }
                 }
             }
         }
 
         &__gallery {
-            padding: 72px 0 48px;
-
-            @include x-large-device-down {
-                padding: 72px 0 48px !important;
-            }
+            @extend %theme__padding;
 
             &__carousel {
-                .owl-stage-outer {
-                    overflow: visible;
+                height: auto;
 
-                    .owl-stage {
-                        display: flex;
-                    }
-                }
-                .owl-nav {
-                }
-
-                .owl-dots {
-                    justify-content: center;
-
-                    .owl-dot {
-                    }
-                    .owl-dot.active,
-                    .owl-dot.hover {
-                    }
-                }
+                @extend %theme__pagination;
             }
+
             &__item {
-                width: 300px;
+                width: 20%;
+                height: auto;
+                aspect-ratio: 1/1;
+
+                object-fit: cover;
+                object-position: center;
+
+                @include large-device-down {
+                    width: 33.33%;
+                }
+
+                @include medium-device-down {
+                    width: 50%;
+                }
 
                 @include small-device-down {
-                    width: 90%;
-                    margin: 0 auto;
+                    width: 100%;
                 }
             }
         }
     }
 
-    &__related-items {
-        background-color: $color-five;
-        padding: 56px 0 62px;
+    &__related {
+        @extend .port04;
 
         &__header {
-            @include medium-device-down {
-                width: 90%;
-                margin: 0 auto;
-            }
+            @extend .port04__header;
+
             &__title {
-                font-family: $font-primary;
-                font-size: $T2;
-                color: $color-one;
-                font-weight: $weight-700;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T2-mobile;
-                    font-weight: $weight-700;
-                }
+                @extend .port04__header__title;
             }
+
             &__subtitle {
-                font-family: $font-primary;
-                font-size: $T4;
-                color: $color-one;
-                font-weight: $weight-700;
-
-                text-align: center;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                    font-weight: $weight-700;
-                }
+                @extend .port04__header__subtitle;
             }
 
-            &__line {
-                margin-top: 28px;
-                margin-bottom: 32px;
-            }
-            &__description {
-                margin-bottom: 72px;
-
-                max-width: 1122px;
-
-                font-family: $font-paragraph;
-                font-size: $P1;
-                color: $color-ten;
-                font-weight: $weight-400;
-
-                text-align: center;
-                line-height: 170%;
-                letter-spacing: 0.2px;
-
-                p {
-                    font: inherit;
-                    color: inherit;
-                    font-weight: inherit;
-                }
-
-                @include medium-device-down {
-                    font-size: $P1-mobile;
-                    font-weight: $weight-400;
-                }
+            &__paragraph {
+                @extend .port04__header__paragraph;
             }
         }
-        &__carousel {
-            @include medium-device-down {
-                width: 90%;
-                margin: 0 auto;
-            }
-            .owl-stage-outer {
-                overflow: visible;
 
-                .owl-stage {
-                    display: flex;
-                }
+        &__main {
+            &__carousel {
+                @extend .port04__portfolios__carousel;
             }
-            .owl-nav {
-            }
-
-            .owl-dots {
-                justify-content: start;
-
-                .owl-dot {
-                }
-                .owl-dot.active,
-                .owl-dot.hover {
-                }
-            }
-        }
-        &__content {
             &__item {
-                position: relative;
-                @include Flex($justify: start, $align: end);
+                @extend .port04__portfolios__item;
 
-                width: 327px;
-                height: 100%;
-
-                @include small-device-down {
-                    width: 100%;
+                &__bg {
+                    @extend .port04__portfolios__item__bg;
                 }
 
-                &__image {
-                    width: 100%;
-                }
-                &__container {
-                    position: absolute;
-                    width: 100%;
-                    padding: 0 32px 40px;
+                &__information {
+                    @extend .port04__portfolios__item__information;
 
-                    @include Flex();
-
-                    &__header {
-                        @include Flex($direction: column, $align: start);
-                        &__title {
-                            font-family: $font-primary;
-                            font-size: $T5;
-                            font-weight: $weight-700;
-                            color: $color-black;
-                        }
-
-                        &__description {
-                            font-family: $font-secondary;
-                            font: $paragraph-min;
-                            color: $color-two;
-
-                            letter-spacing: 0.2px;
-                            line-height: 140%;
-                        }
+                    &__title {
+                        @extend .port04__portfolios__item__information__title;
                     }
-                    &__icon {
-                        width: 33px !important; /* !important aqui por conta do owl caroussel */
-                        height: 33px;
+
+                    &__description {
+                        @extend .port04__portfolios__item__information__description;
                     }
                 }
-            }
-            &__content {
+
+                &__icon {
+                    @extend .port04__portfolios__item__icon;
+                }
             }
         }
     }
