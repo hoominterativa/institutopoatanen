@@ -154,8 +154,9 @@ class FREQ01Controller extends Controller
         $frequentlys = FREQ01Frequently::active()->sorting()->get();
         $compliances = COMP01Compliances::sorting()->first();
         $compliances = getCompliance($compliances->id);
-        $section = FREQ01FrequentlySection::first();
-        
+        $section = FREQ01FrequentlySection::active()->first();
+        $sectionForm = FREQ01FrequentlySection::activeForm()->first();
+
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
@@ -166,6 +167,7 @@ class FREQ01Controller extends Controller
         return view('Client.pages.Frequently.FREQ01.page',[
             'sections' => $sections,
             'section' => $section,
+            'sectionForm' => $sectionForm,
             'frequentlys' => $frequentlys,
             'compliances' => $compliances
         ]);

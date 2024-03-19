@@ -16,10 +16,14 @@ class FREQ01FrequentlySection extends Model
     }
 
     protected $table = "freq01_frequently_sections";
-    protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active', 'title_form' ,'subtitle_form', 'active_form'];
+    protected $fillable = ['title', 'subtitle', 'path_image_desktop', 'path_image_mobile', 'active', 'title_form' ,'subtitle_form', 'active_form'];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+    public function scopeActiveForm($query)
+    {
+        return $query->where('active_form', 1);
     }
 }
