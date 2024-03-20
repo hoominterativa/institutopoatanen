@@ -42,21 +42,21 @@
 
         &__item {
             position: relative;
-            width: calc(20% - 1rem);
+            width: calc(25% - 15px);
 
             height: auto;
             @include disFlex(column);
 
             @include large-device-down {
-                width: 33.33%;
+                width: calc(33.33% - 14px);
             }
 
             @include medium-device-down {
-                width: 50%;
+                width: calc(50% - 10px);
             }
 
             @include small-device-down {
-                width: 90%;
+                width: 100%;
             }
 
             &__image {
@@ -69,11 +69,9 @@
             }
 
             &__description {
-                height: 100%;
-
                 &__time {
                     @extend %theme__p2-c2;
-                    margin-bottom: 0.5rem
+                    margin-bottom: 0.5rem;
                 }
 
                 &__title {
@@ -114,35 +112,108 @@
         }
     }
 
-    &__articles{
+    &__articles {
         @extend %theme__padding;
-        &__highlighted{
-
-            &__carousel{
+        &__highlighted {
+            margin-bottom: 5rem;
+            &__carousel {
+                @extend .blog01__main__carousel;
                 overflow: hidden;
+                height: auto;
             }
 
-            &__item{
+            &__item {
                 width: 100%;
                 @include disFlex(row, space-between);
+                gap: 4.5rem;
 
-                &__image{
+                @include large-device-down {
+                    flex-direction: column;
+                }
+
+                &__image {
                     width: 50%;
                     height: auto;
                     aspect-ratio: 636/408;
 
                     object-fit: cover;
                     object-position: center;
+
+                    @include large-device-down {
+                        width: 100%;
+                    }
                 }
 
+                &__information {
+                    width: calc(50% - 4.5rem);
 
+                    @include large-device-down {
+                        width: 100%;
+                    }
+
+                    &__category {
+                        width: fit-content;
+                        padding: 0.5rem 1.5rem;
+                        background-color: $color-five;
+
+                        @extend %theme__p2-cb;
+                        margin-bottom: 2.5rem;
+                    }
+
+                    &__title {
+                        @extend %theme__t2-cb;
+                        text-align: left;
+                    }
+
+                    &__time {
+                        @extend .blog01__main__item__description__time;
+                        margin-bottom: 2rem;
+                    }
+
+                    &__paragraph {
+                        @extend %theme__p1-c2;
+                        margin-bottom: 2.5rem;
+                    }
+
+                    &__cta {
+                        @extend %theme__cta;
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+
+        &__list {
+            @include disFlex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+
+            &__item {
+                @extend .blog01__main__item;
+
+                &__image {
+                    @extend .blog01__main__item__image;
+                }
+
+                &__description {
+                    @extend .blog01__main__item__description;
+
+                    &__time {
+                        @extend .blog01__main__item__description__time;
+                    }
+
+                    &__title {
+                        @extend .blog01__main__item__description__title;
+                    }
+
+                    &__paragraph {
+                        @extend .blog01__main__item__description__paragraph;
+                    }
+                }
             }
         }
     }
-
-
 }
-
 
 .blog01-show {
     padding: 80px 0;
@@ -176,10 +247,7 @@
                 font: $paragraph-mobile;
             }
         }
-        &__image {
-        }
-        &__img {
-        }
+
         &__description {
             font: $paragraph;
             font-weight: $weight-400;

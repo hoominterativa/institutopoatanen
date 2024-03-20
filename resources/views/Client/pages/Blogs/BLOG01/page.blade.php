@@ -28,7 +28,7 @@
                 <div class="blog01-page__articles__highlighted">
                     <div class="blog01-page__articles__highlighted__carousel">
                         <div class="blog01-page__articles__highlighted__carousel__swiper-wrapper swiper-wrapper">
-
+                            {{-- FRONTEND: VER COM ANDERSON SOBRE OS CLIQUES DO BLOG --}}
                             @foreach ($blogsFeatured as $blogFeatured)
                                 <article class="blog01-page__articles__highlighted__item swiper-slide" itemscope
                                     itemtype="http://schema.org/Article">
@@ -39,24 +39,27 @@
 
 
                                     <div class="blog01-page__articles__highlighted__item__information">
-                                        <span
-                                            class="blog01-page__articles__highlighted__item__category">{{ $blogFeatured->category->title }}</span>
+                                        <p class="blog01-page__articles__highlighted__item__information__category">
+                                            {{ $blogFeatured->category->title }}</p>
 
 
-                                        <h2 itemprop="name" class="blog01-page__articles__highlighted__item__title">
+                                        <h2 itemprop="name"
+                                            class="blog01-page__articles__highlighted__item__information__title">
                                             {{ $blogFeatured->title }}
                                         </h2>
 
-                                        <span class="blog01-page__articles__highlighted__item__date-publish">
-                                            Data: <span itemprop="datePublished" content="{{ $blogFeatured->publishing }}"
-                                                class="blog01-page__articles__highlighted__item__date">{{ dateFormat($blogFeatured->publishing, 'd', 'M', 'Y', '') }}</span>
-                                        </span>
+                                        <p class="blog01-page__articles__highlighted__item__information__time">
+                                            Data: <time
+                                                datetime="{{ dateFormat($blogFeatured->publishing, 'd', 'M', 'Y', '') }}"
+                                                itemprop="datePublished" content="{{ $blogFeatured->publishing }}"
+                                                class="blog01-page__articles__highlighted__item__date">{{ dateFormat($blogFeatured->publishing, 'd', 'M', 'Y', '') }}</time>
+                                        </p>
                                         <p itemprop="description"
-                                            class="blog01-page__articles__highlighted__item__paragraph">
+                                            class="blog01-page__articles__highlighted__item__information__paragraph">
                                             {{ $blogFeatured->description }}</p>
                                         <a itemprop="url"
                                             href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blogFeatured->category->slug, 'BLOG01Blogs' => $blogFeatured->slug]) }}"
-                                            class="blog01-page__articles__highlighted__item__cta">
+                                            class="blog01-page__articles__highlighted__item__information__cta">
                                             CTA
                                         </a>
                                     </div>
@@ -64,40 +67,47 @@
                                 </article>
                             @endforeach
                         </div>
+                        <div class="blog01-page__articles__highlighted__carousel__swiper-pagination swiper-pagination"></div>
                     </div>
                 </div>
             @endif
 
-            @foreach ($blogs as $blog)
-                <article class="blog01-page__boxs__item">
-                    <div itemscope itemtype="http://schema.org/Article" class="blog01-page__boxs__item__content">
-                        <a itemprop="url"
-                            href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}">
+            <div class="blog01-page__articles__list">
+                @foreach ($blogs as $blog)
+                    <article class="blog01-page__articles__list__item">
+                        <div itemscope itemtype="http://schema.org/Article" class="blog01-page__boxs__item__content">
+                            <a title="{{ $blog->title }}" class="link-full" itemprop="url"
+                                href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}"></a>
+
                             @if ($blog->path_image_thumbnail)
                                 <img itemprop="image" src="{{ asset('storage/' . $blog->path_image_thumbnail) }}"
-                                    class="blog01-page__boxs__item__image__img" alt="{{ $blog->title }}" />
+                                    class="blog01-page__articles__list__item__image"
+                                    alt="Imagem do artigo {{ $blog->title }}" />
                             @endif
 
-                            <div class="blog01-page__boxs__item__description">
-                                <span class="blog01-page__boxs__item__date-publish">
-                                    Data: <span itemprop="datePublished"
-                                        class="blog01-page__boxs__item__date">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</span>
-                                </span>
+                            <div class="blog01-page__articles__list__item__description">
+                                <p class="blog01-page__articles__list__item__description__time">
+                                    Data: <time
+                                    class="blog01-page__articles__list__item__description__time"
+                                    itemprop="datePublished"
+                                        datetime='{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}'
+                                       >{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</time>
+                                </p>
 
-                                <h3 itemprop="name" class="blog01-page__boxs__item__title">{{ $blog->title }}</h3>
+                                <h3 itemprop="name" class="blog01-page__articles__list__item__title">{{ $blog->title }}
+                                </h3>
 
-                                <p itemprop="articleBody" class="blog01-page__boxs__item__paragraph">
+                                <p itemprop="description" class="blog01-page__articles__list__item__paragraph">
                                     {!! $blog->description !!}
                                 </p>
                             </div>
-                        </a>
-                    </div>
-                </article>
-            @endforeach
 
-
-            <div class="blog01-page__pagination">
-                {{ $blogs->links() }}
+                        </div>
+                    </article>
+                @endforeach
+                <div class="blog01-page__articles__list__pagination">
+                    {{ $blogs->links() }}
+                </div>
             </div>
         </section>
 

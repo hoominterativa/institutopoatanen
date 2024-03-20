@@ -24,7 +24,9 @@
             <div class="blog01__main__carousel__swiper-wrapper swiper-wrapper">
                 @foreach ($blogs as $blog)
                     <article itemscope itemtype="http://schema.org/Article" class="blog01__main__item swiper-slide">
-                        <a class="link-full" itemprop="url"
+                        <a
+                        title="{{ $blog->title }}"
+                        class="link-full" itemprop="url"
                             href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}">
                         </a>
 
