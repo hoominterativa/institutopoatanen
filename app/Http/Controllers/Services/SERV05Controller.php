@@ -74,7 +74,7 @@ class SERV05Controller extends Controller
 
         $data['featured'] = $request->featured?1:0;
 
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $data['link_topic'] = isset($data['link_topic']) ? getUri($data['link_topic']) : null;
 
@@ -144,7 +144,7 @@ class SERV05Controller extends Controller
 
         $data['featured'] = $request->featured?1:0;
 
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $data['link_topic'] = isset($data['link_topic']) ? getUri($data['link_topic']) : null;
 
@@ -276,11 +276,13 @@ class SERV05Controller extends Controller
 
         $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->active()->sorting()->get();
         $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->active()->sorting()->get();
+        $banner = SERV05ServicesSection::activeBanner()->first();
 
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
                 if ($SERV05Services) $SERV05Services->path_image_desktop = $SERV05Services->path_image_mobile;
+                if ($banner) $banner->path_image_desktop_banner = $banner->path_image_mobile_banner;
             break;
 
         }
@@ -289,7 +291,8 @@ class SERV05Controller extends Controller
             'sections' => $sections,
             'service' => $SERV05Services,
             'contents' => $contents,
-            'topics' => $topics
+            'topics' => $topics,
+            'banner' => $banner
         ]);
     }
 
@@ -306,7 +309,8 @@ class SERV05Controller extends Controller
 
         if(!$SERV05ServicesCategory->exists){ $SERV05ServicesCategory = SERV05ServicesCategory::exists()->sorting()->active()->first(); }
 
-        $section = SERV05ServicesSection::first();
+        $banner = SERV05ServicesSection::activeBanner()->first();
+        $about = SERV05ServicesSection::activeAbout()->first();
         $categories = SERV05ServicesCategory::active()->exists()->sorting()->get();
         $services = SERV05Services::where('category_id', $SERV05ServicesCategory->id)->active()->sorting()->paginate(12);
 
@@ -317,15 +321,17 @@ class SERV05Controller extends Controller
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                if ($section) $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+                if ($banner) $banner->path_image_desktop_banner = $banner->path_image_mobile_banner;
             break;
 
         }
 
         return view('Client.pages.Services.SERV05.page', [
             'sections' => $sections,
-            'section' => $section,
+            'banner' => $banner,
+            'about' => $about,
             'categories' => $categories,
+            'categoryGet' => $SERV05ServicesCategory,
             'services' => $services
         ]);
     }
@@ -341,6 +347,11 @@ class SERV05Controller extends Controller
         $categories = SERV05ServicesCategory::active()->featured()->exists()->sorting()->get();
         $categoryFirst = SERV05ServicesCategory::active()->featured()->exists()->sorting()->first();
         $services = SERV05Services::active()->featured()->sorting()->get();
+
+        foreach($services as $service) {
+            $service->price = $service->price ? number_format($service->price, '2', ',', '.') : null;
+        }
+
         return view('Client.pages.Services.SERV05.section',[
             'section' => $section,
             'categories' => $categories,
