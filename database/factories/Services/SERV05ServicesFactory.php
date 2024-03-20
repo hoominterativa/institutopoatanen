@@ -52,14 +52,16 @@ class SERV05ServicesFactory extends Factory
             'active_topic' => 1,
 
             //About
-            'title_about' => $this->faker->text(10),
-            'subtitle_about' => $this->faker->text(10),
-            'description_about' => $this->faker->text(200),
-            'active_about' => 1,
+            'title_about_inner' => $this->faker->text(10),
+            'subtitle_about_inner' => $this->faker->text(10),
+            'description_about_inner' => $this->faker->text(200),
+            'active_about_inner' => 1,
 
             //Banner
             'title_banner' => $this->faker->text(10),
             'subtitle_banner' => $this->faker->text(10),
+            'path_image_desktop' => 'uploads/tmp/thumbnail.png',
+            'path_image_mobile' => 'uploads/tmp/image-box.jpg',
             'active_banner' => 1,
         ];
     }

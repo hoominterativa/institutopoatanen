@@ -33,7 +33,7 @@ class SERV05CategoryController extends Controller
         $data['slug'] = Str::slug($request->title);
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
-        if($path_image_icon) $data['path_image'] = $path_image_icon;
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
         if(SERV05ServicesCategory::create($data)){
             Session::flash('success', 'Categoria cadastrada com sucesso');
@@ -87,11 +87,7 @@ class SERV05CategoryController extends Controller
      */
     public function destroy(SERV05ServicesCategory $SERV05ServicesCategory)
     {
-        // Verificar se existem serviços associadas à categoria
-        if (SERV05Services::where('category_id', $SERV05ServicesCategory->id)->count()) {
-            Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
-            return redirect()->back();
-        }
+
         // Excluir a categoria
         storageDelete($SERV05ServicesCategory, 'path_image_icon');
 
@@ -109,25 +105,14 @@ class SERV05CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        $categoryIds = $request->deleteAll;
 
-        // Verificar se existem serviços associadas às categorias
-        $serviceExist = SERV05Services::whereIn('category_id', $categoryIds)->exists();
-        if ($serviceExist) {
-            return Response::json([
-                'status' => 'error',
-                'message' => 'Não é possível excluir as categorias porque existem serviços associadas a elas.'
-            ]);
+        $SERV05ServicesCategories = SERV05ServicesCategory::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV05ServicesCategories as $SERV05ServicesCategory){
+            storageDelete($SERV05ServicesCategory, 'path_image');
         }
 
-        // Excluir as categorias
-        $deletedCategories = SERV05ServicesCategory::whereIn('id', $categoryIds)->get();
-        foreach ($deletedCategories as $category) {
-            storageDelete($category, 'path_image_icon');
-        }
-
-        if ($deleted = SERV05ServicesCategory::whereIn('id', $categoryIds)->delete()) {
-            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
+        if($deleted = SERV05ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' categorias deletadas com sucesso']);
         }
     }
     /**

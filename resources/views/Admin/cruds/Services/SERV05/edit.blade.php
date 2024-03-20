@@ -30,11 +30,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#galleryContent" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Galeria
+                        <a href="#bannerInner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Banner interno
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção banner de cada serviço específico."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#aboutInner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Sobre da página interna
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção sobre da página interna."></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -43,6 +51,14 @@
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastrar conteúdos com as informações específicas para cada serviço"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sectionInner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seção dos tópicos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="As informações cadastradas nestes campos serão mostradas na seção tópicos da página interna."></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -62,15 +78,24 @@
                             <a href="{{route('admin.serv05.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
                     </div>
-                    <div class="tab-pane" id="galleryContent">
-                        @include('Admin.cruds.Services.SERV05.GalleryService.index', [
-                            'galleryServices' => $galleryServices,
+                    <div class="tab-pane" id="bannerInner">
+                        @include('Admin.cruds.Services.SERV05.BannerInner.form', [
+                            'service' => $service
+                        ])
+                    </div>
+                    <div class="tab-pane" id="aboutInner">
+                        @include('Admin.cruds.Services.SERV05.AboutInner.form', [
                             'service' => $service
                         ])
                     </div>
                     <div class="tab-pane" id="content">
                         @include('Admin.cruds.Services.SERV05.Content.index', [
                             'contents' => $contents,
+                            'service' => $service
+                        ])
+                    </div>
+                    <div class="tab-pane" id="sectionInner">
+                        @include('Admin.cruds.Services.SERV05.SectionInner.form', [
                             'service' => $service
                         ])
                     </div>

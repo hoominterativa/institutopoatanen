@@ -22,9 +22,9 @@ class SERV05Services extends Model
         //Topic
         'title_topic', 'subtitle_topic', 'title_topic_button', 'link_topic', 'target_link','active_topic',
         //About
-        'title_about', 'subtitle_about', 'description_about', 'active_about',
+        'title_about_inner', 'subtitle_about_inner', 'description_about_inner', 'active_about_inner',
         //Banner
-        'title_banner', 'subtitle_banner', 'active_banner',
+        'title_banner', 'subtitle_banner', 'path_image_desktop', 'path_image_mobile', 'active_banner',
     ];
 
     public function scopeSorting($query)
@@ -42,12 +42,12 @@ class SERV05Services extends Model
         return $query->where('active_topic', 1);
     }
 
-    public function scopeActiveAbout($query)
+    public function scopeActiveAboutInner($query)
     {
-        return $query->where('active_about', 1);
+        return $query->where('active_about_inner', 1);
     }
 
-    public function scopeActive_banner($query)
+    public function scopeActiveBannerInner($query)
     {
         return $query->where('active_banner', 1);
     }

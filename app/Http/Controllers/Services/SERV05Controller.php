@@ -29,17 +29,15 @@ class SERV05Controller extends Controller
      */
     public function index()
     {
-        $services = SERV05Services::sorting()->paginate(30);
-        $serviceCategories = SERV05ServicesCategory::sorting()->paginate(10);
+        $services = SERV05Services::sorting()->get();
+        $serviceCategories = SERV05ServicesCategory::sorting()->get();
         $categories = SERV05ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV05ServicesSection::first();
-        $galleries = SERV05ServicesGallery::sorting()->get();
         return view('Admin.cruds.Services.SERV05.index', [
             'services' => $services,
             'categories' => $categories,
             'serviceCategories' => $serviceCategories,
             'section' => $section,
-            'galleries' => $galleries,
             'cropSetting' => getCropImage('Services', 'SERV05')
         ]);
     }
@@ -71,10 +69,16 @@ class SERV05Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['active_topic'] = $request->active_topic?1:0;
-        $data['active_about'] = $request->active_about?1:0;
+        $data['active_about_inner'] = $request->active_about_inner?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
+
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+
+        $data['link_topic'] = isset($data['link_topic']) ? getUri($data['link_topic']) : null;
+
+        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -82,12 +86,20 @@ class SERV05Controller extends Controller
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+
         if ($service = SERV05Services::create($data)) {
             Session::flash('success', 'Serviço cadastrado com sucesso');
             return redirect()->route('admin.serv05.edit', ['SERV05Services' => $service->id]);
         } else {
             Storage::delete($path_image);
             Storage::delete($path_image_icon);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao cadastradar o serviço');
             return redirect()->back();
         }
@@ -103,13 +115,11 @@ class SERV05Controller extends Controller
     {
         $categories = SERV05ServicesCategory::sorting()->pluck('title', 'id');
         $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->sorting()->get();
-        $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->sorting()->get();
         $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->sorting()->get();
         return view('Admin.cruds.Services.SERV05.edit', [
             'service' => $SERV05Services,
             'categories' => $categories,
             'contents' => $contents,
-            'galleryServices' => $galleryServices,
             'topics' => $topics,
             'cropSetting' => getCropImage('Services', 'SERV05')
         ]);
@@ -129,10 +139,16 @@ class SERV05Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['active_topic'] = $request->active_topic?1:0;
-        $data['active_about'] = $request->active_about?1:0;
+        $data['active_about_inner'] = $request->active_about_inner?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
+
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ($request->subtitle ? '-' . $request->subtitle : ''));
+
+        $data['link_topic'] = isset($data['link_topic']) ? getUri($data['link_topic']) : null;
+
+        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -154,11 +170,33 @@ class SERV05Controller extends Controller
             $data['path_image_icon'] = null;
         }
 
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
+        if($path_image_desktop){
+            storageDelete($SERV05Services, 'path_image_desktop');
+            $data['path_image_desktop'] = $path_image_desktop;
+        }
+        if($request->delete_path_image_desktop && !$path_image_desktop){
+            storageDelete($SERV05Services, 'path_image_desktop');
+            $data['path_image_desktop'] = null;
+        }
+
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
+        if($path_image_mobile){
+            storageDelete($SERV05Services, 'path_image_mobile');
+            $data['path_image_mobile'] = $path_image_mobile;
+        }
+        if($request->delete_path_image_mobile && !$path_image_mobile){
+            storageDelete($SERV05Services, 'path_image_mobile');
+            $data['path_image_mobile'] = null;
+        }
+
         if ($SERV05Services->fill($data)->save()) {
             Session::flash('success', 'Serviço atualizado com sucesso');
         } else {
-            Storage::delete($path_image_icon);
             Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_desktop);
+            Storage::delete($path_image_mobile);
             Session::flash('error', 'Erro ao atualizar o serviço');
         }
         return redirect()->back();
@@ -172,35 +210,12 @@ class SERV05Controller extends Controller
      */
     public function destroy(SERV05Services $SERV05Services)
     {
-        $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->get();
-        if ($contents) {
-            foreach($contents as $content) {
-                storageDelete($content, 'path_image');
-                storageDelete($content, 'path_image_icon');
-                $content->delete();
-            }
-        }
 
-        $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->get();
-        if ($galleryServices) {
-            foreach ($galleryServices as $galleryService) {
-                storageDelete($galleryService, 'path_image_desktop');
-                storageDelete($galleryService, 'path_image_mobile');
-                $galleryService->delete();
-            }
-        }
-
-        $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->get();
-        if ($topics) {
-            foreach ($topics as $topic) {
-                storageDelete($topic, 'path_image');
-                storageDelete($topic, 'path_image_icon');
-                $topic->delete();
-            }
-        }
 
         storageDelete($SERV05Services, 'path_image');
         storageDelete($SERV05Services, 'path_image_icon');
+        storageDelete($SERV05Services, 'path_image_desktop');
+        storageDelete($SERV05Services, 'path_image_mobile');
 
         if ($SERV05Services->delete()) {
             Session::flash('success', 'Serviço deletado com sucessso');
@@ -219,36 +234,10 @@ class SERV05Controller extends Controller
 
         $SERV05Servicess = SERV05Services::whereIn('id', $request->deleteAll)->get();
         foreach($SERV05Servicess as $SERV05Services){
-
-            $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->get();
-            if ($contents) {
-                foreach($contents as $content) {
-                    storageDelete($content, 'path_image');
-                    storageDelete($content, 'path_image_icon');
-                    $content->delete();
-                }
-            }
-
-            $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->get();
-            if ($galleryServices) {
-                foreach ($galleryServices as $galleryService) {
-                    storageDelete($galleryService, 'path_image_desktop');
-                    storageDelete($galleryService, 'path_image_mobile');
-                    $galleryService->delete();
-                }
-            }
-
-            $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->get();
-            if ($topics) {
-                foreach ($topics as $topic) {
-                    storageDelete($topic, 'path_image');
-                    storageDelete($topic, 'path_image_icon');
-                    $topic->delete();
-                }
-            }
-
             storageDelete($SERV05Services, 'path_image');
             storageDelete($SERV05Services, 'path_image_icon');
+            storageDelete($SERV05Services, 'path_image_desktop');
+            storageDelete($SERV05Services, 'path_image_mobile');
         }
 
         if ($deleted = SERV05Services::whereIn('id', $request->deleteAll)->delete()) {
@@ -280,34 +269,30 @@ class SERV05Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(SERV05Services $SERV05Services)
-    public function show(SERV05Services $SERV05Services)
+    public function show($SERV05ServicesCategory, SERV05Services $SERV05Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV05', 'show');
 
+        $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->active()->sorting()->get();
+        $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->active()->sorting()->get();
+        $banner = SERV05ServicesSection::activeBanner()->first();
+
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->sorting()->get();
-                if ($galleryServices) {
-                    foreach ($galleryServices as $galleryService) {
-                        $galleryService->path_image_desktop = $galleryService->path_image_mobile;
-                    }
-                }
+                if ($SERV05Services) $SERV05Services->path_image_desktop = $SERV05Services->path_image_mobile;
+                if ($banner) $banner->path_image_desktop_banner = $banner->path_image_mobile_banner;
             break;
-            default:
-            $galleryServices = SERV05ServicesGalleryService::where('service_id', $SERV05Services->id)->sorting()->get();
-            break;
+
         }
 
-        $contents = SERV05ServicesContent::where('service_id', $SERV05Services->id)->active()->sorting()->get();
-        $topics = SERV05ServicesTopic::where('service_id', $SERV05Services->id)->active()->sorting()->get();
         return view('Client.pages.Services.SERV05.show', [
             'sections' => $sections,
-            'galleryServices' => $galleryServices,
             'service' => $SERV05Services,
             'contents' => $contents,
-            'topics' => $topics
+            'topics' => $topics,
+            'banner' => $banner
         ]);
     }
 
@@ -322,39 +307,31 @@ class SERV05Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV05', 'page');
 
+        if(!$SERV05ServicesCategory->exists){ $SERV05ServicesCategory = SERV05ServicesCategory::exists()->sorting()->active()->first(); }
+
+        $banner = SERV05ServicesSection::activeBanner()->first();
+        $about = SERV05ServicesSection::activeAbout()->first();
+        $categories = SERV05ServicesCategory::active()->exists()->sorting()->get();
+        $services = SERV05Services::where('category_id', $SERV05ServicesCategory->id)->active()->sorting()->paginate(12);
+
+        foreach($services as $service) {
+            $service->price = $service->price ? number_format($service->price, '2', ',', '.') : null;
+        }
+
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $galleries = SERV05ServicesGallery::sorting()->get();
-                if ($galleries) {
-                    foreach ($galleries as $gallery) {
-                        $gallery->path_image_banner_desktop = $gallery->path_image_banner_mobile;
-                    }
-                }
+                if ($banner) $banner->path_image_desktop_banner = $banner->path_image_mobile_banner;
             break;
-            default:
-            $galleries = SERV05ServicesGallery::sorting()->get();
-            break;
+
         }
 
-        $section = SERV05ServicesSection::first();
-        $categories = SERV05ServicesCategory::active()->exists()->sorting()->get();
-        $services = SERV05Services::active();
-        if($SERV05ServicesCategory->exists){
-            $services = $services->where('category_id', $SERV05ServicesCategory->id);
-
-            foreach ($categories as $category) {
-                if($SERV05ServicesCategory->id==$category->id){
-                    $category->selected = true;
-                }
-            }
-        }
-        $services = $services->active()->sorting()->paginate(12);
         return view('Client.pages.Services.SERV05.page', [
             'sections' => $sections,
-            'galleries' => $galleries,
-            'section' => $section,
+            'banner' => $banner,
+            'about' => $about,
             'categories' => $categories,
+            'categoryGet' => $SERV05ServicesCategory,
             'services' => $services
         ]);
     }
@@ -370,6 +347,11 @@ class SERV05Controller extends Controller
         $categories = SERV05ServicesCategory::active()->featured()->exists()->sorting()->get();
         $categoryFirst = SERV05ServicesCategory::active()->featured()->exists()->sorting()->first();
         $services = SERV05Services::active()->featured()->sorting()->get();
+
+        foreach($services as $service) {
+            $service->price = $service->price ? number_format($service->price, '2', ',', '.') : null;
+        }
+
         return view('Client.pages.Services.SERV05.section',[
             'section' => $section,
             'categories' => $categories,

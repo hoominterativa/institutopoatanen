@@ -66,7 +66,7 @@ class SERV04Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
 
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
@@ -121,7 +121,7 @@ class SERV04Controller extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['featured'] = $request->featured?1:0;
-        $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
