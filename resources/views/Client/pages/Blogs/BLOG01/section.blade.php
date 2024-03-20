@@ -44,7 +44,7 @@
                             </p>
 
                             @if ($blog->title)
-                                <h4 itemprop="name" class="blog01__main__item__description__title">{{ $blog->title }}
+                                <h4 itemprop="headline" class="blog01__main__item__description__title">{{ $blog->title }}
                                 </h4>
                             @endif
 

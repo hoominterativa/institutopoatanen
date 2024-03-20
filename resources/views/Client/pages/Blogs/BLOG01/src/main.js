@@ -4,11 +4,10 @@ new Swiper(".blog01__main__carousel", {
     slidesPerView: "auto",
     spaceBetween: 20,
     pagination: {
-        el: '.blog01__main__carousel__swiper-pagination',
+        el: ".blog01__main__carousel__swiper-pagination",
         clickable: true,
-      },
+    },
 });
-
 
 new Swiper(".blog01-page__categories", {
     slidesPerView: "auto",
@@ -16,48 +15,104 @@ new Swiper(".blog01-page__categories", {
     centerInsufficientSlides: true,
 });
 
-
 new Swiper(".blog01-page__articles__highlighted__carousel", {
     slidesPerView: 1,
     spaceBetween: 20,
     pagination: {
-        el: '.blog01-page__articles__highlighted__carousel__swiper-pagination',
+        el: ".blog01-page__articles__highlighted__carousel__swiper-pagination",
         clickable: true,
-      },
+    },
 });
 
+new Swiper(".blog01-show__related__carousel", {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    pagination: {
+        el: ".blog01-show__related__carousel__swiper-pagination",
+        clickable: true,
+    },
+});
 
-addEventListener("DOMContentLoaded", function () {
-    const shareButton = document.getElementById("shareButton");
-    if (shareButton) {
-        shareButton.addEventListener("click", function () {
-            // Verifique se a API do Web Share está disponível no navegador
-            if (navigator.share) {
-                // Dados para compartilhar
-                const title = "{{$blog->title}}"; // Incorporar o título do artigo
-                const description = "{{$blog->description}}"; // Incorporar o a descrição do artigo
-                const url = "{{url()->current() }}"; // Incorporar a URL do artigo
+// FAZER FUNCIONAR O CARROSSEL DO MODAL
+// new Swiper(".blog01-show__article__modal__main__socials", {
+//     slidesPerView: 'auto',
+//     spaceBetween: 20,
+//     centerInsufficientSlides: true,
+// });
 
-                const shareData = {
-                    title: title,
-                    text: description,
-                    url: url,
-                };
 
-                // Chame a API do Web Share para abrir a janela de compartilhamento
-                navigator
-                    .share(shareData)
-                    .then(() => {
-                        console.log("Artigo compartilhado com sucesso!");
-                    })
-                    .catch((error) => {
-                        console.error("Erro ao compartilhar o artigo:", error);
-                    });
-            } else {
-                alert(
-                    "Este navegador não suporta compartilhamento direto. Você pode copiar o link e compartilhá-lo manualmente."
-                );
-            }
+// CONSTANTES PARA COMPARTILHAMENTO
+const shareButton = document.querySelector(".blog01-show__article__share");
+const modal = document.querySelector(".blog01-show__article__modal");
+const closeButton = document.querySelector(
+    ".blog01-show__article__modal__header__close"
+);
+const copyButton = document.querySelector(
+    ".blog01-show__article__modal__main__copy__button"
+);
+const link = document.querySelector(
+    ".blog01-show__article__modal__main__copy__link"
+);
+const url = window.location.href;
+const whatsapp = document.querySelector("#whatsapp");
+const facebook = document.querySelector("#facebook");
+const x = document.querySelector("#x");
+const email = document.querySelector("#email");
+const text = "Confira este link: ";
+
+// FRONTEND: FAZER COM O TOGGLE;
+if (shareButton) {
+
+    // SEÇÃO DO MODAL
+    shareButton.addEventListener("click", () => {
+        modal.showModal();
+        modal.classList.add("open");
+    });
+
+    // set timeout para colocar animação de saída
+    closeButton.addEventListener("click", () => {
+        modal.close();
+        modal.classList.remove("open");
+    });
+
+    // SEÇÃO DE CÓPIA
+    link.innerText = url;
+    copyButton.addEventListener("click", () => {
+        navigator.clipboard.writeText(link.innerText).then(() => {
+            alert("Link copiado");
         });
-    }
-});
+    });
+
+    // SEÇÃO DE COMPARTILHAMENTO
+    whatsapp.addEventListener("click", () => {
+        whatsapp.href =
+            "https://api.whatsapp.com/send?text=" +
+            encodeURIComponent(text + url);
+    });
+
+    facebook.addEventListener("click", () => {
+        facebook.href =
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+            encodeURIComponent(url);
+    });
+
+    x.addEventListener("click", () => {
+        x.href =
+            "https://twitter.com/intent/tweet?url=" +
+            encodeURIComponent(url) +
+            "&text=" +
+            encodeURIComponent(text);
+    });
+
+    email.addEventListener("click", () => {
+        const title = document.querySelector(
+            ".blog01-show__article__title"
+        ).innerText;
+        const descritption = document.querySelector(
+            ".blog01-show__article__description"
+        ).innerText;
+
+        email.href = `mailto:?subject=Confira este artigo${title}&body=${descritption}\n Aqui está o link ${url}`;
+        console.log(email.href);
+    });
+}

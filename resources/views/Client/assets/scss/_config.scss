@@ -1735,7 +1735,6 @@ body {
             line-height: 140%;
             letter-spacing: 0.0125rem;
             text-align: center;
-            margin-bottom: 0;
 
             @include large-device-down {
                 font-size: $T1-mobile;
@@ -1779,8 +1778,6 @@ body {
             font: 700 $T2 $font-primary;
             line-height: normal;
             text-align: center;
-            margin-bottom: 0;
-
 
             @include large-device-down {
                 font-size: $T2-mobile;
@@ -1823,8 +1820,6 @@ body {
             font: 700 $T3 $font-primary;
             line-height: normal;
             text-align: left;
-            margin-bottom: 0;
-
 
             @include large-device-down {
                 font-size: $T3-mobile;
@@ -1867,8 +1862,6 @@ body {
             font: 700 $T4 $font-primary;
             line-height: normal;
             text-align: left;
-            margin-bottom: 0;
-
 
             @include large-device-down {
                 font-size: $T4-mobile;
@@ -1911,8 +1904,6 @@ body {
             font: 700 $T5 $font-primary;
             line-height: normal;
             text-align: left;
-            margin-bottom: 0;
-
 
             @include large-device-down {
                 font-size: $T5-mobile;

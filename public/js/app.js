@@ -12290,64 +12290,6 @@ if (sideLinks.length > 0) {
 
 /***********************************************************/
 
-// // / menu responsivo /
-// const backdrop = document.createElement("div");
-// backdrop.classList.add("backdrop");
-// document.body.appendChild(backdrop);
-
-// const btnSandwich = document.querySelector(".btn-mn-mbl");
-
-// const contIcon = btnSandwich.querySelector(".icon");
-
-// let spans = "";
-
-// if (btnSandwich.classList.contains("dots")) {
-//     for (let i = 0; i < 9; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// // DEFAULT
-// if (btnSandwich.classList.contains("bars")) {
-//     for (let i = 0; i < 3; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// contIcon.innerHTML = spans;
-
-// const closeMenu = () => {
-//     if (document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "none";
-//         document.getElementById("menu-mobile").classList.remove("aberto");
-//         document.body.style.overflowY = "visible";
-//         btnSandwich.classList.remove("open");
-//     }
-// };
-
-// btnSandwich.addEventListener("click", () => {
-//     if (!document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "block";
-//         // backdrop.style.opacity = "1";
-//         document.getElementById("menu-mobile").classList.add("aberto");
-//         document.body.style.overflowY = "hidden";
-//         btnSandwich.classList.add("open");
-//     } else {
-//         closeMenu();
-//     }
-// });
-
-// window.addEventListener("resize", closeMenu);
-// backdrop.addEventListener("click", closeMenu);
-// if (document.getElementById("a-mb-close")) {
-//     document.getElementById("a-mb-close").addEventListener("click", closeMenu);
-// }
-
-// for (const link of document.querySelectorAll(".engloba-sidebar li a")) {
-//     link.addEventListener("click", closeMenu);
-// }
-// // / fim menu responsivo
-
 /***/ }),
 
 /***/ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js":
@@ -12364,7 +12306,7 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog01__main__carous
   slidesPerView: "auto",
   spaceBetween: 20,
   pagination: {
-    el: '.blog01__main__carousel__swiper-pagination',
+    el: ".blog01__main__carousel__swiper-pagination",
     clickable: true
   }
 });
@@ -12377,39 +12319,78 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog01-page__article
   slidesPerView: 1,
   spaceBetween: 20,
   pagination: {
-    el: '.blog01-page__articles__highlighted__carousel__swiper-pagination',
+    el: ".blog01-page__articles__highlighted__carousel__swiper-pagination",
     clickable: true
   }
 });
-addEventListener("DOMContentLoaded", function () {
-  var shareButton = document.getElementById("shareButton");
-  if (shareButton) {
-    shareButton.addEventListener("click", function () {
-      // Verifique se a API do Web Share está disponível no navegador
-      if (navigator.share) {
-        // Dados para compartilhar
-        var title = "{{$blog->title}}"; // Incorporar o título do artigo
-        var description = "{{$blog->description}}"; // Incorporar o a descrição do artigo
-        var url = "{{url()->current() }}"; // Incorporar a URL do artigo
-
-        var shareData = {
-          title: title,
-          text: description,
-          url: url
-        };
-
-        // Chame a API do Web Share para abrir a janela de compartilhamento
-        navigator.share(shareData).then(function () {
-          console.log("Artigo compartilhado com sucesso!");
-        })["catch"](function (error) {
-          console.error("Erro ao compartilhar o artigo:", error);
-        });
-      } else {
-        alert("Este navegador não suporta compartilhamento direto. Você pode copiar o link e compartilhá-lo manualmente.");
-      }
-    });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog01-show__related__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  pagination: {
+    el: ".blog01-show__related__carousel__swiper-pagination",
+    clickable: true
   }
 });
+
+// FAZER FUNCIONAR O CARROSSEL DO MODAL
+// new Swiper(".blog01-show__article__modal__main__socials", {
+//     slidesPerView: 'auto',
+//     spaceBetween: 20,
+//     centerInsufficientSlides: true,
+// });
+
+// CONSTANTES PARA COMPARTILHAMENTO
+var shareButton = document.querySelector(".blog01-show__article__share");
+var modal = document.querySelector(".blog01-show__article__modal");
+var closeButton = document.querySelector(".blog01-show__article__modal__header__close");
+var copyButton = document.querySelector(".blog01-show__article__modal__main__copy__button");
+var link = document.querySelector(".blog01-show__article__modal__main__copy__link");
+var url = window.location.href;
+var whatsapp = document.querySelector("#whatsapp");
+var facebook = document.querySelector("#facebook");
+var x = document.querySelector("#x");
+var email = document.querySelector("#email");
+var text = "Confira este link: ";
+
+// FRONTEND: FAZER COM O TOGGLE;
+if (shareButton) {
+  // SEÇÃO DO MODAL
+  shareButton.addEventListener("click", function () {
+    modal.showModal();
+    modal.classList.add("open");
+  });
+
+  // set timeout para colocar animação de saída
+  closeButton.addEventListener("click", function () {
+    modal.close();
+    modal.classList.remove("open");
+  });
+
+  // SEÇÃO DE CÓPIA
+  link.innerText = url;
+  copyButton.addEventListener("click", function () {
+    navigator.clipboard.writeText(link.innerText).then(function () {
+      alert("Link copiado");
+    });
+  });
+
+  // SEÇÃO DE COMPARTILHAMENTO
+  whatsapp.addEventListener("click", function () {
+    whatsapp.href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + url);
+  });
+  facebook.addEventListener("click", function () {
+    facebook.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+  });
+  x.addEventListener("click", function () {
+    x.href = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(url) + "&text=" + encodeURIComponent(text);
+  });
+  email.addEventListener("click", function () {
+    var title = document.querySelector(".blog01-show__article__title").innerText;
+    var descritption = document.querySelector(".blog01-show__article__description").innerText;
+    email.href = "mailto:?subject=Confira este artigo".concat(title, "&body=").concat(descritption, "\n Aqui est\xE1 o link ").concat(url);
+    console.log(email.href);
+  });
+}
 
 /***/ }),
 

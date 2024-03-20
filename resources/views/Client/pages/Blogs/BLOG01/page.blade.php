@@ -43,7 +43,7 @@
                                             {{ $blogFeatured->category->title }}</p>
 
 
-                                        <h2 itemprop="name"
+                                        <h2 itemprop="headline"
                                             class="blog01-page__articles__highlighted__item__information__title">
                                             {{ $blogFeatured->title }}
                                         </h2>
@@ -67,42 +67,40 @@
                                 </article>
                             @endforeach
                         </div>
-                        <div class="blog01-page__articles__highlighted__carousel__swiper-pagination swiper-pagination"></div>
+                        <div class="blog01-page__articles__highlighted__carousel__swiper-pagination swiper-pagination">
+                        </div>
                     </div>
                 </div>
             @endif
 
             <div class="blog01-page__articles__list">
                 @foreach ($blogs as $blog)
-                    <article class="blog01-page__articles__list__item">
-                        <div itemscope itemtype="http://schema.org/Article" class="blog01-page__boxs__item__content">
-                            <a title="{{ $blog->title }}" class="link-full" itemprop="url"
-                                href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}"></a>
+                    <article itemscope itemtype="http://schema.org/Article" class="blog01-page__articles__list__item">
 
-                            @if ($blog->path_image_thumbnail)
-                                <img itemprop="image" src="{{ asset('storage/' . $blog->path_image_thumbnail) }}"
-                                    class="blog01-page__articles__list__item__image"
-                                    alt="Imagem do artigo {{ $blog->title }}" />
-                            @endif
+                        <a title="{{ $blog->title }}" class="link-full" itemprop="url"
+                            href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}"></a>
 
-                            <div class="blog01-page__articles__list__item__description">
-                                <p class="blog01-page__articles__list__item__description__time">
-                                    Data: <time
-                                    class="blog01-page__articles__list__item__description__time"
+                        @if ($blog->path_image_thumbnail)
+                            <img itemprop="image" src="{{ asset('storage/' . $blog->path_image_thumbnail) }}"
+                                class="blog01-page__articles__list__item__image"
+                                alt="Imagem do artigo {{ $blog->title }}" />
+                        @endif
+
+                        <div class="blog01-page__articles__list__item__description">
+                            <p class="blog01-page__articles__list__item__description__time">
+                                Data: <time class="blog01-page__articles__list__item__description__time"
                                     itemprop="datePublished"
-                                        datetime='{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}'
-                                       >{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</time>
-                                </p>
+                                    datetime='{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}'>{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</time>
+                            </p>
 
-                                <h3 itemprop="name" class="blog01-page__articles__list__item__title">{{ $blog->title }}
-                                </h3>
+                            <h3 itemprop="headline" class="blog01-page__articles__list__item__title">{{ $blog->title }}
+                            </h3>
 
-                                <p itemprop="description" class="blog01-page__articles__list__item__paragraph">
-                                    {!! $blog->description !!}
-                                </p>
-                            </div>
-
+                            <p itemprop="description" class="blog01-page__articles__list__item__paragraph">
+                                {!! $blog->description !!}
+                            </p>
                         </div>
+
                     </article>
                 @endforeach
                 <div class="blog01-page__articles__list__pagination">
