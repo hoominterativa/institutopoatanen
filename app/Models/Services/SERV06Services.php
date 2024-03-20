@@ -16,7 +16,7 @@ class SERV06Services extends Model
     }
 
     protected $table = "serv06_services";
-    protected $fillable = ['title_section','title', 'slug', 'subtitle', 'text', 'path_image', 'path_image_icon', 'active', 'sorting'];
+    protected $fillable = ['slug', 'section','title', 'subtitle', 'text', 'path_image', 'path_image_icon', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

@@ -15,9 +15,9 @@ class CreateServ06ServicesTable extends Migration
     {
         Schema::create('serv06_services', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('title_section')->nullable();
             $table->string('slug')->nullable();
+            $table->string('section')->nullable();
+            $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('text')->nullable();
             $table->string('path_image')->nullable();

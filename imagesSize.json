@@ -1581,37 +1581,22 @@
                 "activeCrop": "false"
             },
             "Section": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "645",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "775",
-                    "activeCrop": "true"
-                },
-                "path_image": {
+                "path_image_section": {
                     "width": "430",
                     "height": "593",
                     "activeCrop": "false"
                 }
             },
             "Banner": {
-                "path_image_desktop": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "304",
                     "activeCrop": "false"
                 },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "775",
                     "activeCrop": "true"
-                },
-                "path_image": {
-                    "width": "430",
-                    "height": "593",
-                    "activeCrop": "false"
                 }
             }
         },

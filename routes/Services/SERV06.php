@@ -29,7 +29,5 @@ $routeName = Str::lower($model);
 // ADMIN
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
     Route::resource($route.'/secao', SERV06SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV06ServicesSection']);
-    Route::resource($route.'/banner', SERV06BannerController::class)->names('admin.'.$routeName.'.banner')->parameters(['banner' => 'SERV06ServicesBanner']);
 });
-// // CLIENT
 

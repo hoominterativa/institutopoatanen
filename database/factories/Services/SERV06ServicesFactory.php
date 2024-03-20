@@ -23,11 +23,12 @@ class SERV06ServicesFactory extends Factory
     public function definition()
     {
         $title = $this->faker->text(16);
+        $subtitle = $this->faker->text(10);
         return [
+            'slug' => Str::slug($title. '-' . $subtitle),
+            'section' => $this->faker->text(10),
             'title' => $title,
-            'title_section' => $this->faker->text(16),
-            'slug' => Str::slug($title),
-            'subtitle' => $this->faker->text(15),
+            'subtitle' => $subtitle,
             'text' => $this->faker->text(900),
             'path_image' => 'uploads/tmp/thumbnail.png',
             'path_image_icon' => 'uploads/tmp/favicon.png',

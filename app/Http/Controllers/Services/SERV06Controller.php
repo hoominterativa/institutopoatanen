@@ -9,10 +9,8 @@ use App\Models\Services\SERV06Services;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
-use App\Models\Services\SERV06ServicesBanner;
 use App\Models\Services\SERV06ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\Services\SERV06ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 
 class SERV06Controller extends Controller
@@ -28,11 +26,9 @@ class SERV06Controller extends Controller
     {
         $services = SERV06Services::sorting()->get();
         $section = SERV06ServicesSection::first();
-        $banner = SERV06ServicesBanner::first();
         return view('Admin.cruds.Services.SERV06.index', [
             'services' => $services,
             'section' => $section,
-            'banner' => $banner,
             'cropSetting' => getCropImage('Services', 'SERV06')
         ]);
     }
@@ -61,7 +57,7 @@ class SERV06Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['slug'] = Str::slug($request->title);
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title. ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -107,7 +103,7 @@ class SERV06Controller extends Controller
         $helper = new HelperArchive();
 
         $data['active'] = $request->active?1:0;
-        $data['slug'] = Str::slug($request->title);
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title. ($request->subtitle ? '-' . $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -203,21 +199,14 @@ class SERV06Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV06', 'page');
 
+        $services = SERV06Services::active()->sorting()->get();
+        $banner = SERV06ServicesSection::activeBanner()->first();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $banner = SERV06ServicesBanner::active()->first();
-                if($banner) {
-                    $banner->path_image_desktop = $banner->path_image_mobile;
-                }
-            break;
-            default:
-            $banner = SERV06ServicesBanner::active()->first();
+                if($banner) $banner->path_image_desktop_banner = $banner->path_image_mobile_banner;
             break;
         }
-
-
-        $services = SERV06Services::active()->sorting()->get();
 
         return view('Client.pages.Services.SERV06.page', [
             'sections' => $sections,
@@ -233,16 +222,11 @@ class SERV06Controller extends Controller
      */
     public static function section()
     {
+        $section = SERV06ServicesSection::activeSection()->first();
         switch(deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $section = SERV06ServicesSection::active()->first();
-                if($section) {
-                    $section->path_image_desktop = $section->path_image_mobile;
-                }
-            break;
-            default:
-            $section = SERV06ServicesSection::active()->first();
+                if($section) $section->path_image_desktop = $section->path_image_mobile;
             break;
         }
 

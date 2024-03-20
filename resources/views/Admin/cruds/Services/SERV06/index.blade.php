@@ -70,9 +70,7 @@
                                                     </th>
                                                     <th>Imagem</th>
                                                     <th>Título da seção</th>
-                                                    <th>Título</th>
-                                                    <th>Subtítulo</th>
-                                                    <th>Texto</th>
+                                                    <th>Título/Subtítulo</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -93,10 +91,8 @@
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $service->path_image_icon)}})"></div>
                                                             @endif
                                                         </td>
-                                                        <td class="align-middle">{{$service->title_section}}</td>
-                                                        <td class="align-middle">{{$service->title}}</td>
-                                                        <td class="align-middle">{{$service->subtitle}}</td>
-                                                        <td class="align-middle">{!! substr($service->text, 0, 30) !!}</td>
+                                                        <td class="align-middle">{{$service->section}}</td>
+                                                        <td class="align-middle">{{$service->title}} <b>/</b>{{$service->subtitle}}</td>
                                                         <td class="align-middle">
                                                             @if ($service->active)
                                                                 <span class="badge bg-success">Ativo</span>
