@@ -1,3 +1,11 @@
+import Swiper from "swiper/bundle";
+
+new Swiper(".serv09__categories", {
+    slidesPerView: "auto",
+    spaceBetween: 18,
+    centerInsufficientSlides: true,
+});
+
 $(".carousel-serv09").owlCarousel({
     smartSpeed: 450,
     loop: false,
@@ -29,12 +37,6 @@ $(".carousel-serv09").owlCarousel({
         // breakpoint from  768 down
     },
 });
-
-$('.carousel-serv04').css('width', $('.serv09 .container--serv09').outerWidth());
-
-if($(window).outerWidth() <= 800){
-    $('.carousel-serv04').css('width', $(window).outerWidth());
-}
 
 $(".carousel-section-gallery").owlCarousel({
     smartSpeed: 450,
@@ -68,7 +70,7 @@ $(".carousel-section-gallery").owlCarousel({
     },
 });
 
-$(".carousel-section-gallery").css('width', $(window).outerWidth());
+$(".carousel-section-gallery").css("width", $(window).outerWidth());
 
 $(".carousel-section-feedbacks").owlCarousel({
     items: 1,
@@ -96,9 +98,12 @@ $(".carousel-section-feedbacks").owlCarousel({
     // }
 });
 
-$(".carousel-section-feedbacks").css('width', $('.sesh__section-feedbacks .container--sesh__section-feedbacks').outerWidth());
-
-
+$(".carousel-section-feedbacks").css(
+    "width",
+    $(
+        ".sesh__section-feedbacks .container--sesh__section-feedbacks"
+    ).outerWidth()
+);
 
 $(".carousel-service-related").owlCarousel({
     smartSpeed: 450,
@@ -131,4 +136,7 @@ $(".carousel-service-related").owlCarousel({
     },
 });
 
-$(".carousel-service-related").css('width', $('.sesh .sesh__service-related__main').outerWidth());
+$(".carousel-service-related").css(
+    "width",
+    $(".sesh .sesh__service-related__main").outerWidth()
+);
