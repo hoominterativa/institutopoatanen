@@ -2585,6 +2585,7 @@ body .owl-dots .owl-dot.active {
   background-color: #fff;
 }
 .serv09__main__item__information__progress__bar__fill, .serv09-page__main__list__item__information__progress__bar__fill {
+  display: block;
   height: 100%;
   background-color: #000;
   margin: 0 auto 0 0;

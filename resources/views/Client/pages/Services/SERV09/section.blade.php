@@ -97,8 +97,8 @@
                                     </span>
 
                                     <div class="serv09__main__item__information__progress__bar">
-                                        <span class="serv09__main__item__information__progress__bar__fill"
-                                            width="20%"></span>
+                                        <span class="serv09-page__main__list__item__information__progress__bar__fill"
+                                            style="width: 20%;"></span>
                                     </div>
 
                                     <span class="serv09__main__item__information__progress__number">

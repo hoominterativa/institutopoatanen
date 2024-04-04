@@ -148,6 +148,7 @@
                         background-color: $color-white;
 
                         &__fill {
+                            display: block;
                             height: 100%;
                             background-color: $color-black;
                             margin: 0 auto 0 0;
