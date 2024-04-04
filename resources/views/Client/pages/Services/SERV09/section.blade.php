@@ -44,7 +44,11 @@
             <div class="serv09__main__carousel">
                 <div class="serv09__main__carousel__swiper-wrapper swiper-wrapper">
                     @foreach ($services as $service)
-                        <article class="serv09__main__item swiper-wrapper">
+                        <article class="serv09__main__item swiper-slide">
+
+                            <a href="{{ route('serv09.page.content', ['SERV09ServicesCategory' => $service->categories->slug, 'SERV09Services' => $service->slug]) }}"
+                                class="link-full" title="{{ $service->title }}">
+                            </a>
 
                             <div class="serv09__main__item__information">
 
@@ -86,30 +90,37 @@
                                     </ul>
                                 @endif
 
+                                <div class="serv09__main__item__information__progress">
+
+                                    <span class="serv09__main__item__information__progress__title">
+                                        Andamento
+                                    </span>
+
+                                    <div class="serv09__main__item__information__progress__bar">
+                                        <span class="serv09__main__item__information__progress__bar__fill"
+                                            width="20%"></span>
+                                    </div>
+
+                                    <span class="serv09__main__item__information__progress__number">
+                                        20%
+                                    </span>
+                                </div>
+
                             </div>
 
-                            <div class="serv09__image">
-                                <img src="{{ asset('storage/' . $service->path_image) }}"
-                                    alt="Imagem do serviço {{ $service->title }}" class="serv09__image__img">
-
-                                <a href="{{ route('serv09.page.content', ['SERV09ServicesCategory' => $service->categories->slug, 'SERV09Services' => $service->slug]) }}"
-                                    class="serv09__image__btn">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícon"
-                                        class="serv09__image__btn__icon">
-                                    CTA
-                                </a>
-                            </div>
+                            <img src="{{ asset('storage/' . $service->path_image) }}"
+                                alt="Imagem do serviço {{ $service->title }}" class="serv09__main__item__image">
 
                         </article>
                     @endforeach
                 </div>
+
+                <div class="serv09__main__carousel__swiper-pagination swiper-pagination"></div>
+
             </div>
 
-
             <a href="{{ route('serv09.category.page', ['SERV09ServicesCategory' => $categoryFirst->slug]) }}"
-                class="serv09__cta">
-                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícon"
-                    class="serv09__cta__icon">
+                class="serv09__main__cta">
                 Ver mais
             </a>
         </main>
