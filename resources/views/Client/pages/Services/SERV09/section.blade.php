@@ -80,7 +80,7 @@
                                             <li class="serv09__main__item__information__topics__item">
                                                 @if ($topic->path_image)
                                                     <img src="{{ asset('storage/' . $topic->path_image) }}"
-                                                        alt="Ícone de {{ $topic->title }}"
+                                                        alt="Ícone de {{ $topic->title }}" loading="lazy"
                                                         class="serv09__main__item__information__topics__item__icon">
                                                 @endif
 
@@ -97,7 +97,8 @@
                                     </span>
 
                                     <div class="serv09__main__item__information__progress__bar">
-                                        <span class="serv09-page__main__list__item__information__progress__bar__fill"
+                                        {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
+                                        <span class="serv09__main__item__information__progress__bar__fill"
                                             style="width: 20%;"></span>
                                     </div>
 
