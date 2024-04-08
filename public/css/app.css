@@ -1634,7 +1634,7 @@ body .owl-dots .owl-dot.active {
 
 .animated {
   opacity: 1;
-  animation-duration: 1.5s !important;
+  animation-duration: 0.8s !important;
 }
 .animated.blur-5 {
   filter: blur(0px);
@@ -1688,20 +1688,20 @@ body .owl-dots .owl-dot.active {
 .blog01-page__header__title, .abou01-page__banner__title, .serv09-show__banner__title, .serv09-page__banner__title {
   color: #404040;
 }
-.abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02__information__title, .cont08__information__header__title, .serv09-show__feedbacks__header__title, .serv09-show__main__form-area__price, .serv09__header__title, .serv09-show__main__information__title {
+.abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02__information__title, .cont06__header__title, .cont08__information__header__title, .serv09-show__feedbacks__header__title, .serv09-show__main__form-area__price, .serv09__header__title, .serv09-show__main__information__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02__information__title, .cont08__information__header__title, .serv09-show__feedbacks__header__title, .serv09-show__main__form-area__price, .serv09__header__title, .serv09-show__main__information__title {
+  .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02__information__title, .cont06__header__title, .cont08__information__header__title, .serv09-show__feedbacks__header__title, .serv09-show__main__form-area__price, .serv09__header__title, .serv09-show__main__information__title {
     font-size: 1.875rem;
   }
 }
 .serv09-show__main__information__title {
   color: #000;
 }
-.abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02__information__title, .cont08__information__header__title, .serv09-show__feedbacks__header__title, .serv09-show__main__form-area__price, .serv09__header__title {
+.abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02__information__title, .cont06__header__title, .cont08__information__header__title, .serv09-show__feedbacks__header__title, .serv09-show__main__form-area__price, .serv09__header__title {
   color: #404040;
 }
 .abou01-page__banner__subtitle, .serv09-show__banner__subtitle, .serv09-page__banner__subtitle, .serv09__main__item__information__title, .serv09-show__related__main__item__information__title, .serv09-page__main__list__item__information__title, .serv09-show__topics__item__title {
@@ -1871,10 +1871,10 @@ body .owl-dots .owl-dot.active {
   width: 20px;
   height: 20px;
   border-radius: 0;
-  background-color: rgba(124, 124, 124, 0.5);
+  background-color: #7c7c7c;
 }
 .abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09-show__gallery .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09-show__related__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
-  background-color: #7c7c7c;
+  opacity: 1;
 }
 .serv09-show__feedbacks__carousel__nav {
   --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
@@ -2040,6 +2040,7 @@ body .owl-dots .owl-dot.active {
   position: fixed;
   inset: 0;
   z-index: 10;
+  overflow: auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
   display: flex;
@@ -2483,7 +2484,7 @@ body .owl-dots .owl-dot.active {
   position: absolute;
   top: 50%;
   right: 3%;
-  z-index: 100;
+  z-index: 5;
   transform: translate(0, -50%);
 }
 #SLID01 #dotsSlideCustom .owl-dot {
@@ -3056,15 +3057,13 @@ body .owl-dots .owl-dot.active {
   align-items: center;
   margin-bottom: 2rem;
 }
+.cont06__header__title {
+  margin-bottom: 0.75rem;
+}
 .cont06__header__paragraph {
   width: 100%;
-  max-width: 45%;
+  max-width: 680px;
   text-align: center;
-}
-@media (max-width: 991.98px) {
-  .cont06__header__paragraph {
-    max-width: unset;
-  }
 }
 .cont06__video {
   width: 100%;
@@ -3990,7 +3989,7 @@ body .owl-dots .owl-dot.active {
   justify-content: start;
   align-items: stretch;
   gap: 1.25rem;
-  margin-bottom: 28px;
+  margin-bottom: 1.75rem;
 }
 .abou01-page__topics__item__header__icon {
   width: 2rem;

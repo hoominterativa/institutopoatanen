@@ -124,12 +124,12 @@
                             @endif
 
                             @if ($topic->title)
-                                <h4 class="serv10-show__featuredBox__main__box__description__title">
+                                <h4 class="serv10-show__topics__main__item__title">
                                     {{ $topic->title }}</h4>
                             @endif
 
                             @if ($topic->description)
-                                <div class="serv10-show__featuredBox__main__box__description__paragraph">
+                                <div class="serv10-show__topics__main__item__paragraph">
                                     <p>
                                         {!! $topic->description !!}
                                     </p>
@@ -163,10 +163,8 @@
 
                 <main class="serv10-show__gallery__main">
                     @foreach ($galleries as $gallery)
-                        <img
-                        class="serv10-show__gallery__main__item"
-                        src="{{ asset('storage/' . $gallery->path_image) }}"
-                        alt="Imagem Galeria">
+                        <img class="serv10-show__gallery__main__item" src="{{ asset('storage/' . $gallery->path_image) }}"
+                            alt="Imagem Galeria">
                     @endforeach
                 </main>
 
