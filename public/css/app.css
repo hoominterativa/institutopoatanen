@@ -1667,7 +1667,7 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.blog01-page__categories, .abou01-page__topics, .abou01-page__main, .abou01-page__section, .abou01, .cont02, .cont06, .cont08, .serv09-show__map, .serv09-show__feedbacks, .serv09-show__faq, .serv09-show__gallery, .serv09-show__main, .serv09-show__topics, .serv09-page__main, .serv09-page__aside, .serv09, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .blog01-page__header, .abou01-page__banner, .serv09-show__banner, .serv09-page__banner {
+.blog01-page__categories, .abou01-page__topics, .abou01-page__main, .abou01-page__section, .abou01, .cont02, .cont06, .cont08, .serv09-show__related__main, .serv09-show__related__categories, .serv09-show__map, .serv09-show__feedbacks, .serv09-show__faq, .serv09-show__gallery, .serv09-show__main, .serv09-show__topics, .serv09-page__main, .serv09-page__aside, .serv09, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .blog01-page__header, .abou01-page__banner, .serv09-show__banner, .serv09-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -1704,20 +1704,20 @@ body .owl-dots .owl-dot.active {
 .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02__information__title, .cont08__information__header__title, .serv09-show__feedbacks__header__title, .serv09-show__main__form-area__price, .serv09__header__title {
   color: #404040;
 }
-.abou01-page__banner__subtitle, .serv09-show__banner__subtitle, .serv09-page__banner__subtitle, .serv09__main__item__information__title, .serv09-page__main__list__item__information__title, .serv09-show__topics__item__title {
+.abou01-page__banner__subtitle, .serv09-show__banner__subtitle, .serv09-page__banner__subtitle, .serv09__main__item__information__title, .serv09-show__related__main__item__information__title, .serv09-page__main__list__item__information__title, .serv09-show__topics__item__title {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .abou01-page__banner__subtitle, .serv09-show__banner__subtitle, .serv09-page__banner__subtitle, .serv09__main__item__information__title, .serv09-page__main__list__item__information__title, .serv09-show__topics__item__title {
+  .abou01-page__banner__subtitle, .serv09-show__banner__subtitle, .serv09-page__banner__subtitle, .serv09__main__item__information__title, .serv09-show__related__main__item__information__title, .serv09-page__main__list__item__information__title, .serv09-show__topics__item__title {
     font-size: 1.563rem;
   }
 }
 .serv09-show__topics__item__title {
   color: #000;
 }
-.serv09__main__item__information__title, .serv09-page__main__list__item__information__title {
+.serv09__main__item__information__title, .serv09-show__related__main__item__information__title, .serv09-page__main__list__item__information__title {
   color: #404040;
 }
 .abou01-page__banner__subtitle, .serv09-show__banner__subtitle, .serv09-page__banner__subtitle {
@@ -1742,28 +1742,28 @@ body .owl-dots .owl-dot.active {
 .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .cont02__information__subtitle, .cont08__information__header__subtitle, .serv09__header__subtitle {
   color: #b3b3b3;
 }
-.serv09__main__item__information__subtitle, .serv09-page__main__list__item__information__subtitle, .abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.serv09__main__item__information__subtitle, .serv09-show__related__main__item__information__subtitle, .serv09-page__main__list__item__information__subtitle, .abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv09__main__item__information__subtitle, .serv09-page__main__list__item__information__subtitle, .abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+  .serv09__main__item__information__subtitle, .serv09-show__related__main__item__information__subtitle, .serv09-page__main__list__item__information__subtitle, .abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
 .abou01-page__topics__item__header__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.serv09__main__item__information__subtitle, .serv09-page__main__list__item__information__subtitle {
+.serv09__main__item__information__subtitle, .serv09-show__related__main__item__information__subtitle, .serv09-page__main__list__item__information__subtitle {
   color: #7c7c7c;
 }
-.serv09__main__item__information__price, .serv09-page__main__list__item__information__price, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .cont06__header__paragraph, .serv09-show__feedbacks__carousel__item__name, .serv09-show__feedbacks__carousel__item__paragraph, .serv09-show__main__information__paragraph, .serv09__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph, .serv09__header__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta, .head02__navigation__item--menu-mobile__item, .cont08__information__description, .serv09-page__main .pagination .page-item .page-link, .serv09__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv09-show__faq__item__title, .side02__cta, .head02__navigation__item__cta {
+.serv09__main__item__information__price, .serv09-show__related__main__item__information__price, .serv09-page__main__list__item__information__price, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .cont06__header__paragraph, .serv09-show__feedbacks__carousel__item__name, .serv09-show__feedbacks__carousel__item__paragraph, .serv09-show__main__information__paragraph, .serv09__main__item__information__paragraph, .serv09-show__related__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph, .serv09__header__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta, .serv09-show__related__main__cta, .head02__navigation__item--menu-mobile__item, .cont08__information__description, .serv09-page__main .pagination .page-item .page-link, .serv09__main__item__information__progress__title, .serv09-show__related__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv09-show__faq__item__title, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.serv09__main__item__information__price p, .serv09-page__main__list__item__information__price p, .abou01-page__main__information__paragraph p, .abou01-page__section__information__paragraph p, .abou01__paragraph p, .cont06__header__paragraph p, .serv09-show__feedbacks__carousel__item__name p, .serv09-show__feedbacks__carousel__item__paragraph p, .serv09-show__main__information__paragraph p, .serv09__main__item__information__paragraph p, .serv09-page__main__list__item__information__paragraph p, .serv09__header__paragraph p, .cont08__information__topics__item__description p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .abou01-page__section__information__cta p, .abou01__cta p, .cont02__information__cta p, .cont06__cta p, .cont08__information__cta p, .serv09-show__main__form-area__cta p, .serv09-page__aside__filter__content__form__cta p, .serv09__main__cta p, .head02__navigation__item--menu-mobile__item p, .cont08__information__description p, .serv09-page__main .pagination .page-item .page-link p, .serv09__main__item__information__progress__title p, .serv09-show__banner__progress__title p, .serv09-page__main__list__item__information__progress__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .serv09-show__faq__item__title p, .side02__cta p, .head02__navigation__item__cta p {
+.serv09__main__item__information__price p, .serv09-show__related__main__item__information__price p, .serv09-page__main__list__item__information__price p, .abou01-page__main__information__paragraph p, .abou01-page__section__information__paragraph p, .abou01__paragraph p, .cont06__header__paragraph p, .serv09-show__feedbacks__carousel__item__name p, .serv09-show__feedbacks__carousel__item__paragraph p, .serv09-show__main__information__paragraph p, .serv09__main__item__information__paragraph p, .serv09-show__related__main__item__information__paragraph p, .serv09-page__main__list__item__information__paragraph p, .serv09__header__paragraph p, .cont08__information__topics__item__description p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .abou01-page__section__information__cta p, .abou01__cta p, .cont02__information__cta p, .cont06__cta p, .cont08__information__cta p, .serv09-show__main__form-area__cta p, .serv09-page__aside__filter__content__form__cta p, .serv09__main__cta p, .serv09-show__related__main__cta p, .head02__navigation__item--menu-mobile__item p, .cont08__information__description p, .serv09-page__main .pagination .page-item .page-link p, .serv09__main__item__information__progress__title p, .serv09-show__related__main__item__information__progress__title p, .serv09-show__banner__progress__title p, .serv09-page__main__list__item__information__progress__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .serv09-show__faq__item__title p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1771,31 +1771,31 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .serv09__main__item__information__price, .serv09-page__main__list__item__information__price, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .cont06__header__paragraph, .serv09-show__feedbacks__carousel__item__name, .serv09-show__feedbacks__carousel__item__paragraph, .serv09-show__main__information__paragraph, .serv09__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph, .serv09__header__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta, .head02__navigation__item--menu-mobile__item, .cont08__information__description, .serv09-page__main .pagination .page-item .page-link, .serv09__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv09-show__faq__item__title, .side02__cta, .head02__navigation__item__cta {
+  .serv09__main__item__information__price, .serv09-show__related__main__item__information__price, .serv09-page__main__list__item__information__price, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .cont06__header__paragraph, .serv09-show__feedbacks__carousel__item__name, .serv09-show__feedbacks__carousel__item__paragraph, .serv09-show__main__information__paragraph, .serv09__main__item__information__paragraph, .serv09-show__related__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph, .serv09__header__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta, .serv09-show__related__main__cta, .head02__navigation__item--menu-mobile__item, .cont08__information__description, .serv09-page__main .pagination .page-item .page-link, .serv09__main__item__information__progress__title, .serv09-show__related__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv09-show__faq__item__title, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.cont08__information__description, .serv09-page__main .pagination .page-item .page-link, .serv09__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv09-show__faq__item__title {
+.cont08__information__description, .serv09-page__main .pagination .page-item .page-link, .serv09__main__item__information__progress__title, .serv09-show__related__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .serv09-show__faq__item__title {
   color: #000;
 }
-.cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta, .head02__navigation__item--menu-mobile__item {
+.cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta, .serv09-show__related__main__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .cont06__header__paragraph, .serv09-show__feedbacks__carousel__item__name, .serv09-show__feedbacks__carousel__item__paragraph, .serv09-show__main__information__paragraph, .serv09__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph, .serv09__header__paragraph {
+.abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .cont06__header__paragraph, .serv09-show__feedbacks__carousel__item__name, .serv09-show__feedbacks__carousel__item__paragraph, .serv09-show__main__information__paragraph, .serv09__main__item__information__paragraph, .serv09-show__related__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph, .serv09__header__paragraph {
   color: #7c7c7c;
 }
-.serv09__main__item__information__price, .serv09-page__main__list__item__information__price {
+.serv09__main__item__information__price, .serv09-show__related__main__item__information__price, .serv09-page__main__list__item__information__price {
   color: #b3b3b3;
 }
-.abou01-page__topics__item__paragraph, .cont02__information__paragraph, .serv09-show__feedbacks__carousel__item__role, .serv09__main__item__information__progress__number, .serv09-show__banner__progress__number, .serv09-page__main__list__item__information__progress__number, .serv09-show__faq__item__paragraph, .serv09-show__main__form-area__paragraph, .foot02__copyright__compliances__item, .serv09-page__aside__filter__btn, .serv09__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.abou01-page__topics__item__paragraph, .cont02__information__paragraph, .serv09-show__feedbacks__carousel__item__role, .serv09__main__item__information__progress__number, .serv09-show__related__main__item__information__progress__number, .serv09-show__banner__progress__number, .serv09-page__main__list__item__information__progress__number, .serv09-show__faq__item__paragraph, .serv09-show__main__form-area__paragraph, .foot02__copyright__compliances__item, .serv09-page__aside__filter__btn, .serv09__main__item__information__topics__item, .serv09-show__related__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.abou01-page__topics__item__paragraph p, .cont02__information__paragraph p, .serv09-show__feedbacks__carousel__item__role p, .serv09__main__item__information__progress__number p, .serv09-show__banner__progress__number p, .serv09-page__main__list__item__information__progress__number p, .serv09-show__faq__item__paragraph p, .serv09-show__main__form-area__paragraph p, .foot02__copyright__compliances__item p, .serv09-page__aside__filter__btn p, .serv09__main__item__information__topics__item p, .serv09-show__main__information__topics__item p, .serv09-page__main__list__item__information__topics__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.abou01-page__topics__item__paragraph p, .cont02__information__paragraph p, .serv09-show__feedbacks__carousel__item__role p, .serv09__main__item__information__progress__number p, .serv09-show__related__main__item__information__progress__number p, .serv09-show__banner__progress__number p, .serv09-page__main__list__item__information__progress__number p, .serv09-show__faq__item__paragraph p, .serv09-show__main__form-area__paragraph p, .foot02__copyright__compliances__item p, .serv09-page__aside__filter__btn p, .serv09__main__item__information__topics__item p, .serv09-show__related__main__item__information__topics__item p, .serv09-show__main__information__topics__item p, .serv09-page__main__list__item__information__topics__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1803,18 +1803,18 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .abou01-page__topics__item__paragraph, .cont02__information__paragraph, .serv09-show__feedbacks__carousel__item__role, .serv09__main__item__information__progress__number, .serv09-show__banner__progress__number, .serv09-page__main__list__item__information__progress__number, .serv09-show__faq__item__paragraph, .serv09-show__main__form-area__paragraph, .foot02__copyright__compliances__item, .serv09-page__aside__filter__btn, .serv09__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .abou01-page__topics__item__paragraph, .cont02__information__paragraph, .serv09-show__feedbacks__carousel__item__role, .serv09__main__item__information__progress__number, .serv09-show__related__main__item__information__progress__number, .serv09-show__banner__progress__number, .serv09-page__main__list__item__information__progress__number, .serv09-show__faq__item__paragraph, .serv09-show__main__form-area__paragraph, .foot02__copyright__compliances__item, .serv09-page__aside__filter__btn, .serv09__main__item__information__topics__item, .serv09-show__related__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
-.serv09-page__aside__filter__btn, .serv09__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.serv09-page__aside__filter__btn, .serv09__main__item__information__topics__item, .serv09-show__related__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
 .serv09-show__main__form-area__paragraph, .foot02__copyright__compliances__item {
   color: #404040;
 }
-.abou01-page__topics__item__paragraph, .cont02__information__paragraph, .serv09-show__feedbacks__carousel__item__role, .serv09__main__item__information__progress__number, .serv09-show__banner__progress__number, .serv09-page__main__list__item__information__progress__number, .serv09-show__faq__item__paragraph {
+.abou01-page__topics__item__paragraph, .cont02__information__paragraph, .serv09-show__feedbacks__carousel__item__role, .serv09__main__item__information__progress__number, .serv09-show__related__main__item__information__progress__number, .serv09-show__banner__progress__number, .serv09-page__main__list__item__information__progress__number, .serv09-show__faq__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -1837,7 +1837,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: start;
 }
-.abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta {
+.abou01-page__section__information__cta, .abou01__cta, .cont02__information__cta, .cont06__cta, .cont08__information__cta, .serv09-show__main__form-area__cta, .serv09-page__aside__filter__content__form__cta, .serv09__main__cta, .serv09-show__related__main__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1849,7 +1849,7 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.abou01-page__section__information__cta:focus, .abou01__cta:focus, .cont02__information__cta:focus, .cont06__cta:focus, .cont08__information__cta:focus, .serv09-show__main__form-area__cta:focus, .serv09-page__aside__filter__content__form__cta:focus, .serv09__main__cta:focus {
+.abou01-page__section__information__cta:focus, .abou01__cta:focus, .cont02__information__cta:focus, .cont06__cta:focus, .cont08__information__cta:focus, .serv09-show__main__form-area__cta:focus, .serv09-page__aside__filter__content__form__cta:focus, .serv09__main__cta:focus, .serv09-show__related__main__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -1863,17 +1863,17 @@ body .owl-dots .owl-dot.active {
 .active.blog01-page__categories__item, .active.serv09__categories__item, .active.serv09-show__related__categories__item, .active.serv09-page__aside__categories__item {
   background-color: #cacaca;
 }
-.abou01-page__topics__carousel .swiper-pagination-bullets, .serv09-show__gallery .swiper-pagination-bullets, .serv09__main__carousel .swiper-pagination-bullets {
+.abou01-page__topics__carousel .swiper-pagination-bullets, .serv09-show__gallery .swiper-pagination-bullets, .serv09__main__carousel .swiper-pagination-bullets, .serv09-show__related__main__carousel .swiper-pagination-bullets {
   margin-top: 2rem;
   text-align: left;
 }
-.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .serv09-show__gallery .swiper-pagination-bullets .swiper-pagination-bullet, .serv09__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
+.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .serv09-show__gallery .swiper-pagination-bullets .swiper-pagination-bullet, .serv09__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .serv09-show__related__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
   width: 20px;
   height: 20px;
   border-radius: 0;
   background-color: rgba(124, 124, 124, 0.5);
 }
-.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09-show__gallery .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09-show__gallery .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv09-show__related__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
   background-color: #7c7c7c;
 }
 .serv09-show__feedbacks__carousel__nav {
@@ -2536,22 +2536,22 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.serv09__main {
+.serv09__main, .serv09-show__related__main {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
   width: 100%;
 }
-.serv09__main__carousel {
+.serv09__main__carousel, .serv09-show__related__main__carousel {
   overflow: hidden;
 }
 @media (max-width: 991.98px) {
-  .serv09__main__carousel {
+  .serv09__main__carousel, .serv09-show__related__main__carousel {
     overflow: visible;
   }
 }
-.serv09__main__item, .serv09-page__main__list__item {
+.serv09__main__item, .serv09-show__related__main__item, .serv09-page__main__list__item {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -2561,12 +2561,12 @@ body .owl-dots .owl-dot.active {
   height: auto;
 }
 @media (max-width: 991.98px) {
-  .serv09__main__item, .serv09-page__main__list__item {
+  .serv09__main__item, .serv09-show__related__main__item, .serv09-page__main__list__item {
     flex-direction: column-reverse;
     width: 290px;
   }
 }
-.serv09__main__item__information, .serv09-page__main__list__item__information {
+.serv09__main__item__information, .serv09-show__related__main__item__information, .serv09-page__main__list__item__information {
   width: 50%;
   padding: 2rem 1.25rem;
   background-color: #efefef;
@@ -2576,20 +2576,20 @@ body .owl-dots .owl-dot.active {
   align-items: start;
 }
 @media (max-width: 991.98px) {
-  .serv09__main__item__information, .serv09-page__main__list__item__information {
+  .serv09__main__item__information, .serv09-show__related__main__item__information, .serv09-page__main__list__item__information {
     width: 100%;
   }
 }
-.serv09__main__item__information__title, .serv09-page__main__list__item__information__title {
+.serv09__main__item__information__title, .serv09-show__related__main__item__information__title, .serv09-page__main__list__item__information__title {
   margin-bottom: 0.5rem;
 }
-.serv09__main__item__information__price, .serv09-page__main__list__item__information__price {
+.serv09__main__item__information__price, .serv09-show__related__main__item__information__price, .serv09-page__main__list__item__information__price {
   margin-bottom: 1.25rem;
 }
-.serv09__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph {
+.serv09__main__item__information__paragraph, .serv09-show__related__main__item__information__paragraph, .serv09-page__main__list__item__information__paragraph {
   margin-bottom: 2rem;
 }
-.serv09__main__item__information__topics, .serv09-show__main__information__topics, .serv09-page__main__list__item__information__topics {
+.serv09__main__item__information__topics, .serv09-show__related__main__item__information__topics, .serv09-show__main__information__topics, .serv09-page__main__list__item__information__topics {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -2601,14 +2601,14 @@ body .owl-dots .owl-dot.active {
   padding-left: 0;
   list-style: none;
 }
-.serv09__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item {
+.serv09__main__item__information__topics__item, .serv09-show__related__main__item__information__topics__item, .serv09-show__main__information__topics__item, .serv09-page__main__list__item__information__topics__item {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: center;
   font-weight: 700;
 }
-.serv09__main__item__information__topics__item__icon, .serv09-show__main__information__topics__item__icon, .serv09-page__main__list__item__information__topics__item__icon {
+.serv09__main__item__information__topics__item__icon, .serv09-show__related__main__item__information__topics__item__icon, .serv09-show__main__information__topics__item__icon, .serv09-page__main__list__item__information__topics__item__icon {
   width: 1rem;
   height: auto;
   margin-right: 0.5rem;
@@ -2617,7 +2617,7 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.serv09__main__item__information__progress, .serv09-show__banner__progress, .serv09-page__main__list__item__information__progress {
+.serv09__main__item__information__progress, .serv09-show__related__main__item__information__progress, .serv09-show__banner__progress, .serv09-page__main__list__item__information__progress {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -2626,22 +2626,22 @@ body .owl-dots .owl-dot.active {
   flex-wrap: wrap;
   width: 100%;
 }
-.serv09__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title {
+.serv09__main__item__information__progress__title, .serv09-show__related__main__item__information__progress__title, .serv09-show__banner__progress__title, .serv09-page__main__list__item__information__progress__title {
   width: 100%;
 }
-.serv09__main__item__information__progress__bar, .serv09-show__banner__progress__bar, .serv09-page__main__list__item__information__progress__bar {
+.serv09__main__item__information__progress__bar, .serv09-show__related__main__item__information__progress__bar, .serv09-show__banner__progress__bar, .serv09-page__main__list__item__information__progress__bar {
   height: 0.5rem;
   width: auto;
   flex: 1 0 auto;
   background-color: #fff;
 }
-.serv09__main__item__information__progress__bar__fill, .serv09-show__banner__progress__bar__fill, .serv09-page__main__list__item__information__progress__bar__fill {
+.serv09__main__item__information__progress__bar__fill, .serv09-show__related__main__item__information__progress__bar__fill, .serv09-show__banner__progress__bar__fill, .serv09-page__main__list__item__information__progress__bar__fill {
   display: block;
   height: 100%;
   background-color: #000;
   margin: 0 auto 0 0;
 }
-.serv09__main__item__image, .serv09-page__main__list__item__image {
+.serv09__main__item__image, .serv09-show__related__main__item__image, .serv09-page__main__list__item__image {
   width: 50%;
   height: auto;
   -o-object-fit: cover;
@@ -2650,12 +2650,12 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 @media (max-width: 991.98px) {
-  .serv09__main__item__image, .serv09-page__main__list__item__image {
+  .serv09__main__item__image, .serv09-show__related__main__item__image, .serv09-page__main__list__item__image {
     width: 100%;
     aspect-ratio: 290/262;
   }
 }
-.serv09__main__cta {
+.serv09__main__cta, .serv09-show__related__main__cta {
   align-self: end;
 }
 
@@ -2924,8 +2924,14 @@ body .owl-dots .owl-dot.active {
   height: 100%;
   width: 100%;
 }
+.serv09-show__related__categories {
+  padding-bottom: 0;
+}
 .serv09-show__related__categories__swiper-wrapper {
   padding-left: 0;
+}
+.serv09-show__related__main {
+  padding-top: 0;
 }
 .cont08 {
   overflow: hidden; /* Previne o sfhit da animação */

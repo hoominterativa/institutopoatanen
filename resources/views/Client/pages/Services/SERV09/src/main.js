@@ -49,3 +49,13 @@ new Swiper(".serv09-show__related__categories", {
     spaceBetween: 18,
     centerInsufficientSlides: true,
 });
+
+new Swiper(".serv09-show__related__main__carousel", {
+    slidesPerView: "auto",
+    spaceBetween: 16,
+
+    pagination: {
+        el: ".serv09-show__related__main__carousel__swiper-pagination",
+        clickable: true,
+    },
+});

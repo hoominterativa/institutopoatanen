@@ -622,6 +622,8 @@
     &__related {
         &__categories {
             @extend .serv09__categories;
+            @extend %theme__padding;
+            padding-bottom: 0;
 
             &__swiper-wrapper {
                 padding-left: 0;
@@ -633,6 +635,80 @@
                 &__icon {
                     @extend .serv09__categories__item__icon;
                 }
+            }
+        }
+
+        &__main {
+            @extend .serv09__main;
+            @extend %theme__padding;
+            padding-top: 0;
+
+            &__carousel {
+                @extend .serv09__main__carousel;
+            }
+
+            &__item {
+                @extend .serv09__main__item;
+
+                &__information {
+                    @extend .serv09__main__item__information;
+
+                    &__title {
+                        @extend .serv09__main__item__information__title;
+                    }
+
+                    &__subtitle {
+                        @extend .serv09__main__item__information__subtitle;
+                    }
+
+                    &__price {
+                        @extend .serv09__main__item__information__price;
+                    }
+
+                    &__paragraph {
+                        @extend .serv09__main__item__information__paragraph;
+                    }
+
+                    &__topics {
+                        @extend .serv09__main__item__information__topics;
+
+                        &__item {
+                            @extend .serv09__main__item__information__topics__item;
+
+                            &__icon {
+                                @extend .serv09__main__item__information__topics__item__icon;
+                            }
+                        }
+                    }
+
+                    &__progress {
+                        @extend .serv09__main__item__information__progress;
+
+                        &__title {
+                            @extend .serv09__main__item__information__progress__title;
+                        }
+
+                        &__bar {
+                            @extend .serv09__main__item__information__progress__bar;
+
+                            &__fill {
+                                @extend .serv09__main__item__information__progress__bar__fill;
+                            }
+                        }
+
+                        &__number {
+                            @extend .serv09__main__item__information__progress__number;
+                        }
+                    }
+                }
+
+                &__image {
+                    @extend .serv09__main__item__image;
+                }
+            }
+
+            &__cta {
+                @extend .serv09__main__cta;
             }
         }
     }

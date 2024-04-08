@@ -12729,6 +12729,14 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv09-show__related
   spaceBetween: 18,
   centerInsufficientSlides: true
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv09-show__related__main__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 16,
+  pagination: {
+    el: ".serv09-show__related__main__carousel__swiper-pagination",
+    clickable: true
+  }
+});
 
 /***/ }),
 

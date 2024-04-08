@@ -32,6 +32,7 @@
             </section>
         @endif
 
+        {{-- BACKEND AREA DE TÓPICOS --}}
         <section class="serv09-show__topics">
             <div class="serv09-show__topics__swiper-wrapper swiper-wrapper">
                 @for ($i = 0; $i < 6; $i++)
@@ -246,6 +247,7 @@
             </section>
         @endif
 
+        {{-- BACKEND AREA DE MAPA --}}
         <section class="serv09-show__map">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8152687932293!2d-38.358329925842426!3d-12.91959165876374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7163e0787480cb5%3A0x2efae57583eed193!2sHoom%20Interativa!5e0!3m2!1spt-BR!2sbr!4v1712346237764!5m2!1spt-BR!2sbr"
@@ -271,66 +273,96 @@
                 </menu>
             </aside>
 
-            <div class="sesh__service-related__main container">
-                <div class="carousel-service-related owl-carousel">
-                    @foreach ($services as $service)
-                        <article class="sesh__service-related__main__box w-100 d-flex justify-content-between row mx-auto">
-                            <div class="sesh__service-related__main__box__left col-sm-6">
-                                <div class="sesh__service-related__main__box__left__content">
-                                    @if ($service->title || $service->subtitle)
-                                        <h3 class="serv09__box__left__content__title">{{ $service->title }}</h3>
-                                        <h4 class="serv09__box__left__content__subtitle">{{ $service->subtitle }}</h4>
-                                    @endif
-                                    @if ($service->price)
-                                        <h3 class="sesh__service-related__main__box__left__content__price">
-                                            <span>R$</span>{{ number_format($service->price, 2, ',', '.') }}
-                                        </h3>
+            <main class="serv09-show__related__main">
+                <div class="serv09-show__related__main__carousel">
+                    <div class="serv09-show__related__main__carousel__swiper-wrapper swiper-wrapper">
+                        @foreach ($services as $service)
+                            <article class="serv09-show__related__main__item swiper-slide">
+
+                                <a href="{{ route('serv09.page.content', ['SERV09ServicesCategory' => $service->categories->slug, 'SERV09Services' => $service->slug]) }}"
+                                    class="link-full" title="{{ $service->title }}">
+                                </a>
+
+                                <div class="serv09-show__related__main__item__information">
+
+                                    @if ($service->title)
+                                        <h3 class="serv09-show__related__main__item__information__title">
+                                            {{ $service->title }}</h3>
                                     @endif
 
-                                    <div class="sesh__service-related__main__box__left__content__paragraph">
-                                        @if ($service->description)
+                                    @if ($service->subtitle)
+                                        <h4 class="serv09-show__related__main__item__information__subtitle">
+                                            {{ $service->subtitle }}</h4>
+                                    @endif
+
+                                    @if ($service->price)
+                                        <span class="serv09-show__related__main__item__information__price">
+                                            R$ {{ number_format($service->price, 2, ',', '.') }}
+                                        </span>
+                                    @endif
+
+                                    @if ($service->description)
+                                        <div class="serv09-show__related__main__item__information__paragraph">
                                             <p>
                                                 {!! $service->description !!}
                                             </p>
-                                        @endif
-                                    </div>
-                                    @if ($service->topics->count())
-                                        <div class="sesh__service-related__main__box__left__content__engBox">
-                                            @foreach ($service->topics as $topic)
-                                                <div
-                                                    class="sesh__service-related__main__box__left__content__engBox__button">
-                                                    @if ($topic->path_image)
-                                                        <img src="{{ asset('storage/' . $topic->path_image) }}"
-                                                            alt="Ícon"
-                                                            class="serv09__box__left__content__engBox__button__icon">
-                                                    @endif
-                                                    @if ($topic->title)
-                                                        <h4
-                                                            class="sesh__service-related__main__box__left__content__engBox__button__title">
-                                                            {{ $topic->title }}</h4>
-                                                    @endif
-                                                </div>
-                                            @endforeach
                                         </div>
                                     @endif
+
+                                    @if ($service->topics->count())
+                                        <ul class="serv09-show__related__main__item__information__topics">
+                                            @foreach ($service->topics as $topic)
+                                                <li class="serv09-show__related__main__item__information__topics__item">
+                                                    @if ($topic->path_image)
+                                                        <img src="{{ asset('storage/' . $topic->path_image) }}"
+                                                            alt="Ícone de {{ $topic->title }}" loading="lazy"
+                                                            class="serv09-show__related__main__item__information__topics__item__icon">
+                                                    @endif
+
+                                                    {{ $topic->title }}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+
+                                    <div class="serv09-show__related__main__item__information__progress">
+
+                                        <span class="serv09-show__related__main__item__information__progress__title">
+                                            Andamento
+                                        </span>
+
+                                        <div class="serv09-show__related__main__item__information__progress__bar">
+                                            {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
+                                            <span
+                                                class="serv09-show__related__main__item__information__progress__bar__fill"
+                                                style="width: 20%;"></span>
+                                        </div>
+
+                                        <span class="serv09-show__related__main__item__information__progress__number">
+                                            20%
+                                        </span>
+                                    </div>
+
                                 </div>
-                            </div>
-                            <div class="serv09__box__right col-sm-6">
-                                <img src="{{ asset('storage/' . $service->path_image) }}" alt=""
-                                    class="serv09__box__right__image">
-                                <a href="{{ route('serv09.page.content', ['SERV09ServicesCategory' => $service->categories->slug, 'SERV09Services' => $service->slug]) }}"
-                                    class="serv09__box__right__btn">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícon"
-                                        class="serv09__box__right__btn__icon">
-                                    CTA
-                                </a>
-                            </div>
-                        </article>
-                    @endforeach
+
+                                <img src="{{ asset('storage/' . $service->path_image) }}"
+                                    alt="Imagem do serviço {{ $service->title }}"
+                                    class="serv09-show__related__main__item__image">
+
+                            </article>
+                        @endforeach
+                    </div>
+
+                    <div class="serv09-show__related__main__carousel__swiper-pagination swiper-pagination"></div>
+
                 </div>
-            </div>
+
+                {{-- BACKEND ADD ROTA NESSE BOTÃO QUE NÃO EXISTIA ANTES --}}
+                <a href="" class="serv09-show__related__main__cta">
+                    CTA
+                </a>
+            </main>
         </section>
-        {{-- fim-sesh__service-related --}}
 
         @foreach ($sections as $section)
             {!! $section !!}
