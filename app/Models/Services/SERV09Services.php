@@ -17,7 +17,7 @@ class SERV09Services extends Model
 
     protected $table = "serv09_services";
     protected $fillable = [
-        'category_id', 'title', 'subtitle', 'description', 'price', 'path_image', 'title_info', 'informations', 'active', 'sorting', 'slug', 'featured', 'text', 'link',
+        'category_id', 'title', 'percentage', 'subtitle', 'description', 'price', 'path_image', 'title_info', 'informations', 'active', 'sorting', 'slug', 'featured', 'text', 'link',
         //Banner Inner
         'title_banner', 'subtitle_banner', 'active_banner', 'path_image_desktop', 'path_image_mobile', 'background_color',
     ];

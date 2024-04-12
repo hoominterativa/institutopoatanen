@@ -13,21 +13,22 @@
                     <h2 class="serv09-show__banner__subtitle">{{ $section->subtitle_banner }}</h2>
                 @endif
 
-                <div class="serv09-show__banner__progress">
+                @if ($service->percentage)
+                    <div class="serv09-show__banner__progress">
 
-                    <span class="serv09-show__banner__progress__title">
-                        Andamento da Obra
-                    </span>
+                        <span class="serv09-show__banner__progress__title">
+                            Andamento da Obra: {{ $service->percentage === 100 ? 'Concluído' : 'Em andamento' }}
+                        </span>
 
-                    <div class="serv09-show__banner__progress__bar">
-                        {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
-                        <span class="serv09-show__banner__progress__bar__fill" style="width: 20%;"></span>
+                        <div class="serv09-show__banner__progress__bar">
+                            <span class="serv09-show__banner__progress__bar__fill" style="width: {{$service->percentage}}%;"></span>
+                        </div>
+
+                        <span class="serv09-show__banner__progress__number">
+                            {{$service->percentage}}%
+                        </span>
                     </div>
-
-                    <span class="serv09-show__banner__progress__number">
-                        20%
-                    </span>
-                </div>
+                @endif
 
             </section>
         @endif
@@ -324,24 +325,24 @@
                                             @endforeach
                                         </ul>
                                     @endif
+                                    @if ($service->percentage)
+                                        <div class="serv09-show__related__main__item__information__progress">
 
-                                    <div class="serv09-show__related__main__item__information__progress">
+                                            <span class="serv09-show__related__main__item__information__progress__title">
+                                                {{ $service->percentage === 100 ? 'Concluído' : 'Em andamento' }}
+                                            </span>
 
-                                        <span class="serv09-show__related__main__item__information__progress__title">
-                                            Andamento
-                                        </span>
+                                            <div class="serv09-show__related__main__item__information__progress__bar">
+                                                <span
+                                                    class="serv09-show__related__main__item__information__progress__bar__fill"
+                                                    style="width: {{$service->percentage}}%;"></span>
+                                            </div>
 
-                                        <div class="serv09-show__related__main__item__information__progress__bar">
-                                            {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
-                                            <span
-                                                class="serv09-show__related__main__item__information__progress__bar__fill"
-                                                style="width: 20%;"></span>
+                                            <span class="serv09-show__related__main__item__information__progress__number">
+                                                {{$service->percentage}}%
+                                            </span>
                                         </div>
-
-                                        <span class="serv09-show__related__main__item__information__progress__number">
-                                            20%
-                                        </span>
-                                    </div>
+                                    @endif
 
                                 </div>
 
@@ -356,9 +357,7 @@
                     <div class="serv09-show__related__main__carousel__swiper-pagination swiper-pagination"></div>
 
                 </div>
-
-                {{-- BACKEND ADD ROTA NESSE BOTÃO QUE NÃO EXISTIA ANTES --}}
-                <a href="" class="serv09-show__related__main__cta">
+                <a href="{{ route('serv09.category.page', ['SERV09ServicesCategory' => $service->categories->slug]) }}" class="serv09-show__related__main__cta">
                     CTA
                 </a>
             </main>

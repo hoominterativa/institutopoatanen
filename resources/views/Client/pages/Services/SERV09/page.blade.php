@@ -126,23 +126,23 @@
                                         @endforeach
                                     </ul>
                                 @endif
+                                @if ($service->percentage)
+                                    <div class="serv09-page__main__list__item__information__progress">
 
-                                <div class="serv09-page__main__list__item__information__progress">
+                                        <span class="serv09-page__main__list__item__information__progress__title">
+                                            {{ $service->percentage === 100 ? 'Concluído' : 'Em andamento' }}
+                                        </span>
 
-                                    <span class="serv09-page__main__list__item__information__progress__title">
-                                        Andamento
-                                    </span>
+                                        <div class="serv09-page__main__list__item__information__progress__bar">
+                                            <span class="serv09-page__main__list__item__information__progress__bar__fill"
+                                                style="width: {{$service->percentage}}%;"></span>
+                                        </div>
 
-                                    <div class="serv09-page__main__list__item__information__progress__bar">
-                                        {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
-                                        <span class="serv09-page__main__list__item__information__progress__bar__fill"
-                                            style="width: 20%;"></span>
+                                        <span class="serv09-page__main__list__item__information__progress__number">
+                                            {{$service->percentage}}%
+                                        </span>
                                     </div>
-
-                                    <span class="serv09-page__main__list__item__information__progress__number">
-                                        20%
-                                    </span>
-                                </div>
+                                @endif
 
                             </div>
 

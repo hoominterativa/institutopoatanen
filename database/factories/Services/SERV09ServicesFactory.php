@@ -36,6 +36,7 @@ class SERV09ServicesFactory extends Factory
             'price' => $this->faker->randomFloat(2, 0, 100),
             'path_image' => $this->faker->randomElement(['uploads/tmp/image-box.jpg', 'uploads/tmp/gall01_image1.png', 'uploads/tmp/thumbnail.png']),
             'active' => 1,
+            'percentage' => rand(0, 100),
             'featured' => rand(0, 1),
             // Section Banner
             'title_banner' => $this->faker->text(10),

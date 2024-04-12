@@ -27,14 +27,26 @@
                 </div>
             </div>
             <div class="mb-3">
-                {!! Form::label(null, 'Preço R$', ['class'=>'form-label']) !!}
-                {!! Form::text('price', null, [
-                    'class'=>'form-control',
-                    'data-toggle'=>'input-mask',
-                    'data-mask-format'=>'#.##0,00',
-                    'data-reverse'=>'true',
-                    'placeholder'=> '87,25'
-                ]) !!}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('percentage', 'Percentual de Carregamento', ['class'=>'form-label']) !!}
+                        {!! Form::number('percentage', null, [
+                            'class'=>'form-control',
+                            'min'=>1,
+                            'max'=>100,
+                        ]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label(null, 'Preço R$', ['class'=>'form-label']) !!}
+                        {!! Form::text('price', null, [
+                            'class'=>'form-control',
+                            'data-toggle'=>'input-mask',
+                            'data-mask-format'=>'#.##0,00',
+                            'data-reverse'=>'true',
+                            'placeholder'=> '87,25'
+                        ]) !!}
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 {!! Form::label('title_info', 'Título info', ['class' => 'form-label']) !!}

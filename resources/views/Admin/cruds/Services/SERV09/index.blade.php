@@ -87,11 +87,6 @@
                                                     <th>Imagem</th>
                                                     <th>Categoria</th>
                                                     <th>Título/Subtítulo</th>
-                                                    <th>Descrição</th>
-                                                    <th>Texto</th>
-                                                    <th>Preço</th>
-                                                    <th>Título info</th>
-                                                    <th>Informações</th>
                                                     <th>Link</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
@@ -112,11 +107,6 @@
                                                         </td>
                                                         <td class="align-middle">{{$service->categories->title}}</td>
                                                         <td class="align-middle">{{$service->title}} <b>/</b>{{$service->subtitle}}</td>
-                                                        <td class="align-middle">{!! substr($service->description, 0, 20) !!}<b>...</b></td>
-                                                        <td class="align-middle">{!! substr($service->text, 0, 20) !!}<b>...</b></td>
-                                                        <td class="align-middle"><b>R$</b>{{number_format($service->price, 2, ',', '.')}}</td>
-                                                        <td class="align-middle">{{$service->title_info}}</td>
-                                                        <td class="align-middle">{!! substr($service->informations, 0, 20) !!}<b>...</b></td>
                                                         <td class="align-middle">
                                                             @if ($service->link)
                                                                 <a href="{{ $service->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>

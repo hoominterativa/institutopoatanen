@@ -28,6 +28,7 @@ class CreateServ09ServicesTable extends Migration
             $table->string('link')->nullable();
             $table->integer('active')->default(0);
             $table->integer('featured')->default(0);
+            $table->integer('percentage')->nullable();
             //Section Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
