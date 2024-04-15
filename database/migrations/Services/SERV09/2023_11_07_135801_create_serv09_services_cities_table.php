@@ -15,8 +15,9 @@ class CreateServ09ServicesCitiesTable extends Migration
     {
         Schema::create('serv09_services_cities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('state_id')->constrained('serv09_services_states')->onDelete('cascade');
+            $table->foreignId('state_id')->nullable()->constrained('serv09_services_states')->onDelete('cascade');
             $table->string('city')->nullable();
+            $table->integer('active')->default(1);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

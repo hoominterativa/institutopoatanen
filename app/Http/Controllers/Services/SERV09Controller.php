@@ -13,9 +13,11 @@ use App\Models\Services\SERV09ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV09ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV09ServicesCity;
 use App\Models\Services\SERV09ServicesContent;
 use App\Models\Services\SERV09ServicesFeedback;
 use App\Models\Services\SERV09ServicesGallery;
+use App\Models\Services\SERV09ServicesState;
 use App\Models\Services\SERV09ServicesTopic;
 use App\Models\Services\SERV09ServicesTopicsUp;
 use Database\Factories\Services\SERV09ServicesFactory;
@@ -33,12 +35,10 @@ class SERV09Controller extends Controller
     {
         $services = SERV09Services::sorting()->paginate(32);
         $serviceCategories = SERV09ServicesCategory::sorting()->paginate(10);
-        $categories = SERV09ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV09ServicesSection::first();
         return view('Admin.cruds.Services.SERV09.index', [
             'services' => $services,
             'serviceCategories' => $serviceCategories,
-            'categories' => $categories,
             'section' => $section,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
@@ -52,8 +52,10 @@ class SERV09Controller extends Controller
     public function create()
     {
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
+        $states = SERV09ServicesState::with('cities')->sorting()->pluck('state', 'id');
         return view('Admin.cruds.Services.SERV09.create', [
             'categories' => $categories,
+            'states' => $states,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
     }
@@ -107,6 +109,7 @@ class SERV09Controller extends Controller
     public function edit(SERV09Services $SERV09Services)
     {
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
+        $states = SERV09ServicesState::with('cities')->sorting()->pluck('state', 'id');
         $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
         $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
         $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->get();
@@ -120,6 +123,7 @@ class SERV09Controller extends Controller
             'contents' => $contents,
             'feedbacks' => $feedbacks,
             'topicsUp' => $topicsUp,
+            'states' => $states,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
     }

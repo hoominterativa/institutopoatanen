@@ -61,6 +61,36 @@
                 </div>
             </div>
             <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            {!! Form::label('state', 'Estado', ['class' => 'form-label']) !!}
+                            <i class="text-danger">*</i>
+                        </div>
+                        {!! Form::select('state', $states, null, [
+                            'class' => 'form-select',
+                            'id' => 'state',
+                            'required' => 'required',
+                            'placeholder' => 'Selecione o estado'
+                        ]) !!}
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            {!! Form::label('city', 'Cidade', ['class' => 'form-label']) !!}
+                            <i class="text-danger">*</i>
+                        </div>
+                        {!! Form::select('city', [], null, [
+                            'class' => 'form-select',
+                            'id' => 'city',
+                            'required' => 'required',
+                            'placeholder' => 'Selecione a cidade'
+                        ]) !!}
+                    </div>
+
+                </div>
+            </div>
+            <div class="mb-3">
                 {!! Form::label('title_info', 'Título info', ['class' => 'form-label']) !!}
                 {!! Form::text('title_info', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title_info', 'placeholder'=> 'Reserve agora']) !!}
             </div>

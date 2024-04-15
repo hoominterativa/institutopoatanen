@@ -2,7 +2,7 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\SERV09ServicesCityFactory;
+use Database\Factories\Services\SERV09ServicesCityFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,8 @@ class SERV09ServicesCity extends Model
         return SERV09ServicesCityFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "serv09_services_cities";
+    protected $fillable = ['state_id', 'city', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -28,8 +28,4 @@ class SERV09ServicesCity extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
 }

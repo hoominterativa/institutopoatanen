@@ -64,6 +64,9 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
     //Sections: Home && Banner page
     Route::resource($route.'/secao', SERV09SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV09ServicesSection']);
+
+    Route::get('/cities/{state}', 'CityController@getCitiesByState')->name('cities.by_state');
+
 });
 // CLIENT
 Route::get($route.'/categoria/{SERV09ServicesCategory:slug}', [SERV09Controller::class, 'page'])->name($routeName.'.category.page');

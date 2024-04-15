@@ -17,7 +17,7 @@ class CreateServ09ServicesStatesTable extends Migration
             $table->id();
             $table->string('state')->nullable();
             $table->string('acronym')->nullable();
-            $table->integer('active')->default(0);
+            $table->integer('active')->default(1);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
