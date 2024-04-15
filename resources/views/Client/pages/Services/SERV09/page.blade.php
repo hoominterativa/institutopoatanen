@@ -33,6 +33,7 @@
                 </div>
 
                 <div class="serv09-page__aside__filter quedinha">
+                    {{-- FRONTEND o formulário está fechando quando o input é selecionado --}}
                     <button class="serv09-page__aside__filter__btn quedinha__btn">
                         Filtro
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"

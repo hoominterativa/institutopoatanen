@@ -253,6 +253,7 @@
         @endif
 
         <section class="serv09-show__map">
+            {{-- FRONTEND ajustar os spans --}}
             <span>Localização</span>
             <span>{{$service->address}}</span>
             <iframe src="{{getUri($service->map_link)}}" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

@@ -38,7 +38,7 @@ class SERV09ServicesFactory extends Factory
             'active' => 1,
             'percentage' => rand(0, 100),
             'featured' => rand(0, 1),
-            'address' => $this->faker->address(),
+            'address' => 'São Cristóvão, Salvador - BA',
             'map_link' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8152687932293!2d-38.358329925842426!3d-12.91959165876374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7163e0787480cb5%3A0x2efae57583eed193!2sHoom%20Interativa!5e0!3m2!1spt-BR!2sbr!4v1712346237764!5m2!1spt-BR!2sbr',
             // Section Banner
             'title_banner' => $this->faker->text(10),

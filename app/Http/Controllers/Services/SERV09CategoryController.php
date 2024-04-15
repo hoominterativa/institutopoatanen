@@ -87,11 +87,6 @@ class SERV09CategoryController extends Controller
      */
     public function destroy(SERV09ServicesCategory $SERV09ServicesCategory)
     {
-        // Verificar se existem serviços associadas à categoria
-        if(SERV09Services::where('category_id', $SERV09ServicesCategory->id)->count()){
-            Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
-            return redirect()->back();
-        }
 
         storageDelete($SERV09ServicesCategory, 'path_image');
 
@@ -109,25 +104,13 @@ class SERV09CategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        $categoryIds = $request->deleteAll;
-
-        // Verificar se existem serviços associadas às categorias
-        $serviceExist = SERV09Services::whereIn('category_id', $categoryIds)->exists();
-        if ($serviceExist) {
-            return Response::json([
-                'status' => 'error',
-                'message' => 'Não é possível excluir as categorias porque existem serviços associadas a elas.'
-            ]);
+        $SERV09ServicesCategories = SERV09ServicesCategory::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV09ServicesCategories as $SERV09ServicesCategory){
+            storageDelete($SERV09ServicesCategory, 'path_image');
         }
 
-        // Excluir as categorias
-        $deletedCategories = SERV09ServicesCategory::whereIn('id', $categoryIds)->get();
-        foreach ($deletedCategories as $category) {
-            storageDelete($category, 'path_image');
-        }
-
-        if ($deleted = SERV09ServicesCategory::whereIn('id', $categoryIds)->delete()) {
-            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
+        if($deleted = SERV09ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' categorias deletadas com sucesso']);
         }
     }
     /**
