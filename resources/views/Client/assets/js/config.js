@@ -134,6 +134,10 @@ $(function () {
                     formPlaceholder.removeClass("focusing");
                 }
             });
+
+            if (that.val() != "") {
+                formPlaceholder.addClass("focusing");
+            }
         }
     });
 
@@ -150,6 +154,10 @@ $(function () {
         that.attr("id", name);
 
         var formPlaceholder = that.parent();
+
+        if (that.val() != "") {
+            formPlaceholder.addClass("focusing");
+        }
 
         that.on("change", function () {
             var thisValue = $(this).val();
@@ -430,14 +438,14 @@ btnsBurguer.forEach((el) => {
                 "visible"; /* valor padrão visible, permitindo rolagem*/
         }
     });
-    const burguerIcon = el.querySelector('.burguer__icon');
+    const burguerIcon = el.querySelector(".burguer__icon");
 
-    if(burguerIcon) {
-        if(!burguerIcon.classList.contains('dots')){
-            burguerIcon.innerHTML = "<span></span> <span></span> <span></span>"
-
-        }  else {
-            burguerIcon.innerHTML = "<span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span>"
+    if (burguerIcon) {
+        if (!burguerIcon.classList.contains("dots")) {
+            burguerIcon.innerHTML = "<span></span> <span></span> <span></span>";
+        } else {
+            burguerIcon.innerHTML =
+                "<span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span>";
         }
     }
 });
@@ -455,7 +463,7 @@ if (sideLinks.length > 0) {
                 "visible"; /* valor padrão visible, permitindo rolagem*/
 
             setTimeout(() => {
-                    window.location.assign(el.href);
+                window.location.assign(el.href);
             }, 800);
         });
     });

@@ -8,11 +8,7 @@
                     @endif
 
                     @if ($section->subtitle)
-                        <span class="topi10__header__subtitle">{{ $section->subtitle }}</span>
-                    @endif
-
-                    @if ($section->title || $section->subtitle)
-                        <hr class="topi10__header__line">
+                        <h3 class="topi10__header__subtitle">{{ $section->subtitle }}</h3>
                     @endif
 
                     @if ($section->description)

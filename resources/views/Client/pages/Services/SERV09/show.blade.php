@@ -1,317 +1,371 @@
 @extends('Client.Core.client')
 @section('content')
-{{-- BEGIN Page content --}}
-<main id="root">
-    <div id="serv09-show" class="sesh">
-        <header class="sesh__header">
-            @if ($service->active_banner)
-                <div class="sesh__header__bg"
-                    style="background-image: url({{ asset('storage/' . $service->path_image_desktop) }});  background-color: {{ $service->background_color }};">
-                    <div class="sesh__header__bg__content">
-                        @if ($service->title_banner || $service->subtitle_banner)
-                            <h4 class="sesh__header__bg__content__title">{{ $service->subtitle_banner }}</h4>
-                            <h3 class="sesh__header__bg__content__subtitle">{{ $service->title_banner }}</h3>
-                        @endif
+    <main id="root" class="serv09-show">
+        @if ($section)
+            <section class="serv09-show__banner"
+                style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});  background-color: {{ $section->background_color }};">
+
+                @if ($section->title_banner)
+                    <h1 class="serv09-show__banner__title">{{ $section->title_banner }}</h1>
+                @endif
+
+                @if ($section->subtitle_banner)
+                    <h2 class="serv09-show__banner__subtitle">{{ $section->subtitle_banner }}</h2>
+                @endif
+
+                <div class="serv09-show__banner__progress">
+
+                    <span class="serv09-show__banner__progress__title">
+                        Andamento da Obra
+                    </span>
+
+                    <div class="serv09-show__banner__progress__bar">
+                        {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
+                        <span class="serv09-show__banner__progress__bar__fill" style="width: 20%;"></span>
                     </div>
+
+                    <span class="serv09-show__banner__progress__number">
+                        20%
+                    </span>
                 </div>
-            @endif
-        </header>
 
-        <main class="sesh__main">
-            <section class="sesh__section-show">
-                <div class="container container--section-show">
-                    <div class="row row--section-show justify-content-between">
-                        <div class="sesh__section-show__left col-sm-5">
-                            <div class="sesh__section-show__left__description">
-                                @if ($service->title || $service->subtitle)
-                                    <h3 class="sesh__section-show__left__description__title">{{ $service->title }}</h3>
-                                    <h4 class="sesh__section-show__left__description__subtitle">{{ $service->subtitle }}</h4>
-                                    <hr class="sesh__section-show__left__description__line">
-                                @endif
-                                @if ($service->text)
-                                    <div class="sesh__section-show__left__description__paragraph">
-                                        {!! $service->text !!}
-                                    </div>
-                                @endif
-                            </div>
-                            @if ($topics->count())
-                                <div class="sesh__section-show__left__topics">
-                                    @foreach ($topics as $topic)
-                                        <div class="sesh__section-show__left__topics__topic">
-                                            @if ($topic->path_image)
-                                                <div class="sesh__section-show__left__topics__topic__icon">
-                                                    <img src="{{ asset('storage/' . $topic->path_image) }}" alt="Imagem" class="">
-                                                </div>
-                                            @endif
-                                            <div class="sesh__section-show__left__topics__topic__description">
-                                                @if ($topic->title)
-                                                    <h4 class="sesh__section-show__left__topics__topic__description__title">{{ $topic->title }}</h4>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @endif
-                        </div>
-                        <aside class="sesh__section-show__right col-sm-5">
-                            <h4 class="sesh__section-show__right__title">{{$service->title_info}}</h4>
-                            @if ($service->price)
-                                <h3 class="sesh__section-show__right__price"><span>R$</span>{{number_format($service->price, 2, ',', '.')}} <span>por dia</span></h3>
-                            @endif
-                            @if ($service->informations)
-                                <div class="sesh__section-show__right__paragraph">
-                                    {!! $service->informations !!}
-                                </div>
-                            @endif
-                            @if ($service->link)
-                                <a class="sesh__section-show__right__btn" href="{{getUri($service->link)}}" target="_blank">
-                                    Reservar agora
-                                </a>
-                            @else
-                                <div class="form-sesh">
-                                    {!! Form::model(['column_preco_text' => 'R$ ' . number_format($service->price, 2, ',', '.'),],[
-                                        'route' => 'lead.store',
-                                        'method' => 'post',
-                                        'files' => true,
-                                        'class' => 'send_form_ajax serv09-form__form d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
-                                    ]) !!}
-                                    <div class="d-flex flex-column w-100 align-items-stretch">
-                                        <input type="hidden" name="target_lead" value="{{$service->title}} - {{$service->subtitle}}">
-                                        <input type="hidden" name="target_send" value="{{ base64_encode('teste@teste.com') }}">
-
-                                        <div class="engDate">
-                                            @include('Client.Components.inputs', [
-                                                'name' => 'column_chekin_date',
-                                                'placeholder' => 'Chek-in',
-                                                'required' => true,
-                                                'type' => 'date',
-                                                'class' => 'col-md-8',
-                                            ])
-                                            @include('Client.Components.inputs', [
-                                                'name' => 'column_chekout_date',
-                                                'placeholder' => 'chek-out',
-                                                'required' => true,
-                                                'type' => 'date',
-                                                'class' => 'col-md-8',
-                                            ])
-                                        </div>
-                                        <div class="d-none">
-                                            @include('Client.Components.inputs', [
-                                                'name' => 'column_preco_text',
-                                                'placeholder' => 'Preco',
-                                                'required' => true,
-                                                'type' => 'text',
-                                                'class' => 'col-md-8',
-
-                                                ])
-                                        </div>
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'column_nomecompleto_text',
-                                            'placeholder' => 'Nome completo',
-                                            'required' => true,
-                                            'type' => 'text',
-                                            'class' => 'col-md-8',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'column_email_email',
-                                            'placeholder' => 'Email',
-                                            'required' => true,
-                                            'type' => 'email',
-                                            'class' => 'col-md-8',
-                                        ])
-                                        @include('Client.Components.inputs', [
-                                            'name' => 'column_contato_cellphone',
-                                            'placeholder' => 'Contato',
-                                            'required' => true,
-                                            'type' => 'cellphone',
-                                            'class' => 'col-md-8',
-                                        ])
-                                    </div>
-                                    <button class="sesh__section-show__right__btn" type="submit" class="">
-                                        Reservar agora
-                                    </button>
-                                    {!! Form::close() !!}
-                                </div>
-                            @endif
-                        </aside>
-                    </div>
-                </div>
             </section>
-            {{-- fim-sesh__section-show --}}
-            @if ($galleries->count())
-                <div class="sesh__section-gallery">
-                    <div class="container container--sesh__section-gallery">
-                        <div class="sesh__section-gallery__content carousel-section-gallery owl-carousel">
-                            @foreach ($galleries as $gallery)
-                                @if ($gallery->path_image)
-                                    <div class="sesh__section-gallery__content__image">
-                                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem" class="">
+        @endif
+
+        {{-- BACKEND AREA DE TÓPICOS --}}
+        <section class="serv09-show__topics">
+            <div class="serv09-show__topics__swiper-wrapper swiper-wrapper">
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="serv09-show__topics__item swiper-slide">
+                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
+                            alt="Ícone de (BACKEND ADD AQUI O TITULO DO TÓPICO)" loading="lazy"
+                            class="serv09-show__topics__item__icon">
+
+                        <span class="serv09-show__topics__item__title">Varanda Gourmet</span>
+                    </div>
+                @endfor
+            </div>
+        </section>
+
+        <section class="serv09-show__main">
+
+            <div class="serv09-show__main__information">
+                @if ($service->title || $service->subtitle)
+                    <h2 class="serv09-show__main__information__title">{{ $service->title }}</h2>
+                    <h3 class="serv09-show__main__information__subtitle">{{ $service->subtitle }}
+                    </h3>
+                @endif
+                @if ($service->text)
+                    <div class="serv09-show__main__information__paragraph">
+                        {!! $service->text !!}
+                    </div>
+                @endif
+
+                @if ($topics->count())
+                    <ul class="serv09-show__main__information__topics">
+                        @foreach ($topics as $topic)
+                            <li class="serv09-show__main__information__topics__item">
+                                @if ($topic->path_image)
+                                    <img src="{{ asset('storage/' . $topic->path_image) }}"
+                                        alt="Ícone do {{ $topic->title }}" loading='lazy'
+                                        class="serv09-show__main__information__topics__item__icon ">
+                                @endif
+
+                                {{ $topic->title }}
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
+
+            <div class="serv09-show__main__form-area">
+
+                <h3 class="serv09-show__main__form-area__title">{{ $service->title_info }}</h3>
+
+                @if ($service->price)
+                    <span class="serv09-show__main__form-area__price">
+                        R${{ number_format($service->price, 2, ',', '.') }} por dia
+                    </span>
+                @endif
+
+                @if ($service->informations)
+                    <div class="serv09-show__main__form-area__paragraph">
+                        {!! $service->informations !!}
+                    </div>
+                @endif
+
+                @if ($service->link)
+                    <a class="serv09-show__main__form-area__cta" href="{{ getUri($service->link) }}" target="_blank">
+                        Reservar agora
+                    </a>
+                @else
+                    {!! Form::model(
+                        ['column_preco_text' => 'R$ ' . number_format($service->price, 2, ',', '.')],
+                        [
+                            'route' => 'lead.store',
+                            'method' => 'post',
+                            'files' => true,
+                            'class' => 'serv09-show__main__form-area__form send_form_ajax form-contact parsley-validate',
+                        ],
+                    ) !!}
+                    <input type="hidden" name="target_lead" value="{{ $service->title }} - {{ $service->subtitle }}">
+                    <input type="hidden" name="target_send" value="{{ base64_encode('teste@teste.com') }}">
+
+                    @include('Client.Components.inputs', [
+                        'name' => 'column_chekin_date',
+                        'placeholder' => 'Chek-in',
+                        'required' => true,
+                        'type' => 'date',
+                    ])
+                    @include('Client.Components.inputs', [
+                        'name' => 'column_chekout_date',
+                        'placeholder' => 'chek-out',
+                        'required' => true,
+                        'type' => 'date',
+                    ])
+                    @include('Client.Components.inputs', [
+                        'name' => 'column_preco_text',
+                        'placeholder' => 'Preco',
+                        'required' => true,
+                        'type' => 'text',
+                    ])
+                    @include('Client.Components.inputs', [
+                        'name' => 'column_nomecompleto_text',
+                        'placeholder' => 'Nome completo',
+                        'required' => true,
+                        'type' => 'text',
+                    ])
+                    @include('Client.Components.inputs', [
+                        'name' => 'column_email_email',
+                        'placeholder' => 'Email',
+                        'required' => true,
+                        'type' => 'email',
+                    ])
+                    @include('Client.Components.inputs', [
+                        'name' => 'column_contato_cellphone',
+                        'placeholder' => 'Contato',
+                        'required' => true,
+                        'type' => 'cellphone',
+                    ])
+                    <button class="serv09-show__main__form-area__cta" type="submit">
+                        Reservar agora
+                    </button>
+                    {!! Form::close() !!}
+                @endif
+            </div>
+
+        </section>
+
+        @if ($galleries->count())
+            <div class="serv09-show__gallery">
+                <div class="serv09-show__gallery__swiper-wrapper swiper-wrapper">
+                    @foreach ($galleries as $gallery)
+                        <img src="{{ asset('storage/' . $gallery->path_image) }}" loading='lazy' alt="Imagem da galeria"
+                            class="serv09-show__gallery__item swiper-slide">
+                    @endforeach
+                </div>
+
+                <div class="serv09-show__gallery__swiper-pagination swiper-pagination"></div>
+            </div>
+        @endif
+
+        @if ($contents->count())
+            <section class="serv09-show__faq">
+
+                @foreach ($contents as $content)
+                    <details class="serv09-show__faq__item">
+                        @if ($content->title)
+                            <summary class="serv09-show__faq__item__title">
+                                {{ $content->title }}
+                            </summary>
+                        @endif
+
+                        <div class="serv09-show__faq__item__paragraph details-content">
+                            @if ($content->text)
+                                <p>
+                                    {!! $content->text !!}
+                                </p>
+                            @endif
+                        </div>
+                    </details>
+                @endforeach
+
+            </section>
+        @endif
+
+        @if ($feedbacks->count())
+            <section class="serv09-show__feedbacks">
+
+                @if ($section->active_feedback)
+                    <header class="serv09-show__feedbacks__header">
+                        @if ($section->title_feedback)
+                            <h4 class="serv09-show__feedbacks__header__title">{{ $section->title_feedback }}
+                            </h4>
+                        @endif
+                    </header>
+                @endif
+
+                <main class="serv09-show__feedbacks__carousel">
+                    <div class="serv09-show__feedbacks__carousel__swiper-wrapper swiper-wrapper">
+                        @foreach ($feedbacks as $feedback)
+                            <div class="serv09-show__feedbacks__carousel__item swiper-slide">
+                                @if ($feedback->text)
+                                    <div class="serv09-show__feedbacks__carousel__item__paragraph">
+                                        {!! $feedback->text !!}
                                     </div>
                                 @endif
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            @endif
-            {{-- fim-sesh__section-gallery --}}
-            @if ($contents->count())
-                <section class="sesh__section-faq">
-                    <div class="sesh__section-faq__content container">
-                        @foreach ($contents as $content)
-                            <div class="sesh__section-faq__content__box">
-                                <button class="sesh__section-faq__content__box__tab accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{{ $content->id }}" aria-expanded="false" aria-controls="collapseTwo">
-                                    @if ($content->title)
-                                        <h4 class="sesh__section-faq__content__box__tab__title">{{ $content->title }}</h4>
-                                    @endif
-                                </button>
-                                <div id="faq-{{ $content->id }}" class="sesh__section-faq__content__box__description accordion-collapse collapse" data-bs-parent="#faq-{{ $content->id }}">
-                                    @if ($content->text)
-                                        <div class="sesh__section-faq__content__box__description__paragraph">
-                                            <p>
-                                                {!! $content->text !!}
-                                            </p>
-                                        </div>
-                                    @endif
-                                </div>
+
+                                @if ($feedback->path_image)
+                                    <div class="serv09-show__feedbacks__carousel__item__avatar">
+                                        <img src="{{ asset('storage/' . $feedback->path_image) }}"
+                                            alt="Imagem de {{ $feedback->name }}" loading='lazy'
+                                            class="serv09-show__feedbacks__carousel__item__avatar__img">
+                                    </div>
+                                @endif
+
+                                @if ($feedback->name)
+                                    <span class="serv09-show__feedbacks__carousel__item__name">
+                                        {{ $feedback->name }}</span>
+                                @endif
+
+                                @if ($feedback->profession)
+                                    <span class="serv09-show__feedbacks__carousel__item__role">
+                                        {{ $feedback->profession }}</span>
+                                @endif
+
                             </div>
                         @endforeach
+
                     </div>
-                </section>
-            @endif
-            {{-- fim-sesh__section-faq --}}
-            @if ($feedbacks->count())
-                <div class="sesh__section-feedbacks">
-                    <div class="container container--sesh__section-feedbacks">
-                        @if ($section->active_feedback)
-                            <div class="sesh__section-feedbacks__encompass">
-                                @if ($section->title_feedback)
-                                    <h4 class="sesh__section-feedbacks__encompass__title">{{ $section->title_feedback }}</h4>
-                                    <hr class="sesh__section-feedbacks__encompass__hr">
-                                @endif
-                            </div>
-                        @endif
-                        <div class="sesh__section-feedbacks__content  carousel-section-feedbacks owl-carousel">
-                            @foreach ($feedbacks as $feedback)
-                                <div class="sesh__section-feedbacks__content__box text-center">
-                                    <div class="sesh__section-feedbacks__content__box__text text-center">
-                                        @if ($feedback->text)
-                                            {!! $feedback->text !!}
-                                        @endif
-                                    </div>
-                                    @if ($feedback->path_image)
-                                        <div class="sesh__section-feedbacks__content__box__image">
-                                            <img src="{{ asset('storage/' . $feedback->path_image) }}" alt="Imagem">
-                                        </div>
-                                    @endif
-                                    <div class="sesh__section-feedbacks__content__box__description text-center">
-                                        @if ($feedback->name)
-                                            <h4 class="sesh__section-feedbacks__content__box__description__title">{{ $feedback->name }}</h4>
-                                        @endif
-                                        @if ($feedback->profession)
-                                            <h4 class="sesh__section-feedbacks__content__box__description__subtitle">{{ $feedback->profession }}</h4>
-                                        @endif
-                                    </div>
-                                </div>
-                            @endforeach
-                            
-                        </div>
+
+                    <div class="serv09-show__feedbacks__carousel__nav">
+                        <div class="serv09-show__feedbacks__carousel__nav__swiper-button-prev swiper-button-prev"></div>
+                        <div class="serv09-show__feedbacks__carousel__nav__swiper-button-next swiper-button-next"></div>
                     </div>
-                </div>
-            @endif
-            {{-- fim-sesh__section-feedbacks --}}
-            <section class="sesh__service-related">
-                <div class="sesh__service-related__category">
-                    <div class="container sesh__service-related__category__content">
-                        @if ($categories->count())
-                            <nav class="sesh__service-related__category__content__navigation">
-                                <ul class="sesh__service-related__category__content__navigation__list">
-                                    @foreach ($categories as $category)
-                                        <li class="sesh__service-related__category__content__navigation__list__item {{isset($category->selected) ? 'active':''}}">
-                                            <a href="{{route('serv09.category.page', ['SERV09ServicesCategory' =>$category->slug])}}">
-                                                <img src="{{ asset('storage/' . $category->path_image) }}" alt="" class="">
-                                                {{$category->title}}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </nav>
-                        @endif
-                         <div class="sesh__service-related__category__dropdow-mobile">
-                                <button class="sesh__service-related__category__dropdow-mobile__tab  accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="collapseTwo">
-                                    <img class="sesh__service-related__category__dropdow-mobile__tab__left" src="{{asset('storage/uploads/tmp/icon-general.svg')}}" alt="Ícone">
-                                    Selecione as categorias
-                                </button>
-                                <ul id="category" class="sesh__service-related__category__dropdow-mobile__description accordion-collapse collapse" data-bs-parent="#category">
-                                    @foreach ($categories as $category)
-                                        <li >
-                                            <a href="{{route('serv09.category.page', ['SERV09ServicesCategory' => $category->slug])}}" >
-                                                @if ($category->path_image)
-                                                    <img src="{{ asset('storage/' . $category->path_image) }}" alt="Icone categoria" class="sesh__service-related__category__dropdow-mobile__description__icon">
-                                                @endif
-                                                {{$category->title}}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                    </div>
-                </div>
-                <div class="sesh__service-related__main container">
-                    <div class="carousel-service-related owl-carousel">
+                </main>
+
+            </section>
+        @endif
+
+        {{-- BACKEND AREA DE MAPA --}}
+        <section class="serv09-show__map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8152687932293!2d-38.358329925842426!3d-12.91959165876374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7163e0787480cb5%3A0x2efae57583eed193!2sHoom%20Interativa!5e0!3m2!1spt-BR!2sbr!4v1712346237764!5m2!1spt-BR!2sbr"
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <section class="serv09-show__related">
+            <aside class="serv09-show__related__categories">
+                <menu class="serv09-show__related__categories__swiper-wrapper swiper-wrapper">
+                    @foreach ($categories as $category)
+                        <li class="serv09-show__related__categories__item swiper-slide">
+                            <a href="{{ route('serv09.category.page', ['SERV09ServicesCategory' => $category->slug]) }}"
+                                class="link-full" title="{{ $category->title }}">
+                            </a>
+                            @if ($category->path_image)
+                                <img src="{{ asset('storage/' . $category->path_image) }}"
+                                    alt="Icone da categoria: {{ $category->title }}"
+                                    class="serv09-show__related__categories__item__icon" loading="lazy">
+                            @endif
+                            {{ $category->title }}
+                        </li>
+                    @endforeach
+                </menu>
+            </aside>
+
+            <main class="serv09-show__related__main">
+                <div class="serv09-show__related__main__carousel">
+                    <div class="serv09-show__related__main__carousel__swiper-wrapper swiper-wrapper">
                         @foreach ($services as $service)
-                        <article class="sesh__service-related__main__box w-100 d-flex justify-content-between row mx-auto">
-                            <div class="sesh__service-related__main__box__left col-sm-6">
-                                <div class="sesh__service-related__main__box__left__content">
-                                    @if ($service->title || $service->subtitle)
-                                        <h3 class="serv09__box__left__content__title">{{$service->title}}</h3>
-                                        <h4 class="serv09__box__left__content__subtitle">{{$service->subtitle}}</h4>
-                                    @endif
-                                    @if ($service->price)
-                                        <h3 class="sesh__service-related__main__box__left__content__price"><span>R$</span>{{number_format($service->price, 2, ',', '.')}}</h3>
+                            <article class="serv09-show__related__main__item swiper-slide">
+
+                                <a href="{{ route('serv09.page.content', ['SERV09ServicesCategory' => $service->categories->slug, 'SERV09Services' => $service->slug]) }}"
+                                    class="link-full" title="{{ $service->title }}">
+                                </a>
+
+                                <div class="serv09-show__related__main__item__information">
+
+                                    @if ($service->title)
+                                        <h3 class="serv09-show__related__main__item__information__title">
+                                            {{ $service->title }}</h3>
                                     @endif
 
-                                    <div class="sesh__service-related__main__box__left__content__paragraph">
-                                        @if ($service->description)
+                                    @if ($service->subtitle)
+                                        <h4 class="serv09-show__related__main__item__information__subtitle">
+                                            {{ $service->subtitle }}</h4>
+                                    @endif
+
+                                    @if ($service->price)
+                                        <span class="serv09-show__related__main__item__information__price">
+                                            R$ {{ number_format($service->price, 2, ',', '.') }}
+                                        </span>
+                                    @endif
+
+                                    @if ($service->description)
+                                        <div class="serv09-show__related__main__item__information__paragraph">
                                             <p>
                                                 {!! $service->description !!}
                                             </p>
-                                        @endif
-                                    </div>
-                                    @if ($service->topics->count())
-                                        <div class="sesh__service-related__main__box__left__content__engBox">
-                                            @foreach ($service->topics as $topic)
-                                                <div class="sesh__service-related__main__box__left__content__engBox__button">
-                                                    @if ($topic->path_image)
-                                                        <img src="{{ asset('storage/' . $topic->path_image) }}" alt="Ícon" class="serv09__box__left__content__engBox__button__icon">
-                                                    @endif
-                                                    @if ($topic->title)
-                                                        <h4 class="sesh__service-related__main__box__left__content__engBox__button__title">{{$topic->title}}</h4>
-                                                    @endif
-                                                </div>
-                                            @endforeach
                                         </div>
                                     @endif
+
+                                    @if ($service->topics->count())
+                                        <ul class="serv09-show__related__main__item__information__topics">
+                                            @foreach ($service->topics as $topic)
+                                                <li class="serv09-show__related__main__item__information__topics__item">
+                                                    @if ($topic->path_image)
+                                                        <img src="{{ asset('storage/' . $topic->path_image) }}"
+                                                            alt="Ícone de {{ $topic->title }}" loading="lazy"
+                                                            class="serv09-show__related__main__item__information__topics__item__icon">
+                                                    @endif
+
+                                                    {{ $topic->title }}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+
+                                    <div class="serv09-show__related__main__item__information__progress">
+
+                                        <span class="serv09-show__related__main__item__information__progress__title">
+                                            Andamento
+                                        </span>
+
+                                        <div class="serv09-show__related__main__item__information__progress__bar">
+                                            {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
+                                            <span
+                                                class="serv09-show__related__main__item__information__progress__bar__fill"
+                                                style="width: 20%;"></span>
+                                        </div>
+
+                                        <span class="serv09-show__related__main__item__information__progress__number">
+                                            20%
+                                        </span>
+                                    </div>
+
                                 </div>
-                            </div>
-                            <div class="serv09__box__right col-sm-6">
-                                <img src="{{ asset('storage/' . $service->path_image) }}" alt="" class="serv09__box__right__image">
-                                <a href="{{route('serv09.page.content', ['SERV09ServicesCategory' => $service->categories->slug, 'SERV09Services' => $service->slug])}}" class="serv09__box__right__btn">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícon" class="serv09__box__right__btn__icon">
-                                    CTA
-                                </a>
-                            </div>
-                        </article>
-                    @endforeach
+
+                                <img src="{{ asset('storage/' . $service->path_image) }}"
+                                    alt="Imagem do serviço {{ $service->title }}"
+                                    class="serv09-show__related__main__item__image">
+
+                            </article>
+                        @endforeach
                     </div>
+
+                    <div class="serv09-show__related__main__carousel__swiper-pagination swiper-pagination"></div>
+
                 </div>
-            </section>
-            {{-- fim-sesh__service-related --}}
-        </main>
-    </div>
-    {{-- Finish Content page Here --}}
-    @foreach ($sections as $section)
-        {!! $section !!}
-    @endforeach
-</main>
-{{-- Finish Content page Here --}}
+
+                {{-- BACKEND ADD ROTA NESSE BOTÃO QUE NÃO EXISTIA ANTES --}}
+                <a href="" class="serv09-show__related__main__cta">
+                    CTA
+                </a>
+            </main>
+        </section>
+
+        @foreach ($sections as $section)
+            {!! $section !!}
+        @endforeach
+    </main>
 @endsection

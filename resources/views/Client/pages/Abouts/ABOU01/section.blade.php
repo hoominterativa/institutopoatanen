@@ -1,7 +1,7 @@
 @if ($section)
     <section id="ABOU01" class="abou01">
         @if ($section->title || $section->subtile)
-            <header>
+            <header class="abou01__header">
                 @if ($section->title)
                     <h2 class="abou01__header__title">{{ $section->title }}</h2>
                 @endif
