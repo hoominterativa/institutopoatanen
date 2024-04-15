@@ -17,12 +17,10 @@
 
         @if ($categories->count())
             <aside class="serv09-page__aside">
-
                 <div class="serv09-page__aside__categories">
                     <menu class="serv09-page__aside__categories__swiper-wrapper swiper-wrapper">
                         @foreach ($categories as $category)
-                            <li
-                                class="serv09-page__aside__categories__item swiper-slide {{ isset($category->selected) ? 'active' : '' }}">
+                            <li class="serv09-page__aside__categories__item swiper-slide {{ $category->id == $categoryGet->id ? 'active' : '' }}">
                                 <a href="{{ route('serv09.category.page', ['SERV09ServicesCategory' => $category->slug]) }}"
                                     class="link-full" title="{{ $category->title }}"></a>
                                 <img src="{{ asset('storage/' . $category->path_image) }}"
@@ -99,7 +97,7 @@
 
                                 @if ($service->price)
                                     <span class="serv09-page__main__list__item__information__price">
-                                        R$ {{ number_format($service->price, 2, ',', '.') }}
+                                        R$ {{$service->price}}
                                     </span>
                                 @endif
 

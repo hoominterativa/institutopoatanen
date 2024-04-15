@@ -1,16 +1,16 @@
 @extends('Client.Core.client')
 @section('content')
     <main id="root" class="serv09-show">
-        @if ($section)
+        @if ($service->active_banner == 1)
             <section class="serv09-show__banner"
-                style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});  background-color: {{ $section->background_color }};">
+                style="background-image: url({{ asset('storage/' . $service->path_image_desktop) }});  background-color: {{ $service->background_color }};">
 
-                @if ($section->title_banner)
-                    <h1 class="serv09-show__banner__title">{{ $section->title_banner }}</h1>
+                @if ($service->title_banner)
+                    <h1 class="serv09-show__banner__title">{{ $service->title_banner }}</h1>
                 @endif
 
-                @if ($section->subtitle_banner)
-                    <h2 class="serv09-show__banner__subtitle">{{ $section->subtitle_banner }}</h2>
+                @if ($service->subtitle_banner)
+                    <h2 class="serv09-show__banner__subtitle">{{ $service->subtitle_banner }}</h2>
                 @endif
 
                 @if ($service->percentage)
@@ -33,20 +33,24 @@
             </section>
         @endif
 
-        {{-- BACKEND AREA DE TÓPICOS --}}
-        <section class="serv09-show__topics">
-            <div class="serv09-show__topics__swiper-wrapper swiper-wrapper">
-                @for ($i = 0; $i < 6; $i++)
-                    <div class="serv09-show__topics__item swiper-slide">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}"
-                            alt="Ícone de (BACKEND ADD AQUI O TITULO DO TÓPICO)" loading="lazy"
-                            class="serv09-show__topics__item__icon">
-
-                        <span class="serv09-show__topics__item__title">Varanda Gourmet</span>
-                    </div>
-                @endfor
-            </div>
-        </section>
+        @if ($topicsUp->count())
+            <section class="serv09-show__topics">
+                <div class="serv09-show__topics__swiper-wrapper swiper-wrapper">
+                    @foreach ($topicsUp as $topicUp)
+                        <div class="serv09-show__topics__item swiper-slide">
+                            @if ($topicUp->path_image)
+                                <img src="{{ asset('storage/'.$topicUp->path_image) }}"
+                                alt="Ícone de {{$topicUp->title}}" loading="lazy"
+                                class="serv09-show__topics__item__icon">
+                            @endif
+                            @if ($topicUp->title)
+                                <span class="serv09-show__topics__item__title">{{$topicUp->title}}</span>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            </section>
+        @endif
 
         <section class="serv09-show__main">
 
@@ -85,7 +89,7 @@
 
                 @if ($service->price)
                     <span class="serv09-show__main__form-area__price">
-                        R${{ number_format($service->price, 2, ',', '.') }} por dia
+                        R${{$service->price}} por dia
                     </span>
                 @endif
 
@@ -101,7 +105,7 @@
                     </a>
                 @else
                     {!! Form::model(
-                        ['column_preco_text' => 'R$ ' . number_format($service->price, 2, ',', '.')],
+                        ['column_preco_text' => 'R$ ' . $service->price],
                         [
                             'route' => 'lead.store',
                             'method' => 'post',
@@ -248,11 +252,10 @@
             </section>
         @endif
 
-        {{-- BACKEND AREA DE MAPA --}}
         <section class="serv09-show__map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8152687932293!2d-38.358329925842426!3d-12.91959165876374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7163e0787480cb5%3A0x2efae57583eed193!2sHoom%20Interativa!5e0!3m2!1spt-BR!2sbr!4v1712346237764!5m2!1spt-BR!2sbr"
-                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <span>Localização</span>
+            <span>{{$service->address}}</span>
+            <iframe src="{{getUri($service->map_link)}}" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
 
         <section class="serv09-show__related">
@@ -298,7 +301,7 @@
 
                                     @if ($service->price)
                                         <span class="serv09-show__related__main__item__information__price">
-                                            R$ {{ number_format($service->price, 2, ',', '.') }}
+                                            R$ {{$service->price}}
                                         </span>
                                     @endif
 

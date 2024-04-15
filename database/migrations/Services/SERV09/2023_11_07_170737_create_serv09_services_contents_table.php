@@ -15,7 +15,7 @@ class CreateServ09ServicesContentsTable extends Migration
     {
         Schema::create('serv09_services_contents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('serv09_services');
+            $table->foreignId('service_id')->constrained('serv09_services')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->text('text')->nullable();
             $table->integer('active')->default(0);

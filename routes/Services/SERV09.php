@@ -9,6 +9,7 @@ use App\Http\Controllers\Services\SERV09GalleryController;
 use App\Http\Controllers\Services\SERV09SectionController;
 use App\Http\Controllers\Services\SERV09CategoryController;
 use App\Http\Controllers\Services\SERV09FeedbackController;
+use App\Http\Controllers\Services\SERV09TopicsUpController;
 
 /**
  * Uncomment the code below
@@ -40,6 +41,11 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicos', SERV09TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV09ServicesTopic']);
     Route::post($route.'/topico/delete', [SERV09TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [SERV09TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
+    //TopicsUp
+    Route::resource($route.'/topicosup', SERV09TopicsUpController::class)->names('admin.'.$routeName.'.topicup')->parameters(['topicosup' => 'SERV09ServicesTopicsUp']);
+    Route::post($route.'/topicoup/delete', [SERV09TopicsUpController::class, 'destroySelected'])->name('admin.'.$routeName.'.topicup.destroySelected');
+    Route::post($route.'/topicoup/sorting', [SERV09TopicsUpController::class, 'sorting'])->name('admin.'.$routeName.'.topicup.sorting');
 
     //Gallery
     Route::resource($route.'/galeria', SERV09GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'SERV09ServicesGallery']);

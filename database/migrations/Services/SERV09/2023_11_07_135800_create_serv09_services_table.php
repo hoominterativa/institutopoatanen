@@ -25,7 +25,9 @@ class CreateServ09ServicesTable extends Migration
             $table->string('title_info')->nullable();
             $table->string('informations')->nullable();
             $table->string('path_image')->nullable();
-            $table->string('link')->nullable();
+            $table->text('link')->nullable();
+            $table->string('address')->nullable();
+            $table->text('map_link')->nullable();
             $table->integer('active')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('percentage')->nullable();

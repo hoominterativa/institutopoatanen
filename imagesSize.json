@@ -1732,6 +1732,13 @@
                     "activeCrop": "false"
                 }
             },
+            "TopicUp": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
             "Gallery": {
                 "path_image": {
                     "width": "300",

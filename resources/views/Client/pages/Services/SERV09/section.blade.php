@@ -62,7 +62,7 @@
 
                                 @if ($service->price)
                                     <span class="serv09__main__item__information__price">
-                                        R$ {{ number_format($service->price, 2, ',', '.') }}
+                                        R$ {{$service->price }}
                                     </span>
                                 @endif
 

@@ -49,6 +49,18 @@
                 </div>
             </div>
             <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('address', 'Endereço', ['class' => 'form-label']) !!}
+                        {!! Form::text('address', null, ['class' => 'form-control', 'id' => 'address', 'placeholder'=> 'Hangar 2, Av. Luís Viana Filho, 13223 - sl 215 - São Cristóvão, Salvador - BA']) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label(null, 'Link do Google Maps', ['class' => 'form-label']) !!}
+                        {!! Form::url('map_link', (isset($service) ? getUri($service->map_link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
                 {!! Form::label('title_info', 'Título info', ['class' => 'form-label']) !!}
                 {!! Form::text('title_info', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title_info', 'placeholder'=> 'Reserve agora']) !!}
             </div>
