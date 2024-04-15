@@ -71,7 +71,7 @@ class ChangePassword extends Command
             '
         ]);
 
-        $this->info('Senha gerada e inserido no monday no quadro de Acessos Painel. A nova senha é: '.$password);
+        $this->info('Senha gerada e inserida no monday no quadro de --Acessos Painel--. A nova senha é: '.$password);
     }
 
     /**
