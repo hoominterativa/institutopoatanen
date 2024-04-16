@@ -98,6 +98,10 @@ details {
 
             transition: all ease 0.4s;
         }
+
+        * {
+            pointer-events: none;
+        }
     }
 
     &.open > &__btn::after {

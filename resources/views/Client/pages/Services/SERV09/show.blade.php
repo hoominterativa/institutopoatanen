@@ -21,11 +21,12 @@
                         </span>
 
                         <div class="serv09-show__banner__progress__bar">
-                            <span class="serv09-show__banner__progress__bar__fill" style="width: {{$service->percentage}}%;"></span>
+                            <span class="serv09-show__banner__progress__bar__fill"
+                                style="width: {{ $service->percentage }}%;"></span>
                         </div>
 
                         <span class="serv09-show__banner__progress__number">
-                            {{$service->percentage}}%
+                            {{ $service->percentage }}%
                         </span>
                     </div>
                 @endif
@@ -39,12 +40,12 @@
                     @foreach ($topicsUp as $topicUp)
                         <div class="serv09-show__topics__item swiper-slide">
                             @if ($topicUp->path_image)
-                                <img src="{{ asset('storage/'.$topicUp->path_image) }}"
-                                alt="Ícone de {{$topicUp->title}}" loading="lazy"
-                                class="serv09-show__topics__item__icon">
+                                <img src="{{ asset('storage/' . $topicUp->path_image) }}"
+                                    alt="Ícone de {{ $topicUp->title }}" loading="lazy"
+                                    class="serv09-show__topics__item__icon">
                             @endif
                             @if ($topicUp->title)
-                                <span class="serv09-show__topics__item__title">{{$topicUp->title}}</span>
+                                <span class="serv09-show__topics__item__title">{{ $topicUp->title }}</span>
                             @endif
                         </div>
                     @endforeach
@@ -89,7 +90,7 @@
 
                 @if ($service->price)
                     <span class="serv09-show__main__form-area__price">
-                        R${{$service->price}} por dia
+                        R${{ $service->price }} por dia
                     </span>
                 @endif
 
@@ -253,10 +254,14 @@
         @endif
 
         <section class="serv09-show__map">
-            {{-- FRONTEND ajustar os spans --}}
-            <span>Localização</span>
-            <span>{{$service->address}}</span>
-            <iframe src="{{getUri($service->map_link)}}" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <header class="serv09-show__map__header">
+                <h2 class="serv09-show__map__header__title">Localização</h2>
+                <p class="serv09-show__map__header__paragraph">{{ $service->address }}</p>
+            </header>
+
+            <iframe src="{{ getUri($service->map_link) }}" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
 
         <section class="serv09-show__related">
@@ -302,7 +307,7 @@
 
                                     @if ($service->price)
                                         <span class="serv09-show__related__main__item__information__price">
-                                            R$ {{$service->price}}
+                                            R$ {{ $service->price }}
                                         </span>
                                     @endif
 
@@ -339,11 +344,11 @@
                                             <div class="serv09-show__related__main__item__information__progress__bar">
                                                 <span
                                                     class="serv09-show__related__main__item__information__progress__bar__fill"
-                                                    style="width: {{$service->percentage}}%;"></span>
+                                                    style="width: {{ $service->percentage }}%;"></span>
                                             </div>
 
                                             <span class="serv09-show__related__main__item__information__progress__number">
-                                                {{$service->percentage}}%
+                                                {{ $service->percentage }}%
                                             </span>
                                         </div>
                                     @endif
@@ -361,7 +366,8 @@
                     <div class="serv09-show__related__main__carousel__swiper-pagination swiper-pagination"></div>
 
                 </div>
-                <a href="{{ route('serv09.category.page', ['SERV09ServicesCategory' => $service->categories->slug]) }}" class="serv09-show__related__main__cta">
+                <a href="{{ route('serv09.category.page', ['SERV09ServicesCategory' => $service->categories->slug]) }}"
+                    class="serv09-show__related__main__cta">
                     CTA
                 </a>
             </main>

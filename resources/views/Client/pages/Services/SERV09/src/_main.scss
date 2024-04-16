@@ -249,6 +249,7 @@
             &__content {
                 padding: 1rem;
                 top: 100%;
+                z-index: 11;
 
                 &__form {
                     &__cta {
@@ -610,12 +611,26 @@
     &__map {
         @extend %theme__padding;
         width: 100%;
-        height: auto;
-        aspect-ratio: 16/9;
+
+        &__header {
+            @include disFlex(column, start, center);
+            width: 100%;
+            margin-bottom: 1.5rem;
+
+            &__title {
+                @extend %theme__t2-c2;
+                margin-bottom: 1.25rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-c2;
+            }
+        }
 
         iframe {
-            height: 100%;
+            height: auto;
             width: 100%;
+            aspect-ratio: 16/9;
         }
     }
 

@@ -12262,7 +12262,7 @@ quedinhaBtnList.forEach(function (quedinhaBtn) {
 
 // Fecha o dropdown se o usuário clicar fora dele mesmo.
 window.onclick = function (event) {
-  if (!event.target.matches(".quedinha__btn")) {
+  if (!event.target.matches(".quedinha__btn, .quedinha__content, .quedinha__content *:not(a)")) {
     document.querySelectorAll(".quedinha.open").forEach(function (el) {
       return el.classList.remove("open");
     });
