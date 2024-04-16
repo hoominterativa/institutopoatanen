@@ -59,13 +59,21 @@ class SERV09Controller extends Controller
     {
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
         $states = SERV09ServicesState::sorting()->pluck('state', 'id');
-        $cities = SERV09ServicesCity::sorting()->pluck('city', 'id');
+        $cities = '';
         return view('Admin.cruds.Services.SERV09.create', [
             'categories' => $categories,
             'states' => $states,
             'cities' => $cities,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
+    }
+
+    public function search(Request $request, SERV09ServicesState $SERV09ServicesState)
+    {
+        $states = $request->input('state_id');
+        $cities = SERV09ServicesCity::where('state_id', $states)->sorting()->pluck('city', 'id');
+
+        return  response()->json(['cities' => $cities]);
     }
 
     /**

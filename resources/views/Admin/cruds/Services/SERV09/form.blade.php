@@ -64,12 +64,12 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="d-flex">
-                            {!! Form::label('state', 'Estado', ['class' => 'form-label']) !!}
+                            {!! Form::label('heard', 'Estado', ['class' => 'form-label']) !!}
                             <i class="text-danger">*</i>
                         </div>
-                        {!! Form::select('state', $states, null, [
+                        {!! Form::select('state_id', $states, null, [
                             'class' => 'form-select',
-                            'id' => 'state',
+                            'id' => 'heard',
                             'required' => 'required',
                             'placeholder' => 'Selecione o estado'
                         ]) !!}
@@ -77,12 +77,12 @@
 
                     <div class="col-sm-6">
                         <div class="d-flex">
-                            {!! Form::label('city', 'Cidade', ['class' => 'form-label']) !!}
+                            {!! Form::label('heard', 'Cidade', ['class' => 'form-label']) !!}
                             <i class="text-danger">*</i>
                         </div>
-                        {!! Form::select('city_id', $cities, null, [
+                        {!! Form::select('city_id', [isset($cities) ? $cities: ''], null, [
                             'class' => 'form-select',
-                            'id' => 'city',
+                            'id' => 'heard',
                             'required' => 'required',
                             'placeholder' => 'Selecione a cidade'
                         ]) !!}
